@@ -1,0 +1,522 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: block;
+}
+
+:host(:focus-within) {
+  z-index: 1;
+}
+
+/* chevron */
+svg {
+  width: var(--ic-space-xl);
+  fill: var(--ic-theme-text);
+}
+
+ic-typography {
+  flex: 1;
+}
+
+:host([expandable].navigation-item) .link,
+:host([expandable].navigation-item) ::slotted(a) {
+  padding-right: 0;
+}
+
+:host(.navigation-item) .link,
+:host(.navigation-item) ::slotted(a) {
+  height: 100%;
+  width: fit-content;
+  color: var(--ic-theme-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--ic-space-md);
+  text-decoration: none;
+  transition: var(--ic-easing-transition-fast);
+  position: relative;
+}
+
+:host(.navigation-item) ::slotted(a) {
+  font: var(--ic-font-label) !important;
+  letter-spacing: var(--ic-font-letter-spacing-0pt025) !important;
+  padding: 0 var(--ic-space-md) !important;
+}
+
+:host(.navigation-item-selected) .link::after,
+:host(.navigation-item-selected) ::slotted(a.active)::after,
+:host(.navigation-item-top-nav) ::slotted(a.active)::after {
+  content: "";
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--ic-theme-text);
+}
+
+:host(.navigation-item-selected.navigation-item-page-header)
+  ::slotted(a.active)::after,
+:host(.navigation-item-selected.navigation-item-page-header) .link::after,
+:host(.navigation-item.navigation-item-page-header) ::slotted(a.active)::after,
+:host(.navigation-item-top-nav-child) ::slotted(a.active)::after {
+  content: none;
+}
+
+:host(.navigation-item-side-menu-selected) .link,
+:host(.navigation-item-side-menu) ::slotted(a.active),
+:host(.navigation-item-top-nav-child) ::slotted(a.active) {
+  box-shadow: none;
+}
+
+:host(.navigation-item) .link:hover:not(:focus) {
+  background-color: var(--ic-theme-hover);
+  cursor: pointer;
+}
+
+:host(.navigation-item:not(.navigation-item-page-header, .navigation-item-side-menu))
+  ::slotted(a:hover:not(:focus)) {
+  background-color: var(--ic-theme-hover) !important;
+}
+
+:host(.navigation-item:not(.navigation-item-top-nav-child, .navigation-item-side-menu, .navigation-item-top-nav-child-selected
+      .navigation-item-side-menu-selected))
+  .focus-indicator:focus-within {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+}
+
+:host(.navigation-item) .link:focus,
+:host(.navigation-item) ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  outline: none;
+}
+
+:host(.navigation-item-selected) .link:focus,
+:host(.navigation-item) ::slotted(a.active:focus) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  outline: none;
+}
+
+:host(.navigation-item-selected.dark) .link:focus,
+:host(.navigation-item.dark) ::slotted(a.active:focus) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  outline: none;
+}
+
+:host(.navigation-item) .link:active:not(:focus),
+:host(.navigation-item) ::slotted(a:active:not(:focus)) {
+  background-color: var(--ic-theme-active);
+}
+
+:host(.navigation-item-side-menu) .link,
+:host(.navigation-item-side-menu) ::slotted(a) {
+  height: 40px;
+  width: 100%;
+  color: var(--ic-color-primary-text);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  transition: var(--ic-transition-duration-fast);
+}
+
+:host(.navigation-item-side-menu) ::slotted(a) {
+  font: var(--ic-font-body) !important;
+  letter-spacing: var(--ic-font-letter-spacing-0pt005) !important;
+  transition: box-shadow var(--ic-easing-transition-fast),
+    background-color var(--ic-easing-transition-fast);
+}
+
+:host(.navigation-item-side-menu) .link:hover:not(:focus) {
+  background-color: var(--ic-action-dark-bg-hover);
+}
+
+:host(.navigation-item-side-menu) ::slotted(a:hover:not(:focus)) {
+  background-color: var(--ic-action-dark-bg-hover) !important;
+}
+
+:host(.navigation-item-side-menu) .focus-indicator:focus-within {
+  box-shadow: none;
+}
+
+:host(.navigation-item-side-menu) .link:focus,
+:host(.navigation-item-side-menu) ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus-inset) !important;
+  padding-right: var(--ic-space-lg);
+  width: auto;
+  border-radius: var(--ic-border-radius-inset) !important;
+}
+
+:host(.navigation-item-side-menu-selected) .link,
+:host(.navigation-item-side-menu-selected) ::slotted(a) {
+  transition: box-shadow var(--ic-easing-transition-slow),
+    background-color var(--ic-easing-transition-slow);
+}
+
+:host(.navigation-item-side-menu-selected) .link:focus,
+:host(.navigation-item-side-menu) ::slotted(a.active:focus),
+:host(.navigation-item-top-nav-child) ::slotted(a.active:focus) {
+  margin-left: var(--ic-space-xs) !important;
+  padding-left: var(--ic-space-xs) !important;
+}
+
+:host(.navigation-item-top-nav-child) .link,
+:host(.navigation-item-top-nav-child) ::slotted(a) {
+  height: 40px;
+  width: fit-content;
+  min-width: 145px;
+  color: var(--ic-color-primary-text);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--ic-space-md) !important;
+  text-decoration: none;
+  position: relative;
+  transition: box-shadow var(--ic-transition-duration-fast),
+    border-radius var(--ic-transition-duration-slow);
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(a) {
+  font: var(--ic-font-body) !important;
+  letter-spacing: var(--ic-font-letter-spacing-0pt005) !important;
+}
+
+:host(.navigation-item-top-nav-child) .link:hover:not(:focus) {
+  background-color: var(--ic-action-dark-bg-hover) !important;
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(a:hover):not(:focus) {
+  background-color: var(--ic-action-dark-bg-hover) !important;
+}
+
+:host(.navigation-item-top-nav-child) .link:focus,
+:host(.navigation-item-top-nav-child) ::slotted(a:focus) {
+  z-index: 1;
+  outline: none;
+  border-radius: var(--ic-border-radius-inset);
+  box-shadow: var(--ic-border-focus-inset);
+  transition: border-radius 0s, box-shadow var(--ic-transition-duration-fast);
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(a.active:focus) {
+  box-shadow: var(--ic-border-focus-inset);
+  border-radius: var(--ic-border-radius-inset);
+}
+
+:host(.navigation-item-side-menu) .link:active:not(:focus) {
+  background-color: var(--ic-action-dark-bg-active);
+}
+
+:host(.navigation-item-top-nav-child) .link:active:not(:focus),
+:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus) {
+  outline: none;
+  background-color: var(--ic-action-dark-bg-active);
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus),
+:host(.navigation-item-side-menu) ::slotted(a:active):not(:focus) {
+  background-color: var(--ic-action-dark-bg-active) !important;
+}
+
+:host(.navigation-item-side-menu-selected) *,
+:host(.navigation-item-top-nav-child-selected) *,
+:host(.navigation-item-side-menu) ::slotted(a.active),
+:host(.navigation-item-top-nav-child) ::slotted(a.active) {
+  font-weight: 700 !important;
+}
+
+:host(.navigation-item-top-nav-child) ::slotted(a.active)::before,
+:host(.navigation-item-top-nav-child-selected) .link::before,
+:host(.navigation-item-side-menu-selected) .link::before,
+:host(.navigation-item-side-menu) ::slotted(a.active)::before,
+:host(.navigation-item-side-menu-selected) .link:focus::before,
+:host(.navigation-item-side-menu) ::slotted(a.active:focus)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: var(--ic-space-xs);
+  height: 40px;
+  margin-right: 5px;
+  background-color: var(--ic-action-default);
+  transition: left 0s;
+}
+
+:host(.navigation-item-top-nav-child-selected) .link:focus {
+  margin-left: var(--ic-space-xs);
+  margin-right: calc(-1 * var(--ic-space-xs));
+  padding-left: var(--ic-space-xs) !important;
+}
+
+:host(.navigation-item-top-nav-child-selected) .link:focus::before {
+  left: calc(-1 * var(--ic-space-xs));
+  z-index: 1;
+}
+
+:host(.navigation-item-side-menu-selected) .link::before,
+:host(.navigation-item-side-menu) ::slotted(a.active)::before,
+:host(.navigation-item-side-menu-selected) .link:focus::before,
+:host(.navigation-item-side-menu) ::slotted(a.active:focus)::before {
+  z-index: 1;
+}
+
+:host(.navigation-item-side-menu-selected) .link:focus::before,
+:host(.navigation-item-side-menu) ::slotted(a.active:focus)::before,
+:host(.navigation-item-top-nav-child) ::slotted(a.active:focus)::before {
+  left: calc(-1 * var(--ic-space-xs));
+}
+
+:host(.navigation-item-side-menu-selected) .link::after {
+  display: none;
+}
+
+:host(.navigation-item-side-nav-collapsed) .link {
+  height: 100%;
+}
+
+:host(.navigation-item-side-nav-collapsed) ::slotted(svg),
+:host(.navigation-item-side-nav-collapsed-with-label) ::slotted(svg) {
+  margin: auto;
+  pointer-events: none;
+}
+
+:host(.navigation-item-side-nav-collapsed) .icon,
+:host(.navigation-item-side-nav-collapsed-with-label) .icon,
+:host(.navigation-item-side-nav-collapsed-with-label) ic-typography {
+  align-items: center;
+  padding: 0;
+  margin: auto 0;
+  width: fit-content;
+  pointer-events: none;
+}
+
+:host(.navigation-item-side-nav-collapsed-with-label) ic-typography {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
+}
+
+:host(.navigation-item-side-nav-collapsed-with-label) .link,
+:host(.navigation-item-side-nav-collapsed-with-label) ::slotted(a) {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: var(--ic-space-xs) !important;
+  gap: var(--ic-space-xxs);
+}
+
+:host(.navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
+  .link,
+:host(.navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
+  ::slotted(a) {
+  height: auto !important;
+  gap: 0;
+}
+
+:host(.navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
+  ::slotted(a) {
+  display: block;
+  text-align: center;
+}
+
+:host(.navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
+  .link
+  ic-typography {
+  opacity: 1;
+}
+
+:host(.navigation-item-side-nav-collapsed) svg,
+:host(.navigation-item-side-nav-collapsed-with-label) svg {
+  display: none;
+}
+
+::slotted(svg) {
+  fill: var(--ic-theme-text);
+  width: var(--ic-space-lg);
+  margin-left: var(--ic-space-md);
+}
+
+.icon {
+  width: var(--ic-space-xxl);
+  margin-left: calc(-1 * var(--ic-space-md));
+  flex: 0 1 0%;
+}
+
+:host(.navigation-item-side-nav) .link,
+:host(.navigation-item-side-nav) ::slotted(a) {
+  height: var(--navigation-item-height);
+  width: var(--navigation-item-width);
+  justify-content: var(--navigation-item-justify-content);
+  display: flex;
+  gap: var(--ic-space-xs);
+  box-sizing: border-box;
+  color: var(--navigation-item-child-color) !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+:host(.navigation-item-side-nav.navigation-item-top-nav-child) .link,
+:host(.navigation-item-side-nav.navigation-item-top-nav-child) ::slotted(a) {
+  height: var(--navigation-item-child-height);
+  width: var(--navigation-group-width);
+  color: var(--navigation-item-child-color) !important;
+  display: flex;
+  gap: 10px;
+  box-sizing: border-box;
+  min-width: 0;
+  transition: box-shadow var(--ic-easing-transition-fast);
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+:host(.navigation-item-side-nav.navigation-item-top-nav-child) .link:focus,
+:host(.navigation-item-side-nav.navigation-item-top-nav-child)
+  ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus-dark);
+}
+
+:host(.navigation-item-side-nav.navigation-item-side-menu) .link:active {
+  background-color: var(--navigation-item-child-active);
+}
+
+:host(.navigation-item-side-nav.navigation-item-top-nav-child) .link:active,
+:host(.navigation-item-side-nav.navigation-item-top-nav-child)
+  ::slotted(a:active) {
+  background-color: var(--navigation-item-child-active);
+}
+
+:host(.navigation-item-side-nav) a.link ic-typography,
+:host(.navigation-item-side-nav.navigation-item-top-nav-child)
+  a.link
+  ic-typography,
+.navigation-item-side-nav-slotted-text {
+  opacity: var(--navigation-item-label-opacity);
+  transition: opacity var(--ic-easing-transition-slow);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+:host(.navigation-item-side-nav.navigation-item-selected) .link,
+:host(.navigation-item-side-nav.navigation-item) ::slotted(a.active) {
+  box-shadow: inset 5px 0 0 var(--ic-theme-text);
+}
+
+:host(.navigation-item-side-nav.navigation-item-selected) .link::before,
+:host(.navigation-item-side-nav) ::slotted(a.active)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 5px;
+  border-radius: 11px !important;
+  bottom: 0;
+  transition: var(--ic-easing-transition-slow);
+}
+
+:host(.navigation-item-side-nav.navigation-item-selected) .link:focus::before,
+:host(.navigation-item-side-nav) ::slotted(a.active:focus)::before {
+  box-shadow: var(--ic-border-focus-inset);
+}
+
+:host(:not(.navigation-item-side-nav-collapsed).navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
+  .link {
+  opacity: var(--navigation-item-label-opacity);
+  height: auto;
+}
+
+:host(.navigation-item-top-nav-child.navigation-item-side-nav-collapsed-with-label)
+  .link,
+:host(.navigation-item-top-nav-child.navigation-item-side-nav-collapsed-with-label)
+  ::slotted(a) {
+  min-width: var(--navigation-group-item-min-width);
+  padding: var(--ic-space-xs) !important;
+  height: auto;
+  gap: 0;
+}
+
+:host(.navigation-item-top-nav-child.navigation-item-side-nav-collapsed-with-label)
+  ::slotted(a) {
+  display: block;
+}
+
+:host(.navigation-item-side-nav.navigation-item-selected) .link::after,
+:host(.navigation-item-side-nav) ::slotted(a.active)::after {
+  display: none;
+}
+
+:host(.navigation-item-side-nav.navigation-item) .link:focus,
+:host(.navigation-item-side-nav.navigation-item) ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus-inset);
+  border-radius: var(--ic-border-radius-inset);
+  background-color: transparent;
+}
+
+:host(.navigation-item-side-nav.navigation-item-selected) .link:focus,
+:host(.navigation-item-side-nav) ::slotted(a.active:focus) {
+  margin: 0 auto;
+  box-shadow: inset 5px 0 0 var(--ic-theme-text);
+  border-radius: 0;
+}
+
+:host(.navigation-item-side-nav.navigation-item) .link:hover:not(:focus) {
+  background-color: var(--ic-theme-hover) !important;
+}
+
+:host(.navigation-item-page-header).link,
+:host(.navigation-item-page-header) a,
+:host(.navigation-item-page-header) ::slotted(a) {
+  height: 44px !important;
+  color: var(--ic-color-primary-text) !important;
+  transition: all var(--ic-easing-transition-fast) !important;
+  box-shadow: rgba(23 89 188 / 0%) !important;
+}
+
+:host(.navigation-item-page-header.navigation-item-selected) .link,
+:host(.navigation-item-page-header) ::slotted(a.active) {
+  box-shadow: inset 0 calc(-1 * var(--ic-space-xxs)) 0 var(--ic-action-default);
+}
+
+:host(.navigation-item-page-header) .link:hover,
+:host(.navigation-item-page-header) ::slotted(.link:hover),
+:host(.navigation-item-page-header) ::slotted(a:hover),
+:host(.navigation-item-page-header) .link:hover:not(:focus) {
+  background-color: var(--ic-action-default-bg-hover) !important;
+  cursor: pointer;
+}
+
+:host(.navigation-item-page-header) .link:focus,
+:host(.navigation-item-page-header) ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus);
+}
+
+:host(.navigation-item-page-header) .link:active,
+:host(.navigation-item-page-header) ::slotted(a:active) {
+  background-color: var(--ic-action-default-bg-active) !important;
+}
+
+:host(.navigation-item-page-header.navigation-item-selected) .link:focus,
+:host(.navigation-item-page-header) ::slotted(a.active:focus) {
+  box-shadow: var(--ic-border-focus),
+    inset 0 calc(-1 * var(--ic-space-xxs)) 0 var(--ic-action-default);
+}
+
+:host(.navigation-item-page-header.navigation-item-selected.with-transition)
+  .link,
+:host(.navigation-item-page-header.navigation-item-selected.with-transition)
+  ::slotted(a.active) {
+  transition: all var(--ic-easing-transition-fast),
+    border-color var(--ic-transition-duration-fast);
+}
+
+:host(.navigation-item-page-header) ::slotted(a.active)::before,
+:host(.navigation-item-page-header) ::slotted(a.active:focus)::before,
+:host(.navigation-item-page-header.navigation-item-selected)
+  .link:focus::before {
+  display: none;
+}

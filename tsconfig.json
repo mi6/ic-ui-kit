@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "es2015"],
+    "module": "es2015",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "removeComments": false,
+    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react"
+  }
+}

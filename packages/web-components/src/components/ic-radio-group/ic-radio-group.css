@@ -1,0 +1,13 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: block;
+}
+
+ic-input-label.error {
+  color: var(--ic-status-error);
+}
+
+ic-input-label ic-typography {
+  margin-bottom: var(--ic-space-sm);
+}

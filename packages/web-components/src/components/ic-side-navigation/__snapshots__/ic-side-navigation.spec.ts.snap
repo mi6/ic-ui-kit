@@ -1,0 +1,552 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-expanded" expanded="true">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner"></div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Collapse side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with app title, version and status: renders-with-app-title-version-status 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner"></div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                BETA
+              </ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label">
+              v0.0.0
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-collapsed">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner"></div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with primary navigation items and collapsed icon labels: primary-navigation-items-and-collapsed-icon-labels 1`] = `
+<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true" status="BETA" version="v0.0.0">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner">
+        <nav aria-labelledby="primary-navigation-landmark" class="primary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
+            Primary
+          </span>
+          <ul class="navigation-list">
+            <slot name="primary-navigation"></slot>
+          </ul>
+        </nav>
+      </div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                BETA
+              </ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label">
+              v0.0.0
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <ic-typography variant="label">
+            Home
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+    </svg>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with primary navigation items: renders-with-primary-navigation-items 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner">
+        <nav aria-labelledby="primary-navigation-landmark" class="primary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
+            Primary
+          </span>
+          <ul class="navigation-list">
+            <slot name="primary-navigation"></slot>
+          </ul>
+        </nav>
+      </div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                BETA
+              </ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label">
+              v0.0.0
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <ic-typography variant="label">
+            Home
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+    </svg>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with secondary navigation items: renders-with-secondary-navigation-items 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner"></div>
+      <div class="bottom-wrapper">
+        <nav aria-labelledby="secondary-navigation-landmark" class="secondary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="secondary-navigation-landmark">
+            Secondary
+          </span>
+          <ul class="navigation-list">
+            <slot name="secondary-navigation"></slot>
+          </ul>
+        </nav>
+        <div class="bottom-side-nav">
+          <ic-divider></ic-divider>
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                BETA
+              </ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label">
+              v0.0.0
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <ic-typography variant="label">
+            a11y
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
+    </svg>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels 1`] = `
+<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner">
+        <nav aria-labelledby="primary-navigation-landmark" class="primary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
+            Primary
+          </span>
+          <ul class="navigation-list">
+            <slot name="primary-navigation"></slot>
+          </ul>
+        </nav>
+      </div>
+      <div class="bottom-wrapper">
+        <nav aria-labelledby="secondary-navigation-landmark" class="secondary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="secondary-navigation-landmark">
+            Secondary
+          </span>
+          <ul class="navigation-list">
+            <slot name="secondary-navigation"></slot>
+          </ul>
+        </nav>
+        <div class="bottom-side-nav">
+          <ic-divider></ic-divider>
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="
+              
+                
+              
+              Daily Tippers
+            " placement="right" target="navigation-item">
+        <slot name="navigation-item"></slot>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
+      <div class="icon-container">
+        <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+        </svg>
+      </div>
+      <ic-typography class="hydrated ic-typography-label navigation-item-side-nav-slotted-text" style="margin-top: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        Daily Tippers
+      </ic-typography>
+    </a>
+  </ic-navigation-item>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <ic-typography variant="label">
+            a11y
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
+    </svg>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels-menu-toggle 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-expanded" collapsed-icon-labels="true">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner">
+        <nav aria-labelledby="primary-navigation-landmark" class="collapsed-icon-labels-start primary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
+            Primary
+          </span>
+          <ul class="navigation-list">
+            <slot name="primary-navigation"></slot>
+          </ul>
+        </nav>
+      </div>
+      <div class="bottom-wrapper">
+        <nav aria-labelledby="secondary-navigation-landmark" class="collapsed-icon-labels-start secondary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="secondary-navigation-landmark">
+            Secondary
+          </span>
+          <ul class="navigation-list">
+            <slot name="secondary-navigation"></slot>
+          </ul>
+        </nav>
+        <div class="bottom-side-nav">
+          <ic-divider></ic-divider>
+          <button aria-label="Collapse side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item" label="
+                
+              Daily Tippers" placement="right" target="navigation-item">
+        <slot name="navigation-item"></slot>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
+      <div class="icon-container">
+        <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+        </svg>
+      </div>
+      <ic-typography class="hydrated ic-typography-label navigation-item-side-nav-slotted-text" style="margin-top: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        Daily Tippers
+      </ic-typography>
+    </a>
+  </ic-navigation-item>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <ic-typography variant="label">
+            a11y
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9H15V22H13V16H11V22H9V9H3V7H21V9Z" fill="currentColor"></path>
+    </svg>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;
+
+exports[`ic-side-navigation renders with slotted navigation item: slotted-navigation-item 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-collapsed">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              ACME
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner">
+        <nav aria-labelledby="primary-navigation-landmark" class="primary-navigation">
+          <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
+            Primary
+          </span>
+          <ul class="navigation-list">
+            <slot name="primary-navigation"></slot>
+          </ul>
+        </nav>
+      </div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Expand side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" role="listitem" slot="primary-navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="
+              
+                
+              
+              Daily Tippers
+            " placement="right" target="navigation-item">
+        <slot name="navigation-item"></slot>
+      </ic-tooltip>
+    </mock:shadow-root>
+    <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
+      <div class="icon-container">
+        <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+        </svg>
+      </div>
+      <ic-typography class="hydrated ic-typography-label navigation-item-side-nav-slotted-text" style="opacity: 0; visibility: hidden; transition: visibility 0s, opacity var(--ic-easing-transition-slow);">
+        Daily Tippers
+      </ic-typography>
+    </a>
+  </ic-navigation-item>
+</ic-side-navigation>
+`;

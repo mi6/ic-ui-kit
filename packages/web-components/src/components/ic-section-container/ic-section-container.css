@@ -1,0 +1,72 @@
+@import "../../global/normalise.css";
+
+@media only screen and (max-width: 576px) {
+  :host {
+    --section-container-margin: var(--ic-space-xs);
+    --section-container-max-width: var(--ic-breakpoint-sm);
+  }
+}
+
+@media only screen and (min-width: 577px) {
+  :host {
+    --section-container-margin: var(--ic-space-md);
+    --section-container-max-width: var(--ic-breakpoint-md);
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  :host {
+    --section-container-margin: var(--ic-space-md);
+    --section-container-max-width: var(--ic-breakpoint-lg);
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  :host {
+    --section-container-margin: var(--ic-space-md);
+    --section-container-max-width: var(--ic-breakpoint-xl);
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  :host {
+    --section-container-margin: var(--ic-space-lg);
+    --section-container-max-width: var(--ic-breakpoint-xl);
+  }
+}
+
+:host {
+  display: block;
+  padding-top: var(--ic-space-md);
+  padding-bottom: var(--ic-space-md);
+}
+
+:host(.aligned-center) {
+  max-width: var(--section-container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-container-margin);
+  padding-right: var(--section-container-margin);
+}
+
+:host(.aligned-left) {
+  max-width: var(--section-container-max-width);
+  margin-left: var(--section-container-margin);
+  margin-right: auto;
+  padding-right: var(--section-container-margin);
+}
+
+:host(.aligned-full-width) {
+  margin-left: var(--section-container-margin);
+  margin-right: var(--section-container-margin);
+}
+
+:host(.vertical-padding) {
+  padding-top: var(--ic-space-md);
+  padding-bottom: var(--ic-space-md);
+}
+
+:host(.no-vertical-padding) {
+  padding-top: 0;
+  padding-bottom: 0;
+}

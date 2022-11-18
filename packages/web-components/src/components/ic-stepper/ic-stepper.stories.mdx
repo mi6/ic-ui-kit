@@ -1,0 +1,97 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+import Step from "../ic-step/readme.md";
+
+<Meta title="Web Components/Stepper" component="ic-stepper" />
+
+<Description markdown={readme} />
+
+<Description markdown={Step} />
+
+### Full-width stepper
+
+<Canvas>
+  <Story name="Full-width stepper">
+    {html`<ic-stepper>
+      <ic-step step-title="Create" step-type="completed"></ic-step>
+      <ic-step step-title="Read" step-type="current"></ic-step>
+      <ic-step step-title="Update"></ic-step>
+      <ic-step step-title="Delete"></ic-step>
+    </ic-stepper>`}
+  </Story>
+</Canvas>
+
+### Left-aligned stepper
+
+<Canvas>
+  <Story name="Left-aligned stepper">
+    {html`<ic-stepper aligned="left">
+      <ic-step step-title="Create" step-type="completed"></ic-step>
+      <ic-step step-title="Read" step-type="current"></ic-step>
+      <ic-step step-title="Update"></ic-step>
+      <ic-step step-title="Delete"></ic-step>
+    </ic-stepper>`}
+  </Story>
+</Canvas>
+
+### Without step titles
+
+<Canvas>
+  <Story name="Without step titles">
+    {html`<ic-stepper>
+      <ic-step step-type="completed"></ic-step>
+      <ic-step step-type="completed"></ic-step>
+      <ic-step step-type="current"></ic-step>
+      <ic-step></ic-step>
+    </ic-stepper>`}
+  </Story>
+</Canvas>
+
+### Custom stepper
+
+<Canvas>
+  <Story name="Custom stepper">
+    {html`<ic-stepper>
+      <ic-step step-title="First"></ic-step>
+      <ic-step
+        step-title="Second With a Very Long Title"
+        step-subtitle="Optional subtitle that is long and should wrap"
+        step-type="current"
+      ></ic-step>
+      <ic-step step-title="Third" step-type="disabled"></ic-step>
+      <ic-step
+        step-title="Fourth title that is long and should wrap"
+        step-subtitle="Optional Subtitle"
+        step-type="completed"
+      ></ic-step>
+    </ic-stepper>`}
+  </Story>
+</Canvas>
+
+### Custom connector width
+
+<Canvas>
+  <Story name="Custom connector width">
+    {html`<ic-stepper aligned="left" connector-width="200">
+      <ic-step step-title="First"></ic-step>
+      <ic-step
+        step-title="Second With a Very Long Title"
+        step-subtitle="Optional subtitle that is long and should wrap"
+        step-type="current"
+      ></ic-step>
+      <ic-step step-title="Third" step-type="disabled"></ic-step>
+      <ic-step
+        step-title="Fourth title that is long and should wrap"
+        step-subtitle="Optional Subtitle"
+        step-type="completed"
+      ></ic-step>
+    </ic-stepper>`}
+  </Story>
+</Canvas>

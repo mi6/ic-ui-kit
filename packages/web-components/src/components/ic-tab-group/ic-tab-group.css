@@ -1,0 +1,139 @@
+:host {
+  --border-bottom-color: var(--ic-architectural-300);
+  --splitter-color: var(--ic-architectural-100);
+  --tab-scroll-focus: var(--ic-border-focus);
+  --tab-scroll-fill: var(--ic-action-default);
+  --tab-scroll-disabled-fill: var(--ic-architectural-300);
+  --tab-scroll-hover: var(--ic-action-default-bg-hover);
+  --tab-scroll-active: var(--ic-action-default-bg-active);
+
+  display: block;
+  margin-bottom: var(--ic-space-md);
+  margin-left: calc(-1 * var(--ic-space-xs));
+}
+
+:host(.dark) {
+  --splitter-color: var(--ic-architectural-white);
+  --tab-scroll-focus: var(--ic-border-focus-dark);
+  --tab-scroll-fill: var(--ic-action-light);
+  --tab-scroll-disabled-fill: var(--ic-architectural-500);
+  --tab-scroll-hover: var(--ic-action-dark-bg-hover);
+  --tab-scroll-active: var(--ic-action-dark-bg-active);
+}
+
+:host([inline]) {
+  margin-bottom: 0;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 100%;
+  align-items: center;
+  padding: var(--ic-space-xs);
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: calc(-1 * var(--ic-space-xs)) 0;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.ic-tab-group-container {
+  display: flex;
+  align-items: center;
+}
+
+:host(.dark.ic-tab-group-not-inline) {
+  --border-bottom-color: var(--ic-architectural-white);
+}
+
+.scroll-container {
+  display: flex;
+}
+
+.scroll-container.hidden {
+  display: none;
+}
+
+.scroll-container:first-child {
+  margin-left: var(--ic-space-xs);
+}
+
+.scroll-arrow {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  margin: var(--ic-space-xxs) var(--ic-space-xxxs);
+  align-items: center;
+  justify-content: center;
+  fill: var(--tab-scroll-fill);
+  cursor: pointer;
+}
+
+.scroll-arrow:focus {
+  outline: none;
+}
+
+.scroll-arrow:hover {
+  background-color: var(--tab-scroll-hover);
+}
+
+.scroll-arrow:active {
+  background-color: var(--tab-scroll-active);
+}
+
+.scroll-container.disabled .scroll-arrow {
+  fill: var(--tab-scroll-disabled-fill);
+  cursor: default;
+}
+
+.scroll-container.disabled .scroll-arrow:hover,
+.scroll-container.disabled .scroll-arrow:active,
+.scroll-container.disabled .scroll-arrow:focus {
+  background-color: unset;
+  box-shadow: none;
+}
+
+.scroll-container.disabled .ic-tooltip-container {
+  display: none !important;
+}
+
+.scroll-splitter-left,
+.scroll-splitter-right {
+  display: flex;
+  height: var(--ic-space-lg);
+  width: 1px;
+  margin-top: 10px;
+  background-color: var(--splitter-color);
+}
+
+.scroll-splitter-left {
+  margin-left: var(--ic-space-xxxs);
+}
+
+.scroll-splitter-right {
+  margin-right: var(--ic-space-xxxs);
+}
+
+.scroll-container.disabled .scroll-splitter-left,
+.scroll-container.disabled .scroll-splitter-right {
+  display: none;
+}
+
+.ic-tab-splitter {
+  display: block;
+  background-color: var(--border-bottom-color);
+  height: 1px;
+  right: 0;
+  left: 0;
+  margin-left: var(--ic-space-xs);
+}
+
+.ic-tab-splitter.hidden {
+  height: 0;
+}

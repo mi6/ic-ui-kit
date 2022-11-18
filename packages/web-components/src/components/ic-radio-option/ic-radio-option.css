@@ -1,0 +1,197 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: block;
+  margin-bottom: var(--ic-space-sm);
+  width: fit-content;
+}
+
+:host([small]) {
+  margin-bottom: 10px;
+}
+
+:host([additional-field-display="static"]) ::slotted(ic-textfield) {
+  margin-top: var(--ic-space-xs);
+  margin-left: var(--ic-space-xl);
+}
+
+/* The label turns grey when disabled  */
+:host([disabled]) {
+  color: var(--ic-architectural-200);
+}
+
+/* Focus states */
+
+.container input:focus + span.checkmark,
+:host(:focus) .container input:checked + span.checkmark {
+  box-shadow: var(--ic-border-focus);
+  outline: none;
+}
+
+.container input:focus-visible {
+  outline: none;
+}
+
+/* The container */
+.container {
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+  gap: var(--ic-space-xs);
+  margin-left: 5px;
+}
+
+.container.disabled,
+.container.disabled input:disabled {
+  cursor: default;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  border-radius: 50%;
+  border: none;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid #a7acb3;
+  border-radius: 50%;
+  transition: var(--ic-easing-transition-fast);
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark::after {
+  display: inline-block;
+}
+
+/* On mouse-over, add a light blue background color */
+.container:hover input ~ .checkmark {
+  background-color: var(--ic-action-default-bg-hover);
+  box-shadow: 0 0 0 4px var(--ic-action-default-bg-hover);
+  border: 1px solid var(--ic-action-default);
+}
+
+/* When pressed, adds the active colours */
+.container:active input ~ .checkmark {
+  background-color: var(--ic-action-default-bg-active);
+  border: 1px solid var(--ic-action-default-active);
+  box-shadow: 0 0 0 4px var(--ic-action-default-bg-active);
+}
+
+/* When pressed, adds the active colours */
+.container:active input:checked ~ .checkmark {
+  background-color: var(--ic-action-default-bg-active);
+  border: 2px solid var(--ic-action-default-active);
+  box-shadow: 0 0 0 4px var(--ic-action-default-bg-active);
+}
+
+/* When pressed and selected, adds the active colours */
+.container:active input:checked ~ .checkmark::after {
+  background-color: var(--ic-action-default-active);
+}
+
+/* When the radio button is checked */
+.container input:checked ~ .checkmark {
+  border: 2px solid var(--ic-action-default);
+  margin: -1px;
+  margin-bottom: 1px;
+}
+
+/* When the radio button is checked and disabled */
+.container input:checked:disabled ~ .checkmark {
+  background-color: transparent;
+  border: 2px solid var(--ic-architectural-200);
+}
+
+/* When the radio button is disabled */
+.container input:disabled ~ .checkmark {
+  border: 1px dashed var(--ic-architectural-200);
+}
+
+/* When the radio button is disabled */
+.container input:disabled ~ .checkmark::after {
+  background: var(--ic-architectural-200);
+}
+
+/* On mouse-over inactive */
+.container:hover input:disabled ~ .checkmark {
+  background-color: transparent;
+  box-shadow: none;
+  border: 2px solid none;
+}
+
+.container:active input:disabled ~ .checkmark::after {
+  background-color: var(--ic-architectural-200);
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ic-action-default);
+}
+
+.radio-label {
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: var(--ic-space-sm);
+}
+
+.addition-field-wrapper {
+  margin-left: 44px;
+}
+
+/* The line */
+.branch-corner {
+  color: var(--ic-action-default);
+  height: var(--ic-space-md);
+  width: var(--ic-space-xl);
+  border-radius: 0 0 0 3px;
+  border-bottom: 2px solid var(--ic-action-default);
+  border-left: 2px solid var(--ic-action-default);
+  margin-left: -1px;
+}
+
+/* The dynamic container */
+.dynamic-container {
+  display: flex;
+  position: relative;
+  margin-left: var(--ic-space-md);
+  margin-top: 6px;
+  gap: var(--ic-space-xs);
+}
+
+.dynamic-container.hidden {
+  display: none;
+}
+
+.dynamic-text {
+  color: var(--ic-action-default);
+  margin-top: 5px;
+  margin-bottom: var(--ic-space-xs);
+  border-radius: 2%;
+}

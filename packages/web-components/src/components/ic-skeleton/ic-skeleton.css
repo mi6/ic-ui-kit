@@ -1,0 +1,54 @@
+@import "../../global/normalise.css";
+
+@keyframes loading {
+  0% {
+    background-color: var(--ic-architectural-100);
+  }
+
+  50% {
+    background-color: var(--ic-architectural-200);
+  }
+
+  100% {
+    background-color: var(--ic-architectural-100);
+  }
+}
+
+@keyframes loading-light {
+  0% {
+    background-color: var(--ic-architectural-600);
+  }
+
+  50% {
+    background-color: var(--ic-architectural-400);
+  }
+
+  100% {
+    background-color: var(--ic-architectural-600);
+  }
+}
+
+:host {
+  display: inline-block;
+}
+
+:host(.skeleton) {
+  background-color: var(--ic-architectural-100);
+  border-radius: var(--ic-border-radius);
+  animation: loading 1200ms infinite;
+  display: inline-block;
+}
+
+:host(.skeleton) > * {
+  opacity: 0;
+  visibility: hidden;
+}
+
+:host(.circle) {
+  border-radius: 50%;
+}
+
+:host(.light) {
+  background-color: var(--ic-architectural-600);
+  animation: loading-light 1200ms infinite;
+}

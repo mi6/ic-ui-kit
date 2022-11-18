@@ -1,0 +1,80 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Status tag" component="ic-status-tag" />
+
+<Description markdown={readme} />
+
+### Neutral
+
+<Canvas>
+  <Story name="Neutral">
+    {html`
+      <ic-status-tag label="Neutral"></ic-status-tag>
+      <ic-status-tag label="Neutral" variant="outlined"></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Success
+
+<Canvas>
+  <Story name="Success">
+    {html`
+      <ic-status-tag label="Success" status="success"></ic-status-tag>
+      <ic-status-tag
+        label="Success"
+        status="success"
+        variant="outlined"
+      ></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Warning
+
+<Canvas>
+  <Story name="Warning">
+    {html`
+      <ic-status-tag label="Warning" status="warning"></ic-status-tag>
+      <ic-status-tag
+        label="Warning"
+        status="warning"
+        variant="outlined"
+      ></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Danger
+
+<Canvas>
+  <Story name="Danger">
+    {html`
+      <ic-status-tag label="Danger" status="danger"></ic-status-tag>
+      <ic-status-tag
+        label="Danger"
+        status="danger"
+        variant="outlined"
+      ></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small">
+    {html`
+      <ic-status-tag label="Small" small></ic-status-tag>
+      <ic-status-tag label="Small" variant="outlined" small></ic-status-tag>
+    `}
+  </Story>
+</Canvas>

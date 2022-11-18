@@ -1,0 +1,63 @@
+
+import { Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs';
+import { IcTypography } from '../components';
+import readme from "../../../web-components/src/components/ic-typography/readme.md";
+
+<Meta title="React Components/Typography" component={IcTypography} />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <IcTypography>I am typography</IcTypography>
+  </Story>
+</Canvas>
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+    <IcTypography variant="h1">Extra large title</IcTypography>
+    <IcTypography variant="h2">Large title</IcTypography>
+    <IcTypography variant="h3">Medium title</IcTypography>
+    <IcTypography variant="h4">Small title</IcTypography>
+    <IcTypography variant="subtitle-large">Subtitle 1</IcTypography>
+    <IcTypography variant="subtitle-small">Subtitle 2</IcTypography>
+    <IcTypography variant="body">Body text</IcTypography>
+    <IcTypography variant="label">Label</IcTypography>
+    <IcTypography variant="caption">Caption text</IcTypography>
+    <IcTypography variant="caption-uppercase">Caption uppercase</IcTypography>
+    <IcTypography variant="label-uppercase">Label uppercase</IcTypography>
+  </Story>
+</Canvas>
+
+### Overriding component
+
+<Canvas>
+  <Story name="Component override">
+    <IcTypography variant="h1">
+      <h3>H1 rendered as H3</h3>
+      </IcTypography>
+  </Story>
+</Canvas>
+
+### Vertical margins
+
+<Canvas>
+  <Story name="Vertical margins">
+    <IcTypography applyVerticalMargins variant="h1">Extra large title</IcTypography>
+    <IcTypography applyVerticalMargins variant="h2">Large title</IcTypography>
+    <IcTypography applyVerticalMargins variant="h3">Medium title</IcTypography>
+    <IcTypography applyVerticalMargins variant="h4">Small title</IcTypography>
+    <IcTypography applyVerticalMargins variant="subtitle-large">Subtitle 1</IcTypography>
+    <IcTypography applyVerticalMargins variant="subtitle-small">Subtitle 2</IcTypography>
+    <IcTypography applyVerticalMargins variant="body">Body text</IcTypography>
+    <IcTypography applyVerticalMargins variant="caption">Caption text</IcTypography>
+    <IcTypography applyVerticalMargins variant="caption-uppercase">Caption uppercase</IcTypography>
+  </Story>
+</Canvas>
+
+
+

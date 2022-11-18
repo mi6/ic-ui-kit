@@ -1,0 +1,116 @@
+@import "../../global/normalise.css";
+
+:host(.footer-link-ungrouped-sparse) {
+  --footer-link-margin-left: 0;
+  --footer-link-margin-right: 40px;
+  --footer-link-margin-bottom: 0;
+}
+
+:host(.footer-link-ungrouped-small) {
+  --footer-link-margin-left: 0;
+  --footer-link-margin-right: 0;
+  --footer-link-margin-bottom: var(--ic-space-md);
+}
+
+:host(.footer-link-grouped-sparse) {
+  --footer-link-margin-left: 0;
+  --footer-link-margin-right: 0;
+  --footer-link-margin-bottom: var(--ic-space-md);
+}
+
+:host(.footer-link-grouped-small) {
+  --footer-link-margin-left: var(--ic-space-md);
+  --footer-link-margin-right: 0;
+  --footer-link-margin-bottom: var(--ic-space-md);
+}
+
+:host(.footer-link) {
+  margin-left: var(--footer-link-margin-left);
+  margin-right: var(--footer-link-margin-right);
+  margin-bottom: var(--footer-link-margin-bottom);
+}
+
+/* Link styling */
+
+:host(.footer-link) a,
+:host(.footer-link) a ::slotted(a) {
+  display: block;
+  font-weight: var(--ic-font-weight-bold);
+  color: inherit;
+  width: fit-content;
+  font-size: var(--ic-font-size-regular);
+}
+
+:host(.footer-link) a:link,
+:host(.footer-link) a ::slotted(a:link) {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: var(--ic-font-weight-bold);
+}
+
+:host(.footer-link) a:link > ::slotted(svg),
+:host(.footer-link) a:link > ::slotted(img),
+:host(.footer-link) a ::slotted(a:link > ::slotted(svg)),
+:host(.footer-link) a ::slotted(a:link > ::slotted(img)) {
+  padding: var(--ic-space-xxxs);
+  pointer-events: none;
+  transition: var(--ic-easing-transition-fast);
+}
+
+/*
+There's an apparent defect in Chrome that means this isn't always re-rendered if changed. 
+Not an issue in Safari. Line 73-79 implement the same function but less clean.
+
+a:link > ::slotted(svg) ,
+a:link:visited > ::slotted(svg) {
+  fill: var(--ic-theme-text);
+}
+*/
+
+:host(.footer-link-light) ::slotted(svg) {
+  fill: var(--ic-architectural-white);
+}
+
+:host(.footer-link-dark) ::slotted(svg) {
+  fill: var(--ic-architectural-black);
+}
+
+:host(.footer-link) a:link:hover,
+:host(.footer-link) a:link:focus,
+:host(.footer-link) a ::slotted(a:link:hover),
+:host(.footer-link) a ::slotted(a:link:focus) {
+  outline: none;
+  text-decoration-line: underline;
+  text-decoration-thickness: 25%;
+  text-underline-offset: 25%;
+}
+
+:host(.footer-link) a:link:focus > ::slotted(svg),
+:host(.footer-link) a:link:focus > ::slotted(img),
+:host(.footer-link) a ::slotted(a:link:focus > ::slotted(svg)),
+:host(.footer-link) a ::slotted(a:link:focus > ::slotted(img)) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+}
+
+:host(.footer-link) a:focus,
+:host(.footer-link) a ::slotted(a:focus) {
+  border-radius: var(--ic-border-radius);
+  outline: none;
+  transition: var(--ic-transition-duration-fast);
+}
+
+:host(.footer-link) a:link:active,
+:host(.footer-link) a:link:focus:active,
+:host(.footer-link) a:link:visited:active,
+:host(.footer-link) a ::slotted(a:link:active),
+:host(.footer-link) a ::slotted(a:link:focus:active),
+:host(.footer-link) a ::slotted(a:link:visited:active) {
+  color: var(--ic-action-default);
+  text-decoration: none;
+}
+
+:host(.footer-link) a:hover,
+:host(.footer-link) a ::slotted(a:hover) {
+  text-decoration: none;
+}

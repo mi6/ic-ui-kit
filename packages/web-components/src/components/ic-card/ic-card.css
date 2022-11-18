@@ -1,0 +1,105 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: flex;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--ic-architechtural-black) !important;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.card,
+.card.clickable {
+  border: 1px solid var(--ic-architectural-300);
+  border-radius: var(--ic-border-radius);
+  padding: var(--ic-space-md);
+  text-align: left;
+  color: var(--ic-architechtural-black);
+  transition: var(--ic-easing-transition-fast);
+}
+
+.card.clickable:hover {
+  background-color: var(--ic-action-default-bg-hover);
+  border-color: var(--ic-action-default-hover);
+  cursor: pointer;
+}
+
+.card.clickable:focus,
+.card.clickable.focussed {
+  background-color: var(--ic-action-default-bg-hover);
+  box-shadow: var(--ic-border-focus);
+  outline: none;
+}
+
+.card.clickable:active {
+  background-color: var(--ic-action-default-bg-active);
+  box-shadow: var(--ic-border-focus);
+}
+
+.card.disabled {
+  border: var(--ic-border-disabled);
+}
+
+.card.fullwidth {
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  padding-right: var(--ic-space-xs);
+}
+
+.card.clickable ::slotted(svg) {
+  fill: var(--ic-action-default);
+}
+
+.card.disabled ::slotted(svg) {
+  fill: var(--ic-color-tertiary-text);
+}
+
+.card.clickable .card-title {
+  color: var(--ic-hyperlink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.card.clickable:hover .card-title {
+  color: var(--ic-hyperlink-hover) !important;
+  text-decoration: none;
+}
+
+.card.clickable:focus .card-title,
+.card.clickable.focussed .card-title {
+  color: var(--ic-hyperlink-hover);
+}
+
+.card.clickable:active .card-title {
+  color: var(--ic-hyperlink-hover);
+}
+
+.card.disabled .card-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-tertiary-text);
+}
+
+.card-message {
+  margin-top: var(--ic-space-xxs);
+  align-items: left;
+}
+
+.card.disabled .card-message {
+  color: var(--ic-color-tertiary-text);
+}

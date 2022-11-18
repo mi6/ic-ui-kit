@@ -1,0 +1,385 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Checkbox" component="Checkbox" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="1">
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Required
+
+<Canvas>
+  <Story name="Required">
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" required name="1">
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="1" Disabled>
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Disabled 1"
+            Disabled
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Unselected / Disabled 2"
+            Disabled
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled 3"
+            Disabled
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName4"
+            label="Selected / Disabled"
+            Disabled
+            checked
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Hidden label
+
+<Canvas>
+  <Story name="Hidden label">
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" hide-label name="1">
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Conditional dynamic
+
+<Canvas>
+  <Story name="Conditional dynamic">
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="1">
+          <ic-checkbox
+            additional-field-display="dynamic"
+            value="valueName1"
+            label="option1"
+          >
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            ></ic-text-field>
+          </ic-checkbox>
+          <ic-checkbox
+            additional-field-display="dynamic"
+            value="valueName2"
+            label="option2 - error example"
+          >
+            <ic-text-field
+              validation-status="error"
+              validation-text="now it has really gone to (coffee) pot"
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </ic-text-field>
+          </ic-checkbox>
+          <ic-checkbox
+            additional-field-display="dynamic"
+            value="valueName3"
+            label="option3"
+          >
+            <ic-text-field
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            ></ic-text-field>
+          </ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Conditional static
+
+<Canvas>
+  <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="1">
+          <ic-checkbox value="valueName1" label="option1">
+            <ic-text-field
+              slot="additional-field"
+              label="What's your favourite type of coffee?"
+            ></ic-text-field>
+          </ic-checkbox>
+          <ic-checkbox value="valueName2" label="option2"> </ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Helper text
+
+<Canvas>
+  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-checkbox-group
+          label="This is a label"
+          name="1"
+          helper-text="Helper text"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="1" small>
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+            small
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+            small
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+            small
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Validation
+
+<Canvas>
+  <Story name="Validation" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-checkbox-group
+          label="This is a label"
+          name="1"
+          validation-status="error"
+          validation-text="Error message"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Form - This shows how the checkbox button works within a form and is where the value of the checkbox button selected will appear in the console.log
+
+<Canvas>
+  <Story name="Form">
+    {(args) =>
+      html`
+        <form>
+          <ic-checkbox-group label="This is a label" name="1">
+            <ic-checkbox
+              name="checkbox1"
+              value="valueName1"
+              label="Unselected / Default"
+            ></ic-checkbox>
+            <ic-checkbox
+              name="checkbox2"
+              value="valueName2"
+              label="Selected / Default"
+              checked
+            ></ic-checkbox>
+            <ic-checkbox
+              name="checkbox3"
+              value="valueName3"
+              label="Unselected / Disabled"
+              Disabled
+            ></ic-checkbox>
+          </ic-checkbox-group>
+          <input type="submit" value="Submit" />
+        </form>
+        <script>
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(
+              document.querySelector('ic-checkbox[name="checkbox1"]').checked
+            );
+            console.log(
+              document.querySelector('ic-checkbox[name="checkbox2"]').checked
+            );
+            console.log(
+              document.querySelector('ic-checkbox[name="checkbox3"]').checked
+            );
+          });
+        </script>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Indeterminate
+
+<Canvas>
+  <Story name="Indeterminate">
+    {(args) =>
+      html` <ic-checkbox-group label="Liked things" name="1">
+        <ic-checkbox
+          value="drinks"
+          label="Drinks"
+          checked="true"
+          indeterminate="true"
+        >
+          <ic-checkbox-group
+            label="Coffee"
+            hide-label
+            slot="additional-field"
+            name="2"
+          >
+            <ic-checkbox value="tea" label="Tea"></ic-checkbox>
+            <ic-checkbox
+              value="coffee"
+              label="Coffee"
+              checked="true"
+              indeterminate="true"
+            >
+              <ic-checkbox-group
+                label="Coffees"
+                hide-label
+                slot="additional-field"
+                name="3"
+              >
+                <ic-checkbox value="mocha" label="Mocha"></ic-checkbox>
+                <ic-checkbox
+                  value="espresso"
+                  label="Espresso"
+                  checked
+                ></ic-checkbox>
+                <ic-checkbox value="cappucino" label="Cappucino"></ic-checkbox>
+              </ic-checkbox-group>
+            </ic-checkbox>
+            <ic-checkbox value="juice" label="Juice"></ic-checkbox>
+          </ic-checkbox-group>
+        </ic-checkbox>
+      </ic-checkbox-group>`
+    }
+  </Story>
+</Canvas>

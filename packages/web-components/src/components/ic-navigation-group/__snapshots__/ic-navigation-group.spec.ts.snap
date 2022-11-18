@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-navigation-group should render with label: renders-with-label 1`] = `
+<ic-navigation-group class="expanded" label="Group label" role="listitem">
+  <mock:shadow-root>
+    <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
+      <ic-typography variant="label">
+        Group label
+      </ic-typography>
+    </button>
+    <ul class="grouped-links-wrapper" style="--navigation-child-items-height: auto;">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+</ic-navigation-group>
+`;

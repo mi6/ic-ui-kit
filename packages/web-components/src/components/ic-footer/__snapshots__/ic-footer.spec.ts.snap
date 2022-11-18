@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-footer should render with classification banner: footer-classification-banner 1`] = `
+<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption"></slot>
+              </ic-typography>
+            </div>
+            <div class="classification-spacing footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-footer should render with the correct small breakpoint at large device size: footer-l-breakpoint 1`] = `
+<ic-footer breakpoint="large" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption">
+                  caption
+                </slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-footer should render with the correct small breakpoint at medium device size: footer-m-breakpoint 1`] = `
+<ic-footer breakpoint="medium" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption">
+                  caption
+                </slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-footer should render with the correct small breakpoint at small device size: footer-s-breakpoint 1`] = `
+<ic-footer breakpoint="small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption">
+                  caption
+                </slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-footer should render with the correct small breakpoint at extra large device size: footer-xl-breakpoint 1`] = `
+<ic-footer breakpoint="extra large" caption="caption" class="footer footer-light footer-small footer-ungrouped light" id="ic-footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption">
+                  caption
+                </slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-footer should render with the correct small breakpoint at extra small device size: footer-xs-breakpoint 1`] = `
+<ic-footer breakpoint="extra small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption">
+                  caption
+                </slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;

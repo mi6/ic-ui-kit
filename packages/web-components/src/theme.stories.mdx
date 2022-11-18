@@ -1,0 +1,37 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Custom theme" />
+
+# Custom theme
+
+Some components can have their theme colour changed by using either of the methods below. When the theme colour is changed, components will automatically update. Other styles on affected components will also adapt accordingly, such as text colour and focus border indicators.
+
+## CSS Variables
+
+You can override the following RGB CSS variables in your project for the colour of choice:
+
+```css
+:root {
+  --ic-theme-primary-r: 92;
+  --ic-theme-primary-g: 9;
+  --ic-theme-primary-b: 72;
+}
+```
+
+## Theme component
+
+Alternatively, you can include the ic-theme component and set the 'color' property:
+
+```html
+<ic-theme color="rgb(92, 9, 72)"></ic-theme>
+<ic-theme color="#5c0949"></ic-theme>
+```
+
+### Components that use theme colour:
+
+```
+- Footer
+- Hero
+- Side navigation
+- Top navigation
+```

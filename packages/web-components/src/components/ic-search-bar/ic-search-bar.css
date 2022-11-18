@@ -1,0 +1,117 @@
+@import "../../global/normalise.css";
+
+:host(.search) {
+  --divider-height: 24px;
+}
+
+:host(.search.small) {
+  --divider-height: 16px;
+}
+
+:host(.fullwidth) {
+  width: 100%;
+}
+
+:host(.search) .disabled:hover {
+  border-color: var(--ic-architectural-200);
+}
+
+:host(.search.disabled) .disabled svg {
+  color: var(--ic-architectural-200);
+}
+
+:host(.search) .disabled svg {
+  color: var(--ic-architectural-400);
+}
+
+/* CLEAR */
+
+.clear-button-container {
+  align-items: center;
+  margin-right: 1px;
+  display: none;
+  visibility: hidden;
+}
+
+.clear-button {
+  border-radius: var(--ic-border-radius);
+  transition: box-shadow var(--ic-easing-transition),
+    border-radius var(--ic-easing-transition);
+}
+
+.clear-button:focus {
+  background-color: var(--ic-focus-blue);
+  box-shadow: inset 0 0 0 2px var(--ic-focus-glow);
+  border-radius: 4px;
+}
+
+.clear-button:focus * {
+  fill: white;
+}
+
+.clear-button-visible {
+  visibility: visible;
+  display: flex;
+}
+
+.search-submit-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-submit-button-disabled .ic-tooltip-container {
+  display: none !important;
+}
+
+.search-submit-button:focus {
+  background-color: var(--ic-focus-blue) !important;
+  box-shadow: inset 0 0 0 2px var(--ic-focus-glow) !important;
+  border-radius: var(--ic-space-xxs);
+  height: var(--ic-space-xl);
+  margin-top: var(--ic-space-xxxs);
+}
+
+.search-submit-button:focus * {
+  fill: white;
+}
+
+.divider {
+  width: 1px;
+  background-color: var(--ic-action-dark-active);
+  height: var(--divider-height);
+}
+
+:host(.dark) .divider {
+  background-color: var(--ic-architectural-200);
+}
+
+.menu-container {
+  width: var(--input-width, 320px);
+  position: relative;
+  top: var(--ic-space-xxxs);
+}
+
+.menu-container.fullwidth {
+  width: 100%;
+}
+
+ic-menu {
+  transition: var(--ic-easing-transition-slow);
+}
+
+.no-results {
+  cursor: not-allowed;
+}
+
+.search-results-status {
+  border: 0;
+  clip: rect(0, 0, 0, 0, 0);
+  height: 1px;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

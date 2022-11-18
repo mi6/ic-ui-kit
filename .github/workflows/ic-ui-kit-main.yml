@@ -1,0 +1,82 @@
+name: Main
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  ic-ui-kit-static-analysis-tests:
+    name: 'Static Analysis Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm run build
+
+      - name: Lint commit messages
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+          echo "$COMMIT_MESSAGE" | npx commitlint
+
+      - name: A11y tests
+        run: npm run test-a11y:ci
+
+      - name: Unit Component tests
+        run: npm run test:ci
+
+  ic-ui-kit-visual-tests:
+    name: 'Visual Regression Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: browser-actions/setup-chrome@latest
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Visual Regression tests
+        run: npm run test-visual:ci
+
+  ic-ui-kit-publish:
+    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-visual-tests]
+    name: 'Publish Production Packages'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish
+        run: |
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+          HUSKY_SKIP_HOOKS=1 npx lerna publish --no-commit-hooks --conventional-commits --conventional-graduate -y
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+

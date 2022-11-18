@@ -1,0 +1,141 @@
+import { Component, Element, Prop, h, Host, Listen } from "@stencil/core";
+
+import OpenInNew from "./assets/OpenInNew.svg";
+import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
+import { IC_INHERITED_ARIA } from "../../utils/constants";
+import {
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundEnum,
+} from "../../utils/types";
+
+@Component({
+  tag: "ic-link",
+  styleUrl: "ic-link.css",
+  shadow: true,
+})
+export class Link {
+  private inheritedAttributes: { [k: string]: unknown } = {};
+  private routerSlot: HTMLElement;
+
+  @Element() el: HTMLIcLinkElement;
+
+  /**
+   * Prompts the user to save the linked URL instead of navigating to it.
+   */
+  @Prop() download?: string | boolean = false;
+
+  /**
+   * The URL that the link points to.
+   */
+  @Prop() href?: string = null;
+
+  /**
+   * Hints at the human language of the linked URL.
+   */
+  @Prop() hreflang?: string;
+
+  /**
+   * How much of the referrer to send when following the link.
+   */
+  @Prop() referrerpolicy?: ReferrerPolicy;
+
+  /**
+   * The relationship of the linked URL as space-separated link types.
+   */
+  @Prop() rel?: string;
+
+  /**
+   * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   */
+  @Prop() target?: string;
+
+  /**
+   * Determines whether the 'open in new tab/window' icon is to be displayed.
+   */
+  @Prop() showIcon?: boolean;
+
+  /**
+   * Determines the whether the appearance is dark, light, or the default.
+   */
+  @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
+
+  @Listen("icThemeChange", { target: "document" })
+  themeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.updateTheme(theme.mode);
+  }
+
+  private updateTheme(newTheme: IcThemeForeground = null): void {
+    const theme = getThemeFromContext(this.el, newTheme || null);
+
+    switch (theme) {
+      case IcThemeForegroundEnum.Light:
+        this.appearance = IcThemeForegroundEnum.Light;
+        break;
+      case IcThemeForegroundEnum.Dark:
+        this.appearance = IcThemeForegroundEnum.Dark;
+        break;
+    }
+  }
+
+  componentWillLoad(): void {
+    this.inheritedAttributes = inheritAttributes(this.el, [
+      ...IC_INHERITED_ARIA,
+      "aria-expanded",
+    ]);
+  }
+
+  componentDidLoad(): void {
+    this.updateTheme();
+  }
+
+  private hasRouterSlot(): boolean {
+    this.routerSlot = this.el.querySelector('[slot="router-item"]');
+    if (this.routerSlot) {
+      this.routerSlot.ariaLabel = this.routerSlot.textContent;
+    }
+    return !!this.routerSlot;
+  }
+
+  render() {
+    const {
+      download,
+      href,
+      hreflang,
+      referrerpolicy,
+      rel,
+      target,
+      showIcon,
+      appearance,
+    } = this;
+
+    return (
+      <Host class={{ ["link"]: true, [`${appearance}`]: true }}>
+        {this.hasRouterSlot() ? (
+          <slot name="router-item"></slot>
+        ) : (
+          <a
+            class={{
+              ["ic-link"]: href !== null,
+              [`${appearance}`]: href !== null,
+            }}
+            download={download !== false ? download : null}
+            href={href}
+            hrefLang={hreflang}
+            referrerPolicy={referrerpolicy}
+            rel={rel}
+            target={target}
+            tabindex={href !== null ? "0" : "-1"}
+            {...this.inheritedAttributes}
+          >
+            <slot />
+            {showIcon && (
+              <span class="ic-link-open-in-new-icon" innerHTML={OpenInNew} />
+            )}
+          </a>
+        )}
+      </Host>
+    );
+  }
+}

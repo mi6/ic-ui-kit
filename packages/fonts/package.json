@@ -1,0 +1,22 @@
+{
+  "name": "@ukic/fonts",
+  "version": "2.0.0-alpha.120",
+  "description": "Typography assets for @ukic components",
+  "scripts": {
+    "build": "rimraf ./dist && webpack --config webpack.config.js",
+    "audit": "echo 'Audit for: @ukic/fonts' && audit-ci -m --config ../../audit-ci.json"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@fontsource/nunito-sans": "^4.5.4",
+    "@fontsource/open-sans": "^4.5.6",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

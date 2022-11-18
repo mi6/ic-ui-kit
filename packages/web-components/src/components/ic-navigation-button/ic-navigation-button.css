@@ -1,0 +1,11 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: block;
+  margin-right: var(--ic-space-xs);
+  list-style: none;
+}
+
+:host(.in-side-menu) {
+  margin-right: 0;
+}

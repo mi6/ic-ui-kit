@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-search-bar search should render aria-label when hidelLabel is set: renders-with-hidden-label 1`] = `
+<ic-search-bar class="search" hide-label="true" label="Test label" value="">
+  <mock:shadow-root>
+    <ic-text-field value="">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-2" inputmode="search" name="ic-search-bar-input-2" placeholder="Search" type="text" value="">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container search-submit-button-disabled" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon disabled search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-2" type="hidden" value="">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-2" type="hidden" value="">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render disabled variant: renders-disabled 1`] = `
+<ic-search-bar class="disabled search" disabled="true" label="Test label" value="">
+  <mock:shadow-root>
+    <ic-text-field value="">
+      <mock:shadow-root>
+        <ic-input-container disabled="">
+          <ic-input-label disabled="" for="ic-search-bar-input-4" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container disabled="" validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="" type="text" value="">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container search-submit-button-disabled" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon disabled search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" disabled="" name="ic-search-bar-input-4" type="hidden" value="">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" disabled="" name="ic-search-bar-input-4" type="hidden" value="">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render readonly variant: renders-readonly 1`] = `
+<ic-search-bar class="search" label="Test label" readonly="true" value="">
+  <mock:shadow-root>
+    <ic-text-field value="">
+      <mock:shadow-root>
+        <ic-input-container disabled="" readonly="">
+          <ic-input-label for="ic-search-bar-input-5" helpertext="" label="Test label" readonly=""></ic-input-label>
+          <ic-input-component-container disabled="" readonly="" validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" class="no-left-pad readonly" disabled="" id="ic-search-bar-input-5" inputmode="search" name="ic-search-bar-input-5" placeholder="Search" readonly="" type="text" value="">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container search-submit-button-disabled" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon disabled search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" disabled="" name="ic-search-bar-input-5" type="hidden" value="">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" disabled="" name="ic-search-bar-input-5" type="hidden" value="">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render required variant: renders-required 1`] = `
+<ic-search-bar class="search" label="Test label" required="true" value="">
+  <mock:shadow-root>
+    <ic-text-field value="">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-search-bar-input-3" helpertext="" label="Test label" required=""></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-3" inputmode="search" name="ic-search-bar-input-3" placeholder="Search" required="" type="text" value="">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container search-submit-button-disabled" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon disabled search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-3" type="hidden" value="">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-3" type="hidden" value="">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render with options: renders-with-options 1`] = `
+<ic-search-bar class="search" label="Test label" value="espresso">
+  <mock:shadow-root>
+    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" aria-owns="ic-search-bar-input-6-menu" value="Espresso">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-search-bar-input-6" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="" aria-owns="ic-search-bar-input-6-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" role="combobox" type="text" value="Espresso">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-6" type="hidden" value="Espresso">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-6" type="hidden" value="espresso">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render with value: renders-with-value 1`] = `
+<ic-search-bar class="search" label="Test label" value="foo">
+  <mock:shadow-root>
+    <ic-text-field value="foo">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-search-bar-input-1" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-1" inputmode="search" name="ic-search-bar-input-1" placeholder="Search" type="text" value="foo">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-1" type="hidden" value="foo">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-1" type="hidden" value="foo">
+</ic-search-bar>
+`;
+
+exports[`ic-search-bar search should render: renders 1`] = `
+<ic-search-bar class="search" label="Test label" value="">
+  <mock:shadow-root>
+    <ic-text-field value="">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-search-bar-input-0" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-0" inputmode="search" name="ic-search-bar-input-0" placeholder="Search" type="text" value="">
+            <slot name="clear-button"></slot>
+            <slot name="search-submit-button"></slot>
+          </ic-input-component-container>
+          <slot name="menu"></slot>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container search-submit-button-disabled" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon disabled search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-0" type="hidden" value="">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-0" type="hidden" value="">
+</ic-search-bar>
+`;
