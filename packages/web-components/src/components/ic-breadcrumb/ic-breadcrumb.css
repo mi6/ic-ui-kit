@@ -1,0 +1,79 @@
+:host {
+  display: block;
+  margin: var(--ic-space-xs) var(--ic-space-xs) var(--ic-space-xs) 0;
+}
+
+:host .breadcrumb {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: var(--ic-space-xs);
+  min-height: var(--ic-space-lg);
+}
+
+:host .chevron {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
+:host .chevron svg {
+  color: var(--ic-architectural-400);
+}
+
+:host(:first-child) .chevron {
+  display: none;
+}
+
+.back-icon svg {
+  color: var(--ic-hyperlink);
+}
+
+:host(.back) {
+  display: flex;
+  align-items: center;
+}
+
+:host(.back) .chevron {
+  display: none;
+}
+
+ic-link {
+  --breadcrumb-link-display: flex;
+  --breadcrumb-link-align-items: center;
+  --breadcrumb-link-gap: var(--ic-space-xs);
+}
+
+:host([aria-current="page"]) .current-page-container {
+  display: flex;
+  align-items: center;
+  gap: var(--ic-space-xs);
+}
+
+:host(.collapsed-breadcrumb-wrapper) {
+  margin-right: var(--ic-space-xs) !important;
+  display: flex;
+  align-items: center;
+  gap: var(--ic-space-xs);
+}
+
+:host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb) {
+  border: none;
+  background-color: transparent;
+  color: var(--ic-hyperlink);
+  text-decoration: underline;
+  font-weight: var(--ic-font-weight-bold);
+  cursor: pointer;
+}
+
+:host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:hover),
+:host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:focus) {
+  outline: none;
+  text-decoration-line: underline;
+  text-decoration-thickness: 25%;
+  text-underline-offset: 25%;
+}
+
+.hide,
+:host(.collapsed-breadcrumb-wrapper) ::slotted(.hide) {
+  display: none;
+}

@@ -1,0 +1,76 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta
+  title="Web Components/Section container"
+  component="ic-section-container"
+/>
+
+<Description markdown={readme} />
+
+### Left aligned
+
+<Canvas>
+  <Story name="Left aligned">
+    {html`<ic-section-container>
+      <main>
+        <div style="display: flex; justify-content: space-between">
+          <button>Start</button>
+          <button>End</button>
+        </div>
+      </main>
+    </ic-section-container>`}
+  </Story>
+</Canvas>
+
+### Center alignment
+
+<Canvas>
+  <Story name="Center alignment">
+    {html`<ic-section-container aligned="center">
+      <main>
+        <div style="display: flex; justify-content: space-between">
+          <button>Start</button>
+          <button>End</button>
+        </div>
+      </main>
+    </ic-section-container>`}
+  </Story>
+</Canvas>
+
+### Full-width alignment
+
+<Canvas>
+  <Story name="Full-width alignment">
+    {html`<ic-section-container aligned="full-width">
+      <main>
+        <div style="display: flex; justify-content: space-between">
+          <button>Start</button>
+          <button>End</button>
+        </div>
+      </main>
+    </ic-section-container>`}
+  </Story>
+</Canvas>
+
+### Full height
+
+<Canvas>
+  <Story name="Full-height">
+    {html`<ic-section-container aligned="full-width" full-height>
+      <main>
+        <div style="display: flex; justify-content: space-between">
+          <button>Start</button>
+          <button>End</button>
+        </div>
+      </main>
+    </ic-section-container>`}
+  </Story>
+</Canvas>

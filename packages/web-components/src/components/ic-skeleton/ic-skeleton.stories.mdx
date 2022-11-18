@@ -1,0 +1,116 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+import IcTypography from "../ic-typography/readme.md";
+
+<Meta title="Web Components/Skeleton" component="ic-skeleton" />
+
+<Description markdown={readme} />
+
+### Rectangle
+
+<Canvas>
+  <Story name="Rectangle" parameters={{ loki: { skip: true } }}>
+    {html` <ic-typography variant="h4">Default</ic-typography>
+      <ic-skeleton></ic-skeleton>
+      <ic-typography variant="h4">Inherited from child</ic-typography>
+      <ic-skeleton
+        ><div style="height:200px;width:450px;">Test text</div></ic-skeleton
+      >
+      <ic-typography variant="h4"
+        >Height and width set with styles</ic-typography
+      >
+      <ic-skeleton style="height:200px;width:200px;"></ic-skeleton>
+      <ic-typography variant="h4">Height set with styles</ic-typography>
+      <ic-skeleton style="height:75px;"></ic-skeleton>
+      <ic-typography variant="h4">Width set with styles</ic-typography>
+      <ic-skeleton style="width:450px;"></ic-skeleton>`}
+  </Story>
+</Canvas>
+
+### Circle
+
+<Canvas>
+  <Story name="Circle" parameters={{ loki: { skip: true } }}>
+    {html`<ic-skeleton variant="circle" />`}
+  </Story>
+</Canvas>
+
+### Text
+
+<Canvas>
+  <Story name="Text" parameters={{ loki: { skip: true } }}>
+    {html` <ic-typography variant="h1">h1</ic-typography>
+      <ic-typography variant="h1"><ic-skeleton variant="text" /></ic-typography>
+      <ic-typography variant="h2">h2</ic-typography>
+      <ic-typography variant="h2"><ic-skeleton variant="text" /></ic-typography>
+      <ic-typography variant="h3">h3</ic-typography>
+      <ic-typography variant="h3"><ic-skeleton variant="text" /></ic-typography>
+      <ic-typography variant="h4">h4</ic-typography>
+      <ic-typography variant="h4"><ic-skeleton variant="text" /></ic-typography>
+      <ic-typography variant="subtitle-large">subtitle-large</ic-typography>
+      <ic-typography variant="subtitle-large"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="subtitle-small">subtitle-small</ic-typography>
+      <ic-typography variant="subtitle-small"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="body">body</ic-typography>
+      <ic-typography variant="body"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="caption">caption</ic-typography>
+      <ic-typography variant="caption"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="label">label</ic-typography>
+      <ic-typography variant="subtitle-small"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="caption-uppercase"
+        >caption uppercase</ic-typography
+      >
+      <ic-typography variant="caption-uppercase"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <ic-typography variant="label-uppercase">label uppercase</ic-typography>
+      <ic-typography variant="subtitle-small"
+        ><ic-skeleton variant="text"
+      /></ic-typography>`}
+  </Story>
+</Canvas>
+
+### Example
+
+<Canvas>
+  <Story name="Example" parameters={{ loki: { skip: true } }}>
+    {html` <ic-skeleton variant="circle" height="20"></ic-skeleton>
+      <div style="height:8px"></div>
+      <ic-typography variant="caption"
+        ><ic-skeleton variant="text"
+      /></ic-typography>
+      <div style="height:8px"></div>
+      <ic-skeleton></ic-skeleton>`}
+  </Story>
+</Canvas>
+
+### Light
+
+<Canvas>
+  <Story name="Light" parameters={{ loki: { skip: true } }}>
+    {html` <ic-skeleton variant="circle" height="20" light="true"></ic-skeleton>
+      <div style="height:8px"></div>
+      <ic-typography variant="caption"
+        ><ic-skeleton variant="text" light="true"
+      /></ic-typography>
+      <div style="height:8px"></div>
+      <ic-skeleton light="true"></ic-skeleton>`}
+  </Story>
+</Canvas>

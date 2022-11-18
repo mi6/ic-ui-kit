@@ -1,0 +1,92 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcLink, IcTypography, IcSectionContainer } from "../components";
+import readme from "../../../web-components/src/components/ic-link/readme.md";
+import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
+
+<Meta title="React Components/Link" component={IcLink} />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default" href="/">
+    <IcLink href="/">This is a link</IcLink>
+  </Story>
+</Canvas>
+
+### With icon
+
+<Canvas>
+  <Story name="With icon">
+    <IcLink href="/" showIcon>
+      This is a link
+    </IcLink>
+  </Story>
+</Canvas>
+
+### Dark
+
+<Canvas>
+  <Story name="Dark">
+    <IcLink href="/" appearance="dark" showIcon>
+      This is a link
+    </IcLink>
+  </Story>
+</Canvas>
+
+### Light
+
+<Canvas>
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
+      <IcLink href="/" appearance="light" showIcon>
+        This is a link
+      </IcLink>
+  </Story>
+</Canvas>
+
+### React Router 
+
+export const HomePage = () => (
+  <IcSectionContainer>
+    <IcTypography variant="h1">Hi there!</IcTypography>
+    <IcTypography>This example is demonstrating the link component with React Router</IcTypography>
+  </IcSectionContainer>
+)
+
+
+export const DailyTippers = () => (
+  <IcSectionContainer>
+    <IcTypography variant="h1">Daily tippers</IcTypography>
+    <IcTypography>Lorem ipsum doloe sit amet, consectetur adipiscing</IcTypography>
+  </IcSectionContainer>
+)
+
+<Canvas>
+  <Story
+    name="With React Router"
+    decorators={[(Story) => (
+      <MemoryRouter initialEntries={["/"]}>
+        <Story />
+      </MemoryRouter>
+    )]}
+  >
+    <IcLink style={{paddingRight: "var(--ic-space-xs)"}}>
+      <NavLink to="/" slot="router-item">Home</NavLink>
+    </IcLink>
+    <IcLink>
+      <NavLink to="/daily-tippers" slot="router-item">Daily Tippers</NavLink>
+    </IcLink>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/daily-tippers" element={<DailyTippers />} />
+    </Routes>
+  </Story>
+</Canvas>
+

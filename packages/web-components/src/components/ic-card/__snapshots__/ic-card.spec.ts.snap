@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-card should render 1`] = `
+<ic-card heading="Card" message="This is a static card">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <slot name="message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card>
+`;
+
+exports[`ic-card should render as a button 1`] = `
+<ic-card clickable="true" heading="Card" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <button class="card clickable" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <slot name="message">
+          <ic-typography variant="body">
+            This is a clickable card rendered as a button
+          </ic-typography>
+        </slot>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card>
+`;
+
+exports[`ic-card should render as a link 1`] = `
+<ic-card clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <a class="card clickable" href="/" hreflang="" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <slot name="message">
+          <ic-typography variant="body">
+            This is a clickable card rendered as a button
+          </ic-typography>
+        </slot>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-card>
+`;
+
+exports[`ic-card should render full width variant 1`] = `
+<ic-card clickable="true" full-width="true" heading="Card" message="This is a full width card">
+  <mock:shadow-root>
+    <button class="card clickable fullwidth" tabindex="0">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <slot name="message">
+          <ic-typography variant="body">
+            This is a full width card
+          </ic-typography>
+        </slot>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card>
+`;
+
+exports[`ic-card should render with a link parent 1`] = `
+<ic-card clickable="true" heading="Card" message="This is a clickable card">
+  <mock:shadow-root>
+    <div class="card clickable">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Card
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="card-message">
+        <slot name="message">
+          <ic-typography variant="body">
+            This is a clickable card
+          </ic-typography>
+        </slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card>
+`;

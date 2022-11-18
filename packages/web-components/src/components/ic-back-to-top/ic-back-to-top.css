@@ -1,0 +1,85 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+button {
+  position: fixed;
+  right: var(--ic-space-md);
+  bottom: var(--ic-space-md);
+  height: 40px;
+  align-items: center;
+  padding: var(--ic-space-xs) var(--ic-space-md) var(--ic-space-xs)
+    var(--ic-space-sm);
+  margin: 0;
+  gap: var(--ic-space-xs);
+  display: flex;
+  background-color: var(--ic-architectural-white);
+  border: 1px solid var(--ic-action-default);
+  outline-width: inherit;
+  box-sizing: border-box;
+  box-shadow: var(--ic-elevation-overlay);
+  border-radius: 80px;
+  text-decoration: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear var(--ic-transition-duration-slow),
+    opacity var(--ic-transition-duration-slow);
+  cursor: pointer;
+  z-index: var(--ic-z-index-overlay);
+}
+
+button:hover {
+  text-decoration: none;
+  background-color: var(--ic-action-default-bg-hover-no-alpha);
+  border: 1px solid var(--ic-action-default-hover);
+}
+
+button:active {
+  text-decoration: none;
+  background-color: var(--ic-action-default-bg-active-no-alpha);
+  border: 1px solid var(--ic-action-default-active);
+}
+
+button:focus {
+  box-shadow: var(--ic-border-focus);
+}
+
+.ic-back-to-top-link.show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s,
+    opacity var(--ic-transition-duration-slow),
+    box-shadow var(--ic-easing-transition-fast);
+}
+
+.ic-back-to-top-link.by-footer {
+  position: relative;
+  right: var(--ic-space-md);
+  bottom: 56px;
+}
+
+.ic-back-to-top-link.offset-banner {
+  margin-bottom: var(--ic-space-lg);
+}
+
+.ic-back-to-top-icon {
+  fill: var(--ic-action-default);
+  padding-left: var(--ic-space-xxs);
+  padding-top: var(--ic-space-xxxs);
+}
+
+.ic-back-to-top-link span {
+  color: var(--ic-action-default);
+}
+
+.ic-back-to-top-link:hover .ic-back-to-top-icon {
+  fill: var(--ic-action-default-hover);
+}
+
+.ic-back-to-top-link:hover span {
+  color: var(--ic-action-default-hover);
+}

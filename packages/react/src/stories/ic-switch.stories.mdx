@@ -1,0 +1,105 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcSwitch } from '../components';
+import readme from "../../../web-components/src/components/ic-switch/readme.md";
+
+<Meta title="React Components/Switch" component={IcSwitch} />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <IcSwitch label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Name
+
+<Canvas>
+  <Story name="Name">
+    <IcSwitch label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### State
+
+<Canvas>
+  <Story name="State">
+    <IcSwitch showState label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Checked
+
+<Canvas>
+  <Story name="Checked">
+    <IcSwitch checked showState label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small">
+    <IcSwitch small showState label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    <IcSwitch disabled label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Disabled, label and state
+
+<Canvas>
+  <Story name="Disabled, name and state">
+    <IcSwitch disabled showState label="Label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Disabled, label, state and checked
+
+<Canvas>
+  <Story name="Disabled, name, state and checked">
+    <IcSwitch disabled showState label="Label" checked></IcSwitch>
+  </Story>
+</Canvas>
+
+### ARIA label
+
+<Canvas>
+  <Story name="ARIA label">
+    <IcSwitch label="Custom label"></IcSwitch>
+  </Story>
+</Canvas>
+
+### Right adornment
+
+<Canvas>
+  <Story name="Right adornment">
+    <IcSwitch label="Right adornment">
+      <svg slot="right-adornment" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z" fill="black"/>
+</svg>
+    </IcSwitch>
+  </Story>
+</Canvas>
+
+### Helper text
+
+<Canvas>
+  <Story name="Helper text">
+    <IcSwitch label="Helper text" helperText="This is some helper text"></IcSwitch>
+  </Story>
+</Canvas>

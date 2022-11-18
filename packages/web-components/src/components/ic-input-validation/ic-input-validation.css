@@ -1,0 +1,43 @@
+ic-input-validation {
+  min-height: 28px;
+  width: var(--input-width, 320px);
+  margin-top: var(--ic-space-xxxs);
+  display: flex;
+}
+
+ic-input-validation.fullwidth {
+  width: 100%;
+}
+
+ic-input-validation.error {
+  color: var(--ic-status-error);
+}
+
+ic-input-validation.success {
+  color: var(--ic-status-success);
+}
+
+ic-input-validation span.status-icon {
+  padding-right: var(--ic-space-xxs);
+}
+
+ic-input-validation span.status-icon > svg {
+  height: 20px;
+  width: 20px;
+}
+
+ic-input-validation span.icon-success > svg {
+  fill: var(--ic-status-success);
+}
+
+ic-input-validation span.icon-error > svg {
+  fill: var(--ic-status-error);
+}
+
+ic-input-validation span.icon-warning > svg {
+  fill: var(--ic-status-warning-mid);
+}
+
+ic-input-validation .statustext {
+  flex-grow: 1;
+}

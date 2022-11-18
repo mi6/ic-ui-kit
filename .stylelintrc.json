@@ -1,0 +1,24 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "rules": {
+    "font-family-no-duplicate-names": [
+      true,
+      {
+        "ignoreFontFamilyNames": ["/^My Font /", "monospace"]
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["text-size-adjust", "appearance"]
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": ["box"]
+      }
+    ],
+    "no-descending-specificity": null
+  }
+}

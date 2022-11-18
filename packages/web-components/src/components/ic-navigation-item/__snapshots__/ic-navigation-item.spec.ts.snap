@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-navigation-item renders with label: renders-with-label 1`] = `
+<ic-navigation-item class="light navigation-item" label="Item label" role="listitem">
+  <mock:shadow-root>
+    <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">
+      <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+        <ic-typography variant="label">
+          Item label
+        </ic-typography>
+      </div>
+    </ic-tooltip>
+  </mock:shadow-root>
+</ic-navigation-item>
+`;

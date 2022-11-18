@@ -1,0 +1,324 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { IcCheckboxGroup, IcCheckbox, IcTextField } from '../components';
+import checkboxReadme from '../../../web-components/src/components/ic-checkbox/readme.md';
+import checkboxGroupReadme from '../../../web-components/src/components/ic-checkbox-group/readme.md';
+import { useForm } from 'react-hook-form';
+
+<Meta title="React Components/Checkbox" component={IcCheckboxGroup} />
+
+<Description
+  markdown={checkboxReadme + checkboxGroupReadme}
+/>
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <IcCheckboxGroup label="This is a label" name="1">
+        <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Required
+
+<Canvas>
+  <Story name="Required">
+        <IcCheckboxGroup label="This is a label" required name="1">
+          <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+        <IcCheckboxGroup label="This is a label" name="1" disabled>
+          <IcCheckbox
+            value="valueName1"
+            label="Unselected / Disabled 1"
+            disabled
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Unselected / Disabled 2"
+            disabled
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled 3"
+            disabled
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName4"
+            label="Selected / Disabled"
+            disabled
+            checked
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Hidden label
+
+<Canvas>
+  <Story name="Hidden label">
+        <IcCheckboxGroup label="This is a label" hideLabel name="1">
+          <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Conditional dynamic
+
+<Canvas>
+  <Story name="Conditional dynamic">
+        <IcCheckboxGroup label="Conditional dynamic" name="1">
+          <IcCheckbox
+            additionalFieldDisplay="dynamic"
+            value="valueName1"
+            label="option1"
+          >
+            <IcTextField
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            ></IcTextField>
+          </IcCheckbox>
+          <IcCheckbox
+            additionalFieldDisplay="dynamic"
+            value="valueName2"
+            label="option2 - error example"
+          >
+            <IcTextField
+              validationStatus="error"
+              validationText="now it has really gone to (coffee) pot"
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            >
+            </IcTextField>
+          </IcCheckbox>
+          <IcCheckbox
+            additionalFieldDisplay="dynamic"
+            value="valueName3"
+            label="option3"
+          >
+            <IcTextField
+              slot="additional-field"
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            ></IcTextField>
+          </IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Conditional static
+
+<Canvas>
+  <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
+        <IcCheckboxGroup label=" Conditional static " name="1">
+          <IcCheckbox value="valueName1" label="option1">
+            <IcTextField
+              slot="additional-field"
+              label="What's your favourite type of coffee?"
+            ></IcTextField>
+          </IcCheckbox>
+          <IcCheckbox value="valueName2" label="option2"> </IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Helper text
+
+<Canvas>
+  <Story name="Helper text">
+    <IcCheckboxGroup label="This is a label" name="1" helperText="Helper text">
+        <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small">
+    <IcCheckboxGroup label="This is a label" name="1" small>
+        <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+            small
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+            small
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+            small
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Validation
+
+<Canvas>
+  <Story name="Validation">
+    <IcCheckboxGroup label="This is a label" name="1" validationStatus="error" validationText="Error message">
+        <IcCheckbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></IcCheckbox>
+          <IcCheckbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></IcCheckbox>
+        </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### Form - This shows how the checkbox button works within a form and is where the value of the checkbox button selected will appear in the console.log
+
+export const Form = () => {
+  const { register, handleSubmit, unregister } = useForm();
+  const onCheck = (e) => {
+    e.target.checked ? register(e.target.name, {value: e.target.value}) : unregister(e.target.name)
+  }
+  return (
+    <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <IcCheckboxGroup label="This is a label" name="1">
+        <IcCheckbox
+          name="checkbox1"
+          value="valueName1"
+          label="Unselected / Default"
+          onCheckboxChecked={onCheck}
+        ></IcCheckbox>
+        <IcCheckbox
+          name="checkbox2"
+          value="valueName2"
+          label="Selected / Default"
+          onCheckboxChecked={onCheck}
+        ></IcCheckbox>
+        <IcCheckbox
+          name="checkbox3"
+          value="valueName3"
+          label="Unselected / Disabled"
+          Disabled
+        ></IcCheckbox>
+      </IcCheckboxGroup>
+      <input type="submit" value="Submit" />
+    </form>
+  )
+}
+
+<Canvas>
+  <Story name="Form">
+    <Form></Form>
+  </Story>
+</Canvas>
+
+### Indeterminate
+
+<Canvas>
+  <Story name="Indeterminate">
+    <IcCheckboxGroup label="Liked things" name="1">
+        <IcCheckbox
+          value="drinks"
+          label="Drinks"
+          checked="true"
+          indeterminate="true"
+        >
+          <IcCheckboxGroup name="2" label="Coffee" hideLabel slot="additional-field">
+            <IcCheckbox value="tea" label="Tea"></IcCheckbox>
+            <IcCheckbox
+              value="coffee"
+              label="Coffee"
+              checked="true"
+              indeterminate="true"
+            >
+              <IcCheckboxGroup
+                label="Coffees"
+                hideLabel
+                slot="additional-field"
+                name="3"
+              >
+                <IcCheckbox value="mocha" label="Mocha"></IcCheckbox>
+                <IcCheckbox
+                  value="espresso"
+                  label="Espresso"
+                  checked
+                ></IcCheckbox>
+                <IcCheckbox value="cappucino" label="Cappucino"></IcCheckbox>
+              </IcCheckboxGroup>
+            </IcCheckbox>
+            <IcCheckbox value="juice" label="Juice"></IcCheckbox>
+          </IcCheckboxGroup>
+        </IcCheckbox>
+      </IcCheckboxGroup>
+  </Story>
+</Canvas>

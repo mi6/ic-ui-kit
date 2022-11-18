@@ -1,0 +1,11 @@
+hr {
+  padding: 0;
+  margin: 0;
+  border: none;
+  height: 1px;
+  background-color: var(--ic-keyline-darken-rgb);
+}
+
+hr.light {
+  background-color: var(--ic-keyline-lighten-rgb);
+}

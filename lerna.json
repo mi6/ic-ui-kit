@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "registry": "https://registry.npmjs.org"
+    },
+    "version": {
+      "message": "chore(release): [ci skip] components publish"
+    }
+  }
+}

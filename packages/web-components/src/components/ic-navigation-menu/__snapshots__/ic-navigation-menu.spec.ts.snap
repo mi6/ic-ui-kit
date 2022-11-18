@@ -1,0 +1,312 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-navigation-menu should render with version and status: renders-with-version-and-status 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="App menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container">
+          <ic-button aria-label="Close app menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+      </nav>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-navigation-menu>
+`;
+
+exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-buttons 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="App menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container">
+          <ic-button class="button-size-large button-variant-icon menu-close-button" id="menu-close-button">
+            <mock:shadow-root>
+              <ic-tooltip label="Close app menu" placement="bottom" target="ic-button-with-tooltip-menu-close-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close app menu" class="button" id="ic-button-with-tooltip-menu-close-button" type="button">
+                  <div class="icon-container">
+                    <slot name="icon"></slot>
+                  </div>
+                  <slot></slot>
+                </button>
+              </ic-tooltip>
+            </mock:shadow-root>
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+      </nav>
+      <div class="menu-buttons-container">
+        <slot name="buttons"></slot>
+      </div>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-button onclick="alert('test')" slot="buttons">
+    <mock:shadow-root>
+      <ic-button class="button-size-large button-variant-icon light">
+        <mock:shadow-root>
+          <ic-tooltip placement="bottom" target="ic-button-with-tooltip-">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" class="button" id="ic-button-with-tooltip-" type="button">
+              <div class="icon-container">
+                <slot name="icon"></slot>
+              </div>
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </mock:shadow-root>
+        <slot name="icon" slot="icon"></slot>
+      </ic-button>
+    </mock:shadow-root>
+    <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0V0z" fill="none"></path>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
+    </svg>
+  </ic-navigation-button>
+</ic-navigation-menu>
+`;
+
+exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+        <slot name="navigation"></slot>
+      </nav>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <a href="/" slot="navigation"></a>
+</ic-navigation-menu>
+`;
+
+exports[`ic-navigation-menu should test slotted navigation and buttons: renders-with-slotted-navigation-and-buttons 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container">
+          <ic-button class="button-size-large button-variant-icon menu-close-button" id="menu-close-button">
+            <mock:shadow-root>
+              <ic-tooltip label="Close navigation menu" placement="bottom" target="ic-button-with-tooltip-menu-close-button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close navigation menu" class="button" id="ic-button-with-tooltip-menu-close-button" type="button">
+                  <div class="icon-container">
+                    <slot name="icon"></slot>
+                  </div>
+                  <slot></slot>
+                </button>
+              </ic-tooltip>
+            </mock:shadow-root>
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+        <slot name="navigation"></slot>
+      </nav>
+      <div class="menu-buttons-container menu-buttons-container-nav-item-above">
+        <slot name="buttons"></slot>
+      </div>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
+    <mock:shadow-root>
+      <ic-button class="button-size-large button-variant-icon light">
+        <mock:shadow-root>
+          <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" type="button">
+              <div class="icon-container">
+                <slot name="icon"></slot>
+              </div>
+              <slot></slot>
+            </button>
+          </ic-tooltip>
+        </mock:shadow-root>
+        <slot name="icon" slot="icon"></slot>
+      </ic-button>
+    </mock:shadow-root>
+    <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0V0z" fill="none"></path>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"></path>
+    </svg>
+  </ic-navigation-button>
+  <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <ic-typography variant="label">
+            Navigation 1
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+  </ic-navigation-item>
+</ic-navigation-menu>
+`;
+
+exports[`ic-navigation-menu should test slotted navigation group: renders-with-slotted-navigation-group 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container nav-group-first">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+        <slot name="navigation"></slot>
+      </nav>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-group class="expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
+    <mock:shadow-root>
+      <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
+        <ic-typography variant="label">
+          Navigation group
+        </ic-typography>
+      </button>
+      <ul class="grouped-links-wrapper" style="--navigation-child-items-height: auto;">
+        <slot></slot>
+      </ul>
+    </mock:shadow-root>
+  </ic-navigation-group>
+</ic-navigation-menu>
+`;
+
+exports[`ic-navigation-menu should test slotted navigation item: renders-with-slotted-navigation-item 1`] = `
+<ic-navigation-menu status="Beta" version="v1.0.0">
+  <mock:shadow-root>
+    <div class="popout-modal"></div>
+    <div aria-label="Navigation menu" aria-modal="true" class="popout-menu" role="dialog">
+      <span aria-hidden="true" class="navigation-landmark-text" id="navigation-landmark-text">
+        Main navigation
+      </span>
+      <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
+        <div class="menu-close-button-container">
+          <ic-button aria-label="Close navigation menu" class="menu-close-button" id="menu-close-button" size="large" variant="icon">
+            <svg fill="none" height="14" slot="icon" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="#1759BC"></path>
+            </svg>
+          </ic-button>
+        </div>
+        <slot name="navigation"></slot>
+      </nav>
+      <div class="menu-status-version-container">
+        <div class="menu-status">
+          <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
+            Beta
+          </ic-typography>
+        </div>
+        <div class="menu-version">
+          <ic-typography aria-label="app version" class="menu-version-text" variant="label">
+            v1.0.0
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-navigation-item class="light navigation-item" href="/" label="Navigation 1" role="listitem" slot="navigation">
+    <mock:shadow-root>
+      <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
+        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+          <ic-typography variant="label">
+            Navigation 1
+          </ic-typography>
+        </a>
+      </ic-tooltip>
+    </mock:shadow-root>
+  </ic-navigation-item>
+</ic-navigation-menu>
+`;
