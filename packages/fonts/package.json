@@ -1,6 +1,6 @@
 {
   "name": "@ukic/fonts",
-  "version": "2.0.0-alpha.120",
+  "version": "2.0.0",
   "description": "Typography assets for @ukic components",
   "scripts": {
     "build": "rimraf ./dist && webpack --config webpack.config.js",
