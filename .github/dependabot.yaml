@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    target-branch: "develop"
+    commit-message:
+      prefix: "fix(root)"
+      prefix-development": "chore(root)"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/packages/web-components"
+    schedule:
+      interval: "weekly"
+    target-branch: "develop"
+    commit-message:
+      prefix: "fix(web-components)"
+      prefix-development": "chore(web-components)"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/packages/react"
+    schedule:
+      interval: "weekly"
+    target-branch: "develop"
+    commit-message:
+      prefix: "fix(react)"
+      prefix-development": "chore(react)"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/packages/fonts"
+    schedule:
+      interval: "weekly"
+    target-branch: "develop"
+    commit-message:
+      prefix: "fix(fonts)"
+      prefix-development": "chore(fonts)"
+      include: "scope"
