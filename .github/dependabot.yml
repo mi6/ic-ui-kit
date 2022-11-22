@@ -8,6 +8,7 @@ updates:
     commit-message:
       prefix: "build(root)"
       include: "scope"
+    open-pull-requests-limit: 0
 
   - package-ecosystem: "npm"
     directory: "/packages/web-components"
@@ -17,6 +18,7 @@ updates:
     commit-message:
       prefix: "build(root)"
       include: "scope"
+    open-pull-requests-limit: 0
 
   - package-ecosystem: "npm"
     directory: "/packages/react"
@@ -26,6 +28,7 @@ updates:
     commit-message:
       prefix: "build(react)"
       include: "scope"
+    open-pull-requests-limit: 0
 
   - package-ecosystem: "npm"
     directory: "/packages/fonts"
@@ -35,3 +38,4 @@ updates:
     commit-message:
       prefix: "build(fonts)"
       include: "scope"
+    open-pull-requests-limit: 0
