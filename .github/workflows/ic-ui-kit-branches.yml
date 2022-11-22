@@ -6,6 +6,7 @@ on:
       - main
       - develop
       - gh-pages
+      - 'dependabot/**'
 
 jobs:
   ic-ui-kit-static-analysis-tests:
