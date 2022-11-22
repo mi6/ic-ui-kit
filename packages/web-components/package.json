@@ -9,7 +9,7 @@
   "types": "dist/types/interface.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/icds/icds.esm.js",
+  "unpkg": "dist/core/core.esm.js",
   "files": [
     "dist/",
     "loader/",
