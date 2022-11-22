@@ -8,7 +8,7 @@ Our open source projects are supported on a best endeavours basis. We'll patch t
 
 ## Report a vulnerability
 
-You can report a vulnerability in one of our open source repositories by raising an issue on GitHub. Alternatively, you can send an email to [icds@gchq.gov.uk](mailto:icds@gchq.gov.uk).
+You can report a vulnerability in one of our open source repositories by raising an [issue on GitHub](https://github.com/mi6/ic-ui-kit/issues). Alternatively, you can send an email to [icds@gchq.gov.uk](mailto:icds@gchq.gov.uk).
 
 When reporting a vulnerability to us, please include:
 
