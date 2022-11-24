@@ -92,12 +92,22 @@ header.tabs {
 }
 
 @media screen and (max-width: 576px) {
+  ::slotted(ic-text-field) {
+    --input-width: 100%;
+
+    max-width: 320px;
+  }
+
   .main-content {
     grid-template-areas:
       "title-area"
       "action-area"
       "input-area";
     justify-content: flex-start;
+  }
+
+  .title-area {
+    min-width: 0;
   }
 
   .action-area {
