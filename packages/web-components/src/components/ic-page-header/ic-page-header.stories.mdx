@@ -238,8 +238,15 @@ import readme from "./readme.md";
         reverse-order
       >
         <ic-breadcrumb-group slot="breadcrumbs">
-          <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
-          <ic-breadcrumb current="true" page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
+          <ic-breadcrumb
+            page-title="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></ic-breadcrumb>
+          <ic-breadcrumb
+            current="true"
+            page-title="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></ic-breadcrumb>
         </ic-breadcrumb-group>
       </ic-page-header>
     `}
@@ -283,11 +290,6 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With input">
     {html`
-      <style>
-        ic-text-field {
-          --input-width: 304px;
-        }
-      </style>
       <ic-page-header
         heading="Page header"
         subheading="This is a page header component with additional functionality and this is the text."
@@ -353,20 +355,22 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With breadcrumbs, input, actions and tabs">
     {html`
-      <style>
-        ic-text-field {
-          --input-width: 304px;
-        }
-      </style>
       <ic-page-header
         heading="Coffee recipes"
         subheading="This is a page header component that has breadcrumbs, an input area, actions & tabs."
         reverse-order
       >
-      <ic-breadcrumb-group slot="breadcrumbs">
-        <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
-        <ic-breadcrumb current="true" page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
-      </ic-breadcrumb-group>
+        <ic-breadcrumb-group slot="breadcrumbs">
+          <ic-breadcrumb
+            page-title="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></ic-breadcrumb>
+          <ic-breadcrumb
+            current="true"
+            page-title="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></ic-breadcrumb>
+        </ic-breadcrumb-group>
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
         <ic-button slot="actions" variant="primary"
           >Create coffee
@@ -407,19 +411,21 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With breadcrumbs, input, actions and stepper">
     {html`
-      <style>
-        ic-text-field {
-          --input-width: 304px;
-        }
-      </style>
       <ic-page-header
         heading="Coffee recipes"
         subheading="This is a page header component that has breadcrumbs, an input area, actions & stepper."
         reverse-order
       >
         <ic-breadcrumb-group slot="breadcrumbs">
-          <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
-          <ic-breadcrumb current="true" page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
+          <ic-breadcrumb
+            page-title="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></ic-breadcrumb>
+          <ic-breadcrumb
+            current="true"
+            page-title="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></ic-breadcrumb>
         </ic-breadcrumb-group>
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
         <ic-button slot="actions" variant="primary"
