@@ -106,7 +106,7 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a ::slotted(a:link:active),
 :host(.footer-link) a ::slotted(a:link:focus:active),
 :host(.footer-link) a ::slotted(a:link:visited:active) {
-  color: var(--ic-action-default);
+  color: inherit;
   text-decoration: none;
 }
 
