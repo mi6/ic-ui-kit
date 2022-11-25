@@ -71,6 +71,11 @@ a:link:visited > ::slotted(svg) {
   fill: var(--ic-architectural-white);
 }
 
+:host(.footer-link-light) a:link:active,
+:host(.footer-link-light) ::slotted(a:link:active) {
+  color: var(--ic-color-white-text);
+}
+
 :host(.footer-link-dark) ::slotted(svg) {
   fill: var(--ic-architectural-black);
 }
