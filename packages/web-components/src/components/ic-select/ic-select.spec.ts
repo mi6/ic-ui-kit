@@ -1067,4 +1067,29 @@ describe("ic-select", () => {
     expect(page.root.options[1].value).toBe("Test label 2");
     expect(page.root.options[2].value).toBe("Test label 3");
   });
+
+  it("should test form reset event", async () => {
+    const page = await newSpecPage({
+      components: [Select],
+      html: `<form>
+        <ic-select label="IC Select Test" searchable="true"></ic-select>    
+        <button id="resetButton" type="reset">Reset</button> 
+      </form>`,
+    });
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(null);
+
+    page.rootInstance.searchableSelectInputValue = "test value";
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe("test value");
+
+    await page.rootInstance.handleFormReset();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe(null);
+
+    //test disconnected callback
+    page.setContent("");
+  });
 });

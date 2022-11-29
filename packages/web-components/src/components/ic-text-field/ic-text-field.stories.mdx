@@ -809,3 +809,30 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Form - This shows how the text field works within a form. The field value will appear in the console.log
+
+<Canvas>
+  <Story name="Form" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <form>
+          <ic-text-field label="What is your favourite coffee?"></ic-text-field>
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
+        <script>
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(
+              document.querySelector('input[name="ic-text-field-input-0"]')
+                .value
+            );
+          });
+        </script>
+      `
+    }
+  </Story>
+</Canvas>

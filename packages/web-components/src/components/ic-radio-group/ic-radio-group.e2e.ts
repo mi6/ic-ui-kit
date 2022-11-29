@@ -367,4 +367,43 @@ describe("ic-radio-group component", () => {
 
     expect(value).toBe("testValue1");
   });
+
+  it("Should reset to initial state on form reset event", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<form><ic-radio-group label="test label" name="test">
+        <ic-radio-option value="test1" ></ic-radio-option>    
+        <ic-radio-option value="test2" selected></ic-radio-option>    
+        </ic-radio-group>
+        <button type="reset" id="resetButton">Reset</button>
+        </form>
+      `);
+
+    await page.waitForChanges();
+
+    let radioButton1 = await page.find("ic-radio-option[value='test1']");
+    let radioButton2 = await page.find("ic-radio-option[value='test2']");
+
+    expect(await radioButton1.getProperty("selected")).toBe(false);
+    expect(await radioButton2.getProperty("selected")).toBe(true);
+
+    await radioButton1.click();
+    await page.waitForChanges();
+
+    radioButton1 = await page.find("ic-radio-option[value='test1']");
+    radioButton2 = await page.find("ic-radio-option[value='test2']");
+
+    expect(await radioButton1.getProperty("selected")).toBe(true);
+    expect(await radioButton2.getProperty("selected")).toBe(false);
+
+    const resetButton = await page.find("#resetButton");
+    await resetButton.click();
+
+    await page.waitForChanges();
+
+    radioButton1 = await page.find("ic-radio-option[value='test1']");
+    radioButton2 = await page.find("ic-radio-option[value='test2']");
+
+    expect(await radioButton1.getProperty("selected")).toBe(false);
+    expect(await radioButton2.getProperty("selected")).toBe(true);
+  });
 });

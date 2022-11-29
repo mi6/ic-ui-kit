@@ -8,11 +8,14 @@ import {
   EventEmitter,
   Listen,
   Watch,
+  State,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes } from "../../utils/types";
 import {
   getSlotContent,
   onComponentRequiredPropUndefined,
+  addFormResetListener,
+  removeFormResetListener,
 } from "../../utils/helpers";
 import { IcValueEventDetail } from "../../interface";
 @Component({
@@ -25,7 +28,7 @@ export class RadioOption {
   /**
    * Determines whether the radio should be in selected state.
    */
-  @Prop({ reflect: true }) selected?: boolean = false;
+  @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
   /**
    * Determines whether the radio should be in disabled state.
    */
@@ -37,7 +40,7 @@ export class RadioOption {
   /**
    * Provide a value for the input.
    */
-  @Prop() value!: string;
+  @Prop({ mutable: true }) value!: string;
   /**
    * Provide a name for the input.
    */
@@ -55,6 +58,8 @@ export class RadioOption {
 
   @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
+
+  @State() initiallySelected = this.selected;
 
   @Element() host: HTMLIcRadioOptionElement;
 
@@ -76,10 +81,14 @@ export class RadioOption {
   }
 
   private defaultRadioValue: string = "";
+  private skipFocus = false;
 
   private handleClick = () => {
     if (!this.disabled) {
-      this.radioElement.focus();
+      if (this.skipFocus === false) {
+        this.radioElement.focus();
+      }
+      this.skipFocus = false;
 
       if (this.hasAdditionalField) {
         const textfield = this.host.querySelector("ic-text-field");
@@ -111,7 +120,14 @@ export class RadioOption {
     }
 
     this.defaultRadioValue = this.value;
+
+    addFormResetListener(this.host, this.handleFormReset);
   }
+
+  private handleFormReset = (): void => {
+    this.skipFocus = true;
+    this.selected = this.initiallySelected;
+  };
 
   @Listen("icChange")
   textfieldValueHandler(event: CustomEvent<{ value: string }>): void {
@@ -148,6 +164,10 @@ export class RadioOption {
         textfield && textfield.removeAttribute("disabled");
       }
     }
+  }
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
   }
 
   render() {
