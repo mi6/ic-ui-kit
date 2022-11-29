@@ -44,7 +44,7 @@ export class TabContext {
   /**
    * Determines whether the light or dark variant of the tabs should be displayed.
    */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "light";
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   @State() selectedTab: number | null;
 
@@ -94,12 +94,13 @@ export class TabContext {
       this.tabPanels[index].tabPosition = index;
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
 
-      if (this.appearance === IcThemeForegroundEnum.Dark) {
+      if (this.appearance === IcThemeForegroundEnum.Light) {
         tab.appearance = this.appearance;
+        this.tabPanels[index].appearance = this.appearance;
       }
     });
 
-    if (this.appearance === IcThemeForegroundEnum.Dark) {
+    if (this.appearance === IcThemeForegroundEnum.Light) {
       this.tabGroup.appearance = this.appearance;
     }
   };

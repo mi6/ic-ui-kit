@@ -143,11 +143,11 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
   </Story>
 </Canvas>
 
-### Dark
+### Light text
 
 <Canvas>
-  <Story name="Dark" parameters={{ backgrounds: { default: "dark" } }}>
-    {html` <ic-tab-context appearance="dark">
+  <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
+    {html` <ic-tab-context appearance="light">
       <ic-tab-group label="Example tab list">
         <ic-tab>One</ic-tab>
         <ic-tab>Two</ic-tab>
@@ -202,15 +202,15 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
   </Story>
 </Canvas>
 
-### Responsive (dark)
+### Responsive (Light text)
 
 <Canvas>
   <Story
-    name="Responsive (dark)"
+    name="Responsive (Light text)"
     parameters={{ backgrounds: { default: "dark" } }}
   >
     {html`
-      <ic-tab-context appearance="dark">
+      <ic-tab-context appearance="light">
         <ic-tab-group label="Example tab list">
           <ic-tab>One</ic-tab>
           <ic-tab>Two</ic-tab>
@@ -222,15 +222,15 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
           <ic-tab>Eight</ic-tab>
           <ic-tab>Nine</ic-tab>
         </ic-tab-group>
-        <ic-tab-panel style="color:white">Tab One</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Two</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Three</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Four</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Five</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Six</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Seven</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Eight</ic-tab-panel>
-        <ic-tab-panel style="color:white">Tab Nine</ic-tab-panel>
+        <ic-tab-panel>Tab One</ic-tab-panel>
+        <ic-tab-panel>Tab Two</ic-tab-panel>
+        <ic-tab-panel>Tab Three</ic-tab-panel>
+        <ic-tab-panel>Tab Four</ic-tab-panel>
+        <ic-tab-panel>Tab Five</ic-tab-panel>
+        <ic-tab-panel>Tab Six</ic-tab-panel>
+        <ic-tab-panel>Tab Seven</ic-tab-panel>
+        <ic-tab-panel>Tab Eight</ic-tab-panel>
+        <ic-tab-panel>Tab Nine</ic-tab-panel>
       </ic-tab-context>
     `}
   </Story>

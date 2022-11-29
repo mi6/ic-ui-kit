@@ -44,7 +44,7 @@ export class Tab {
   @Prop() tabPosition!: number;
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "light";
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
    * Called when a tab is selected.
@@ -109,7 +109,7 @@ export class Tab {
       <Host
         class={{
           ["with-transition"]: !this.isInitialRender,
-          ["ic-tab-dark"]: appearance === IcThemeForegroundEnum.Dark,
+          ["ic-tab-light"]: appearance === IcThemeForegroundEnum.Light,
         }}
         role="tab"
         aria-selected={selected ? "true" : "false"}

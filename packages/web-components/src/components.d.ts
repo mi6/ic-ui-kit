@@ -1181,6 +1181,7 @@ export namespace Components {
         "scrollTabIntoView": (tabNumber: number) => Promise<void>;
     }
     interface IcTabPanel {
+        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */
@@ -3021,6 +3022,7 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface IcTabPanel {
+        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */

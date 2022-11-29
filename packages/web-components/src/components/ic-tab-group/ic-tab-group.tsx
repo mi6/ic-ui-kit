@@ -49,7 +49,7 @@ export class TabGroup {
   @Prop() label!: string;
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "light";
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   @State() firstTabVisible: boolean = true;
   @State() lastTabVisible: boolean = false;
@@ -192,7 +192,7 @@ export class TabGroup {
         role="tablist"
         aria-label={label}
         class={{
-          ["dark"]: appearance === IcThemeForegroundEnum.Dark,
+          ["light"]: appearance === IcThemeForegroundEnum.Light,
           ["ic-tab-group-not-inline"]: !inline,
         }}
       >
