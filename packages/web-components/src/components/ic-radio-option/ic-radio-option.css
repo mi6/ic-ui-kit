@@ -195,3 +195,9 @@
   margin-bottom: var(--ic-space-xs);
   border-radius: 2%;
 }
+
+@media (max-width: 576px) {
+  ::slotted(ic-text-field) {
+    --input-width: 100%;
+  }
+}
