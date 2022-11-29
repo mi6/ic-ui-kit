@@ -12,7 +12,7 @@
   margin-left: calc(-1 * var(--ic-space-xs));
 }
 
-:host(.dark) {
+:host(.light) {
   --splitter-color: var(--ic-architectural-white);
   --tab-scroll-focus: var(--ic-border-focus-dark);
   --tab-scroll-fill: var(--ic-action-light);
@@ -48,7 +48,7 @@
   align-items: center;
 }
 
-:host(.dark.ic-tab-group-not-inline) {
+:host(.light.ic-tab-group-not-inline) {
   --border-bottom-color: var(--ic-architectural-white);
 }
 

@@ -38,7 +38,7 @@
   background-color: var(--background-color-active);
 }
 
-:host(.ic-tab-dark) {
+:host(.ic-tab-light) {
   --indicator-initial-color: rgb(255 255 255 / 0%);
   --indicator-color: rgb(255 255 255 / 100%);
   --focus-indicator: var(--ic-border-focus);
