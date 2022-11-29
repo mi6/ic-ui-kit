@@ -9,6 +9,10 @@ import {
   IcThemeForegroundEnum,
 } from "../../utils/types";
 
+/**
+ * @slot router-item - Handle routing by nesting your routes in this slot
+ */
+
 @Component({
   tag: "ic-link",
   styleUrl: "ic-link.css",
