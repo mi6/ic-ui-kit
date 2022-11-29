@@ -29,6 +29,19 @@ const getTestSelect = (
     });
   </script>`;
 
+const getTestSelectFormReset = (
+  options: string
+) => `<form><ic-select label="IC Select Test"></ic-select><button type="reset" id="resetButton">Reset</button></form>
+    <script>
+      var select = document.querySelector('ic-select');
+      var option = 'Test value 1';
+      select.options = ${options};
+      select.addEventListener('icChange', function (event) {
+        option = event.detail.value;
+        select.value = option;
+      });
+    </script>`;
+
 const getTestSearchableSelect = (
   options: string
 ) => `<ic-select label="IC Select Test" searchable></ic-select>
@@ -1396,6 +1409,42 @@ describe("ic-select", () => {
 
       expect(await getMenuVisibility(page)).toBe("hidden");
     });
+  });
+
+  it("should reset to initial value on form reset", async () => {
+    const page = await newE2EPage();
+    await page.setContent(getTestSelectFormReset(options));
+    await page.waitForChanges();
+
+    let value = await page.$eval("ic-select", (el) => {
+      const select = el as unknown as HTMLIcSelectElement;
+      return select.value;
+    });
+    expect(value).toBe(undefined);
+    const select = await page.find("ic-select >>> #ic-select-input-0");
+
+    await select.press("Enter");
+    await page.waitForChanges();
+    await select.press("ArrowDown");
+    await page.waitForChanges();
+
+    value = await page.$eval("ic-select", (el) => {
+      const select = el as unknown as HTMLIcSelectElement;
+      return select.value;
+    });
+    expect(value).toBe("Test value 1");
+
+    await page.$eval("#resetButton", (el) => {
+      const reset = el as unknown as HTMLButtonElement;
+      reset.click();
+    });
+    await page.waitForChanges();
+
+    value = await page.$eval("ic-select", (el) => {
+      const select = el as unknown as HTMLIcSelectElement;
+      return select.value;
+    });
+    expect(value).toBe(undefined);
   });
 
   let page: E2EPage;

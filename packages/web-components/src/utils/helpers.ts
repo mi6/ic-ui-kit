@@ -516,3 +516,27 @@ export const hasClassificationBanner = (): boolean => {
     return false;
   }
 };
+
+export const getForm = (el: HTMLElement): HTMLFormElement | null => {
+  return el.closest("FORM");
+};
+
+export const addFormResetListener = (
+  el: HTMLElement,
+  callbackFn: IcCallbackFunctionNoReturn
+) => {
+  const form = getForm(el);
+  if (form !== null) {
+    form.addEventListener("reset", callbackFn);
+  }
+};
+
+export const removeFormResetListener = (
+  el: HTMLElement,
+  callbackFn: IcCallbackFunctionNoReturn
+) => {
+  const form = getForm(el);
+  if (form !== null) {
+    form.removeEventListener("reset", callbackFn);
+  }
+};
