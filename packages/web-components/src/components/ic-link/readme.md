@@ -19,6 +19,13 @@
 | `target`         | `target`         | Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). | `string`                                                                                                                                                                                 | `undefined` |
 
 
+## Slots
+
+| Slot            | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `"router-item"` | Handle routing by nesting your routes in this slot |
+
+
 ## Dependencies
 
 ### Used by
