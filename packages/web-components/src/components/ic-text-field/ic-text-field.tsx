@@ -26,6 +26,8 @@ import {
   renderHiddenInput,
   isEmptyString,
   onComponentRequiredPropUndefined,
+  addFormResetListener,
+  removeFormResetListener,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -232,6 +234,7 @@ export class TextField {
 
   @State() numChars: number = 0;
   @State() maxLengthExceeded: boolean = false;
+  @State() initialValue = this.value;
 
   @Watch("value")
   watchValueHandler(newValue: string): void {
@@ -330,6 +333,10 @@ export class TextField {
     return false;
   };
 
+  private handleFormReset = (): void => {
+    this.value = this.initialValue;
+  };
+
   connectedCallback(): void {
     this.debounceChanged();
   }
@@ -347,6 +354,8 @@ export class TextField {
     if (this.readonly) {
       this.maxLengthExceeded = false;
     }
+
+    addFormResetListener(this.el, this.handleFormReset);
   }
 
   componentDidLoad(): void {
@@ -354,6 +363,10 @@ export class TextField {
       [{ prop: this.label, propName: "label" }],
       "Text Field"
     );
+  }
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.el, this.handleFormReset);
   }
 
   render() {

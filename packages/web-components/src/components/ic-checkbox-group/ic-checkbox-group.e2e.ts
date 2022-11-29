@@ -200,4 +200,32 @@ describe("ic-checkbox-group component", () => {
 
     expect(value).toBe("");
   });
+
+  it("resets checked state on form reset", async () => {
+    const page = await newE2EPage();
+
+    await page.setContent(` <form>
+        <ic-checkbox-group label="this is a label" name="1">
+          <ic-checkbox
+              value="valueName1"
+              label="Unselected / Default"
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <button type="reset" id="resetButton">Reset</button>
+      </form>
+    `);
+    await page.waitForChanges();
+
+    let checkbox = await page.find("ic-checkbox[value='valueName1']");
+    await checkbox.click();
+    await page.waitForChanges();
+    expect(await checkbox.getProperty("checked")).toBe(true);
+
+    const resetButton = await page.find("#resetButton");
+    await resetButton.click();
+    await page.waitForChanges();
+
+    checkbox = await page.find("ic-checkbox[value='valueName1']");
+    expect(await checkbox.getProperty("checked")).toBe(false);
+  });
 });
