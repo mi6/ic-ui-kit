@@ -481,6 +481,41 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Default in form - This shows how the select works within a form. The value will appear in the console.log on submit.
+
+<Canvas>
+  <Story name="Default in form" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <form>
+          <ic-select label="What is your favourite coffee?"></ic-select>
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
+        <script>
+          var select = document.querySelector("ic-select");
+          var option = "Cappuccino";
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(document.querySelector("input.ic-input").value);
+          });
+        </script>
+      `
+    }
+  </Story>
+</Canvas>
+
 ### Searchable default
 
 <Canvas>

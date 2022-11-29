@@ -12,6 +12,8 @@ import {
   getInputDescribedByText,
   onComponentRequiredPropUndefined,
   renderHiddenInput,
+  addFormResetListener,
+  removeFormResetListener,
 } from "../../utils/helpers";
 import { IcSwitchChangeEventDetail } from "./ic-switch.types";
 
@@ -44,9 +46,9 @@ export class Switch {
    */
   @Prop() helperText?: string = "";
   /**
-   * If true, the component is checked, if null the components state will be uncontrolled.
+   * If true, the component is checked.
    */
-  @Prop() checked?: boolean | null = null;
+  @Prop() checked?: boolean = false;
   /**
    * If true, the component reduces in size to the small state.
    */
@@ -89,6 +91,7 @@ export class Switch {
   @Event() icBlur!: EventEmitter<void>;
 
   @State() checkedState: boolean = false;
+  @State() initiallyChecked = this.checked;
 
   private handleChange = () => {
     this.checkedState = !this.checkedState;
@@ -106,6 +109,15 @@ export class Switch {
     this.icBlur.emit();
   };
 
+  private handleFormReset = (): void => {
+    this.checkedState = this.initiallyChecked;
+  };
+
+  componentWillLoad(): void {
+    this.checkedState = this.checked;
+    addFormResetListener(this.el, this.handleFormReset);
+  }
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -113,10 +125,13 @@ export class Switch {
     );
   }
 
+  disconnectedCallback(): void {
+    removeFormResetListener(this.el, this.handleFormReset);
+  }
+
   render() {
     const {
       label,
-      checked,
       checkedState,
       small,
       disabled,
@@ -128,15 +143,7 @@ export class Switch {
       inputId,
     } = this;
 
-    const internalChecked = checked == null ? checkedState : checked;
-
-    renderHiddenInput(
-      true,
-      this.el,
-      name,
-      internalChecked ? value : "",
-      disabled
-    );
+    renderHiddenInput(true, this.el, name, checkedState ? value : "", disabled);
 
     const describedBy = getInputDescribedByText(
       inputId,
@@ -169,10 +176,10 @@ export class Switch {
           )}
           {!hideLabel && <span class="ic-switch-line-break"></span>}
           <input
-            checked={internalChecked}
+            checked={checkedState}
             disabled={disabled}
             aria-label={label}
-            aria-checked={internalChecked ? "true" : "false"}
+            aria-checked={checkedState ? "true" : "false"}
             aria-describedby={describedBy}
             role="switch"
             class="ic-switch-input"
@@ -222,7 +229,7 @@ export class Switch {
               variant="label"
               class="ic-switch-checked-status"
             >
-              {internalChecked ? "On" : "Off"}
+              {checkedState ? "On" : "Off"}
             </ic-typography>
           )}
         </label>

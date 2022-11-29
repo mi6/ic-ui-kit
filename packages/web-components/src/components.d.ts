@@ -1099,9 +1099,9 @@ export namespace Components {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked, if null the components state will be uncontrolled.
+          * If true, the component is checked.
          */
-        "checked"?: boolean | null;
+        "checked"?: boolean;
         /**
           * If true, the component is not interactive.
          */
@@ -2919,9 +2919,9 @@ declare namespace LocalJSX {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked, if null the components state will be uncontrolled.
+          * If true, the component is checked.
          */
-        "checked"?: boolean | null;
+        "checked"?: boolean;
         /**
           * If true, the component is not interactive.
          */
