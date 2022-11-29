@@ -55,3 +55,11 @@
   width: 128px;
   margin-bottom: var(--ic-space-xs);
 }
+
+:host(.breakpoint-xs) .value {
+  max-width: 95%;
+}
+
+:host(.breakpoint-xs) .end-component {
+  margin-left: 0;
+}
