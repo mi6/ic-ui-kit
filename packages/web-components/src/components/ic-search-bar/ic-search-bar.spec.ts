@@ -497,4 +497,25 @@ describe("ic-search-bar search", () => {
     await page.rootInstance.highlightFirstOptionAfterNoResults();
     expect(page.rootInstance.prevNoOption).toBe(false);
   });
+
+  it("should test no results state when no options passed and filtering disabled", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, TextField, Menu],
+      html: '<ic-search-bar label="Test label" disable-filter="true"></ic-search-bar>',
+    });
+
+    const textfield = page.root.shadowRoot.querySelector("ic-text-field");
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    page.rootInstance.value = "aa";
+    textfield.dispatchEvent(event);
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("No results found");
+  });
 });
