@@ -226,7 +226,7 @@ export class SearchBar {
   @Listen("keyup", {})
   handleKeyUp(ev: KeyboardEvent): void {
     if (ev.key === "Enter") {
-      if (this.preventSubmit) {
+      if (this.preventSubmit || this.isSubmitDisabled()) {
         return;
       }
 
@@ -260,6 +260,8 @@ export class SearchBar {
   private onInput = (ev: Event) => {
     this.value = (ev.target as HTMLInputElement).value;
 
+    const noOptions = [{ label: this.emptyOptionListText, value: "" }];
+
     if (this.options.length > 0) {
       this.setMenuChange(true);
 
@@ -271,11 +273,12 @@ export class SearchBar {
           "anywhere"
         );
 
-        const noOptions = [{ label: this.emptyOptionListText, value: "" }];
-
         this.filteredOptions =
           rawFilteredOptions.length > 0 ? rawFilteredOptions : noOptions;
       }
+    } else if (this.disableFilter) {
+      this.setMenuChange(true);
+      this.filteredOptions = noOptions;
     }
 
     if (!this.showClearButton) {
@@ -509,22 +512,40 @@ export class SearchBar {
       ".search-results-status"
     ) as HTMLParagraphElement;
 
-    if (!this.open || this.value === "") {
+    if (
+      !this.open ||
+      this.value === "" ||
+      this.value.length < this.charactersUntilSuggestion
+    ) {
       searchResultsStatusEl.innerText = "";
     } else if (
-      this.options.length > 0 &&
+      this.hasOptionsOrFilterDisabled() &&
       this.filteredOptions.length > 0 &&
       this.open &&
       searchResultsStatusEl
     ) {
-      searchResultsStatusEl.innerText = `${this.filteredOptions.length} result${
-        this.filteredOptions.length > 1 ? "s" : ""
-      } available`;
+      if (this.hadNoOptions()) {
+        searchResultsStatusEl.innerText = this.emptyOptionListText;
+      } else {
+        searchResultsStatusEl.innerText = `${
+          this.filteredOptions.length
+        } result${this.filteredOptions.length > 1 ? "s" : ""} available`;
+      }
     }
   };
 
   private hasOptionsOrFilterDisabled = (): boolean =>
     this.options.length > 0 || this.disableFilter;
+
+  private hadNoOptions = (): boolean =>
+    this.filteredOptions.length === 1 &&
+    this.filteredOptions[0].label === this.emptyOptionListText;
+
+  private isSubmitDisabled = (): boolean => {
+    const valueNotSet =
+      this.value === undefined || this.value === null || this.value === "";
+    return valueNotSet || this.disabled || this.hadNoOptions();
+  };
 
   private highlightFirstOptionAfterNoResults = () => {
     if (this.prevNoOption && this.menu) {
@@ -626,13 +647,8 @@ export class SearchBar {
     }
 
     const disabledText = disabledMode && !readonly;
-    const hasSuggestedSearch = value && options.length > 0;
-    const valueNotSet = value === undefined || value === null || value === "";
+    const hasSuggestedSearch = value && this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
-
-    const hadNoOptions =
-      filteredOptions.length > 0 &&
-      filteredOptions[0].label === this.emptyOptionListText;
 
     let expanded;
 
@@ -726,8 +742,7 @@ export class SearchBar {
           <div
             class={{
               "search-submit-button-container": true,
-              "search-submit-button-disabled":
-                valueNotSet || disabled || hadNoOptions,
+              "search-submit-button-disabled": this.isSubmitDisabled(),
             }}
             slot="search-submit-button"
           >
@@ -739,7 +754,7 @@ export class SearchBar {
                 ["search-submit-button"]: true,
                 ["search-submit-button-small"]: !!small,
               }}
-              disabled={valueNotSet || disabled || hadNoOptions}
+              disabled={this.isSubmitDisabled()}
               innerHTML={searchIcon}
               size={small ? "small" : "default"}
               onClick={this.handleSubmitSearch}
@@ -764,7 +779,7 @@ export class SearchBar {
             {menuOpen && value.length >= this.charactersUntilSuggestion && (
               <ic-menu
                 class={{
-                  "no-results": hadNoOptions,
+                  "no-results": this.hadNoOptions(),
                 }}
                 activationType="manual"
                 anchorEl={this.anchorEl}
