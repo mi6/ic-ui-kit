@@ -252,6 +252,7 @@
   /* focus */
   --ic-focus-blue: #0044d7;
   --ic-focus-glow: #80a1e8;
+  --ic-hc-focus-outline: 3px solid transparent;
 
   /* breakpoints */
 

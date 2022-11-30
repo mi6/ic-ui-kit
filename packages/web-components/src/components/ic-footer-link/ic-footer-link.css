@@ -79,10 +79,19 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a:link:focus,
 :host(.footer-link) a ::slotted(a:link:hover),
 :host(.footer-link) a ::slotted(a:link:focus) {
-  outline: none;
   text-decoration-line: underline;
   text-decoration-thickness: 25%;
   text-underline-offset: 25%;
+}
+
+:host(.footer-link) a:link:hover,
+:host(.footer-link) a ::slotted(a:link:hover) {
+  outline: none;
+}
+
+:host(.footer-link) a:link:focus,
+:host(.footer-link) a ::slotted(a:link:focus) {
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.footer-link) a:link:focus > ::slotted(svg),
@@ -96,7 +105,7 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a:focus,
 :host(.footer-link) a ::slotted(a:focus) {
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   transition: var(--ic-transition-duration-fast);
 }
 
