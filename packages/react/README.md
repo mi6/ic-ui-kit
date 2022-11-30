@@ -58,7 +58,11 @@ We have a couple of resources to help you with contributing.
 - [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
 - [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
 
-### Security
+## Changelog
+
+For a comprehensive changelog of the React components, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/CHANGELOG.md). The released updates made to the web components are reflected on the React components. 
+
+## Security
 
 If you've found a vulnerability, we want to know so that we can fix it. [Our security policy](https://github.com/mi6/ic-ui-kit/blob/main/SECURITY.md) tells you how to do this.
 
