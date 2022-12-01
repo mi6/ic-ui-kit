@@ -25,11 +25,11 @@
 .container input:focus + span.checkmark,
 :host(:focus) .container input:checked + span.checkmark {
   box-shadow: var(--ic-border-focus);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 .container input:focus-visible {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 /* The container */

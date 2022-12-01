@@ -82,7 +82,7 @@
 :host(:not(.in-side-menu)) .navigation-group:focus {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   z-index: 1;
   transition: box-shadow var(--ic-easing-transition-fast);
 }
@@ -95,6 +95,10 @@
   cursor: auto;
   box-shadow: none;
   outline: none;
+}
+
+:host(.in-side-menu) .navigation-group-side-menu:focus {
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.in-side-menu) .navigation-group-side-menu-expanded:hover:not(:focus),
@@ -115,7 +119,7 @@
   color: var(--ic-action-default);
   box-shadow: var(--ic-border-focus-inset);
   border-radius: var(--ic-border-radius-inset);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host .navigation-group-dropdown {

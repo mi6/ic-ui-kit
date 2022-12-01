@@ -113,3 +113,8 @@ ic-input-component-container:hover {
 .focus-indicator.dark:focus-within {
   box-shadow: var(--ic-border-focus);
 }
+
+.focus-indicator:focus-within input,
+.focus-indicator:focus-within textarea {
+  outline: var(--ic-hc-focus-outline);
+}

@@ -84,7 +84,7 @@
 }
 
 .option:focus-visible {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 .option:not(.disabled-option) .option-description {
