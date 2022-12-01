@@ -68,3 +68,13 @@
 ::slotted(svg) {
   fill: var(--label-color);
 }
+
+@media (forced-colors: active) {
+  :host {
+    border-bottom: none;
+  }
+
+  :host(:not([selected])) {
+    height: 44px
+  }
+}
