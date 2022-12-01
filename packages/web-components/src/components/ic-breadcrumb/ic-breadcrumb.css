@@ -67,7 +67,7 @@ ic-link {
 
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:hover),
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:focus) {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   text-decoration-line: underline;
   text-decoration-thickness: 25%;
   text-underline-offset: 25%;

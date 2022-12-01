@@ -46,7 +46,7 @@
 }
 
 .button:focus-visible {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.dark) .button {

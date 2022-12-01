@@ -28,7 +28,7 @@
   background-color: transparent;
   border: 1px solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   cursor: pointer;
   transition: var(--ic-easing-transition-fast);
 }

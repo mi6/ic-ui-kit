@@ -76,7 +76,7 @@
 }
 
 .scroll-arrow:focus {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 .scroll-arrow:hover {

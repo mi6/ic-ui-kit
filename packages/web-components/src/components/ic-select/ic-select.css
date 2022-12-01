@@ -89,7 +89,7 @@ select:not([disabled]) {
 }
 
 .select-input:focus {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(:not([disabled])) ic-input-component-container:hover .select-input {
