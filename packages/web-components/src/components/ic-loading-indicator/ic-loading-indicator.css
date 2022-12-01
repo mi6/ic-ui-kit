@@ -228,3 +228,20 @@
   --outer-color: var(--ic-architectural-800);
   --label-color: var(--ic-architectural-white);
 }
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .indeterminate > .ic-loading-circular-inner,
+  .ic-loading-linear-outer {
+    border: 1px solid transparent;
+  }
+  
+  .ic-loading-circular-outer::after,
+  .ic-loading-circular-outer::before {
+    background-color: transparent;
+  }
+
+  .ic-loading-linear-inner {
+    border: 8px solid transparent;
+  }
+}
