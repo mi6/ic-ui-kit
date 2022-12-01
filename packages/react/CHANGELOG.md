@@ -5,9 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 2.1.0-beta.0 (2022-12-01)
 
+
 ### Features
 
-- **web-components:** add "no results" state to search bar variant with disabled filter ([5df2f3e](https://github.com/mi6/ic-ui-kit/commit/5df2f3ebce3d975e6f87c2dbc48f32dda2387315))
+* **react:** update react stories to have appearance light for tabs ([8c5a3c7](https://github.com/mi6/ic-ui-kit/commit/8c5a3c7042561d0c7bb4fb17f0e6114dfd33ef44)), closes [#112](https://github.com/mi6/ic-ui-kit/issues/112)
+
+
+
+
 
 # 2.0.0 (2022-11-21)
 
