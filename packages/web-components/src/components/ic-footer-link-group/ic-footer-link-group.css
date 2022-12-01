@@ -41,14 +41,14 @@
 :host(.footer-link-group-sparse:focus) {
   box-shadow: var(--ic-border-focus-inset);
   border-radius: var(--ic-border-radius-inset);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   z-index: 1;
 }
 
 :host(.footer-link-group-small:focus) {
   box-shadow: var(--ic-border-focus-inset);
   border-radius: var(--ic-border-radius-inset);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   z-index: 1;
 }
 

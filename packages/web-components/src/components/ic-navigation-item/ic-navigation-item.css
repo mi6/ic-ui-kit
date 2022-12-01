@@ -89,21 +89,21 @@ ic-typography {
 :host(.navigation-item) ::slotted(a:focus) {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.navigation-item-selected) .link:focus,
 :host(.navigation-item) ::slotted(a.active:focus) {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.navigation-item-selected.dark) .link:focus,
 :host(.navigation-item.dark) ::slotted(a.active:focus) {
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.navigation-item) .link:active:not(:focus),
@@ -195,7 +195,7 @@ ic-typography {
 :host(.navigation-item-top-nav-child) .link:focus,
 :host(.navigation-item-top-nav-child) ::slotted(a:focus) {
   z-index: 1;
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   border-radius: var(--ic-border-radius-inset);
   box-shadow: var(--ic-border-focus-inset);
   transition: border-radius 0s, box-shadow var(--ic-transition-duration-fast);
@@ -212,7 +212,7 @@ ic-typography {
 
 :host(.navigation-item-top-nav-child) .link:active:not(:focus),
 :host(.navigation-item-top-nav-child) ::slotted(a:active):not(:focus) {
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
   background-color: var(--ic-action-dark-bg-active);
 }
 
