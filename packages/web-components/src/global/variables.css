@@ -19,6 +19,7 @@
   --ic-transition-duration-fast: 100ms;
   --ic-transition-duration-slow: 300ms;
   --ic-border-disabled: 1px dashed var(--ic-architectural-200);
+  --ic-hc-border: 1px solid transparent;
 
   /* fonts */
   --ic-font-body-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";

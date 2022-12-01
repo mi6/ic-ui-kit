@@ -181,3 +181,14 @@ input {
 ::slotted(*) {
   margin-left: var(--ic-space-sm);
 }
+
+@media (forced-colors: active) {
+  .ic-switch-toggle::before,
+  .ic-switch-input:checked + .ic-switch-toggle {
+    border: var(--ic-hc-border);
+  }
+
+  .ic-switch-input:checked + .ic-switch-toggle::before {
+    transform: translate(calc(var(--ic-space-xl) - 2px), -50%);
+  }
+}

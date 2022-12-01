@@ -102,3 +102,9 @@
 :host([target="ic-button-with-tooltip-clear-button"]) .ic-tooltip-container {
   z-index: calc(var(--ic-z-index-popup-menu) + 1);
 }
+
+@media (forced-colors: active) {
+  :host(.ic-tooltip) .ic-tooltip-container {
+    border: var(--ic-hc-border);
+  }
+}

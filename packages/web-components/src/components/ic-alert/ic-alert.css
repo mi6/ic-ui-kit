@@ -167,3 +167,9 @@
     margin-bottom: 14px;
   }
 }
+
+@media (forced-colors: active) {
+  .container {
+    border: var(--ic-hc-border);
+  }
+}
