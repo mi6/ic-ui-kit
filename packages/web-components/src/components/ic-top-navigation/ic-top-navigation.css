@@ -7,6 +7,12 @@
   position: relative;
 }
 
+@media (forced-colors: active) {
+  :host{
+    border-bottom: 1px solid transparent;
+  }
+}
+
 :host .top-navigation {
   background-color: var(--ic-theme-primary);
   height: max-content;
