@@ -71,11 +71,11 @@ describe("ic-text-field", () => {
     const page = await newE2EPage();
 
     await page.setContent(
-      '<form><ic-text-field label="Test label" name="formInputEl"></form>'
+      '<form><ic-text-field label="Test label" name="formInputEl"></ic-text-field><button id="resetButton" type="reset">Reset</button></form>'
     );
     await page.waitForChanges();
 
-    const input = await page.find("ic-text-field >>> #ic-text-field-input-0");
+    let input = await page.find("ic-text-field >>> #ic-text-field-input-0");
 
     await input.press("s");
     await input.press("o");
@@ -87,7 +87,7 @@ describe("ic-text-field", () => {
     await input.press("x");
     await input.press("t");
 
-    const value = await input.getProperty("value");
+    let value = await input.getProperty("value");
     expect(value).toBe("some text");
     //check value on underlying hidden form control
     const formInput = await page.find("input[name=formInputEl]");
@@ -97,5 +97,12 @@ describe("ic-text-field", () => {
 
     const formInputvalue = await formInput.getProperty("value");
     expect(formInputvalue).toBe("some text");
+
+    const resetButton = await page.find("#resetButton");
+    await resetButton.click();
+
+    input = await page.find("ic-text-field >>> #ic-text-field-input-0");
+    value = await input.getProperty("value");
+    expect(value).toBe("");
   });
 });

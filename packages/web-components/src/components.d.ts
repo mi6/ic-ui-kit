@@ -1099,9 +1099,9 @@ export namespace Components {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked, if null the components state will be uncontrolled.
+          * If true, the component is checked.
          */
-        "checked"?: boolean | null;
+        "checked"?: boolean;
         /**
           * If true, the component is not interactive.
          */
@@ -1181,6 +1181,7 @@ export namespace Components {
         "scrollTabIntoView": (tabNumber: number) => Promise<void>;
     }
     interface IcTabPanel {
+        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */
@@ -2919,9 +2920,9 @@ declare namespace LocalJSX {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked, if null the components state will be uncontrolled.
+          * If true, the component is checked.
          */
-        "checked"?: boolean | null;
+        "checked"?: boolean;
         /**
           * If true, the component is not interactive.
          */
@@ -3021,6 +3022,7 @@ declare namespace LocalJSX {
         "label": string;
     }
     interface IcTabPanel {
+        "appearance"?: IcThemeForegroundNoDefault;
         /**
           * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */

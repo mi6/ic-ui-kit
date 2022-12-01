@@ -11,29 +11,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-radio-group label="test label" name="test">
-      <mock:shadow-root>
-        <div aria-label="test label" role="radiogroup">
-         <ic-input-label label="test label"></ic-input-label>
-           <slot></slot>
-        </div>
-        <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
-      </mock:shadow-root>
-      <ic-radio-option additional-field-display="static" value="test">
-        <mock:shadow-root>
-          <div class="container">
-            <input id="ic-radio-option-test-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-              <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-            <label htmlfor="ic-radio-option-test-test label"></label>
-            </ic-typography>
-          </div>
-        </mock:shadow-root>
-      </ic-radio-option>
-      <input class="ic-input" name="test" type="hidden" value="">
-    </ic-radio-group>
-    `);
+    expect(page.root).toMatchSnapshot("renders");
   });
 
   it("should render as required", async () => {
@@ -44,29 +22,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-radio-group label="test label" name="test" required="">
-      <mock:shadow-root>
-        <div aria-label="test label, required" role="radiogroup">
-          <ic-input-label label="test label" required=""></ic-input-label>
-          <slot></slot>
-        </div>
-        <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
-      </mock:shadow-root>
-      <ic-radio-option additional-field-display="static" value="test">
-        <mock:shadow-root>
-          <div class="container">
-            <input id="ic-radio-option-test-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-            <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-              <label htmlfor="ic-radio-option-test-test label"></label>
-            </ic-typography>
-          </div>
-        </mock:shadow-root>
-      </ic-radio-option>
-      <input class="ic-input" name="test" type="hidden" value="">
-    </ic-radio-group>
-    `);
+    expect(page.root).toMatchSnapshot("renders-required");
   });
 
   it("should render as helper text", async () => {
@@ -77,29 +33,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-radio-group helpertext="helper test" label="test label" name="test">
-           <mock:shadow-root>
-             <div aria-label="test label" role="radiogroup">
-               <ic-input-label label="test label"></ic-input-label>
-               <slot></slot>
-             </div>
-             <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
-           </mock:shadow-root>
-           <ic-radio-option additional-field-display="static" value="test">
-            <mock:shadow-root>
-             <div class="container">
-                <input id="ic-radio-option-test-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-               <span class="checkmark"></span>
-               <ic-typography class="radio-label" variant="body">
-                 <label htmlfor="ic-radio-option-test-test label"></label>
-               </ic-typography>
-             </div>
-            </mock:shadow-root>
-           </ic-radio-option>
-           <input class="ic-input" name="test" type="hidden" value="">
-         </ic-radio-group>
-    `);
+    expect(page.root).toMatchSnapshot("renders-with-helpertext");
   });
 
   it("should render with selected option", async () => {
@@ -110,29 +44,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-radio-group label="test label" name="test" required="">
-      <mock:shadow-root>
-        <div aria-label="test label, required" role="radiogroup">
-          <ic-input-label label="test label" required=""></ic-input-label>
-          <slot></slot>
-        </div>
-        <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
-      </mock:shadow-root>
-      <ic-radio-option additional-field-display="static" selected="" value="test">
-        <mock:shadow-root>
-          <div class="container">
-            <input checked="" id="ic-radio-option-test-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-            <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-              <label htmlfor="ic-radio-option-test-test label"></label>
-            </ic-typography>
-          </div>
-        </mock:shadow-root>
-      </ic-radio-option>
-      <input class="ic-input" name="test" type="hidden" value="test">
-    </ic-radio-group>
-    `);
+    expect(page.root).toMatchSnapshot("renders-with-selected-option");
   });
 
   it("should render with validation status", async () => {
@@ -143,29 +55,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-radio-group label="test label" name="test" required="" validation-status="error" validation-text="error">
-      <mock:shadow-root>
-        <div aria-label="test label, required" role="radiogroup">
-          <ic-input-label class="error" label="test label" required=""></ic-input-label>
-          <slot></slot>
-        </div>
-        <ic-input-validation arialivemode="polite" message="error" status="error"></ic-input-validation>
-      </mock:shadow-root>
-      <ic-radio-option additional-field-display="static" selected="" value="test">
-        <mock:shadow-root>
-          <div class="container">
-            <input checked="" id="ic-radio-option-test-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
-            <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-              <label htmlfor="ic-radio-option-test-test label"></label>
-            </ic-typography>
-          </div>
-        </mock:shadow-root>
-      </ic-radio-option>
-      <input class="ic-input" name="test" type="hidden" value="test">
-    </ic-radio-group>
-    `);
+    expect(page.root).toMatchSnapshot("renders-with-validation-status");
   });
 
   it("should render radio option disabled", async () => {
@@ -176,21 +66,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test" disabled>
-        <mock:shadow-root>
-          <div class="container disabled">
-            <input disabled id="ic-radio-option-test label-test group" role="radio" tabindex="-1" type="radio" value="test">
-              <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-            <label htmlfor="ic-radio-option-test label-test group">
-             test label
-            </label>
-            </ic-typography>
-          </div>
-        </mock:shadow-root>
-      </ic-radio-option>
-    `);
+    expect(page.root).toMatchSnapshot("renders-disabled");
   });
 
   it("should render with unselected static additional field", async () => {
@@ -203,29 +79,9 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test" disabled>
-        <mock:shadow-root>
-          <div class="container disabled">
-            <input disabled id="ic-radio-option-test label-test group" role="radio" tabindex="-1" type="radio" value="test">
-              <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-            <label htmlfor="ic-radio-option-test label-test group">
-             test label
-            </label>
-            </ic-typography>
-          </div>
-          <div class="dynamic-container">
-            <div>
-              <div class="addition-field-wrapper">
-                <slot name="additional-field"></slot>
-              </div>
-            </div>
-          </div>
-        </mock:shadow-root>
-        <ic-text-field disabled="" label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-      </ic-radio-option>
-    `);
+    expect(page.root).toMatchSnapshot(
+      "renders-with-unselected-additional-field"
+    );
   });
 
   it("should render with selected static additional field", async () => {
@@ -238,29 +94,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-radio-option additional-field-display="static" group-label="test group" label="test label" value="test" selected>
-        <mock:shadow-root>
-          <div class="container">
-            <input checked id="ic-radio-option-test label-test group" role="radio" tabindex="0" type="radio" value="test">
-              <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-            <label htmlfor="ic-radio-option-test label-test group">
-             test label
-            </label>
-            </ic-typography>
-          </div>
-          <div class="dynamic-container">
-            <div>
-              <div class="addition-field-wrapper">
-                <slot name="additional-field"></slot>
-              </div>
-            </div>
-          </div>
-        </mock:shadow-root>
-        <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-      </ic-radio-option>
-    `);
+    expect(page.root).toMatchSnapshot("renders-with-selected-additional-field");
   });
 
   it("should render with dynamic additional field", async () => {
@@ -273,35 +107,7 @@ describe("ic-radio-group", () => {
       </ic-radio-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" value="test" selected>
-        <mock:shadow-root>
-          <div class="container">
-            <input checked id="ic-radio-option-test label-test group" role="radio" tabindex="0" type="radio" value="test">
-              <span class="checkmark"></span>
-            <ic-typography class="radio-label" variant="body">
-            <label htmlfor="ic-radio-option-test label-test group">
-             test label
-            </label>
-            </ic-typography>
-          </div>
-          <div class="dynamic-container">
-            <div class="branch-corner"></div>
-            <div>
-            <ic-typography variant="caption">
-              <p class="dynamic-text">
-                This selection requires additional answers
-              </p>
-            </ic-typography>
-              <div>
-                <slot name="additional-field"></slot>
-              </div>
-            </div>
-          </div>
-        </mock:shadow-root>
-        <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-      </ic-radio-option>
-    `);
+    expect(page.root).toMatchSnapshot("renders-with-dynamic-additional-field");
   });
 
   it("should emit an updated checked value when selected", async () => {
@@ -426,5 +232,30 @@ describe("ic-radio-group", () => {
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
+  });
+
+  it("should test form reset event", async () => {
+    const page = await newSpecPage({
+      components: [RadioOption],
+      html: `<form>
+        <ic-radio-option value="test" selected></ic-radio-option>    
+        <button id="resetButton" type="reset">Reset</button>  
+      </form>`,
+    });
+
+    expect(page.root.selected).toBe(true);
+
+    page.root.checked = false;
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(false);
+
+    await page.rootInstance.handleFormReset();
+    await page.waitForChanges();
+
+    expect(page.root.selected).toBe(true);
+
+    //test disconnected callback
+    page.setContent("");
   });
 });

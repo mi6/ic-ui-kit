@@ -20,6 +20,8 @@ import {
   renderHiddenInput,
   isMobileOrTablet,
   getFilteredMenuOptions,
+  addFormResetListener,
+  removeFormResetListener,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -118,7 +120,7 @@ export class Select {
   /**
    * The value of the currently selected option.
    */
-  @Prop() value?: string;
+  @Prop({ mutable: true }) value?: string;
 
   /**
    * The name of the control, which is submitted with the form data.
@@ -171,6 +173,8 @@ export class Select {
   @State() ariaActiveDescendant: string;
 
   @State() noOptions: IcMenuOption[] = null;
+
+  @State() initialValue = this.value;
 
   @Watch("options")
   watchOptionsHandler(): void {
@@ -485,6 +489,13 @@ export class Select {
     this.icBlur.emit();
   };
 
+  private handleFormReset = (): void => {
+    this.value = this.initialValue;
+    if (this.searchable) {
+      this.searchableSelectInputValue = null;
+    }
+  };
+
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.host, [
       ...IC_INHERITED_ARIA,
@@ -493,6 +504,8 @@ export class Select {
     ]);
 
     this.setOptionsValuesFromLabels();
+
+    addFormResetListener(this.host, this.handleFormReset);
   }
 
   componentDidRender(): void {
@@ -506,6 +519,10 @@ export class Select {
       [{ prop: this.label, propName: "label" }],
       "Select"
     );
+  }
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
   }
 
   render() {

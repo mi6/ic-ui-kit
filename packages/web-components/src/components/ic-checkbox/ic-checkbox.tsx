@@ -6,6 +6,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  State,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes } from "../../utils/types";
 import {
@@ -13,6 +14,8 @@ import {
   onComponentRequiredPropUndefined,
   renderHiddenInput,
   removeHiddenInput,
+  addFormResetListener,
+  removeFormResetListener,
 } from "../../utils/helpers";
 
 @Component({
@@ -24,7 +27,7 @@ export class Checkbox {
   /**
    * Set the checkbox to the checked state
    */
-  @Prop({ reflect: true }) checked?: boolean = false;
+  @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
   /**
    * Set the checkbox to the disabled state
    */
@@ -59,6 +62,8 @@ export class Checkbox {
    */
   @Prop() indeterminate: boolean = false;
 
+  @State() initiallyChecked = this.checked;
+
   @Element() host: HTMLIcCheckboxElement;
 
   /**
@@ -71,6 +76,10 @@ export class Checkbox {
   private handleClick = () => {
     this.checked = !this.checked;
     this.checkboxChecked.emit();
+  };
+
+  private handleFormReset = (): void => {
+    this.checked = this.initiallyChecked;
   };
 
   componentDidRender(): void {
@@ -90,6 +99,10 @@ export class Checkbox {
     }
   }
 
+  componentWillLoad(): void {
+    addFormResetListener(this.host, this.handleFormReset);
+  }
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [
@@ -98,6 +111,10 @@ export class Checkbox {
       ],
       "Checkbox"
     );
+  }
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
   }
 
   render() {

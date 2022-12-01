@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-switch component should render an aria-label: renders-with-aria 1`] = `
+<ic-switch label="Custom title">
+  <mock:shadow-root>
+    <label class="ic-switch-container" htmlfor="ic-switch-input-0">
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-0" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" id="ic-switch-input-0" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="1" y2="9"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="4.445"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-switch-input-0" type="hidden" value="">
+</ic-switch>
+`;
+
+exports[`ic-switch component should render checked: renders-checked 1`] = `
+<ic-switch checked="true" label="Custom title">
+  <mock:shadow-root>
+    <label class="ic-switch-container" htmlfor="ic-switch-input-2">
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-2" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="true" aria-describedby="" aria-label="Custom title" checked="" class="ic-switch-input" id="ic-switch-input-2" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="1" y2="9"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="4.445"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-switch-input-2" type="hidden" value="on">
+</ic-switch>
+`;
+
+exports[`ic-switch component should render disabled: renders-disabled 1`] = `
+<ic-switch disabled="true" label="Custom title">
+  <mock:shadow-root>
+    <label class="ic-switch-container ic-switch-disabled" htmlfor="ic-switch-input-1">
+      <ic-input-label class="ic-switch-label" disabled="" for="ic-switch-input-1" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" disabled="" id="ic-switch-input-1" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="1" y2="9"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="4.445"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" disabled="" name="ic-switch-input-1" type="hidden" value="">
+</ic-switch>
+`;
+
+exports[`ic-switch component should render small: renders-small 1`] = `
+<ic-switch checked="true" label="Custom title" small="">
+  <mock:shadow-root>
+    <label class="ic-switch-container ic-switch-small" htmlfor="ic-switch-input-3">
+      <ic-input-label class="ic-switch-label ic-switch-label-small" for="ic-switch-input-3" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="true" aria-describedby="" aria-label="Custom title" checked="" class="ic-switch-input" id="ic-switch-input-3" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="2" y2="8"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="3.335"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-switch-input-3" type="hidden" value="on">
+</ic-switch>
+`;
+
+exports[`ic-switch component should render with state text and unchecked: renders-with-state-text-unchecked 1`] = `
+<ic-switch checked="false" label="Custom title" show-state="true">
+  <mock:shadow-root>
+    <label class="ic-switch-container" htmlfor="ic-switch-input-5">
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-5" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="false" aria-describedby="" aria-label="Custom title" class="ic-switch-input" id="ic-switch-input-5" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="1" y2="9"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="4.445"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+      <ic-typography aria-hidden="true" class="ic-switch-checked-status" variant="label">
+        Off
+      </ic-typography>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-switch-input-5" type="hidden" value="">
+</ic-switch>
+`;
+
+exports[`ic-switch component should render with state text: renders-with-state-text 1`] = `
+<ic-switch checked="true" label="Custom title" show-state="">
+  <mock:shadow-root>
+    <label class="ic-switch-container" htmlfor="ic-switch-input-4">
+      <ic-input-label class="ic-switch-label" for="ic-switch-input-4" helpertext="" label="Custom title" readonly=""></ic-input-label>
+      <span class="ic-switch-line-break"></span>
+      <input aria-checked="true" aria-describedby="" aria-label="Custom title" checked="" class="ic-switch-input" id="ic-switch-input-4" name="toggle" role="switch" type="checkbox">
+      <span class="ic-switch-toggle">
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <line class="ic-switch-icon-line" x1="9" x2="9" y1="1" y2="9"></line>
+        </svg>
+        <svg aria-hidden="true" class="ic-switch-icon" focusable="false" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ic-switch-icon-circle" cx="5" cy="5" fill="none" r="4.445"></circle>
+        </svg>
+      </span>
+      <slot name="right-adornment"></slot>
+      <ic-typography aria-hidden="true" class="ic-switch-checked-status" variant="label">
+        On
+      </ic-typography>
+    </label>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-switch-input-4" type="hidden" value="on">
+</ic-switch>
+`;
