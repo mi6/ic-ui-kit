@@ -76,7 +76,7 @@
   color: var(--ic-architectural-200);
 }
 
-.disabled .step-icon-inner {
+.disabled .step-icon {
   border: 1px dashed var(--ic-architectural-200);
   width: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
@@ -142,4 +142,24 @@
 
 .check-icon > svg > path {
   fill: white;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .step-connect:not(.disabled .step-connect) {
+    border: 1px solid transparent;
+  }
+
+  .step-icon:not(.disabled .step-icon) {
+    border: 2px solid transparent;
+  }
+
+  .step-connect-inner,
+  .completed .step-connect {
+    background-color: canvastext;
+  }
+
+  .check-icon > svg > path {
+    fill: canvastext;
+  }
 }
