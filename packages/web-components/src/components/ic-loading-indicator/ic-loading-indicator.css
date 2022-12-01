@@ -231,7 +231,11 @@
 
 /** High Contrast **/
 @media (forced-colors: active) {
-  .indeterminate > .ic-loading-circular-inner,
+  .indeterminate > .ic-loading-circular-inner {
+    forced-color-adjust: none;
+    box-shadow: inset 0 0 0 var(--circular-line-width) canvastext;
+  }
+
   .ic-loading-linear-outer {
     border: 1px solid transparent;
   }
@@ -242,6 +246,6 @@
   }
 
   .ic-loading-linear-inner {
-    border: 8px solid transparent;
+    background-color: canvastext;
   }
 }
