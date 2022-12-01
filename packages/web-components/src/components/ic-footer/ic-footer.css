@@ -94,3 +94,9 @@ footer {
 .classification-spacing {
   margin-bottom: var(--ic-space-lg);
 }
+
+@media (forced-colors: active) {
+  footer {
+    border-top: var(--ic-hc-border);
+  }
+}
