@@ -397,3 +397,10 @@ div.icon-container {
 :host .ic-tooltip {
   display: block;
 }
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .button {
+    border: 2px solid transparent;
+  }
+}
