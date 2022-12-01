@@ -605,3 +605,10 @@
     box-shadow: none;
   }
 }
+
+@media (forced-colors: active) {
+  .side-navigation,
+  .top-bar {
+    border-right: var(--ic-hc-border);
+  }
+}

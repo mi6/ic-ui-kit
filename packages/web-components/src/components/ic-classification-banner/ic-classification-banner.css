@@ -51,3 +51,9 @@
   color: #000;
   text-transform: none;
 }
+
+@media (forced-colors: active) {
+  .classification-banner {
+    border: var(--ic-hc-border);
+  }
+}
