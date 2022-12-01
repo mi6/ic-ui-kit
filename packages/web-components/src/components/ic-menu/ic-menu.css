@@ -102,7 +102,7 @@
 }
 
 .focused-option .check-icon * {
-  fill: white;
+  fill: currentColor;
 }
 
 .option-group-title {
@@ -136,4 +136,11 @@
 
 :host(.no-results) li:hover {
   background-color: transparent;
+}
+
+@media (forced-colors: active) {
+  .focused-option:focus {
+    outline: none;
+    border: 2px solid transparent;
+  }
 }

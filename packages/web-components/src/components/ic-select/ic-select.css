@@ -208,3 +208,9 @@ select:not([disabled]) {
   white-space: nowrap;
   width: 1px;
 }
+
+@media (forced-colors: active) {
+  .expand-icon {
+    color: canvastext;
+  }
+}

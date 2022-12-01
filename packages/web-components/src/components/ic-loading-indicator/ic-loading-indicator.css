@@ -237,12 +237,12 @@
   }
 
   .ic-loading-linear-outer {
-    border: 1px solid transparent;
+    border: var(--ic-hc-border);
   }
   
   .ic-loading-circular-outer::after,
   .ic-loading-circular-outer::before {
-    background-color: transparent;
+    background-color: canvastext;
   }
 
   .ic-loading-linear-inner {
