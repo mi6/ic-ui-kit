@@ -147,7 +147,7 @@
 /** High Contrast **/
 @media (forced-colors: active) {
   .step-connect:not(.disabled .step-connect) {
-    border: 1px solid transparent;
+    border: var(--ic-hc-border);
   }
 
   .step-icon:not(.disabled .step-icon) {
