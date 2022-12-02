@@ -14,7 +14,7 @@ export class Tooltip {
   /**
    * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
    */
-  @Prop() target?: string;
+  @Prop({ reflect: true }) target?: string;
 
   /**
    * The position of the tool-tip in relation to the parent element.

@@ -46,7 +46,7 @@
 :host .title-link:focus {
   border-radius: var(--ic-border-radius);
   box-shadow: var(--ic-border-focus);
-  outline: none;
+  outline: var(--ic-hc-focus-outline);
 }
 
 :host .title-link ic-typography {
