@@ -291,3 +291,14 @@ slot[name="toggle-icon"] svg {
     }
   }
 }
+
+@media (forced-colors: active) {
+  .app-status,
+  .app-version {
+    border: var(--ic-hc-border);
+  }
+
+  slot[name="app-icon"]::slotted(svg) {
+    fill: currentColor;
+  }
+}
