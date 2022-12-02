@@ -150,8 +150,23 @@
     border: var(--ic-hc-border);
   }
 
-  .step-icon:not(.disabled .step-icon) {
-    border: 2px solid transparent;
+  .active .step-icon-inner,
+  .completed .step-icon-inner,
+  .current .step-icon-inner {
+    forced-color-adjust: none;
+    box-shadow: inset canvastext 0 0 0 2px;
+    background-color: transparent;
+    color: canvastext;
+  }
+
+  .current .step-icon {
+    padding: 0;
+    border: none;
+  }
+
+  .disabled,
+  .disabled .step-title-area {
+    color: Graytext;
   }
 
   .step-connect-inner,
