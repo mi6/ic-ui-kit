@@ -25,3 +25,9 @@
   margin-top: var(--ic-space-sm);
   margin-bottom: var(--ic-space-xs);
 }
+
+@media (forced-colors: active) {
+  .divider {
+    background-color: canvastext;
+  }
+}

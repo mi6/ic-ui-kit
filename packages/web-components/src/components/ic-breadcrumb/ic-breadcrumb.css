@@ -77,3 +77,9 @@ ic-link {
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.hide) {
   display: none;
 }
+
+@media (forced-colors: active) {
+  .back-icon svg {
+    color: currentColor;
+  }
+}

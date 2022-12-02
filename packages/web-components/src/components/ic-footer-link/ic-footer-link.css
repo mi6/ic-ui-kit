@@ -123,3 +123,10 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a ::slotted(a:hover) {
   text-decoration: none;
 }
+
+@media (forced-colors: active) {
+  :host(.footer-link-light) ::slotted(svg),
+  :host(.footer-link-dark) ::slotted(svg) {
+    fill: currentcolor;
+  }
+}

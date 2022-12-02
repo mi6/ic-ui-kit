@@ -52,3 +52,11 @@
   background-color: var(--ic-architectural-600);
   animation: loading-light 1200ms infinite;
 }
+
+@media (forced-colors: active) {
+  :host(.skeleton) {
+    -ms-high-contrast-adjust: none;
+    forced-color-adjust: none;
+    background: currentColor;
+  }
+}

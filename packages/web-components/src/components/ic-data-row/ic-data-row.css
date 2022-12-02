@@ -63,3 +63,9 @@
 :host(.breakpoint-xs) .end-component {
   margin-left: 0;
 }
+
+@media (forced-colors: active) {
+  .divider {
+    background-color: canvastext;
+  }
+}
