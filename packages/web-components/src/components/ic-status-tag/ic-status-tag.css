@@ -60,5 +60,7 @@
 @media (forced-colors: active) {
   .tag {
     border: var(--ic-hc-border);
+    -ms-high-contrast-adjust: none;
+    forced-color-adjust: none;
   }
 }

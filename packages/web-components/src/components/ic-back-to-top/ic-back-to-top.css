@@ -83,3 +83,9 @@ button:focus {
 .ic-back-to-top-link:hover span {
   color: var(--ic-action-default-hover);
 }
+
+@media (forced-colors: active) {
+  .ic-back-to-top-icon {
+    fill: currentColor;
+  }
+}
