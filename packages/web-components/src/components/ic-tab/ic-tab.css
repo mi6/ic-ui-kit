@@ -66,11 +66,15 @@
 }
 
 ::slotted(svg) {
-  fill: var(--label-color);
+  fill: currentcolor;
 }
 
 @media (forced-colors: active) {
   :host {
     border-bottom: var(--ic-space-xxs) solid canvas;
+  }
+
+  :host([disabled]) {
+    color: GrayText;
   }
 }
