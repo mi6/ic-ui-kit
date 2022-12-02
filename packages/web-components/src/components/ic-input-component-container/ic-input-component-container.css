@@ -14,6 +14,7 @@ ic-input-component-container {
   box-sizing: border-box;
   position: relative;
   fill: var(--ic-architectural-400);
+  outline: none;
 }
 
 ic-input-component-container.fullwidth {
@@ -114,7 +115,20 @@ ic-input-component-container:hover {
   box-shadow: var(--ic-border-focus);
 }
 
-.focus-indicator:focus-within input,
-.focus-indicator:focus-within textarea {
-  outline: var(--ic-hc-focus-outline);
+@media (forced-colors: active) {
+  /* Styles here only apply to Forced Colors Mode */
+  ic-input-component-container,
+  .focus-indicator {
+    transition: none;
+  }
+
+  ic-input-component-container:focus-within {
+    border: 1px solid Highlight;
+    outline: 2px solid Highlight;
+  }
+
+  ic-input-component-container.disabled,
+  ic-input-component-container.disabled:hover {
+    border: 1px dashed GrayText;
+  }
 }

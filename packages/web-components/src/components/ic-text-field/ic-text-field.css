@@ -114,4 +114,8 @@ input[type="search"].truncate-value {
   textarea.readonly {
     color: canvastext;
   }
+
+  .has-value ::slotted([slot="icon"]) {
+    fill: currentcolor;
+  }
 }
