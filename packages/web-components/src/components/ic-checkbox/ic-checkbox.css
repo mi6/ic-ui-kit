@@ -19,6 +19,7 @@
 .checkbox {
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
   display: block;
   position: relative;
   top: 0;
@@ -28,7 +29,6 @@
   background-color: transparent;
   border: 1px solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
-  outline: var(--ic-hc-focus-outline);
   cursor: pointer;
   transition: var(--ic-easing-transition-fast);
 }
@@ -157,5 +157,25 @@
 @media (max-width: 576px) {
   ::slotted(ic-text-field) {
     --input-width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  /* Styles here only apply to Forced Colors Mode */
+  .checkbox {
+    appearance: revert;
+  }
+
+  .checkbox:disabled:not(:checked) {
+    appearance: none;
+    border-color: GrayText;
+  }
+
+  .checkmark {
+    fill: none;
+  }
+
+  .indeterminate-symbol {
+    display: none;
   }
 }
