@@ -611,4 +611,8 @@
   .top-bar {
     border-right: var(--ic-hc-border);
   }
+
+  slot[name="app-icon"]::slotted(svg) {
+    fill: currentColor;
+  }
 }
