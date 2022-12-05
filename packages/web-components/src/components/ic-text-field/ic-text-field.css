@@ -108,3 +108,10 @@ input[type="search"].truncate-value {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+@media (forced-colors: active) {
+  input.readonly,
+  textarea.readonly {
+    color: canvastext;
+  }
+}
