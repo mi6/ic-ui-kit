@@ -252,7 +252,6 @@ slot[name="toggle-icon"] svg {
       margin-right: var(--ic-space-xxxs);
       word-break: break-word;
       hyphens: auto;
-      hyphens: none; /* Safari Only */
     }
 
     .top-panel-container {
