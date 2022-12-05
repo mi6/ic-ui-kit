@@ -1,7 +1,8 @@
 @import "../../global/normalise.css";
 
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-bottom: var(--ic-space-sm);
   width: fit-content;
 }
@@ -25,11 +26,6 @@
 .container input:focus + span.checkmark,
 :host(:focus) .container input:checked + span.checkmark {
   box-shadow: var(--ic-border-focus);
-  outline: var(--ic-hc-focus-outline);
-}
-
-.container input:focus-visible {
-  outline: var(--ic-hc-focus-outline);
 }
 
 /* The container */
@@ -38,8 +34,7 @@
   position: relative;
   cursor: pointer;
   align-items: center;
-  gap: var(--ic-space-xs);
-  margin-left: 5px;
+  margin-left: var(--ic-space-xxs);
 }
 
 .container.disabled,
@@ -75,6 +70,7 @@
   border: 1px solid #a7acb3;
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
+  margin: 0 1px;
 }
 
 /* Show the indicator (dot/circle) when checked */
@@ -111,8 +107,7 @@
 /* When the radio button is checked */
 .container input:checked ~ .checkmark {
   border: 2px solid var(--ic-action-default);
-  margin: -1px;
-  margin-bottom: 1px;
+  margin: 0;
 }
 
 /* When the radio button is checked and disabled */
@@ -199,5 +194,29 @@
 @media (max-width: 576px) {
   ::slotted(ic-text-field) {
     --input-width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  /* Styles here only apply to Forced Colors Mode */
+
+  .container input:checked ~ .checkmark,
+  .container:active input:checked ~ .checkmark {
+    border-color: Highlight;
+  }
+
+  .container input:checked ~ .checkmark::after,
+  .container:active input:checked ~ .checkmark::after {
+    background-color: Highlight;
+  }
+
+  .container input:disabled ~ .checkmark,
+  .container input:checked:disabled ~ .checkmark {
+    border-color: GrayText;
+  }
+
+  .container input:disabled ~ .checkmark::after,
+  .container:active input:disabled ~ .checkmark::after {
+    background-color: GrayText;
   }
 }

@@ -217,7 +217,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
     <mock:shadow-root>
       <div class="container">
         <div class="indeterminate-symbol"></div>
-        <input checked="" class="checkbox checked indeterminate" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input checked="" class="checkbox checked indeterminate" id="ic-checkbox-test label-test label" indeterminate="" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
           <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
             test label
