@@ -251,7 +251,7 @@ slot[name="toggle-icon"] svg {
     :host .title-link {
       margin-right: var(--ic-space-xxxs);
       word-break: break-word;
-      hyphens: auto;
+      hyphens: none;
     }
 
     .top-panel-container {
