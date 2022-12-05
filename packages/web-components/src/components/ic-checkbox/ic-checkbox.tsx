@@ -164,6 +164,7 @@ export class Checkbox {
             value={this.value}
             disabled={this.disabled ? true : null}
             checked={this.checked}
+            indeterminate={this.indeterminate}
             onClick={this.handleClick}
           ></input>
           <ic-typography variant="body">
