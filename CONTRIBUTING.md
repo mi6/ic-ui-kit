@@ -144,7 +144,7 @@ For automated versioning, we use [Conventional Commits](https://www.conventional
 
 [Commitizen](https://github.com/commitizen/cz-cli) is used to provide a step-by-step prompt for committing to your branch.
 
-Only [signed commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) can be merged into the IC UI Kit repository.
+Please ensure that your commits are [signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) when contributing to the IC UI Kit repository.
 
 Follow these steps when making a commit:
 
