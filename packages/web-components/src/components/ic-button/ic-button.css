@@ -281,6 +281,10 @@ div.loading-container {
   align-items: center;
 }
 
+ic-loading-indicator {
+  --outer-color: transparent;
+}
+
 @keyframes loading-animation {
   0% {
     width: 0%;
