@@ -7,12 +7,6 @@
   position: relative;
 }
 
-@media (forced-colors: active) {
-  :host{
-    border-bottom: 1px solid transparent;
-  }
-}
-
 :host .top-navigation {
   background-color: var(--ic-theme-primary);
   height: max-content;
@@ -299,12 +293,16 @@ slot[name="toggle-icon"] svg {
 }
 
 @media (forced-colors: active) {
+  :host .top-navigation {
+    border-bottom: var(--ic-hc-border);
+  }
+
   .app-status,
   .app-version {
     border: var(--ic-hc-border);
   }
 
   slot[name="app-icon"]::slotted(svg) {
-    fill: currentColor;
+    fill: currentcolor;
   }
 }
