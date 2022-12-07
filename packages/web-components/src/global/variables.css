@@ -170,38 +170,40 @@
   --ic-theme-blue-primary-r: 27;
   --ic-theme-blue-primary-g: 60;
   --ic-theme-blue-primary-b: 121;
+  --ic-theme-blue-primary-a: 1;
   --ic-theme-primary-r: var(--ic-theme-blue-primary-r);
   --ic-theme-primary-g: var(--ic-theme-blue-primary-g);
   --ic-theme-primary-b: var(--ic-theme-blue-primary-b);
+  --ic-theme-primary-a: var(--ic-theme-blue-primary-a);
   --ic-theme-primary: rgb(
-    var(--ic-theme-primary-r) var(--ic-theme-primary-g)
-      var(--ic-theme-primary-b)
+    var(--ic-theme-primary-r)
+    var(--ic-theme-primary-g)
+    var(--ic-theme-primary-b) /
+    var(--ic-theme-primary-a)
   );
   --ic-theme-secondary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.8) calc(var(--ic-theme-primary-g) * 0.8)
-      calc(var(--ic-theme-primary-b) * 0.8)
+    calc(var(--ic-theme-primary-r) * 0.8)
+    calc(var(--ic-theme-primary-g) * 0.8)
+    calc(var(--ic-theme-primary-b) * 0.8) /
+    var(--ic-theme-primary-a)
   );
   --ic-theme-tertiary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.6) calc(var(--ic-theme-primary-g) * 0.6)
-      calc(var(--ic-theme-primary-b) * 0.6)
+    calc(var(--ic-theme-primary-r) * 0.6)
+    calc(var(--ic-theme-primary-g) * 0.6)
+    calc(var(--ic-theme-primary-b) * 0.6) /
+    var(--ic-theme-primary-a)
   );
   --ic-theme-secondary-light: rgb(
     calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.2))
-      calc(
-        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2)
-      )
-      calc(
-        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)
-      )
+    calc(var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2))
+    calc(var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)) /
+    var(--ic-theme-primary-a)
   );
   --ic-theme-tertiary-light: rgb(
     calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.4))
-      calc(
-        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4)
-      )
-      calc(
-        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)
-      )
+    calc(var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4))
+    calc(var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)) /
+    var(--ic-theme-primary-a)
   );
 
   /* ic-theme-calc and ic-theme-text returns if black or white font colors should be used for color contrast reasons by:
@@ -230,16 +232,22 @@
   --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -1000);
   --ic-theme-calc: max(0, var(--ic-theme-primary-calc));
   --ic-theme-text: rgb(
-    calc(var(--ic-theme-calc) + 11) calc(var(--ic-theme-calc) + 12)
-      calc(var(--ic-theme-calc) + 12)
+    calc(var(--ic-theme-calc) + 11)
+    calc(var(--ic-theme-calc) + 12)
+    calc(var(--ic-theme-calc) + 12) /
+    var(--ic-theme-primary-a)
   );
   --ic-theme-hover: rgb(
-    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
-      calc(var(--ic-theme-calc) + 77) / 10%
+    calc(var(--ic-theme-calc) + 65)
+    calc(var(--ic-theme-calc) + 70)
+    calc(var(--ic-theme-calc) + 77) /
+    10%
   );
   --ic-theme-active: rgb(
-    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
-      calc(var(--ic-theme-calc) + 77) / 20%
+    calc(var(--ic-theme-calc) + 65)
+    calc(var(--ic-theme-calc) + 70)
+    calc(var(--ic-theme-calc) + 77) /
+    20%
   );
 
   /* hyperlinks */

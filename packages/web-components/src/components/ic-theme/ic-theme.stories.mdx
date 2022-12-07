@@ -19,7 +19,7 @@ import readme from "./readme.md";
     name="Switch theme"
     parameters={{ loki: { skip: true }, layout: "fullscreen" }}
   >
-    {html` <ic-theme color="rgb(27, 60, 121)"></ic-theme>
+    {html` <ic-theme color="rgba(27, 60, 121, 1)"></ic-theme>
       <ic-button
         variant="primary"
         id="default-btn"
@@ -30,7 +30,7 @@ import readme from "./readme.md";
       <ic-button
         variant="primary"
         id="custom-btn"
-        onClick="document.querySelector('ic-theme').color='rgb(255, 201, 60)'"
+        onClick="document.querySelector('ic-theme').color='rgba(255, 201, 60, 1)'"
       >
         Sunrise theme
       </ic-button>

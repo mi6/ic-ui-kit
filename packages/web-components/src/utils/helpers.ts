@@ -4,8 +4,8 @@ import {
   IcInformationStatusOrEmpty,
   IcNavParentDetails,
   IcPropObject,
-  IcColorRGB,
   IcSearchMatchPositions,
+  IcColorRGBA,
 } from "./types";
 
 import {
@@ -469,7 +469,7 @@ const hex2dec = function (v: string) {
   return parseInt(v, 16);
 };
 
-export const hexToRgb = (hex: string): IcColorRGB => {
+export const hexToRgba = (hex: string): IcColorRGBA => {
   let c;
   if (hex.length === 4) {
     c = hex.replace("#", "").split("");
@@ -477,27 +477,43 @@ export const hexToRgb = (hex: string): IcColorRGB => {
       r: hex2dec(c[0] + c[0]),
       g: hex2dec(c[1] + c[1]),
       b: hex2dec(c[2] + c[2]),
+      a: 1,
     };
   } else {
     return {
       r: hex2dec(hex.slice(1, 3)),
       g: hex2dec(hex.slice(3, 5)),
       b: hex2dec(hex.slice(5)),
+      a: 1,
     };
   }
 };
 
-export const rgbStrToObj = (rgbStr: string): IcColorRGB => {
-  const colorRGB: IcColorRGB = { r: null, g: null, b: null };
-  const rgb = rgbStr
-    .substring(4, rgbStr.length - 1)
-    .replace(/ /g, "")
-    .split(",");
-  colorRGB.r = Number(rgb[0]);
-  colorRGB.g = Number(rgb[1]);
-  colorRGB.b = Number(rgb[2]);
+export const rgbaStrToObj = (rgbaStr: string): IcColorRGBA => {
+  const fourthChar = rgbaStr.slice(3, 4);
+  let colorRGBA: IcColorRGBA;
+  if (fourthChar.toLowerCase() === "a") {
+    colorRGBA = { r: null, g: null, b: null, a: null };
+    const rgba = rgbaStr
+      .substring(5, rgbaStr.length - 1)
+      .replace(/ /g, "")
+      .split(",");
+    colorRGBA.r = Number(rgba[0]);
+    colorRGBA.g = Number(rgba[1]);
+    colorRGBA.b = Number(rgba[2]);
+    colorRGBA.a = Number(rgba[3]);
+  } else {
+    colorRGBA = { r: null, g: null, b: null, a: 1 };
+    const rgb = rgbaStr
+      .substring(4, rgbaStr.length - 1)
+      .replace(/ /g, "")
+      .split(",");
+    colorRGBA.r = Number(rgb[0]);
+    colorRGBA.g = Number(rgb[1]);
+    colorRGBA.b = Number(rgb[2]);
+  }
 
-  return colorRGB;
+  return colorRGBA;
 };
 
 export const elementOverflowsX = (element: HTMLElement): boolean => {
