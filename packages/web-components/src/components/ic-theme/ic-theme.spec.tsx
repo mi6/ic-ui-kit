@@ -49,4 +49,16 @@ describe("ic-theme", () => {
       </ic-theme>
     `);
   });
+
+  it("sets theme colour with rgba", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme color="rgba(159, 43, 104, 1)"></ic-theme>`,
+    });
+    expect(page.root).toEqualHtml(`
+      <ic-theme color="rgba(159, 43, 104, 1)">
+        <mock:shadow-root></mock:shadow-root>
+      </ic-theme>
+    `);
+  });
 });
