@@ -15,7 +15,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+          <div class="ic-loading-circular-inner">
+            <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+              <circle cx="0" cy="0" r="0"></circle>
+              <circle cx="0" cy="0" r="0"></circle>
+            </svg>
+          </div>
         </div>
         <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
           <mock:shadow-root>
@@ -41,9 +46,11 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="ic-loading-circular-outer determinate" role="progressbar">
-          <div class="clip ic-loading-circular-inner" style="--circular-rotation: 108deg; --linear-width: 30%;">
-            <div class="left"></div>
-            <div class="right"></div>
+          <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0" style='--progress-value: 30;'></circle>
+          </svg>
           </div>
         </div>
         <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
@@ -70,7 +77,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0"></circle>
+          </svg>
+        </div>
         </div>
       </div>
     </mock:shadow-root>
@@ -88,7 +100,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0"></circle>
+          </svg>
+        </div>
         </div>
         <ic-typography class="ic-loading-label ic-typography-label" id="ic-loading-label" role="status">
           <mock:shadow-root>
@@ -114,7 +131,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0"></circle>
+          </svg>
+        </div>
         </div>
         <ic-typography class="ic-loading-label ic-typography-h4" id="ic-loading-label" role="status">
           <mock:shadow-root>
@@ -140,7 +162,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0"></circle>
+          </svg>
+        </div>
         </div>
         <ic-typography class="ic-loading-label ic-typography-h2" id="ic-loading-label" role="status">
           <mock:shadow-root>
@@ -166,7 +193,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="IC Loading Indicator Test" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
-          <div class="ic-loading-circular-inner"></div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0"></circle>
+          </svg>
+        </div>
         </div>
       </div>
     </mock:shadow-root>
@@ -202,10 +234,12 @@ describe("ic-loading-indicator component", () => {
     <mock:shadow-root>
       <div class="ic-loading-container">
         <div aria-label="Loading" aria-valuemax="50" aria-valuemin="10" aria-valuenow="30" class="ic-loading-circular-outer determinate" role="progressbar">
-          <div class="clip ic-loading-circular-inner" style="--circular-rotation: 180deg; --linear-width: 50%;">
-            <div class="left"></div>
-            <div class="right"></div>
-          </div>
+        <div class="ic-loading-circular-inner">
+          <svg class="ic-loading-circular-svg" viewBox="0 0 0 0">
+            <circle cx="0" cy="0" r="0"></circle>
+            <circle cx="0" cy="0" r="0" style='--progress-value: 30;'></circle>
+          </svg>
+        </div>
         </div>
       </div>
     </mock:shadow-root>
@@ -224,5 +258,42 @@ describe("ic-loading-indicator component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.indicatorLabel).toEqual("still waiting");
+  });
+
+  it("should render linear determinate progress bar", async () => {
+    const page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator progress="30" min="10" max="50" type='linear'></ic-loading-indicator>`,
+    });
+
+    expect(page.root)
+      .toEqualHtml(`<ic-loading-indicator max="50" min="10" progress="30" size="default" type="linear">
+          <mock:shadow-root>
+            <div class="ic-loading-container">
+              <div aria-label="Loading" aria-valuemax="50" aria-valuemin="10" aria-valuenow="30" class="determinate ic-loading-linear-outer" role="progressbar">
+                <div class="clip ic-loading-linear-inner" style="--linear-width: 50%;"></div>
+              </div>
+            </div>
+          </mock:shadow-root>
+        </ic-loading-indicator>
+    `);
+  });
+
+  it("should render linear indeterminate progress bar", async () => {
+    const page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator type='linear'></ic-loading-indicator>`,
+    });
+
+    expect(page.root)
+      .toEqualHtml(`<ic-loading-indicator size="default" type="linear">
+    <mock:shadow-root>
+      <div class="ic-loading-container">
+        <div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="ic-loading-linear-outer indeterminate" role="progressbar">
+          <div class="ic-loading-linear-inner"></div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-loading-indicator>`);
   });
 });

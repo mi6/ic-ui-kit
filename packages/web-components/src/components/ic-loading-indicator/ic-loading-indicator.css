@@ -15,6 +15,12 @@
   --linear-line-height: var(--ic-space-xs);
 }
 
+:host(.light) {
+  --inner-color: var(--ic-architectural-white);
+  --outer-color: var(--ic-architectural-800);
+  --label-color: var(--ic-architectural-white);
+}
+
 .ic-loading-container {
   display: flex;
   flex-direction: column;
@@ -32,7 +38,7 @@
 }
 
 :host([size="large"]) {
-  --circular-diameter: 160px;
+  --circular-diameter: 120px;
 }
 
 :host([size="icon"]) {
@@ -53,108 +59,14 @@
 }
 
 .ic-loading-circular-outer {
-  box-shadow: inset 0 0 0 var(--circular-line-width) var(--outer-color);
   height: var(--circular-diameter);
   width: var(--circular-diameter);
-  border-radius: 50%;
-  position: relative;
+
 }
 
 .ic-loading-circular-outer.indeterminate {
   animation: circular-animation 1s linear;
   animation-iteration-count: infinite;
-}
-
-.ic-loading-circular-inner {
-  height: var(--circular-diameter);
-  width: var(--circular-diameter);
-  border-radius: 50%;
-  position: relative;
-}
-
-.indeterminate > .ic-loading-circular-inner {
-  box-shadow: inset 0 0 0 var(--circular-line-width) var(--inner-color);
-  clip-path: inset(0 50% 50% 0);
-}
-
-.determinate > .ic-loading-circular-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.determinate > .ic-loading-circular-inner.clip {
-  clip: rect(
-    0,
-    var(--circular-diameter),
-    var(--circular-diameter),
-    calc(var(--circular-diameter) / 2)
-  );
-}
-
-.ic-loading-circular-inner .left,
-.ic-loading-circular-inner .right {
-  height: 100%;
-  width: 100%;
-  border: var(--circular-line-width) solid var(--inner-color);
-  border-radius: 50%;
-  box-sizing: border-box;
-  clip: rect(
-    0,
-    calc(var(--circular-diameter) / 2),
-    var(--circular-diameter),
-    0
-  );
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.indeterminate > .ic-loading-circular-inner .left,
-.indeterminate > .ic-loading-circular-inner .right {
-  display: none;
-}
-
-.determinate > .ic-loading-circular-inner .left {
-  transform: rotate(var(--circular-rotation));
-}
-
-.determinate > .ic-loading-circular-inner .right {
-  transform: rotate(180deg);
-}
-
-.determinate > .ic-loading-circular-inner.clip .right {
-  display: none;
-}
-
-.ic-loading-circular-outer::before {
-  content: "";
-  height: var(--circular-line-width);
-  width: var(--circular-line-width);
-  border-radius: 50%;
-  background-color: var(--inner-color);
-  position: absolute;
-  display: block;
-  top: calc(50% - var(--circular-line-width) / 2);
-}
-
-.ic-loading-circular-outer::after {
-  content: "";
-  height: var(--circular-line-width);
-  width: var(--circular-line-width);
-  border-radius: 50%;
-  background-color: var(--inner-color);
-  position: absolute;
-  display: block;
-  top: 0;
-  left: calc(50% - var(--circular-line-width) / 2);
-}
-
-.ic-loading-circular-outer.determinate::before,
-.ic-loading-circular-outer.determinate::after {
-  display: none;
 }
 
 @keyframes circular-animation {
@@ -223,29 +135,52 @@
   }
 }
 
-:host(.light) {
-  --inner-color: var(--ic-architectural-white);
-  --outer-color: var(--ic-architectural-800);
-  --label-color: var(--ic-architectural-white);
+.ic-loading-circular-svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ic-loading-circular-svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--outer-color);
+  stroke-width: var(--circular-line-width);
+  stroke-linecap: round;
+}
+
+/* --stroke-dash-array calculated via dashArray method */
+.ic-loading-circular-svg circle:nth-child(2) {
+  --circular-indeterminate: calc(
+    (0.25 * var(--stroke-dasharray)) - var(--stroke-dasharray)
+  );
+
+  stroke-dasharray: var(--stroke-dasharray), var(--stroke-dasharray);
+  stroke-dashoffset: var(--stroke-dashoffset, var(--circular-indeterminate));
+  stroke: var(--inner-color);
 }
 
 /** High Contrast **/
 @media (forced-colors: active) {
   .indeterminate > .ic-loading-circular-inner {
     forced-color-adjust: none;
-    box-shadow: inset 0 0 0 var(--circular-line-width) canvastext;
   }
 
   .ic-loading-linear-outer {
     border: var(--ic-hc-border);
   }
-  
-  .ic-loading-circular-outer::after,
-  .ic-loading-circular-outer::before {
-    background-color: canvastext;
-  }
 
   .ic-loading-linear-inner {
     background-color: canvastext;
+  }
+
+  .ic-loading-circular-svg circle {
+    stroke: Background;
+  }
+
+  .ic-loading-circular-svg circle:nth-child(2) {
+    stroke: canvastext;
   }
 }
