@@ -1,8 +1,12 @@
 import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
-import { IcLoadingSizes, IcLoadingTypes } from "./ic-loading-indicator.types";
 import {
-  IcThemeForegroundNoDefault,
+  IcLoadingCircleXYR,
+  IcLoadingSizes,
+  IcLoadingTypes,
+} from "./ic-loading-indicator.types";
+import {
   IcThemeForegroundEnum,
+  IcThemeForegroundNoDefault,
 } from "../../utils/types";
 
 @Component({
@@ -70,15 +74,32 @@ export class LoadingIndicator {
   @State() indicatorLabel: string;
   @State() indeterminate: boolean;
   @State() showSecond: boolean = false;
+  @State() circularLineWidth: number;
+  @State() circularDiameter: number;
 
   @Watch("label")
   watchPropHandler(): void {
     this.updateLabel();
   }
 
+  @Watch("progress")
+  watchProgressHandler(): void {
+    this.updateCircularProgressMeter();
+  }
+
   private outerElement?: HTMLDivElement;
   private innerElement?: HTMLDivElement;
   private labelList: string[];
+  private circularMeter: SVGCircleElement;
+
+  private updateCircularProgressMeter = () => {
+    if (!this.indeterminate) {
+      this.circularMeter.style.setProperty(
+        "--progress-value",
+        String(this.progress)
+      );
+    }
+  };
 
   private getLabel = (
     labelIndex: number,
@@ -112,16 +133,18 @@ export class LoadingIndicator {
 
   // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
   private setCircleLineWidth = () => {
-    const width = this.outerElement?.offsetWidth;
+    const { offsetWidth: width } = this.outerElement;
     if (width) {
+      this.circularLineWidth = width * 0.1;
+      this.circularDiameter = width;
       this.outerElement.style.setProperty(
         "--circular-line-width",
-        `${width * 0.1}px`
+        `${this.circularLineWidth}px`
       );
     }
   };
 
-  private setDeterminateWidth = () => {
+  private setLinearDeterminateWidth = () => {
     if (!this.innerElement) return;
     // Ensure progress cannot be out of bounds
 
@@ -133,10 +156,6 @@ export class LoadingIndicator {
     } else {
       this.innerElement.classList.add("clip");
     }
-    this.innerElement.style.setProperty(
-      "--circular-rotation",
-      `${proportion * 360}deg`
-    );
     this.innerElement.style.setProperty(
       "--linear-width",
       `${proportion * 100}%`
@@ -162,15 +181,57 @@ export class LoadingIndicator {
     }
   };
 
+  private setCircleXY = (): IcLoadingCircleXYR => {
+    if (this.circularDiameter) {
+      const r = this.circularDiameter / 2;
+      const x = r;
+      const y = r;
+      const nextRadius = r - this.circularLineWidth / 2;
+      this.setDashSteps(nextRadius);
+
+      return { x, y, r: nextRadius };
+    }
+    return { x: 0, y: 0, r: 0 };
+  };
+
+  private setDashSteps = (radius: number) => {
+    const dashArray = 2 * Math.PI * radius;
+    const progress = Math.min(Math.max(this.progress, this.min), this.max);
+    const proportion = -1 - (progress - this.min) / (this.max - this.min);
+
+    this.circularMeter.style.setProperty(
+      "--stroke-dasharray",
+      `${dashArray}px`
+    );
+
+    if (!this.indeterminate) {
+      this.circularMeter.style.setProperty(
+        "--circular-steps-max",
+        String(this.max)
+      );
+      this.circularMeter.style.setProperty(
+        "--stroke-dashoffset",
+        `${proportion * dashArray}px`
+      );
+    }
+  };
+
   componentWillLoad(): void {
     this.indeterminate = this.progress === undefined;
     this.updateLabel();
   }
 
   componentDidLoad(): void {
-    this.setCircleLineWidth();
-    if (Number(this.progress) >= 0) {
-      this.setDeterminateWidth();
+    if (this.type === "circular") {
+      this.setCircleLineWidth();
+      this.circularMeter = this.host.shadowRoot.querySelector(
+        ".ic-loading-circular-svg circle:nth-child(2)"
+      );
+      this.updateCircularProgressMeter();
+    }
+
+    if (Number(this.progress) >= 0 && this.type === "linear") {
+      this.setLinearDeterminateWidth();
     }
   }
 
@@ -179,13 +240,15 @@ export class LoadingIndicator {
   }
 
   componentDidUpdate(): void {
-    if (Number(this.progress) >= 0) {
-      this.setDeterminateWidth();
+    if (Number(this.progress) >= 0 && this.type === "linear") {
+      this.setLinearDeterminateWidth();
     }
   }
 
   render() {
     const { appearance, label, description, size } = this;
+    const { x, y, r } = this.setCircleXY();
+
     return (
       <Host class={{ ["light"]: appearance === IcThemeForegroundEnum.Light }}>
         <div class="ic-loading-container">
@@ -205,8 +268,17 @@ export class LoadingIndicator {
               ref={(el) => (this.innerElement = el as HTMLDivElement)}
               class={`ic-loading-${this.type}-inner`}
             >
-              {this.indeterminate || <div class="left" />}
-              {this.indeterminate || <div class="right" />}
+              {this.type === "circular" && (
+                <svg
+                  class="ic-loading-circular-svg"
+                  viewBox={`0 0 ${this.circularDiameter || 0} ${
+                    this.circularDiameter || 0
+                  }`}
+                >
+                  <circle cx={`${x}`} cy={`${y}`} r={`${r}`}></circle>
+                  <circle cx={`${x}`} cy={`${y}`} r={`${r}`}></circle>
+                </svg>
+              )}
             </div>
           </div>
           {label && size !== "icon" && (
