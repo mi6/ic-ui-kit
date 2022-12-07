@@ -89,26 +89,31 @@ export const renderHiddenInput = (
   value: string | undefined | null,
   disabled: boolean
 ): void => {
-  if (always || hasShadowDom(container)) {
-    let input = container.querySelector(
-      "input.ic-input"
-    ) as HTMLInputElement | null;
-    if (input === null) {
-      input = container.ownerDocument.createElement("input");
-      input.type = "hidden";
-      input.classList.add("ic-input");
-      container.appendChild(input);
+  if (name !== undefined) {
+    if (always || hasShadowDom(container)) {
+      const inputs = container.querySelectorAll("input.ic-input");
+      const inputEls = Array.from(inputs);
+      const filtered = inputEls.filter((el) => container === el.parentElement);
+
+      let input = filtered[0] as HTMLInputElement;
+      if (input === null || input === undefined) {
+        input = container.ownerDocument.createElement("input");
+        input.type = "hidden";
+        input.classList.add("ic-input");
+        container.appendChild(input);
+      }
+      input.disabled = disabled;
+      input.name = name;
+      input.value = value || "";
     }
-    input.disabled = disabled;
-    input.name = name;
-    input.value = value || "";
   }
 };
 
 export const removeHiddenInput = (container: HTMLElement): void => {
-  const input = container.querySelector(
-    "input.ic-input"
-  ) as HTMLInputElement | null;
+  const inputs = container.querySelectorAll("input.ic-input");
+  const inputEls = Array.from(inputs);
+  const filtered = inputEls.filter((el) => container === el.parentElement);
+  const input = filtered[0] as HTMLInputElement;
   input?.remove();
 };
 

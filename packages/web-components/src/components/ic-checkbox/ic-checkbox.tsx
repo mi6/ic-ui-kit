@@ -41,7 +41,7 @@ export class Checkbox {
    */
   @Prop() value!: string;
   /**
-   * Provide a name for the input
+   * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
    */
   @Prop() name: string;
   /**
@@ -118,9 +118,11 @@ export class Checkbox {
   }
 
   render() {
-    const id = `ic-checkbox-${
+    let id = `ic-checkbox-${
       this.label !== undefined ? this.label : this.value
     }-${this.groupLabel}`;
+
+    id = id.replace(/ /g, "-");
 
     this.checked
       ? renderHiddenInput(
