@@ -18,7 +18,7 @@ import readme from "./readme.md";
   <Story name="Default">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="1">
+        <ic-checkbox-group label="This is a label" name="group1">
           <ic-checkbox
             value="valueName1"
             label="Unselected / Default"
@@ -45,7 +45,7 @@ import readme from "./readme.md";
   <Story name="Required">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" required name="1">
+        <ic-checkbox-group label="This is a label" required name="group1">
           <ic-checkbox
             value="valueName1"
             label="Unselected / Default"
@@ -72,7 +72,7 @@ import readme from "./readme.md";
   <Story name="Disabled">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="1" Disabled>
+        <ic-checkbox-group label="This is a label" name="group1" Disabled>
           <ic-checkbox
             value="valueName1"
             label="Unselected / Disabled 1"
@@ -106,7 +106,7 @@ import readme from "./readme.md";
   <Story name="Hidden label">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" hide-label name="1">
+        <ic-checkbox-group label="This is a label" hide-label name="group1">
           <ic-checkbox
             value="valueName1"
             label="Unselected / Default"
@@ -133,7 +133,7 @@ import readme from "./readme.md";
   <Story name="Conditional dynamic">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="1">
+        <ic-checkbox-group label="This is a label" name="group1">
           <ic-checkbox
             additional-field-display="dynamic"
             value="valueName1"
@@ -182,7 +182,7 @@ import readme from "./readme.md";
   <Story name="Conditional static" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="1">
+        <ic-checkbox-group label="This is a label" name="group1">
           <ic-checkbox value="valueName1" label="option1">
             <ic-text-field
               slot="additional-field"
@@ -204,7 +204,7 @@ import readme from "./readme.md";
       html`
         <ic-checkbox-group
           label="This is a label"
-          name="1"
+          name="group1"
           helper-text="Helper text"
         >
           <ic-checkbox
@@ -233,7 +233,7 @@ import readme from "./readme.md";
   <Story name="Small" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="1" small>
+        <ic-checkbox-group label="This is a label" name="group1" small>
           <ic-checkbox
             value="valueName1"
             label="Unselected / Default"
@@ -265,7 +265,7 @@ import readme from "./readme.md";
       html`
         <ic-checkbox-group
           label="This is a label"
-          name="1"
+          name="group1"
           validation-status="error"
           validation-text="Error message"
         >
@@ -296,7 +296,7 @@ import readme from "./readme.md";
     {(args) =>
       html`
         <form>
-          <ic-checkbox-group label="This is a label" name="1">
+          <ic-checkbox-group label="This is a label" name="group1">
             <ic-checkbox
               name="checkbox1"
               value="valueName1"
@@ -342,7 +342,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Indeterminate">
     {(args) =>
-      html` <ic-checkbox-group label="Liked things" name="1">
+      html`<ic-checkbox-group label="Liked things" name="likes">
         <ic-checkbox
           value="drinks"
           label="Drinks"
@@ -350,10 +350,10 @@ import readme from "./readme.md";
           indeterminate="true"
         >
           <ic-checkbox-group
-            label="Coffee"
+            label="Drinks"
             hide-label
             slot="additional-field"
-            name="2"
+            name="drinks"
           >
             <ic-checkbox value="tea" label="Tea"></ic-checkbox>
             <ic-checkbox
@@ -366,7 +366,7 @@ import readme from "./readme.md";
                 label="Coffees"
                 hide-label
                 slot="additional-field"
-                name="3"
+                name="coffees"
               >
                 <ic-checkbox value="mocha" label="Mocha"></ic-checkbox>
                 <ic-checkbox

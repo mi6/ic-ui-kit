@@ -222,7 +222,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Provide a name for the input
+          * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name": string;
         /**
@@ -1980,7 +1980,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Provide a name for the input
+          * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name"?: string;
         /**

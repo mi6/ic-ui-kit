@@ -22,9 +22,9 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
           </title>
           <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"></path>
         </svg>
-        <input checked="" class="checkbox checked" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input checked="" class="checkbox checked" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -49,9 +49,9 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
           <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
-      <input class="ic-input" name="test" type="hidden" value="test">
+      <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
     </ic-text-field>
-    <input class="ic-input" name="undefined" type="hidden" value="test">
+    <input class="ic-input" name="test" type="hidden" value="test">
   </ic-checkbox>
 </ic-checkbox-group>
 `;
@@ -71,9 +71,9 @@ exports[`ic-checkbox-group should render an aria label when label hidden: render
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -98,9 +98,9 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -128,9 +128,9 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -161,9 +161,9 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
           </title>
           <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"></path>
         </svg>
-        <input checked="" class="checkbox checked" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input checked="" class="checkbox checked" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -189,9 +189,9 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
   <ic-checkbox additional-field-display="static" disabled="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container disabled">
-        <input class="checkbox" disabled="" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -217,9 +217,9 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
     <mock:shadow-root>
       <div class="container">
         <div class="indeterminate-symbol"></div>
-        <input checked="" class="checkbox checked indeterminate" id="ic-checkbox-test label-test label" indeterminate="" name="test" role="checkbox" type="checkbox" value="test">
+        <input checked="" class="checkbox checked indeterminate" id="ic-checkbox-test-label-test-label" indeterminate="" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -246,9 +246,9 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -273,6 +273,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
           <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
+      <input class="ic-input" disabled="" name="ic-text-field-input-2" type="hidden" value="">
     </ic-text-field>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -300,9 +301,9 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
           </title>
           <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"></path>
         </svg>
-        <input checked="" class="checkbox checked" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input checked="" class="checkbox checked" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -333,9 +334,9 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
           <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
-      <input class="ic-input" name="test" type="hidden" value="test">
+      <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
     </ic-text-field>
-    <input class="ic-input" name="undefined" type="hidden" value="test">
+    <input class="ic-input" name="test" type="hidden" value="test">
   </ic-checkbox>
 </ic-checkbox-group>
 `;
@@ -356,9 +357,9 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
   <ic-checkbox additional-field-display="dynamic" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -389,6 +390,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
           <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
+      <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
     </ic-text-field>
   </ic-checkbox>
 </ic-checkbox-group>
@@ -410,9 +412,9 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
@@ -437,9 +439,9 @@ exports[`ic-checkbox-group should render: renders 1`] = `
   <ic-checkbox additional-field-display="static" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <input class="checkbox" id="ic-checkbox-test label-test label" name="test" role="checkbox" type="checkbox" value="test">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
-          <label class="checkbox-label" htmlfor="ic-checkbox-test label-test label">
+          <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">
             test label
           </label>
         </ic-typography>
