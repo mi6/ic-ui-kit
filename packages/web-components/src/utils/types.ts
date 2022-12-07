@@ -91,6 +91,10 @@ export type IcColorRGB = {
   b: number;
 };
 
+export type IcColorRGBA = IcColorRGB & {
+  a: number;
+};
+
 export type IcActivationTypes = "automatic" | "manual";
 
 export type IcAutocorrectStates = "on" | "off";

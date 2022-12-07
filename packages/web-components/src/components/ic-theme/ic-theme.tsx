@@ -8,11 +8,11 @@ import {
   Prop,
 } from "@stencil/core";
 
-import { IcColorRGB, IcTheme } from "../../utils/types";
+import { IcColorRGBA, IcTheme } from "../../utils/types";
 import {
   getThemeForegroundColor,
-  hexToRgb,
-  rgbStrToObj,
+  hexToRgba,
+  rgbaStrToObj,
 } from "../../utils/helpers";
 
 @Component({
@@ -37,25 +37,26 @@ export class Theme {
 
   private setThemeColor = () => {
     if (this.color !== null) {
-      let colorRGB = null;
+      let colorRGBA = null;
       const firstChar = this.color.slice(0, 1);
       if (firstChar === "#") {
-        colorRGB = hexToRgb(this.color);
+        colorRGBA = hexToRgba(this.color);
       } else if (firstChar.toLowerCase() === "r") {
-        colorRGB = rgbStrToObj(this.color);
+        colorRGBA = rgbaStrToObj(this.color);
       }
-      this.setThemeRGB(colorRGB);
+      this.setThemeRGBA(colorRGBA);
     }
   };
 
-  private setThemeRGB = (colorRGB: IcColorRGB) => {
-    if (colorRGB !== null) {
+  private setThemeRGBA = (colorRGBA: IcColorRGBA) => {
+    if (colorRGBA !== null) {
       const root = document.documentElement;
-      root.style.setProperty("--ic-theme-primary-r", colorRGB.r.toString());
-      root.style.setProperty("--ic-theme-primary-g", colorRGB.g.toString());
-      root.style.setProperty("--ic-theme-primary-b", colorRGB.b.toString());
+      root.style.setProperty("--ic-theme-primary-r", colorRGBA.r.toString());
+      root.style.setProperty("--ic-theme-primary-g", colorRGBA.g.toString());
+      root.style.setProperty("--ic-theme-primary-b", colorRGBA.b.toString());
+      root.style.setProperty("--ic-theme-primary-a", colorRGBA.a.toString());
       const foregroundColor = getThemeForegroundColor();
-      this.icThemeChange.emit({ mode: foregroundColor, color: colorRGB });
+      this.icThemeChange.emit({ mode: foregroundColor, color: colorRGBA });
     }
   };
 
