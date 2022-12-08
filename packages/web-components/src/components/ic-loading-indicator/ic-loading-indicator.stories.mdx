@@ -386,3 +386,28 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Progress indicator for compact step
+
+<Canvas>
+  <Story
+    name="Progress indicator for compact step"
+    argTypes={{
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
+    }}
+    parameters={{ loki: { skip: true } }}
+  >
+    >
+    {(args) =>
+      html`<ic-loading-indicator
+        size="small"
+        inner-label="3"
+        progress="${args.progress}"
+        min="${args.min}"
+        max="${args.max}"
+      ></ic-loading-indicator>`
+    }
+  </Story>
+</Canvas>
