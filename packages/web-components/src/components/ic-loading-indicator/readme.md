@@ -33,6 +33,7 @@
 ### Used by
 
  - [ic-button](../ic-button)
+ - [ic-step](../ic-step)
 
 ### Depends on
 
@@ -43,6 +44,7 @@
 graph TD;
   ic-loading-indicator --> ic-typography
   ic-button --> ic-loading-indicator
+  ic-step --> ic-loading-indicator
   style ic-loading-indicator fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
