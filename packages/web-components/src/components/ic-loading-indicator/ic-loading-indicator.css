@@ -159,7 +159,38 @@
 
   stroke-dasharray: var(--stroke-dasharray), var(--stroke-dasharray);
   stroke-dashoffset: var(--stroke-dashoffset, var(--circular-indeterminate));
-  stroke: var(--inner-color);
+  stroke: var(--compact-step-inner-color, var(--inner-color));
+}
+
+:host([inner-label]) .ic-loading-circular-inner {
+  display: grid;
+}
+
+:host([inner-label]) .ic-loading-circular-svg,
+.inner-text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+:host(.not-required.compact-step-progress-indicator)
+  .ic-loading-circular-svg
+  circle:nth-child(2) {
+  stroke: var(--ic-architectural-300);
+}
+
+.inner-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ic-space-lg);
+  height: inherit;
+  overflow: hidden;
+  margin: auto;
+  color: var(--ic-theme-primary);
+}
+
+:host(.not-required.compact-step-progress-indicator) .inner-text {
+  color: var(--ic-color-tertiary-text);
 }
 
 /** High Contrast **/
@@ -182,5 +213,11 @@
 
   .ic-loading-circular-svg circle:nth-child(2) {
     stroke: canvastext;
+  }
+
+  :host(.not-required.compact-step-progress-indicator)
+    .ic-loading-circular-svg
+    circle:nth-child(2) {
+    stroke: GrayText;
   }
 }
