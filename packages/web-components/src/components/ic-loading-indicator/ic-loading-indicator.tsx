@@ -47,6 +47,11 @@ export class LoadingIndicator {
   @Prop() description?: string = "Loading";
 
   /**
+   * @internal The step number of a compact step, managed by ic-step.
+   */
+  @Prop() innerLabel?: number;
+
+  /**
    * The time in milliseconds before the label changes.
    */
   @Prop() labelDuration?: number = 8000;
@@ -75,6 +80,8 @@ export class LoadingIndicator {
   @State() indeterminate: boolean;
   @State() showSecond: boolean = false;
   @State() circularLineWidth: number;
+  @State() compactStepCircularLineWidth: number = 0;
+
   @State() circularDiameter: number;
 
   @Watch("label")
@@ -136,9 +143,18 @@ export class LoadingIndicator {
   // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
   private setCircleLineWidth = () => {
     const { offsetWidth: width } = this.outerElement;
-    if (width) {
-      this.circularLineWidth = width * 0.1;
-      this.circularDiameter = width;
+    if (this.host.classList.contains("compact-step-progress-indicator")) {
+      this.compactStepCircularLineWidth = 40;
+    }
+    if (width || this.compactStepCircularLineWidth === 40) {
+      this.circularLineWidth =
+        (this.compactStepCircularLineWidth === 40
+          ? this.compactStepCircularLineWidth
+          : width) * 0.1;
+      this.circularDiameter =
+        this.compactStepCircularLineWidth === 40
+          ? this.compactStepCircularLineWidth
+          : width;
       this.outerElement.style.setProperty(
         "--circular-line-width",
         `${this.circularLineWidth}px`
@@ -184,7 +200,7 @@ export class LoadingIndicator {
   };
 
   private setCircleXY = (): IcLoadingCircleXYR => {
-    if (this.circularDiameter) {
+    if (this.circularDiameter > 0) {
       const r = this.circularDiameter / 2;
       const x = r;
       const y = r;
@@ -270,6 +286,13 @@ export class LoadingIndicator {
               ref={(el) => (this.innerElement = el as HTMLDivElement)}
               class={`ic-loading-${this.type}-inner`}
             >
+              {this.innerLabel &&
+                this.innerLabel !== undefined &&
+                this.size === "small" && (
+                  <ic-typography variant="subtitle-small" class="inner-text">
+                    {this.innerLabel}
+                  </ic-typography>
+                )}
               {this.type === "circular" && (
                 <svg
                   class="ic-loading-circular-svg"
