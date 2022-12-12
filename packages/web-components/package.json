@@ -27,7 +27,7 @@
     "create-component": "stencil generate",
     "storybook": "npm-run-all --parallel build:watch start-storybook",
     "start-storybook": "start-storybook -p 6006 -s dist --no-manager-cache",
-    "build-storybook": "rm -rf /storybook-static && build-storybook -s public",
+    "build-storybook": "rimraf /storybook-static && build-storybook -s public",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
