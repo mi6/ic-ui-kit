@@ -15,7 +15,6 @@
     "@fontsource/open-sans": "^4.5.6",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.0",
-    "rimraf": "^3.0.2",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
   }
