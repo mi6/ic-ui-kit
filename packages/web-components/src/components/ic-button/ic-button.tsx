@@ -316,7 +316,7 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            class={{ ["tooltip-disabled-button"]: this.disableTooltip }}
+            class={{ ["tooltip-disabled"]: this.disableTooltip }}
             ref={(el) => (this.tooltipEl = el)}
             label={tooltipText}
             target={buttonId}
