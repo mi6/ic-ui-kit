@@ -14,4 +14,4 @@ jobs:
         uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: https://mi6.github.io/ic-ui-kit/branches/${{ github.event.ref }}
+          body: View your branch deployment at https://mi6.github.io/ic-ui-kit/branches/${{ github.event.ref }}
