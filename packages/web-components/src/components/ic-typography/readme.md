@@ -21,6 +21,7 @@
  - [ic-back-to-top](../ic-back-to-top)
  - [ic-card](../ic-card)
  - [ic-checkbox](../ic-checkbox)
+ - [ic-chip](../ic-chip)
  - [ic-classification-banner](../ic-classification-banner)
  - [ic-data-entity](../ic-data-entity)
  - [ic-data-row](../ic-data-row)
@@ -53,6 +54,7 @@ graph TD;
   ic-back-to-top --> ic-typography
   ic-card --> ic-typography
   ic-checkbox --> ic-typography
+  ic-chip --> ic-typography
   ic-classification-banner --> ic-typography
   ic-data-entity --> ic-typography
   ic-data-row --> ic-typography
