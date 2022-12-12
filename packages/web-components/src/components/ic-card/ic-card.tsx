@@ -4,7 +4,11 @@ import {
   isSlotUsed,
   getThemeFromContext,
 } from "../../utils/helpers";
-import { IcTheme, IcThemeForeground, IcThemeForegroundEnum } from "../../utils/types";
+import {
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundEnum,
+} from "../../utils/types";
 
 /**
  * @slot icon - Content will be placed to the left of the card title.

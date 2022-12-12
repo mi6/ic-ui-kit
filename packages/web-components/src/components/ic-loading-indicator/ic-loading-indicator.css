@@ -61,7 +61,6 @@
 .ic-loading-circular-outer {
   height: var(--circular-diameter);
   width: var(--circular-diameter);
-
 }
 
 .ic-loading-circular-outer.indeterminate {

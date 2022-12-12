@@ -15,7 +15,7 @@
 
 :host(.tooltip-navigation-item:not(.tooltip-navigation-item-side-nav-collapsed))
   .ic-tooltip-container,
-:host(.tooltip-disabled-button) .ic-tooltip-container {
+:host(.tooltip-disabled) .ic-tooltip-container {
   display: none !important;
 }
 

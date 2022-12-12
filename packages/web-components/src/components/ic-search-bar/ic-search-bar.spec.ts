@@ -516,6 +516,8 @@ describe("ic-search-bar search", () => {
     //delay to wait for aria live update
     await waitForTimeout(700);
     expect(page.rootInstance.filteredOptions).toHaveLength(1);
-    expect(page.rootInstance.filteredOptions[0].label).toEqual("No results found");
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      "No results found"
+    );
   });
 });

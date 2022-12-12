@@ -189,7 +189,7 @@ slot[name="toggle-icon"] svg {
   justify-content: flex-end;
 }
 
-:host ic-section-container{
+:host ic-section-container {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
 }
