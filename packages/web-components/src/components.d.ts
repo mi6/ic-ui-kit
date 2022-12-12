@@ -9,6 +9,7 @@ import { IcAlertVariants } from "./components/ic-alert/ic-alert.types";
 import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants } from "./utils/types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
+import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -267,6 +268,28 @@ export namespace Components {
           * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText": string;
+    }
+    interface IcChip {
+        /**
+          * The emphasis of the chip.
+         */
+        "appearance"?: IcChipAppearance;
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the chip will have a close button at the end to dismiss it.
+         */
+        "dismissible"?: boolean;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * The size of the chip.
+         */
+        "size"?: IcChipSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -1380,6 +1403,10 @@ export interface IcCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcCheckboxGroupElement;
 }
+export interface IcChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcChipElement;
+}
 export interface IcFooterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcFooterElement;
@@ -1484,6 +1511,12 @@ declare global {
     var HTMLIcCheckboxGroupElement: {
         prototype: HTMLIcCheckboxGroupElement;
         new (): HTMLIcCheckboxGroupElement;
+    };
+    interface HTMLIcChipElement extends Components.IcChip, HTMLStencilElement {
+    }
+    var HTMLIcChipElement: {
+        prototype: HTMLIcChipElement;
+        new (): HTMLIcChipElement;
     };
     interface HTMLIcClassificationBannerElement extends Components.IcClassificationBanner, HTMLStencilElement {
     }
@@ -1734,6 +1767,7 @@ declare global {
         "ic-card": HTMLIcCardElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
+        "ic-chip": HTMLIcChipElement;
         "ic-classification-banner": HTMLIcClassificationBannerElement;
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
@@ -2033,6 +2067,32 @@ declare namespace LocalJSX {
           * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText"?: string;
+    }
+    interface IcChip {
+        /**
+          * The emphasis of the chip.
+         */
+        "appearance"?: IcChipAppearance;
+        /**
+          * If `true`, the chip will appear disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the chip will have a close button at the end to dismiss it.
+         */
+        "dismissible"?: boolean;
+        /**
+          * The text rendered within the chip.
+         */
+        "label": string;
+        /**
+          * Is emitted when the user dismisses the chip.
+         */
+        "onDismiss"?: (event: IcChipCustomEvent<void>) => void;
+        /**
+          * The size of the chip.
+         */
+        "size"?: IcChipSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -3231,6 +3291,7 @@ declare namespace LocalJSX {
         "ic-card": IcCard;
         "ic-checkbox": IcCheckbox;
         "ic-checkbox-group": IcCheckboxGroup;
+        "ic-chip": IcChip;
         "ic-classification-banner": IcClassificationBanner;
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
@@ -3285,6 +3346,7 @@ declare module "@stencil/core" {
             "ic-card": LocalJSX.IcCard & JSXBase.HTMLAttributes<HTMLIcCardElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
+            "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;

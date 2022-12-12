@@ -297,7 +297,7 @@ describe("button component", () => {
     expect(element).toEqualHtml(`
       <ic-button class="button-size-default button-variant-icon" disable-tooltip="" id="test-button" variant="icon">
         <mock:shadow-root>
-          <ic-tooltip class="tooltip-disabled-button" target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
+          <ic-tooltip class="tooltip-disabled" target="ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom">
             <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
               <slot></slot>
             </button>
