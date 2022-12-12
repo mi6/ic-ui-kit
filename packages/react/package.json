@@ -32,6 +32,8 @@
     "@storybook/addon-essentials": "^6.4.8",
     "@storybook/addon-links": "^6.4.8",
     "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.14",
+    "@storybook/manager-webpack5": "^6.5.14",
     "@storybook/react": "^6.4.8",
     "@types/jest": "27.0.3",
     "@types/node": "^16.11.11",
@@ -46,7 +48,8 @@
     "react-dom": "^16.7.0",
     "react-hook-form": "^7.38.0",
     "react-router-dom": "^6.3.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "webpack": "^5.75.0"
   },
   "peerDependencies": {
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
