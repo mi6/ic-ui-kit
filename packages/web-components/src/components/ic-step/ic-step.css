@@ -1,16 +1,103 @@
+/* SHARED STYLING */
 :host {
   display: flex;
   flex: auto;
 }
 
-:host(.last-step) {
-  flex-grow: initial;
-}
-
 .step {
   display: flex;
-  flex-direction: column;
   flex: 1 1 0;
+}
+
+.step-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.step-title,
+.step-subtitle,
+.step-status,
+.next-step {
+  white-space: pre-line;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* COMPACT STEP STYLING */
+:host(.compact) {
+  column-gap: var(--ic-space-sm);
+
+  --compact-step-inner-color: var(--ic-theme-primary);
+  --compact-step-circular-line-width: var(--ic-space-xxs);
+}
+
+:host(.compact) .step {
+  column-gap: var(--ic-space-sm);
+}
+
+:host(.compact) .step:not(.current) {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.compact-step-progress-indicator {
+  margin: var(--ic-space-xs) 0 0;
+}
+
+:host(.compact) .step-title-area {
+  display: flex;
+  flex-direction: column;
+  width: 228px;
+}
+
+.info-line {
+  display: flex;
+  column-gap: var(--ic-space-xs);
+}
+
+.step-status {
+  display: flex;
+  color: var(--ic-color-secondary-text);
+  column-gap: var(--ic-space-xxxs);
+}
+
+.compact-step-completed .step-status {
+  color: var(--ic-status-success);
+}
+
+.compact-step-disabled :is(.step-title, .step-status) {
+  color: var(--ic-color-tertiary-text);
+}
+
+.step-num {
+  color: var(--ic-color-secondary-text);
+  white-space: nowrap;
+}
+
+:host(.compact) .step-icon {
+  margin: var(--ic-space-xxxs);
+}
+
+:host(.compact) .step-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* DEFAULT STEP STYLING */
+:host(.default) .step {
+  flex-direction: column;
+}
+
+:host(.default.last-step) {
+  flex-grow: initial;
 }
 
 .step-top {
@@ -21,10 +108,7 @@
   height: 40px;
 }
 
-.step-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+:host(.default) .step-icon {
   border-radius: 50%;
 }
 
@@ -37,16 +121,17 @@
   border-radius: 50%;
 }
 
-.current {
+:host(.default) .current {
   color: var(--ic-theme-primary);
 }
 
-.step-title-area {
+:host(.default) .step-title-area {
   margin: var(--ic-space-xs) 0;
   padding-right: var(--ic-space-xs);
+  width: 100%;
 }
 
-.step-title,
+:host(.default) .step-title,
 .step-subtitle {
   width: fit-content;
 }
@@ -59,7 +144,7 @@
   color: var(--ic-color-primary-text);
 }
 
-.completed {
+:host(.default) .completed {
   color: var(--ic-status-success);
 }
 
@@ -76,7 +161,7 @@
   color: var(--ic-architectural-200);
 }
 
-.disabled .step-icon {
+.disabled .step-icon-inner {
   border: 1px dashed var(--ic-architectural-200);
   width: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
@@ -92,10 +177,11 @@
   border-radius: 100%;
 }
 
-.current .step-icon {
+:host(.default) .current .step-icon {
   border: var(--ic-space-xxxs) solid var(--ic-theme-primary);
   padding: var(--ic-space-xxxs);
-  margin: 0 calc(-1 * var(--ic-space-xxxs)); /* compensating for the circle being bigger than other steps */
+  margin: 0 calc(-1 * var(--ic-space-xxxs));
+  /* compensating for the circle being bigger than other steps */
 }
 
 .step-connect {
@@ -131,21 +217,27 @@
   background-color: var(--ic-theme-primary);
 }
 
-.check-icon {
+.step-icon-inner .check-icon {
   padding-top: var(--ic-space-xxs);
 }
 
-.check-icon svg {
-  width: 16px;
-  height: 16px;
+.step-icon-inner .check-icon svg {
+  width: var(--ic-space-md);
+  height: auto;
 }
 
-.check-icon > svg > path {
-  fill: white;
+.step-icon-inner .check-icon > svg > path {
+  fill: var(--ic-color-white-text);
 }
 
 /** High Contrast **/
 @media (forced-colors: active) {
+  /* COMPACT STEP */
+  .compact-step-disabled :is(.step-title, .step-status) {
+    color: GrayText;
+  }
+
+  /* DEFAULT STEP */
   .step-connect:not(.disabled .step-connect) {
     border: var(--ic-hc-border);
   }
@@ -159,14 +251,14 @@
     color: canvastext;
   }
 
-  .current .step-icon {
+  :host(.default) .current .step-icon {
     padding: 0;
     border: none;
   }
 
   .disabled,
   .disabled .step-title-area {
-    color: Graytext;
+    color: GrayText;
   }
 
   .step-connect-inner,
@@ -174,7 +266,7 @@
     background-color: canvastext;
   }
 
-  .check-icon > svg > path {
+  .step-icon-inner .check-icon > svg > path {
     fill: canvastext;
   }
 }
