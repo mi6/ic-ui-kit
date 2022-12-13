@@ -49,3 +49,13 @@ export interface IcColorExceptions {
 export const IC_BLOCK_COLOR_EXCEPTIONS: IcColorExceptions = {
   "ic-alert": ["ic-link"],
 };
+
+/* Range within which the chosen theme colour would not have a sufficient brightness difference with either of the black or white foreground colours
+ * The brightness difference must be greater than 125 to provide good colour visibility
+ * Calculated by:
+ * - Using the brightness formula for both colours: https://www.w3.org/TR/AERT/#color-contrast
+ * - Adding 125 to the brightness of the black foreground colour - RGB(11, 12, 12)
+ * - Subtracting 125 from the brightness of the white foreground colour - RGB(255, 255, 255)
+ */
+export const BLACK_MIN_COLOR_BRIGHTNESS = 136.701;
+export const WHITE_MAX_COLOR_BRIGHTNESS = 130;
