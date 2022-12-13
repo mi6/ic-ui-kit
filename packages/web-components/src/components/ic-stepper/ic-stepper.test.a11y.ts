@@ -2,7 +2,7 @@ import { fixture } from "@open-wc/testing-helpers";
 import { axe } from "jest-axe";
 import { checkShadowElementRendersCorrectly } from "../../utils/testa11y.helpers";
 
-describe("stepper component", () => {
+describe("default variant of stepper component", () => {
   it("passes accessibility", async () => {
     const el = await fixture(`<ic-stepper>
     <ic-step step-title="First"></ic-step>
@@ -18,6 +18,20 @@ describe("stepper component", () => {
       step-type="completed"
     ></ic-step>
   </ic-stepper>`);
+    checkShadowElementRendersCorrectly(el);
+    expect(await axe(el)).toHaveNoViolations();
+  });
+});
+
+describe("compact variant of ic-stepper", () => {
+  it("passes accessibility", async () => {
+    const el =
+      await fixture(`<ic-stepper variant="compact" id="standard-compact-stepper">
+        <ic-step step-title="Create" step-type="completed"></ic-step>
+        <ic-step step-title="Read" step-status="complete" current></ic-step>
+        <ic-step step-title="Update" step-status="not required"></ic-step>
+        <ic-step step-title="Delete" step-status="not required"></ic-step>
+      </ic-stepper>`);
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();
   });

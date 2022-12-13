@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compact variant of ic-step component should render a compact step with no step status 1`] = `
+<ic-step aria-current="step" aria-label="Step 3" class="compact" last-step="false" last-step-num="4" next-step-title="Fourth step" progress="75" role="listitem" step-num="3" step-title="Third step" step-type="current" variant="compact">
+  <mock:shadow-root>
+    <div class="step">
+      <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
+      <div class="step-title-area">
+        <ic-typography class="step-title" variant="h4">
+          Third step
+        </ic-typography>
+        <div class="info-line">
+          <ic-typography class="step-num" variant="caption">
+            3 of 4
+            <span class="visually-hidden">
+              steps
+            </span>
+          </ic-typography>
+        </div>
+        <ic-typography class="next-step" variant="subtitle-small">
+          Next
+          <span class="visually-hidden">
+            step is
+          </span>
+          : Fourth step
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`compact variant of ic-step component should render a step status icon for a step with a completed stepType 1`] = `
+<ic-step aria-label="Step 3. Completed step" class="compact" compact-step-styling="completed" last-step="false" last-step-num="4" next-step-title="next step" progress="75" role="listitem" step-num="3" step-title="Third step" step-type="completed" variant="compact">
+  <mock:shadow-root>
+    <div class="compact-step-completed step">
+      <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
+      <div class="step-title-area">
+        <ic-typography class="step-title" variant="h4">
+          Third step
+        </ic-typography>
+        <div class="info-line">
+          <ic-typography class="step-num" variant="caption">
+            3 of 4
+            <span class="visually-hidden">
+              steps
+            </span>
+          </ic-typography>
+          <div class="step-status">
+            <span aria-hidden="true" class="check-icon step-icon">
+              svg
+            </span>
+            <ic-typography variant="caption">
+              Completed
+            </ic-typography>
+          </div>
+        </div>
+        <ic-typography class="next-step" variant="subtitle-small">
+          Next
+          <span class="visually-hidden">
+            step is
+          </span>
+          : next step
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`compact variant of ic-step component should render an step status icon for a step with a disabled stepType 1`] = `
+<ic-step aria-label="Step 3. Non-required step" class="compact" compact-step-styling="disabled" last-step="false" last-step-num="4" next-step-title="next step" progress="75" role="listitem" step-num="3" step-title="Third step" step-type="disabled" variant="compact">
+  <mock:shadow-root>
+    <div class="compact-step-disabled step">
+      <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="75" size="small"></ic-loading-indicator>
+      <div class="step-title-area">
+        <ic-typography class="step-title" variant="h4">
+          Third step
+        </ic-typography>
+        <div class="info-line">
+          <ic-typography class="step-num" variant="caption">
+            3 of 4
+            <span class="visually-hidden">
+              steps
+            </span>
+          </ic-typography>
+          <div class="step-status">
+            <span aria-hidden="true" class="step-icon warning-icon">
+              svg
+            </span>
+            <ic-typography variant="caption">
+              Not required
+            </ic-typography>
+          </div>
+        </div>
+        <ic-typography class="next-step" variant="subtitle-small">
+          Next
+          <span class="visually-hidden">
+            step is
+          </span>
+          : next step
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`default variant of ic-step component should render completed stepType 1`] = `
+<ic-step aria-label="Step undefined. Completed step" class="default" role="listitem" step-type="completed" variant="default">
+  <mock:shadow-root>
+    <div class="completed step">
+      <div class="step-top">
+        <div class="step-icon">
+          <div aria-hidden="true" class="step-icon-inner">
+            <span class="check-icon">
+              svg
+            </span>
+          </div>
+        </div>
+        <div class="step-connect"></div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`default variant of ic-step component should render default step with correct title 1`] = `
+<ic-step aria-label="Step undefined" class="default" role="listitem" step-title="First" variant="default">
+  <mock:shadow-root>
+    <div class="active step">
+      <div class="step-top">
+        <div class="step-icon">
+          <ic-typography class="ic-typography-subtitle-small">
+            <mock:shadow-root>
+              <slot></slot>
+            </mock:shadow-root>
+            <span aria-hidden="true" class="step-icon-inner"></span>
+          </ic-typography>
+        </div>
+        <div class="step-connect"></div>
+      </div>
+      <div class="step-title-area">
+        <ic-typography class="ic-typography-subtitle-large step-title">
+          <mock:shadow-root>
+            <slot></slot>
+          </mock:shadow-root>
+          First
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`default variant of ic-step component should render default step with correct title, subtitle and current state 1`] = `
+<ic-step aria-current="step" aria-label="Step undefined" class="default" role="listitem" step-subtitle="Optional Subtitle" step-title="Second With a Very Long Title" step-type="current" variant="default">
+  <mock:shadow-root>
+    <div class="current step">
+      <div class="step-top">
+        <div class="step-icon">
+          <ic-typography class="ic-typography-subtitle-small">
+            <mock:shadow-root>
+              <slot></slot>
+            </mock:shadow-root>
+            <span aria-hidden="true" class="step-icon-inner"></span>
+          </ic-typography>
+        </div>
+        <div class="step-connect">
+          <div class="step-connect-inner"></div>
+        </div>
+      </div>
+      <div class="step-title-area">
+        <ic-typography class="ic-typography-subtitle-large step-title">
+          <mock:shadow-root>
+            <slot></slot>
+          </mock:shadow-root>
+          Second With a Very Long Title
+        </ic-typography>
+        <ic-typography class="ic-typography-caption step-subtitle">
+          <mock:shadow-root>
+            <slot></slot>
+          </mock:shadow-root>
+          Optional Subtitle
+        </ic-typography>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`default variant of ic-step component should render default step with no title 1`] = `
+<ic-step aria-label="Step undefined" class="default" role="listitem" variant="default">
+  <mock:shadow-root>
+    <div class="active step">
+      <div class="step-top">
+        <div class="step-icon">
+          <ic-typography class="ic-typography-subtitle-small">
+            <mock:shadow-root>
+              <slot></slot>
+            </mock:shadow-root>
+            <span aria-hidden="true" class="step-icon-inner"></span>
+          </ic-typography>
+        </div>
+        <div class="step-connect"></div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
+
+exports[`default variant of ic-step component should render disabled stepType 1`] = `
+<ic-step aria-label="Step undefined. Non-required step" class="default" role="listitem" step-type="disabled" variant="default">
+  <mock:shadow-root>
+    <div class="disabled step">
+      <div class="step-top">
+        <div class="step-icon">
+          <ic-typography class="ic-typography-subtitle-small">
+            <mock:shadow-root>
+              <slot></slot>
+            </mock:shadow-root>
+            <span aria-hidden="true" class="step-icon-inner"></span>
+          </ic-typography>
+        </div>
+        <div class="step-connect"></div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-step>
+`;
