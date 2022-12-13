@@ -19,7 +19,7 @@ import {
   IC_FIXED_COLOR_COMPONENTS,
 } from "./constants";
 
-const DARK_MODE_THRESHOLD = 128;
+const DARK_MODE_THRESHOLD = 133.3505;
 
 /**
  * Used to inherit global attributes set on the host. Called in componentWillLoad and assigned
@@ -314,25 +314,31 @@ export const getCssProperty = (cssVar: string): string => {
   return getComputedStyle(document.documentElement).getPropertyValue(cssVar);
 };
 
-export const getThemeForegroundColor = (): IcThemeForeground => {
-  /*
-    Returns if dark or light font colors should be used for color contrast reasons, calculated by using the theme RGB CSS values by:
-    - Multiplying each RGB value by a set number: https://www.w3.org/TR/AERT/#color-contrast
-    - Adding them together and dividing by 1000
-    - If the result is greater than 128 return "dark" color, else return "light" color
-    This is a similar calculation to it's CSS counterpart: "--ic-theme-text"
-  */
+/**
+ * Returns the brightness of the theme colour, calculated by using the theme RGB CSS values by:
+ * - Multiplying each RGB value by a set number: https://www.w3.org/TR/AERT/#color-contrast
+ * - Adding them together and dividing by 1000
+ * This is a similar calculation to its CSS counterpart: "--ic-theme-text"
+ * @returns number representing the brightness of the theme colour
+ */
+export const getThemeColorBrightness = () => {
   const themeRed = getCssProperty("--ic-theme-primary-r");
   const themeGreen = getCssProperty("--ic-theme-primary-g");
   const themeBlue = getCssProperty("--ic-theme-primary-b");
-  const fontColor = Math.round(
+  const themeColorBrightness =
     (parseInt(themeRed) * 299 +
       parseInt(themeGreen) * 587 +
       parseInt(themeBlue) * 114) /
-      1000
-  );
+    1000;
+  return themeColorBrightness;
+};
 
-  return fontColor > DARK_MODE_THRESHOLD
+/**
+ * Returns if dark or light foreground colors should be used for color contrast reasons
+ * @returns "dark" or "light"
+ */
+export const getThemeForegroundColor = (): IcThemeForeground => {
+  return getThemeColorBrightness() > DARK_MODE_THRESHOLD
     ? IcThemeForegroundEnum.Dark
     : IcThemeForegroundEnum.Light;
 };

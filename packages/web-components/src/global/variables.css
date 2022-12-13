@@ -176,41 +176,42 @@
   --ic-theme-primary-b: var(--ic-theme-blue-primary-b);
   --ic-theme-primary-a: var(--ic-theme-blue-primary-a);
   --ic-theme-primary: rgb(
-    var(--ic-theme-primary-r)
-    var(--ic-theme-primary-g)
-    var(--ic-theme-primary-b) /
-    var(--ic-theme-primary-a)
+    var(--ic-theme-primary-r) var(--ic-theme-primary-g)
+      var(--ic-theme-primary-b) / var(--ic-theme-primary-a)
   );
   --ic-theme-secondary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.8)
-    calc(var(--ic-theme-primary-g) * 0.8)
-    calc(var(--ic-theme-primary-b) * 0.8) /
-    var(--ic-theme-primary-a)
+    calc(var(--ic-theme-primary-r) * 0.8) calc(var(--ic-theme-primary-g) * 0.8)
+      calc(var(--ic-theme-primary-b) * 0.8) / var(--ic-theme-primary-a)
   );
   --ic-theme-tertiary: rgb(
-    calc(var(--ic-theme-primary-r) * 0.6)
-    calc(var(--ic-theme-primary-g) * 0.6)
-    calc(var(--ic-theme-primary-b) * 0.6) /
-    var(--ic-theme-primary-a)
+    calc(var(--ic-theme-primary-r) * 0.6) calc(var(--ic-theme-primary-g) * 0.6)
+      calc(var(--ic-theme-primary-b) * 0.6) / var(--ic-theme-primary-a)
   );
   --ic-theme-secondary-light: rgb(
     calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.2))
-    calc(var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2))
-    calc(var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)) /
-    var(--ic-theme-primary-a)
+      calc(
+        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.2)
+      )
+      calc(
+        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.2)
+      ) / var(--ic-theme-primary-a)
   );
   --ic-theme-tertiary-light: rgb(
     calc(var(--ic-theme-primary-r) + ((255 - var(--ic-theme-primary-r)) * 0.4))
-    calc(var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4))
-    calc(var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)) /
-    var(--ic-theme-primary-a)
+      calc(
+        var(--ic-theme-primary-g) + ((255 - var(--ic-theme-primary-g)) * 0.4)
+      )
+      calc(
+        var(--ic-theme-primary-b) + ((255 - var(--ic-theme-primary-b)) * 0.4)
+      ) / var(--ic-theme-primary-a)
   );
 
   /* ic-theme-calc and ic-theme-text returns if black or white font colors should be used for color contrast reasons by:
     - Multiplying each RGB value by a set number: https://www.w3.org/TR/AERT/#color-contrast
     - Adding them together and dividing by 1000
+    - Calculating this for the black and white text RGB values, adding them together and dividing by 2 gives the threshold for determining the font color
     - Due to no if statement in CSS, high RGB values are capped at 255 and low RGB capped at 0
-    - Subtracting 128 from the calculation and dividing by 1000 returns a large positive or negative number
+    - Subtracting the dark mode threshold from the calculation and multiplying by -10000 returns a large positive or negative number
     - The RGB function caps negative numbers to RGB(0, 0, 0) or positive numbers to RGB(255, 255, 255)
     - The ICDS does not use pure black RGB(0, 0, 0) as it's font, it uses #0b0c0c/RGB(11, 12, 12)
     - The max() CSS function therefore ensures any negative numbers can be no less than 0
@@ -218,6 +219,7 @@
     - The result then returns the RGB values for the ICDS white or black font color, dependent on which is the most color contrast compliant
     This is a similar calculation to it's JS counterpart: "getThemeFontColor"
   */
+  --ic-theme-dark-mode-threshold: 133.3505;
   --ic-theme-primary-r-calc: calc(var(--ic-theme-primary-r) * 299);
   --ic-theme-primary-g-calc: calc(var(--ic-theme-primary-g) * 587);
   --ic-theme-primary-b-calc: calc(var(--ic-theme-primary-b) * 114);
@@ -227,27 +229,21 @@
   );
   --ic-theme-primary-divide-calc: calc(var(--ic-theme-primary-sum-calc) / 1000);
   --ic-theme-primary-subtract-calc: calc(
-    var(--ic-theme-primary-divide-calc) - 128
+    var(--ic-theme-primary-divide-calc) - var(--ic-theme-dark-mode-threshold)
   );
-  --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -1000);
+  --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -10000);
   --ic-theme-calc: max(0, var(--ic-theme-primary-calc));
   --ic-theme-text: rgb(
-    calc(var(--ic-theme-calc) + 11)
-    calc(var(--ic-theme-calc) + 12)
-    calc(var(--ic-theme-calc) + 12) /
-    var(--ic-theme-primary-a)
+    calc(var(--ic-theme-calc) + 11) calc(var(--ic-theme-calc) + 12)
+      calc(var(--ic-theme-calc) + 12) / var(--ic-theme-primary-a)
   );
   --ic-theme-hover: rgb(
-    calc(var(--ic-theme-calc) + 65)
-    calc(var(--ic-theme-calc) + 70)
-    calc(var(--ic-theme-calc) + 77) /
-    10%
+    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
+      calc(var(--ic-theme-calc) + 77) / 10%
   );
   --ic-theme-active: rgb(
-    calc(var(--ic-theme-calc) + 65)
-    calc(var(--ic-theme-calc) + 70)
-    calc(var(--ic-theme-calc) + 77) /
-    20%
+    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
+      calc(var(--ic-theme-calc) + 77) / 20%
   );
 
   /* hyperlinks */
