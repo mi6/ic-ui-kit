@@ -2,7 +2,9 @@ import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
+  getThemeFromContext,
 } from "../../utils/helpers";
+import { IcTheme, IcThemeForeground, IcThemeForegroundEnum } from "../../utils/types";
 
 /**
  * @slot icon - Content will be placed to the left of the card title.
@@ -64,11 +66,19 @@ export class Card {
 
   @State() parentEl: HTMLElement | null = null;
 
+  @State() appearance?: IcThemeForeground = "default";
+
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
     if (this.disabled) {
       event.stopImmediatePropagation();
     }
+  }
+
+  @Listen("icThemeChange", { target: "document" })
+  themeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.updateTheme(theme.mode);
   }
 
   private parentFocussed = (): void => {
@@ -78,6 +88,14 @@ export class Card {
   private parentBlurred = (): void => {
     this.isFocussed = false;
   };
+
+  private updateTheme(newTheme: IcThemeForeground = null): void {
+    const foregroundColor = getThemeFromContext(this.el, newTheme || null);
+
+    if (foregroundColor !== IcThemeForegroundEnum.Default) {
+      this.appearance = foregroundColor;
+    }
+  }
 
   componentWillLoad(): void {
     this.parentEl = this.el.parentElement;
@@ -103,6 +121,7 @@ export class Card {
       [{ prop: this.heading, propName: "heading" }],
       "Card"
     );
+    this.updateTheme();
   }
 
   render() {
@@ -145,6 +164,7 @@ export class Card {
           ["disabled"]: disabled,
           ["fullwidth"]: fullWidth,
           ["focussed"]: isFocussed,
+          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
         }}
         tabindex={clickable && !parentIsAnchorTag ? 0 : null}
         aria-disabled={disabled ? "true" : null}

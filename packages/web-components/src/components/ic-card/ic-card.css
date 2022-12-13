@@ -25,6 +25,11 @@ button {
   transition: var(--ic-easing-transition-fast);
 }
 
+.dark.card,
+.dark.card.clickable {
+  border: 1px solid var(--ic-architectural-700);
+}
+
 .card.clickable:hover {
   background-color: var(--ic-action-default-bg-hover);
   border-color: var(--ic-action-default-hover);
