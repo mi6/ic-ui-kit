@@ -20,7 +20,7 @@ import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcA
 import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
-import { IcStepTypes } from "./components/ic-step/ic-step.types";
+import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
 import { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
 import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
@@ -562,6 +562,7 @@ export namespace Components {
           * When linear, determines whether the full-width version (i.e. without a border radius) should be displayed.
          */
         "fullWidth"?: boolean;
+        "innerLabel"?: number;
         /**
           * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
          */
@@ -1095,30 +1096,48 @@ export namespace Components {
         "status"?: IcStatusTagStatuses;
     }
     interface IcStep {
-        "lastStep"?: boolean;
+        "compactStepStyling"?: IcStepTypes;
+        "current"?: boolean;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepTitle"?: string;
+        "progress"?: number;
         "stepNum"?: number;
         /**
-          * Additional information about step
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "stepStatus"?: IcStepStatuses;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "stepSubtitle"?: string;
         /**
-          * Name of step
+          * The title of step.
          */
         "stepTitle"?: string;
         /**
-          * State of step
+          * The state of the step.
          */
         "stepType"?: IcStepTypes;
+        "variant": IcStepVariants;
     }
     interface IcStepper {
         /**
-          * How the stepper should be aligned in its container.
+          * How the default stepper should be aligned in its container.
          */
         "aligned"?: IcStepperAlignment;
         /**
           * The length of the connnector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
+        /**
+          * If `true`, step information, i.e. step title, step subtitle and step status, on all default steps will be hidden. Step information will still be visible in the compact variant of the stepper.
+         */
+        "hideStepInfo"?: boolean;
+        /**
+          * The variant of the stepper.
+         */
+        "variant"?: IcStepVariants;
     }
     interface IcSwitch {
         /**
@@ -2369,6 +2388,7 @@ declare namespace LocalJSX {
           * When linear, determines whether the full-width version (i.e. without a border radius) should be displayed.
          */
         "fullWidth"?: boolean;
+        "innerLabel"?: number;
         /**
           * The label to be displayed beneath the loading indicator. Display a changing label by separating multiple messages with forward slashes.
          */
@@ -2953,30 +2973,48 @@ declare namespace LocalJSX {
         "status"?: IcStatusTagStatuses;
     }
     interface IcStep {
-        "lastStep"?: boolean;
+        "compactStepStyling"?: IcStepTypes;
+        "current"?: boolean;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepTitle"?: string;
+        "progress"?: number;
         "stepNum"?: number;
         /**
-          * Additional information about step
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "stepStatus"?: IcStepStatuses;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
          */
         "stepSubtitle"?: string;
         /**
-          * Name of step
+          * The title of step.
          */
         "stepTitle"?: string;
         /**
-          * State of step
+          * The state of the step.
          */
         "stepType"?: IcStepTypes;
+        "variant": IcStepVariants;
     }
     interface IcStepper {
         /**
-          * How the stepper should be aligned in its container.
+          * How the default stepper should be aligned in its container.
          */
         "aligned"?: IcStepperAlignment;
         /**
           * The length of the connnector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
+        /**
+          * If `true`, step information, i.e. step title, step subtitle and step status, on all default steps will be hidden. Step information will still be visible in the compact variant of the stepper.
+         */
+        "hideStepInfo"?: boolean;
+        /**
+          * The variant of the stepper.
+         */
+        "variant"?: IcStepVariants;
     }
     interface IcSwitch {
         /**

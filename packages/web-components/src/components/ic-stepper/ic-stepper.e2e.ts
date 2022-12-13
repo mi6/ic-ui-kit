@@ -1,23 +1,14 @@
 import { E2EElement, newE2EPage } from "@stencil/core/testing";
+import {
+  defaultStepper,
+  customConnectorWidthStepper,
+  invalidConnectorWidthStepper,
+  compactStepper,
+} from "./ic-stepper-test-examples";
 
-const testStepper = `<ic-stepper>
-<ic-step step-title="First"></ic-step>
-<ic-step
-  step-title="Second With a Very Long Title"
-  step-subtitle="Optional Subtitle"
-  step-type="current"
-></ic-step>
-<ic-step step-title="Third" step-type="disabled"></ic-step>
-<ic-step
-  step-title="Fourth"
-  step-subtitle="Optional Subtitle"
-  step-type="completed"
-></ic-step>
-</ic-stepper>`;
-
-describe("ic-stepper component", () => {
+describe("default variant of ic-stepper component", () => {
   it("should render four steps and three step-connects", async () => {
-    const page = await newE2EPage({ html: testStepper });
+    const page = await newE2EPage({ html: defaultStepper });
     const steps = await page.findAll("ic-step");
     expect(steps.length).toBe(4);
     const stepConnects = await page.findAll("ic-step >>> div.step-connect");
@@ -25,7 +16,7 @@ describe("ic-stepper component", () => {
   });
 
   it("should render the correct number on each step", async () => {
-    const page = await newE2EPage({ html: testStepper });
+    const page = await newE2EPage({ html: defaultStepper });
     const stepInners: E2EElement[] = await page.findAll(
       "ic-step >>> .step-icon-inner"
     );
@@ -33,5 +24,73 @@ describe("ic-stepper component", () => {
     expect(stepInners[1].innerHTML).toEqual("2");
     expect(stepInners[2].innerHTML).toEqual("3");
     expect(stepInners[3].innerHTML).toContain("check-icon");
+  });
+
+  it("should adjust the length of the step connect if a connectorWidth over 100px is given", async () => {
+    const page = await newE2EPage({ html: customConnectorWidthStepper });
+
+    await page.waitForChanges();
+
+    const connectorWidth = await page.$eval(
+      "ic-stepper",
+      (el: HTMLIcStepperElement) => {
+        return el.connectorWidth;
+      }
+    );
+
+    expect(connectorWidth).toBe(150);
+
+    const steps = await page.evaluate(() => {
+      return Array.from(
+        document.querySelectorAll("ic-step:not(:last-child)")
+      ).map((step) => window.getComputedStyle(step).width);
+    });
+
+    steps.forEach((step) => {
+      expect(step).toMatch(`${connectorWidth + 48}px`);
+    });
+  });
+
+  it("should keep the length of the step connect at 100px if a connectorWidth under 100px is given", async () => {
+    const page = await newE2EPage({ html: invalidConnectorWidthStepper });
+
+    await page.waitForChanges();
+
+    const connectorWidth = await page.$eval(
+      "ic-stepper",
+      (el: HTMLIcStepperElement) => {
+        return el.connectorWidth;
+      }
+    );
+
+    expect(connectorWidth).toBe(96);
+
+    const steps = await page.evaluate(() => {
+      return Array.from(
+        document.querySelectorAll("ic-step:not(:last-child)")
+      ).map((step) => window.getComputedStyle(step).width);
+    });
+
+    steps.forEach((step) => {
+      expect(step).toMatch(`${148}px`);
+    });
+  });
+});
+
+describe("compact variant of ic-stepper", () => {
+  it("only shows the current step", async () => {
+    const page = await newE2EPage({ html: compactStepper });
+
+    await page.waitForChanges();
+
+    const currentStep = await page.find("ic-step[current='']");
+
+    expect(currentStep.isVisible()).toBeTruthy();
+
+    const notCurrentSteps = await page.findAll("ic-step:not([current=''])");
+
+    notCurrentSteps.forEach(async (el) => {
+      expect(await el.isVisible()).toBeFalsy();
+    });
   });
 });

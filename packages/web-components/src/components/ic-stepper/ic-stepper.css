@@ -9,6 +9,20 @@
   padding: 0;
 }
 
-:host(.aligned-full-width) .step-item-list {
+:host(.default:not(.aligned-left)) .step-item-list {
   flex: auto;
+}
+
+:host(.compact) ul ::slotted(ic-step) {
+  display: none;
+}
+
+:host(.compact) ul ::slotted(ic-step.show) {
+  display: flex;
+}
+
+:host(.compact) ul ::slotted(ic-step.hide) {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
 }

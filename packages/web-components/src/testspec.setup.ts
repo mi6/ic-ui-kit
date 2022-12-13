@@ -38,3 +38,16 @@ export const waitForNavGroupLoad = async (): Promise<void> => {
   //delay to account for 50ms delay in componentdidload
   await waitForTimeout(100);
 };
+
+export const resizeTo = (
+  windowObj: typeof window,
+  width: number,
+  height: number
+): void => {
+  Object.assign(windowObj, {
+    innerWidth: width,
+    innerHeight: height,
+    outerWidth: width,
+    outerHeight: height,
+  }).dispatchEvent(new windowObj.Event("resize"));
+};
