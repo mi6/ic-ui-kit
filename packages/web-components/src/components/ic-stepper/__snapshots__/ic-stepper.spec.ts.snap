@@ -1,0 +1,966 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compact variant of ic-stepper component should render a compact step with no step status 1`] = `
+<ic-stepper class="compact" id="custom-stepper" variant="compact">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1" class="compact" role="listitem" step-title="First">
+    <mock:shadow-root>
+      <div class="compact-step-active step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="1" progress="20" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            First
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              1 of 5
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Second With a Very Long Title
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="compact show" current="" role="listitem" step-subtitle="Optional subtitle that is long and should wrap" step-title="Second With a Very Long Title" step-type="current">
+    <mock:shadow-root>
+      <div class="compact-step-active current step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="2" progress="40" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Second With a Very Long Title
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              2 of 5
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <ic-typography variant="caption">
+                Optional subtitle that is long and should wrap
+              </ic-typography>
+            </div>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Third
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3. Non-required step" class="compact" role="listitem" step-title="Third" step-type="disabled">
+    <mock:shadow-root>
+      <div class="compact-step-disabled step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="60" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Third
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              3 of 5
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="step-icon warning-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Not required
+              </ic-typography>
+            </div>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Fourth title that is long and should wrap
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4. Completed step" class="compact" role="listitem" step-subtitle="Optional Subtitle" step-title="Fourth title that is long and should wrap" step-type="completed">
+    <mock:shadow-root>
+      <div class="compact-step-completed step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="4" progress="80" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Fourth title that is long and should wrap
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              4 of 5
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="check-icon step-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Optional Subtitle
+              </ic-typography>
+            </div>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Fifth and final step
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 5. Completed step" class="compact" role="listitem" step-status="optional" step-subtitle="Optional Subtitle" step-title="Fifth and final step" step-type="completed" style="max-width: none;">
+    <mock:shadow-root>
+      <div class="compact-step-completed step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="5" progress="100" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Fifth and final step
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              5 of 5
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="check-icon step-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Optional Subtitle
+              </ic-typography>
+            </div>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Last step
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`compact variant of ic-stepper component should render a stepper with hidden step information 1`] = `
+<ic-stepper class="compact" hide-step-info="">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-title="Create" step-type="completed">
+    <mock:shadow-root>
+      <div class="compact-step-completed step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="1" progress="25" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Create
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              1 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="check-icon step-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Completed
+              </ic-typography>
+            </div>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-title="Read" step-type="current">
+    <mock:shadow-root>
+      <div class="compact-step-active current step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="2" progress="50" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Read
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              2 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="compact" role="listitem" step-title="Update">
+    <mock:shadow-root>
+      <div class="compact-step-active step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Update
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              3 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Next
+            <span class="visually-hidden">
+              step is
+            </span>
+            : Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="compact" role="listitem" step-title="Delete" style="max-width: none;">
+    <mock:shadow-root>
+      <div class="compact-step-active step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="4" progress="95" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Delete
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              4 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Last step
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`compact variant of ic-stepper component should render a stepper without step titles 1`] = `
+<ic-stepper class="compact">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-type="completed">
+    <mock:shadow-root>
+      <div class="compact-step-completed step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="1" progress="25" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Step 1
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              1 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="check-icon step-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Completed
+              </ic-typography>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-type="current">
+    <mock:shadow-root>
+      <div class="compact-step-active current step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="2" progress="50" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Step 2
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              2 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3. Non-required step" class="compact" role="listitem" step-type="disabled">
+    <mock:shadow-root>
+      <div class="compact-step-disabled step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="75" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Step 3
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              3 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+            <div class="step-status">
+              <span aria-hidden="true" class="step-icon warning-icon">
+                svg
+              </span>
+              <ic-typography variant="caption">
+                Not required
+              </ic-typography>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="compact" role="listitem" step-type="active" style="max-width: none;">
+    <mock:shadow-root>
+      <div class="compact-step-active step">
+        <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="4" progress="95" size="small"></ic-loading-indicator>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="h4">
+            Step 4
+          </ic-typography>
+          <div class="info-line">
+            <ic-typography class="step-num" variant="caption">
+              4 of 4
+              <span class="visually-hidden">
+                steps
+              </span>
+            </ic-typography>
+          </div>
+          <ic-typography class="next-step" variant="subtitle-small">
+            Last step
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should add the className 'last-step' to the last step in the stepper 1`] = `
+<ic-stepper class="default">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width default" role="listitem" step-title="Create" step-type="completed" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Create
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width default" role="listitem" step-title="Read" step-type="current" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="aligned-full-width default" role="listitem" step-title="Update" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width default last-step" last-step="" role="listitem" step-title="Delete" style="max-width: undefinedpx;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should ignore the connectorWidth prop if the stepper is set to be aligned full-width 1`] = `
+<ic-stepper class="default" connector-width="150">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width default" role="listitem" step-title="Create" step-type="completed" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Create
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width default" role="listitem" step-title="Read" step-type="current" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="aligned-full-width default" role="listitem" step-title="Update" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width default last-step" role="listitem" step-title="Delete" style="max-width: undefinedpx;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should render a full-width stepper 1`] = `
+<ic-stepper class="default">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width default" role="listitem" step-title="Create" step-type="completed" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Create
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width default" role="listitem" step-title="Read" step-type="current" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="aligned-full-width default" role="listitem" step-title="Update" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width default last-step" role="listitem" step-title="Delete" style="max-width: undefinedpx;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should render a left-aligned stepper 1`] = `
+<ic-stepper aligned="left" class="aligned-left default">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step step-title="Create" step-type="completed"></ic-step>
+  <ic-step step-title="Read" step-type="current"></ic-step>
+  <ic-step step-title="Update"></ic-step>
+  <ic-step step-title="Delete"></ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should render a stepper with a custom connector width 1`] = `
+<ic-stepper aligned="left" class="aligned-left default" connector-width="150">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="default" role="listitem" step-title="Create" step-type="completed" style="width: 198px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="step-connect" style="width: 150px;"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Create
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="default" role="listitem" step-title="Read" step-type="current" style="width: 198px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="step-connect" style="width: 150px;">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="default" role="listitem" step-title="Update" style="width: 198px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="step-connect" style="width: 150px;"></div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="default last-step" role="listitem" step-title="Delete" style="max-width: 198px; width: 198px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="step-title-area">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should render a stepper with hidden step info 1`] = `
+<ic-stepper class="default" hide-step-info="">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width default" role="listitem" step-title="Create" step-type="completed" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area visually-hidden">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Create
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width default" role="listitem" step-title="Read" step-type="current" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+        <div class="step-title-area visually-hidden">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Read
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3" class="aligned-full-width default" role="listitem" step-title="Update" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+        <div class="step-title-area visually-hidden">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Update
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width default last-step" role="listitem" step-title="Delete" style="max-width: undefinedpx;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+        <div class="step-title-area visually-hidden">
+          <ic-typography class="step-title" variant="subtitle-large">
+            Delete
+          </ic-typography>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
+
+exports[`default variant of ic-stepper component should render a stepper without step titles 1`] = `
+<ic-stepper class="default">
+  <mock:shadow-root>
+    <ul class="step-item-list">
+      <slot></slot>
+    </ul>
+  </mock:shadow-root>
+  <ic-step aria-label="Step 1. Completed step" class="aligned-full-width default" role="listitem" step-type="completed" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="completed step">
+        <div class="step-top">
+          <div class="step-icon">
+            <div aria-hidden="true" class="step-icon-inner">
+              <span class="check-icon">
+                svg
+              </span>
+            </div>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-current="step" aria-label="Step 2" class="aligned-full-width default" role="listitem" step-type="current" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="current step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                2
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect">
+            <div class="step-connect-inner"></div>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 3. Non-required step" class="aligned-full-width default" role="listitem" step-type="disabled" style="width: NaNpx; min-width: 148px;">
+    <mock:shadow-root>
+      <div class="disabled step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                3
+              </span>
+            </ic-typography>
+          </div>
+          <div class="aligned-full-width step-connect"></div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+  <ic-step aria-label="Step 4" class="aligned-full-width default last-step" role="listitem" step-type="active" style="max-width: undefinedpx;">
+    <mock:shadow-root>
+      <div class="active step">
+        <div class="step-top">
+          <div class="step-icon">
+            <ic-typography variant="subtitle-small">
+              <span aria-hidden="true" class="step-icon-inner">
+                4
+              </span>
+            </ic-typography>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-step>
+</ic-stepper>
+`;
