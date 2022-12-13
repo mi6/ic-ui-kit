@@ -172,7 +172,6 @@ export const ControlledReset = () => {
         heading="Latest announcement"
         message="This is some example text that can be included in the card copy."
         slot="secondary"
-        class="hero-card"
       ></IcCard>
     </IcHero>
   </Story>
@@ -221,8 +220,6 @@ export const ControlledReset = () => {
       <IcHero
         heading="Hero heading"
         subheading="Hero description. This is a Hero component, it should be used as a page heading."
-        secondary-heading="Secondary Heading"
-        secondary-subheading="This is a secondary description."
         aligned="center"
       >
         <div slot="interaction" style={{display: "flex"}}>
@@ -242,6 +239,11 @@ export const ControlledReset = () => {
           style={{marginTop: 'var(--ic-space-sm)'}}
           >Help</IcLink
         >
+      <IcCard
+        heading="Latest announcement"
+        message="This is some example text that can be included in the card copy."
+        slot="secondary"
+      ></IcCard>
       </IcHero>
   </Story>
 </Canvas>
