@@ -14,6 +14,11 @@ import {
   hexToRgba,
   rgbaStrToObj,
 } from "../../utils/helpers";
+import { getThemeColorBrightness } from "../../utils/helpers";
+import {
+  BLACK_MIN_COLOR_BRIGHTNESS,
+  WHITE_MAX_COLOR_BRIGHTNESS,
+} from "../../utils/constants";
 
 @Component({
   tag: "ic-theme",
@@ -35,6 +40,17 @@ export class Theme {
    */
   @Event() icThemeChange: EventEmitter<IcTheme>;
 
+  private checkThemeColorContrast = (): void => {
+    if (
+      getThemeColorBrightness() < BLACK_MIN_COLOR_BRIGHTNESS &&
+      getThemeColorBrightness() > WHITE_MAX_COLOR_BRIGHTNESS
+    ) {
+      console.warn(
+        `The theme colour does not provide enough contrast with either of the ICDS black or white foreground colours. Consider choosing a colour with a different brightness to achieve sufficient colour contrast for good visibility. See https://www.w3.org/TR/AERT/#color-contrast for more information about colour contrast.`
+      );
+    }
+  };
+
   private setThemeColor = () => {
     if (this.color !== null) {
       let colorRGBA = null;
@@ -55,6 +71,9 @@ export class Theme {
       root.style.setProperty("--ic-theme-primary-g", colorRGBA.g.toString());
       root.style.setProperty("--ic-theme-primary-b", colorRGBA.b.toString());
       root.style.setProperty("--ic-theme-primary-a", colorRGBA.a.toString());
+
+      this.checkThemeColorContrast();
+
       const foregroundColor = getThemeForegroundColor();
       this.icThemeChange.emit({ mode: foregroundColor, color: colorRGBA });
     }
