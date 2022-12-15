@@ -7,6 +7,7 @@ import {
 } from "@storybook/addon-docs";
 
 import { IcLoadingIndicator } from "../components";
+
 import readme from "../../../web-components/src/components/ic-loading-indicator/readme.md";
 
 <Meta title="React Components/Loading" component={IcLoadingIndicator} />
@@ -25,9 +26,9 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
   <Story
     name="Circular (determinate)"
     argTypes={{
-      progress: { type: { name: 'number' }, defaultValue: 30 },
-      min: { type: { name: 'number' }, defaultValue: 0 },
-      max: { type: { name: 'number' }, defaultValue: 100 },
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
     }}
   >
     {(args) => (
@@ -56,35 +57,38 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 ### Circular variants (determinate)
 
 <Canvas>
-  <Story name="Circular variants (determinate)"
+  <Story
+    name="Circular variants (determinate)"
     argTypes={{
-      progress: { type: { name: 'number' }, defaultValue: 30 },
-      min: { type: { name: 'number' }, defaultValue: 0 },
-      max: { type: { name: 'number' }, defaultValue: 100 },
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
     }}
   >
-    {(args) => (<div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Small"
-        size="small"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Default"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Large"
-        size="large"
-      ></IcLoadingIndicator>
-    </div>)}
+    {(args) => (
+      <div style={{ display: "grid", gap: "50px" }}>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Small"
+          size="small"
+        ></IcLoadingIndicator>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Default"
+        ></IcLoadingIndicator>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Large"
+          size="large"
+        ></IcLoadingIndicator>
+      </div>
+    )}
   </Story>
 </Canvas>
 
@@ -107,20 +111,23 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 ### Linear (determinate)
 
 <Canvas>
-  <Story name="Linear (determinate)"
+  <Story
+    name="Linear (determinate)"
     argTypes={{
-      progress: { type: { name: 'number' }, defaultValue: 30 },
-      min: { type: { name: 'number' }, defaultValue: 0 },
-      max: { type: { name: 'number' }, defaultValue: 100 },
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
     }}
   >
-    {(args) => (<IcLoadingIndicator
-      progress={args.progress}
-      min={args.min}
-      max={args.max}
-      label="Loading..."
-      type="linear"
-    ></IcLoadingIndicator>)}
+    {(args) => (
+      <IcLoadingIndicator
+        progress={args.progress}
+        min={args.min}
+        max={args.max}
+        label="Loading..."
+        type="linear"
+      ></IcLoadingIndicator>
+    )}
   </Story>
 </Canvas>
 
@@ -153,47 +160,50 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 ### Linear variants (determinate)
 
 <Canvas>
-  <Story name="Linear variants (determinate)"
+  <Story
+    name="Linear variants (determinate)"
     argTypes={{
-      progress: { type: { name: 'number' }, defaultValue: 30 },
-      min: { type: { name: 'number' }, defaultValue: 0 },
-      max: { type: { name: 'number' }, defaultValue: 100 },
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
     }}
   >
-    {(args) => (<div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Small"
-        size="small"
-        type="linear"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Default"
-        type="linear"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Large"
-        size="large"
-        type="linear"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Full-width"
-        size="default"
-        type="linear"
-        variant="full-width"
-      ></IcLoadingIndicator>
-    </div>)}
+    {(args) => (
+      <div style={{ display: "grid", gap: "50px" }}>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Small"
+          size="small"
+          type="linear"
+        ></IcLoadingIndicator>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Default"
+          type="linear"
+        ></IcLoadingIndicator>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Large"
+          size="large"
+          type="linear"
+        ></IcLoadingIndicator>
+        <IcLoadingIndicator
+          progress={args.progress}
+          min={args.min}
+          max={args.max}
+          label="Full-width"
+          size="default"
+          type="linear"
+          variant="full-width"
+        ></IcLoadingIndicator>
+      </div>
+    )}
   </Story>
 </Canvas>
 
@@ -265,5 +275,29 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
       label="Loading.../Still loading..."
       labelDuration="4000"
     ></IcLoadingIndicator>
+  </Story>
+</Canvas>
+
+### Progress indicator for compact step
+
+<Canvas>
+  <Story
+    name="Progress indicator for compact step"
+    argTypes={{
+      progress: { type: { name: "number" }, defaultValue: 30 },
+      min: { type: { name: "number" }, defaultValue: 0 },
+      max: { type: { name: "number" }, defaultValue: 100 },
+    }}
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) => (
+      <IcLoadingIndicator
+        size="small"
+        inner-label="3"
+        progress={args.progress}
+        min={args.min}
+        max={args.max}
+      ></IcLoadingIndicator>
+    )}
   </Story>
 </Canvas>
