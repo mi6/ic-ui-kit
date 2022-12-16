@@ -75,19 +75,19 @@
   fill: var(--ic-architectural-500);
 }
 
-.icon-info > svg {
+:host([variant="info"]) .alert-icon svg {
   fill: var(--ic-status-info);
 }
 
-.icon-warning > svg {
+:host([variant="warning"]) .alert-icon svg {
   fill: var(--ic-status-warning-mid);
 }
 
-.icon-error > svg {
+:host([variant="error"]) .alert-icon svg {
   fill: var(--ic-status-error);
 }
 
-.icon-success > svg {
+:host([variant="success"]) .alert-icon svg {
   fill: var(--ic-status-success);
 }
 
