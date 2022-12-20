@@ -8,7 +8,6 @@ import {
   h,
 } from "@stencil/core";
 
-import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 import { IcTabClickEventDetail } from "./ic-tab.types";
 import {
   IcThemeForegroundNoDefault,
@@ -41,7 +40,7 @@ export class Tab {
   @Prop({ reflect: true }) tabId?: string;
 
   /** @internal The position of the tab inside the tabs array in context. */
-  @Prop() tabPosition!: number;
+  @Prop() tabPosition?: number;
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
@@ -94,13 +93,6 @@ export class Tab {
 
   componentDidUpdate(): void {
     this.isInitialRender = false;
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.tabPosition, propName: "tab-position" }],
-      "Tab"
-    );
   }
 
   render() {

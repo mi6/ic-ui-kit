@@ -1,6 +1,5 @@
 import { Component, Host, h, Prop, Element } from "@stencil/core";
 import checkIcon from "../../assets/check-icon.svg";
-import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 import { IcStepTypes } from "./ic-step.types";
 
 @Component({
@@ -28,22 +27,12 @@ export class Step {
   /**
    * @internal The step number, managed by ic-stepper
    */
-  @Prop() stepNum!: number;
+  @Prop() stepNum?: number;
 
   /**
    * @internal Final step in series flag, managed by ic-stepper
    */
-  @Prop() lastStep!: boolean;
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [
-        { prop: this.stepNum, propName: "step-num" },
-        { prop: this.lastStep, propName: "last-step" },
-      ],
-      "Step"
-    );
-  }
+  @Prop() lastStep?: boolean;
 
   render() {
     let icon;
