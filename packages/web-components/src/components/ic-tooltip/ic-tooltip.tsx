@@ -29,7 +29,9 @@ export class Tooltip {
   @Watch("label")
   updateLabel(newValue: string): void {
     const describedBySpan = this.el.previousElementSibling as HTMLElement;
-    describedBySpan.innerText = newValue;
+    if (describedBySpan !== null) {
+      describedBySpan.innerText = newValue;
+    }
   }
 
   private toolTip: HTMLDivElement;

@@ -1,5 +1,4 @@
 import { Component, Element, Host, Prop, h } from "@stencil/core";
-import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
@@ -19,7 +18,7 @@ export class TabPanel {
   @Prop({ reflect: true }) contextId?: string = "default";
 
   /** @internal The position of the tab panel inside the tabs array in context. */
-  @Prop({ reflect: true }) tabPosition!: number;
+  @Prop({ reflect: true }) tabPosition?: number;
 
   /** @internal The shared ID that links the panel and tab. */
   @Prop({ reflect: true }) panelId?: string;
@@ -29,13 +28,6 @@ export class TabPanel {
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.tabPosition, propName: "tab-position" }],
-      "Tab Panel"
-    );
-  }
 
   render() {
     const { panelId, selectedTab, appearance } = this;

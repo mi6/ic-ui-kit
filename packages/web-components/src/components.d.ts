@@ -1072,8 +1072,8 @@ export namespace Components {
         "status"?: IcStatusTagStatuses;
     }
     interface IcStep {
-        "lastStep": boolean;
-        "stepNum": number;
+        "lastStep"?: boolean;
+        "stepNum"?: number;
         /**
           * Additional information about step
          */
@@ -1144,7 +1144,7 @@ export namespace Components {
         "disabled"?: boolean;
         "selected"?: boolean;
         "tabId"?: string;
-        "tabPosition": number;
+        "tabPosition"?: number;
     }
     interface IcTabContext {
         /**
@@ -1188,7 +1188,7 @@ export namespace Components {
         "contextId"?: string;
         "panelId"?: string;
         "selectedTab"?: string;
-        "tabPosition": number;
+        "tabPosition"?: number;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
@@ -2893,8 +2893,8 @@ declare namespace LocalJSX {
         "status"?: IcStatusTagStatuses;
     }
     interface IcStep {
-        "lastStep": boolean;
-        "stepNum": number;
+        "lastStep"?: boolean;
+        "stepNum"?: number;
         /**
           * Additional information about step
          */
@@ -2982,7 +2982,7 @@ declare namespace LocalJSX {
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "selected"?: boolean;
         "tabId"?: string;
-        "tabPosition": number;
+        "tabPosition"?: number;
     }
     interface IcTabContext {
         /**
@@ -3029,7 +3029,7 @@ declare namespace LocalJSX {
         "contextId"?: string;
         "panelId"?: string;
         "selectedTab"?: string;
-        "tabPosition": number;
+        "tabPosition"?: number;
     }
     interface IcTextField {
         "ariaActiveDescendant"?: string;
