@@ -155,7 +155,9 @@ export const getThemeFromContext = (
   el: Element,
   themeFromEvent: IcThemeForeground = null
 ): IcThemeForeground => {
-  const blockColorParent = el.parentElement.closest(
+  const parentElement =
+    el.parentElement || (<ShadowRoot>el.getRootNode()).host.parentElement;
+  const blockColorParent = parentElement.closest(
     IC_BLOCK_COLOR_COMPONENTS.join(",")
   );
 
