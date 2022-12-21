@@ -58,7 +58,7 @@
 }
 
 /*
-There's an apparent defect in Chrome that means this isn't always re-rendered if changed. 
+There's an apparent defect in Chrome that means this isn't always re-rendered if changed.
 Not an issue in Safari. Line 73-79 implement the same function but less clean.
 
 a:link > ::slotted(svg) ,
@@ -122,6 +122,12 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a:hover,
 :host(.footer-link) a ::slotted(a:hover) {
   text-decoration: none;
+}
+
+@media screen and (min-width: 769px) {
+  :host(.footer-link.footer-link-ungrouped-sparse:last-of-type) {
+    margin-right: 0;
+  }
 }
 
 @media (forced-colors: active) {
