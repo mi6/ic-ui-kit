@@ -57,6 +57,6 @@
   :host(.skeleton) {
     -ms-high-contrast-adjust: none;
     forced-color-adjust: none;
-    background: currentColor;
+    background: currentcolor;
   }
 }
