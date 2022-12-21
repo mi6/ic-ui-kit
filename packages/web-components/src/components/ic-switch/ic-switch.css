@@ -183,7 +183,7 @@ input {
 }
 
 ::slotted(svg) {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 @media (forced-colors: active) {

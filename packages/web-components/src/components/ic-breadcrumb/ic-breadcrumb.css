@@ -80,6 +80,6 @@ ic-link {
 
 @media (forced-colors: active) {
   .back-icon svg {
-    color: currentColor;
+    color: currentcolor;
   }
 }
