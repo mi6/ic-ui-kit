@@ -88,7 +88,8 @@ export class SideNavigation {
   @State() hasSecondaryNavigation: boolean = false;
 
   private ANIMATION_DURATION =
-    parseInt(getCssProperty("--ic-transition-duration")) || 0;
+    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
+
 
   @Listen("icThemeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
@@ -374,11 +375,11 @@ export class SideNavigation {
    * @param value - padding-top css value
    */
   private setParentPaddingTop = (value: string) => {
-    this.el.parentElement.style.paddingTop = value;
+    this.el.parentElement.style.setProperty('padding-top', value);
   };
 
   private setParentPaddingLeft = (value: string) => {
-    this.el.parentElement.style.paddingLeft = value;
+    this.el.parentElement.style.setProperty('padding-left', value);
   };
 
   private resizeObserver: ResizeObserver = null;
@@ -393,6 +394,10 @@ export class SideNavigation {
             this.el.shadowRoot.querySelector(".top-bar").scrollHeight;
           this.setParentPaddingTop(`${topBarHeight}px`);
           this.setParentPaddingLeft("0");
+
+          if (this.inline) {
+            this.el.parentElement.style.setProperty('height', `calc(100% - ${topBarHeight}px)`);
+          }
         }
         this.emitSideNavigationExpanded({
           sideNavExpanded: this.menuExpanded,
@@ -401,6 +406,7 @@ export class SideNavigation {
       } else {
         if (!this.disableAutoParentStyling) {
           this.setParentPaddingTop("0");
+          this.el.parentElement.style.setProperty('height', '100%');
         }
         this.emitSideNavigationExpanded({
           sideNavExpanded: this.menuExpanded,

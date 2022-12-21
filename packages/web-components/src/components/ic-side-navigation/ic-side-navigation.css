@@ -334,10 +334,6 @@
     bottom: 0;
   }
 
-  :host(.inline) {
-    position: absolute;
-  }
-
   :host(.static) {
     position: relative;
     left: auto;
@@ -358,7 +354,7 @@
   }
 
   :host(.inline) .top-bar {
-    position: relative;
+    position: sticky;
   }
 
   :host(.anchor-right) .top-bar {
@@ -591,14 +587,10 @@
 
 @media screen and (min-width: 993px) {
   :host {
-    position: relative;
+    position: sticky;
     left: auto;
-    top: auto;
-    bottom: auto;
-  }
-
-  :host(.inline) {
-    position: relative;
+    top: 0;
+    bottom: 0;
   }
 
   :host(.sm-expanded) {
@@ -613,6 +605,6 @@
   }
 
   slot[name="app-icon"]::slotted(svg) {
-    fill: currentColor;
+    fill: currentcolor;
   }
 }
