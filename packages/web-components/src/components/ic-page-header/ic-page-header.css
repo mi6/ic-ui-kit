@@ -94,6 +94,7 @@ header.tabs {
 @media screen and (max-width: 576px) {
   ::slotted(ic-text-field) {
     --input-width: 100%;
+
     max-width: 320px;
   }
 

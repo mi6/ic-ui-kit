@@ -86,6 +86,6 @@ button:focus {
 
 @media (forced-colors: active) {
   .ic-back-to-top-icon {
-    fill: currentColor;
+    fill: currentcolor;
   }
 }
