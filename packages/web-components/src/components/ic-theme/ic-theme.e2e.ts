@@ -25,6 +25,7 @@ describe("ic-theme", () => {
     expect(spy).toHaveReceivedEventDetail({
       mode: "dark",
       color: {
+        a: 1,
         b: 60,
         g: 201,
         r: 255,
@@ -40,6 +41,7 @@ describe("ic-theme", () => {
     expect(spy).toHaveReceivedEventDetail({
       mode: "light",
       color: {
+        a: 1,
         b: 142,
         g: 81,
         r: 35,
@@ -62,6 +64,7 @@ describe("ic-theme", () => {
     expect(spy).toHaveReceivedEventDetail({
       mode: "dark",
       color: {
+        a: 1,
         b: 1000,
         g: 1000,
         r: 1000,
@@ -77,6 +80,7 @@ describe("ic-theme", () => {
     expect(spy).toHaveReceivedEventDetail({
       mode: "light",
       color: {
+        a: 1,
         b: -1,
         g: -1,
         r: -1,
