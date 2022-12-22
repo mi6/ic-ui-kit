@@ -785,22 +785,15 @@ export class Select {
               parentEl={this.host}
             ></ic-menu>
           )}
-          <ic-input-validation
-            class={{ "menu-open": this.open }}
-            ariaLiveMode="polite"
-            status={
-              hasValidationStatus(this.validationStatus, this.disabled) ===
-              false
-                ? ""
-                : validationStatus
-            }
-            message={
-              hasValidationStatus(this.validationStatus, this.disabled)
-                ? validationText
-                : ""
-            }
-            for={this.inputId}
-          ></ic-input-validation>
+          {hasValidationStatus(this.validationStatus, this.disabled) && (
+            <ic-input-validation
+              class={{ "menu-open": this.open }}
+              ariaLiveMode="polite"
+              status={validationStatus}
+              message={validationText}
+              for={this.inputId}
+            ></ic-input-validation>
+          )}
         </ic-input-container>
       </Host>
     );
