@@ -1,7 +1,7 @@
 {
   "name": "@ukic/react",
   "sideEffects": false,
-  "version": "2.1.0-beta.0",
+  "version": "2.1.0-beta.1",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:css",
@@ -21,8 +21,8 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/fonts": "^2.1.0-beta.0",
-    "@ukic/web-components": "^2.1.0-beta.0"
+    "@ukic/fonts": "^2.1.0-beta.1",
+    "@ukic/web-components": "^2.1.0-beta.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
