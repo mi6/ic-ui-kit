@@ -61,7 +61,6 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-3" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" disabled="" name="ic-select-input-3" type="hidden" value="">
@@ -94,7 +93,6 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-0" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-0" type="hidden" value="">
@@ -128,7 +126,6 @@ exports[`ic-select should not render validation text if disabled: no-validation-
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-6" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-6" type="hidden" value="">
@@ -162,7 +159,6 @@ exports[`ic-select should not render validation text if no validation status has
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-5" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-5" type="hidden" value="">
@@ -189,7 +185,6 @@ exports[`ic-select should render as required: required-searchable 1`] = `
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-7" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-7" type="hidden" value="">
@@ -246,7 +241,6 @@ exports[`ic-select should render readonly: readonly 1`] = `
       <ic-menu>
         <mock:shadow-root></mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-1" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-1" type="hidden" value="">
@@ -281,7 +275,6 @@ exports[`ic-select should test native select with groups: native-select-with-gro
           </optgroup>
         </select>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-12" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-12" type="hidden" value="">
@@ -309,7 +302,6 @@ exports[`ic-select should test native select: native-select 1`] = `
           </option>
         </select>
       </ic-input-component-container>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-11" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-11" type="hidden" value="">
@@ -384,7 +376,6 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
           </ul>
         </mock:shadow-root>
       </ic-menu>
-      <ic-input-validation arialivemode="polite" for="ic-select-input-8" message="" status=""></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-8" type="hidden" value="test-value">

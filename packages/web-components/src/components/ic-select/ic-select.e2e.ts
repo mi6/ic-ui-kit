@@ -112,12 +112,6 @@ describe("ic-select", () => {
               </select>
             </div>
           </ic-input-component-container>
-          <ic-input-validation class="hydrated">
-            <!---->
-            <ic-typography class="hydrated ic-typography-caption statustext">
-              <span aria-live="polite" id="ic-select-input-0-validation-text"></span>
-            </ic-typography>
-          </ic-input-validation>
         </div>
       </ic-input-container>`);
   });
@@ -163,12 +157,6 @@ describe("ic-select", () => {
           </div>
         </ic-input-component-container>
         <ic-menu class="hydrated"></ic-menu>
-        <ic-input-validation class="hydrated">
-          <!---->
-          <ic-typography class="hydrated ic-typography-caption statustext">
-            <span aria-live="polite" id="ic-select-input-0-validation-text"></span>
-          </ic-typography>
-        </ic-input-validation>
       </div>
     </ic-input-container>
       `);
@@ -214,12 +202,6 @@ describe("ic-select", () => {
           </div>
         </ic-input-component-container>
         <ic-menu class="hydrated"></ic-menu>
-        <ic-input-validation class="hydrated">
-          <!---->
-          <ic-typography class="hydrated ic-typography-caption statustext">
-            <span aria-live="polite" id="ic-select-input-0-validation-text"></span>
-          </ic-typography>
-        </ic-input-validation>
       </div>
     </ic-input-container>
       `);
@@ -1499,12 +1481,6 @@ describe("ic-select", () => {
               </select>
             </div>
           </ic-input-component-container>
-          <ic-input-validation class="hydrated">
-            <!---->
-            <ic-typography class="hydrated ic-typography-caption statustext">
-              <span aria-live="polite" id="ic-select-input-0-validation-text"></span>
-            </ic-typography>
-          </ic-input-validation>
         </div>
       </ic-input-container>`);
     });
@@ -1536,12 +1512,6 @@ describe("ic-select", () => {
             </select>
           </div>
         </ic-input-component-container>
-        <ic-input-validation class="hydrated">
-          <!---->
-          <ic-typography class="hydrated ic-typography-caption statustext">
-            <span aria-live="polite" id="ic-select-input-0-validation-text"></span>
-          </ic-typography>
-        </ic-input-validation>
       </div>
     </ic-input-container>
       `);
