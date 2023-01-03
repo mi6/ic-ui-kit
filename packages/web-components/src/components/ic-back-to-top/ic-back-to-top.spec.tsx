@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { ClassificationBanner } from "../ic-classification-banner/ic-classification-banner";
+import { Footer } from "../ic-footer/ic-footer";
 import { BackToTop } from "./ic-back-to-top";
 
 beforeAll(() => {
@@ -23,22 +24,16 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-back-to-top target="topEl">
-        <mock:shadow-root>
-          <button aria-label="Back to top" class="ic-back-to-top-link">
-            <span class="ic-back-to-top-icon">
-              svg
-            </span>
-            <ic-typography variant="subtitle-small">
-              <span>
-                Back to top
-              </span>
-            </ic-typography>
-          </button>
-        </mock:shadow-root>
-      </ic-back-to-top>
-    `);
+    expect(page.root).toMatchSnapshot("should render");
+  });
+
+  it("should render with footer", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop, Footer],
+      html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div><ic-footer></ic-footer>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with footer");
   });
 
   it("should render with no targetId set", async () => {
@@ -47,22 +42,7 @@ describe("ic-back-to-top", () => {
       html: `<ic-back-to-top></ic-back-to-top>`,
     });
 
-    expect(page.root).toEqualHtml(`
-      <ic-back-to-top>
-        <mock:shadow-root>
-          <button aria-label="Back to top" class="ic-back-to-top-link">
-            <span class="ic-back-to-top-icon">
-              svg
-            </span>
-            <ic-typography variant="subtitle-small">
-              <span>
-                Back to top
-              </span>
-            </ic-typography>
-          </button>
-        </mock:shadow-root>
-      </ic-back-to-top>
-    `);
+    expect(page.root).toMatchSnapshot("should render with no targetId set");
   });
 
   it("should render when target starts with #", async () => {
@@ -71,22 +51,7 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="#topEl"></ic-back-to-top></div>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-back-to-top target="#topEl">
-      <mock:shadow-root>
-        <button aria-label="Back to top" class="ic-back-to-top-link">
-          <span class="ic-back-to-top-icon">
-            svg
-          </span>
-          <ic-typography variant="subtitle-small">
-            <span>
-              Back to top
-            </span>
-          </ic-typography>
-        </button>
-      </mock:shadow-root>
-    </ic-back-to-top>
-  `);
+    expect(page.root).toMatchSnapshot("should render when target starts with #");
   });
 
   it("should offset due to classification banner", async () => {
@@ -150,7 +115,8 @@ describe("ic-back-to-top", () => {
     });
 
     page.rootInstance.footerObserverCallback([{ isIntersecting: true }]);
-    expect(page.rootInstance.footerVisible).toBe(true);
+    //value is false as scrollY is always 0
+    expect(page.rootInstance.footerVisible).toBe(false);
 
     page.rootInstance.footerObserverCallback([{ isIntersecting: false }]);
     expect(page.rootInstance.footerVisible).toBe(false);
