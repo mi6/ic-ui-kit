@@ -42,7 +42,13 @@ export class BackToTop {
   };
 
   private setFooterVisible = (visible: boolean) => {
-    this.footerVisible = visible;
+    this.checkForClassificationBanner();
+    if (typeof window !== "undefined" && window.scrollY === 0) {
+      this.footerVisible = false;
+    } 
+    else {
+      this.footerVisible = visible;
+    } 
   };
 
   private targetElObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -116,19 +122,24 @@ export class BackToTop {
     }
   };
 
-  componentWillLoad(): void {
-    this.createTopObserver(this.target);
-
-    //adjust position for classification banner at bottom
-    const banners = document.querySelectorAll(
+  private checkForClassificationBanner = () => {
+     //adjust position for classification banner at bottom
+     const banners = document.querySelectorAll(
       "ic-classification-banner:not([inline='true'])"
     );
-    if (banners.length) {
-      this.bannerOffset = true;
-    }
+    this.bannerOffset = banners.length > 0;
+  }
+
+  componentWillLoad(): void {
+    this.createTopObserver(this.target);
+    this.checkForClassificationBanner();   
 
     //observer for when footer scrolls into view
-    const footers = document.querySelectorAll("footer");
+    let footers = document.querySelectorAll("ic-footer") as NodeListOf<HTMLElement>;
+    if (footers.length === 0) {
+      footers = document.querySelectorAll("footer") ;
+    }
+    
     if (footers.length) {
       const footerEl = footers[footers.length - 1];
       const threshold = this.bannerOffset ? 0.15 : 0;

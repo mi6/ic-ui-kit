@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-back-to-top should render when target starts with #: should render when target starts with # 1`] = `
+<ic-back-to-top target="#topEl">
+  <mock:shadow-root>
+    <button aria-label="Back to top" class="ic-back-to-top-link">
+      <span class="ic-back-to-top-icon">
+        svg
+      </span>
+      <ic-typography variant="subtitle-small">
+        <span>
+          Back to top
+        </span>
+      </ic-typography>
+    </button>
+  </mock:shadow-root>
+</ic-back-to-top>
+`;
+
+exports[`ic-back-to-top should render with footer: should render with footer 1`] = `
+<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+  <mock:shadow-root>
+    <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography variant="body">
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-links">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-links-inner">
+            <slot name="link"></slot>
+          </div>
+        </ic-section-container>
+      </div>
+      <div class="footer-compliance">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-compliance-inner">
+            <div class="footer-logo">
+              <slot name="logo"></slot>
+            </div>
+            <div class="footer-caption">
+              <ic-typography variant="body">
+                <slot name="caption"></slot>
+              </ic-typography>
+            </div>
+            <div class="footer-copyright">
+              <ic-typography variant="label-uppercase">
+                © Crown Copyright
+              </ic-typography>
+            </div>
+          </div>
+        </ic-section-container>
+      </div>
+    </footer>
+  </mock:shadow-root>
+</ic-footer>
+`;
+
+exports[`ic-back-to-top should render with no targetId set: should render with no targetId set 1`] = `
+<ic-back-to-top>
+  <mock:shadow-root>
+    <button aria-label="Back to top" class="ic-back-to-top-link">
+      <span class="ic-back-to-top-icon">
+        svg
+      </span>
+      <ic-typography variant="subtitle-small">
+        <span>
+          Back to top
+        </span>
+      </ic-typography>
+    </button>
+  </mock:shadow-root>
+</ic-back-to-top>
+`;
+
+exports[`ic-back-to-top should render: should render 1`] = `
+<ic-back-to-top target="topEl">
+  <mock:shadow-root>
+    <button aria-label="Back to top" class="ic-back-to-top-link">
+      <span class="ic-back-to-top-icon">
+        svg
+      </span>
+      <ic-typography variant="subtitle-small">
+        <span>
+          Back to top
+        </span>
+      </ic-typography>
+    </button>
+  </mock:shadow-root>
+</ic-back-to-top>
+`;
