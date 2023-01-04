@@ -84,7 +84,9 @@ export class LoadingIndicator {
 
   @Watch("progress")
   watchProgressHandler(): void {
-    this.updateCircularProgressMeter();
+    if (this.type === "circular") {
+      this.updateCircularProgressMeter();
+    }
   }
 
   private outerElement?: HTMLDivElement;
