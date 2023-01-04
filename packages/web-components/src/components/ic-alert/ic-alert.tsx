@@ -29,7 +29,7 @@ const icon = {
 
 /**
  * @slot message - Content is placed to the right of the title.
- * @slot action - Content is placed to the left of the message.
+ * @slot action - Content is placed to the right of the message.
  */
 @Component({
   tag: "ic-alert",
@@ -40,27 +40,27 @@ export class Alert {
   @Element() el: HTMLIcAlertElement;
 
   /**
-   * Set which variant of the alert will be rendered
+   * The variant of the alert which will be rendered.
    */
   @Prop() variant?: IcAlertVariants = "neutral";
   /**
-   * Optional title to display at the start of the alert
+   * The optional title to display at the start of the alert.
    */
   @Prop() heading?: string = "";
   /**
-   * Main body message of the alert
+   * The main body message of the alert.
    */
   @Prop() message?: string;
   /**
-   * Set whether the title and message appear inline or above and below
+   * If `true`, the title and message will appear inline instead of above and below.
    */
   @Prop() titleAbove?: boolean = false;
   /**
-   * Set whether the alert has a close icon at the end to dismiss it
+   * If `true`, the alert will have a close icon at the end to dismiss it.
    */
   @Prop() dismissible?: boolean = false;
   /**
-   * Set whether the alert has the 'alert' aria role and will be announced to screen readers
+   * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
    */
   @Prop() announced?: boolean = true;
 

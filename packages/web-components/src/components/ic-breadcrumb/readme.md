@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property                 | Attribute    | Description                                         | Type      | Default     |
-| ------------------------ | ------------ | --------------------------------------------------- | --------- | ----------- |
-| `current`                | `current`    | If true, aria-current will be set on the breadcrumb | `boolean` | `false`     |
-| `href`                   | `href`       | Set breadcrumb location                             | `string`  | `undefined` |
-| `pageTitle` _(required)_ | `page-title` | Set breadcrumb title                                | `string`  | `undefined` |
+| Property                 | Attribute    | Description                                            | Type      | Default     |
+| ------------------------ | ------------ | ------------------------------------------------------ | --------- | ----------- |
+| `current`                | `current`    | If `true`, aria-current will be set on the breadcrumb. | `boolean` | `false`     |
+| `href`                   | `href`       | The URL that the breadcrumb link points to.            | `string`  | `undefined` |
+| `pageTitle` _(required)_ | `page-title` | The title of the breadcrumb.                           | `string`  | `undefined` |
 
 
 ## Dependencies

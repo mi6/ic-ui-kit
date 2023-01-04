@@ -13,7 +13,7 @@ export class TabPanel {
   @Element() host: HTMLIcTabPanelElement;
 
   /**
-   * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
+   * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
    */
   @Prop({ reflect: true }) contextId?: string = "default";
 
@@ -26,7 +26,7 @@ export class TabPanel {
   /** @internal The shared ID of the currently selected tab. */
   @Prop() selectedTab?: string;
 
-  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
+  /** @internal The appearance of the tabs, e.g dark, or light. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   render() {

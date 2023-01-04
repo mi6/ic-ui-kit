@@ -28,27 +28,27 @@ import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
     interface IcAlert {
         /**
-          * Set whether the alert has the 'alert' aria role and will be announced to screen readers
+          * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
          */
         "announced"?: boolean;
         /**
-          * Set whether the alert has a close icon at the end to dismiss it
+          * If `true`, the alert will have a close icon at the end to dismiss it.
          */
         "dismissible"?: boolean;
         /**
-          * Optional title to display at the start of the alert
+          * The optional title to display at the start of the alert.
          */
         "heading"?: string;
         /**
-          * Main body message of the alert
+          * The main body message of the alert.
          */
         "message"?: string;
         /**
-          * Set whether the title and message appear inline or above and below
+          * If `true`, the title and message will appear inline instead of above and below.
          */
         "titleAbove"?: boolean;
         /**
-          * Set which variant of the alert will be rendered
+          * The variant of the alert which will be rendered.
          */
         "variant"?: IcAlertVariants;
     }
@@ -60,48 +60,48 @@ export namespace Components {
     }
     interface IcBreadcrumb {
         /**
-          * If true, aria-current will be set on the breadcrumb
+          * If `true`, aria-current will be set on the breadcrumb.
          */
         "current"?: boolean;
         /**
-          * Set breadcrumb location
+          * The URL that the breadcrumb link points to.
          */
         "href"?: string;
         /**
-          * Set breadcrumb title
+          * The title of the breadcrumb.
          */
         "pageTitle": string;
         "showBackIcon": boolean;
     }
     interface IcBreadcrumbGroup {
         /**
-          * If true, display the parent page and back icon as breadcrumb
+          * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
         "backBreadcrumbOnly": boolean;
         /**
-          * If true, all breadcrumbs between the first and last breadcrumb will be collapsed
+          * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed": boolean;
     }
     interface IcButton {
         /**
-          * Determines the whether the appearance of the button is dark, light, or the default.
+          * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
         /**
-          * Disable ic-tooltip which is shown for icon variant. Title or aria-label must be set if this prop is not applied.
+          * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
         "disableTooltip"?: boolean;
         /**
-          * Determines whether the button should be in disabled state.
+          * If `true`, the button will be in disabled state.
          */
         "disabled"?: boolean;
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
-          * Fill the width of the container if true.
+          * If `true`, the button will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
@@ -109,11 +109,11 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * Determines whether the button should be in loading state.
+          * If `true`, the button will be in loading state.
          */
         "loading"?: boolean;
         /**
@@ -133,7 +133,7 @@ export namespace Components {
          */
         "size"?: IcButtonSizes;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
         /**
@@ -146,37 +146,37 @@ export namespace Components {
         "type"?: IcButtonTypes;
         "updateAriaLabel": (newValue: string) => Promise<void>;
         /**
-          * The button variant to be displayed.
+          * The variant of the button to be displayed.
          */
         "variant"?: IcButtonVariants;
     }
     interface IcCard {
         /**
-          * Set the variant to static or clickable
+          * If `true`, the card will be a clickable variant, instead of static.
          */
         "clickable"?: boolean;
         /**
-          * Whether the card is disabled if it is clickable
+          * If `true`, the card will be disabled if it is clickable.
          */
         "disabled"?: boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the card will fill the width of the container.
          */
         "fullWidth": boolean;
         /**
-          * Title for the card
+          * The title for the card.
          */
         "heading": string;
         /**
-          * URL for clickable cards
+          * The URL that the clickable card link points to.
          */
         "href"?: string | undefined;
         /**
-          * Human readable explanation of the URL
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * Main body message of the card
+          * The main body message of the card.
          */
         "message"?: string;
         /**
@@ -188,129 +188,129 @@ export namespace Components {
          */
         "rel"?: string;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcCheckbox {
         /**
-          * Set which style of additionalField will be displayed if used
+          * The style of additionalField that will be displayed if used.
          */
         "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
-          * Set the checkbox to the checked state
+          * If `true`, the checkbox will be set to the checked state.
          */
         "checked"?: boolean;
         /**
-          * Set the checkbox to the disabled state
+          * If `true`, the checkbox will be set to the disabled state.
          */
         "disabled"?: boolean;
         /**
-          * Provide a text prop for the dynamic text
+          * The text to be displayed when dynamic.
          */
         "dynamicText": string;
         /**
-          * Provide a group label for the input
+          * The group label for the checkbox.
          */
         "groupLabel": string;
         /**
-          * Display the indeterminate state when checked
+          * If `true`, the indeterminate state will be displayed when checked.
          */
         "indeterminate": boolean;
         /**
-          * Provide a label for the input
+          * The label for the checkbox.
          */
         "label": string;
         /**
-          * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
+          * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name": string;
         /**
-          * Provide a value for the input
+          * The value for the checkbox.
          */
         "value": string;
     }
     interface IcCheckboxGroup {
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the checkbox group will be set to the disabled state.
          */
         "disabled": boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText": string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel": boolean;
         /**
-          * Provide a label for the input.
+          * The label for the checkbox group to be displayed.
          */
         "label": string;
         /**
-          * Provide a name for the input.
+          * The name for the checkbox group to differentiate from other groups.
          */
         "name": string;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the checkbox group will require a value.
          */
         "required": boolean;
         /**
-          * Specify whether small styling to be applied to element.
+          * If `true`, the small styling will be applied to the checkbox group.
          */
         "small": boolean;
         /**
-          * Provide validation status - 'error'
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
         /**
-          * Provide validation text - 'error'
+          * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText": string;
     }
     interface IcClassificationBanner {
         /**
-          * Additional information to display after the classification
+          * The additional information that will be displayed after the classification.
          */
         "additionalSelectors"?: string;
         /**
-          * The classification level to be displayed also determines the banner and text colour
+          * The classification level to be displayed - also determines the banner and text colour.
          */
         "classification"?: IcProtectiveMarkings;
         /**
-          * Optional text displayed before classification to specify relevant country/countries
+          * The optional text that will be displayed before classification to specify relevant country/countries.
          */
         "country"?: string;
         /**
-          * Determines whether the banner appears inline with the page or sticks to the bottom of the page
+          * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
          */
         "inline"?: boolean;
         /**
-          * Optionally display "Up to" before classification and country if set
+          * If `true`, "Up to" will be displayed before the classification and country.
          */
         "upTo"?: boolean;
     }
     interface IcDataEntity {
         /**
-          * Title for the data entity
+          * The title for the data entity.
          */
         "heading": string;
         /**
-          * Set the data heading and all child data rows to small styling
+          * If `true`, the small styling will be applied to the data heading and all child data rows.
          */
         "small": boolean;
     }
     interface IcDataRow {
         /**
-          * Set the label in the leftmost cell of the row
+          * The label in the leftmost cell of the row.
          */
         "label": string;
         /**
-          * Set the row to small styling, this is automatically applied if small is set on the parent data heading
+          * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
          */
         "small": boolean;
         /**
-          * Set the value of the middle (right if no addition supplied) cell of the row
+          * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value": string;
     }
@@ -318,27 +318,27 @@ export namespace Components {
     }
     interface IcFooter {
         /**
-          * Sets the aligned parameter for the section containers used within the footer
+          * The alignment of the section containers used within the footer.
          */
         "aligned"?: IcAlignment;
         /**
-          * Sets the screen size breakpoint at which to switch to the small layout
+          * The screen size breakpoint at which to switch to the small layout.
          */
         "breakpoint"?: IcFooterBreakpoints;
         /**
-          * The caption displayed at the bottom of the footer
+          * The caption displayed at the bottom of the footer.
          */
         "caption": string;
         /**
-          * Whether the footer displays the crown copyright at the bottom
+          * If `true`, the footer will display the crown copyright at the bottom.
          */
         "copyright": boolean;
         /**
-          * The description displayed at the top of the footer
+          * The description displayed at the top of the footer.
          */
         "description": string;
         /**
-          * Sets the footer up to handle link groups instead of standalone links
+          * If `true`, the footer will be set up to handle link groups instead of standalone links.
          */
         "groupLinks"?: boolean;
     }
@@ -350,155 +350,155 @@ export namespace Components {
     }
     interface IcFooterLinkGroup {
         /**
-          * Sets the title of the link group for display
+          * The title of the link group to be displayed.
          */
         "groupTitle": string;
     }
     interface IcHero {
         /**
-          * The alignment of the hero content
+          * The alignment of the hero.
          */
         "aligned": IcAlignment;
         /**
-          * Optional background image
+          * The optional background image.
          */
         "backgroundImage"?: string;
         /**
-          * The alignment of the hero content
+          * The alignment of the hero content.
          */
         "contentAligned": IcHeroContentAlignments;
         /**
-          * Whether the background image (if set) scrolls using a parallax effect.
+          * If `true`, the background image (if set) will not scroll using a parallax effect.
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero
+          * The heading of the hero.
          */
         "heading": string;
         /**
-          * Optional secondary heading, replaced by slotted right content
+          * The optional secondary heading, replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
-          * Optional secondary subheading, replaced by slotted right content
+          * The optional secondary subheading, replaced by slotted right content.
          */
         "secondarySubheading"?: string;
         /**
-          * Alter styling for use with small content/pages
+          * If `true`, the small styling will be applied to the hero.
          */
         "small": boolean;
         /**
-          * Description for the hero
+          * The description for the hero.
          */
         "subheading"?: string;
     }
     interface IcInputComponentContainer {
         /**
-          * Determines whether the dark variant of the input-component-container focus indicator should be displayed.
+          * If `true`, the dark variant of the input component container will be displayed.
          */
         "dark"?: boolean;
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the input component container will fill the width of the container it is in.
          */
         "fullWidth": boolean;
         /**
-          * multiLine
+          * If `true`, the input component container will allow for multiple lines.
          */
         "multiLine": boolean;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly": boolean;
         /**
-          * small
+          * If `true`, the small styling will be applied to the input component container.
          */
         "small": boolean;
         /**
-          * validationInline
+          * If `true`, the validation will display inline.
          */
         "validationInline": boolean;
         /**
-          * validationStatus
+          * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
     }
     interface IcInputContainer {
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
     }
     interface IcInputLabel {
         /**
-          * dark
+          * If `true`, the dark variant of the input label will be displayed.
          */
         "dark"?: boolean;
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
         /**
-          * error
+          * If `true`, the input label will display with error styling.
          */
         "error"?: boolean;
         /**
-          * for
+          * The ID of the form element the label is bound to.
          */
         "for": string;
         /**
-          * helperText
+          * The helper text that will be displayed.
          */
         "helperText": string;
         /**
-          * label
+          * The text content of the label.
          */
         "label": string;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly": boolean;
         /**
-          * required
+          * If `true`, the input label will require a value.
          */
         "required": boolean;
     }
     interface IcInputValidation {
         /**
-          * aria live mode to apply to message
+          * The ARIA live mode to apply to the message.
          */
         "ariaLiveMode": IcAriaLiveModeVariants;
         /**
-          * The id of the input field the message relates to
+          * The ID of the form element the validation is bound to.
          */
         "for": string;
         /**
-          * If true then fill width of container
+          * If `true`, the input validation will fill the width of the container.
          */
         "fullWidth": boolean;
         /**
-          * The validation message to display
+          * The validation message to display.
          */
         "message": string;
         /**
-          * The status
+          * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
         "status": IcInformationStatusOrEmpty;
     }
     interface IcLink {
         /**
-          * Determines the whether the appearance is dark, light, or the default.
+          * The appearance of the link, e.g. dark, light, or default.
          */
         "appearance"?: IcThemeForeground;
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
@@ -506,7 +506,7 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
@@ -518,25 +518,25 @@ export namespace Components {
          */
         "rel"?: string;
         /**
-          * Determines whether the 'open in new tab/window' icon is to be displayed.
+          * If `true`, the 'open in new tab/window' icon will be displayed.
          */
         "showIcon"?: boolean;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcLoadingIndicator {
         /**
-          * Determines whether the dark or light loading indicator should be displayed.
+          * The appearance of the loading indicator, e.g. dark or light.
          */
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a description to be set as the aria-label of the loading indicator when not using a visible label.
+          * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
         /**
-          * When linear, determines whether the full-width version (i.e. without a border radius) should be displayed.
+          * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
          */
         "fullWidth"?: boolean;
         /**
@@ -574,12 +574,12 @@ export namespace Components {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * Reference to an anchor element the menu will position itself from when rendered.
+          * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
         "autoFocusOnSelected": boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the menu will fill the width of the container.
          */
         "fullWidth": boolean;
         /**
@@ -593,28 +593,28 @@ export namespace Components {
         "handleKeyboardOpen": (event: KeyboardEvent) => Promise<void>;
         "handleSetFirstOption": () => Promise<void>;
         /**
-          * Reference to the input element.
+          * The reference to the input element.
          */
         "inputEl": HTMLElement;
         /**
-          * Label for the input element.
+          * The label for the input element.
          */
         "inputLabel": string;
         /**
-          * Id of the menu.
+          * The ID of the menu.
          */
         "menuId": string;
         /**
-          * Specify whether the menu is open.
+          * If `true`, the menu will be displayed open.
          */
         "open": boolean;
         /**
-          * Provide the possible selection options.
+          * The possible menu selection options.
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the menu.
          */
         "small"?: boolean;
         /**
@@ -624,7 +624,7 @@ export namespace Components {
     }
     interface IcNavigationButton {
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
@@ -632,11 +632,11 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * label info to display
+          * The label info to display.
          */
         "label": string;
         /**
@@ -652,17 +652,17 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcNavigationGroup {
         /**
-          * whether the group should be expandable/collapsible in the side menu
+          * If `true`, the group will be expandable in the side menu.
          */
         "expandable": boolean;
         /**
-          * label to display on the group
+          * The label to display on the group.
          */
         "label": string;
         /**
@@ -675,15 +675,15 @@ export namespace Components {
         "displayNavigationTooltip": boolean;
         "expandable": boolean;
         /**
-          * Destination of the navigation item
+          * The destination of the navigation item.
          */
         "href": string;
         /**
-          * Label of the navigation item
+          * The label of the navigation item.
          */
         "label": string;
         /**
-          * If true, sets the navigation item in a selected state
+          * If `true`, the navigation item will be set in a selected state.
          */
         "selected": boolean;
         /**
@@ -693,179 +693,179 @@ export namespace Components {
     }
     interface IcNavigationMenu {
         /**
-          * Status info to display
+          * The status info to display.
          */
         "status": string;
         /**
-          * Version info to display
+          * The version info to display.
          */
         "version": string;
     }
     interface IcPageHeader {
         /**
-          * How the component should be aligned.
+          * The alignment of the page header.
          */
         "aligned"?: IcAlignment;
         /**
-          * Set whether the bottom border is used
+          * If `true`, a border will be displayed along the bottom of the page header.
          */
         "border"?: boolean;
         /**
-          * The title to render on the component.
+          * The title to render on the page header.
          */
         "heading"?: string;
         /**
-          * Set whether the reading pattern and tab order change in the action area for viewport widths of above 576px and when actions have not wrapped
+          * If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.
          */
         "reverseOrder"?: boolean;
         /**
-          * Whether the component uses small styling.
+          * If `true`, the small styling will be applied to the page header.
          */
         "small"?: boolean;
         /**
-          * Set whether the header is sticky at all breakpoints
+          * If `true`, the page header will be sticky at all breakpoints.
          */
         "sticky"?: boolean;
         /**
-          * Set whether the header is only sticky for viewport widths of 992px and above
+          * If `true`, the page header will only be sticky for viewport widths of 992px and above.
          */
         "stickyDesktopOnly"?: boolean;
         /**
-          * The subtitle to render on the component.
+          * The subtitle to render on the page header.
          */
         "subheading"?: string;
     }
     interface IcRadioGroup {
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText": string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel": boolean;
         /**
-          * Provide a label for the input.
+          * The label for the radio group to be displayed.
          */
         "label": string;
         /**
-          * Provide a name for the input.
+          * The name for the radio group to differentiate from other groups.
          */
         "name": string;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the radio group will require a value.
          */
         "required": boolean;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the radio group.
          */
         "small": boolean;
         /**
-          * Provide validation status - 'error'
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty;
         /**
-          * Provide validation text - 'error'
+          * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText": string;
     }
     interface IcRadioOption {
         /**
-          * Determines type of additional text field in relation to radio option
+          * The style of additionalField that will be displayed if used.
          */
         "additionalFieldDisplay": IcAdditionalFieldTypes;
         /**
-          * Determines whether the radio should be in disabled state.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide a text prop for the dynamic text.
+          * The text to be displayed when dynamic.
          */
         "dynamicText": string;
         /**
-          * Provide a group label for the input.
+          * The group label for the radio option.
          */
         "groupLabel": string;
         /**
-          * Provide a label for the input.
+          * The label for the radio option.
          */
         "label"?: string;
         /**
-          * Provide a name for the input.
+          * The name for the radio option.
          */
         "name": string;
         /**
-          * Determines whether the radio should be in selected state.
+          * If `true`, the radio option will be displayed in a selected state.
          */
         "selected"?: boolean;
         /**
-          * Provide a value for the input.
+          * The value for the radio option.
          */
         "value": string;
     }
     interface IcSearchBar {
         /**
-          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
         /**
-          * Indicates whether the value of the control can be automatically completed by the browser.
+          * The state of autocompletion the browser can apply on the text value.
          */
         "autocomplete"?: IcAutocompleteTypes;
         /**
-          * Whether auto correction should be enabled when the user is entering/editing the text value.
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect"?: IcAutocorrectStates;
         /**
-          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+          * If `true`, the form control will have input focus when the page loads.
          */
         "autofocus": boolean;
         /**
-          * Number of characters until suggestions appear
+          * The number of characters until suggestions appear.
          */
         "charactersUntilSuggestion": number;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
-          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If true, all options provided will be displayed.
+          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
         "disableFilter"?: boolean;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide text for empty results list
+          * The text displayed when there are no options in the option list.
          */
         "emptyOptionListText": string;
         /**
-          * Specify whether the input should be focussed when component loaded.
+          * If `true`, the search bar will be focused when component loaded.
          */
         "focusOnLoad"?: boolean;
         /**
-          * Specify whether the component fills the full width of the container. If true, this overrides the --input-width css prop.
+          * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
         "fullWidth"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Provide hint text for hidden assistive description element.
+          * The hint text for the hidden assistive description element.
          */
         "hintText"?: string;
         /**
-          * Provide a label for the input.
+          * The label for the search bar.
          */
         "label": string;
         /**
@@ -873,19 +873,19 @@ export namespace Components {
          */
         "name": string;
         /**
-          * Provide the suggested search options
+          * The suggested search options.
          */
         "options"?: IcMenuOption[];
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to display.
          */
         "placeholder"?: string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the search bar will require a value.
          */
         "required"?: boolean;
         /**
@@ -893,63 +893,63 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the search bar.
          */
         "small"?: boolean;
         /**
-          * If `true`, the element will have its spelling and grammar checked.
+          * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
         /**
-          * Value of Search input.
+          * The value of the search input.
          */
         "value": string;
     }
     interface IcSectionContainer {
         /**
-          * How the container should be aligned.
+          * The alignment of the container.
          */
         "aligned"?: IcAlignment;
         /**
-          * Removes the standard vertical padding from the container.
+          * If `true`, the standard vertical padding from the container will be removed.
          */
         "fullHeight"?: boolean;
     }
     interface IcSelect {
         /**
-          * Number of characters until suggestions appear for a searchable select.
+          * The number of characters until suggestions appear for a searchable select.
          */
         "charactersUntilSuggestions"?: number;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide text for empty results list
+          * The text displayed when there are no options in the option list.
          */
         "emptyOptionListText": string;
         /**
-          * If true, then fill width of container.
+          * If `true`, the select element will fill the width of the container.
          */
         "fullWidth": boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * If true, descriptions of options are included when filtering options in a searchable select.
+          * If `true`, descriptions of options will be included when filtering options in a searchable select.
          */
         "includeDescriptionsInSearch"?: boolean;
         /**
-          * If true, group titles of grouped options are included when filtering options in a searchable select.
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
          */
         "includeGroupTitlesInSearch"?: boolean;
         /**
-          * Provide a label for the input.
+          * The label for the select.
          */
         "label": string;
         /**
@@ -957,19 +957,19 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Provide the possible selection options.
+          * The possible selection options.
          */
         "options"?: IcMenuOption[];
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to be displayed.
          */
         "placeholder"?: string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the select will require a value.
          */
         "required"?: boolean;
         /**
@@ -977,7 +977,7 @@ export namespace Components {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If true, the select can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
          */
         "searchable"?: boolean;
         /**
@@ -985,19 +985,19 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Display a button which clears the input when clicked. The button will always appear on the searchable select.
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
          */
         "showClearButton"?: boolean;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the select.
          */
         "small"?: boolean;
         /**
-          * Provide a validation status.
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * Provide the text to display as the validation message.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**
@@ -1007,49 +1007,49 @@ export namespace Components {
     }
     interface IcSideNavigation {
         /**
-          * Title to display.
+          * The title of the app to be displayed.
          */
         "appTitle": string;
         /**
-          * If true, the icon and label will appear when side navigation is collapsed
+          * If `true`, the icon and label will appear when side navigation is collapsed.
          */
         "collapsedIconLabels": boolean;
         /**
-          * If true, disable automatic parent wrapper styling
+          * If `true`, automatic parent wrapper styling will be disabled.
          */
         "disableAutoParentStyling": boolean;
         /**
-          * If true, the ic-side-navigation will load in an expanded state
+          * If `true`, the side navigation will load in an expanded state.
          */
         "expanded": boolean;
         /**
-          * Set application title link
+          * The URL that the app title link points to.
          */
         "href": string;
         /**
-          * If true, side navigation will be contained by parent element
+          * If `true`, side navigation will be contained by its parent element.
          */
         "inline": boolean;
         /**
-          * If true, the menu expand button is removed (PLEASE NOTE: This takes effect on screen sizes 992px and above)
+          * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
         "static": boolean;
         /**
-          * Status of application
+          * The status of the app to be displayed.
          */
         "status": string;
         /**
-          * Version of application
+          * The version of the app to be displayed.
          */
         "version": string;
     }
     interface IcSkeleton {
         /**
-          * Set the skeleton to the light variant
+          * If `true`, the skeleton will be set to the light variant.
          */
         "light"?: boolean;
         /**
-          * The variant of the skeleton that will be displayed
+          * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
     }
@@ -1063,7 +1063,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The size of the status tag.
+          * If `true`, the small styling will be applied to the status tag.
          */
         "small"?: boolean;
         /**
@@ -1075,21 +1075,21 @@ export namespace Components {
         "lastStep"?: boolean;
         "stepNum"?: number;
         /**
-          * Additional information about step
+          * The additional information about the step.
          */
         "stepSubtitle"?: string;
         /**
-          * Name of step
+          * The name of the step within the stepper.
          */
         "stepTitle"?: string;
         /**
-          * State of step
+          * The state of the step within the stepper.
          */
         "stepType"?: IcStepTypes;
     }
     interface IcStepper {
         /**
-          * How the stepper should be aligned in its container.
+          * The alignment of the stepper within its container.
          */
         "aligned"?: IcStepperAlignment;
         /**
@@ -1099,23 +1099,23 @@ export namespace Components {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked.
+          * If `true`, the switch will display as checked.
          */
         "checked"?: boolean;
         /**
-          * If true, the component is not interactive.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Applies an aria-label to the component, for when no visual 'name' is provided.
+          * The aria-label applied to the switch when no visual 'name' is provided.
          */
         "label": string;
         /**
@@ -1123,11 +1123,11 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * If true, the component will render the On/Off state text.
+          * If `true`, the switch will render the On/Off state text.
          */
         "showState"?: boolean;
         /**
-          * If true, the component reduces in size to the small state.
+          * If `true`, the small styling will be applied to the switch.
          */
         "small"?: boolean;
         /**
@@ -1139,7 +1139,7 @@ export namespace Components {
         "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
-          * Disables the tab.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         "selected"?: boolean;
@@ -1152,30 +1152,30 @@ export namespace Components {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * Determines whether the light or dark variant of the tabs should be displayed.
+          * The appearance of the tab context, e.g dark, or light.
          */
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
         /**
-          * Allows the user to control the selected tab. Must be used alongside the tabSelect event to manage tab selection.
+          * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
     }
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
         /**
-          * Use when tabs and tab panels are to be positioned separately.
+          * If `true`, the tabs and tab panels will be positioned separately.
          */
         "inline"?: boolean;
         /**
-          * Provide a label to describe the purpose of the set of tabs to screen reader users.
+          * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
         "scrollTabIntoView": (tabNumber: number) => Promise<void>;
@@ -1183,7 +1183,7 @@ export namespace Components {
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */
         "contextId"?: string;
         "panelId"?: string;
@@ -1196,44 +1196,44 @@ export namespace Components {
         "ariaExpanded": string;
         "ariaOwns": string;
         /**
-          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+          * If `true`, the form control will have input focus when the page loads.
          */
         "autoFocus": boolean;
         /**
-          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
         /**
-          * Indicates whether the value of the control can be automatically completed by the browser.
+          * The state of autocompletion the browser can apply on the text value.
          */
         "autocomplete": IcAutocompleteTypes1;
         /**
-          * Whether auto correction should be enabled when the user is entering/editing the text value.
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect": IcAutocorrectStates1;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce": number;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled": boolean;
         /**
-          * Specify whether the component fills the full width of the container. If true, this overrides the --input-width css prop.
+          * Specify whether the text field fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
         "fullWidth": boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText": string;
         "hiddenInput": boolean;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel": boolean;
         /**
-          * Provide an id for the input
+          * The ID for the input.
          */
         "inputId"?: string;
         /**
@@ -1241,11 +1241,11 @@ export namespace Components {
          */
         "inputmode": IcTextFieldInputModes;
         /**
-          * Provide a label for the input.
+          * The label for the input.
          */
         "label": string;
         /**
-          * Maximum number of characters that can be entered in the field.
+          * The maximum number of characters that can be entered in the field.
          */
         "maxLength": number;
         /**
@@ -1253,24 +1253,24 @@ export namespace Components {
          */
         "name": string;
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to be displayed.
          */
         "placeholder": string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the read only state will be set.
          */
         "readonly": boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the input will require a value.
          */
         "required": boolean;
         /**
-          * Allow resizing of a multiline text area
+          * If `true`, the multiline text area will be resizeable.
          */
         "resize": boolean;
         "role": string;
         /**
-          * Specify the number of rows to transform the text field into a text area with a specific height.
+          * The number of rows to transform the text field into a text area with a specific height.
          */
         "rows": number;
         /**
@@ -1278,11 +1278,11 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the text field.
          */
         "small": boolean;
         /**
-          * If `true`, the element will have its spelling and grammar checked.
+          * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck": boolean;
         "truncateValue"?: boolean;
@@ -1291,25 +1291,25 @@ export namespace Components {
          */
         "type": IcTextFieldTypes;
         /**
-          * Show icon in input control - only applies when validationStatus ='success'
+          * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
         "validationInline": boolean;
         /**
-          * Provide validation state - 'error' | 'warning' | 'success'
+          * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus": IcInformationStatusOrEmpty1;
         /**
-          * Provide validation state - 'error' | 'warning' | 'success'
+          * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText": string;
         /**
-          * Value of TextField.
+          * The value of the text field.
          */
         "value": string;
     }
     interface IcTheme {
         /**
-          * The theme colour. Can be a hex value eg "#ff0000" or RGB eg "rgb(255, 0, 0)"
+          * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: string;
     }
@@ -1329,33 +1329,33 @@ export namespace Components {
     }
     interface IcTopNavigation {
         /**
-          * Title to display
+          * The app title to be displayed.
          */
         "appTitle": string;
         /**
-          * The alignment of the top nav content
+          * The alignment of the top navigation content.
          */
         "contentAligned": IcAlignment;
         /**
-          * The url to navigate to when title is clicked
+          * The URL to navigate to when the app title is clicked.
          */
         "href": string;
         /**
-          * If true, the flyout navigation menu on small devices will be contained by the parent element
+          * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
         "inline": boolean;
         /**
-          * Status info to display
+          * The status info to be displayed.
          */
         "status": string;
         /**
-          * Version info to display
+          * The version info to be displayed.
          */
         "version": string;
     }
     interface IcTypography {
         /**
-          * Adds appropriate margins to the top and bottom of the typography.
+          * If `true`, appropriate top and bottom margins will be applied to the typography.
          */
         "applyVerticalMargins"?: boolean;
         /**
@@ -1779,19 +1779,19 @@ declare global {
 declare namespace LocalJSX {
     interface IcAlert {
         /**
-          * Set whether the alert has the 'alert' aria role and will be announced to screen readers
+          * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
          */
         "announced"?: boolean;
         /**
-          * Set whether the alert has a close icon at the end to dismiss it
+          * If `true`, the alert will have a close icon at the end to dismiss it.
          */
         "dismissible"?: boolean;
         /**
-          * Optional title to display at the start of the alert
+          * The optional title to display at the start of the alert.
          */
         "heading"?: string;
         /**
-          * Main body message of the alert
+          * The main body message of the alert.
          */
         "message"?: string;
         /**
@@ -1799,11 +1799,11 @@ declare namespace LocalJSX {
          */
         "onDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
-          * Set whether the title and message appear inline or above and below
+          * If `true`, the title and message will appear inline instead of above and below.
          */
         "titleAbove"?: boolean;
         /**
-          * Set which variant of the alert will be rendered
+          * The variant of the alert which will be rendered.
          */
         "variant"?: IcAlertVariants;
     }
@@ -1815,48 +1815,48 @@ declare namespace LocalJSX {
     }
     interface IcBreadcrumb {
         /**
-          * If true, aria-current will be set on the breadcrumb
+          * If `true`, aria-current will be set on the breadcrumb.
          */
         "current"?: boolean;
         /**
-          * Set breadcrumb location
+          * The URL that the breadcrumb link points to.
          */
         "href"?: string;
         /**
-          * Set breadcrumb title
+          * The title of the breadcrumb.
          */
         "pageTitle": string;
         "showBackIcon"?: boolean;
     }
     interface IcBreadcrumbGroup {
         /**
-          * If true, display the parent page and back icon as breadcrumb
+          * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
         "backBreadcrumbOnly"?: boolean;
         /**
-          * If true, all breadcrumbs between the first and last breadcrumb will be collapsed
+          * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
          */
         "collapsed"?: boolean;
     }
     interface IcButton {
         /**
-          * Determines the whether the appearance of the button is dark, light, or the default.
+          * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
         /**
-          * Disable ic-tooltip which is shown for icon variant. Title or aria-label must be set if this prop is not applied.
+          * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
         "disableTooltip"?: boolean;
         /**
-          * Determines whether the button should be in disabled state.
+          * If `true`, the button will be in disabled state.
          */
         "disabled"?: boolean;
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
-          * Fill the width of the container if true.
+          * If `true`, the button will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
@@ -1864,11 +1864,11 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * Determines whether the button should be in loading state.
+          * If `true`, the button will be in loading state.
          */
         "loading"?: boolean;
         /**
@@ -1892,7 +1892,7 @@ declare namespace LocalJSX {
          */
         "size"?: IcButtonSizes;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
         /**
@@ -1904,37 +1904,37 @@ declare namespace LocalJSX {
          */
         "type"?: IcButtonTypes;
         /**
-          * The button variant to be displayed.
+          * The variant of the button to be displayed.
          */
         "variant"?: IcButtonVariants;
     }
     interface IcCard {
         /**
-          * Set the variant to static or clickable
+          * If `true`, the card will be a clickable variant, instead of static.
          */
         "clickable"?: boolean;
         /**
-          * Whether the card is disabled if it is clickable
+          * If `true`, the card will be disabled if it is clickable.
          */
         "disabled"?: boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the card will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
-          * Title for the card
+          * The title for the card.
          */
         "heading": string;
         /**
-          * URL for clickable cards
+          * The URL that the clickable card link points to.
          */
         "href"?: string | undefined;
         /**
-          * Human readable explanation of the URL
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * Main body message of the card
+          * The main body message of the card.
          */
         "message"?: string;
         /**
@@ -1946,41 +1946,41 @@ declare namespace LocalJSX {
          */
         "rel"?: string;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcCheckbox {
         /**
-          * Set which style of additionalField will be displayed if used
+          * The style of additionalField that will be displayed if used.
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
-          * Set the checkbox to the checked state
+          * If `true`, the checkbox will be set to the checked state.
          */
         "checked"?: boolean;
         /**
-          * Set the checkbox to the disabled state
+          * If `true`, the checkbox will be set to the disabled state.
          */
         "disabled"?: boolean;
         /**
-          * Provide a text prop for the dynamic text
+          * The text to be displayed when dynamic.
          */
         "dynamicText"?: string;
         /**
-          * Provide a group label for the input
+          * The group label for the checkbox.
          */
         "groupLabel"?: string;
         /**
-          * Display the indeterminate state when checked
+          * If `true`, the indeterminate state will be displayed when checked.
          */
         "indeterminate"?: boolean;
         /**
-          * Provide a label for the input
+          * The label for the checkbox.
          */
         "label": string;
         /**
-          * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
+          * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name"?: string;
         /**
@@ -1988,29 +1988,29 @@ declare namespace LocalJSX {
          */
         "onCheckboxChecked"?: (event: IcCheckboxCustomEvent<void>) => void;
         /**
-          * Provide a value for the input
+          * The value for the checkbox.
          */
         "value": string;
     }
     interface IcCheckboxGroup {
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the checkbox group will be set to the disabled state.
          */
         "disabled"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Provide a label for the input.
+          * The label for the checkbox group to be displayed.
          */
         "label": string;
         /**
-          * Provide a name for the input.
+          * The name for the checkbox group to differentiate from other groups.
          */
         "name": string;
         /**
@@ -2018,65 +2018,65 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcCheckboxGroupCustomEvent<IcChangeEventDetail>) => void;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the checkbox group will require a value.
          */
         "required"?: boolean;
         /**
-          * Specify whether small styling to be applied to element.
+          * If `true`, the small styling will be applied to the checkbox group.
          */
         "small"?: boolean;
         /**
-          * Provide validation status - 'error'
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * Provide validation text - 'error'
+          * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText"?: string;
     }
     interface IcClassificationBanner {
         /**
-          * Additional information to display after the classification
+          * The additional information that will be displayed after the classification.
          */
         "additionalSelectors"?: string;
         /**
-          * The classification level to be displayed also determines the banner and text colour
+          * The classification level to be displayed - also determines the banner and text colour.
          */
         "classification"?: IcProtectiveMarkings;
         /**
-          * Optional text displayed before classification to specify relevant country/countries
+          * The optional text that will be displayed before classification to specify relevant country/countries.
          */
         "country"?: string;
         /**
-          * Determines whether the banner appears inline with the page or sticks to the bottom of the page
+          * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
          */
         "inline"?: boolean;
         /**
-          * Optionally display "Up to" before classification and country if set
+          * If `true`, "Up to" will be displayed before the classification and country.
          */
         "upTo"?: boolean;
     }
     interface IcDataEntity {
         /**
-          * Title for the data entity
+          * The title for the data entity.
          */
         "heading"?: string;
         /**
-          * Set the data heading and all child data rows to small styling
+          * If `true`, the small styling will be applied to the data heading and all child data rows.
          */
         "small"?: boolean;
     }
     interface IcDataRow {
         /**
-          * Set the label in the leftmost cell of the row
+          * The label in the leftmost cell of the row.
          */
         "label"?: string;
         /**
-          * Set the row to small styling, this is automatically applied if small is set on the parent data heading
+          * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
          */
         "small"?: boolean;
         /**
-          * Set the value of the middle (right if no addition supplied) cell of the row
+          * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
     }
@@ -2084,27 +2084,27 @@ declare namespace LocalJSX {
     }
     interface IcFooter {
         /**
-          * Sets the aligned parameter for the section containers used within the footer
+          * The alignment of the section containers used within the footer.
          */
         "aligned"?: IcAlignment;
         /**
-          * Sets the screen size breakpoint at which to switch to the small layout
+          * The screen size breakpoint at which to switch to the small layout.
          */
         "breakpoint"?: IcFooterBreakpoints;
         /**
-          * The caption displayed at the bottom of the footer
+          * The caption displayed at the bottom of the footer.
          */
         "caption"?: string;
         /**
-          * Whether the footer displays the crown copyright at the bottom
+          * If `true`, the footer will display the crown copyright at the bottom.
          */
         "copyright"?: boolean;
         /**
-          * The description displayed at the top of the footer
+          * The description displayed at the top of the footer.
          */
         "description"?: string;
         /**
-          * Sets the footer up to handle link groups instead of standalone links
+          * If `true`, the footer will be set up to handle link groups instead of standalone links.
          */
         "groupLinks"?: boolean;
         /**
@@ -2120,155 +2120,155 @@ declare namespace LocalJSX {
     }
     interface IcFooterLinkGroup {
         /**
-          * Sets the title of the link group for display
+          * The title of the link group to be displayed.
          */
         "groupTitle": string;
     }
     interface IcHero {
         /**
-          * The alignment of the hero content
+          * The alignment of the hero.
          */
         "aligned"?: IcAlignment;
         /**
-          * Optional background image
+          * The optional background image.
          */
         "backgroundImage"?: string;
         /**
-          * The alignment of the hero content
+          * The alignment of the hero content.
          */
         "contentAligned"?: IcHeroContentAlignments;
         /**
-          * Whether the background image (if set) scrolls using a parallax effect.
+          * If `true`, the background image (if set) will not scroll using a parallax effect.
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero
+          * The heading of the hero.
          */
         "heading": string;
         /**
-          * Optional secondary heading, replaced by slotted right content
+          * The optional secondary heading, replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
-          * Optional secondary subheading, replaced by slotted right content
+          * The optional secondary subheading, replaced by slotted right content.
          */
         "secondarySubheading"?: string;
         /**
-          * Alter styling for use with small content/pages
+          * If `true`, the small styling will be applied to the hero.
          */
         "small"?: boolean;
         /**
-          * Description for the hero
+          * The description for the hero.
          */
         "subheading"?: string;
     }
     interface IcInputComponentContainer {
         /**
-          * Determines whether the dark variant of the input-component-container focus indicator should be displayed.
+          * If `true`, the dark variant of the input component container will be displayed.
          */
         "dark"?: boolean;
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the input component container will fill the width of the container it is in.
          */
         "fullWidth"?: boolean;
         /**
-          * multiLine
+          * If `true`, the input component container will allow for multiple lines.
          */
         "multiLine"?: boolean;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * small
+          * If `true`, the small styling will be applied to the input component container.
          */
         "small"?: boolean;
         /**
-          * validationInline
+          * If `true`, the validation will display inline.
          */
         "validationInline"?: boolean;
         /**
-          * validationStatus
+          * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
     }
     interface IcInputContainer {
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
     }
     interface IcInputLabel {
         /**
-          * dark
+          * If `true`, the dark variant of the input label will be displayed.
          */
         "dark"?: boolean;
         /**
-          * disabled
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * error
+          * If `true`, the input label will display with error styling.
          */
         "error"?: boolean;
         /**
-          * for
+          * The ID of the form element the label is bound to.
          */
         "for"?: string;
         /**
-          * helperText
+          * The helper text that will be displayed.
          */
         "helperText"?: string;
         /**
-          * label
+          * The text content of the label.
          */
         "label": string;
         /**
-          * readonly
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * required
+          * If `true`, the input label will require a value.
          */
         "required"?: boolean;
     }
     interface IcInputValidation {
         /**
-          * aria live mode to apply to message
+          * The ARIA live mode to apply to the message.
          */
         "ariaLiveMode"?: IcAriaLiveModeVariants;
         /**
-          * The id of the input field the message relates to
+          * The ID of the form element the validation is bound to.
          */
         "for"?: string;
         /**
-          * If true then fill width of container
+          * If `true`, the input validation will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
-          * The validation message to display
+          * The validation message to display.
          */
         "message": string;
         /**
-          * The status
+          * The status of the validation - e.g. 'error' | 'warning' | 'success'.
          */
         "status"?: IcInformationStatusOrEmpty;
     }
     interface IcLink {
         /**
-          * Determines the whether the appearance is dark, light, or the default.
+          * The appearance of the link, e.g. dark, light, or default.
          */
         "appearance"?: IcThemeForeground;
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
@@ -2276,7 +2276,7 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
@@ -2288,25 +2288,25 @@ declare namespace LocalJSX {
          */
         "rel"?: string;
         /**
-          * Determines whether the 'open in new tab/window' icon is to be displayed.
+          * If `true`, the 'open in new tab/window' icon will be displayed.
          */
         "showIcon"?: boolean;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcLoadingIndicator {
         /**
-          * Determines whether the dark or light loading indicator should be displayed.
+          * The appearance of the loading indicator, e.g. dark or light.
          */
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a description to be set as the aria-label of the loading indicator when not using a visible label.
+          * The description that will be set as the aria-label of the loading indicator when not using a visible label.
          */
         "description"?: string;
         /**
-          * When linear, determines whether the full-width version (i.e. without a border radius) should be displayed.
+          * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
          */
         "fullWidth"?: boolean;
         /**
@@ -2344,24 +2344,24 @@ declare namespace LocalJSX {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * Reference to an anchor element the menu will position itself from when rendered.
+          * The reference to an anchor element the menu will position itself from when rendered.
          */
         "anchorEl": HTMLElement;
         "autoFocusOnSelected"?: boolean;
         /**
-          * If true then fill width of container
+          * If `true`, the menu will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
-          * Reference to the input element.
+          * The reference to the input element.
          */
         "inputEl": HTMLElement;
         /**
-          * Label for the input element.
+          * The label for the input element.
          */
         "inputLabel": string;
         /**
-          * Id of the menu.
+          * The ID of the menu.
          */
         "menuId": string;
         /**
@@ -2377,16 +2377,16 @@ declare namespace LocalJSX {
          */
         "onOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
         /**
-          * Specify whether the menu is open.
+          * If `true`, the menu will be displayed open.
          */
         "open": boolean;
         /**
-          * Provide the possible selection options.
+          * The possible menu selection options.
          */
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the menu.
          */
         "small"?: boolean;
         /**
@@ -2396,7 +2396,7 @@ declare namespace LocalJSX {
     }
     interface IcNavigationButton {
         /**
-          * Prompts the user to save the linked URL instead of navigating to it.
+          * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
         /**
@@ -2404,11 +2404,11 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Hints at the human language of the linked URL.
+          * The human language of the linked URL.
          */
         "hreflang"?: string;
         /**
-          * label info to display
+          * The label info to display.
          */
         "label": string;
         /**
@@ -2420,17 +2420,17 @@ declare namespace LocalJSX {
          */
         "rel"?: string;
         /**
-          * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
         "target"?: string;
     }
     interface IcNavigationGroup {
         /**
-          * whether the group should be expandable/collapsible in the side menu
+          * If `true`, the group will be expandable in the side menu.
          */
         "expandable"?: boolean;
         /**
-          * label to display on the group
+          * The label to display on the group.
          */
         "label"?: string;
     }
@@ -2439,84 +2439,84 @@ declare namespace LocalJSX {
         "displayNavigationTooltip"?: boolean;
         "expandable"?: boolean;
         /**
-          * Destination of the navigation item
+          * The destination of the navigation item.
          */
         "href"?: string;
         /**
-          * Label of the navigation item
+          * The label of the navigation item.
          */
         "label"?: string;
         "onChildBlur"?: (event: IcNavigationItemCustomEvent<void>) => void;
         "onIcNavItemClicked"?: (event: IcNavigationItemCustomEvent<void>) => void;
         /**
-          * If true, sets the navigation item in a selected state
+          * If `true`, the navigation item will be set in a selected state.
          */
         "selected"?: boolean;
     }
     interface IcNavigationMenu {
         "onIcNavigationMenuClose"?: (event: IcNavigationMenuCustomEvent<void>) => void;
         /**
-          * Status info to display
+          * The status info to display.
          */
         "status"?: string;
         /**
-          * Version info to display
+          * The version info to display.
          */
         "version"?: string;
     }
     interface IcPageHeader {
         /**
-          * How the component should be aligned.
+          * The alignment of the page header.
          */
         "aligned"?: IcAlignment;
         /**
-          * Set whether the bottom border is used
+          * If `true`, a border will be displayed along the bottom of the page header.
          */
         "border"?: boolean;
         /**
-          * The title to render on the component.
+          * The title to render on the page header.
          */
         "heading"?: string;
         /**
-          * Set whether the reading pattern and tab order change in the action area for viewport widths of above 576px and when actions have not wrapped
+          * If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.
          */
         "reverseOrder"?: boolean;
         /**
-          * Whether the component uses small styling.
+          * If `true`, the small styling will be applied to the page header.
          */
         "small"?: boolean;
         /**
-          * Set whether the header is sticky at all breakpoints
+          * If `true`, the page header will be sticky at all breakpoints.
          */
         "sticky"?: boolean;
         /**
-          * Set whether the header is only sticky for viewport widths of 992px and above
+          * If `true`, the page header will only be sticky for viewport widths of 992px and above.
          */
         "stickyDesktopOnly"?: boolean;
         /**
-          * The subtitle to render on the component.
+          * The subtitle to render on the page header.
          */
         "subheading"?: string;
     }
     interface IcRadioGroup {
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Provide a label for the input.
+          * The label for the radio group to be displayed.
          */
         "label": string;
         /**
-          * Provide a name for the input.
+          * The name for the radio group to differentiate from other groups.
          */
         "name": string;
         /**
@@ -2524,123 +2524,119 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcRadioGroupCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the radio group will require a value.
          */
         "required"?: boolean;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the radio group.
          */
         "small"?: boolean;
         /**
-          * Provide validation status - 'error'
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * Provide validation text - 'error'
+          * The validation text - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText"?: string;
     }
     interface IcRadioOption {
         /**
-          * Determines type of additional text field in relation to radio option
+          * The style of additionalField that will be displayed if used.
          */
         "additionalFieldDisplay"?: IcAdditionalFieldTypes;
         /**
-          * Determines whether the radio should be in disabled state.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide a text prop for the dynamic text.
+          * The text to be displayed when dynamic.
          */
         "dynamicText"?: string;
         /**
-          * Provide a group label for the input.
+          * The group label for the radio option.
          */
         "groupLabel"?: string;
         /**
-          * Provide a label for the input.
+          * The label for the radio option.
          */
         "label"?: string;
         /**
-          * Provide a name for the input.
+          * The name for the radio option.
          */
         "name"?: string;
-        /**
-          * Emitted when radio is checked
-         */
-        "onIcCheck"?: (event: IcRadioOptionCustomEvent<void>) => void;
         /**
           * Emitted when a radio is selected.
          */
         "onRadioOptionSelect"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Determines whether the radio should be in selected state.
+          * If `true`, the radio option will be displayed in a selected state.
          */
         "selected"?: boolean;
         /**
-          * Provide a value for the input.
+          * The value for the radio option.
          */
         "value": string;
     }
     interface IcSearchBar {
         /**
-          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize"?: string;
         /**
-          * Indicates whether the value of the control can be automatically completed by the browser.
+          * The state of autocompletion the browser can apply on the text value.
          */
         "autocomplete"?: IcAutocompleteTypes;
         /**
-          * Whether auto correction should be enabled when the user is entering/editing the text value.
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect"?: IcAutocorrectStates;
         /**
-          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+          * If `true`, the form control will have input focus when the page loads.
          */
         "autofocus"?: boolean;
         /**
-          * Number of characters until suggestions appear
+          * The number of characters until suggestions appear.
          */
         "charactersUntilSuggestion"?: number;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
-          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If true, all options provided will be displayed.
+          * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
         "disableFilter"?: boolean;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide text for empty results list
+          * The text displayed when there are no options in the option list.
          */
         "emptyOptionListText"?: string;
         /**
-          * Specify whether the input should be focussed when component loaded.
+          * If `true`, the search bar will be focused when component loaded.
          */
         "focusOnLoad"?: boolean;
         /**
-          * Specify whether the component fills the full width of the container. If true, this overrides the --input-width css prop.
+          * Specify whether the search bar fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
         "fullWidth"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Provide hint text for hidden assistive description element.
+          * The hint text for the hidden assistive description element.
          */
         "hintText"?: string;
         /**
-          * Provide a label for the input.
+          * The label for the search bar.
          */
         "label": string;
         /**
@@ -2690,79 +2686,79 @@ declare namespace LocalJSX {
         "onIcSubmitSearch"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         "onIcSubmitSearchBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
         /**
-          * Provide the suggested search options
+          * The suggested search options.
          */
         "options"?: IcMenuOption[];
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to display.
          */
         "placeholder"?: string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the search bar will require a value.
          */
         "required"?: boolean;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the search bar.
          */
         "small"?: boolean;
         /**
-          * If `true`, the element will have its spelling and grammar checked.
+          * If `true`, the value of the search will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
         /**
-          * Value of Search input.
+          * The value of the search input.
          */
         "value"?: string;
     }
     interface IcSectionContainer {
         /**
-          * How the container should be aligned.
+          * The alignment of the container.
          */
         "aligned"?: IcAlignment;
         /**
-          * Removes the standard vertical padding from the container.
+          * If `true`, the standard vertical padding from the container will be removed.
          */
         "fullHeight"?: boolean;
     }
     interface IcSelect {
         /**
-          * Number of characters until suggestions appear for a searchable select.
+          * The number of characters until suggestions appear for a searchable select.
          */
         "charactersUntilSuggestions"?: number;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide text for empty results list
+          * The text displayed when there are no options in the option list.
          */
         "emptyOptionListText"?: string;
         /**
-          * If true, then fill width of container.
+          * If `true`, the select element will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * If true, descriptions of options are included when filtering options in a searchable select.
+          * If `true`, descriptions of options will be included when filtering options in a searchable select.
          */
         "includeDescriptionsInSearch"?: boolean;
         /**
-          * If true, group titles of grouped options are included when filtering options in a searchable select.
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
          */
         "includeGroupTitlesInSearch"?: boolean;
         /**
-          * Provide a label for the input.
+          * The label for the select.
          */
         "label": string;
         /**
@@ -2782,19 +2778,19 @@ declare namespace LocalJSX {
          */
         "onIcFocus"?: (event: IcSelectCustomEvent<void>) => void;
         /**
-          * Provide the possible selection options.
+          * The possible selection options.
          */
         "options"?: IcMenuOption[];
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to be displayed.
          */
         "placeholder"?: string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the readonly state will be set.
          */
         "readonly"?: boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the select will require a value.
          */
         "required"?: boolean;
         /**
@@ -2802,23 +2798,23 @@ declare namespace LocalJSX {
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
-          * If true, the select can be typed in to filter options.
+          * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
          */
         "searchable"?: boolean;
         /**
-          * Display a button which clears the input when clicked. The button will always appear on the searchable select.
+          * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
          */
         "showClearButton"?: boolean;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the select.
          */
         "small"?: boolean;
         /**
-          * Provide a validation status.
+          * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty;
         /**
-          * Provide the text to display as the validation message.
+          * The text to display as the validation message.
          */
         "validationText"?: string;
         /**
@@ -2828,49 +2824,49 @@ declare namespace LocalJSX {
     }
     interface IcSideNavigation {
         /**
-          * Title to display.
+          * The title of the app to be displayed.
          */
         "appTitle": string;
         /**
-          * If true, the icon and label will appear when side navigation is collapsed
+          * If `true`, the icon and label will appear when side navigation is collapsed.
          */
         "collapsedIconLabels"?: boolean;
         /**
-          * If true, disable automatic parent wrapper styling
+          * If `true`, automatic parent wrapper styling will be disabled.
          */
         "disableAutoParentStyling"?: boolean;
         /**
-          * If true, the ic-side-navigation will load in an expanded state
+          * If `true`, the side navigation will load in an expanded state.
          */
         "expanded"?: boolean;
         /**
-          * Set application title link
+          * The URL that the app title link points to.
          */
         "href"?: string;
         /**
-          * If true, side navigation will be contained by parent element
+          * If `true`, side navigation will be contained by its parent element.
          */
         "inline"?: boolean;
         /**
-          * If true, the menu expand button is removed (PLEASE NOTE: This takes effect on screen sizes 992px and above)
+          * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
         "static"?: boolean;
         /**
-          * Status of application
+          * The status of the app to be displayed.
          */
         "status"?: string;
         /**
-          * Version of application
+          * The version of the app to be displayed.
          */
         "version"?: string;
     }
     interface IcSkeleton {
         /**
-          * Set the skeleton to the light variant
+          * If `true`, the skeleton will be set to the light variant.
          */
         "light"?: boolean;
         /**
-          * The variant of the skeleton that will be displayed
+          * The variant of the skeleton that will be displayed.
          */
         "variant"?: IcSkeletonVariants;
     }
@@ -2884,7 +2880,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The size of the status tag.
+          * If `true`, the small styling will be applied to the status tag.
          */
         "small"?: boolean;
         /**
@@ -2896,21 +2892,21 @@ declare namespace LocalJSX {
         "lastStep"?: boolean;
         "stepNum"?: number;
         /**
-          * Additional information about step
+          * The additional information about the step.
          */
         "stepSubtitle"?: string;
         /**
-          * Name of step
+          * The name of the step within the stepper.
          */
         "stepTitle"?: string;
         /**
-          * State of step
+          * The state of the step within the stepper.
          */
         "stepType"?: IcStepTypes;
     }
     interface IcStepper {
         /**
-          * How the stepper should be aligned in its container.
+          * The alignment of the stepper within its container.
          */
         "aligned"?: IcStepperAlignment;
         /**
@@ -2920,23 +2916,23 @@ declare namespace LocalJSX {
     }
     interface IcSwitch {
         /**
-          * If true, the component is checked.
+          * If `true`, the switch will display as checked.
          */
         "checked"?: boolean;
         /**
-          * If true, the component is not interactive.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Applies an aria-label to the component, for when no visual 'name' is provided.
+          * The aria-label applied to the switch when no visual 'name' is provided.
          */
         "label": string;
         /**
@@ -2956,11 +2952,11 @@ declare namespace LocalJSX {
          */
         "onIcFocus"?: (event: IcSwitchCustomEvent<void>) => void;
         /**
-          * If true, the component will render the On/Off state text.
+          * If `true`, the switch will render the On/Off state text.
          */
         "showState"?: boolean;
         /**
-          * If true, the component reduces in size to the small state.
+          * If `true`, the small styling will be applied to the switch.
          */
         "small"?: boolean;
         /**
@@ -2972,11 +2968,11 @@ declare namespace LocalJSX {
         "appearance"?: IcThemeForegroundNoDefault;
         "contextId"?: string;
         /**
-          * Disables the tab.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Called when a tab is selected.
+          * Emitted when a tab is selected.
          */
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
@@ -2990,11 +2986,11 @@ declare namespace LocalJSX {
          */
         "activationType"?: IcActivationTypes;
         /**
-          * Determines whether the light or dark variant of the tabs should be displayed.
+          * The appearance of the tab context, e.g dark, or light.
          */
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
         /**
@@ -3002,29 +2998,29 @@ declare namespace LocalJSX {
          */
         "onTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
         /**
-          * Allows the user to control the selected tab. Must be used alongside the tabSelect event to manage tab selection.
+          * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
     }
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
          */
         "contextId"?: string;
         /**
-          * Use when tabs and tab panels are to be positioned separately.
+          * If `true`, the tabs and tab panels will be positioned separately.
          */
         "inline"?: boolean;
         /**
-          * Provide a label to describe the purpose of the set of tabs to screen reader users.
+          * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
     }
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
+          * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */
         "contextId"?: string;
         "panelId"?: string;
@@ -3037,44 +3033,44 @@ declare namespace LocalJSX {
         "ariaExpanded"?: string;
         "ariaOwns"?: string;
         /**
-          * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+          * If `true`, the form control will have input focus when the page loads.
          */
         "autoFocus"?: boolean;
         /**
-          * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
+          * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize"?: string;
         /**
-          * Indicates whether the value of the control can be automatically completed by the browser.
+          * The state of autocompletion the browser can apply on the text value.
          */
         "autocomplete"?: IcAutocompleteTypes1;
         /**
-          * Whether auto correction should be enabled when the user is entering/editing the text value.
+          * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
         "autocorrect"?: IcAutocorrectStates1;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
-          * Specify whether the input is disabled.
+          * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
         /**
-          * Specify whether the component fills the full width of the container. If true, this overrides the --input-width css prop.
+          * Specify whether the text field fills the full width of the container. If `true`, this overrides the --input-width CSS variable.
          */
         "fullWidth"?: boolean;
         /**
-          * Provide helper text to display additional field guidance.
+          * The helper text that will be displayed for additional field guidance.
          */
         "helperText"?: string;
         "hiddenInput"?: boolean;
         /**
-          * Hides the label and applies the required label value as an aria-label.
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
         /**
-          * Provide an id for the input
+          * The ID for the input.
          */
         "inputId"?: string;
         /**
@@ -3082,11 +3078,11 @@ declare namespace LocalJSX {
          */
         "inputmode"?: IcTextFieldInputModes;
         /**
-          * Provide a label for the input.
+          * The label for the input.
          */
         "label": string;
         /**
-          * Maximum number of characters that can be entered in the field.
+          * The maximum number of characters that can be entered in the field.
          */
         "maxLength"?: number;
         /**
@@ -3114,32 +3110,32 @@ declare namespace LocalJSX {
          */
         "onIcKeydown"?: (event: IcTextFieldCustomEvent<{ event: KeyboardEvent }>) => void;
         /**
-          * Provide a placeholder value to display.
+          * The placeholder value to be displayed.
          */
         "placeholder"?: string;
         /**
-          * Specify whether the input is read only.
+          * If `true`, the read only state will be set.
          */
         "readonly"?: boolean;
         /**
-          * Specify if the input requires a value.
+          * If `true`, the input will require a value.
          */
         "required"?: boolean;
         /**
-          * Allow resizing of a multiline text area
+          * If `true`, the multiline text area will be resizeable.
          */
         "resize"?: boolean;
         "role"?: string;
         /**
-          * Specify the number of rows to transform the text field into a text area with a specific height.
+          * The number of rows to transform the text field into a text area with a specific height.
          */
         "rows"?: number;
         /**
-          * Specify whether small styling is to be applied to the element.
+          * If `true`, the small styling will be applied to the text field.
          */
         "small"?: boolean;
         /**
-          * If `true`, the element will have its spelling and grammar checked.
+          * If `true`, the value of the text field will have its spelling and grammar checked.
          */
         "spellcheck"?: boolean;
         "truncateValue"?: boolean;
@@ -3148,25 +3144,25 @@ declare namespace LocalJSX {
          */
         "type"?: IcTextFieldTypes;
         /**
-          * Show icon in input control - only applies when validationStatus ='success'
+          * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
         "validationInline"?: boolean;
         /**
-          * Provide validation state - 'error' | 'warning' | 'success'
+          * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
         "validationStatus"?: IcInformationStatusOrEmpty1;
         /**
-          * Provide validation state - 'error' | 'warning' | 'success'
+          * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
         "validationText"?: string;
         /**
-          * Value of TextField.
+          * The value of the text field.
          */
         "value"?: string;
     }
     interface IcTheme {
         /**
-          * The theme colour. Can be a hex value eg "#ff0000" or RGB eg "rgb(255, 0, 0)"
+          * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: string;
         /**
@@ -3190,35 +3186,35 @@ declare namespace LocalJSX {
     }
     interface IcTopNavigation {
         /**
-          * Title to display
+          * The app title to be displayed.
          */
         "appTitle": string;
         /**
-          * The alignment of the top nav content
+          * The alignment of the top navigation content.
          */
         "contentAligned"?: IcAlignment;
         /**
-          * The url to navigate to when title is clicked
+          * The URL to navigate to when the app title is clicked.
          */
         "href"?: string;
         /**
-          * If true, the flyout navigation menu on small devices will be contained by the parent element
+          * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
         "inline"?: boolean;
         "onIcNavigationMenuClosed"?: (event: IcTopNavigationCustomEvent<void>) => void;
         "onIcNavigationMenuOpened"?: (event: IcTopNavigationCustomEvent<void>) => void;
         /**
-          * Status info to display
+          * The status info to be displayed.
          */
         "status"?: string;
         /**
-          * Version info to display
+          * The version info to be displayed.
          */
         "version"?: string;
     }
     interface IcTypography {
         /**
-          * Adds appropriate margins to the top and bottom of the typography.
+          * If `true`, appropriate top and bottom margins will be applied to the typography.
          */
         "applyVerticalMargins"?: boolean;
         /**

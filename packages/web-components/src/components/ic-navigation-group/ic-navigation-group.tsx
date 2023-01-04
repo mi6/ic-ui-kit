@@ -28,12 +28,12 @@ export class NavigationGroup {
   @Element() el: HTMLIcNavigationGroupElement;
 
   /**
-   *  label to display on the group
+   * The label to display on the group.
    */
   @Prop() label: string;
 
   /**
-   *  whether the group should be expandable/collapsible in the side menu
+   *  If `true`, the group will be expandable in the side menu.
    */
   @Prop() expandable: boolean = false;
 

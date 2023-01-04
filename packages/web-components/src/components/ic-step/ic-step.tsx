@@ -10,27 +10,27 @@ import { IcStepTypes } from "./ic-step.types";
 export class Step {
   @Element() el: HTMLIcStepElement;
   /**
-   * State of step
+   * The state of the step within the stepper.
    */
   @Prop() stepType?: IcStepTypes = "active";
 
   /**
-   * Name of step
+   * The name of the step within the stepper.
    */
   @Prop() stepTitle?: string;
 
   /**
-   * Additional information about step
+   * The additional information about the step.
    */
   @Prop() stepSubtitle?: string;
 
   /**
-   * @internal The step number, managed by ic-stepper
+   * @internal The step number, managed by ic-stepper.
    */
   @Prop() stepNum?: number;
 
   /**
-   * @internal Final step in series flag, managed by ic-stepper
+   * @internal If `true`, the step will be marked as being the last one in the series. This is managed by ic-stepper.
    */
   @Prop() lastStep?: boolean;
 

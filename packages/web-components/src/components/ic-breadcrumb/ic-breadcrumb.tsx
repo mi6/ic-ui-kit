@@ -12,25 +12,25 @@ import { isSlotUsed } from "../../utils/helpers";
 })
 export class Breadcrumb {
   /**
-   * @slot icon - Content will be rendered to the left of the breadcrumb page title
+   * @slot icon - Content will be rendered to the left of the breadcrumb page title.
    */
 
   @Element() el: HTMLIcBreadcrumbElement;
   /**
-   * Set breadcrumb title
+   * The title of the breadcrumb.
    */
   @Prop() pageTitle!: string;
   /**
-   * Set breadcrumb location
+   * The URL that the breadcrumb link points to.
    */
   @Prop() href?: string;
   /**
-   * If true, aria-current will be set on the breadcrumb
+   * If `true`, aria-current will be set on the breadcrumb.
    */
   @Prop() current?: boolean = false;
 
   /**
-   * @internal If true, display back icon
+   * @internal If `true`, back icon will be displayed.
    */
   @Prop({ reflect: true }) showBackIcon: boolean = false;
 

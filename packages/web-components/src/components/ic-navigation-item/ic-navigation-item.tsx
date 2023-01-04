@@ -35,30 +35,30 @@ export class NavigationItem {
   @Element() el: HTMLIcNavigationItemElement;
 
   /**
-   *  Label of the navigation item
+   * The label of the navigation item.
    */
   @Prop() label: string;
 
   /**
-   *  Destination of the navigation item
+   * The destination of the navigation item.
    */
   @Prop() href: string = "";
 
   /**
-   *  If true, sets the navigation item in a selected state
+   *  If `true`, the navigation item will be set in a selected state.
    */
   @Prop() selected: boolean = false;
 
   /**
-   *  @internal Whether the navigation item is expandable
+   *  @internal If `true`, the navigation item will be expandable.
    */
   @Prop() expandable: boolean = false;
   /**
-   * @internal display navigation item within tooltip
+   * @internal If `true`, the navigation item will be displayed within a tooltip.
    */
   @Prop() displayNavigationTooltip: boolean = false;
   /**
-   * @internal display icon and label when side navigation is collapsed
+   * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
    */
   @Prop() collapsedIconLabel: boolean = false;
 

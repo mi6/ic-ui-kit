@@ -45,10 +45,9 @@ export class BackToTop {
     this.checkForClassificationBanner();
     if (typeof window !== "undefined" && window.scrollY === 0) {
       this.footerVisible = false;
-    } 
-    else {
+    } else {
       this.footerVisible = visible;
-    } 
+    }
   };
 
   private targetElObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -123,23 +122,25 @@ export class BackToTop {
   };
 
   private checkForClassificationBanner = () => {
-     //adjust position for classification banner at bottom
-     const banners = document.querySelectorAll(
+    //adjust position for classification banner at bottom
+    const banners = document.querySelectorAll(
       "ic-classification-banner:not([inline='true'])"
     );
     this.bannerOffset = banners.length > 0;
-  }
+  };
 
   componentWillLoad(): void {
     this.createTopObserver(this.target);
-    this.checkForClassificationBanner();   
+    this.checkForClassificationBanner();
 
     //observer for when footer scrolls into view
-    let footers = document.querySelectorAll("ic-footer") as NodeListOf<HTMLElement>;
+    let footers = document.querySelectorAll(
+      "ic-footer"
+    ) as NodeListOf<HTMLElement>;
     if (footers.length === 0) {
-      footers = document.querySelectorAll("footer") ;
+      footers = document.querySelectorAll("footer");
     }
-    
+
     if (footers.length) {
       const footerEl = footers[footers.length - 1];
       const threshold = this.bannerOffset ? 0.15 : 0;

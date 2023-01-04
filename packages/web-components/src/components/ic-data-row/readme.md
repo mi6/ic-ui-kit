@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                            | Type      | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `label`  | `label`   | Set the label in the leftmost cell of the row                                                          | `string`  | `undefined` |
-| `small`  | `small`   | Set the row to small styling, this is automatically applied if small is set on the parent data heading | `boolean` | `false`     |
-| `value`  | `value`   | Set the value of the middle (right if no addition supplied) cell of the row                            | `string`  | `undefined` |
+| Property | Attribute | Description                                                                                                                        | Type      | Default     |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `label`  | `label`   | The label in the leftmost cell of the row.                                                                                         | `string`  | `undefined` |
+| `small`  | `small`   | If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading. | `boolean` | `false`     |
+| `value`  | `value`   | The value of the middle (right if no end-component supplied) cell of the row.                                                      | `string`  | `undefined` |
 
 
 ## Slots

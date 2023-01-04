@@ -7,23 +7,22 @@
 
 ## Properties
 
-| Property                 | Attribute                  | Description                                                          | Type                    | Default                                        |
-| ------------------------ | -------------------------- | -------------------------------------------------------------------- | ----------------------- | ---------------------------------------------- |
-| `additionalFieldDisplay` | `additional-field-display` | Determines type of additional text field in relation to radio option | `"dynamic" \| "static"` | `"static"`                                     |
-| `disabled`               | `disabled`                 | Determines whether the radio should be in disabled state.            | `boolean`               | `false`                                        |
-| `dynamicText`            | `dynamic-text`             | Provide a text prop for the dynamic text.                            | `string`                | `"This selection requires additional answers"` |
-| `groupLabel`             | `group-label`              | Provide a group label for the input.                                 | `string`                | `undefined`                                    |
-| `label`                  | `label`                    | Provide a label for the input.                                       | `string`                | `undefined`                                    |
-| `name`                   | `name`                     | Provide a name for the input.                                        | `string`                | `undefined`                                    |
-| `selected`               | `selected`                 | Determines whether the radio should be in selected state.            | `boolean`               | `false`                                        |
-| `value` _(required)_     | `value`                    | Provide a value for the input.                                       | `string`                | `undefined`                                    |
+| Property                 | Attribute                  | Description                                                        | Type                    | Default                                        |
+| ------------------------ | -------------------------- | ------------------------------------------------------------------ | ----------------------- | ---------------------------------------------- |
+| `additionalFieldDisplay` | `additional-field-display` | The style of additionalField that will be displayed if used.       | `"dynamic" \| "static"` | `"static"`                                     |
+| `disabled`               | `disabled`                 | If `true`, the disabled state will be set.                         | `boolean`               | `false`                                        |
+| `dynamicText`            | `dynamic-text`             | The text to be displayed when dynamic.                             | `string`                | `"This selection requires additional answers"` |
+| `groupLabel`             | `group-label`              | The group label for the radio option.                              | `string`                | `undefined`                                    |
+| `label`                  | `label`                    | The label for the radio option.                                    | `string`                | `undefined`                                    |
+| `name`                   | `name`                     | The name for the radio option.                                     | `string`                | `undefined`                                    |
+| `selected`               | `selected`                 | If `true`, the radio option will be displayed in a selected state. | `boolean`               | `false`                                        |
+| `value` _(required)_     | `value`                    | The value for the radio option.                                    | `string`                | `undefined`                                    |
 
 
 ## Events
 
 | Event               | Description                       | Type                              |
 | ------------------- | --------------------------------- | --------------------------------- |
-| `icCheck`           | Emitted when radio is checked     | `CustomEvent<void>`               |
 | `radioOptionSelect` | Emitted when a radio is selected. | `CustomEvent<IcValueEventDetail>` |
 
 

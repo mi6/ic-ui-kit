@@ -26,7 +26,7 @@ import {
 })
 export class Theme {
   /**
-   * The theme colour. Can be a hex value eg "#ff0000" or RGB eg "rgb(255, 0, 0)"
+   * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
   @Prop() color?: string = null;
 

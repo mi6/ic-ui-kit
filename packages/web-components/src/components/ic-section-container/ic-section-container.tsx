@@ -8,12 +8,12 @@ import { IcAlignment } from "../../utils/types";
 })
 export class SectionContainer {
   /**
-   * How the container should be aligned.
+   * The alignment of the container.
    */
   @Prop() aligned?: IcAlignment = "left";
 
   /**
-   * Removes the standard vertical padding from the container.
+   * If `true`, the standard vertical padding from the container will be removed.
    */
   @Prop() fullHeight?: boolean = false;
 

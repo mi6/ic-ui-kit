@@ -16,23 +16,23 @@ const classificationText = {
 })
 export class ClassificationBanner {
   /**
-   * Additional information to display after the classification
+   * The additional information that will be displayed after the classification.
    */
   @Prop() additionalSelectors?: string = "";
   /**
-   * The classification level to be displayed also determines the banner and text colour
+   * The classification level to be displayed - also determines the banner and text colour.
    */
   @Prop() classification?: IcProtectiveMarkings = "default";
   /**
-   * Optional text displayed before classification to specify relevant country/countries
+   * The optional text that will be displayed before classification to specify relevant country/countries.
    */
   @Prop() country?: string = "uk";
   /**
-   * Determines whether the banner appears inline with the page or sticks to the bottom of the page
+   * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
    */
   @Prop() inline?: boolean = false;
   /**
-   * Optionally display "Up to" before classification and country if set
+   * If `true`, "Up to" will be displayed before the classification and country.
    */
   @Prop() upTo?: boolean = false;
 

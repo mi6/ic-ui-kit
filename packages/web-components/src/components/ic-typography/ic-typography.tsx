@@ -16,7 +16,7 @@ export class Typography {
   @Prop() variant?: IcTypographyVariants = "body";
 
   /**
-   * Adds appropriate margins to the top and bottom of the typography.
+   * If `true`, appropriate top and bottom margins will be applied to the typography.
    */
   @Prop() applyVerticalMargins?: boolean = false;
 

@@ -58,62 +58,62 @@ export class Select {
   private debounce: number;
 
   /**
-   * Provide a label for the input.
+   * The label for the select.
    */
   @Prop() label!: string;
 
   /**
-   * Provide the possible selection options.
+   * The possible selection options.
    */
   @Prop() options?: IcMenuOption[] = [];
 
   /**
-   * Specify if the input requires a value.
+   * If `true`, the select will require a value.
    */
   @Prop() required?: boolean = false;
 
   /**
-   * Hides the label and applies the required label value as an aria-label.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel?: boolean = false;
 
   /**
-   * Specify whether the input is disabled.
+   * If `true`, the disabled state will be set.
    */
   @Prop({ reflect: true }) disabled?: boolean = false;
 
   /**
-   * Specify whether the input is read only.
+   * If `true`, the readonly state will be set.
    */
   @Prop() readonly?: boolean = false;
 
   /**
-   * Provide a placeholder value to display.
+   * The placeholder value to be displayed.
    */
   @Prop() placeholder?: string = "Select an option";
 
   /**
-   * Provide helper text to display additional field guidance.
+   * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText?: string = "";
 
   /**
-   * Specify whether small styling is to be applied to the element.
+   * If `true`, the small styling will be applied to the select.
    */
   @Prop() small?: boolean = false;
 
   /**
-   * If true, then fill width of container.
+   * If `true`, the select element will fill the width of the container.
    */
   @Prop() fullWidth: boolean = false;
 
   /**
-   * Provide a validation status.
+   * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
 
   /**
-   * Provide the text to display as the validation message.
+   * The text to display as the validation message.
    */
   @Prop() validationText?: string = "";
 
@@ -128,22 +128,22 @@ export class Select {
   @Prop() name?: string = this.inputId;
 
   /**
-   * Display a button which clears the input when clicked. The button will always appear on the searchable select.
+   * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
    */
   @Prop() showClearButton?: boolean = false;
 
   /**
-   * If true, the select can be typed in to filter options.
+   * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
    */
   @Prop() searchable?: boolean = false;
 
   /**
-   * If true, descriptions of options are included when filtering options in a searchable select.
+   * If `true`, descriptions of options will be included when filtering options in a searchable select.
    */
   @Prop() includeDescriptionsInSearch?: boolean = false;
 
   /**
-   * If true, group titles of grouped options are included when filtering options in a searchable select.
+   * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
    */
   @Prop() includeGroupTitlesInSearch?: boolean = false;
 
@@ -153,12 +153,12 @@ export class Select {
   @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
 
   /**
-   * Number of characters until suggestions appear for a searchable select.
+   * The number of characters until suggestions appear for a searchable select.
    */
   @Prop() charactersUntilSuggestions?: number = 0;
 
   /**
-   * Provide text for empty results list
+   * The text displayed when there are no options in the option list.
    */
   @Prop() emptyOptionListText = "No results found";
 

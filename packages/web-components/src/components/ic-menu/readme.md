@@ -10,14 +10,14 @@
 | Property                  | Attribute         | Description                                                                                                                | Type                      | Default       |
 | ------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------- |
 | `activationType`          | `activation-type` | Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation. | `"automatic" \| "manual"` | `"automatic"` |
-| `anchorEl` _(required)_   | --                | Reference to an anchor element the menu will position itself from when rendered.                                           | `HTMLElement`             | `undefined`   |
-| `fullWidth`               | `full-width`      | If true then fill width of container                                                                                       | `boolean`                 | `false`       |
-| `inputEl` _(required)_    | --                | Reference to the input element.                                                                                            | `HTMLElement`             | `undefined`   |
-| `inputLabel` _(required)_ | `input-label`     | Label for the input element.                                                                                               | `string`                  | `undefined`   |
-| `menuId` _(required)_     | `menu-id`         | Id of the menu.                                                                                                            | `string`                  | `undefined`   |
-| `open` _(required)_       | `open`            | Specify whether the menu is open.                                                                                          | `boolean`                 | `undefined`   |
-| `options` _(required)_    | --                | Provide the possible selection options.                                                                                    | `IcMenuOption[]`          | `undefined`   |
-| `small`                   | `small`           | Specify whether small styling is to be applied to the element.                                                             | `boolean`                 | `false`       |
+| `anchorEl` _(required)_   | --                | The reference to an anchor element the menu will position itself from when rendered.                                       | `HTMLElement`             | `undefined`   |
+| `fullWidth`               | `full-width`      | If `true`, the menu will fill the width of the container.                                                                  | `boolean`                 | `false`       |
+| `inputEl` _(required)_    | --                | The reference to the input element.                                                                                        | `HTMLElement`             | `undefined`   |
+| `inputLabel` _(required)_ | `input-label`     | The label for the input element.                                                                                           | `string`                  | `undefined`   |
+| `menuId` _(required)_     | `menu-id`         | The ID of the menu.                                                                                                        | `string`                  | `undefined`   |
+| `open` _(required)_       | `open`            | If `true`, the menu will be displayed open.                                                                                | `boolean`                 | `undefined`   |
+| `options` _(required)_    | --                | The possible menu selection options.                                                                                       | `IcMenuOption[]`          | `undefined`   |
+| `small`                   | `small`           | If `true`, the small styling will be applied to the menu.                                                                  | `boolean`                 | `false`       |
 | `value` _(required)_      | `value`           | The value of the currently selected option.                                                                                | `string`                  | `undefined`   |
 
 

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                       | Type                                                 | Default     |
-| -------------- | --------------- | --------------------------------- | ---------------------------------------------------- | ----------- |
-| `stepSubtitle` | `step-subtitle` | Additional information about step | `string`                                             | `undefined` |
-| `stepTitle`    | `step-title`    | Name of step                      | `string`                                             | `undefined` |
-| `stepType`     | `step-type`     | State of step                     | `"active" \| "completed" \| "current" \| "disabled"` | `"active"`  |
+| Property       | Attribute       | Description                                | Type                                                 | Default     |
+| -------------- | --------------- | ------------------------------------------ | ---------------------------------------------------- | ----------- |
+| `stepSubtitle` | `step-subtitle` | The additional information about the step. | `string`                                             | `undefined` |
+| `stepTitle`    | `step-title`    | The name of the step within the stepper.   | `string`                                             | `undefined` |
+| `stepType`     | `step-type`     | The state of the step within the stepper.  | `"active" \| "completed" \| "current" \| "disabled"` | `"active"`  |
 
 
 ## Dependencies

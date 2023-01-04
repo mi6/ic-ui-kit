@@ -33,28 +33,28 @@ export class Switch {
   @Element() el: HTMLIcSwitchElement;
 
   /**
-   * Applies an aria-label to the component, for when no visual 'name' is provided.
+   * The aria-label applied to the switch when no visual 'name' is provided.
    */
   @Prop() label!: string;
 
   /**
-   * Hides the label and applies the required label value as an aria-label.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel?: boolean = false;
   /**
-   * Provide helper text to display additional field guidance.
+   * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText?: string = "";
   /**
-   * If true, the component is checked.
+   * If `true`, the switch will display as checked.
    */
   @Prop() checked?: boolean = false;
   /**
-   * If true, the component reduces in size to the small state.
+   * If `true`, the small styling will be applied to the switch.
    */
   @Prop() small?: boolean = false;
   /**
-   * If true, the component is not interactive.
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
   /**
@@ -62,7 +62,7 @@ export class Switch {
    */
   @Prop() name?: string = this.inputId;
   /**
-   * If true, the component will render the On/Off state text.
+   * If `true`, the switch will render the On/Off state text.
    */
   @Prop() showState?: boolean = false;
 

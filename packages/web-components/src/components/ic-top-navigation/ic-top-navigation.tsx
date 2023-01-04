@@ -45,32 +45,32 @@ export class TopNavigation {
   @Element() el: HTMLIcTopNavigationElement;
 
   /**
-   *  Title to display
+   * The app title to be displayed.
    */
   @Prop() appTitle!: string;
 
   /**
-   *  The url to navigate to when title is clicked
+   *  The URL to navigate to when the app title is clicked.
    */
   @Prop() href: string = "/";
 
   /**
-   *  Version info to display
+   * The version info to be displayed.
    */
   @Prop() version: string = "";
 
   /**
-   *  Status info to display
+   * The status info to be displayed.
    */
   @Prop() status: string = "";
 
   /**
-   * The alignment of the top nav content
+   * The alignment of the top navigation content.
    */
   @Prop() contentAligned: IcAlignment = "full-width";
 
   /**
-   * If true, the flyout navigation menu on small devices will be contained by the parent element
+   * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
    */
   @Prop() inline: boolean = false;
 

@@ -6,12 +6,12 @@ import { Component, Host, Prop, h } from "@stencil/core";
 })
 export class InputContainer {
   /**
-   * disabled
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
 
   /**
-   * readonly
+   * If `true`, the readonly state will be set.
    */
   @Prop() readonly?: boolean = false;
 

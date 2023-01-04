@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property              | Attribute              | Description                                                                                    | Type                                                                          | Default     |
-| --------------------- | ---------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
-| `additionalSelectors` | `additional-selectors` | Additional information to display after the classification                                     | `string`                                                                      | `""`        |
-| `classification`      | `classification`       | The classification level to be displayed also determines the banner and text colour            | `"default" \| "official" \| "official-sensitive" \| "secret" \| "top-secret"` | `"default"` |
-| `country`             | `country`              | Optional text displayed before classification to specify relevant country/countries            | `string`                                                                      | `"uk"`      |
-| `inline`              | `inline`               | Determines whether the banner appears inline with the page or sticks to the bottom of the page | `boolean`                                                                     | `false`     |
-| `upTo`                | `up-to`                | Optionally display "Up to" before classification and country if set                            | `boolean`                                                                     | `false`     |
+| Property              | Attribute              | Description                                                                                            | Type                                                                          | Default     |
+| --------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | ----------- |
+| `additionalSelectors` | `additional-selectors` | The additional information that will be displayed after the classification.                            | `string`                                                                      | `""`        |
+| `classification`      | `classification`       | The classification level to be displayed - also determines the banner and text colour.                 | `"default" \| "official" \| "official-sensitive" \| "secret" \| "top-secret"` | `"default"` |
+| `country`             | `country`              | The optional text that will be displayed before classification to specify relevant country/countries.  | `string`                                                                      | `"uk"`      |
+| `inline`              | `inline`               | If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page. | `boolean`                                                                     | `false`     |
+| `upTo`                | `up-to`                | If `true`, "Up to" will be displayed before the classification and country.                            | `boolean`                                                                     | `false`     |
 
 
 ## Dependencies

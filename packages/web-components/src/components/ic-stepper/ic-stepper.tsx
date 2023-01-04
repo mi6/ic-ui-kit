@@ -11,7 +11,7 @@ export class IcStepper {
   @Element() el: HTMLIcStepperElement;
 
   /**
-   * How the stepper should be aligned in its container.
+   * The alignment of the stepper within its container.
    */
   @Prop() aligned?: IcStepperAlignment = "full-width";
 

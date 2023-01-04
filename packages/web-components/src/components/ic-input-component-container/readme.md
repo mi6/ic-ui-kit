@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property           | Attribute           | Description                                                                                               | Type                                      | Default |
-| ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------- |
-| `dark`             | `dark`              | Determines whether the dark variant of the input-component-container focus indicator should be displayed. | `boolean`                                 | `false` |
-| `disabled`         | `disabled`          | disabled                                                                                                  | `boolean`                                 | `false` |
-| `fullWidth`        | `full-width`        | If true then fill width of container                                                                      | `boolean`                                 | `false` |
-| `multiLine`        | `multi-line`        | multiLine                                                                                                 | `boolean`                                 | `false` |
-| `readonly`         | `readonly`          | readonly                                                                                                  | `boolean`                                 | `false` |
-| `small`            | `small`             | small                                                                                                     | `boolean`                                 | `false` |
-| `validationInline` | `validation-inline` | validationInline                                                                                          | `boolean`                                 | `false` |
-| `validationStatus` | `validation-status` | validationStatus                                                                                          | `"" \| "error" \| "success" \| "warning"` | `""`    |
+| Property           | Attribute           | Description                                                                                      | Type                                      | Default |
+| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------- | ------- |
+| `dark`             | `dark`              | If `true`, the dark variant of the input component container will be displayed.                  | `boolean`                                 | `false` |
+| `disabled`         | `disabled`          | If `true`, the disabled state will be set.                                                       | `boolean`                                 | `false` |
+| `fullWidth`        | `full-width`        | If `true`, the input component container will fill the width of the container it is in.          | `boolean`                                 | `false` |
+| `multiLine`        | `multi-line`        | If `true`, the input component container will allow for multiple lines.                          | `boolean`                                 | `false` |
+| `readonly`         | `readonly`          | If `true`, the readonly state will be set.                                                       | `boolean`                                 | `false` |
+| `small`            | `small`             | If `true`, the small styling will be applied to the input component container.                   | `boolean`                                 | `false` |
+| `validationInline` | `validation-inline` | If `true`, the validation will display inline.                                                   | `boolean`                                 | `false` |
+| `validationStatus` | `validation-status` | The validation status of the input component container - e.g. 'error' \| 'warning' \| 'success'. | `"" \| "error" \| "success" \| "warning"` | `""`    |
 
 
 ## Slots
@@ -24,13 +24,6 @@
 | Slot          | Description                                      |
 | ------------- | ------------------------------------------------ |
 | `"left-icon"` | Content will be placed to the left of the input. |
-
-
-## CSS Custom Properties
-
-| Name             | Description                                    |
-| ---------------- | ---------------------------------------------- |
-| `--border-color` | Border colour of the input component container |
 
 
 ## Dependencies

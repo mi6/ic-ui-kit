@@ -4,7 +4,11 @@ import {
   isSlotUsed,
   getThemeFromContext,
 } from "../../utils/helpers";
-import { IcTheme, IcThemeForeground, IcThemeForegroundEnum } from "../../utils/types";
+import {
+  IcTheme,
+  IcThemeForeground,
+  IcThemeForegroundEnum,
+} from "../../utils/types";
 
 /**
  * @slot icon - Content will be placed to the left of the card title.
@@ -20,15 +24,15 @@ export class Card {
   @Element() el: HTMLIcCardElement;
 
   /**
-   * Set the variant to static or clickable
+   * If `true`, the card will be a clickable variant, instead of static.
    */
   @Prop({ mutable: true }) clickable?: boolean = false;
   /**
-   * URL for clickable cards
+   * The URL that the clickable card link points to.
    */
   @Prop() href?: string | undefined;
   /**
-   * Human readable explanation of the URL
+   * The human language of the linked URL.
    */
   @Prop() hreflang?: string = "";
   /**
@@ -40,23 +44,23 @@ export class Card {
    */
   @Prop() rel?: string;
   /**
-   * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
   /**
-   * Title for the card
+   * The title for the card.
    */
   @Prop() heading!: string;
   /**
-   * Main body message of the card
+   * The main body message of the card.
    */
   @Prop() message?: string = "";
   /**
-   * Whether the card is disabled if it is clickable
+   * If `true`, the card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
   /**
-   *  If true then fill width of container
+   *  If `true`, the card will fill the width of the container.
    */
   @Prop() fullWidth: boolean = false;
 
@@ -143,10 +147,10 @@ export class Card {
     const Component = parentIsAnchorTag
       ? "div"
       : clickable
-      ? this.href === undefined
-        ? "button"
-        : "a"
-      : "div";
+        ? this.href === undefined
+          ? "button"
+          : "a"
+        : "div";
 
     const attrs = Component == "a" && {
       href: href,
