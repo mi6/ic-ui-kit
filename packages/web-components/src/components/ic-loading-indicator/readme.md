@@ -21,13 +21,6 @@
 | `type`          | `type`           | The type of indicator, either linear or circular.                                                                                       | `"circular" \| "linear"`                    | `"circular"` |
 
 
-## CSS Custom Properties
-
-| Name                  | Description                        |
-| --------------------- | ---------------------------------- |
-| `--circular-diameter` | Diameter of the circular-indicator |
-
-
 ## Dependencies
 
 ### Used by
