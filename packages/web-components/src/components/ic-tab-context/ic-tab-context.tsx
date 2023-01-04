@@ -27,7 +27,7 @@ export class TabContext {
   @Element() host: HTMLIcTabContextElement;
 
   /**
-   * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+   * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
    */
   @Prop({ reflect: true }) contextId?: string = "default";
 
@@ -37,12 +37,12 @@ export class TabContext {
   @Prop() activationType?: IcActivationTypes = "automatic";
 
   /**
-   * Allows the user to control the selected tab. Must be used alongside the tabSelect event to manage tab selection.
+   * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
    */
   @Prop() selectedTabIndex?: number;
 
   /**
-   * Determines whether the light or dark variant of the tabs should be displayed.
+   * The appearance of the tab context, e.g dark, or light.
    */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 

@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property             | Attribute           | Description                                                            | Type                                      | Default     |
-| -------------------- | ------------------- | ---------------------------------------------------------------------- | ----------------------------------------- | ----------- |
-| `disabled`           | `disabled`          | Specify whether the input is disabled.                                 | `boolean`                                 | `false`     |
-| `helperText`         | `helper-text`       | Provide helper text to display additional field guidance.              | `string`                                  | `""`        |
-| `hideLabel`          | `hide-label`        | Hides the label and applies the required label value as an aria-label. | `boolean`                                 | `false`     |
-| `label` _(required)_ | `label`             | Provide a label for the input.                                         | `string`                                  | `undefined` |
-| `name` _(required)_  | `name`              | Provide a name for the input.                                          | `string`                                  | `undefined` |
-| `required`           | `required`          | Specify if the input requires a value.                                 | `boolean`                                 | `false`     |
-| `small`              | `small`             | Specify whether small styling to be applied to element.                | `boolean`                                 | `false`     |
-| `validationStatus`   | `validation-status` | Provide validation status - 'error'                                    | `"" \| "error" \| "success" \| "warning"` | `""`        |
-| `validationText`     | `validation-text`   | Provide validation text - 'error'                                      | `string`                                  | `""`        |
+| Property             | Attribute           | Description                                                                                        | Type                                      | Default     |
+| -------------------- | ------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------- |
+| `disabled`           | `disabled`          | If `true`, the checkbox group will be set to the disabled state.                                   | `boolean`                                 | `false`     |
+| `helperText`         | `helper-text`       | The helper text that will be displayed for additional field guidance.                              | `string`                                  | `""`        |
+| `hideLabel`          | `hide-label`        | If `true`, the label will be hidden and the required label value will be applied as an aria-label. | `boolean`                                 | `false`     |
+| `label` _(required)_ | `label`             | The label for the checkbox group to be displayed.                                                  | `string`                                  | `undefined` |
+| `name` _(required)_  | `name`              | The name for the checkbox group to differentiate from other groups.                                | `string`                                  | `undefined` |
+| `required`           | `required`          | If `true`, the checkbox group will require a value.                                                | `boolean`                                 | `false`     |
+| `small`              | `small`             | If `true`, the small styling will be applied to the checkbox group.                                | `boolean`                                 | `false`     |
+| `validationStatus`   | `validation-status` | The validation status - e.g. 'error' \| 'warning' \| 'success'.                                    | `"" \| "error" \| "success" \| "warning"` | `""`        |
+| `validationText`     | `validation-text`   | The validation text - e.g. 'error' \| 'warning' \| 'success'.                                      | `string`                                  | `""`        |
 
 
 ## Events

@@ -34,21 +34,21 @@ export class TabGroup {
   @Element() host: HTMLIcTabGroupElement;
 
   /**
-   * Provide a unique context if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+   * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
    */
   @Prop({ reflect: true }) contextId?: string = "default";
 
   /**
-   * Use when tabs and tab panels are to be positioned separately.
+   * If `true`, the tabs and tab panels will be positioned separately.
    */
   @Prop({ reflect: true }) inline?: boolean = false;
 
   /**
-   * Provide a label to describe the purpose of the set of tabs to screen reader users.
+   * The label to describe the purpose of the set of tabs to screen reader users.
    */
   @Prop() label!: string;
 
-  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
+  /** @internal The appearance of the tab group, e.g dark, or light. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   @State() firstTabVisible: boolean = true;

@@ -15,11 +15,11 @@ import {
 export class BreadcrumbGroup {
   @Element() el: HTMLIcBreadcrumbGroupElement;
   /**
-   * If true, display the parent page and back icon as breadcrumb
+   * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
   @Prop() backBreadcrumbOnly: boolean = false;
   /**
-   * If true, all breadcrumbs between the first and last breadcrumb will be collapsed
+   * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
   @Prop() collapsed: boolean = false;
 

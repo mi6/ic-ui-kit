@@ -10,7 +10,7 @@ import {
 } from "../../utils/types";
 
 /**
- * @slot router-item - Handle routing by nesting your routes in this slot
+ * @slot router-item - Handle routing by nesting your routes in this slot.
  */
 
 @Component({
@@ -25,7 +25,7 @@ export class Link {
   @Element() el: HTMLIcLinkElement;
 
   /**
-   * Prompts the user to save the linked URL instead of navigating to it.
+   * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
 
@@ -35,7 +35,7 @@ export class Link {
   @Prop() href?: string = null;
 
   /**
-   * Hints at the human language of the linked URL.
+   * The human language of the linked URL.
    */
   @Prop() hreflang?: string;
 
@@ -50,17 +50,17 @@ export class Link {
   @Prop() rel?: string;
 
   /**
-   * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
 
   /**
-   * Determines whether the 'open in new tab/window' icon is to be displayed.
+   * If `true`, the 'open in new tab/window' icon will be displayed.
    */
   @Prop() showIcon?: boolean;
 
   /**
-   * Determines the whether the appearance is dark, light, or the default.
+   * The appearance of the link, e.g. dark, light, or default.
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
 

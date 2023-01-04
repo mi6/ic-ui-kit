@@ -25,10 +25,10 @@ import {
 import { IcFooterBreakpoints } from "./ic-footer.types";
 
 /**
- * @slot description - Content will be rendered at the top of the footer
- * @slot link - Content will be rendered between description and logos
- * @slot logo - Content will be rendered underneath footer links
- * @slot caption - Content will be rendered above Crown Copyright
+ * @slot description - Content will be rendered at the top of the footer.
+ * @slot link - Content will be rendered between description and logos.
+ * @slot logo - Content will be rendered underneath footer links.
+ * @slot caption - Content will be rendered above Crown Copyright.
  */
 
 @Component({
@@ -45,32 +45,32 @@ export class Footer {
   @Event() icFooterResized: EventEmitter<void>;
 
   /**
-   * The description displayed at the top of the footer
+   * The description displayed at the top of the footer.
    */
   @Prop() description: string;
 
   /**
-   * Sets the aligned parameter for the section containers used within the footer
+   * The alignment of the section containers used within the footer.
    */
   @Prop() aligned?: IcAlignment = "left";
 
   /**
-   * Sets the screen size breakpoint at which to switch to the small layout
+   * The screen size breakpoint at which to switch to the small layout.
    */
   @Prop() breakpoint?: IcFooterBreakpoints = "medium";
 
   /**
-   * Sets the footer up to handle link groups instead of standalone links
+   * If `true`, the footer will be set up to handle link groups instead of standalone links.
    */
   @Prop() groupLinks?: boolean = false;
 
   /**
-   * The caption displayed at the bottom of the footer
+   * The caption displayed at the bottom of the footer.
    */
   @Prop() caption: string;
 
   /**
-   * Whether the footer displays the crown copyright at the bottom
+   * If `true`, the footer will display the crown copyright at the bottom.
    */
   @Prop() copyright: boolean = true;
 
@@ -84,14 +84,14 @@ export class Footer {
     return bp === "extra small"
       ? this.deviceSize < IC_DEVICE_SIZES.XS
       : bp === "small"
-      ? this.deviceSize < IC_DEVICE_SIZES.S
-      : bp === "medium"
-      ? this.deviceSize < IC_DEVICE_SIZES.M
-      : bp === "large"
-      ? this.deviceSize < IC_DEVICE_SIZES.L
-      : bp === "extra large"
-      ? this.deviceSize < IC_DEVICE_SIZES.XL
-      : false;
+        ? this.deviceSize < IC_DEVICE_SIZES.S
+        : bp === "medium"
+          ? this.deviceSize < IC_DEVICE_SIZES.M
+          : bp === "large"
+            ? this.deviceSize < IC_DEVICE_SIZES.L
+            : bp === "extra large"
+              ? this.deviceSize < IC_DEVICE_SIZES.XL
+              : false;
   }
 
   @Listen("icThemeChange", { target: "document" })

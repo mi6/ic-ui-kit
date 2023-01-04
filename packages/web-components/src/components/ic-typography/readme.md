@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property               | Attribute                | Description                                                       | Type                                                                                                                                                 | Default  |
-| ---------------------- | ------------------------ | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `applyVerticalMargins` | `apply-vertical-margins` | Adds appropriate margins to the top and bottom of the typography. | `boolean`                                                                                                                                            | `false`  |
-| `variant`              | `variant`                | The ICDS typography style to use.                                 | `"body" \| "caption" \| "caption-uppercase" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"` |
+| Property               | Attribute                | Description                                                                      | Type                                                                                                                                                 | Default  |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `applyVerticalMargins` | `apply-vertical-margins` | If `true`, appropriate top and bottom margins will be applied to the typography. | `boolean`                                                                                                                                            | `false`  |
+| `variant`              | `variant`                | The ICDS typography style to use.                                                | `"body" \| "caption" \| "caption-uppercase" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"` |
 
 
 ## Dependencies

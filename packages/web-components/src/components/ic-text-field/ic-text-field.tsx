@@ -53,119 +53,119 @@ export class TextField {
   private inheritedAttributes: { [k: string]: unknown } = {};
 
   /**
-   * @slot clear-button - an ic-button clear component will render as an end adornment to the input
-   * @slot search-submit-button - an ic-button search submit component will render as an end adornment to the input
-   * @slot menu - an ic-menu component will appear below the input
+   * @slot clear-button - an ic-button clear component will render as an end adornment to the input.
+   * @slot search-submit-button - an ic-button search submit component will render as an end adornment to the input.
+   * @slot menu - an ic-menu component will appear below the input.
    */
 
   /**
-   * Provide an id for the input
+   * The ID for the input.
    */
   @Prop() inputId?: string = `ic-text-field-input-${inputIds++}`;
 
   /**
-   * Provide a label for the input.
+   * The label for the input.
    */
   @Prop() label!: string;
 
   /**
-   * Specify if the input requires a value.
+   * If `true`, the input will require a value.
    */
   @Prop() required: boolean = false;
   /**
-   * Specify whether the input is disabled.
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
 
   /**
-   * Specify whether the input is read only.
+   * If `true`, the read only state will be set.
    */
   @Prop() readonly: boolean = false;
 
   /**
-   * Provide a placeholder value to display.
+   * The placeholder value to be displayed.
    */
   @Prop() placeholder: string = "";
 
   /**
-   * Specify whether the component fills the full width of the container.
-   * If true, this overrides the --input-width css prop.
+   * Specify whether the text field fills the full width of the container.
+   * If `true`, this overrides the --input-width CSS variable.
    */
   @Prop() fullWidth: boolean = false;
 
   /**
-   * Hides the label and applies the required label value as an aria-label.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel: boolean = false;
 
   /**
-   * Provide helper text to display additional field guidance.
+   * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText: string = "";
 
   /**
-   * Specify the number of rows to transform the text field into a text area with a specific height.
+   * The number of rows to transform the text field into a text area with a specific height.
    */
   @Prop() rows: number = 1;
 
   /**
-   * Allow resizing of a multiline text area
+   * If `true`, the multiline text area will be resizeable.
    */
   @Prop() resize: boolean = false;
 
   /**
-   * Specify whether small styling is to be applied to the element.
+   * If `true`, the small styling will be applied to the text field.
    */
   @Prop() small: boolean = false;
 
   /**
-   * Value of TextField.
+   * The value of the text field.
    */
   @Prop({ reflect: true, mutable: true }) value: string = "";
 
   /**
-   * Maximum number of characters that can be entered in the field.
+   * The maximum number of characters that can be entered in the field.
    */
   @Prop() maxLength: number = 0;
 
   /**
-   * Provide validation state - 'error' | 'warning' | 'success'
+   * The validation state - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
 
   /**
-   * Provide validation state - 'error' | 'warning' | 'success'
+   * The validation state - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationText: string = "";
 
   /**
-   * Show icon in input control - only applies when validationStatus ='success'
+   * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
    */
   @Prop() validationInline: boolean = false;
 
   /**
-   * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
+   * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
   @Prop() autocapitalize = "off";
 
   /**
-   * Indicates whether the value of the control can be automatically completed by the browser.
+   * The state of autocompletion the browser can apply on the text value.
    */
   @Prop() autocomplete: IcAutocompleteTypes = "off";
 
   /**
-   * Whether auto correction should be enabled when the user is entering/editing the text value.
+   * The state of autocorrection the browser can apply when the user is entering/editing the text value.
    */
   @Prop() autocorrect: IcAutocorrectStates = "off";
 
   /**
-   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+   * If `true`, the form control will have input focus when the page loads.
    */
   @Prop() autoFocus = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
   @Prop() debounce: number = 0;
 
@@ -194,16 +194,16 @@ export class TextField {
   @Prop() name: string = this.inputId;
 
   /**
-   * If `true`, the element will have its spelling and grammar checked.
+   * If `true`, the value of the text field will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
 
   /**
-   * @internal Used to identify the active element when focus is on the ic-menu items
+   * @internal The active element when focus is on the ic-menu items.
    */
   @Prop() ariaActiveDescendant?: string;
   /**
-   * @internal This boolean sets an ellipsis at the end of the value if the value is longer than the container
+   * @internal If `true`, an ellipsis will be displayed at the end of the value if the value is longer than the container.
    */
   @Prop() truncateValue?: boolean;
 
@@ -228,7 +228,7 @@ export class TextField {
   @Prop() role: string;
 
   /**
-   * @internal Used to stop rendering of hidden form input for form submission;
+   * @internal If `true`, the hidden form input will stop rendering for form submission.
    */
   @Prop() hiddenInput: boolean = true;
 

@@ -20,17 +20,17 @@ export class DataRow {
   @Element() el: HTMLIcDataRowElement;
 
   /**
-   * Set the label in the leftmost cell of the row
+   * The label in the leftmost cell of the row.
    */
   @Prop() label: string;
 
   /**
-   * Set the value of the middle (right if no addition supplied) cell of the row
+   * The value of the middle (right if no end-component supplied) cell of the row.
    */
   @Prop() value: string;
 
   /**
-   * Set the row to small styling, this is automatically applied if small is set on the parent data heading
+   * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
    */
   @Prop() small: boolean = false;
 

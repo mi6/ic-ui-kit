@@ -25,15 +25,15 @@ import {
 export class Tab {
   @Element() host: HTMLIcTabElement;
 
-  /** @internal Provide a unique context if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. */
+  /** @internal The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. */
   @Prop({ reflect: true }) contextId?: string = "default";
 
   /**
-   * Disables the tab.
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
 
-  /** @internal Will display a selected indicator and set tabIndex. */
+  /** @internal If `true`, the tab will display with a selected indicator and tabIndex will be set. */
   @Prop({ reflect: true }) selected?: boolean = false;
 
   /** @internal The shared ID between panel and tab. */
@@ -46,12 +46,12 @@ export class Tab {
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
-   * Called when a tab is selected.
+   * Emitted when a tab is selected.
    */
   @Event() tabClick: EventEmitter<IcTabClickEventDetail>;
 
   /**
-   * @internal Called when a tab is focussed.
+   * @internal Emitted when a tab is focussed.
    */
   @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
 

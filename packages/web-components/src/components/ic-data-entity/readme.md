@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                   | Type      | Default     |
-| --------- | --------- | ------------------------------------------------------------- | --------- | ----------- |
-| `heading` | `heading` | Title for the data entity                                     | `string`  | `undefined` |
-| `small`   | `small`   | Set the data heading and all child data rows to small styling | `boolean` | `false`     |
+| Property  | Attribute | Description                                                                               | Type      | Default     |
+| --------- | --------- | ----------------------------------------------------------------------------------------- | --------- | ----------- |
+| `heading` | `heading` | The title for the data entity.                                                            | `string`  | `undefined` |
+| `small`   | `small`   | If `true`, the small styling will be applied to the data heading and all child data rows. | `boolean` | `false`     |
 
 
 ## Dependencies

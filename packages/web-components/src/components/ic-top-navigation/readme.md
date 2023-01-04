@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property                | Attribute         | Description                                                                                  | Type                                 | Default        |
-| ----------------------- | ----------------- | -------------------------------------------------------------------------------------------- | ------------------------------------ | -------------- |
-| `appTitle` _(required)_ | `app-title`       | Title to display                                                                             | `string`                             | `undefined`    |
-| `contentAligned`        | `content-aligned` | The alignment of the top nav content                                                         | `"center" \| "full-width" \| "left"` | `"full-width"` |
-| `href`                  | `href`            | The url to navigate to when title is clicked                                                 | `string`                             | `"/"`          |
-| `inline`                | `inline`          | If true, the flyout navigation menu on small devices will be contained by the parent element | `boolean`                            | `false`        |
-| `status`                | `status`          | Status info to display                                                                       | `string`                             | `""`           |
-| `version`               | `version`         | Version info to display                                                                      | `string`                             | `""`           |
+| Property                | Attribute         | Description                                                                                     | Type                                 | Default        |
+| ----------------------- | ----------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------ | -------------- |
+| `appTitle` _(required)_ | `app-title`       | The app title to be displayed.                                                                  | `string`                             | `undefined`    |
+| `contentAligned`        | `content-aligned` | The alignment of the top navigation content.                                                    | `"center" \| "full-width" \| "left"` | `"full-width"` |
+| `href`                  | `href`            | The URL to navigate to when the app title is clicked.                                           | `string`                             | `"/"`          |
+| `inline`                | `inline`          | If `true`, the flyout navigation menu on small devices will be contained by the parent element. | `boolean`                            | `false`        |
+| `status`                | `status`          | The status info to be displayed.                                                                | `string`                             | `""`           |
+| `version`               | `version`         | The version info to be displayed.                                                               | `string`                             | `""`           |
 
 
 ## Slots

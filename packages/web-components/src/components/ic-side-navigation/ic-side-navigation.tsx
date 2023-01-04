@@ -29,9 +29,9 @@ import {
 import { IcTopBar } from "./ic-side-navigation.types";
 
 /**
- * @slot app-icon - Content will be rendered adjacent to the application title at the very top of the side navigation
- * @slot primary-navigation - Content will be rendered at the top of the side navigation
- * @slot secondary-navigation - Content will be rendered at the bottom of the side navigation
+ * @slot app-icon - Content will be rendered adjacent to the app title at the very top of the side navigation.
+ * @slot primary-navigation - Content will be rendered at the top of the side navigation.
+ * @slot secondary-navigation - Content will be rendered at the bottom of the side navigation.
  */
 
 @Component({
@@ -42,41 +42,40 @@ import { IcTopBar } from "./ic-side-navigation.types";
 export class SideNavigation {
   @Element() el: HTMLIcSideNavigationElement;
   /**
-   * Title to display.
+   * The title of the app to be displayed.
    */
   @Prop() appTitle!: string;
   /**
-   * Status of application
+   * The status of the app to be displayed.
    */
   @Prop() status: string;
   /**
-   * Version of application
+   * The version of the app to be displayed.
    */
   @Prop() version: string;
   /**
-   * If true, the ic-side-navigation will load in an expanded state
+   * If `true`, the side navigation will load in an expanded state.
    */
   @Prop() expanded: boolean = false;
   /**
-   * Set application title link
+   * The URL that the app title link points to.
    */
   @Prop() href: string = "/";
   /**
-   * If true, the menu expand button is removed (PLEASE NOTE: This takes effect on screen sizes 992px and above)
+   * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
    */
   @Prop() static: boolean = false;
   /**
-   * If true, the icon and label will appear when side navigation is collapsed
+   * If `true`, the icon and label will appear when side navigation is collapsed.
    */
-
   @Prop() collapsedIconLabels: boolean = false;
   /**
-   * If true, side navigation will be contained by parent element
+   * If `true`, side navigation will be contained by its parent element.
    */
   @Prop() inline: boolean = false;
 
   /**
-   * If true, disable automatic parent wrapper styling
+   * If `true`, automatic parent wrapper styling will be disabled.
    */
   @Prop() disableAutoParentStyling: boolean = false;
 
@@ -89,7 +88,6 @@ export class SideNavigation {
 
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
-
 
   @Listen("icThemeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
@@ -375,11 +373,11 @@ export class SideNavigation {
    * @param value - padding-top css value
    */
   private setParentPaddingTop = (value: string) => {
-    this.el.parentElement.style.setProperty('padding-top', value);
+    this.el.parentElement.style.setProperty("padding-top", value);
   };
 
   private setParentPaddingLeft = (value: string) => {
-    this.el.parentElement.style.setProperty('padding-left', value);
+    this.el.parentElement.style.setProperty("padding-left", value);
   };
 
   private resizeObserver: ResizeObserver = null;
@@ -396,7 +394,10 @@ export class SideNavigation {
           this.setParentPaddingLeft("0");
 
           if (this.inline) {
-            this.el.parentElement.style.setProperty('height', `calc(100% - ${topBarHeight}px)`);
+            this.el.parentElement.style.setProperty(
+              "height",
+              `calc(100% - ${topBarHeight}px)`
+            );
           }
         }
         this.emitSideNavigationExpanded({
@@ -406,7 +407,7 @@ export class SideNavigation {
       } else {
         if (!this.disableAutoParentStyling) {
           this.setParentPaddingTop("0");
-          this.el.parentElement.style.setProperty('height', '100%');
+          this.el.parentElement.style.setProperty("height", "100%");
         }
         this.emitSideNavigationExpanded({
           sideNavExpanded: this.menuExpanded,

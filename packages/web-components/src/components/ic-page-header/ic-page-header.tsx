@@ -28,33 +28,35 @@ import {
 export class PageHeader {
   @Element() el: HTMLIcPageHeaderElement;
   /**
-   * The title to render on the component.
+   * The title to render on the page header.
    */
   @Prop() heading?: string;
   /**
-   * The subtitle to render on the component.
+   * The subtitle to render on the page header.
    */
   @Prop() subheading?: string;
   /**
-   * How the component should be aligned.
+   * The alignment of the page header.
    */
   @Prop() aligned?: IcAlignment = "left";
   /**
-   * Whether the component uses small styling.
+   * If `true`, the small styling will be applied to the page header.
    */
   @Prop() small?: boolean = false;
   /**
-   * Set whether the bottom border is used
+   * If `true`, a border will be displayed along the bottom of the page header.
    */
   @Prop() border?: boolean = true;
   /**
-   * Set whether the header is sticky at all breakpoints
+   * If `true`, the page header will be sticky at all breakpoints.
    */
   @Prop() sticky?: boolean = false;
-  /** Set whether the header is only sticky for viewport widths of 992px and above
+  /**
+   *  If `true`, the page header will only be sticky for viewport widths of 992px and above.
    */
   @Prop() stickyDesktopOnly?: boolean = false;
-  /** Set whether the reading pattern and tab order change in the action area for viewport widths of above 576px and when actions have not wrapped
+  /**
+   * If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.
    */
   @Prop() reverseOrder?: boolean = false;
 

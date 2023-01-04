@@ -8,10 +8,10 @@ representing so that any changes, such as the real element replacing the skeleto
 
 ## Properties
 
-| Property  | Attribute | Description                                        | Type                                | Default       |
-| --------- | --------- | -------------------------------------------------- | ----------------------------------- | ------------- |
-| `light`   | `light`   | Set the skeleton to the light variant              | `boolean`                           | `false`       |
-| `variant` | `variant` | The variant of the skeleton that will be displayed | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
+| Property  | Attribute | Description                                               | Type                                | Default       |
+| --------- | --------- | --------------------------------------------------------- | ----------------------------------- | ------------- |
+| `light`   | `light`   | If `true`, the skeleton will be set to the light variant. | `boolean`                           | `false`       |
+| `variant` | `variant` | The variant of the skeleton that will be displayed.       | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
 
 
 ----------------------------------------------

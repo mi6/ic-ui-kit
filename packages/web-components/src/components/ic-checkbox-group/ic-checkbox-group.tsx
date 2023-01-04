@@ -26,45 +26,45 @@ export class CheckboxGroup {
   @Element() host: HTMLIcCheckboxGroupElement;
 
   /**
-   * Provide a label for the input.
+   * The label for the checkbox group to be displayed.
    */
   @Prop() label!: string;
 
   /**
-   * Provide a name for the input.
+   * The name for the checkbox group to differentiate from other groups.
    */
   @Prop() name!: string;
 
   /**
-   * Specify if the input requires a value.
+   * If `true`, the checkbox group will require a value.
    */
   @Prop() required: boolean = false;
 
   /**
-   * Hides the label and applies the required label value as an aria-label.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel: boolean = false;
 
   /**
-   * Specify whether the input is disabled.
+   * If `true`, the checkbox group will be set to the disabled state.
    */
   @Prop() disabled: boolean = false;
 
   /**
-   * Provide helper text to display additional field guidance.
+   * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText: string = "";
 
   /**
-   * Specify whether small styling to be applied to element.
+   * If `true`, the small styling will be applied to the checkbox group.
    */
   @Prop() small: boolean = false;
   /**
-   * Provide validation status - 'error'
+   * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
   /**
-   * Provide validation text - 'error'
+   * The validation text - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationText: string = "";
 

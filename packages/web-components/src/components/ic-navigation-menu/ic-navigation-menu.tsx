@@ -24,12 +24,12 @@ export class NavigationMenu {
   @Element() el: HTMLIcNavigationMenuElement;
 
   /**
-   *  Version info to display
+   * The version info to display.
    */
   @Prop() version: string = "";
 
   /**
-   *  Status info to display
+   * The status info to display.
    */
   @Prop() status: string = "";
 

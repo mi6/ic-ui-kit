@@ -9,7 +9,7 @@
 
 | Property                  | Attribute     | Description                                  | Type     | Default     |
 | ------------------------- | ------------- | -------------------------------------------- | -------- | ----------- |
-| `groupTitle` _(required)_ | `group-title` | Sets the title of the link group for display | `string` | `undefined` |
+| `groupTitle` _(required)_ | `group-title` | The title of the link group to be displayed. | `string` | `undefined` |
 
 
 ## Dependencies

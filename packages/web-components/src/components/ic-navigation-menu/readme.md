@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description             | Type     | Default |
-| --------- | --------- | ----------------------- | -------- | ------- |
-| `status`  | `status`  | Status info to display  | `string` | `""`    |
-| `version` | `version` | Version info to display | `string` | `""`    |
+| Property  | Attribute | Description                  | Type     | Default |
+| --------- | --------- | ---------------------------- | -------- | ------- |
+| `status`  | `status`  | The status info to display.  | `string` | `""`    |
+| `version` | `version` | The version info to display. | `string` | `""`    |
 
 
 ## Slots

@@ -23,7 +23,7 @@ export class FooterLinkGroup {
   @Element() el: HTMLIcFooterLinkGroupElement;
 
   /**
-   * Sets the title of the link group for display
+   * The title of the link group to be displayed.
    */
   @Prop() groupTitle!: string;
 

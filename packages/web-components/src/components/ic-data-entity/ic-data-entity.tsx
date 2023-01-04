@@ -9,12 +9,12 @@ export class DataEntity {
   @Element() el: HTMLIcDataEntityElement;
 
   /**
-   * Title for the data entity
+   * The title for the data entity.
    */
   @Prop() heading: string;
 
   /**
-   * Set the data heading and all child data rows to small styling
+   * If `true`, the small styling will be applied to the data heading and all child data rows.
    */
   @Prop() small: boolean = false;
 
