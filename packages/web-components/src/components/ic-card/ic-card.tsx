@@ -147,10 +147,10 @@ export class Card {
     const Component = parentIsAnchorTag
       ? "div"
       : clickable
-      ? this.href === undefined
-        ? "button"
-        : "a"
-      : "div";
+        ? this.href === undefined
+          ? "button"
+          : "a"
+        : "div";
 
     const attrs = Component == "a" && {
       href: href,
