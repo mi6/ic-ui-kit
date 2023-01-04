@@ -31,22 +31,22 @@ export class Menu {
   @Element() host: HTMLIcMenuElement;
 
   /**
-   * Specify whether the menu is open.
+   * If `true`, the menu will be displayed open.
    */
   @Prop({ reflect: true }) open!: boolean;
 
   /**
-   * Provide the possible selection options.
+   * The possible menu selection options.
    */
   @Prop() options!: IcMenuOption[];
 
   /**
-   * Specify whether small styling is to be applied to the element.
+   * If `true`, the small styling will be applied to the menu.
    */
   @Prop({ reflect: true }) small?: boolean = false;
 
   /**
-   * Id of the menu.
+   * The ID of the menu.
    */
   @Prop() menuId!: string;
 
@@ -61,32 +61,32 @@ export class Menu {
   @Prop() activationType?: IcActivationTypes = "automatic";
 
   /**
-   * Reference to the input element.
+   * The reference to the input element.
    */
   @Prop() inputEl!: HTMLElement;
 
   /**
-   * @internal - set if ic-menu is nested inside another component
+   * @internal - The parent element if ic-menu is nested inside another component.
    */
   @Prop() parentEl?: HTMLElement;
 
   /**
-   * Label for the input element.
+   * The label for the input element.
    */
   @Prop() inputLabel!: string;
 
   /**
-   * Reference to an anchor element the menu will position itself from when rendered.
+   * The reference to an anchor element the menu will position itself from when rendered.
    */
   @Prop() anchorEl!: HTMLElement;
 
   /**
-   *  If true then fill width of container
+   *  If `true`, the menu will fill the width of the container.
    */
   @Prop() fullWidth: boolean = false;
 
   /**
-   * @internal If true, autofocus on selected item when menu is open
+   * @internal If `true`, autofocus will be applied on selected item when menu is open.
    */
   @Prop() autoFocusOnSelected: boolean = true;
 

@@ -42,7 +42,7 @@ export class LoadingIndicator {
   @Prop() label?: string;
 
   /**
-   * Provide a description to be set as the aria-label of the loading indicator when not using a visible label.
+   * The description that will be set as the aria-label of the loading indicator when not using a visible label.
    */
   @Prop() description?: string = "Loading";
 
@@ -62,12 +62,12 @@ export class LoadingIndicator {
   @Prop({ reflect: true }) type?: IcLoadingTypes = "circular";
 
   /**
-   * When linear, determines whether the full-width version (i.e. without a border radius) should be displayed.
+   * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
    */
   @Prop({ reflect: true }) fullWidth?: boolean = false;
 
   /**
-   * Determines whether the dark or light loading indicator should be displayed.
+   * The appearance of the loading indicator, e.g. dark or light.
    */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 

@@ -25,40 +25,40 @@ import {
 })
 export class Checkbox {
   /**
-   * Set the checkbox to the checked state
+   * If `true`, the checkbox will be set to the checked state.
    */
   @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
   /**
-   * Set the checkbox to the disabled state
+   * If `true`, the checkbox will be set to the disabled state.
    */
   @Prop() disabled?: boolean = false;
   /**
-   * Provide a label for the input
+   * The label for the checkbox.
    */
   @Prop() label!: string;
   /**
-   * Provide a value for the input
+   * The value for the checkbox.
    */
   @Prop() value!: string;
   /**
-   * Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name.
+   * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
    */
   @Prop() name: string;
   /**
-   * Provide a group label for the input
+   * The group label for the checkbox.
    */
   @Prop() groupLabel: string;
   /**
-   * Provide a text prop for the dynamic text
+   * The text to be displayed when dynamic.
    */
   @Prop() dynamicText: string = "This selection requires additional answers";
   /**
-   * Set which style of additionalField will be displayed if used
+   * The style of additionalField that will be displayed if used.
    */
   @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
   /**
-   * Display the indeterminate state when checked
+   * If `true`, the indeterminate state will be displayed when checked.
    */
   @Prop() indeterminate: boolean = false;
 

@@ -24,7 +24,7 @@ export class StatusTag {
    */
   @Prop() appearance?: IcStatusTagAppearance = "filled";
   /**
-   * The size of the status tag.
+   * If `true`, the small styling will be applied to the status tag.
    */
   @Prop() small?: boolean = false;
 

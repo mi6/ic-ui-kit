@@ -11,35 +11,35 @@ import {
 })
 export class InputLabel {
   /**
-   * for
+   * The ID of the form element the label is bound to.
    */
   @Prop() for: string;
   /**
-   * required
+   * If `true`, the input label will require a value.
    */
   @Prop() required: boolean = false;
   /**
-   * helperText
+   * The helper text that will be displayed.
    */
   @Prop() helperText: string = "";
   /**
-   * label
+   * The text content of the label.
    */
   @Prop() label!: string;
   /**
-   * disabled
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
   /**
-   * readonly
+   * If `true`, the readonly state will be set.
    */
   @Prop() readonly: boolean = false;
   /**
-   * error
+   * If `true`, the input label will display with error styling.
    */
   @Prop() error?: boolean = false;
   /**
-   * dark
+   * If `true`, the dark variant of the input label will be displayed.
    */
   @Prop() dark?: boolean = false;
 

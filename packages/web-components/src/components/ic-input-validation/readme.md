@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property               | Attribute        | Description                                      | Type                                      | Default     |
-| ---------------------- | ---------------- | ------------------------------------------------ | ----------------------------------------- | ----------- |
-| `ariaLiveMode`         | `aria-live-mode` | aria live mode to apply to message               | `"assertive" \| "polite"`                 | `"polite"`  |
-| `for`                  | `for`            | The id of the input field the message relates to | `string`                                  | `undefined` |
-| `fullWidth`            | `full-width`     | If true then fill width of container             | `boolean`                                 | `false`     |
-| `message` _(required)_ | `message`        | The validation message to display                | `string`                                  | `undefined` |
-| `status`               | `status`         | The status                                       | `"" \| "error" \| "success" \| "warning"` | `""`        |
+| Property               | Attribute        | Description                                                            | Type                                      | Default     |
+| ---------------------- | ---------------- | ---------------------------------------------------------------------- | ----------------------------------------- | ----------- |
+| `ariaLiveMode`         | `aria-live-mode` | The ARIA live mode to apply to the message.                            | `"assertive" \| "polite"`                 | `"polite"`  |
+| `for`                  | `for`            | The ID of the form element the validation is bound to.                 | `string`                                  | `undefined` |
+| `fullWidth`            | `full-width`     | If `true`, the input validation will fill the width of the container.  | `boolean`                                 | `false`     |
+| `message` _(required)_ | `message`        | The validation message to display.                                     | `string`                                  | `undefined` |
+| `status`               | `status`         | The status of the validation - e.g. 'error' \| 'warning' \| 'success'. | `"" \| "error" \| "success" \| "warning"` | `""`        |
 
 
 ## Slots

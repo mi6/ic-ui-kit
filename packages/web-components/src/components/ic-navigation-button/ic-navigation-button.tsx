@@ -35,7 +35,7 @@ export class NavigationButton {
   @Element() el: HTMLIcNavigationButtonElement;
 
   /**
-   *  label info to display
+   * The label info to display.
    */
   @Prop() label!: string;
   /**
@@ -43,7 +43,7 @@ export class NavigationButton {
    */
   @Prop() href?: string;
   /**
-   * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
   /**
@@ -51,11 +51,11 @@ export class NavigationButton {
    */
   @Prop() rel?: string;
   /**
-   * Prompts the user to save the linked URL instead of navigating to it.
+   * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
   /**
-   * Hints at the human language of the linked URL.
+   * The human language of the linked URL.
    */
   @Prop() hreflang?: string;
   /**
@@ -64,7 +64,7 @@ export class NavigationButton {
   @Prop() referrerpolicy?: ReferrerPolicy;
 
   /**
-   *  display mode
+   * The display mode.
    */
   @State() mode: IcNavButtonModes = "navbar";
 

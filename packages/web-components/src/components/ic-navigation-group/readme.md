@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                         | Type      | Default     |
-| ------------ | ------------ | ------------------------------------------------------------------- | --------- | ----------- |
-| `expandable` | `expandable` | whether the group should be expandable/collapsible in the side menu | `boolean` | `false`     |
-| `label`      | `label`      | label to display on the group                                       | `string`  | `undefined` |
+| Property     | Attribute    | Description                                               | Type      | Default     |
+| ------------ | ------------ | --------------------------------------------------------- | --------- | ----------- |
+| `expandable` | `expandable` | If `true`, the group will be expandable in the side menu. | `boolean` | `false`     |
+| `label`      | `label`      | The label to display on the group.                        | `string`  | `undefined` |
 
 
 ## Methods

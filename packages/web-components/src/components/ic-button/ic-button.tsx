@@ -38,11 +38,11 @@ let buttonIds = 0;
 export class Button {
   @Element() el: HTMLIcButtonElement;
   /**
-   * Determines whether the button should be in disabled state.
+   * If `true`, the button will be in disabled state.
    */
   @Prop() disabled?: boolean = false;
   /**
-   * Determines whether the button should be in loading state.
+   * If `true`, the button will be in loading state.
    */
   @Prop() loading?: boolean = false;
   /**
@@ -54,7 +54,7 @@ export class Button {
    */
   @Prop() href?: string;
   /**
-   * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
   @Prop() target?: string;
   /**
@@ -62,11 +62,11 @@ export class Button {
    */
   @Prop() rel?: string;
   /**
-   * Prompts the user to save the linked URL instead of navigating to it.
+   * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
   /**
-   * Hints at the human language of the linked URL.
+   * The human language of the linked URL.
    */
   @Prop() hreflang?: string;
   /**
@@ -74,7 +74,7 @@ export class Button {
    */
   @Prop() referrerpolicy?: ReferrerPolicy;
   /**
-   * The button variant to be displayed.
+   * The variant of the button to be displayed.
    */
   @Prop() variant?: IcButtonVariants = "primary";
   /**
@@ -82,11 +82,11 @@ export class Button {
    */
   @Prop() size?: IcButtonSizes = "default";
   /**
-   * Fill the width of the container if true.
+   * If `true`, the button will fill the width of the container.
    */
   @Prop() fullWidth?: boolean = false;
   /**
-   * Disable ic-tooltip which is shown for icon variant. Title or aria-label must be set if this prop is not applied.
+   * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
    */
   @Prop() disableTooltip?: boolean = false;
   /**
@@ -94,7 +94,7 @@ export class Button {
    */
   @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
   /**
-   * Determines the whether the appearance of the button is dark, light, or the default.
+   * The appearance of the button, e.g. dark, light, or the default.
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
   /**
@@ -145,7 +145,7 @@ export class Button {
   }
 
   /**
-   * @internal Updates tooltip/aria-label text - needed as can't watch an aria attribute change.
+   * @internal Updates tooltip/aria-label text - needed as can't watch an ARIA attribute change.
    */
   @Method()
   async updateAriaLabel(newValue: string): Promise<void> {

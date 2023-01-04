@@ -26,47 +26,43 @@ import { IcValueEventDetail } from "../../interface";
 export class RadioOption {
   private radioElement: HTMLInputElement;
   /**
-   * Determines whether the radio should be in selected state.
+   * If `true`, the radio option will be displayed in a selected state.
    */
   @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
   /**
-   * Determines whether the radio should be in disabled state.
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
   /**
-   * Provide a label for the input.
+   * The label for the radio option.
    */
   @Prop() label?: string;
   /**
-   * Provide a value for the input.
+   * The value for the radio option.
    */
   @Prop({ mutable: true }) value!: string;
   /**
-   * Provide a name for the input.
+   * The name for the radio option.
    */
   @Prop() name: string;
   /**
-   * Provide a group label for the input.
+   * The group label for the radio option.
    */
   @Prop() groupLabel: string;
   /**
-   * Provide a text prop for the dynamic text.
+   * The text to be displayed when dynamic.
    */
   @Prop() dynamicText: string = "This selection requires additional answers";
 
-  /** Determines type of additional text field in relation to radio option */
-
+  /**
+   * The style of additionalField that will be displayed if used.
+   */
   @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
 
   @State() initiallySelected = this.selected;
 
   @Element() host: HTMLIcRadioOptionElement;
-
-  /**
-   * Emitted when radio is checked
-   */
-  @Event() icCheck!: EventEmitter<void>;
 
   /**
    * Emitted when a radio is selected.

@@ -36,47 +36,47 @@ export class Hero {
   @Element() el: HTMLIcHeroElement;
 
   /**
-   * The heading of the hero
+   * The heading of the hero.
    */
   @Prop() heading!: string;
 
   /**
-   * Description for the hero
+   * The description for the hero.
    */
   @Prop() subheading?: string;
 
   /**
-   * Optional secondary heading, replaced by slotted right content
+   * The optional secondary heading, replaced by slotted right content.
    */
   @Prop() secondaryHeading?: string;
 
   /**
-   * Optional secondary subheading, replaced by slotted right content
+   * The optional secondary subheading, replaced by slotted right content.
    */
   @Prop() secondarySubheading?: string;
 
   /**
-   * Optional background image
+   * The optional background image.
    */
   @Prop() backgroundImage?: string;
 
   /**
-   * Whether the background image (if set) scrolls using a parallax effect.
+   * If `true`, the background image (if set) will not scroll using a parallax effect.
    */
   @Prop() disableBackgroundParallax?: boolean = false;
 
   /**
-   * The alignment of the hero content
+   * The alignment of the hero.
    */
   @Prop() aligned: IcAlignment = "left";
 
   /**
-   * The alignment of the hero content
+   * The alignment of the hero content.
    */
   @Prop() contentAligned: IcHeroContentAlignments = "left";
 
   /**
-   * Alter styling for use with small content/pages
+   * If `true`, the small styling will be applied to the hero.
    */
   @Prop() small: boolean = false;
 

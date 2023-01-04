@@ -31,23 +31,23 @@ export class InputValidation {
   @Element() el: HTMLIcInputValidationElement;
 
   /**
-   * The validation message to display
+   * The validation message to display.
    */
   @Prop() message!: string;
   /**
-   * The id of the input field the message relates to
+   * The ID of the form element the validation is bound to.
    */
   @Prop() for: string;
   /**
-   * The status
+   * The status of the validation - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() status: IcInformationStatusOrEmpty = "";
   /**
-   *  If true then fill width of container
+   *  If `true`, the input validation will fill the width of the container.
    */
   @Prop() fullWidth: boolean = false;
   /**
-   *  aria live mode to apply to message
+   *  The ARIA live mode to apply to the message.
    */
   @Prop() ariaLiveMode: IcAriaLiveModeVariants = "polite";
 

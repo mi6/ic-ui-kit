@@ -62,84 +62,84 @@ export class SearchBar {
   private preventSubmit: boolean = false;
 
   /**
-   * Provide a label for the input.
+   * The label for the search bar.
    */
   @Prop() label!: string;
 
   /**
-   * Specify if the input requires a value.
+   * If `true`, the search bar will require a value.
    */
   @Prop() required?: boolean = false;
   /**
-   * Specify whether the input is disabled.
+   * If `true`, the disabled state will be set.
    */
   @Prop() disabled?: boolean = false;
 
   /**
-   * Specify whether the input is read only.
+   * If `true`, the readonly state will be set.
    */
   @Prop() readonly?: boolean = false;
 
   /**
-   * Provide a placeholder value to display.
+   * The placeholder value to display.
    */
   @Prop() placeholder?: string = "Search";
 
   /**
-   * Specify whether the component fills the full width of the container.
-   * If true, this overrides the --input-width css prop.
+   * Specify whether the search bar fills the full width of the container.
+   * If `true`, this overrides the --input-width CSS variable.
    */
   @Prop() fullWidth?: boolean = false;
 
   /**
    * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
-   * If true, all options provided will be displayed.
+   * If `true`, all options provided will be displayed.
    */
   @Prop() disableFilter?: boolean = false;
 
   /**
-   * Hides the label and applies the required label value as an aria-label.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel?: boolean = false;
 
   /**
-   * Provide helper text to display additional field guidance.
+   * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText?: string = "";
 
   /**
-   * Specify whether small styling is to be applied to the element.
+   * If `true`, the small styling will be applied to the search bar.
    */
   @Prop() small?: boolean = false;
 
   /**
-   * Value of Search input.
+   * The value of the search input.
    */
   @Prop({ reflect: true, mutable: true }) value: string = "";
 
   /**
-   * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
+   * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
   @Prop() autocapitalize = "off";
 
   /**
-   * Indicates whether the value of the control can be automatically completed by the browser.
+   * The state of autocompletion the browser can apply on the text value.
    */
   @Prop() autocomplete?: IcAutocompleteTypes = "off";
 
   /**
-   * Whether auto correction should be enabled when the user is entering/editing the text value.
+   * The state of autocorrection the browser can apply when the user is entering/editing the text value.
    */
   @Prop() autocorrect?: IcAutocorrectStates = "off";
 
   /**
-   * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
+   * If `true`, the form control will have input focus when the page loads.
    */
   @Prop() autofocus = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
   @Prop({ mutable: true }) debounce?: number = 0;
 
@@ -154,11 +154,11 @@ export class SearchBar {
   @Prop() name: string = this.inputId;
 
   /**
-   * If `true`, the element will have its spelling and grammar checked.
+   * If `true`, the value of the search will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
   /**
-   * Provide the suggested search options
+   * The suggested search options.
    */
   @Prop() options?: IcMenuOption[] = [];
 
@@ -170,23 +170,23 @@ export class SearchBar {
   }
 
   /**
-   * Specify whether the input should be focussed when component loaded.
+   * If `true`, the search bar will be focused when component loaded.
    */
   @Prop() focusOnLoad?: boolean = false;
 
   /**
-   * Provide hint text for hidden assistive description element.
+   * The hint text for the hidden assistive description element.
    */
   @Prop() hintText?: string =
     "When autocomplete results are available use the up and down arrows to choose and press enter to select";
 
   /**
-   * Provide text for empty results list
+   * The text displayed when there are no options in the option list.
    */
   @Prop() emptyOptionListText = "No results found";
 
   /**
-   * Number of characters until suggestions appear
+   * The number of characters until suggestions appear.
    */
   @Prop() charactersUntilSuggestion: number = 2;
 

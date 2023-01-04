@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property                    | Attribute                     | Description                                                            | Type                                 | Default     |
-| --------------------------- | ----------------------------- | ---------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `aligned`                   | `aligned`                     | The alignment of the hero content                                      | `"center" \| "full-width" \| "left"` | `"left"`    |
-| `backgroundImage`           | `background-image`            | Optional background image                                              | `string`                             | `undefined` |
-| `contentAligned`            | `content-aligned`             | The alignment of the hero content                                      | `"center" \| "left"`                 | `"left"`    |
-| `disableBackgroundParallax` | `disable-background-parallax` | Whether the background image (if set) scrolls using a parallax effect. | `boolean`                            | `false`     |
-| `heading` _(required)_      | `heading`                     | The heading of the hero                                                | `string`                             | `undefined` |
-| `secondaryHeading`          | `secondary-heading`           | Optional secondary heading, replaced by slotted right content          | `string`                             | `undefined` |
-| `secondarySubheading`       | `secondary-subheading`        | Optional secondary subheading, replaced by slotted right content       | `string`                             | `undefined` |
-| `small`                     | `small`                       | Alter styling for use with small content/pages                         | `boolean`                            | `false`     |
-| `subheading`                | `subheading`                  | Description for the hero                                               | `string`                             | `undefined` |
+| Property                    | Attribute                     | Description                                                                       | Type                                 | Default     |
+| --------------------------- | ----------------------------- | --------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `aligned`                   | `aligned`                     | The alignment of the hero.                                                        | `"center" \| "full-width" \| "left"` | `"left"`    |
+| `backgroundImage`           | `background-image`            | The optional background image.                                                    | `string`                             | `undefined` |
+| `contentAligned`            | `content-aligned`             | The alignment of the hero content.                                                | `"center" \| "left"`                 | `"left"`    |
+| `disableBackgroundParallax` | `disable-background-parallax` | If `true`, the background image (if set) will not scroll using a parallax effect. | `boolean`                            | `false`     |
+| `heading` _(required)_      | `heading`                     | The heading of the hero.                                                          | `string`                             | `undefined` |
+| `secondaryHeading`          | `secondary-heading`           | The optional secondary heading, replaced by slotted right content.                | `string`                             | `undefined` |
+| `secondarySubheading`       | `secondary-subheading`        | The optional secondary subheading, replaced by slotted right content.             | `string`                             | `undefined` |
+| `small`                     | `small`                       | If `true`, the small styling will be applied to the hero.                         | `boolean`                            | `false`     |
+| `subheading`                | `subheading`                  | The description for the hero.                                                     | `string`                             | `undefined` |
 
 
 ## Slots

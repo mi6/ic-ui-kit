@@ -16,37 +16,37 @@ import { isSlotUsed } from "../../utils/helpers";
 })
 export class InputComponentContainer {
   /**
-   * disabled
+   *  If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
   /**
-   * readonly
+   *  If `true`, the readonly state will be set.
    */
   @Prop() readonly: boolean = false;
   /**
-   * validationStatus
+   * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
   /**
-   * small
+   *  If `true`, the small styling will be applied to the input component container.
    */
   @Prop() small: boolean = false;
   /**
-   * multiLine
+   *  If `true`, the input component container will allow for multiple lines.
    */
   @Prop() multiLine: boolean = false;
   /**
-   * validationInline
+   *  If `true`, the validation will display inline.
    */
   @Prop() validationInline: boolean = false;
 
   /**
-   * Determines whether the dark variant of the input-component-container focus indicator should be displayed.
+   *  If `true`, the dark variant of the input component container will be displayed.
    */
   @Prop() dark?: boolean = false;
 
   /**
-   *  If true then fill width of container
+   *  If `true`, the input component container will fill the width of the container it is in.
    */
   @Prop() fullWidth: boolean = false;
 

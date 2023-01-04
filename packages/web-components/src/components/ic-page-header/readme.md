@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                                                                  | Type                                 | Default     |
-| ------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `aligned`           | `aligned`             | How the component should be aligned.                                                                                                         | `"center" \| "full-width" \| "left"` | `"left"`    |
-| `border`            | `border`              | Set whether the bottom border is used                                                                                                        | `boolean`                            | `true`      |
-| `heading`           | `heading`             | The title to render on the component.                                                                                                        | `string`                             | `undefined` |
-| `reverseOrder`      | `reverse-order`       | Set whether the reading pattern and tab order change in the action area for viewport widths of above 576px and when actions have not wrapped | `boolean`                            | `false`     |
-| `small`             | `small`               | Whether the component uses small styling.                                                                                                    | `boolean`                            | `false`     |
-| `sticky`            | `sticky`              | Set whether the header is sticky at all breakpoints                                                                                          | `boolean`                            | `false`     |
-| `stickyDesktopOnly` | `sticky-desktop-only` | Set whether the header is only sticky for viewport widths of 992px and above                                                                 | `boolean`                            | `false`     |
-| `subheading`        | `subheading`          | The subtitle to render on the component.                                                                                                     | `string`                             | `undefined` |
+| Property            | Attribute             | Description                                                                                                                                       | Type                                 | Default     |
+| ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `aligned`           | `aligned`             | The alignment of the page header.                                                                                                                 | `"center" \| "full-width" \| "left"` | `"left"`    |
+| `border`            | `border`              | If `true`, a border will be displayed along the bottom of the page header.                                                                        | `boolean`                            | `true`      |
+| `heading`           | `heading`             | The title to render on the page header.                                                                                                           | `string`                             | `undefined` |
+| `reverseOrder`      | `reverse-order`       | If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped. | `boolean`                            | `false`     |
+| `small`             | `small`               | If `true`, the small styling will be applied to the page header.                                                                                  | `boolean`                            | `false`     |
+| `sticky`            | `sticky`              | If `true`, the page header will be sticky at all breakpoints.                                                                                     | `boolean`                            | `false`     |
+| `stickyDesktopOnly` | `sticky-desktop-only` | If `true`, the page header will only be sticky for viewport widths of 992px and above.                                                            | `boolean`                            | `false`     |
+| `subheading`        | `subheading`          | The subtitle to render on the page header.                                                                                                        | `string`                             | `undefined` |
 
 
 ## Slots

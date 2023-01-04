@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property                 | Attribute                  | Description                                                                                                       | Type                    | Default                                        |
-| ------------------------ | -------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------- | ---------------------------------------------- |
-| `additionalFieldDisplay` | `additional-field-display` | Set which style of additionalField will be displayed if used                                                      | `"dynamic" \| "static"` | `"static"`                                     |
-| `checked`                | `checked`                  | Set the checkbox to the checked state                                                                             | `boolean`               | `false`                                        |
-| `disabled`               | `disabled`                 | Set the checkbox to the disabled state                                                                            | `boolean`               | `false`                                        |
-| `dynamicText`            | `dynamic-text`             | Provide a text prop for the dynamic text                                                                          | `string`                | `"This selection requires additional answers"` |
-| `groupLabel`             | `group-label`              | Provide a group label for the input                                                                               | `string`                | `undefined`                                    |
-| `indeterminate`          | `indeterminate`            | Display the indeterminate state when checked                                                                      | `boolean`               | `false`                                        |
-| `label` _(required)_     | `label`                    | Provide a label for the input                                                                                     | `string`                | `undefined`                                    |
-| `name`                   | `name`                     | Provide a name for the input. If not set when used in a checkbox group, the name will be based on the group name. | `string`                | `undefined`                                    |
-| `value` _(required)_     | `value`                    | Provide a value for the input                                                                                     | `string`                | `undefined`                                    |
+| Property                 | Attribute                  | Description                                                                                                    | Type                    | Default                                        |
+| ------------------------ | -------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------- | ---------------------------------------------- |
+| `additionalFieldDisplay` | `additional-field-display` | The style of additionalField that will be displayed if used.                                                   | `"dynamic" \| "static"` | `"static"`                                     |
+| `checked`                | `checked`                  | If `true`, the checkbox will be set to the checked state.                                                      | `boolean`               | `false`                                        |
+| `disabled`               | `disabled`                 | If `true`, the checkbox will be set to the disabled state.                                                     | `boolean`               | `false`                                        |
+| `dynamicText`            | `dynamic-text`             | The text to be displayed when dynamic.                                                                         | `string`                | `"This selection requires additional answers"` |
+| `groupLabel`             | `group-label`              | The group label for the checkbox.                                                                              | `string`                | `undefined`                                    |
+| `indeterminate`          | `indeterminate`            | If `true`, the indeterminate state will be displayed when checked.                                             | `boolean`               | `false`                                        |
+| `label` _(required)_     | `label`                    | The label for the checkbox.                                                                                    | `string`                | `undefined`                                    |
+| `name`                   | `name`                     | The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name. | `string`                | `undefined`                                    |
+| `value` _(required)_     | `value`                    | The value for the checkbox.                                                                                    | `string`                | `undefined`                                    |
 
 
 ## Events

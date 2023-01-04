@@ -7,29 +7,29 @@
 
 ## Properties
 
-| Property                      | Attribute                        | Description                                                                                                   | Type                                      | Default              |
-| ----------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | -------------------- |
-| `charactersUntilSuggestions`  | `characters-until-suggestions`   | Number of characters until suggestions appear for a searchable select.                                        | `number`                                  | `0`                  |
-| `disabled`                    | `disabled`                       | Specify whether the input is disabled.                                                                        | `boolean`                                 | `false`              |
-| `emptyOptionListText`         | `empty-option-list-text`         | Provide text for empty results list                                                                           | `string`                                  | `"No results found"` |
-| `fullWidth`                   | `full-width`                     | If true, then fill width of container.                                                                        | `boolean`                                 | `false`              |
-| `helperText`                  | `helper-text`                    | Provide helper text to display additional field guidance.                                                     | `string`                                  | `""`                 |
-| `hideLabel`                   | `hide-label`                     | Hides the label and applies the required label value as an aria-label.                                        | `boolean`                                 | `false`              |
-| `includeDescriptionsInSearch` | `include-descriptions-in-search` | If true, descriptions of options are included when filtering options in a searchable select.                  | `boolean`                                 | `false`              |
-| `includeGroupTitlesInSearch`  | `include-group-titles-in-search` | If true, group titles of grouped options are included when filtering options in a searchable select.          | `boolean`                                 | `false`              |
-| `label` _(required)_          | `label`                          | Provide a label for the input.                                                                                | `string`                                  | `undefined`          |
-| `name`                        | `name`                           | The name of the control, which is submitted with the form data.                                               | `string`                                  | `this.inputId`       |
-| `options`                     | --                               | Provide the possible selection options.                                                                       | `IcMenuOption[]`                          | `[]`                 |
-| `placeholder`                 | `placeholder`                    | Provide a placeholder value to display.                                                                       | `string`                                  | `"Select an option"` |
-| `readonly`                    | `readonly`                       | Specify whether the input is read only.                                                                       | `boolean`                                 | `false`              |
-| `required`                    | `required`                       | Specify if the input requires a value.                                                                        | `boolean`                                 | `false`              |
-| `searchMatchPosition`         | `search-match-position`          | Whether the search string of the searchable select should match the start of or anywhere in the options.      | `"anywhere" \| "start"`                   | `"anywhere"`         |
-| `searchable`                  | `searchable`                     | If true, the select can be typed in to filter options.                                                        | `boolean`                                 | `false`              |
-| `showClearButton`             | `show-clear-button`              | Display a button which clears the input when clicked. The button will always appear on the searchable select. | `boolean`                                 | `false`              |
-| `small`                       | `small`                          | Specify whether small styling is to be applied to the element.                                                | `boolean`                                 | `false`              |
-| `validationStatus`            | `validation-status`              | Provide a validation status.                                                                                  | `"" \| "error" \| "success" \| "warning"` | `""`                 |
-| `validationText`              | `validation-text`                | Provide the text to display as the validation message.                                                        | `string`                                  | `""`                 |
-| `value`                       | `value`                          | The value of the currently selected option.                                                                   | `string`                                  | `undefined`          |
+| Property                      | Attribute                        | Description                                                                                                                               | Type                                      | Default              |
+| ----------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | -------------------- |
+| `charactersUntilSuggestions`  | `characters-until-suggestions`   | The number of characters until suggestions appear for a searchable select.                                                                | `number`                                  | `0`                  |
+| `disabled`                    | `disabled`                       | If `true`, the disabled state will be set.                                                                                                | `boolean`                                 | `false`              |
+| `emptyOptionListText`         | `empty-option-list-text`         | The text displayed when there are no options in the option list.                                                                          | `string`                                  | `"No results found"` |
+| `fullWidth`                   | `full-width`                     | If `true`, the select element will fill the width of the container.                                                                       | `boolean`                                 | `false`              |
+| `helperText`                  | `helper-text`                    | The helper text that will be displayed for additional field guidance.                                                                     | `string`                                  | `""`                 |
+| `hideLabel`                   | `hide-label`                     | If `true`, the label will be hidden and the required label value will be applied as an aria-label.                                        | `boolean`                                 | `false`              |
+| `includeDescriptionsInSearch` | `include-descriptions-in-search` | If `true`, descriptions of options will be included when filtering options in a searchable select.                                        | `boolean`                                 | `false`              |
+| `includeGroupTitlesInSearch`  | `include-group-titles-in-search` | If `true`, group titles of grouped options will be included when filtering options in a searchable select.                                | `boolean`                                 | `false`              |
+| `label` _(required)_          | `label`                          | The label for the select.                                                                                                                 | `string`                                  | `undefined`          |
+| `name`                        | `name`                           | The name of the control, which is submitted with the form data.                                                                           | `string`                                  | `this.inputId`       |
+| `options`                     | --                               | The possible selection options.                                                                                                           | `IcMenuOption[]`                          | `[]`                 |
+| `placeholder`                 | `placeholder`                    | The placeholder value to be displayed.                                                                                                    | `string`                                  | `"Select an option"` |
+| `readonly`                    | `readonly`                       | If `true`, the readonly state will be set.                                                                                                | `boolean`                                 | `false`              |
+| `required`                    | `required`                       | If `true`, the select will require a value.                                                                                               | `boolean`                                 | `false`              |
+| `searchMatchPosition`         | `search-match-position`          | Whether the search string of the searchable select should match the start of or anywhere in the options.                                  | `"anywhere" \| "start"`                   | `"anywhere"`         |
+| `searchable`                  | `searchable`                     | If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.                                  | `boolean`                                 | `false`              |
+| `showClearButton`             | `show-clear-button`              | If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select. | `boolean`                                 | `false`              |
+| `small`                       | `small`                          | If `true`, the small styling will be applied to the select.                                                                               | `boolean`                                 | `false`              |
+| `validationStatus`            | `validation-status`              | The validation status - e.g. 'error' \| 'warning' \| 'success'.                                                                           | `"" \| "error" \| "success" \| "warning"` | `""`                 |
+| `validationText`              | `validation-text`                | The text to display as the validation message.                                                                                            | `string`                                  | `""`                 |
+| `value`                       | `value`                          | The value of the currently selected option.                                                                                               | `string`                                  | `undefined`          |
 
 
 ## Events
@@ -52,13 +52,6 @@ Sets focus on the input box.
 Type: `Promise<void>`
 
 
-
-
-## CSS Custom Properties
-
-| Name            | Description              |
-| --------------- | ------------------------ |
-| `--input-width` | Width of the input field |
 
 
 ## Dependencies

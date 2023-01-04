@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                           | Type      | Default     |
-| ---------- | ---------- | ----------------------------------------------------- | --------- | ----------- |
-| `href`     | `href`     | Destination of the navigation item                    | `string`  | `""`        |
-| `label`    | `label`    | Label of the navigation item                          | `string`  | `undefined` |
-| `selected` | `selected` | If true, sets the navigation item in a selected state | `boolean` | `false`     |
+| Property   | Attribute  | Description                                                     | Type      | Default     |
+| ---------- | ---------- | --------------------------------------------------------------- | --------- | ----------- |
+| `href`     | `href`     | The destination of the navigation item.                         | `string`  | `""`        |
+| `label`    | `label`    | The label of the navigation item.                               | `string`  | `undefined` |
+| `selected` | `selected` | If `true`, the navigation item will be set in a selected state. | `boolean` | `false`     |
 
 
 ## Methods

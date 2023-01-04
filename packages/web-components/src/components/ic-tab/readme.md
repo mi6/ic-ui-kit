@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property   | Attribute  | Description       | Type      | Default |
-| ---------- | ---------- | ----------------- | --------- | ------- |
-| `disabled` | `disabled` | Disables the tab. | `boolean` | `false` |
+| Property   | Attribute  | Description                                | Type      | Default |
+| ---------- | ---------- | ------------------------------------------ | --------- | ------- |
+| `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean` | `false` |
 
 
 ## Events
 
-| Event      | Description                    | Type                                 |
-| ---------- | ------------------------------ | ------------------------------------ |
-| `tabClick` | Called when a tab is selected. | `CustomEvent<IcTabClickEventDetail>` |
+| Event      | Description                     | Type                                 |
+| ---------- | ------------------------------- | ------------------------------------ |
+| `tabClick` | Emitted when a tab is selected. | `CustomEvent<IcTabClickEventDetail>` |
 
 
 ## Slots

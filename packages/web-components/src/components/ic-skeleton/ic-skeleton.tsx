@@ -9,11 +9,11 @@ import { IcSkeletonVariants } from "./ic-skeleton.types";
 export class Skeleton {
   @Element() el: HTMLIcSkeletonElement;
   /**
-   * The variant of the skeleton that will be displayed
+   * The variant of the skeleton that will be displayed.
    */
   @Prop() variant?: IcSkeletonVariants = "rectangle";
   /**
-   * Set the skeleton to the light variant
+   * If `true`, the skeleton will be set to the light variant.
    */
   @Prop() light?: boolean = false;
 
