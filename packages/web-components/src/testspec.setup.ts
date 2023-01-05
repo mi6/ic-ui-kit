@@ -24,7 +24,7 @@ export const waitForTimeout = async (ms: number): Promise<void> => {
   await new Promise((r) => setTimeout(r, ms));
 };
 
-export const mockDeviceSize = (size: number) => {
+export const mockDeviceSize = (size: number): void => {
   const matchesFunc = jest.fn((devSize) => {
     return devSize === size;
   });

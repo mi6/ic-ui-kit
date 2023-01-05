@@ -78,12 +78,12 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       </div>
     </div>
   </mock:shadow-root>
-  <ic-navigation-button onclick="alert('test')" slot="buttons">
+  <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
       <ic-button class="button-size-large button-variant-icon light">
         <mock:shadow-root>
-          <ic-tooltip placement="bottom" target="ic-button-with-tooltip-">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" class="button" id="ic-button-with-tooltip-" type="button">
+          <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" type="button">
               <div class="icon-container">
                 <slot name="icon"></slot>
               </div>

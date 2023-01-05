@@ -3,6 +3,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { Breadcrumb } from "../ic-breadcrumb/ic-breadcrumb";
 import { DEVICE_SIZES } from "../../utils/helpers";
 import * as helpers from "../../utils/helpers";
+import { waitForTimeout } from "../../testspec.setup";
 
 describe("ic-breadcrumb-group", () => {
   it("should render", async () => {
@@ -71,7 +72,7 @@ describe("ic-breadcrumb-group", () => {
       page.doc.getElementById("collapsed-ellipsis");
     collapsedEllipsis.click();
 
-    page.waitForChanges();
+    await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot(
       "should handle the hidden collapsed breadcrumbs"
@@ -131,6 +132,68 @@ describe("ic-breadcrumb-group", () => {
     page.rootInstance.resizeObserverCallback(DEVICE_SIZES.M);
 
     expect(page.rootInstance.backBreadcrumbOnly).toBe(false);
+
+    //call runResizeObserver
+    await page.rootInstance.runResizeObserver();
+  });
+
+  it("should test resize observer after expanding breadcrumbs", async () => {
+    const page = await newSpecPage({
+      components: [BreadcrumbGroup, Breadcrumb],
+      html: `<ic-breadcrumb-group collapsed="true">
+          <ic-breadcrumb current="true" page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 3" href="/breadcrumb-3"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 4" href="/breadcrumb-4"></ic-breadcrumb>
+      </ic-breadcrumb-group>`,
+    });
+
+    // page.rootInstance.expandedBreadcrumbGroup = true;
+    page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
+
+    expect(page.rootInstance.expandedBreadcrumbs).toBe(false);
+
+    const button = page.root.querySelector(
+      "#collapsed-ellipsis"
+    ) as HTMLButtonElement;
+    button.click();
+    await page.waitForChanges();
+    //delay to test setTimeout in code
+    await waitForTimeout(100);
+
+    page.rootInstance.resizeObserverCallback(DEVICE_SIZES.M);
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.expandedBreadcrumbs).toBe(true);
+
+    //call runResizeObserver
+    await page.rootInstance.runResizeObserver();
+  });
+
+  it("should test resize observer with collapsed false", async () => {
+    const page = await newSpecPage({
+      components: [BreadcrumbGroup, Breadcrumb],
+      html: `<ic-breadcrumb-group>
+          <ic-breadcrumb current="true" page-title="Breadcrumb 1" href="/breadcrumb-1"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 2" href="/breadcrumb-2"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 3" href="/breadcrumb-3"></ic-breadcrumb>
+          <ic-breadcrumb page-title="Breadcrumb 4" href="/breadcrumb-4"></ic-breadcrumb>
+      </ic-breadcrumb-group>`,
+    });
+
+    // page.rootInstance.expandedBreadcrumbGroup = true;
+    page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
+
+    await page.waitForChanges();
+    page.rootInstance.resizeObserverCallback(DEVICE_SIZES.M);
+
+    await page.waitForChanges();
+
+    // expect(true).toBeTruthy;
+
+    expect(page.rootInstance.expandedBreadcrumbs).toBe(false);
+    // expect(page.rootInstance.backBreadcrumbOnly).toBe(false);
 
     //call runResizeObserver
     await page.rootInstance.runResizeObserver();
