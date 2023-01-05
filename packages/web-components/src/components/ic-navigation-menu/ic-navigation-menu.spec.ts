@@ -62,6 +62,7 @@ describe("ic-navigation-menu", () => {
       html: `<ic-navigation-menu version="v1.0.0" status="Beta">
         <ic-navigation-button
           slot="buttons"
+          label="button1"
           onclick="alert('test')"
         >
           <svg
