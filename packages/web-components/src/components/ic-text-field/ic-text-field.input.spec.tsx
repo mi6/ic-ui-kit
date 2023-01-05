@@ -1,5 +1,6 @@
 import { TextField } from "./ic-text-field";
 import { newSpecPage } from "@stencil/core/testing";
+import { waitForTimeout } from "../../testspec.setup";
 
 describe("ic-text-field", () => {
   it("should render", async () => {
@@ -263,6 +264,8 @@ describe("ic-text-field", () => {
     expect(page.rootInstance.value).toBe("");
 
     //test disconnected callback
+    //delay to wait for icchange event to prevent console warning
+    await waitForTimeout(500);
     page.setContent("");
   });
 });
