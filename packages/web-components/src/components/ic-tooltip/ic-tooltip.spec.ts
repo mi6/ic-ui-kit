@@ -106,7 +106,7 @@ describe("ic-loading-indicator component", () => {
 
     body.dispatchEvent(
       new (window.window as any).KeyboardEvent("keydown", {
-        key: "ArrowDown",
+        key: "Escape",
         bubbles: true,
         cancelable: true,
       })
@@ -125,7 +125,7 @@ describe("ic-loading-indicator component", () => {
 
     expect(page.rootInstance.label).toBe("tooltip");
 
-    page.rootInstance.label = "new tooltip";
+    page.root.label = "new tooltip";
 
     page.rootInstance.updateLabel();
     await page.waitForChanges();
