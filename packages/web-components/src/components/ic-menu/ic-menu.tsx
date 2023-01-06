@@ -270,8 +270,6 @@ export class Menu {
       (option) => option.value === this.optionHighlighted
     );
 
-    this.menuOptionId.emit({ optionId: undefined });
-
     const getOptionId = (index: number): string =>
       Array.from(this.host.shadowRoot.querySelectorAll("li"))[index].id;
 
@@ -287,6 +285,9 @@ export class Menu {
           });
         } else {
           this.setHighlightedOption(0);
+          this.menuOptionId.emit({
+            optionId: getOptionId(0),
+          });
         }
         this.preventIncorrectTabOrder = false;
         this.focusFromSearchKeypress = false;

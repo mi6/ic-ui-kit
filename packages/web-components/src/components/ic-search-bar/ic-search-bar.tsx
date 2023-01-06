@@ -244,6 +244,8 @@ export class SearchBar {
   }
 
   private handleSubmitSearch = () => {
+    this.highlightedValue && (this.value = this.highlightedValue);
+    this.highlightedValue = undefined;
     this.icSubmitSearch.emit({ value: this.value });
 
     const form: HTMLFormElement = this.el.closest("FORM");
@@ -409,6 +411,7 @@ export class SearchBar {
   @State() clearButtonFocused: boolean = false;
   @State() searchSubmitFocused: boolean = false;
   @State() prevNoOption: boolean = false;
+  @State() highlightedValue: string;
 
   private handleOptionSelect = (ev: CustomEvent) => {
     if (ev.detail.label === this.emptyOptionListText) {
@@ -418,6 +421,11 @@ export class SearchBar {
 
     this.value = ev.detail.value;
     this.icOptionSelect.emit({ value: this.value });
+  };
+
+  private handleMenuOptionHighlight = (ev: CustomEvent) => {
+    const optionValue = ev.detail.optionId?.replace(`${this.menuId}-`, "");
+    optionValue && (this.highlightedValue = optionValue);
   };
 
   private handleMenuChange = (ev: CustomEvent) => {
@@ -794,6 +802,7 @@ export class SearchBar {
                 options={filteredOptions}
                 onOptionSelect={this.handleOptionSelect}
                 onMenuChange={this.handleMenuChange}
+                onMenuOptionId={this.handleMenuOptionHighlight}
                 parentEl={this.el}
                 value={value}
               ></ic-menu>
