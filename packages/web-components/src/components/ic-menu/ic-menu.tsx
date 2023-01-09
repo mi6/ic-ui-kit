@@ -311,7 +311,6 @@ export class Menu {
         this.preventIncorrectTabOrder = false;
         this.focusFromSearchKeypress = false;
         break;
-      case " ":
       case "Enter":
         event.preventDefault();
         this.setInputValue(highlightedOptionIndex);

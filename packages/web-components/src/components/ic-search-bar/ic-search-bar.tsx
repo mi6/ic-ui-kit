@@ -255,6 +255,13 @@ export class SearchBar {
     }
   };
 
+  private handleSubmitSearchKeyDown = (ev: KeyboardEvent) => {
+    if (ev.key === " ") {
+      ev.preventDefault();
+      this.handleSubmitSearch();
+    }
+  };
+
   /**
    * Emitted when a keyboard input occurred.
    */
@@ -768,6 +775,7 @@ export class SearchBar {
               onClick={this.handleSubmitSearch}
               onBlur={this.handleSubmitSearchBlur}
               onFocus={this.handleSubmitSearchFocus}
+              onKeyDown={this.handleSubmitSearchKeyDown}
               type="submit"
               variant="icon"
               appearance={
