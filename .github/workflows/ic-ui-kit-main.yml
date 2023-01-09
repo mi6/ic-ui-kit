@@ -55,6 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          TOKEN: ${{ secrets.PUBLISH_PAT }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -75,7 +77,6 @@ jobs:
           HUSKY_SKIP_HOOKS=1 npx lerna publish --conventional-commits --conventional-prerelease --preid=beta --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          TOKEN: ${{ secrets.PUBLISH_PAT }}
 
 
 
