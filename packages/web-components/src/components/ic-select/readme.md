@@ -54,6 +54,13 @@ Type: `Promise<void>`
 
 
 
+## CSS Custom Properties
+
+| Name            | Description              |
+| --------------- | ------------------------ |
+| `--input-width` | Width of the input field |
+
+
 ## Dependencies
 
 ### Depends on
