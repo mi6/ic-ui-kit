@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.2 (2023-01-10)
+# [2.1.0-beta.2](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2023-01-10)
+
 
 ### Bug Fixes
 
-- **web-components:** fixed issues with search bar ([5716968](https://github.com/mi6/ic-ui-kit/commit/57169680901c20aac1f5371c2ee3cd1847db306b))
+* **web-components:** fixed issues with search bar ([2b1663b](https://github.com/mi6/ic-ui-kit/commit/2b1663b0f2599d427b5aa57e815b54286be0fbb8))
+* **web-components:** fixes back to top positioning ([94ebac7](https://github.com/mi6/ic-ui-kit/commit/94ebac7b9b5b9fe056ff6663429d00f8db678365))
+* **web-components:** fixes console error in linear determinate variant ([d15e609](https://github.com/mi6/ic-ui-kit/commit/d15e60960991b382857dc8866ee2340b502b88ef))
+* **web-components:** removed chips for a11y testing ([25c060a](https://github.com/mi6/ic-ui-kit/commit/25c060a8ab6fbeeaeebf4d12d91c0930a2c42d28))
+* **web-components:** removed empty validation space when no status is provided ([649f040](https://github.com/mi6/ic-ui-kit/commit/649f0408b7bd623c1db1732993404a00d918bddc))
+* **web-components:** updated last-of-type styling on footer links ([c0d4057](https://github.com/mi6/ic-ui-kit/commit/c0d40579b025899eaaebaf5bdfc09c9814d4a13b))
+* **web-components:** updated side-navigation on lg devices to stick to left hand side ([9e77e05](https://github.com/mi6/ic-ui-kit/commit/9e77e056bdc3806167f3cd90dc13a4407ffeff5b)), closes [#195](https://github.com/mi6/ic-ui-kit/issues/195)
 
 # [2.1.0-beta.1](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.0...v2.1.0-beta.1) (2022-12-23)
 
