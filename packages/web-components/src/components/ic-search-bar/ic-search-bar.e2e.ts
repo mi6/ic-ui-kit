@@ -309,7 +309,7 @@ describe("ic-search-bar", () => {
     expect(await searchBar.getProperty("value")).toBe("bar");
   });
 
-  it("should select first option and update value as label on Space", async () => {
+  it("should add a space to value on Space", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <ic-search-bar label="Test Label"></ic-search-bar>
@@ -326,12 +326,10 @@ describe("ic-search-bar", () => {
 
     await page.waitForChanges();
 
-    // await searchBar.press("ArrowDown");
-
     const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
     await menu.press("Space");
 
-    expect(await searchBar.getProperty("value")).toBe("bar");
+    expect(await searchBar.getProperty("value")).toBe("ba ");
   });
 
   it("should set value to last option when pressing up on input", async () => {
@@ -538,6 +536,26 @@ describe("ic-search-bar", () => {
 
     expect(searchBar.getAttribute("value")).toBe("");
     expect(searchBar.getAttribute("value").length).toBe(0);
+  });
+  
+  it("should emit icSubmitSearch when search button pressed with Space", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
+    const icSubmitSearch = await page.spyOnEvent("icSubmitSearch");
+
+    await focusAndTypeIntoInput("foo", page);
+
+    await page.waitForChanges();
+
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Space");
+
+    await page.waitForChanges();
+
+    expect(icSubmitSearch).toHaveReceivedEventDetail({
+      value: "foo",
+    });
   });
 
   it("should update value and move focus back to input when focus previously on ic-menu", async () => {
