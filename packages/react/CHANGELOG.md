@@ -3,11 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.2 (2023-01-10)
+# [2.1.0-beta.2](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2023-01-10)
+
 
 ### Bug Fixes
 
-- **web-components:** fixed issues with search bar ([5716968](https://github.com/mi6/ic-ui-kit/commit/57169680901c20aac1f5371c2ee3cd1847db306b))
+* **react:** import text field into react radio examples ([4e4dbdf](https://github.com/mi6/ic-ui-kit/commit/4e4dbdf2c3176ebee450c10035e6b0d73cd568fa)), closes [#221](https://github.com/mi6/ic-ui-kit/issues/221)
+* **react:** updated css copy script ([b065e98](https://github.com/mi6/ic-ui-kit/commit/b065e989c1dd0dbaf8d90d5696970397bfbad7de)), closes [#206](https://github.com/mi6/ic-ui-kit/issues/206)
+
+
+
 
 # [2.1.0-beta.1](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.0...v2.1.0-beta.1) (2022-12-23)
 
