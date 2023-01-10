@@ -22,7 +22,7 @@ Add options into your relevant config
 
 ```js
 // Only works if using in-browser compilation.
-app.config.compilerOptions.isCustomElement = (tag) => tag.includes('-')
+app.config.compilerOptions.isCustomElement = (tag) => tag.includes("-");
 ```
 
 ### Vite config
@@ -37,12 +37,12 @@ export default {
       template: {
         compilerOptions: {
           // treat all tags with a dash as custom elements
-          isCustomElement: (tag) => tag.includes('-')
-        }
-      }
-    })
-  ]
-}
+          isCustomElement: (tag) => tag.includes("-"),
+        },
+      },
+    }),
+  ],
+};
 ```
 
 ### Vue CLI config
@@ -50,26 +50,26 @@ export default {
 ```js
 // vue.config.js
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap(options => ({
+      .rule("vue")
+      .use("vue-loader")
+      .tap((options) => ({
         ...options,
         compilerOptions: {
           // treat any tag that starts with ic- as custom elements
-          isCustomElement: tag => tag.startsWith('ic-')
-        }
-      }))
-  }
-}
+          isCustomElement: (tag) => tag.startsWith("ic-"),
+        },
+      }));
+  },
+};
 ```
 
 Import `defineCustomElements` in your `main.js` file and call it at the bottom of the file:
 
 ```js
 // main.js
-import { defineCustomElements } from '@ukic/web-components/loader';
+import { defineCustomElements } from "@ukic/web-components/loader";
 
 // ...
 

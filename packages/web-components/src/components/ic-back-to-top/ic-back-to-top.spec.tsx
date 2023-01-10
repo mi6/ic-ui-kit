@@ -51,7 +51,9 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="#topEl"></ic-back-to-top></div>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render when target starts with #");
+    expect(page.root).toMatchSnapshot(
+      "should render when target starts with #"
+    );
   });
 
   it("should offset due to classification banner", async () => {

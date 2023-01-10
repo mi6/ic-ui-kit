@@ -128,7 +128,7 @@ describe("ic-loading-indicator component", () => {
     });
 
     expect(page.rootInstance.label).toBe("IC Loading Indicator Test");
-    
+
     page.root.label = "New label";
     page.root.progress = 20;
     await page.waitForChanges();
@@ -166,5 +166,4 @@ describe("ic-loading-indicator component", () => {
     const x = circle.getAttribute("cx");
     expect(x).toBe("50");
   });
-
 });
