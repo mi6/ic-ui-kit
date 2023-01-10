@@ -26,6 +26,13 @@
 | `"left-icon"` | Content will be placed to the left of the input. |
 
 
+## CSS Custom Properties
+
+| Name             | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| `--border-color` | Border colour of the input component container |
+
+
 ## Dependencies
 
 ### Used by
