@@ -583,7 +583,7 @@ export namespace Components {
          */
         "fullWidth": boolean;
         /**
-          * If menu is opened with the mouse, emit menuChange custom event.
+          * If menu is opened with the mouse, emit icMenuStateChange custom event.
          */
         "handleClickOpen": () => Promise<void>;
         /**
@@ -2107,10 +2107,7 @@ declare namespace LocalJSX {
           * If `true`, the footer will be set up to handle link groups instead of standalone links.
          */
         "groupLinks"?: boolean;
-        /**
-          * Triggers on page resize and triggers style changes in footer links and link groups
-         */
-        "onIcFooterResized"?: (event: IcFooterCustomEvent<void>) => void;
+        "onFooterResized"?: (event: IcFooterCustomEvent<void>) => void;
     }
     interface IcFooterLink {
         /**
@@ -2367,15 +2364,12 @@ declare namespace LocalJSX {
         /**
           * Emitted when state of menu changes (i.e. open or close).
          */
-        "onMenuChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
-        /**
-          * Emitted when an option has been highlighted
-         */
-        "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
+        "onIcMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
         /**
           * Emitted when an option is selected.
          */
-        "onOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onIcOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
         /**
           * If `true`, the menu will be displayed open.
          */
@@ -2447,7 +2441,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         "onChildBlur"?: (event: IcNavigationItemCustomEvent<void>) => void;
-        "onIcNavItemClicked"?: (event: IcNavigationItemCustomEvent<void>) => void;
+        "onNavItemClicked"?: (event: IcNavigationItemCustomEvent<void>) => void;
         /**
           * If `true`, the navigation item will be set in a selected state.
          */
@@ -2971,9 +2965,6 @@ declare namespace LocalJSX {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
-        /**
-          * Emitted when a tab is selected.
-         */
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "selected"?: boolean;
@@ -3165,10 +3156,7 @@ declare namespace LocalJSX {
           * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: string;
-        /**
-          * Emitted when the theme is changed.
-         */
-        "onIcThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
+        "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
     }
     interface IcTooltip {
         /**

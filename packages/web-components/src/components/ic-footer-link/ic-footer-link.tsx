@@ -46,12 +46,12 @@ export class FooterLink {
     }
   }
 
-  @Listen("icFooterResized", { target: "document" })
+  @Listen("footerResized", { target: "document" })
   footerResizeHandler(): void {
     this.footerConfig = this.inferConfig(this.el);
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   footerThemeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.foregroundColor = theme.mode;
