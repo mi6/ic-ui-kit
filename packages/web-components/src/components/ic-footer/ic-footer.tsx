@@ -40,9 +40,9 @@ export class Footer {
   @Element() el: HTMLIcFooterElement;
 
   /**
-   * Triggers on page resize and triggers style changes in footer links and link groups
+   *  @internal Triggers on page resize and triggers style changes in footer links and link groups
    */
-  @Event() icFooterResized: EventEmitter<void>;
+  @Event() footerResized: EventEmitter<void>;
 
   /**
    * The description displayed at the top of the footer.
@@ -94,7 +94,7 @@ export class Footer {
       : false;
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.foregroundColor = theme.mode;
@@ -107,7 +107,7 @@ export class Footer {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
     }
-    this.icFooterResized.emit();
+    this.footerResized.emit();
   };
 
   private runResizeObserver = () => {

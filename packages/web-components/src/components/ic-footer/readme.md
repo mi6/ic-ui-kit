@@ -17,13 +17,6 @@
 | `groupLinks`  | `group-links` | If `true`, the footer will be set up to handle link groups instead of standalone links. | `boolean`                                                          | `false`     |
 
 
-## Events
-
-| Event             | Description                                                                        | Type                |
-| ----------------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `icFooterResized` | Triggers on page resize and triggers style changes in footer links and link groups | `CustomEvent<void>` |
-
-
 ## Slots
 
 | Slot            | Description                                             |

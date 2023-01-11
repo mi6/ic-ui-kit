@@ -60,12 +60,12 @@ export class NavigationGroup {
     this.hideDropdown();
   }
 
-  @Listen("icNavItemClicked")
+  @Listen("navItemClicked")
   navItemClickHandler(): void {
     this.hideDropdown();
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.focusStyle = theme.mode;

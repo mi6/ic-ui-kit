@@ -36,9 +36,9 @@ export class Theme {
   }
 
   /**
-   * Emitted when the theme is changed.
+   * @internal Emitted when the theme is changed.
    */
-  @Event() icThemeChange: EventEmitter<IcTheme>;
+  @Event() themeChange: EventEmitter<IcTheme>;
 
   private checkThemeColorContrast = (): void => {
     if (
@@ -75,7 +75,7 @@ export class Theme {
       this.checkThemeColorContrast();
 
       const foregroundColor = getThemeForegroundColor();
-      this.icThemeChange.emit({ mode: foregroundColor, color: colorRGBA });
+      this.themeChange.emit({ mode: foregroundColor, color: colorRGBA });
     }
   };
 

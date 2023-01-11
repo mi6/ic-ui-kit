@@ -9,12 +9,12 @@ describe("ic-theme", () => {
     expect(element).toHaveClass("hydrated");
   });
 
-  it("should emit icThemeChange when setThemeRGB method called", async () => {
+  it("should emit themeChange when setThemeRGB method called", async () => {
     const page = await newE2EPage();
 
     await page.setContent(`<ic-theme></ic-theme>`);
 
-    const spy = await page.spyOnEvent("icThemeChange");
+    const spy = await page.spyOnEvent("themeChange");
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
       elm.color = "rgb(255, 201, 60)";
@@ -53,7 +53,7 @@ describe("ic-theme", () => {
     const page = await newE2EPage();
     await page.setContent("<ic-theme></ic-theme>");
 
-    const spy = await page.spyOnEvent("icThemeChange");
+    const spy = await page.spyOnEvent("themeChange");
 
     await page.$eval("ic-theme", (elm: HTMLIcThemeElement) => {
       elm.color = "rgb(1000, 1000, 1000)";

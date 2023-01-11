@@ -46,7 +46,7 @@ export class Tab {
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
-   * Emitted when a tab is selected.
+   * @internal Emitted when a tab is selected.
    */
   @Event() tabClick: EventEmitter<IcTabClickEventDetail>;
 

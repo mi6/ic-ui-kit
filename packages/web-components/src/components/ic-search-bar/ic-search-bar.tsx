@@ -254,7 +254,7 @@ export class SearchBar {
       handleHiddenFormButtonClick(form, this.searchSubmitButton);
     }
   };
-  
+
   private handleSubmitSearchKeyDown = (ev: KeyboardEvent) => {
     if (ev.key === " ") {
       ev.preventDefault();
@@ -429,7 +429,7 @@ export class SearchBar {
     this.value = ev.detail.value;
     this.icOptionSelect.emit({ value: this.value });
   };
-  
+
   private handleMenuOptionHighlight = (ev: CustomEvent) => {
     const optionValue = ev.detail.optionId?.replace(`${this.menuId}-`, "");
     optionValue && (this.highlightedValue = optionValue);
@@ -467,7 +467,7 @@ export class SearchBar {
     this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
   };
 
-  @Listen("menuChange", {})
+  @Listen("icMenuStateChange", {})
   onMenuClose(ev: CustomEvent): void {
     if (!ev.detail.open) {
       this.handleMenuCloseFromMenuChange(true);
@@ -808,8 +808,8 @@ export class SearchBar {
                 menuId={menuId}
                 open={true}
                 options={filteredOptions}
-                onOptionSelect={this.handleOptionSelect}
-                onMenuChange={this.handleMenuChange}
+                onIcOptionSelect={this.handleOptionSelect}
+                onIcMenuStateChange={this.handleMenuChange}
                 onMenuOptionId={this.handleMenuOptionHighlight}
                 parentEl={this.el}
                 value={value}
