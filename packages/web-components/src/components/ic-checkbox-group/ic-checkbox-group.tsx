@@ -77,7 +77,7 @@ export class CheckboxGroup {
 
   @State() checkedOptions: string[] = [];
 
-  @Listen("checkboxChecked")
+  @Listen("icCheck")
   selectHandler(): void {
     this.checkboxOptions = Array.from(
       this.host.querySelectorAll("ic-checkbox")
@@ -133,23 +133,22 @@ export class CheckboxGroup {
         {(this.validationStatus === "error" ||
           this.required ||
           this.hideLabel) && (
-          <span
-            id="screenReaderOnlyText"
-            class="screen-reader-only-text"
-            aria-hidden="true"
-          >
-            {this.label}{" "}
-            {this.validationStatus === "error" ? "invalid data " : null}{" "}
-            {this.required ? "required" : null}
-          </span>
-        )}
+            <span
+              id="screenReaderOnlyText"
+              class="screen-reader-only-text"
+              aria-hidden="true"
+            >
+              {this.label}{" "}
+              {this.validationStatus === "error" ? "invalid data " : null}{" "}
+              {this.required ? "required" : null}
+            </span>
+          )}
         <fieldset
           id={this.name}
-          aria-labelledby={`${
-            this.validationStatus === "error" || this.required || this.hideLabel
+          aria-labelledby={`${this.validationStatus === "error" || this.required || this.hideLabel
               ? "screenReaderOnlyText"
               : ""
-          } ${describedBy}`.trim()}
+            } ${describedBy}`.trim()}
           disabled={this.disabled}
         >
           {!this.hideLabel && (

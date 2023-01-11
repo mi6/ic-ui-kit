@@ -67,15 +67,20 @@ export class Checkbox {
   @Element() host: HTMLIcCheckboxElement;
 
   /**
-   * Emitted when a checkbox has been checked
+   * @deprecated This event should not be used anymore. Use icCheck instead.
    */
   @Event() checkboxChecked: EventEmitter<void>;
+
+  /**
+ * Emitted when a checkbox has been checked.
+ */
+  @Event() icCheck: EventEmitter<void>;
 
   private additionalFieldContainer: HTMLDivElement;
 
   private handleClick = () => {
     this.checked = !this.checked;
-    this.checkboxChecked.emit();
+    this.icCheck.emit();
   };
 
   private handleFormReset = (): void => {
@@ -118,20 +123,19 @@ export class Checkbox {
   }
 
   render() {
-    let id = `ic-checkbox-${
-      this.label !== undefined ? this.label : this.value
-    }-${this.groupLabel}`;
+    let id = `ic-checkbox-${this.label !== undefined ? this.label : this.value
+      }-${this.groupLabel}`;
 
     id = id.replace(/ /g, "-");
 
     this.checked
       ? renderHiddenInput(
-          true,
-          this.host,
-          this.name,
-          this.checked && this.value,
-          this.disabled
-        )
+        true,
+        this.host,
+        this.name,
+        this.checked && this.value,
+        this.disabled
+      )
       : removeHiddenInput(this.host);
 
     return (
