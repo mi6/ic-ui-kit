@@ -80,7 +80,7 @@ export class TextField {
   /**
    * If `true`, the read only state will be set.
    */
-  @Prop() readonly: boolean = false;
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   /**
    * The placeholder value to be displayed.
@@ -116,7 +116,7 @@ export class TextField {
   /**
    * If `true`, the small styling will be applied to the text field.
    */
-  @Prop() small: boolean = false;
+  @Prop({ reflect: true }) small: boolean = false;
 
   /**
    * The value of the text field.
