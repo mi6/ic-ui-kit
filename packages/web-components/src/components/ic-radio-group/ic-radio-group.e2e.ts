@@ -124,7 +124,7 @@ describe("ic-radio-group component", () => {
       value: "test2",
     });
   });
-  it("Should emit radioOptionSelect event when radio option is selected", async () => {
+  it("Should emit icRadioCheck event when radio option is selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -132,12 +132,12 @@ describe("ic-radio-group component", () => {
         </ic-radio-group>
       `);
     const radioButton = await page.find("ic-radio-option[value='test2']");
-    const icRadioOptionSelected = await page.spyOnEvent("radioOptionSelect");
+    const icRadioChecked = await page.spyOnEvent("icRadioCheck");
 
     await radioButton.click();
     await page.waitForChanges();
 
-    expect(icRadioOptionSelected).toHaveReceivedEventDetail({
+    expect(icRadioChecked).toHaveReceivedEventDetail({
       value: "test2",
     });
   });

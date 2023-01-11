@@ -70,7 +70,7 @@ export class SideNavigation {
    */
   @Prop() collapsedIconLabels: boolean = false;
   /**
-   * If `true`, side navigation will be contained by its parent element.
+   * @internal If `true`, side navigation will be contained by its parent element.
    */
   @Prop() inline: boolean = false;
 
@@ -671,9 +671,8 @@ export class SideNavigation {
                   class="menu-expand-button"
                   innerHTML={chevronIcon}
                   onClick={this.toggleMenuExpanded}
-                  aria-label={`${
-                    menuExpanded ? "Collapse" : "Expand"
-                  } side navigation`}
+                  aria-label={`${menuExpanded ? "Collapse" : "Expand"
+                    } side navigation`}
                 ></button>
               )}
               <div class="app-status-wrapper">

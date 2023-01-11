@@ -254,7 +254,7 @@ export class SearchBar {
       handleHiddenFormButtonClick(form, this.searchSubmitButton);
     }
   };
-  
+
   private handleSubmitSearchKeyDown = (ev: KeyboardEvent) => {
     if (ev.key === " ") {
       ev.preventDefault();
@@ -308,7 +308,7 @@ export class SearchBar {
   }
 
   /**
-   * Emitted when input loses focus.
+   * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
    */
   @Event() icInputBlur: EventEmitter<IcSearchBarBlurEventDetail>;
   private onInputBlur = (ev: Event) => {
@@ -319,7 +319,7 @@ export class SearchBar {
   };
 
   /**
-   * Emitted when input gains focus.
+   * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
    */
   @Event() icInputFocus: EventEmitter<IcValueEventDetail>;
   private onInputFocus = (ev: Event) => {
@@ -429,7 +429,7 @@ export class SearchBar {
     this.value = ev.detail.value;
     this.icOptionSelect.emit({ value: this.value });
   };
-  
+
   private handleMenuOptionHighlight = (ev: CustomEvent) => {
     const optionValue = ev.detail.optionId?.replace(`${this.menuId}-`, "");
     optionValue && (this.highlightedValue = optionValue);
@@ -542,9 +542,8 @@ export class SearchBar {
       if (this.hadNoOptions()) {
         searchResultsStatusEl.innerText = this.emptyOptionListText;
       } else {
-        searchResultsStatusEl.innerText = `${
-          this.filteredOptions.length
-        } result${this.filteredOptions.length > 1 ? "s" : ""} available`;
+        searchResultsStatusEl.innerText = `${this.filteredOptions.length
+          } result${this.filteredOptions.length > 1 ? "s" : ""} available`;
       }
     }
   };

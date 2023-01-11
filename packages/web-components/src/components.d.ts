@@ -1026,9 +1026,6 @@ export namespace Components {
           * The URL that the app title link points to.
          */
         "href": string;
-        /**
-          * If `true`, side navigation will be contained by its parent element.
-         */
         "inline": boolean;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
@@ -1160,7 +1157,7 @@ export namespace Components {
          */
         "contextId"?: string;
         /**
-          * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
+          * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
     }
@@ -1795,9 +1792,13 @@ declare namespace LocalJSX {
          */
         "message"?: string;
         /**
-          * Is emitted when the user dismisses the alert.
+          * @deprecated This event should not be used anymore. Use icDismiss instead.
          */
         "onDismiss"?: (event: IcAlertCustomEvent<void>) => void;
+        /**
+          * Is emitted when the user dismisses the alert.
+         */
+        "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
           * If `true`, the title and message will appear inline instead of above and below.
          */
@@ -1984,9 +1985,13 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when a checkbox has been checked
+          * @deprecated This event should not be used anymore. Use icCheck instead.
          */
         "onCheckboxChecked"?: (event: IcCheckboxCustomEvent<void>) => void;
+        /**
+          * Emitted when a checkbox has been checked.
+         */
+        "onIcCheck"?: (event: IcCheckboxCustomEvent<void>) => void;
         /**
           * The value for the checkbox.
          */
@@ -2568,6 +2573,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when a radio is selected.
          */
+        "onIcRadioCheck"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * @deprecated This event should not be used anymore. Use icRadioCheck instead.
+         */
         "onRadioOptionSelect"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
         /**
           * If `true`, the radio option will be displayed in a selected state.
@@ -2657,11 +2666,11 @@ declare namespace LocalJSX {
          */
         "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Emitted when input loses focus.
+          * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
          */
         "onIcInputBlur"?: (event: IcSearchBarCustomEvent<IcSearchBarBlurEventDetail>) => void;
         /**
-          * Emitted when input gains focus.
+          * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
          */
         "onIcInputFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
@@ -2843,9 +2852,6 @@ declare namespace LocalJSX {
           * The URL that the app title link points to.
          */
         "href"?: string;
-        /**
-          * If `true`, side navigation will be contained by its parent element.
-         */
         "inline"?: boolean;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
@@ -2996,9 +3002,13 @@ declare namespace LocalJSX {
         /**
           * Emitted when a user selects a tab.
          */
+        "onIcTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
+        /**
+          * @deprecated This event should not be used anymore. Use icTabSelect instead.
+         */
         "onTabSelect"?: (event: IcTabContextCustomEvent<IcTabSelectEventDetail>) => void;
         /**
-          * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
+          * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
     }

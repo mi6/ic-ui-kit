@@ -162,7 +162,7 @@ describe("ic-checkbox-group", () => {
     expect(page.root.checked).toBe(false);
   });
 
-  it("should emit checkboxChecked on click", async () => {
+  it("should emit icCheck on click", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
@@ -172,7 +172,7 @@ describe("ic-checkbox-group", () => {
 
     const eventSpy = jest.fn();
 
-    page.win.addEventListener("checkboxChecked", eventSpy);
+    page.win.addEventListener("icCheck", eventSpy);
 
     page.root
       .querySelector("ic-checkbox")
