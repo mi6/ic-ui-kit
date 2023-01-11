@@ -105,15 +105,15 @@ export class Menu {
   /**
    * Emitted when an option is selected.
    */
-  @Event() optionSelect!: EventEmitter<IcOptionSelectEventDetail>;
+  @Event() icOptionSelect!: EventEmitter<IcOptionSelectEventDetail>;
 
   /**
    * Emitted when state of menu changes (i.e. open or close).
    */
-  @Event() menuChange!: EventEmitter<IcMenuChangeEventDetail>;
+  @Event() icMenuStateChange!: EventEmitter<IcMenuChangeEventDetail>;
 
   /**
-   * Emitted when an option has been highlighted
+   * @internal Emitted when an option has been highlighted
    */
   @Event() menuOptionId: EventEmitter<IcMenuOptionIdEventDetail>;
 
@@ -140,7 +140,7 @@ export class Menu {
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
     if (!open) this.popperInstance.destroy();
-    this.menuChange.emit({ open, focusInput });
+    this.icMenuStateChange.emit({ open, focusInput });
 
     if (!open && focusInput !== false) {
       this.inputEl.focus();
@@ -150,14 +150,14 @@ export class Menu {
 
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
-      this.optionSelect.emit({
+      this.icOptionSelect.emit({
         value: this.ungroupedOptions[selectedOptionIndex + 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[selectedOptionIndex + 1].value
         ),
       });
     } else {
-      this.optionSelect.emit({
+      this.icOptionSelect.emit({
         value: this.ungroupedOptions[0].value,
         optionId: this.getOptionId(this.ungroupedOptions[0].value),
       });
@@ -166,14 +166,14 @@ export class Menu {
 
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
-      this.optionSelect.emit({
+      this.icOptionSelect.emit({
         value: this.ungroupedOptions[selectedOptionIndex - 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[selectedOptionIndex - 1].value
         ),
       });
     } else {
-      this.optionSelect.emit({
+      this.icOptionSelect.emit({
         value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[this.ungroupedOptions.length - 1].value
@@ -183,12 +183,12 @@ export class Menu {
   };
 
   /**
-   * If menu is opened with the mouse, emit menuChange custom event.
+   * If menu is opened with the mouse, emit icMenuStateChange custom event.
    */
   @Method()
   async handleClickOpen(): Promise<void> {
     if (!this.preventClickOpen) {
-      this.menuChange.emit({ open: !this.open });
+      this.icMenuStateChange.emit({ open: !this.open });
       this.keyboardNav = false;
     }
     this.preventClickOpen = false;
@@ -342,7 +342,7 @@ export class Menu {
 
   private setInputValue = (highlightedOptionIndex: number) => {
     if (this.options[highlightedOptionIndex]) {
-      this.optionSelect.emit({
+      this.icOptionSelect.emit({
         value: this.options[highlightedOptionIndex]?.value,
       });
       this.optionHighlighted = undefined;
@@ -353,7 +353,7 @@ export class Menu {
 
   private handleOptionClick = (event: Event): void => {
     const { value, label } = (event.target as HTMLLIElement).dataset;
-    this.optionSelect.emit({ value, label });
+    this.icOptionSelect.emit({ value, label });
     this.handleMenuChange(false);
   };
 
@@ -394,13 +394,13 @@ export class Menu {
         this.keyboardNav = true;
         break;
       case "Home":
-        this.optionSelect.emit({
+        this.icOptionSelect.emit({
           value: this.ungroupedOptions[0].value,
         });
         this.keyboardNav = true;
         break;
       case "End":
-        this.optionSelect.emit({
+        this.icOptionSelect.emit({
           value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
         });
         this.keyboardNav = true;

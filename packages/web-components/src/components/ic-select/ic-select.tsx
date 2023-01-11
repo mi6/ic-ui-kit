@@ -780,8 +780,8 @@ export class Select {
               options={searchable ? this.filteredOptions : options}
               value={value}
               fullWidth={fullWidth}
-              onMenuChange={this.handleMenuChange}
-              onOptionSelect={this.handleCustomSelectChange}
+              onIcMenuStateChange={this.handleMenuChange}
+              onIcOptionSelect={this.handleCustomSelectChange}
               parentEl={this.host}
             ></ic-menu>
           )}

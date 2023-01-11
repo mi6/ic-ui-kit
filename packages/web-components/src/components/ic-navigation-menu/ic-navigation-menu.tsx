@@ -38,7 +38,7 @@ export class NavigationMenu {
    */
   @Event() icNavigationMenuClose: EventEmitter<void>;
 
-  @Listen("icNavItemClicked")
+  @Listen("navItemClicked")
   navItemClickHandler(): void {
     this.closeMenu();
   }

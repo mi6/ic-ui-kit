@@ -64,7 +64,7 @@ export class Link {
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.updateTheme(theme.mode);

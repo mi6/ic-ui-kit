@@ -128,7 +128,7 @@ export class Button {
     }
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.updateTheme(theme.mode);

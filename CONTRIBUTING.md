@@ -234,7 +234,7 @@ export class Component {
         this.status = status;
     }
 
-    @Listen("icThemeChange", { target: "document" })
+    @Listen("themeChange", { target: "document" })
     themeChangeHandler(ev: CustomEvent): void {
         this.theme = ev.detail.mode;
     }

@@ -12,13 +12,6 @@
 | `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean` | `false` |
 
 
-## Events
-
-| Event      | Description                     | Type                                 |
-| ---------- | ------------------------------- | ------------------------------------ |
-| `tabClick` | Emitted when a tab is selected. | `CustomEvent<IcTabClickEventDetail>` |
-
-
 ## Slots
 
 | Slot     | Description                                     |
