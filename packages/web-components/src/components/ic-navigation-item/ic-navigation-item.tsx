@@ -82,9 +82,9 @@ export class NavigationItem {
   /**
    * @internal - Emitted when navigation item clicked.
    */
-  @Event() icNavItemClicked: EventEmitter<void>;
+  @Event() navItemClicked: EventEmitter<void>;
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.focusStyle = theme.mode;
@@ -125,7 +125,7 @@ export class NavigationItem {
   };
 
   private handleClick = () => {
-    this.icNavItemClicked.emit();
+    this.navItemClicked.emit();
   };
 
   componentWillLoad(): void {
