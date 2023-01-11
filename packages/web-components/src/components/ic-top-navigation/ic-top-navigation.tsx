@@ -137,7 +137,7 @@ export class TopNavigation {
     this.searchValue = ev.detail.value;
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.foregroundColor = theme.mode;

@@ -57,12 +57,12 @@ export class FooterLinkGroup {
     this.expanded = !this.expanded;
   };
 
-  @Listen("icFooterResized", { target: "document" })
+  @Listen("footerResized", { target: "document" })
   footerResizeHandler(): void {
     this.small = this.isSmall(this.el);
   }
 
-  @Listen("icThemeChange", { target: "document" })
+  @Listen("themeChange", { target: "document" })
   footerThemeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.dropdownIconStyle = theme.mode;
