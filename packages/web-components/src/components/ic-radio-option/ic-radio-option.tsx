@@ -65,9 +65,14 @@ export class RadioOption {
   @Element() host: HTMLIcRadioOptionElement;
 
   /**
-   * Emitted when a radio is selected.
+   * @deprecated This event should not be used anymore. Use icCheck instead.
    */
   @Event() radioOptionSelect: EventEmitter<IcValueEventDetail>;
+
+  /**
+   * Emitted when a radio is selected.
+   */
+  @Event() icCheck: EventEmitter<IcValueEventDetail>;
 
   @Watch("selected")
   selectedChangeHandler(selected: boolean): void {
@@ -91,6 +96,10 @@ export class RadioOption {
         this.value =
           textfield.value !== "" ? textfield.value : this.defaultRadioValue;
       }
+
+      this.icCheck.emit({
+        value: this.value,
+      });
 
       this.radioOptionSelect.emit({
         value: this.value,
@@ -132,11 +141,17 @@ export class RadioOption {
     if (this.selected) {
       if (textFieldValue !== "") {
         this.value = event.detail.value;
+        this.icCheck.emit({
+          value: this.value,
+        });
         this.radioOptionSelect.emit({
           value: this.value,
         });
       } else {
         this.value = this.defaultRadioValue;
+        this.icCheck.emit({
+          value: this.defaultRadioValue,
+        });
         this.radioOptionSelect.emit({
           value: this.defaultRadioValue,
         });

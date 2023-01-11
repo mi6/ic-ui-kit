@@ -234,7 +234,7 @@ describe("ic-tab-context component", () => {
     expect(tabPanel1).not.toHaveAttribute("hidden");
   });
 
-  it("should call tabSelect event in controlled mode when clicked", async () => {
+  it("should call icTabSelect event in controlled mode when clicked", async () => {
     const page = await newE2EPage({
       html: `
     <ic-tab-context selected-tab-index="1">
@@ -250,7 +250,7 @@ describe("ic-tab-context component", () => {
     `,
     });
     const tab1 = await page.find('ic-tab[tab-id="ic-tab--1-context-default"]');
-    const tabSelect = await page.spyOnEvent("tabSelect");
+    const tabSelect = await page.spyOnEvent("icTabSelect");
     await tab1.click();
     await page.waitForChanges();
     expect(tabSelect).toHaveReceivedEventDetail({

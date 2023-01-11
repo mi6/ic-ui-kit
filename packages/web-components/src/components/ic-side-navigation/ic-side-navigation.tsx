@@ -70,7 +70,7 @@ export class SideNavigation {
    */
   @Prop() collapsedIconLabels: boolean = false;
   /**
-   * If `true`, side navigation will be contained by its parent element.
+   * @internal If `true`, side navigation will be contained by its parent element.
    */
   @Prop() inline: boolean = false;
 

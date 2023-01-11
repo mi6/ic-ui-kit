@@ -80,7 +80,7 @@ export class RadioGroup {
    */
   @Event() icChange: EventEmitter<IcValueEventDetail>;
 
-  @Listen("radioOptionSelect")
+  @Listen("icCheck")
   selectHandler(event: CustomEvent<IcValueEventDetail>): void {
     this.checkedValue = event.detail.value;
     this.icChange.emit({ value: this.checkedValue });

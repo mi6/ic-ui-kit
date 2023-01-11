@@ -68,17 +68,23 @@ export class Alert {
 
   @State() alertTitleWrap: boolean = false;
 
-  @Listen("dismiss", { capture: true })
+  @Listen("icDismiss", { capture: true })
   handleClick(): void {
     this.visible = !this.visible;
   }
   /**
-   * Is emitted when the user dismisses the alert.
+   * @deprecated This event should not be used anymore. Use icDismiss instead.
    */
   @Event() dismiss: EventEmitter<void>;
 
+  /**
+   * Is emitted when the user dismisses the alert.
+   */
+  @Event() icDismiss: EventEmitter<void>;
+
   private dismissAction = (): void => {
     this.dismiss.emit();
+    this.icDismiss.emit();
   };
 
   private alertTitleShouldWrap() {
