@@ -100,7 +100,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
 exports[`ic-search-bar search should render readonly variant: renders-readonly 1`] = `
 <ic-search-bar class="search" label="Test label" readonly="true" value="">
   <mock:shadow-root>
-    <ic-text-field value="">
+    <ic-text-field readonly="" value="">
       <mock:shadow-root>
         <ic-input-container disabled="" readonly="">
           <ic-input-label for="ic-search-bar-input-5" helpertext="" label="Test label" readonly=""></ic-input-label>
