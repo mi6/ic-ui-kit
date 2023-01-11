@@ -77,7 +77,7 @@ export class CheckboxGroup {
 
   @State() checkedOptions: string[] = [];
 
-  @Listen("checkboxChecked")
+  @Listen("icCheck")
   selectHandler(): void {
     this.checkboxOptions = Array.from(
       this.host.querySelectorAll("ic-checkbox")

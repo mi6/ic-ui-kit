@@ -37,7 +37,7 @@ export class TabContext {
   @Prop() activationType?: IcActivationTypes = "automatic";
 
   /**
-   * The selected tab to be controlled by the user. Must be used alongside the tabSelect event to manage tab selection.
+   * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
    */
   @Prop() selectedTabIndex?: number;
 
@@ -54,9 +54,14 @@ export class TabContext {
   }
 
   /**
-   * Emitted when a user selects a tab.
+   * @deprecated This event should not be used anymore. Use icTabSelect instead.
    */
   @Event() tabSelect: EventEmitter<IcTabSelectEventDetail>;
+
+  /**
+   * Emitted when a user selects a tab.
+   */
+  @Event() icTabSelect: EventEmitter<IcTabSelectEventDetail>;
 
   @Listen("tabClick")
   tabClickHandler(event: CustomEvent<IcTabClickEventDetail>): void {
@@ -66,6 +71,9 @@ export class TabContext {
     ) {
       this.selectedTab = event.detail.position;
     }
+    this.icTabSelect.emit({
+      tabIndex: event.detail.position,
+    });
     this.tabSelect.emit({
       tabIndex: event.detail.position,
     });
@@ -131,7 +139,7 @@ export class TabContext {
   };
 
   // Determines whether the selected tab is being controlled within the component
-  // or by the user (via selectedTabIndex and onTabSelect)
+  // or by the user (via selectedTabIndex and onIcTabSelect)
   private setControlledMode = (): void => {
     if (this.selectedTabIndex !== undefined) {
       this.controlledMode = true;
@@ -182,6 +190,7 @@ export class TabContext {
     if (!this.controlledMode) {
       this.selectedTab = newIndex;
     } else {
+      this.icTabSelect.emit({ tabIndex: newIndex });
       this.tabSelect.emit({ tabIndex: newIndex });
     }
   };

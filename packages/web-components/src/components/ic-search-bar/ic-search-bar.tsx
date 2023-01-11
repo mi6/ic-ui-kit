@@ -308,7 +308,7 @@ export class SearchBar {
   }
 
   /**
-   * Emitted when input loses focus.
+   * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
    */
   @Event() icInputBlur: EventEmitter<IcSearchBarBlurEventDetail>;
   private onInputBlur = (ev: Event) => {
@@ -319,7 +319,7 @@ export class SearchBar {
   };
 
   /**
-   * Emitted when input gains focus.
+   * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
    */
   @Event() icInputFocus: EventEmitter<IcValueEventDetail>;
   private onInputFocus = (ev: Event) => {

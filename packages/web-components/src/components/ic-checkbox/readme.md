@@ -22,9 +22,10 @@
 
 ## Events
 
-| Event             | Description                              | Type                |
-| ----------------- | ---------------------------------------- | ------------------- |
-| `checkboxChecked` | Emitted when a checkbox has been checked | `CustomEvent<void>` |
+| Event             | Description                                                                                                           | Type                |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `checkboxChecked` | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icCheck instead.<br/><br/> | `CustomEvent<void>` |
+| `icCheck`         | Emitted when a checkbox has been checked.                                                                             | `CustomEvent<void>` |
 
 
 ## Dependencies

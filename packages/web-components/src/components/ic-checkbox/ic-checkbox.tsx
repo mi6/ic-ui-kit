@@ -67,14 +67,20 @@ export class Checkbox {
   @Element() host: HTMLIcCheckboxElement;
 
   /**
-   * Emitted when a checkbox has been checked
+   * @deprecated This event should not be used anymore. Use icCheck instead.
    */
   @Event() checkboxChecked: EventEmitter<void>;
+
+  /**
+   * Emitted when a checkbox has been checked.
+   */
+  @Event() icCheck: EventEmitter<void>;
 
   private additionalFieldContainer: HTMLDivElement;
 
   private handleClick = () => {
     this.checked = !this.checked;
+    this.icCheck.emit();
     this.checkboxChecked.emit();
   };
 
