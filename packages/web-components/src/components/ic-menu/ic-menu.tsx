@@ -286,7 +286,7 @@ export class Menu {
         } else {
           this.setHighlightedOption(0);
           this.menuOptionId.emit({
-            optionId: getOptionId(0)
+            optionId: getOptionId(0),
           });
         }
         this.preventIncorrectTabOrder = false;
@@ -508,7 +508,7 @@ export class Menu {
     this.host.shadowRoot
       .querySelectorAll(".option")
       .forEach((option) => (optionsHeight += option.clientHeight));
-    if (optionsHeight > 320) {
+    if (optionsHeight >= 320) {
       this.menu.classList.add("menu-scroll");
     }
 
