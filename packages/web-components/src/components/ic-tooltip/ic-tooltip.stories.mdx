@@ -31,6 +31,27 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Disabled Hover
+
+<Canvas>
+  <Story name="Disabled Hover" height="100px">
+    {(args) =>
+      html`<ic-tooltip
+        label="This shows 'Code' has been copied"
+        target="test-button-disable-hover"
+        disable-hover="true"
+        ><button
+          id="test-button-disable-hover"
+          aria-describedby="ic-tooltip-test-button-disable-hover"
+          onclick="navigator.clipboard.writeText('Code')"
+        >
+          Show tooltip
+        </button></ic-tooltip
+      >`
+    }
+  </Story>
+</Canvas>
+
 ### Top placements
 
 <Canvas>

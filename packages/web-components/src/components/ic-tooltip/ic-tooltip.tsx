@@ -1,4 +1,14 @@
-import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  Watch,
+  Listen,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import { Instance, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
@@ -26,6 +36,11 @@ export class Tooltip {
    */
   @Prop() label!: string;
 
+  /**
+   * If `true`, the tooltip will not be displayed on hover, it will require a click.
+   */
+  @Prop() disableHover?: boolean = false;
+
   @Watch("label")
   updateLabel(newValue: string): void {
     const describedBySpan = this.el.previousElementSibling as HTMLElement;
@@ -41,6 +56,16 @@ export class Tooltip {
   private instantHideEvents = ["focusout"];
   private delayedHideEvents = ["mouseleave"];
   private popperInstance: Instance;
+
+  @Listen("tooltipDisableHover")
+  handleShow(): void {
+    this.showEvents = ["click"];
+  }
+
+  /**
+   * @internal Emitted when the disableHover prop is true.
+   */
+  @Event() tooltipDisableHover: EventEmitter<void>;
 
   private show = (popper: Instance) => {
     this.toolTip.setAttribute("data-show", "");
@@ -91,6 +116,8 @@ export class Tooltip {
   private manageEventListeners = (action: "add" | "remove") => {
     const method =
       action === "add" ? "addEventListener" : "removeEventListener";
+
+    this.disableHover && this.tooltipDisableHover.emit();
 
     this.showEvents.forEach((event) => {
       this.el[method](event, () => this.show(this.popperInstance));
