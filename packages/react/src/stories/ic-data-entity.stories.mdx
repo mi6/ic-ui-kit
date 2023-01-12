@@ -342,7 +342,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
      <IcDataEntity heading="Data">
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -351,7 +350,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -360,7 +358,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -369,7 +366,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -378,7 +374,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -387,7 +382,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -396,7 +390,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -405,7 +398,6 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
         ></IcDataRow>
         <IcDataRow label="Label"
           ><IcTextField
-            class="text-box"
             slot="value"
             label="label"
             value="value"
@@ -415,23 +407,28 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       </IcDataEntity>
       <IcButton
         onclick="
-      var textFields = document.querySelectorAll('.text-box');
-      for (var i=0; i < textFields.length; i++) {
-        textFields[i].setAttribute('readonly', 'false');
-      }"
-        style={{marginRight: "var(--ic-space-md)", marginTop: "var(--ic-space-lg)"}}
-        >Edit</IcButton
+          var textFields = document.querySelectorAll('ic-text-field');
+          for (var i=0; i < textFields.length; i++) {
+            textFields[i].setAttribute('readonly', '');
+          }"
+        style={{
+          marginRight: "var(--ic-space-md)",
+          marginTop: "var(--ic-space-lg)",
+        }}
       >
+        Confirm
+      </IcButton>
       <IcButton
         onclick="
-      var textFields = document.querySelectorAll('.text-box');
-      for (var i=0; i < textFields.length; i++) {
-        textFields[i].setAttribute('readonly', 'true');
-      }"
+          var textFields = document.querySelectorAll('ic-text-field');
+          for (var i=0; i < textFields.length; i++) {
+            textFields[i].removeAttribute('readonly');
+          }"
         variant="secondary"
-        style={{marginTop: "var(--ic-space-lg)"}}
-        >Confirm</IcButton
+        style={{ marginTop: "var(--ic-space-lg)" }}
       >
+        Edit
+    </IcButton>
   </Story>
 </Canvas>
 

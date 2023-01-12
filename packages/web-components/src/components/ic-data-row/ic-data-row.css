@@ -27,6 +27,18 @@
   flex-grow: 1;
 }
 
+slot[name="value"]::slotted(ic-text-field[readonly][hide-label]) {
+  margin-top: calc(var(--ic-space-xs) * -1);
+}
+
+slot[name="value"]::slotted(ic-text-field[small][readonly][hide-label]) {
+  margin-top: calc(var(--ic-space-xxs) * -1);
+}
+
+slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
+  margin-top: calc(var(--ic-space-xxs) * -1 - var(--ic-space-xxxs));
+}
+
 .end-component {
   width: fit-content;
   margin-left: 56px;

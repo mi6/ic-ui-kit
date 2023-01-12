@@ -18,7 +18,7 @@ exports[`ic-text-field should render disabled: renders-disabled 1`] = `
 `;
 
 exports[`ic-text-field should render readonly: renders-readonly 1`] = `
-<ic-text-field label="Test label" readonly="true" value="test value">
+<ic-text-field label="Test label" readonly="" value="test value">
   <mock:shadow-root>
     <ic-input-container disabled="" readonly="">
       <ic-input-label for="ic-text-field-input-8" helpertext="" label="Test label" readonly=""></ic-input-label>
@@ -70,7 +70,7 @@ exports[`ic-text-field should render with error validation: renders-with-error-v
 `;
 
 exports[`ic-text-field should render with helperText, required and small: renders-with-helpertext 1`] = `
-<ic-text-field helper-text="helper text value" label="Test label" required="true" small="true" value="">
+<ic-text-field helper-text="helper text value" label="Test label" required="true" small="" value="">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-3" helpertext="helper text value" label="Test label" required=""></ic-input-label>

@@ -78,7 +78,7 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field small="true" helper-text="helper text value" label="Test label" required="true" rows="6" value="">
+      <ic-text-field small="" helper-text="helper text value" label="Test label" required="true" rows="6" value="">
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-3" helpertext="helper text value" label="Test label" required=""></ic-input-label>
@@ -213,7 +213,7 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field label="Test label" readonly="true" rows="6" value="test value">
+      <ic-text-field label="Test label" readonly="" rows="6" value="test value">
         <mock:shadow-root>
           <ic-input-container disabled="" readonly="">
             <ic-input-label for="ic-text-field-input-8" helpertext="" label="Test label" readonly=""></ic-input-label>
