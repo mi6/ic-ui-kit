@@ -1436,10 +1436,6 @@ export interface IcThemeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcThemeElement;
 }
-export interface IcTooltipCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLIcTooltipElement;
-}
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
@@ -3187,7 +3183,6 @@ declare namespace LocalJSX {
           * The text to display on the tooltip.
          */
         "label": string;
-        "onTooltipDisableHover"?: (event: IcTooltipCustomEvent<void>) => void;
         /**
           * The position of the tool-tip in relation to the parent element.
          */
