@@ -1315,6 +1315,10 @@ export namespace Components {
     }
     interface IcTooltip {
         /**
+          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+         */
+        "disableHover"?: boolean;
+        /**
           * The text to display on the tooltip.
          */
         "label": string;
@@ -1431,6 +1435,10 @@ export interface IcTextFieldCustomEvent<T> extends CustomEvent<T> {
 export interface IcThemeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcThemeElement;
+}
+export interface IcTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTooltipElement;
 }
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3172,9 +3180,14 @@ declare namespace LocalJSX {
     }
     interface IcTooltip {
         /**
+          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+         */
+        "disableHover"?: boolean;
+        /**
           * The text to display on the tooltip.
          */
         "label": string;
+        "onTooltipDisableHover"?: (event: IcTooltipCustomEvent<void>) => void;
         /**
           * The position of the tool-tip in relation to the parent element.
          */
