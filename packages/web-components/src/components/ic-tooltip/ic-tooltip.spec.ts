@@ -26,6 +26,20 @@ describe("ic-loading-indicator component", () => {
     expect(page.rootInstance.toolTip.getAttribute("data-show")).toBe("");
   });
 
+  it("should appear when triggered by click", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip" disable-hover=true><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
+
+    await page.rootInstance.show(page.rootInstance.popperInstance);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).toBe("");
+  });
+
   it("should disappear when triggered", async () => {
     const page = await newSpecPage({
       components: [Tooltip],
