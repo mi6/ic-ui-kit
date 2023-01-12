@@ -113,7 +113,7 @@ select:not([disabled]) {
 .expand-icon {
   height: var(--ic-space-lg);
   padding-left: var(--ic-space-xs);
-  color: var(--expand-icon-hover, var(--ic-architectural-400));
+  color: var(--ic-action-dark);
 }
 
 :host([disabled]) .expand-icon,

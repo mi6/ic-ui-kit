@@ -93,8 +93,6 @@ ic-input-component-container .inline-success > svg {
 ic-input-component-container:hover {
   border-color: var(--ic-action-dark-hover);
   color: var(--ic-action-dark-hover);
-
-  --expand-icon-hover: var(--ic-action-dark-hover);
 }
 
 .focus-indicator {
