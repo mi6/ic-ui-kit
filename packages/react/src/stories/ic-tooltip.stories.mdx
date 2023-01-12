@@ -22,6 +22,22 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
   </Story>
 </Canvas>
 
+### Disabled Hover
+
+<Canvas>
+  <Story name="Disabled Hover">
+    <IcTooltip
+      label="This shows 'Code' has been copied"
+      target="test-button-disable-hover"
+      disableHover
+      >
+      <button aria-describedby="ic-tooltip-test-button-disable-hover" id="test-button-disable-hover" onClick={() => navigator.clipboard.writeText('Code')}>
+        Show tooltip
+      </button>
+    </IcTooltip>
+  </Story>
+</Canvas>
+
 ### Top placements
 
 <Canvas>
