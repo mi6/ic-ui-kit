@@ -84,14 +84,14 @@ export class Footer {
     return bp === "extra small"
       ? this.deviceSize < IC_DEVICE_SIZES.XS
       : bp === "small"
-        ? this.deviceSize < IC_DEVICE_SIZES.S
-        : bp === "medium"
-          ? this.deviceSize < IC_DEVICE_SIZES.M
-          : bp === "large"
-            ? this.deviceSize < IC_DEVICE_SIZES.L
-            : bp === "extra large"
-              ? this.deviceSize < IC_DEVICE_SIZES.XL
-              : false;
+      ? this.deviceSize < IC_DEVICE_SIZES.S
+      : bp === "medium"
+      ? this.deviceSize < IC_DEVICE_SIZES.M
+      : bp === "large"
+      ? this.deviceSize < IC_DEVICE_SIZES.L
+      : bp === "extra large"
+      ? this.deviceSize < IC_DEVICE_SIZES.XL
+      : false;
   }
 
   @Listen("themeChange", { target: "document" })
