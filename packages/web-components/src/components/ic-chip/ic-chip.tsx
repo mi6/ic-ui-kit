@@ -73,6 +73,10 @@ export class Chip {
   };
 
   componentDidLoad(): void {
+    this.dismissible &&
+      this.el.shadowRoot
+        .querySelector("span.ic-tooltip-label")
+        ?.setAttribute("aria-hidden", "true");
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Chip"
