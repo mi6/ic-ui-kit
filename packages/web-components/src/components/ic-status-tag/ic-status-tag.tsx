@@ -27,6 +27,10 @@ export class StatusTag {
    * If `true`, the small styling will be applied to the status tag.
    */
   @Prop() small?: boolean = false;
+  /**
+   * If 'true', the component will act as an 'aria-live' region.
+   */
+  @Prop() announced?: boolean = false;
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
@@ -36,10 +40,14 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, appearance, small } = this;
+    const { label, status, appearance, small, announced } = this;
     return (
-      <Host role="status">
+      <Host
+        role={announced ? "status" : null}
+        aria-label={"Status. " + `${label}`}
+        >
         <strong
+        
           class={{
             ["tag"]: true,
             [`${appearance}-${status}`]: true,
@@ -50,7 +58,7 @@ export class StatusTag {
             variant="label-uppercase"
             apply-vertical-margins={false}
           >
-            <span>{label}</span>
+            <span >{label}</span>
           </ic-typography>
         </strong>
       </Host>

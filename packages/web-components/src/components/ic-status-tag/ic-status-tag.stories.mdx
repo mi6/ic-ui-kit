@@ -1,12 +1,6 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs";
-import { html } from "lit-html";
-import readme from "./readme.md";
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { html } from 'lit-html';
+import readme from './readme.md';
 
 <Meta title="Web Components/Status tag" component="ic-status-tag" />
 
@@ -29,11 +23,7 @@ import readme from "./readme.md";
   <Story name="Success">
     {html`
       <ic-status-tag label="Success" status="success"></ic-status-tag>
-      <ic-status-tag
-        label="Success"
-        status="success"
-        variant="outlined"
-      ></ic-status-tag>
+      <ic-status-tag label="Success" status="success" variant="outlined"></ic-status-tag>
     `}
   </Story>
 </Canvas>
@@ -44,11 +34,7 @@ import readme from "./readme.md";
   <Story name="Warning">
     {html`
       <ic-status-tag label="Warning" status="warning"></ic-status-tag>
-      <ic-status-tag
-        label="Warning"
-        status="warning"
-        variant="outlined"
-      ></ic-status-tag>
+      <ic-status-tag label="Warning" status="warning" variant="outlined"></ic-status-tag>
     `}
   </Story>
 </Canvas>
@@ -59,11 +45,7 @@ import readme from "./readme.md";
   <Story name="Danger">
     {html`
       <ic-status-tag label="Danger" status="danger"></ic-status-tag>
-      <ic-status-tag
-        label="Danger"
-        status="danger"
-        variant="outlined"
-      ></ic-status-tag>
+      <ic-status-tag label="Danger" status="danger" variant="outlined"></ic-status-tag>
     `}
   </Story>
 </Canvas>
@@ -75,6 +57,30 @@ import readme from "./readme.md";
     {html`
       <ic-status-tag label="Small" small></ic-status-tag>
       <ic-status-tag label="Small" variant="outlined" small></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Announced
+
+<Canvas>
+  <Story name="Announced">
+    {html`
+      <ic-status-tag label="Warning" status="warning" id="tag" announced="false"></ic-status-tag>
+      <br />
+      <br />
+      <ic-button variant="primary" size="small" onClick="onClick()" id="btn">Toggle announced prop</ic-button>
+      <script>
+        const tag = document.getElementById('tag');
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', onClick);
+        function onClick(e) {
+          e.preventDefault();
+          tag.announced
+            ? ((tag.announced = 'false'), (tag.status = 'warning'), (tag.label = 'Warning'))
+            : ((tag.announced = 'true'), (tag.status = 'success'), (tag.label = 'Success'));
+        }
+      </script>
     `}
   </Story>
 </Canvas>
