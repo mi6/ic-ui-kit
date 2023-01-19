@@ -4,22 +4,52 @@ import { Meta } from "@storybook/addon-docs";
     title="Getting started"
 />
 
-# Installing and using the components in your project
+# Installing and using the components
 
-## Using the components
+To install the components:
 
-1. Run `npm install @ukic/react` at the root level of your project.
+## Step one
 
-2. Add `import { IcComponent } from "@ukic/react"` to use the relevant component.
+In the root of your project:
 
-### Importing CSS styles
+```shell
+// using npm
+npm install @ukic/react @ukic/fonts
 
-To use these components with the correct css styles, import the core CSS file into your project:
+// using yarn
+rm package-lock.json
+yarn add @ukic/react @ukic/fonts
+```
 
-1. Add `@import "@ukic/web-components/dist/core/core.css"` at the top level CSS file for your project.
+## Step two
 
-### Testing
+Import the component(s) in your React files.
 
-The `@ukic/react` package will need to be transformed before you can use these components in Jest tests:
+```jsx
+import { IcComponent } from "@ukic/react";
+```
 
-1. Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/react)"]` to your Jest config.
+## Step three
+
+To get the correct styling with the ICDS components, import the core CSS file.
+
+Add the following into the top level CSS file for your project.
+
+```css
+@import "@ukic/fonts/dist/fonts.css";
+@import "@ukic/react/dist/core/core.css";
+```
+
+In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
+
+If you would like to import these styles to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
+
+```css
+@import "@ukic/react/dist/core/normalize.css";
+```
+
+## Step four
+
+The `@ukic/react` package will need to be transformed before you can use these components in Jest tests.
+
+Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/react)"]` to your Jest config.
