@@ -74,6 +74,11 @@ exports[`ic-page-header component renders additional functionality should render
       </ic-section-container>
     </header>
   </mock:shadow-root>
+  <ic-stepper slot="stepper">
+    <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+    <ic-step step-subtitle="Optional" step-title="Warm milk" step-type="completed"></ic-step>
+    <ic-step step-title="Pour milk" step-type="current"></ic-step>
+  </ic-stepper>
   <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
   <ic-button slot="actions" variant="tertiary">
     Filter coffee
@@ -84,13 +89,7 @@ exports[`ic-page-header component renders additional functionality should render
       <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"></path>
     </svg>
   </ic-button>
-  <ic-text-field hide-label="" placeholder="Enter your input" slot="input">
-    <ic-stepper slot="stepper">
-      <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
-      <ic-step step-subtitle="Optional" step-title="Warm milk" step-type="completed"></ic-step>
-      <ic-step step-title="Pour milk" step-type="current"></ic-step>
-    </ic-stepper>
-  </ic-text-field>
+  <ic-text-field hide-label="" placeholder="Enter your input" slot="input"></ic-text-field>
 </ic-page-header>
 `;
 
@@ -144,10 +143,9 @@ exports[`ic-page-header component renders additional functionality should render
       <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"></path>
     </svg>
   </ic-button>
-  <ic-text-field hide-label="" placeholder="Enter your input" slot="input">
-    <ic-navigation-item href="/all-recipes" label="All recipes" selected="" slot="tabs"></ic-navigation-item>
-    <ic-navigation-item href="/favourites" label="Favourites" slot="tabs"></ic-navigation-item>
-  </ic-text-field>
+  <ic-navigation-item href="/all-recipes" label="All recipes" selected="" slot="tabs"></ic-navigation-item>
+  <ic-navigation-item href="/favourites" label="Favourites" slot="tabs"></ic-navigation-item>
+  <ic-text-field hide-label="" placeholder="Enter your input" slot="input"></ic-text-field>
 </ic-page-header>
 `;
 
