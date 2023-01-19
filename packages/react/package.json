@@ -4,7 +4,7 @@
   "version": "2.1.0-beta.3",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
-    "build": "npm run clean && npm run compile && npm run copy:css",
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
     "clean": "rimraf dist",
     "compile": "npm run tsc",
     "tsc": "tsc -p .",
@@ -12,7 +12,8 @@
     "storybook": "start-storybook -p 6007 --no-manager-cache",
     "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
     "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
-    "copy:css": "echo 'Copy core css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css"
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
