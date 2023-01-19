@@ -537,7 +537,7 @@ describe("ic-search-bar", () => {
     expect(searchBar.getAttribute("value")).toBe("");
     expect(searchBar.getAttribute("value").length).toBe(0);
   });
-  
+
   it("should emit icSubmitSearch when search button pressed with Space", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
