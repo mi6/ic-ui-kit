@@ -101,4 +101,86 @@ describe("ic-card", () => {
 
     await expect(window.alert).not.toHaveBeenCalled;
   });
+
+  it("should render with a subheading", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with an interaction button", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button variant="primary" slot="interaction-button">Click here</ic-button></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with a top image", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-top">Image placeholder</div></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with a middle image", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-mid">Image placeholder</div></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with interaction controls", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button slot="interaction-controls">Click here</ic-button></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render as expandable", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render content in expanded area", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable><ic-typography slot="expanded-content">Extra content</ic-typography></ic-card>`,
+    });
+
+    page.rootInstance.areaExpanded = true;
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should toggle expanded content when expansion toggle is clicked", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card id="test-card" heading="Card" message="This is a clickable card" expandable><ic-typography slot="expanded-content">Expanded</ic-typography></ic-card>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.rootInstance.toggleExpanded();
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });

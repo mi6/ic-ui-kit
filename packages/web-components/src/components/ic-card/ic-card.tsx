@@ -9,11 +9,19 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
 } from "../../utils/types";
+import chevronIcon from "../../assets/chevron-icon.svg";
 
 /**
- * @slot icon - Content will be placed to the left of the card title.
  * @slot heading - Content will be placed at the top of the card to the right of the icon.
  * @slot message - Content will be placed in the main body of the card.
+ * @slot subheading - Content will be placed below the card heading.
+ * @slot adornment - Content will be placed below the card subheading.
+ * @slot image-top - Content will be placed at the top of the card above all other content.
+ * @slot image-mid - Content will be placed below the card heading section.
+ * @slot icon - Content will be placed to the left of the card heading.
+ * @slot interaction-button - Content will be placed in the top right corner of the heading section.
+ * @slot interaction-controls - Content will be placed below the card message.
+ * @slot expanded-content - Content will be placed below the interaction controls but will not initially be rendered.
  */
 @Component({
   tag: "ic-card",
@@ -48,9 +56,13 @@ export class Card {
    */
   @Prop() target?: string;
   /**
-   * The title for the card.
+   * The heading for the card.
    */
   @Prop() heading!: string;
+  /**
+   * The subheading for the card.
+   */
+  @Prop() subheading?: string;
   /**
    * The main body message of the card.
    */
@@ -62,7 +74,11 @@ export class Card {
   /**
    *  If `true`, the card will fill the width of the container.
    */
-  @Prop() fullWidth: boolean = false;
+  @Prop() fullWidth?: boolean = false;
+  /**
+   *  If `true`, the card will have an expandable area and expansion toggle button.
+   */
+  @Prop() expandable?: boolean = false;
 
   @State() parentIsAnchorTag: boolean = false;
 
@@ -71,6 +87,8 @@ export class Card {
   @State() parentEl: HTMLElement | null = null;
 
   @State() appearance?: IcThemeForeground = "default";
+
+  @State() areaExpanded: boolean = false;
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
@@ -100,6 +118,10 @@ export class Card {
       this.appearance = foregroundColor;
     }
   }
+
+  private toggleExpanded = (): void => {
+    this.areaExpanded = !this.areaExpanded;
+  };
 
   componentWillLoad(): void {
     this.parentEl = this.el.parentElement;
@@ -132,12 +154,14 @@ export class Card {
     const {
       clickable,
       disabled,
+      expandable,
       heading,
       message,
       href,
       hreflang,
       referrerpolicy,
       rel,
+      subheading,
       target,
       fullWidth,
       parentIsAnchorTag,
@@ -175,6 +199,11 @@ export class Card {
         disabled={disabled ? true : null}
         {...attrs}
       >
+        {isSlotUsed(this.el, "image-top") && (
+          <div class="image-top">
+            <slot name="image-top"></slot>
+          </div>
+        )}
         <div class="card-header">
           {isSlotUsed(this.el, "icon") && (
             <div class="icon">
@@ -188,12 +217,66 @@ export class Card {
               </ic-typography>
             </slot>
           </div>
+          {isSlotUsed(this.el, "interaction-button") && (
+            <div class="interaction-button">
+              <slot name="interaction-button"></slot>
+            </div>
+          )}
         </div>
+        {(subheading || isSlotUsed(this.el, "subheading")) && (
+          <div class="subheading">
+            <slot name="subheading">
+              <ic-typography variant="subtitle-small">
+                {subheading}
+              </ic-typography>
+            </slot>
+          </div>
+        )}
+        {isSlotUsed(this.el, "adornment") && (
+          <div class="adornment">
+            <slot name="adornment"></slot>
+          </div>
+        )}
+        {isSlotUsed(this.el, "image-mid") && (
+          <div class="image-mid">
+            <slot name="image-mid"></slot>
+          </div>
+        )}
         {(message || isSlotUsed(this.el, "message")) && (
-          <div class="card-message">
+          <div
+            class={{
+              ["card-message"]: true,
+            }}
+          >
             <slot name="message">
               <ic-typography variant="body">{message}</ic-typography>
             </slot>
+          </div>
+        )}
+        {(isSlotUsed(this.el, "interaction-controls") || expandable) && (
+          <div class="interaction-controls">
+            <slot name="interaction-controls"></slot>
+            {expandable && (
+              <ic-button
+                class={{
+                  ["toggle-button"]: true,
+                  ["toggle-button-closed"]: !this.areaExpanded,
+                  ["toggle-button-expanded"]: this.areaExpanded,
+                }}
+                variant="icon"
+                disableTooltip
+                aria-label="Toggle expandable area"
+                aria-expanded={this.areaExpanded}
+                aria-controls="expanded-content-area"
+                onClick={this.toggleExpanded}
+                innerHTML={chevronIcon}
+              ></ic-button>
+            )}
+          </div>
+        )}
+        {isSlotUsed(this.el, "expanded-content") && this.areaExpanded && (
+          <div class="expanded-content" id="expanded-content-area">
+            <slot name="expanded-content"></slot>
           </div>
         )}
       </Component>
