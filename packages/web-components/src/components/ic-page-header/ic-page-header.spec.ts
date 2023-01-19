@@ -136,7 +136,6 @@ describe("ic-page-header component renders additional functionality", () => {
             />
           </svg>
         </ic-button>
-        <ic-text-field slot="input" placeholder="Enter your input" hide-label />
         <ic-navigation-item
           slot="tabs"
           label="All recipes"
@@ -148,6 +147,7 @@ describe("ic-page-header component renders additional functionality", () => {
           label="Favourites"
           href="/favourites"
         ></ic-navigation-item>
+        <ic-text-field slot="input" placeholder="Enter your input" hide-label />
       </ic-page-header>`,
     });
 
@@ -159,6 +159,15 @@ describe("ic-page-header component renders additional functionality", () => {
       components: [PageHeader],
       html: `
       <ic-page-header heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
+        <ic-stepper slot="stepper">
+          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
+          <ic-step
+            step-title="Warm milk"
+            step-subtitle="Optional"
+            step-type="completed"
+          ></ic-step>
+          <ic-step step-title="Pour milk" step-type="current"></ic-step>
+        </ic-stepper>
         <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
         <ic-button slot="actions" variant="tertiary">Filter coffee</ic-button>
         <ic-button slot="actions" variant="primary"
@@ -178,15 +187,6 @@ describe("ic-page-header component renders additional functionality", () => {
           </svg>
         </ic-button>
         <ic-text-field slot="input" placeholder="Enter your input" hide-label />
-        <ic-stepper slot="stepper">
-          <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
-          <ic-step
-            step-title="Warm milk"
-            step-subtitle="Optional"
-            step-type="completed"
-          ></ic-step>
-          <ic-step step-title="Pour milk" step-type="current"></ic-step>
-        </ic-stepper>
       </ic-page-header>`,
     });
 

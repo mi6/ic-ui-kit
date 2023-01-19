@@ -9,18 +9,75 @@ import { html } from "lit-html";
 import readme from "./readme.md";
 import StatusTag from "../ic-status-tag/readme.md";
 import Typography from "../ic-typography/readme.md";
+import Button from "../ic-button/readme.md";
 
 <Meta title="Web Components/Card" component="ic-card" />
 
 <Description markdown={readme} />
 
-### Static
+### Heading
 
 <Canvas>
-  <Story name="Static">
+  <Story name="Heading">
+    {html`<ic-card heading="This is the card heading"></ic-card>`}
+  </Story>
+</Canvas>
+
+### Icon
+
+<Canvas>
+  <Story name="Icon">
+    {html`<ic-card heading="This is the card heading">
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Message
+
+<Canvas>
+  <Story name="Message">
     {html`<ic-card
-      heading="Card"
-      message="This is an example of a new card component with text included"
+      heading="This is the card heading"
+      message="This is an example of a new card component with text included."
+    >
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### With subheading
+
+<Canvas>
+  <Story name="With subheading">
+    {html`<ic-card
+      heading="This is the card heading"
+      message="This is an example of a new card component with text included."
+      subheading="This is the subheading"
       ><svg
         slot="icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +94,16 @@ import Typography from "../ic-typography/readme.md";
   </Story>
 </Canvas>
 
-### Title only
+### With interaction button
 
 <Canvas>
-  <Story name="Title only">
-    {html`<ic-card heading="Joe BLOGGS 123" clickable="true"
-      ><svg
+  <Story name="With interaction button">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+    >
+      <svg
         slot="icon"
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
@@ -53,18 +114,366 @@ import Typography from "../ic-typography/readme.md";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path
           d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-        /></svg
-    ></ic-card>`}
+        />
+      </svg>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+    </ic-card>`}
   </Story>
 </Canvas>
 
-### Clickable as link
+### Adornment
 
 <Canvas>
-  <Story name="Clickable as link">
+  <Story name="Adornment">
     {html`<ic-card
-      heading="Card"
-      message="This is an example of a new card component with text included"
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+    >
+      <ic-status-tag slot="adornment" label="Neutral" small></ic-status-tag>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Top image
+
+<Canvas>
+  <Story name="Top image">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+      style="width:360px;"
+    >
+      <ic-status-tag slot="adornment" label="Neutral" small></ic-status-tag>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+      <svg
+        slot="image-top"
+        style="height:326px;width:326px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="1600" y="-350" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Middle image
+
+<Canvas>
+  <Story name="Middle image">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+      style="width:360px;"
+    >
+      <ic-status-tag slot="adornment" label="Neutral" small></ic-status-tag>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+      <svg
+        slot="image-mid"
+        style="height:326px;width:326px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="1600" y="-350" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Interaction controls
+
+<Canvas>
+  <Story name="Interaction controls">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+      style="width:360px;"
+    >
+      <ic-status-tag slot="adornment" label="Neutral" small></ic-status-tag>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+      <svg
+        slot="image-mid"
+        style="height:326px;width:326px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="1600" y="-350" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+      <div slot="interaction-controls" style="display:flex;gap:16px;">
+        <ic-button variant="primary">Learn more</ic-button>
+        <ic-button variant="secondary">Hide</ic-button>
+      </div>
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Expandable
+
+<Canvas>
+  <Story name="Expandable">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
+      expandable
+      style="width:360px;"
+    >
+      <ic-status-tag slot="adornment" label="Neutral" small></ic-status-tag>
+      <ic-button
+        variant="icon"
+        title="More information"
+        slot="interaction-button"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-three-dots-vertical"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+          />
+        </svg>
+      </ic-button>
+      <svg
+        slot="image-mid"
+        style="height:326px;width:326px;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1600 900"
+      >
+        <rect fill="#ff7700" width="1600" height="1600" y="-350" />
+        <polygon fill="#cc0000" points="957 450 539 900 1396 900" />
+        <polygon fill="#aa0000" points="957 450 872.9 900 1396 900" />
+        <polygon fill="#c50022" points="-60 900 398 662 816 900" />
+        <polygon fill="#a3001b" points="337 900 398 662 816 900" />
+        <polygon fill="#be0044" points="1203 546 1552 900 876 900" />
+        <polygon fill="#9c0036" points="1203 546 1552 900 1162 900" />
+        <polygon fill="#b80066" points="641 695 886 900 367 900" />
+        <polygon fill="#960052" points="587 900 641 695 886 900" />
+        <polygon fill="#b10088" points="1710 900 1401 632 1096 900" />
+        <polygon fill="#8f006d" points="1710 900 1401 632 1365 900" />
+        <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
+        <polygon fill="#880088" points="943 900 1210 900 971 687" />
+      </svg>
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+      <div slot="interaction-controls" style="display:flex;gap:16px;">
+        <ic-button variant="primary">Learn more</ic-button>
+        <ic-button variant="secondary">Hide</ic-button>
+      </div>
+      <ic-typography slot="expanded-content" variant="body"
+        >This is an example of a new card component with text
+        included.</ic-typography
+      >
+    </ic-card>`}
+  </Story>
+</Canvas>
+
+### Clickable link
+
+<Canvas>
+  <Story name="Clickable link">
+    {html`<ic-card
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
       clickable="true"
       href="https://www.google.com"
       ><svg
@@ -83,13 +492,14 @@ import Typography from "../ic-typography/readme.md";
   </Story>
 </Canvas>
 
-### Clickable as button
+### Clickable button
 
 <Canvas>
-  <Story name="Clickable as button">
+  <Story name="Clickable button">
     {html`<ic-card
-      heading="Card"
-      message="This is an example of a new card component with text included"
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
       clickable="true"
       onclick="alert('clicked')"
       ><svg
@@ -113,8 +523,9 @@ import Typography from "../ic-typography/readme.md";
 <Canvas>
   <Story name="Disabled">
     {html`<ic-card
-      heading="Card"
-      message="This is an example of a new card component with text included"
+      heading="This is the card heading"
+      subheading="This is the subheading"
+      message="This is an example of a new card component with text included."
       clickable="true"
       disabled="true"
       onClick="alert('clicked')"
@@ -134,39 +545,15 @@ import Typography from "../ic-typography/readme.md";
   </Story>
 </Canvas>
 
-### Using slots
-
-<Canvas>
-  <Story name="Using slots">
-    {html` <ic-card
-        message="This card uses a slot to display a status tag in place of the heading"
-      >
-        <ic-status-tag
-          slot="heading"
-          status="success"
-          label="Active"
-        ></ic-status-tag>
-      </ic-card>
-      <ic-card heading="Card">
-        <div slot="message" style="display:flex;align-items:center;">
-          <ic-typography variant="p" style="margin-right:8px;"
-            >This card uses a slot to display its message with a status
-            tag</ic-typography
-          >
-          <ic-status-tag status="success" label="Active"></ic-status-tag>
-        </div>
-      </ic-card>`}
-  </Story>
-</Canvas>
-
 ### Full width
 
 <Canvas>
   <Story name="Full width">
     {html`
       <ic-card
-        heading="Card"
-        message="This is an example of a card component that fills it's parent container"
+        heading="This is the card heading"
+        subheading="This is the subheading"
+        message="This is an example of a card component that fills it's parent container."
         clickable="true"
         full-width="true"
         href="https://www.google.com"
@@ -193,8 +580,9 @@ import Typography from "../ic-typography/readme.md";
   <Story name="Wrapped by link">
     {html`<a href="/"
       ><ic-card
-        heading="Card"
-        message="This is an example of a new card component with text included"
+        heading="This is the card heading"
+        subheading="This is the subheading"
+        message="This is an example of a new card component with text included."
         ><svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
