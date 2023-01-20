@@ -1,4 +1,4 @@
-@import "../../global/normalise.css";
+@import "../../global/normalize.css";
 
 :host(.ic-tooltip) .ic-tooltip-container {
   background-color: var(--ic-architectural-800);
