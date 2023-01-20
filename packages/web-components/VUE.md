@@ -97,3 +97,11 @@ Import ICDS typography into your project from `@ukic/fonts`.
 ```
 
 The fonts package can also be imported inside a Vue file by adding the import statement within the `<styles>` tag.
+
+Import the normalised styles that are used within the ICDS components if you would like to apply them to the rest of your project and any slotted elements:
+
+```css
+/* usually src/styles.css */
+/* Depending on your setup, a path to node_modules may be needed instead */
+@import "@ukic/web-components/dist/core/normalize.css";
+```

@@ -1,4 +1,4 @@
-@import "../../global/normalise.css";
+@import "../../global/normalize.css";
 
 :host(.footer-link-group-sparse) {
   --footer-link-group-margin-right: 95px;
