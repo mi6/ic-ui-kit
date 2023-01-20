@@ -20,6 +20,12 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      copy: [
+        {
+          src: "global/normalize.css",
+          dest: "normalize.css",
+        }
+      ]
     },
     {
       type: "dist-custom-elements",

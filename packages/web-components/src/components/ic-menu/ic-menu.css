@@ -1,4 +1,4 @@
-@import "../../global/normalise.css";
+@import "../../global/normalize.css";
 
 @media (prefers-reduced-motion: no-preference) {
   :host([open]) .menu {
