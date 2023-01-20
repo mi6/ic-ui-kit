@@ -1,4 +1,4 @@
-@import "../../global/normalise.css";
+@import "../../global/normalize.css";
 
 :host(.search) {
   --divider-height: 24px;

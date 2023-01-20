@@ -1,4 +1,4 @@
-@import "../../global/normalise.css";
+@import "../../global/normalize.css";
 
 .tag {
   padding: var(--ic-space-xs) var(--ic-space-sm);
