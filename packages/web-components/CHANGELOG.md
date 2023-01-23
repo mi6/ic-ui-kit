@@ -3,18 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.2](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2023-01-10)
+# [2.1.0-beta.3](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2023-01-23)
 
 
 ### Bug Fixes
 
-* **web-components:** fixed issues with search bar ([2b1663b](https://github.com/mi6/ic-ui-kit/commit/2b1663b0f2599d427b5aa57e815b54286be0fbb8))
-* **web-components:** fixes back to top positioning ([94ebac7](https://github.com/mi6/ic-ui-kit/commit/94ebac7b9b5b9fe056ff6663429d00f8db678365))
-* **web-components:** fixes console error in linear determinate variant ([d15e609](https://github.com/mi6/ic-ui-kit/commit/d15e60960991b382857dc8866ee2340b502b88ef))
-* **web-components:** removed chips for a11y testing ([25c060a](https://github.com/mi6/ic-ui-kit/commit/25c060a8ab6fbeeaeebf4d12d91c0930a2c42d28))
-* **web-components:** removed empty validation space when no status is provided ([649f040](https://github.com/mi6/ic-ui-kit/commit/649f0408b7bd623c1db1732993404a00d918bddc))
-* **web-components:** updated last-of-type styling on footer links ([c0d4057](https://github.com/mi6/ic-ui-kit/commit/c0d40579b025899eaaebaf5bdfc09c9814d4a13b))
-* **web-components:** updated side-navigation on lg devices to stick to left hand side ([9e77e05](https://github.com/mi6/ic-ui-kit/commit/9e77e056bdc3806167f3cd90dc13a4407ffeff5b)), closes [#195](https://github.com/mi6/ic-ui-kit/issues/195)
+* **web-components:** add aria-hidden to tooltip span ([ed23d40](https://github.com/mi6/ic-ui-kit/commit/ed23d409d93d34e2d5980690bc8578d5d37ba9b8))
+* **web-components:** changed colour of expand icon on select ([5b3d4a8](https://github.com/mi6/ic-ui-kit/commit/5b3d4a86d5d2fc0dfb66ee6a1b5b8100300cfb6e))
+* **web-components:** fix alignment of text fields in data entity, update storybook examples ([60f7ae9](https://github.com/mi6/ic-ui-kit/commit/60f7ae9d0c251e74f3c50cf9103a2df47b4720b9)), closes [mi6/ic-design-system#128](https://github.com/mi6/ic-design-system/issues/128)
+* **web-components:** update menu to be >= so that select is scrollable ([3c1ece2](https://github.com/mi6/ic-ui-kit/commit/3c1ece289546893509d9d86fad706bdecfbdbf85))
+
+
+### Features
+
+* **web-component:** implement chip component ([93da762](https://github.com/mi6/ic-ui-kit/commit/93da76203da81b291a90e8fa62fb286da58162cd)), closes [#141](https://github.com/mi6/ic-ui-kit/issues/141)
+* **web-components:** add inner label into loading indicator so it can be used by the compact step ([084e57d](https://github.com/mi6/ic-ui-kit/commit/084e57dd287cd10e06105b6b6b931139f6bab791)), closes [#140](https://github.com/mi6/ic-ui-kit/issues/140)
+* **web-components:** enhance functionality of step component ([3647f0a](https://github.com/mi6/ic-ui-kit/commit/3647f0ac2b6bfc0923a80d77352f3095e9158b46)), closes [#140](https://github.com/mi6/ic-ui-kit/issues/140)
+* **web-components:** update tooltip to have disableHover prop that shows tooltip on click ([14337de](https://github.com/mi6/ic-ui-kit/commit/14337de2f2f9de6652e879dd05672baa97b25be8)), closes [#243](https://github.com/mi6/ic-ui-kit/issues/243)
+
+# [2.1.0-beta.2](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2023-01-10)
+
+### Bug Fixes
+
+- **web-components:** fixed issues with search bar ([2b1663b](https://github.com/mi6/ic-ui-kit/commit/2b1663b0f2599d427b5aa57e815b54286be0fbb8))
+- **web-components:** fixes back to top positioning ([94ebac7](https://github.com/mi6/ic-ui-kit/commit/94ebac7b9b5b9fe056ff6663429d00f8db678365))
+- **web-components:** fixes console error in linear determinate variant ([d15e609](https://github.com/mi6/ic-ui-kit/commit/d15e60960991b382857dc8866ee2340b502b88ef))
+- **web-components:** removed chips for a11y testing ([25c060a](https://github.com/mi6/ic-ui-kit/commit/25c060a8ab6fbeeaeebf4d12d91c0930a2c42d28))
+- **web-components:** removed empty validation space when no status is provided ([649f040](https://github.com/mi6/ic-ui-kit/commit/649f0408b7bd623c1db1732993404a00d918bddc))
+- **web-components:** updated last-of-type styling on footer links ([c0d4057](https://github.com/mi6/ic-ui-kit/commit/c0d40579b025899eaaebaf5bdfc09c9814d4a13b))
+- **web-components:** updated side-navigation on lg devices to stick to left hand side ([9e77e05](https://github.com/mi6/ic-ui-kit/commit/9e77e056bdc3806167f3cd90dc13a4407ffeff5b)), closes [#195](https://github.com/mi6/ic-ui-kit/issues/195)
 
 # [2.1.0-beta.1](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.0...v2.1.0-beta.1) (2022-12-23)
 
