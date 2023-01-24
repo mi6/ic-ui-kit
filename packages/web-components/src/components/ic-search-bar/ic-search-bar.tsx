@@ -19,7 +19,6 @@ import {
   IcMenuOption,
 } from "../../utils/types";
 import {
-  debounceEvent,
   getInputDescribedByText,
   renderHiddenInput,
   handleHiddenFormButtonClick,
@@ -60,6 +59,7 @@ export class SearchBar {
 
   private assistiveHintEl: HTMLSpanElement = null;
   private preventSubmit: boolean = false;
+  private debounceAriaLive: number;
 
   /**
    * The label for the search bar.
@@ -141,12 +141,7 @@ export class SearchBar {
   /**
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
-  @Prop({ mutable: true }) debounce?: number = 0;
-
-  @Watch("debounce")
-  private debounceChanged() {
-    this.icChange = debounceEvent(this.icChange, this.debounce);
-  }
+  @Prop() debounce?: number = 0;
 
   /**
    * The name of the control, which is submitted with the form data.
@@ -201,8 +196,6 @@ export class SearchBar {
     } else if (this.inputEl && this.inputEl.value !== newValue) {
       this.inputEl.value = newValue;
     }
-
-    this.icChange.emit({ value: newValue });
   }
 
   /**
@@ -262,6 +255,8 @@ export class SearchBar {
     }
   };
 
+  // The icInput event is defined here so that it appears as an event for search bar
+  // The actual event is emitted from the child ic-text-field
   /**
    * Emitted when a keyboard input occurred.
    */
@@ -295,14 +290,12 @@ export class SearchBar {
     }
 
     this.debounceAriaLiveUpdate();
-
-    this.icInput.emit({ value: this.value });
   };
 
   private debounceAriaLiveUpdate() {
-    clearTimeout(this.debounce);
+    clearTimeout(this.debounceAriaLive);
 
-    this.debounce = window.setTimeout(() => {
+    this.debounceAriaLive = window.setTimeout(() => {
       this.updateSearchResultAriaLive();
     }, 500);
   }
@@ -329,6 +322,8 @@ export class SearchBar {
     this.handleShowClearButton(true);
   };
 
+  // The icChange event is defined here so that it appears as an event for search bar
+  // The actual event is emitted from the child ic-text-field
   /**
    * Emitted when the value has changed.
    */
@@ -575,10 +570,6 @@ export class SearchBar {
     }
   };
 
-  connectedCallback(): void {
-    this.debounceChanged();
-  }
-
   componentWillRender(): void {
     this.highlightFirstOptionAfterNoResults();
   }
@@ -725,6 +716,7 @@ export class SearchBar {
           autoFocus={autofocus}
           spellcheck={spellcheck}
           inputmode="search"
+          debounce={this.debounce}
         >
           <div
             class={{
