@@ -10,7 +10,7 @@ exports[`ic-top-navigation renders with Title, Version & Status: renders-with-ti
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -52,7 +52,7 @@ exports[`ic-top-navigation renders with app icon & title: renders-with-app-icon-
                   <slot name="app-icon"></slot>
                 </div>
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -80,7 +80,7 @@ exports[`ic-top-navigation renders with app title: renders-with-app-title 1`] = 
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -104,7 +104,7 @@ exports[`ic-top-navigation renders with buttons: renders-with-buttons 1`] = `
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -152,7 +152,7 @@ exports[`ic-top-navigation renders with custom title link url: renders-with-cust
             <div class="app-details-container">
               <a class="title-link" href="https://www.google.co.uk/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -176,7 +176,7 @@ exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] 
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -236,7 +236,7 @@ exports[`ic-top-navigation renders with search: renders-with-search 1`] = `
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
@@ -276,7 +276,7 @@ exports[`ic-top-navigation tests form in search slot: form-in-search-slot 1`] = 
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography variant="h3">
-                  <h1>
+                  <h1 class="title-wrap">
                     ApplicationName
                   </h1>
                 </ic-typography>
