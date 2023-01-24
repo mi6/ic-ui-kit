@@ -78,3 +78,38 @@ import readme from "./readme.md";
     `}
   </Story>
 </Canvas>
+
+### Announced
+
+<Canvas>
+  <Story name="Announced">
+    {html`
+      <ic-status-tag
+        label="Warning"
+        status="warning"
+        id="tag"
+        announced="false"
+      ></ic-status-tag>
+      <br />
+      <br />
+      <ic-button variant="primary" size="small" onClick="onClick()" id="btn"
+        >Toggle announced prop</ic-button
+      >
+      <script>
+        const tag = document.getElementById("tag");
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", onClick);
+        function onClick(e) {
+          e.preventDefault();
+          tag.announced
+            ? ((tag.announced = "false"),
+              (tag.status = "warning"),
+              (tag.label = "Warning"))
+            : ((tag.announced = "true"),
+              (tag.status = "success"),
+              (tag.label = "Success"));
+        }
+      </script>
+    `}
+  </Story>
+</Canvas>
