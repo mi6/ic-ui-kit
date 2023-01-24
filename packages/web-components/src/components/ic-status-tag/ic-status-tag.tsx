@@ -27,6 +27,10 @@ export class StatusTag {
    * If `true`, the small styling will be applied to the status tag.
    */
   @Prop() small?: boolean = false;
+  /**
+   * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+   */
+  @Prop() announced?: boolean = false;
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
@@ -36,9 +40,12 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, appearance, small } = this;
+    const { label, status, appearance, small, announced } = this;
     return (
-      <Host role="status">
+      <Host
+        role={announced ? "status" : null}
+        aria-label="Status"
+      >
         <strong
           class={{
             ["tag"]: true,

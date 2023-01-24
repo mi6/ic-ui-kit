@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property             | Attribute    | Description                                                     | Type                                              | Default     |
-| -------------------- | ------------ | --------------------------------------------------------------- | ------------------------------------------------- | ----------- |
-| `appearance`         | `appearance` | The emphasis of the status tag.                                 | `"filled" \| "outlined"`                          | `"filled"`  |
-| `label` _(required)_ | `label`      | The content rendered within the status tag.                     | `string`                                          | `undefined` |
-| `small`              | `small`      | If `true`, the small styling will be applied to the status tag. | `boolean`                                         | `false`     |
-| `status`             | `status`     | The colour of the status tag.                                   | `"danger" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
+| Property             | Attribute    | Description                                                                                  | Type                                              | Default     |
+| -------------------- | ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------- |
+| `announced`          | `announced`  | If `true`, role='status' is added to the component and it will act as an 'aria-live' region. | `boolean`                                         | `false`     |
+| `appearance`         | `appearance` | The emphasis of the status tag.                                                              | `"filled" \| "outlined"`                          | `"filled"`  |
+| `label` _(required)_ | `label`      | The content rendered within the status tag.                                                  | `string`                                          | `undefined` |
+| `small`              | `small`      | If `true`, the small styling will be applied to the status tag.                              | `boolean`                                         | `false`     |
+| `status`             | `status`     | The colour of the status tag.                                                                | `"danger" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
 
 
 ## Dependencies
