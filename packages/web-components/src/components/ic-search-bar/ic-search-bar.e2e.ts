@@ -537,7 +537,7 @@ describe("ic-search-bar", () => {
     expect(searchBar.getAttribute("value")).toBe("");
     expect(searchBar.getAttribute("value").length).toBe(0);
   });
-  
+
   it("should emit icSubmitSearch when search button pressed with Space", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
@@ -1059,5 +1059,33 @@ describe("ic-search-bar", () => {
     });
 
     expect(focusedElement).toBe("button");
+  });
+
+  it("should emit icChange on delay", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" debounce="500"></ic-search-bar>`
+    );
+
+    await page.waitForChanges();
+    const icChange = await page.spyOnEvent("icChange");
+
+    await focusAndTypeIntoInput("foo", page);
+
+    await page.waitForTimeout(600);
+    expect(icChange).toHaveReceivedEventDetail({
+      value: "foo",
+    });
+
+    await focusAndTypeIntoInput("bar", page);
+    await page.waitForChanges();
+    await page.waitForTimeout(100);
+    expect(icChange).toHaveReceivedEventDetail({
+      value: "foo",
+    });
+    await page.waitForTimeout(500);
+    expect(icChange).toHaveReceivedEventDetail({
+      value: "foobar",
+    });
   });
 });
