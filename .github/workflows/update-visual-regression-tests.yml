@@ -1,0 +1,26 @@
+name: Update visual regression test images
+
+on: workflow_dispatch
+
+jobs:
+  ic-ui-kit-update-visual-tests:
+    name: 'Update Visual Regression Test References'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: browser-actions/setup-chrome@latest
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+      - name: Update Visual Regression Test References
+        run: |
+          npm run test-visual:update-ci
+      - uses: EndBug/add-and-commit@v9
+        with: 
+          commit: --no-verify
+          default_author: github_actions
+          message: 'feat(web-components): update loki visual regression test references'

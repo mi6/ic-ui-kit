@@ -18,6 +18,7 @@
     "test-visual": "npm run build && npm run build-storybook:web-components && lerna run test-visual --stream",
     "test-visual:ci": "npm run build && npm run build-storybook:web-components && lerna run test-visual:ci --stream",
     "test-visual:update": "lerna run test-visual:update --stream",
+    "test-visual:update-ci": "npm run build && lerna run test-visual:update --stream",
     "audit": "audit-ci -m --config audit-ci.json && lerna run audit",
     "prepare": "husky install",
     "prettier": "lerna run prettier",
