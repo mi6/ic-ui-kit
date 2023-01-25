@@ -146,8 +146,9 @@ export class Checkbox {
           {this.checked && !this.indeterminate && (
             <svg
               class="checkmark"
-              width="24"
-              height="24"
+              width="1.5rem"
+              height="1.5rem"
+              viewBox="0 0 100% 100%"
               xmlns="http://www.w3.org/2000/svg"
               fill-rule="evenodd"
               clip-rule="evenodd"

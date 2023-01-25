@@ -1,7 +1,7 @@
 @import "../../global/normalize.css";
 
 :host(.footer-link-group-sparse) {
-  --footer-link-group-margin-right: 95px;
+  --footer-link-group-margin-right: 5.938rem;
   --footer-link-group-border-bottom: 0 solid transparent;
   --footer-link-group-title-margin-top: 0;
   --footer-link-group-title-margin-bottom: var(--ic-space-md);

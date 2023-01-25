@@ -67,12 +67,12 @@
 
 .top-panel-container {
   display: flex;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .navigation-tabs {
-  margin-top: -1px;
+  margin-top: -0.063rem;
 }
 
 .app-details-container {
@@ -108,7 +108,7 @@
 }
 
 :host .app-status {
-  border-radius: 80px;
+  border-radius: 5rem;
   background-color: var(--ic-architectural-white);
   color: var(--ic-color-primary-text);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
@@ -121,7 +121,7 @@
 }
 
 :host .app-version {
-  border-radius: 16px;
+  border-radius: 1rem;
   background-color: var(--ic-theme-active);
   padding: var(--ic-space-xxs) var(--ic-space-sm);
   margin-left: var(--ic-space-xs);
@@ -132,7 +132,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 96px;
+  max-width: 6rem;
 }
 
 slot[name="app-icon"]::slotted(svg) {
@@ -167,17 +167,17 @@ slot[name="toggle-icon"] svg {
 
 .navigation-landmark-text {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.063rem;
+  height: 0.063rem;
   padding: 0;
-  margin: -1px;
+  margin: -0.063rem;
   overflow: hidden;
 }
 
 .navigation-item-list {
   display: flex;
   list-style: none;
-  height: 44px;
+  height: 2.75rem;
 }
 
 :host([content-aligned="left"]) .app-details-container {
@@ -236,7 +236,7 @@ slot[name="toggle-icon"] svg {
   }
 
   .search-menu-container {
-    max-width: 160px;
+    max-width: 10rem;
   }
 
   .search-bar-container {
@@ -244,7 +244,7 @@ slot[name="toggle-icon"] svg {
     justify-content: center;
     align-items: center;
     border-top: var(--ic-keyline-darken);
-    height: 64px;
+    height: 4rem;
     padding-left: var(--ic-space-md);
     padding-right: var(--ic-space-md);
     margin-left: calc(-1 * var(--section-container-margin));
@@ -268,7 +268,7 @@ slot[name="toggle-icon"] svg {
   }
 
   .top-panel-container {
-    min-height: 40px;
+    min-height: 2.5rem;
   }
 
   .searchbox-inline {
@@ -277,7 +277,7 @@ slot[name="toggle-icon"] svg {
 
   .search-bar-container {
     margin-top: 0;
-    height: 56px;
+    height: 3.5rem;
     padding-left: var(--ic-space-xs);
     padding-right: var(--ic-space-xs);
   }

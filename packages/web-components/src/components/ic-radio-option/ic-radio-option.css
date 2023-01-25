@@ -8,7 +8,7 @@
 }
 
 :host([small]) {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 :host([additional-field-display="static"]) ::slotted(ic-textfield) {
@@ -64,13 +64,13 @@
   position: relative;
   top: 0;
   left: 0;
-  height: var(--ic-space-lg);
-  width: var(--ic-space-lg);
+  height: 1.25rem;
+  width: 1.25rem;
   background-color: transparent;
-  border: 1px solid #a7acb3;
+  border: 0.063rem solid #a7acb3;
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
-  box-sizing: border-box;
+  margin: 0 0.063rem;
 }
 
 /* Show the indicator (dot/circle) when checked */
@@ -81,22 +81,22 @@
 /* On mouse-over, add a light blue background color */
 .container:hover input ~ .checkmark {
   background-color: var(--ic-action-default-bg-hover);
-  box-shadow: 0 0 0 4px var(--ic-action-default-bg-hover);
-  border: 1px solid var(--ic-action-default);
+  box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
+  border: 0.063rem solid var(--ic-action-default);
 }
 
 /* When pressed, adds the active colours */
 .container:active input ~ .checkmark {
   background-color: var(--ic-action-default-bg-active);
-  border: 1px solid var(--ic-action-default-active);
-  box-shadow: 0 0 0 4px var(--ic-action-default-bg-active);
+  border: 0.063rem solid var(--ic-action-default-active);
+  box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
 /* When pressed, adds the active colours */
 .container:active input:checked ~ .checkmark {
   background-color: var(--ic-action-default-bg-active);
-  border: 2px solid var(--ic-action-default-active);
-  box-shadow: 0 0 0 4px var(--ic-action-default-bg-active);
+  border: 0.125rem solid var(--ic-action-default-active);
+  box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
 /* When pressed and selected, adds the active colours */
@@ -106,18 +106,19 @@
 
 /* When the radio button is checked */
 .container input:checked ~ .checkmark {
-  border: 2px solid var(--ic-action-default);
+  border: 0.125rem solid var(--ic-action-default);
+  margin: 0;
 }
 
 /* When the radio button is checked and disabled */
 .container input:checked:disabled ~ .checkmark {
   background-color: transparent;
-  border: 2px solid var(--ic-architectural-200);
+  border: 0.125rem solid var(--ic-architectural-200);
 }
 
 /* When the radio button is disabled */
 .container input:disabled ~ .checkmark {
-  border: 1px dashed var(--ic-architectural-200);
+  border: 0.063rem dashed var(--ic-architectural-200);
 }
 
 /* When the radio button is disabled */
@@ -129,7 +130,7 @@
 .container:hover input:disabled ~ .checkmark {
   background-color: transparent;
   box-shadow: none;
-  border: 2px solid none;
+  border: 0.125rem solid none;
 }
 
 .container:active input:disabled ~ .checkmark::after {
@@ -141,22 +142,22 @@
   content: "";
   position: absolute;
   display: none;
-  top: calc(50% - var(--ic-space-xs));
-  left: calc(50% - var(--ic-space-xs));
-  width: var(--ic-space-md);
-  height: var(--ic-space-md);
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background: var(--ic-action-default);
 }
 
 .radio-label {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   margin-left: var(--ic-space-sm);
 }
 
 .addition-field-wrapper {
-  margin-left: 44px;
+  margin-left: 2.75rem;
 }
 
 /* The line */
@@ -164,10 +165,10 @@
   color: var(--ic-action-default);
   height: var(--ic-space-md);
   width: var(--ic-space-xl);
-  border-radius: 0 0 0 3px;
-  border-bottom: 2px solid var(--ic-action-default);
-  border-left: 2px solid var(--ic-action-default);
-  margin-left: -1px;
+  border-radius: 0 0 0 0.188rem;
+  border-bottom: 0.125rem solid var(--ic-action-default);
+  border-left: 0.125rem solid var(--ic-action-default);
+  margin-left: -0.063rem;
 }
 
 /* The dynamic container */
@@ -175,7 +176,7 @@
   display: flex;
   position: relative;
   margin-left: var(--ic-space-md);
-  margin-top: 6px;
+  margin-top: 0.375rem;
   gap: var(--ic-space-xs);
 }
 
@@ -185,7 +186,7 @@
 
 .dynamic-text {
   color: var(--ic-action-default);
-  margin-top: 5px;
+  margin-top: 0.313rem;
   margin-bottom: var(--ic-space-xs);
   border-radius: 2%;
 }

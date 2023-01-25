@@ -2,10 +2,10 @@
 
 .tag {
   padding: var(--ic-space-xs) var(--ic-space-sm);
-  font-size: 14px;
-  border-radius: 80px;
+  font-size: 0.875rem;
+  border-radius: 5rem;
   display: inline-block;
-  min-width: 40px;
+  min-width: 2.5rem;
   text-align: center;
 }
 
@@ -36,25 +36,25 @@
 .outlined-neutral {
   background-color: var(--ic-architectural-200);
   color: var(--ic-color-secondary-text);
-  border: 1px solid var(--ic-architectural-400);
+  border: 0.063rem solid var(--ic-architectural-400);
 }
 
 .outlined-success {
   background-color: var(--ic-status-success-background);
   color: var(--ic-status-success);
-  border: 1px solid var(--ic-status-success);
+  border: 0.063rem solid var(--ic-status-success);
 }
 
 .outlined-warning {
   background-color: var(--ic-status-warning-background);
   color: var(--ic-status-warning-dark);
-  border: 1px solid var(--ic-status-warning-dark);
+  border: 0.063rem solid var(--ic-status-warning-dark);
 }
 
 .outlined-danger {
   background-color: var(--ic-status-error-background);
   color: var(--ic-status-error);
-  border: 1px solid var(--ic-status-error);
+  border: 0.063rem solid var(--ic-status-error);
 }
 
 @media (forced-colors: active) {
