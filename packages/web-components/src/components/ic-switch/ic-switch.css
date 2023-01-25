@@ -23,19 +23,19 @@ input {
 }
 
 .ic-switch-label-small {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .ic-switch-toggle {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 64px;
+  width: 4rem;
   height: var(--ic-space-xl);
   position: relative;
   border-radius: 100vw;
   background-color: var(--ic-architectural-200);
-  border: 1px solid var(--ic-architectural-700);
+  border: 0.063rem solid var(--ic-architectural-700);
   box-sizing: border-box;
   transition: var(--ic-transition-duration-fast);
 }
@@ -50,13 +50,13 @@ input {
 
 .ic-switch-toggle::before {
   content: "";
-  width: 21.33px;
-  height: 21.33px;
+  width: 1.333rem;
+  height: 1.333rem;
   border-radius: 50%;
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 5.33px;
+  left: 0.333rem;
   transform: translate(0, -50%);
   background-color: var(--ic-architectural-700);
   transition: var(--ic-transition-duration-slow);
@@ -65,8 +65,8 @@ input {
 .ic-switch-icon {
   display: inline-block;
   vertical-align: middle;
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
 }
 
 .ic-switch-icon-circle,
@@ -99,26 +99,26 @@ input {
 }
 
 .ic-switch-input:not([disabled]) + .ic-switch-toggle:hover::before {
-  box-shadow: 0 0 0 12px var(--ic-action-dark-bg-hover);
+  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-hover);
 }
 
 .ic-switch-input:not([disabled]) + .ic-switch-toggle:active::before {
-  box-shadow: 0 0 0 12px var(--ic-action-dark-bg-active);
+  box-shadow: 0 0 0 0.75rem var(--ic-action-dark-bg-active);
 }
 
 .ic-switch-input:not([disabled]):checked + .ic-switch-toggle:hover::before {
-  box-shadow: 0 0 0 12px var(--ic-action-default-bg-hover);
+  box-shadow: 0 0 0 0.75rem var(--ic-action-default-bg-hover);
 }
 
 .ic-switch-input:not([disabled]):checked + .ic-switch-toggle:active::before {
-  box-shadow: 0 0 0 12px var(--ic-action-default-bg-active);
+  box-shadow: 0 0 0 0.75rem var(--ic-action-default-bg-active);
 }
 
 .ic-switch-input:focus:not([disabled]) + .ic-switch-toggle,
 .ic-switch-input:focus-visible:not([disabled]) + .ic-switch-toggle {
-  box-shadow: 0 0 0 1px var(--ic-architectural-white),
-    0 0 0 3px var(--ic-action-default),
-    0 0 0 8px var(--ic-action-default-active-alpha);
+  box-shadow: 0 0 0 0.063rem var(--ic-architectural-white),
+    0 0 0 0.188rem var(--ic-action-default),
+    0 0 0 0.5rem var(--ic-action-default-active-alpha);
 }
 
 .ic-switch-disabled {
@@ -135,7 +135,7 @@ input {
 
 .ic-switch-input:disabled + .ic-switch-toggle {
   background-color: var(--ic-architectural-80);
-  border: 1px dashed var(--ic-architectural-300);
+  border: 0.063rem dashed var(--ic-architectural-300);
 }
 
 .ic-switch-input:disabled ~ .ic-switch-checked-status {
@@ -148,7 +148,7 @@ input {
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle {
   background-color: var(--ic-status-info-background);
-  border: 1px dashed #98c9f5;
+  border: 0.063rem dashed #98c9f5;
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle::before {
@@ -160,7 +160,7 @@ input {
 }
 
 .ic-switch-small .ic-switch-checked-status {
-  padding-left: 6px;
+  padding-left: 0.375rem;
 }
 
 .ic-switch-small .ic-switch-toggle {
@@ -193,7 +193,7 @@ input {
   }
 
   .ic-switch-input:checked + .ic-switch-toggle::before {
-    transform: translate(calc(var(--ic-space-xl) - 2px), -50%);
+    transform: translate(calc(var(--ic-space-xl) - 0.125rem), -50%);
   }
 
   .ic-switch-input:disabled + .ic-switch-toggle,

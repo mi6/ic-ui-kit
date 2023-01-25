@@ -9,7 +9,7 @@
 :host {
   border-radius: var(--ic-border-radius);
   max-height: 0;
-  width: var(--input-width, 320px);
+  width: var(--input-width, 20rem);
   color: var(--ic-color-primary-text);
   background-color: var(--ic-architectural-white);
   position: relative;
@@ -25,7 +25,7 @@
 .menu {
   text-decoration: none;
   list-style-type: none;
-  border: 1px solid var(--ic-architectural-400);
+  border: 0.063rem solid var(--ic-architectural-400);
   border-radius: var(--ic-border-radius);
   background-color: var(--ic-architectural-white);
   visibility: hidden;
@@ -48,7 +48,7 @@
 
 :host([open]) .menu {
   visibility: visible;
-  max-height: 322px;
+  max-height: 720.125rem;
 }
 
 :host(.full-width) {
@@ -56,7 +56,7 @@
 }
 
 .option {
-  padding: 8px 7px;
+  padding: 0.5rem 0.438rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -64,15 +64,15 @@
 }
 
 :host([small]) .option {
-  padding: 4px 7px;
+  padding: 0.25rem 0.438rem;
 }
 
 .option:last-child {
-  border-radius: 0 0 1px 1px;
+  border-radius: 0 0 0.063rem 0.063rem;
 }
 
 .option:first-child {
-  border-radius: 1px 1px 0 0;
+  border-radius: 0.063rem 0.063rem 0 0;
 }
 
 .option:not(.disabled-option):hover {
@@ -96,8 +96,8 @@
 }
 
 .check-icon {
-  height: 24px;
-  margin-left: 8px;
+  height: 1.5rem;
+  margin-left: 0.5rem;
   pointer-events: none;
 }
 
@@ -106,16 +106,16 @@
 }
 
 .option-group-title {
-  padding: 24px 7px 8px;
+  padding: 1.5rem 0.438rem 0.5rem;
   color: var(--ic-color-tertiary-text);
 }
 
 :host([small]) .option-group-title {
-  padding: 12px 7px 4px;
+  padding: 0.75rem 0.438rem 0.25rem;
 }
 
 .last-recommended-option {
-  border-bottom: 1px solid var(--ic-architectural-400);
+  border-bottom: 0.063rem solid var(--ic-architectural-400);
 }
 
 .disabled-option {
@@ -141,6 +141,6 @@
 @media (forced-colors: active) {
   .focused-option:focus {
     outline: none;
-    border: 2px solid transparent;
+    border: 0.125rem solid transparent;
   }
 }

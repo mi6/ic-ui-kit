@@ -14,14 +14,14 @@
 
 :host(.has-background-image) {
   background-repeat: no-repeat;
-  background-position: right -100px;
-  background-size: auto calc(100% + 100px);
+  background-position: right -6.25rem;
+  background-size: auto calc(100% + 6.25rem);
   box-shadow: var(--ic-elevation-inset);
 }
 
 @media (prefers-reduced-motion) {
   :host(.has-background-image) {
-    background-position: right -100px !important;
+    background-position: right -6.25rem !important;
   }
 }
 
@@ -89,12 +89,12 @@ ic-typography.heading-bottom-spacing {
 @media (min-width: 1044px) {
   :host,
   .section-container {
-    min-height: 208px;
+    min-height: 13rem;
   }
 
   :host([small]),
   :host([small]) .section-container {
-    min-height: 173px;
+    min-height: 10.813rem;
   }
 
   .left-container:not(.left-container-full-width) {
@@ -102,21 +102,21 @@ ic-typography.heading-bottom-spacing {
   }
 
   .left-container {
-    min-height: 144px;
+    min-height: 9rem;
   }
 
   .right-container {
     flex-basis: 33.3%;
-    margin-left: 50px;
+    margin-left: 3.125rem;
   }
 
   .secondary-container {
-    min-height: 144px;
+    min-height: 9rem;
   }
 
   .secondary-heading,
   .secondary-subheading {
-    margin-left: 63px;
+    margin-left: 3.938rem;
   }
 }
 
@@ -127,34 +127,34 @@ ic-typography.heading-bottom-spacing {
 
   :host,
   .section-container {
-    min-height: 256px;
+    min-height: 16rem;
   }
 
   :host([small]),
   :host([small]) .section-container {
-    min-height: 240px;
+    min-height: 15rem;
   }
 
   :host([secondary-heading]),
   :host([secondary-heading]) .section-container {
-    min-height: 224px;
+    min-height: 14rem;
   }
 
   .left-container {
-    min-height: 160px;
+    min-height: 10rem;
   }
 
   .secondary-container {
-    min-height: 160px;
+    min-height: 10rem;
   }
 
   .secondary-heading,
   .secondary-subheading {
-    margin-left: 94.75px;
+    margin-left: 5.922rem;
   }
 
   .right-container {
-    margin-left: 50px;
+    margin-left: 3.125rem;
   }
 }
 
@@ -165,34 +165,34 @@ ic-typography.heading-bottom-spacing {
 
   :host,
   .section-container {
-    min-height: 256px;
+    min-height: 16rem;
   }
 
   :host([small]),
   :host([small]) .section-container {
-    min-height: 240px;
+    min-height: 15rem;
   }
 
   :host([secondary-heading]),
   :host([secondary-heading]) .section-container {
-    min-height: 224px;
+    min-height: 14rem;
   }
 
   .left-container {
-    min-height: 160px;
+    min-height: 10rem;
   }
 
   .secondary-container {
-    min-height: 160px;
+    min-height: 10rem;
   }
 
   .secondary-heading,
   .secondary-subheading {
-    margin-left: 34px;
+    margin-left: 2.125rem;
   }
 
   .right-container {
-    margin-left: 50px;
+    margin-left: 3.125rem;
   }
 }
 
@@ -203,17 +203,17 @@ ic-typography.heading-bottom-spacing {
 
   :host,
   .section-container {
-    min-height: 208px;
+    min-height: 13rem;
   }
 
   :host([small]),
   :host([small]) .section-container {
-    min-height: 173px;
+    min-height: 10.813rem;
   }
 
   :host([secondary-heading]),
   :host([secondary-heading]) .section-container {
-    min-height: 280px;
+    min-height: 17.5rem;
   }
 
   :host([secondary-heading]) .section-container,
@@ -233,7 +233,7 @@ ic-typography.heading-bottom-spacing {
   }
 
   .right-container {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -244,7 +244,7 @@ ic-typography.heading-bottom-spacing {
 
   :host,
   .section-container {
-    min-height: 192px;
+    min-height: 12rem;
   }
 
   :host,
@@ -254,12 +254,12 @@ ic-typography.heading-bottom-spacing {
 
   :host([small]),
   :host([small]) .section-container {
-    min-height: 173px;
+    min-height: 10.813rem;
   }
 
   :host([secondary-heading]),
   :host([secondary-heading]) .section-container {
-    min-height: 264px;
+    min-height: 16.5rem;
   }
 
   :host([secondary-heading]) .section-container,

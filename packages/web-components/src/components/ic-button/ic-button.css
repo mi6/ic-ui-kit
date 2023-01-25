@@ -16,10 +16,10 @@
   font-family: var(--ic-font-body-family);
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--ic-easing-transition-fast);
   border-radius: var(--ic-border-radius);
-  min-width: 100px;
+  min-width: 6.25rem;
   display: inline-flex;
   gap: var(--ic-space-xs);
   flex-direction: row;
@@ -115,7 +115,7 @@
 /* Secondary */
 
 :host(.button-variant-secondary) .button {
-  border: 1px solid var(--button-default);
+  border: 0.063rem solid var(--button-default);
   color: var(--button-default);
 }
 
@@ -236,7 +236,7 @@
 /* Sizing */
 
 :host(.button-size-default) .button {
-  height: 40px;
+  height: 2.5rem;
   padding: var(--ic-space-xs) var(--ic-space-md);
 }
 
@@ -253,7 +253,7 @@
 :host(.button-size-default.button-variant-icon) .button {
   height: var(--ic-space-xl);
   width: var(--ic-space-xl);
-  padding: 6px;
+  padding: 0.375rem;
 }
 
 :host(.button-size-small.button-variant-icon) .button {
@@ -263,8 +263,8 @@
 }
 
 :host(.button-size-large.button-variant-icon) .button {
-  height: 40px;
-  width: 40px;
+  height: 2.5rem;
+  width: 2.5rem;
   padding: var(--ic-space-xs);
 }
 
@@ -341,13 +341,13 @@ div.icon-container {
 /** SEARCH **/
 
 :host(.search-submit-button) ::slotted(svg) {
-  --icon-height: 20px;
-  --icon-width: 20px;
+  --icon-height: 1.25rem;
+  --icon-width: 1.25rem;
 }
 
 :host(.search-submit-button-small) ::slotted(svg) {
-  --icon-height: 16px;
-  --icon-width: 16px;
+  --icon-height: 1rem;
+  --icon-width: 1rem;
 }
 
 :host(.clear-button) {
@@ -374,8 +374,8 @@ div.icon-container {
 }
 
 :host(.menu-close-button) ::slotted(svg) {
-  --icon-height: 14px;
-  --icon-width: 14px;
+  --icon-height: 0.875rem;
+  --icon-width: 0.875rem;
 }
 
 :host(.popout-menu-button) .button {
@@ -405,6 +405,6 @@ div.icon-container {
 /** High Contrast **/
 @media (forced-colors: active) {
   .button {
-    border: 2px solid transparent;
+    border: 0.125rem solid transparent;
   }
 }

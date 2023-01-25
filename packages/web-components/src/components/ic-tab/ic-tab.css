@@ -12,7 +12,7 @@
   align-items: center;
   border-radius: 0;
   color: var(--label-color);
-  height: 40px;
+  height: 2.5rem;
   padding: 0 var(--ic-space-md);
   cursor: pointer;
   position: relative;
