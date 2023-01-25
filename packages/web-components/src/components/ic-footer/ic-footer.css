@@ -5,15 +5,15 @@
 }
 
 :host(.footer-sparse) {
-  --footer-links-padding: 24px 0;
-  --footer-compliance-padding: 24px 0 8px 0;
+  --footer-links-padding: 1.5rem 0;
+  --footer-compliance-padding: 1.5rem 0 0.5rem 0;
   --footer-logo-margin-bottom: var(--ic-space-lg);
   --footer-link-inner-flex-direction: row;
 }
 
 :host(.footer-small) {
   --footer-links-padding: 0 0;
-  --footer-compliance-padding: 16px 0 8px;
+  --footer-compliance-padding: 1rem 0 0.5rem;
   --footer-logo-margin-bottom: var(--ic-space-md);
   --footer-link-inner-flex-direction: column;
 }
@@ -50,7 +50,7 @@ footer {
 }
 
 .footer-description-inner {
-  padding: 16px 0;
+  padding: 1rem 0;
 }
 
 /* Links */

@@ -17,7 +17,7 @@ button {
 
 .card,
 .card.clickable {
-  border: 1px solid var(--ic-architectural-300);
+  border: 0.063rem solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   padding: var(--ic-space-md);
@@ -28,7 +28,7 @@ button {
 
 .dark.card,
 .dark.card.clickable {
-  border: 1px solid var(--ic-architectural-700);
+  border: 0.063rem solid var(--ic-architectural-700);
 }
 
 .card.clickable:hover {
@@ -76,7 +76,7 @@ button {
 .card.clickable .card-title {
   color: var(--ic-hyperlink);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.063rem;
 }
 
 .card.clickable:hover .card-title,
@@ -92,7 +92,7 @@ button {
 
 .card.disabled .card-title {
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.063rem;
   text-decoration-color: var(--ic-color-tertiary-text);
   color: var(--ic-color-tertiary-text);
 }

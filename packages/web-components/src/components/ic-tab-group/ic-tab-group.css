@@ -66,8 +66,8 @@
 
 .scroll-arrow {
   display: flex;
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   margin: var(--ic-space-xxs) var(--ic-space-xxxs);
   align-items: center;
   justify-content: center;
@@ -107,8 +107,8 @@
 .scroll-splitter-right {
   display: flex;
   height: var(--ic-space-lg);
-  width: 1px;
-  margin-top: 10px;
+  width: 0.063rem;
+  margin-top: 0.625rem;
   background-color: var(--splitter-color);
 }
 
@@ -128,7 +128,7 @@
 .ic-tab-splitter {
   display: block;
   background-color: var(--border-bottom-color);
-  height: 1px;
+  height: 0.063rem;
   right: 0;
   left: 0;
   margin-left: var(--ic-space-xs);

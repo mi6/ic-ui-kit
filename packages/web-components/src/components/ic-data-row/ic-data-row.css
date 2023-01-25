@@ -17,8 +17,8 @@
 }
 
 .label {
-  width: 200px;
-  min-width: 200px;
+  width: 12.5rem;
+  min-width: 12.5rem;
   margin-right: var(--ic-space-md);
   color: var(--ic-color-tertiary-text);
 }
@@ -41,12 +41,12 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
 
 .end-component {
   width: fit-content;
-  margin-left: 56px;
+  margin-left: 3.5rem;
 }
 
 .divider {
   margin-top: var(--ic-space-md);
-  height: 1px;
+  height: 0.063rem;
   background-color: var(--ic-architectural-300);
 }
 
@@ -55,8 +55,8 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
 }
 
 :host(.breakpoint-medium) .label {
-  width: 160px;
-  min-width: 160px;
+  width: 10rem;
+  min-width: 10rem;
 }
 
 :host(.breakpoint-xs) .text-cells {
@@ -64,7 +64,7 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
 }
 
 :host(.breakpoint-xs) .label {
-  width: 128px;
+  width: 8rem;
   margin-bottom: var(--ic-space-xs);
 }
 

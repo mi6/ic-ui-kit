@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 256px;
+  width: 16rem;
   bottom: 0;
   background-color: var(--ic-architectural-20);
   color: var(--ic-color-primary-text);
@@ -30,7 +30,7 @@
 
 .menu-close-button-container {
   position: relative;
-  left: 190px;
+  left: 11.875rem;
   padding: var(--ic-space-md) 0;
 }
 
@@ -40,12 +40,12 @@
 
 .menu-buttons-container {
   padding: var(--ic-space-sm) 0;
-  border-bottom: 1px solid var(--ic-architectural-200);
+  border-bottom: 0.063rem solid var(--ic-architectural-200);
 }
 
 .menu-buttons-container-nav-item-above {
   margin-top: var(--ic-space-md);
-  border-top: 1px solid var(--ic-architectural-200);
+  border-top: 0.063rem solid var(--ic-architectural-200);
 }
 
 .menu-status-version-container {
@@ -56,14 +56,14 @@
 .menu-status {
   background-color: var(--ic-architectural-500);
   color: var(--ic-color-white-text);
-  border-radius: 80px;
+  border-radius: 5rem;
   width: fit-content;
   padding: var(--ic-space-xxs) var(--ic-space-sm);
   margin-right: var(--ic-space-xs);
 }
 
 .menu-version {
-  border-radius: 16px;
+  border-radius: 1rem;
   background-color: var(--ic-architectural-100);
   padding: var(--ic-space-xxs) var(--ic-space-sm);
 }
@@ -73,14 +73,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 90px;
+  max-width: 5.625rem;
 }
 
 .navigation-landmark-text {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.063rem;
+  height: 0.063rem;
   padding: 0;
-  margin: -1px;
+  margin: -0.063rem;
   overflow: hidden;
 }
