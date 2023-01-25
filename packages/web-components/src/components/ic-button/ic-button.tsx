@@ -7,7 +7,6 @@ import {
   Listen,
   Method,
   Prop,
-  Watch,
   h,
 } from "@stencil/core";
 
@@ -106,20 +105,12 @@ export class Button {
    */
   @Event() icBlur!: EventEmitter<void>;
 
-  // CalculatedWidth must have a default value, since width is only calculated once button is rendered (with text).
-  private calculatedWidth: number = 68;
   private inheritedAttributes: { [k: string]: unknown } = {};
   private buttonEl: HTMLElement;
   private hasTooltip: boolean = false;
   private buttonIdNum = buttonIds++;
   private tooltipEl: HTMLIcTooltipElement;
   private id: string;
-
-  @Watch("loading")
-  calculateWidth(): void {
-    // Assume even padding on left and right
-    this.calculatedWidth = this.el.offsetWidth - 2 * this.el.offsetLeft;
-  }
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
@@ -153,10 +144,6 @@ export class Button {
       this.tooltipEl.label = newValue;
       this.buttonEl.setAttribute("aria-label", newValue);
     }
-  }
-
-  private getLoadingBarWidth(): { [key: string]: string } {
-    return { width: `${this.calculatedWidth.toString()}px` };
   }
 
   private hasIconSlot(): boolean {
@@ -217,7 +204,6 @@ export class Button {
   }
 
   componentDidLoad(): void {
-    this.calculateWidth();
     this.updateTheme();
   }
 
@@ -281,7 +267,7 @@ export class Button {
             </div>
           )}
           {this.loading ? (
-            <div class="loading-container" style={this.getLoadingBarWidth()}>
+            <div class="loading-container">
               <ic-loading-indicator
                 type="linear"
                 appearance={
