@@ -7,7 +7,7 @@
 
   display: block;
 
-  --linear-border-radius: 4px;
+  --linear-border-radius: 0.25rem;
   --inner-color: var(--ic-action-default);
   --outer-color: var(--ic-architectural-100);
   --label-color: var(--ic-color-primary-text);
@@ -29,23 +29,23 @@
 }
 
 :host([size="small"]) {
-  --circular-diameter: 40px;
+  --circular-diameter: 2.5rem;
   --linear-line-height: var(--ic-space-xxs);
 }
 
 :host([size="default"]) {
-  --circular-diameter: 80px;
+  --circular-diameter: 5rem;
 }
 
 :host([size="large"]) {
-  --circular-diameter: 120px;
+  --circular-diameter: 7.5rem;
 }
 
 :host([size="icon"]) {
   display: inline-block;
 
   --margin: var(--ic-space-xxxs);
-  --circular-diameter: 20px;
+  --circular-diameter: 1.25rem;
 }
 
 :host([label]) {

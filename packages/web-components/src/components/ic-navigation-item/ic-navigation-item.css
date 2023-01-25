@@ -47,7 +47,7 @@ ic-typography {
 :host(.navigation-item-selected) ::slotted(a.active)::after,
 :host(.navigation-item-top-nav) ::slotted(a.active)::after {
   content: "";
-  height: 4px;
+  height: 0.25rem;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -113,7 +113,7 @@ ic-typography {
 
 :host(.navigation-item-side-menu) .link,
 :host(.navigation-item-side-menu) ::slotted(a) {
-  height: 40px;
+  height: 2.5rem;
   width: 100%;
   color: var(--ic-color-primary-text);
   display: flex;
@@ -165,9 +165,9 @@ ic-typography {
 
 :host(.navigation-item-top-nav-child) .link,
 :host(.navigation-item-top-nav-child) ::slotted(a) {
-  height: 40px;
+  height: 2.5rem;
   width: fit-content;
-  min-width: 145px;
+  min-width: 9.063rem;
   color: var(--ic-color-primary-text);
   display: flex;
   align-items: center;
@@ -238,8 +238,8 @@ ic-typography {
   position: absolute;
   left: 0;
   width: var(--ic-space-xs);
-  height: 40px;
-  margin-right: 5px;
+  height: 2.5rem;
+  margin-right: 0.313rem;
   background-color: var(--ic-action-default);
   transition: left 0s;
 }
@@ -373,7 +373,7 @@ ic-typography {
   width: var(--navigation-group-width);
   color: var(--navigation-item-child-color) !important;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   box-sizing: border-box;
   min-width: 0;
   transition: box-shadow var(--ic-easing-transition-fast);
@@ -411,7 +411,7 @@ ic-typography {
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link,
 :host(.navigation-item-side-nav.navigation-item) ::slotted(a.active) {
-  box-shadow: inset 5px 0 0 var(--ic-theme-text);
+  box-shadow: inset 0.313rem 0 0 var(--ic-theme-text);
 }
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link::before,
@@ -421,8 +421,8 @@ ic-typography {
   position: absolute;
   top: 0;
   right: 0;
-  left: 5px;
-  border-radius: 11px !important;
+  left: 0.313rem;
+  border-radius: 0.688rem !important;
   bottom: 0;
   transition: var(--ic-easing-transition-slow);
 }
@@ -468,7 +468,7 @@ ic-typography {
 :host(.navigation-item-side-nav.navigation-item-selected) .link:focus,
 :host(.navigation-item-side-nav) ::slotted(a.active:focus) {
   margin: 0 auto;
-  box-shadow: inset 5px 0 0 var(--ic-theme-text);
+  box-shadow: inset 0.313rem 0 0 var(--ic-theme-text);
   border-radius: 0;
 }
 
@@ -479,7 +479,7 @@ ic-typography {
 :host(.navigation-item-page-header).link,
 :host(.navigation-item-page-header) a,
 :host(.navigation-item-page-header) ::slotted(a) {
-  height: 44px !important;
+  height: 2.75rem !important;
   color: var(--ic-color-primary-text) !important;
   transition: all var(--ic-easing-transition-fast) !important;
   box-shadow: rgba(23 89 188 / 0%) !important;

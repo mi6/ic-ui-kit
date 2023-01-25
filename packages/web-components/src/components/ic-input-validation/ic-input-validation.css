@@ -1,6 +1,6 @@
 ic-input-validation {
-  min-height: 28px;
-  width: var(--input-width, 320px);
+  min-height: 1.75rem;
+  width: var(--input-width, 20rem);
   margin-top: var(--ic-space-xxxs);
   display: flex;
 }
@@ -22,8 +22,8 @@ ic-input-validation span.status-icon {
 }
 
 ic-input-validation span.status-icon > svg {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 ic-input-validation span.icon-success > svg {
