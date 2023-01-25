@@ -5,12 +5,12 @@
   --side-navigation-position-left: 0;
   --side-navigation-position-top: var(--ic-space-xxl);
   --side-navigation-height: var(--ic-space-xxl);
-  --sm-side-navigation-top-bar-height: 56px;
-  --sm-side-navigation-collapsed-labels-width: 96px;
+  --sm-side-navigation-top-bar-height: 3.5rem;
+  --sm-side-navigation-collapsed-labels-width: 6rem;
   --sm-side-navigation-expand-transition-duration: var(
     --ic-transition-duration-slow
   );
-  --side-navigation-width: 320px;
+  --side-navigation-width: 20rem;
 }
 
 :host > * {
@@ -88,7 +88,7 @@
   bottom: 0;
   left: 0;
   z-index: 2;
-  box-shadow: -3px -3px 8px rgb(0 0 0 / 20%);
+  box-shadow: -0.188rem -0.188rem 0.5rem rgb(0 0 0 / 20%);
   background-color: var(--ic-theme-primary);
   display: flex;
   flex-direction: column;
@@ -203,7 +203,7 @@
 }
 
 .menu-button {
-  width: 104px;
+  width: 6.5rem;
 }
 
 .app-status-wrapper {
@@ -218,26 +218,26 @@
 }
 
 .app-status-wrapper .app-version {
-  max-width: 100px;
+  max-width: 6.25rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .app-status-wrapper .app-status {
-  border-radius: 80px;
+  border-radius: 5rem;
   background-color: var(--ic-theme-text);
   color: var(--ic-color-primary-text);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
   margin-right: var(--ic-space-xs);
-  max-width: 100px;
+  max-width: 6.25rem;
 }
 
 .app-status-wrapper .app-status-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: 96px;
+  max-width: 6rem;
 }
 
 :host(.dark) .app-status-wrapper .app-status {
@@ -246,32 +246,32 @@
 
 .navigation-landmark-title {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.063rem;
+  height: 0.063rem;
   padding: 0;
-  margin: -1px;
+  margin: -0.063rem;
   overflow: hidden;
 }
 
 /* Navigation Group */
 
 ::slotted(ic-navigation-group) {
-  --navigation-group-height: 44px;
+  --navigation-group-height: 2.75rem;
   --navigation-group-width: 100%;
   --navigation-group-justify-content: space-between;
   --navigation-group-hover: var(--ic-theme-hover);
   --navigation-group-text-hover: var(--ic-theme-text);
-  --navigation-item-child-height: 56px;
+  --navigation-item-child-height: 3.5rem;
   --navigation-item-child-active: var(--ic-action-dark-bg-active);
   --navigation-item-child-color: var(--ic-theme-text);
-  --navigation-group-expand-toggle-padding: 4px;
+  --navigation-group-expand-toggle-padding: 0.25rem;
 }
 
 /* Navigation Items */
 
 ::slotted(ic-navigation-item),
 ::slotted(ic-navigation-group) {
-  --navigation-item-height: 56px;
+  --navigation-item-height: 3.5rem;
   --navigation-item-width: auto;
   --navigation-item-justify-content: flex-start;
 }
@@ -350,7 +350,7 @@
 
     position: relative;
     padding: 0;
-    box-shadow: -3px 3px 8px rgb(0 0 0 / 20%);
+    box-shadow: -0.188rem 0.188rem 0.5rem rgb(0 0 0 / 20%);
   }
 
   :host(.inline) .top-bar {
@@ -358,11 +358,11 @@
   }
 
   :host(.anchor-right) .top-bar {
-    box-shadow: 3px 3px 8px rgb(0 0 0 / 20%);
+    box-shadow: 0.188rem 0.188rem 0.5rem rgb(0 0 0 / 20%);
   }
 
   :host(.anchor-right) .bottom-wrapper {
-    box-shadow: 3px -3px 8px rgb(0 0 0 / 20%);
+    box-shadow: 0.188rem -0.188rem 0.5rem rgb(0 0 0 / 20%);
   }
 
   .side-navigation,
@@ -425,13 +425,13 @@
   }
 
   .app-title-wrapper ic-typography {
-    margin: calc(-1 * 4.5px) 0 calc(-1 * 4.5px) var(--ic-space-md);
+    margin: calc(-1 * .281rem) 0 calc(-1 * .281rem) var(--ic-space-md);
     font-weight: var(--ic-font-weight-semibold);
   }
 
   :host(.sm-collapsed) .app-title-wrapper ic-typography {
     position: absolute;
-    left: -9999px;
+    left: -624.938rem;
     opacity: 0;
     transition: opacity var(--ic-easing-transition-slow);
   }
@@ -537,14 +537,14 @@
 
   :host(.sm-collapsed) ::slotted(ic-navigation-group) {
     --navigation-group-title-position: absolute;
-    --navigation-group-title-position-left: -9999px;
+    --navigation-group-title-position-left: -624.938rem;
     --navigation-group-title-opacity: none;
   }
 
   :host(.sm-expanded) ::slotted(ic-navigation-group) {
     --navigation-group-title-position: relative;
     --navigation-group-title-position-left: 0;
-    --navigation-group-expand-toggle-padding: 4px;
+    --navigation-group-expand-toggle-padding: 0.25rem;
     --navigation-group-title-opacity: flex;
   }
 
@@ -566,7 +566,7 @@
     --navigation-group-justify-content: center;
     --navigation-item-label-opacity: 1;
     --navigation-group-item-min-width: 100%;
-    --navigation-group-expand-toggle-padding: 16px;
+    --navigation-group-expand-toggle-padding: 1rem;
   }
 
   :host(.collapsed-labels) .bottom-side-nav .menu-expand-button {

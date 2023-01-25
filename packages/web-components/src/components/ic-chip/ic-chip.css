@@ -7,8 +7,8 @@
 .chip {
   display: flex;
   padding: var(--ic-space-xxs);
-  font-size: 14px;
-  border-radius: 80px;
+  font-size: 0.875rem;
+  border-radius: 5rem;
   text-align: center;
   align-items: center;
   text-decoration: none;
@@ -58,16 +58,16 @@ ic-tooltip:focus-within {
 
 .outline {
   color: var(--ic-architectural-900);
-  border: 1px solid var(--ic-architectural-900);
-  padding: calc(var(--ic-space-xxs) - 1px);
+  border: 0.063rem solid var(--ic-architectural-900);
+  padding: calc(var(--ic-space-xxs) - 0.063rem);
 }
 
 .outline.small {
-  padding: calc(var(--ic-space-xxxs) - 1px);
+  padding: calc(var(--ic-space-xxxs) - 0.063rem);
 }
 
 .outline.large {
-  padding: calc(var(--ic-space-xs) - 1px);
+  padding: calc(var(--ic-space-xs) - 0.063rem);
 }
 
 .outline.disabled {
@@ -86,7 +86,7 @@ ic-tooltip:focus-within {
   background: none;
   cursor: pointer;
   margin: var(--ic-space-xxxs);
-  height: 20px;
+  height: 1.25rem;
 }
 
 .dismiss-icon:focus {
@@ -120,15 +120,15 @@ ic-tooltip {
   }
 
   .filled.small {
-    padding: calc(var(--ic-space-xxxs) - 1px);
+    padding: calc(var(--ic-space-xxxs) - 0.063rem);
   }
 
   .filled {
-    padding: calc(var(--ic-space-xxxs) + 1px);
+    padding: calc(var(--ic-space-xxxs) + 0.063rem);
   }
 
   .filled.large {
-    padding: calc(var(--ic-space-xs) - 1px);
+    padding: calc(var(--ic-space-xs) - 0.063rem);
   }
 
   .chip.disabled {

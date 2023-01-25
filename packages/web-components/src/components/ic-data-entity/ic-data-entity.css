@@ -17,7 +17,7 @@
 .divider {
   margin-top: var(--ic-space-lg);
   margin-bottom: var(--ic-space-md);
-  height: 1px;
+  height: 0.063rem;
   background-color: var(--ic-architectural-300);
 }
 

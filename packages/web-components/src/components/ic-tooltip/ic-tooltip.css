@@ -4,10 +4,10 @@
   background-color: var(--ic-architectural-800);
   color: #ffff;
   text-align: center;
-  padding: var(--ic-space-xxxs) 10px;
+  padding: var(--ic-space-xxxs) 0.625rem;
   border-radius: var(--ic-border-radius);
   position: absolute;
-  max-width: 320px;
+  max-width: 20rem;
   display: none;
   z-index: calc(var(--ic-z-index-overlay) / 2);
   box-shadow: var(--ic-elevation-overlay);
@@ -88,7 +88,7 @@
 :host(.ic-tooltip)
   .ic-tooltip-container[data-popper-placement^="right"]
   > .ic-tooltip-arrow {
-  left: -14px;
+  left: -0.875rem;
 }
 
 :host(.ic-tooltip)

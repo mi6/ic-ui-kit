@@ -2,7 +2,7 @@
 
 :host(.footer-link-ungrouped-sparse) {
   --footer-link-margin-left: 0;
-  --footer-link-margin-right: 40px;
+  --footer-link-margin-right: 2.5rem;
   --footer-link-margin-bottom: 0;
 }
 
