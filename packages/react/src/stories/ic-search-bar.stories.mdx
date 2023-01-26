@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs';
 import { IcSearchBar } from '../components';
 import readme from "../../../web-components/src/components/ic-search-bar/readme.md";
@@ -6,6 +6,38 @@ import readme from "../../../web-components/src/components/ic-search-bar/readme.
 <Meta title="React Components/Search bar" component={IcSearchBar} />
 
 <Description markdown={readme} />
+
+
+export const ExternalFiltering = () => {
+  const mockData = [
+    { label: "Espresso", value: "espresso" },
+    { label: "Double Espresso", value: "doubleespresso" },
+    { label: "Flat White", value: "flatwhite" },
+    { label: "Cappuccino", value: "cappucino" },
+    { label: "Americano", value: "americano" },
+    { label: "Mocha", value: "mocha" },
+  ];
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    if(query.length > 1){
+      const mockAPI = (query) => {
+        const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
+        return new Promise(resolve => setTimeout(() => resolve(filteredResults), 1000));
+      };
+      mockAPI(query).then((results) => setResults(results));
+    }
+    else{
+      setResults([]);  
+    }
+  },[query])
+  const handleChange = (event) => {
+    setQuery(event.detail.value);
+  }
+  return (
+    <IcSearchBar debounce={300} placeholder="Type to search" label="Search for coffee" onIcChange={handleChange} disableFilter options={results} />
+  );
+};
 
 ### Default
 
@@ -149,5 +181,17 @@ import readme from "../../../web-components/src/components/ic-search-bar/readme.
       label="What is your favourite coffee?"
       dark
     />
+  </Story>
+</Canvas>
+
+### External filtering
+
+<Canvas>
+  <Story name="External filtering">
+    <ExternalFiltering />
+    <br/>
+    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Cappuccino, Americano, Mocha</IcTypography>
+    <br/>
+    <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the searchbar menu will be updated.</IcTypography>
   </Story>
 </Canvas>
