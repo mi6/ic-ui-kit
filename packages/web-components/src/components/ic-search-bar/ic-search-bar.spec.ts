@@ -4,6 +4,8 @@ import { Button } from "../ic-button/ic-button";
 import { TextField } from "../ic-text-field/ic-text-field";
 import { Menu } from "../ic-menu/ic-menu";
 import { waitForTimeout } from "../../testspec.setup";
+import { InputContainer } from "../ic-input-container/ic-input-container";
+import { InputLabel } from "../ic-input-label/ic-input-label";
 
 const menuOptions = [
   { label: "Espresso", value: "espresso" },
@@ -90,6 +92,25 @@ describe("ic-search-bar search", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("renders-with-options");
+  });
+
+  it("should render with helper-text", async () => {
+    const page = await newSpecPage({
+      components: [
+        SearchBar,
+        Button,
+        TextField,
+        Menu,
+        InputContainer,
+        InputLabel,
+      ],
+      html: '<ic-search-bar label="Test label" value="espresso" helper-text="This is a description"></ic-search-bar>',
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot("renders-with-helpertext");
   });
 
   it("should test clear button", async () => {
@@ -184,10 +205,15 @@ describe("ic-search-bar search", () => {
 
     const clickEventSpy = jest.fn();
     page.win.addEventListener("icSubmitSearch", clickEventSpy);
-    await page.rootInstance.handleSubmitSearch();
     searchButton.click();
     await page.waitForChanges();
     expect(clickEventSpy).toHaveBeenCalled();
+    expect(clickEventSpy).toHaveBeenCalledTimes(1);
+
+    const event = new KeyboardEvent("keydown", { key: " " });
+    await page.rootInstance.handleSubmitSearchKeyDown(event);
+    await page.waitForChanges();
+    expect(clickEventSpy).toHaveBeenCalledTimes(2);
   });
 
   it("should test input events", async () => {
@@ -478,7 +504,7 @@ describe("ic-search-bar search", () => {
     });
   });
 
-  it("should test select of empty option list text", async () => {
+  it("should test select of empty option list text with previous option", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
       html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
@@ -500,9 +526,25 @@ describe("ic-search-bar search", () => {
 
   it("should test no results state when no options passed and filtering disabled", async () => {
     const page = await newSpecPage({
-      components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" disable-filter="true"></ic-search-bar>',
+      components: [
+        SearchBar,
+        Button,
+        TextField,
+        Menu,
+        InputContainer,
+        InputLabel,
+      ],
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true"></ic-search-bar>',
     });
+
+    page.root.options = [];
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      "No results found"
+    );
 
     const textfield = page.root.shadowRoot.querySelector("ic-text-field");
     const event = new Event("input", {
@@ -512,6 +554,15 @@ describe("ic-search-bar search", () => {
 
     page.rootInstance.value = "aa";
     textfield.dispatchEvent(event);
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      "No results found"
+    );
+
+    page.root.options = [];
     await page.waitForChanges();
     //delay to wait for aria live update
     await waitForTimeout(700);
