@@ -160,8 +160,17 @@ export class SearchBar {
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
     if (this.disableFilter) {
-      this.filteredOptions = newOptions;
+      if (newOptions.length > 0) {
+        this.filteredOptions = newOptions;
+      } else {
+        if (this.hadNoOptions()) {
+          return;
+        }
+        this.setMenuChange(true);
+        this.filteredOptions = [{ label: this.emptyOptionListText, value: "" }];
+      }
     }
+    this.debounceAriaLiveUpdate();
   }
 
   /**
@@ -280,11 +289,8 @@ export class SearchBar {
         this.filteredOptions =
           rawFilteredOptions.length > 0 ? rawFilteredOptions : noOptions;
       }
-    } else if (this.disableFilter) {
-      this.setMenuChange(true);
-      this.filteredOptions = noOptions;
-    }
-
+    } 
+    
     if (!this.showClearButton) {
       this.handleShowClearButton(true);
     }
