@@ -137,6 +137,7 @@ export class Menu {
 
   // Prevents menu re-opening immediately after it is closed on blur when clicking input
   private preventClickOpen: boolean = false;
+  private isSearchBar: boolean = false;
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
     if (!open) this.popperInstance.destroy();
@@ -273,8 +274,6 @@ export class Menu {
     const getOptionId = (index: number): string =>
       Array.from(this.host.shadowRoot.querySelectorAll("li"))[index].id;
 
-    const isSearchBar = this.parentEl.tagName === "IC-SEARCH-BAR";
-
     switch (event.key) {
       case "ArrowDown":
         this.arrowBehaviour(event);
@@ -324,14 +323,14 @@ export class Menu {
         this.preventIncorrectTabOrder = true;
         break;
       case "Backspace":
-        if (isSearchBar) {
+        if (this.isSearchBar) {
           (this.parentEl as HTMLIcSearchBarElement).setFocus();
           this.focusFromSearchKeypress = true;
           this.setHighlightedOption(0);
         }
         break;
       default:
-        if (isSearchBar && event.key !== "Tab") {
+        if (this.isSearchBar && event.key !== "Tab") {
           (this.parentEl as HTMLIcSearchBarElement).setFocus();
           this.focusFromSearchKeypress = true;
           this.setHighlightedOption(0);
@@ -501,9 +500,16 @@ export class Menu {
 
   componentWillLoad(): void {
     this.loadUngroupedOptions();
+    this.isSearchBar = this.parentEl.tagName === "IC-SEARCH-BAR";
   }
 
   componentDidLoad(): void {
+    if (
+      this.isSearchBar &&
+      (this.parentEl as HTMLIcSearchBarElement).disableFilter
+    ) {
+      this.focusFromSearchKeypress = true;
+    }
     let optionsHeight = 0;
     this.host.shadowRoot
       .querySelectorAll(".option")
