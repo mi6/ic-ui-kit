@@ -86,7 +86,8 @@ ic-tooltip:focus-within {
   background: none;
   cursor: pointer;
   margin: var(--ic-space-xxxs);
-  height: 1.25rem;
+  height: calc(var(--ic-space-lg) - var(--ic-space-xxs));
+  width: calc(var(--ic-space-lg) - var(--ic-space-xxs));
 }
 
 .dismiss-icon:focus {

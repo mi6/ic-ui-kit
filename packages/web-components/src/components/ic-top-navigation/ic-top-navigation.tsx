@@ -384,9 +384,7 @@ export class TopNavigation {
                             <slot name="toggle-icon" slot="icon">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                height="24px"
                                 viewBox="0 0 24 24"
-                                width="24px"
                                 fill="#ffffff"
                               >
                                 <path d="M0 0h24v24H0V0z" fill="none" />
