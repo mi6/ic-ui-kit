@@ -72,6 +72,12 @@ button:focus {
   padding-top: var(--ic-space-xxxs);
 }
 
+.ic-back-to-top-icon > svg {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+  display: inline-block;
+}
+
 .ic-back-to-top-link span {
   color: var(--ic-action-default);
 }

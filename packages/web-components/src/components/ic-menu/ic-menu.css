@@ -48,7 +48,7 @@
 
 :host([open]) .menu {
   visibility: visible;
-  max-height: 720.125rem;
+  max-height: 20.125rem;
 }
 
 :host(.full-width) {
@@ -96,7 +96,8 @@
 }
 
 .check-icon {
-  height: 1.5rem;
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
   margin-left: 0.5rem;
   pointer-events: none;
 }
