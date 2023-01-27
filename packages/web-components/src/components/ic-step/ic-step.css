@@ -181,6 +181,7 @@
   border: var(--ic-space-xxxs) solid var(--ic-theme-primary);
   padding: var(--ic-space-xxxs);
   margin: 0 calc(-1 * var(--ic-space-xxxs));
+
   /* compensating for the circle being bigger than other steps */
 }
 

@@ -425,7 +425,7 @@
   }
 
   .app-title-wrapper ic-typography {
-    margin: calc(-1 * .281rem) 0 calc(-1 * .281rem) var(--ic-space-md);
+    margin: calc(-1 * 0.281rem) 0 calc(-1 * 0.281rem) var(--ic-space-md);
     font-weight: var(--ic-font-weight-semibold);
   }
 
@@ -487,6 +487,9 @@
   .bottom-side-nav .menu-expand-button svg {
     justify-items: flex-start;
     align-self: center;
+    display: inline-block;
+    width: var(--ic-space-lg);
+    height: var(--ic-space-lg);
   }
 
   .bottom-side-nav .menu-expand-button:hover {
