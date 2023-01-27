@@ -71,6 +71,12 @@
   margin-left: 1.125rem;
 }
 
+.alert-icon > svg {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  display: inline-block;
+}
+
 .icon-neutral > svg {
   fill: var(--ic-architectural-500);
 }

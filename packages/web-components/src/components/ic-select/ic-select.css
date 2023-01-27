@@ -126,6 +126,12 @@ select:not([disabled]) {
   color: var(--ic-action-dark);
 }
 
+.expand-icon > svg {
+  display: inline-block;
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
 :host([disabled]) .expand-icon,
 :host([disabled]) .expand-icon > svg > path {
   color: var(--ic-architectural-200);
