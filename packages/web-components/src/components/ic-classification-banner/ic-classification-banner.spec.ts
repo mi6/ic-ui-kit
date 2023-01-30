@@ -11,7 +11,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner>
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner default" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner default">
                 <ic-typography variant="caption-uppercase">protective marking not set</ic-typography>
             </banner>
           </mock:shadow-root>
@@ -28,7 +28,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official">
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">uk official</ic-typography>
             </banner>
@@ -45,7 +45,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official-sensitive">
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official-sensitive" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official-sensitive">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">uk official sensitive</ic-typography>
             </banner>
@@ -62,7 +62,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="secret">
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner secret" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner secret">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">uk secret</ic-typography>
             </banner>
@@ -79,7 +79,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="top-secret">
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner top-secret" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner top-secret">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">uk top secret</ic-typography>
             </banner>
@@ -96,7 +96,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official" up-to=true>
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">up to uk official</ic-typography>
             </banner>
@@ -113,7 +113,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official" country="us">
           <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">us official</ic-typography>
             </banner>
@@ -130,7 +130,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official" country="">
         <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">official</ic-typography>
             </banner>
@@ -147,7 +147,7 @@ describe("ic-classification-banner component", () => {
     expect(page.root).toEqualHtml(`
         <ic-classification-banner classification="official" additional-selectors="ukic">
         <mock:shadow-root>
-            <banner aria-label="Protective marking" class="classification-banner official" role="contentinfo">
+            <banner aria-label="Protective marking" class="classification-banner official">
                 <span class="offscreen">The protective marking of this page is: </span>
                 <ic-typography variant="caption-uppercase">uk official ukic</ic-typography>
             </banner>
