@@ -47,7 +47,6 @@ export class ClassificationBanner {
             ["classification-banner"]: true,
             [`${classification}`]: classification,
           }}
-          role="contentinfo"
         >
           {classification !== "default" ? (
             <span class="offscreen">
