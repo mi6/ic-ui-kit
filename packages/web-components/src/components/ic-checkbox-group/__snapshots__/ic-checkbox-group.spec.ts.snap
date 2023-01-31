@@ -16,7 +16,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
   <ic-checkbox additional-field-display="static" checked="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>
@@ -152,7 +152,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
   <ic-checkbox additional-field-display="static" checked="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>
@@ -289,7 +289,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
   <ic-checkbox additional-field-display="dynamic" checked="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
-        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
           <title>
             checkmark icon
           </title>

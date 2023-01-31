@@ -46,7 +46,7 @@
 
 .offscreen {
   position: absolute;
-  left: -624.938rem;
+  left: -9999px;
   background-color: #fff;
   color: #000;
   text-transform: none;

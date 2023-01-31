@@ -142,11 +142,6 @@
   justify-content: center;
 }
 
-.dismiss-icon svg {
-  width: 1.125rem;
-  height: 1.125rem;
-}
-
 .dismiss-icon:hover {
   cursor: pointer;
 }
@@ -162,7 +157,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 0.063rem;
   }
 
   .alert-title {
