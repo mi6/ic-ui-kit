@@ -25,8 +25,8 @@
   position: absolute;
   left: -625rem;
   top: auto;
-  width: 0.063rem;
-  height: 0.063rem;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
 }
 
@@ -87,8 +87,8 @@
 }
 
 :host(.compact) .step-icon svg {
-  width: 1rem;
-  height: 1rem;
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
 }
 
 /* DEFAULT STEP STYLING */

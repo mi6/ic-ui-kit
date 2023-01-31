@@ -87,6 +87,8 @@ ic-input-component-container.dark:hover {
 
 ic-input-component-container .inline-success > svg {
   fill: var(--ic-status-success);
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 ic-input-component-container:hover {

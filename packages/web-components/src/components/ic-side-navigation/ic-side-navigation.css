@@ -431,7 +431,7 @@
 
   :host(.sm-collapsed) .app-title-wrapper ic-typography {
     position: absolute;
-    left: -624.938rem;
+    left: -9999px;
     opacity: 0;
     transition: opacity var(--ic-easing-transition-slow);
   }
@@ -540,7 +540,7 @@
 
   :host(.sm-collapsed) ::slotted(ic-navigation-group) {
     --navigation-group-title-position: absolute;
-    --navigation-group-title-position-left: -624.938rem;
+    --navigation-group-title-position-left: -9999px;
     --navigation-group-title-opacity: none;
   }
 
