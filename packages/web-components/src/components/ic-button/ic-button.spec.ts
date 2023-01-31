@@ -151,7 +151,7 @@ describe("button component", () => {
     <ic-button class="button-size-default button-variant-primary loading" loading="">
        <mock:shadow-root>
          <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-           <div class="loading-container" style="width: 68px;">
+           <div class="loading-container">
             <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
            </div>
          </button>

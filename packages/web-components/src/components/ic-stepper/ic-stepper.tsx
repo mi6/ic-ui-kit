@@ -1,5 +1,5 @@
 import { Component, Element, Host, Prop, h, State } from "@stencil/core";
-import { checkResizeObserver } from "../../utils/helpers";
+import { checkResizeObserver, pxToRem } from "../../utils/helpers";
 import { IcStepperAlignment } from "./ic-stepper.types";
 import { IcStepTypes, IcStepVariants } from "../ic-step/ic-step.types";
 
@@ -95,7 +95,7 @@ export class Stepper {
 
     if (this.alignedFullWidth) {
       this.stepperWidth = this.el.offsetWidth;
-      lastStep.style.maxWidth = `${this.stepperWidth / this.steps.length}px`;
+      lastStep.style.maxWidth = pxToRem(`${this.stepperWidth / this.steps.length}px`);
       this.lastStepWidth = lastStep.offsetWidth;
     }
   };
@@ -172,10 +172,10 @@ export class Stepper {
       if (this.variant === "default") {
         if (!step.lastStep) {
           if (this.alignedFullWidth) {
-            step.style.width = `${
+            step.style.width = pxToRem(`${
               (this.stepperWidth - this.lastStepWidth) / (this.steps.length - 1)
-            }px`;
-            step.style.minWidth = "148px";
+            }px`);
+            step.style.minWidth = pxToRem("148px");
           }
         } else if (step.lastStep) {
           step.classList.add("last-step");
@@ -184,23 +184,23 @@ export class Stepper {
           } else {
             step.style.maxWidth =
               this.connectorWidth > 100
-                ? `${this.connectorWidth + 48}px`
-                : "148px";
+                ? pxToRem(`${this.connectorWidth + 48}px`)
+                : pxToRem("148px");
           }
         }
 
         if (this.aligned === "left") {
           step.style.width =
             this.connectorWidth > 100
-              ? `${this.connectorWidth + 48}px`
-              : "148px";
+              ? pxToRem(`${this.connectorWidth + 48}px`)
+              : pxToRem("148px");
           const stepConnect = step.shadowRoot.querySelector(
             ".step > .step-top > .step-connect"
           ) as HTMLElement;
 
           if (stepConnect) {
             stepConnect.style.width =
-              this.connectorWidth > 100 ? `${this.connectorWidth}px` : "100px";
+              this.connectorWidth > 100 ? pxToRem(`${this.connectorWidth}px`) : pxToRem("100px");
           }
         }
 
