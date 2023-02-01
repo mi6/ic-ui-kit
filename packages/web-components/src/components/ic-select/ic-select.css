@@ -4,6 +4,10 @@
    * @prop --input-width: Width of the input field
 */
 
+:host {
+  width: 100%;
+}
+
 ic-input-component-container:hover {
   --border-color: var(--ic-action-dark-hover);
 }
