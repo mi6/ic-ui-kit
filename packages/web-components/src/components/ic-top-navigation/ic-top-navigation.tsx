@@ -320,7 +320,7 @@ export class TopNavigation {
                         </div>
                       )}
                       <ic-typography variant={appTitleVariant}>
-                        <h1>{this.appTitle}</h1>
+                        <h1 class="title-wrap">{this.appTitle}</h1>
                       </ic-typography>
                     </a>
                   )}
