@@ -5,6 +5,7 @@
    * @prop --input-width: Width of the input field 
    */
   display: block;
+  width: 100%;
 }
 
 ::placeholder {
