@@ -29,7 +29,6 @@ button {
 .dark.card,
 .dark.card.clickable {
   border: 0.063rem solid var(--ic-architectural-700);
-  border: 0.063rem solid var(--ic-architectural-700);
 }
 
 .card.clickable:hover {
@@ -78,7 +77,6 @@ button {
   color: var(--ic-hyperlink);
   text-decoration: underline;
   text-decoration-thickness: 0.063rem;
-  text-decoration-thickness: 0.063rem;
 }
 
 .card.clickable:hover .card-title,
@@ -94,7 +92,6 @@ button {
 
 .card.disabled .card-title {
   text-decoration: underline;
-  text-decoration-thickness: 0.063rem;
   text-decoration-thickness: 0.063rem;
   text-decoration-color: var(--ic-color-tertiary-text);
   color: var(--ic-color-tertiary-text);
