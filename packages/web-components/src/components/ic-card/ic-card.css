@@ -19,6 +19,7 @@ button {
 .card.clickable {
   border: 1px solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
+  box-sizing: border-box;
   padding: var(--ic-space-md);
   text-align: left;
   color: var(--ic-architechtural-black);
@@ -52,7 +53,8 @@ button {
   border: var(--ic-border-disabled);
 }
 
-.card.fullwidth {
+.card.fullwidth,
+:host([full-width="true"]) {
   width: 100%;
 }
 
@@ -62,11 +64,9 @@ button {
 }
 
 .icon {
+  display: flex;
+  align-items: center;
   padding-right: var(--ic-space-xs);
-}
-
-.card.clickable ::slotted(svg) {
-  fill: var(--ic-action-default);
 }
 
 .card.disabled ::slotted(svg) {
@@ -79,18 +79,15 @@ button {
   text-decoration-thickness: 1px;
 }
 
-.card.clickable:hover .card-title {
-  color: var(--ic-hyperlink-hover) !important;
-  text-decoration: none;
-}
-
+.card.clickable:hover .card-title,
 .card.clickable:focus .card-title,
 .card.clickable.focussed .card-title {
-  color: var(--ic-hyperlink-hover);
+  text-decoration-thickness: 25%;
+  text-underline-offset: 25%;
 }
 
 .card.clickable:active .card-title {
-  color: var(--ic-hyperlink-hover);
+  text-decoration: none;
 }
 
 .card.disabled .card-title {
@@ -100,11 +97,58 @@ button {
   color: var(--ic-color-tertiary-text);
 }
 
-.card-message {
+.subheading {
   margin-top: var(--ic-space-xxs);
+}
+
+.adornment {
+  margin-top: var(--ic-space-xxs);
+}
+
+.card-message {
+  margin-top: var(--ic-space-md);
   align-items: left;
 }
 
-.card.disabled .card-message {
+.card.disabled .card-message,
+.card.disabled .subheading {
   color: var(--ic-color-tertiary-text);
+}
+
+.interaction-button {
+  margin-left: auto;
+}
+
+.image-top {
+  margin-bottom: var(--ic-space-md);
+  display: flex;
+  justify-content: center;
+}
+
+.image-mid {
+  margin-top: var(--ic-space-md);
+  display: flex;
+  justify-content: center;
+}
+
+.interaction-controls {
+  margin-top: var(--ic-space-md);
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button {
+  margin-left: auto;
+}
+
+.toggle-button-closed svg {
+  transform: rotate(90deg);
+}
+
+.toggle-button-expanded svg {
+  transform: rotate(-90deg);
+}
+
+.expanded-content {
+  margin-top: var(--ic-space-md);
 }

@@ -195,6 +195,69 @@ exports[`ic-search-bar search should render required variant: renders-required 1
 </ic-search-bar>
 `;
 
+exports[`ic-search-bar search should render with helper-text: renders-with-helpertext 1`] = `
+<ic-search-bar class="search" helper-text="This is a description" label="Test label" value="espresso">
+  <mock:shadow-root>
+    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" aria-owns="ic-search-bar-input-7-menu" value="Espresso">
+      <mock:shadow-root>
+        <ic-input-container>
+          <!---->
+          <div class="component-container">
+            <ic-input-label class="with-helper">
+              <ic-typography variant="label">
+                <label htmlfor="ic-search-bar-input-7">
+                  Test label
+                </label>
+              </ic-typography>
+              <ic-typography class="helpertext helpertext-normal" variant="caption">
+                <span id="ic-search-bar-input-7-helper-text">
+                  This is a description
+                </span>
+              </ic-typography>
+            </ic-input-label>
+            <ic-input-component-container validationstatus="">
+              <input aria-describedby="ic-search-bar-input-7-helper-text" aria-expanded="false" aria-invalid="false" aria-label="" aria-owns="ic-search-bar-input-7-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" role="combobox" type="text" value="Espresso">
+              <slot name="clear-button"></slot>
+              <slot name="search-submit-button"></slot>
+            </ic-input-component-container>
+            <slot name="menu"></slot>
+          </div>
+        </ic-input-container>
+      </mock:shadow-root>
+      <div class="clear-button-container" slot="clear-button">
+        <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+        <div class="divider"></div>
+      </div>
+      <div class="search-submit-button-container" slot="search-submit-button">
+        <ic-button class="button-size-default button-variant-icon search-submit-button" id="search-submit-button">
+          <mock:shadow-root>
+            <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" type="submit">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="menu-container" slot="menu"></div>
+      <input class="ic-input" name="ic-search-bar-input-7" type="hidden" value="Espresso">
+    </ic-text-field>
+    <div aria-live="polite" class="search-results-status" role="status"></div>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-search-bar-input-7" type="hidden" value="espresso">
+</ic-search-bar>
+`;
+
 exports[`ic-search-bar search should render with options: renders-with-options 1`] = `
 <ic-search-bar class="search" label="Test label" value="espresso">
   <mock:shadow-root>

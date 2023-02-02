@@ -161,11 +161,15 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the card will have an expandable area and expansion toggle button.
+         */
+        "expandable"?: boolean;
+        /**
           * If `true`, the card will fill the width of the container.
          */
-        "fullWidth": boolean;
+        "fullWidth"?: boolean;
         /**
-          * The title for the card.
+          * The heading for the card.
          */
         "heading": string;
         /**
@@ -188,6 +192,10 @@ export namespace Components {
           * The relationship of the linked URL as space-separated link types.
          */
         "rel"?: string;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -1075,6 +1083,10 @@ export namespace Components {
         "variant"?: IcSkeletonVariants;
     }
     interface IcStatusTag {
+        /**
+          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+         */
+        "announced"?: boolean;
         /**
           * The emphasis of the status tag.
          */
@@ -1976,11 +1988,15 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the card will have an expandable area and expansion toggle button.
+         */
+        "expandable"?: boolean;
+        /**
           * If `true`, the card will fill the width of the container.
          */
         "fullWidth"?: boolean;
         /**
-          * The title for the card.
+          * The heading for the card.
          */
         "heading": string;
         /**
@@ -2003,6 +2019,10 @@ declare namespace LocalJSX {
           * The relationship of the linked URL as space-separated link types.
          */
         "rel"?: string;
+        /**
+          * The subheading for the card.
+         */
+        "subheading"?: string;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -2955,6 +2975,10 @@ declare namespace LocalJSX {
         "variant"?: IcSkeletonVariants;
     }
     interface IcStatusTag {
+        /**
+          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+         */
+        "announced"?: boolean;
         /**
           * The emphasis of the status tag.
          */
