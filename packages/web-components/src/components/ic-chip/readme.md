@@ -18,9 +18,10 @@
 
 ## Events
 
-| Event     | Description                                  | Type                |
-| --------- | -------------------------------------------- | ------------------- |
-| `dismiss` | Is emitted when the user dismisses the chip. | `CustomEvent<void>` |
+| Event       | Description                                                                                                             | Type                |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `dismiss`   | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icDismiss instead.<br/><br/> | `CustomEvent<void>` |
+| `icDismiss` | Is emitted when the user dismisses the chip.                                                                            | `CustomEvent<void>` |
 
 
 ## Slots
