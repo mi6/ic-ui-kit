@@ -8,8 +8,9 @@ function slot(name = "") {
   return { ref: (e: any) => (e ? e.setAttribute("slot", name) : null) };
 }
 
-export const SlottedSVG: FC<any> = ({ props, path, slot: slotName }) => (
-  <svg {...slot(slotName)} {...props} {...defaultProps}>
-    <path d={path} />
+export const SlottedSVG: FC<any> = ({ path, slot: slotName, children, ...props}) => (
+  <svg {...slot(slotName)} {...props} {...defaultProps} >
+    {!!path && <path d={path} />}
+    {children}
   </svg>
 );
