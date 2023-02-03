@@ -2134,9 +2134,13 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Is emitted when the user dismisses the chip.
+          * @deprecated This event should not be used anymore. Use icDismiss instead.
          */
         "onDismiss"?: (event: IcChipCustomEvent<void>) => void;
+        /**
+          * Is emitted when the user dismisses the chip.
+         */
+        "onIcDismiss"?: (event: IcChipCustomEvent<void>) => void;
         /**
           * The size of the chip.
          */
