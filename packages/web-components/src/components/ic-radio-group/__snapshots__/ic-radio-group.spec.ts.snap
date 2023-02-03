@@ -7,7 +7,6 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
       <ic-input-label label="test label"></ic-input-label>
       <slot></slot>
     </div>
-    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </mock:shadow-root>
   <ic-radio-option additional-field-display="static" value="test">
     <mock:shadow-root>
@@ -31,7 +30,6 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
       <ic-input-label label="test label" required=""></ic-input-label>
       <slot></slot>
     </div>
-    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </mock:shadow-root>
   <ic-radio-option additional-field-display="static" value="test">
     <mock:shadow-root>
@@ -101,7 +99,6 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
       <ic-input-label label="test label" required=""></ic-input-label>
       <slot></slot>
     </div>
-    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </mock:shadow-root>
   <ic-radio-option additional-field-display="static" selected="" value="test">
     <mock:shadow-root>
@@ -197,7 +194,6 @@ exports[`ic-radio-group should render: renders 1`] = `
       <ic-input-label label="test label"></ic-input-label>
       <slot></slot>
     </div>
-    <ic-input-validation arialivemode="polite" message="" status=""></ic-input-validation>
   </mock:shadow-root>
   <ic-radio-option additional-field-display="static" value="test">
     <mock:shadow-root>
