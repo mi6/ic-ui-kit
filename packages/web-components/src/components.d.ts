@@ -173,7 +173,7 @@ export namespace Components {
          */
         "heading": string;
         /**
-          * The URL that the clickable card link points to.
+          * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
         "href"?: string | undefined;
         /**
@@ -2000,7 +2000,7 @@ declare namespace LocalJSX {
          */
         "heading": string;
         /**
-          * The URL that the clickable card link points to.
+          * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
         "href"?: string | undefined;
         /**
