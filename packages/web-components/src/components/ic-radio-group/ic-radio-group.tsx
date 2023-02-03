@@ -171,11 +171,6 @@ export class RadioGroup {
   }
 
   render() {
-    const hadValidationStatus = hasValidationStatus(
-      this.validationStatus,
-      this.disabled
-    );
-
     renderHiddenInput(
       true,
       this.host,
@@ -201,11 +196,13 @@ export class RadioGroup {
           )}
           <slot></slot>
         </div>
-        <ic-input-validation
-          ariaLiveMode="polite"
-          status={hadValidationStatus ? this.validationStatus : ""}
-          message={hadValidationStatus ? this.validationText : ""}
-        ></ic-input-validation>
+        {hasValidationStatus(this.validationStatus, this.disabled) && (
+          <ic-input-validation
+            ariaLiveMode="polite"
+            status={this.validationStatus}
+            message={this.validationText}
+          ></ic-input-validation>
+        )}
       </Host>
     );
   }
