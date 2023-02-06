@@ -2,7 +2,7 @@ import { newE2EPage } from "@stencil/core/testing";
 
 const testTabs = `
 <ic-tab-context>
-  <ic-tab-group>
+  <ic-tab-group label="Tabs e2e label">
     <ic-tab>Tab 1</ic-tab>
     <ic-tab>Tab 2</ic-tab>
     <ic-tab>Tab 3</ic-tab>
@@ -15,7 +15,7 @@ const testTabs = `
 
 const testTabsResponsive = `
 <ic-tab-context>
-  <ic-tab-group>
+  <ic-tab-group label="Tabs e2e label">
     <ic-tab>Tab 1</ic-tab>
     <ic-tab>Tab 2</ic-tab>
     <ic-tab>Tab 3</ic-tab>
@@ -138,7 +138,7 @@ describe("ic-tab-context component", () => {
     const page = await newE2EPage({
       html: `
     <ic-tab-context>
-      <ic-tab-group>
+      <ic-tab-group label="Tabs e2e label">
         <ic-tab>Tab 1</ic-tab>
         <ic-tab disabled>Tab 2</ic-tab>
         <ic-tab>Tab 3</ic-tab>
@@ -183,7 +183,7 @@ describe("ic-tab-context component", () => {
     const page = await newE2EPage({
       html: `
     <ic-tab-context activation-type="manual">
-      <ic-tab-group>
+      <ic-tab-group label="Tabs e2e label">
         <ic-tab>Tab 1</ic-tab>
         <ic-tab>Tab 2</ic-tab>
         <ic-tab>Tab 3</ic-tab>
@@ -217,7 +217,7 @@ describe("ic-tab-context component", () => {
     const page = await newE2EPage({
       html: `
     <ic-tab-context selected-tab-index="1">
-      <ic-tab-group>
+      <ic-tab-group label="Tabs e2e label">
         <ic-tab>Tab 1</ic-tab>
         <ic-tab>Tab 2</ic-tab>
         <ic-tab>Tab 3</ic-tab>
@@ -238,7 +238,7 @@ describe("ic-tab-context component", () => {
     const page = await newE2EPage({
       html: `
     <ic-tab-context selected-tab-index="1">
-      <ic-tab-group>
+      <ic-tab-group label="Tabs e2e label">
         <ic-tab>Tab 1</ic-tab>
         <ic-tab>Tab 2</ic-tab>
         <ic-tab>Tab 3</ic-tab>
