@@ -88,9 +88,7 @@ export class Link {
       ...IC_INHERITED_ARIA,
       "aria-expanded",
     ]);
-  }
 
-  componentDidLoad(): void {
     this.updateTheme();
   }
 

@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 describe("ic-tab-context", () => {
   it("passes accessibility", async () => {
     const el = await fixture(`<ic-tab-context>
-    <ic-tab-group>
+    <ic-tab-group label="A11y Tabs">
       <ic-tab>One</ic-tab>
       <ic-tab>Two</ic-tab>
       <ic-tab>Three</ic-tab>

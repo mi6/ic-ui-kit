@@ -169,7 +169,7 @@ export class TabGroup {
 
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
-      "Tab List"
+      "Tab Group"
     );
   }
 

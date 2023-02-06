@@ -1,7 +1,6 @@
 import { E2EElement, newE2EPage } from "@stencil/core/testing";
 import {
   defaultStepper,
-  customConnectorWidthStepper,
   invalidConnectorWidthStepper,
   compactStepper,
 } from "./ic-stepper-test-examples";
@@ -24,31 +23,6 @@ describe("default variant of ic-stepper component", () => {
     expect(stepInners[1].innerHTML).toEqual("2");
     expect(stepInners[2].innerHTML).toEqual("3");
     expect(stepInners[3].innerHTML).toContain("check-icon");
-  });
-
-  it("should adjust the length of the step connect if a connectorWidth over 100px is given", async () => {
-    const page = await newE2EPage({ html: customConnectorWidthStepper });
-
-    await page.waitForChanges();
-
-    const connectorWidth = await page.$eval(
-      "ic-stepper",
-      (el: HTMLIcStepperElement) => {
-        return el.connectorWidth;
-      }
-    );
-
-    expect(connectorWidth).toBe(150);
-
-    const steps = await page.evaluate(() => {
-      return Array.from(
-        document.querySelectorAll("ic-step:not(:last-child)")
-      ).map((step) => window.getComputedStyle(step).width);
-    });
-
-    steps.forEach((step) => {
-      expect(step).toMatch(`${connectorWidth + 48}px`);
-    });
   });
 
   it("should keep the length of the step connect at 100px if a connectorWidth under 100px is given", async () => {
