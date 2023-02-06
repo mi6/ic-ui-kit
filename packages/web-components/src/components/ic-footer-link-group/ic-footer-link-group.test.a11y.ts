@@ -16,7 +16,7 @@ beforeEach(() => {
 describe("ic-footer-link-group", () => {
   it("passes accessibility", async () => {
     const el = await fixture(
-      `<ic-footer-link-group><ic-footer-link></ic-footer-link></ic-footer-link-group>`
+      `<ic-footer-link-group group-title="A11y footer links"><ic-footer-link></ic-footer-link></ic-footer-link-group>`
     );
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();

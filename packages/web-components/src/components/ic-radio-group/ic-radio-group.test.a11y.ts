@@ -5,7 +5,7 @@ import { checkShadowElementRendersCorrectly } from "../../utils/testa11y.helpers
 describe("ic-radio-group", () => {
   it("passes accessibility", async () => {
     const el = await fixture(
-      `<ic-radio-group label="this is a test label">
+      `<ic-radio-group label="this is a test label" name="test">
           <ic-radio-option
             value="testValue1"
             label="test label">

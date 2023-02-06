@@ -4,8 +4,8 @@ describe("ic-checkbox-group component", () => {
   it("Should not be interactable when disabled", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1" disabled></ic-checkbox>    
-        <ic-checkbox value="test2" disabled></ic-checkbox>    
+        <ic-checkbox value="test1" label="checkbox label 1" disabled></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2" disabled></ic-checkbox>    
         </ic-checkbox-group>
       `);
 
@@ -21,8 +21,8 @@ describe("ic-checkbox-group component", () => {
   it("Should set checkbox to checked when clicked", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1"></ic-checkbox>    
-        <ic-checkbox value="test2"></ic-checkbox>    
+        <ic-checkbox value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2"></ic-checkbox>    
         </ic-checkbox-group>
       `);
     let checkbox = await page.find("ic-checkbox[value='test2']");
@@ -52,8 +52,8 @@ describe("ic-checkbox-group component", () => {
   it("Should enable statictextfield when associated checkbox is checked", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1"></ic-checkbox>    
-        <ic-checkbox value="test2" checked>
+        <ic-checkbox value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2" checked>
           <ic-text-field
               slot="additional-field"
               label="Test label"
@@ -74,8 +74,8 @@ describe("ic-checkbox-group component", () => {
   it("Should display dynamic textfield when associated checkbox is checked", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1"></ic-checkbox>    
-        <ic-checkbox value="test2" additional-field-display="dynamic">
+        <ic-checkbox value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2" additional-field-display="dynamic">
           <ic-text-field
               slot="additional-field"
               label="Test label"
@@ -108,8 +108,8 @@ describe("ic-checkbox-group component", () => {
   it("Should emit icChange event when checkbox is checked", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1"></ic-checkbox>    
-        <ic-checkbox value="test2">
+        <ic-checkbox value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2">
         </ic-checkbox>    
         </ic-checkbox-group>
       `);
@@ -126,8 +126,8 @@ describe("ic-checkbox-group component", () => {
   it("Should set checkbox to checked when space is pressed", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test1"></ic-checkbox>    
-        <ic-checkbox value="test2"></ic-checkbox>    
+        <ic-checkbox value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox value="test2" label="checkbox label 2"></ic-checkbox>    
         </ic-checkbox-group>
       `);
     const checkbox = await page.find("ic-checkbox[value='test1']");
@@ -187,8 +187,8 @@ describe("ic-checkbox-group component", () => {
   it("Passes the value of checkboxes correctly when already selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox name="test1" value="test1"></ic-checkbox>    
-        <ic-checkbox name="test2" value="test2" checked></ic-checkbox>    
+        <ic-checkbox name="test1" value="test1" label="checkbox label 1"></ic-checkbox>    
+        <ic-checkbox name="test2" value="test2" label="checkbox label 2" checked></ic-checkbox>    
         </ic-checkbox-group>
       `);
 

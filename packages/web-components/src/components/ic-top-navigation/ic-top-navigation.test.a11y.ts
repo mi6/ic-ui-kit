@@ -16,7 +16,7 @@ beforeEach(() => {
 describe("ic-top-navigation", () => {
   it("passes accessibility", async () => {
     const el = await fixture(`
-      <ic-top-navigation />
+      <ic-top-navigation app-title="A11y test title"/>
     `);
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();

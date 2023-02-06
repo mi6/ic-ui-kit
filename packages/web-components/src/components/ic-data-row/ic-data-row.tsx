@@ -52,12 +52,14 @@ export class DataRow {
 
   private checkLabelAbove() {
     const rowSize = this.el.shadowRoot.querySelector(".data")?.clientWidth;
-    if (rowSize + 46 < DEVICE_SIZES.S) {
-      this.entitySize = "xs";
-    } else if (rowSize + 46 < DEVICE_SIZES.M) {
-      this.entitySize = "m";
-    } else {
-      this.entitySize = "xl";
+    if (rowSize) {
+      if (rowSize + 46 < DEVICE_SIZES.S) {
+        this.entitySize = "xs";
+      } else if (rowSize + 46 < DEVICE_SIZES.M) {
+        this.entitySize = "m";
+      } else {
+        this.entitySize = "xl";
+      }
     }
   }
 
@@ -74,11 +76,11 @@ export class DataRow {
   componentWillLoad(): void {
     this.deviceSize = getCurrentDeviceSize();
     this.hasEndComponent = slotHasContent(this.el, "end-component");
+    this.checkLabelAbove();
   }
 
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
-    this.checkLabelAbove();
     if (this.hasEndComponent) {
       this.labelEndComponent();
     }

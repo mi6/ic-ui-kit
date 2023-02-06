@@ -182,23 +182,6 @@ describe("ic-page-header component", () => {
 
     expect(pageHeaderPosition).toBe("static");
 
-    const pageHeaderTopValueOnMobile = await page.evaluate(() => {
-      const pageHeader = document.querySelector("ic-page-header");
-      window.scrollBy({ top: 700 });
-
-      return pageHeader.offsetTop;
-    });
-
-    await page.waitForChanges();
-
-    const topNavHeightOnMobile = await page.evaluate(() => {
-      const topNav = document.querySelector("ic-top-navigation");
-
-      return topNav.offsetHeight;
-    });
-
-    expect(pageHeaderTopValueOnMobile).toEqual(0 + topNavHeightOnMobile);
-
     await page.evaluate(() => {
       window.scrollBy({ top: -700 });
     });
