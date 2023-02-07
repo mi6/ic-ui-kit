@@ -247,6 +247,11 @@ ic-typography.heading-bottom-spacing {
     min-height: 192px;
   }
 
+  :host,
+  .right-container {
+    margin-bottom: var(--ic-space-md);
+  }
+
   :host([small]),
   :host([small]) .section-container {
     min-height: 173px;
