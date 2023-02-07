@@ -69,7 +69,7 @@ export class PageHeader {
   private resizeObserver: ResizeObserver = null;
 
   private resizeObserverCallback = () => {
-    if (this.reverseOrder) {
+    if (this.reverseOrder && isSlotUsed(this.el, "actions")) {
       this.applyReverseOrder();
     }
   };
