@@ -3,9 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.6 (2023-02-07)
+# [2.1.0-beta.6](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2023-02-07)
 
-**Note:** Version bump only for package @ukic/react
+
+### Features
+
+* **react:** enhances slottedsvg component ([d3c0a93](https://github.com/mi6/ic-ui-kit/commit/d3c0a933c17ca36722c5ed46e56c9b230cec1318))
+
+
+
+
 
 # [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
 
