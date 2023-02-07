@@ -3,36 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
+# 2.1.0-beta.6 (2023-02-07)
 
+**Note:** Version bump only for package ic-ui-kit
+
+# [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
 
 ### Bug Fixes
 
 - **web-components:** add width: 100% to select and text field host ([b9c655d](https://github.com/mi6/ic-ui-kit/commit/b9c655dacdfc5cad99ff17322f2f353be6637637)), closes [#315](https://github.com/mi6/ic-ui-kit/issues/315)
 
-
 # [2.1.0-beta.4](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.3...v2.1.0-beta.4) (2023-02-01)
 
 ### Bug Fixes
 
-* **react:** adds story for external filtering ([d03c294](https://github.com/mi6/ic-ui-kit/commit/d03c2946e00bfc8b518aefd4074a97085ec4a952))
-* **react:** fixes react storybook docs ([d51bc38](https://github.com/mi6/ic-ui-kit/commit/d51bc3832e41d3720280de58b31b8822aefafba8))
-* **web-components:** fix for long single-word app titles on top nav ([62dc911](https://github.com/mi6/ic-ui-kit/commit/62dc911857b6a6dc2bd537a0610a0d7b40cc5b36))
-* **web-components:** fix radio button bug by adjusting width and margins ([f8b0128](https://github.com/mi6/ic-ui-kit/commit/f8b0128eff0c631786b526e0369275259168ea4d))
-* **web-components:** fixes issues with external filtering in searchbar ([4106363](https://github.com/mi6/ic-ui-kit/commit/4106363fe30caa62482909064fb36d6effd1aa96))
-* **web-components:** fixes searchbar debounce prop ([0dd99ae](https://github.com/mi6/ic-ui-kit/commit/0dd99aef64023a675f6707b8221e6ff841cb7f22))
-* **web-components:** remove contentinfo role from classification banner ([c2750b3](https://github.com/mi6/ic-ui-kit/commit/c2750b34cc03bee4cb7b06d6337904c57b67558a))
-
+- **react:** adds story for external filtering ([d03c294](https://github.com/mi6/ic-ui-kit/commit/d03c2946e00bfc8b518aefd4074a97085ec4a952))
+- **react:** fixes react storybook docs ([d51bc38](https://github.com/mi6/ic-ui-kit/commit/d51bc3832e41d3720280de58b31b8822aefafba8))
+- **web-components:** fix for long single-word app titles on top nav ([62dc911](https://github.com/mi6/ic-ui-kit/commit/62dc911857b6a6dc2bd537a0610a0d7b40cc5b36))
+- **web-components:** fix radio button bug by adjusting width and margins ([f8b0128](https://github.com/mi6/ic-ui-kit/commit/f8b0128eff0c631786b526e0369275259168ea4d))
+- **web-components:** fixes issues with external filtering in searchbar ([4106363](https://github.com/mi6/ic-ui-kit/commit/4106363fe30caa62482909064fb36d6effd1aa96))
+- **web-components:** fixes searchbar debounce prop ([0dd99ae](https://github.com/mi6/ic-ui-kit/commit/0dd99aef64023a675f6707b8221e6ff841cb7f22))
+- **web-components:** remove contentinfo role from classification banner ([c2750b3](https://github.com/mi6/ic-ui-kit/commit/c2750b34cc03bee4cb7b06d6337904c57b67558a))
 
 ### Features
 
-* **react:** add script to copy normalize.css, update React instructions ([3f6330a](https://github.com/mi6/ic-ui-kit/commit/3f6330a925b1b4bca6e759737d902cde2dba9a82))
-* **react:** add story for long single-word app title on top nav ([dac2645](https://github.com/mi6/ic-ui-kit/commit/dac2645ad29e209282fe2350ff0c6bdf49f878bf))
-* **react:** update card with v2 changes ([b5434bf](https://github.com/mi6/ic-ui-kit/commit/b5434bf81d6cb6e48429e9827c17a10815e2fdbf))
-* **web-components:** announced prop added to ic-status-tag ([23728be](https://github.com/mi6/ic-ui-kit/commit/23728be990f232988fabeddd9866c1a86a8cae74)), closes [#20](https://github.com/mi6/ic-ui-kit/issues/20)
-* **web-components:** export normalize.css separately from core.css, updated instructions ([a558daa](https://github.com/mi6/ic-ui-kit/commit/a558daacee2a2c3a0eff58bb1e1f77e5565c942a))
-* **web-components:** update card with v2 changes ([556e12f](https://github.com/mi6/ic-ui-kit/commit/556e12f0e092802dce4bb7af9864876095772262))
-
+- **react:** add script to copy normalize.css, update React instructions ([3f6330a](https://github.com/mi6/ic-ui-kit/commit/3f6330a925b1b4bca6e759737d902cde2dba9a82))
+- **react:** add story for long single-word app title on top nav ([dac2645](https://github.com/mi6/ic-ui-kit/commit/dac2645ad29e209282fe2350ff0c6bdf49f878bf))
+- **react:** update card with v2 changes ([b5434bf](https://github.com/mi6/ic-ui-kit/commit/b5434bf81d6cb6e48429e9827c17a10815e2fdbf))
+- **web-components:** announced prop added to ic-status-tag ([23728be](https://github.com/mi6/ic-ui-kit/commit/23728be990f232988fabeddd9866c1a86a8cae74)), closes [#20](https://github.com/mi6/ic-ui-kit/issues/20)
+- **web-components:** export normalize.css separately from core.css, updated instructions ([a558daa](https://github.com/mi6/ic-ui-kit/commit/a558daacee2a2c3a0eff58bb1e1f77e5565c942a))
+- **web-components:** update card with v2 changes ([556e12f](https://github.com/mi6/ic-ui-kit/commit/556e12f0e092802dce4bb7af9864876095772262))
 
 # [2.1.0-beta.3](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2023-01-23)
 

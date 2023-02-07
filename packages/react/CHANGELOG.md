@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.6 (2023-02-07)
+
+**Note:** Version bump only for package @ukic/react
+
 # [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
 
 **Note:** Version bump only for package @ukic/react
@@ -11,16 +15,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **react:** adds story for external filtering ([d03c294](https://github.com/mi6/ic-ui-kit/commit/d03c2946e00bfc8b518aefd4074a97085ec4a952))
-* **react:** fixes react storybook docs ([d51bc38](https://github.com/mi6/ic-ui-kit/commit/d51bc3832e41d3720280de58b31b8822aefafba8))
-
+- **react:** adds story for external filtering ([d03c294](https://github.com/mi6/ic-ui-kit/commit/d03c2946e00bfc8b518aefd4074a97085ec4a952))
+- **react:** fixes react storybook docs ([d51bc38](https://github.com/mi6/ic-ui-kit/commit/d51bc3832e41d3720280de58b31b8822aefafba8))
 
 ### Features
 
-* **react:** add script to copy normalize.css, update React instructions ([3f6330a](https://github.com/mi6/ic-ui-kit/commit/3f6330a925b1b4bca6e759737d902cde2dba9a82))
-* **react:** add story for long single-word app title on top nav ([dac2645](https://github.com/mi6/ic-ui-kit/commit/dac2645ad29e209282fe2350ff0c6bdf49f878bf))
-* **react:** update card with v2 changes ([b5434bf](https://github.com/mi6/ic-ui-kit/commit/b5434bf81d6cb6e48429e9827c17a10815e2fdbf))
-
+- **react:** add script to copy normalize.css, update React instructions ([3f6330a](https://github.com/mi6/ic-ui-kit/commit/3f6330a925b1b4bca6e759737d902cde2dba9a82))
+- **react:** add story for long single-word app title on top nav ([dac2645](https://github.com/mi6/ic-ui-kit/commit/dac2645ad29e209282fe2350ff0c6bdf49f878bf))
+- **react:** update card with v2 changes ([b5434bf](https://github.com/mi6/ic-ui-kit/commit/b5434bf81d6cb6e48429e9827c17a10815e2fdbf))
 
 # [2.1.0-beta.3](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.2...v2.1.0-beta.3) (2023-01-23)
 
