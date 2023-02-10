@@ -1384,7 +1384,7 @@ export namespace Components {
     }
     interface IcTopNavigation {
         /**
-          * The app title to be displayed.
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle": string;
         /**
@@ -3318,9 +3318,9 @@ declare namespace LocalJSX {
     }
     interface IcTopNavigation {
         /**
-          * The app title to be displayed.
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
-        "appTitle": string;
+        "appTitle"?: string;
         /**
           * The alignment of the top navigation content.
          */

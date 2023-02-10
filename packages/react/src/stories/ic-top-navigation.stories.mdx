@@ -476,7 +476,10 @@ export const DailyTippers = () => (
       ),
     ]}
   >
-    <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
+    <IcTopNavigation status="alpha" version="v0.0.7">
+    <NavLink to="/" slot="router-app-title">
+            ApplicationName
+          </NavLink>
       <svg
         slot="app-icon"
         xmlns="http://www.w3.org/2000/svg"
