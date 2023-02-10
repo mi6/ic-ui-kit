@@ -31,6 +31,7 @@ import {
 
 /**
  * @slot app-icon - Content will be rendered to left of app title.
+ * @slot app-title - Handle routing by nesting a route in the app title.
  * @slot search - Content will be rendered in search area to left of buttons.
  * @slot toggle-icon - Icon to be displayed on the button to toggle search slot content on smaller devices
  * @slot navigation - Content will be rendered in navigation panel.
@@ -45,9 +46,9 @@ export class TopNavigation {
   @Element() el: HTMLIcTopNavigationElement;
 
   /**
-   * The app title to be displayed.
+   * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() appTitle!: string;
+  @Prop() appTitle: string;
 
   /**
    *  The URL to navigate to when the app title is clicked.
@@ -261,10 +262,11 @@ export class TopNavigation {
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
 
-    onComponentRequiredPropUndefined(
-      [{ prop: this.appTitle, propName: "app-title" }],
-      "Top Navigation"
-    );
+    !isSlotUsed(this.el, "app-title") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.appTitle, propName: "app-title" }],
+        "Top Navigation"
+      );
   }
 
   disconnectedCallback(): void {
@@ -299,6 +301,12 @@ export class TopNavigation {
       : "Show search";
     const menuSize = this.deviceSize <= DEVICE_SIZES.S ? "small" : "default";
 
+    const Component = isSlotUsed(this.el, "app-title") ? "div" : "a";
+
+    const attrs = Component == "a" && {
+      href: this.href,
+    };
+
     return (
       <Host
         class={{
@@ -312,17 +320,23 @@ export class TopNavigation {
             <header role="banner">
               <div class="top-panel-container">
                 <div class="app-details-container">
-                  {hasTitle && (
-                    <a class="title-link" href={this.href}>
+                  {(hasTitle || isSlotUsed(this.el, "app-title")) && (
+                    <Component class="title-link" {...attrs}>
                       {this.hasAppIcon && (
                         <div class="app-icon-container" aria-hidden="true">
                           <slot name="app-icon" />
                         </div>
                       )}
                       <ic-typography variant={appTitleVariant}>
-                        <h1 class="title-wrap">{this.appTitle}</h1>
+                        <h1 class="title-wrap">
+                          {isSlotUsed(this.el, "app-title") ? (
+                            <slot name="app-title"></slot>
+                          ) : (
+                            this.appTitle
+                          )}
+                        </h1>
                       </ic-typography>
-                    </a>
+                    </Component>
                   )}
                   {this.status !== "" && (
                     <div class="app-status">
