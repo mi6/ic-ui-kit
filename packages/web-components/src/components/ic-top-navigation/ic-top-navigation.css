@@ -27,8 +27,13 @@
 
 :host .title-link,
 :host .title-link:visited,
-:host .title-link:active {
+:host .title-link:active,
+:host .title-link ::slotted(a),
+:host .title-link:visited ::slotted(a),
+:host .title-link:active ::slotted(a) {
   color: var(--ic-theme-text);
+  text-decoration: none;
+  outline: none;
 }
 
 :host .title-link:hover:not(:focus) {
@@ -43,7 +48,8 @@
   border-radius: var(--ic-border-radius);
 }
 
-:host .title-link:focus {
+:host .title-link:focus,
+:host .title-link:focus-within {
   border-radius: var(--ic-border-radius);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
