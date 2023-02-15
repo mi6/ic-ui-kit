@@ -346,6 +346,14 @@ ic-typography {
   flex: 0 1 0%;
 }
 
+.icon > ::slotted(*) {
+  margin-left: var(--ic-space-md) !important;
+}
+
+:host(.navigation-item-side-nav-collapsed) .icon > ::slotted(*) {
+  margin: auto !important;
+}
+
 :host(.navigation-item-side-nav) .link,
 :host(.navigation-item-side-nav) ::slotted(a) {
   height: var(--navigation-item-height);
