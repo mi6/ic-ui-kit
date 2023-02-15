@@ -1039,7 +1039,7 @@ export namespace Components {
     }
     interface IcSideNavigation {
         /**
-          * The title of the app to be displayed.
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
         "appTitle": string;
         /**
@@ -2935,9 +2935,9 @@ declare namespace LocalJSX {
     }
     interface IcSideNavigation {
         /**
-          * The title of the app to be displayed.
+          * The app title to be displayed. This is required, unless a slotted app title link is used.
          */
-        "appTitle": string;
+        "appTitle"?: string;
         /**
           * If `true`, the icon and label will appear when side navigation is collapsed.
          */
