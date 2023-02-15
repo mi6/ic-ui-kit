@@ -9,7 +9,7 @@
 
 | Property                   | Attribute                     | Description                                                                                                         | Type      | Default     |
 | -------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `appTitle` _(required)_    | `app-title`                   | The title of the app to be displayed.                                                                               | `string`  | `undefined` |
+| `appTitle`                 | `app-title`                   | The app title to be displayed. This is required, unless a slotted app title link is used.                           | `string`  | `undefined` |
 | `collapsedIconLabels`      | `collapsed-icon-labels`       | If `true`, the icon and label will appear when side navigation is collapsed.                                        | `boolean` | `false`     |
 | `disableAutoParentStyling` | `disable-auto-parent-styling` | If `true`, automatic parent wrapper styling will be disabled.                                                       | `boolean` | `false`     |
 | `expanded`                 | `expanded`                    | If `true`, the side navigation will load in an expanded state.                                                      | `boolean` | `false`     |
@@ -24,6 +24,7 @@
 | Slot                     | Description                                                                                |
 | ------------------------ | ------------------------------------------------------------------------------------------ |
 | `"app-icon"`             | Content will be rendered adjacent to the app title at the very top of the side navigation. |
+| `"app-title"`            | Handle routing by nesting a route in the app title.                                        |
 | `"primary-navigation"`   | Content will be rendered at the top of the side navigation.                                |
 | `"secondary-navigation"` | Content will be rendered at the bottom of the side navigation.                             |
 

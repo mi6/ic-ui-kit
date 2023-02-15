@@ -147,7 +147,7 @@
   }
 }
 
-:host .title-link:link {
+:host .title-link {
   display: flex;
   align-items: center;
   transition: box-shadow var(--ic-easing-transition-fast),
@@ -162,6 +162,13 @@
   color: var(--ic-theme-text);
 }
 
+slot[name="app-title"]::slotted(a),
+slot[name="app-icon"]::slotted(a) {
+  color: var(--ic-theme-text);
+  outline: none;
+  text-decoration: none;
+}
+
 :host .title-link:hover {
   border-radius: var(--ic-border-radius);
   background-color: var(--ic-theme-hover);
@@ -171,7 +178,8 @@
   background-color: var(--ic-theme-active);
 }
 
-:host .title-link:focus {
+:host .title-link:focus,
+:host .title-link:focus-within {
   border-radius: var(--ic-border-radius);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
