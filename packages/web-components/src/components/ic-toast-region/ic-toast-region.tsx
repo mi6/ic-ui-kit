@@ -12,10 +12,10 @@ export class ToastRegion {
    * @param toast The toast element being requested to display
    */
   @Method()
-  setVisible(toast: HTMLIcToastElement) {
+  async setVisible(toast: HTMLIcToastElement) {
     const visibleToasts = Array.from(
       document.querySelectorAll("ic-toast")
-    ).filter((el) => window.getComputedStyle(el).visibility === "visible");
+    ).filter((el) => window.getComputedStyle(el).display !== "none");
     if (visibleToasts.indexOf(toast) === -1 && visibleToasts.length <= 0) {
       toast.setVisible().then((res) => (this.previouslyFocused = res));
     }

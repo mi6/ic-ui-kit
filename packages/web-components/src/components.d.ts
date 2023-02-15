@@ -1381,10 +1381,6 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * If supplying a custom neutral icon, use this prop to set a descriptive alt text
-         */
-        "neutralAltText"?: string;
-        /**
           * Used to display the individual toast
           * @returns The element that previously had focus before the toast appeared
          */
@@ -3370,10 +3366,6 @@ declare namespace LocalJSX {
           * The main body message of the toast. (NOTE: Should be no more than `140` characters)
          */
         "message"?: string;
-        /**
-          * If supplying a custom neutral icon, use this prop to set a descriptive alt text
-         */
-        "neutralAltText"?: string;
         /**
           * Is emitted when the user dismisses the toast
          */

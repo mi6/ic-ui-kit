@@ -7,25 +7,25 @@
   bottom: var(--bottom-position);
   left: 50%;
   transform: translate(-50%);
-  max-width: 520px;
-  min-width: 288px;
-  box-shadow: var(--ic-elevation-overlay);
   animation: fadein var(--ic-transition-duration-slow) ease-in-out;
 }
 
 :host(.hidden) {
-  visibility: hidden !important;
+  display: none;
   animation: fadeout var(--ic-transition-duration-slow) ease-in-out;
 }
 
 .container {
+  max-width: 520px;
+  min-width: 288px;
+  box-shadow: var(--ic-elevation-overlay);
   min-height: 56px;
   background-color: var(--ic-architectural-800);
   color: var(--ic-color-white-text);
   display: flex;
   align-items: center;
   position: relative;
-  z-index: var(--ic-z-index-overlay);
+  border-radius: var(--ic-border-radius);
 }
 
 .toast-icon-container {
@@ -38,6 +38,7 @@
   height: 100%;
   width: var(--ic-space-xs);
   position: absolute;
+  border-radius: var(--ic-space-xxxs) 0 0 var(--ic-space-xxxs);
 }
 
 .divider-neutral {
@@ -45,19 +46,19 @@
 }
 
 .divider-info {
-  background-color: var(--ic-status-info);
+  background-color: var(--ic-status-info-contrast);
 }
 
 .divider-warning {
-  background-color: var(--ic-status-warning-mid);
+  background-color: var(--ic-status-warning-contrast);
 }
 
 .divider-error {
-  background-color: var(--ic-status-error);
+  background-color: var(--ic-status-error-contrast);
 }
 
 .divider-success {
-  background-color: var(--ic-status-success);
+  background-color: var(--ic-status-success-contrast);
 }
 
 .toast-icon,
@@ -72,19 +73,19 @@
 }
 
 :host([variant='info']) .toast-icon svg {
-  fill: var(--ic-status-info);
+  fill: var(--ic-status-info-contrast);
 }
 
 :host([variant='warning']) .toast-icon svg {
-  fill: var(--ic-status-warning-mid);
+  fill: var(--ic-status-warning-contrast);
 }
 
 :host([variant='error']) .toast-icon svg {
-  fill: var(--ic-status-error);
+  fill: var(--ic-status-error-contrast);
 }
 
 :host([variant='success']) .toast-icon svg {
-  fill: var(--ic-status-success);
+  fill: var(--ic-status-success-contrast);
 }
 
 .toast-content {
@@ -97,7 +98,7 @@
 }
 
 .toast-action-container {
-  padding-bottom: var(--ic-space-xs);
+  padding-bottom: var(--ic-space-sm);
 }
 
 .dismiss-indicator {

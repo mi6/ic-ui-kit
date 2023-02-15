@@ -13,7 +13,6 @@
 | `dismissMode`          | `dismiss-mode`         | How the toast will be dismissed. If manual will display a dismiss button.                                                                                         | `"automatic" \| "manual"`                                  | `"manual"`  |
 | `heading` _(required)_ | `heading`              | The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)                                                                    | `string`                                                   | `undefined` |
 | `message`              | `message`              | The main body message of the toast. (NOTE: Should be no more than `140` characters)                                                                               | `string`                                                   | `undefined` |
-| `neutralAltText`       | `neutral-alt-text`     | If supplying a custom neutral icon, use this prop to set a descriptive alt text                                                                                   | `string`                                                   | `undefined` |
 | `variant`              | `variant`              | The variant of the toast being rendered                                                                                                                           | `"error" \| "info" \| "neutral" \| "success" \| "warning"` | `undefined` |
 
 
