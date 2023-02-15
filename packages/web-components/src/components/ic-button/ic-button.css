@@ -326,7 +326,7 @@ div.icon-container {
   align-items: center;
 }
 
-::slotted(svg) {
+::slotted(*) {
   width: var(--icon-width) !important;
   height: var(--icon-height) !important;
   fill: currentcolor !important;
