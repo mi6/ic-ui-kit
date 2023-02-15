@@ -30,6 +30,7 @@ import { IcTopBar } from "./ic-side-navigation.types";
 
 /**
  * @slot app-icon - Content will be rendered adjacent to the app title at the very top of the side navigation.
+ * @slot app-title - Handle routing by nesting a route in the app title.
  * @slot primary-navigation - Content will be rendered at the top of the side navigation.
  * @slot secondary-navigation - Content will be rendered at the bottom of the side navigation.
  */
@@ -42,9 +43,9 @@ import { IcTopBar } from "./ic-side-navigation.types";
 export class SideNavigation {
   @Element() el: HTMLIcSideNavigationElement;
   /**
-   * The title of the app to be displayed.
+   * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() appTitle!: string;
+  @Prop() appTitle: string;
   /**
    * The status of the app to be displayed.
    */
@@ -483,61 +484,77 @@ export class SideNavigation {
     href,
     isAppNameSubtitleVariant,
     appTitle,
-  }: IcTopBar) => (
-    <div
-      class={{
-        "top-bar": true,
-        [this.foregroundColor]: true,
-      }}
-    >
-      {isSDevice && (
-        <nav
-          aria-labelledby="menu-navigation-toggle-button-landmark"
-          aria-hidden="false"
-        >
-          <ic-button
-            aria-label="Open navigation menu"
-            class="menu-button"
-            id="menu-button"
-            variant="secondary"
-            size="small"
-            full-width="true"
-            appearance={foregroundColor}
-            onClick={this.toggleMenu}
-            aria-owns="side-navigation"
-            aria-haspopup="true"
-            aria-expanded="false"
+  }: IcTopBar) => {
+    const hasTitle = this.appTitle !== "" && this.appTitle !== undefined;
+
+    const Component = isSlotUsed(this.el, "app-title") ? "div" : "a";
+
+    const attrs = Component == "a" && {
+      href: href,
+    };
+
+    return (
+      <div
+        class={{
+          "top-bar": true,
+          [this.foregroundColor]: true,
+        }}
+      >
+        {isSDevice && (
+          <nav
+            aria-labelledby="menu-navigation-toggle-button-landmark"
+            aria-hidden="false"
           >
+            <ic-button
+              aria-label="Open navigation menu"
+              class="menu-button"
+              id="menu-button"
+              variant="secondary"
+              size="small"
+              full-width="true"
+              appearance={foregroundColor}
+              onClick={this.toggleMenu}
+              aria-owns="side-navigation"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span
+                class="mobile-top-bar-menu-icon"
+                slot="icon"
+                innerHTML={menuOpen ? closeIcon : menuIcon}
+              ></span>
+              {menuOpen ? "Close" : "Menu"}
+            </ic-button>
             <span
-              class="mobile-top-bar-menu-icon"
-              slot="icon"
-              innerHTML={menuOpen ? closeIcon : menuIcon}
-            ></span>
-            {menuOpen ? "Close" : "Menu"}
-          </ic-button>
-          <span
-            id="menu-navigation-toggle-button-landmark"
-            class="navigation-landmark-title"
-            aria-hidden="true"
-          >
-            Navigation menu toggle button
-          </span>
-        </nav>
-      )}
-      <div class="app-title-wrapper">
-        <a href={href} class="title-link">
-          <div class="app-icon-container" aria-hidden="true">
-            <slot name="app-icon"></slot>
-          </div>
-          <ic-typography
-            variant={isAppNameSubtitleVariant ? "subtitle-small" : "h3"}
-          >
-            {appTitle}
-          </ic-typography>
-        </a>
+              id="menu-navigation-toggle-button-landmark"
+              class="navigation-landmark-title"
+              aria-hidden="true"
+            >
+              Navigation menu toggle button
+            </span>
+          </nav>
+        )}
+        <div class="app-title-wrapper">
+          {(hasTitle || isSlotUsed(this.el, "app-title")) && (
+            <Component {...attrs} class="title-link">
+              <div class="app-icon-container" aria-hidden="true">
+                <slot name="app-icon"></slot>
+              </div>
+              <ic-typography
+                variant={isAppNameSubtitleVariant ? "subtitle-small" : "h3"}
+              >
+                {isSlotUsed(this.el, "app-title") ? (
+                  <slot name="app-title"></slot>
+                ) : (
+                  appTitle
+                )}
+              </ic-typography>
+            </Component>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   componentWillLoad(): void {
     if (this.expanded) {
@@ -564,10 +581,11 @@ export class SideNavigation {
     this.styleSlottedCollapsedIconLabel();
     this.displayTooltipWithExpandedLongLabel(this.menuExpanded);
 
-    onComponentRequiredPropUndefined(
-      [{ prop: this.appTitle, propName: "app-title" }],
-      "Side Navigation"
-    );
+    !isSlotUsed(this.el, "app-title") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.appTitle, propName: "app-title" }],
+        "Side Navigation"
+      );
   }
 
   disconnectedCallback(): void {
