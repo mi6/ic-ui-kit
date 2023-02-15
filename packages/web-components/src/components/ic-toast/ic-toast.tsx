@@ -25,11 +25,26 @@ import {
 import { ActionAreaElementTypes } from "./ic-toast.types";
 
 const ICONS = {
-  neutral: neutralIcon,
-  info: infoIcon,
-  warning: warningIcon,
-  error: errorIcon,
-  success: successIcon,
+  neutral: {
+    icon: neutralIcon,
+    alt: "Neutral",
+  },
+  info: {
+    icon: infoIcon,
+    alt: "For your information",
+  },
+  warning: {
+    icon: warningIcon,
+    alt: "Warning",
+  },
+  error: {
+    icon: errorIcon,
+    alt: "Error",
+  },
+  success: {
+    icon: successIcon,
+    alt: "Success",
+  },
 };
 const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 10;
 const TOAST_HEADING_CHAR_LIMIT = 70;
@@ -68,10 +83,6 @@ export class Toast {
    */
   @Prop() autoDismissTimeout? = 5000;
   /**
-   * If supplying a custom neutral icon, use this prop to set a descriptive alt text
-   */
-  @Prop() neutralAltText?: string;
-  /**
    * Is emitted when the user dismisses the toast
    */
   @Event() toastDismiss: EventEmitter<void>;
@@ -90,7 +101,7 @@ export class Toast {
    */
   @Method()
   async setVisible() {
-    this.visible = true;
+    if (!this.visible) this.visible = true;
     if (!this.isManual) {
       this.dismissTimeout = window.setTimeout(
         this.dismissAction,
@@ -102,7 +113,6 @@ export class Toast {
       );
       return null;
     } else {
-      this.focusInteractiveEl(this.interactiveElements[0]);
       return document.activeElement as HTMLElement;
     }
   }
@@ -120,7 +130,7 @@ export class Toast {
       switch (ev.key) {
         case "Tab":
           ev.preventDefault();
-          this.focusInteractiveEl(this.findNextInteractiveElement(ev));
+          this.focusInteractiveEl(this.findNextInteractiveElement(ev.shiftKey));
           break;
         case "Escape":
           !ev.repeat && this.dismissAction();
@@ -136,8 +146,8 @@ export class Toast {
     if (!this.isManual) {
       switch (ev.type) {
         case "mouseenter":
-          clearTimeout(this.dismissTimeout);
-          clearInterval(this.timerRefreshInterval);
+          window.clearTimeout(this.dismissTimeout);
+          window.clearInterval(this.timerRefreshInterval);
           this.timerProgress = 100;
           break;
         case "mouseleave":
@@ -165,31 +175,24 @@ export class Toast {
 
   private handleLongText(heading: boolean, message?: boolean): void {
     if (message || heading) {
-      console.warn(
+      console.error(
         `Too many characters in toast ${heading ? "heading" : ""}${
           heading && message ? " and " : ""
         }${
           message ? "message" : ""
         }. Refer to character limits specified in the prop description`
       );
-      heading &&
-        (this.heading =
-          this.heading.slice(0, TOAST_HEADING_CHAR_LIMIT - 3) + "...");
-      message &&
-        (this.message =
-          this.message.slice(0, TOAST_MESSAGE_CHAR_LIMIT - 3) + "...");
     }
   }
 
   private findNextInteractiveElement(
-    ev: KeyboardEvent
+    isBackwards: boolean
   ): ActionAreaElementTypes {
-    const backward = ev.shiftKey;
     const first = this.interactiveElements[0];
     const last = this.interactiveElements[this.interactiveElements.length - 1];
 
-    const source = backward ? first : last;
-    const target = backward ? last : first;
+    const source = isBackwards ? first : last;
+    const target = isBackwards ? last : first;
     if (this.isActive(source)) return target;
 
     let currentIndex: number;
@@ -200,7 +203,7 @@ export class Toast {
     });
 
     if (!found) return first;
-    return this.interactiveElements[currentIndex + (backward ? -1 : 1)];
+    return this.interactiveElements[currentIndex + (isBackwards ? -1 : 1)];
   }
 
   private isActive(targetEl: HTMLElement): boolean {
@@ -222,35 +225,20 @@ export class Toast {
     if (this.autoDismissTimeout < 5000) this.autoDismissTimeout = 5000;
 
     this.isManual = this.dismissMode === "manual";
-
-    if (
-      this.neutralAltText &&
-      this.variant === "neutral" &&
-      isSlotUsed(this.el, "neutral-icon")
-    ) {
-      const slottedIcon = getSlot(this.el, "neutral-icon");
-      if (!slottedIcon.querySelector("title")) {
-        const svgTitle = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "title"
-        );
-        svgTitle.textContent = this.neutralAltText;
-        svgTitle.id = "icon-title";
-        slottedIcon.insertBefore(svgTitle, slottedIcon.firstChild);
-        slottedIcon.setAttribute("aria-labelledby", svgTitle.id);
-      }
-    }
   }
 
   componentDidLoad() {
     const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
-    if (actionContent) {
-      actionContent.appearance = IcThemeForegroundEnum.Light;
-      this.interactiveElements.push(actionContent);
-    }
+    if (actionContent) this.interactiveElements.push(actionContent);
     this.interactiveElements.push(
       this.el.shadowRoot.querySelector("ic-button")
     );
+  }
+
+  componentDidUpdate() {
+    this.visible &&
+      this.isManual &&
+      this.focusInteractiveEl(this.interactiveElements[0]);
   }
 
   render() {
@@ -259,8 +247,12 @@ export class Toast {
       <Host
         class={{ ["hidden"]: !visible }}
         role={isManual ? "dialog" : "status"}
-        aria-label={heading}
-        aria-description={message || ""}
+        aria-label={variant ? ICONS[variant].alt : heading}
+        aria-description={
+          variant
+            ? `${heading}${message !== undefined ? `. ${message}` : ""}`
+            : message
+        }
       >
         <div class="container">
           {variant && (
@@ -274,7 +266,7 @@ export class Toast {
               {variant === "neutral" && isSlotUsed(this.el, "neutral-icon") ? (
                 <slot name="neutral-icon" />
               ) : (
-                <span class="toast-icon" innerHTML={ICONS[variant]}></span>
+                <span class="toast-icon" innerHTML={ICONS[variant].icon}></span>
               )}
             </div>
           )}
@@ -304,12 +296,13 @@ export class Toast {
             ></ic-loading-indicator>
           ) : (
             <ic-button
+              id="dismiss-button"
               class="dismiss-indicator"
               innerHTML={closeIcon}
               onClick={this.dismissAction}
               variant="icon"
               appearance={IcThemeForegroundEnum.Light}
-              title="dismiss"
+              aria-label="dismiss"
             ></ic-button>
           )}
         </div>

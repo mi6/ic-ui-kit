@@ -29,7 +29,7 @@ import readme from './readme.md';
         }
       </script>
       <ic-toast-region>
-        <ic-toast id="toast1" heading="Your coffee is ready" message="Please dismiss and collect" variant="success"><ic-button slot="action">Button</ic-button></ic-toast>
+        <ic-toast id="toast1" heading="Your coffee is ready" message="Please dismiss and collect" variant="success"><ic-button slot="action" appearance="light">Button</ic-button></ic-toast>
         <ic-toast id="toast2" heading="Your coffee had issues" message="Please dismiss and try again" variant="warning"></ic-toast>
         <ic-toast id="toast3" variant="info" heading="Your coffee is ready" message="Please dismiss and collect" dismiss-mode="automatic" auto-dismiss-timeout="10000"></ic-toast>
       </ic-toast-region>`}
@@ -47,8 +47,9 @@ import readme from './readme.md';
           x.setVisible();
         }
       </script>
-      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect" variant="neutral" neutral-alt-text="Useful message">
-        <svg slot="neutral-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect" variant="neutral">
+        <svg slot="neutral-icon" aria-labelledby="icon-title" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+          <title id="icon-title">Useful Message</title>
           <path d="M0 0h24v24H0V0z" fill="none" />
           <path
             d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
@@ -88,7 +89,7 @@ import readme from './readme.md';
           x.setVisible();
         }
       </script>
-      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect"><ic-link slot="action" href="/">Click to collect</ic-link></ic-toast> `}
+      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect"><ic-link slot="action" href="/" appearance="light">Click to collect</ic-link></ic-toast> `}
   </Story>
 </Canvas>
 
