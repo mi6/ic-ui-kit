@@ -40,6 +40,10 @@ export const IcCheckboxGroup = /*@__PURE__*/ createReactComponent<
   JSX.IcCheckboxGroup,
   HTMLIcCheckboxGroupElement
 >("ic-checkbox-group");
+export const IcChip = /*@__PURE__*/ createReactComponent<
+  JSX.IcChip,
+  HTMLIcChipElement
+>("ic-chip");
 export const IcClassificationBanner = /*@__PURE__*/ createReactComponent<
   JSX.IcClassificationBanner,
   HTMLIcClassificationBannerElement

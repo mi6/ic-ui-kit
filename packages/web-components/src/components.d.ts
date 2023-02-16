@@ -1381,6 +1381,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
           * Used to display the individual toast
           * @returns The element that previously had focus before the toast appeared
          */
@@ -3367,9 +3371,13 @@ declare namespace LocalJSX {
          */
         "message"?: string;
         /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
           * Is emitted when the user dismisses the toast
          */
-        "onToastDismiss"?: (event: IcToastCustomEvent<void>) => void;
+        "onIcDismiss"?: (event: IcToastCustomEvent<void>) => void;
         /**
           * The variant of the toast being rendered
          */

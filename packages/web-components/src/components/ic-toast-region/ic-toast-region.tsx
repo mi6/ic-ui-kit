@@ -22,8 +22,9 @@ export class ToastRegion {
     if (visibleToasts.length > 0) this.pendingVisibility.push(toast);
   }
 
-  @Listen("toastDismiss", { target: "document" })
-  handleDismissedToast() {
+  @Listen("icDismiss", { target: "document" })
+  handleDismissedToast(ev: CustomEvent) {
+    if ((ev.target as HTMLElement).tagName !== "IC-TOAST") return;
     if (this.pendingVisibility.length > 0) {
       this.pendingVisibility[0]
         .setVisible()

@@ -1,3 +1,33 @@
+import errorIcon from "../assets/error-icon.svg";
+import infoIcon from "../assets/info-icon.svg";
+import neutralIcon from "../assets/neutral-icon.svg";
+import successIcon from "../assets/success-icon.svg";
+import warningIcon from "../assets/warning-icon.svg";
+
+// Global status icons
+export const ICONS = {
+  neutral: {
+    icon: neutralIcon,
+    ariaLabel: "Neutral",
+  },
+  info: {
+    icon: infoIcon,
+    ariaLabel: "For your information",
+  },
+  warning: {
+    icon: warningIcon,
+    ariaLabel: "Warning",
+  },
+  error: {
+    icon: errorIcon,
+    ariaLabel: "Error",
+  },
+  success: {
+    icon: successIcon,
+    ariaLabel: "Success",
+  },
+};
+
 // Global ARIA attributes
 export const IC_INHERITED_ARIA = [
   "aria-atomic",
