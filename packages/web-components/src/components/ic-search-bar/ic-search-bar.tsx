@@ -289,8 +289,8 @@ export class SearchBar {
         this.filteredOptions =
           rawFilteredOptions.length > 0 ? rawFilteredOptions : noOptions;
       }
-    } 
-    
+    }
+
     if (!this.showClearButton) {
       this.handleShowClearButton(true);
     }
