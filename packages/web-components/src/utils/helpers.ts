@@ -419,7 +419,9 @@ export const hasValidationStatus = (
 };
 
 export const isSlotUsed = (element: HTMLElement, slotName: string): boolean => {
-  return Array.from(element.children).some(child => child.getAttribute('slot') === slotName);
+  return Array.from(element.children).some(
+    (child) => child.getAttribute("slot") === slotName
+  );
 };
 
 // added as a common method to allow detection of gatsby hydration issue, where (camelCase) props are initially undefined & then update

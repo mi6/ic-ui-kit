@@ -42,10 +42,7 @@ export class StatusTag {
   render() {
     const { label, status, appearance, small, announced } = this;
     return (
-      <Host
-        role={announced ? "status" : null}
-        aria-label="Status"
-      >
+      <Host role={announced ? "status" : null} aria-label="Status">
         <strong
           class={{
             ["tag"]: true,
