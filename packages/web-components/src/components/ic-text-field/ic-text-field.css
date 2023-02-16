@@ -2,9 +2,13 @@
 
 :host {
   /**
-   * @prop --input-width: Width of the input field 
+   * @prop --input-width: Width of the input field
    */
   display: block;
+}
+
+:host([full-width]),
+.fullwidth {
   width: 100%;
 }
 
@@ -45,11 +49,6 @@ textarea:disabled {
 input.readonly,
 textarea.readonly {
   color: var(--ic-color-primary-text);
-}
-
-.fullwidth {
-  position: relative;
-  width: 100%;
 }
 
 /* Chrome, Safari, Edge */
