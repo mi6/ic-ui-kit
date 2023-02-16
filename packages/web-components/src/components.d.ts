@@ -1369,6 +1369,10 @@ export namespace Components {
          */
         "autoDismissTimeout"?: number;
         /**
+          * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
+         */
+        "dismissButtonAriaLabel"?: string;
+        /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */
         "dismissMode"?: IcActivationTypes;
@@ -1381,6 +1385,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
           * Used to display the individual toast
           * @returns The element that previously had focus before the toast appeared
          */
@@ -1392,7 +1400,7 @@ export namespace Components {
     }
     interface IcToastRegion {
         /**
-          * Handle setting the visibility of various toasts based on what is already visible
+          * Handles setting the visibility of various toasts based on what is already visible
           * @param toast The toast element being requested to display
          */
         "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
@@ -3355,6 +3363,10 @@ declare namespace LocalJSX {
          */
         "autoDismissTimeout"?: number;
         /**
+          * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
+         */
+        "dismissButtonAriaLabel"?: string;
+        /**
           * How the toast will be dismissed. If manual will display a dismiss button.
          */
         "dismissMode"?: IcActivationTypes;
@@ -3367,9 +3379,13 @@ declare namespace LocalJSX {
          */
         "message"?: string;
         /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
           * Is emitted when the user dismisses the toast
          */
-        "onToastDismiss"?: (event: IcToastCustomEvent<void>) => void;
+        "onIcDismiss"?: (event: IcToastCustomEvent<void>) => void;
         /**
           * The variant of the toast being rendered
          */

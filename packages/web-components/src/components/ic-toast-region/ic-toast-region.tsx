@@ -8,7 +8,7 @@ export class ToastRegion {
   pendingVisibility: HTMLIcToastElement[] = [];
 
   /**
-   * Handle setting the visibility of various toasts based on what is already visible
+   * Handles setting the visibility of various toasts based on what is already visible
    * @param toast The toast element being requested to display
    */
   @Method()
@@ -22,7 +22,7 @@ export class ToastRegion {
     if (visibleToasts.length > 0) this.pendingVisibility.push(toast);
   }
 
-  @Listen("toastDismiss", { target: "document" })
+  @Listen("icDismiss", { capture: true })
   handleDismissedToast() {
     if (this.pendingVisibility.length > 0) {
       this.pendingVisibility[0]

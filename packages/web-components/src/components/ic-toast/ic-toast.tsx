@@ -11,12 +11,12 @@ import {
   State,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
-import errorIcon from "../../assets/error-icon.svg";
-import infoIcon from "../../assets/info-icon.svg";
-import neutralIcon from "../../assets/neutral-icon.svg";
-import successIcon from "../../assets/success-icon.svg";
-import warningIcon from "../../assets/warning-icon.svg";
-import { getSlot, isSlotUsed } from "../../utils/helpers";
+import { VARIANT_ICONS } from "../../utils/constants";
+import {
+  getSlot,
+  isSlotUsed,
+  onComponentRequiredPropUndefined,
+} from "../../utils/helpers";
 import {
   IcActivationTypes,
   IcStatusVariants,
@@ -24,35 +24,13 @@ import {
 } from "../../utils/types";
 import { ActionAreaElementTypes } from "./ic-toast.types";
 
-const ICONS = {
-  neutral: {
-    icon: neutralIcon,
-    alt: "Neutral",
-  },
-  info: {
-    icon: infoIcon,
-    alt: "For your information",
-  },
-  warning: {
-    icon: warningIcon,
-    alt: "Warning",
-  },
-  error: {
-    icon: errorIcon,
-    alt: "Error",
-  },
-  success: {
-    icon: successIcon,
-    alt: "Success",
-  },
-};
-const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 10;
+const AUTO_DISMISS_TIMER_REFRESH_RATE_MS = 1000;
 const TOAST_HEADING_CHAR_LIMIT = 70;
 const TOAST_MESSAGE_CHAR_LIMIT = 140;
 
 /**
- * @slot action - IcButton or IcLink is placed below header and message
- * @slot neutral-icon - A custom neutral icon is placed on the left side of the component
+ * @slot action - IcButton or IcLink is placed below header and message. If used will default toast to manual `dismiss` type.
+ * @slot neutral-icon - A custom neutral icon is placed on the left side of the component. If used will default toast to `neutral` variant.
  */
 @Component({
   tag: "ic-toast",
@@ -83,9 +61,17 @@ export class Toast {
    */
   @Prop() autoDismissTimeout? = 5000;
   /**
+   * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+   */
+  @Prop() neutralIconAriaLabel?: string;
+  /**
+   * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
+   */
+  @Prop() dismissButtonAriaLabel? = "dismiss";
+  /**
    * Is emitted when the user dismisses the toast
    */
-  @Event() toastDismiss: EventEmitter<void>;
+  @Event() icDismiss: EventEmitter<void>;
 
   @State() visible = false;
   @State() timerProgress = 100;
@@ -94,6 +80,7 @@ export class Toast {
   timerRefreshInterval: number;
   isManual: boolean;
   interactiveElements: ActionAreaElementTypes[] = [];
+  neutralVariantLabel: string;
 
   /**
    * Used to display the individual toast
@@ -113,11 +100,15 @@ export class Toast {
       );
       return null;
     } else {
+      window.setTimeout(
+        () => this.focusInteractiveEl(this.interactiveElements[0]),
+        200
+      );
       return document.activeElement as HTMLElement;
     }
   }
 
-  @Listen("toastDismiss", { capture: true })
+  @Listen("icDismiss", { capture: true })
   handleDismiss(): void {
     this.visible = false;
     clearInterval(this.timerRefreshInterval);
@@ -165,7 +156,7 @@ export class Toast {
   }
 
   private dismissAction = (): void => {
-    this.toastDismiss.emit();
+    this.icDismiss.emit();
   };
 
   private handleProgressChange = () => {
@@ -173,13 +164,16 @@ export class Toast {
       (AUTO_DISMISS_TIMER_REFRESH_RATE_MS / this.autoDismissTimeout) * 100;
   };
 
-  private handleLongText(heading: boolean, message?: boolean): void {
-    if (message || heading) {
+  private handleLongText(
+    headingTooLong: boolean,
+    messageTooLong?: boolean
+  ): void {
+    if (messageTooLong || headingTooLong) {
       console.error(
-        `Too many characters in toast ${heading ? "heading" : ""}${
-          heading && message ? " and " : ""
+        `Too many characters in toast ${headingTooLong ? "heading" : ""}${
+          headingTooLong && messageTooLong ? " and " : ""
         }${
-          message ? "message" : ""
+          messageTooLong ? "message" : ""
         }. Refer to character limits specified in the prop description`
       );
     }
@@ -224,38 +218,61 @@ export class Toast {
 
     if (this.autoDismissTimeout < 5000) this.autoDismissTimeout = 5000;
 
+    if (isSlotUsed(this.el, "action")) this.dismissMode = "manual";
     this.isManual = this.dismissMode === "manual";
+
+    if (isSlotUsed(this.el, "neutral-icon")) this.variant = "neutral";
+    if (this.variant === "neutral") {
+      this.neutralVariantLabel =
+        this.neutralIconAriaLabel ?? VARIANT_ICONS[this.variant].ariaLabel;
+    }
+
+    if (this.isManual) {
+      this.el.setAttribute(
+        "aria-label",
+        this.variant
+          ? this.neutralVariantLabel || VARIANT_ICONS[this.variant].ariaLabel
+          : this.heading
+      );
+      (this.variant || this.message) &&
+        this.el.setAttribute(
+          "aria-description",
+          this.variant
+            ? `${this.heading}${
+                this.message !== undefined ? `. ${this.message}` : ""
+              }`
+            : this.message
+        );
+    }
   }
 
   componentDidLoad() {
-    const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
-    if (actionContent) this.interactiveElements.push(actionContent);
-    this.interactiveElements.push(
-      this.el.shadowRoot.querySelector("ic-button")
+    onComponentRequiredPropUndefined(
+      [{ prop: this.heading, propName: "heading" }],
+      "Toast"
     );
-  }
-
-  componentDidUpdate() {
-    this.visible &&
-      this.isManual &&
-      this.focusInteractiveEl(this.interactiveElements[0]);
+    const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
+    const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+    if (actionContent) this.interactiveElements.push(actionContent);
+    if (dismissButton) this.interactiveElements.push(dismissButton);
   }
 
   render() {
-    const { variant, heading, message, visible, isManual } = this;
+    const {
+      variant,
+      heading,
+      message,
+      visible,
+      isManual,
+      dismissButtonAriaLabel,
+    } = this;
     return (
       <Host
         class={{ ["hidden"]: !visible }}
         role={isManual ? "dialog" : "status"}
-        aria-label={variant ? ICONS[variant].alt : heading}
-        aria-description={
-          variant
-            ? `${heading}${message !== undefined ? `. ${message}` : ""}`
-            : message
-        }
       >
         <div class="container">
-          {variant && (
+          {variant && visible && (
             <div class="toast-icon-container">
               <div
                 class={{
@@ -263,25 +280,34 @@ export class Toast {
                   [`divider-${variant}`]: true,
                 }}
               ></div>
-              {variant === "neutral" && isSlotUsed(this.el, "neutral-icon") ? (
+              {variant === "neutral" ? (
                 <slot name="neutral-icon" />
               ) : (
-                <span class="toast-icon" innerHTML={ICONS[variant].icon}></span>
+                <span
+                  class="toast-icon"
+                  innerHTML={VARIANT_ICONS[variant].icon}
+                ></span>
               )}
             </div>
           )}
-          <div class="toast-content">
+          <div
+            class={{
+              ["toast-content"]: true,
+              ["no-icon"]:
+                variant === "neutral" && !isSlotUsed(this.el, "neutral-icon"),
+            }}
+          >
             <div class="toast-message">
               <ic-typography variant="subtitle-large">
-                <h5>{heading}</h5>
+                {visible && <h5>{heading}</h5>}
               </ic-typography>
               {message && (
                 <ic-typography variant="body">
-                  <p>{message}</p>
+                  {visible && <p>{message}</p>}
                 </ic-typography>
               )}
             </div>
-            {isSlotUsed(this.el, "action") && isManual && (
+            {isSlotUsed(this.el, "action") && (
               <div class="toast-action-container">
                 <slot name="action" />
               </div>
@@ -289,7 +315,7 @@ export class Toast {
           </div>
           {!isManual ? (
             <ic-loading-indicator
-              class="dismiss-indicator"
+              class="toast-dismiss-timer"
               appearance="light"
               size="icon"
               progress={this.timerProgress}
@@ -297,12 +323,11 @@ export class Toast {
           ) : (
             <ic-button
               id="dismiss-button"
-              class="dismiss-indicator"
               innerHTML={closeIcon}
               onClick={this.dismissAction}
               variant="icon"
               appearance={IcThemeForegroundEnum.Light}
-              aria-label="dismiss"
+              aria-label={dismissButtonAriaLabel}
             ></ic-button>
           )}
         </div>

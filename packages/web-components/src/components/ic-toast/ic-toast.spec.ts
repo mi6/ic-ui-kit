@@ -11,8 +11,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading"></ic-toast>`,
     });
 
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" class="hidden" heading="Heading" role="dialog">
+      .toEqualHtml(`<ic-toast aria-label="Heading" heading="Heading" role="dialog">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -24,7 +27,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" class="dismiss-indicator" aria-label="dismiss" variant="icon">
+          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -38,8 +41,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading" message="toast message"></ic-toast>`,
     });
 
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" aria-description="toast message" message="toast message" class="hidden" heading="Heading" role="dialog">
+      .toEqualHtml(`<ic-toast aria-label="Heading" aria-description="toast message" message="toast message" heading="Heading" role="dialog">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -56,7 +62,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" class="dismiss-indicator" aria-label="dismiss" variant="icon">
+          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -70,8 +76,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading" variant="success"></ic-toast>`,
     });
 
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Success" aria-description="Heading" class="hidden" heading="Heading" role="dialog" variant="success">
+      .toEqualHtml(`<ic-toast aria-label="Success" aria-description="Heading" heading="Heading" role="dialog" variant="success">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-icon-container">
@@ -89,7 +98,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-button appearance="light" id="dismiss-button" class="dismiss-indicator" aria-label="dismiss" variant="icon">
+          <ic-button appearance="light" id="dismiss-button" aria-label="dismiss" variant="icon">
             svg
           </ic-button>
         </div>
@@ -103,8 +112,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading" dismiss-mode="automatic"></ic-toast>`,
     });
 
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" class="hidden" heading="Heading" role="status" dismiss-mode="automatic">
+      .toEqualHtml(`<ic-toast heading="Heading" role="status" dismiss-mode="automatic">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -116,7 +128,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-loading-indicator appearance="light" class="dismiss-indicator" progress="100" size="icon"></ic-loading-indicator>
+          <ic-loading-indicator appearance="light" class="toast-dismiss-timer" progress="100" size="icon"></ic-loading-indicator>
         </div>
       </mock:shadow-root>
     </ic-toast>`);
@@ -135,14 +147,14 @@ describe("ic-toast component", () => {
     expect(page.root.classList.contains("hidden")).toBeFalsy();
   });
 
-  it("should emit the toastDismiss event when dismissed with by clicking the button", async () => {
+  it("should emit the icDismiss event when dismissed with by clicking the button", async () => {
     const page = await newSpecPage({
       components: [Toast, Button],
       html: `<ic-toast heading="Heading"></ic-toast>`,
     });
 
     const callbackFn = jest.fn();
-    page.doc.addEventListener("toastDismiss", callbackFn);
+    page.doc.addEventListener("icDismiss", callbackFn);
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
@@ -153,14 +165,14 @@ describe("ic-toast component", () => {
     expect(callbackFn).toHaveBeenCalled();
   });
 
-  it("should emit the toastDismiss event when dismissed with by pressing Escape", async () => {
+  it("should emit the icDismiss event when dismissed with by pressing Escape", async () => {
     const page = await newSpecPage({
       components: [Toast, Button],
       html: `<ic-toast heading="Heading"></ic-toast>`,
     });
 
     const callbackFn = jest.fn();
-    page.doc.addEventListener("toastDismiss", callbackFn);
+    page.doc.addEventListener("icDismiss", callbackFn);
     page.rootInstance.setVisible();
     await page.waitForChanges();
 
@@ -171,14 +183,14 @@ describe("ic-toast component", () => {
     expect(callbackFn).toHaveBeenCalled();
   });
 
-  it("should emit toastDismiss after the timer expires when an auto dismiss toast is made visible", async () => {
+  it("should emit icDismiss after the timer expires when an auto dismiss toast is made visible", async () => {
     const page = await newSpecPage({
       components: [Toast],
       html: `<ic-toast heading="Heading" dismiss-mode="automatic"></ic-toast>`,
     });
 
     const callbackFn = jest.fn();
-    page.doc.addEventListener("toastDismiss", callbackFn);
+    page.doc.addEventListener("icDismiss", callbackFn);
     page.rootInstance.setVisible();
     await page.waitForChanges();
     expect(callbackFn).not.toHaveBeenCalled();
@@ -232,6 +244,7 @@ describe("ic-toast component", () => {
 
     page.rootInstance.setVisible();
     await page.waitForChanges();
+    await waitForTimeout(300);
     expect(focusCallback).toHaveBeenCalledTimes(1);
 
     page.rootInstance.handleKeyboard({
@@ -286,12 +299,22 @@ describe("ic-toast component", () => {
   it("should focus a link element that has been slotted into the action slot", async () => {
     const page = await newSpecPage({
       components: [Toast, Link],
-      html: `<ic-toast heading="Heading"><ic-link slot="action">Text</ic-link></ic-toast>`,
+      html: `<ic-toast heading="Heading"><ic-link href="/" slot="action">Text</ic-link></ic-toast>`,
     });
     const focusCallback = jest.spyOn(HTMLAnchorElement.prototype, "focus");
 
     page.rootInstance.setVisible();
     await page.waitForChanges();
+    await waitForTimeout(300);
     expect(focusCallback).toHaveBeenCalledTimes(1);
+  });
+
+  it("should update the dialog's label if the prop neutralIconAriaLabel prop is provided", async () => {
+    const page = await newSpecPage({
+      components: [Toast],
+      html: `<ic-toast variant="neutral" neutral-icon-aria-label="Hello World" heading="Heading"></ic-toast>`,
+    });
+
+    expect(page.root.getAttribute("aria-label")).toBe("Hello World");
   });
 });

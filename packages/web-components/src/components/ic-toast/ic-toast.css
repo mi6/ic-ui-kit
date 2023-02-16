@@ -1,4 +1,4 @@
-@import '../../global/normalise.css';
+@import "../../global/normalize.css";
 
 :host {
   --bottom-position: var(--ic-space-xl);
@@ -16,10 +16,10 @@
 }
 
 .container {
-  max-width: 520px;
-  min-width: 288px;
+  max-width: 32.5rem;
+  min-width: 18rem;
   box-shadow: var(--ic-elevation-overlay);
-  min-height: 56px;
+  min-height: 3.5rem;
   background-color: var(--ic-architectural-800);
   color: var(--ic-color-white-text);
   display: flex;
@@ -64,27 +64,28 @@
 .toast-icon,
 ::slotted(svg) {
   height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
   margin-left: var(--ic-space-md);
 }
 
-:host([variant='neutral']) .toast-icon svg,
+:host([variant="neutral"]) .toast-icon svg,
 ::slotted(svg) {
   fill: var(--ic-architectural-500);
 }
 
-:host([variant='info']) .toast-icon svg {
+:host([variant="info"]) .toast-icon svg {
   fill: var(--ic-status-info-contrast);
 }
 
-:host([variant='warning']) .toast-icon svg {
+:host([variant="warning"]) .toast-icon svg {
   fill: var(--ic-status-warning-contrast);
 }
 
-:host([variant='error']) .toast-icon svg {
+:host([variant="error"]) .toast-icon svg {
   fill: var(--ic-status-error-contrast);
 }
 
-:host([variant='success']) .toast-icon svg {
+:host([variant="success"]) .toast-icon svg {
   fill: var(--ic-status-success-contrast);
 }
 
@@ -93,15 +94,20 @@
   width: 100%;
 }
 
+.no-icon {
+  margin-left: var(--ic-space-md);
+}
+
 .toast-message {
   padding: var(--ic-space-xs) var(--ic-space-xs) var(--ic-space-xs) 0;
 }
 
 .toast-action-container {
-  padding-bottom: var(--ic-space-sm);
+  padding-bottom: var(--ic-space-md);
 }
 
-.dismiss-indicator {
+ic-button,
+.toast-dismiss-timer {
   padding: var(--ic-space-xs);
 }
 
@@ -110,15 +116,12 @@
     --bottom-position: var(--ic-space-lg);
 
     width: calc(100% - 2 * var(--ic-space-md));
-    bottom: var(--bottom-position);
   }
 }
 
 @media (min-width: 993px) {
   :host {
     --bottom-position: calc(var(--ic-space-xl) + var(--ic-space-xs));
-
-    bottom: var(--bottom-position);
   }
 }
 
