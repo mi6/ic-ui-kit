@@ -43,10 +43,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
           <ic-input-label for="ic-text-field-input-3" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-3" inputmode="text" name="ic-text-field-input-3" placeholder="Placeholder" type="text" value="">
-            <slot name="clear-button"></slot>
-            <slot name="search-submit-button"></slot>
           </ic-input-component-container>
-          <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
       <input class="ic-input" name="ic-text-field-input-3" type="hidden" value="">
@@ -267,10 +264,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
           <ic-input-label disabled="" for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container disabled="" validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" type="text" value="">
-            <slot name="clear-button"></slot>
-            <slot name="search-submit-button"></slot>
           </ic-input-component-container>
-          <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
       <input class="ic-input" disabled="" name="ic-text-field-input-2" type="hidden" value="">
@@ -328,10 +322,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
           <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
-            <slot name="clear-button"></slot>
-            <slot name="search-submit-button"></slot>
           </ic-input-component-container>
-          <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
       <input class="ic-input" name="ic-text-field-input-1" type="hidden" value="">
@@ -384,10 +375,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
           <ic-input-label for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container validationstatus="">
             <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="Placeholder" type="text" value="">
-            <slot name="clear-button"></slot>
-            <slot name="search-submit-button"></slot>
           </ic-input-component-container>
-          <slot name="menu"></slot>
         </ic-input-container>
       </mock:shadow-root>
       <input class="ic-input" name="ic-text-field-input-0" type="hidden" value="">
