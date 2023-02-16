@@ -91,13 +91,20 @@ jobs:
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Build components and web-components storybook
+      - name: Build components and web-components and react storybook
         run: |
           npm run build
           npm run build-storybook:web-components
+          npm run build-storybook:react
 
       - name: Deploy web components storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}
+          target-folder: ./branches/${{ github.ref_name }}/web-components
+      
+      - name: Deploy react storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/storybook-static
+          target-folder: ./branches/${{ github.ref_name }}/react
