@@ -539,10 +539,14 @@ export class TextField {
                 {...this.inheritedAttributes}
               ></textarea>
             )}
-            {isSlotUsed(this.el, 'clear-button') && <slot name="clear-button"></slot>}
-            {isSlotUsed(this.el, 'search-submit-button') && <slot name="search-submit-button"></slot>}
+            {isSlotUsed(this.el, "clear-button") && (
+              <slot name="clear-button"></slot>
+            )}
+            {isSlotUsed(this.el, "search-submit-button") && (
+              <slot name="search-submit-button"></slot>
+            )}
           </ic-input-component-container>
-          {isSlotUsed(this.el, 'menu') && <slot name="menu"></slot>}
+          {isSlotUsed(this.el, "menu") && <slot name="menu"></slot>}
           {(!isEmptyString(validationStatus) ||
             !isEmptyString(validationText) ||
             maxNumChars > 0) && (
