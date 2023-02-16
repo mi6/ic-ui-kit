@@ -5,6 +5,10 @@
 */
 
 :host {
+  position: relative;
+}
+
+:host([full-width]) {
   width: 100%;
 }
 
@@ -78,6 +82,7 @@ select:not([disabled]) {
   width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .select-input {
@@ -112,6 +117,7 @@ select:not([disabled]) {
   align-items: center;
   display: flex;
   width: 100%;
+  position: relative;
 }
 
 .expand-icon {
