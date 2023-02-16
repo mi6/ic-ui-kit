@@ -28,6 +28,7 @@ import {
   onComponentRequiredPropUndefined,
   addFormResetListener,
   removeFormResetListener,
+  isSlotUsed,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -538,10 +539,10 @@ export class TextField {
                 {...this.inheritedAttributes}
               ></textarea>
             )}
-            <slot name="clear-button"></slot>
-            <slot name="search-submit-button"></slot>
+            {isSlotUsed(this.el, 'clear-button') && <slot name="clear-button"></slot>}
+            {isSlotUsed(this.el, 'search-submit-button') && <slot name="search-submit-button"></slot>}
           </ic-input-component-container>
-          <slot name="menu"></slot>
+          {isSlotUsed(this.el, 'menu') && <slot name="menu"></slot>}
           {(!isEmptyString(validationStatus) ||
             !isEmptyString(validationText) ||
             maxNumChars > 0) && (
