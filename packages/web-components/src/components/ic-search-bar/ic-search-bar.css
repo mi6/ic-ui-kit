@@ -67,8 +67,6 @@
   background-color: var(--ic-focus-blue) !important;
   box-shadow: inset 0 0 0 2px var(--ic-focus-glow) !important;
   border-radius: var(--ic-space-xxs);
-  height: var(--ic-space-xl);
-  margin-top: var(--ic-space-xxxs);
 }
 
 .search-submit-button:focus * {
