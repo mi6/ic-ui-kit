@@ -573,6 +573,6 @@ export const removeFormResetListener = (
 };
 
 export const pxToRem = (px: string, base = 16) => {
-  const tempPx = parseInt(px)
-  return `${((1 / base) * tempPx)}rem`
-}
+  const tempPx = parseInt(px);
+  return `${(1 / base) * tempPx}rem`;
+};

@@ -95,7 +95,9 @@ export class Stepper {
 
     if (this.alignedFullWidth) {
       this.stepperWidth = this.el.offsetWidth;
-      lastStep.style.maxWidth = pxToRem(`${this.stepperWidth / this.steps.length}px`);
+      lastStep.style.maxWidth = pxToRem(
+        `${this.stepperWidth / this.steps.length}px`
+      );
       this.lastStepWidth = lastStep.offsetWidth;
     }
   };
@@ -172,9 +174,12 @@ export class Stepper {
       if (this.variant === "default") {
         if (!step.lastStep) {
           if (this.alignedFullWidth) {
-            step.style.width = pxToRem(`${
-              (this.stepperWidth - this.lastStepWidth) / (this.steps.length - 1)
-            }px`);
+            step.style.width = pxToRem(
+              `${
+                (this.stepperWidth - this.lastStepWidth) /
+                (this.steps.length - 1)
+              }px`
+            );
             step.style.minWidth = pxToRem("148px");
           }
         } else if (step.lastStep) {
@@ -200,7 +205,9 @@ export class Stepper {
 
           if (stepConnect) {
             stepConnect.style.width =
-              this.connectorWidth > 100 ? pxToRem(`${this.connectorWidth}px`) : pxToRem("100px");
+              this.connectorWidth > 100
+                ? pxToRem(`${this.connectorWidth}px`)
+                : pxToRem("100px");
           }
         }
 
