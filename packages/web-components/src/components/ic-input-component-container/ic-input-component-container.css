@@ -12,7 +12,6 @@ ic-input-component-container {
   padding: 1px;
   background-color: var(--ic-architectural-white);
   box-sizing: border-box;
-  position: relative;
   fill: var(--ic-architectural-400);
   outline: none;
 }
