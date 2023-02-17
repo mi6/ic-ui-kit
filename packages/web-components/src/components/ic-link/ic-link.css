@@ -30,16 +30,7 @@
   text-decoration-line: underline;
   text-decoration-thickness: 25%;
   text-underline-offset: 25%;
-}
-
-:host(.link) .ic-link:hover,
-:host(.link) ::slotted(a:hover) {
   outline: none;
-}
-
-:host(.link) .ic-link:focus,
-:host(.link) ::slotted(a:focus) {
-  outline: var(--ic-hc-focus-outline);
 }
 
 :host(.link) .ic-link:active,
