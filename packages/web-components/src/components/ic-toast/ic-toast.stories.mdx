@@ -1,0 +1,123 @@
+import { Story, Canvas, Meta, Description } from '@storybook/addon-docs';
+import { html } from 'lit-html';
+import readme from './readme.md';
+
+<Meta title="Web Components/Toast" component="ic-toast" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    {args => html`<button onclick="func()">Display toast</button>
+      <button onclick="func2()">Display toast 2</button>
+      <button onclick="func3()">Display toast 3</button>
+      <script>
+        var toastRegion = document.querySelector('ic-toast-region');
+        function func() {
+          var x = document.getElementById('toast1');
+          toastRegion.setVisible(x);
+        }
+        function func2() {
+          var x = document.getElementById('toast2');
+          toastRegion.setVisible(x);
+        }
+        function func3() {
+          var x = document.getElementById('toast3');
+          toastRegion.setVisible(x);
+        }
+      </script>
+      <ic-toast-region>
+        <ic-toast id="toast1" heading="Your coffee is ready" message="Please dismiss and collect" variant="success"><ic-button slot="action">Button</ic-button></ic-toast>
+        <ic-toast id="toast2" heading="Your coffee had issues" message="Please dismiss and try again" variant="warning"></ic-toast>
+        <ic-toast id="toast3" variant="info" heading="Your coffee is ready" message="Please dismiss and collect" dismiss-mode="automatic" auto-dismiss-timeout="10000"></ic-toast>
+      </ic-toast-region>`}
+  </Story>
+</Canvas>
+
+### With slotted neutral icon
+
+<Canvas>
+  <Story name="With slotted neutral icon">
+    {args => html`<button onclick="func()">Display toast</button>
+      <script>
+        function func() {
+          var x = document.querySelector('ic-toast');
+          x.setVisible();
+        }
+      </script>
+      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect" variant="neutral" neutral-alt-text="Useful message">
+        <svg slot="neutral-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+          /></svg
+      ></ic-toast> `}
+  </Story>
+</Canvas>
+
+### Multiline message
+
+<Canvas>
+  <Story name="Multiline message">
+    {args =>
+      html`<button onclick="func()">Display toast</button>
+        <script>
+          function func() {
+            var x = document.querySelector('ic-toast');
+            x.setVisible();
+          }
+        </script>
+        <ic-toast
+          heading="Your coffee is ready"
+          message="Please dismiss and come to collect your delicious coffee from the barista right away before it gets cold. Dont delay! We wouldn't want you to lose out on your fantastic coffee now would we?"
+        ></ic-toast> `
+    }
+  </Story>
+</Canvas>
+
+### Slotted link action
+
+<Canvas>
+  <Story name="Slotted link action">
+    {args => html`<button onclick="func()">Display toast</button>
+      <script>
+        function func() {
+          var x = document.querySelector('ic-toast');
+          x.setVisible();
+        }
+      </script>
+      <ic-toast heading="Your coffee is ready" message="Please dismiss and collect"><ic-link slot="action" href="/">Click to collect</ic-link></ic-toast> `}
+  </Story>
+</Canvas>
+
+### Auto dismiss
+
+<Canvas>
+  <Story name="Auto dismiss">
+    {args => html`<button onclick="func()">Display toast</button>
+      <script>
+        function func() {
+          var x = document.querySelector('ic-toast');
+          x.setVisible();
+        }
+      </script>
+      <ic-toast variant="info" heading="Your coffee is ready" message="Please dismiss and collect" dismiss-mode="automatic" auto-dismiss-timeout="10000"></ic-toast>`}
+  </Story>
+</Canvas>
+
+### Heading only
+
+<Canvas>
+  <Story name="Heading only">
+    {args => html`<button onclick="func()">Display toast</button>
+      <script>
+        function func() {
+          var x = document.querySelector('ic-toast');
+          x.setVisible();
+        }
+      </script>
+      <ic-toast heading="Your coffee is ready"></ic-toast>`}
+  </Story>
+</Canvas>

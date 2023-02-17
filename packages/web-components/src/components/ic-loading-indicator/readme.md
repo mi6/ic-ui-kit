@@ -34,6 +34,7 @@
 
  - [ic-button](../ic-button)
  - [ic-step](../ic-step)
+ - [ic-toast](../ic-toast)
 
 ### Depends on
 
@@ -45,6 +46,7 @@ graph TD;
   ic-loading-indicator --> ic-typography
   ic-button --> ic-loading-indicator
   ic-step --> ic-loading-indicator
+  ic-toast --> ic-loading-indicator
   style ic-loading-indicator fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
