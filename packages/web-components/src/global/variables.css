@@ -279,6 +279,8 @@
   --ic-space-xxl: 3rem;
 
   /* z-index */
+  --ic-z-index-classification-banner: 1400;
+  --ic-z-index-nav-menu: 1200;
   --ic-z-index-overlay: 1000;
   --ic-z-index-popup-menu: calc(var(--ic-z-index-overlay) + 1);
 }

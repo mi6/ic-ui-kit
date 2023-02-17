@@ -6,7 +6,7 @@
   bottom: 0;
   width: 100%;
   height: var(--ic-space-lg);
-  z-index: var(--ic-z-index-overlay);
+  z-index: var(--ic-z-index-classification-banner);
 }
 
 :host(.inline) {
