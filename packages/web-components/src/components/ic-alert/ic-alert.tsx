@@ -15,9 +15,8 @@ import warningIcon from "../../assets/warning-icon.svg";
 import errorIcon from "../../assets/error-icon.svg";
 import successIcon from "../../assets/success-icon.svg";
 import closeIcon from "../../assets/close-icon.svg";
-import { IcAlertVariants } from "./ic-alert.types";
 import { isSlotUsed } from "../../utils/helpers";
-import { IcThemeForegroundEnum } from "../../utils/types";
+import { IcThemeForegroundEnum, IcStatusVariants } from "../../utils/types";
 
 const icon = {
   neutral: neutralIcon,
@@ -42,7 +41,7 @@ export class Alert {
   /**
    * The variant of the alert which will be rendered.
    */
-  @Prop() variant?: IcAlertVariants = "neutral";
+  @Prop() variant?: IcStatusVariants = "neutral";
   /**
    * The optional title to display at the start of the alert.
    */

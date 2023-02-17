@@ -1,3 +1,10 @@
+export type IcStatusVariants =
+  | "neutral"
+  | "info"
+  | "warning"
+  | "error"
+  | "success";
+
 export enum IcInformationStatus {
   Warning = "warning",
   Error = "error",
