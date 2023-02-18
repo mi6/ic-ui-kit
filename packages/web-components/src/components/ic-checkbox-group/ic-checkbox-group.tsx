@@ -164,7 +164,7 @@ export class CheckboxGroup {
               ></ic-input-label>
             </legend>
           )}
-          <div class="list-items">
+          <div class="checkboxes-container">
             <slot></slot>
           </div>
         </fieldset>
