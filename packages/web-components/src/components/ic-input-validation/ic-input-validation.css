@@ -1,7 +1,6 @@
 ic-input-validation {
-  min-height: 1.75rem;
   width: var(--input-width, 20rem);
-  margin-top: var(--ic-space-xxxs);
+  margin-top: var(--ic-space-xs);
   display: flex;
 }
 
