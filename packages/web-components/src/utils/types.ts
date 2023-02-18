@@ -141,6 +141,8 @@ export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
 
 export type IcRelatedTarget = EventTarget | undefined;
 
+export type IcOrientation = "horizontal" | "vertical";
+
 export interface IcValueEventDetail {
   value: string;
 }

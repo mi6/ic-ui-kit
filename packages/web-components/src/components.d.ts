@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcAlertVariants } from "./components/ic-alert/ic-alert.types";
 import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcSearchMatchPositions, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants } from "./utils/types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
@@ -788,6 +788,10 @@ export namespace Components {
           * The name for the radio group to differentiate from other groups.
          */
         "name": string;
+        /**
+          * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+         */
+        "orientation": IcOrientation;
         /**
           * If `true`, the radio group will require a value.
          */
@@ -2630,6 +2634,10 @@ declare namespace LocalJSX {
           * Emitted when a user selects a radio.
          */
         "onIcChange"?: (event: IcRadioGroupCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+         */
+        "orientation"?: IcOrientation;
         /**
           * If `true`, the radio group will require a value.
          */

@@ -11,10 +11,11 @@ import {
 } from "@stencil/core";
 import {
   hasValidationStatus,
+  isSlotUsed,
   onComponentRequiredPropUndefined,
   renderHiddenInput,
 } from "../../utils/helpers";
-import { IcInformationStatusOrEmpty } from "../../utils/types";
+import { IcInformationStatusOrEmpty, IcOrientation } from "../../utils/types";
 import { IcValueEventDetail } from "../../interface";
 
 @Component({
@@ -41,6 +42,12 @@ export class RadioGroup {
    * If `true`, the radio group will require a value.
    */
   @Prop() required: boolean = false;
+
+  /**
+   * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
+   */
+  @Prop({ reflect: true, mutable: true }) orientation: IcOrientation =
+    "vertical";
 
   /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
@@ -161,6 +168,17 @@ export class RadioGroup {
     this.radioOptions[0].shadowRoot.querySelector("input").tabIndex =
       this.selectedChild > 0 ? -1 : 0;
 
+    if (
+      this.orientation === "horizontal" &&
+      this.radioOptions !== undefined &&
+      (this.radioOptions.length > 2 ||
+        (this.radioOptions.length === 2 &&
+          (isSlotUsed(this.radioOptions[0], "additional-field") ||
+            isSlotUsed(this.radioOptions[1], "additional-field"))))
+    ) {
+      this.orientation = "vertical";
+    }
+
     onComponentRequiredPropUndefined(
       [
         { prop: this.label, propName: "label" },
@@ -194,7 +212,9 @@ export class RadioGroup {
               disabled={this.disabled}
             ></ic-input-label>
           )}
-          <slot></slot>
+          <div class="radio-buttons-container">
+            <slot></slot>
+          </div>
         </div>
         {hasValidationStatus(this.validationStatus, this.disabled) && (
           <ic-input-validation

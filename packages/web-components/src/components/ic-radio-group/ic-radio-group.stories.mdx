@@ -39,6 +39,32 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Horizontal
+
+<Canvas>
+  <Story name="Horizontal">
+    {(args) =>
+      html`
+        <ic-radio-group
+          orientation="horizontal"
+          label="This is a label"
+          name="1"
+        >
+          <ic-radio-option
+            value="valueName1"
+            label="Selected / Default"
+            selected
+          ></ic-radio-option>
+          <ic-radio-option
+            value="valueName2"
+            label="Unselected / Default"
+          ></ic-radio-option>
+        </ic-radio-group>
+      `
+    }
+  </Story>
+</Canvas>
+
 ### Required
 
 <Canvas>
@@ -141,7 +167,7 @@ import readme from "./readme.md";
           >
             <ic-text-field
               validation-status="error"
-              validation-text="now it has really gone to (coffee) pot"
+              validation-text="Now it has really gone to (coffee) pot"
               slot="additional-field"
               placeholder="Placeholder"
               label="What's your favourite type of coffee?"
