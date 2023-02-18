@@ -189,18 +189,20 @@ export class RadioOption {
     return (
       <Host onClick={this.handleClick}>
         <div class={{ ["container"]: true, ["disabled"]: this.disabled }}>
-          <input
-            role="radio"
-            tabindex={this.selected ? "0" : "-1"}
-            type="radio"
-            name={this.name}
-            id={id}
-            value={this.value}
-            disabled={this.disabled ? true : null}
-            checked={this.selected}
-            ref={(el) => (this.radioElement = el)}
-          ></input>
-          <span class="checkmark"></span>
+          <div>
+            <input
+              role="radio"
+              tabindex={this.selected ? "0" : "-1"}
+              type="radio"
+              name={this.name}
+              id={id}
+              value={this.value}
+              disabled={this.disabled ? true : null}
+              checked={this.selected}
+              ref={(el) => (this.radioElement = el)}
+            ></input>
+            <span class="checkmark"></span>
+          </div>
           <ic-typography class="radio-label" variant="body">
             <label htmlFor={id}>{this.label}</label>
           </ic-typography>
@@ -226,7 +228,7 @@ export class RadioOption {
               )}
               <div
                 class={{
-                  "addition-field-wrapper":
+                  "additional-field-wrapper":
                     this.additionalFieldDisplay === "static",
                 }}
               >

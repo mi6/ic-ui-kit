@@ -258,4 +258,31 @@ describe("ic-radio-group", () => {
     //test disconnected callback
     page.setContent("");
   });
+
+  it("should change the orientation of the radio group to vertical if the user sets the orientation as horizontal and there are more than 2 radio options in the radio group", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" required orientation="horizontal">
+        <ic-radio-option value="test1" selected></ic-radio-option>
+        <ic-radio-option value="test2" ></ic-radio-option> 
+        <ic-radio-option value="test3"></ic-radio-option>    
+      </ic-radio-group>`,
+    });
+
+    expect(page.rootInstance.orientation).toMatch("vertical");
+  });
+
+  it("should change the orientation of the radio group to vertical if the user has additional fields on any of the radio buttons in the group", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" required orientation="horizontal">
+        <ic-radio-option value="test1" selected></ic-radio-option>
+        <ic-radio-option value="test" disabled label="test label" group-label="test group">
+         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+        </ic-radio-option>      
+      </ic-radio-group>`,
+    });
+
+    expect(page.rootInstance.orientation).toMatch("vertical");
+  });
 });
