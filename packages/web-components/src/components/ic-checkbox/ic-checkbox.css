@@ -5,15 +5,15 @@
   pointer-events: none;
 }
 
-:host([small]) .container {
-  margin-bottom: 0.625rem;
-}
-
 .container {
   display: flex;
   width: fit-content;
-  margin-bottom: var(--ic-space-sm);
-  margin-left: var(--ic-space-xxs);
+  padding: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-xxs);
+  margin-bottom: var(--ic-space-xxs);
+}
+
+:host([small]) .container {
+  margin-bottom: var(--ic-space-xxxs);
 }
 
 .checkbox {
@@ -129,8 +129,8 @@
 }
 
 .additional-field-wrapper {
-  margin-left: 2.75rem;
-  margin-top: var(--ic-space-xs);
+  margin-left: calc(var(--ic-space-md) + var(--ic-space-lg));
+  margin-top: calc(var(--ic-space-sm) / 2);
 }
 
 .branch-corner {
@@ -145,15 +145,13 @@
 .dynamic-container {
   display: flex;
   position: relative;
-  margin-left: 0.938rem;
-  margin-top: -0.375rem;
-  margin-bottom: var(--ic-space-md);
+  margin: var(--ic-space-xxxs) 0 var(--ic-space-xxs) var(--ic-space-md);
   gap: var(--ic-space-xs);
 }
 
 .dynamic-text {
   color: var(--ic-action-default);
-  margin-top: 0.438rem;
+  margin-top: calc(var(--ic-space-sm) / 2);
   margin-bottom: var(--ic-space-xs);
   border-radius: 2%;
 }
