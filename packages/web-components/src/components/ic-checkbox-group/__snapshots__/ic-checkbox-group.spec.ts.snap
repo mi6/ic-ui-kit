@@ -7,7 +7,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
       test label invalid data
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText test-validation-text" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -60,7 +60,7 @@ exports[`ic-checkbox-group should render an aria label when label hidden: render
       test label
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -87,7 +87,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
       <legend>
         <ic-input-label for="test" helpertext="helper test" label="test label"></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -117,7 +117,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
       <legend>
         <ic-input-label for="test" helpertext="" label="test label" required=""></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -144,7 +144,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
       <legend>
         <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -178,7 +178,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
       <legend>
         <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -205,7 +205,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
       <legend>
         <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -234,7 +234,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
       test label invalid data
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText test-validation-text" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -280,7 +280,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
       test label invalid data
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText test-validation-text" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -339,7 +339,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
       test label invalid data
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText test-validation-text" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -391,7 +391,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
       test label invalid data
     </span>
     <fieldset aria-labelledby="screenReaderOnlyText test-validation-text" id="test">
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
@@ -419,7 +419,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
       <legend>
         <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
       </legend>
-      <div class="list-items">
+      <div class="checkboxes-container">
         <slot></slot>
       </div>
     </fieldset>
