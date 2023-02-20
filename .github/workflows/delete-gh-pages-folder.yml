@@ -1,0 +1,29 @@
+name: Delete build folder on branch deletion
+
+on: delete
+
+jobs:
+  delete-folder:
+    runs-on: ubuntu-latest
+    if: github.event.ref_type == 'branch'
+    env:
+      FULL_BRANCH_NAME: ${{ github.event.ref }}
+    steps:
+      - name: Extract branch name
+        run: echo "branch=${FULL_BRANCH_NAME#refs/heads/}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: mi6/ic-ui-kit
+          ref: gh-pages
+
+      - name: Remove and commit
+        uses: EndBug/add-and-commit@v9.1.1
+        if: steps.extract_branch.outputs.branch != ''
+        with:
+          add: ""
+          remove: ./branches/${{ steps.extract_branch.outputs.branch }} -r
+          message: |
+            Branch: ${{ steps.extract_branch.outputs.branch }} deleted in ic-ui-kit
