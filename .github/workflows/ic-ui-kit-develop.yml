@@ -5,6 +5,10 @@ on:
     branches:
       - develop
 
+concurrency:  
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ic-ui-kit-static-analysis-tests:
     name: 'Static Analysis Tests'
@@ -74,7 +78,6 @@ jobs:
 
   ic-ui-kit-deploy:
     needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
-    concurrency: ci-${{ github.ref }}
     name: 'Deploy QA Storybook'
     runs-on: ubuntu-latest
     steps:
