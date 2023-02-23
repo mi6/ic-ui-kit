@@ -1,4 +1,5 @@
 import { E2EPage, newE2EPage } from "@stencil/core/testing";
+import { KeyInput } from "puppeteer";
 
 const options = `[
   { label: 'Test label 1', value: 'Test value 1' },
@@ -64,6 +65,17 @@ const getMenuVisibility = async (page: E2EPage) => {
     return window.getComputedStyle(menu).visibility;
   });
   return menuVisibility;
+};
+
+const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {
+  await page.$eval("ic-select", (el) => {
+    const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+    input.focus();
+  });
+
+  await value.split("").forEach(async (char: KeyInput) => {
+    await page.keyboard.press(char);
+  });
 };
 
 describe("ic-select", () => {
@@ -722,6 +734,7 @@ describe("ic-select", () => {
       const select = await page.find("ic-select >>> #ic-select-input-0");
       await select.press("ArrowDown");
       await page.waitForChanges();
+      await page.waitForTimeout(1000);
 
       await page.keyboard.down("Shift");
       await page.keyboard.press("Tab");
@@ -1390,6 +1403,35 @@ describe("ic-select", () => {
       await select.press("Tab");
 
       expect(await getMenuVisibility(page)).toBe("hidden");
+    });
+
+    it("should emit icChange on delay", async () => {
+      const page = await newE2EPage();
+      await page.setContent(
+        `<ic-select label="IC Select Test" debounce="500" searchable disable-filter></ic-select>`
+      );
+
+      await page.waitForChanges();
+
+      const icChange = await page.spyOnEvent("icChange");
+
+      await focusAndTypeIntoInput("foo", page);
+
+      await page.waitForTimeout(600);
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "foo",
+      });
+
+      await focusAndTypeIntoInput("bar", page);
+      await page.waitForChanges();
+      await page.waitForTimeout(100);
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "foo",
+      });
+      await page.waitForTimeout(500);
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "foobar",
+      });
     });
   });
 

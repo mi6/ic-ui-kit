@@ -7,7 +7,6 @@ import {
   Host,
   Prop,
   Method,
-  Listen,
   State,
   Watch,
 } from "@stencil/core";
@@ -103,33 +102,36 @@ export class Menu {
   }
 
   /**
-   * Emitted when an option is selected.
+   * @internal Emitted when an option is selected.
    */
-  @Event() icOptionSelect!: EventEmitter<IcOptionSelectEventDetail>;
+  @Event() menuOptionSelect!: EventEmitter<IcOptionSelectEventDetail>;
 
   /**
-   * Emitted when state of menu changes (i.e. open or close).
+   * @internal Emitted when state of menu changes (i.e. open or close).
    */
-  @Event() icMenuStateChange!: EventEmitter<IcMenuChangeEventDetail>;
+  @Event() menuStateChange!: EventEmitter<IcMenuChangeEventDetail>;
 
   /**
    * @internal Emitted when an option has been highlighted
    */
   @Event() menuOptionId: EventEmitter<IcMenuOptionIdEventDetail>;
 
-  @Listen("icClear", { target: "document" })
-  handleClearListener(): void {
-    this.optionHighlighted = "";
-  }
+  /**
+   * @internal Emitted when key is pressed while menu is open
+   */
+  @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean }>;
 
-  @Listen("icSubmitSearch", { target: "document" })
-  handleSubmitSearch(): void {
+  private handleClearListener = (): void => {
+    this.optionHighlighted = "";
+  };
+
+  private handleSubmitSearch = (): void => {
     const highlightedOptionIndex = this.options.findIndex(
       (option) => option.value === this.optionHighlighted
     );
 
     this.setInputValue(highlightedOptionIndex);
-  }
+  };
 
   private menu: HTMLUListElement;
   private ungroupedOptions: IcMenuOption[] = [];
@@ -141,7 +143,7 @@ export class Menu {
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
     if (!open) this.popperInstance.destroy();
-    this.icMenuStateChange.emit({ open, focusInput });
+    this.menuStateChange.emit({ open, focusInput });
 
     if (!open && focusInput !== false) {
       this.inputEl.focus();
@@ -151,14 +153,14 @@ export class Menu {
 
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
-      this.icOptionSelect.emit({
+      this.menuOptionSelect.emit({
         value: this.ungroupedOptions[selectedOptionIndex + 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[selectedOptionIndex + 1].value
         ),
       });
     } else {
-      this.icOptionSelect.emit({
+      this.menuOptionSelect.emit({
         value: this.ungroupedOptions[0].value,
         optionId: this.getOptionId(this.ungroupedOptions[0].value),
       });
@@ -167,14 +169,14 @@ export class Menu {
 
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
-      this.icOptionSelect.emit({
+      this.menuOptionSelect.emit({
         value: this.ungroupedOptions[selectedOptionIndex - 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[selectedOptionIndex - 1].value
         ),
       });
     } else {
-      this.icOptionSelect.emit({
+      this.menuOptionSelect.emit({
         value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
         optionId: this.getOptionId(
           this.ungroupedOptions[this.ungroupedOptions.length - 1].value
@@ -184,12 +186,12 @@ export class Menu {
   };
 
   /**
-   * If menu is opened with the mouse, emit icMenuStateChange custom event.
+   * @internal If menu is opened with the mouse, emit menuStateChange custom event.
    */
   @Method()
   async handleClickOpen(): Promise<void> {
     if (!this.preventClickOpen) {
-      this.icMenuStateChange.emit({ open: !this.open });
+      this.menuStateChange.emit({ open: !this.open });
       this.keyboardNav = false;
     }
     this.preventClickOpen = false;
@@ -233,6 +235,8 @@ export class Menu {
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
       (option) => option.value === this.value
     );
+
+    this.keyboardNav = false;
 
     const isSearchableSelect = this.inputEl?.tagName === "INPUT";
 
@@ -341,7 +345,7 @@ export class Menu {
 
   private setInputValue = (highlightedOptionIndex: number) => {
     if (this.options[highlightedOptionIndex]) {
-      this.icOptionSelect.emit({
+      this.menuOptionSelect.emit({
         value: this.options[highlightedOptionIndex]?.value,
       });
       this.optionHighlighted = undefined;
@@ -352,7 +356,7 @@ export class Menu {
 
   private handleOptionClick = (event: Event): void => {
     const { value, label } = (event.target as HTMLLIElement).dataset;
-    this.icOptionSelect.emit({ value, label });
+    this.menuOptionSelect.emit({ value, label });
     this.handleMenuChange(false);
   };
 
@@ -367,10 +371,18 @@ export class Menu {
     }
   };
 
+  private handleMouseDown = (event: Event): void => {
+    event.preventDefault();
+  };
+
   private handleMenuKeyDown = (event: KeyboardEvent) => {
     if (this.activationType === "automatic") {
       this.autoSetValueOnMenuKeyDown(event);
     }
+  };
+
+  private emitMenuKeyPress = (isNavKey: boolean) => {
+    this.menuKeyPress.emit({ isNavKey: isNavKey });
   };
 
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
@@ -380,6 +392,8 @@ export class Menu {
     );
 
     const isSearchableSelect = this.inputEl.tagName === "INPUT";
+
+    this.keyboardNav = false;
 
     switch (event.key) {
       case "ArrowUp":
@@ -393,13 +407,13 @@ export class Menu {
         this.keyboardNav = true;
         break;
       case "Home":
-        this.icOptionSelect.emit({
+        this.menuOptionSelect.emit({
           value: this.ungroupedOptions[0].value,
         });
         this.keyboardNav = true;
         break;
       case "End":
-        this.icOptionSelect.emit({
+        this.menuOptionSelect.emit({
           value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
         });
         this.keyboardNav = true;
@@ -422,6 +436,7 @@ export class Menu {
         }
         break;
     }
+    this.emitMenuKeyPress(this.keyboardNav);
   };
 
   private handleMenuKeyUp = (event: KeyboardEvent): void => {
@@ -501,6 +516,8 @@ export class Menu {
   componentWillLoad(): void {
     this.loadUngroupedOptions();
     this.isSearchBar = this.parentEl.tagName === "IC-SEARCH-BAR";
+    this.parentEl.addEventListener("icClear", this.handleClearListener);
+    this.parentEl.addEventListener("icSubmitSearch", this.handleSubmitSearch);
   }
 
   componentDidLoad(): void {
@@ -592,6 +609,14 @@ export class Menu {
     }
   }
 
+  disconnectedCallback(): void {
+    this.parentEl.removeEventListener("icClear", this.handleClearListener);
+    this.parentEl.removeEventListener(
+      "icSubmitSearch",
+      this.handleSubmitSearch
+    );
+  }
+
   private displayOption = (
     option: IcMenuOption,
     index?: number,
@@ -627,7 +652,7 @@ export class Menu {
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={this.handleOptionClick}
         onBlur={this.handleBlur}
-        onMouseDown={(event) => event.preventDefault()}
+        onMouseDown={this.handleMouseDown}
         data-value={option.value}
         data-label={option.label}
       >

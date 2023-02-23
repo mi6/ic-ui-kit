@@ -21,25 +21,7 @@
 | `value` _(required)_      | `value`           | The value of the currently selected option.                                                                                | `string`                  | `undefined`   |
 
 
-## Events
-
-| Event               | Description                                              | Type                                     |
-| ------------------- | -------------------------------------------------------- | ---------------------------------------- |
-| `icMenuStateChange` | Emitted when state of menu changes (i.e. open or close). | `CustomEvent<IcMenuChangeEventDetail>`   |
-| `icOptionSelect`    | Emitted when an option is selected.                      | `CustomEvent<IcOptionSelectEventDetail>` |
-
-
 ## Methods
-
-### `handleClickOpen() => Promise<void>`
-
-If menu is opened with the mouse, emit icMenuStateChange custom event.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
 
 ### `handleKeyboardOpen(event: KeyboardEvent) => Promise<void>`
 

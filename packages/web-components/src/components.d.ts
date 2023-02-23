@@ -614,9 +614,6 @@ export namespace Components {
           * If `true`, the menu will fill the width of the container.
          */
         "fullWidth": boolean;
-        /**
-          * If menu is opened with the mouse, emit icMenuStateChange custom event.
-         */
         "handleClickOpen": () => Promise<void>;
         /**
           * Used alongside activationType If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
@@ -957,6 +954,14 @@ export namespace Components {
          */
         "charactersUntilSuggestions"?: number;
         /**
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableFilter"?: boolean;
+        /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
@@ -977,11 +982,11 @@ export namespace Components {
          */
         "hideLabel"?: boolean;
         /**
-          * If `true`, descriptions of options will be included when filtering options in a searchable select.
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
         "includeDescriptionsInSearch"?: boolean;
         /**
-          * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
         "includeGroupTitlesInSearch"?: boolean;
         /**
@@ -1009,7 +1014,7 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Whether the search string of the searchable select should match the start of or anywhere in the options.
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**
@@ -2478,15 +2483,10 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
-        /**
-          * Emitted when state of menu changes (i.e. open or close).
-         */
-        "onIcMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
-        /**
-          * Emitted when an option is selected.
-         */
-        "onIcOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
+        "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        "onMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
         /**
           * If `true`, the menu will be displayed open.
          */
@@ -2849,6 +2849,14 @@ declare namespace LocalJSX {
          */
         "charactersUntilSuggestions"?: number;
         /**
+          * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+         */
+        "disableFilter"?: boolean;
+        /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
@@ -2869,11 +2877,11 @@ declare namespace LocalJSX {
          */
         "hideLabel"?: boolean;
         /**
-          * If `true`, descriptions of options will be included when filtering options in a searchable select.
+          * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
         "includeDescriptionsInSearch"?: boolean;
         /**
-          * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
+          * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
          */
         "includeGroupTitlesInSearch"?: boolean;
         /**
@@ -2885,17 +2893,29 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when select has blur.
+          * Emitted when select loses focus.
          */
         "onIcBlur"?: (event: IcSelectCustomEvent<void>) => void;
         /**
-          * Emitted when a value is selected.
+          * Emitted when the value changes.
          */
         "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Emitted when select has focus.
+          * Emitted when clear button clicked.
+         */
+        "onIcClear"?: (event: IcSelectCustomEvent<void>) => void;
+        /**
+          * Emitted when select gains focus.
          */
         "onIcFocus"?: (event: IcSelectCustomEvent<void>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when option is highlighted within the menu.
+         */
+        "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
         /**
           * The possible selection options.
          */
@@ -2913,7 +2933,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Whether the search string of the searchable select should match the start of or anywhere in the options.
+          * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
          */
         "searchMatchPosition"?: IcSearchMatchPositions;
         /**

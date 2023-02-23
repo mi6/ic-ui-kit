@@ -34,6 +34,7 @@ import {
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
 import { IcValueEventDetail } from "../../interface";
+import { IcOptionSelectEventDetail } from "../ic-menu/ic-menu.types";
 
 let inputIds = 0;
 
@@ -55,7 +56,7 @@ export class Select {
 
   private inheritedAttributes: { [k: string]: unknown } = {};
 
-  private debounce: number;
+  private debounceAria: number;
 
   /**
    * The label for the select.
@@ -123,6 +124,11 @@ export class Select {
   @Prop({ mutable: true }) value?: string;
 
   /**
+   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   */
+  @Prop() debounce?: number = 0;
+
+  /**
    * The name of the control, which is submitted with the form data.
    */
   @Prop() name?: string = this.inputId;
@@ -138,17 +144,17 @@ export class Select {
   @Prop() searchable?: boolean = false;
 
   /**
-   * If `true`, descriptions of options will be included when filtering options in a searchable select.
+   * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
    */
   @Prop() includeDescriptionsInSearch?: boolean = false;
 
   /**
-   * If `true`, group titles of grouped options will be included when filtering options in a searchable select.
+   * If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.
    */
   @Prop() includeGroupTitlesInSearch?: boolean = false;
 
   /**
-   * Whether the search string of the searchable select should match the start of or anywhere in the options.
+   * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
    */
   @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
 
@@ -161,6 +167,11 @@ export class Select {
    * The text displayed when there are no options in the option list.
    */
   @Prop() emptyOptionListText = "No results found";
+
+  /**
+   * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+   */
+  @Prop() disableFilter?: boolean = false;
 
   @State() open: boolean = false;
 
@@ -176,26 +187,63 @@ export class Select {
 
   @State() initialValue = this.value;
 
+  @State() currDebounce = this.debounce;
+
+  @State() debounceIcChange: number;
+
   @Watch("options")
   watchOptionsHandler(): void {
-    this.setOptionsValuesFromLabels();
-    this.filteredOptions = this.options;
+    if (this.isExternalFiltering()) {
+      if (this.options.length > 0) {
+        this.setOptionsValuesFromLabels();
+        this.noOptions = null;
+        this.filteredOptions = this.options;
+      } else if (this.isMenuEnabled()) {
+        this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
+        this.filteredOptions = this.noOptions;
+        this.setMenuChange(true);
+      }
+      this.updateSearchableSelectResultAriaLive();
+    } else {
+      this.setOptionsValuesFromLabels();
+      this.filteredOptions = this.options;
+    }
+  }
+
+  @Watch("debounce")
+  debounceChangedHandler(newValue: number) {
+    this.updateOnChangeDebounce(newValue);
   }
 
   /**
-   * Emitted when a value is selected.
+   * Emitted when the value changes.
    */
   @Event() icChange!: EventEmitter<IcValueEventDetail>;
 
   /**
-   * Emitted when select has focus.
+   * Emitted when clear button clicked.
+   */
+  @Event() icClear!: EventEmitter<void>;
+
+  /**
+   * Emitted when select gains focus.
    */
   @Event() icFocus!: EventEmitter<void>;
 
   /**
-   * Emitted when select has blur.
+   * Emitted when select loses focus.
    */
   @Event() icBlur!: EventEmitter<void>;
+
+  /**
+   * Emitted when option is highlighted within the menu.
+   */
+  @Event() icOptionSelect: EventEmitter<IcOptionSelectEventDetail>;
+
+  /**
+   * Emitted when a keyboard input occurred.
+   */
+  @Event() icInput: EventEmitter<IcValueEventDetail>;
 
   @Element() host!: HTMLIcSelectElement;
 
@@ -212,6 +260,24 @@ export class Select {
       this.searchableSelectElement.focus();
     }
   }
+
+  private updateOnChangeDebounce(newValue: number) {
+    if (this.currDebounce !== newValue) {
+      this.currDebounce = newValue;
+    }
+  }
+
+  private emitIcChange = (value: string) => {
+    clearTimeout(this.debounceIcChange);
+    this.debounceIcChange = window.setTimeout(() => {
+      this.icChange.emit({ value: value });
+    }, this.currDebounce);
+  };
+
+  private emitImmediateIcChange = (value: string) => {
+    clearTimeout(this.debounceIcChange);
+    this.icChange.emit({ value: value });
+  };
 
   private isMenuEnabled = () => {
     return (
@@ -273,7 +339,8 @@ export class Select {
   };
 
   private handleNativeSelectChange = (): void => {
-    this.icChange.emit({ value: this.nativeSelectElement.value });
+    this.icOptionSelect.emit({ value: this.nativeSelectElement.value });
+    this.emitImmediateIcChange(this.nativeSelectElement.value);
     this.setTextColor();
   };
 
@@ -290,13 +357,21 @@ export class Select {
     }
 
     this.ariaActiveDescendant = event.detail.optionId;
-    this.icChange.emit({ value: event.detail.value });
+    this.icOptionSelect.emit({ value: event.detail.value });
+    this.emitImmediateIcChange(event.detail.value);
   };
 
   private handleMenuChange = (event: CustomEvent): void => {
     this.open = event.detail.open;
 
     this.searchable && this.handleFocusIndicatorDisplay();
+  };
+
+  // clears the debounce delay when navigating the menu with arrow keys etc
+  // to prevent delay in change event, which should only occur when typing in input
+  private handleMenuKeyPress = (ev: CustomEvent): void => {
+    const debounce = ev.detail.isNavKey ? 0 : this.debounce;
+    this.debounceChangedHandler(debounce);
   };
 
   private handleFocusIndicatorDisplay = () => {
@@ -316,9 +391,16 @@ export class Select {
     }
   };
 
+  private isExternalFiltering = (): boolean =>
+    this.searchable && this.disableFilter;
+
   private handleClick = (event: MouseEvent): void => {
-    this.noOptions = null;
-    this.menu.options = this.options;
+    if (this.isExternalFiltering()) {
+      this.menu.options = this.filteredOptions;
+    } else {
+      this.noOptions = null;
+      this.menu.options = this.options;
+    }
 
     if (event.detail !== 0 && this.isMenuEnabled()) {
       this.menu.handleClickOpen();
@@ -336,7 +418,8 @@ export class Select {
   private handleClear = (event: Event): void => {
     event.stopPropagation();
     this.noOptions = null;
-    this.icChange.emit({ value: null });
+    this.emitImmediateIcChange(null);
+    this.icClear.emit();
 
     if (this.searchable) {
       this.searchableSelectElement.value = null;
@@ -354,22 +437,24 @@ export class Select {
 
   private handleKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
+    const isArrowKey = event.key === "ArrowDown" || event.key === "ArrowUp";
 
     if (!this.open) {
-      this.noOptions = null;
-      this.menu.options = this.options;
+      if (this.isExternalFiltering() && (event.key === "Enter" || isArrowKey)) {
+        this.menu.options = this.filteredOptions;
+      } else {
+        this.noOptions = null;
+        this.menu.options = this.options;
+      }
     }
 
     if (this.open && event.key === "Enter") {
       this.setMenuChange(false);
     } else {
-      if (
-        !(
-          (event.key === "ArrowDown" || event.key === "ArrowUp") &&
-          this.noOptions !== null
-        ) &&
-        this.isMenuEnabled()
-      ) {
+      if (!(isArrowKey && this.noOptions !== null) && this.isMenuEnabled()) {
+        if (this.isExternalFiltering() && isArrowKey && this.debounce > 0) {
+          this.debounceChangedHandler(0);
+        }
         this.menu.handleKeyboardOpen(event);
       }
     }
@@ -385,9 +470,14 @@ export class Select {
 
   private handleSearchableSelectInput = (event: Event): void => {
     this.searchableSelectInputValue = (event.target as HTMLInputElement).value;
+    this.icInput.emit({ value: this.searchableSelectInputValue });
 
-    if (this.getValueFromLabel(this.searchableSelectInputValue) === undefined) {
-      this.icChange.emit({ value: null });
+    if (this.disableFilter) {
+      this.emitIcChange(this.searchableSelectInputValue);
+    } else if (
+      this.getValueFromLabel(this.searchableSelectInputValue) === undefined
+    ) {
+      this.emitIcChange(null);
     }
 
     if (this.isMenuEnabled()) {
@@ -396,60 +486,62 @@ export class Select {
       this.setMenuChange(false);
     }
 
-    const options = [...this.options];
+    if (!this.disableFilter) {
+      const options = [...this.options];
 
-    let isGrouped = false;
-    let newFilteredOptions: IcMenuOption[] = [];
+      let isGrouped = false;
+      let newFilteredOptions: IcMenuOption[] = [];
 
-    options.map((option) => {
-      if (option.children) isGrouped = true;
-    });
-
-    const menuOptionsFiltered = getFilteredMenuOptions(
-      options,
-      this.includeDescriptionsInSearch,
-      this.searchableSelectInputValue,
-      this.searchMatchPosition
-    );
-
-    if (!isGrouped) {
-      newFilteredOptions = menuOptionsFiltered;
-    } else {
       options.map((option) => {
-        if (this.includeGroupTitlesInSearch) {
-          if (menuOptionsFiltered.indexOf(option) !== -1) {
-            newFilteredOptions.push(option);
+        if (option.children) isGrouped = true;
+      });
+
+      const menuOptionsFiltered = getFilteredMenuOptions(
+        options,
+        this.includeDescriptionsInSearch,
+        this.searchableSelectInputValue,
+        this.searchMatchPosition
+      );
+
+      if (!isGrouped) {
+        newFilteredOptions = menuOptionsFiltered;
+      } else {
+        options.map((option) => {
+          if (this.includeGroupTitlesInSearch) {
+            if (menuOptionsFiltered.indexOf(option) !== -1) {
+              newFilteredOptions.push(option);
+            } else {
+              newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
+            }
           } else {
             newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
           }
-        } else {
-          newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
-        }
-      });
+        });
+      }
+
+      let noChildOptionsWhenFiltered = false;
+
+      if (isGrouped) {
+        noChildOptionsWhenFiltered = true;
+        newFilteredOptions.map((option) => {
+          if (option.children.length > 0) {
+            noChildOptionsWhenFiltered = false;
+          }
+        });
+      }
+
+      const noOptions = [{ label: this.emptyOptionListText, value: "" }];
+
+      if (newFilteredOptions.length > 0 && !noChildOptionsWhenFiltered) {
+        this.noOptions = null;
+        this.filteredOptions = newFilteredOptions;
+      } else {
+        this.noOptions = noOptions;
+        this.filteredOptions = this.noOptions;
+      }
+
+      this.debounceAriaLiveUpdate();
     }
-
-    let noChildOptionsWhenFiltered = false;
-
-    if (isGrouped) {
-      noChildOptionsWhenFiltered = true;
-      newFilteredOptions.map((option) => {
-        if (option.children.length > 0) {
-          noChildOptionsWhenFiltered = false;
-        }
-      });
-    }
-
-    const noOptions = [{ label: this.emptyOptionListText, value: "" }];
-
-    if (newFilteredOptions.length > 0 && !noChildOptionsWhenFiltered) {
-      this.noOptions = null;
-      this.filteredOptions = newFilteredOptions;
-    } else {
-      this.noOptions = noOptions;
-      this.filteredOptions = this.noOptions;
-    }
-
-    this.debounceAriaLiveUpdate();
   };
 
   private updateSearchableSelectResultAriaLive = (): void => {
@@ -465,7 +557,7 @@ export class Select {
   };
 
   private debounceAriaLiveUpdate() {
-    clearTimeout(this.debounce);
+    clearTimeout(this.debounceAria);
 
     window.setTimeout(() => {
       this.updateSearchableSelectResultAriaLive();
@@ -473,6 +565,9 @@ export class Select {
   }
 
   private onFocus = (): void => {
+    if (this.isExternalFiltering() && this.debounce > 0) {
+      this.debounceChangedHandler(this.debounce);
+    }
     this.icFocus.emit();
   };
 
@@ -780,8 +875,9 @@ export class Select {
               options={searchable ? this.filteredOptions : options}
               value={value}
               fullWidth={fullWidth}
-              onIcMenuStateChange={this.handleMenuChange}
-              onIcOptionSelect={this.handleCustomSelectChange}
+              onMenuStateChange={this.handleMenuChange}
+              onMenuOptionSelect={this.handleCustomSelectChange}
+              onMenuKeyPress={this.handleMenuKeyPress}
               parentEl={this.host}
             ></ic-menu>
           )}
