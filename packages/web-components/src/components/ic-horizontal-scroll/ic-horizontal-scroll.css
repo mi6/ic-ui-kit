@@ -1,0 +1,98 @@
+@import "../../global/normalize.css";
+
+:host {
+  --border-bottom-color: var(--ic-architectural-300);
+  --splitter-color: var(--ic-architectural-100);
+
+  display: flex;
+  max-width: 100%;
+}
+
+:host(.light) {
+  --splitter-color: var(--ic-keyline-lighten-rgb);
+}
+
+:host(.dark) {
+  --splitter-color: var(--ic-keyline-darken-rgb);
+}
+
+:host([inline]) {
+  margin-bottom: 0;
+}
+
+/* Slotted items container element */
+::slotted(*) {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: calc(var(--ic-space-xs) * -1) !important;
+  padding: var(--ic-space-xs) !important;
+}
+
+:host(.visible) ::slotted(*) {
+  margin: calc(var(--ic-space-xs) * -1) 0 !important;
+  padding: var(--ic-space-xs) !important;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container-left,
+.scroll-container-right {
+  display: flex;
+}
+
+.scroll-container-left {
+  margin-left: var(--ic-space-xxs);
+}
+
+.scroll-container-right {
+  margin-right: var(--ic-space-xxs);
+}
+
+.hidden {
+  display: none;
+}
+
+.scroll-arrow {
+  margin: var(--ic-space-xxs) 0 var(--ic-space-xs) 0;
+}
+
+.disabled .ic-tooltip-container {
+  display: none !important;
+}
+
+.scroll-splitter-left,
+.scroll-splitter-right {
+  display: flex;
+  height: var(--ic-space-lg);
+  width: 0.063rem;
+  margin-top: var(--ic-space-xs);
+  border-radius: 0.063rem;
+  background-color: var(--splitter-color);
+}
+
+.scroll-splitter-left {
+  margin-left: calc(var(--ic-space-xxs) - 0.063rem);
+}
+
+.scroll-splitter-right {
+  margin-right: calc(var(--ic-space-xxs) - 0.063rem);
+}
+
+.disabled .scroll-splitter-left,
+.disabled .scroll-splitter-right {
+  background-color: transparent;
+}
+
+.disabled ic-button > svg {
+  color: var(--ic-keyline-darken-rgb);
+}
+
+:host(.dark) .disabled ic-button > svg,
+:host(.light) .disabled ic-button > svg {
+  color: var(--splitter-color) !important;
+}

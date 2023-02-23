@@ -39,12 +39,19 @@
 
 - [ic-section-container](../ic-section-container)
 - [ic-typography](../ic-typography)
+- [ic-horizontal-scroll](../ic-horizontal-scroll)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-page-header --> ic-section-container
   ic-page-header --> ic-typography
+  ic-page-header --> ic-horizontal-scroll
+  ic-horizontal-scroll --> ic-button
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
+  ic-tooltip --> ic-typography
   style ic-page-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

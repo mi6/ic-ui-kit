@@ -22,7 +22,6 @@
  - [ic-button](../ic-button)
  - [ic-chip](../ic-chip)
  - [ic-navigation-item](../ic-navigation-item)
- - [ic-tab-group](../ic-tab-group)
 
 ### Depends on
 
@@ -35,7 +34,6 @@ graph TD;
   ic-button --> ic-tooltip
   ic-chip --> ic-tooltip
   ic-navigation-item --> ic-tooltip
-  ic-tab-group --> ic-tooltip
   style ic-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

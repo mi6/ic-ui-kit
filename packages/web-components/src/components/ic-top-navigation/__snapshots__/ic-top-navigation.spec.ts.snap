@@ -203,9 +203,11 @@ exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] 
               Main navigation
             </span>
             <nav aria-labelledby="navigation-landmark-text" class="nav-panel-container">
-              <ul class="navigation-item-list">
-                <slot name="navigation"></slot>
-              </ul>
+              <ic-horizontal-scroll appearance="light">
+                <ul class="navigation-item-list" tabindex="-1">
+                  <slot name="navigation"></slot>
+                </ul>
+              </ic-horizontal-scroll>
             </nav>
           </div>
         </header>

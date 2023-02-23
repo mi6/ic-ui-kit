@@ -227,11 +227,12 @@ export class PageHeader {
                 {isSlotUsed(this.el, "stepper") &&
                   !isSlotUsed(this.el, "tabs") && <slot name="stepper" />}
                 {isSlotUsed(this.el, "tabs") && (
-                  <nav
-                    class="tabs-slot"
-                    aria-label="navigation-landmark-page-header"
-                  >
-                    <slot name="tabs" />
+                  <nav aria-label="navigation-landmark-page-header">
+                    <ic-horizontal-scroll>
+                      <ul class="tabs-slot">
+                        <slot name="tabs" />
+                      </ul>
+                    </ic-horizontal-scroll>
                   </nav>
                 )}
               </div>

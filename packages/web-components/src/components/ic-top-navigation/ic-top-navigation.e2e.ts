@@ -31,7 +31,9 @@ describe("ic-top-navigation", () => {
       height: pageHeight,
     });
 
-    const navGroup = await page.find("ic-navigation-group");
+    const navGroup = await page.find(
+      "ic-top-navigation >>> ic-horizontal-scroll >>> ic-navigation-group"
+    );
     await navGroup.hover();
 
     await page.waitForChanges();
