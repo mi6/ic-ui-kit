@@ -1,3 +1,27 @@
+export type IcFocusableComponents =
+  | HTMLIcBreadcrumbElement
+  | HTMLIcButtonElement
+  | HTMLIcCardElement
+  | HTMLIcCheckboxElement
+  | HTMLIcChipElement
+  | HTMLIcLinkElement
+  | HTMLIcNavigationButtonElement
+  | HTMLIcNavigationGroupElement
+  | HTMLIcNavigationItemElement
+  | HTMLIcRadioOptionElement
+  | HTMLIcSearchBarElement
+  | HTMLIcSelectElement
+  | HTMLIcSwitchElement
+  | HTMLIcTabElement
+  | HTMLIcTextFieldElement;
+
+export type IcStatusVariants =
+  | "neutral"
+  | "info"
+  | "warning"
+  | "error"
+  | "success";
+
 export enum IcInformationStatus {
   Warning = "warning",
   Error = "error",

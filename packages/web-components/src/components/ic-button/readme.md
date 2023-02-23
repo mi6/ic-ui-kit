@@ -64,6 +64,7 @@ Type: `Promise<void>`
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
  - [ic-side-navigation](../ic-side-navigation)
+ - [ic-toast](../ic-toast)
  - [ic-top-navigation](../ic-top-navigation)
 
 ### Depends on
@@ -86,6 +87,7 @@ graph TD;
   ic-search-bar --> ic-button
   ic-select --> ic-button
   ic-side-navigation --> ic-button
+  ic-toast --> ic-button
   ic-top-navigation --> ic-button
   style ic-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -323,7 +323,7 @@ export const getCssProperty = (cssVar: string): string => {
  * This is a similar calculation to its CSS counterpart: "--ic-theme-text"
  * @returns number representing the brightness of the theme colour
  */
-export const getThemeColorBrightness = () => {
+export const getThemeColorBrightness = (): number => {
   const themeRed = getCssProperty("--ic-theme-primary-r");
   const themeGreen = getCssProperty("--ic-theme-primary-g");
   const themeBlue = getCssProperty("--ic-theme-primary-b");
@@ -555,7 +555,7 @@ export const getForm = (el: HTMLElement): HTMLFormElement | null => {
 export const addFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
-) => {
+): void => {
   const form = getForm(el);
   if (form !== null) {
     form.addEventListener("reset", callbackFn);
@@ -565,7 +565,7 @@ export const addFormResetListener = (
 export const removeFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
-) => {
+): void => {
   const form = getForm(el);
   if (form !== null) {
     form.removeEventListener("reset", callbackFn);
