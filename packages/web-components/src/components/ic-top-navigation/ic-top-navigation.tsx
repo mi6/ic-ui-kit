@@ -461,9 +461,11 @@ export class TopNavigation {
                     aria-labelledby="navigation-landmark-text"
                     class="nav-panel-container"
                   >
-                    <ul class="navigation-item-list">
-                      <slot name="navigation"></slot>
-                    </ul>
+                    <ic-horizontal-scroll appearance={this.foregroundColor}>
+                      <ul class="navigation-item-list" tabindex="-1">
+                        <slot name="navigation"></slot>
+                      </ul>
+                    </ic-horizontal-scroll>
                   </nav>
                 </div>
               )}
