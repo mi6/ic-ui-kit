@@ -25,6 +25,7 @@ export const IcFooter = /*@__PURE__*/createReactComponent<JSX.IcFooter, HTMLIcFo
 export const IcFooterLink = /*@__PURE__*/createReactComponent<JSX.IcFooterLink, HTMLIcFooterLinkElement>('ic-footer-link');
 export const IcFooterLinkGroup = /*@__PURE__*/createReactComponent<JSX.IcFooterLinkGroup, HTMLIcFooterLinkGroupElement>('ic-footer-link-group');
 export const IcHero = /*@__PURE__*/createReactComponent<JSX.IcHero, HTMLIcHeroElement>('ic-hero');
+export const IcHorizontalScroll = /*@__PURE__*/createReactComponent<JSX.IcHorizontalScroll, HTMLIcHorizontalScrollElement>('ic-horizontal-scroll');
 export const IcInputComponentContainer = /*@__PURE__*/createReactComponent<JSX.IcInputComponentContainer, HTMLIcInputComponentContainerElement>('ic-input-component-container');
 export const IcInputContainer = /*@__PURE__*/createReactComponent<JSX.IcInputContainer, HTMLIcInputContainerElement>('ic-input-container');
 export const IcInputLabel = /*@__PURE__*/createReactComponent<JSX.IcInputLabel, HTMLIcInputLabelElement>('ic-input-label');

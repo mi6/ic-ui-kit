@@ -33,7 +33,7 @@ export const ControlledTabsExample = () => {
         selectedTabIndex={selectedTab}
         onTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
       >
-        <IcTabGroup label="Example tab list">
+        <IcTabGroup label="Example tab group">
           <IcTab>One</IcTab>
           <IcTab>Two</IcTab>
           <IcTab>Three</IcTab>
@@ -51,7 +51,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Default">
     <IcTabContext>
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>Three</IcTab>
@@ -68,7 +68,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="With icons">
     <IcTabContext>
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>
           One
           <svg
@@ -123,7 +123,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Disabled">
     <IcTabContext>
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab disabled>Two</IcTab>
         <IcTab>Three</IcTab>
@@ -140,7 +140,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Inline">
     <IcTabContext>
-      <IcTabGroup label="Example tab list" inline>
+      <IcTabGroup label="Example tab group" inline>
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>Three</IcTab>
@@ -163,7 +163,7 @@ export const ControlledTabsExample = () => {
         selectedTabIndex={selectedTab}
         onTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
       >
-        <IcTabGroup label="Example tab list">
+        <IcTabGroup label="Example tab group">
           <IcTab>One</IcTab>
           <IcTab>Two</IcTab>
           <IcTab>Three</IcTab>
@@ -188,7 +188,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Manual activation">
     <IcTabContext activationType="manual">
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>Three</IcTab>
@@ -205,7 +205,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
     <IcTabContext appearance="light">
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>
@@ -235,7 +235,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Responsive">
     <IcTabContext>
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>Three</IcTab>
@@ -245,6 +245,9 @@ export const ControlledTabsExample = () => {
         <IcTab>Seven</IcTab>
         <IcTab>Eight</IcTab>
         <IcTab>Nine</IcTab>
+        <IcTab>Ten</IcTab>
+        <IcTab>Eleven</IcTab>
+        <IcTab>Twelve</IcTab>
       </IcTabGroup>
       <IcTabPanel>Tab One</IcTabPanel>
       <IcTabPanel>Tab Two</IcTabPanel>
@@ -255,6 +258,9 @@ export const ControlledTabsExample = () => {
       <IcTabPanel>Tab Seven</IcTabPanel>
       <IcTabPanel>Tab Eight</IcTabPanel>
       <IcTabPanel>Tab Nine</IcTabPanel>
+      <IcTabPanel>Tab Ten</IcTabPanel>
+      <IcTabPanel>Tab Eleven</IcTabPanel>
+      <IcTabPanel>Tab Twelve</IcTabPanel>
     </IcTabContext>
   </Story>
 </Canvas>
@@ -264,7 +270,7 @@ export const ControlledTabsExample = () => {
 <Canvas>
   <Story name="Responsive (Light text)" parameters={{ backgrounds: { default: "dark" } }}>
     <IcTabContext appearance="light">
-      <IcTabGroup label="Example tab list">
+      <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
         <IcTab>Three</IcTab>
