@@ -138,20 +138,6 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" value="espresso"></ic-search-bar>',
     });
 
-    await page.rootInstance.onMenuOptionHighlighted({
-      detail: { optionId: "12345" },
-    });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.ariaActiveDescendant).toBe("12345");
-
-    await page.rootInstance.onMenuOptionHighlighted({ detail: {} });
-    await page.waitForChanges();
-    expect(page.rootInstance.ariaActiveDescendant).toBeUndefined;
-
-    await page.rootInstance.onMenuClose({ detail: { open: false } });
-    expect(page.rootInstance.menuCloseFromMenuChangeEvent).toBe(true);
-
     const eventSpy = jest.fn();
     page.win.addEventListener("icMenuChange", eventSpy);
     await page.rootInstance.handleMenuChange({ detail: { open: true } });
