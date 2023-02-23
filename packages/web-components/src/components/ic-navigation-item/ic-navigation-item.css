@@ -25,16 +25,17 @@ ic-typography {
 
 :host(.navigation-item) .link,
 :host(.navigation-item) ::slotted(a) {
-  height: 100%;
+  height: calc(100% - var(--ic-space-xxs));
   width: fit-content;
   color: var(--ic-theme-text);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 var(--ic-space-md);
+  padding: 0 var(--ic-space-md) var(--ic-space-xxs);
   text-decoration: none;
   transition: var(--ic-easing-transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 :host(.navigation-item) ::slotted(a) {
@@ -365,6 +366,7 @@ ic-typography {
   color: var(--navigation-item-child-color) !important;
   text-decoration: none !important;
   white-space: nowrap;
+  padding: 0 var(--ic-space-md);
 }
 
 :host(.navigation-item-side-nav.navigation-item-top-nav-child) .link,
@@ -479,7 +481,7 @@ ic-typography {
 :host(.navigation-item-page-header).link,
 :host(.navigation-item-page-header) a,
 :host(.navigation-item-page-header) ::slotted(a) {
-  height: 2.75rem !important;
+  height: 2.5rem !important;
   color: var(--ic-color-primary-text) !important;
   transition: all var(--ic-easing-transition-fast) !important;
   box-shadow: rgba(23 89 188 / 0%) !important;

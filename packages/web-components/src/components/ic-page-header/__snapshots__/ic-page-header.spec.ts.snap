@@ -126,8 +126,12 @@ exports[`ic-page-header component renders additional functionality should render
           </div>
         </div>
         <div class="navigation-area">
-          <nav aria-label="navigation-landmark-page-header" class="tabs-slot">
-            <slot name="tabs"></slot>
+          <nav aria-label="navigation-landmark-page-header">
+            <ic-horizontal-scroll>
+              <ul class="tabs-slot">
+                <slot name="tabs"></slot>
+              </ul>
+            </ic-horizontal-scroll>
           </nav>
         </div>
       </ic-section-container>
@@ -257,8 +261,12 @@ exports[`ic-page-header component renders additional functionality should render
           </div>
         </div>
         <div class="navigation-area">
-          <nav aria-label="navigation-landmark-page-header" class="tabs-slot">
-            <slot name="tabs"></slot>
+          <nav aria-label="navigation-landmark-page-header">
+            <ic-horizontal-scroll>
+              <ul class="tabs-slot">
+                <slot name="tabs"></slot>
+              </ul>
+            </ic-horizontal-scroll>
           </nav>
         </div>
       </ic-section-container>

@@ -367,7 +367,7 @@ export const getSlotContent = (
   return null;
 };
 
-const getSlotElements = (slot: Element) => {
+export const getSlotElements = (slot: Element) => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
   if (slotContent !== null) {

@@ -61,7 +61,7 @@
 
 :host .nav-panel-container {
   border-top: var(--ic-keyline-lighten);
-  padding-left: var(--ic-space-lg);
+  padding: 0 var(--ic-space-lg);
   margin-left: calc(-1 * var(--section-container-margin));
   margin-right: calc(-1 * var(--section-container-margin));
   display: flex;
@@ -183,6 +183,10 @@ slot[name="toggle-icon"] svg {
   height: 2.75rem;
 }
 
+.navigation-item-list::-webkit-scrollbar {
+  display: none;
+}
+
 :host([content-aligned="left"]) .app-details-container {
   flex-basis: 1;
 }
@@ -222,7 +226,7 @@ slot[name="toggle-icon"] svg {
 /* large */
 @media screen and (max-width: 1200px) {
   :host .nav-panel-container {
-    padding-left: var(--ic-space-md);
+    padding: 0 var(--ic-space-md);
   }
 }
 

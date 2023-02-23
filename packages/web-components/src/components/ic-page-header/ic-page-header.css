@@ -87,6 +87,10 @@ header.tabs {
   margin: -0.5rem;
 }
 
+.tabs-slot::-webkit-scrollbar {
+  display: none;
+}
+
 .input-area {
   grid-area: input-area;
 }

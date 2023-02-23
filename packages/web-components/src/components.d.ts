@@ -439,6 +439,13 @@ export namespace Components {
          */
         "subheading"?: string;
     }
+    interface IcHorizontalScroll {
+        /**
+          * The appearance of the horizontal scroll, e.g. dark, light or the default.
+         */
+        "appearance"?: IcThemeForeground;
+        "scrollItemIntoView": (itemPosition: number) => Promise<void>;
+    }
     interface IcInputComponentContainer {
         /**
           * If `true`, the dark variant of the input component container will be displayed.
@@ -1270,7 +1277,6 @@ export namespace Components {
           * The label to describe the purpose of the set of tabs to screen reader users.
          */
         "label": string;
-        "scrollTabIntoView": (tabNumber: number) => Promise<void>;
     }
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
@@ -1639,6 +1645,12 @@ declare global {
         prototype: HTMLIcHeroElement;
         new (): HTMLIcHeroElement;
     };
+    interface HTMLIcHorizontalScrollElement extends Components.IcHorizontalScroll, HTMLStencilElement {
+    }
+    var HTMLIcHorizontalScrollElement: {
+        prototype: HTMLIcHorizontalScrollElement;
+        new (): HTMLIcHorizontalScrollElement;
+    };
     interface HTMLIcInputComponentContainerElement extends Components.IcInputComponentContainer, HTMLStencilElement {
     }
     var HTMLIcInputComponentContainerElement: {
@@ -1849,6 +1861,7 @@ declare global {
         "ic-footer-link": HTMLIcFooterLinkElement;
         "ic-footer-link-group": HTMLIcFooterLinkGroupElement;
         "ic-hero": HTMLIcHeroElement;
+        "ic-horizontal-scroll": HTMLIcHorizontalScrollElement;
         "ic-input-component-container": HTMLIcInputComponentContainerElement;
         "ic-input-container": HTMLIcInputContainerElement;
         "ic-input-label": HTMLIcInputLabelElement;
@@ -2311,6 +2324,12 @@ declare namespace LocalJSX {
           * The description for the hero.
          */
         "subheading"?: string;
+    }
+    interface IcHorizontalScroll {
+        /**
+          * The appearance of the horizontal scroll, e.g. dark, light or the default.
+         */
+        "appearance"?: IcThemeForeground;
     }
     interface IcInputComponentContainer {
         /**
@@ -3432,6 +3451,7 @@ declare namespace LocalJSX {
         "ic-footer-link": IcFooterLink;
         "ic-footer-link-group": IcFooterLinkGroup;
         "ic-hero": IcHero;
+        "ic-horizontal-scroll": IcHorizontalScroll;
         "ic-input-component-container": IcInputComponentContainer;
         "ic-input-container": IcInputContainer;
         "ic-input-label": IcInputLabel;
@@ -3487,6 +3507,7 @@ declare module "@stencil/core" {
             "ic-footer-link": LocalJSX.IcFooterLink & JSXBase.HTMLAttributes<HTMLIcFooterLinkElement>;
             "ic-footer-link-group": LocalJSX.IcFooterLinkGroup & JSXBase.HTMLAttributes<HTMLIcFooterLinkGroupElement>;
             "ic-hero": LocalJSX.IcHero & JSXBase.HTMLAttributes<HTMLIcHeroElement>;
+            "ic-horizontal-scroll": LocalJSX.IcHorizontalScroll & JSXBase.HTMLAttributes<HTMLIcHorizontalScrollElement>;
             "ic-input-component-container": LocalJSX.IcInputComponentContainer & JSXBase.HTMLAttributes<HTMLIcInputComponentContainerElement>;
             "ic-input-container": LocalJSX.IcInputContainer & JSXBase.HTMLAttributes<HTMLIcInputContainerElement>;
             "ic-input-label": LocalJSX.IcInputLabel & JSXBase.HTMLAttributes<HTMLIcInputLabelElement>;
