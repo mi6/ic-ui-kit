@@ -1169,3 +1169,73 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Searchable external filtering
+
+<Canvas>
+  <Story
+    name="Searchable external filtering"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-select
+          label="What is your favourite coffee?"
+          searchable="true"
+          debounce="300"
+          disable-filter="true"
+          id="external-filter-select"
+          characters-until-suggestions="2"
+        ></ic-select>
+        <br />
+        <ic-typography>
+          Suggested search options: Espresso, Double Espresso, Flat White,
+          Filter, Cappuccino, Americano, Mocha, Macchiato.
+        </ic-typography>
+        <br />
+        <ic-typography>
+          The IcChange event will trigger 300ms after you finish typing. 1
+          second later, the options in the select menu will be updated.
+        </ic-typography>
+        <script>
+          var mockData = [
+            { label: "Espresso", value: "Esp" },
+            { label: "Double Espresso", value: "Dou" },
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          var select = document.querySelector("#external-filter-select");
+          var selectedValue = "";
+          select.addEventListener("icClear", function (event) {
+            select.options = [];
+          });
+          select.addEventListener("icOptionSelect", function (event) {
+            selectedValue = event.detail.value;
+          });
+          select.addEventListener("icChange", function (event) {
+            var option = event.detail.value;
+            select.value = option;
+            if (option !== selectedValue) {
+              if (option && option.length > 1) {
+                mockAPI = (query) => {
+                  filteredResults = mockData.filter((m) =>
+                    m.label.toLowerCase().includes(query.toLowerCase())
+                  );
+                  return new Promise((resolve) =>
+                    setTimeout(() => resolve(filteredResults), 1000)
+                  );
+                };
+                mockAPI(option).then((results) => (select.options = results));
+              } else {
+                select.options = [];
+              }
+            }
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>

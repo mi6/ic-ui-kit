@@ -281,6 +281,9 @@ describe("ic-select", () => {
     page.rootInstance.nativeSelectElement.selectedIndex = 0;
     select.dispatchEvent(event);
     await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(900);
+
     expect(eventSpy).toHaveBeenCalled();
 
     myfunc = jest.fn().mockReturnValue(false);
@@ -1088,6 +1091,110 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.searchableSelectInputValue).toBe(null);
+  });
+
+  it("should test debounce change", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
+    });
+
+    await page.waitForChanges();
+    expect(page.rootInstance.currDebounce).toBe(300);
+    page.root.debounce = 500;
+    await page.waitForChanges();
+    expect(page.rootInstance.currDebounce).toBe(500);
+  });
+
+  it("should test no results state when no options passed and filtering disabled", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" characters-until-suggestions="3" debounce="300"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    const input = page.root.shadowRoot.querySelector("input");
+
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    input.dispatchEvent(event);
+    await page.waitForChanges();
+
+    page.root.options = [];
+    await page.waitForChanges();
+
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      "No results found"
+    );
+
+    expect(page.rootInstance.open).toBe(true);
+
+    input.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.open).toBe(false);
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    //test debounce changes to 0 when menu opened
+    input.focus();
+    await page.waitForChanges();
+    await page.rootInstance.handleKeyDown({
+      key: "ArrowDown",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBe(true);
+    expect(page.rootInstance.currDebounce).toBe(0);
+  });
+
+  it("should test menus opens and closes when enter pressed - external filtering", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" characters-until-suggestions="3" debounce="300"></ic-select>`,
+    });
+
+    page.root.options = [];
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    const input = page.root.shadowRoot.querySelector("input");
+
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    input.dispatchEvent(event);
+    await page.waitForChanges();
+
+    //test menu displays when Enter pressed
+    input.focus();
+    await page.waitForChanges();
+    await page.rootInstance.handleKeyDown({
+      key: "Enter",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBe(false);
+
+    await page.rootInstance.handleKeyDown({
+      key: "Enter",
+      target: { id: "test-event-id" },
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBe(true);
 
     //test disconnected callback
     page.setContent("");

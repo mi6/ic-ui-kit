@@ -434,10 +434,21 @@ export class SearchBar {
   private handleMenuOptionHighlight = (ev: CustomEvent) => {
     const optionValue = ev.detail.optionId?.replace(`${this.menuId}-`, "");
     optionValue && (this.highlightedValue = optionValue);
+    if (ev.detail.optionId) {
+      this.ariaActiveDescendant = ev.detail.optionId;
+    } else {
+      this.ariaActiveDescendant = undefined;
+    }
   };
 
   private handleMenuChange = (ev: CustomEvent) => {
     this.setMenuChange(ev.detail.open);
+    if (!ev.detail.open) {
+      this.handleMenuCloseFromMenuChange(true);
+      if (ev.detail.focusInput === undefined || ev.detail.focusInput) {
+        this.el.setFocus();
+      }
+    }
   };
 
   private setMenuChange = (open: boolean) => {
@@ -467,25 +478,6 @@ export class SearchBar {
     this.handleTruncateValue(true);
     this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
   };
-
-  @Listen("icMenuStateChange", {})
-  onMenuClose(ev: CustomEvent): void {
-    if (!ev.detail.open) {
-      this.handleMenuCloseFromMenuChange(true);
-      if (ev.detail.focusInput === undefined || ev.detail.focusInput) {
-        this.el.setFocus();
-      }
-    }
-  }
-
-  @Listen("menuOptionId")
-  onMenuOptionHighlighted(ev: CustomEvent): void {
-    if (ev.detail.optionId) {
-      this.ariaActiveDescendant = ev.detail.optionId;
-    } else {
-      this.ariaActiveDescendant = undefined;
-    }
-  }
 
   private handleShowClearButton = (visible: boolean): void => {
     this.showClearButton = visible;
@@ -806,8 +798,8 @@ export class SearchBar {
                 menuId={menuId}
                 open={true}
                 options={filteredOptions}
-                onIcOptionSelect={this.handleOptionSelect}
-                onIcMenuStateChange={this.handleMenuChange}
+                onMenuOptionSelect={this.handleOptionSelect}
+                onMenuStateChange={this.handleMenuChange}
                 onMenuOptionId={this.handleMenuOptionHighlight}
                 parentEl={this.el}
                 value={value}
