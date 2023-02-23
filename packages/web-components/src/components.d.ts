@@ -5,9 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcAlertVariants } from "./components/ic-alert/ic-alert.types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants } from "./utils/types";
 import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants } from "./utils/types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
@@ -51,7 +50,7 @@ export namespace Components {
         /**
           * The variant of the alert which will be rendered.
          */
-        "variant"?: IcAlertVariants;
+        "variant"?: IcStatusVariants;
     }
     interface IcBackToTop {
         /**
@@ -1411,6 +1410,48 @@ export namespace Components {
          */
         "color"?: string;
     }
+    interface IcToast {
+        /**
+          * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
+         */
+        "autoDismissTimeout"?: number;
+        /**
+          * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
+         */
+        "dismissButtonAriaLabel"?: string;
+        /**
+          * How the toast will be dismissed. If manual will display a dismiss button.
+         */
+        "dismissMode"?: IcActivationTypes;
+        /**
+          * The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)
+         */
+        "heading": string;
+        /**
+          * The main body message of the toast. (NOTE: Should be no more than `140` characters)
+         */
+        "message"?: string;
+        /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
+          * Used to display the individual toast
+          * @returns The element that previously had focus before the toast appeared
+         */
+        "setVisible": () => Promise<HTMLElement>;
+        /**
+          * The variant of the toast being rendered
+         */
+        "variant"?: IcStatusVariants;
+    }
+    interface IcToastRegion {
+        /**
+          * Handles setting the visibility of various toasts based on what is already visible
+          * @param toast The toast element being requested to display
+         */
+        "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
+    }
     interface IcTooltip {
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
@@ -1537,6 +1578,10 @@ export interface IcTextFieldCustomEvent<T> extends CustomEvent<T> {
 export interface IcThemeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcThemeElement;
+}
+export interface IcToastCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcToastElement;
 }
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1825,6 +1870,18 @@ declare global {
         prototype: HTMLIcThemeElement;
         new (): HTMLIcThemeElement;
     };
+    interface HTMLIcToastElement extends Components.IcToast, HTMLStencilElement {
+    }
+    var HTMLIcToastElement: {
+        prototype: HTMLIcToastElement;
+        new (): HTMLIcToastElement;
+    };
+    interface HTMLIcToastRegionElement extends Components.IcToastRegion, HTMLStencilElement {
+    }
+    var HTMLIcToastRegionElement: {
+        prototype: HTMLIcToastRegionElement;
+        new (): HTMLIcToastRegionElement;
+    };
     interface HTMLIcTooltipElement extends Components.IcTooltip, HTMLStencilElement {
     }
     var HTMLIcTooltipElement: {
@@ -1891,6 +1948,8 @@ declare global {
         "ic-tab-panel": HTMLIcTabPanelElement;
         "ic-text-field": HTMLIcTextFieldElement;
         "ic-theme": HTMLIcThemeElement;
+        "ic-toast": HTMLIcToastElement;
+        "ic-toast-region": HTMLIcToastRegionElement;
         "ic-tooltip": HTMLIcTooltipElement;
         "ic-top-navigation": HTMLIcTopNavigationElement;
         "ic-typography": HTMLIcTypographyElement;
@@ -1929,7 +1988,7 @@ declare namespace LocalJSX {
         /**
           * The variant of the alert which will be rendered.
          */
-        "variant"?: IcAlertVariants;
+        "variant"?: IcStatusVariants;
     }
     interface IcBackToTop {
         /**
@@ -3377,6 +3436,42 @@ declare namespace LocalJSX {
         "color"?: string;
         "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
     }
+    interface IcToast {
+        /**
+          * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
+         */
+        "autoDismissTimeout"?: number;
+        /**
+          * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
+         */
+        "dismissButtonAriaLabel"?: string;
+        /**
+          * How the toast will be dismissed. If manual will display a dismiss button.
+         */
+        "dismissMode"?: IcActivationTypes;
+        /**
+          * The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)
+         */
+        "heading": string;
+        /**
+          * The main body message of the toast. (NOTE: Should be no more than `140` characters)
+         */
+        "message"?: string;
+        /**
+          * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+         */
+        "neutralIconAriaLabel"?: string;
+        /**
+          * Is emitted when the user dismisses the toast
+         */
+        "onIcDismiss"?: (event: IcToastCustomEvent<void>) => void;
+        /**
+          * The variant of the toast being rendered
+         */
+        "variant"?: IcStatusVariants;
+    }
+    interface IcToastRegion {
+    }
     interface IcTooltip {
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
@@ -3481,6 +3576,8 @@ declare namespace LocalJSX {
         "ic-tab-panel": IcTabPanel;
         "ic-text-field": IcTextField;
         "ic-theme": IcTheme;
+        "ic-toast": IcToast;
+        "ic-toast-region": IcToastRegion;
         "ic-tooltip": IcTooltip;
         "ic-top-navigation": IcTopNavigation;
         "ic-typography": IcTypography;
@@ -3537,6 +3634,8 @@ declare module "@stencil/core" {
             "ic-tab-panel": LocalJSX.IcTabPanel & JSXBase.HTMLAttributes<HTMLIcTabPanelElement>;
             "ic-text-field": LocalJSX.IcTextField & JSXBase.HTMLAttributes<HTMLIcTextFieldElement>;
             "ic-theme": LocalJSX.IcTheme & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
+            "ic-toast": LocalJSX.IcToast & JSXBase.HTMLAttributes<HTMLIcToastElement>;
+            "ic-toast-region": LocalJSX.IcToastRegion & JSXBase.HTMLAttributes<HTMLIcToastRegionElement>;
             "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
             "ic-top-navigation": LocalJSX.IcTopNavigation & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
             "ic-typography": LocalJSX.IcTypography & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;

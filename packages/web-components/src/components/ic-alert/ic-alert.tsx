@@ -9,23 +9,10 @@ import {
   Prop,
   h,
 } from "@stencil/core";
-import neutralIcon from "../../assets/neutral-icon.svg";
-import infoIcon from "../../assets/info-icon.svg";
-import warningIcon from "../../assets/warning-icon.svg";
-import errorIcon from "../../assets/error-icon.svg";
-import successIcon from "../../assets/success-icon.svg";
 import closeIcon from "../../assets/close-icon.svg";
-import { IcAlertVariants } from "./ic-alert.types";
 import { isSlotUsed } from "../../utils/helpers";
-import { IcThemeForegroundEnum } from "../../utils/types";
-
-const icon = {
-  neutral: neutralIcon,
-  info: infoIcon,
-  warning: warningIcon,
-  error: errorIcon,
-  success: successIcon,
-};
+import { IcThemeForegroundEnum, IcStatusVariants } from "../../utils/types";
+import { VARIANT_ICONS } from "../../utils/constants";
 
 /**
  * @slot message - Content is placed to the right of the title.
@@ -42,7 +29,7 @@ export class Alert {
   /**
    * The variant of the alert which will be rendered.
    */
-  @Prop() variant?: IcAlertVariants = "neutral";
+  @Prop() variant?: IcStatusVariants = "neutral";
   /**
    * The optional title to display at the start of the alert.
    */
@@ -135,7 +122,7 @@ export class Alert {
                   ["svg-container"]: true,
                   [`icon-${variant}`]: true,
                 }}
-                innerHTML={icon[variant]}
+                innerHTML={VARIANT_ICONS[variant].icon}
               ></span>
             </div>
             <div class="alert-content">
