@@ -80,8 +80,6 @@ export class LoadingIndicator {
   @State() indeterminate: boolean;
   @State() showSecond: boolean = false;
   @State() circularLineWidth: number;
-  @State() compactStepCircularLineWidth: number = 0;
-
   @State() circularDiameter: number;
 
   @Watch("label")
@@ -143,18 +141,31 @@ export class LoadingIndicator {
   // Sets the circular indicator line width - accounting for the circle size being altered using the CSS custom property
   private setCircleLineWidth = () => {
     const { offsetWidth: width } = this.outerElement;
-    if (this.host.classList.contains("compact-step-progress-indicator")) {
-      this.compactStepCircularLineWidth = 40;
-    }
-    if (width || this.compactStepCircularLineWidth === 40) {
+
+    const compactStepCircularLineWidth = this.host.classList.contains(
+      "compact-step-progress-indicator"
+    )
+      ? 40
+      : 0;
+    const toastDismissTimerCircularLineWidth = this.host.classList.contains(
+      "toast-dismiss-timer"
+    )
+      ? 20
+      : 0;
+
+    if (
+      width ||
+      compactStepCircularLineWidth ||
+      toastDismissTimerCircularLineWidth
+    ) {
       this.circularLineWidth =
-        (this.compactStepCircularLineWidth === 40
-          ? this.compactStepCircularLineWidth
-          : width) * 0.1;
+        (compactStepCircularLineWidth ||
+          toastDismissTimerCircularLineWidth ||
+          width) * 0.1;
       this.circularDiameter =
-        this.compactStepCircularLineWidth === 40
-          ? this.compactStepCircularLineWidth
-          : width;
+        compactStepCircularLineWidth ||
+        toastDismissTimerCircularLineWidth ||
+        width;
       this.outerElement.style.setProperty(
         "--circular-line-width",
         `${this.circularLineWidth}px`

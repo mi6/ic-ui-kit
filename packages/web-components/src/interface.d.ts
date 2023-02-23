@@ -1,6 +1,5 @@
 export * from "./components";
 export * from "./utils/types";
-export * from "./components/ic-alert/ic-alert.types";
 export * from "./components/ic-button/ic-button.types";
 export * from "./components/ic-classification-banner/ic-classification-banner.types";
 export * from "./components/ic-footer/ic-footer.types";
