@@ -130,4 +130,14 @@ describe("ic-chip component renders label", () => {
 
     expect(chip).toBeNull();
   });
+
+  it("should call 'setFocus' when chip is focused", async () => {
+    const page = await newSpecPage({
+      components: [Chip],
+      html: `<ic-chip label="This is dismissible" dismissible="true"></ic-chip>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
 });

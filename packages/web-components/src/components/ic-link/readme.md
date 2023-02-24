@@ -19,6 +19,19 @@
 | `target`         | `target`         | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe). | `string`                                                                                                                                                                                 | `undefined` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the link.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot            | Description                                         |

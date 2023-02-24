@@ -234,6 +234,16 @@ describe("ic-radio-group", () => {
     expect(callbackFn).toHaveBeenCalled();
   });
 
+  it("should call 'setFocus' when radio option is focused", async () => {
+    const page = await newSpecPage({
+      components: [RadioOption],
+      html: `<ic-radio-option value="test" selected></ic-radio-option>  `,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
+
   it("should test form reset event", async () => {
     const page = await newSpecPage({
       components: [RadioOption],

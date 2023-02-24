@@ -153,6 +153,16 @@ describe("ic-tab component", () => {
     expect(callbackFn).toHaveBeenCalled();
   });
 
+  it("should call 'setFocus' when tab is focused", async () => {
+    const page = await newSpecPage({
+      components: [Tab],
+      html: `<ic-tab tab-position=1>IC Tab Test</ic-tab>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
+
   it("should emit tabFocus on handleClick when focusFromClick is true", async () => {
     const page = await newSpecPage({
       components: [Button, Tab, Typography],

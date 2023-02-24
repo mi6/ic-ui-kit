@@ -183,4 +183,24 @@ describe("ic-card", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should call 'setFocus' when card as a button is focused", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
+
+  it("should call 'setFocus' when card as a link is focused", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
 });

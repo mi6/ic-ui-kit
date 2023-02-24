@@ -65,7 +65,7 @@ export class TabGroup {
   private buttonStateSet: boolean = false;
 
   /**
-   * @internal if tab side scrolling enabled, scrolls the specified tab into view
+   * @internal if tab side scrolling enabled, scrolls the specified tab into view.
    */
   @Method()
   async scrollTabIntoView(tabNumber: number): Promise<void> {

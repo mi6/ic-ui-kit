@@ -1,4 +1,12 @@
-import { Component, Element, Prop, h, Host, Listen } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Prop,
+  h,
+  Host,
+  Listen,
+  Method,
+} from "@stencil/core";
 
 import OpenInNew from "./assets/OpenInNew.svg";
 import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
@@ -80,6 +88,16 @@ export class Link {
       case IcThemeForegroundEnum.Dark:
         this.appearance = IcThemeForegroundEnum.Dark;
         break;
+    }
+  }
+
+  /**
+   * Sets focus on the link.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("a")) {
+      this.el.shadowRoot.querySelector("a").focus();
     }
   }
 

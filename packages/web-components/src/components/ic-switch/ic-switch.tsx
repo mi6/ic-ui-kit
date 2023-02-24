@@ -7,6 +7,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Method,
 } from "@stencil/core";
 import {
   getInputDescribedByText,
@@ -112,6 +113,16 @@ export class Switch {
   private handleFormReset = (): void => {
     this.checkedState = this.initiallyChecked;
   };
+
+  /**
+   * Sets focus on the switch.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("input")) {
+      this.el.shadowRoot.querySelector("input").focus();
+    }
+  }
 
   componentWillLoad(): void {
     this.checkedState = this.checked;
