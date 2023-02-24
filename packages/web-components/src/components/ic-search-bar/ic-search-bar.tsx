@@ -208,7 +208,7 @@ export class SearchBar {
   }
 
   /**
-   * Sets focus on the native `input`
+   * Sets focus on the native `input`.
    */
   @Method()
   async setFocus(): Promise<void> {

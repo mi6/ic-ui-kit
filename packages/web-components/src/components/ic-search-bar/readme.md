@@ -54,7 +54,7 @@
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `input`
+Sets focus on the native `input`.
 
 #### Returns
 

@@ -90,7 +90,7 @@ export class NavigationButton {
   }
 
   /**
-   * Sets focus on the native `button`
+   * Sets focus on the native `button`.
    */
   @Method()
   async setFocus(): Promise<void> {

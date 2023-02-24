@@ -29,6 +29,19 @@
 | `icFocus`  | Emitted when the toggle has focus.           | `CustomEvent<void>`                      |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the switch.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot                | Description                                                  |

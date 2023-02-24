@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Element,
+  Method,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
@@ -78,6 +79,16 @@ export class Chip {
   private mouseLeaveHandler = (): void => {
     this.isHovered = false;
   };
+
+  /**
+   * Sets focus on the chip.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("button")) {
+      this.el.shadowRoot.querySelector("button").focus();
+    }
+  }
 
   componentDidLoad(): void {
     this.dismissible &&

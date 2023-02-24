@@ -27,6 +27,19 @@
 | `radioOptionSelect` | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icCheck instead.<br/><br/> | `CustomEvent<IcValueEventDetail>` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the radio option.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

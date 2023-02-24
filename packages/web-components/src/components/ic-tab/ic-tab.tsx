@@ -6,6 +6,7 @@ import {
   Host,
   Prop,
   h,
+  Method,
 } from "@stencil/core";
 
 import { IcTabClickEventDetail } from "./ic-tab.types";
@@ -90,6 +91,16 @@ export class Tab {
     //the focus does need to be a seperate event though to handle focus from keyboard
     this.focusFromClick = true;
   };
+
+  /**
+   * Sets focus on the tab.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.host) {
+      this.host.focus();
+    }
+  }
 
   componentDidUpdate(): void {
     this.isInitialRender = false;

@@ -12,6 +12,19 @@
 | `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean` | `false` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the tab.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot     | Description                                     |

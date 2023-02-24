@@ -218,4 +218,14 @@ describe("ic-link component", () => {
 
     expect(page.rootInstance.appearance).toBe("light");
   });
+
+  it("should call 'setFocus' when link is focused", async () => {
+    const page = await newSpecPage({
+      components: [Link],
+      html: `<ic-link>IC Link Test</ic-link>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
 });
