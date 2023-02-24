@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Element } from "@stencil/core";
+import { Component, Host, Prop, h, Element, Method } from "@stencil/core";
 import { IcBreadcrumbDefault } from "./ic-breadcrumb.types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -33,6 +33,16 @@ export class Breadcrumb {
    * @internal If `true`, back icon will be displayed.
    */
   @Prop({ reflect: true }) showBackIcon: boolean = false;
+
+  /**
+   * Sets focus on the breadcrumb.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("ic-link")) {
+      this.el.shadowRoot.querySelector("ic-link").setFocus();
+    }
+  }
 
   private renderDefaultBreadcrumb = (
     current: boolean,

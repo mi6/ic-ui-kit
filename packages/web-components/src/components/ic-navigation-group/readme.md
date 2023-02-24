@@ -17,7 +17,7 @@
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the nav item
+Sets focus on the nav item.
 
 #### Returns
 

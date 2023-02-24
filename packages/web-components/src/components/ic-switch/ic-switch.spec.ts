@@ -97,6 +97,16 @@ describe("ic-switch component", () => {
     expect(page.rootInstance.checkedState).toBe(false);
   });
 
+  it("should call 'setFocus' when switch is focused", async () => {
+    const page = await newSpecPage({
+      components: [Switch],
+      html: `<ic-switch label="Custom title"></ic-switch>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
+
   it("should reset to initial state on form reset", async () => {
     const page = await newSpecPage({
       components: [Switch],

@@ -24,6 +24,19 @@
 | `icDismiss` | Is emitted when the user dismisses the chip.                                                                            | `CustomEvent<void>` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the chip.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot     | Description                                        |

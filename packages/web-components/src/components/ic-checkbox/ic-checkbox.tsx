@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   State,
+  Method,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes } from "../../utils/types";
 import {
@@ -87,6 +88,18 @@ export class Checkbox {
   private handleFormReset = (): void => {
     this.checked = this.initiallyChecked;
   };
+
+  /**
+   * Sets focus on the checkbox.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    const checkboxEl: HTMLElement =
+      this.host.shadowRoot.querySelector(".checkbox");
+    if (checkboxEl) {
+      checkboxEl.focus();
+    }
+  }
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {

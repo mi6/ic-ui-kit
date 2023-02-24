@@ -72,6 +72,10 @@ export namespace Components {
           * The title of the breadcrumb.
          */
         "pageTitle": string;
+        /**
+          * Sets focus on the breadcrumb.
+         */
+        "setFocus": () => Promise<void>;
         "showBackIcon": boolean;
     }
     interface IcBreadcrumbGroup {
@@ -126,7 +130,7 @@ export namespace Components {
          */
         "rel"?: string;
         /**
-          * Sets focus on the native `button`
+          * Sets focus on the native `button`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -193,6 +197,10 @@ export namespace Components {
          */
         "rel"?: string;
         /**
+          * Sets focus on the card.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The subheading for the card.
          */
         "subheading"?: string;
@@ -234,6 +242,10 @@ export namespace Components {
           * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name": string;
+        /**
+          * Sets focus on the checkbox.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * The value for the checkbox.
          */
@@ -294,6 +306,10 @@ export namespace Components {
           * The text rendered within the chip.
          */
         "label": string;
+        /**
+          * Sets focus on the chip.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * The size of the chip.
          */
@@ -549,6 +565,10 @@ export namespace Components {
          */
         "rel"?: string;
         /**
+          * Sets focus on the link.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * If `true`, the 'open in new tab/window' icon will be displayed.
          */
         "showIcon"?: boolean;
@@ -677,7 +697,7 @@ export namespace Components {
          */
         "rel"?: string;
         /**
-          * Sets focus on the native `button`
+          * Sets focus on the native `button`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -695,7 +715,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Sets focus on the nav item
+          * Sets focus on the nav item.
          */
         "setFocus": () => Promise<void>;
     }
@@ -716,7 +736,7 @@ export namespace Components {
          */
         "selected": boolean;
         /**
-          * Sets focus on the nav item
+          * Sets focus on the nav item.
          */
         "setFocus": () => Promise<void>;
     }
@@ -836,6 +856,10 @@ export namespace Components {
          */
         "selected"?: boolean;
         /**
+          * Sets focus on the radio option.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The value for the radio option.
          */
         "value": string;
@@ -922,7 +946,7 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Sets focus on the native `input`
+          * Sets focus on the native `input`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1183,6 +1207,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Sets focus on the switch.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * If `true`, the switch will render the On/Off state text.
          */
         "showState"?: boolean;
@@ -1203,6 +1231,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         "selected"?: boolean;
+        /**
+          * Sets focus on the tab.
+         */
+        "setFocus": () => Promise<void>;
         "tabId"?: string;
         "tabPosition"?: number;
     }
@@ -1334,7 +1366,7 @@ export namespace Components {
          */
         "rows": number;
         /**
-          * Sets focus on the native `input`
+          * Sets focus on the native `input`.
          */
         "setFocus": () => Promise<void>;
         /**

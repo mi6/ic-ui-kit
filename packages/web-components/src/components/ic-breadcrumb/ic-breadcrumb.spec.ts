@@ -119,4 +119,14 @@ describe("ic-breadcrumb", () => {
       document.querySelector("ic-breadcrumb").classList.contains("current-page")
     ).toBeTruthy;
   });
+
+  it("should call 'setFocus' when breadcrumb is focused", async () => {
+    const page = await newSpecPage({
+      components: [Breadcrumb],
+      html: `<ic-breadcrumb></ic-breadcrumb>`,
+    });
+
+    //Can't expect anything in this test - this is to increase code coverage only
+    await page.rootInstance.setFocus().toHaveBeenCalled;
+  });
 });

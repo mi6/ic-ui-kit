@@ -22,7 +22,7 @@
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `button`
+Sets focus on the native `button`.
 
 #### Returns
 

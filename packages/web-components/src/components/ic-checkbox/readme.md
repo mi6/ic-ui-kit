@@ -28,6 +28,19 @@
 | `icCheck`         | Emitted when a checkbox has been checked.                                                                             | `CustomEvent<void>` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the checkbox.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

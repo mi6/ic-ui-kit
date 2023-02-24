@@ -72,7 +72,7 @@ export class NavigationGroup {
   }
 
   /**
-   * Sets focus on the nav item
+   * Sets focus on the nav item.
    */
   @Method()
   async setFocus(): Promise<void> {

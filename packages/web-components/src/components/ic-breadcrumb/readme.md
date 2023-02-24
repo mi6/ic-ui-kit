@@ -14,6 +14,19 @@
 | `pageTitle` _(required)_ | `page-title` | The title of the breadcrumb.                           | `string`  | `undefined` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the breadcrumb.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

@@ -1,4 +1,12 @@
-import { Component, Element, Listen, Prop, State, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Listen,
+  Prop,
+  State,
+  h,
+  Method,
+} from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
@@ -89,6 +97,18 @@ export class Card {
   @State() appearance?: IcThemeForeground = "default";
 
   @State() areaExpanded: boolean = false;
+
+  /**
+   * Sets focus on the card.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("a")) {
+      this.el.shadowRoot.querySelector("a").focus();
+    } else if (this.el.shadowRoot.querySelector("button")) {
+      this.el.shadowRoot.querySelector("button").focus();
+    }
+  }
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {

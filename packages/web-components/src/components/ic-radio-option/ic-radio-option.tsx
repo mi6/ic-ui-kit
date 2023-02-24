@@ -9,6 +9,7 @@ import {
   Listen,
   Watch,
   State,
+  Method,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes } from "../../utils/types";
 import {
@@ -78,6 +79,16 @@ export class RadioOption {
   selectedChangeHandler(selected: boolean): void {
     if (selected) {
       this.handleClick();
+    }
+  }
+
+  /**
+   * Sets focus on the radio option.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.host.shadowRoot.querySelector("input")) {
+      this.host.shadowRoot.querySelector("input").focus();
     }
   }
 
