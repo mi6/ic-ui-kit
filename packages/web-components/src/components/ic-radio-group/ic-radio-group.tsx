@@ -21,7 +21,9 @@ import { IcValueEventDetail } from "../../interface";
 @Component({
   tag: "ic-radio-group",
   styleUrl: "ic-radio-group.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class RadioGroup {
   private radioOptions: HTMLIcRadioOptionElement[];

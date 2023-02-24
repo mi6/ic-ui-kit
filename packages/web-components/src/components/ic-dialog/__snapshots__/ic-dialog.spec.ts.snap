@@ -1,0 +1,488 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-dialog component should render 1`] = `
+<ic-dialog buttons="false" class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render as large size 1`] = `
+<ic-dialog buttons="false" class="hidden" heading="Dialog heading" size="large">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog large">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render as medium size 1`] = `
+<ic-dialog buttons="false" class="hidden" heading="Dialog heading" size="medium">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog medium">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with a destructive default button 1`] = `
+<ic-dialog class="hidden" destructive="true" heading="Dialog heading test">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading test
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" variant="destructive">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with a label 1`] = `
+<ic-dialog buttons="false" class="hidden" heading="Dialog heading" label="Dialog label">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label">
+                Dialog label
+              </ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with a single default button 1`] = `
+<ic-dialog class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with an alert 1`] = `
+<ic-dialog alert-heading="Alert heading" alert-message="Alert message" buttons="false" class="hidden" heading="Dialog heading" status="neutral">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-alert class="status-alert" heading="Alert heading" id="dialog-alert" message="Alert message" title-above="" variant="neutral"></ic-alert>
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with no more than three default buttons 1`] = `
+<ic-dialog class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" variant="secondary">
+            Cancel
+          </ic-button>
+          <ic-button class="dialog-control-button" variant="secondary">
+            Options
+          </ic-button>
+          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with slotted content 1`] = `
+<ic-dialog buttons="false" class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+  Dialog content
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with slotted controls 1`] = `
+<ic-dialog class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" variant="tertiary">
+            Cancel
+          </ic-button>
+          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+  <ic-button data-gets-focus onclick="alert('Confirmed!')" slot="interaction-controls" variant="primary">
+    Confirm
+  </ic-button>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with three default buttons 1`] = `
+<ic-dialog class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls triple-button">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" full-width="" variant="secondary">
+            Cancel
+          </ic-button>
+          <ic-button class="dialog-control-button" full-width="" variant="secondary">
+            Options
+          </ic-button>
+          <ic-button class="dialog-control-button" data-gets-focus full-width="" variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;
+
+exports[`ic-dialog component should render with two default buttons 1`] = `
+<ic-dialog class="hidden" heading="Dialog heading">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg" slot="icon">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <ic-typography class="message" id="dialog-content" variant="body">
+          <slot></slot>
+        </ic-typography>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" variant="tertiary">
+            Cancel
+          </ic-button>
+          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;

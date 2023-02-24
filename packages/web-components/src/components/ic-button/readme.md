@@ -58,6 +58,7 @@ Type: `Promise<void>`
 
  - [ic-alert](../ic-alert)
  - [ic-card](../ic-card)
+ - [ic-dialog](../ic-dialog)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu-item](../ic-menu-item)
  - [ic-navigation-button](../ic-navigation-button)
@@ -82,6 +83,7 @@ graph TD;
   ic-tooltip --> ic-typography
   ic-alert --> ic-button
   ic-card --> ic-button
+  ic-dialog --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu-item --> ic-button
   ic-navigation-button --> ic-button
