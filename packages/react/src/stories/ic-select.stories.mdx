@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Meta,
   Story,
@@ -824,5 +824,61 @@ export const searchableOptionsWithRecommended = [
         ></IcSelect>
       );
     }}
+  </Story>
+</Canvas>
+
+### Searchable external filtering
+
+export const ExternalFiltering = () => {
+   const mockData = [
+    { label: "Espresso", value: "Esp" },
+    { label: "Double Espresso", value: "Dou" },
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  const [query, setQuery] = useState('');
+  const [value, setValue] = useState(null);
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    if (query !== selectedValue) {
+      if (query && query.length > 1) {
+        const mockAPI = (query) => {
+          const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
+          return new Promise(resolve => setTimeout(() => resolve(filteredResults), 1000));
+        };
+        mockAPI(query).then((results) => setResults(results));
+      } else {
+        setResults([]);
+      }
+    }
+  },[query])
+  const handleChange = (event) => {
+    setValue(event.detail.value);
+    setQuery(event.detail.value);
+  }
+  const handleOptionSelect = (event) =>{
+    setSelectedValue(event.detail.value);
+  }
+  const handleClear = () => {
+    setResults([]);
+  }
+  return (
+    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter charactersUntilSuggestions="2" options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear} value={value}/>
+  );
+};
+
+<Canvas>
+  <Story name="Searchable external filtering">
+   <ExternalFiltering />
+    <br/>
+    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Filter, Cappuccino, Americano, Mocha, Macchiato.</IcTypography>
+    <br/>
+    <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the select menu will be updated.</IcTypography>
   </Story>
 </Canvas>
