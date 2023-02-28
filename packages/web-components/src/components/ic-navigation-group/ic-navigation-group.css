@@ -148,6 +148,8 @@
 
 :host .chevron-toggle-icon-wrapper svg {
   transform: rotate(90deg);
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
 }
 
 :host .chevron-toggle-icon-closed svg {
