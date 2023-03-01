@@ -3,24 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.8 (2023-03-01)
+
+### Bug Fixes
+
+- **web-components:** add width and height to chevron svg ([d731ab4](https://github.com/mi6/ic-ui-kit/commit/d731ab48720d4272a0d5f2477bcb66567ccecbaf)), closes [#444](https://github.com/mi6/ic-ui-kit/issues/444)
+
 # [2.1.0-beta.7](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.6...v2.1.0-beta.7) (2023-02-13)
 
 **Note:** Version bump only for package @ukic/react
 
-
-
-
-
 # [2.1.0-beta.6](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2023-02-07)
-
 
 ### Features
 
-* **react:** enhances slottedsvg component ([d3c0a93](https://github.com/mi6/ic-ui-kit/commit/d3c0a933c17ca36722c5ed46e56c9b230cec1318))
-
-
-
-
+- **react:** enhances slottedsvg component ([d3c0a93](https://github.com/mi6/ic-ui-kit/commit/d3c0a933c17ca36722c5ed46e56c9b230cec1318))
 
 # [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
 

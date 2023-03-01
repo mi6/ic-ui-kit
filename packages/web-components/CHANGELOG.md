@@ -3,29 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.7](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.6...v2.1.0-beta.7) (2023-02-13)
-
+# 2.1.0-beta.8 (2023-03-01)
 
 ### Bug Fixes
 
-* **web-components:** 'Latest announcement' box in ic-hero on xs breakpoint bug ([89cdf42](https://github.com/mi6/ic-ui-kit/commit/89cdf42b89baa86e62527a01354e217b6d39e687))
-* **web-components:** change functionality of reverse order prop ([54d26b9](https://github.com/mi6/ic-ui-kit/commit/54d26b98bf4e2e4341ff10e83ae021b67dbcc917)), closes [#354](https://github.com/mi6/ic-ui-kit/issues/354)
+- **web-components:** add width and height to chevron svg ([d731ab4](https://github.com/mi6/ic-ui-kit/commit/d731ab48720d4272a0d5f2477bcb66567ccecbaf)), closes [#444](https://github.com/mi6/ic-ui-kit/issues/444)
 
+# [2.1.0-beta.7](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.6...v2.1.0-beta.7) (2023-02-13)
 
+### Bug Fixes
 
-
+- **web-components:** 'Latest announcement' box in ic-hero on xs breakpoint bug ([89cdf42](https://github.com/mi6/ic-ui-kit/commit/89cdf42b89baa86e62527a01354e217b6d39e687))
+- **web-components:** change functionality of reverse order prop ([54d26b9](https://github.com/mi6/ic-ui-kit/commit/54d26b98bf4e2e4341ff10e83ae021b67dbcc917)), closes [#354](https://github.com/mi6/ic-ui-kit/issues/354)
 
 # [2.1.0-beta.6](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.5...v2.1.0-beta.6) (2023-02-07)
 
-
 ### Bug Fixes
 
-* **web-components:** add conditional so validation area only shows when needed ([65a1dcf](https://github.com/mi6/ic-ui-kit/commit/65a1dcf39bfc63ada99d2072a5347502a6fc30d4)), closes [#348](https://github.com/mi6/ic-ui-kit/issues/348)
-* **web-components:** update chip to use icDismiss event and deprecate current dismiss event ([584420a](https://github.com/mi6/ic-ui-kit/commit/584420a538eabf926b92200ed241394470d50455))
-
-
-
-
+- **web-components:** add conditional so validation area only shows when needed ([65a1dcf](https://github.com/mi6/ic-ui-kit/commit/65a1dcf39bfc63ada99d2072a5347502a6fc30d4)), closes [#348](https://github.com/mi6/ic-ui-kit/issues/348)
+- **web-components:** update chip to use icDismiss event and deprecate current dismiss event ([584420a](https://github.com/mi6/ic-ui-kit/commit/584420a538eabf926b92200ed241394470d50455))
 
 # [2.1.0-beta.5](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.4...v2.1.0-beta.5) (2023-02-02)
 

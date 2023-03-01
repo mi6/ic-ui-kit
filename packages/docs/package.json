@@ -1,6 +1,6 @@
 {
   "name": "@ukic/docs",
-  "version": "2.1.0-beta.7",
+  "version": "2.1.0-beta.8",
   "description": "API documentation for @ukic components",
   "main": "docs.json",
   "types": "docs.d.ts",
