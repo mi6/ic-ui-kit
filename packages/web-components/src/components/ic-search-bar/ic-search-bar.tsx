@@ -359,6 +359,10 @@ export class SearchBar {
     }
   };
 
+  private handleClearMouseDown = (ev: Event) => {
+    ev.preventDefault();
+  };
+
   /**
    * Emitted when the search value has been submitted
    */
@@ -716,34 +720,35 @@ export class SearchBar {
           inputmode="search"
           debounce={this.debounce}
         >
-          <div
-            class={{
-              "clear-button-container": true,
-              "clear-button-visible":
-                value && !disabledMode && this.showClearButton,
-            }}
-            slot="clear-button"
-          >
-            <ic-button
-              id="clear-button"
-              class="clear-button"
-              aria-label="Clear"
-              innerHTML={clearIcon}
-              onClick={this.handleClear}
-              size={small ? "small" : "default"}
-              onFocus={this.handleFocusClearButton}
-              onBlur={this.handleClearBlur}
-              onKeyDown={this.handleClear}
-              type="submit"
-              variant="icon"
-              appearance={
-                this.clearButtonFocused
-                  ? IcThemeForegroundEnum.Light
-                  : IcThemeForegroundEnum.Dark
-              }
-            ></ic-button>
-            <div class="divider"></div>
-          </div>
+          {value && this.showClearButton && (
+            <div
+              class={{
+                "clear-button-container": true,
+              }}
+              slot="clear-button"
+            >
+              <ic-button
+                id="clear-button"
+                class="clear-button"
+                aria-label="Clear"
+                innerHTML={clearIcon}
+                onClick={this.handleClear}
+                onMouseDown={this.handleClearMouseDown}
+                size={small ? "small" : "default"}
+                onFocus={this.handleFocusClearButton}
+                onBlur={this.handleClearBlur}
+                onKeyDown={this.handleClear}
+                type="submit"
+                variant="icon"
+                appearance={
+                  this.clearButtonFocused
+                    ? IcThemeForegroundEnum.Light
+                    : IcThemeForegroundEnum.Dark
+                }
+              ></ic-button>
+              <div class="divider"></div>
+            </div>
+          )}
           <div
             class={{
               "search-submit-button-container": true,

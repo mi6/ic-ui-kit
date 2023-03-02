@@ -28,9 +28,7 @@
 
 .clear-button-container {
   align-items: center;
-  margin-right: 0.063rem;
-  display: none;
-  visibility: hidden;
+  display: flex;
 }
 
 .clear-button {
@@ -47,11 +45,6 @@
 
 .clear-button:focus * {
   fill: white;
-}
-
-.clear-button-visible {
-  visibility: visible;
-  display: flex;
 }
 
 .search-submit-button-container {
