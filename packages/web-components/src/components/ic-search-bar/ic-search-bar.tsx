@@ -41,7 +41,9 @@ let inputIds = 0;
 @Component({
   tag: "ic-search-bar",
   styleUrl: "ic-search-bar.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class SearchBar {
   @Element() el: HTMLIcSearchBarElement;

@@ -22,7 +22,9 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 @Component({
   tag: "ic-navigation-group",
   styleUrl: "ic-navigation-group.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class NavigationGroup {
   @Element() el: HTMLIcNavigationGroupElement;

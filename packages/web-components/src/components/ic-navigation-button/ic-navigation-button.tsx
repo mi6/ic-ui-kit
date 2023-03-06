@@ -29,7 +29,9 @@ import { IcNavButtonModes } from "./ic-navigation-button.types";
 @Component({
   tag: "ic-navigation-button",
   styleUrl: "ic-navigation-button.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class NavigationButton {
   @Element() el: HTMLIcNavigationButtonElement;
@@ -95,7 +97,7 @@ export class NavigationButton {
   @Method()
   async setFocus(): Promise<void> {
     if (this.buttonEl) {
-      this.buttonEl.setFocus();
+      this.buttonEl.focus();
     }
   }
 

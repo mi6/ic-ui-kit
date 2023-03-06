@@ -8,7 +8,9 @@ import { isSlotUsed } from "../../utils/helpers";
 @Component({
   tag: "ic-breadcrumb",
   styleUrl: "ic-breadcrumb.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Breadcrumb {
   /**
@@ -40,7 +42,7 @@ export class Breadcrumb {
   @Method()
   async setFocus(): Promise<void> {
     if (this.el.shadowRoot.querySelector("ic-link")) {
-      this.el.shadowRoot.querySelector("ic-link").setFocus();
+      this.el.shadowRoot.querySelector("ic-link").focus();
     }
   }
 

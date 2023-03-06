@@ -9,7 +9,9 @@ import {
 @Component({
   tag: "ic-tab-group",
   styleUrl: "ic-tab-group.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class TabGroup {
   @Element() host: HTMLIcTabGroupElement;
