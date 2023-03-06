@@ -39,6 +39,7 @@ ic-typography {
 }
 
 :host(.navigation-item) ::slotted(a) {
+  height: 100%;
   font: var(--ic-font-label) !important;
   letter-spacing: var(--ic-font-letter-spacing-0pt025) !important;
   padding: 0 var(--ic-space-md) !important;
