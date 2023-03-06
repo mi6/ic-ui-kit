@@ -15,7 +15,9 @@ type FooterConfig = { small: boolean; grouped: boolean };
 @Component({
   tag: "ic-footer-link",
   styleUrl: "ic-footer-link.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class FooterLink {
   @Element() el: HTMLIcFooterLinkElement;

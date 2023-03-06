@@ -17,7 +17,9 @@ import { IcTheme } from "../../utils/types";
 @Component({
   tag: "ic-footer-link-group",
   styleUrl: "ic-footer-link-group.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class FooterLinkGroup {
   @Element() el: HTMLIcFooterLinkGroupElement;

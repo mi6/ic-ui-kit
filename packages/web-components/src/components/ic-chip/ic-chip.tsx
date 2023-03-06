@@ -22,7 +22,9 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
 @Component({
   tag: "ic-chip",
   styleUrl: "ic-chip.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Chip {
   @Element() el: HTMLIcChipElement;

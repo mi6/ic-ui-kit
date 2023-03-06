@@ -22,7 +22,9 @@ import {
 @Component({
   tag: "ic-checkbox",
   styleUrl: "ic-checkbox.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Checkbox {
   /**

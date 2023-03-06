@@ -118,8 +118,8 @@ export class TopNavigation {
     this.showNavMenu(false);
     const menuBtn = this.el.shadowRoot.querySelector(
       "#menu-button"
-    ) as HTMLIcButtonElement;
-    menuBtn.setFocus();
+    ) as HTMLElement;
+    menuBtn.focus();
   }
 
   @Listen("icSearchBarBlur", {})
@@ -170,7 +170,7 @@ export class TopNavigation {
         this.hasFullWidthSearchBar = true;
         this.searchBar.fullWidth = true;
         setTimeout(() => {
-          this.searchBar.setFocus();
+          this.searchBar.focus();
         }, 100);
       } else {
         this.mobileSearchButtonEl.updateAriaLabel("Show search");
@@ -228,7 +228,7 @@ export class TopNavigation {
         //remove attribute again as this trigger a redraw & applies css
         this.searchBar.removeAttribute("hidden");
         setTimeout(() => {
-          this.searchBar.setFocus();
+          this.searchBar.focus();
         }, 100);
       }
     }

@@ -24,7 +24,9 @@ import {
 @Component({
   tag: "ic-link",
   styleUrl: "ic-link.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Link {
   private inheritedAttributes: { [k: string]: unknown } = {};

@@ -10,7 +10,9 @@ const backToTopLabel = "Back to top";
 @Component({
   tag: "ic-back-to-top",
   styleUrl: "ic-back-to-top.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class BackToTop {
   @Element() el: HTMLIcBackToTopElement;

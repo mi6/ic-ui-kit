@@ -29,7 +29,9 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 @Component({
   tag: "ic-navigation-item",
   styleUrl: "ic-navigation-item.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class NavigationItem {
   @Element() el: HTMLIcNavigationItemElement;
