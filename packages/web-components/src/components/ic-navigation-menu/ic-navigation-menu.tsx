@@ -76,8 +76,8 @@ export class NavigationMenu {
   };
 
   private focusCloseButton = () => {
-    if (this.closeButton.setFocus) {
-      this.closeButton.setFocus();
+    if (this.closeButton.focus) {
+      this.closeButton.focus();
     }
   };
 
@@ -86,16 +86,16 @@ export class NavigationMenu {
     if (this.lastTabStop !== null) {
       switch (this.lastTabStop.tagName) {
         case "IC-NAVIGATION-BUTTON":
-          focusEl = this.lastTabStop as HTMLIcNavigationButtonElement;
-          focusEl.setFocus();
+          focusEl = this.lastTabStop as HTMLElement;
+          focusEl.focus();
           break;
         case "IC-NAVIGATION-ITEM":
-          focusEl = this.lastTabStop as HTMLIcNavigationItemElement;
-          focusEl.setFocus();
+          focusEl = this.lastTabStop as HTMLElement;
+          focusEl.focus();
           break;
         case "IC-NAVIGATION-GROUP":
-          focusEl = this.lastTabStop as HTMLIcNavigationGroupElement;
-          focusEl.setFocus();
+          focusEl = this.lastTabStop as HTMLElement;
+          focusEl.focus();
           break;
         case "A":
           this.lastTabStop.focus();

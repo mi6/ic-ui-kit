@@ -41,7 +41,9 @@ let inputIds = 0;
 @Component({
   tag: "ic-select",
   styleUrl: "ic-select.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Select {
   private nativeSelectElement: HTMLSelectElement;

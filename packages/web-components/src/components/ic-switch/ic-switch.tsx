@@ -26,7 +26,9 @@ let inputIds = 0;
 @Component({
   tag: "ic-switch",
   styleUrl: "ic-switch.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Switch {
   private inputId = `ic-switch-input-${inputIds++}`;

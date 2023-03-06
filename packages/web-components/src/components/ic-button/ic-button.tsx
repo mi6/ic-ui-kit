@@ -32,7 +32,9 @@ let buttonIds = 0;
 @Component({
   tag: "ic-button",
   styleUrl: "ic-button.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class Button {
   @Element() el: HTMLIcButtonElement;

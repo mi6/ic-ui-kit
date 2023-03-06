@@ -22,7 +22,9 @@ import { IcValueEventDetail } from "../../interface";
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class RadioOption {
   private radioElement: HTMLInputElement;
