@@ -3023,7 +3023,7 @@ declare namespace LocalJSX {
          */
         "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
-          * Emitted when option is highlighted within the menu.
+          * Emitted when option is highlighted within the menu. Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated.
          */
         "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
         /**

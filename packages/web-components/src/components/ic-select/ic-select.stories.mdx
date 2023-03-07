@@ -35,6 +35,29 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Default value
+
+<Canvas>
+  <Story name="Default value">
+    {(args) =>
+      html`<ic-select label="What is your favourite coffee?"></ic-select>
+        <script>
+          var select = document.querySelector("ic-select");
+          select.value = "Cap";
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### With clear button
 
 <Canvas>
@@ -528,6 +551,36 @@ import readme from "./readme.md";
         <script>
           var select = document.querySelector("ic-select");
           var option = "Cappuccino";
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Searchable default value
+
+<Canvas>
+  <Story name="Searchable default value">
+    {(args) =>
+      html`<ic-select
+          label="What is your favourite coffee?"
+          searchable
+        ></ic-select>
+        <script>
+          var select = document.querySelector("ic-select");
+          select.value = "Lat";
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -1236,6 +1289,47 @@ import readme from "./readme.md";
             }
           });
         </script>`
+    }
+  </Story>
+</Canvas>
+
+### Searchable - Reset/Submit in form searchable - This shows how the select works within a form. The value will appear in the console.log on submit.
+
+<Canvas>
+  <Story
+    name="Searchable: Reset/Submit in form searchable"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`
+        <form>
+          <ic-select
+            label="What is your favourite coffee?"
+            searchable="true"
+          ></ic-select>
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
+        <script>
+          var select = document.querySelector("ic-select");
+          select.value = "Cap";
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(document.querySelector("input.ic-input").value);
+          });
+        </script>
+      `
     }
   </Story>
 </Canvas>
