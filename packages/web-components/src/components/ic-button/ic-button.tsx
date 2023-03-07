@@ -200,6 +200,8 @@ export class Button {
       "title",
     ]);
 
+    this.el.setAttribute("exportparts", "button");
+
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
     this.hasTooltip = this.variant === "icon";
@@ -262,6 +264,7 @@ export class Button {
           ref={(el) => (this.buttonEl = el)}
           id={buttonId}
           aria-describedby={describedBy}
+          part="button"
         >
           {this.hasIconSlot() && !this.loading && (
             <div class="icon-container">

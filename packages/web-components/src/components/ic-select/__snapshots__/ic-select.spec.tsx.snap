@@ -330,10 +330,10 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
                 </span>
               </div>
             </button>
-            <ic-button class="button-size-default button-variant-icon clear-button dark" id="clear-button">
+            <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip label="Clear selection" placement="bottom" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" id="ic-button-with-tooltip-clear-button" type="button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>

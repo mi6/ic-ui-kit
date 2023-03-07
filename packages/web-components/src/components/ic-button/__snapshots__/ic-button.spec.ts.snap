@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`button component render with correct button type when defined 1`] = `
-<ic-button class="button-size-default button-variant-primary" type="reset">
+<ic-button class="button-size-default button-variant-primary" exportparts="button" type="reset">
   <mock:shadow-root>
-    <button class="button" type="reset">
+    <button class="button" part="button" type="reset">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -12,9 +12,9 @@ exports[`button component render with correct button type when defined 1`] = `
 `;
 
 exports[`button component should correctly render with custom text 1`] = `
-<ic-button class="button-size-default button-variant-primary">
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -23,9 +23,9 @@ exports[`button component should correctly render with custom text 1`] = `
 `;
 
 exports[`button component should correctly render with text 1`] = `
-<ic-button class="button-size-default button-variant-primary">
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -34,10 +34,10 @@ exports[`button component should correctly render with text 1`] = `
 `;
 
 exports[`button component should disable tooltip when prop set 1`] = `
-<ic-button class="button-size-default button-variant-icon" disable-tooltip="" id="test-button" variant="icon">
+<ic-button class="button-size-default button-variant-icon" disable-tooltip="" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip class="tooltip-disabled" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -47,9 +47,9 @@ exports[`button component should disable tooltip when prop set 1`] = `
 `;
 
 exports[`button component should render correct HTML for destructive variant 1`] = `
-<ic-button class="button-size-default button-variant-destructive" variant="destructive">
+<ic-button class="button-size-default button-variant-destructive" exportparts="button" variant="destructive">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -58,9 +58,9 @@ exports[`button component should render correct HTML for destructive variant 1`]
 `;
 
 exports[`button component should render correct HTML for secondary variant 1`] = `
-<ic-button class="button-size-default button-variant-secondary" variant="secondary">
+<ic-button class="button-size-default button-variant-secondary" exportparts="button" variant="secondary">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -69,9 +69,9 @@ exports[`button component should render correct HTML for secondary variant 1`] =
 `;
 
 exports[`button component should render correct HTML for tertiary variant 1`] = `
-<ic-button class="button-size-default button-variant-tertiary" variant="tertiary">
+<ic-button class="button-size-default button-variant-tertiary" exportparts="button" variant="tertiary">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <slot></slot>
     </button>
   </mock:shadow-root>
@@ -79,62 +79,10 @@ exports[`button component should render correct HTML for tertiary variant 1`] = 
 </ic-button>
 `;
 
-exports[`button component should render correct HTML when loading - appearance light 1`] = `
-<ic-button appearance="light" class="button-size-default button-variant-primary light loading" loading="">
-  <mock:shadow-root>
-    <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-      <div class="loading-container">
-        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
-      </div>
-    </button>
-  </mock:shadow-root>
-  Button
-</ic-button>
-`;
-
-exports[`button component should render correct HTML when loading - destructive 1`] = `
-<ic-button class="button-size-default button-variant-destructive loading" loading="" variant="destructive">
-  <mock:shadow-root>
-    <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-      <div class="loading-container">
-        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
-      </div>
-    </button>
-  </mock:shadow-root>
-  Button
-</ic-button>
-`;
-
-exports[`button component should render correct HTML when loading - secondary 1`] = `
-<ic-button class="button-size-default button-variant-secondary loading" loading="" variant="secondary">
-  <mock:shadow-root>
-    <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-      <div class="loading-container">
-        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
-      </div>
-    </button>
-  </mock:shadow-root>
-  Button
-</ic-button>
-`;
-
-exports[`button component should render correct HTML when loading - tertiary 1`] = `
-<ic-button class="button-size-default button-variant-tertiary loading" loading="" variant="tertiary">
-  <mock:shadow-root>
-    <button aria-disabled="true" aria-label="Loading" class="button" type="button">
-      <div class="loading-container">
-        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
-      </div>
-    </button>
-  </mock:shadow-root>
-  Button
-</ic-button>
-`;
-
 exports[`button component should render correct HTML when loading 1`] = `
-<ic-button class="button-size-default button-variant-primary loading" loading="">
+<ic-button class="button-size-default button-variant-primary loading" exportparts="button" loading="">
   <mock:shadow-root>
-    <button aria-disabled="true" aria-label="Loading" class="button" type="button">
+    <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
       <div class="loading-container">
         <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
       </div>
@@ -145,9 +93,9 @@ exports[`button component should render correct HTML when loading 1`] = `
 `;
 
 exports[`button component should render correct HTML with Icon 1`] = `
-<ic-button class="button-size-default button-variant-primary">
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
   <mock:shadow-root>
-    <button class="button" type="button">
+    <button class="button" part="button" type="button">
       <div class="icon-container">
         <slot name="icon"></slot>
       </div>
@@ -163,10 +111,10 @@ exports[`button component should render correct HTML with Icon 1`] = `
 `;
 
 exports[`button component should render icon variant with a tooltip 1`] = `
-<ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -176,10 +124,10 @@ exports[`button component should render icon variant with a tooltip 1`] = `
 `;
 
 exports[`button component should render icon variant with a tooltip based on aria-label 1`] = `
-<ic-button class="button-size-default button-variant-icon" id="test-button" tooltip-placement="top" variant="icon">
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" tooltip-placement="top" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="top" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -189,10 +137,10 @@ exports[`button component should render icon variant with a tooltip based on ari
 `;
 
 exports[`button component should render icon variant with a tooltip based on title 1`] = `
-<ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -202,9 +150,9 @@ exports[`button component should render icon variant with a tooltip based on tit
 `;
 
 exports[`button component should render with "a" tag when href is passed 1`] = `
-<ic-button class="button-size-default button-variant-primary" href="#">
+<ic-button class="button-size-default button-variant-primary" exportparts="button" href="#">
   <mock:shadow-root>
-    <a class="button" href="#">
+    <a class="button" href="#" part="button">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -213,9 +161,9 @@ exports[`button component should render with "a" tag when href is passed 1`] = `
 `;
 
 exports[`button component should render with defined "a" tag props 1`] = `
-<ic-button class="button-size-default button-variant-primary" download="" href="#" rel="nofollow" target="_blank">
+<ic-button class="button-size-default button-variant-primary" download="" exportparts="button" href="#" rel="nofollow" target="_blank">
   <mock:shadow-root>
-    <a class="button" download="" href="#" rel="nofollow" target="_blank">
+    <a class="button" download="" href="#" part="button" rel="nofollow" target="_blank">
       <slot></slot>
     </a>
   </mock:shadow-root>
@@ -223,22 +171,11 @@ exports[`button component should render with defined "a" tag props 1`] = `
 </ic-button>
 `;
 
-exports[`button component should test button as submit button on form 1`] = `
-<ic-button class="button-size-default button-variant-primary light" id="ic-button" type="submit">
-  <mock:shadow-root>
-    <button class="button" type="submit">
-      <slot></slot>
-    </button>
-  </mock:shadow-root>
-  Button
-</ic-button>
-`;
-
 exports[`button component should update when method called 1`] = `
-<ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -248,10 +185,10 @@ exports[`button component should update when method called 1`] = `
 `;
 
 exports[`button component should update when method called 2`] = `
-<ic-button class="button-size-default button-variant-icon" id="test-button" variant="icon">
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" id="ic-button-with-tooltip-test-button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>

@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu button variants should render a menu button with a description 1`] = `
+<ic-menu-button description="This is the default variant of the menu button with a description" label="Default variant" variant="default">
+  <mock:shadow-root>
+    <li role="menuitem">
+      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="menu-button-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-button-label">
+              Default variant
+            </ic-typography>
+          </div>
+          <ic-typography class="menu-button-description" variant="caption">
+            This is the default variant of the menu button with a description
+          </ic-typography>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-button>
+`;
+
+exports[`menu button variants should render the default variant 1`] = `
+<ic-menu-button label="Default variant" variant="default">
+  <mock:shadow-root>
+    <li role="menuitem">
+      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="menu-button-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-button-label">
+              Default variant
+            </ic-typography>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-button>
+`;
+
+exports[`menu button variants should render the destructive variant 1`] = `
+<ic-menu-button label="Destructive variant" variant="destuctive">
+  <mock:shadow-root>
+    <li role="menuitem">
+      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="menu-button-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-button-label">
+              Destructive variant
+            </ic-typography>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-button>
+`;
+
+exports[`menu button variants should render the toggle variant 1`] = `
+<ic-menu-button label="Toggle variant" variant="toggle">
+  <mock:shadow-root>
+    <li role="menuitemcheckbox">
+      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="menu-button-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-button-label">
+              Toggle variant
+            </ic-typography>
+          </div>
+        </div>
+        <span aria-hidden="true" class="check-icon hide">
+          svg
+        </span>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-button>
+`;
+
+exports[`menu button variants should render with keyboard shortcut 1`] = `
+<ic-menu-button keyboard-shortcut="Cmd+" label="Toggle variant" variant="default">
+  <mock:shadow-root>
+    <li role="menuitem">
+      <ic-button aria-label="Toggle variant, Cmd+" disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="menu-button-info">
+          <div class="menu-labels">
+            <ic-typography class="menu-button-label">
+              Toggle variant
+            </ic-typography>
+            <ic-typography class="shortcut" variant="caption">
+              Cmd+
+            </ic-typography>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-button>
+`;

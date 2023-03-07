@@ -15,6 +15,7 @@ import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+import { IcMenuButtonVariants } from "./components/ic-menu-button/ic-menu-button.types";
 import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcAutocorrectStates1, IcBlurEventDetail, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcValueEventDetail } from "./interface";
 import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
@@ -676,6 +677,55 @@ export namespace Components {
           * The value of the currently selected option.
          */
         "value": string;
+    }
+    interface IcMenuButton {
+        /**
+          * The description displayed in the menu button, below the label.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the menu button will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * The URL that the link points to. This will render the menu button as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The label describing the keyboard shortcut for a menu button's action.
+         */
+        "keyboardShortcut"?: string;
+        /**
+          * The label to display in the menu button.
+         */
+        "label": string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * This references the popover menu instance that the menu button is a trigger for. If this prop is set, then the variant will always be default.
+         */
+        "submenuTriggerFor"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * The variant of the menu button.
+         */
+        "variant": IcMenuButtonVariants;
+    }
+    interface IcMenuGroup {
+        "label"?: string;
     }
     interface IcNavigationButton {
         /**
@@ -1535,6 +1585,10 @@ export interface IcMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuElement;
 }
+export interface IcMenuButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcMenuButtonElement;
+}
 export interface IcNavigationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcNavigationItemElement;
@@ -1738,6 +1792,18 @@ declare global {
         prototype: HTMLIcMenuElement;
         new (): HTMLIcMenuElement;
     };
+    interface HTMLIcMenuButtonElement extends Components.IcMenuButton, HTMLStencilElement {
+    }
+    var HTMLIcMenuButtonElement: {
+        prototype: HTMLIcMenuButtonElement;
+        new (): HTMLIcMenuButtonElement;
+    };
+    interface HTMLIcMenuGroupElement extends Components.IcMenuGroup, HTMLStencilElement {
+    }
+    var HTMLIcMenuGroupElement: {
+        prototype: HTMLIcMenuGroupElement;
+        new (): HTMLIcMenuGroupElement;
+    };
     interface HTMLIcNavigationButtonElement extends Components.IcNavigationButton, HTMLStencilElement {
     }
     var HTMLIcNavigationButtonElement: {
@@ -1926,6 +1992,8 @@ declare global {
         "ic-link": HTMLIcLinkElement;
         "ic-loading-indicator": HTMLIcLoadingIndicatorElement;
         "ic-menu": HTMLIcMenuElement;
+        "ic-menu-button": HTMLIcMenuButtonElement;
+        "ic-menu-group": HTMLIcMenuGroupElement;
         "ic-navigation-button": HTMLIcNavigationButtonElement;
         "ic-navigation-group": HTMLIcNavigationGroupElement;
         "ic-navigation-item": HTMLIcNavigationItemElement;
@@ -2614,6 +2682,61 @@ declare namespace LocalJSX {
           * The value of the currently selected option.
          */
         "value": string;
+    }
+    interface IcMenuButton {
+        /**
+          * The description displayed in the menu button, below the label.
+         */
+        "description"?: string;
+        /**
+          * If `true`, the menu button will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * The URL that the link points to. This will render the menu button as an "a" tag.
+         */
+        "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The label describing the keyboard shortcut for a menu button's action.
+         */
+        "keyboardShortcut"?: string;
+        /**
+          * The label to display in the menu button.
+         */
+        "label": string;
+        "onChildBlur"?: (event: IcMenuButtonCustomEvent<void>) => void;
+        "onHandleMenuButtonClick"?: (event: IcMenuButtonCustomEvent<{
+    label: string;
+    hasSubMenu: boolean;
+  }>) => void;
+        "onTriggerPopoverMenuInstance"?: (event: IcMenuButtonCustomEvent<void>) => void;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * This references the popover menu instance that the menu button is a trigger for. If this prop is set, then the variant will always be default.
+         */
+        "submenuTriggerFor"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+        /**
+          * The variant of the menu button.
+         */
+        "variant"?: IcMenuButtonVariants;
+    }
+    interface IcMenuGroup {
+        "label"?: string;
     }
     interface IcNavigationButton {
         /**
@@ -3554,6 +3677,8 @@ declare namespace LocalJSX {
         "ic-link": IcLink;
         "ic-loading-indicator": IcLoadingIndicator;
         "ic-menu": IcMenu;
+        "ic-menu-button": IcMenuButton;
+        "ic-menu-group": IcMenuGroup;
         "ic-navigation-button": IcNavigationButton;
         "ic-navigation-group": IcNavigationGroup;
         "ic-navigation-item": IcNavigationItem;
@@ -3612,6 +3737,8 @@ declare module "@stencil/core" {
             "ic-link": LocalJSX.IcLink & JSXBase.HTMLAttributes<HTMLIcLinkElement>;
             "ic-loading-indicator": LocalJSX.IcLoadingIndicator & JSXBase.HTMLAttributes<HTMLIcLoadingIndicatorElement>;
             "ic-menu": LocalJSX.IcMenu & JSXBase.HTMLAttributes<HTMLIcMenuElement>;
+            "ic-menu-button": LocalJSX.IcMenuButton & JSXBase.HTMLAttributes<HTMLIcMenuButtonElement>;
+            "ic-menu-group": LocalJSX.IcMenuGroup & JSXBase.HTMLAttributes<HTMLIcMenuGroupElement>;
             "ic-navigation-button": LocalJSX.IcNavigationButton & JSXBase.HTMLAttributes<HTMLIcNavigationButtonElement>;
             "ic-navigation-group": LocalJSX.IcNavigationGroup & JSXBase.HTMLAttributes<HTMLIcNavigationGroupElement>;
             "ic-navigation-item": LocalJSX.IcNavigationItem & JSXBase.HTMLAttributes<HTMLIcNavigationItemElement>;

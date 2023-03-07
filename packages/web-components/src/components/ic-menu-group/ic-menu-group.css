@@ -1,0 +1,24 @@
+@import "../../global/normalize.css";
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+ic-typography {
+  color: var(--ic-color-tertiary-text);
+  margin: 8px 8px 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  display: flex;
+  align-self: stretch;
+  border: 1px solid var(--ic-architectural-300);
+  margin: var(--ic-space-xxs) 0 calc(var(--ic-space-sm) / 4);
+}

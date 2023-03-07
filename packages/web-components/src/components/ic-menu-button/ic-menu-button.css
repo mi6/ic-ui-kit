@@ -1,0 +1,114 @@
+@import "../../global/normalize.css";
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
+:host::part(button) {
+  color: var(--ic-color-primary-text);
+  padding: var(--ic-space-xs);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ic-space-xs);
+  border-radius: 0;
+  min-height: 2.5rem;
+  height: auto;
+}
+
+:host(.disabled)::part(button) {
+  color: var(--ic-architectural-200) !important;
+}
+
+:host(.disabled) .menu-button-label,
+:host(.disabled) .shortcut,
+:host(.disabled) .menu-button-description {
+  color: var(--ic-architectural-200) !important;
+}
+
+:host([variant="destructive"])::part(button) {
+  color: var(--ic-action-destructive);
+}
+
+:host::part(button):hover {
+  background-color: var(--ic-action-dark-bg-hover);
+}
+
+:host::part(button):focus-visible,
+:host::part(button):focus {
+  color: var(--ic-color-white-text);
+  background-color: var(--ic-focus-blue);
+  box-shadow: none;
+}
+
+:host([variant="destructive"])::part(button):focus-visible,
+:host([variant="destructive"])::part(button):focus {
+  background-color: var(--ic-action-destructive);
+}
+
+ic-button:focus-within .menu-button-label,
+ic-button:focus-within .shortcut,
+ic-button:focus-within .menu-button-description {
+  color: var(--ic-color-white-text);
+}
+
+:host::part(button):active {
+  background-color: var(--ic-action-dark-bg-active);
+  color: var(--ic-color-primary-text) !important;
+}
+
+.menu-button-info {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.menu-labels {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.menu-button-description {
+  color: var(--ic-color-secondary-text);
+}
+
+.shortcut {
+  color: var(--ic-color-tertiary-text);
+  display: flex;
+  flex: min-content;
+}
+
+:host([variant="destructive"]) .menu-button-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.check-icon,
+.icon,
+.submenu-icon {
+  display: flex;
+  flex: var(--ic-space-lg);
+}
+
+.check-icon svg,
+.submenu-icon svg {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+}
+
+.check-icon.hide {
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -625rem;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
