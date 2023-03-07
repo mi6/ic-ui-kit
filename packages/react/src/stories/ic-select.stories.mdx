@@ -8,7 +8,7 @@ import {
   Description,
 } from "@storybook/addon-docs";
 
-import { IcSelect } from "../components";
+import { IcSelect, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 <Meta title="React Components/Select" component={IcSelect} />
@@ -157,6 +157,24 @@ export const searchableOptionsWithRecommended = [
   <Story name="Default">
     {() => {
       const [value, setValue] = useState(null);
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          value={value}
+          onIcChange={(event) => setValue(event.detail.value)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Default value
+
+<Canvas>
+  <Story name="Default value">
+    {() => {
+      const [value, setValue] = useState("Cap");
       return (
         <IcSelect
           label="What is your favourite coffee?"
@@ -484,6 +502,61 @@ export const searchableOptionsWithRecommended = [
           searchable
           onIcChange={(event) => setValue(event.detail.value)}
         ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+export const SearchableDefaultValue = () => {
+  const [value, setValue] = useState('Cap'); 
+  return (
+    <IcSelect
+      label="What is your favourite coffee?"
+      required
+      value={value}
+      options={searchableOptions}
+      onIcChange={e => setValue(e.detail.value || '')}
+      searchable
+      showClearButton
+    />
+)}
+
+### Searchable default value
+
+<Canvas>
+  <Story name="Searchable default value">
+    {() => {
+      return (
+        <SearchableDefaultValue />
+      );
+    }}
+  </Story>
+</Canvas>
+
+export const SearchableFormDefaultValue = () => {
+  const [value, setValue] = useState('Cap'); 
+  return (
+    <form>
+      <IcSelect
+        label="What is your favourite coffee?"
+        required
+        value={value}
+        options={searchableOptions}
+        onIcChange={e => setValue(e.detail.value || '')}
+        searchable
+        showClearButton
+      />
+      <IcButton type='reset'>Reset</IcButton>
+    </form>
+)}
+
+### Searchable Form reset default value
+
+<Canvas>
+  <Story name="Searchable form reset default value">
+    {() => {
+      return (
+        <SearchableFormDefaultValue />
       );
     }}
   </Story>
