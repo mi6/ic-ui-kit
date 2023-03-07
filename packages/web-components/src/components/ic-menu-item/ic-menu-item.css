@@ -1,0 +1,183 @@
+@import "../../global/normalize.css";
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
+:host::part(button) {
+  color: var(--ic-color-primary-text);
+  padding: calc(var(--ic-space-xxxs) / 2);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ic-space-xs);
+  border-radius: 0;
+  min-height: 2.5rem;
+  height: auto;
+}
+
+.focus-border {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ic-space-xs);
+  border-radius: var(--ic-space-xxxs);
+  margin: calc(var(--ic-space-xxxs) / 2);
+  padding: var(--ic-space-xxs);
+  border: var(--ic-space-xxxs) dashed transparent;
+  --icon-height: auto;
+}
+
+:host(.disabled)::part(button) {
+  color: var(--ic-architectural-200) !important;
+  pointer-events: none;
+}
+
+:host(.disabled) .menu-item-label,
+:host(.disabled) .shortcut,
+:host(.disabled) .menu-item-description {
+  color: var(--ic-architectural-200) !important;
+}
+
+:host([variant="destructive"])::part(button) {
+  color: var(--ic-action-destructive);
+}
+
+:host::part(button):hover {
+  background-color: var(--ic-action-dark-bg-hover);
+}
+
+:host::part(button):focus-visible,
+:host::part(button):focus {
+  color: var(--ic-color-white-text);
+  background-color: var(--ic-focus-blue);
+  box-shadow: none;
+}
+
+:host(.disabled)::part(button):focus-visible,
+:host(.disabled)::part(button):focus {
+  color: var(--ic-theme-lighten-40) !important;
+}
+
+:host(.disabled) .menu-item-label,
+:host(.disabled) .shortcut,
+:host(.disabled) .menu-item-description {
+  color: var(--ic-architectural-200) !important;
+}
+
+:host([variant="destructive"])::part(button):focus-visible,
+:host([variant="destructive"])::part(button):focus {
+  background-color: var(--ic-action-destructive);
+}
+
+ic-button:focus-within .menu-item-label,
+ic-button:focus-within .shortcut,
+ic-button:focus-within .menu-item-description {
+  color: var(--ic-color-white-text);
+}
+
+:host(.disabled) ic-button:focus-within .focus-border {
+  border-color: var(--ic-architectural-white);
+}
+
+:host(.disabled) ic-button:focus-within .menu-item-label,
+:host(.disabled) ic-button:focus-within .shortcut,
+:host(.disabled) ic-button:focus-within .menu-item-description {
+  color: var(--ic-theme-lighten-40) !important;
+}
+
+:host::part(button):active {
+  background-color: var(--ic-action-dark-bg-active);
+  color: var(--ic-color-primary-text) !important;
+}
+
+.menu-item-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: baseline;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.menu-labels {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ic-space-xs);
+}
+
+.menu-item-description {
+  color: var(--ic-color-secondary-text);
+}
+
+.shortcut {
+  color: var(--ic-color-tertiary-text);
+  display: flex;
+  flex: min-content;
+}
+
+:host([variant="destructive"]) .menu-item-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+ic-button:active .menu-item-label {
+  color: var(--ic-color-primary-text);
+}
+
+ic-button:active .menu-item-description {
+  color: var(--ic-color-secondary-text);
+}
+
+ic-button:active .shortcut {
+  color: var(--ic-color-tertiary-text);
+}
+
+.icon,
+.check-icon,
+.submenu-icon,
+.icon ::slotted(svg),
+.check-icon svg,
+.submenu-icon svg {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
+.check-icon.hide {
+  visibility: hidden;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  :host::part(button) {
+    border: Canvas;
+  }
+
+  :host::part(button):focus-visible {
+    outline: var(--ic-space-xxxs) solid transparent;
+  }
+
+  .focus-border {
+    border-color: Canvas;
+  }
+
+  :host(.disabled) ic-button:focus-within .focus-border {
+    border-color: GrayText;
+  }
+
+  :host(.disabled) .menu-item-info,
+  :host(.disabled) .menu-item-label,
+  :host(.disabled) .shortcut,
+  :host(.disabled) .menu-item-description,
+  :host(.disabled) ic-button:focus-within .menu-item-info,
+  :host(.disabled) ic-button:focus-within .menu-item-label,
+  :host(.disabled) ic-button:focus-within .shortcut,
+  :host(.disabled) ic-button:focus-within .menu-item-description {
+    color: GrayText !important;
+  }
+
+  :host(.disabled)::part(button):focus-visible,
+  :host(.disabled)::part(button):focus {
+    outline-color: GrayText !important;
+  }
+}

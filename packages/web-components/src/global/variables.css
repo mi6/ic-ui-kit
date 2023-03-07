@@ -171,6 +171,8 @@
   --ic-theme-blue-primary-g: 60;
   --ic-theme-blue-primary-b: 121;
   --ic-theme-blue-primary-a: 1;
+  --ic-theme-lighten-20: rgb(255 255 255 / 20%);
+  --ic-theme-lighten-40: rgb(255 255 255 / 40%);
   --ic-theme-primary-r: var(--ic-theme-blue-primary-r);
   --ic-theme-primary-g: var(--ic-theme-blue-primary-g);
   --ic-theme-primary-b: var(--ic-theme-blue-primary-b);
