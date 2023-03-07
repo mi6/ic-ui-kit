@@ -44,10 +44,10 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       </span>
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="button-size-large button-variant-icon menu-close-button" id="menu-close-button">
+          <ic-button class="button-size-large button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <mock:shadow-root>
               <ic-tooltip label="Close app menu" placement="bottom" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close app menu" class="button" id="ic-button-with-tooltip-menu-close-button" type="button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close app menu" class="button" id="ic-button-with-tooltip-menu-close-button" part="button" type="button">
                   <div class="icon-container">
                     <slot name="icon"></slot>
                   </div>
@@ -80,10 +80,10 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="button-size-large button-variant-icon light">
+      <ic-button class="button-size-large button-variant-icon light" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" type="button">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" part="button" type="button">
               <div class="icon-container">
                 <slot name="icon"></slot>
               </div>
@@ -148,10 +148,10 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="button-size-large button-variant-icon menu-close-button" id="menu-close-button">
+          <ic-button class="button-size-large button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <mock:shadow-root>
               <ic-tooltip label="Close navigation menu" placement="bottom" target="ic-button-with-tooltip-menu-close-button">
-                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close navigation menu" class="button" id="ic-button-with-tooltip-menu-close-button" type="button">
+                <button aria-describedby="ic-tooltip-ic-button-with-tooltip-menu-close-button" aria-label="Close navigation menu" class="button" id="ic-button-with-tooltip-menu-close-button" part="button" type="button">
                   <div class="icon-container">
                     <slot name="icon"></slot>
                   </div>
@@ -185,10 +185,10 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="button-size-large button-variant-icon light">
+      <ic-button class="button-size-large button-variant-icon light" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
-            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" type="button">
+            <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="button1" class="button" id="ic-button-with-tooltip-" part="button" type="button">
               <div class="icon-container">
                 <slot name="icon"></slot>
               </div>

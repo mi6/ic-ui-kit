@@ -32,6 +32,8 @@
  - [ic-input-validation](../ic-input-validation)
  - [ic-loading-indicator](../ic-loading-indicator)
  - [ic-menu](../ic-menu)
+ - [ic-menu-group](../ic-menu-group)
+ - [ic-menu-item](../ic-menu-item)
  - [ic-navigation-group](../ic-navigation-group)
  - [ic-navigation-item](../ic-navigation-item)
  - [ic-navigation-menu](../ic-navigation-menu)
@@ -66,6 +68,8 @@ graph TD;
   ic-input-validation --> ic-typography
   ic-loading-indicator --> ic-typography
   ic-menu --> ic-typography
+  ic-menu-group --> ic-typography
+  ic-menu-item --> ic-typography
   ic-navigation-group --> ic-typography
   ic-navigation-item --> ic-typography
   ic-navigation-menu --> ic-typography

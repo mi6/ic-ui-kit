@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu item variants should render a menu item with a description 1`] = `
+<ic-menu-item description="This is the default variant of the menu item with a description" label="Default variant" variant="default">
+  <mock:shadow-root>
+    <li aria-disabled="false" role="menuitem">
+      <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Default variant
+              </ic-typography>
+            </div>
+            <ic-typography class="menu-item-description" variant="caption">
+              This is the default variant of the menu item with a description
+            </ic-typography>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-item>
+`;
+
+exports[`menu item variants should render the default variant 1`] = `
+<ic-menu-item label="Default variant" variant="default">
+  <mock:shadow-root>
+    <li aria-disabled="false" role="menuitem">
+      <ic-button aria-disabled="false" aria-label="Default variant" disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Default variant
+              </ic-typography>
+            </div>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-item>
+`;
+
+exports[`menu item variants should render the destructive variant 1`] = `
+<ic-menu-item label="Destructive variant" variant="destuctive">
+  <mock:shadow-root>
+    <li aria-disabled="false" role="menuitem">
+      <ic-button aria-disabled="false" aria-label="Destructive variant" disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Destructive variant
+              </ic-typography>
+            </div>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-item>
+`;
+
+exports[`menu item variants should render the toggle variant 1`] = `
+<ic-menu-item id="test-menu-item" label="Toggle variant" variant="toggle">
+  <mock:shadow-root>
+    <li aria-disabled="false" role="menuitemcheckbox">
+      <ic-button class="button-size-default button-variant-tertiary full-width" exportparts="button">
+        <mock:shadow-root>
+          <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
+            <slot></slot>
+          </button>
+        </mock:shadow-root>
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Toggle variant
+              </ic-typography>
+            </div>
+          </div>
+          <span aria-hidden="true" class="check-icon hide">
+            svg
+          </span>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-item>
+`;
+
+exports[`menu item variants should render with keyboard shortcut 1`] = `
+<ic-menu-item keyboard-shortcut="Cmd+" label="Toggle variant" variant="default">
+  <mock:shadow-root>
+    <li aria-disabled="false" role="menuitem">
+      <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" disabletooltip="" fullwidth="" variant="tertiary">
+        <div class="focus-border">
+          <div class="menu-item-info">
+            <div class="menu-labels">
+              <ic-typography class="menu-item-label">
+                Toggle variant
+              </ic-typography>
+              <ic-typography class="shortcut" variant="caption">
+                Cmd+
+              </ic-typography>
+            </div>
+          </div>
+        </div>
+      </ic-button>
+    </li>
+  </mock:shadow-root>
+</ic-menu-item>
+`;
