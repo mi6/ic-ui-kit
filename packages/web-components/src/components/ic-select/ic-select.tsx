@@ -59,6 +59,7 @@ export class Select {
   private inheritedAttributes: { [k: string]: unknown } = {};
 
   private debounceAria: number;
+  private hasSetSearchableDefaultValue = false;
 
   /**
    * The label for the select.
@@ -193,6 +194,8 @@ export class Select {
 
   @State() debounceIcChange: number;
 
+  private initialRender = false;
+
   @Watch("options")
   watchOptionsHandler(): void {
     if (this.isExternalFiltering()) {
@@ -203,9 +206,15 @@ export class Select {
       } else if (this.isMenuEnabled()) {
         this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
         this.filteredOptions = this.noOptions;
-        this.setMenuChange(true);
+
+        // Will prevent 'No results found' displaying on initial load and setting default value
+        if (!this.initialRender) {
+          this.setMenuChange(true);
+        }
       }
+
       this.updateSearchableSelectResultAriaLive();
+      this.setSearchableDefaultValue();
     } else {
       this.setOptionsValuesFromLabels();
       this.filteredOptions = this.options;
@@ -239,6 +248,7 @@ export class Select {
 
   /**
    * Emitted when option is highlighted within the menu.
+   * Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated.
    */
   @Event() icOptionSelect: EventEmitter<IcOptionSelectEventDetail>;
 
@@ -551,10 +561,12 @@ export class Select {
       ".searchable-select-results-status"
     ) as HTMLDivElement;
 
-    if (this.noOptions !== null) {
-      searchableSelectResultsStatusEl.innerText = this.emptyOptionListText;
-    } else {
-      searchableSelectResultsStatusEl.innerText = "";
+    if (searchableSelectResultsStatusEl) {
+      if (this.noOptions !== null) {
+        searchableSelectResultsStatusEl.innerText = this.emptyOptionListText;
+      } else {
+        searchableSelectResultsStatusEl.innerText = "";
+      }
     }
   };
 
@@ -564,6 +576,17 @@ export class Select {
     window.setTimeout(() => {
       this.updateSearchableSelectResultAriaLive();
     }, 800);
+  }
+
+  private getDefaultValue = (value: string): string | null =>
+    this.getLabelFromValue(value) || value || null;
+
+  private setSearchableDefaultValue() {
+    if (!this.hasSetSearchableDefaultValue && this.value && this.searchable) {
+      this.searchableSelectInputValue = this.getDefaultValue(this.value);
+      this.initialValue = this.value;
+      this.hasSetSearchableDefaultValue = true;
+    }
   }
 
   private onFocus = (): void => {
@@ -589,7 +612,7 @@ export class Select {
   private handleFormReset = (): void => {
     this.value = this.initialValue;
     if (this.searchable) {
-      this.searchableSelectInputValue = null;
+      this.searchableSelectInputValue = this.getDefaultValue(this.value);
     }
   };
 
@@ -603,12 +626,22 @@ export class Select {
     this.setOptionsValuesFromLabels();
 
     addFormResetListener(this.host, this.handleFormReset);
+
+    this.initialRender = true;
+
+    if (!this.disableFilter) {
+      this.setSearchableDefaultValue();
+    }
   }
 
   componentDidRender(): void {
     if (this.nativeSelectElement && !this.disabled) {
       this.setTextColor();
     }
+  }
+
+  componentWillUpdate(): void {
+    this.initialRender = false;
   }
 
   componentDidLoad(): void {

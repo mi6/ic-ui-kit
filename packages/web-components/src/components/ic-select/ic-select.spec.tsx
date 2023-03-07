@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 import { newSpecPage } from "@stencil/core/testing";
 import { Menu } from "../ic-menu/ic-menu";
 import { Select } from "./ic-select";
@@ -1075,8 +1076,8 @@ describe("ic-select", () => {
     const page = await newSpecPage({
       components: [Select],
       html: `<form>
-        <ic-select label="IC Select Test" searchable="true"></ic-select>    
-        <button id="resetButton" type="reset">Reset</button> 
+        <ic-select label="IC Select Test" searchable="true"></ic-select>
+        <button id="resetButton" type="reset">Reset</button>
       </form>`,
     });
 
@@ -1198,5 +1199,39 @@ describe("ic-select", () => {
 
     //test disconnected callback
     page.setContent("");
+  });
+
+  it("should set the default value of searchable as custom value when not matching options", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label='Select test' searchable='true' value='Test value 01'></ic-select>`,
+    });
+
+    page.root.options = [];
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe("Test value 01");
+
+    const input = page.root.shadowRoot.querySelector("input");
+    expect(input.value).toBe("Test value 01");
+  });
+
+  it("should set the default value of searchable as option label if matching label/value exists", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      template: () => (
+        <ic-select
+          label="select test"
+          searchable
+          options={menuOptions}
+          value="Test value 1"
+        ></ic-select>
+      ),
+    });
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe("Test label 1");
+
+    const input = page.root.shadowRoot.querySelector("input");
+    expect(input.value).toBe("Test label 1");
   });
 });

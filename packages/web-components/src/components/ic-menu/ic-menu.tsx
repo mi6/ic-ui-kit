@@ -671,7 +671,7 @@ export class Menu {
             </ic-typography>
           )}
         </div>
-        {option.value === value &&
+        {option?.value.toLowerCase() === value?.toLowerCase() &&
           this.parentEl.tagName !== "IC-SEARCH-BAR" && (
             <span class="check-icon" innerHTML={Check} />
           )}

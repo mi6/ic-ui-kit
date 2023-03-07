@@ -36,14 +36,14 @@
 
 ## Events
 
-| Event            | Description                                         | Type                                     |
-| ---------------- | --------------------------------------------------- | ---------------------------------------- |
-| `icBlur`         | Emitted when select loses focus.                    | `CustomEvent<void>`                      |
-| `icChange`       | Emitted when the value changes.                     | `CustomEvent<IcValueEventDetail>`        |
-| `icClear`        | Emitted when clear button clicked.                  | `CustomEvent<void>`                      |
-| `icFocus`        | Emitted when select gains focus.                    | `CustomEvent<void>`                      |
-| `icInput`        | Emitted when a keyboard input occurred.             | `CustomEvent<IcValueEventDetail>`        |
-| `icOptionSelect` | Emitted when option is highlighted within the menu. | `CustomEvent<IcOptionSelectEventDetail>` |
+| Event            | Description                                                                                                                                        | Type                                     |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `icBlur`         | Emitted when select loses focus.                                                                                                                   | `CustomEvent<void>`                      |
+| `icChange`       | Emitted when the value changes.                                                                                                                    | `CustomEvent<IcValueEventDetail>`        |
+| `icClear`        | Emitted when clear button clicked.                                                                                                                 | `CustomEvent<void>`                      |
+| `icFocus`        | Emitted when select gains focus.                                                                                                                   | `CustomEvent<void>`                      |
+| `icInput`        | Emitted when a keyboard input occurred.                                                                                                            | `CustomEvent<IcValueEventDetail>`        |
+| `icOptionSelect` | Emitted when option is highlighted within the menu. Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated. | `CustomEvent<IcOptionSelectEventDetail>` |
 
 
 ## Methods
