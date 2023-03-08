@@ -557,4 +557,26 @@ describe("ic-search-bar search", () => {
       "No results found"
     );
   });
+
+  it("should test mousedown handler", async () => {
+    const page = await newSpecPage({
+      components: [
+        SearchBar,
+        Button,
+        TextField,
+        Menu,
+        InputContainer,
+        InputLabel,
+      ],
+      html: '<ic-search-bar label="Test label" value="test"></ic-search-bar>',
+    });
+
+    await page.rootInstance.handleMouseDown({
+      preventDefault: (): void => null,
+    });
+
+    await page.waitForChanges();
+
+    expect(page.root.value).toBe("test");
+  });
 });
