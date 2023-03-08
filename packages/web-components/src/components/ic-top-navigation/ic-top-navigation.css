@@ -152,7 +152,6 @@ slot[name="toggle-icon"] svg {
   justify-content: right;
   display: flex;
   align-items: center;
-  flex: 1 auto;
 }
 
 .menu-button-container {
