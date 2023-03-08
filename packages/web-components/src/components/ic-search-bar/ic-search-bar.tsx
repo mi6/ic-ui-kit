@@ -361,6 +361,10 @@ export class SearchBar {
     }
   };
 
+  private handleMouseDown = (ev: Event) => {
+    ev.preventDefault();
+  };
+
   /**
    * Emitted when the search value has been submitted
    */
@@ -732,6 +736,7 @@ export class SearchBar {
               aria-label="Clear"
               innerHTML={clearIcon}
               onClick={this.handleClear}
+              onMouseDown={this.handleMouseDown}
               size={small ? "small" : "default"}
               onFocus={this.handleFocusClearButton}
               onBlur={this.handleClearBlur}
@@ -765,6 +770,7 @@ export class SearchBar {
               innerHTML={searchIcon}
               size={small ? "small" : "default"}
               onClick={this.handleSubmitSearch}
+              onMouseDown={this.handleMouseDown}
               onBlur={this.handleSubmitSearchBlur}
               onFocus={this.handleSubmitSearchFocus}
               onKeyDown={this.handleSubmitSearchKeyDown}
