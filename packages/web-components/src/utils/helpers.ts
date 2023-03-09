@@ -215,8 +215,13 @@ export const handleHiddenFormButtonClick = (
   hiddenFormButton.remove();
 };
 
-export const isEmptyString = (value: string): boolean =>
-  value.trim().length === 0;
+export const isEmptyString = (value: string): boolean => {
+  if (!value) {
+    return true;
+  }
+
+  return value.trim().length === 0;
+};
 
 /**
  * Extracts the label using the value from an object. Requires the object to have a label and value property.
