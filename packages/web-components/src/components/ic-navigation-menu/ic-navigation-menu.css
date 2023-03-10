@@ -1,3 +1,7 @@
+/**
+ * @prop --ic-z-index-navigation-menu: z-index of navigation menu
+ */
+
 :host {
   display: block;
 }
@@ -21,7 +25,7 @@
   box-shadow: var(--ic-elevation-overlay);
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: calc(var(--ic-z-index-overlay) / 2);
+  z-index: var(--ic-z-index-navigation-menu);
 }
 
 :host(.inline) .popout-menu {

@@ -21,6 +21,13 @@
 | `"navigation"` | Content will be rendered at top of panel.                         |
 
 
+## CSS Custom Properties
+
+| Name                           | Description                |
+| ------------------------------ | -------------------------- |
+| `--ic-z-index-navigation-menu` | z-index of navigation menu |
+
+
 ## Dependencies
 
 ### Used by

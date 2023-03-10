@@ -15,6 +15,13 @@
 | `target`             | `target`        | The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used. | `string`                                                                                                                                                             | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                   | Description        |
+| ---------------------- | ------------------ |
+| `--ic-z-index-tooltip` | z-index of tooltip |
+
+
 ## Dependencies
 
 ### Used by

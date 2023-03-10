@@ -29,6 +29,13 @@
 | `"secondary-navigation"` | Content will be rendered at the bottom of the side navigation.                             |
 
 
+## CSS Custom Properties
+
+| Name                           | Description                      |
+| ------------------------------ | -------------------------------- |
+| `--ic-z-index-side-navigation` | z-index of side navigation panel |
+
+
 ## Dependencies
 
 ### Depends on

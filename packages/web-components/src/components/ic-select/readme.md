@@ -61,9 +61,10 @@ Type: `Promise<void>`
 
 ## CSS Custom Properties
 
-| Name            | Description              |
-| --------------- | ------------------------ |
-| `--input-width` | Width of the input field |
+| Name                | Description              |
+| ------------------- | ------------------------ |
+| `--ic-z-index-menu` | z-index of select menu   |
+| `--input-width`     | Width of the input field |
 
 
 ## Dependencies
