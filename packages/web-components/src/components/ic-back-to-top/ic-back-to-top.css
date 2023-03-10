@@ -1,5 +1,9 @@
 @import "../../global/normalize.css";
 
+/**
+ * @prop --ic-z-index-back-to-top: z-index of back to top
+ */
+
 :host {
   display: block;
   position: absolute;
@@ -29,7 +33,7 @@ button {
   transition: visibility 0s linear var(--ic-transition-duration-slow),
     opacity var(--ic-transition-duration-slow);
   cursor: pointer;
-  z-index: var(--ic-z-index-overlay);
+  z-index: var(--ic-z-index-back-to-top);
 }
 
 button:hover {

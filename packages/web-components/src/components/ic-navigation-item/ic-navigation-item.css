@@ -1,11 +1,15 @@
 @import "../../global/normalize.css";
 
+/**
+ * @prop --ic-z-index-navigation-item: z-index of navigation item
+ */
+
 :host {
   display: block;
 }
 
 :host(:focus-within) {
-  z-index: 1;
+  z-index: var(--ic-z-index-navigation-item);
 }
 
 /* chevron */

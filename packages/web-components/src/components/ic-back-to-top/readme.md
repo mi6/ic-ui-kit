@@ -12,6 +12,13 @@
 | `target` _(required)_ | `target`  | The ID of the element to jump back to when the link is clicked. | `string` | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                       | Description            |
+| -------------------------- | ---------------------- |
+| `--ic-z-index-back-to-top` | z-index of back to top |
+
+
 ## Dependencies
 
 ### Depends on

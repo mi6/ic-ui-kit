@@ -1,8 +1,9 @@
 @import "../../global/normalize.css";
 
 /**
-   * @prop --input-width: Width of the input field
-*/
+ * @prop --input-width: Width of the input field
+ * @prop --ic-z-index-menu: z-index of select menu
+ */
 
 :host {
   position: relative;

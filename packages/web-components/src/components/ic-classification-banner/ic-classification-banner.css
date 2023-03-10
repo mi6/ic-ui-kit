@@ -1,5 +1,9 @@
 @import "../../global/normalize.css";
 
+/**
+ * @prop --ic-z-index-classification-banner: z-index of classification banner
+ */
+
 :host {
   position: fixed;
   left: 0;

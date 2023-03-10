@@ -1,5 +1,9 @@
 @import "../../global/normalize.css";
 
+/**
+ * @prop --ic-z-index-menu: z-index of search bar menu
+ */
+
 :host(.search) {
   --divider-height: 1.5rem;
 }
