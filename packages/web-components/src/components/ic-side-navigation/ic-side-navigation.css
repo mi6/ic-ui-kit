@@ -1,5 +1,10 @@
+/**
+ * @prop --ic-z-index-side-navigation: z-index of side navigation panel
+ */
+
 :host {
   display: block;
+
   --side-navigation-position: fixed;
   --side-navigation-position-left: 0;
   --side-navigation-position-top: var(--ic-space-xxl);
@@ -10,7 +15,8 @@
     --ic-transition-duration-slow
   );
   --side-navigation-width: 20rem;
-  z-index: var(--ic-z-index-nav-menu);
+
+  z-index: var(--ic-z-index-side-navigation);
 }
 
 :host > * {
@@ -27,7 +33,7 @@
   left: calc(var(--side-navigation-width) * -1);
   bottom: 0;
   background-color: var(--ic-theme-primary);
-  z-index: var(--ic-z-index-nav-menu);
+  z-index: var(--ic-z-index-side-navigation);
 }
 
 :host(.inline) .side-navigation {

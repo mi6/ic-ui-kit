@@ -279,8 +279,15 @@
   --ic-space-xxl: 3rem;
 
   /* z-index */
-  --ic-z-index-classification-banner: 1400;
-  --ic-z-index-nav-menu: 1200;
-  --ic-z-index-overlay: 1000;
-  --ic-z-index-popup-menu: calc(var(--ic-z-index-overlay) + 1);
+  --ic-z-index-base-value: 0;
+  --ic-z-index-page-header: calc(var(--ic-z-index-base-value) + 10);
+  --ic-z-index-back-to-top: calc(var(--ic-z-index-base-value) + 20);
+  --ic-z-index-menu: calc(var(--ic-z-index-base-value) + 50);
+  --ic-z-index-popover: calc(var(--ic-z-index-base-value) + 50);
+  --ic-z-index-navigation-item: calc(var(--ic-z-index-base-value) + 50);
+  --ic-z-index-navigation-menu: calc(var(--ic-z-index-base-value) + 60);
+  --ic-z-index-side-navigation: calc(var(--ic-z-index-base-value) + 60);
+  --ic-z-index-dialog: calc(var(--ic-z-index-base-value) + 100);
+  --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
+  --ic-z-index-classification-banner: calc(var(--ic-z-index-base-value) + 200);
 }
