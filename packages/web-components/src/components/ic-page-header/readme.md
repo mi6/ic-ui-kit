@@ -35,9 +35,9 @@
 
 ## CSS Custom Properties
 
-| Name                       | Description                           |
-| -------------------------- | ------------------------------------- |
-| `--ic-z-index-page-header` | z-index of page-header in sticky mode |
+| Name                       | Description            |
+| -------------------------- | ---------------------- |
+| `--ic-z-index-page-header` | z-index of page-header |
 
 
 ## Dependencies
