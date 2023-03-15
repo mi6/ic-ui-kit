@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                             | Type     | Default     |
-| -------- | --------- | --------------------------------------- | -------- | ----------- |
-| `label`  | `label`   | The label to display in the menu group. | `string` | `undefined` |
+| Property | Attribute | Description                                          | Type     | Default     |
+| -------- | --------- | ---------------------------------------------------- | -------- | ----------- |
+| `label`  | `label`   | The label to display as the title of the menu group. | `string` | `undefined` |
 
 
 ## Dependencies

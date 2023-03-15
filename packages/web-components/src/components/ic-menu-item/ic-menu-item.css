@@ -20,7 +20,7 @@ li {
   display: flex;
   align-items: flex-start;
   gap: var(--ic-space-xs);
-  border-radius: var(--ic-space-xxxs);
+  border-radius: var(--ic-border-radius);
   margin: calc(var(--ic-space-xxxs) / 2);
   padding: var(--ic-space-xxs);
   border: var(--ic-space-xxxs) dashed transparent;
@@ -90,6 +90,11 @@ ic-button:focus-within .menu-item-description {
   color: var(--ic-color-primary-text) !important;
 }
 
+:host([variant="destructive"])::part(button):active {
+  background-color: var(--ic-action-dark-bg-active);
+  color: var(--ic-action-destructive) !important;
+}
+
 .menu-item-info {
   display: flex;
   flex-direction: column;
@@ -131,6 +136,10 @@ ic-button:active .menu-item-description {
 
 ic-button:active .shortcut {
   color: var(--ic-color-tertiary-text);
+}
+
+:host([variant="destructive"]) ic-button:active .menu-item-label {
+  color: var(--ic-action-destructive) !important;
 }
 
 .icon,
