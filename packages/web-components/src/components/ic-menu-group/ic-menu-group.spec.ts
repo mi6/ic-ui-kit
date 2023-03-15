@@ -45,11 +45,12 @@ describe("menu group", () => {
     });
 
     expect(page.root).toMatchSnapshot();
-  }),
-    it("should render a menu group without a label", async () => {
-      const page = await newSpecPage({
-        components: [MenuButton],
-        html: `<ic-menu-group>
+  });
+
+  it("should render a menu group without a label", async () => {
+    const page = await newSpecPage({
+      components: [MenuGroup, MenuButton],
+      html: `<ic-menu-group>
             <ic-menu-button label="Button">
               <svg
                 slot="icon"
@@ -85,46 +86,8 @@ describe("menu group", () => {
             >
             </ic-menu-button>
           </ic-menu-group>`,
-      });
-
-      expect(page.root).toMatchSnapshot();
-    });
-  it("should render the toggle variant", async () => {
-    const page = await newSpecPage({
-      components: [MenuButton],
-      html: `<ic-menu-button
-            variant="toggle"
-            label="Toggle variant"
-          />`,
     });
 
     expect(page.root).toMatchSnapshot();
-  });
-  it("should render the destructive variant", async () => {
-    const page = await newSpecPage({
-      components: [MenuButton],
-      html: `<ic-menu-button
-            variant="destuctive"
-            label="Destructive variant"
-          />`,
-    });
-
-    expect(page.root).toMatchSnapshot();
-  });
-  it("should render a menu button that triggers a popover menu instance", async () => {
-    const page = await newSpecPage({
-      components: [MenuButton],
-      html: `<ic-menu-button
-            variant="destuctive"
-            submenu-trigger-for="submenu-1"
-            label="Destructive variant"
-          />`,
-    });
-
-    expect(page.rootInstance.submenuTriggerFor).not.toBeUndefined();
-
-    expect(page.rootInstance.variant).toMatch("default");
   });
 });
-
-// line 85-90

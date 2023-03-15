@@ -79,6 +79,58 @@ exports[`button component should render correct HTML for tertiary variant 1`] = 
 </ic-button>
 `;
 
+exports[`button component should render correct HTML when loading - appearance light 1`] = `
+<ic-button appearance="light" class="button-size-default button-variant-primary light loading" exportparts="button" loading="">
+  <mock:shadow-root>
+    <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
+      <div class="loading-container">
+        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
+      </div>
+    </button>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML when loading - destructive 1`] = `
+<ic-button class="button-size-default button-variant-destructive loading" exportparts="button" loading="" variant="destructive">
+  <mock:shadow-root>
+    <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
+      <div class="loading-container">
+        <ic-loading-indicator appearance="light" type="linear"></ic-loading-indicator>
+      </div>
+    </button>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML when loading - secondary 1`] = `
+<ic-button class="button-size-default button-variant-secondary loading" exportparts="button" loading="" variant="secondary">
+  <mock:shadow-root>
+    <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
+      <div class="loading-container">
+        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
+      </div>
+    </button>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML when loading - tertiary 1`] = `
+<ic-button class="button-size-default button-variant-tertiary loading" exportparts="button" loading="" variant="tertiary">
+  <mock:shadow-root>
+    <button aria-disabled="true" aria-label="Loading" class="button" part="button" type="button">
+      <div class="loading-container">
+        <ic-loading-indicator appearance="dark" type="linear"></ic-loading-indicator>
+      </div>
+    </button>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
 exports[`button component should render correct HTML when loading 1`] = `
 <ic-button class="button-size-default button-variant-primary loading" exportparts="button" loading="">
   <mock:shadow-root>
@@ -166,6 +218,17 @@ exports[`button component should render with defined "a" tag props 1`] = `
     <a class="button" download="" href="#" part="button" rel="nofollow" target="_blank">
       <slot></slot>
     </a>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should test button as submit button on form 1`] = `
+<ic-button class="button-size-default button-variant-primary light" exportparts="button" id="ic-button" type="submit">
+  <mock:shadow-root>
+    <button class="button" part="button" type="submit">
+      <slot></slot>
+    </button>
   </mock:shadow-root>
   Button
 </ic-button>

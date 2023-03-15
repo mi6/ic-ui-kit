@@ -4,7 +4,7 @@ exports[`menu button variants should render a menu button with a description 1`]
 <ic-menu-button description="This is the default variant of the menu button with a description" label="Default variant" variant="default">
   <mock:shadow-root>
     <li role="menuitem">
-      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-label="Default variant, This is the default variant of the menu button with a description" disabletooltip="" fullwidth="" variant="tertiary">
         <div class="menu-button-info">
           <div class="menu-labels">
             <ic-typography class="menu-button-label">
@@ -25,7 +25,7 @@ exports[`menu button variants should render the default variant 1`] = `
 <ic-menu-button label="Default variant" variant="default">
   <mock:shadow-root>
     <li role="menuitem">
-      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-label="Default variant" disabletooltip="" fullwidth="" variant="tertiary">
         <div class="menu-button-info">
           <div class="menu-labels">
             <ic-typography class="menu-button-label">
@@ -43,7 +43,7 @@ exports[`menu button variants should render the destructive variant 1`] = `
 <ic-menu-button label="Destructive variant" variant="destuctive">
   <mock:shadow-root>
     <li role="menuitem">
-      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-label="Destructive variant" disabletooltip="" fullwidth="" variant="tertiary">
         <div class="menu-button-info">
           <div class="menu-labels">
             <ic-typography class="menu-button-label">
@@ -61,7 +61,7 @@ exports[`menu button variants should render the toggle variant 1`] = `
 <ic-menu-button label="Toggle variant" variant="toggle">
   <mock:shadow-root>
     <li role="menuitemcheckbox">
-      <ic-button disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-label="Toggle variant" disabletooltip="" fullwidth="" variant="tertiary">
         <div class="menu-button-info">
           <div class="menu-labels">
             <ic-typography class="menu-button-label">

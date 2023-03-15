@@ -11,9 +11,6 @@ export class MenuGroup {
   @Prop() label?: string;
 
   render() {
-    let ariaLabel: string = this.el.ariaLabel ? ` ${this.el.ariaLabel}` : "";
-    this.el.ariaLabel = `${this.label}.${ariaLabel}`;
-
     const parentMenu = this.el.closest("ic-popover-menu");
 
     return (
