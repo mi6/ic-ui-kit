@@ -31,6 +31,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [ic-popover-menu](../ic-popover-menu)
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
@@ -45,6 +49,7 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-popover-menu --> ic-menu-item
   style ic-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
