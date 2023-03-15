@@ -8,7 +8,7 @@ import { Component, Element, Host, h, Prop } from "@stencil/core";
 export class MenuGroup {
   @Element() el: HTMLIcMenuGroupElement;
   /**
-   * The label to display in the menu group.
+   * The label to display as the title of the menu group.
    */
   @Prop() label?: string;
 
