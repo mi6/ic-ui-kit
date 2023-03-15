@@ -40,6 +40,7 @@ export const IcNavigationGroup = /*@__PURE__*/createReactComponent<JSX.IcNavigat
 export const IcNavigationItem = /*@__PURE__*/createReactComponent<JSX.IcNavigationItem, HTMLIcNavigationItemElement>('ic-navigation-item');
 export const IcNavigationMenu = /*@__PURE__*/createReactComponent<JSX.IcNavigationMenu, HTMLIcNavigationMenuElement>('ic-navigation-menu');
 export const IcPageHeader = /*@__PURE__*/createReactComponent<JSX.IcPageHeader, HTMLIcPageHeaderElement>('ic-page-header');
+export const IcPopoverMenu = /*@__PURE__*/createReactComponent<JSX.IcPopoverMenu, HTMLIcPopoverMenuElement>('ic-popover-menu');
 export const IcRadioGroup = /*@__PURE__*/createReactComponent<JSX.IcRadioGroup, HTMLIcRadioGroupElement>('ic-radio-group');
 export const IcRadioOption = /*@__PURE__*/createReactComponent<JSX.IcRadioOption, HTMLIcRadioOptionElement>('ic-radio-option');
 export const IcSearchBar = /*@__PURE__*/createReactComponent<JSX.IcSearchBar, HTMLIcSearchBarElement>('ic-search-bar');
