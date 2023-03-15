@@ -700,7 +700,7 @@ export namespace Components {
     }
     interface IcMenuGroup {
         /**
-          * The label to display in the menu group.
+          * The label to display as the title of the menu group.
          */
         "label"?: string;
     }
@@ -882,6 +882,25 @@ export namespace Components {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+    }
+    interface IcPopoverMenu {
+        /**
+          * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
+         */
+        "anchor": string;
+        /**
+          * If `true`, the popover menu will be displayed.
+         */
+        "open": boolean;
+        "openFromChild": () => Promise<void>;
+        "openFromParent": () => Promise<void>;
+        "parentLabel"?: string;
+        "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * The unique identifier for a popover submenu.
+         */
+        "submenuId"?: string;
+        "submenuLevel": number;
     }
     interface IcRadioGroup {
         /**
@@ -1877,6 +1896,12 @@ declare global {
         prototype: HTMLIcPageHeaderElement;
         new (): HTMLIcPageHeaderElement;
     };
+    interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
+    }
+    var HTMLIcPopoverMenuElement: {
+        prototype: HTMLIcPopoverMenuElement;
+        new (): HTMLIcPopoverMenuElement;
+    };
     interface HTMLIcRadioGroupElement extends Components.IcRadioGroup, HTMLStencilElement {
     }
     var HTMLIcRadioGroupElement: {
@@ -2042,6 +2067,7 @@ declare global {
         "ic-navigation-item": HTMLIcNavigationItemElement;
         "ic-navigation-menu": HTMLIcNavigationMenuElement;
         "ic-page-header": HTMLIcPageHeaderElement;
+        "ic-popover-menu": HTMLIcPopoverMenuElement;
         "ic-radio-group": HTMLIcRadioGroupElement;
         "ic-radio-option": HTMLIcRadioOptionElement;
         "ic-search-bar": HTMLIcSearchBarElement;
@@ -2749,7 +2775,7 @@ declare namespace LocalJSX {
     }
     interface IcMenuGroup {
         /**
-          * The label to display in the menu group.
+          * The label to display as the title of the menu group.
          */
         "label"?: string;
     }
@@ -2928,6 +2954,23 @@ declare namespace LocalJSX {
           * The subtitle to render on the page header.
          */
         "subheading"?: string;
+    }
+    interface IcPopoverMenu {
+        /**
+          * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
+         */
+        "anchor"?: string;
+        /**
+          * If `true`, the popover menu will be displayed.
+         */
+        "open"?: boolean;
+        "parentLabel"?: string;
+        "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * The unique identifier for a popover submenu.
+         */
+        "submenuId"?: string;
+        "submenuLevel"?: number;
     }
     interface IcRadioGroup {
         /**
@@ -3771,6 +3814,7 @@ declare namespace LocalJSX {
         "ic-navigation-item": IcNavigationItem;
         "ic-navigation-menu": IcNavigationMenu;
         "ic-page-header": IcPageHeader;
+        "ic-popover-menu": IcPopoverMenu;
         "ic-radio-group": IcRadioGroup;
         "ic-radio-option": IcRadioOption;
         "ic-search-bar": IcSearchBar;
@@ -3831,6 +3875,7 @@ declare module "@stencil/core" {
             "ic-navigation-item": LocalJSX.IcNavigationItem & JSXBase.HTMLAttributes<HTMLIcNavigationItemElement>;
             "ic-navigation-menu": LocalJSX.IcNavigationMenu & JSXBase.HTMLAttributes<HTMLIcNavigationMenuElement>;
             "ic-page-header": LocalJSX.IcPageHeader & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
+            "ic-popover-menu": LocalJSX.IcPopoverMenu & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
             "ic-radio-group": LocalJSX.IcRadioGroup & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;
             "ic-radio-option": LocalJSX.IcRadioOption & JSXBase.HTMLAttributes<HTMLIcRadioOptionElement>;
             "ic-search-bar": LocalJSX.IcSearchBar & JSXBase.HTMLAttributes<HTMLIcSearchBarElement>;
