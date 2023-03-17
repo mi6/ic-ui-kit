@@ -69,6 +69,7 @@ jobs:
       - uses: browser-actions/setup-chrome@latest
       - name: Install dependencies
         run: |
+          google-chrome --version
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
