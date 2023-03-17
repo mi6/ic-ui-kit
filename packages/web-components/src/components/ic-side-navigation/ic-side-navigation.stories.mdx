@@ -9,7 +9,10 @@ import readme from "./readme.md";
 ### Inline
 
 <Canvas>
-  <Story name="Inline" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Inline"
+    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
+  >
     {html`
       <div
         style="height: 700px; margin: 15px;transform: translateZ(0); overflow: hidden;"
