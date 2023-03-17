@@ -186,22 +186,6 @@ slot[name="toggle-icon"] svg {
   display: none;
 }
 
-:host([content-aligned="left"]) .app-details-container {
-  flex-basis: 1;
-}
-
-:host([content-aligned="left"]) .app-details-container,
-:host([content-aligned="left"]) .nav-panel-container,
-:host([content-aligned="center"]) .nav-panel-container,
-:host([content-aligned="left"]) .search-menu-container,
-:host([content-aligned="center"]) .search-menu-container {
-  justify-content: flex-start;
-}
-
-:host([content-aligned="center"]) .app-details-container {
-  justify-content: flex-end;
-}
-
 :host ic-section-container {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
@@ -210,15 +194,6 @@ slot[name="toggle-icon"] svg {
 @media screen and (min-width: 993px) {
   .app-details-container {
     margin-right: var(--ic-space-lg);
-  }
-
-  :host([content-aligned="center"]) .top-navigation {
-    display: flex;
-    justify-content: center;
-  }
-
-  :host([content-aligned="left"]) .top-navigation {
-    display: flex;
   }
 }
 
@@ -255,13 +230,6 @@ slot[name="toggle-icon"] svg {
     padding-right: var(--ic-space-md);
     margin-left: calc(-1 * var(--section-container-margin));
     margin-right: calc(-1 * var(--section-container-margin));
-  }
-
-  :host([content-aligned="left"]) .app-details-container,
-  :host([content-aligned="left"]) .search-menu-container,
-  :host([content-aligned="center"]) .search-menu-container,
-  :host([content-aligned="center"]) .app-details-container {
-    justify-content: flex-start;
   }
 }
 
