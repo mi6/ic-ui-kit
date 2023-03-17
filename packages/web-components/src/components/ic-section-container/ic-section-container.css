@@ -39,6 +39,7 @@
   display: block;
   padding-top: var(--ic-space-md);
   padding-bottom: var(--ic-space-md);
+  box-sizing: border-box;
 }
 
 :host(.aligned-center) {

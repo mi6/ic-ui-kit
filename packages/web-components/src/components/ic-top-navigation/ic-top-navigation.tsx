@@ -316,7 +316,7 @@ export class TopNavigation {
         }}
       >
         <div class="top-navigation">
-          <ic-section-container aligned="full-width" full-height>
+          <ic-section-container aligned={this.contentAligned} full-height>
             <header role="banner">
               <div class="top-panel-container">
                 <div class="app-details-container">
