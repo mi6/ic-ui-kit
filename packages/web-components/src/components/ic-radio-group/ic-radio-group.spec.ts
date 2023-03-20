@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { RadioGroup } from "./ic-radio-group";
 import { RadioOption } from "../ic-radio-option/ic-radio-option";
+import { TextField } from "../ic-text-field/ic-text-field";
 
 describe("ic-radio-group", () => {
   it("should render", async () => {
@@ -60,7 +61,7 @@ describe("ic-radio-group", () => {
 
   it("should render radio option disabled", async () => {
     const page = await newSpecPage({
-      components: [RadioOption],
+      components: [RadioGroup, RadioOption],
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" disabled label="test label" group-label="test group"></ic-radio-option>    
       </ic-radio-group>`,
@@ -71,7 +72,7 @@ describe("ic-radio-group", () => {
 
   it("should render with unselected static additional field", async () => {
     const page = await newSpecPage({
-      components: [RadioOption],
+      components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" disabled label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
@@ -86,7 +87,7 @@ describe("ic-radio-group", () => {
 
   it("should render with selected static additional field", async () => {
     const page = await newSpecPage({
-      components: [RadioOption],
+      components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" selected label="test label" group-label="test group">
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
@@ -99,7 +100,7 @@ describe("ic-radio-group", () => {
 
   it("should render with dynamic additional field", async () => {
     const page = await newSpecPage({
-      components: [RadioOption],
+      components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test" label="test label" group-label="test group" additional-field-display="dynamic" selected>
          <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
@@ -141,65 +142,53 @@ describe("ic-radio-group", () => {
     expect(nextItemCalc).toBe(1);
   });
 
-  it("should skip getting the next item when it's disabled", async () => {
-    const page = await newSpecPage({
-      components: [RadioGroup, RadioOption],
-      html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>   
-        <ic-radio-option value="test2" disabled></ic-radio-option> 
-        <ic-radio-option value="test3"></ic-radio-option>    
-      </ic-radio-group>`,
-    });
-
-    const nextItemCalc = page.rootInstance.getNextItemToSelect(0, true);
-    page.waitForChanges();
-    expect(nextItemCalc).toBe(2);
-  });
-
-  it("should not move onto the next item when nextItem < 0", async () => {
-    const page = await newSpecPage({
-      components: [RadioGroup, RadioOption],
-      html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
-      </ic-radio-group>`,
-    });
-
-    const nextItemCalc = page.rootInstance.getNextItemToSelect(0, false);
-
-    page.waitForChanges();
-    expect(nextItemCalc).toBe(0);
-  });
-
-  it("should select the first radio when nextItem > numRadios", async () => {
-    const page = await newSpecPage({
-      components: [RadioGroup, RadioOption],
-      html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>   
-        <ic-radio-option value="test"></ic-radio-option>  
-        <ic-radio-option value="test"></ic-radio-option>   
-      </ic-radio-group>`,
-    });
-
-    const nextItemCalc = page.rootInstance.getNextItemToSelect(2, true);
-
-    page.waitForChanges();
-    expect(nextItemCalc).toBe(0);
-  });
-
   it("should select the radio option when clicked", async () => {
     const page = await newSpecPage({
-      components: [RadioOption],
+      components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required>
-        <ic-radio-option value="test" selected></ic-radio-option>    
+        <ic-radio-option value="test" selected></ic-radio-option> 
+        <ic-radio-option label="test label">
+         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label" value="Test value"></ic-text-field>
+        </ic-radio-option>
+        <ic-radio-option label="test label" value="Radio value">
+         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label"></ic-text-field>
+        </ic-radio-option>   
       </ic-radio-group>`,
     });
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
-    page.rootInstance.selectedChangeHandler("true");
+
+    page.rootInstance.radioOptions[1].selected = true;
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
+    expect(page.rootInstance.checkedValue).toBe("Test value");
+
+    page.rootInstance.radioOptions[2].selected = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.checkedValue).toBe("Radio value");
+  });
+
+  it("should not select the radio option when textfield clicked", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption, TextField],
+      html: `<ic-radio-group label="test label" name="test" required>
+        <ic-radio-option value="test" selected></ic-radio-option> 
+        <ic-radio-option label="test label">
+         <ic-text-field slot="additional-field" placeholder="Placeholder" label="Test label" value="Test value"></ic-text-field>
+        </ic-radio-option>
+      </ic-radio-group>`,
+    });
+
+    const div =
+      page.rootInstance.radioOptions[1].shadowRoot.querySelector(
+        ".dynamic-container"
+      );
+    div.click();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[1].selected).toBe(false);
   });
 
   it("should emit new radio value when text field value given", async () => {
@@ -284,7 +273,7 @@ describe("ic-radio-group", () => {
 
   it("should change the orientation of the radio group to vertical if the user has additional fields on any of the radio buttons in the group", async () => {
     const page = await newSpecPage({
-      components: [RadioGroup, RadioOption],
+      components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required orientation="horizontal">
         <ic-radio-option value="test1" selected></ic-radio-option>
         <ic-radio-option value="test" disabled label="test label" group-label="test group">
@@ -294,5 +283,96 @@ describe("ic-radio-group", () => {
     });
 
     expect(page.rootInstance.orientation).toMatch("vertical");
+  });
+
+  it("should test key down handler", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test" required>
+      <ic-radio-option value="test"></ic-radio-option>   
+      <ic-radio-option value="test2" disabled></ic-radio-option> 
+      <ic-radio-option value="test3" selected></ic-radio-option>    
+    </ic-radio-group>`,
+    });
+
+    //test wrap around from end to beginning
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowDown",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(true);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(false);
+
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowDown",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(false);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(true);
+
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowUp",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(true);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(false);
+
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowRight",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(false);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(true);
+
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowLeft",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(true);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(false);
+
+    //test wrap around from beginning to end
+    page.root.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "ArrowUp",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.radioOptions[0].selected).toBe(false);
+    expect(page.rootInstance.radioOptions[2].selected).toBe(true);
   });
 });

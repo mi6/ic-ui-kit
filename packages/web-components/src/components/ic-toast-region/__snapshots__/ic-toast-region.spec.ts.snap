@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-toast-region component should render 1`] = `
+<ic-toast-region>
+  <!---->
+  <ic-toast aria-label="Heading" class="hidden" heading="Heading" role="dialog">
+    <mock:shadow-root>
+      <div class="container">
+        <div class="toast-content">
+          <div class="toast-message">
+            <ic-typography variant="subtitle-large"></ic-typography>
+          </div>
+        </div>
+        <ic-button appearance="light" aria-label="dismiss" id="dismiss-button" variant="icon">
+          svg
+        </ic-button>
+      </div>
+    </mock:shadow-root>
+  </ic-toast>
+</ic-toast-region>
+`;

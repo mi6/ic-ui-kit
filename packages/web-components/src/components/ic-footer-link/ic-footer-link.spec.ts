@@ -39,7 +39,7 @@ describe("ic-footer-link", () => {
         </ic-footer-link>`);
   });
 
-  it("correctly sets foregroundColor on theme change", async () => {
+  it("should set foregroundColor on theme change", async () => {
     const page = await newSpecPage({
       components: [FooterLink],
       html: `<ic-footer-link label="button1" onclick="alert('test')">
@@ -52,5 +52,21 @@ describe("ic-footer-link", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.foregroundColor).toEqual("light");
+  });
+
+  it("should test footer resize handler", async () => {
+    const page = await newSpecPage({
+      components: [FooterLink],
+      html: `<ic-footer-link label="button1" onclick="alert('test')">
+      </ic-footer-link>`,
+    });
+
+    await page.rootInstance.footerResizeHandler();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.footerConfig).toStrictEqual({
+      grouped: false,
+      small: false,
+    });
   });
 });

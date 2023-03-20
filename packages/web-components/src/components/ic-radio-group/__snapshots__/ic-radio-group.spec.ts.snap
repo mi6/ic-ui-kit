@@ -55,53 +55,84 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
 `;
 
 exports[`ic-radio-group should render radio option disabled: renders-disabled 1`] = `
-<ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+<ic-radio-group label="test label" name="test" orientation="vertical">
   <mock:shadow-root>
-    <div class="container disabled">
-      <div>
-        <input disabled="" id="ic-radio-option-test label-test group" role="radio" tabindex="-1" type="radio" value="test">
-        <span class="checkmark"></span>
+    <div aria-label="test label" role="radiogroup">
+      <ic-input-label label="test label"></ic-input-label>
+      <div class="radio-buttons-container">
+        <slot></slot>
       </div>
-      <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test group">
-          test label
-        </label>
-      </ic-typography>
     </div>
   </mock:shadow-root>
-</ic-radio-option>
+  <ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container disabled">
+        <div>
+          <input disabled="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
+          <span class="checkmark"></span>
+        </div>
+        <ic-typography class="radio-label" variant="body">
+          <label htmlfor="ic-radio-option-test label-test label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-radio-option>
+  <input class="ic-input" name="test" type="hidden" value="">
+</ic-radio-group>
 `;
 
 exports[`ic-radio-group should render with dynamic additional field: renders-with-dynamic-additional-field 1`] = `
-<ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
+<ic-radio-group label="test label" name="test" orientation="vertical">
   <mock:shadow-root>
-    <div class="container">
-      <div>
-        <input checked="" id="ic-radio-option-test label-test group" role="radio" tabindex="0" type="radio" value="test">
-        <span class="checkmark"></span>
-      </div>
-      <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test group">
-          test label
-        </label>
-      </ic-typography>
-    </div>
-    <div class="dynamic-container">
-      <div class="branch-corner"></div>
-      <div>
-        <ic-typography variant="caption">
-          <p class="dynamic-text">
-            This selection requires additional answers
-          </p>
-        </ic-typography>
-        <div>
-          <slot name="additional-field"></slot>
-        </div>
+    <div aria-label="test label" role="radiogroup">
+      <ic-input-label label="test label"></ic-input-label>
+      <div class="radio-buttons-container">
+        <slot></slot>
       </div>
     </div>
   </mock:shadow-root>
-  <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-</ic-radio-option>
+  <ic-radio-option additional-field-display="dynamic" group-label="test group" label="test label" selected="" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <div>
+          <input checked="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
+          <span class="checkmark"></span>
+        </div>
+        <ic-typography class="radio-label" variant="body">
+          <label htmlfor="ic-radio-option-test label-test label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+      <div class="dynamic-container">
+        <div class="branch-corner"></div>
+        <div>
+          <ic-typography variant="caption">
+            <p class="dynamic-text">
+              This selection requires additional answers
+            </p>
+          </ic-typography>
+          <div>
+            <slot name="additional-field"></slot>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
+          </ic-input-component-container>
+        </ic-input-container>
+      </mock:shadow-root>
+    </ic-text-field>
+  </ic-radio-option>
+  <input class="ic-input" name="test" type="hidden" value="test">
+</ic-radio-group>
 `;
 
 exports[`ic-radio-group should render with selected option: renders-with-selected-option 1`] = `
@@ -132,55 +163,95 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
 `;
 
 exports[`ic-radio-group should render with selected static additional field: renders-with-selected-additional-field 1`] = `
-<ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
+<ic-radio-group label="test label" name="test" orientation="vertical">
   <mock:shadow-root>
-    <div class="container">
-      <div>
-        <input checked="" id="ic-radio-option-test label-test group" role="radio" tabindex="0" type="radio" value="test">
-        <span class="checkmark"></span>
-      </div>
-      <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test group">
-          test label
-        </label>
-      </ic-typography>
-    </div>
-    <div class="dynamic-container">
-      <div>
-        <div class="additional-field-wrapper">
-          <slot name="additional-field"></slot>
-        </div>
+    <div aria-label="test label" role="radiogroup">
+      <ic-input-label label="test label"></ic-input-label>
+      <div class="radio-buttons-container">
+        <slot></slot>
       </div>
     </div>
   </mock:shadow-root>
-  <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-</ic-radio-option>
+  <ic-radio-option additional-field-display="static" group-label="test group" label="test label" selected="" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <div>
+          <input checked="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
+          <span class="checkmark"></span>
+        </div>
+        <ic-typography class="radio-label" variant="body">
+          <label htmlfor="ic-radio-option-test label-test label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+      <div class="dynamic-container">
+        <div>
+          <div class="additional-field-wrapper">
+            <slot name="additional-field"></slot>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <ic-text-field label="Test label" placeholder="Placeholder" slot="additional-field" value="">
+      <mock:shadow-root>
+        <ic-input-container>
+          <ic-input-label for="ic-text-field-input-1" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-1" inputmode="text" name="ic-text-field-input-1" placeholder="Placeholder" type="text" value="">
+          </ic-input-component-container>
+        </ic-input-container>
+      </mock:shadow-root>
+    </ic-text-field>
+  </ic-radio-option>
+  <input class="ic-input" name="test" type="hidden" value="test">
+</ic-radio-group>
 `;
 
 exports[`ic-radio-group should render with unselected static additional field: renders-with-unselected-additional-field 1`] = `
-<ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+<ic-radio-group label="test label" name="test" orientation="vertical">
   <mock:shadow-root>
-    <div class="container disabled">
-      <div>
-        <input disabled="" id="ic-radio-option-test label-test group" role="radio" tabindex="-1" type="radio" value="test">
-        <span class="checkmark"></span>
-      </div>
-      <ic-typography class="radio-label" variant="body">
-        <label htmlfor="ic-radio-option-test label-test group">
-          test label
-        </label>
-      </ic-typography>
-    </div>
-    <div class="dynamic-container">
-      <div>
-        <div class="additional-field-wrapper">
-          <slot name="additional-field"></slot>
-        </div>
+    <div aria-label="test label" role="radiogroup">
+      <ic-input-label label="test label"></ic-input-label>
+      <div class="radio-buttons-container">
+        <slot></slot>
       </div>
     </div>
   </mock:shadow-root>
-  <ic-text-field disabled="" label="Test label" placeholder="Placeholder" slot="additional-field"></ic-text-field>
-</ic-radio-option>
+  <ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container disabled">
+        <div>
+          <input disabled="" id="ic-radio-option-test label-test label" name="test" role="radio" tabindex="0" type="radio" value="test">
+          <span class="checkmark"></span>
+        </div>
+        <ic-typography class="radio-label" variant="body">
+          <label htmlfor="ic-radio-option-test label-test label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+      <div class="dynamic-container">
+        <div>
+          <div class="additional-field-wrapper">
+            <slot name="additional-field"></slot>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <ic-text-field disabled="" label="Test label" placeholder="Placeholder" slot="additional-field" value="">
+      <mock:shadow-root>
+        <ic-input-container disabled="">
+          <ic-input-label disabled="" for="ic-text-field-input-0" helpertext="" label="Test label"></ic-input-label>
+          <ic-input-component-container disabled="" validationstatus="">
+            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
+          </ic-input-component-container>
+        </ic-input-container>
+      </mock:shadow-root>
+    </ic-text-field>
+  </ic-radio-option>
+  <input class="ic-input" name="test" type="hidden" value="">
+</ic-radio-group>
 `;
 
 exports[`ic-radio-group should render with validation status: renders-with-validation-status 1`] = `

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-divider correctly sets foregroundColor on theme change 1`] = `
+<ic-divider aria-hidden="true">
+  <hr class="light">
+</ic-divider>
+`;
+
+exports[`ic-divider should render 1`] = `
+<ic-divider aria-hidden="true">
+  <hr class="light">
+</ic-divider>
+`;

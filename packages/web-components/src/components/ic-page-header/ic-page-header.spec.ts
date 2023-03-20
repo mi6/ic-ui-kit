@@ -4,6 +4,8 @@ import { DEVICE_SIZES } from "../../utils/helpers";
 import { mockDeviceSize } from "../../testspec.setup";
 import { Button } from "../ic-button/ic-button";
 import * as helpers from "../../utils/helpers";
+import { BreadcrumbGroup } from "../ic-breadcrumb-group/ic-breadcrumb-group";
+import { Breadcrumb } from "../ic-breadcrumb/ic-breadcrumb";
 
 describe("simple ic-page-header renders", () => {
   it("should render with a heading & sub-heading", async () => {
@@ -192,6 +194,28 @@ describe("ic-page-header component renders additional functionality", () => {
 
     expect(page.root).toMatchSnapshot("should render actions, input & stepper");
   });
+
+  it("should render with breadcrumbs", async () => {
+    const page = await newSpecPage({
+      components: [PageHeader, BreadcrumbGroup, Breadcrumb],
+      html: `
+      <ic-page-header heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
+        <ic-breadcrumb-group slot="breadcrumbs">
+          <ic-breadcrumb
+            page-title="Breadcrumb 1"
+            href="/breadcrumb-1"
+          ></ic-breadcrumb>
+          <ic-breadcrumb
+            current="true"
+            page-title="Breadcrumb 2"
+            href="/breadcrumb-2"
+          ></ic-breadcrumb>
+        </ic-breadcrumb-group>          
+      </ic-page-header>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with breadcrumbs");
+  });
 });
 
 describe("resizeObserver for ic-page-header", () => {
@@ -225,6 +249,9 @@ describe("resizeObserver for ic-page-header", () => {
     `,
     });
 
+    await page.waitForChanges();
+
+    page.rootInstance.areButtonsReversed = true;
     await page.waitForChanges();
 
     mockDeviceSize(DEVICE_SIZES.S);
