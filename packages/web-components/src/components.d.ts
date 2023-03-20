@@ -2593,10 +2593,11 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
-        "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean }>) => void;
+        "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
         "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
         "onMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
+        "onUngroupedOptionsSet"?: (event: IcMenuCustomEvent<{ options: IcMenuOption[] }>) => void;
         /**
           * If `true`, the menu will be displayed open.
          */
