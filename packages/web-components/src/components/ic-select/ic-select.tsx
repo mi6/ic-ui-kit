@@ -56,10 +56,14 @@ export class Select {
   private inputId = `ic-select-input-${inputIds++}`;
   private menuId = `${this.inputId}-menu`;
 
+  private ungroupedOptions: IcMenuOption[] = [];
+
   private inheritedAttributes: { [k: string]: unknown } = {};
 
   private debounceAria: number;
   private hasSetSearchableDefaultValue = false;
+
+  private characterKeyPressTimer: number;
 
   /**
    * The label for the select.
@@ -194,6 +198,8 @@ export class Select {
 
   @State() debounceIcChange: number;
 
+  @State() pressedCharacters: string = "";
+
   private initialRender = false;
 
   @Watch("options")
@@ -312,6 +318,10 @@ export class Select {
     }
   };
 
+  private setUngroupedOptions = (event: CustomEvent): void => {
+    this.ungroupedOptions = event.detail.options;
+  };
+
   private setTextColor = (): void => {
     if (this.nativeSelectElement.selectedIndex === 0) {
       this.nativeSelectElement.className = "placeholder";
@@ -338,12 +348,21 @@ export class Select {
   private getFilteredChildMenuOptions = (option: IcMenuOption) => {
     let children = option.children;
 
-    children = getFilteredMenuOptions(
-      option.children,
-      this.includeDescriptionsInSearch,
-      this.searchableSelectInputValue,
-      this.searchMatchPosition
-    );
+    if (this.searchable) {
+      children = getFilteredMenuOptions(
+        option.children,
+        this.includeDescriptionsInSearch,
+        this.searchableSelectInputValue,
+        this.searchMatchPosition
+      );
+    } else {
+      children = getFilteredMenuOptions(
+        option.children,
+        false,
+        this.pressedCharacters,
+        "start"
+      );
+    }
 
     const newOption = { ...option };
     newOption.children = children;
@@ -375,6 +394,7 @@ export class Select {
 
   private handleMenuChange = (event: CustomEvent): void => {
     this.open = event.detail.open;
+    this.pressedCharacters = "";
 
     this.searchable && this.handleFocusIndicatorDisplay();
   };
@@ -382,8 +402,10 @@ export class Select {
   // clears the debounce delay when navigating the menu with arrow keys etc
   // to prevent delay in change event, which should only occur when typing in input
   private handleMenuKeyPress = (ev: CustomEvent): void => {
+    ev.cancelBubble = true;
     const debounce = ev.detail.isNavKey ? 0 : this.debounce;
     this.debounceChangedHandler(debounce);
+    this.handleCharacterKeyDown(ev.detail.key);
   };
 
   private handleFocusIndicatorDisplay = () => {
@@ -447,6 +469,35 @@ export class Select {
     }
   };
 
+  private handleCharacterKeyDown = (key: string) => {
+    // Only close menu when space is pressed if not being used alongside character keys to quickly select options
+    if (this.open && key === " " && this.pressedCharacters.length === 0) {
+      this.setMenuChange(false);
+    }
+
+    if (key.length === 1 && !this.searchable) {
+      window.clearTimeout(this.characterKeyPressTimer);
+      this.characterKeyPressTimer = window.setTimeout(
+        () => (this.pressedCharacters = ""),
+        1000
+      );
+
+      this.pressedCharacters += key;
+      this.handleFilter();
+
+      if (!this.noOptions) {
+        this.emitImmediateIcChange(this.filteredOptions[0].value);
+      }
+    } else {
+      this.pressedCharacters = "";
+    }
+  };
+
+  private handleNativeSelectKeyDown = (event: KeyboardEvent) => {
+    event.cancelBubble = true;
+    this.handleCharacterKeyDown(event.key);
+  };
+
   private handleKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
     const isArrowKey = event.key === "ArrowDown" || event.key === "ArrowUp";
@@ -467,7 +518,10 @@ export class Select {
         if (this.isExternalFiltering() && isArrowKey && this.debounce > 0) {
           this.debounceChangedHandler(0);
         }
-        this.menu.handleKeyboardOpen(event);
+        if (!(event.key === " " && this.pressedCharacters.length > 0)) {
+          this.menu.handleKeyboardOpen(event);
+        }
+        this.handleCharacterKeyDown(event.key);
       }
     }
   };
@@ -478,6 +532,72 @@ export class Select {
 
   private handleClearButtonBlur = (): void => {
     this.clearButtonFocused = false;
+  };
+
+  private handleFilter = (): void => {
+    const options = this.searchable ? [...this.options] : this.ungroupedOptions;
+
+    let isGrouped = false;
+    let newFilteredOptions: IcMenuOption[] = [];
+
+    options.map((option) => {
+      if (option.children) isGrouped = true;
+    });
+
+    let menuOptionsFiltered: IcMenuOption[];
+
+    if (this.searchable) {
+      menuOptionsFiltered = getFilteredMenuOptions(
+        options,
+        this.includeDescriptionsInSearch,
+        this.searchableSelectInputValue,
+        this.searchMatchPosition
+      );
+    } else {
+      menuOptionsFiltered = getFilteredMenuOptions(
+        options,
+        false,
+        this.pressedCharacters,
+        "start"
+      );
+    }
+
+    if (!isGrouped) {
+      newFilteredOptions = menuOptionsFiltered;
+    } else {
+      options.map((option) => {
+        if (this.includeGroupTitlesInSearch) {
+          if (menuOptionsFiltered.indexOf(option) !== -1) {
+            newFilteredOptions.push(option);
+          } else {
+            newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
+          }
+        } else {
+          newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
+        }
+      });
+    }
+
+    let noChildOptionsWhenFiltered = false;
+
+    if (isGrouped) {
+      noChildOptionsWhenFiltered = true;
+      newFilteredOptions.map((option) => {
+        if (option.children.length > 0) {
+          noChildOptionsWhenFiltered = false;
+        }
+      });
+    }
+
+    const noOptions = [{ label: this.emptyOptionListText, value: "" }];
+
+    if (newFilteredOptions.length > 0 && !noChildOptionsWhenFiltered) {
+      this.noOptions = null;
+      this.filteredOptions = newFilteredOptions;
+    } else {
+      this.noOptions = noOptions;
+      this.filteredOptions = this.noOptions;
+    }
   };
 
   private handleSearchableSelectInput = (event: Event): void => {
@@ -499,59 +619,7 @@ export class Select {
     }
 
     if (!this.disableFilter) {
-      const options = [...this.options];
-
-      let isGrouped = false;
-      let newFilteredOptions: IcMenuOption[] = [];
-
-      options.map((option) => {
-        if (option.children) isGrouped = true;
-      });
-
-      const menuOptionsFiltered = getFilteredMenuOptions(
-        options,
-        this.includeDescriptionsInSearch,
-        this.searchableSelectInputValue,
-        this.searchMatchPosition
-      );
-
-      if (!isGrouped) {
-        newFilteredOptions = menuOptionsFiltered;
-      } else {
-        options.map((option) => {
-          if (this.includeGroupTitlesInSearch) {
-            if (menuOptionsFiltered.indexOf(option) !== -1) {
-              newFilteredOptions.push(option);
-            } else {
-              newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
-            }
-          } else {
-            newFilteredOptions.push(this.getFilteredChildMenuOptions(option));
-          }
-        });
-      }
-
-      let noChildOptionsWhenFiltered = false;
-
-      if (isGrouped) {
-        noChildOptionsWhenFiltered = true;
-        newFilteredOptions.map((option) => {
-          if (option.children.length > 0) {
-            noChildOptionsWhenFiltered = false;
-          }
-        });
-      }
-
-      const noOptions = [{ label: this.emptyOptionListText, value: "" }];
-
-      if (newFilteredOptions.length > 0 && !noChildOptionsWhenFiltered) {
-        this.noOptions = null;
-        this.filteredOptions = newFilteredOptions;
-      } else {
-        this.noOptions = noOptions;
-        this.filteredOptions = this.noOptions;
-      }
-
+      this.handleFilter();
       this.debounceAriaLiveUpdate();
     }
   };
@@ -725,6 +793,7 @@ export class Select {
                 aria-invalid={invalid}
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}
+                onKeyDown={this.handleNativeSelectKeyDown}
                 {...this.inheritedAttributes}
               >
                 <option value="" selected disabled={!showClearButton}>
@@ -894,7 +963,7 @@ export class Select {
           {!isMobileOrTablet() && (
             <ic-menu
               class={{
-                "no-results": this.noOptions !== null,
+                "no-results": this.noOptions !== null && this.searchable,
               }}
               ref={(el) => (this.menu = el)}
               inputEl={
@@ -913,6 +982,7 @@ export class Select {
               onMenuStateChange={this.handleMenuChange}
               onMenuOptionSelect={this.handleCustomSelectChange}
               onMenuKeyPress={this.handleMenuKeyPress}
+              onUngroupedOptionsSet={this.setUngroupedOptions}
               parentEl={this.host}
             ></ic-menu>
           )}
