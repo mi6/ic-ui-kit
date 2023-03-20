@@ -1,0 +1,346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-tab-context component should render tab context with custom contextId 1`] = `
+<ic-tab-context context-id="custom-context">
+  <!---->
+  <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
+    <mock:shadow-root>
+      <ic-horizontal-scroll appearance="default">
+        <div class="tabs-container">
+          <slot></slot>
+        </div>
+      </ic-horizontal-scroll>
+    </mock:shadow-root>
+    <ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      One
+    </ic-tab>
+    <ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Two
+    </ic-tab>
+    <ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Three
+    </ic-tab>
+  </ic-tab-group>
+  <ic-tab-panel context-id="default" hidden="" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab One
+  </ic-tab-panel>
+  <ic-tab-panel context-id="default" hidden="" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Two
+  </ic-tab-panel>
+  <ic-tab-panel context-id="default" hidden="" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Three
+  </ic-tab-panel>
+</ic-tab-context>
+`;
+
+exports[`ic-tab-context component should render tab context with tabs - light appearance 1`] = `
+<ic-tab-context appearance="light" context-id="default">
+  <!---->
+  <ic-tab-group appearance="light" aria-label="Example tab group" class="light" context-id="default" label="Example tab group" role="tablist">
+    <mock:shadow-root>
+      <ic-horizontal-scroll appearance="light">
+        <div class="tabs-container">
+          <slot></slot>
+        </div>
+      </ic-horizontal-scroll>
+    </mock:shadow-root>
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-0-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      One
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Two
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Three
+    </ic-tab>
+  </ic-tab-group>
+  <ic-tab-panel aria-labelledby="ic-tab-0-context-default" context-id="default" hidden="" id="ic-tab-panel-0-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab One
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-1-context-default" context-id="default" hidden="" id="ic-tab-panel-1-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Two
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-2-context-default" context-id="default" hidden="" id="ic-tab-panel-2-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Three
+  </ic-tab-panel>
+</ic-tab-context>
+`;
+
+exports[`ic-tab-context component should render tab context with tabs - manual activation 1`] = `
+<ic-tab-context activation-type="manual" context-id="default">
+  <!---->
+  <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
+    <mock:shadow-root>
+      <ic-horizontal-scroll appearance="default">
+        <div class="tabs-container">
+          <slot></slot>
+        </div>
+      </ic-horizontal-scroll>
+    </mock:shadow-root>
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-0-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      One
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Two
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Three
+    </ic-tab>
+  </ic-tab-group>
+  <ic-tab-panel aria-labelledby="ic-tab-0-context-default" context-id="default" hidden="" id="ic-tab-panel-0-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab One
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-1-context-default" context-id="default" hidden="" id="ic-tab-panel-1-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Two
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-2-context-default" context-id="default" hidden="" id="ic-tab-panel-2-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Three
+  </ic-tab-panel>
+</ic-tab-context>
+`;
+
+exports[`ic-tab-context component should render tab context with tabs - selected tab 1`] = `
+<ic-tab-context context-id="default" selected-tab-index="2">
+  <!---->
+  <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
+    <mock:shadow-root>
+      <ic-horizontal-scroll appearance="default">
+        <div class="tabs-container">
+          <slot></slot>
+        </div>
+      </ic-horizontal-scroll>
+    </mock:shadow-root>
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-0-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      One
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Two
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Three
+    </ic-tab>
+  </ic-tab-group>
+  <ic-tab-panel aria-labelledby="ic-tab-0-context-default" context-id="default" hidden="" id="ic-tab-panel-0-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab One
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-1-context-default" context-id="default" hidden="" id="ic-tab-panel-1-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Two
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-2-context-default" context-id="default" hidden="" id="ic-tab-panel-2-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Three
+  </ic-tab-panel>
+</ic-tab-context>
+`;
+
+exports[`ic-tab-context component should render tab context with tabs 1`] = `
+<ic-tab-context context-id="default">
+  <!---->
+  <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
+    <mock:shadow-root>
+      <ic-horizontal-scroll appearance="default">
+        <div class="tabs-container">
+          <slot></slot>
+        </div>
+      </ic-horizontal-scroll>
+    </mock:shadow-root>
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-0-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      One
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-1-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-1-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Two
+    </ic-tab>
+    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="false" context-id="default" id="ic-tab-2-context-default" role="tab" tabindex="-1">
+      <mock:shadow-root>
+        <ic-typography class="ic-tab-label" variant="label">
+          <span>
+            <slot></slot>
+          </span>
+        </ic-typography>
+      </mock:shadow-root>
+      Three
+    </ic-tab>
+  </ic-tab-group>
+  <ic-tab-panel aria-labelledby="ic-tab-0-context-default" context-id="default" hidden="" id="ic-tab-panel-0-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab One
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-1-context-default" context-id="default" hidden="" id="ic-tab-panel-1-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Two
+  </ic-tab-panel>
+  <ic-tab-panel aria-labelledby="ic-tab-2-context-default" context-id="default" hidden="" id="ic-tab-panel-2-context-default" role="tabpanel">
+    <mock:shadow-root>
+      <div>
+        <slot></slot>
+      </div>
+    </mock:shadow-root>
+    Tab Three
+  </ic-tab-panel>
+</ic-tab-context>
+`;
