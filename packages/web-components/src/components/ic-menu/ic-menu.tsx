@@ -119,7 +119,12 @@ export class Menu {
   /**
    * @internal Emitted when key is pressed while menu is open
    */
-  @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean }>;
+  @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
+
+  /**
+   * @internal Emitted when the ungrouped options have been set.
+   */
+  @Event() ungroupedOptionsSet: EventEmitter<{ options: IcMenuOption[] }>;
 
   private handleClearListener = (): void => {
     this.optionHighlighted = "";
@@ -381,8 +386,8 @@ export class Menu {
     }
   };
 
-  private emitMenuKeyPress = (isNavKey: boolean) => {
-    this.menuKeyPress.emit({ isNavKey: isNavKey });
+  private emitMenuKeyPress = (isNavKey: boolean, key: string) => {
+    this.menuKeyPress.emit({ isNavKey: isNavKey, key: key });
   };
 
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
@@ -418,7 +423,6 @@ export class Menu {
         });
         this.keyboardNav = true;
         break;
-      case " ":
       case "Enter":
       case "Escape":
         this.handleMenuChange(false);
@@ -434,9 +438,12 @@ export class Menu {
         if (isSearchableSelect && event.key !== "Tab") {
           this.inputEl.focus();
         }
+        if (event.key.length === 1) {
+          this.keyboardNav = true;
+        }
         break;
     }
-    this.emitMenuKeyPress(this.keyboardNav);
+    this.emitMenuKeyPress(this.keyboardNav, event.key);
   };
 
   private handleMenuKeyUp = (event: KeyboardEvent): void => {
@@ -504,6 +511,7 @@ export class Menu {
       });
     }
     this.ungroupedOptions = this.getSortedOptions(this.ungroupedOptions);
+    this.ungroupedOptionsSet.emit({ options: this.ungroupedOptions });
   };
 
   private setMenuScrollbar = () => {
