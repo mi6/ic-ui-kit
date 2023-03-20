@@ -153,6 +153,19 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("form-in-search-slot");
   });
 
+  it("renders with slotted app-title content", async () => {
+    const page = await newSpecPage({
+      components: [TopNavigation],
+      html: `<ic-top-navigation
+        status="alpha"
+        version="v0.0.7"
+      >
+      <a slot="app-title" href="/">App Title</a>
+      </ic-top-navigation>`,
+    });
+    expect(page.root).toMatchSnapshot("renders-with-slotted-app-title-content");
+  });
+
   it("tests behaviour on small device", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, Button, NavigationMenu, SearchBar, TextField],

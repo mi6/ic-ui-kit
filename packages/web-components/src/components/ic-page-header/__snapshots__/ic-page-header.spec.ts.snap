@@ -278,6 +278,74 @@ exports[`ic-page-header component renders additional functionality should render
 </ic-page-header>
 `;
 
+exports[`ic-page-header component renders additional functionality should render with breadcrumbs: should render with breadcrumbs 1`] = `
+<ic-page-header heading="Coffee recipes" subheading="This is a simple page header component and this is the text.">
+  <mock:shadow-root>
+    <header class="border-bottom">
+      <ic-section-container aligned="left">
+        <div class="breadcrumb-area">
+          <slot name="breadcrumbs"></slot>
+        </div>
+        <div class="main-content">
+          <div class="title-area">
+            <div class="header-content">
+              <slot name="heading">
+                <ic-typography class="heading" variant="h2">
+                  <h2>
+                    Coffee recipes
+                  </h2>
+                </ic-typography>
+              </slot>
+              <slot name="heading-adornment"></slot>
+            </div>
+            <div>
+              <slot name="subheading">
+                <ic-typography class="subheading" variant="body">
+                  This is a simple page header component and this is the text.
+                </ic-typography>
+              </slot>
+            </div>
+          </div>
+        </div>
+      </ic-section-container>
+    </header>
+  </mock:shadow-root>
+  <ic-breadcrumb-group slot="breadcrumbs">
+    <mock:shadow-root>
+      <nav aria-label="breadcrumbs">
+        <ol>
+          <slot></slot>
+        </ol>
+      </nav>
+    </mock:shadow-root>
+    <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+      <mock:shadow-root>
+        <div class="breadcrumb">
+          <span aria-hidden="true" class="chevron">
+            svg
+          </span>
+          <ic-link class="breadcrumb-link" href="/breadcrumb-1">
+            Breadcrumb 1
+          </ic-link>
+        </div>
+      </mock:shadow-root>
+    </ic-breadcrumb>
+    <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+      <mock:shadow-root>
+        <div class="breadcrumb">
+          <span aria-hidden="true" class="chevron">
+            svg
+          </span>
+          <span class="current-page-container">
+            Breadcrumb 2
+          </span>
+        </div>
+      </mock:shadow-root>
+    </ic-breadcrumb>
+  </ic-breadcrumb-group>
+</ic-page-header>
+`;
+
 exports[`simple ic-page-header renders should render with a heading & sub-heading: should render with a heading & sub-heading 1`] = `
 <ic-page-header heading="Page header" subheading="This is a simple page header component and this is the text.">
   <mock:shadow-root>
