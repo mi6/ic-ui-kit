@@ -728,15 +728,31 @@ export namespace Components {
     interface IcNavigationItem {
         "collapsedIconLabel": boolean;
         "displayNavigationTooltip": boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
         "expandable": boolean;
         /**
           * The destination of the navigation item.
          */
         "href": string;
         /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
           * The label of the navigation item.
          */
         "label": string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
         /**
           * If `true`, the navigation item will be set in a selected state.
          */
@@ -745,6 +761,10 @@ export namespace Components {
           * Sets focus on the nav item.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
     }
     interface IcNavigationMenu {
         /**
@@ -2658,11 +2678,19 @@ declare namespace LocalJSX {
     interface IcNavigationItem {
         "collapsedIconLabel"?: boolean;
         "displayNavigationTooltip"?: boolean;
+        /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
         "expandable"?: boolean;
         /**
           * The destination of the navigation item.
          */
         "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
         /**
           * The label of the navigation item.
          */
@@ -2670,9 +2698,21 @@ declare namespace LocalJSX {
         "onChildBlur"?: (event: IcNavigationItemCustomEvent<void>) => void;
         "onNavItemClicked"?: (event: IcNavigationItemCustomEvent<void>) => void;
         /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
           * If `true`, the navigation item will be set in a selected state.
          */
         "selected"?: boolean;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
     }
     interface IcNavigationMenu {
         "onIcNavigationMenuClose"?: (event: IcNavigationMenuCustomEvent<void>) => void;
