@@ -8,7 +8,7 @@ import {
   Method,
 } from "@stencil/core";
 
-import OpenInNew from "./assets/OpenInNew.svg";
+import OpenInNew from "../../assets/OpenInNew.svg";
 import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
