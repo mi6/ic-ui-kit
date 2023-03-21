@@ -35,6 +35,40 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Async select default
+
+<Canvas>
+  <Story name="Async select default" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-select label="What is your favourite coffee?"></ic-select>
+        <script>
+          var select = document.querySelector("ic-select");
+          var option = "Cappuccino";
+          select.options = [];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          setTimeout(() => {
+            select.options = [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Latte", value: "Lat" },
+              { label: "Americano", value: "Ame" },
+              { label: "Filter", value: "Fil" },
+              { label: "Flat white", value: "Fla" },
+              { label: "Mocha", value: "Moc" },
+              { label: "Macchiato", value: "Mac" },
+              { label: "Café au lait", value: "Caf" },
+              { label: "Espresso", value: "Esp" },
+              { label: "Cortado", value: "Cor" },
+              { label: "Ristretto", value: "Ris" },
+            ];
+          }, 2000);
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### Default value
 
 <Canvas>
@@ -564,6 +598,43 @@ import readme from "./readme.md";
             option = event.detail.value;
             select.value = option;
           });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Async searchable default
+
+<Canvas>
+  <Story name="Async searchable default" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-select
+          label="What is your favourite coffee?"
+          searchable
+        ></ic-select>
+        <script>
+          var select = document.querySelector("ic-select");
+          var option = "Cappuccino";
+          select.options = [];
+          select.addEventListener("icChange", function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          setTimeout(() => {
+            select.options = [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Latte", value: "Lat" },
+              { label: "Americano", value: "Ame" },
+              { label: "Filter", value: "Fil" },
+              { label: "Flat white", value: "Fla" },
+              { label: "Mocha", value: "Moc" },
+              { label: "Macchiato", value: "Mac" },
+              { label: "Café au lait", value: "Caf" },
+              { label: "Espresso", value: "Esp" },
+              { label: "Cortado", value: "Cor" },
+              { label: "Ristretto", value: "Ris" },
+            ];
+          }, 2000);
         </script>`
     }
   </Story>

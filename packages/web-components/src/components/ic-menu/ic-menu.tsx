@@ -506,6 +506,17 @@ export class Menu {
     this.ungroupedOptions = this.getSortedOptions(this.ungroupedOptions);
   };
 
+  private setMenuScrollbar = () => {
+    let optionsHeight = 0;
+    this.host.shadowRoot
+      .querySelectorAll(".option")
+      .forEach((option) => (optionsHeight += option.clientHeight));
+
+    if (optionsHeight >= 320) {
+      this.menu.classList.add("menu-scroll");
+    }
+  };
+
   connectedCallback(): void {
     if (this.parentEl?.tagName === "IC-SEARCH-BAR") {
       this.setHighlightedOption(0);
@@ -526,13 +537,6 @@ export class Menu {
       (this.parentEl as HTMLIcSearchBarElement).disableFilter
     ) {
       this.focusFromSearchKeypress = true;
-    }
-    let optionsHeight = 0;
-    this.host.shadowRoot
-      .querySelectorAll(".option")
-      .forEach((option) => (optionsHeight += option.clientHeight));
-    if (optionsHeight >= 320) {
-      this.menu.classList.add("menu-scroll");
     }
 
     onComponentRequiredPropUndefined(
@@ -567,6 +571,10 @@ export class Menu {
           },
         ],
       });
+    }
+
+    if (this.open && !!this.options.length) {
+      this.setMenuScrollbar();
     }
   }
 
