@@ -7,6 +7,19 @@ const options = `[
   { label: 'Test label 3', value: 'Test value 3' },
 ]`;
 
+const largeOptions = `[
+  { label: 'Test label 1', value: 'Test value 1' },
+  { label: 'Test label 2', value: 'Test value 2' },
+  { label: 'Test label 3', value: 'Test value 3' },
+  { label: 'Test label 4', value: 'Test value 4' },
+  { label: 'Test label 5', value: 'Test value 5' },
+  { label: 'Test label 6', value: 'Test value 6' },
+  { label: 'Test label 7', value: 'Test value 7' },
+  { label: 'Test label 8', value: 'Test value 8' },
+  { label: 'Test label 9', value: 'Test value 9' },
+  { label: 'Test label 10', value: 'Test value 10' },
+]`;
+
 const searchableOptions = `[
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
@@ -79,6 +92,16 @@ const getTestSearchableSelectAsync = () =>
         select.options = []
       }, 800)
     </script>`;
+
+const getTestSelectAsync = (firstDataset: string, secondDataset: string) =>
+  `<ic-select label="IC Select Test" value="Test value"></ic-select>
+      <script>
+        var select = document.querySelector('ic-select');
+        select.options = ${firstDataset};
+        window.setTimeout(() => {
+          select.options = ${secondDataset}
+        }, 1500)
+      </script>`;
 
 const getMenuVisibility = async (page: E2EPage) => {
   const menuVisibility = await page.evaluate(() => {
@@ -1870,6 +1893,58 @@ describe("ic-select", () => {
       );
 
       expect(selectClassName).toBe("select-option-selected");
+    });
+
+    it("should add .menu-scroll to menu components when options height is over 320", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSelect(largeOptions));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select >>> button.select-input");
+      await select.click();
+      await page.waitForChanges();
+
+      const menuClasses = await page.evaluate(() => {
+        const menu = document
+          .querySelector("ic-select")
+          .shadowRoot.querySelector("ic-menu")
+          .shadowRoot.querySelector(".menu");
+        return menu.classList;
+      });
+
+      expect(Object.values(menuClasses).includes("menu-scroll")).toBeTruthy();
+    });
+
+    it("should add .menu-scroll to menu components when options are initially set and then populated with large data set", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSelectAsync(options, largeOptions));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select >>> button.select-input");
+      await select.click();
+      await page.waitForChanges();
+
+      let menuClasses = await page.evaluate(() => {
+        const menu = document
+          .querySelector("ic-select")
+          .shadowRoot.querySelector("ic-menu")
+          .shadowRoot.querySelector(".menu");
+        return menu.classList;
+      });
+
+      expect(Object.values(menuClasses).includes("menu-scroll")).toBeFalsy();
+
+      await page.waitForTimeout(1200);
+
+      menuClasses = await page.evaluate(() => {
+        const menu = document
+          .querySelector("ic-select")
+          .shadowRoot.querySelector("ic-menu")
+          .shadowRoot.querySelector(".menu");
+        return menu.classList;
+      });
+
+      expect(Object.values(menuClasses).includes("menu-scroll")).toBeTruthy();
     });
   });
 });
