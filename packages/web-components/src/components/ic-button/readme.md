@@ -61,6 +61,7 @@ Type: `Promise<void>`
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-navigation-button](../ic-navigation-button)
  - [ic-navigation-menu](../ic-navigation-menu)
+ - [ic-pagination](../ic-pagination)
  - [ic-search-bar](../ic-search-bar)
  - [ic-select](../ic-select)
  - [ic-side-navigation](../ic-side-navigation)
@@ -84,6 +85,7 @@ graph TD;
   ic-horizontal-scroll --> ic-button
   ic-navigation-button --> ic-button
   ic-navigation-menu --> ic-button
+  ic-pagination --> ic-button
   ic-search-bar --> ic-button
   ic-select --> ic-button
   ic-side-navigation --> ic-button

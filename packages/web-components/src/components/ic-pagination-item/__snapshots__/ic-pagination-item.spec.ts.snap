@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pagination- item should emit an event: a page pagination-item type with click event 1`] = `
+<ic-pagination-item type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to page undefined" class="item-container page undefined" role="button" tabindex="0">
+        <ic-typography variant="label"></ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`pagination- item should render: a page pagination-item type 1`] = `
+<ic-pagination-item type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to page undefined" class="item-container page undefined" role="button" tabindex="0">
+        <ic-typography variant="label"></ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`pagination- item should render: an ellipsis pagination-item type 1`] = `
+<ic-pagination-item type="ellipsis">
+  <mock:shadow-root>
+    <a>
+      <div class="ellipsis item-container undefined">
+        <ic-typography variant="label">
+          ...
+        </ic-typography>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`pagination- item should render: is rendered 1`] = `
+<ic-pagination-item>
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to page undefined" class="item-container undefined" role="button" tabindex="0"></button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;

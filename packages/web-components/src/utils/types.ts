@@ -173,3 +173,5 @@ export interface IcValueEventDetail {
 export interface IcBlurEventDetail {
   relatedTarget: IcRelatedTarget;
 }
+
+export type IcPaginationItemType = "page" | "ellipsis" | "simple-current";

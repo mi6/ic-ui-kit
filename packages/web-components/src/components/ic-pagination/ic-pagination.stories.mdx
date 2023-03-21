@@ -1,0 +1,158 @@
+import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import readme from "./readme.md";
+import { html } from "lit-html";
+
+<Meta title="Web Components/Pagination" component="Pagination" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Simple">
+    {(args) => html`
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Default<ic-pagination pages="15" />
+      </div>
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Dark<ic-pagination pages="15" appearance="dark" />
+      </div>
+      <div
+        style="border: 1px black solid; margin: 1rem 4rem; border-radius:10px; padding: 1rem; width: 30vw; background-color: black"
+      >
+        <p style="color: white">Light</p>
+        <ic-pagination pages="15" appearance="light" />
+      </div>
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Hidden current page<ic-pagination pages="15" hide-current-page />
+      </div>
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Default page<ic-pagination pages="15" default-page="3" />
+      </div>
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Hide first/last buttons<ic-pagination
+          pages="15"
+          hide-first-page-button
+          hide-last-page-button
+        />
+      </div>
+      <div
+        style="border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 30vw;"
+      >
+        Loading state<ic-pagination pages="15" loading />
+      </div>
+    `}
+  </Story>
+  <Story name="Complex">
+    {(args) => html`
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        <p>Complex default</p>
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="1"
+          boundary-count="1"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw; background-color: black;"
+      >
+        <p style="color: white">Complex light</p>
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="1"
+          boundary-count="1"
+          appearance="light"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex dark
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="1"
+          boundary-count="1"
+          appearance="dark"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex Adjacent-count 2 & Boundary-count 2
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="20"
+          type="complex"
+          adjacent-count="2"
+          boundary-count="2"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex Adjacent-count 0 & Boundary-count 1
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="0"
+          boundary-count="1"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex Adjacent-count 0 & Boundary-count 2
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="0"
+          boundary-count="2"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex Adjacent-count 1 & Boundary-count 0
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="1"
+          boundary-count="0"
+        />
+      </div>
+      <div
+        style="height: 8rem; border: 1px black solid; border-radius:10px; margin: 1rem 4rem; padding: 1rem; width: 40vw;"
+      >
+        Complex Adjacent-count 2 & Boundary-count 0
+        <ic-pagination
+          style="margin: 2rem 1rem;"
+          pages="15"
+          type="complex"
+          adjacent-count="2"
+          boundary-count="0"
+        />
+      </div>
+    `}
+  </Story>
+</Canvas>

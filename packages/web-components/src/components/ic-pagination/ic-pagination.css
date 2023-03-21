@@ -1,0 +1,46 @@
+@import "../../global/normalize.css";
+
+:host {
+  box-sizing: border-box;
+  height: var(--ic-space-xxl);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  pointer-events: none;
+  user-select: none;
+}
+
+nav {
+  width: 100%;
+  height: var(--ic-space-xl);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ic-button {
+  cursor: pointer;
+  margin: 0 var(--ic-space-xs);
+}
+
+ic-button.next-previous {
+  --icon-width: var(--ic-space-xs);
+  --icon-height: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
+}
+
+ic-button.first-last {
+  --icon-width: calc(var(--ic-space-sm) + var(--ic-space-xxxs));
+  --icon-height: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
+}
+
+.disabled {
+  color: var(--ic-architectural-200);
+  pointer-events: none;
+  cursor: none;
+}
