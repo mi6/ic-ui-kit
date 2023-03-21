@@ -49,7 +49,7 @@ export const config: Config = {
       "\\.svg": "<rootDir>/mocks/svgMock.ts",
     },
     coverageThreshold: {
-      './src/components': {
+      './src/components/*/*.tsx': {
         branches: 80,
         functions: 80,
         lines: 80,
