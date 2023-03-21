@@ -15,6 +15,7 @@
     "build-storybook:web-components": "lerna run build-storybook --scope @ukic/web-components",
     "build-storybook:react": "lerna run build-storybook --scope @ukic/react",
     "test:ci": "npm run test",
+    "test:coverage-ci": "npm run test:coverage",
     "test-visual": "npm run build && npm run build-storybook:web-components && lerna run test-visual --stream",
     "test-visual:ci": "npm run build && npm run build-storybook:web-components && lerna run test-visual:ci --stream",
     "test-visual:update": "lerna run test-visual:update --stream",
