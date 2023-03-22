@@ -61,7 +61,10 @@ export class Select {
   private inheritedAttributes: { [k: string]: unknown } = {};
 
   private debounceAria: number;
-  private hasSetSearchableDefaultValue = false;
+  private hasSetDefaultValue = false;
+
+  private initialRender = false;
+  private initialOptionsEmpty = false;
 
   private characterKeyPressTimer: number;
 
@@ -200,8 +203,6 @@ export class Select {
 
   @State() pressedCharacters: string = "";
 
-  private initialRender = false;
-
   @Watch("options")
   watchOptionsHandler(): void {
     if (this.isExternalFiltering()) {
@@ -220,10 +221,15 @@ export class Select {
       }
 
       this.updateSearchableSelectResultAriaLive();
-      this.setSearchableDefaultValue();
+      this.setDefaultValue();
     } else {
       this.setOptionsValuesFromLabels();
       this.filteredOptions = this.options;
+
+      if (this.initialOptionsEmpty) {
+        this.setDefaultValue();
+        this.initialOptionsEmpty = false;
+      }
     }
   }
 
@@ -649,11 +655,11 @@ export class Select {
   private getDefaultValue = (value: string): string | null =>
     this.getLabelFromValue(value) || value || null;
 
-  private setSearchableDefaultValue() {
-    if (!this.hasSetSearchableDefaultValue && this.value && this.searchable) {
+  private setDefaultValue() {
+    if (!this.hasSetDefaultValue && this.value) {
       this.searchableSelectInputValue = this.getDefaultValue(this.value);
       this.initialValue = this.value;
-      this.hasSetSearchableDefaultValue = true;
+      this.hasSetDefaultValue = true;
     }
   }
 
@@ -697,8 +703,10 @@ export class Select {
 
     this.initialRender = true;
 
-    if (!this.disableFilter) {
-      this.setSearchableDefaultValue();
+    if (!this.options.length) {
+      this.initialOptionsEmpty = true;
+    } else if (!this.disableFilter) {
+      this.setDefaultValue();
     }
   }
 
