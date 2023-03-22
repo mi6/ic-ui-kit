@@ -1454,4 +1454,48 @@ describe("ic-select", () => {
     expect(page.rootInstance.pressedCharacters).toBe("C ");
     expect(page.rootInstance.open).toBe(true);
   });
+
+  it("should set the default value of searchable as option label when options initially set to [] then populated", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      template: () => (
+        <ic-select
+          label="select test"
+          searchable
+          options={[]}
+          value="Test value 1"
+        ></ic-select>
+      ),
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe("Test label 1");
+
+    const input = page.root.shadowRoot.querySelector("input");
+    expect(input.value).toBe("Test label 1");
+  });
+
+  it("should set the default value to custom value when options initially set to [] then set to [] again", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      template: () => (
+        <ic-select
+          label="select test"
+          searchable
+          options={[]}
+          value="Test value 1"
+        ></ic-select>
+      ),
+    });
+
+    page.root.options = [];
+    await page.waitForChanges();
+
+    expect(page.rootInstance.searchableSelectInputValue).toBe("Test value 1");
+
+    const input = page.root.shadowRoot.querySelector("input");
+    expect(input.value).toBe("Test value 1");
+  });
 });
