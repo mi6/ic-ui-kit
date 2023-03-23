@@ -558,7 +558,10 @@ export class SearchBar {
   private isSubmitDisabled = (): boolean => {
     const valueNotSet =
       this.value === undefined || this.value === null || this.value === "";
-    return valueNotSet || this.disabled || this.hadNoOptions();
+    const valueLengthLess = this.value.length < this.charactersUntilSuggestion;
+    return (
+      valueNotSet || valueLengthLess || this.disabled || this.hadNoOptions()
+    );
   };
 
   private highlightFirstOptionAfterNoResults = () => {
