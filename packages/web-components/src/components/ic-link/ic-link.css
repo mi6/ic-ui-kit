@@ -27,10 +27,23 @@
 :host(.link) .ic-link:focus,
 :host(.link) ::slotted(a:hover),
 :host(.link) ::slotted(a:focus) {
-  text-decoration-line: underline;
-  text-decoration-thickness: 25%;
-  text-underline-offset: 25%;
   outline: none;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
+}
+
+@supports (text-decoration-thickness: 25%) {
+  :host(.link) .ic-link:hover,
+  :host(.link) .ic-link:focus,
+  :host(.link) ::slotted(a:hover),
+  :host(.link) ::slotted(a:focus) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 25%;
+    text-underline-offset: 25%;
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 :host(.link) .ic-link:active,
