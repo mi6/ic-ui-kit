@@ -80,9 +80,22 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a:link:focus,
 :host(.footer-link) a ::slotted(a:link:hover),
 :host(.footer-link) a ::slotted(a:link:focus) {
-  text-decoration-line: underline;
-  text-decoration-thickness: 25%;
-  text-underline-offset: 25%;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
+}
+
+@supports (text-decoration-thickness: 25%) {
+  :host(.footer-link) a:link:hover,
+  :host(.footer-link) a:link:focus,
+  :host(.footer-link) a ::slotted(a:link:hover),
+  :host(.footer-link) a ::slotted(a:link:focus) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 25%;
+    text-underline-offset: 25%;
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 :host(.footer-link) a:link:hover,

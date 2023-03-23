@@ -38,7 +38,7 @@
 }
 
 ic-link {
-  --breadcrumb-link-display: flex;
+  --breadcrumb-link-display: inline-flex;
   --breadcrumb-link-align-items: center;
   --breadcrumb-link-gap: var(--ic-space-xs);
 }
@@ -68,9 +68,9 @@ ic-link {
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:hover),
 :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:focus) {
   outline: var(--ic-hc-focus-outline);
-  text-decoration-line: underline;
-  text-decoration-thickness: 25%;
-  text-underline-offset: 25%;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
 }
 
 .hide,
@@ -81,5 +81,20 @@ ic-link {
 @media (forced-colors: active) {
   .back-icon svg {
     color: currentcolor;
+  }
+}
+
+@supports (text-decoration-thickness: 25%) {
+  ic-link {
+    --breadcrumb-link-display: flex;
+  }
+
+  :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:hover),
+  :host(.collapsed-breadcrumb-wrapper) ::slotted(.collapsed-breadcrumb:focus) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 25%;
+    text-underline-offset: 25%;
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 }

@@ -82,8 +82,22 @@ button {
 .card.clickable:hover .card-title,
 .card.clickable:focus .card-title,
 .card.clickable.focussed .card-title {
-  text-decoration-thickness: 25%;
-  text-underline-offset: 25%;
+  display: inline-block;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
+}
+
+@supports (text-decoration-thickness: 25%) {
+  .card.clickable:hover .card-title,
+  .card.clickable:focus .card-title,
+  .card.clickable.focussed .card-title {
+    text-decoration-line: underline;
+    text-decoration-thickness: 25%;
+    text-underline-offset: 25%;
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 .card.clickable:active .card-title {
