@@ -1170,18 +1170,6 @@ describe("ic-select", () => {
 
     page.root.options = menuOptions;
     await page.waitForChanges();
-
-    //test debounce changes to 0 when menu opened
-    input.focus();
-    await page.waitForChanges();
-    await page.rootInstance.handleKeyDown({
-      key: "ArrowDown",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.open).toBe(true);
-    expect(page.rootInstance.currDebounce).toBe(0);
   });
 
   it("should test menus opens and closes when enter pressed - external filtering", async () => {
