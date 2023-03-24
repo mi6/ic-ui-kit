@@ -199,6 +199,8 @@ export class Select {
 
   @State() currDebounce = this.debounce;
 
+  @State() currValue = this.value;
+
   @State() debounceIcChange: number;
 
   @State() pressedCharacters: string = "";
@@ -236,6 +238,13 @@ export class Select {
   @Watch("debounce")
   debounceChangedHandler(newValue: number) {
     this.updateOnChangeDebounce(newValue);
+  }
+
+  @Watch("value")
+  valueChangedHandler() {
+    if (this.value !== this.currValue) {
+      this.currValue = this.value;
+    }
   }
 
   /**
@@ -292,6 +301,7 @@ export class Select {
   }
 
   private emitIcChange = (value: string) => {
+    this.value = value;
     clearTimeout(this.debounceIcChange);
     this.debounceIcChange = window.setTimeout(() => {
       this.icChange.emit({ value: value });
@@ -299,6 +309,7 @@ export class Select {
   };
 
   private emitImmediateIcChange = (value: string) => {
+    this.value = value;
     clearTimeout(this.debounceIcChange);
     this.icChange.emit({ value: value });
   };
@@ -395,7 +406,7 @@ export class Select {
 
     this.ariaActiveDescendant = event.detail.optionId;
     this.icOptionSelect.emit({ value: event.detail.value });
-    this.emitImmediateIcChange(event.detail.value);
+    this.emitIcChange(event.detail.value);
   };
 
   private handleMenuChange = (event: CustomEvent): void => {
@@ -409,8 +420,6 @@ export class Select {
   // to prevent delay in change event, which should only occur when typing in input
   private handleMenuKeyPress = (ev: CustomEvent): void => {
     ev.cancelBubble = true;
-    const debounce = ev.detail.isNavKey ? 0 : this.debounce;
-    this.debounceChangedHandler(debounce);
     this.handleCharacterKeyDown(ev.detail.key);
   };
 
@@ -521,9 +530,6 @@ export class Select {
       this.setMenuChange(false);
     } else {
       if (!(isArrowKey && this.noOptions !== null) && this.isMenuEnabled()) {
-        if (this.isExternalFiltering() && isArrowKey && this.debounce > 0) {
-          this.debounceChangedHandler(0);
-        }
         if (!(event.key === " " && this.pressedCharacters.length > 0)) {
           this.menu.handleKeyboardOpen(event);
         }
@@ -656,17 +662,14 @@ export class Select {
     this.getLabelFromValue(value) || value || null;
 
   private setDefaultValue() {
-    if (!this.hasSetDefaultValue && this.value) {
-      this.searchableSelectInputValue = this.getDefaultValue(this.value);
-      this.initialValue = this.value;
+    if (!this.hasSetDefaultValue && this.currValue) {
+      this.searchableSelectInputValue = this.getDefaultValue(this.currValue);
+      this.initialValue = this.currValue;
       this.hasSetDefaultValue = true;
     }
   }
 
   private onFocus = (): void => {
-    if (this.isExternalFiltering() && this.debounce > 0) {
-      this.debounceChangedHandler(this.debounce);
-    }
     this.icFocus.emit();
   };
 
@@ -749,10 +752,10 @@ export class Select {
       showClearButton,
       validationStatus,
       validationText,
-      value,
+      currValue,
     } = this;
 
-    renderHiddenInput(true, this.host, name, value, disabled);
+    renderHiddenInput(true, this.host, name, currValue, disabled);
 
     const invalid =
       validationStatus === IcInformationStatus.Error ? "true" : "false";
@@ -787,7 +790,7 @@ export class Select {
           >
             {readonly ? (
               <ic-typography>
-                <p>{this.getLabelFromValue(value)}</p>
+                <p>{this.getLabelFromValue(currValue)}</p>
               </ic-typography>
             ) : isMobileOrTablet() ? (
               <select
@@ -815,7 +818,7 @@ export class Select {
                           <option
                             value={option.value}
                             disabled={option.disabled}
-                            selected={option.value === value}
+                            selected={option.value === currValue}
                           >
                             {option.label}
                           </option>
@@ -827,7 +830,7 @@ export class Select {
                       <option
                         value={option.value}
                         disabled={option.disabled}
-                        selected={option.value === value}
+                        selected={option.value === currValue}
                       >
                         {option.label}
                       </option>
@@ -866,7 +869,7 @@ export class Select {
                         id="clear-button"
                         ref={(el) => (this.clearButton = el)}
                         aria-label={
-                          this.searchableSelectInputValue && value === null
+                          this.searchableSelectInputValue && currValue === null
                             ? "Clear input"
                             : "Clear selection"
                         }
@@ -891,7 +894,9 @@ export class Select {
                   class={{
                     "expand-icon": true,
                     "expand-icon-open": this.open,
-                    "expand-icon-filled": !(value == null || value === ""),
+                    "expand-icon-filled": !(
+                      currValue == null || currValue === ""
+                    ),
                     "expand-icon-disabled": !this.isMenuEnabled(),
                   }}
                   innerHTML={Expand}
@@ -910,7 +915,7 @@ export class Select {
                   ref={(el) => (this.customSelectElement = el)}
                   id={this.inputId}
                   aria-label={`${label}, ${
-                    this.getLabelFromValue(value) || placeholder
+                    this.getLabelFromValue(currValue) || placeholder
                   }${required ? ", required" : ""}`}
                   aria-describedby={describedBy}
                   aria-invalid={invalid}
@@ -929,25 +934,30 @@ export class Select {
                     variant="body"
                     class={{
                       "value-text": true,
-                      placeholder: this.getLabelFromValue(value) === undefined,
+                      placeholder:
+                        this.getLabelFromValue(currValue) === undefined,
                     }}
                   >
-                    <p>{this.getLabelFromValue(value) || placeholder}</p>
+                    <p>{this.getLabelFromValue(currValue) || placeholder}</p>
                   </ic-typography>
                   <div class="select-input-end">
-                    {value && showClearButton && <div class="divider"></div>}
+                    {currValue && showClearButton && (
+                      <div class="divider"></div>
+                    )}
                     <span
                       class={{
                         "expand-icon": true,
                         "expand-icon-open": this.open,
-                        "expand-icon-filled": !(value == null || value === ""),
+                        "expand-icon-filled": !(
+                          currValue == null || currValue === ""
+                        ),
                       }}
                       innerHTML={Expand}
                       aria-hidden="true"
                     />
                   </div>
                 </button>
-                {value && showClearButton && (
+                {currValue && showClearButton && (
                   <ic-button
                     id="clear-button"
                     aria-label="Clear selection"
@@ -985,7 +995,7 @@ export class Select {
               menuId={menuId}
               open={this.open}
               options={searchable ? this.filteredOptions : options}
-              value={value}
+              value={currValue}
               fullWidth={fullWidth}
               onMenuStateChange={this.handleMenuChange}
               onMenuOptionSelect={this.handleCustomSelectChange}
