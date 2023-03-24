@@ -157,13 +157,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Default">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -175,13 +173,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Default value">
     {() => {
-      const [value, setValue] = useState("Cap");
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -193,14 +189,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="With clear button">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           showClearButton
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -212,13 +206,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="With description">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={optionsWithDescriptions}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -230,14 +222,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Helper text">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           helperText="Some helper text"
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -249,14 +239,13 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Custom placeholder">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           placeholder="Placeholder goes here"
           options={options}
           value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -268,14 +257,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Small">
     {() => {
-      const [value, setValue] = useState(null);
-      return (
+       return (
         <IcSelect
           label="What is your favourite coffee?"
           small
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -287,14 +274,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Disabled">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           disabled
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -306,13 +291,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Disabled options">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={optionsWithDisabled}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -324,14 +307,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Full width">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           fullWidth
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -343,14 +324,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Hidden label">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           hideLabel
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -362,14 +341,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Required">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           required
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -381,14 +358,13 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Read-only">
     {() => {
-      const [value, setValue] = useState("Cap");
       return (
         <IcSelect
           label="What is your favourite coffee?"
           readonly
           options={options}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          value="Cap"
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -400,13 +376,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Groups">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={groupedOptions}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -418,13 +392,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Recommended">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={optionsWithRecommended}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -436,9 +408,6 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Validation">
     {() => {
-      const [value1, setValue1] = useState(null);
-      const [value2, setValue2] = useState(null);
-      const [value3, setValue3] = useState(null);
       return (
         <div>
           <IcSelect
@@ -446,7 +415,6 @@ export const searchableOptionsWithRecommended = [
             validationStatus="success"
             validationText="Success message"
             options={options}
-            value={value1}
             onIcChange={(event) => setValue1(event.detail.value)}
           ></IcSelect>
           <IcSelect
@@ -454,7 +422,6 @@ export const searchableOptionsWithRecommended = [
             validationStatus="warning"
             validationText="Warning message"
             options={options}
-            value={value2}
             onIcChange={(event) => setValue2(event.detail.value)}
           ></IcSelect>
           <IcSelect
@@ -462,7 +429,6 @@ export const searchableOptionsWithRecommended = [
             validationStatus="error"
             validationText="Error message"
             options={options}
-            value={value3}
             onIcChange={(event) => setValue3(event.detail.value)}
           ></IcSelect>
         </div>
@@ -476,13 +442,11 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Scroll behaviour">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={manyOptions}
-          value={value}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -494,14 +458,12 @@ export const searchableOptionsWithRecommended = [
 <Canvas>
   <Story name="Searchable default">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -509,14 +471,13 @@ export const searchableOptionsWithRecommended = [
 </Canvas>
 
 export const SearchableDefaultValue = () => {
-  const [value, setValue] = useState('Cap'); 
   return (
     <IcSelect
       label="What is your favourite coffee?"
       required
-      value={value}
+      value="Cap"
       options={searchableOptions}
-      onIcChange={e => setValue(e.detail.value || '')}
+      onIcChange={e => console.log(e.detail.value)}
       searchable
       showClearButton
     />
@@ -535,15 +496,14 @@ export const SearchableDefaultValue = () => {
 </Canvas>
 
 export const SearchableFormDefaultValue = () => {
-  const [value, setValue] = useState('Cap'); 
   return (
     <form>
       <IcSelect
         label="What is your favourite coffee?"
         required
-        value={value}
+        value="Cap"
         options={searchableOptions}
-        onIcChange={e => setValue(e.detail.value || '')}
+        onIcChange={e => console.log(e.detail.value)}
         searchable
         showClearButton
       />
@@ -568,15 +528,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable filter by start of options">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           filterMatchPosition="start"
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -588,15 +546,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable characters until suggestions">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           charactersUntilSuggestions={3}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -608,14 +564,12 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable with description">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptionsWithDescriptions}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -627,15 +581,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable with description (included in search)">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptionsWithDescriptions}
-          value={value}
           searchable
           includeDescriptionsInSearch
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -647,15 +599,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable helper text">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           helperText="Some helper text"
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -667,15 +617,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable small">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           small
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -687,15 +635,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable disabled">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           disabled
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -707,14 +653,12 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable disabled options">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptionsWithDisabled}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -726,15 +670,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable hidden label">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           hideLabel
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -746,15 +688,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable required">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptions}
-          value={value}
           searchable
           required
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -766,14 +706,12 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable groups">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={groupedOptions}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -785,15 +723,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable groups (group titles included in search)">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={groupedOptions}
-          value={value}
           searchable
           includeGroupTitlesInSearch
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -805,15 +741,13 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable groups characters until suggestions">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={groupedOptions}
-          value={value}
           searchable
           charactersUntilSuggestions={3}
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -825,14 +759,12 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable recommended">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={searchableOptionsWithRecommended}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -844,9 +776,6 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable validation">
     {() => {
-      const [value1, setValue1] = useState(null);
-      const [value2, setValue2] = useState(null);
-      const [value3, setValue3] = useState(null);
       return (
         <div>
           <IcSelect
@@ -854,7 +783,6 @@ export const SearchableFormDefaultValue = () => {
             validationStatus="success"
             validationText="Success message"
             options={options}
-            value={value1}
             searchable
             onIcChange={(event) => setValue1(event.detail.value)}
           ></IcSelect>
@@ -863,7 +791,6 @@ export const SearchableFormDefaultValue = () => {
             validationStatus="warning"
             validationText="Warning message"
             options={options}
-            value={value2}
             searchable
             onIcChange={(event) => setValue2(event.detail.value)}
           ></IcSelect>
@@ -872,7 +799,6 @@ export const SearchableFormDefaultValue = () => {
             validationStatus="error"
             validationText="Error message"
             options={options}
-            value={value3}
             searchable
             onIcChange={(event) => setValue3(event.detail.value)}
           ></IcSelect>
@@ -887,14 +813,12 @@ export const SearchableFormDefaultValue = () => {
 <Canvas>
   <Story name="Searchable many options">
     {() => {
-      const [value, setValue] = useState(null);
       return (
         <IcSelect
           label="What is your favourite coffee?"
           options={manyOptions}
-          value={value}
           searchable
-          onIcChange={(event) => setValue(event.detail.value)}
+          onIcChange={(event) => console.log(event.detail.value)}
         ></IcSelect>
       );
     }}
@@ -916,7 +840,6 @@ export const ExternalFiltering = () => {
     { label: "Macchiato", value: "Mac" },
   ];
   const [query, setQuery] = useState('');
-  const [value, setValue] = useState(null);
   const [selectedValue, setSelectedValue] = useState(null);
   const [results, setResults] = useState([]);
   useEffect(() => {
@@ -933,7 +856,7 @@ export const ExternalFiltering = () => {
     }
   },[query])
   const handleChange = (event) => {
-    setValue(event.detail.value);
+    console.log(event.detail.value);
     setQuery(event.detail.value);
   }
   const handleOptionSelect = (event) =>{
@@ -943,7 +866,7 @@ export const ExternalFiltering = () => {
     setResults([]);
   }
   return (
-    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter charactersUntilSuggestions="2" options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear} value={value}/>
+    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter charactersUntilSuggestions="2" options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear}/>
   );
 };
 
