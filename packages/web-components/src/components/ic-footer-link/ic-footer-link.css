@@ -34,7 +34,8 @@
 
 :host(.footer-link) a,
 :host(.footer-link) a ::slotted(a) {
-  display: block;
+  display: flex;
+  align-items: flex-end;
   font-weight: var(--ic-font-weight-bold);
   color: inherit;
   width: fit-content;
@@ -122,6 +123,24 @@ a:link:visited > ::slotted(svg) {
 :host(.footer-link) a:hover,
 :host(.footer-link) a ::slotted(a:hover) {
   text-decoration: none;
+}
+
+.open-in-new-icon {
+  padding-left: var(--ic-space-xxs);
+}
+
+.open-in-new-icon,
+.open-in-new-icon svg {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+}
+
+:host(.footer-link-light) .open-in-new-icon svg {
+  fill: var(--ic-architectural-white);
+}
+
+:host(.footer-link-dark) .open-in-new-icon svg {
+  fill: var(--ic-architectural-black);
 }
 
 @media screen and (min-width: 769px) {
