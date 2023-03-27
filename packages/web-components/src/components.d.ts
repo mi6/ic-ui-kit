@@ -390,9 +390,29 @@ export namespace Components {
     }
     interface IcFooterLink {
         /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
+        /**
           * The URL that the link points to.
          */
         "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
     }
     interface IcFooterLinkGroup {
         /**
@@ -2356,9 +2376,29 @@ declare namespace LocalJSX {
     }
     interface IcFooterLink {
         /**
+          * If `true`, the user can save the linked URL instead of navigating to it.
+         */
+        "download"?: string | boolean;
+        /**
           * The URL that the link points to.
          */
         "href"?: string;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
     }
     interface IcFooterLinkGroup {
         /**
