@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
+
+
+### Bug Fixes
+
+* **react:** updates React stories for ic-select change ([960284d](https://github.com/mi6/ic-ui-kit/commit/960284d164b27ae044298634b98b189e0b34add8))
+* **web-components:** add check to search isSubmitDisabled for if the value length is too low ([436614e](https://github.com/mi6/ic-ui-kit/commit/436614eed34e74ad79c959e96bc138e0fd08678f)), closes [#363](https://github.com/mi6/ic-ui-kit/issues/363)
+* **web-components:** fixes icChange emitting on every menu item selection ([6d20f8d](https://github.com/mi6/ic-ui-kit/commit/6d20f8dd1b83ab75f37dbb7a631f9d5014633075))
+* **web-components:** moved scroll bar calculations to componentDidRender ([be33827](https://github.com/mi6/ic-ui-kit/commit/be338273ae4c5b3602c5cf4f57bea87e08d36a13))
+* **web-components:** updated default value functionality ([e24a945](https://github.com/mi6/ic-ui-kit/commit/e24a94584c1a7a7dd2ccf6ae9942c244c3240ccc))
+
+
+### Features
+
+* **react:** add option with space to ic-select 'Scroll behaviour' story ([e5cc132](https://github.com/mi6/ic-ui-kit/commit/e5cc1327a85dde0d69c923237fa4484ae4a16f50)), closes [.#158](https://github.com/./issues/158)
+* **web-components:** add new window icon to navigation item ([791e8ca](https://github.com/mi6/ic-ui-kit/commit/791e8ca1c76e3846010f76cc1fbc38dd37afae53))
+* **web-components:** add open in new window functionality and icon to footer link ([cb36abe](https://github.com/mi6/ic-ui-kit/commit/cb36abe5b1de7e5cb0710f5bf3e95538613cfcab))
+* **web-components:** add quick keyboard navigation to select - selects option based on characters ([3d3927d](https://github.com/mi6/ic-ui-kit/commit/3d3927d62ae2a0aaca391dc88f00013baf51dc2d)), closes [.#158](https://github.com/./issues/158)
+
+
+
+
+
 # [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
 
 
