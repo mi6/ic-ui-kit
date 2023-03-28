@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.10 (2023-03-28)
+
+### Features
+
+- **web-components:** add open in new window functionality and icon to footer link ([cb36abe](https://github.com/mi6/ic-ui-kit/commit/cb36abe5b1de7e5cb0710f5bf3e95538613cfcab))
+
 # [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
 
 **Note:** Version bump only for package @ukic/fonts
-
-
-
-
 
 # [2.1.0-beta.8](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.7...v2.1.0-beta.8) (2023-03-01)
 

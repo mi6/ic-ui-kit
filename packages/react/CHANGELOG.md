@@ -3,29 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
-
+# 2.1.0-beta.10 (2023-03-28)
 
 ### Features
 
-* **react:** add more tabs / nav items to stories for scroll demonstration ([925602b](https://github.com/mi6/ic-ui-kit/commit/925602b046734a867ae1d74a4a4e7306c14068fe)), closes [.#242](https://github.com/./issues/242)
+- **web-components:** add open in new window functionality and icon to footer link ([cb36abe](https://github.com/mi6/ic-ui-kit/commit/cb36abe5b1de7e5cb0710f5bf3e95538613cfcab))
 
+# [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
 
+### Features
 
-
+- **react:** add more tabs / nav items to stories for scroll demonstration ([925602b](https://github.com/mi6/ic-ui-kit/commit/925602b046734a867ae1d74a4a4e7306c14068fe)), closes [.#242](https://github.com/./issues/242)
 
 # [2.1.0-beta.8](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.7...v2.1.0-beta.8) (2023-03-01)
 
 ### Bug Fixes
 
-* **react:** fixes react storybook not running ([ab0802c](https://github.com/mi6/ic-ui-kit/commit/ab0802c92cbd19bd9f60883b8c2b5d6259dae706))
+- **react:** fixes react storybook not running ([ab0802c](https://github.com/mi6/ic-ui-kit/commit/ab0802c92cbd19bd9f60883b8c2b5d6259dae706))
 
 ### Features
 
-* **react:** add story for horizontal radio groups, run audit fix ([ef1a7c3](https://github.com/mi6/ic-ui-kit/commit/ef1a7c3bdc3c7bf1031aaef9c63ec913773fe732)), closes [#177](https://github.com/mi6/ic-ui-kit/issues/177)
-* **react:** adds react storybook example of external filtering ([9bd2b05](https://github.com/mi6/ic-ui-kit/commit/9bd2b05461fa66d6600cf1305011733b32c8946d))
-* **react:** update react router story to use router slot for app title ([1a7596c](https://github.com/mi6/ic-ui-kit/commit/1a7596c71a064aaa01bfc11ced2c82269dbd7eb9))
-* **react:** update react router story to use router slot for app title in side nav ([ff392de](https://github.com/mi6/ic-ui-kit/commit/ff392de0b996a4db8ce51b22c697dcbc9e570baa)), closes [#376](https://github.com/mi6/ic-ui-kit/issues/376)
+- **react:** add story for horizontal radio groups, run audit fix ([ef1a7c3](https://github.com/mi6/ic-ui-kit/commit/ef1a7c3bdc3c7bf1031aaef9c63ec913773fe732)), closes [#177](https://github.com/mi6/ic-ui-kit/issues/177)
+- **react:** adds react storybook example of external filtering ([9bd2b05](https://github.com/mi6/ic-ui-kit/commit/9bd2b05461fa66d6600cf1305011733b32c8946d))
+- **react:** update react router story to use router slot for app title ([1a7596c](https://github.com/mi6/ic-ui-kit/commit/1a7596c71a064aaa01bfc11ced2c82269dbd7eb9))
+- **react:** update react router story to use router slot for app title in side nav ([ff392de](https://github.com/mi6/ic-ui-kit/commit/ff392de0b996a4db8ce51b22c697dcbc9e570baa)), closes [#376](https://github.com/mi6/ic-ui-kit/issues/376)
 
 # [2.1.0-beta.7](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.6...v2.1.0-beta.7) (2023-02-13)
 
