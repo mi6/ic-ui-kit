@@ -3,55 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.10 (2023-03-28)
+# [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
 
-### Features
-
-- **web-components:** add open in new window functionality and icon to footer link ([cb36abe](https://github.com/mi6/ic-ui-kit/commit/cb36abe5b1de7e5cb0710f5bf3e95538613cfcab))
-
-# [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
 
 ### Bug Fixes
 
-- **web-components:** add handleMouseDown, add css active selector, add spec test for handleMouseDown ([837e336](https://github.com/mi6/ic-ui-kit/commit/837e3366cc33a8a05fa300c1c641fa27cb0f5b7c)), closes [.#213](https://github.com/./issues/213)
-- **web-components:** added func to allow default values for searchable variant ([6be8255](https://github.com/mi6/ic-ui-kit/commit/6be82554c1029719d1ec433f98e3b9d49ef45e89))
-- **web-components:** fix gap appearing under slotted nav items ([5e37d18](https://github.com/mi6/ic-ui-kit/commit/5e37d181806a98ef91dfb6d2dd5ec0e6b1832f74))
-- **web-components:** fixed placement issue in top nav ([95b9402](https://github.com/mi6/ic-ui-kit/commit/95b94027e5581cb0a9d8a13d0d52212ea0f22c27))
-- **web-components:** fixes page header z-index issue ([fddbd81](https://github.com/mi6/ic-ui-kit/commit/fddbd81d8bcd633b41b0c820d5ddb056a974dc33))
-- **web-components:** fixes z-index on top nav dropdown ([7b5a498](https://github.com/mi6/ic-ui-kit/commit/7b5a4981f9dd39d4f58fad4994070ff50ae9d67c))
-- **web-components:** updated content aligned behaviour on top navigation ([3ce50c6](https://github.com/mi6/ic-ui-kit/commit/3ce50c634ce2c839fb22dc4bedacbf6a9e5c7a48))
-- **web-components:** updated isEmptyString func to deal with undefined and '' ([3f17a39](https://github.com/mi6/ic-ui-kit/commit/3f17a3993af9e6f35b09576d43c88be8d791113a))
-- **web-components:** updated top-navigation e2e test ([b469e65](https://github.com/mi6/ic-ui-kit/commit/b469e656d6871d8d5b512c6105263035b5c3e6a7))
-- **web-components:** updates z-index values for components ([80335c6](https://github.com/mi6/ic-ui-kit/commit/80335c60173d0e624fade7905a5b413e04947666))
+* **web-components:** add check to search isSubmitDisabled for if the value length is too low ([436614e](https://github.com/mi6/ic-ui-kit/commit/436614eed34e74ad79c959e96bc138e0fd08678f)), closes [#363](https://github.com/mi6/ic-ui-kit/issues/363)
+* **web-components:** fixes icChange emitting on every menu item selection ([6d20f8d](https://github.com/mi6/ic-ui-kit/commit/6d20f8dd1b83ab75f37dbb7a631f9d5014633075))
+* **web-components:** moved scroll bar calculations to componentDidRender ([be33827](https://github.com/mi6/ic-ui-kit/commit/be338273ae4c5b3602c5cf4f57bea87e08d36a13))
+* **web-components:** updated default value functionality ([e24a945](https://github.com/mi6/ic-ui-kit/commit/e24a94584c1a7a7dd2ccf6ae9942c244c3240ccc))
+
 
 ### Features
 
-- **web-components:** create horizontal scroll component and add to tabs and nav items ([1a88bd2](https://github.com/mi6/ic-ui-kit/commit/1a88bd2a45d41f04fcf9a0ab000617fdef0183aa)), closes [.#242](https://github.com/./issues/242)
-- **web-components:** implement toast component ([db455fb](https://github.com/mi6/ic-ui-kit/commit/db455fbb16a4e0415908b909a6d47cafe9f10912))
+* **web-components:** add new window icon to navigation item ([791e8ca](https://github.com/mi6/ic-ui-kit/commit/791e8ca1c76e3846010f76cc1fbc38dd37afae53))
+* **web-components:** add open in new window functionality and icon to footer link ([cb36abe](https://github.com/mi6/ic-ui-kit/commit/cb36abe5b1de7e5cb0710f5bf3e95538613cfcab))
+* **web-components:** add quick keyboard navigation to select - selects option based on characters ([3d3927d](https://github.com/mi6/ic-ui-kit/commit/3d3927d62ae2a0aaca391dc88f00013baf51dc2d)), closes [.#158](https://github.com/./issues/158)
+
+
+
+
+
+# [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
+
+
+### Bug Fixes
+
+* **web-components:** add handleMouseDown, add css active selector, add spec test for handleMouseDown ([837e336](https://github.com/mi6/ic-ui-kit/commit/837e3366cc33a8a05fa300c1c641fa27cb0f5b7c)), closes [.#213](https://github.com/./issues/213)
+* **web-components:** added func to allow default values for searchable variant ([6be8255](https://github.com/mi6/ic-ui-kit/commit/6be82554c1029719d1ec433f98e3b9d49ef45e89))
+* **web-components:** fix gap appearing under slotted nav items ([5e37d18](https://github.com/mi6/ic-ui-kit/commit/5e37d181806a98ef91dfb6d2dd5ec0e6b1832f74))
+* **web-components:** fixed placement issue in top nav ([95b9402](https://github.com/mi6/ic-ui-kit/commit/95b94027e5581cb0a9d8a13d0d52212ea0f22c27))
+* **web-components:** fixes page header z-index issue ([fddbd81](https://github.com/mi6/ic-ui-kit/commit/fddbd81d8bcd633b41b0c820d5ddb056a974dc33))
+* **web-components:** fixes z-index on top nav dropdown ([7b5a498](https://github.com/mi6/ic-ui-kit/commit/7b5a4981f9dd39d4f58fad4994070ff50ae9d67c))
+* **web-components:** updated content aligned behaviour on top navigation ([3ce50c6](https://github.com/mi6/ic-ui-kit/commit/3ce50c634ce2c839fb22dc4bedacbf6a9e5c7a48))
+* **web-components:** updated isEmptyString func to deal with undefined and '' ([3f17a39](https://github.com/mi6/ic-ui-kit/commit/3f17a3993af9e6f35b09576d43c88be8d791113a))
+* **web-components:** updated top-navigation e2e test ([b469e65](https://github.com/mi6/ic-ui-kit/commit/b469e656d6871d8d5b512c6105263035b5c3e6a7))
+* **web-components:** updates z-index values for components ([80335c6](https://github.com/mi6/ic-ui-kit/commit/80335c60173d0e624fade7905a5b413e04947666))
+
+
+### Features
+
+* **web-components:** create horizontal scroll component and add to tabs and nav items ([1a88bd2](https://github.com/mi6/ic-ui-kit/commit/1a88bd2a45d41f04fcf9a0ab000617fdef0183aa)), closes [.#242](https://github.com/./issues/242)
+* **web-components:** implement toast component ([db455fb](https://github.com/mi6/ic-ui-kit/commit/db455fbb16a4e0415908b909a6d47cafe9f10912))
+
+
+
+
 
 # [2.1.0-beta.8](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.7...v2.1.0-beta.8) (2023-03-01)
 
 ### Bug Fixes
 
-- **web-components:** add width and height to chevron svg ([d731ab4](https://github.com/mi6/ic-ui-kit/commit/d731ab48720d4272a0d5f2477bcb66567ccecbaf)), closes [#444](https://github.com/mi6/ic-ui-kit/issues/444)
-- **web-components:** added hidden style to ic-tab-panel ([b547ce8](https://github.com/mi6/ic-ui-kit/commit/b547ce842c301b90fc3ca9d2d8d43223e2543f2f))
-- **web-components:** convert px to rem on stepper connect widths ([6af22af](https://github.com/mi6/ic-ui-kit/commit/6af22afba8cef23463019ec3837b32583b16f0fb))
-- **web-components:** fix icon slots for button and side nav where svg is wrapped in an element ([41549f9](https://github.com/mi6/ic-ui-kit/commit/41549f9d57f85fa03163ae87b4dd6d1099e51ab7))
-- **web-components:** fixed flickering link hovering ([ff522a1](https://github.com/mi6/ic-ui-kit/commit/ff522a126ccb7956045f8e66e9fd4ccd0ebac8f8))
-- **web-components:** px changed to rem in .css files ([003f7de](https://github.com/mi6/ic-ui-kit/commit/003f7de52bbdc73ff9c7ab3fa3053d65ed40abc4))
-- **web-components:** updated full-width style for select and textfield ([3a91e09](https://github.com/mi6/ic-ui-kit/commit/3a91e099933894fe187e6b60ecfffa6e3325bb47))
-- **web-components:** updated side navigation z-index ([e555442](https://github.com/mi6/ic-ui-kit/commit/e555442da0724b567038ced77fc1c81735bc1461)), closes [#322](https://github.com/mi6/ic-ui-kit/issues/322)
-- **web-components:** updated styling to fix tooltip positioning ([63ca112](https://github.com/mi6/ic-ui-kit/commit/63ca112a0a59b0a0313b5c094ca74c2a47469bb9))
-- **web-components:** using isUsedSlot to remove redundant slot from rendering ([bc0cd1b](https://github.com/mi6/ic-ui-kit/commit/bc0cd1b29a0f5b275b8b874d647971ab86b3d636))
+* **web-components:** add width and height to chevron svg ([d731ab4](https://github.com/mi6/ic-ui-kit/commit/d731ab48720d4272a0d5f2477bcb66567ccecbaf)), closes [#444](https://github.com/mi6/ic-ui-kit/issues/444)
+* **web-components:** added hidden style to ic-tab-panel ([b547ce8](https://github.com/mi6/ic-ui-kit/commit/b547ce842c301b90fc3ca9d2d8d43223e2543f2f))
+* **web-components:** convert px to rem on stepper connect widths ([6af22af](https://github.com/mi6/ic-ui-kit/commit/6af22afba8cef23463019ec3837b32583b16f0fb))
+* **web-components:** fix icon slots for button and side nav where svg is wrapped in an element ([41549f9](https://github.com/mi6/ic-ui-kit/commit/41549f9d57f85fa03163ae87b4dd6d1099e51ab7))
+* **web-components:** fixed flickering link hovering ([ff522a1](https://github.com/mi6/ic-ui-kit/commit/ff522a126ccb7956045f8e66e9fd4ccd0ebac8f8))
+* **web-components:** px changed to rem in .css files ([003f7de](https://github.com/mi6/ic-ui-kit/commit/003f7de52bbdc73ff9c7ab3fa3053d65ed40abc4))
+* **web-components:** updated full-width style for select and textfield ([3a91e09](https://github.com/mi6/ic-ui-kit/commit/3a91e099933894fe187e6b60ecfffa6e3325bb47))
+* **web-components:** updated side navigation z-index ([e555442](https://github.com/mi6/ic-ui-kit/commit/e555442da0724b567038ced77fc1c81735bc1461)), closes [#322](https://github.com/mi6/ic-ui-kit/issues/322)
+* **web-components:** updated styling to fix tooltip positioning ([63ca112](https://github.com/mi6/ic-ui-kit/commit/63ca112a0a59b0a0313b5c094ca74c2a47469bb9))
+* **web-components:** using isUsedSlot to remove redundant slot from rendering ([bc0cd1b](https://github.com/mi6/ic-ui-kit/commit/bc0cd1b29a0f5b275b8b874d647971ab86b3d636))
 
 ### Features
 
-- **web-components:** add set focus methods and tests ([4dbf9e2](https://github.com/mi6/ic-ui-kit/commit/4dbf9e2ba2c85270ca573eab692f4034e9808db0)), closes [#372](https://github.com/mi6/ic-ui-kit/issues/372)
-- **web-components:** add the option for radio buttons to be laid out horizonatally. Run audit fix ([5151a55](https://github.com/mi6/ic-ui-kit/commit/5151a55601a38c86f173bca72f77a159ff69d300)), closes [#177](https://github.com/mi6/ic-ui-kit/issues/177)
-- **web-components:** adds support for external filtering of options ([68764bb](https://github.com/mi6/ic-ui-kit/commit/68764bb204bea6929a75a6df0eb302117a536ee8))
-- **web-components:** allow for use of router links for top nav app title ([bba0edb](https://github.com/mi6/ic-ui-kit/commit/bba0edbe74b62ef3bcf949ce5a56b16a92033f9c))
-- **web-components:** implement slotted link to app title of side nav ([8ae587d](https://github.com/mi6/ic-ui-kit/commit/8ae587dfdbb13813c491b330ce72323270d7816b)), closes [#376](https://github.com/mi6/ic-ui-kit/issues/376)
-- **web-components:** removed px height and width from SVG ([c6632c1](https://github.com/mi6/ic-ui-kit/commit/c6632c1399bed0f851ca0ce068b75a6725c17543))
+* **web-components:** add set focus methods and tests ([4dbf9e2](https://github.com/mi6/ic-ui-kit/commit/4dbf9e2ba2c85270ca573eab692f4034e9808db0)), closes [#372](https://github.com/mi6/ic-ui-kit/issues/372)
+* **web-components:** add the option for radio buttons to be laid out horizonatally. Run audit fix ([5151a55](https://github.com/mi6/ic-ui-kit/commit/5151a55601a38c86f173bca72f77a159ff69d300)), closes [#177](https://github.com/mi6/ic-ui-kit/issues/177)
+* **web-components:** adds support for external filtering of options ([68764bb](https://github.com/mi6/ic-ui-kit/commit/68764bb204bea6929a75a6df0eb302117a536ee8))
+* **web-components:** allow for use of router links for top nav app title ([bba0edb](https://github.com/mi6/ic-ui-kit/commit/bba0edbe74b62ef3bcf949ce5a56b16a92033f9c))
+* **web-components:** implement slotted link to app title of side nav ([8ae587d](https://github.com/mi6/ic-ui-kit/commit/8ae587dfdbb13813c491b330ce72323270d7816b)), closes [#376](https://github.com/mi6/ic-ui-kit/issues/376)
+* **web-components:** removed px height and width from SVG ([c6632c1](https://github.com/mi6/ic-ui-kit/commit/c6632c1399bed0f851ca0ce068b75a6725c17543))
 
 # [2.1.0-beta.7](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.6...v2.1.0-beta.7) (2023-02-13)
 
