@@ -39,13 +39,6 @@ Type: `Promise<void>`
 | `"link"` | The `<a>` within ic-navigation-item |
 
 
-## CSS Custom Properties
-
-| Name                           | Description                |
-| ------------------------------ | -------------------------- |
-| `--ic-z-index-navigation-item` | z-index of navigation item |
-
-
 ## Dependencies
 
 ### Depends on

@@ -1,0 +1,106 @@
+@import "../../global/normalize.css";
+
+a {
+  text-align: center;
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--ic-space-xl) + var(--ic-space-sm));
+  height: var(--ic-space-xl);
+  margin: 4px var(--ic-space-xxxs);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  outline: inherit;
+}
+
+.ellipsis {
+  pointer-events: none;
+  color: var(--ic-color-secondary-text);
+}
+
+.item-container:focus {
+  box-shadow: var(--ic-border-focus);
+  outline: var(--ic-hc-focus-outline);
+  border-radius: var(--ic-border-radius);
+  transition: var(--ic-easing-transition-fast);
+}
+
+.page {
+  color: var(--ic-action-default);
+}
+
+.simple-current {
+  width: calc(var(--ic-space-xxl) + var(--ic-space-md));
+  height: var(--ic-space-lg);
+  cursor: default;
+}
+
+/** DEFAULT STATES **/
+.item-container.page:hover:not(.selected):not(:focus) {
+  border-radius: var(--ic-border-radius);
+  background-color: var(--ic-action-default-bg-hover);
+}
+
+.item-container.page:active:not(.selected):not(:focus) {
+  background-color: var(--ic-action-default-bg-active);
+}
+
+.selected {
+  box-shadow: inset 0 calc(var(--ic-space-xxs) * -1) 0 0 var(--ic-action-default);
+  pointer-events: none;
+  outline: none;
+}
+
+.page-selected {
+  color: var(--ic-color-primary-text);
+}
+
+/** LIGHT STATES **/
+.item-container.page.light:hover:not(.selected):not(:focus) {
+  background-color: var(--ic-action-light-bg-hover);
+}
+
+.item-container.page.light:active:not(.selected):not(:focus) {
+  background-color: var(--ic-action-light-bg-active);
+}
+
+ic-typography.light {
+  color: var(--ic-color-white-text);
+}
+
+.selected.light {
+  box-shadow: inset 0 calc(var(--ic-space-xxs) * -1) 0 0 var(--ic-color-white-text);
+}
+
+/** DARK STATES **/
+.item-container.page.dark:hover:not(.selected):not(:focus) {
+  background-color: var(--ic-action-dark-bg-hover);
+}
+
+.item-container.page.dark:active:not(.selected):not(:focus) {
+  background-color: var(--ic-action-dark-bg-active);
+}
+
+ic-typography.dark {
+  color: var(--ic-color-primary-text);
+}
+
+.selected.dark {
+  box-shadow: inset 0 calc(var(--ic-space-xxs) * -1) 0 0 black;
+}
+
+.disabled {
+  color: var(--ic-architectural-200);
+  pointer-events: none;
+  cursor: none;
+  user-select: none;
+}

@@ -33,13 +33,6 @@
 | `"tabs"`              | Content will be rendered in the navigation area, below the title and action areas. Note: the stepper slot cannot be used when the tabs slot is being used. |
 
 
-## CSS Custom Properties
-
-| Name                       | Description            |
-| -------------------------- | ---------------------- |
-| `--ic-z-index-page-header` | z-index of page-header |
-
-
 ## Dependencies
 
 ### Depends on
