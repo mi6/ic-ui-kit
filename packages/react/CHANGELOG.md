@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
+
+
+### Bug Fixes
+
+* **react:** updates React stories for ic-select change ([960284d](https://github.com/mi6/ic-ui-kit/commit/960284d164b27ae044298634b98b189e0b34add8))
+
+
+### Features
+
+* **react:** add option with space to ic-select 'Scroll behaviour' story ([e5cc132](https://github.com/mi6/ic-ui-kit/commit/e5cc1327a85dde0d69c923237fa4484ae4a16f50)), closes [.#158](https://github.com/./issues/158)
+
+
+
+
+
 # [2.1.0-beta.9](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.8...v2.1.0-beta.9) (2023-03-21)
 
 
