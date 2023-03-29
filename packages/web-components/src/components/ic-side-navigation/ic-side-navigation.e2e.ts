@@ -5,6 +5,7 @@ import {
   icSideNavigationGroupedNav,
   icSideNavigationTheme,
   icSideNavigationStatic,
+  icSideNavigationSlottedExpanded,
 } from "./ic-side-navigation-test-examples";
 
 const MOBILE_VIEWPORT = {
@@ -720,6 +721,21 @@ describe("ic-side-navigation", () => {
       });
 
       expect(longLabelTooltipDisplay).toBe("block");
+    });
+
+    it("renders visible labels when slotted menu items and expanded", async () => {
+      const page = await newE2EPage();
+      await page.setContent(icSideNavigationSlottedExpanded);
+
+      await page.waitForChanges();
+
+      const labelVisibility = await page.$eval("ic-side-navigation", (el) => {
+        const navItem = el.querySelector("ic-navigation-item ic-typography");
+
+        return window.getComputedStyle(navItem).visibility;
+      });
+
+      expect(labelVisibility).toBe("visible");
     });
   });
 });
