@@ -65,7 +65,7 @@ export class Link {
   @Prop() target?: string;
 
   /**
-   * If `true`, the 'open in new tab/window' icon will be displayed.
+   * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
    */
   @Prop() showIcon?: boolean;
 
@@ -152,7 +152,7 @@ export class Link {
             {...this.inheritedAttributes}
           >
             <slot />
-            {showIcon && (
+            {(showIcon || target === "_blank") && (
               <span class="ic-link-open-in-new-icon" innerHTML={OpenInNew} />
             )}
           </a>
