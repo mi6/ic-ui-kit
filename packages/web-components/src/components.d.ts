@@ -595,7 +595,7 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If `true`, the 'open in new tab/window' icon will be displayed.
+          * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
          */
         "showIcon"?: boolean;
         /**
@@ -2576,7 +2576,7 @@ declare namespace LocalJSX {
          */
         "rel"?: string;
         /**
-          * If `true`, the 'open in new tab/window' icon will be displayed.
+          * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
          */
         "showIcon"?: boolean;
         /**
