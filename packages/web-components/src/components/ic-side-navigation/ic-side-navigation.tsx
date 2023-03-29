@@ -577,8 +577,8 @@ export class SideNavigation {
     });
 
     checkResizeObserver(this.runResizeObserver);
-    this.arrangeSlottedNavigationItem();
     this.styleSlottedCollapsedIconLabel();
+    this.arrangeSlottedNavigationItem(this.menuExpanded);
     this.displayTooltipWithExpandedLongLabel(this.menuExpanded);
 
     !isSlotUsed(this.el, "app-title") &&
