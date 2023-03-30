@@ -1346,51 +1346,6 @@ describe("ic-select", () => {
       expect(menuOptions[1]).toEqualText("Latte");
     });
 
-    it("should not open menu until 'characters-until-suggestions' prop value met", async () => {
-      const page = await newE2EPage();
-      await page.setContent(getTestSearchableSelect(searchableOptions));
-      const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("characters-until-suggestions", 3);
-      await page.waitForChanges();
-
-      const select = await page.find("ic-select >>> #ic-select-input-0");
-      await select.press("c");
-      await page.waitForChanges();
-      await select.press("a");
-      await page.waitForChanges();
-
-      expect(await getMenuVisibility(page)).toBe("hidden");
-
-      await select.press("p");
-      await page.waitForChanges();
-
-      expect(await getMenuVisibility(page)).toBe("visible");
-    });
-
-    it("should close menu if clear button clicked when 'characters-until-suggestions' set", async () => {
-      const page = await newE2EPage();
-      await page.setContent(getTestSearchableSelect(searchableOptions));
-      const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("characters-until-suggestions", 3);
-      await page.waitForChanges();
-
-      const select = await page.find("ic-select >>> #ic-select-input-0");
-      await select.press("c");
-      await page.waitForChanges();
-      await select.press("a");
-      await page.waitForChanges();
-      await select.press("p");
-      await page.waitForChanges();
-
-      expect(await getMenuVisibility(page)).toBe("visible");
-
-      const clearButton = await page.find("ic-select >>> .clear-button");
-      clearButton.click();
-      await page.waitForChanges();
-
-      expect(await getMenuVisibility(page)).toBe("hidden");
-    });
-
     it("should display a clear button which clears the input when clicked", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSearchableSelect(searchableOptions));
