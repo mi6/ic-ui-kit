@@ -541,24 +541,6 @@ export const SearchableFormDefaultValue = () => {
   </Story>
 </Canvas>
 
-### Searchable characters until suggestions
-
-<Canvas>
-  <Story name="Searchable characters until suggestions">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={searchableOptions}
-          searchable
-          charactersUntilSuggestions={3}
-          onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Searchable with description
 
 <Canvas>
@@ -736,24 +718,6 @@ export const SearchableFormDefaultValue = () => {
   </Story>
 </Canvas>
 
-### Searchable groups characters until suggestions
-
-<Canvas>
-  <Story name="Searchable groups characters until suggestions">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={groupedOptions}
-          searchable
-          charactersUntilSuggestions={3}
-          onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Searchable recommended
 
 <Canvas>
@@ -844,7 +808,7 @@ export const ExternalFiltering = () => {
   const [results, setResults] = useState([]);
   useEffect(() => {
     if (query !== selectedValue) {
-      if (query && query.length > 1) {
+      if (query) {
         const mockAPI = (query) => {
           const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
           return new Promise(resolve => setTimeout(() => resolve(filteredResults), 1000));
@@ -866,7 +830,7 @@ export const ExternalFiltering = () => {
     setResults([]);
   }
   return (
-    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter charactersUntilSuggestions="2" options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear}/>
+    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear}/>
   );
 };
 
