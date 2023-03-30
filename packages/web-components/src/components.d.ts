@@ -1020,7 +1020,7 @@ export namespace Components {
     }
     interface IcSelect {
         /**
-          * The number of characters until suggestions appear for a searchable select.
+          * @deprecated This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**
@@ -3036,7 +3036,7 @@ declare namespace LocalJSX {
     }
     interface IcSelect {
         /**
-          * The number of characters until suggestions appear for a searchable select.
+          * @deprecated This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**

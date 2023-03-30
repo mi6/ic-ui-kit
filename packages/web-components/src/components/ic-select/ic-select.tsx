@@ -169,7 +169,7 @@ export class Select {
   @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
 
   /**
-   * The number of characters until suggestions appear for a searchable select.
+   * @deprecated This prop should not be used anymore.
    */
   @Prop() charactersUntilSuggestions?: number = 0;
 
@@ -316,12 +316,8 @@ export class Select {
 
   private isMenuEnabled = () => {
     return (
-      ((this.searchableSelectInputValue === null ||
-        this.searchableSelectInputValue === "") &&
-        this.charactersUntilSuggestions === 0) ||
-      (this.searchableSelectInputValue &&
-        this.searchableSelectInputValue.length >=
-          this.charactersUntilSuggestions)
+      this.searchableSelectInputValue !== null ||
+      this.searchableSelectInputValue !== ""
     );
   };
 

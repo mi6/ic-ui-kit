@@ -677,36 +677,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Searchable characters until suggestions
-
-<Canvas>
-  <Story name="Searchable characters until suggestions">
-    {(args) =>
-      html`<ic-select
-          label="What is your favourite coffee?"
-          searchable
-          characters-until-suggestions="3"
-        ></ic-select>
-        <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
 ### Searchable with description
 
 <Canvas>
@@ -1076,43 +1046,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Searchable groups characters until suggestions
-
-<Canvas>
-  <Story name="Searchable groups characters until suggestions">
-    {(args) =>
-      html`<ic-select
-          label="What is your favourite coffee?"
-          searchable
-          characters-until-suggestions="3"
-        ></ic-select>
-        <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
-          select.options = [
-            {
-              label: "Fancy",
-              children: [
-                { label: "Cappuccino", value: "Cap" },
-                { label: "Flat white", value: "Flat" },
-              ],
-            },
-            {
-              label: "Boring",
-              children: [
-                { label: "Filter", value: "Fil" },
-                { label: "Latte", value: "Lat" },
-              ],
-            },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
 ### Searchable recommended
 
 <Canvas>
@@ -1267,7 +1200,6 @@ import readme from "./readme.md";
           debounce="300"
           disable-filter="true"
           id="external-filter-select"
-          characters-until-suggestions="2"
         ></ic-select>
         <br />
         <ic-typography>
@@ -1303,7 +1235,7 @@ import readme from "./readme.md";
             var option = event.detail.value;
             console.log(option);
             if (option !== selectedValue) {
-              if (option && option.length > 1) {
+              if (option) {
                 mockAPI = (query) => {
                   filteredResults = mockData.filter((m) =>
                     m.label.toLowerCase().includes(query.toLowerCase())
