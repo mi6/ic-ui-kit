@@ -29,7 +29,7 @@
 .menu {
   text-decoration: none;
   list-style-type: none;
-  border: 0.063rem solid var(--ic-architectural-400);
+  border: var(--ic-space-1px) solid var(--ic-architectural-400);
   border-radius: var(--ic-border-radius);
   background-color: var(--ic-architectural-white);
   visibility: hidden;
@@ -72,11 +72,11 @@
 }
 
 .option:last-child {
-  border-radius: 0 0 0.063rem 0.063rem;
+  border-radius: 0 0 var(--ic-space-1px) var(--ic-space-1px);
 }
 
 .option:first-child {
-  border-radius: 0.063rem 0.063rem 0 0;
+  border-radius: var(--ic-space-1px) var(--ic-space-1px) 0 0;
 }
 
 .option:not(.disabled-option):hover {
@@ -120,7 +120,7 @@
 }
 
 .last-recommended-option {
-  border-bottom: 0.063rem solid var(--ic-architectural-400);
+  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-400);
 }
 
 .disabled-option {

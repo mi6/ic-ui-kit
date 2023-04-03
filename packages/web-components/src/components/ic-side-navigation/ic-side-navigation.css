@@ -261,10 +261,10 @@ slot[name="app-icon"]::slotted(a) {
 
 .navigation-landmark-title {
   position: absolute;
-  width: 0.063rem;
-  height: 0.063rem;
+  width: var(--ic-space-1px);
+  height: var(--ic-space-1px);
   padding: 0;
-  margin: -0.063rem;
+  margin: calc(-1 * var(--ic-space-1px));
   overflow: hidden;
 }
 

@@ -271,6 +271,7 @@
   --ic-breakpoint-xl: 1200px;
 
   /* spacing */
+  --ic-space-1px: 0.063rem;
   --ic-space-xxxs: 0.125rem;
   --ic-space-xxs: 0.25rem;
   --ic-space-xs: 0.5rem;
