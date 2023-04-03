@@ -474,9 +474,13 @@ export class Menu {
   };
 
   private getSortedOptions = (options: IcMenuOption[]): IcMenuOption[] => {
-    return options.sort((optionA, optionB) =>
-      optionA.recommended && !optionB.recommended ? -1 : 0
-    );
+    let sorted: IcMenuOption[] = [];
+    if (options.sort) {
+      sorted = options.sort((optionA, optionB) =>
+        optionA.recommended && !optionB.recommended ? -1 : 0
+      );
+    }
+    return sorted;
   };
 
   private isManualMode = this.activationType === "manual";
@@ -499,7 +503,7 @@ export class Menu {
   };
 
   private loadUngroupedOptions = () => {
-    if (this.options.length > 0) {
+    if (this.options.length > 0 && this.options.map) {
       this.options.map((option) => {
         if (option.children) {
           option.children.map(
