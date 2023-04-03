@@ -162,7 +162,7 @@
 }
 
 .disabled .step-icon-inner {
-  border: 0.063rem dashed var(--ic-architectural-200);
+  border: var(--ic-space-1px) dashed var(--ic-architectural-200);
   width: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
 }

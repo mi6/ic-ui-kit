@@ -186,10 +186,10 @@ select:not([disabled]) {
 }
 
 .divider {
-  width: 0.063rem;
+  width: var(--ic-space-1px);
   background-color: var(--ic-architectural-400);
   margin: var(--ic-space-xxs) 0;
-  border-radius: 0.063rem;
+  border-radius: var(--ic-space-1px);
   height: var(--ic-space-lg);
 }
 
@@ -218,10 +218,10 @@ select:not([disabled]) {
 .searchable-select-results-status {
   border: 0;
   clip: rect(0, 0, 0, 0, 0);
-  height: 0.063rem;
+  height: var(--ic-space-1px);
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 0.063rem;
+  width: var(--ic-space-1px);
 }
