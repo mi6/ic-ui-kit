@@ -148,11 +148,13 @@ export class HorizontalScroll {
 
     this.items = (getSlotElements(this.itemsContainerEl) ||
       Array.from(this.itemsContainerEl.children)) as HTMLElement[];
-    this.items.forEach((item) =>
-      item.addEventListener("focus", () =>
-        this.itemFocusHandler(Array.from(this.items).indexOf(item))
-      )
-    );
+    this.items.forEach((item) => {
+      if (item.addEventListener) {
+        item.addEventListener("focus", () =>
+          this.itemFocusHandler(Array.from(this.items).indexOf(item))
+        );
+      }
+    });
   }
 
   componentDidLoad(): void {
@@ -178,7 +180,9 @@ export class HorizontalScroll {
   }
 
   disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
+    if (this.resizeObserver !== undefined) {
+      this.resizeObserver.disconnect();
+    }
   }
 
   render() {

@@ -101,7 +101,9 @@ export class Tooltip {
 
     this.showEvents.forEach((event) => {
       this.el[method](event, () => this.show(this.popperInstance));
-      this.toolTip[method](event, () => this.mouseEnterTooltip());
+      if (this.toolTip !== undefined) {
+        this.toolTip[method](event, () => this.mouseEnterTooltip());
+      }
     });
 
     this.instantHideEvents.forEach((event) => {
@@ -110,9 +112,11 @@ export class Tooltip {
 
     this.delayedHideEvents.forEach((event) => {
       this.el[method](event, () => this.checkCloseTooltip(this.popperInstance));
-      this.toolTip[method](event, () =>
-        this.mouseLeaveTooltip(this.popperInstance)
-      );
+      if (this.toolTip !== undefined) {
+        this.toolTip[method](event, () =>
+          this.mouseLeaveTooltip(this.popperInstance)
+        );
+      }
     });
 
     document[method]("keydown", (event: KeyboardEvent) =>

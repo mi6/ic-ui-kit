@@ -326,7 +326,7 @@ export class Select {
   };
 
   private setOptionsValuesFromLabels = (): void => {
-    if (this.options.length > 0) {
+    if (this.options.length > 0 && this.options.map) {
       this.options.map((option) => {
         if (!option.value) {
           option.value = option.label;
