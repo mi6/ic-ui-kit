@@ -32,7 +32,7 @@
 
 .clear-button-container {
   align-items: center;
-  margin-right: 0.063rem;
+  margin-right: var(--ic-space-1px);
   display: none;
   visibility: hidden;
 }
@@ -82,7 +82,7 @@
 }
 
 .divider {
-  width: 0.063rem;
+  width: var(--ic-space-1px);
   background-color: var(--ic-action-dark-active);
   height: var(--divider-height);
 }
@@ -112,12 +112,12 @@ ic-menu {
 .search-results-status {
   border: 0;
   clip: rect(0, 0, 0, 0, 0);
-  height: 0.063rem;
-  margin-bottom: -0.063rem;
-  margin-right: -0.063rem;
+  height: var(--ic-space-1px);
+  margin-bottom: calc(-1 * var(--ic-space-1px));
+  margin-right: calc(-1 * var(--ic-space-1px));
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 0.063rem;
+  width: var(--ic-space-1px);
 }

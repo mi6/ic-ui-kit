@@ -77,7 +77,7 @@
 }
 
 .navigation-tabs {
-  margin-top: -0.063rem;
+  margin-top: calc(-1 * var(--ic-space-1px));
 }
 
 .app-details-container {
@@ -168,10 +168,10 @@ slot[name="toggle-icon"] svg {
 
 .navigation-landmark-text {
   position: absolute;
-  width: 0.063rem;
-  height: 0.063rem;
+  width: var(--ic-space-1px);
+  height: var(--ic-space-1px);
   padding: 0;
-  margin: -0.063rem;
+  margin: calc(-1 * var(--ic-space-1px));
   overflow: hidden;
 }
 

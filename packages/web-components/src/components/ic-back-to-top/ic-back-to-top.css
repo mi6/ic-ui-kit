@@ -22,7 +22,7 @@ button {
   gap: var(--ic-space-xs);
   display: flex;
   background-color: var(--ic-architectural-white);
-  border: 0.063rem solid var(--ic-action-default);
+  border: var(--ic-space-1px) solid var(--ic-action-default);
   outline-width: inherit;
   box-sizing: border-box;
   box-shadow: var(--ic-elevation-overlay);
@@ -39,13 +39,13 @@ button {
 button:hover {
   text-decoration: none;
   background-color: var(--ic-action-default-bg-hover-no-alpha);
-  border: 0.063rem solid var(--ic-action-default-hover);
+  border: var(--ic-space-1px) solid var(--ic-action-default-hover);
 }
 
 button:active {
   text-decoration: none;
   background-color: var(--ic-action-default-bg-active-no-alpha);
-  border: 0.063rem solid var(--ic-action-default-active);
+  border: var(--ic-space-1px) solid var(--ic-action-default-active);
 }
 
 button:focus {

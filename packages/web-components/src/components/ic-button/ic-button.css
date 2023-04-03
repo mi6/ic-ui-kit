@@ -115,7 +115,7 @@
 /* Secondary */
 
 :host(.button-variant-secondary) .button {
-  border: 0.063rem solid var(--button-default);
+  border: var(--ic-space-1px) solid var(--button-default);
   color: var(--button-default);
 }
 

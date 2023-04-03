@@ -65,18 +65,18 @@
 .scroll-splitter-right {
   display: flex;
   height: var(--ic-space-lg);
-  width: 0.063rem;
+  width: var(--ic-space-1px);
   margin-top: var(--ic-space-xs);
-  border-radius: 0.063rem;
+  border-radius: var(--ic-space-1px);
   background-color: var(--splitter-color);
 }
 
 .scroll-splitter-left {
-  margin-left: calc(var(--ic-space-xxs) - 0.063rem);
+  margin-left: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 
 .scroll-splitter-right {
-  margin-right: calc(var(--ic-space-xxs) - 0.063rem);
+  margin-right: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 
 .disabled .scroll-splitter-left,

@@ -44,12 +44,12 @@
 
 .menu-buttons-container {
   padding: var(--ic-space-sm) 0;
-  border-bottom: 0.063rem solid var(--ic-architectural-200);
+  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-200);
 }
 
 .menu-buttons-container-nav-item-above {
   margin-top: var(--ic-space-md);
-  border-top: 0.063rem solid var(--ic-architectural-200);
+  border-top: var(--ic-space-1px) solid var(--ic-architectural-200);
 }
 
 .menu-status-version-container {
@@ -82,9 +82,9 @@
 
 .navigation-landmark-text {
   position: absolute;
-  width: 0.063rem;
-  height: 0.063rem;
+  width: var(--ic-space-1px);
+  height: var(--ic-space-1px);
   padding: 0;
-  margin: -0.063rem;
+  margin: calc(-1 * var(--ic-space-1px));
   overflow: hidden;
 }
