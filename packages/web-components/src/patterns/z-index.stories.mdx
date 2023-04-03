@@ -11,6 +11,11 @@ import { html } from "lit-html";
     parameters={{ loki: { skip: true }, layout: "fullscreen" }}
   >
     {html`
+      <style>
+        ic-toast {
+          --bottom-position: 50px;
+        }
+      </style>
       <div style="display:flex;">
         <ic-side-navigation
           app-title="Application Name"
@@ -327,6 +332,7 @@ import { html } from "lit-html";
                 Suspendisse ullamcorper vehicula lacinia. Phasellus congue velit
                 nisl, vitae congue ligula rutrum id.</ic-typography
               >
+              <ic-button onclick="showToast()">Display toast</ic-button>
               <ic-typography
                 >Etiam in suscipit metus. Duis semper, sapien a molestie semper,
                 ex nibh porttitor tellus, vel molestie justo odio vel purus.
@@ -415,6 +421,9 @@ import { html } from "lit-html";
                 consequat ipsum lacus, sed faucibus sapien mollis
                 vel.</ic-typography
               >
+              <ic-toast-region>
+                <ic-toast id="toast1" heading="Your coffee is ready"></ic-toast>
+              </ic-toast-region>
             </ic-section-container>
           </main>
           <ic-back-to-top target="main"></ic-back-to-top>
@@ -455,6 +464,11 @@ import { html } from "lit-html";
         ];
         document.querySelector("#page-header-search-bar").options = options;
         document.querySelector("#top-nav-search-bar").options = options;
+        var toastRegion = document.querySelector("ic-toast-region");
+        function showToast() {
+          var x = document.getElementById("toast1");
+          toastRegion.setVisible(x);
+        }
       </script>
     `}
   </Story>

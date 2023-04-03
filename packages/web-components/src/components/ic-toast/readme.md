@@ -46,6 +46,13 @@ The element that previously had focus before the toast appeared
 | `"neutral-icon"` | A custom neutral icon is placed on the left side of the component. If used will default toast to `neutral` variant. |
 
 
+## CSS Custom Properties
+
+| Name                 | Description      |
+| -------------------- | ---------------- |
+| `--ic-z-index-toast` | z-index of toast |
+
+
 ## Dependencies
 
 ### Depends on
