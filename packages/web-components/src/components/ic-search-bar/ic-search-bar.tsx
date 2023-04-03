@@ -602,9 +602,11 @@ export class SearchBar {
       "Search Bar"
     );
 
-    this.anchorEl = this.inputEl.shadowRoot.querySelector(
-      "ic-input-component-container"
-    );
+    if (this.inputEl !== undefined) {
+      this.anchorEl = this.inputEl.shadowRoot.querySelector(
+        "ic-input-component-container"
+      );
+    }
   }
 
   disconnectedCallback(): void {
