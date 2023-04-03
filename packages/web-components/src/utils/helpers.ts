@@ -234,7 +234,7 @@ export const getLabelFromValue = (
   options: IcMenuOption[]
 ): string | undefined => {
   const ungroupedOptions: IcMenuOption[] = [];
-  if (options.length > 0) {
+  if (options.length > 0 && options.map) {
     options.map((option) => {
       if (option.children) {
         option.children.map((option: IcMenuOption) =>
