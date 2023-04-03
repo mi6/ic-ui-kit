@@ -59,16 +59,16 @@ ic-tooltip:focus-within {
 
 .outline {
   color: var(--ic-architectural-900);
-  border: 0.063rem solid var(--ic-architectural-900);
-  padding: calc(var(--ic-space-xxs) - 0.063rem);
+  border: var(--ic-space-1px) solid var(--ic-architectural-900);
+  padding: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 
 .outline.small {
-  padding: calc(var(--ic-space-xxxs) - 0.063rem);
+  padding: calc(var(--ic-space-xxxs) - var(--ic-space-1px));
 }
 
 .outline.large {
-  padding: calc(var(--ic-space-xs) - 0.063rem);
+  padding: calc(var(--ic-space-xs) - var(--ic-space-1px));
 }
 
 .outline.disabled {
@@ -122,15 +122,15 @@ ic-tooltip {
   }
 
   .filled.small {
-    padding: calc(var(--ic-space-xxxs) - 0.063rem);
+    padding: calc(var(--ic-space-xxxs) - var(--ic-space-1px));
   }
 
   .filled {
-    padding: calc(var(--ic-space-xxxs) + 0.063rem);
+    padding: calc(var(--ic-space-xxxs) + var(--ic-space-1px));
   }
 
   .filled.large {
-    padding: calc(var(--ic-space-xs) - 0.063rem);
+    padding: calc(var(--ic-space-xs) - var(--ic-space-1px));
   }
 
   .chip.disabled {

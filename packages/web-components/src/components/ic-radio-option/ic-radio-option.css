@@ -61,7 +61,7 @@
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   background-color: transparent;
-  border: 0.063rem solid #a7acb3;
+  border: var(--ic-space-1px) solid #a7acb3;
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
   box-sizing: border-box;
@@ -76,13 +76,13 @@
 .container:hover input ~ .checkmark {
   background-color: var(--ic-action-default-bg-hover);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
-  border: 0.063rem solid var(--ic-action-default);
+  border: var(--ic-space-1px) solid var(--ic-action-default);
 }
 
 /* When pressed, adds the active colours */
 .container:active input ~ .checkmark {
   background-color: var(--ic-action-default-bg-active);
-  border: 0.063rem solid var(--ic-action-default-active);
+  border: var(--ic-space-1px) solid var(--ic-action-default-active);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
@@ -111,7 +111,7 @@
 
 /* When the radio button is disabled */
 .container input:disabled ~ .checkmark {
-  border: 0.063rem dashed var(--ic-architectural-200);
+  border: var(--ic-space-1px) dashed var(--ic-architectural-200);
 }
 
 /* When the radio button is disabled */
@@ -159,7 +159,7 @@
   border-radius: 0 0 0 0.188rem;
   border-bottom: 0.125rem solid var(--ic-action-default);
   border-left: 0.125rem solid var(--ic-action-default);
-  margin-left: -0.063rem;
+  margin-left: calc(-1 * var(--ic-space-1px));
 }
 
 /* The dynamic container */

@@ -35,7 +35,7 @@ input {
   position: relative;
   border-radius: 100vw;
   background-color: var(--ic-architectural-200);
-  border: 0.063rem solid var(--ic-architectural-700);
+  border: var(--ic-space-1px) solid var(--ic-architectural-700);
   box-sizing: border-box;
   transition: var(--ic-transition-duration-fast);
 }
@@ -116,7 +116,7 @@ input {
 
 .ic-switch-input:focus:not([disabled]) + .ic-switch-toggle,
 .ic-switch-input:focus-visible:not([disabled]) + .ic-switch-toggle {
-  box-shadow: 0 0 0 0.063rem var(--ic-architectural-white),
+  box-shadow: 0 0 0 var(--ic-space-1px) var(--ic-architectural-white),
     0 0 0 0.188rem var(--ic-action-default),
     0 0 0 0.5rem var(--ic-action-default-active-alpha);
 }
@@ -135,7 +135,7 @@ input {
 
 .ic-switch-input:disabled + .ic-switch-toggle {
   background-color: var(--ic-architectural-80);
-  border: 0.063rem dashed var(--ic-architectural-300);
+  border: var(--ic-space-1px) dashed var(--ic-architectural-300);
 }
 
 .ic-switch-input:disabled ~ .ic-switch-checked-status {
@@ -148,7 +148,7 @@ input {
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle {
   background-color: var(--ic-status-info-background);
-  border: 0.063rem dashed #98c9f5;
+  border: var(--ic-space-1px) dashed #98c9f5;
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle::before {
