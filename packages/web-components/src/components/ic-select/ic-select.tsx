@@ -767,7 +767,14 @@ export class Select {
     ).trim();
 
     return (
-      <Host>
+      <Host
+        class={{
+          disabled: disabled,
+          searchable: searchable,
+          small: small,
+          "full-width": fullWidth,
+        }}
+      >
         <ic-input-container readonly={readonly}>
           {!hideLabel && (
             <ic-input-label
@@ -897,7 +904,6 @@ export class Select {
                     "expand-icon-filled": !(
                       currValue == null || currValue === ""
                     ),
-                    "expand-icon-disabled": !this.isMenuEnabled(),
                   }}
                   innerHTML={Expand}
                   aria-hidden="true"
