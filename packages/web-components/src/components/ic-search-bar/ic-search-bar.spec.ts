@@ -338,11 +338,9 @@ describe("ic-search-bar search", () => {
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    let items = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelectorAll("li");
+    let items = Array.from(page.root.shadowRoot.querySelectorAll("ic-menu li"));
 
-    items[2].click();
+    (items[2] as HTMLElement).click();
     await page.waitForChanges();
 
     expect(page.rootInstance.value).toBe("flatwhite");
@@ -350,10 +348,9 @@ describe("ic-search-bar search", () => {
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    items = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelectorAll("li");
-    items[2].blur();
+    items = Array.from(page.root.shadowRoot.querySelectorAll("ic-menu li"));
+
+    (items[2] as HTMLElement).blur();
     expect(page.rootInstance.open).toBe(false);
   });
 

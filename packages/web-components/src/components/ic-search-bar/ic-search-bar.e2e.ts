@@ -144,9 +144,9 @@ describe("ic-search-bar", () => {
 
     await page.waitForTimeout(500);
 
-    const menuItems = menu.shadowRoot.querySelectorAll("li");
+    const menuItems = menu.findAll("li");
 
-    expect(await menuItems.length).toBe(2);
+    expect((await menuItems).length).toBe(2);
     expect(await menu.isVisible()).toBeTruthy();
   });
 
@@ -250,8 +250,7 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     const activeElId = await page.$eval("ic-search-bar", (el) => {
-      const textfield = el.shadowRoot.querySelector("ic-text-field");
-      return textfield.querySelector("ic-menu").shadowRoot.activeElement.id;
+      return el.shadowRoot.activeElement.id;
     });
 
     expect(activeElId).toBe("ic-search-bar-input-0-menu-qux");
@@ -277,8 +276,7 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     const activeElId = await page.$eval("ic-search-bar", (el) => {
-      const textfield = el.shadowRoot.querySelector("ic-text-field");
-      return textfield.querySelector("ic-menu").shadowRoot.activeElement.id;
+      return el.shadowRoot.activeElement.id;
     });
 
     expect(activeElId).toBe("ic-search-bar-input-0-menu-qux");
@@ -476,17 +474,17 @@ describe("ic-search-bar", () => {
 
     await page.waitForChanges();
 
-    let menuItems = menu.shadowRoot.querySelectorAll("li");
+    let menuItems = menu.findAll("li");
 
-    expect(await menuItems.length).toBe(2);
+    expect(await (await menuItems).length).toBe(2);
 
     await page.keyboard.press("r");
 
     await page.waitForChanges();
 
-    menuItems = menu.shadowRoot.querySelectorAll("li");
+    menuItems = menu.findAll("li");
 
-    expect(await menuItems.length).toBe(1);
+    expect(await (await menuItems).length).toBe(1);
   });
 
   it("should prevent form submit event when clear is invoked using Enter", async () => {
@@ -578,10 +576,8 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     const focusedElement = await page.evaluate(() => {
-      const el = document
-        .querySelector("ic-search-bar")
-        .shadowRoot.querySelector("ic-menu");
-      return el.shadowRoot.activeElement.id;
+      const el = document.querySelector("ic-search-bar").shadowRoot;
+      return el.activeElement.id;
     });
 
     expect(focusedElement).toBe("ic-search-bar-input-0-menu-qux");
@@ -654,7 +650,7 @@ describe("ic-search-bar", () => {
       const menuEl = document
         .querySelector("ic-search-bar")
         .shadowRoot.querySelector("ic-menu");
-      const noOptionsItem = menuEl.shadowRoot.querySelectorAll("li")[0];
+      const noOptionsItem = menuEl.querySelectorAll("li")[0];
 
       return noOptionsItem.innerText;
     });
@@ -683,7 +679,7 @@ describe("ic-search-bar", () => {
       const menuEl = document
         .querySelector("ic-search-bar")
         .shadowRoot.querySelector("ic-menu");
-      const noOptionsItem = menuEl.shadowRoot.querySelectorAll("li")[0];
+      const noOptionsItem = menuEl.querySelectorAll("li")[0];
 
       return noOptionsItem.innerText;
     });
@@ -732,7 +728,7 @@ describe("ic-search-bar", () => {
       const menuEl = document
         .querySelector("ic-search-bar")
         .shadowRoot.querySelector("ic-menu");
-      const firstMenuItem = menuEl.shadowRoot.querySelectorAll("li")[0];
+      const firstMenuItem = menuEl.querySelectorAll("li")[0];
 
       return firstMenuItem.classList.contains("focused-option");
     });
@@ -762,7 +758,7 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     let menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
-    let firstOption = menu.shadowRoot.querySelectorAll("li")[0];
+    let firstOption = (await menu.findAll("li"))[0];
     expect(firstOption).toHaveClass("focused-option");
 
     await searchBar.press("Enter");
@@ -784,8 +780,8 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
-    firstOption = menu.shadowRoot.querySelectorAll("li")[0];
-    const lastOption = menu.shadowRoot.querySelectorAll("li")[1];
+    firstOption = (await menu.findAll("li"))[0];
+    const lastOption = (await menu.findAll("li"))[1];
 
     expect(firstOption).not.toHaveClass("focused-option");
     expect(lastOption).toHaveClass("focused-option");
@@ -847,10 +843,8 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     focusedElement = await page.evaluate(() => {
-      const el = document
-        .querySelector("ic-search-bar")
-        .shadowRoot.querySelector("ic-menu");
-      return el.shadowRoot.activeElement.id;
+      const el = document.querySelector("ic-search-bar").shadowRoot;
+      return el.activeElement.id;
     });
 
     expect(focusedElement).toBe("ic-search-bar-input-0-menu-bar");
@@ -894,10 +888,8 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     let focusedElement = await page.evaluate(() => {
-      const el = document
-        .querySelector("ic-search-bar")
-        .shadowRoot.querySelector("ic-menu");
-      return el.shadowRoot.activeElement.id;
+      const el = document.querySelector("ic-search-bar").shadowRoot;
+      return el.activeElement.id;
     });
 
     expect(focusedElement).toBe("ic-search-bar-input-0-menu-bar");
@@ -995,7 +987,7 @@ describe("ic-search-bar", () => {
       const menuEl = document
         .querySelector("ic-search-bar")
         .shadowRoot.querySelector("ic-menu");
-      const noOptionsItem = menuEl.shadowRoot.querySelectorAll("li")[0];
+      const noOptionsItem = menuEl.querySelectorAll("li")[0];
 
       return noOptionsItem.innerText;
     });
@@ -1012,7 +1004,7 @@ describe("ic-search-bar", () => {
       const menuEl = document
         .querySelector("ic-search-bar")
         .shadowRoot.querySelector("ic-menu");
-      const firstOptionItem = menuEl.shadowRoot.querySelectorAll("li")[0];
+      const firstOptionItem = menuEl.querySelectorAll("li")[0];
 
       return firstOptionItem.classList.contains("focused-option");
     });
@@ -1040,10 +1032,8 @@ describe("ic-search-bar", () => {
     await page.waitForChanges();
 
     let focusedElement = await page.evaluate(() => {
-      const el = document
-        .querySelector("ic-search-bar")
-        .shadowRoot.querySelector("ic-menu");
-      return el.shadowRoot.activeElement.id;
+      const el = document.querySelector("ic-search-bar").shadowRoot;
+      return el.activeElement.id;
     });
 
     expect(focusedElement).toBe("ic-search-bar-input-0-menu-qux");
