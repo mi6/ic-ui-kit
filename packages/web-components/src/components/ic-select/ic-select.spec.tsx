@@ -388,9 +388,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 2";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -418,9 +416,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 1";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -448,9 +444,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 1";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -478,9 +472,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 3";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -508,9 +500,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 3";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -533,9 +523,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 1";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -563,9 +551,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 3";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -593,9 +579,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 3";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -621,9 +605,7 @@ describe("ic-select", () => {
     page.rootInstance.open = true;
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -650,9 +632,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 2";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -680,9 +660,7 @@ describe("ic-select", () => {
     page.root.value = "Test value 2";
     await page.waitForChanges();
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keyup", {
@@ -1217,9 +1195,7 @@ describe("ic-select", () => {
 
     page.win.addEventListener("icChange", eventSpy);
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
@@ -1314,9 +1290,7 @@ describe("ic-select", () => {
 
     page.win.addEventListener("icChange", eventSpy);
 
-    const list = page.root.shadowRoot
-      .querySelector("ic-menu")
-      .shadowRoot.querySelector("ul");
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
