@@ -35,7 +35,7 @@ exports[`ic-select should have correct validation status: with-validation-status
 `;
 
 exports[`ic-select should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
-<ic-select disabled="" label="IC Select Test" validation-status="error">
+<ic-select class="disabled" disabled="" label="IC Select Test" validation-status="error">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-3" helpertext="" label="IC Select Test"></ic-input-label>
@@ -166,7 +166,7 @@ exports[`ic-select should not render validation text if no validation status has
 `;
 
 exports[`ic-select should render as required: required-searchable 1`] = `
-<ic-select label="IC Select Test" required="true" searchable="true">
+<ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test" required=""></ic-input-label>
