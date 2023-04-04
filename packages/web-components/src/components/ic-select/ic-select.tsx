@@ -674,11 +674,15 @@ export class Select {
   };
 
   private onBlur = (event: FocusEvent): void => {
-    if (
+    const isSearchableAndNoFocusedInternalElements =
       this.searchable &&
       event.relatedTarget !== this.menu &&
-      !(this.clearButton && event.relatedTarget === this.clearButton)
-    ) {
+      !Array.from(this.menu.querySelectorAll("[role='option']")).includes(
+        event.relatedTarget as Element
+      ) &&
+      !(this.clearButton && event.relatedTarget === this.clearButton);
+
+    if (isSearchableAndNoFocusedInternalElements) {
       this.setMenuChange(false);
       this.handleFocusIndicatorDisplay();
     }

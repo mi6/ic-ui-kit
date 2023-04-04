@@ -24,9 +24,7 @@ exports[`ic-select should have correct validation status: with-validation-status
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
       <ic-input-validation arialivemode="polite" for="ic-select-input-2" message="" status="error"></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
@@ -58,9 +56,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" disabled="" name="ic-select-input-3" type="hidden" value="">
@@ -90,9 +86,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-0" type="hidden" value="">
@@ -123,9 +117,7 @@ exports[`ic-select should not render validation text if disabled: no-validation-
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-6" type="hidden" value="">
@@ -156,9 +148,7 @@ exports[`ic-select should not render validation text if no validation status has
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-5" type="hidden" value="">
@@ -182,9 +172,7 @@ exports[`ic-select should render as required: required-searchable 1`] = `
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-7" type="hidden" value="">
@@ -215,9 +203,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
           </div>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
       <ic-input-validation arialivemode="polite" for="ic-select-input-4" message="Test validation text" status="error"></ic-input-validation>
     </ic-input-container>
   </mock:shadow-root>
@@ -238,9 +224,7 @@ exports[`ic-select should render readonly: readonly 1`] = `
           </ic-typography>
         </div>
       </ic-input-component-container>
-      <ic-menu>
-        <mock:shadow-root></mock:shadow-root>
-      </ic-menu>
+      <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-1" type="hidden" value="">
@@ -344,37 +328,35 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
         </div>
       </ic-input-component-container>
       <ic-menu>
-        <mock:shadow-root>
-          <ul aria-activedescendant="ic-select-input-8-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-8-menu" role="listbox" tabindex="0">
-            <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-8-menu-Test value 1" role="option" tabindex="-1">
-              <div class="option-text-container">
-                <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 1
-                  </p>
-                </ic-typography>
-              </div>
-            </li>
-            <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-8-menu-Test value 2" role="option" tabindex="-1">
-              <div class="option-text-container">
-                <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 2
-                  </p>
-                </ic-typography>
-              </div>
-            </li>
-            <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-8-menu-Test value 3" role="option" tabindex="-1">
-              <div class="option-text-container">
-                <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 3
-                  </p>
-                </ic-typography>
-              </div>
-            </li>
-          </ul>
-        </mock:shadow-root>
+        <ul aria-activedescendant="ic-select-input-8-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-8-menu" role="listbox" tabindex="0">
+          <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-8-menu-Test value 1" role="option" tabindex="-1">
+            <div class="option-text-container">
+              <ic-typography aria-hidden="true" variant="body">
+                <p>
+                  Test label 1
+                </p>
+              </ic-typography>
+            </div>
+          </li>
+          <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-8-menu-Test value 2" role="option" tabindex="-1">
+            <div class="option-text-container">
+              <ic-typography aria-hidden="true" variant="body">
+                <p>
+                  Test label 2
+                </p>
+              </ic-typography>
+            </div>
+          </li>
+          <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-8-menu-Test value 3" role="option" tabindex="-1">
+            <div class="option-text-container">
+              <ic-typography aria-hidden="true" variant="body">
+                <p>
+                  Test label 3
+                </p>
+              </ic-typography>
+            </div>
+          </li>
+        </ul>
       </ic-menu>
     </ic-input-container>
   </mock:shadow-root>

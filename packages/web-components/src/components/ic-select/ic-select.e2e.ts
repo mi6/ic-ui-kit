@@ -107,8 +107,7 @@ const getMenuVisibility = async (page: E2EPage) => {
   const menuVisibility = await page.evaluate(() => {
     const menu = document
       .querySelector("ic-select")
-      .shadowRoot.querySelector("ic-menu")
-      .shadowRoot.querySelector("#ic-select-input-0-menu");
+      .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
     return window.getComputedStyle(menu).visibility;
   });
   return menuVisibility;
@@ -183,42 +182,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot)
-        .toEqualHtml(`<ic-input-container class="hydrated">
-      <!---->
-      <div class="component-container">
-        <ic-input-label class="hydrated">
-          <ic-typography class="hydrated ic-typography-label">
-            <label for="ic-select-input-0">
-              IC Select Test
-            </label>
-          </ic-typography>
-        </ic-input-label>
-        <ic-input-component-container class="hydrated">
-          <!---->
-          <div class="focus-indicator">
-            <div class="select-container">
-              <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
-                <ic-typography class="hydrated ic-typography-body placeholder value-text">
-                  <p>
-                    Select an option
-                  </p>
-                </ic-typography>
-                <div class="select-input-end">
-                  <span aria-hidden="true" class="expand-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 9.5L12 14.5L17 9.5H7Z" fill="currentColor"></path>
-                    </svg>
-                  </span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </ic-input-component-container>
-        <ic-menu class="hydrated"></ic-menu>
-      </div>
-    </ic-input-container>
-      `);
+      expect(select.shadowRoot).toMatchSnapshot();
     });
 
     it("should render when no options are provided", async () => {
@@ -228,42 +192,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot).toEqualHtml(`
-        <ic-input-container class="hydrated">
-      <!---->
-      <div class="component-container">
-        <ic-input-label class="hydrated">
-          <ic-typography class="hydrated ic-typography-label">
-            <label for="ic-select-input-0">
-              IC Select Test
-            </label>
-          </ic-typography>
-        </ic-input-label>
-        <ic-input-component-container class="hydrated">
-          <!---->
-          <div class="focus-indicator">
-            <div class="select-container">
-              <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
-                <ic-typography class="hydrated ic-typography-body placeholder value-text">
-                  <p>
-                    Select an option
-                  </p>
-                </ic-typography>
-                <div class="select-input-end">
-                  <span aria-hidden="true" class="expand-icon">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 9.5L12 14.5L17 9.5H7Z" fill="currentColor"></path>
-                    </svg>
-                  </span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </ic-input-component-container>
-        <ic-menu class="hydrated"></ic-menu>
-      </div>
-    </ic-input-container>
-      `);
+      expect(select.shadowRoot).toMatchSnapshot();
     });
 
     it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", async () => {
@@ -274,8 +203,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -287,8 +215,7 @@ describe("ic-select", () => {
       const newMenuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(newMenuVisibility).toBe("visible");
@@ -296,8 +223,7 @@ describe("ic-select", () => {
 
       const activeElId = await page.$eval(
         "ic-select",
-        (el) =>
-          el.shadowRoot.querySelector("ic-menu").shadowRoot.activeElement.id
+        (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0-menu");
     });
@@ -311,10 +237,8 @@ describe("ic-select", () => {
       await select.click();
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(3);
       expect(menuOptions[0]).toEqualText("Test label 1");
       expect(menuOptions[1]).toEqualText("Test label 2");
@@ -347,13 +271,11 @@ describe("ic-select", () => {
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
         expect(await getMenuVisibility(page)).toBe("visible");
 
-        const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-        expect(firstOption).toHaveClass("focused-option");
+        const firstOption = await menu.findAll("li");
+        expect(firstOption[0]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 1");
       });
 
@@ -391,13 +313,11 @@ describe("ic-select", () => {
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
         expect(await getMenuVisibility(page)).toBe("visible");
 
-        const lastOption = await menu.shadowRoot.querySelectorAll("li")[2];
-        expect(lastOption).toHaveClass("focused-option");
+        const lastOption = await menu.findAll("li");
+        expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
       });
     });
@@ -413,11 +333,9 @@ describe("ic-select", () => {
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const secondOption = await menu.shadowRoot.querySelectorAll("li")[1];
-        expect(secondOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const secondOption = await menu.findAll("li");
+        expect(secondOption[1]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 2");
       });
 
@@ -431,11 +349,9 @@ describe("ic-select", () => {
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-        expect(firstOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const firstOption = await menu.findAll("li");
+        expect(firstOption[0]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 1");
       });
 
@@ -449,11 +365,9 @@ describe("ic-select", () => {
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const secondOption = await menu.shadowRoot.querySelectorAll("li")[1];
-        expect(secondOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const secondOption = await menu.findAll("li");
+        expect(secondOption[1]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 2");
       });
 
@@ -467,11 +381,9 @@ describe("ic-select", () => {
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const lastOption = await menu.shadowRoot.querySelectorAll("li")[2];
-        expect(lastOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const lastOption = await menu.findAll("li");
+        expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
       });
 
@@ -485,11 +397,9 @@ describe("ic-select", () => {
         await page.keyboard.press("Home");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-        expect(firstOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const firstOption = await menu.findAll("li");
+        expect(firstOption[0]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 1");
       });
 
@@ -503,11 +413,9 @@ describe("ic-select", () => {
         await page.keyboard.press("End");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const lastOption = await menu.shadowRoot.querySelectorAll("li")[2];
-        expect(lastOption).toHaveClass("focused-option");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const lastOption = await menu.findAll("li");
+        expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
       });
 
@@ -520,14 +428,10 @@ describe("ic-select", () => {
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find(
-          "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-        );
-        const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-        const checkIcon = await menu.shadowRoot
-          .querySelectorAll("li")[0]
-          .querySelector(".check-icon");
-        expect(firstOption).toHaveAttribute("aria-selected");
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const firstOption = await menu.findAll("li");
+        const checkIcon = await menu.find("li .check-icon");
+        expect(firstOption[0]).toHaveAttribute("aria-selected");
         expect(checkIcon).not.toBeNull();
       });
 
@@ -601,8 +505,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -624,9 +527,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
       await menu.click();
       await page.waitForChanges();
 
@@ -634,8 +535,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -667,8 +567,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -690,8 +589,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -713,8 +611,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -739,8 +636,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -764,8 +660,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -792,8 +687,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -830,12 +724,8 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const firstOptionDescription = await menu.shadowRoot
-        .querySelectorAll("li")[0]
-        .querySelector(".option-description");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const firstOptionDescription = await menu.find("li .option-description");
       expect(firstOptionDescription).toEqualText("Test description 1");
     });
 
@@ -866,8 +756,7 @@ describe("ic-select", () => {
       const menuVisibility = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector("#ic-select-input-0-menu");
+          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
         return window.getComputedStyle(menu).visibility;
       });
       expect(menuVisibility).toBe("hidden");
@@ -887,9 +776,7 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
       await menu.click();
       await page.waitForChanges();
 
@@ -910,10 +797,8 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions[0]).toHaveAttribute("aria-disabled");
       expect(menuOptions[1]).toHaveClass("focused-option");
     });
@@ -984,9 +869,8 @@ describe("ic-select", () => {
         Array.from(
           document
             .querySelector("ic-select")
-            .shadowRoot.querySelector("ic-menu")
-            .shadowRoot.querySelectorAll("ic-typography"),
-          (typography) => typography.innerText
+            .shadowRoot.querySelectorAll("ic-menu ic-typography"),
+          (typography) => (typography as HTMLElement).innerText
         )
       );
       expect(optionsText[0]).toBe("Test group");
@@ -1011,10 +895,8 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const childOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const childOptions = await menu.findAll("li");
       expect(childOptions).toHaveLength(3);
       expect(childOptions[0]).toEqualText("Test label 1");
       expect(childOptions[1]).toEqualText("Test label 2");
@@ -1036,11 +918,9 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-      expect(firstOption).toEqualText("Test label 2");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const firstOption = await menu.findAll("li");
+      expect(firstOption[0]).toEqualText("Test label 2");
     });
 
     it("should set aria-invalid if validation status is 'error'", async () => {
@@ -1068,11 +948,9 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-      expect(firstOption.getAttribute("aria-label")).toBe(
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const firstOption = await menu.findAll("li");
+      expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test description 1"
       );
     });
@@ -1096,11 +974,9 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-      expect(firstOption.getAttribute("aria-label")).toBe(
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const firstOption = await menu.findAll("li");
+      expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test group group"
       );
     });
@@ -1124,11 +1000,9 @@ describe("ic-select", () => {
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const firstOption = await menu.shadowRoot.querySelectorAll("li")[0];
-      expect(firstOption.getAttribute("aria-label")).toBe(
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const firstOption = await menu.findAll("li");
+      expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test description 1, Test group group"
       );
     });
@@ -1178,10 +1052,8 @@ describe("ic-select", () => {
 
       expect(await getMenuVisibility(page)).toBe("visible");
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(4);
       expect(menuOptions[0]).toEqualText("Cappuccino");
       expect(menuOptions[1]).toEqualText("Americano");
@@ -1198,10 +1070,8 @@ describe("ic-select", () => {
       await select.press("z");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("No results found");
     });
@@ -1219,10 +1089,8 @@ describe("ic-select", () => {
       await select.press("Backspace");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Filter");
       expect(menuOptions[1]).toEqualText("Flat white");
@@ -1239,10 +1107,8 @@ describe("ic-select", () => {
       await select.press("l");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("Latte");
     });
@@ -1269,10 +1135,8 @@ describe("ic-select", () => {
       await select.press("i");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0].textContent.substring(0, 5)).toEqualText("Latte");
     });
@@ -1302,10 +1166,8 @@ describe("ic-select", () => {
       await select.press("b");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("No results found");
     });
@@ -1337,10 +1199,8 @@ describe("ic-select", () => {
       await select.press("b");
       await page.waitForChanges();
 
-      const menu = await page.find(
-        "ic-select >>> ic-menu >>> #ic-select-input-0-menu"
-      );
-      const menuOptions = await menu.shadowRoot.querySelectorAll("li");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Filter");
       expect(menuOptions[1]).toEqualText("Latte");
@@ -1907,8 +1767,7 @@ describe("ic-select", () => {
       const menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector(".menu");
+          .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
 
@@ -1927,8 +1786,7 @@ describe("ic-select", () => {
       let menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector(".menu");
+          .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
 
@@ -1939,8 +1797,7 @@ describe("ic-select", () => {
       menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu")
-          .shadowRoot.querySelector(".menu");
+          .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
 
