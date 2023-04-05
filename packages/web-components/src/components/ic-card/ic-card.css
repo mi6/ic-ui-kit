@@ -145,10 +145,18 @@ button {
   justify-content: center;
 }
 
-.interaction-controls {
+.interaction-area {
+  display: flex;
+  gap: var(--ic-space-md);
   margin-top: var(--ic-space-md);
+  align-items: flex-end;
+}
+
+.interaction-controls {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ic-space-sm);
 }
 
 .toggle-button {
