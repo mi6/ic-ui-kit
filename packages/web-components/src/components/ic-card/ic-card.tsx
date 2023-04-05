@@ -274,8 +274,10 @@ export class Card {
           </div>
         )}
         {(isSlotUsed(this.el, "interaction-controls") || expandable) && (
-          <div class="interaction-controls">
-            <slot name="interaction-controls"></slot>
+          <div class="interaction-area">
+            <div class="interaction-controls">
+              <slot name="interaction-controls"></slot>
+            </div>
             {expandable && (
               <ic-button
                 class={{
@@ -284,6 +286,7 @@ export class Card {
                   ["toggle-button-expanded"]: this.areaExpanded,
                 }}
                 variant="icon"
+                size="large"
                 disableTooltip
                 aria-label="Toggle expandable area"
                 aria-expanded={this.areaExpanded}
