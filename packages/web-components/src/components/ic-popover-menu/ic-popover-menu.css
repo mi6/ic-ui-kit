@@ -6,11 +6,6 @@
 */
 
 @media (prefers-reduced-motion: no-preference) {
-  :host([open]) {
-    opacity: 1;
-    transition: opacity var(--ic-transition-duration-fast);
-  }
-
   :host .opening-from-parent {
     animation: slide-in var(--ic-transition-duration-slow) ease-in-out;
   }
@@ -28,8 +23,7 @@
   z-index: var(--ic-z-index-popover);
   box-sizing: border-box;
   box-shadow: var(--ic-elevation-overlay);
-  opacity: 0;
-  display: block;
+  display: none;
 }
 
 .menu {
@@ -53,14 +47,14 @@
   outline: none;
 }
 
-:host([open]) {
-  opacity: 1;
+:host(.open) {
+  display: block;
   min-width: calc(20rem - var(--ic-space-xl));
   width: var(--popover-width, 20rem);
   max-width: calc(100vw - var(--ic-space-xl));
 }
 
-:host([open]) .menu {
+:host(.open) .menu {
   visibility: visible;
   height: fit-content;
   max-height: var(--max-height, fit-content);
