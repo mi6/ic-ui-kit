@@ -295,7 +295,11 @@ export class PopoverMenu {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          open: this.open,
+        }}
+      >
         <div
           id={
             this.parentPopover === undefined
