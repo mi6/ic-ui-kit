@@ -3,9 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.11 (2023-04-12)
+# [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
 
-**Note:** Version bump only for package @ukic/react
+
+### Bug Fixes
+
+* **react:** remove charactersUntilSuggestions stories ([dd10547](https://github.com/mi6/ic-ui-kit/commit/dd10547e1dc3e4798701f8792e665c45965dc827))
+
+
+### Features
+
+* **react:** add menu item and menu group to React components.ts ([60b815d](https://github.com/mi6/ic-ui-kit/commit/60b815d45ca04bbb0a49e57159cbfb381bb62774)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
+* **react:** create popover menu component ([96bc93c](https://github.com/mi6/ic-ui-kit/commit/96bc93c6ff137b042aff7d4908791312334ccb7b))
 
 # [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
 
