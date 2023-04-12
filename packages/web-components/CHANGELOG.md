@@ -3,9 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.11 (2023-04-12)
+# [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
 
-**Note:** Version bump only for package @ukic/web-components
+
+### Bug Fixes
+
+* **web-components:** add support query for hover/focus of links ([416f185](https://github.com/mi6/ic-ui-kit/commit/416f18567ab2383b51d6bd22ed67f9e1ebee138c)), closes [#508](https://github.com/mi6/ic-ui-kit/issues/508)
+* **web-components:** adds z-index value for toasts ([e5ef9e8](https://github.com/mi6/ic-ui-kit/commit/e5ef9e82eb7043182a809c978c05423c97915c66))
+* **web-components:** deprecate charactersUntilSuggestions prop for select and remove stories/tests ([6621255](https://github.com/mi6/ic-ui-kit/commit/66212558f8ec636ea7cf08da1cebd364a975f0bf))
+* **web-components:** fixes changing disable prop ([1c161aa](https://github.com/mi6/ic-ui-kit/commit/1c161aa9738a2ca0f35f740888ac5bac834b9b37))
+* **web-components:** fixes console errors ([c4ffd17](https://github.com/mi6/ic-ui-kit/commit/c4ffd1798353a52b572a06db4fad69b239126618))
+* **web-components:** moved slotted navigation method to set menu items to visible on expanded ([22f25a3](https://github.com/mi6/ic-ui-kit/commit/22f25a3a05b28365aea360227e3ccb782edf22c4))
+* **web-components:** removed shadow DOM from ic-menu for a11y fixes ([7b02fa3](https://github.com/mi6/ic-ui-kit/commit/7b02fa341d3b3bc375f2c1ed4e4262a6cd8c388f))
+* **web-components:** update popover to use display none instead of opacity 0 ([88d4cc1](https://github.com/mi6/ic-ui-kit/commit/88d4cc10a3921a8a3d508e53b9659a6945e1ce74))
+
+
+### Features
+
+* **web-components:** add menu item and menu group sub components for new popover menu component ([6346a51](https://github.com/mi6/ic-ui-kit/commit/6346a51303a880fa6fc09f9459fe0e14b36de2cb)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
+* **web-components:** create popover menu component ([587445f](https://github.com/mi6/ic-ui-kit/commit/587445f8a912ff3e3768fda6428873054de9b39c)), closes [#434](https://github.com/mi6/ic-ui-kit/issues/434)
+* **web-components:** show external icon for links when target="_blank" ([a86f1c4](https://github.com/mi6/ic-ui-kit/commit/a86f1c49dace06013324eb776a844db1d28cd513)), closes [#512](https://github.com/mi6/ic-ui-kit/issues/512)
+
 
 # [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
 
