@@ -48,7 +48,7 @@
   --circular-diameter: 1.25rem;
 }
 
-:host([label]) {
+:host(.label) {
   --margin: 0 0 var(--ic-space-xs) 0;
 }
 
@@ -103,7 +103,7 @@
   width: var(--linear-width);
 }
 
-:host([full-width]) {
+:host(.full-width) {
   --linear-border-radius: none;
 }
 
@@ -161,11 +161,11 @@
   stroke: var(--compact-step-inner-color, var(--inner-color));
 }
 
-:host([inner-label]) .ic-loading-circular-inner {
+:host(.inner-label) .ic-loading-circular-inner {
   display: grid;
 }
 
-:host([inner-label]) .ic-loading-circular-svg,
+:host(.inner-label) .ic-loading-circular-svg,
 .inner-text {
   grid-column: 1;
   grid-row: 1;

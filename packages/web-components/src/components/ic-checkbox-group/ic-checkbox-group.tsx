@@ -129,7 +129,7 @@ export class CheckboxGroup {
     );
 
     return (
-      <Host>
+      <Host class={{ ["small"]: this.small }}>
         {(this.validationStatus === "error" ||
           this.required ||
           this.hideLabel) && (

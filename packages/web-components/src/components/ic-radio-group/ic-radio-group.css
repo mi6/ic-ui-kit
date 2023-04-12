@@ -12,7 +12,7 @@ ic-input-validation {
   margin-top: var(--ic-space-sm);
 }
 
-:host([small]) ic-input-validation {
+:host(.small) ic-input-validation {
   margin-top: calc(var(--ic-space-sm) / 2);
 }
 
@@ -20,7 +20,7 @@ ic-input-label ic-typography {
   margin-bottom: var(--ic-space-sm);
 }
 
-:host([small]) ic-input-label ic-typography {
+:host(.small) ic-input-label ic-typography {
   margin-bottom: calc(var(--ic-space-sm) / 2);
 }
 
@@ -30,7 +30,7 @@ ic-input-label ic-typography {
   gap: var(--ic-space-xxs);
 }
 
-:host([small]) .radio-buttons-container {
+:host(.small) .radio-buttons-container {
   gap: var(--ic-space-xxxs);
 }
 
@@ -40,6 +40,6 @@ ic-input-label ic-typography {
   gap: calc(var(--ic-space-xl) + var(--ic-space-xs));
 }
 
-:host([small][orientation="horizontal"]) .radio-buttons-container {
+:host(.small[orientation="horizontal"]) .radio-buttons-container {
   gap: var(--ic-space-xl);
 }

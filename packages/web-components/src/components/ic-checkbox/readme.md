@@ -17,6 +17,7 @@
 | `indeterminate`          | `indeterminate`            | If `true`, the indeterminate state will be displayed when checked.                                             | `boolean`               | `false`                                        |
 | `label` _(required)_     | `label`                    | The label for the checkbox.                                                                                    | `string`                | `undefined`                                    |
 | `name`                   | `name`                     | The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name. | `string`                | `undefined`                                    |
+| `small`                  | `small`                    | If true, the small styling will be applied to the checkbox.                                                    | `boolean`               | `false`                                        |
 | `value` _(required)_     | `value`                    | The value for the checkbox.                                                                                    | `string`                | `undefined`                                    |
 
 

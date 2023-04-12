@@ -183,9 +183,9 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" disabled="" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="disabled" disabled="" label="test label" value="test">
     <mock:shadow-root>
-      <div class="container disabled">
+      <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
         <ic-typography variant="body">
           <label class="checkbox-label" htmlfor="ic-checkbox-test-label-test-label">

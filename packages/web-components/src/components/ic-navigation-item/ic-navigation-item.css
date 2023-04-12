@@ -22,8 +22,8 @@ svg {
   margin-left: auto;
 }
 
-:host([expandable].navigation-item) .link,
-:host([expandable].navigation-item) ::slotted(a) {
+:host(.expandable.navigation-item) .link,
+:host(.expandable.navigation-item) ::slotted(a) {
   padding-right: 0;
 }
 
