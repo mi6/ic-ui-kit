@@ -16,10 +16,6 @@
   --splitter-color: var(--ic-keyline-darken-rgb);
 }
 
-:host([inline]) {
-  margin-bottom: 0;
-}
-
 /* Slotted items container element */
 ::slotted(*) {
   overflow-x: scroll;

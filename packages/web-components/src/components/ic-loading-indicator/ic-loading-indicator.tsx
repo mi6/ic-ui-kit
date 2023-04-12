@@ -275,11 +275,19 @@ export class LoadingIndicator {
   }
 
   render() {
-    const { appearance, label, description, size } = this;
+    const { appearance, label, description, size, fullWidth, innerLabel } =
+      this;
     const { x, y, r } = this.setCircleXY();
 
     return (
-      <Host class={{ ["light"]: appearance === IcThemeForegroundEnum.Light }}>
+      <Host
+        class={{
+          ["light"]: appearance === IcThemeForegroundEnum.Light,
+          ["label"]: !!label,
+          ["full-width"]: fullWidth,
+          ["inner-label"]: !!innerLabel,
+        }}
+      >
         <div class="ic-loading-container">
           <div
             ref={(el) => (this.outerElement = el as HTMLDivElement)}

@@ -150,6 +150,8 @@ export class Hero {
           [IcThemeForegroundEnum.Dark]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
+          ["small"]: small,
+          ["secondary-heading"]: !!secondaryHeading,
         }}
         style={style}
       >

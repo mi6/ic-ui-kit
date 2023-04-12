@@ -92,8 +92,8 @@ ic-typography.heading-bottom-spacing {
     min-height: 13rem;
   }
 
-  :host([small]),
-  :host([small]) .section-container {
+  :host(.small),
+  :host(.small) .section-container {
     min-height: 10.813rem;
   }
 
@@ -130,13 +130,13 @@ ic-typography.heading-bottom-spacing {
     min-height: 16rem;
   }
 
-  :host([small]),
-  :host([small]) .section-container {
+  :host(.small),
+  :host(.small) .section-container {
     min-height: 15rem;
   }
 
-  :host([secondary-heading]),
-  :host([secondary-heading]) .section-container {
+  :host(.secondary-heading),
+  :host(.secondary-heading) .section-container {
     min-height: 14rem;
   }
 
@@ -168,13 +168,13 @@ ic-typography.heading-bottom-spacing {
     min-height: 16rem;
   }
 
-  :host([small]),
-  :host([small]) .section-container {
+  :host(.small),
+  :host(.small) .section-container {
     min-height: 15rem;
   }
 
-  :host([secondary-heading]),
-  :host([secondary-heading]) .section-container {
+  :host(.secondary-heading),
+  :host(.secondary-heading) .section-container {
     min-height: 14rem;
   }
 
@@ -206,18 +206,18 @@ ic-typography.heading-bottom-spacing {
     min-height: 13rem;
   }
 
-  :host([small]),
-  :host([small]) .section-container {
+  :host(.small),
+  :host(.small) .section-container {
     min-height: 10.813rem;
   }
 
-  :host([secondary-heading]),
-  :host([secondary-heading]) .section-container {
+  :host(.secondary-heading),
+  :host(.secondary-heading) .section-container {
     min-height: 17.5rem;
   }
 
-  :host([secondary-heading]) .section-container,
-  :host([small]) .section-container,
+  :host(.secondary-heading) .section-container,
+  :host(.small) .section-container,
   .section-container {
     flex-direction: column;
     align-items: flex-start;
@@ -252,18 +252,18 @@ ic-typography.heading-bottom-spacing {
     margin-bottom: var(--ic-space-md);
   }
 
-  :host([small]),
-  :host([small]) .section-container {
+  :host(.small),
+  :host(.small) .section-container {
     min-height: 10.813rem;
   }
 
-  :host([secondary-heading]),
-  :host([secondary-heading]) .section-container {
+  :host(.secondary-heading),
+  :host(.secondary-heading) .section-container {
     min-height: 16.5rem;
   }
 
-  :host([secondary-heading]) .section-container,
-  :host([small]) .section-container,
+  :host(.secondary-heading) .section-container,
+  :host(.small) .section-container,
   .section-container {
     flex-direction: column;
     align-items: flex-start;

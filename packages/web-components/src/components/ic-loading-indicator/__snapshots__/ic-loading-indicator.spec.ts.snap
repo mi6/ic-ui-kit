@@ -30,7 +30,7 @@ exports[`ic-loading-indicator component should be styled correctly by setting th
 `;
 
 exports[`ic-loading-indicator component should not display a label is the size is 'icon' 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" size="icon" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" size="icon" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
@@ -47,7 +47,7 @@ exports[`ic-loading-indicator component should not display a label is the size i
 `;
 
 exports[`ic-loading-indicator component should render a determinate loading indicator with the correct label and aria 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" progress="30" size="default" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" progress="30" size="default" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="determinate ic-loading-circular-outer" role="progressbar">
@@ -72,7 +72,7 @@ exports[`ic-loading-indicator component should render a determinate loading indi
 `;
 
 exports[`ic-loading-indicator component should render an indeterminate loading indicator with the correct label and set aria-labelledby 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" size="default" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" size="default" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
@@ -138,7 +138,7 @@ exports[`ic-loading-indicator component should set the correct aria if min and m
 `;
 
 exports[`ic-loading-indicator component should set the typography variant for the label to 'h2' for the 'large' size 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" size="large" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" size="large" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
@@ -163,7 +163,7 @@ exports[`ic-loading-indicator component should set the typography variant for th
 `;
 
 exports[`ic-loading-indicator component should set the typography variant for the label to 'h4' for the 'default' size 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" size="default" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" size="default" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">
@@ -188,7 +188,7 @@ exports[`ic-loading-indicator component should set the typography variant for th
 `;
 
 exports[`ic-loading-indicator component should set the typography variant for the label to 'label' for the 'small' size 1`] = `
-<ic-loading-indicator label="IC Loading Indicator Test" size="small" type="circular">
+<ic-loading-indicator class="label" label="IC Loading Indicator Test" size="small" type="circular">
   <mock:shadow-root>
     <div class="ic-loading-container">
       <div aria-label="Loading" aria-labelledby="ic-loading-label" aria-valuemax="100" aria-valuemin="0" class="ic-loading-circular-outer indeterminate" role="progressbar">

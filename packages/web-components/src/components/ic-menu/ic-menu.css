@@ -5,7 +5,7 @@
  */
 
 @media (prefers-reduced-motion: no-preference) {
-  :host([open]) .menu {
+  :host(.open) .menu {
     transition: max-height var(--ic-transition-duration-slow);
   }
 }
@@ -45,12 +45,12 @@
   outline: none;
 }
 
-:host([open]) {
+:host(.open) {
   max-height: none;
   display: block;
 }
 
-:host([open]) .menu {
+:host(.open) .menu {
   visibility: visible;
   max-height: 20.125rem;
 }
@@ -67,7 +67,7 @@
   align-items: center;
 }
 
-:host([small]) .option {
+:host(.small) .option {
   padding: 0.25rem 0.438rem;
 }
 
@@ -115,7 +115,7 @@
   color: var(--ic-color-tertiary-text);
 }
 
-:host([small]) .option-group-title {
+:host(.small) .option-group-title {
   padding: 0.75rem 0.438rem 0.25rem;
 }
 

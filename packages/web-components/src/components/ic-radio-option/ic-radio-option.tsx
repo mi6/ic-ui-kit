@@ -200,7 +200,7 @@ export class RadioOption {
     }-${this.groupLabel}`;
 
     return (
-      <Host onClick={this.handleClick}>
+      <Host onClick={this.handleClick} class={{ disabled: this.disabled }}>
         <div class={{ ["container"]: true, ["disabled"]: this.disabled }}>
           <div>
             <input

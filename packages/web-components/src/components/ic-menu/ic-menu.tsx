@@ -707,6 +707,8 @@ export class Menu {
         class={{
           "full-width": fullWidth,
           "no-focus": this.inputEl?.tagName === "INPUT",
+          small: this.small,
+          open: this.open,
         }}
       >
         {options.length !== 0 && (

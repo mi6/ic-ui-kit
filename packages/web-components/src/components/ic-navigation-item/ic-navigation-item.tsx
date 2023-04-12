@@ -315,6 +315,7 @@ export class NavigationItem {
             this.navigationType === "side" &&
             this.collapsedIconLabel &&
             !this.isSideNavMobile,
+          ["expandable"]: this.expandable,
         }}
         onBlur={isTopNavChild && !inTopNavSideMenu ? this.handleBlur : null}
         onClick={this.handleClick}
