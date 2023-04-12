@@ -5,7 +5,3 @@
 :host(.ic-tab-panel-light) {
   color: white;
 }
-
-:host([hidden]) {
-  display: none;
-}

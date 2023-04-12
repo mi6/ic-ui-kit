@@ -64,7 +64,7 @@ exports[`ic-radio-group should render radio option disabled: renders-disabled 1`
       </div>
     </div>
   </mock:shadow-root>
-  <ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+  <ic-radio-option additional-field-display="static" class="disabled" disabled="" group-label="test group" label="test label" value="test">
     <mock:shadow-root>
       <div class="container disabled">
         <div>
@@ -218,7 +218,7 @@ exports[`ic-radio-group should render with unselected static additional field: r
       </div>
     </div>
   </mock:shadow-root>
-  <ic-radio-option additional-field-display="static" disabled="" group-label="test group" label="test label" value="test">
+  <ic-radio-option additional-field-display="static" class="disabled" disabled="" group-label="test group" label="test label" value="test">
     <mock:shadow-root>
       <div class="container disabled">
         <div>

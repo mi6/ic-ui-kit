@@ -34,7 +34,7 @@ describe("ic-tab component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="true" context-id="default" role="tab" selected="" tabindex="0" tab-position="1">
+      .toEqualHtml(`<ic-tab aria-disabled="false" aria-selected="true" class="selected" context-id="default" role="tab" selected="" tabindex="0" tab-position="1">
     <mock:shadow-root>
       <ic-typography class="ic-tab-label ic-typography-label">
         <mock:shadow-root>
@@ -57,7 +57,7 @@ describe("ic-tab component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-tab aria-disabled="true" aria-selected="false" context-id="default" disabled="" role="tab" tabindex="-1" tab-position="1">
+      .toEqualHtml(`<ic-tab aria-disabled="true" aria-selected="false" class="disabled" context-id="default" disabled="" role="tab" tabindex="-1" tab-position="1">
     <mock:shadow-root>
       <ic-typography class="ic-tab-label ic-typography-label">
         <mock:shadow-root>

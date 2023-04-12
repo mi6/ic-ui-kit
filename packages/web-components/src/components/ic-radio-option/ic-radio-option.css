@@ -12,7 +12,7 @@
 }
 
 /* The label turns grey when disabled  */
-:host([disabled]) {
+:host(.disabled) {
   color: var(--ic-architectural-200);
 }
 

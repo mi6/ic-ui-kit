@@ -47,16 +47,16 @@
   --background-color-active: var(--ic-action-dark-bg-active);
 }
 
-:host([selected]) {
+:host(.selected) {
   border-bottom: var(--ic-space-xxs) solid var(--indicator-color);
 }
 
-:host([disabled]) {
+:host(.disabled) {
   pointer-events: none;
   color: var(--ic-architectural-300);
 }
 
-:host([selected].with-transition) {
+:host(.selected.with-transition) {
   transition: all var(--ic-easing-transition-slow),
     border-color var(--ic-transition-duration-slow);
 }
@@ -74,7 +74,7 @@
     border-bottom: var(--ic-space-xxs) solid canvas;
   }
 
-  :host([disabled]) {
+  :host(.disabled) {
     color: GrayText;
   }
 }

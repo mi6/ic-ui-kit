@@ -198,7 +198,7 @@ export class RadioGroup {
     );
 
     return (
-      <Host onKeyDown={this.handleKeyDown}>
+      <Host onKeyDown={this.handleKeyDown} class={{ small: this.small }}>
         <div
           role="radiogroup"
           aria-label={`${this.label}${this.required ? ", required" : ""}`}
