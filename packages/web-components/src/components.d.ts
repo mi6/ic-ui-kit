@@ -247,6 +247,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
+          * If true, the small styling will be applied to the checkbox.
+         */
+        "small"?: boolean;
+        /**
           * The value for the checkbox.
          */
         "value": string;
@@ -2324,6 +2328,10 @@ declare namespace LocalJSX {
           * Emitted when a checkbox has been checked.
          */
         "onIcCheck"?: (event: IcCheckboxCustomEvent<void>) => void;
+        /**
+          * If true, the small styling will be applied to the checkbox.
+         */
+        "small"?: boolean;
         /**
           * The value for the checkbox.
          */

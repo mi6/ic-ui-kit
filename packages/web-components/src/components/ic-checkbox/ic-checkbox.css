@@ -1,6 +1,6 @@
 @import "../../global/normalize.css";
 
-:host([disabled]) {
+:host(.disabled) {
   color: var(--ic-architectural-200);
   pointer-events: none;
 }
@@ -12,7 +12,7 @@
   margin-bottom: var(--ic-space-xxs);
 }
 
-:host([small]) .container {
+:host(.small) .container {
   margin-bottom: var(--ic-space-xxxs);
 }
 

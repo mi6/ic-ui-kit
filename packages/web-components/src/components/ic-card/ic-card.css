@@ -53,8 +53,7 @@ button {
   border: var(--ic-border-disabled);
 }
 
-.card.fullwidth,
-:host([full-width="true"]) {
+.card.fullwidth {
   width: 100%;
 }
 

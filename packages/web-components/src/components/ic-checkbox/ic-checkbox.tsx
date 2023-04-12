@@ -65,6 +65,11 @@ export class Checkbox {
    */
   @Prop() indeterminate: boolean = false;
 
+  /**
+   * If true, the small styling will be applied to the checkbox.
+   */
+  @Prop() small?: boolean = false;
+
   @State() initiallyChecked = this.checked;
 
   @Element() host: HTMLIcCheckboxElement;
@@ -156,8 +161,8 @@ export class Checkbox {
       : removeHiddenInput(this.host);
 
     return (
-      <Host>
-        <div class={{ ["container"]: true, ["disabled"]: this.disabled }}>
+      <Host class={{ ["disabled"]: this.disabled, ["small"]: this.small }}>
+        <div class="container">
           {this.checked && !this.indeterminate && (
             <svg
               class="checkmark"
