@@ -79,12 +79,30 @@ export class TabContext {
     });
   }
 
+  @Listen("tabCreated")
+  @Listen("tabPanelCreated")
+  newChildrenHandler(ev: CustomEvent) {
+    if (this.tabs && this.tabPanels) {
+      (ev.detail.setFocus ? this.newTabs : this.newTabPanels).push(ev.detail);
+      if (this.newTabs.length === this.newTabPanels.length) {
+        this.tabs.push(...this.newTabs);
+        this.tabPanels.push(...this.newTabPanels);
+        this.enabledTabs = this.getEnabledTabs();
+        this.linkTabs();
+        this.newTabs = [];
+        this.newTabPanels = [];
+      }
+    }
+  }
+
   private controlledMode: boolean;
   private tabs: HTMLIcTabElement[];
   private enabledTabs: HTMLIcTabElement[];
   private tabPanels: HTMLIcTabPanelElement[];
   private tabGroup: HTMLIcTabGroupElement;
   private focusedTabIndex: number;
+  private newTabs: HTMLIcTabElement[] = [];
+  private newTabPanels: HTMLIcTabPanelElement[] = [];
 
   // Sets attributes to link tabs and tabpanels
   private linkTabs = () => {

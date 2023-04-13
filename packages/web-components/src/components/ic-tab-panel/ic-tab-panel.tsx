@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from "@stencil/core";
 import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
@@ -28,6 +36,12 @@ export class TabPanel {
 
   /** @internal The appearance of the tabs, e.g dark, or light. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+
+  @Event() tabPanelCreated: EventEmitter<HTMLIcTabPanelElement>;
+
+  connectedCallback(): void {
+    this.tabPanelCreated.emit(this.host);
+  }
 
   render() {
     const { panelId, selectedTab, appearance } = this;
