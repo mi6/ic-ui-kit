@@ -164,7 +164,7 @@
   }
 
   .alert-action-container {
-    margin-bottom: 0.875rem;
+    margin-bottom: var(--ic-space-xs);
   }
 }
 
