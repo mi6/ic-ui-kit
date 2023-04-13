@@ -404,4 +404,39 @@ describe("ic-tab-context component", () => {
     await page.waitForChanges();
     expect(page.rootInstance.focusedTabIndex).toBe(0);
   });
+
+  it("should apply tab and panel ids to elements added after initial render of the context", async () => {
+    const page = await newSpecPage({
+      components: [TabContext, TabGroup, Tab, TabPanel],
+      html: `<ic-tab-context>
+      <ic-tab-group label="Example tab group">
+        <ic-tab>One</ic-tab>
+        <ic-tab>Two</ic-tab>
+        <ic-tab>Three</ic-tab>
+      </ic-tab-group>
+      <ic-tab-panel>Tab One</ic-tab-panel>
+      <ic-tab-panel>Tab Two</ic-tab-panel>
+      <ic-tab-panel>Tab Three</ic-tab-panel>
+      </ic-tab-context>`,
+    });
+
+    const tabGroup = page.root.querySelector("ic-tab-group");
+
+    tabGroup.insertAdjacentHTML("beforeend", "<ic-tab>Four</ic-tab>");
+    page.root.insertAdjacentHTML(
+      "beforeend",
+      "<ic-tab-panel>Four</ic-tab-panel>"
+    );
+    await page.waitForChanges();
+
+    const newTab = page.root.querySelector(
+      '[id*="ic-tab-3-context-default"]'
+    ) as HTMLIcTabElement;
+    const newTabPanel = page.root.querySelector(
+      '[id*="ic-tab-panel-3-context-default"]'
+    ) as HTMLIcTabPanelElement;
+
+    expect(newTab.tabId).toBe("ic-tab--3-context-default");
+    expect(newTabPanel.panelId).toBe("ic-tab--3-context-default");
+  });
 });

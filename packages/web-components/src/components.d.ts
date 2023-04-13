@@ -1687,6 +1687,10 @@ export interface IcTabContextCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTabContextElement;
 }
+export interface IcTabPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTabPanelElement;
+}
 export interface IcTextFieldCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTextFieldElement;
@@ -3493,6 +3497,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "selected"?: boolean;
         "tabId"?: string;
@@ -3545,6 +3550,7 @@ declare namespace LocalJSX {
           * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
          */
         "contextId"?: string;
+        "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;
