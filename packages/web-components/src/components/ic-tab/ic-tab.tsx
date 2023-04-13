@@ -56,6 +56,8 @@ export class Tab {
    */
   @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
 
+  @Event() tabCreated: EventEmitter<HTMLIcTabElement>;
+
   private isInitialRender: boolean = true;
   private focusFromClick: boolean = false;
 
@@ -104,6 +106,10 @@ export class Tab {
 
   componentDidUpdate(): void {
     this.isInitialRender = false;
+  }
+
+  connectedCallback(): void {
+    this.tabCreated.emit(this.host);
   }
 
   render() {
