@@ -21,7 +21,6 @@
   align-items: center;
   text-decoration: none;
   padding: var(--ic-space-xxs);
-  margin-left: calc(-1 * var(--ic-space-xxs));
   transition: var(--ic-easing-transition-fast);
 }
 
