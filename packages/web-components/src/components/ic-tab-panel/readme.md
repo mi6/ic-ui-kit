@@ -12,6 +12,13 @@
 | `contextId` | `context-id` | The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. | `string` | `"default"` |
 
 
+## Events
+
+| Event             | Description | Type                                 |
+| ----------------- | ----------- | ------------------------------------ |
+| `tabPanelCreated` |             | `CustomEvent<HTMLIcTabPanelElement>` |
+
+
 ----------------------------------------------
 
 
