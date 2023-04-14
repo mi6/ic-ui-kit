@@ -771,7 +771,59 @@ import readme from "./readme.md";
               d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
             />
           </svg>
-        </ic-text-field> `
+        </ic-text-field>
+        <ic-text-field
+          validation-status="error"
+          validation-text="now it has really gone to (coffee) pot"
+          value="6"
+          inputmode="numeric"
+          label="How many coffees do you want?"
+          helper-text="Our coffee machines have a maximum capacity of 4 coffees at a time."
+          type="number"
+          min="1"
+          max="4"
+          required
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+        </ic-text-field>
+        <ic-text-field
+          validation-status="error"
+          validation-text="now it has really gone to (coffee) pot"
+          value="0"
+          inputmode="numeric"
+          label="How many coffees do you want?"
+          helper-text="Our coffee machines have a maximum capacity of 4 coffees at a time."
+          type="number"
+          min="1"
+          max="4"
+          required
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"
+            />
+          </svg>
+        </ic-text-field>`
     }
   </Story>
 </Canvas>
@@ -833,6 +885,24 @@ import readme from "./readme.md";
           });
         </script>
       `
+    }
+  </Story>
+</Canvas>
+
+### Min and max
+
+<Canvas>
+  <Story name="Min and max">
+    {(args) =>
+      html`<ic-text-field
+        inputmode="numeric"
+        label="How many coffees do you want?"
+        helper-text="Our coffee machines have a maximum capacity of 4 coffees at a time."
+        type="number"
+        min="1"
+        max="4"
+      >
+      </ic-text-field>`
     }
   </Story>
 </Canvas>

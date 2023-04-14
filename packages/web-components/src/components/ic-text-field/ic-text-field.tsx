@@ -125,6 +125,16 @@ export class TextField {
   @Prop({ reflect: true, mutable: true }) value: string = "";
 
   /**
+   * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
+   */
+  @Prop() min: number = undefined;
+
+  /**
+   * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
+   */
+  @Prop() max: number = undefined;
+
+  /**
    * The maximum number of characters that can be entered in the field.
    */
   @Prop() maxLength: number = 0;
@@ -235,6 +245,8 @@ export class TextField {
 
   @State() numChars: number = 0;
   @State() maxLengthExceeded: boolean = false;
+  @State() minValueUnattained: boolean = false;
+  @State() maxValueExceeded: boolean = false;
   @State() initialValue = this.value;
 
   @Watch("value")
@@ -243,8 +255,22 @@ export class TextField {
       this.inputEl.value = newValue;
     }
 
+    this.numChars = newValue.length;
+
+    if (this.type === "number") {
+      if (newValue && Number(newValue) < this.min) {
+        this.minValueUnattained = true;
+      } else {
+        this.minValueUnattained = false;
+      }
+      if (Number(newValue) > this.max) {
+        this.maxValueExceeded = true;
+      } else {
+        this.maxValueExceeded = false;
+      }
+    }
+
     if (this.maxLength > 0) {
-      this.numChars = newValue.length;
       if (newValue.length > this.maxLength) {
         this.maxLengthExceeded = true;
       } else {
@@ -354,6 +380,8 @@ export class TextField {
 
     if (this.readonly) {
       this.maxLengthExceeded = false;
+      this.maxValueExceeded = false;
+      this.minValueUnattained = false;
     }
 
     addFormResetListener(this.el, this.handleFormReset);
@@ -383,10 +411,14 @@ export class TextField {
       resize,
       disabled,
       value,
+      min,
+      max,
       maxLength,
       numChars,
       readonly,
       maxLengthExceeded,
+      minValueUnattained,
+      maxValueExceeded,
       validationStatus,
       validationText,
       validationInline,
@@ -401,18 +433,25 @@ export class TextField {
 
     const placeholderText = disabled ? "" : placeholder;
 
-    const currentStatus = maxLengthExceeded
-      ? IcInformationStatus.Error
-      : validationStatus;
+    const currentStatus =
+      maxLengthExceeded || maxValueExceeded || minValueUnattained
+        ? IcInformationStatus.Error
+        : validationStatus;
 
     const currentValidationText = maxLengthExceeded
       ? "Maximum length exceeded"
+      : maxValueExceeded
+      ? `Maximum value of ${max} exceeded`
+      : minValueUnattained
+      ? `Minimum value of ${min} not met`
       : validationText;
 
     const maxNumChars = readonly ? 0 : maxLength;
 
     const messageAriaLive =
       maxLengthExceeded ||
+      maxValueExceeded ||
+      minValueUnattained ||
       (maxLength === 0 && currentStatus === IcInformationStatus.Error)
         ? "assertive"
         : "polite";
@@ -482,6 +521,8 @@ export class TextField {
                 name={name}
                 ref={(el) => (this.inputEl = el as HTMLInputElement)}
                 type={this.type}
+                min={min}
+                max={max}
                 value={value}
                 class={{
                   ["no-left-pad"]: !this.showLeftIcon && readonly,
@@ -549,7 +590,9 @@ export class TextField {
           {isSlotUsed(this.el, "menu") && <slot name="menu"></slot>}
           {(!isEmptyString(validationStatus) ||
             !isEmptyString(validationText) ||
-            maxNumChars > 0) && (
+            maxNumChars > 0 ||
+            maxValueExceeded ||
+            minValueUnattained) && (
             <ic-input-validation
               status={
                 this.hasStatus(currentStatus) === false ||
@@ -569,7 +612,7 @@ export class TextField {
                     variant="caption"
                     class={{
                       ["maxlengthtext"]: true,
-                      ["exceeded"]: maxLengthExceeded,
+                      ["error"]: maxLengthExceeded,
                       ["disabled"]: disabledText,
                     }}
                   >

@@ -269,3 +269,21 @@ describe("ic-text-field", () => {
     page.setContent("");
   });
 });
+
+it("should render with min/max and max validation", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" rows=1 min=1 max=4 value="6" inputmode="numeric" type="number"></ic-text-field>`,
+  });
+
+  expect(page.root).toMatchSnapshot("renders-with-max");
+});
+
+it("should render with min/max and min validation", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" rows=1 min=1 max=4 value="0" inputmode="numeric" type="number"></ic-text-field>`,
+  });
+
+  expect(page.root).toMatchSnapshot("renders-with-min");
+});
