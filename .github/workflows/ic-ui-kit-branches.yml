@@ -103,6 +103,7 @@ jobs:
 
   ic-ui-kit-deploy:
     needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
+    if: github.repository_owner == 'mi6'
     name: 'Deploy'
     runs-on: ubuntu-latest
     steps:
