@@ -105,6 +105,16 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-
-
-
+    # Triggers a workflow in the design system repo
+    ic-ui-kit-update-design-system:
+      needs: [ic-ui-kit-publish]
+      name: 'Trigger design system release workflow'
+      runs-on: ubuntu-latest
+      steps:
+        - name: Repository Dispatch
+          uses: peter-evans/repository-dispatch@v2
+          with:
+            token: ${{ secrets.PUBLISH_PAT }}
+            repository: mi6/ic-design-system
+            event-type: design-system-release
+            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
