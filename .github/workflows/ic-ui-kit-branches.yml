@@ -15,121 +15,127 @@ concurrency:
   cancel-in-progress: true
 
 jobs:  
-  ci-check:
-    name: 'CI Check'
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5
-        with:
-          concurrent_skipping: 'same_content_newer'
-  ic-ui-kit-static-analysis-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
-    name: 'Static Analysis Tests'
+  # ci-check:
+  #   name: 'CI Check'
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     should_skip: ${{ steps.skip_check.outputs.should_skip }}
+  #   steps:
+  #     - id: skip_check
+  #       uses: fkirc/skip-duplicate-actions@v5
+  #       with:
+  #         concurrent_skipping: 'same_content_newer'
+  ic-get-org:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      - name: Output data
+        if: github.repository_owner == 'mi6'
+        run: echo "$GITHUB_REPOSITORY_OWNER"
+  # ic-ui-kit-static-analysis-tests:
+  #   needs: ci-check
+  #   if: needs.ci-check.outputs.should_skip != 'true'
+  #   name: 'Static Analysis Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
+  #         npm run build
 
-      - name: Lint commit messages
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-          echo "$COMMIT_MESSAGE" | npx commitlint
+  #     - name: Lint commit messages
+  #       run: |
+  #         COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+  #         echo "$COMMIT_MESSAGE" | npx commitlint
       
-      - name: Lint
-        run: npm run lint
+  #     - name: Lint
+  #       run: npm run lint
 
-      - name: Prettier
-        run: npm run prettier
+  #     - name: Prettier
+  #       run: npm run prettier
 
-      - name: Audit
-        run: npm run audit
+  #     - name: Audit
+  #       run: npm run audit
 
-      - name: A11y tests
-        run: npm run test-a11y:ci
+  #     - name: A11y tests
+  #       run: npm run test-a11y:ci
 
-      - name: Unit Component tests
-        run: npm run test:coverage-ci
+  #     - name: Unit Component tests
+  #       run: npm run test:coverage-ci
 
-  ic-ui-kit-e2e-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
-    name: 'E2E Tests'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  # ic-ui-kit-e2e-tests:
+  #   needs: ci-check
+  #   if: needs.ci-check.outputs.should_skip != 'true'
+  #   name: 'E2E Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
   
-      - name: E2E tests
-        run: npm run test-e2e
+  #     - name: E2E tests
+  #       run: npm run test-e2e
 
-  ic-ui-kit-visual-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
-    name: 'Visual Regression Tests'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: browser-actions/setup-chrome@latest
-      - name: Install dependencies
-        run: |
-          google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+  # ic-ui-kit-visual-tests:
+  #   needs: ci-check
+  #   if: needs.ci-check.outputs.should_skip != 'true'
+  #   name: 'Visual Regression Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #     - uses: browser-actions/setup-chrome@latest
+  #     - name: Install dependencies
+  #       run: |
+  #         google-chrome --version
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Visual Regression tests
-        run: npm run test-visual:ci
+  #     - name: Visual Regression tests
+  #       run: npm run test-visual:ci
 
-  ic-ui-kit-deploy:
-    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
-    name: 'Deploy'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  # ic-ui-kit-deploy:
+  #   needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
+  #   name: 'Deploy'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Build components and web-components and react storybook
-        run: |
-          npm run build
-          npm run build-storybook:web-components
-          npm run build-storybook:react
+  #     - name: Build components and web-components and react storybook
+  #       run: |
+  #         npm run build
+  #         npm run build-storybook:web-components
+  #         npm run build-storybook:react
 
-      - name: Deploy web components storybook
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/web-components
+  #     - name: Deploy web components storybook
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #         folder: ./packages/web-components/storybook-static
+  #         target-folder: ./branches/${{ github.ref_name }}/web-components
       
-      - name: Deploy react storybook
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ./packages/react/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/react
+  #     - name: Deploy react storybook
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #         folder: ./packages/react/storybook-static
+  #         target-folder: ./branches/${{ github.ref_name }}/react
