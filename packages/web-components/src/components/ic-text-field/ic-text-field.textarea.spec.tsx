@@ -217,7 +217,7 @@ describe("ic-text-field", () => {
         </ic-input-component-container>
     <ic-input-validation arialivemode="assertive" for="ic-text-field-input-9" message="Maximum length exceeded" status="error">
             <div slot="validation-message-adornment">
-              <ic-typography class="exceeded maxlengthtext" variant="caption">
+              <ic-typography class="error maxlengthtext" variant="caption">
                 <span aria-live="polite" id="ic-text-field-input-9-charcount" class="charcount">
                   33/25
                 </span>
