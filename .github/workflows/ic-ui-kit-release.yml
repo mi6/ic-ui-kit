@@ -1,0 +1,30 @@
+name: Release
+
+on: workflow_dispatch
+
+# Runs release-check
+# Then creates an env variable with the version changes to display as the body of the develop -> main PR
+jobs:
+  ic-ui-kit-release:
+    name: "Release develop -> main"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: browser-actions/setup-chrome@latest
+      - name: Checkout
+        run: |
+          RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)
+          echo "VERSION=$(echo $RELEASE_CHECK | cut -c 87-117)" >> $GITHUB_ENV
+      - name: Create develop -> main PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "develop -> main"
+          commit-message: "ci(root): develop -> main"
+          body: >
+            Version: ${{ env.VERSION }}
+          branch: develop
+          base: main
