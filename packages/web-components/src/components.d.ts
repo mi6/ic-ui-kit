@@ -1459,9 +1459,17 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
+         */
+        "max": number;
+        /**
           * The maximum number of characters that can be entered in the field.
          */
         "maxLength": number;
+        /**
+          * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
+         */
+        "min": number;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -3621,9 +3629,17 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
+         */
+        "max"?: number;
+        /**
           * The maximum number of characters that can be entered in the field.
          */
         "maxLength"?: number;
+        /**
+          * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
+         */
+        "min"?: number;
         /**
           * The name of the control, which is submitted with the form data.
          */

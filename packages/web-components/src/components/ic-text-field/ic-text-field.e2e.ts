@@ -50,6 +50,52 @@ describe("ic-text-field", () => {
     expect(iconVis).toBeTruthy();
   });
 
+  it("should trigger min/max value validation when lower/higher value set", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      '<ic-text-field label="Test label" min=1 max=4 inputmode="numeric" type="number"'
+    );
+
+    await page.waitForChanges();
+
+    const element = await page.find("ic-text-field");
+    element.setProperty("value", "5");
+
+    await page.waitForChanges();
+
+    const input = await page.find("ic-text-field >>> #ic-text-field-input-0");
+
+    const value = await input.getProperty("value");
+    expect(value).toBe("5");
+
+    const icon = await page.find("ic-text-field >>> .icon-error");
+    const iconVis = await icon.isVisible();
+    expect(iconVis).toBeTruthy();
+
+    let validationText = await page.find(
+      "ic-text-field >>> #ic-text-field-input-0-validation-text"
+    );
+    expect(validationText).toEqualText("Maximum value of 4 exceeded");
+
+    element.setProperty("value", "4");
+
+    await page.waitForChanges();
+
+    validationText = await page.find(
+      "ic-text-field >>> #ic-text-field-input-0-validation-text"
+    );
+    expect(validationText).toBeNull();
+
+    element.setProperty("value", "0");
+
+    await page.waitForChanges();
+
+    validationText = await page.find(
+      "ic-text-field >>> #ic-text-field-input-0-validation-text"
+    );
+    expect(validationText).toEqualText("Minimum value of 1 not met");
+  });
+
   it("should focus input when setFocus method called", async () => {
     const page = await newE2EPage();
     await page.setContent('<ic-text-field label="Test label">');
