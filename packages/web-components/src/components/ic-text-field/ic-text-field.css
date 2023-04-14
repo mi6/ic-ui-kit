@@ -70,7 +70,7 @@ textarea.no-resize {
   color: var(--ic-color-secondary-text);
 }
 
-.exceeded {
+.error {
   color: var(--ic-status-error);
 }
 

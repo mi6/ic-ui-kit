@@ -227,6 +227,14 @@ export const ControlledExample = () => {
     />
     <IcTextField rows="6" maxLength="25" value="Tea" label="What is your favourite coffee?" required
           helperText="Such as Arabica, Robusta or Liberica" validationStatus="error" validationText="Now it has really gone to (coffee) pot"
+    />    
+    <IcTextField validationStatus="error" validationText="now it has really gone to (coffee) pot" value="6" inputmode="numeric"
+          label="How many coffees do you want?" helperText="Our coffee machines have a maximum capacity of 4 coffees at a time." 
+          type="number" min="1" max="4" required
+    />
+    <IcTextField validationStatus="error" validationText="now it has really gone to (coffee) pot" value="0" inputmode="numeric"
+          label="How many coffees do you want?" helperText="Our coffee machines have a maximum capacity of 4 coffees at a time." 
+          type="number" min="1" max="4" required
     />
   </Story>
   
@@ -272,6 +280,6 @@ export const ControlledExample = () => {
 
 <Canvas>
   <Story name="Min and max">
-    <IcTextField inputmode="numeric" label="How many coffees do you want?" type="number" min={1} max={4} />
+    <IcTextField inputmode="numeric" label="How many coffees do you want?" type="number" min={1} max={4} helperText="Our coffee machines have a maximum capacity of 4 coffees at a time."/>
   </Story>
 </Canvas>
