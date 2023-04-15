@@ -194,6 +194,54 @@ describe("ic-typography component", () => {
     `);
   });
 
+  it("should render code large with code-large variant", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="code-large">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-typography class="ic-typography-code-large" variant="code-large">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      IC Typography Test
+     </ic-typography>
+    `);
+  });
+
+  it("should render code small with code-small variant", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="code-small">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-typography class="ic-typography-code-small" variant="code-small">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      IC Typography Test
+     </ic-typography>
+    `);
+  });
+
+  it("should render code extra small with code-extra-small variant", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="code-extra-small">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-typography class="ic-typography-code-extra-small" variant="code-extra-small">
+      <mock:shadow-root>
+        <slot></slot>
+      </mock:shadow-root>
+      IC Typography Test
+     </ic-typography>
+    `);
+  });
+
   it("should allow semantic component to be passed in and variant styling applied", async () => {
     const page = await newSpecPage({
       components: [Typography],
