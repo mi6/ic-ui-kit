@@ -139,7 +139,10 @@ export type IcTypographyVariants =
   | "label"
   | "label-uppercase"
   | "caption"
-  | "caption-uppercase";
+  | "caption-uppercase"
+  | "code-large"
+  | "code-small"
+  | "code-extra-small";
 
 export interface IcMenuOption {
   value?: string;
