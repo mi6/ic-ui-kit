@@ -24,6 +24,7 @@
   /* fonts */
   --ic-font-body-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
   --ic-font-heading-family: "Nunito Sans", sans-serif;
+  --ic-font-code-family: "Source Code Pro", monospace;
 
   /* font weight */
   --ic-font-weight-extrabold: 800;
@@ -78,6 +79,14 @@
     var(--ic-font-line-height-caption) var(--ic-font-body-family);
   --ic-font-label: var(--ic-font-weight-semibold) var(--ic-font-size-label) /
     var(--ic-font-line-height-body) var(--ic-font-body-family);
+  --ic-font-code-large: var(--ic-font-weight-regular)
+    var(--ic-font-size-regular) / var(--ic-font-line-height-code)
+    var(--ic-font-code-family);
+  --ic-font-code-small: var(--ic-font-weight-semibold) var(--ic-font-size-label) /
+    var(--ic-font-line-height-code) var(--ic-font-code-family);
+  --ic-font-code-extra-small: var(--ic-font-weight-regular)
+    var(--ic-font-size-caption) / var(--ic-font-line-height-code)
+    var(--ic-font-code-family);
 
   /* colours */
 

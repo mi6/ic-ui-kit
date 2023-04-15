@@ -22,7 +22,10 @@
 
 :host(.ic-typography-vertical-margins-subtitle-large),
 :host(.ic-typography-vertical-margins-subtitle-small),
-:host(.ic-typography-vertical-margins-body) {
+:host(.ic-typography-vertical-margins-body),
+:host(.ic-typography-vertical-margins-code-large),
+:host(.ic-typography-vertical-margins-code-small),
+:host(.ic-typography-vertical-margins-code-extra-small) {
   margin: 0 0 var(--ic-space-md);
 }
 
@@ -90,6 +93,21 @@
   font: var(--ic-font-label);
   letter-spacing: var(--ic-font-letter-spacing-0pt025);
   text-transform: uppercase;
+}
+
+:host(.ic-typography-code-large) {
+  font: var(--ic-font-code-large);
+  letter-spacing: var(--ic-font-letter-spacing-0pt025);
+}
+
+:host(.ic-typography-code-small) {
+  font: var(--ic-font-code-small);
+  letter-spacing: var(--ic-font-letter-spacing-0pt005);
+}
+
+:host(.ic-typography-code-extra-small) {
+  font: var(--ic-font-code-extra-small);
+  letter-spacing: var(--ic-font-letter-spacing-0pt025);
 }
 
 :host(.ic-typography-no-wrap) {
