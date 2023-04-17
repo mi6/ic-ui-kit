@@ -55,11 +55,19 @@ export class Tab {
    * @internal Emitted when a tab is focussed.
    */
   @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
-
+  /**
+   * @internal Emitted when a tab is dynamically created.
+   */
   @Event() tabCreated: EventEmitter<HTMLIcTabElement>;
+
+  /**
+   * @internal Emitted when a tab is unmounted.
+   */
+  @Event() tabRemoved: EventEmitter<void>;
 
   private isInitialRender: boolean = true;
   private focusFromClick: boolean = false;
+  private focusTabId: string;
 
   private handleClick = () => {
     this.tabClick.emit({
@@ -79,6 +87,8 @@ export class Tab {
 
   private handleFocus = () => {
     if (!this.focusFromClick) {
+      this.focusTabId = this.tabId;
+
       this.tabFocus.emit({
         tabId: this.tabId,
         contextId: this.contextId,
@@ -110,6 +120,13 @@ export class Tab {
 
   connectedCallback(): void {
     this.tabCreated.emit(this.host);
+  }
+
+  disconnectedCallback(): void {
+    const tabContext = document.querySelector(
+      `ic-tab-context[context-id=${this.contextId}]`
+    ) as HTMLIcTabContextElement;
+    tabContext.tabRemovedHandler(!!this.focusTabId);
   }
 
   render() {

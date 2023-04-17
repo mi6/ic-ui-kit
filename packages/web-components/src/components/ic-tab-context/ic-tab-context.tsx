@@ -8,6 +8,7 @@ import {
   State,
   h,
   Watch,
+  Method,
 } from "@stencil/core";
 import {
   IcActivationTypes,
@@ -24,6 +25,15 @@ import {
   tag: "ic-tab-context",
 })
 export class TabContext {
+  private controlledMode: boolean;
+  private tabs: HTMLIcTabElement[];
+  private enabledTabs: HTMLIcTabElement[];
+  private tabPanels: HTMLIcTabPanelElement[];
+  private tabGroup: HTMLIcTabGroupElement;
+  private focusedTabIndex: number;
+  private newTabs: HTMLIcTabElement[] = [];
+  private newTabPanels: HTMLIcTabPanelElement[] = [];
+
   @Element() host: HTMLIcTabContextElement;
 
   /**
@@ -81,7 +91,7 @@ export class TabContext {
 
   @Listen("tabCreated")
   @Listen("tabPanelCreated")
-  newChildrenHandler(ev: CustomEvent) {
+  tabCreatedHandler(ev: CustomEvent) {
     if (this.tabs && this.tabPanels) {
       (ev.detail.setFocus ? this.newTabs : this.newTabPanels).push(ev.detail);
       if (this.newTabs.length === this.newTabPanels.length) {
@@ -95,14 +105,26 @@ export class TabContext {
     }
   }
 
-  private controlledMode: boolean;
-  private tabs: HTMLIcTabElement[];
-  private enabledTabs: HTMLIcTabElement[];
-  private tabPanels: HTMLIcTabPanelElement[];
-  private tabGroup: HTMLIcTabGroupElement;
-  private focusedTabIndex: number;
-  private newTabs: HTMLIcTabElement[] = [];
-  private newTabPanels: HTMLIcTabPanelElement[] = [];
+  /**
+   * @internal Used to set tab/tab panel IDs when a tab/tab panel has been removed
+   */
+  @Method()
+  async tabRemovedHandler(hadFocus?: boolean) {
+    this.getChildren();
+    this.enabledTabs = this.getEnabledTabs();
+    this.linkTabs();
+    if (this.tabs[this.selectedTab] && this.tabPanels[this.selectedTab]) {
+      this.tabs[this.selectedTab].selected = true;
+      this.tabPanels[this.selectedTab].selectedTab =
+        this.tabs[this.selectedTab].tabId;
+    } else {
+      this.setInitialTab();
+    }
+
+    if (hadFocus) {
+      this.tabs[this.selectedTab].setFocus();
+    }
+  }
 
   // Sets attributes to link tabs and tabpanels
   private linkTabs = () => {

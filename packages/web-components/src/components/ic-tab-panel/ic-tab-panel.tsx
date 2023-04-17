@@ -25,22 +25,45 @@ export class TabPanel {
    */
   @Prop({ reflect: true }) contextId?: string = "default";
 
-  /** @internal The position of the tab panel inside the tabs array in context. */
+  /**
+   * @internal The position of the tab panel inside the tabs array in context.
+   */
   @Prop({ reflect: true }) tabPosition?: number;
 
-  /** @internal The shared ID that links the panel and tab. */
+  /**
+   * @internal The shared ID that links the panel and tab.
+   */
   @Prop({ reflect: true }) panelId?: string;
 
-  /** @internal The shared ID of the currently selected tab. */
+  /**
+   * @internal The shared ID of the currently selected tab.
+   */
   @Prop() selectedTab?: string;
 
-  /** @internal The appearance of the tabs, e.g dark, or light. */
+  /**
+   * @internal The appearance of the tabs, e.g dark, or light.
+   */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
+  /**
+   * @internal Emitted when a tab panel is dynamically created.
+   */
   @Event() tabPanelCreated: EventEmitter<HTMLIcTabPanelElement>;
+
+  /**
+   * @internal Emitted when a tab panel is unmounted.
+   */
+  @Event() tabPanelRemoved: EventEmitter<void>;
 
   connectedCallback(): void {
     this.tabPanelCreated.emit(this.host);
+  }
+
+  disconnectedCallback(): void {
+    const tabContext = document.querySelector(
+      `ic-tab-context[context-id=${this.contextId}]`
+    ) as HTMLIcTabContextElement;
+    tabContext.tabRemovedHandler();
   }
 
   render() {
