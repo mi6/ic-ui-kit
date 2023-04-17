@@ -1,4 +1,5 @@
 import { newE2EPage } from "@stencil/core/testing";
+import { waitForTimeout } from "../../testspec.setup";
 
 const testTabs = `
 <ic-tab-context>
@@ -228,5 +229,109 @@ describe("ic-tab-context component", () => {
     expect(tabSelect).toHaveReceivedEventDetail({
       tabIndex: 1,
     });
+  });
+
+  it("should move focus to next tab if focused tab is removed", async () => {
+    const page = await newE2EPage({
+      html: `<ic-tab-context>
+          <ic-tab-group label="Example tab group">
+            <ic-tab>One</ic-tab>
+            <ic-tab>Two</ic-tab>
+            <ic-tab>Three</ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>Tab One</ic-tab-panel>
+          <ic-tab-panel>Tab Two</ic-tab-panel>
+          <ic-tab-panel>Tab Three</ic-tab-panel>
+        </ic-tab-context>
+      `,
+    });
+
+    const tab0 = await page.find('ic-tab[tab-id="ic-tab--0-context-default"]');
+    await tab0.click();
+    await page.waitForChanges();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForChanges();
+
+    let focusedTabId = await page.evaluate(() => document.activeElement.id);
+
+    expect(focusedTabId).toBe("ic-tab-1-context-default");
+
+    await page.evaluate(() => {
+      const tabGroup = document.querySelector("ic-tab-group");
+      const allTabs = tabGroup.querySelectorAll("ic-tab");
+
+      const tabContext = document.querySelector("ic-tab-context");
+      const allTabPanels = tabContext.querySelectorAll("ic-tab-panel");
+
+      allTabs[allTabs.length - 2].remove();
+      allTabPanels[allTabPanels.length - 2].remove();
+    });
+
+    await waitForTimeout(250);
+
+    focusedTabId = await page.evaluate(() => document.activeElement.id);
+
+    expect(focusedTabId).toBe("ic-tab-1-context-default");
+
+    const focusedTab = await page.find('ic-tab[id="ic-tab-1-context-default"]');
+    const tabPanel = await page.find(
+      'ic-tab-panel[id*="ic-tab-panel-1-context-default"]'
+    );
+
+    expect(focusedTab.textContent).toBe("Three");
+    expect(tabPanel).not.toHaveAttribute("hidden");
+  });
+
+  it("should move focus to first tab if last tab is focused and removed", async () => {
+    const page = await newE2EPage({
+      html: `<ic-tab-context>
+          <ic-tab-group label="Example tab group">
+            <ic-tab>One</ic-tab>
+            <ic-tab>Two</ic-tab>
+            <ic-tab>Three</ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>Tab One</ic-tab-panel>
+          <ic-tab-panel>Tab Two</ic-tab-panel>
+          <ic-tab-panel>Tab Three</ic-tab-panel>
+        </ic-tab-context>
+      `,
+    });
+
+    const tab0 = await page.find('ic-tab[tab-id="ic-tab--0-context-default"]');
+    await tab0.click();
+    await page.waitForChanges();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForChanges();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForChanges();
+
+    let focusedTabId = await page.evaluate(() => document.activeElement.id);
+
+    expect(focusedTabId).toBe("ic-tab-2-context-default");
+
+    await page.evaluate(() => {
+      const tabGroup = document.querySelector("ic-tab-group");
+      const allTabs = tabGroup.querySelectorAll("ic-tab");
+
+      const tabContext = document.querySelector("ic-tab-context");
+      const allTabPanels = tabContext.querySelectorAll("ic-tab-panel");
+
+      allTabs[allTabs.length - 1].remove();
+      allTabPanels[allTabPanels.length - 1].remove();
+    });
+
+    await waitForTimeout(250);
+
+    focusedTabId = await page.evaluate(() => document.activeElement.id);
+
+    expect(focusedTabId).toBe("ic-tab-0-context-default");
+
+    const focusedTab = await page.find('ic-tab[id="ic-tab-0-context-default"]');
+    const tabPanel = await page.find(
+      'ic-tab-panel[id*="ic-tab-panel-0-context-default"]'
+    );
+
+    expect(focusedTab.textContent).toBe("One");
+    expect(tabPanel).not.toHaveAttribute("hidden");
   });
 });

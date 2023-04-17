@@ -439,4 +439,49 @@ describe("ic-tab-context component", () => {
     expect(newTab.tabId).toBe("ic-tab--3-context-default");
     expect(newTabPanel.panelId).toBe("ic-tab--3-context-default");
   });
+
+  it("should reassign ids if tab and tab panel are dynamically removed", async () => {
+    const page = await newSpecPage({
+      components: [TabContext, TabGroup, Tab, TabPanel],
+      html: `<ic-tab-context>
+      <ic-tab-group label="Example tab group">
+        <ic-tab>One</ic-tab>
+        <ic-tab>Two</ic-tab>
+        <ic-tab>Three</ic-tab>
+      </ic-tab-group>
+      <ic-tab-panel>Tab One</ic-tab-panel>
+      <ic-tab-panel>Tab Two</ic-tab-panel>
+      <ic-tab-panel>Tab Three</ic-tab-panel>
+      </ic-tab-context>`,
+    });
+
+    const tabGroup = page.root.querySelector("ic-tab-group");
+
+    let allTabs = tabGroup.querySelectorAll("ic-tab");
+    let allTabPanels = page.root.querySelectorAll("ic-tab-panel");
+
+    expect(allTabs.length).toBe(3);
+    expect(allTabPanels.length).toBe(3);
+
+    allTabPanels[allTabPanels.length - 2].remove();
+    allTabs[allTabs.length - 2].remove();
+
+    await page.waitForChanges();
+
+    allTabs = tabGroup.querySelectorAll("ic-tab");
+    allTabPanels = page.root.querySelectorAll("ic-tab-panel");
+
+    expect(allTabs.length).toBe(2);
+    expect(allTabPanels.length).toBe(2);
+
+    const newlyUpdatedTab = page.root.querySelector(
+      '[id*="ic-tab-1-context-default"]'
+    ) as HTMLIcTabElement;
+    const newlyUpdatedTabPanel = page.root.querySelector(
+      '[id*="ic-tab-panel-1-context-default"]'
+    ) as HTMLIcTabPanelElement;
+
+    expect(newlyUpdatedTab.tabId).toBe("ic-tab--1-context-default");
+    expect(newlyUpdatedTabPanel.panelId).toBe("ic-tab--1-context-default");
+  });
 });
