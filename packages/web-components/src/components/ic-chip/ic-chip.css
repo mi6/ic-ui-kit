@@ -8,9 +8,8 @@
   display: flex;
   padding: var(--ic-space-xxs);
   font-size: 0.875rem;
-  border-radius: 5rem;
-  text-align: center;
-  align-items: center;
+  border-radius: var(--ic-space-md);
+  text-align: left;
   text-decoration: none;
   transition: var(--ic-easing-transition-fast);
   position: relative;
@@ -18,10 +17,12 @@
 
 .chip.small {
   padding: var(--ic-space-xxxs);
+  border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
 }
 
 .chip.large {
   padding: var(--ic-space-xs);
+  border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
 .label {
