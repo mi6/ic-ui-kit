@@ -1,16 +1,17 @@
 @import "../../global/normalize.css";
 
 .tag {
-  padding: var(--ic-space-xs) var(--ic-space-sm);
+  padding: var(--ic-space-xxs) var(--ic-space-sm);
   font-size: 0.875rem;
-  border-radius: 5rem;
+  border-radius: var(--ic-space-md);
   display: inline-block;
   min-width: 2.5rem;
   text-align: center;
 }
 
 .small {
-  padding: var(--ic-space-xxs) var(--ic-space-sm);
+  padding: var(--ic-space-xxxs) var(--ic-space-sm);
+  border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
 }
 
 .filled-neutral {
