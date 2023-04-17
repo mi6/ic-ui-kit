@@ -1373,6 +1373,7 @@ export namespace Components {
           * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
          */
         "selectedTabIndex"?: number;
+        "tabRemovedHandler": (hadFocus?: boolean) => Promise<void>;
     }
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
@@ -3499,6 +3500,7 @@ declare namespace LocalJSX {
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
         "selected"?: boolean;
         "tabId"?: string;
         "tabPosition"?: number;
@@ -3551,6 +3553,7 @@ declare namespace LocalJSX {
          */
         "contextId"?: string;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
+        "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
         "tabPosition"?: number;

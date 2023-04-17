@@ -12,13 +12,6 @@
 | `disabled` | `disabled` | If `true`, the disabled state will be set. | `boolean` | `false` |
 
 
-## Events
-
-| Event        | Description | Type                            |
-| ------------ | ----------- | ------------------------------- |
-| `tabCreated` |             | `CustomEvent<HTMLIcTabElement>` |
-
-
 ## Methods
 
 ### `setFocus() => Promise<void>`
