@@ -126,7 +126,7 @@ export class TabContext {
     }
   }
 
-  // Sets attributes to link tabs and tabpanels
+  // Sets attributes to link tab-group, tabs and tab-panels
   private linkTabs = () => {
     this.tabs.forEach((tab, index) => {
       const tabId = `ic-tab-${index}-context-${this.contextId}`;
@@ -137,10 +137,12 @@ export class TabContext {
       tab.tabPosition = index;
       tab.setAttribute("aria-controls", tabPanelId);
       tab.setAttribute("context-id", this.contextId);
+      this.tabGroup.setAttribute("context-id", this.contextId);
       this.tabPanels[index].setAttribute("id", tabPanelId);
       this.tabPanels[index].panelId = shared;
       this.tabPanels[index].tabPosition = index;
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
+      this.tabPanels[index].setAttribute("context-id", this.contextId);
 
       if (this.appearance === IcThemeForegroundEnum.Light) {
         tab.appearance = this.appearance;
@@ -154,15 +156,14 @@ export class TabContext {
   };
 
   // Gets tabs and tabpanels with the same context ID
+  // Using querySelector to selector the children in relation to the host
   private getChildren = (): void => {
-    this.tabGroup = Array.from(this.host.querySelectorAll("ic-tab-group")).find(
-      (tabGroup) => tabGroup.contextId === this.contextId
-    );
-    this.tabs = Array.from(this.tabGroup.querySelectorAll("ic-tab")).filter(
-      (tab) => tab.contextId === this.contextId
-    );
+    this.tabGroup = this.host.querySelector("ic-tab-group");
+    this.tabs = Array.from(this.tabGroup.querySelectorAll("ic-tab"));
+    this.tabPanels = Array.from(this.host.children).filter(
+      (child) => child.tagName === "IC-TAB-PANEL"
+    ) as HTMLIcTabPanelElement[];
     this.enabledTabs = this.getEnabledTabs();
-    this.tabPanels = Array.from(this.host.querySelectorAll("ic-tab-panel"));
   };
 
   // Determines how keyboard navigation is to be handled based on the activation type

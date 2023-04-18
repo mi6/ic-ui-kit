@@ -22,7 +22,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 
 <Canvas>
   <Story name="Default">
-    {html` <ic-tab-context>
+    {html`<ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
         <ic-tab>Two</ic-tab>
@@ -245,5 +245,33 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
         <ic-tab-panel>Tab Twelve</ic-tab-panel>
       </ic-tab-context>
     `}
+  </Story>
+</Canvas>
+
+### Nested Tabs
+
+<Canvas>
+  <Story name="Nested tabs">
+    {html`<ic-tab-context>
+      <ic-tab-group label="Example tab group">
+        <ic-tab>Outer One</ic-tab>
+        <ic-tab>Outer Two</ic-tab>
+        <ic-tab>Outer Three</ic-tab>
+      </ic-tab-group>
+      <ic-tab-panel>
+        <ic-tab-context context-id="context-nested">
+          <ic-tab-group label="Example tab group">
+            <ic-tab>Nested One</ic-tab>
+            <ic-tab>Nested Two</ic-tab>
+            <ic-tab>Nested Three</ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>Nested Tab One</ic-tab-panel>
+          <ic-tab-panel>Nested Tab Two</ic-tab-panel>
+          <ic-tab-panel>Nested Tab Three</ic-tab-panel>
+        </ic-tab-context>
+      </ic-tab-panel>
+      <ic-tab-panel>Outer Tab Two</ic-tab-panel>
+      <ic-tab-panel>Outer Tab Three</ic-tab-panel>
+    </ic-tab-context>`}
   </Story>
 </Canvas>

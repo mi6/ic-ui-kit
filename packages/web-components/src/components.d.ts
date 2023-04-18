@@ -1382,7 +1382,7 @@ export namespace Components {
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
         /**
@@ -1397,7 +1397,7 @@ export namespace Components {
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
+          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
         "panelId"?: string;
@@ -3542,7 +3542,7 @@ declare namespace LocalJSX {
     interface IcTabGroup {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
         /**
@@ -3557,7 +3557,7 @@ declare namespace LocalJSX {
     interface IcTabPanel {
         "appearance"?: IcThemeForegroundNoDefault;
         /**
-          * The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel.
+          * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
