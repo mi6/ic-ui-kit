@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                         | Type     | Default     |
-| ----------- | ------------ | ------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `contextId` | `context-id` | The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. | `string` | `"default"` |
+| Property    | Attribute    | Description                                                                                                                               | Type     | Default     |
+| ----------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `contextId` | `context-id` | <span style="color:red">**[DEPRECATED]**</span> This is no longer required. The context id is passed down from `ic-tab-context`<br/><br/> | `string` | `"default"` |
 
 
 ----------------------------------------------
