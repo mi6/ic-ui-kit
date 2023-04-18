@@ -17,7 +17,8 @@ export class TabGroup {
   @Element() host: HTMLIcTabGroupElement;
 
   /**
-   * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+   * @deprecated This is no longer required.
+   * The context id is passed down from `ic-tab-context`
    */
   @Prop({ reflect: true }) contextId?: string = "default";
 

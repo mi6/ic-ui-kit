@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property             | Attribute    | Description                                                                                                                | Type      | Default     |
-| -------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `contextId`          | `context-id` | The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel. | `string`  | `"default"` |
-| `inline`             | `inline`     | If `true`, the tabs and tab panels will be positioned separately.                                                          | `boolean` | `false`     |
-| `label` _(required)_ | `label`      | The label to describe the purpose of the set of tabs to screen reader users.                                               | `string`  | `undefined` |
+| Property             | Attribute    | Description                                                                                                                               | Type      | Default     |
+| -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `contextId`          | `context-id` | <span style="color:red">**[DEPRECATED]**</span> This is no longer required. The context id is passed down from `ic-tab-context`<br/><br/> | `string`  | `"default"` |
+| `inline`             | `inline`     | If `true`, the tabs and tab panels will be positioned separately.                                                                         | `boolean` | `false`     |
+| `label` _(required)_ | `label`      | The label to describe the purpose of the set of tabs to screen reader users.                                                              | `string`  | `undefined` |
 
 
 ## Dependencies
