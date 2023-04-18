@@ -5,7 +5,7 @@
  */
 
 :host {
-  position: relative;
+  position: absolute;        /* for it to disappear under last body element */
   left: 0;
   bottom: 0;
   width: 100%;
