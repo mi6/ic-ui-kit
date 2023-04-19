@@ -53,31 +53,29 @@
 }
 
 .menu-status-version-container {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ic-space-xs);
   margin: var(--ic-space-md) var(--ic-space-md) var(--ic-space-xl);
 }
 
 .menu-status {
   background-color: var(--ic-architectural-500);
   color: var(--ic-color-white-text);
-  border-radius: 5rem;
+  border-radius: var(--ic-space-md);
   width: fit-content;
   padding: var(--ic-space-xxs) var(--ic-space-sm);
-  margin-right: var(--ic-space-xs);
 }
 
 .menu-version {
-  border-radius: 1rem;
+  border-radius: var(--ic-space-md);
   background-color: var(--ic-architectural-100);
   padding: var(--ic-space-xxs) var(--ic-space-sm);
 }
 
 .menu-status-text,
 .menu-version-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 5.625rem;
+  overflow-wrap: break-word;
 }
 
 .navigation-landmark-text {

@@ -110,11 +110,13 @@
 }
 
 :host .app-status {
-  border-radius: 5rem;
+  border-radius: var(--ic-space-md);
   background-color: var(--ic-architectural-white);
   color: var(--ic-color-primary-text);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
   margin-left: var(--ic-space-md);
+  flex: 1 1 0;
+  max-width: fit-content;
 }
 
 :host(.dark) .app-status {
@@ -123,18 +125,12 @@
 }
 
 :host .app-version {
-  border-radius: 1rem;
+  border-radius: var(--ic-space-md);
   background-color: var(--ic-theme-active);
   padding: var(--ic-space-xxs) var(--ic-space-sm);
   margin-left: var(--ic-space-xs);
-}
-
-.app-status-text,
-.app-version-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 6rem;
+  flex: 1 1 0;
+  max-width: fit-content;
 }
 
 slot[name="app-icon"]::slotted(svg) {
