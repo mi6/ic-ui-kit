@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-menu in isolation should render 1`] = `
+Object {
+  "body": <body>
+  <ic-menu class="no-focus open" data-popper-placement="bottom" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+    <ul aria-activedescendant="menu-id-espresso" aria-label="input-label" class="menu" id="menu-id" role="listbox" tabindex="-1">
+      <li aria-disabled="false" aria-label="Espresso" aria-selected="" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Espresso
+            </p>
+          </ic-typography>
+        </div>
+        <span class="check-icon">
+          svg
+        </span>
+      </li>
+      <li aria-disabled="false" aria-label="Double Espresso" class="option" data-label="Double Espresso" data-value="doubleespresso" id="menu-id-doubleespresso" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Double Espresso
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <li aria-disabled="false" aria-label="Flat White" class="option" data-label="Flat White" data-value="flatwhite" id="menu-id-flatwhite" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Flat White
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" class="option" data-label="Cappuccino" data-value="cappucino" id="menu-id-cappucino" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Cappuccino
+            </p>
+          </ic-typography>
+          <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
+            <p>
+              with chocolate is best!
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <li aria-disabled="false" aria-label="Americano" class="option" data-label="Americano" data-value="americano" id="menu-id-americano" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Americano
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <li aria-disabled="false" aria-label="Ameno" class="option" data-label="Ameno" data-value="ameno" id="menu-id-ameno" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Ameno
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <div>
+        <ic-typography class="option-group-title" role="presentation" variant="subtitle-small">
+          <p>
+            Tea
+          </p>
+        </ic-typography>
+        <li aria-disabled="false" aria-label="green, Tea group" class="option" data-label="green" data-value="green" id="menu-id-green" role="option" tabindex="-1">
+          <div class="option-text-container">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                green
+              </p>
+            </ic-typography>
+          </div>
+        </li>
+      </div>
+      <li aria-disabled="false" aria-label="Aicano" class="option" data-label="Aicano" data-value="acano" id="menu-id-acano" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Aicano
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+      <li aria-disabled="false" aria-label="Mocha" class="option" data-label="Mocha" data-value="mocha" id="menu-id-mocha" role="option" tabindex="-1">
+        <div class="option-text-container">
+          <ic-typography aria-hidden="true" variant="body">
+            <p>
+              Mocha
+            </p>
+          </ic-typography>
+        </div>
+      </li>
+    </ul>
+  </ic-menu>
+</body>,
+  "build": Object {
+    "allRenderFn": true,
+    "appendChildSlotFix": false,
+    "asyncLoading": true,
+    "asyncQueue": true,
+    "attachStyles": false,
+    "cloneNodeFix": false,
+    "cmpDidLoad": true,
+    "cmpDidRender": true,
+    "cmpDidUnload": true,
+    "cmpDidUpdate": true,
+    "cmpShouldUpdate": true,
+    "cmpWillLoad": true,
+    "cmpWillRender": true,
+    "cmpWillUpdate": true,
+    "connectedCallback": true,
+    "constructableCSS": true,
+    "cssAnnotations": false,
+    "cssVarShim": true,
+    "devTools": false,
+    "disconnectedCallback": true,
+    "dynamicImportShim": false,
+    "element": true,
+    "event": true,
+    "hasRenderFn": true,
+    "hostListener": true,
+    "hostListenerTarget": true,
+    "hostListenerTargetBody": true,
+    "hostListenerTargetDocument": true,
+    "hostListenerTargetParent": true,
+    "hostListenerTargetWindow": true,
+    "hotModuleReplacement": false,
+    "hydrateClientSide": false,
+    "hydrateServerSide": false,
+    "hydratedAttribute": false,
+    "hydratedClass": true,
+    "initializeNextTick": true,
+    "invisiblePrehydration": true,
+    "isDebug": false,
+    "isDev": true,
+    "isTesting": true,
+    "lazyLoad": true,
+    "lifecycle": true,
+    "lifecycleDOMEvents": true,
+    "member": true,
+    "method": true,
+    "mode": true,
+    "observeAttribute": true,
+    "profile": true,
+    "prop": true,
+    "propBoolean": true,
+    "propMutable": true,
+    "propNumber": true,
+    "propString": true,
+    "reflect": true,
+    "safari10": false,
+    "scoped": true,
+    "scopedSlotTextContentFix": false,
+    "scriptDataOpts": false,
+    "shadowDelegatesFocus": true,
+    "shadowDom": true,
+    "shadowDomShim": false,
+    "slot": true,
+    "slotChildNodesFix": false,
+    "slotRelocation": true,
+    "state": true,
+    "style": true,
+    "svg": true,
+    "taskQueue": true,
+    "transformTagName": true,
+    "updatable": true,
+    "vdomAttribute": true,
+    "vdomClass": true,
+    "vdomFunctional": true,
+    "vdomKey": true,
+    "vdomListener": true,
+    "vdomPropOrAttr": true,
+    "vdomRef": true,
+    "vdomRender": true,
+    "vdomStyle": true,
+    "vdomText": true,
+    "vdomXlink": true,
+    "watchCallback": true,
+  },
+  "doc": ,
+  "flushLoadModule": [Function],
+  "flushQueue": [Function],
+  "setContent": [Function],
+  "styles": Map {},
+  "waitForChanges": [Function],
+  "win": [MockWindow],
+}
+`;
