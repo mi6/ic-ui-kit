@@ -101,10 +101,6 @@
   width: 100%;
 }
 
-ic-menu {
-  transition: var(--ic-easing-transition-slow);
-}
-
 .no-results {
   cursor: not-allowed;
 }
