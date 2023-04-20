@@ -55,6 +55,7 @@ ic-typography.heading-bottom-spacing {
   display: flex;
   gap: var(--ic-space-md);
   margin-top: var(--ic-space-lg);
+  flex-wrap: wrap;
 }
 
 .secondary-container {
