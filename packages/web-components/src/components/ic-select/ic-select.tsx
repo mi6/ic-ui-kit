@@ -62,8 +62,6 @@ export class Select {
 
   private debounceAria: number;
   private hasSetDefaultValue = false;
-
-  private initialRender = false;
   private initialOptionsEmpty = false;
 
   private characterKeyPressTimer: number;
@@ -215,11 +213,6 @@ export class Select {
       } else if (this.isMenuEnabled()) {
         this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
         this.filteredOptions = this.noOptions;
-
-        // Will prevent 'No results found' displaying on initial load and setting default value
-        if (!this.initialRender) {
-          this.setMenuChange(true);
-        }
       }
 
       this.updateSearchableSelectResultAriaLive();
@@ -704,8 +697,6 @@ export class Select {
 
     addFormResetListener(this.host, this.handleFormReset);
 
-    this.initialRender = true;
-
     if (!this.options.length) {
       this.initialOptionsEmpty = true;
     } else if (!this.disableFilter) {
@@ -717,10 +708,6 @@ export class Select {
     if (this.nativeSelectElement && !this.disabled) {
       this.setTextColor();
     }
-  }
-
-  componentWillUpdate(): void {
-    this.initialRender = false;
   }
 
   componentDidLoad(): void {
