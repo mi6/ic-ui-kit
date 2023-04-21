@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Dialog } from "./ic-dialog";
+import { waitForTimeout } from "../../testspec.setup";
 
 describe("ic-dialog component", () => {
   it("should render", async () => {
@@ -163,6 +164,9 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
   });
 
@@ -182,11 +186,16 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await dialog.hideDialog();
 
     await page.waitForChanges();
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -207,6 +216,9 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     const event = new KeyboardEvent("keydown", { key: "Escape" });
@@ -214,6 +226,8 @@ describe("ic-dialog component", () => {
     await page.rootInstance.handleKeyboard(event);
 
     await page.waitForChanges();
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -234,6 +248,9 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     const event = new Event("click");
@@ -241,6 +258,9 @@ describe("ic-dialog component", () => {
     await page.rootInstance.handleClick(event);
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -261,11 +281,17 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelector("ic-button").click();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -290,11 +316,17 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelectorAll("ic-button")[1].click();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -322,6 +354,9 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelectorAll("ic-button")[1].click();
@@ -334,11 +369,17 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelectorAll("ic-button")[2].click();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -367,17 +408,26 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelectorAll("ic-button")[1].click();
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeTruthy;
 
     await dialog.showDialog();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
@@ -385,17 +435,26 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeTruthy;
 
     await dialog.showDialog();
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     expect(dialog.classList.contains("hidden")).toBeFalsy;
 
     await page.root.shadowRoot.querySelectorAll("ic-button")[3].click();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     expect(dialog.classList.contains("hidden")).toBeTruthy;
   });
@@ -417,6 +476,9 @@ describe("ic-dialog component", () => {
     await dialog.showDialog();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     await page.rootInstance.getInteractiveElements();
 
@@ -455,6 +517,9 @@ describe("ic-dialog component", () => {
 
     await page.waitForChanges();
 
+    //delay for setTimeout in code
+    await waitForTimeout(100);
+
     await page.rootInstance.getInteractiveElements();
 
     await page.rootInstance.setInitialFocus();
@@ -485,6 +550,9 @@ describe("ic-dialog component", () => {
     await dialog.showDialog();
 
     await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(100);
 
     page.rootInstance.getInteractiveElements();
 

@@ -132,7 +132,7 @@ export class Dialog {
     this.fadeIn = false;
     setTimeout(() => {
       this.dialogRendered = false;
-      this.sourceElement.focus();
+      this.sourceElement?.focus();
       document.body.style.height = "auto";
       document.body.style.overflow = "auto";
     }, 80);
