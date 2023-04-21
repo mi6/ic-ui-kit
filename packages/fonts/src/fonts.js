@@ -8,3 +8,7 @@ import '@fontsource/open-sans/700.css';
 // Nunito-Sans
 import '@fontsource/nunito-sans/700.css';
 import '@fontsource/nunito-sans/800.css';
+
+// Source Code Pro
+import '@fontsource/source-code-pro/400.css';
+import '@fontsource/source-code-pro/600.css';
