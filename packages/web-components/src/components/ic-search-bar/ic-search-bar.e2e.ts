@@ -1,6 +1,10 @@
 import { E2EPage, newE2EPage } from "@stencil/core/testing";
 import { KeyInput } from "puppeteer";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-search-bar", () => {
   const options = [
     { label: "foo", value: "foo" },

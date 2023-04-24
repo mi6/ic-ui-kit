@@ -39,6 +39,10 @@ const expectRGBToBe = (
   expect(b).toBe(expectB);
 };
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-theme", () => {
   it("should render", async () => {
     const page = await newSpecPage({

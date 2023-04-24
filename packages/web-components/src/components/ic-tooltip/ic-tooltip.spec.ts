@@ -2,6 +2,10 @@ import { newSpecPage } from "@stencil/core/testing";
 import { waitForTimeout } from "../../testspec.setup";
 import { Tooltip } from "./ic-tooltip";
 
+beforeAll(() => {
+  jest.spyOn(console, "error").mockImplementation(jest.fn());
+});
+
 describe("ic-loading-indicator component", () => {
   it("should render", async () => {
     const page = await newSpecPage({

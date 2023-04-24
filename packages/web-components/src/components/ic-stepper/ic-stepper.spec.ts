@@ -77,6 +77,7 @@ describe("default variant of ic-stepper component", () => {
   });
 
   it("should render a stepper without step titles", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
