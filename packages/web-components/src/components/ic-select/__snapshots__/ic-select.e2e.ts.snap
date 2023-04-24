@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-select custom should render 1`] = `
+<ic-select class="hydrated" label="IC Select Test">
+  <mock:shadow-root>
+    <ic-input-container class="hydrated">
+      <!---->
+      <div class="component-container">
+        <ic-input-label class="hydrated">
+          <ic-typography class="hydrated ic-typography-label">
+            <label for="ic-select-input-0">
+              IC Select Test
+            </label>
+          </ic-typography>
+        </ic-input-label>
+        <ic-input-component-container class="hydrated">
+          <!---->
+          <div class="focus-indicator">
+            <div class="select-container">
+              <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
+                <ic-typography class="hydrated ic-typography-body placeholder value-text">
+                  <p>
+                    Select an option
+                  </p>
+                </ic-typography>
+                <div class="select-input-end">
+                  <span aria-hidden="true" class="expand-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 9.5L12 14.5L17 9.5H7Z" fill="currentColor"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </ic-input-component-container>
+        <ic-menu class="hydrated sc-ic-menu-h sc-ic-menu-s">
+          <ul aria-activedescendant="" aria-label="IC Select Test" class="menu sc-ic-menu" id="ic-select-input-0-menu" role="listbox" tabindex="-1">
+            <li aria-disabled="false" aria-label="Test label 1" class="option sc-ic-menu" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-0-menu-Test value 1" role="option" tabindex="-1">
+              <div class="option-text-container sc-ic-menu">
+                <ic-typography aria-hidden="true" class="hydrated ic-typography-body sc-ic-menu">
+                  <p class="sc-ic-menu">
+                    Test label 1
+                  </p>
+                </ic-typography>
+              </div>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 2" class="option sc-ic-menu" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-0-menu-Test value 2" role="option" tabindex="-1">
+              <div class="option-text-container sc-ic-menu">
+                <ic-typography aria-hidden="true" class="hydrated ic-typography-body sc-ic-menu">
+                  <p class="sc-ic-menu">
+                    Test label 2
+                  </p>
+                </ic-typography>
+              </div>
+            </li>
+            <li aria-disabled="false" aria-label="Test label 3" class="option sc-ic-menu" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-0-menu-Test value 3" role="option" tabindex="-1">
+              <div class="option-text-container sc-ic-menu">
+                <ic-typography aria-hidden="true" class="hydrated ic-typography-body sc-ic-menu">
+                  <p class="sc-ic-menu">
+                    Test label 3
+                  </p>
+                </ic-typography>
+              </div>
+            </li>
+          </ul>
+        </ic-menu>
+      </div>
+    </ic-input-container>
+    <style>
+      ic-input-container .component-container{display:flex;flex-direction:column}
+    </style>
+    <style>
+      ic-input-label{margin-bottom:var(--ic-space-xs)}ic-input-label.with-helper{margin-bottom:var(--ic-space-xxxs)}ic-input-label.disabled{color:var(--ic-color-tertiary-text)}ic-input-label.readonly{color:var(--ic-color-tertiary-text)}ic-input-label .helpertext{margin-top:var(--ic-space-xxxs)}ic-input-label .helpertext-normal{color:var(--ic-color-secondary-text)}ic-input-label .helpertext-readonly{color:var(--ic-color-tertiary-text)}ic-input-label .readonly-label{color:var(--ic-color-secondary-text)}ic-input-label .error-label{color:var(--ic-status-error)}ic-input-label .dark{color:var(--ic-architectural-white)}
+    </style>
+    <style>
+      ic-input-component-container{display:flex;border:var(--ic-space-1px) solid
+    var(--border-color, var(--ic-architectural-400));border-radius:var(--ic-border-radius);transition:var(--ic-easing-transition-slow);height:2.5rem;width:var(--input-width, 20rem);padding:var(--ic-space-1px);background-color:var(--ic-architectural-white);box-sizing:border-box;fill:var(--ic-architectural-400);outline:none}ic-input-component-container.fullwidth{width:100%}ic-input-component-container.disabled,ic-input-component-container.disabled:hover{border:var(--ic-space-1px) dashed var(--ic-architectural-200)}ic-input-component-container.readonly,ic-input-component-container.readonly:hover{border:none;padding:0}ic-input-component-container.error{border:var(--ic-space-xxxs) solid var(--ic-status-error);padding:0}ic-input-component-container.warning{border:var(--ic-space-xxxs) solid var(--ic-status-warning-mid);padding:0}ic-input-component-container.success{border:var(--ic-space-xxxs) solid var(--ic-status-success);padding:0}ic-input-component-container.small{height:var(--ic-space-xl)}ic-input-component-container.multiline{height:auto}ic-input-component-container .icon-container{margin-top:var(--ic-space-xxs);margin-left:0.438rem;display:flex;align-items:center}ic-input-component-container.multiline .icon-container,ic-input-component-container.multiline.small .icon-container{margin-top:0.375rem;display:block}ic-input-component-container.readonly .icon-container{margin-left:-0.313rem}ic-input-component-container.disabled ::-moz-placeholder{display:none}ic-input-component-container.disabled ::placeholder{display:none}ic-input-component-container .inline-success{margin:var(--ic-space-xs) 0.375rem;display:flex;align-items:center}ic-input-component-container.dark:hover{--border-color:var(--ic-architectural-400)}ic-input-component-container .inline-success>svg{fill:var(--ic-status-success);height:1.25rem;width:1.25rem}ic-input-component-container:hover{border-color:var(--ic-action-dark-hover);color:var(--ic-action-dark-hover)}.focus-indicator{display:flex;width:100%;margin:-0.125rem;padding:0.125rem;border-radius:var(--ic-border-radius);transition:var(--ic-easing-transition-fast)}.focus-indicator:focus-within,.focus-indicator-enabled{box-shadow:var(--ic-border-focus)}.focus-indicator.dark:focus-within{box-shadow:var(--ic-border-focus)}@media (forced-colors: active){ic-input-component-container,.focus-indicator{transition:none}ic-input-component-container:focus-within{border:var(--ic-space-1px) solid Highlight;outline:0.125rem solid Highlight}ic-input-component-container.disabled,ic-input-component-container.disabled:hover{border:var(--ic-space-1px) dashed GrayText}}
+    </style>
+    <style>
+      html.sc-ic-menu{line-height:1.15;-webkit-text-size-adjust:100%}body.sc-ic-menu{margin:0}main.sc-ic-menu{display:block}h1.sc-ic-menu{font-size:2em;margin:0.67em 0}hr.sc-ic-menu{box-sizing:content-box;height:0;overflow:visible}pre.sc-ic-menu{font-family:monospace, monospace;font-size:1em}a.sc-ic-menu{background-color:transparent}abbr[title].sc-ic-menu{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b.sc-ic-menu,strong.sc-ic-menu{font-weight:bolder}code.sc-ic-menu,kbd.sc-ic-menu,samp.sc-ic-menu{font-family:monospace, monospace;font-size:1em}small.sc-ic-menu{font-size:80%}sub.sc-ic-menu,sup.sc-ic-menu{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub.sc-ic-menu{bottom:-0.25em}sup.sc-ic-menu{top:-0.5em}img.sc-ic-menu{border-style:none}button.sc-ic-menu,input.sc-ic-menu,optgroup.sc-ic-menu,select.sc-ic-menu,textarea.sc-ic-menu{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button.sc-ic-menu,input.sc-ic-menu{overflow:visible}button.sc-ic-menu,select.sc-ic-menu{text-transform:none}button.sc-ic-menu,[type="button"].sc-ic-menu,[type="reset"].sc-ic-menu,[type="submit"].sc-ic-menu{-webkit-appearance:button}button.sc-ic-menu::-moz-focus-inner,[type="button"].sc-ic-menu::-moz-focus-inner,[type="reset"].sc-ic-menu::-moz-focus-inner,[type="submit"].sc-ic-menu::-moz-focus-inner{border-style:none;padding:0}button.sc-ic-menu:-moz-focusring,[type="button"].sc-ic-menu:-moz-focusring,[type="reset"].sc-ic-menu:-moz-focusring,[type="submit"].sc-ic-menu:-moz-focusring{outline:1px dotted ButtonText}fieldset.sc-ic-menu{padding:0.35em 0.75em 0.625em}legend.sc-ic-menu{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress.sc-ic-menu{vertical-align:baseline}textarea.sc-ic-menu{overflow:auto}[type="checkbox"].sc-ic-menu,[type="radio"].sc-ic-menu{box-sizing:border-box;padding:0}[type="number"].sc-ic-menu::-webkit-inner-spin-button,[type="number"].sc-ic-menu::-webkit-outer-spin-button{height:auto}[type="search"].sc-ic-menu{-webkit-appearance:textfield;outline-offset:-2px}[type="search"].sc-ic-menu::-webkit-search-decoration{-webkit-appearance:none}.sc-ic-menu::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details.sc-ic-menu{display:block}summary.sc-ic-menu{display:list-item}template.sc-ic-menu{display:none}[hidden].sc-ic-menu{display:none}html.sc-ic-menu,body.sc-ic-menu,div.sc-ic-menu,span.sc-ic-menu,applet.sc-ic-menu,object.sc-ic-menu,iframe.sc-ic-menu,h1.sc-ic-menu,h2.sc-ic-menu,h3.sc-ic-menu,h4.sc-ic-menu,h5.sc-ic-menu,h6.sc-ic-menu,p.sc-ic-menu,blockquote.sc-ic-menu,pre.sc-ic-menu,a.sc-ic-menu,abbr.sc-ic-menu,acronym.sc-ic-menu,address.sc-ic-menu,big.sc-ic-menu,cite.sc-ic-menu,code.sc-ic-menu,del.sc-ic-menu,dfn.sc-ic-menu,em.sc-ic-menu,img.sc-ic-menu,ins.sc-ic-menu,kbd.sc-ic-menu,q.sc-ic-menu,s.sc-ic-menu,samp.sc-ic-menu,small.sc-ic-menu,strike.sc-ic-menu,strong.sc-ic-menu,sub.sc-ic-menu,sup.sc-ic-menu,tt.sc-ic-menu,var.sc-ic-menu,b.sc-ic-menu,u.sc-ic-menu,i.sc-ic-menu,center.sc-ic-menu,dl.sc-ic-menu,dt.sc-ic-menu,dd.sc-ic-menu,ol.sc-ic-menu,ul.sc-ic-menu,li.sc-ic-menu,fieldset.sc-ic-menu,form.sc-ic-menu,label.sc-ic-menu,legend.sc-ic-menu,table.sc-ic-menu,caption.sc-ic-menu,tbody.sc-ic-menu,tfoot.sc-ic-menu,thead.sc-ic-menu,tr.sc-ic-menu,th.sc-ic-menu,td.sc-ic-menu,article.sc-ic-menu,aside.sc-ic-menu,canvas.sc-ic-menu,details.sc-ic-menu,embed.sc-ic-menu,figure.sc-ic-menu,figcaption.sc-ic-menu,footer.sc-ic-menu,header.sc-ic-menu,hgroup.sc-ic-menu,menu.sc-ic-menu,nav.sc-ic-menu,output.sc-ic-menu,ruby.sc-ic-menu,section.sc-ic-menu,summary.sc-ic-menu,time.sc-ic-menu,mark.sc-ic-menu,audio.sc-ic-menu,video.sc-ic-menu{margin:0;padding:0;border:0;font-size:100%;font-style:inherit;vertical-align:baseline}@media (prefers-reduced-motion: no-preference){.open.sc-ic-menu-h .menu.sc-ic-menu{transition:max-height var(--ic-transition-duration-slow)}}.sc-ic-menu-h{border-radius:var(--ic-border-radius);max-height:0;width:var(--input-width, 20rem);color:var(--ic-color-primary-text);background-color:var(--ic-architectural-white);position:relative;z-index:var(--ic-z-index-menu);box-sizing:border-box;box-shadow:var(--ic-elevation-overlay)}.sc-ic-menu-h:not(.no-focus):focus-within{box-shadow:var(--ic-border-focus)}#retry-button.sc-ic-menu::part(button){height:var(--ic-space-lg)}.small.sc-ic-menu #retry-button.sc-ic-menu::part(button){height:var(--ic-space-md)}.menu.sc-ic-menu{text-decoration:none;list-style-type:none;border:var(--ic-space-1px) solid var(--ic-architectural-400);border-radius:var(--ic-border-radius);background-color:var(--ic-architectural-white);visibility:hidden;max-height:0;overflow-y:hidden}.menu-scroll.sc-ic-menu{overflow-y:auto}.menu.sc-ic-menu:focus-visible{outline:none}.open.sc-ic-menu-h{max-height:none;display:block}.open.sc-ic-menu-h .menu.sc-ic-menu{visibility:visible;max-height:20.125rem}.full-width.sc-ic-menu-h{width:100%}.option.sc-ic-menu{padding:0.5rem 0.438rem;cursor:pointer;display:flex;align-items:center}.option.sc-ic-menu:not(.loading-option){justify-content:space-between}.small.sc-ic-menu-h .option.sc-ic-menu{padding:0.25rem 0.438rem}.option.sc-ic-menu:last-child{border-radius:0 0 var(--ic-space-1px) var(--ic-space-1px)}.option.sc-ic-menu:first-child{border-radius:var(--ic-space-1px) var(--ic-space-1px) 0 0}.option.sc-ic-menu:not(.disabled-option):hover{background-color:var(--ic-action-dark-bg-hover)}.option.sc-ic-menu:not(.disabled-option):active{background-color:var(--ic-action-dark-bg-active)}.option.sc-ic-menu:focus-visible{outline:var(--ic-hc-focus-outline)}.option.sc-ic-menu:not(.disabled-option) .option-description.sc-ic-menu{color:var(--ic-color-secondary-text)}.option-text-container.sc-ic-menu{pointer-events:none}.option.loading-option.sc-ic-menu .option-text-container.sc-ic-menu{margin-left:0.625rem;color:var(--ic-color-secondary-text)}.error-icon-svg.sc-ic-menu{height:var(--ic-space-md);width:var(--ic-space-md);fill:var(--ic-status-error);align-self:center;display:flex;margin-right:calc(var(--ic-space-xxs) * 1.2)}.loading-error-info.sc-ic-menu{display:flex}.check-icon.sc-ic-menu{height:var(--ic-space-lg);width:var(--ic-space-lg);margin-left:0.5rem;pointer-events:none}.focused-option.sc-ic-menu .check-icon.sc-ic-menu *.sc-ic-menu{fill:currentcolor}.option-group-title.sc-ic-menu{padding:1.5rem 0.438rem 0.5rem;color:var(--ic-color-tertiary-text)}.small.sc-ic-menu-h .option-group-title.sc-ic-menu{padding:0.75rem 0.438rem 0.25rem}.last-recommended-option.sc-ic-menu{border-bottom:var(--ic-space-1px) solid var(--ic-architectural-400)}.disabled-option.sc-ic-menu{color:var(--ic-architectural-200);cursor:default;pointer-events:none}.focused-option.sc-ic-menu,.focused-option.sc-ic-menu .option-description.sc-ic-menu{background-color:var(--ic-focus-blue) !important;color:var(--ic-color-white-text) !important}.no-results.sc-ic-menu-h li.sc-ic-menu{cursor:no-drop}.no-results.sc-ic-menu-h li.sc-ic-menu:hover{background-color:transparent}@media (forced-colors: active){.focused-option.sc-ic-menu:focus{outline:none;border:0.125rem solid transparent}}
+    </style>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-0" type="hidden" value="">
+</ic-select>
+`;
+
+exports[`ic-select custom should render when no options are provided 1`] = `
+<ic-select class="hydrated" label="IC Select Test">
+  <mock:shadow-root>
+    <ic-input-container class="hydrated">
+      <!---->
+      <div class="component-container">
+        <ic-input-label class="hydrated">
+          <ic-typography class="hydrated ic-typography-label">
+            <label for="ic-select-input-0">
+              IC Select Test
+            </label>
+          </ic-typography>
+        </ic-input-label>
+        <ic-input-component-container class="hydrated">
+          <!---->
+          <div class="focus-indicator">
+            <div class="select-container">
+              <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
+                <ic-typography class="hydrated ic-typography-body placeholder value-text">
+                  <p>
+                    Select an option
+                  </p>
+                </ic-typography>
+                <div class="select-input-end">
+                  <span aria-hidden="true" class="expand-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 9.5L12 14.5L17 9.5H7Z" fill="currentColor"></path>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </ic-input-component-container>
+        <ic-menu class="hydrated sc-ic-menu-h sc-ic-menu-s"></ic-menu>
+      </div>
+    </ic-input-container>
+    <style>
+      ic-input-container .component-container{display:flex;flex-direction:column}
+    </style>
+    <style>
+      ic-input-label{margin-bottom:var(--ic-space-xs)}ic-input-label.with-helper{margin-bottom:var(--ic-space-xxxs)}ic-input-label.disabled{color:var(--ic-color-tertiary-text)}ic-input-label.readonly{color:var(--ic-color-tertiary-text)}ic-input-label .helpertext{margin-top:var(--ic-space-xxxs)}ic-input-label .helpertext-normal{color:var(--ic-color-secondary-text)}ic-input-label .helpertext-readonly{color:var(--ic-color-tertiary-text)}ic-input-label .readonly-label{color:var(--ic-color-secondary-text)}ic-input-label .error-label{color:var(--ic-status-error)}ic-input-label .dark{color:var(--ic-architectural-white)}
+    </style>
+    <style>
+      ic-input-component-container{display:flex;border:var(--ic-space-1px) solid
+    var(--border-color, var(--ic-architectural-400));border-radius:var(--ic-border-radius);transition:var(--ic-easing-transition-slow);height:2.5rem;width:var(--input-width, 20rem);padding:var(--ic-space-1px);background-color:var(--ic-architectural-white);box-sizing:border-box;fill:var(--ic-architectural-400);outline:none}ic-input-component-container.fullwidth{width:100%}ic-input-component-container.disabled,ic-input-component-container.disabled:hover{border:var(--ic-space-1px) dashed var(--ic-architectural-200)}ic-input-component-container.readonly,ic-input-component-container.readonly:hover{border:none;padding:0}ic-input-component-container.error{border:var(--ic-space-xxxs) solid var(--ic-status-error);padding:0}ic-input-component-container.warning{border:var(--ic-space-xxxs) solid var(--ic-status-warning-mid);padding:0}ic-input-component-container.success{border:var(--ic-space-xxxs) solid var(--ic-status-success);padding:0}ic-input-component-container.small{height:var(--ic-space-xl)}ic-input-component-container.multiline{height:auto}ic-input-component-container .icon-container{margin-top:var(--ic-space-xxs);margin-left:0.438rem;display:flex;align-items:center}ic-input-component-container.multiline .icon-container,ic-input-component-container.multiline.small .icon-container{margin-top:0.375rem;display:block}ic-input-component-container.readonly .icon-container{margin-left:-0.313rem}ic-input-component-container.disabled ::-moz-placeholder{display:none}ic-input-component-container.disabled ::placeholder{display:none}ic-input-component-container .inline-success{margin:var(--ic-space-xs) 0.375rem;display:flex;align-items:center}ic-input-component-container.dark:hover{--border-color:var(--ic-architectural-400)}ic-input-component-container .inline-success>svg{fill:var(--ic-status-success);height:1.25rem;width:1.25rem}ic-input-component-container:hover{border-color:var(--ic-action-dark-hover);color:var(--ic-action-dark-hover)}.focus-indicator{display:flex;width:100%;margin:-0.125rem;padding:0.125rem;border-radius:var(--ic-border-radius);transition:var(--ic-easing-transition-fast)}.focus-indicator:focus-within,.focus-indicator-enabled{box-shadow:var(--ic-border-focus)}.focus-indicator.dark:focus-within{box-shadow:var(--ic-border-focus)}@media (forced-colors: active){ic-input-component-container,.focus-indicator{transition:none}ic-input-component-container:focus-within{border:var(--ic-space-1px) solid Highlight;outline:0.125rem solid Highlight}ic-input-component-container.disabled,ic-input-component-container.disabled:hover{border:var(--ic-space-1px) dashed GrayText}}
+    </style>
+    <style>
+      html.sc-ic-menu{line-height:1.15;-webkit-text-size-adjust:100%}body.sc-ic-menu{margin:0}main.sc-ic-menu{display:block}h1.sc-ic-menu{font-size:2em;margin:0.67em 0}hr.sc-ic-menu{box-sizing:content-box;height:0;overflow:visible}pre.sc-ic-menu{font-family:monospace, monospace;font-size:1em}a.sc-ic-menu{background-color:transparent}abbr[title].sc-ic-menu{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b.sc-ic-menu,strong.sc-ic-menu{font-weight:bolder}code.sc-ic-menu,kbd.sc-ic-menu,samp.sc-ic-menu{font-family:monospace, monospace;font-size:1em}small.sc-ic-menu{font-size:80%}sub.sc-ic-menu,sup.sc-ic-menu{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub.sc-ic-menu{bottom:-0.25em}sup.sc-ic-menu{top:-0.5em}img.sc-ic-menu{border-style:none}button.sc-ic-menu,input.sc-ic-menu,optgroup.sc-ic-menu,select.sc-ic-menu,textarea.sc-ic-menu{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button.sc-ic-menu,input.sc-ic-menu{overflow:visible}button.sc-ic-menu,select.sc-ic-menu{text-transform:none}button.sc-ic-menu,[type="button"].sc-ic-menu,[type="reset"].sc-ic-menu,[type="submit"].sc-ic-menu{-webkit-appearance:button}button.sc-ic-menu::-moz-focus-inner,[type="button"].sc-ic-menu::-moz-focus-inner,[type="reset"].sc-ic-menu::-moz-focus-inner,[type="submit"].sc-ic-menu::-moz-focus-inner{border-style:none;padding:0}button.sc-ic-menu:-moz-focusring,[type="button"].sc-ic-menu:-moz-focusring,[type="reset"].sc-ic-menu:-moz-focusring,[type="submit"].sc-ic-menu:-moz-focusring{outline:1px dotted ButtonText}fieldset.sc-ic-menu{padding:0.35em 0.75em 0.625em}legend.sc-ic-menu{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress.sc-ic-menu{vertical-align:baseline}textarea.sc-ic-menu{overflow:auto}[type="checkbox"].sc-ic-menu,[type="radio"].sc-ic-menu{box-sizing:border-box;padding:0}[type="number"].sc-ic-menu::-webkit-inner-spin-button,[type="number"].sc-ic-menu::-webkit-outer-spin-button{height:auto}[type="search"].sc-ic-menu{-webkit-appearance:textfield;outline-offset:-2px}[type="search"].sc-ic-menu::-webkit-search-decoration{-webkit-appearance:none}.sc-ic-menu::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details.sc-ic-menu{display:block}summary.sc-ic-menu{display:list-item}template.sc-ic-menu{display:none}[hidden].sc-ic-menu{display:none}html.sc-ic-menu,body.sc-ic-menu,div.sc-ic-menu,span.sc-ic-menu,applet.sc-ic-menu,object.sc-ic-menu,iframe.sc-ic-menu,h1.sc-ic-menu,h2.sc-ic-menu,h3.sc-ic-menu,h4.sc-ic-menu,h5.sc-ic-menu,h6.sc-ic-menu,p.sc-ic-menu,blockquote.sc-ic-menu,pre.sc-ic-menu,a.sc-ic-menu,abbr.sc-ic-menu,acronym.sc-ic-menu,address.sc-ic-menu,big.sc-ic-menu,cite.sc-ic-menu,code.sc-ic-menu,del.sc-ic-menu,dfn.sc-ic-menu,em.sc-ic-menu,img.sc-ic-menu,ins.sc-ic-menu,kbd.sc-ic-menu,q.sc-ic-menu,s.sc-ic-menu,samp.sc-ic-menu,small.sc-ic-menu,strike.sc-ic-menu,strong.sc-ic-menu,sub.sc-ic-menu,sup.sc-ic-menu,tt.sc-ic-menu,var.sc-ic-menu,b.sc-ic-menu,u.sc-ic-menu,i.sc-ic-menu,center.sc-ic-menu,dl.sc-ic-menu,dt.sc-ic-menu,dd.sc-ic-menu,ol.sc-ic-menu,ul.sc-ic-menu,li.sc-ic-menu,fieldset.sc-ic-menu,form.sc-ic-menu,label.sc-ic-menu,legend.sc-ic-menu,table.sc-ic-menu,caption.sc-ic-menu,tbody.sc-ic-menu,tfoot.sc-ic-menu,thead.sc-ic-menu,tr.sc-ic-menu,th.sc-ic-menu,td.sc-ic-menu,article.sc-ic-menu,aside.sc-ic-menu,canvas.sc-ic-menu,details.sc-ic-menu,embed.sc-ic-menu,figure.sc-ic-menu,figcaption.sc-ic-menu,footer.sc-ic-menu,header.sc-ic-menu,hgroup.sc-ic-menu,menu.sc-ic-menu,nav.sc-ic-menu,output.sc-ic-menu,ruby.sc-ic-menu,section.sc-ic-menu,summary.sc-ic-menu,time.sc-ic-menu,mark.sc-ic-menu,audio.sc-ic-menu,video.sc-ic-menu{margin:0;padding:0;border:0;font-size:100%;font-style:inherit;vertical-align:baseline}@media (prefers-reduced-motion: no-preference){.open.sc-ic-menu-h .menu.sc-ic-menu{transition:max-height var(--ic-transition-duration-slow)}}.sc-ic-menu-h{border-radius:var(--ic-border-radius);max-height:0;width:var(--input-width, 20rem);color:var(--ic-color-primary-text);background-color:var(--ic-architectural-white);position:relative;z-index:var(--ic-z-index-menu);box-sizing:border-box;box-shadow:var(--ic-elevation-overlay)}.sc-ic-menu-h:not(.no-focus):focus-within{box-shadow:var(--ic-border-focus)}#retry-button.sc-ic-menu::part(button){height:var(--ic-space-lg)}.small.sc-ic-menu #retry-button.sc-ic-menu::part(button){height:var(--ic-space-md)}.menu.sc-ic-menu{text-decoration:none;list-style-type:none;border:var(--ic-space-1px) solid var(--ic-architectural-400);border-radius:var(--ic-border-radius);background-color:var(--ic-architectural-white);visibility:hidden;max-height:0;overflow-y:hidden}.menu-scroll.sc-ic-menu{overflow-y:auto}.menu.sc-ic-menu:focus-visible{outline:none}.open.sc-ic-menu-h{max-height:none;display:block}.open.sc-ic-menu-h .menu.sc-ic-menu{visibility:visible;max-height:20.125rem}.full-width.sc-ic-menu-h{width:100%}.option.sc-ic-menu{padding:0.5rem 0.438rem;cursor:pointer;display:flex;align-items:center}.option.sc-ic-menu:not(.loading-option){justify-content:space-between}.small.sc-ic-menu-h .option.sc-ic-menu{padding:0.25rem 0.438rem}.option.sc-ic-menu:last-child{border-radius:0 0 var(--ic-space-1px) var(--ic-space-1px)}.option.sc-ic-menu:first-child{border-radius:var(--ic-space-1px) var(--ic-space-1px) 0 0}.option.sc-ic-menu:not(.disabled-option):hover{background-color:var(--ic-action-dark-bg-hover)}.option.sc-ic-menu:not(.disabled-option):active{background-color:var(--ic-action-dark-bg-active)}.option.sc-ic-menu:focus-visible{outline:var(--ic-hc-focus-outline)}.option.sc-ic-menu:not(.disabled-option) .option-description.sc-ic-menu{color:var(--ic-color-secondary-text)}.option-text-container.sc-ic-menu{pointer-events:none}.option.loading-option.sc-ic-menu .option-text-container.sc-ic-menu{margin-left:0.625rem;color:var(--ic-color-secondary-text)}.error-icon-svg.sc-ic-menu{height:var(--ic-space-md);width:var(--ic-space-md);fill:var(--ic-status-error);align-self:center;display:flex;margin-right:calc(var(--ic-space-xxs) * 1.2)}.loading-error-info.sc-ic-menu{display:flex}.check-icon.sc-ic-menu{height:var(--ic-space-lg);width:var(--ic-space-lg);margin-left:0.5rem;pointer-events:none}.focused-option.sc-ic-menu .check-icon.sc-ic-menu *.sc-ic-menu{fill:currentcolor}.option-group-title.sc-ic-menu{padding:1.5rem 0.438rem 0.5rem;color:var(--ic-color-tertiary-text)}.small.sc-ic-menu-h .option-group-title.sc-ic-menu{padding:0.75rem 0.438rem 0.25rem}.last-recommended-option.sc-ic-menu{border-bottom:var(--ic-space-1px) solid var(--ic-architectural-400)}.disabled-option.sc-ic-menu{color:var(--ic-architectural-200);cursor:default;pointer-events:none}.focused-option.sc-ic-menu,.focused-option.sc-ic-menu .option-description.sc-ic-menu{background-color:var(--ic-focus-blue) !important;color:var(--ic-color-white-text) !important}.no-results.sc-ic-menu-h li.sc-ic-menu{cursor:no-drop}.no-results.sc-ic-menu-h li.sc-ic-menu:hover{background-color:transparent}@media (forced-colors: active){.focused-option.sc-ic-menu:focus{outline:none;border:0.125rem solid transparent}}
+    </style>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-0" type="hidden" value="">
+</ic-select>
+`;

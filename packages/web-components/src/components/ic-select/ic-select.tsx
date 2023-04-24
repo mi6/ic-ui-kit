@@ -71,6 +71,7 @@ export class Select {
 
   private hasTimedOut: boolean;
   private blurredBecauseButtonPressed: boolean;
+  private retryButtonClick: boolean;
 
   /**
    * The label for the select.
@@ -229,6 +230,10 @@ export class Select {
 
   @State() pressedCharacters: string = "";
 
+  @State() hiddenInputValue: string;
+
+  @State() inputValueToFilter = this.value;
+
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
     newValue && this.triggerLoading();
@@ -273,6 +278,11 @@ export class Select {
   valueChangedHandler() {
     if (this.value !== this.currValue) {
       this.currValue = this.value;
+    }
+
+    if (this.searchable && !!this.currValue) {
+      this.searchableSelectInputValue =
+        this.getLabelFromValue(this.currValue) || this.currValue;
     }
   }
 
@@ -331,7 +341,9 @@ export class Select {
   private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
     if (ev.detail.keyPressed) this.searchableSelectElement?.focus();
     this.blurredBecauseButtonPressed = true;
-    this.icRetryLoad.emit({ value: ev.detail.value });
+    this.retryButtonClick = true;
+    this.hasSetDefaultValue = true;
+    this.icRetryLoad.emit({ value: this.hiddenInputValue });
   };
 
   private updateOnChangeDebounce(newValue: number) {
@@ -341,7 +353,10 @@ export class Select {
   }
 
   private emitIcChange = (value: string) => {
-    this.value = value;
+    if (!this.searchable) {
+      this.value = value;
+    }
+
     clearTimeout(this.debounceIcChange);
     this.debounceIcChange = window.setTimeout(() => {
       this.icChange.emit({ value: value });
@@ -393,11 +408,6 @@ export class Select {
     return getLabelFromValue(value, this.options);
   };
 
-  private getValueFromLabel = (label: string): string | undefined => {
-    const value = this.options.find((option) => option.label === label)?.value;
-    return value;
-  };
-
   private getFilteredChildMenuOptions = (option: IcMenuOption) => {
     let children = option.children;
 
@@ -435,8 +445,16 @@ export class Select {
     }
 
     if (this.searchable) {
-      this.searchableSelectInputValue = this.getLabelFromValue(
-        event.detail.value
+      this.value = event.detail.value;
+
+      // After editing the input, if selecting the same option as before, set the input value to label again
+      if (this.value === this.currValue) {
+        this.searchableSelectInputValue = this.getLabelFromValue(this.value);
+      }
+
+      this.inputValueToFilter = null;
+      this.hiddenInputValue = this.getValueFromLabel(
+        this.searchableSelectInputValue
       );
     }
 
@@ -513,6 +531,7 @@ export class Select {
       this.searchableSelectElement.value = null;
       this.searchableSelectInputValue = null;
       this.filteredOptions = this.options;
+      this.hiddenInputValue = null;
       this.searchableSelectElement.focus();
 
       if (!this.isMenuEnabled()) {
@@ -578,6 +597,7 @@ export class Select {
     } else {
       if (!(isArrowKey && this.noOptions !== null) && this.isMenuEnabled()) {
         if (!(event.key === " " && this.pressedCharacters.length > 0)) {
+          // Keyboard events get passed onto ic-menu
           this.menu.handleKeyboardOpen(event);
         }
         this.handleCharacterKeyDown(event.key);
@@ -620,7 +640,7 @@ export class Select {
       menuOptionsFiltered = getFilteredMenuOptions(
         options,
         this.includeDescriptionsInSearch,
-        this.searchableSelectInputValue,
+        this.inputValueToFilter,
         this.searchMatchPosition
       );
     } else {
@@ -690,29 +710,28 @@ export class Select {
     }
   };
 
+  private getValueFromLabel = (label: string): string | undefined => {
+    const value = this.options.find((option) => option.label === label)?.value;
+    return value;
+  };
+
   private handleSearchableSelectInput = (event: Event): void => {
     this.searchableSelectInputValue = (event.target as HTMLInputElement).value;
     this.icInput.emit({ value: this.searchableSelectInputValue });
+    this.emitIcChange(this.searchableSelectInputValue);
 
-    if (!this.hasTimedOut && !this.loading) {
-      if (this.disableFilter) {
-        this.emitIcChange(this.searchableSelectInputValue);
-      } else if (
-        this.getValueFromLabel(this.searchableSelectInputValue) === undefined
-      ) {
-        this.emitIcChange(null);
-      }
+    this.hiddenInputValue = this.searchableSelectInputValue;
+    this.inputValueToFilter = this.searchableSelectInputValue;
 
-      if (this.isMenuEnabled()) {
-        this.setMenuChange(true);
-      } else {
-        this.setMenuChange(false);
-      }
+    if (this.isMenuEnabled()) {
+      this.setMenuChange(true);
+    } else {
+      this.setMenuChange(false);
+    }
 
-      if (!this.disableFilter) {
-        this.handleFilter();
-        this.debounceAriaLiveUpdate();
-      }
+    if (!this.disableFilter) {
+      this.handleFilter();
+      this.debounceAriaLiveUpdate();
     }
   };
 
@@ -774,10 +793,13 @@ export class Select {
       !(retryButton && event.relatedTarget === retryButton);
 
     if (isSearchableAndNoFocusedInternalElements) {
-      this.setMenuChange(false);
+      if (!this.retryButtonClick) {
+        this.setMenuChange(false);
+      }
       this.handleFocusIndicatorDisplay();
     }
 
+    this.retryButtonClick = false;
     this.icBlur.emit();
   };
 
@@ -798,6 +820,7 @@ export class Select {
     this.value = this.initialValue;
     if (this.searchable) {
       this.searchableSelectInputValue = this.getDefaultValue(this.value);
+      this.hiddenInputValue = this.value;
     }
   };
 
@@ -814,7 +837,7 @@ export class Select {
 
     if (!this.options.length) {
       this.initialOptionsEmpty = true;
-    } else if (!this.disableFilter) {
+    } else {
       this.setDefaultValue();
     }
   }
@@ -830,7 +853,10 @@ export class Select {
       [{ prop: this.label, propName: "label" }],
       "Select"
     );
+
     if (this.loading) this.triggerLoading();
+
+    this.hiddenInputValue = this.searchable && this.currValue;
   }
 
   disconnectedCallback(): void {
@@ -864,7 +890,9 @@ export class Select {
       (searchable ? this.filteredOptions : options)[0]?.label ===
         this.loadingErrorLabel;
 
-    renderHiddenInput(true, this.host, name, currValue, disabled);
+    const inputValue = this.searchable ? this.hiddenInputValue : currValue;
+
+    renderHiddenInput(true, this.host, name, inputValue, disabled);
 
     const invalid =
       validationStatus === IcInformationStatus.Error ? "true" : "false";
@@ -883,6 +911,7 @@ export class Select {
           small: small,
           "full-width": fullWidth,
         }}
+        onBlur={this.onBlur}
       >
         <ic-input-container readonly={readonly}>
           {!hideLabel && (
@@ -1120,6 +1149,7 @@ export class Select {
               onRetryButtonClicked={this.handleRetry}
               parentEl={this.host}
               onTimeoutBlur={this.onTimeoutBlur}
+              activationType={this.searchable ? "manual" : "automatic"}
             ></ic-menu>
           )}
           {hasValidationStatus(this.validationStatus, this.disabled) && (

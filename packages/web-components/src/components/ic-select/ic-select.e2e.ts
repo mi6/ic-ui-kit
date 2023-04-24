@@ -35,7 +35,6 @@ const getTestSelect = (
 ) => `<ic-select label="IC Select Test"></ic-select>
   <script>
     var select = document.querySelector('ic-select');
-    var option = 'Test value 1';
     select.options = ${options};
     select.addEventListener('icChange', function (event) {
       option = event.detail.value;
@@ -48,7 +47,6 @@ const getTestSelectFormReset = (
 ) => `<form><ic-select label="IC Select Test"></ic-select><button type="reset" id="resetButton">Reset</button></form>
     <script>
       var select = document.querySelector('ic-select');
-      var option = 'Test value 1';
       select.options = ${options};
       select.addEventListener('icChange', function (event) {
         option = event.detail.value;
@@ -58,10 +56,9 @@ const getTestSelectFormReset = (
 
 const getTestSelectSearchableFormReset = (
   options: string
-) => `<form><ic-select label="IC Select Test" searchable='true'></ic-select><button type="reset" id="resetButton">Reset</button></form>
+) => `<form><ic-select label="IC Select Test" searchable></ic-select><button type="reset" id="resetButton">Reset</button></form>
     <script>
       var select = document.querySelector('ic-select');
-      var option = 'Test value 1';
       select.options = ${options};
       select.value = 'Test value 1';
       select.addEventListener('icChange', function (event) {
@@ -72,19 +69,14 @@ const getTestSelectSearchableFormReset = (
 
 const getTestSearchableSelect = (
   options: string
-) => `<ic-select label="IC Select Test" searchable></ic-select>
+) => `<ic-select label="IC Select Test" searchable></ic-select><button>Button</button>
     <script>
       var select = document.querySelector('ic-select');
-      var option = 'Cappuccino';
       select.options = ${options};
-      select.addEventListener('icChange', function (event) {
-        option = event.detail.value;
-        select.value = option;
-      });
     </script>`;
 
 const getTestSearchableSelectAsync = () =>
-  `<ic-select label="IC Select Test" searchable="true" disable-filter="true" value="Test value"></ic-select>
+  `<ic-select label="IC Select Test" searchable disable-filter="true" value="Test value"></ic-select>
     <script>
       var select = document.querySelector('ic-select');
       select.options = [];
@@ -182,7 +174,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot).toMatchSnapshot();
+      expect(select).toMatchSnapshot();
     });
 
     it("should render when no options are provided", async () => {
@@ -192,7 +184,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot).toMatchSnapshot();
+      expect(select).toMatchSnapshot();
     });
 
     it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", async () => {
@@ -841,6 +833,7 @@ describe("ic-select", () => {
       expect(typography[1]).toBe("Test label 1");
     });
 
+    // Flaky test
     it("should render options as groups if they have children", async () => {
       const page = await newE2EPage();
       const groupedOptions = `[
@@ -1233,9 +1226,9 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
       const select = await page.find("ic-select >>> #ic-select-input-0");
-      await select.press("Enter");
-      await page.waitForChanges();
       await select.press("ArrowDown");
+      await page.waitForChanges();
+      await select.press("Enter");
       await page.waitForChanges();
 
       expect(icChange).toHaveReceivedEventDetail({
@@ -1294,6 +1287,487 @@ describe("ic-select", () => {
       expect(icChange).toHaveReceivedEventDetail({
         value: "foobar",
       });
+    });
+
+    it("should update hidden input to value typed in select searchable input", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("bar", page);
+
+      await page.waitForChanges();
+
+      const hiddenInput = await page.find("input[type='hidden']");
+
+      expect(hiddenInput.getAttribute("value")).toBe("bar");
+    });
+
+    it("should keep typed in hidden input value when highlighting menu options", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("cap", page);
+
+      await page.waitForChanges();
+
+      let hiddenInput = await page.find("input[type='hidden']");
+
+      expect(hiddenInput.getAttribute("value")).toBe("cap");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      const menuListItems = await page.findAll(
+        "ic-select >>> ic-menu > ul > li"
+      );
+
+      expect(menuListItems[0]).toHaveClass("focused-option");
+
+      hiddenInput = await page.find("input[type='hidden']");
+
+      expect(hiddenInput.getAttribute("value")).toBe("cap");
+    });
+
+    it("should update hidden value from typed to selected", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("o", page);
+
+      await page.waitForChanges();
+
+      const hiddenInput = await page.find("input[type='hidden']");
+
+      expect(hiddenInput.getAttribute("value")).toBe("o");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      const menuListItems = await page.findAll(
+        "ic-select >>> ic-menu > ul > li"
+      );
+
+      expect(menuListItems[0]).toHaveClass("focused-option");
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      expect(hiddenInput.getAttribute("value")).toBe("Cap");
+    });
+
+    it("should update hidden value from typed to selected to typed", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("o", page);
+
+      await page.waitForChanges();
+
+      const hiddenInput = await page.find("input[type='hidden']");
+
+      expect(hiddenInput.getAttribute("value")).toBe("o");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      const menuListItems = await page.findAll(
+        "ic-select >>> ic-menu > ul > li"
+      );
+
+      expect(menuListItems[0]).toHaveClass("focused-option");
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      expect(hiddenInput.getAttribute("value")).toBe("Cap");
+
+      await page.keyboard.press("1");
+      await page.waitForChanges();
+
+      expect(hiddenInput.getAttribute("value")).toBe("Cappuccino1");
+    });
+
+    it("should update the value of the input when passing the value directly", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select");
+      await select.setAttribute("value", "foo");
+
+      await page.waitForChanges();
+
+      const selectInput = await page.find(
+        'ic-select >>> input[role="combobox"]'
+      );
+
+      expect(await selectInput.getProperty("value")).toBe("foo");
+    });
+
+    it("should trigger icChange on input for each typed value", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select");
+      const icChange = await select.spyOnEvent("icChange");
+
+      await focusAndTypeIntoInput("f", page);
+      await page.waitForChanges();
+
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "f",
+      });
+
+      await focusAndTypeIntoInput("o", page);
+      await page.waitForChanges();
+
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "fo",
+      });
+
+      await focusAndTypeIntoInput("o", page);
+      await page.waitForChanges();
+
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "foo",
+      });
+    });
+
+    it("should not trigger icChange on highlighting menu items", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select");
+      const icChange = await select.spyOnEvent("icChange");
+
+      await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        input.focus();
+      });
+
+      await page.waitForChanges();
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      expect(icChange).not.toHaveReceivedEvent();
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      expect(icChange).not.toHaveReceivedEvent();
+    });
+
+    it("should not select a menu option when typing into the searchable input field", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Cap", page);
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      const firstOption = await menu.findAll("li");
+      expect(firstOption[0]).not.toHaveClass("aria-selected");
+    });
+
+    it("should not selet a menu option when one has previously been set and backspace is pressed", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Lat", page);
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      const inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Latte");
+
+      await page.keyboard.press("Backspace");
+      await page.waitForChanges();
+      await page.keyboard.press("Backspace");
+      await page.waitForChanges();
+
+      const options = await menu.findAll("li");
+
+      options.forEach((option) => {
+        expect(option).not.toHaveClass("aria-selected");
+      });
+    });
+
+    it("should display selected option when selecting a menu option and then opening and closing the menu", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Lat", page);
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      const inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Latte");
+
+      await page.evaluate(() => {
+        const button = document.querySelector("button");
+        button.focus();
+      });
+      await page.waitForChanges();
+
+      expect(await getMenuVisibility(page)).toBe("hidden");
+
+      const select = await page.find("ic-select");
+      await select.click();
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      const latteOption = await menu.find("li[data-value='Lat']");
+
+      expect(latteOption).toHaveAttribute("aria-selected");
+    });
+
+    it("hidden input value when on initial load with default value", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSelectSearchableFormReset(options));
+      await page.waitForChanges();
+
+      const hiddenInput = await page.find(
+        "ic-select > [name*='ic-select-input-0']"
+      );
+
+      expect(hiddenInput.getAttribute("value")).toBe("Test value 1");
+    });
+
+    it("should submit hidden input value when updating value, pressing reset to initial value and then submitting", async () => {
+      const page = await newE2EPage();
+
+      await page.setContent(getTestSelectSearchableFormReset(options));
+      await page.waitForChanges();
+
+      const hiddenInput = await page.find(
+        "ic-select > [name*='ic-select-input-0']"
+      );
+
+      expect(hiddenInput.getAttribute("value")).toBe("Test value 1");
+
+      const select = await page.find("ic-select >>> #ic-select-input-0");
+      await select.press("Backspace");
+      await page.waitForChanges();
+
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      expect(hiddenInput.getAttribute("value")).toBe("Test value 2");
+
+      await page.$eval("#resetButton", (el) => {
+        const reset = el as unknown as HTMLButtonElement;
+        reset.click();
+      });
+      await page.waitForChanges();
+
+      expect(hiddenInput.getAttribute("value")).toBe("Test value 1");
+    });
+
+    it("should scroll menu", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(largeOptions));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Test", page);
+      await page.waitForChanges();
+
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      let menuScrollTop = await page.$eval("ic-select", (el) => {
+        const menu = el.shadowRoot.querySelector("ic-menu ul");
+        return menu.scrollTop;
+      });
+
+      expect(menuScrollTop).toBe(0);
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      const inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Test label 1");
+
+      await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        input.focus();
+      });
+
+      await page.waitForChanges();
+
+      await page.keyboard.press("ArrowUp");
+      await page.waitForChanges();
+
+      menuScrollTop = await page.$eval("ic-select", (el) => {
+        const menu = el.shadowRoot.querySelector("ic-menu ul");
+        return menu.scrollTop;
+      });
+
+      expect(menuScrollTop).not.toBe(0);
+    });
+
+    it("should only highlight and select enabled options in searchable with arrowDown", async () => {
+      const optionsWithDisabled = `[
+        { label: 'Test label 1', value: 'Test value 1', disabled: true },
+        { label: 'Test label 2', value: 'Test value 2' },
+        { label: 'Test label 3', value: 'Test value 3', disabled: true },
+        { label: 'Test label 4', value: 'Test value 4', disabled: true },
+        { label: 'Test label 5', value: 'Test value 5' },
+      ]`;
+
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(optionsWithDisabled));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Test", page);
+      await page.waitForChanges();
+
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuItems = await menu.findAll("li");
+
+      expect(menuItems[0]).not.toHaveClass("focused-option");
+      expect(menuItems[1]).toHaveClass("focused-option");
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      let inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Test label 2");
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("ArrowDown");
+      await page.waitForChanges();
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Test label 5");
+    });
+
+    it("should only highlight and select enabled options in searchable with arrowUp", async () => {
+      const optionsWithDisabled = `[
+        { label: 'Test label 1', value: 'Test value 1', disabled: true },
+        { label: 'Test label 2', value: 'Test value 2' },
+        { label: 'Test label 3', value: 'Test value 3', disabled: true },
+        { label: 'Test label 4', value: 'Test value 4', disabled: true },
+        { label: 'Test label 5', value: 'Test value 5' },
+      ]`;
+
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(optionsWithDisabled));
+      await page.waitForChanges();
+
+      await focusAndTypeIntoInput("Test", page);
+      await page.waitForChanges();
+
+      expect(await getMenuVisibility(page)).toBe("visible");
+
+      await page.keyboard.press("ArrowUp");
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuItems = await menu.findAll("li");
+
+      expect(menuItems[menuItems.length - 1]).toHaveClass("focused-option");
+      expect(menuItems[menuItems.length - 2]).not.toHaveClass("focused-option");
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      let inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Test label 5");
+
+      await page.keyboard.press("ArrowUp");
+      await page.waitForChanges();
+
+      await page.keyboard.press("ArrowUp");
+      await page.waitForChanges();
+
+      await page.keyboard.press("Enter");
+      await page.waitForChanges();
+
+      inputValue = await page.$eval("ic-select", (el) => {
+        const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
+        return input.value;
+      });
+
+      expect(inputValue).toBe("Test label 2");
     });
   });
 
@@ -1355,7 +1829,7 @@ describe("ic-select", () => {
 
     const select = await page.find("ic-select >>> #ic-select-input-0");
 
-    await select.press("Enter");
+    await select.press("ArrowDown");
     await page.waitForChanges();
     await select.press("ArrowDown");
     await page.waitForChanges();

@@ -1,5 +1,6 @@
 @import "../../global/normalize.css";
-/** 
+
+/**
 * @prop --ic-z-index-popover: z-index of popover menu. 
 * @prop --max-height: Maximum height of the popover menu.
 * @prop --popover-width: Default width of the popover menu.
