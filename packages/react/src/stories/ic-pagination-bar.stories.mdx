@@ -1,0 +1,70 @@
+import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import { IcPaginationBar } from "../components";
+import readme from "../../../web-components/src/components/ic-pagination-bar/readme.md";
+
+<Meta title="React Components/Pagination bar" component={IcPaginationBar} />
+
+<Description markdown={readme} />
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+      <IcPaginationBar totalItems="100"></IcPaginationBar>
+      <IcPaginationBar totalItems="100" showItemsPerPageControl></IcPaginationBar>
+      <IcPaginationBar totalItems="100" showGoToPageControl></IcPaginationBar>
+  </Story>
+</Canvas>
+
+### Pagination bar type
+
+<Canvas>
+  <Story name="Pagination bar type">
+      <IcPaginationBar totalItems="100" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+      <IcPaginationBar totalItems="100" paginationType="data" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+  </Story>
+</Canvas>
+
+### Pagination control type
+
+<Canvas>
+  <Story name="Pagination control type">
+      <IcPaginationBar totalItems="100" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+      <IcPaginationBar totalItems="100" paginationControl="complex" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+  </Story>
+</Canvas>
+
+### Alignment
+
+<Canvas>
+  <Story name="Alignment">
+      <IcPaginationBar totalItems="100" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+      <IcPaginationBar totalItems="100" alignment="left" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+      <IcPaginationBar totalItems="100" alignment="space-between" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+  </Story>
+</Canvas>
+
+### Appearance
+
+<Canvas>
+  <Story name="Appearance">
+      <IcPaginationBar totalItems="100" showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+      <div style={{backgroundColor: "var(--ic-architectural-black)"}}><IcPaginationBar totalItems="100" appearance="light" showItemsPerPageControl showGoToPageControl></IcPaginationBar></div>
+      <div style={{backgroundColor: "var(--ic-status-info-contrast)"}}><IcPaginationBar totalItems="100" appearance="dark" showItemsPerPageControl showGoToPageControl></IcPaginationBar></div>
+  </Story>
+</Canvas>
+
+### Custom options
+
+export const paginationBarOptions = [
+          {label: "50", value: "50"},
+          {label: "100", value: "100"},
+          {label: "250", value: "250"},
+          {label: "All", value: "1000"}
+        ]
+
+<Canvas>
+  <Story name="Custom options">
+      <IcPaginationBar totalItems="1000" itemsPerPageOptions={paginationBarOptions} showItemsPerPageControl showGoToPageControl></IcPaginationBar>
+  </Story>
+</Canvas>
