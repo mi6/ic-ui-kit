@@ -69,6 +69,7 @@ export class SearchBar {
   private hasTimedOut = false;
   private preLoad = true;
   private retryViaKeyPress: boolean;
+  private retryButtonClick: boolean = false;
 
   /**
    * The label for the search bar.
@@ -261,6 +262,7 @@ export class SearchBar {
   @Method()
   async setFocus(): Promise<void> {
     this.retryViaKeyPress = false;
+    this.retryButtonClick = false;
     if (this.inputEl) {
       this.inputEl.setFocus();
     }
@@ -317,6 +319,7 @@ export class SearchBar {
     this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
     this.icRetryLoad.emit({ value: ev.detail.value });
     this.triggerLoading();
+    this.retryButtonClick = true;
   };
 
   private triggerLoading = () => {
@@ -551,9 +554,14 @@ export class SearchBar {
       this.open &&
       this.options &&
       nextFocus !== this.menu &&
-      !this.retryViaKeyPress
+      !this.retryViaKeyPress &&
+      !this.retryButtonClick
     ) {
       this.setMenuChange(false);
+    }
+
+    if (this.retryButtonClick || this.retryViaKeyPress) {
+      this.inputEl.setFocus();
     }
 
     this.handleShowClearButton(false);
@@ -561,6 +569,7 @@ export class SearchBar {
     this.handleTruncateValue(true);
     this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
     this.retryViaKeyPress = false;
+    this.retryButtonClick = false;
   };
 
   private handleShowClearButton = (visible: boolean): void => {

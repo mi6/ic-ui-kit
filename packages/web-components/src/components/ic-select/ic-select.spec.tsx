@@ -352,7 +352,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 2");
+    expect(input.value).toBe("Test label 1");
   });
 
   it("should test menu handleKeyboardOpen method - arrow up", async () => {
@@ -377,7 +377,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 3");
+    expect(input.value).toBe("Test label 1");
   });
 
   it("should test keydown on menu - arrow up", async () => {
@@ -405,7 +405,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 1");
+    expect(input.value).toBe("Test label 2");
   });
 
   it("should test keydown on menu - arrow up wrap around", async () => {
@@ -433,7 +433,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 3");
+    expect(input.value).toBe("Test label 1");
   });
 
   it("should test keydown on menu - arrow down", async () => {
@@ -461,7 +461,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 2");
+    expect(input.value).toBe("Test label 1");
   });
 
   it("should test keydown on menu - arrow down wrap around", async () => {
@@ -489,7 +489,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 1");
+    expect(input.value).toBe("Test label 3");
   });
 
   it("should test keydown on menu - home key", async () => {
@@ -540,7 +540,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("Test label 3");
+    expect(input.value).toBe("Test label 1");
   });
 
   it("should test keydown on menu - backspace key", async () => {
@@ -568,7 +568,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("");
+    expect(input.value).toBe("Test label 3");
   });
 
   it("should test keydown on menu - enter key", async () => {
@@ -596,7 +596,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("");
+    expect(input.value).toBe("Test label 3");
   });
 
   it("should test keydown on menu - space key", async () => {
@@ -621,7 +621,7 @@ describe("ic-select", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.open).toBe(false);
+    expect(page.rootInstance.open).toBe(true);
   });
 
   it("should test keydown on menu - other key", async () => {
@@ -649,7 +649,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("");
+    expect(input.value).toBe("Test label 2");
   });
 
   it("should test keyup on menu list", async () => {
@@ -678,7 +678,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("");
+    expect(input.value).toBe("Test label 2");
   });
 
   it("should test click on input", async () => {
@@ -1110,7 +1110,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.open).toBe(true);
+    expect(page.rootInstance.open).toBe(false);
 
     //test disconnected callback
     page.setContent("");
