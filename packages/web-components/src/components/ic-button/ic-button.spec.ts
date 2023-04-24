@@ -248,7 +248,7 @@ describe("button component", () => {
   it("should test button as submit button on form", async () => {
     const page = await newSpecPage({
       components: [Button],
-      html: `<form><ic-button id='ic-button' type="submit">Button</ic-button><form>`,
+      html: `<form id="new-form"><form><ic-button id='ic-button' type="submit" form="new-form">Button</ic-button>`,
     });
 
     const btn = document.getElementById("ic-button");

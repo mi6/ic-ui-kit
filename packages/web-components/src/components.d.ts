@@ -106,6 +106,30 @@ export namespace Components {
          */
         "download"?: string | boolean;
         /**
+          * The <form> element to associate the button with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the button. It overrides the action attribute of the button's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the button's form owner.
+         */
+        "formtarget"?: string;
+        /**
           * If `true`, the button will fill the width of the container.
          */
         "fullWidth"?: boolean;
@@ -2192,6 +2216,30 @@ declare namespace LocalJSX {
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
+        /**
+          * The <form> element to associate the button with.
+         */
+        "form"?: string;
+        /**
+          * The URL that processes the information submitted by the button. It overrides the action attribute of the button's form owner. Does nothing if there is no form owner.
+         */
+        "formaction"?: string;
+        /**
+          * The way the submitted form data is encoded.
+         */
+        "formenctype"?: string;
+        /**
+          * The HTTP method used to submit the form.
+         */
+        "formmethod"?: string;
+        /**
+          * If `true`, the form will not be validated when submitted.
+         */
+        "formnovalidate"?: boolean;
+        /**
+          * The place to display the response from submitting the form. It overrides the target attribute of the button's form owner.
+         */
+        "formtarget"?: string;
         /**
           * If `true`, the button will fill the width of the container.
          */

@@ -99,6 +99,30 @@ export class Button {
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
   /**
+   * The <form> element to associate the button with.
+   */
+  @Prop() form?: string;
+  /**
+   * The URL that processes the information submitted by the button. It overrides the action attribute of the button's form owner. Does nothing if there is no form owner.
+   */
+  @Prop() formaction?: string;
+  /**
+   * The way the submitted form data is encoded.
+   */
+  @Prop() formenctype?: string;
+  /**
+   * The HTTP method used to submit the form.
+   */
+  @Prop() formmethod?: string;
+  /**
+   * If `true`, the form will not be validated when submitted.
+   */
+  @Prop() formnovalidate?: boolean;
+  /**
+   * The place to display the response from submitting the form. It overrides the target attribute of the button's form owner.
+   */
+  @Prop() formtarget?: string;
+  /**
    * Emitted when button has focus
    */
   @Event() icFocus!: EventEmitter<void>;
@@ -220,7 +244,16 @@ export class Button {
     } = this.inheritedAttributes;
     const buttonAttrs =
       TagType === "button"
-        ? { type: this.type, disabled: this.disabled }
+        ? {
+            type: this.type,
+            disabled: this.disabled,
+            form: this.form,
+            formaction: this.formaction,
+            formenctype: this.formenctype,
+            formmethod: this.formmethod,
+            formnovalidate: this.formnovalidate,
+            formtarget: this.formtarget,
+          }
         : {
             download: this.download !== false ? this.download : null,
             href: this.href,
