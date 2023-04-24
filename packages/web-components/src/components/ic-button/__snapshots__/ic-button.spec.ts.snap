@@ -224,9 +224,9 @@ exports[`button component should render with defined "a" tag props 1`] = `
 `;
 
 exports[`button component should test button as submit button on form 1`] = `
-<ic-button class="button-size-default button-variant-primary light" exportparts="button" id="ic-button" type="submit">
+<ic-button class="button-size-default button-variant-primary light" exportparts="button" form="new-form" id="ic-button" type="submit">
   <mock:shadow-root>
-    <button class="button" part="button" type="submit">
+    <button class="button" form="new-form" part="button" type="submit">
       <slot></slot>
     </button>
   </mock:shadow-root>
