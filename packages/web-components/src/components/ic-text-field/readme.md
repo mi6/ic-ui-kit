@@ -81,6 +81,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ic-pagination-bar](../ic-pagination-bar)
  - [ic-search-bar](../ic-search-bar)
 
 ### Depends on
@@ -101,6 +102,7 @@ graph TD;
   ic-text-field --> ic-typography
   ic-input-label --> ic-typography
   ic-input-validation --> ic-typography
+  ic-pagination-bar --> ic-text-field
   ic-search-bar --> ic-text-field
   style ic-text-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
