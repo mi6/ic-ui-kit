@@ -4,6 +4,10 @@ import { TabPanel } from "../ic-tab-panel/ic-tab-panel";
 import { Tab } from "../ic-tab/ic-tab";
 import { TabContext } from "./ic-tab-context";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-tab-context component", () => {
   it("should render tab context with tabs", async () => {
     const page = await newSpecPage({

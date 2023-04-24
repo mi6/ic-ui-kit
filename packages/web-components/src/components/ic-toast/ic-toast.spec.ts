@@ -222,12 +222,15 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
     await waitForTimeout(1000);
     expect(intervalCb).toHaveBeenCalledTimes(2);
+    page.setContent("");
   });
 
   it("should post a console error message if the message or header is too long", async () => {
     const longText =
       "lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu augue ut lectus arcu bibendum at varius vel pharetra vel turpis nunc eget lorem dolor";
-    const consoleCb = jest.spyOn(console, "error");
+    const consoleCb = jest
+      .spyOn(console, "error")
+      .mockImplementation(jest.fn());
     await newSpecPage({
       components: [Toast],
       html: `<ic-toast heading="${longText}" message="${longText}"></ic-toast>`,

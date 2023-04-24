@@ -1,5 +1,9 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-radio-group component", () => {
   it("Should have tabIndex of first option 0, when no options are selected", async () => {
     const page = await newE2EPage();

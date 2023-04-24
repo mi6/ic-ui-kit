@@ -37,6 +37,7 @@ describe("ic-back-to-top", () => {
   });
 
   it("should render with no targetId set", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [BackToTop],
       html: `<ic-back-to-top></ic-back-to-top>`,
@@ -66,6 +67,7 @@ describe("ic-back-to-top", () => {
   });
 
   it("should scroll to 0,0 if target is null", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [BackToTop],
       html: `<div id="topEl"><ic-back-to-top></ic-back-to-top></div>`,
@@ -89,6 +91,7 @@ describe("ic-back-to-top", () => {
   });
 
   it("should return null targetElement when there's no target matching that given in back to top", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [BackToTop],
       html: `<div><ic-back-to-top target="topEl"></ic-back-to-top></div>`,
@@ -138,6 +141,7 @@ describe("ic-back-to-top", () => {
   });
 
   it("should test update of target from undefined to value", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [BackToTop],
       html: `<div id="topEl"><ic-back-to-top></ic-back-to-top></div>`,
