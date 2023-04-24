@@ -17,10 +17,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Default">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-1"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-1");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -42,10 +44,10 @@ import readme from "./readme.md";
       html`<ic-select
           label="What is your favourite coffee?"
           loading
+          id="select-2"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-2");
           select.options = [];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
@@ -75,9 +77,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Default value">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-3"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
+          var select = document.querySelector("#select-3");
           select.value = "Cap";
           select.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -98,12 +103,12 @@ import readme from "./readme.md";
   <Story name="With clear button">
     {(args) =>
       html`<ic-select
+          id="select-4"
           label="What is your favourite coffee?"
           show-clear-button
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-4");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -122,10 +127,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With description">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-5"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-5");
           select.options = [
             {
               label: "Cappuccino",
@@ -157,12 +164,12 @@ import readme from "./readme.md";
   <Story name="Helper text">
     {(args) =>
       html`<ic-select
+          id="select-6"
           label="What is your favourite coffee?"
           helper-text="Some helper text"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-6");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -182,12 +189,12 @@ import readme from "./readme.md";
   <Story name="Custom placeholder">
     {(args) =>
       html`<ic-select
+          id="select-7"
           label="What is your favourite coffee?"
           placeholder="Placeholder goes here"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-7");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -206,10 +213,13 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Small">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?" small></ic-select>
+      html`<ic-select
+          id="select-8"
+          label="What is your favourite coffee?"
+          small
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-8");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -229,12 +239,12 @@ import readme from "./readme.md";
   <Story name="Disabled">
     {(args) =>
       html`<ic-select
+          id="select-9"
           label="What is your favourite coffee?"
           disabled
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-9");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -253,10 +263,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Disabled options">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-10"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-10");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat", disabled: true },
@@ -276,12 +288,12 @@ import readme from "./readme.md";
   <Story name="Full width">
     {(args) =>
       html`<ic-select
+          id="select-11"
           label="What is your favourite coffee?"
           full-width="true"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-11");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -301,12 +313,12 @@ import readme from "./readme.md";
   <Story name="Hidden label">
     {(args) =>
       html`<ic-select
+          id="select-12"
           label="What is your favourite coffee?"
           hide-label
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-12");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -326,12 +338,12 @@ import readme from "./readme.md";
   <Story name="Required">
     {(args) =>
       html`<ic-select
+          id="select-13"
           label="What is your favourite coffee?"
           required
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-13");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -351,13 +363,13 @@ import readme from "./readme.md";
   <Story name="Read-only">
     {() =>
       html`<ic-select
+          id="select-14"
           label="What is your favourite coffee?"
           readonly
           value="Cap"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-14");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -376,10 +388,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Groups">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-15"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-15");
           select.options = [
             {
               label: "Fancy",
@@ -409,10 +423,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Recommended">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-16"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-16");
           select.options = [
             { label: "Cappuccino", value: "Cappuccino" },
             { label: "Flat white", value: "Flat white", recommended: true },
@@ -496,10 +512,12 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Scroll behaviour">
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          id="select-17"
+          label="What is your favourite coffee?"
+        ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-17");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -529,15 +547,17 @@ import readme from "./readme.md";
     {(args) =>
       html`
         <form>
-          <ic-select label="What is your favourite coffee?"></ic-select>
+          <ic-select
+            id="select-18"
+            label="What is your favourite coffee?"
+          ></ic-select>
           <br />
           <br />
           <input type="submit" value="Submit" />
           <input type="reset" value="Reset" />
         </form>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-18");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -562,12 +582,12 @@ import readme from "./readme.md";
   <Story name="Searchable default">
     {(args) =>
       html`<ic-select
+          id="select-19"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-19");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -591,13 +611,13 @@ import readme from "./readme.md";
   <Story name="Async searchable default" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-select
+          id="select-20"
           label="What is your favourite coffee?"
           searchable
           loading
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-20");
           select.options = [];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
@@ -628,11 +648,12 @@ import readme from "./readme.md";
   <Story name="Searchable default value">
     {(args) =>
       html`<ic-select
+          id="select-21"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
+          var select = document.querySelector("#select-21");
           select.value = "Lat";
           select.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -657,13 +678,13 @@ import readme from "./readme.md";
   <Story name="Searchable filter by start of options">
     {(args) =>
       html`<ic-select
+          id="select-22"
           label="What is your favourite coffee?"
           searchable
           search-match-position="start"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-22");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -687,12 +708,12 @@ import readme from "./readme.md";
   <Story name="Searchable with description">
     {(args) =>
       html`<ic-select
+          id="select-23"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-23");
           select.options = [
             {
               label: "Cappuccino",
@@ -745,13 +766,13 @@ import readme from "./readme.md";
   <Story name="Searchable with description (included in search)">
     {(args) =>
       html`<ic-select
+          id="select-24"
           label="What is your favourite coffee?"
           searchable
           include-descriptions-in-search
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-24");
           select.options = [
             {
               label: "Cappuccino",
@@ -804,13 +825,13 @@ import readme from "./readme.md";
   <Story name="Searchable helper text">
     {(args) =>
       html`<ic-select
+          id="select-25"
           label="What is your favourite coffee?"
           searchable
           helper-text="Some helper text"
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-25");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -834,13 +855,13 @@ import readme from "./readme.md";
   <Story name="Searchable small">
     {(args) =>
       html`<ic-select
+          id="select-26"
           label="What is your favourite coffee?"
           searchable
           small
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-26");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -864,13 +885,13 @@ import readme from "./readme.md";
   <Story name="Searchable disabled">
     {(args) =>
       html`<ic-select
+          id="select-27"
           label="What is your favourite coffee?"
           searchable
           disabled
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-27");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -894,12 +915,12 @@ import readme from "./readme.md";
   <Story name="Searchable disabled options">
     {(args) =>
       html`<ic-select
+          id="select-28"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-28");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -923,13 +944,13 @@ import readme from "./readme.md";
   <Story name="Searchable hidden label">
     {(args) =>
       html`<ic-select
+          id="select-29"
           label="What is your favourite coffee?"
           searchable
           hide-label
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-29");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -953,13 +974,13 @@ import readme from "./readme.md";
   <Story name="Searchable required">
     {(args) =>
       html`<ic-select
+          id="select-30"
           label="What is your favourite coffee?"
           searchable
           required
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-30");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -983,12 +1004,12 @@ import readme from "./readme.md";
   <Story name="Searchable groups">
     {(args) =>
       html`<ic-select
+          id="select-31"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-31");
           select.options = [
             {
               label: "Fancy",
@@ -1019,13 +1040,13 @@ import readme from "./readme.md";
   <Story name="Searchable groups (group titles included in search)">
     {(args) =>
       html`<ic-select
+          id="select-32"
           label="What is your favourite coffee?"
           searchable
           include-group-titles-in-search
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-32");
           select.options = [
             {
               label: "Fancy",
@@ -1056,12 +1077,12 @@ import readme from "./readme.md";
   <Story name="Searchable recommended">
     {(args) =>
       html`<ic-select
+          id="select-33"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-33");
           select.options = [
             { label: "Cappuccino", value: "Cappuccino" },
             { label: "Flat white", value: "Flat white", recommended: true },
@@ -1085,14 +1106,14 @@ import readme from "./readme.md";
   <Story name="Searchable validation">
     {(args) =>
       html`<ic-select
-          id="ic-select-1"
+          id="ic-select-4"
           label="What is your favourite coffee?"
           validation-status="success"
           validation-text="Success message"
           searchable
         ></ic-select>
         <script>
-          var select1 = document.querySelector("#ic-select-1");
+          var select1 = document.querySelector("#ic-select-4");
           var option1 = "Cappuccino";
           select1.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -1108,14 +1129,14 @@ import readme from "./readme.md";
           });
         </script>
         <ic-select
-          id="ic-select-2"
+          id="ic-select-5"
           label="What is your favourite coffee?"
           validation-status="warning"
           validation-text="Warning message"
           searchable
         ></ic-select>
         <script>
-          var select2 = document.querySelector("#ic-select-2");
+          var select2 = document.querySelector("#ic-select-5");
           var option2 = "Cappuccino";
           select2.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -1131,14 +1152,14 @@ import readme from "./readme.md";
           });
         </script>
         <ic-select
-          id="ic-select-3"
+          id="ic-select-6"
           label="What is your favourite coffee?"
           validation-status="error"
           validation-text="Error message"
           searchable
         ></ic-select>
         <script>
-          var select3 = document.querySelector("#ic-select-3");
+          var select3 = document.querySelector("#ic-select-6");
           var option3 = "Cappuccino";
           select3.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -1163,12 +1184,12 @@ import readme from "./readme.md";
   <Story name="Searchable scroll behaviour">
     {(args) =>
       html`<ic-select
+          id="select-34"
           label="What is your favourite coffee?"
           searchable
         ></ic-select>
         <script>
-          var select = document.querySelector("ic-select");
-          var option = "Cappuccino";
+          var select = document.querySelector("#select-34");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -1277,6 +1298,7 @@ import readme from "./readme.md";
       html`
         <form>
           <ic-select
+            id="select-35"
             label="What is your favourite coffee?"
             searchable="true"
           ></ic-select>
@@ -1286,7 +1308,7 @@ import readme from "./readme.md";
           <input type="reset" value="Reset" />
         </form>
         <script>
-          var select = document.querySelector("ic-select");
+          var select = document.querySelector("#select-35");
           select.value = "Cap";
           select.options = [
             { label: "Cappuccino", value: "Cap" },
@@ -1302,6 +1324,48 @@ import readme from "./readme.md";
           });
         </script>
       `
+    }
+  </Story>
+</Canvas>
+
+### Searchable - Update input value from external request
+
+<Canvas>
+  <Story
+    name="Searchable - Update input value from external request"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-section-container>
+          <ic-select
+            id="search-select"
+            searchable="true"
+            label="What is your favourite coffee? (searchable)"
+          ></ic-select>
+        </ic-section-container>
+        <script>
+          const searchSelect = document.getElementById("search-select");
+          let options = [];
+          options.push({ label: "unknown", value: "unknown" });
+          options.push({ label: "item 1", value: "item-1" });
+          options.push({ label: "item 2", value: "item-2" });
+          options.push({ label: "item 3", value: "item-3" });
+          searchSelect.options = options;
+          let searchoption = "";
+          searchSelect.addEventListener("icChange", function (event) {
+            console.log("icChange", event.detail.value);
+            searchoption = event.detail.value;
+            if (searchoption === "unknown") {
+              searchoption = "item-1";
+              searchSelect.value = "item-1";
+            } else {
+              searchSelect.value = searchoption;
+            }
+          });
+          searchSelect.addEventListener("icOptionSelect", function (event) {
+            console.log("icOptionSelect", event.detail.value);
+          });
+        </script>`
     }
   </Story>
 </Canvas>

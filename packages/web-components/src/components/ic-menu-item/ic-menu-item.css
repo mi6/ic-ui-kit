@@ -24,6 +24,7 @@ li {
   margin: calc(var(--ic-space-xxxs) / 2);
   padding: var(--ic-space-xxs);
   border: var(--ic-space-xxxs) dashed transparent;
+
   --icon-height: auto;
 }
 
@@ -56,12 +57,6 @@ li {
 :host(.disabled)::part(button):focus-visible,
 :host(.disabled)::part(button):focus {
   color: var(--ic-theme-lighten-40) !important;
-}
-
-:host(.disabled) .menu-item-label,
-:host(.disabled) .shortcut,
-:host(.disabled) .menu-item-description {
-  color: var(--ic-architectural-200) !important;
 }
 
 :host([variant="destructive"])::part(button):focus-visible,

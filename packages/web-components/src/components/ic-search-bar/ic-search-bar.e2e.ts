@@ -12,6 +12,14 @@ describe("ic-search-bar", () => {
     { label: "baz", value: "qux" },
   ];
 
+  const longOptions = [
+    { label: "item 1", value: "item-1" },
+    { label: "item 2", value: "item-2" },
+    { label: "item 3", value: "item-3" },
+    { label: "item 4", value: "item-4" },
+    { label: "item 5", value: "item-5" },
+  ];
+
   const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {
     await page.$eval("ic-search-bar", (el) => {
       const textfield = el.shadowRoot.querySelector("ic-text-field");
@@ -1081,5 +1089,132 @@ describe("ic-search-bar", () => {
     expect(icChange).toHaveReceivedEventDetail({
       value: "foobar",
     });
+  });
+
+  it("should highlight the menu option items in the correct order with arrowDown", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", longOptions);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("it", page);
+    await page.waitForChanges();
+
+    const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+
+    // First option has focused-option
+    let option = (await menu.findAll("li"))[0];
+    expect(option).toHaveClass("focused-option");
+
+    // Other options should not
+    for (let i = 1; i < longOptions.length; i++) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+
+    // Highlight the next option
+    await page.keyboard.press("ArrowDown");
+    await page.waitForChanges();
+
+    option = (await menu.findAll("li"))[1];
+    expect(option).toHaveClass("focused-option");
+
+    for (let i = 2; i < longOptions.length; i++) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+
+    await page.keyboard.press("ArrowDown");
+    await page.waitForChanges();
+
+    option = (await menu.findAll("li"))[2];
+    expect(option).toHaveClass("focused-option");
+
+    for (let i = 3; i < longOptions.length; i++) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+  });
+
+  it("should highlight the menu option items in the correct order with arrowUp", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", longOptions);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("it", page);
+    await page.waitForChanges();
+
+    const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+
+    // First option has focused-option class
+    let option = (await menu.findAll("li"))[0];
+    expect(option).toHaveClass("focused-option");
+
+    // Other options should not have focused-option class
+    for (let i = 1; i < longOptions.length; i++) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+
+    // Highlight the last option
+    await page.keyboard.press("ArrowUp");
+    await page.waitForChanges();
+
+    option = (await menu.findAll("li"))[longOptions.length - 1];
+    expect(option).toHaveClass("focused-option");
+
+    for (let i = longOptions.length - 2; i >= 0; i--) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+
+    await page.keyboard.press("ArrowUp");
+    await page.waitForChanges();
+
+    option = (await menu.findAll("li"))[longOptions.length - 2];
+    expect(option).toHaveClass("focused-option");
+
+    for (let i = longOptions.length - 3; i >= 0; i--) {
+      option = (await menu.findAll("li"))[i];
+      expect(option).not.toHaveClass("focused-option");
+    }
+  });
+
+  it("should reverse tab to submit button", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("foo", page);
+
+    await page.waitForChanges();
+
+    await page.keyboard.down("ArrowDown");
+    await page.waitForChanges();
+
+    await page.keyboard.down("Shift");
+    await page.keyboard.press("Tab");
+
+    await page.waitForChanges();
+
+    const activeElId = await page.$eval("ic-search-bar", (el) => {
+      return el.shadowRoot.activeElement.id;
+    });
+
+    expect(activeElId).toBe("search-submit-button");
   });
 });
