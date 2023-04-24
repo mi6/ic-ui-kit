@@ -35,15 +35,22 @@ export class Tooltip {
     height: "1px",
     overflow: "hidden",
   };
-  private showEvents = this.disableHover
-    ? ["click"]
-    : ["mouseenter", "focusin"];
+  private showEvents = [
+    !this.disableHover && "mouseenter",
+    !this.disableHover && "focusin",
+    !this.disableClick && "click",
+  ];
   private toolTip: HTMLDivElement;
 
   @Element() el: HTMLIcTooltipElement;
 
   /**
-   * If `true`, the tooltip will not be displayed on hover, it will require a click.
+   * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+   */
+  @Prop() disableClick?: boolean = false;
+
+  /**
+   * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
    */
   @Prop() disableHover?: boolean = false;
 
@@ -67,6 +74,7 @@ export class Tooltip {
     if (this.ariaDescribedBy !== null) {
       this.ariaDescribedBy.innerText = newValue;
     }
+    this.show(this.popperInstance);
   }
 
   disconnectedCallback(): void {
@@ -75,6 +83,107 @@ export class Tooltip {
       this.popperInstance.destroy();
     }
   }
+
+  private show = (popper: Instance) => {
+    this.toolTip.setAttribute("data-show", "");
+
+    if (this.onDialog) {
+      this.el.classList.add("on-dialog");
+      const dialogEl = this.icDialogEl.shadowRoot
+        .querySelector("dialog")
+        .getBoundingClientRect();
+
+      this.getTooltipTranslate(dialogEl);
+    }
+
+    popper.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        {
+          name: "offset",
+          options: {
+            offset: [0, 10],
+          },
+        },
+        {
+          name: "arrow",
+          options: {
+            element: this.arrow,
+          },
+        },
+        { name: "eventListeners", enabled: true },
+      ],
+    }));
+    popper.update();
+  };
+
+  private hide = (popper: Instance) => {
+    this.toolTip.removeAttribute("data-show");
+    popper.setOptions((options) => ({
+      ...options,
+      modifiers: [
+        ...options.modifiers,
+        { name: "eventListeners", enabled: false },
+      ],
+    }));
+    this.persistTooltip = false;
+  };
+
+  private checkCloseTooltip = (popper: Instance) => {
+    setTimeout(() => {
+      if (!this.mouseOverTool && !this.persistTooltip) {
+        this.hide(popper);
+      }
+    }, 100);
+  };
+
+  private mouseEnterTooltip = () => {
+    this.mouseOverTool = true;
+  };
+
+  private mouseLeaveTooltip = (popper: Instance) => {
+    this.mouseOverTool = false;
+    this.checkCloseTooltip(popper);
+  };
+
+  private handleKeyDown = (key: string) => {
+    if (key === "Escape" && !this.persistTooltip) {
+      this.hide(this.popperInstance);
+    }
+  };
+
+  private manageEventListeners = (action: "add" | "remove") => {
+    const method =
+      action === "add" ? "addEventListener" : "removeEventListener";
+
+    this.showEvents.forEach((event) => {
+      this.el[method](event, () => this.show(this.popperInstance));
+      if (this.toolTip !== undefined) {
+        this.toolTip[method](event, () => this.mouseEnterTooltip());
+      }
+    });
+
+    this.instantHideEvents.forEach((event) => {
+      this.el[method](
+        event,
+        () => !this.persistTooltip && this.hide(this.popperInstance)
+      );
+    });
+
+    this.delayedHideEvents.forEach((event) => {
+      this.el[method](event, () => this.checkCloseTooltip(this.popperInstance));
+      if (this.toolTip !== undefined) {
+        this.toolTip[method](event, () =>
+          this.mouseLeaveTooltip(this.popperInstance)
+        );
+      }
+    });
+
+    document[method]("keydown", (event: KeyboardEvent) =>
+      this.handleKeyDown(event.key)
+    );
+  };
 
   componentDidLoad(): void {
     this.manageEventListeners("add");
@@ -106,11 +215,11 @@ export class Tooltip {
    * @param show Whether to show or hide the tooltip
    * @param persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover
    */
-  @Method()
-  async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
-    this.persistTooltip = persistTooltip;
-    show ? this.show() : this.hide();
-  }
+  // @Method()
+  // async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
+  //   this.persistTooltip = persistTooltip;
+  //   show ? this.show() : this.hide();
+  // }
 
   private getTooltipTranslate = (dialogEl: DOMRect) => {
     const child = this.el.children[0].getBoundingClientRect();
@@ -178,95 +287,124 @@ export class Tooltip {
     this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
   };
 
-  private show = () => {
-    this.toolTip.setAttribute("data-show", "");
+  // private show = () => {
+  //   this.toolTip.setAttribute("data-show", "");
 
-    if (this.onDialog) {
-      this.el.classList.add("on-dialog");
-      const dialogEl = this.icDialogEl.shadowRoot
-        .querySelector("dialog")
-        .getBoundingClientRect();
+  //   if (this.onDialog) {
+  //     this.el.classList.add("on-dialog");
+  //     const dialogEl = this.icDialogEl.shadowRoot
+  //       .querySelector("dialog")
+  //       .getBoundingClientRect();
 
-      this.getTooltipTranslate(dialogEl);
-    }
+  //     this.getTooltipTranslate(dialogEl);
+  //   }
 
-    this.popperInstance = createPopper(this.el, this.toolTip, {
-      placement: this.placement,
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: "arrow",
-          options: {
-            element: this.arrow,
-          },
-        },
-        {
-          name: "eventListeners",
-          options: { scroll: false, resize: false },
-        },
-      ],
-    });
-  };
+  //   this.popperInstance = createPopper(this.el, this.toolTip, {
+  //     placement: this.placement,
+  //     modifiers: [
+  //       {
+  //         name: "offset",
+  //         options: {
+  //           offset: [0, 10],
+  //         },
+  //       },
+  //       {
+  //         name: "arrow",
+  //         options: {
+  //           element: this.arrow,
+  //         },
+  //       },
+  //       {
+  //         name: "eventListeners",
+  //         options: { scroll: false, resize: false },
+  //       },
+  //     ],
+  //   });
+  // };
 
-  private hide = () => {
-    this.toolTip.removeAttribute("data-show");
-    this.persistTooltip = false;
-  };
+  // private hide = () => {
+  //   this.toolTip.removeAttribute("data-show");
+  //   this.persistTooltip = false;
+  // };
 
-  private checkCloseTooltip = () => {
-    setTimeout(() => {
-      if (!this.mouseOverTool && !this.persistTooltip) {
-        this.hide();
-      }
-    }, 100);
-  };
+  // private checkCloseTooltip = () => {
+  //   setTimeout(() => {
+  //     if (!this.mouseOverTool && !this.persistTooltip) {
+  //       this.hide();
+  //     }
+  //   }, 100);
+  // };
 
-  private mouseEnterTooltip = () => {
-    this.mouseOverTool = true;
-  };
+  // private mouseEnterTooltip = () => {
+  //   this.mouseOverTool = true;
+  // };
 
-  private mouseLeaveTooltip = () => {
-    this.mouseOverTool = false;
-    this.checkCloseTooltip();
-  };
+  // private mouseLeaveTooltip = () => {
+  //   this.mouseOverTool = false;
+  //   this.checkCloseTooltip();
+  // };
 
-  private handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Escape" && !this.persistTooltip) {
-      this.hide();
-    }
-  };
+  // private handleKeyDown = (event: KeyboardEvent) => {
+  //   if (event.key === "Escape" && !this.persistTooltip) {
+  //     this.hide();
+  //   }
+  // };
 
-  private manageEventListeners = (action: "add" | "remove") => {
-    const method =
-      action === "add" ? "addEventListener" : "removeEventListener";
+  // private manageEventListeners = (action: "add" | "remove") => {
+  //   const method =
+  //     action === "add" ? "addEventListener" : "removeEventListener";
 
-    this.showEvents.forEach((event) => {
-      this.el[method](event, this.show);
-      if (this.toolTip !== undefined) {
-        this.toolTip[method](event, this.mouseEnterTooltip);
-      }
-    });
+  //   this.showEvents.forEach((event) => {
+  //     this.el[method](event, this.show);
+  //     if (this.toolTip !== undefined) {
+  //       this.toolTip[method](event, this.mouseEnterTooltip);
+  //     }
+  //   });
 
-    if (!this.persistTooltip) {
-      this.instantHideEvents.forEach((event) => {
-        this.el[method](event, this.hide);
-      });
-    }
+  //   if (!this.persistTooltip) {
+  //     this.instantHideEvents.forEach((event) => {
+  //       this.el[method](event, this.hide);
+  //     });
+  //   }
 
-    this.delayedHideEvents.forEach((event) => {
-      this.el[method](event, this.checkCloseTooltip);
-      if (this.toolTip !== undefined) {
-        this.toolTip[method](event, this.mouseLeaveTooltip);
-      }
-    });
+  //   this.delayedHideEvents.forEach((event) => {
+  //     this.el[method](event, this.checkCloseTooltip);
+  //     if (this.toolTip !== undefined) {
+  //       this.toolTip[method](event, this.mouseLeaveTooltip);
+  //     }
+  //   });
 
-    document[method]("keydown", this.handleKeyDown);
-  };
+  //   document[method]("keydown", this.handleKeyDown);
+  // };
+
+  // this.manageEventListeners("add");
+
+  // onComponentRequiredPropUndefined(
+  //   [{ prop: this.label, propName: "label" }],
+  //   "Tooltip"
+  // );
+
+  // if (this.target !== undefined) {
+  //   const ariaDescribedBy = document.createElement("span");
+  //   ariaDescribedBy.id = `ic-tooltip-${this.target}`;
+  //   ariaDescribedBy.innerText = this.label;
+  //   ariaDescribedBy.classList.add("ic-tooltip-label");
+  //   Object.assign(ariaDescribedBy.style, this.screenReaderOnlyStyles);
+
+  //   this.el.insertAdjacentElement("beforebegin", ariaDescribedBy);
+  // }
+  // }
+
+  /**
+   * Method to programmatically show/hide the tooltip without needing to interact with an anchor element
+   * @param show Whether to show or hide the tooltip
+   * @param persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover
+   */
+  @Method()
+  async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
+    this.persistTooltip = persistTooltip;
+    show ? this.show(this.popperInstance) : this.hide(this.popperInstance);
+  }
 
   render() {
     const { label } = this;
