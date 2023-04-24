@@ -41,6 +41,7 @@ export const IcNavigationItem = /*@__PURE__*/createReactComponent<JSX.IcNavigati
 export const IcNavigationMenu = /*@__PURE__*/createReactComponent<JSX.IcNavigationMenu, HTMLIcNavigationMenuElement>('ic-navigation-menu');
 export const IcPageHeader = /*@__PURE__*/createReactComponent<JSX.IcPageHeader, HTMLIcPageHeaderElement>('ic-page-header');
 export const IcPagination = /*@__PURE__*/createReactComponent<JSX.IcPagination, HTMLIcPaginationElement>('ic-pagination');
+export const IcPaginationBar = /*@__PURE__*/createReactComponent<JSX.IcPaginationBar, HTMLIcPaginationBarElement>('ic-pagination-bar');
 export const IcPaginationItem = /*@__PURE__*/createReactComponent<JSX.IcPaginationItem, HTMLIcPaginationItemElement>('ic-pagination-item');
 export const IcPopoverMenu = /*@__PURE__*/createReactComponent<JSX.IcPopoverMenu, HTMLIcPopoverMenuElement>('ic-popover-menu');
 export const IcRadioGroup = /*@__PURE__*/createReactComponent<JSX.IcRadioGroup, HTMLIcRadioGroupElement>('ic-radio-group');
