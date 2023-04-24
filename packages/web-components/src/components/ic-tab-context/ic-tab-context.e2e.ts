@@ -1,6 +1,10 @@
 import { newE2EPage } from "@stencil/core/testing";
 import { waitForTimeout } from "../../testspec.setup";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 const testTabs = `
 <ic-tab-context>
   <ic-tab-group label="Tabs e2e label">

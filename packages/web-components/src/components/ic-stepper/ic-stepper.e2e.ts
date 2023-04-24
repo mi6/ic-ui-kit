@@ -5,6 +5,10 @@ import {
   compactStepper,
 } from "./ic-stepper-test-examples";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("default variant of ic-stepper component", () => {
   it("should render four steps and three step-connects", async () => {
     const page = await newE2EPage({ html: defaultStepper });

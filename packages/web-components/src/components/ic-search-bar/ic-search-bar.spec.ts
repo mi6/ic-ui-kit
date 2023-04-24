@@ -7,6 +7,10 @@ import { waitForTimeout } from "../../testspec.setup";
 import { InputContainer } from "../ic-input-container/ic-input-container";
 import { InputLabel } from "../ic-input-label/ic-input-label";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 const menuOptions = [
   { label: "Espresso", value: "espresso" },
   { label: "Double Espresso", value: "doubleespresso" },

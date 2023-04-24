@@ -2,6 +2,10 @@ import { Button } from "./ic-button";
 import { newSpecPage } from "@stencil/core/testing";
 import * as helpers from "../../utils/helpers";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 //mocked as getThemeFromContext is always default when run in test context
 const mockGetThemeFromContext = () => {
   const func = jest.fn(() => {

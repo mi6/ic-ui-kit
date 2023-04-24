@@ -98,6 +98,7 @@ export class LoadingIndicator {
   private innerElement?: HTMLDivElement;
   private labelList: string[];
   private circularMeter: SVGCircleElement;
+  private interval: ReturnType<typeof setInterval>;
 
   private updateCircularProgressMeter = () => {
     if (!this.indeterminate) {
@@ -113,7 +114,7 @@ export class LoadingIndicator {
     setLabel: (label: string) => void
   ) => {
     return new Promise(() => {
-      setInterval(() => {
+      this.interval = setInterval(() => {
         if (labelIndex < this.labelList.length - 1) {
           labelIndex++;
         } else {
@@ -274,6 +275,9 @@ export class LoadingIndicator {
     }
   }
 
+  disconnectedCallback(): void {
+    clearInterval(this.interval);
+  }
   render() {
     const { appearance, label, description, size, fullWidth, innerLabel } =
       this;

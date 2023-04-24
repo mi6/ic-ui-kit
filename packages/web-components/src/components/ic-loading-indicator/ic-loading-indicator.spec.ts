@@ -1,11 +1,21 @@
-import { newSpecPage } from "@stencil/core/testing";
+import { newSpecPage, SpecPage } from "@stencil/core/testing";
 import { LoadingIndicator } from "./ic-loading-indicator";
 import { Typography } from "../ic-typography/ic-typography";
 import { waitForTimeout } from "../../testspec.setup";
 
+let page: SpecPage;
+
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
+afterEach(() => {
+  page.setContent("");
+});
+
 describe("ic-loading-indicator component", () => {
   it("should render an indeterminate loading indicator with the correct label and set aria-labelledby", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
@@ -14,7 +24,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should render a determinate loading indicator with the correct label and aria", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator progress="30" label="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
@@ -23,7 +33,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should not display a label is the size is 'icon'", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test" size="icon"></ic-loading-indicator>`,
     });
@@ -32,7 +42,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should set the typography variant for the label to 'label' for the 'small' size", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test" size="small"></ic-loading-indicator>`,
     });
@@ -41,7 +51,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should set the typography variant for the label to 'h4' for the 'default' size", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
@@ -50,7 +60,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should set the typography variant for the label to 'h2' for the 'large' size", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test" size="large"></ic-loading-indicator>`,
     });
@@ -59,7 +69,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should apply the description prop as an aria-label", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator description="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
@@ -68,7 +78,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should be styled correctly by setting the class names for the chosen indicator type", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator type="linear"></ic-loading-indicator>`,
     });
@@ -77,7 +87,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should set the correct aria if min and max are provided", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator progress="30" min="10" max="50"></ic-loading-indicator>`,
     });
@@ -86,7 +96,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should update label after label-duration passed", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="waiting/still waiting" label-duration="2000"></ic-loading-indicator>`,
     });
@@ -104,7 +114,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should render linear determinate progress bar", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator progress="30" min="10" max="50" type='linear'></ic-loading-indicator>`,
     });
@@ -113,7 +123,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should render linear indeterminate progress bar", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator type='linear'></ic-loading-indicator>`,
     });
@@ -122,7 +132,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should test updating label and progress props", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test" size="large"></ic-loading-indicator>`,
     });
@@ -138,7 +148,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should test updating progress - linear", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator progress="10" min="10" max="50" type='linear'></ic-loading-indicator>`,
     });
@@ -150,7 +160,7 @@ describe("ic-loading-indicator component", () => {
   });
 
   it("should test setting circularDiameter", async () => {
-    const page = await newSpecPage({
+    page = await newSpecPage({
       components: [LoadingIndicator, Typography],
       html: `<ic-loading-indicator label="IC Loading Indicator Test"></ic-loading-indicator>`,
     });
