@@ -9,3 +9,7 @@
 :host(.in-side-menu) {
   margin-right: 0;
 }
+
+:host::part(button) {
+  height: 100%;
+}
