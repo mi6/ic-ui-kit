@@ -963,6 +963,55 @@ export namespace Components {
          */
         "type": IcPaginationTypes;
     }
+    interface IcPaginationBar {
+        /**
+          * Sets the alignment of the items in the pagination bar.
+         */
+        "alignment"?: "left" | "right" | "space-between";
+        /**
+          * Sets the styling for the items in the pagination bar.
+         */
+        "appearance"?: IcThemeForeground1;
+        /**
+          * The label that will be used in place of 'Items' if paginationType is 'data'. Should be capitalised.
+         */
+        "itemLabel"?: string;
+        /**
+          * The options that will be displayed for the 'items per page' select input. Maximum of 4 options including a required 'All' option with a value equal to the total number of items.
+         */
+        "itemsPerPageOptions"?: {
+    label: string;
+    value: string;
+  }[];
+        /**
+          * The label that will be used in place of 'Page' if paginationType is 'page'. Should be capitalised.
+         */
+        "pageLabel"?: string;
+        /**
+          * Whether the displayed pagination is simple or complex.
+         */
+        "paginationControl"?: "simple" | "complex";
+        /**
+          * Whether the total number of items and current item range is displayed or total number of pages and current page is displayed.
+         */
+        "paginationType"?: "data" | "page";
+        /**
+          * If `true`, the 'go to page' control will be displayed.
+         */
+        "showGoToPageControl"?: boolean;
+        /**
+          * If `true`, the number of total items and current item range or number of total pages and current page will be displayed.
+         */
+        "showItemsPerPage"?: boolean;
+        /**
+          * If `true`, the select input to control 'items per page' will be displayed.
+         */
+        "showItemsPerPageControl"?: boolean;
+        /**
+          * The total number of items to be displayed across all pages.
+         */
+        "totalItems": number;
+    }
     interface IcPaginationItem {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
@@ -1722,7 +1771,11 @@ export namespace Components {
     }
     interface IcTooltip {
         /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
+        "disableClick"?: boolean;
+        /**
+          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
          */
         "disableHover"?: boolean;
         /**
@@ -1828,6 +1881,10 @@ export interface IcNavigationMenuCustomEvent<T> extends CustomEvent<T> {
 export interface IcPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationElement;
+}
+export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcPaginationBarElement;
 }
 export interface IcPaginationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2080,6 +2137,12 @@ declare global {
         prototype: HTMLIcPaginationElement;
         new (): HTMLIcPaginationElement;
     };
+    interface HTMLIcPaginationBarElement extends Components.IcPaginationBar, HTMLStencilElement {
+    }
+    var HTMLIcPaginationBarElement: {
+        prototype: HTMLIcPaginationBarElement;
+        new (): HTMLIcPaginationBarElement;
+    };
     interface HTMLIcPaginationItemElement extends Components.IcPaginationItem, HTMLStencilElement {
     }
     var HTMLIcPaginationItemElement: {
@@ -2258,6 +2321,7 @@ declare global {
         "ic-navigation-menu": HTMLIcNavigationMenuElement;
         "ic-page-header": HTMLIcPageHeaderElement;
         "ic-pagination": HTMLIcPaginationElement;
+        "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-pagination-item": HTMLIcPaginationItemElement;
         "ic-popover-menu": HTMLIcPopoverMenuElement;
         "ic-radio-group": HTMLIcRadioGroupElement;
@@ -3227,6 +3291,63 @@ declare namespace LocalJSX {
          */
         "type"?: IcPaginationTypes;
     }
+    interface IcPaginationBar {
+        /**
+          * Sets the alignment of the items in the pagination bar.
+         */
+        "alignment"?: "left" | "right" | "space-between";
+        /**
+          * Sets the styling for the items in the pagination bar.
+         */
+        "appearance"?: IcThemeForeground1;
+        /**
+          * The label that will be used in place of 'Items' if paginationType is 'data'. Should be capitalised.
+         */
+        "itemLabel"?: string;
+        /**
+          * The options that will be displayed for the 'items per page' select input. Maximum of 4 options including a required 'All' option with a value equal to the total number of items.
+         */
+        "itemsPerPageOptions"?: {
+    label: string;
+    value: string;
+  }[];
+        /**
+          * Emitted when the items per page option is changed.
+         */
+        "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
+        /**
+          * Emitted when a page is navigated to via the 'go to' input.
+         */
+        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
+        /**
+          * The label that will be used in place of 'Page' if paginationType is 'page'. Should be capitalised.
+         */
+        "pageLabel"?: string;
+        /**
+          * Whether the displayed pagination is simple or complex.
+         */
+        "paginationControl"?: "simple" | "complex";
+        /**
+          * Whether the total number of items and current item range is displayed or total number of pages and current page is displayed.
+         */
+        "paginationType"?: "data" | "page";
+        /**
+          * If `true`, the 'go to page' control will be displayed.
+         */
+        "showGoToPageControl"?: boolean;
+        /**
+          * If `true`, the number of total items and current item range or number of total pages and current page will be displayed.
+         */
+        "showItemsPerPage"?: boolean;
+        /**
+          * If `true`, the select input to control 'items per page' will be displayed.
+         */
+        "showItemsPerPageControl"?: boolean;
+        /**
+          * The total number of items to be displayed across all pages.
+         */
+        "totalItems": number;
+    }
     interface IcPaginationItem {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
@@ -4088,7 +4209,11 @@ declare namespace LocalJSX {
     }
     interface IcTooltip {
         /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
+        "disableClick"?: boolean;
+        /**
+          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
          */
         "disableHover"?: boolean;
         /**
@@ -4180,6 +4305,7 @@ declare namespace LocalJSX {
         "ic-navigation-menu": IcNavigationMenu;
         "ic-page-header": IcPageHeader;
         "ic-pagination": IcPagination;
+        "ic-pagination-bar": IcPaginationBar;
         "ic-pagination-item": IcPaginationItem;
         "ic-popover-menu": IcPopoverMenu;
         "ic-radio-group": IcRadioGroup;
@@ -4243,6 +4369,7 @@ declare module "@stencil/core" {
             "ic-navigation-menu": LocalJSX.IcNavigationMenu & JSXBase.HTMLAttributes<HTMLIcNavigationMenuElement>;
             "ic-page-header": LocalJSX.IcPageHeader & JSXBase.HTMLAttributes<HTMLIcPageHeaderElement>;
             "ic-pagination": LocalJSX.IcPagination & JSXBase.HTMLAttributes<HTMLIcPaginationElement>;
+            "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-pagination-item": LocalJSX.IcPaginationItem & JSXBase.HTMLAttributes<HTMLIcPaginationItemElement>;
             "ic-popover-menu": LocalJSX.IcPopoverMenu & JSXBase.HTMLAttributes<HTMLIcPopoverMenuElement>;
             "ic-radio-group": LocalJSX.IcRadioGroup & JSXBase.HTMLAttributes<HTMLIcRadioGroupElement>;

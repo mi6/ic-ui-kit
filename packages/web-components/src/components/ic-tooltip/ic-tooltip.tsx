@@ -35,9 +35,14 @@ export class Tooltip {
   @Prop() label!: string;
 
   /**
-   * If `true`, the tooltip will not be displayed on hover, it will require a click.
+   * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
    */
   @Prop() disableHover?: boolean = false;
+
+  /**
+   * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+   */
+  @Prop() disableClick?: boolean = false;
 
   @Watch("label")
   updateLabel(newValue: string): void {
@@ -45,6 +50,7 @@ export class Tooltip {
     if (describedBySpan !== null) {
       describedBySpan.innerText = newValue;
     }
+    this.show(this.popperInstance);
   }
 
   /**
@@ -61,9 +67,11 @@ export class Tooltip {
   private toolTip: HTMLDivElement;
   private arrow: HTMLDivElement;
   private mouseOverTool: boolean = false;
-  private showEvents = this.disableHover
-    ? ["click"]
-    : ["mouseenter", "focusin"];
+  private showEvents = [
+    !this.disableHover && "mouseenter",
+    !this.disableHover && "focusin",
+    !this.disableClick && "click",
+  ];
   private instantHideEvents = ["focusout"];
   private delayedHideEvents = ["mouseleave"];
   private popperInstance: Instance;

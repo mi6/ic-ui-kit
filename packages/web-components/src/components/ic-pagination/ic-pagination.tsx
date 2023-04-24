@@ -108,6 +108,12 @@ export class Pagination {
       return;
     }
 
+    this.startEllipsis = false;
+    this.endEllipsis = false;
+    this.startItems = [];
+    this.endItems = [];
+    this.midItems = [];
+
     const startItems = [];
     let startItemCount = 0;
     const endItems = [];
@@ -196,6 +202,11 @@ export class Pagination {
     this.startItems = startItems;
     this.endItems = endItems;
     this.midItems = midItems;
+  }
+
+  @Watch("pages")
+  watchNumberPagesHandler(): void {
+    this.watchPageChangeHandler();
   }
 
   componentDidLoad(): void {
