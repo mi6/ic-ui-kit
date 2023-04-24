@@ -7,6 +7,7 @@
 
 ## Properties
 
+<<<<<<< HEAD
 | Property                  | Attribute                     | Description                                                                                                                                                                    | Type                                   | Default     |
 | ------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ----------- |
 | `alignment`               | `alignment`                   | Sets the alignment of the items in the pagination bar.                                                                                                                         | `"left" \| "right" \| "space-between"` | `"right"`   |
@@ -20,6 +21,21 @@
 | `showItemsPerPage`        | `show-items-per-page`         | If `true`, the number of total items and current item range or number of total pages and current page should be displayed.                                                     | `boolean`                              | `true`      |
 | `showItemsPerPageControl` | `show-items-per-page-control` | If `true`, the select input to control 'items per page' should be displayed.                                                                                                   | `boolean`                              | `false`     |
 | `totalItems` _(required)_ | `total-items`                 | Total number of items to be displayed across all pages.                                                                                                                        | `number`                               | `undefined` |
+=======
+| Property                  | Attribute                     | Description                                                                                                                                                         | Type                                   | Default     |
+| ------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
+| `alignment`               | `alignment`                   | Sets the alignment of the items in the pagination bar.                                                                                                              | `"left" \| "right" \| "space-between"` | `"right"`   |
+| `appearance`              | `appearance`                  | Sets the styling for the items in the pagination bar.                                                                                                               | `"dark" \| "default" \| "light"`       | `"default"` |
+| `itemLabel`               | `item-label`                  | What label will be used in place of 'items' if paginationType is data, should be capitalised.                                                                       | `string`                               | `"Item"`    |
+| `itemsPerPageOptions`     | --                            | What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items. | `{ label: string; value: string; }[]`  | `undefined` |
+| `pageLabel`               | `page-label`                  | What label will be used in place of 'Page' if paginationType is page, should be capitalised.                                                                        | `string`                               | `"Page"`    |
+| `paginationControl`       | `pagination-control`          | Whether the displayed pagination is simple or complex.                                                                                                              | `"complex" \| "simple"`                | `"simple"`  |
+| `paginationType`          | `pagination-type`             | Whether total number of items and current item range or total number of pages and current page is displayed.                                                        | `"data" \| "page"`                     | `"page"`    |
+| `showGoToPageControl`     | `show-go-to-page-control`     | If `true`, the 'go to page' control should be displayed.                                                                                                            | `boolean`                              | `false`     |
+| `showItemsPerPage`        | `show-items-per-page`         | If `true`, the number of total items and current item range or number of total pages and current page should be displayed.                                          | `boolean`                              | `true`      |
+| `showItemsPerPageControl` | `show-items-per-page-control` | If `true`, the select input to control 'items per page' should be displayed.                                                                                        | `boolean`                              | `false`     |
+| `totalItems` _(required)_ | `total-items`                 | Total number of items to be displayed across all pages.                                                                                                             | `number`                               | `undefined` |
+>>>>>>> 2bd78d8e (feat(web-components): add pagination bar component)
 
 
 ## Events
@@ -32,10 +48,13 @@
 
 ## Dependencies
 
+<<<<<<< HEAD
 ### Used by
 
  - [ic-data-table](../ic-data-table)
 
+=======
+>>>>>>> 2bd78d8e (feat(web-components): add pagination bar component)
 ### Depends on
 
 - [ic-typography](../ic-typography)
@@ -78,7 +97,10 @@ graph TD;
   ic-text-field --> ic-input-component-container
   ic-text-field --> ic-input-validation
   ic-text-field --> ic-typography
+<<<<<<< HEAD
   ic-data-table --> ic-pagination-bar
+=======
+>>>>>>> 2bd78d8e (feat(web-components): add pagination bar component)
   style ic-pagination-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
