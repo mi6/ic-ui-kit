@@ -158,6 +158,7 @@ describe("compact variant of ic-step component", () => {
   });
 
   it("should set the circular line width of the loading indicator as 40 for all steps", async () => {
+    jest.spyOn(console, "warn").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [Step, LoadingIndicator],
       html: `<ic-step

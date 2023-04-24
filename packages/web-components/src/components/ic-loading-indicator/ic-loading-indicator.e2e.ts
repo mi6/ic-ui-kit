@@ -1,5 +1,9 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-loading-indicator component", () => {
   it("should change the label after 8 seconds if a string with forward slashes is passed in", async () => {
     const page = await newE2EPage({

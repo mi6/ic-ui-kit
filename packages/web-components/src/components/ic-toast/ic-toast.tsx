@@ -46,7 +46,7 @@ export class Toast {
   /**
    * The variant of the toast being rendered
    */
-  @Prop() variant?: IcStatusVariants;
+  @Prop({ mutable: true }) variant?: IcStatusVariants;
   /**
    * The main body message of the toast. (NOTE: Should be no more than `140` characters)
    */
@@ -54,12 +54,12 @@ export class Toast {
   /**
    * How the toast will be dismissed. If manual will display a dismiss button.
    */
-  @Prop() dismissMode?: IcActivationTypes = "manual";
+  @Prop({ mutable: true }) dismissMode?: IcActivationTypes = "manual";
   /**
    * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)
    * (NOTE: Has a minimum value of `5000ms`)
    */
-  @Prop() autoDismissTimeout? = 5000;
+  @Prop({ mutable: true }) autoDismissTimeout? = 5000;
   /**
    * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
    */
@@ -247,6 +247,11 @@ export class Toast {
     const dismissButton = this.el.shadowRoot.querySelector("ic-button");
     if (actionContent) this.interactiveElements.push(actionContent);
     if (dismissButton) this.interactiveElements.push(dismissButton);
+  }
+
+  disconnectedCallback() {
+    window.clearTimeout(this.dismissTimeout);
+    window.clearInterval(this.timerRefreshInterval);
   }
 
   render() {

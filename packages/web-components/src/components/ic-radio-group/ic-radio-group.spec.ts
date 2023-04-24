@@ -3,6 +3,10 @@ import { RadioGroup } from "./ic-radio-group";
 import { RadioOption } from "../ic-radio-option/ic-radio-option";
 import { TextField } from "../ic-text-field/ic-text-field";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-radio-group", () => {
   it("should render", async () => {
     const page = await newSpecPage({
@@ -143,6 +147,7 @@ describe("ic-radio-group", () => {
   });
 
   it("should select the radio option when clicked", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required>
@@ -171,6 +176,7 @@ describe("ic-radio-group", () => {
   });
 
   it("should not select the radio option when textfield clicked", async () => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption, TextField],
       html: `<ic-radio-group label="test label" name="test" required>

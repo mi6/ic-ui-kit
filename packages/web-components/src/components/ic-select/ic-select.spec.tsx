@@ -7,6 +7,10 @@ import { Button } from "../ic-button/ic-button";
 import { waitForTimeout } from "../../testspec.setup";
 import { InputComponentContainer } from "../ic-input-component-container/ic-input-component-container";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 const menuOptions = [
   { label: "Test label 1", value: "Test value 1" },
   { label: "Test label 2", value: "Test value 2" },

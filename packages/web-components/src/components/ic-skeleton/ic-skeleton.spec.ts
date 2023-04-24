@@ -1,6 +1,10 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Skeleton } from "./ic-skeleton";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-skeleton", () => {
   it("should render with default height and width", async () => {
     const page = await newSpecPage({
