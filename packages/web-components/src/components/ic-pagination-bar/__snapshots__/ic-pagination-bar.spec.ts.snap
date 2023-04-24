@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-pagination-bar should only allow a maximum of 4 custom items per page options 1`] = `
+<ic-pagination-bar show-items-per-page-control="true" total-items="150">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <div class="items-per-page-holder">
+          <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
+            Items per page
+          </ic-typography>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="25"></ic-select>
+        </div>
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 6
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="6" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should remove items per page options larger than the maximum number of items 1`] = `
+<ic-pagination-bar show-items-per-page-control="true" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <div class="items-per-page-holder">
+          <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
+            Items per page
+          </ic-typography>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
+        </div>
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render 1`] = `
+<ic-pagination-bar total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with a custom item label 1`] = `
+<ic-pagination-bar item-label="Rows" pagination-type="data" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="item-pagination-label pagination-text-default" variant="label">
+          1 - 10 of 100 rowss
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with a custom page label 1`] = `
+<ic-pagination-bar page-label="Sheets" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Sheets 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with complex pagination controls 1`] = `
+<ic-pagination-bar pagination-controls="complex" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with custom items per page options 1`] = `
+<ic-pagination-bar show-items-per-page-control="true" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <div class="items-per-page-holder">
+          <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
+            Items per page
+          </ic-typography>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
+        </div>
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with dark appearance 1`] = `
+<ic-pagination-bar apperance="dark" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with data pagination type 1`] = `
+<ic-pagination-bar pagination-type="data" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="item-pagination-label pagination-text-default" variant="label">
+          1 - 10 of 100 items
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with go to page controls 1`] = `
+<ic-pagination-bar show-go-to-page-control="true" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+        <div class="go-to-page-holder">
+          <ic-typography class="pagination-text-default" variant="label">
+            Go to page
+          </ic-typography>
+          <ic-tooltip disableclick="" disablehover="" label="Please enter a valid page" target="#go-to-page-input">
+            <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" small="" type="number" validationinlineinternal=""></ic-text-field>
+          </ic-tooltip>
+          <ic-button appearance="default" class="go-to-page-button" size="small" variant="secondary">
+            Go
+          </ic-button>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with items per page controls 1`] = `
+<ic-pagination-bar show-items-per-page-control="true" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <div class="items-per-page-holder">
+          <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
+            Items per page
+          </ic-typography>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
+        </div>
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with left alignment 1`] = `
+<ic-pagination-bar alignment="left" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-left">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with light appearance 1`] = `
+<ic-pagination-bar appearance="light" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-light" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="light" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render with space between alignment 1`] = `
+<ic-pagination-bar alignment="space-between" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-space-between">
+      <div class="item-controls">
+        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should wrap pagination when the device size is small 1`] = `
+Object {
+  "body": <body>
+  <ic-pagination-bar show-go-to-page-control="true" total-items="100">
+    <mock:shadow-root>
+      <div class="pagination-bar pagination-bar-right">
+        <div class="item-controls">
+          <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+            Page 1 of 10
+          </ic-typography>
+        </div>
+        <div class="pagination-controls">
+          <div class="pagination-holder">
+            <ic-pagination>
+              <mock:shadow-root>
+                <nav aria-label="Pagination Navigation" role="navigation">
+                  <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+                    svg
+                  </ic-button>
+                  <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+                    svg
+                  </ic-button>
+                  <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
+                  <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+                    svg
+                  </ic-button>
+                  <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+                    svg
+                  </ic-button>
+                </nav>
+              </mock:shadow-root>
+            </ic-pagination>
+          </div>
+          <div class="go-to-page-holder">
+            <ic-typography class="pagination-text-default" variant="label">
+              Go to page
+            </ic-typography>
+            <ic-tooltip disableclick="" disablehover="" label="Please enter a valid page" target="#go-to-page-input">
+              <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" small="" type="number" validationinlineinternal=""></ic-text-field>
+            </ic-tooltip>
+            <ic-button appearance="default" class="go-to-page-button" size="small" variant="secondary">
+              Go
+            </ic-button>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-pagination-bar>
+</body>,
+  "build": Object {
+    "allRenderFn": true,
+    "appendChildSlotFix": false,
+    "asyncLoading": true,
+    "asyncQueue": true,
+    "attachStyles": false,
+    "cloneNodeFix": false,
+    "cmpDidLoad": true,
+    "cmpDidRender": true,
+    "cmpDidUnload": true,
+    "cmpDidUpdate": true,
+    "cmpShouldUpdate": true,
+    "cmpWillLoad": true,
+    "cmpWillRender": true,
+    "cmpWillUpdate": true,
+    "connectedCallback": true,
+    "constructableCSS": true,
+    "cssAnnotations": false,
+    "cssVarShim": true,
+    "devTools": false,
+    "disconnectedCallback": true,
+    "dynamicImportShim": false,
+    "element": true,
+    "event": true,
+    "hasRenderFn": true,
+    "hostListener": true,
+    "hostListenerTarget": true,
+    "hostListenerTargetBody": true,
+    "hostListenerTargetDocument": true,
+    "hostListenerTargetParent": true,
+    "hostListenerTargetWindow": true,
+    "hotModuleReplacement": false,
+    "hydrateClientSide": false,
+    "hydrateServerSide": false,
+    "hydratedAttribute": false,
+    "hydratedClass": true,
+    "initializeNextTick": true,
+    "invisiblePrehydration": true,
+    "isDebug": false,
+    "isDev": true,
+    "isTesting": true,
+    "lazyLoad": true,
+    "lifecycle": true,
+    "lifecycleDOMEvents": true,
+    "member": true,
+    "method": true,
+    "mode": true,
+    "observeAttribute": true,
+    "profile": true,
+    "prop": true,
+    "propBoolean": true,
+    "propMutable": true,
+    "propNumber": true,
+    "propString": true,
+    "reflect": true,
+    "safari10": false,
+    "scoped": true,
+    "scopedSlotTextContentFix": false,
+    "scriptDataOpts": false,
+    "shadowDelegatesFocus": true,
+    "shadowDom": true,
+    "shadowDomShim": false,
+    "slot": true,
+    "slotChildNodesFix": false,
+    "slotRelocation": true,
+    "state": true,
+    "style": true,
+    "svg": true,
+    "taskQueue": true,
+    "transformTagName": true,
+    "updatable": true,
+    "vdomAttribute": true,
+    "vdomClass": true,
+    "vdomFunctional": true,
+    "vdomKey": true,
+    "vdomListener": true,
+    "vdomPropOrAttr": true,
+    "vdomRef": true,
+    "vdomRender": true,
+    "vdomStyle": true,
+    "vdomText": true,
+    "vdomXlink": true,
+    "watchCallback": true,
+  },
+  "doc": ,
+  "flushLoadModule": [Function],
+  "flushQueue": [Function],
+  "setContent": [Function],
+  "styles": Map {},
+  "waitForChanges": [Function],
+  "win": [MockWindow],
+}
+`;
