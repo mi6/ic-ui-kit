@@ -45,6 +45,7 @@
  - [ic-navigation-item](../ic-navigation-item)
  - [ic-navigation-menu](../ic-navigation-menu)
  - [ic-page-header](../ic-page-header)
+ - [ic-pagination-bar](../ic-pagination-bar)
  - [ic-pagination-item](../ic-pagination-item)
  - [ic-popover-menu](../ic-popover-menu)
  - [ic-radio-option](../ic-radio-option)
@@ -85,6 +86,7 @@ graph TD;
   ic-navigation-item --> ic-typography
   ic-navigation-menu --> ic-typography
   ic-page-header --> ic-typography
+  ic-pagination-bar --> ic-typography
   ic-pagination-item --> ic-typography
   ic-popover-menu --> ic-typography
   ic-radio-option --> ic-typography
