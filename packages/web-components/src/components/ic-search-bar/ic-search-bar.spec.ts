@@ -511,7 +511,7 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.prevNoOption).toBe(false);
   });
 
-  it("should test no results state when no options passed and filtering disabled", async () => {
+  it("should test loading state when no options passed and filtering disabled", async () => {
     const page = await newSpecPage({
       components: [
         SearchBar,
@@ -524,15 +524,6 @@ describe("ic-search-bar search", () => {
       html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true"></ic-search-bar>',
     });
 
-    page.root.options = [];
-    await page.waitForChanges();
-    //delay to wait for aria live update
-    await waitForTimeout(700);
-    expect(page.rootInstance.filteredOptions).toHaveLength(1);
-    expect(page.rootInstance.filteredOptions[0].label).toEqual(
-      "No results found"
-    );
-
     const textfield = page.root.shadowRoot.querySelector("ic-text-field");
     const event = new Event("input", {
       bubbles: true,
@@ -541,21 +532,71 @@ describe("ic-search-bar search", () => {
 
     page.rootInstance.value = "aa";
     textfield.dispatchEvent(event);
+    page.rootInstance.loading = true;
     await page.waitForChanges();
     //delay to wait for aria live update
     await waitForTimeout(700);
     expect(page.rootInstance.filteredOptions).toHaveLength(1);
-    expect(page.rootInstance.filteredOptions[0].label).toEqual(
-      "No results found"
-    );
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+  });
+
+  it("should test loading timeout and retry when options is not populated before the timeout is finished", async () => {
+    const page = await newSpecPage({
+      components: [
+        SearchBar,
+        Button,
+        TextField,
+        Menu,
+        InputContainer,
+        InputLabel,
+      ],
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true" timeout="1000"></ic-search-bar>',
+    });
+
+    const textfield = page.root.shadowRoot.querySelector("ic-text-field");
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    page.rootInstance.value = "lo";
+    textfield.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+
+    //takes wait time to over timeout time
+    await waitForTimeout(400);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading Error");
+
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+    const retryButton = page.root.shadowRoot
+      .querySelector("ic-menu")
+      .querySelector("#retry-button") as HTMLIcButtonElement;
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icRetryLoad", eventSpy);
+
+    retryButton.click();
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    //delay to wait for aria live update
+    await waitForTimeout(700);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+    expect(eventSpy).toHaveBeenCalled();
 
     page.root.options = [];
     await page.waitForChanges();
-    //delay to wait for aria live update
-    await waitForTimeout(700);
-    expect(page.rootInstance.filteredOptions).toHaveLength(1);
     expect(page.rootInstance.filteredOptions[0].label).toEqual(
       "No results found"
+    );
+    //to ensure timeout was cancelled
+    await waitForTimeout(1000);
+    expect(page.rootInstance.filteredOptions[0].label).not.toEqual(
+      "Loading Error"
     );
   });
 

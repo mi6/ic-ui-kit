@@ -39,7 +39,10 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Async select default" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<ic-select label="What is your favourite coffee?"></ic-select>
+      html`<ic-select
+          label="What is your favourite coffee?"
+          loading
+        ></ic-select>
         <script>
           var select = document.querySelector("ic-select");
           var option = "Cappuccino";
@@ -61,7 +64,7 @@ import readme from "./readme.md";
               { label: "Cortado", value: "Cor" },
               { label: "Ristretto", value: "Ris" },
             ];
-          }, 2000);
+          }, 5000);
         </script>`
     }
   </Story>
@@ -590,6 +593,7 @@ import readme from "./readme.md";
       html`<ic-select
           label="What is your favourite coffee?"
           searchable
+          loading
         ></ic-select>
         <script>
           var select = document.querySelector("ic-select");
@@ -612,7 +616,7 @@ import readme from "./readme.md";
               { label: "Cortado", value: "Cor" },
               { label: "Ristretto", value: "Ris" },
             ];
-          }, 2000);
+          }, 5000);
         </script>`
     }
   </Story>
@@ -1200,6 +1204,7 @@ import readme from "./readme.md";
           debounce="300"
           disable-filter="true"
           id="external-filter-select"
+          timeout="1000"
         ></ic-select>
         <br />
         <ic-typography>
@@ -1223,6 +1228,29 @@ import readme from "./readme.md";
             { label: "Mocha", value: "Moc" },
             { label: "Macchiato", value: "Mac" },
           ];
+          function handleFilter(event) {
+            var option = event.detail.value;
+            console.log(option);
+            if (option !== selectedValue) {
+              if (option) {
+                select.loading = true;
+                mockAPI = (query) => {
+                  filteredResults = mockData.filter((m) =>
+                    m.label.toLowerCase().includes(query.toLowerCase())
+                  );
+                  return new Promise((resolve) =>
+                    setTimeout(
+                      () => resolve(filteredResults),
+                      event.type === "icChange" ? 2000 : 900
+                    )
+                  );
+                };
+                mockAPI(option).then((results) => (select.options = results));
+              } else {
+                select.options = [];
+              }
+            }
+          }
           var select = document.querySelector("#external-filter-select");
           var selectedValue = "";
           select.addEventListener("icClear", function (event) {
@@ -1231,25 +1259,8 @@ import readme from "./readme.md";
           select.addEventListener("icOptionSelect", function (event) {
             selectedValue = event.detail.value;
           });
-          select.addEventListener("icChange", function (event) {
-            var option = event.detail.value;
-            console.log(option);
-            if (option !== selectedValue) {
-              if (option) {
-                mockAPI = (query) => {
-                  filteredResults = mockData.filter((m) =>
-                    m.label.toLowerCase().includes(query.toLowerCase())
-                  );
-                  return new Promise((resolve) =>
-                    setTimeout(() => resolve(filteredResults), 1000)
-                  );
-                };
-                mockAPI(option).then((results) => (select.options = results));
-              } else {
-                select.options = [];
-              }
-            }
-          });
+          select.addEventListener("icChange", handleFilter);
+          select.addEventListener("icRetryLoad", handleFilter);
         </script>`
     }
   </Story>

@@ -26,6 +26,14 @@
   box-shadow: var(--ic-border-focus);
 }
 
+#retry-button::part(button) {
+  height: var(--ic-space-lg);
+}
+
+.small #retry-button::part(button) {
+  height: var(--ic-space-md);
+}
+
 .menu {
   text-decoration: none;
   list-style-type: none;
@@ -63,8 +71,11 @@
   padding: 0.5rem 0.438rem;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.option:not(.loading-option) {
+  justify-content: space-between;
 }
 
 :host(.small) .option {
@@ -97,6 +108,24 @@
 
 .option-text-container {
   pointer-events: none;
+}
+
+.option.loading-option .option-text-container {
+  margin-left: 0.625rem;
+  color: var(--ic-color-secondary-text);
+}
+
+.error-icon-svg {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+  fill: var(--ic-status-error);
+  align-self: center;
+  display: flex;
+  margin-right: calc(var(--ic-space-xxs) * 1.2);
+}
+
+.loading-error-info {
+  display: flex;
 }
 
 .check-icon {

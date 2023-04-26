@@ -151,6 +151,8 @@ export interface IcMenuOption {
   disabled?: boolean;
   recommended?: boolean;
   children?: IcMenuOption[];
+  loading?: boolean;
+  timedOut?: boolean;
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
@@ -172,6 +174,7 @@ export type IcOrientation = "horizontal" | "vertical";
 
 export interface IcValueEventDetail {
   value: string;
+  keyPressed?: string;
 }
 export interface IcBlurEventDetail {
   relatedTarget: IcRelatedTarget;

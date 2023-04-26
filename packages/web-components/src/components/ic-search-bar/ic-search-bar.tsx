@@ -45,6 +45,7 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class SearchBar {
   @Element() el: HTMLIcSearchBarElement;
 
@@ -62,6 +63,12 @@ export class SearchBar {
   private assistiveHintEl: HTMLSpanElement = null;
   private preventSubmit: boolean = false;
   private debounceAriaLive: number;
+
+  private timeoutTimer: number;
+  private prevNoOption: boolean = false;
+  private hasTimedOut = false;
+  private preLoad = true;
+  private retryViaKeyPress: boolean;
 
   /**
    * The label for the search bar.
@@ -159,9 +166,44 @@ export class SearchBar {
    */
   @Prop() options?: IcMenuOption[] = [];
 
+  /**
+   * If using external filtering, set a timeout for when loading takes too long.
+   */
+  @Prop() timeout?: number;
+
+  /**
+   * Change the message displayed whilst the options are being loaded externally.
+   */
+  @Prop() loadingLabel?: string = "Loading...";
+
+  /**
+   * Change the message displayed when external loading times out.
+   */
+  @Prop() loadingErrorLabel?: string = "Loading Error";
+
+  /**
+   * Trigger loading state when fetching options asyncronously
+   */
+  @Prop({ mutable: true }) loading?: boolean = false;
+
+  @Watch("loading")
+  loadingHandler(newValue: boolean): void {
+    if (newValue && !this.hasTimedOut) {
+      this.preLoad = false;
+      this.triggerLoading();
+    }
+  }
+
+  @Watch("filteredOptions")
+  filteredOptionsHandler(newOptions: IcMenuOption[]): void {
+    this.hasTimedOut = newOptions.some((opt) => opt.timedOut);
+  }
+
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
-    if (this.disableFilter) {
+    if (this.disableFilter && !this.hasTimedOut) {
+      this.loading = false;
+      clearTimeout(this.timeoutTimer);
       if (newOptions.length > 0) {
         this.filteredOptions = newOptions;
       } else {
@@ -169,7 +211,11 @@ export class SearchBar {
           return;
         }
         this.setMenuChange(true);
-        this.filteredOptions = [{ label: this.emptyOptionListText, value: "" }];
+        !this.preLoad &&
+          (this.filteredOptions = [
+            { label: this.emptyOptionListText, value: "" },
+          ]);
+        this.preLoad = true;
       }
     }
     this.debounceAriaLiveUpdate();
@@ -214,6 +260,7 @@ export class SearchBar {
    */
   @Method()
   async setFocus(): Promise<void> {
+    this.retryViaKeyPress = false;
     if (this.inputEl) {
       this.inputEl.setFocus();
     }
@@ -263,6 +310,27 @@ export class SearchBar {
     if (ev.key === " ") {
       ev.preventDefault();
       this.handleSubmitSearch();
+    }
+  };
+
+  private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
+    this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
+    this.icRetryLoad.emit({ value: ev.detail.value });
+    this.triggerLoading();
+  };
+
+  private triggerLoading = () => {
+    const loadingOption: IcMenuOption[] = [
+      { label: this.loadingLabel, value: "", loading: true },
+    ];
+    if (this.filteredOptions !== loadingOption)
+      this.filteredOptions = loadingOption;
+    if (this.timeout) {
+      this.timeoutTimer = window.setTimeout(() => {
+        this.filteredOptions = [
+          { label: this.loadingErrorLabel, value: "", timedOut: true },
+        ];
+      }, this.timeout);
     }
   };
 
@@ -418,13 +486,17 @@ export class SearchBar {
    */
   @Event() icSearchBarFocus: EventEmitter<void>;
 
+  /**
+   * Emitted when the 'retry loading' button is clicked
+   */
+  @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
+
   @State() open: boolean = false;
   @State() filteredOptions: IcMenuOption[] = [];
   @State() ariaActiveDescendant: string;
   @State() showClearButton: boolean = false;
   @State() clearButtonFocused: boolean = false;
   @State() searchSubmitFocused: boolean = false;
-  @State() prevNoOption: boolean = false;
   @State() highlightedValue: string;
 
   private handleOptionSelect = (ev: CustomEvent) => {
@@ -475,7 +547,12 @@ export class SearchBar {
 
   private handleHostBlur = (ev: Event) => {
     const nextFocus = (ev as FocusEvent).relatedTarget;
-    if (this.open && this.options && nextFocus !== this.menu) {
+    if (
+      this.open &&
+      this.options &&
+      nextFocus !== this.menu &&
+      !this.retryViaKeyPress
+    ) {
       this.setMenuChange(false);
     }
 
@@ -483,6 +560,7 @@ export class SearchBar {
     this.handleMenuCloseFromMenuChange(false);
     this.handleTruncateValue(true);
     this.icSearchBarBlur.emit({ relatedTarget: nextFocus, value: this.value });
+    this.retryViaKeyPress = false;
   };
 
   private handleShowClearButton = (visible: boolean): void => {
@@ -536,7 +614,8 @@ export class SearchBar {
       this.hasOptionsOrFilterDisabled() &&
       this.filteredOptions.length > 0 &&
       this.open &&
-      searchResultsStatusEl
+      searchResultsStatusEl &&
+      !this.filteredOptions[0].loading
     ) {
       if (this.hadNoOptions()) {
         searchResultsStatusEl.innerText = this.emptyOptionListText;
@@ -560,12 +639,17 @@ export class SearchBar {
       this.value === undefined || this.value === null || this.value === "";
     const valueLengthLess = this.value.length < this.charactersUntilSuggestion;
     return (
-      valueNotSet || valueLengthLess || this.disabled || this.hadNoOptions()
+      valueNotSet ||
+      valueLengthLess ||
+      this.disabled ||
+      this.hadNoOptions() ||
+      this.hasTimedOut ||
+      this.loading
     );
   };
 
   private highlightFirstOptionAfterNoResults = () => {
-    if (this.prevNoOption && this.menu) {
+    if (this.prevNoOption && this.menu && !this.hasTimedOut) {
       this.menu.handleSetFirstOption();
       this.prevNoOption = false;
     }
@@ -664,6 +748,10 @@ export class SearchBar {
     const disabledText = disabledMode && !readonly;
     const hasSuggestedSearch = value && this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
+    const isOrHasLoaded =
+      this.filteredOptions.length === 1 &&
+      (this.filteredOptions[0].label === this.loadingLabel ||
+        filteredOptions[0].label === this.loadingErrorLabel);
 
     let expanded;
 
@@ -798,7 +886,7 @@ export class SearchBar {
             {menuOpen && value.length >= this.charactersUntilSuggestion && (
               <ic-menu
                 class={{
-                  "no-results": this.hadNoOptions(),
+                  "no-results": this.hadNoOptions() || isOrHasLoaded,
                 }}
                 activationType="manual"
                 anchorEl={this.anchorEl}
@@ -814,6 +902,7 @@ export class SearchBar {
                 onMenuOptionSelect={this.handleOptionSelect}
                 onMenuStateChange={this.handleMenuChange}
                 onMenuOptionId={this.handleMenuOptionHighlight}
+                onRetryButtonClicked={this.handleRetry}
                 parentEl={this.el}
                 value={value}
               ></ic-menu>
