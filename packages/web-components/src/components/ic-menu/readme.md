@@ -51,12 +51,20 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [ic-loading-indicator](../ic-loading-indicator)
 - [ic-typography](../ic-typography)
+- [ic-button](../ic-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
+  ic-menu --> ic-button
+  ic-loading-indicator --> ic-typography
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-tooltip --> ic-typography
   ic-search-bar --> ic-menu
   ic-select --> ic-menu
   style ic-menu fill:#f9f,stroke:#333,stroke-width:4px

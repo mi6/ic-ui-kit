@@ -9,10 +9,15 @@ import {
   Method,
   State,
   Watch,
+  Fragment,
 } from "@stencil/core";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 
-import { IcActivationTypes, IcMenuOption } from "../../utils/types";
+import {
+  IcActivationTypes,
+  IcMenuOption,
+  IcValueEventDetail,
+} from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 import {
@@ -26,6 +31,7 @@ import {
   styleUrl: "ic-menu.css",
   scoped: true,
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
   @Element() host: HTMLIcMenuElement;
 
@@ -96,7 +102,9 @@ export class Menu {
   @State() preventIncorrectTabOrder: boolean = false;
 
   @Watch("options")
-  watchOptionsHandler(): void {
+  watchOptionsHandler(newOptions: IcMenuOption[]): void {
+    this.hasTimedOut = newOptions.some((opt) => opt.timedOut);
+    this.isLoading = newOptions.some((opt) => opt.loading);
     this.ungroupedOptions = [];
     this.loadUngroupedOptions();
   }
@@ -126,6 +134,16 @@ export class Menu {
    */
   @Event() ungroupedOptionsSet: EventEmitter<{ options: IcMenuOption[] }>;
 
+  /**
+   * @internal Emitted when the retry button is clicked
+   */
+  @Event() retryButtonClicked: EventEmitter<IcValueEventDetail>;
+
+  /**
+   * @internal Emitted when the timeout menu loses focus
+   */
+  @Event() timeoutBlur: EventEmitter<{ ev: FocusEvent }>;
+
   private handleClearListener = (): void => {
     this.optionHighlighted = "";
   };
@@ -144,7 +162,10 @@ export class Menu {
 
   // Prevents menu re-opening immediately after it is closed on blur when clicking input
   private preventClickOpen: boolean = false;
+
   private isSearchBar: boolean = false;
+  private hasTimedOut: boolean = false;
+  private isLoading: boolean = false;
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
     if (!open) this.popperInstance.destroy();
@@ -233,7 +254,10 @@ export class Menu {
   };
 
   private setHighlightedOption = (highlightedIndex: number): void => {
-    this.optionHighlighted = this.options[highlightedIndex].value || undefined;
+    this.options[highlightedIndex] &&
+      !this.options[highlightedIndex].timedOut &&
+      (this.optionHighlighted =
+        this.options[highlightedIndex].value || undefined);
   };
 
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
@@ -356,13 +380,25 @@ export class Menu {
       this.optionHighlighted = undefined;
       this.menuOptionId.emit({ optionId: undefined });
     }
-    this.handleMenuChange(false);
+    if (!this.hasTimedOut) this.handleMenuChange(false);
+    else (this.parentEl as HTMLIcSearchBarElement).setFocus();
   };
 
   private handleOptionClick = (event: Event): void => {
     const { value, label } = (event.target as HTMLLIElement).dataset;
     this.menuOptionSelect.emit({ value, label });
     this.handleMenuChange(false);
+  };
+
+  private handleRetry = (): void => {
+    this.retryButtonClicked.emit({ value: this.value });
+  };
+
+  private handleRetryKeyDown = (ev: KeyboardEvent): void => {
+    if (ev.key === "Enter" || ev.key === " ") {
+      ev.preventDefault();
+      this.retryButtonClicked.emit({ value: this.value, keyPressed: ev.key });
+    }
   };
 
   private handleBlur = (event: FocusEvent): void => {
@@ -405,14 +441,18 @@ export class Menu {
         event.preventDefault();
         break;
       case "ArrowUp":
-        event.preventDefault();
-        this.setPreviousOptionValue(selectedOptionIndex);
-        this.keyboardNav = true;
+        if (!this.hasTimedOut) {
+          event.preventDefault();
+          this.setPreviousOptionValue(selectedOptionIndex);
+          this.keyboardNav = true;
+        }
         break;
       case "ArrowDown":
-        event.preventDefault();
-        this.setNextOptionValue(selectedOptionIndex);
-        this.keyboardNav = true;
+        if (!this.hasTimedOut) {
+          event.preventDefault();
+          this.setNextOptionValue(selectedOptionIndex);
+          this.keyboardNav = true;
+        }
         break;
       case "Home":
         this.menuOptionSelect.emit({
@@ -427,6 +467,8 @@ export class Menu {
         this.keyboardNav = true;
         break;
       case "Enter":
+        !this.hasTimedOut && this.handleMenuChange(false);
+        break;
       case "Escape":
         this.handleMenuChange(false);
         break;
@@ -438,7 +480,7 @@ export class Menu {
       case "Shift":
         break;
       default:
-        if (isSearchableSelect && event.key !== "Tab") {
+        if (isSearchableSelect && event.key !== "Tab" && !this.hasTimedOut) {
           this.inputEl.focus();
         }
         if (event.key.length === 1) {
@@ -532,6 +574,10 @@ export class Menu {
     }
   };
 
+  private handleTimeoutBlur = (ev: FocusEvent) => {
+    this.timeoutBlur.emit({ ev });
+  };
+
   connectedCallback(): void {
     if (this.parentEl?.tagName === "IC-SEARCH-BAR") {
       this.setHighlightedOption(0);
@@ -544,6 +590,8 @@ export class Menu {
     this.isSearchBar = this.parentEl.tagName === "IC-SEARCH-BAR";
     this.parentEl.addEventListener("icClear", this.handleClearListener);
     this.parentEl.addEventListener("icSubmitSearch", this.handleSubmitSearch);
+    this.hasTimedOut = this.options.some((opt) => opt.timedOut);
+    this.isLoading = this.options.some((opt) => opt.loading);
   }
 
   componentDidLoad(): void {
@@ -640,6 +688,33 @@ export class Menu {
     );
   }
 
+  private optionContent = (option: IcMenuOption) => {
+    return (
+      <Fragment>
+        {option.loading && <ic-loading-indicator size="icon" />}
+        <div class="option-text-container">
+          <ic-typography variant="body" aria-hidden="true">
+            <p>{option.label}</p>
+          </ic-typography>
+          {option.description && (
+            <ic-typography
+              id={`${this.getOptionId(option.value)}-description`}
+              class="option-description"
+              variant="caption"
+              aria-hidden="true"
+            >
+              <p>{option.description}</p>
+            </ic-typography>
+          )}
+        </div>
+        {option?.value.toLowerCase() === this.value?.toLowerCase() &&
+          this.parentEl.tagName !== "IC-SEARCH-BAR" && (
+            <span class="check-icon" innerHTML={Check} />
+          )}
+      </Fragment>
+    );
+  };
+
   private displayOption = (
     option: IcMenuOption,
     index?: number,
@@ -661,6 +736,8 @@ export class Menu {
             this.options[index + 1] &&
             !this.options[index + 1].recommended,
           "disabled-option": option.disabled,
+          "loading-option": option.loading,
+          timeout: option.timedOut,
         }}
         role="option"
         tabindex={
@@ -673,43 +750,63 @@ export class Menu {
         aria-label={this.getOptionAriaLabel(option, parentOption)}
         aria-selected={option.value === value}
         aria-disabled={option.disabled ? "true" : "false"}
-        onClick={this.handleOptionClick}
+        onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
         data-value={option.value}
         data-label={option.label}
       >
-        <div class="option-text-container">
-          <ic-typography variant="body" aria-hidden="true">
-            <p>{option.label}</p>
-          </ic-typography>
-          {option.description && (
-            <ic-typography
-              id={`${this.getOptionId(option.value)}-description`}
-              class="option-description"
-              variant="caption"
-              aria-hidden="true"
+        {option.timedOut ? (
+          <Fragment>
+            <div class="loading-error-info">
+              <svg
+                class="error-icon-svg"
+                aria-labelledby="error-title"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#000000"
+              >
+                <title id="error-title">Error</title>
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
+              </svg>
+              <ic-typography variant="label">{option.label}</ic-typography>
+            </div>
+            <ic-button
+              size="small"
+              variant="tertiary"
+              onClick={this.handleRetry}
+              onKeyDown={this.handleRetryKeyDown}
+              onBlur={this.handleTimeoutBlur}
+              id="retry-button"
             >
-              <p>{option.description}</p>
-            </ic-typography>
-          )}
-        </div>
-        {option?.value.toLowerCase() === value?.toLowerCase() &&
-          this.parentEl.tagName !== "IC-SEARCH-BAR" && (
-            <span class="check-icon" innerHTML={Check} />
-          )}
+              Retry
+            </ic-button>
+          </Fragment>
+        ) : (
+          this.optionContent(option)
+        )}
       </li>
     );
   };
 
   render() {
-    const { inputLabel, options, menuId, value, fullWidth } = this;
+    const {
+      inputLabel,
+      options,
+      menuId,
+      value,
+      fullWidth,
+      hasTimedOut,
+      isLoading,
+    } = this;
 
     return (
       <Host
         class={{
           "full-width": fullWidth,
-          "no-focus": this.inputEl?.tagName === "INPUT",
+          "no-focus":
+            this.inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
           small: this.small,
           open: this.open,
         }}

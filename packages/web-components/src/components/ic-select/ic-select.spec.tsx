@@ -1361,4 +1361,42 @@ describe("ic-select", () => {
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe("Test value 1");
   });
+
+  it("should test loading state and timeout for searchable select with external filtering", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" characters-until-suggestions="3" debounce="300" timeout="1000"></ic-select>`,
+    });
+
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    const input = page.root.shadowRoot.querySelector("input");
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+    input.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+
+    await waitForTimeout(1000);
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading Error");
+
+    await page.waitForChanges();
+    const retryButton = page.root.shadowRoot
+      .querySelector("ic-menu")
+      .querySelector("#retry-button") as HTMLIcButtonElement;
+    retryButton.click();
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+
+    page.root.options = [];
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      "No results found"
+    );
+  });
 });
