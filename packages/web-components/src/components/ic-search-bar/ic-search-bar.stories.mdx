@@ -219,6 +219,7 @@ import readme from "./readme.md";
           debounce="300"
           disable-filter="true"
           id="external-filter-search"
+          timeout="1000"
         ></ic-search-bar>
         <br />
         <ic-typography
@@ -241,22 +242,39 @@ import readme from "./readme.md";
             { label: "Mocha", value: "mocha" },
           ];
           var select = document.querySelector("#external-filter-search");
-          select.addEventListener("icChange", function (event) {
+          var optionSelected = false;
+          function handleFilter(event) {
             query = event.detail.value;
-            if (query.length > 1) {
-              mockAPI = (query) => {
-                filteredResults = mockData.filter((m) =>
-                  m.label.toLowerCase().includes(query.toLowerCase())
-                );
-                return new Promise((resolve) =>
-                  setTimeout(() => resolve(filteredResults), 1000)
-                );
-              };
-              mockAPI(query).then((results) => (select.options = results));
-            } else {
-              select.options = [];
+            if (query !== optionSelected) {
+              if (query.length > 1) {
+                if (!optionSelected) {
+                  select.loading = true;
+                }
+                optionSelected = false;
+                mockAPI = (query) => {
+                  filteredResults = mockData.filter((m) =>
+                    m.label.toLowerCase().includes(query.toLowerCase())
+                  );
+                  return new Promise((resolve) =>
+                    setTimeout(
+                      () => resolve(filteredResults),
+                      event.type === "icChange" ? 2000 : 1000
+                    )
+                  );
+                };
+                mockAPI(query).then((results) => (select.options = results));
+              } else {
+                select.options = [];
+              }
             }
-          });
+            optionSelected = "";
+          }
+          function handleSelect(event) {
+            optionSelected = true;
+          }
+          select.addEventListener("icOptionSelect", handleSelect);
+          select.addEventListener("icChange", handleFilter);
+          select.addEventListener("icRetryLoad", handleFilter);
         </script>`
     }
   </Story>
