@@ -20,6 +20,9 @@
 | `includeDescriptionsInSearch` | `include-descriptions-in-search` | If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.             | `boolean`                                 | `false`              |
 | `includeGroupTitlesInSearch`  | `include-group-titles-in-search` | If `true`, group titles of grouped options will be included when filtering options in a searchable select. Only applies to built in filtering.     | `boolean`                                 | `false`              |
 | `label` _(required)_          | `label`                          | The label for the select.                                                                                                                          | `string`                                  | `undefined`          |
+| `loading`                     | `loading`                        | Trigger loading state when fetching options asyncronously                                                                                          | `boolean`                                 | `false`              |
+| `loadingErrorLabel`           | `loading-error-label`            | Change the message displayed when external loading times out.                                                                                      | `string`                                  | `"Loading Error"`    |
+| `loadingLabel`                | `loading-label`                  | Change the message displayed whilst the options are being loaded externally.                                                                       | `string`                                  | `"Loading..."`       |
 | `name`                        | `name`                           | The name of the control, which is submitted with the form data.                                                                                    | `string`                                  | `this.inputId`       |
 | `options`                     | --                               | The possible selection options.                                                                                                                    | `IcMenuOption[]`                          | `[]`                 |
 | `placeholder`                 | `placeholder`                    | The placeholder value to be displayed.                                                                                                             | `string`                                  | `"Select an option"` |
@@ -29,6 +32,7 @@
 | `searchable`                  | `searchable`                     | If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.                                           | `boolean`                                 | `false`              |
 | `showClearButton`             | `show-clear-button`              | If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.          | `boolean`                                 | `false`              |
 | `small`                       | `small`                          | If `true`, the small styling will be applied to the select.                                                                                        | `boolean`                                 | `false`              |
+| `timeout`                     | `timeout`                        | If using external filtering, set a timeout for when loading takes too long.                                                                        | `number`                                  | `undefined`          |
 | `validationStatus`            | `validation-status`              | The validation status - e.g. 'error' \| 'warning' \| 'success'.                                                                                    | `"" \| "error" \| "success" \| "warning"` | `""`                 |
 | `validationText`              | `validation-text`                | The text to display as the validation message.                                                                                                     | `string`                                  | `""`                 |
 | `value`                       | `value`                          | The value of the currently selected option.                                                                                                        | `string`                                  | `undefined`          |
@@ -44,6 +48,7 @@
 | `icFocus`        | Emitted when select gains focus.                                                                                                                   | `CustomEvent<void>`                      |
 | `icInput`        | Emitted when a keyboard input occurred.                                                                                                            | `CustomEvent<IcValueEventDetail>`        |
 | `icOptionSelect` | Emitted when option is highlighted within the menu. Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated. | `CustomEvent<IcOptionSelectEventDetail>` |
+| `icRetryLoad`    | Emitted when the 'retry loading' button is clicked                                                                                                 | `CustomEvent<IcValueEventDetail>`        |
 
 
 ## Methods
@@ -94,7 +99,9 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-menu --> ic-loading-indicator
   ic-menu --> ic-typography
+  ic-menu --> ic-button
   ic-input-validation --> ic-typography
   style ic-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

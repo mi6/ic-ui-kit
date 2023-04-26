@@ -45,6 +45,7 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Select {
   private nativeSelectElement: HTMLSelectElement;
   private customSelectElement: HTMLButtonElement;
@@ -65,6 +66,11 @@ export class Select {
   private initialOptionsEmpty = false;
 
   private characterKeyPressTimer: number;
+
+  private timeoutTimer: number;
+
+  private hasTimedOut: boolean;
+  private blurredBecauseButtonPressed: boolean;
 
   /**
    * The label for the select.
@@ -181,6 +187,26 @@ export class Select {
    */
   @Prop() disableFilter?: boolean = false;
 
+  /**
+   * If using external filtering, set a timeout for when loading takes too long.
+   */
+  @Prop() timeout?: number;
+
+  /**
+   * Change the message displayed whilst the options are being loaded externally.
+   */
+  @Prop() loadingLabel?: string = "Loading...";
+
+  /**
+   * Change the message displayed when external loading times out.
+   */
+  @Prop() loadingErrorLabel?: string = "Loading Error";
+
+  /**
+   * Trigger loading state when fetching options asyncronously
+   */
+  @Prop({ mutable: true }) loading?: boolean = false;
+
   @State() open: boolean = false;
 
   @State() clearButtonFocused: boolean = false;
@@ -203,28 +229,38 @@ export class Select {
 
   @State() pressedCharacters: string = "";
 
+  @Watch("loading")
+  loadingHandler(newValue: boolean): void {
+    newValue && this.triggerLoading();
+  }
+
   @Watch("options")
   watchOptionsHandler(): void {
-    if (this.isExternalFiltering()) {
-      if (this.options.length > 0) {
-        this.setOptionsValuesFromLabels();
-        this.noOptions = null;
-        this.filteredOptions = this.options;
-      } else if (this.isMenuEnabled()) {
-        this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
-        this.filteredOptions = this.noOptions;
-      }
-
-      this.updateSearchableSelectResultAriaLive();
-      this.setDefaultValue();
-    } else {
-      this.setOptionsValuesFromLabels();
-      this.filteredOptions = this.options;
-
-      if (this.initialOptionsEmpty) {
+    if (!this.hasTimedOut) {
+      this.loading = false;
+      clearTimeout(this.timeoutTimer);
+      if (this.isExternalFiltering()) {
+        if (this.options.length > 0) {
+          this.setOptionsValuesFromLabels();
+          this.noOptions = null;
+          this.filteredOptions = this.options;
+        } else if (this.isMenuEnabled()) {
+          this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
+          this.filteredOptions = this.noOptions;
+        }
+        this.updateSearchableSelectResultAriaLive();
         this.setDefaultValue();
-        this.initialOptionsEmpty = false;
+      } else {
+        this.setOptionsValuesFromLabels();
+        this.filteredOptions = this.options;
+
+        if (this.initialOptionsEmpty) {
+          this.setDefaultValue();
+          this.initialOptionsEmpty = false;
+        }
       }
+    } else {
+      if (!this.searchable) this.options = this.noOptions;
     }
   }
 
@@ -271,6 +307,11 @@ export class Select {
    */
   @Event() icInput: EventEmitter<IcValueEventDetail>;
 
+  /**
+   * Emitted when the 'retry loading' button is clicked
+   */
+  @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
+
   @Element() host!: HTMLIcSelectElement;
 
   /**
@@ -286,6 +327,12 @@ export class Select {
       this.searchableSelectElement.focus();
     }
   }
+
+  private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
+    if (ev.detail.keyPressed) this.searchableSelectElement?.focus();
+    this.blurredBecauseButtonPressed = true;
+    this.icRetryLoad.emit({ value: ev.detail.value });
+  };
 
   private updateOnChangeDebounce(newValue: number) {
     if (this.currDebounce !== newValue) {
@@ -436,8 +483,10 @@ export class Select {
     if (this.isExternalFiltering()) {
       this.menu.options = this.filteredOptions;
     } else {
-      this.noOptions = null;
-      this.menu.options = this.options;
+      if (!this.hasTimedOut && !this.loading) {
+        this.noOptions = null;
+        this.menu.options = this.options;
+      }
     }
 
     if (event.detail !== 0 && this.isMenuEnabled()) {
@@ -455,6 +504,7 @@ export class Select {
 
   private handleClear = (event: Event): void => {
     event.stopPropagation();
+    this.hasTimedOut = false;
     this.noOptions = null;
     this.emitImmediateIcChange(null);
     this.icClear.emit();
@@ -462,7 +512,7 @@ export class Select {
     if (this.searchable) {
       this.searchableSelectElement.value = null;
       this.searchableSelectInputValue = null;
-      this.menu.options = this.options;
+      this.filteredOptions = this.options;
       this.searchableSelectElement.focus();
 
       if (!this.isMenuEnabled()) {
@@ -475,7 +525,13 @@ export class Select {
 
   private handleCharacterKeyDown = (key: string) => {
     // Only close menu when space is pressed if not being used alongside character keys to quickly select options
-    if (this.open && key === " " && this.pressedCharacters.length === 0) {
+    if (
+      this.open &&
+      key === " " &&
+      this.pressedCharacters.length === 0 &&
+      !this.hasTimedOut &&
+      !this.loading
+    ) {
       this.setMenuChange(false);
     }
 
@@ -510,8 +566,10 @@ export class Select {
       if (this.isExternalFiltering() && (event.key === "Enter" || isArrowKey)) {
         this.menu.options = this.filteredOptions;
       } else {
-        this.noOptions = null;
-        this.menu.options = this.options;
+        if (!this.hasTimedOut) {
+          this.noOptions = null;
+          this.menu.options = this.options;
+        }
       }
     }
 
@@ -531,7 +589,18 @@ export class Select {
     this.clearButtonFocused = true;
   };
 
-  private handleClearButtonBlur = (): void => {
+  private handleClearButtonBlur = (ev: FocusEvent): void => {
+    const retryButton = this.menu?.querySelector("#retry-button");
+    if (
+      !(
+        this.searchableSelectElement &&
+        ev.relatedTarget === this.searchableSelectElement
+      ) &&
+      !(retryButton && ev.relatedTarget === retryButton)
+    ) {
+      this.setMenuChange(false);
+      this.handleFocusIndicatorDisplay();
+    }
     this.clearButtonFocused = false;
   };
 
@@ -601,27 +670,49 @@ export class Select {
     }
   };
 
+  private triggerLoading = () => {
+    this.hasTimedOut = false;
+    this.noOptions = [{ label: this.loadingLabel, value: "", loading: true }];
+    if (this.filteredOptions !== this.noOptions && this.searchable)
+      this.filteredOptions = this.noOptions;
+    else if (!this.searchable && this.options !== this.noOptions)
+      this.options = this.noOptions;
+    if (this.timeout) {
+      this.timeoutTimer = window.setTimeout(() => {
+        this.loading = false;
+        this.hasTimedOut = true;
+        this.noOptions = [
+          { label: this.loadingErrorLabel, value: "", timedOut: true },
+        ];
+        this.filteredOptions = this.noOptions;
+        if (!this.searchable) this.options = this.noOptions;
+      }, this.timeout);
+    }
+  };
+
   private handleSearchableSelectInput = (event: Event): void => {
     this.searchableSelectInputValue = (event.target as HTMLInputElement).value;
     this.icInput.emit({ value: this.searchableSelectInputValue });
 
-    if (this.disableFilter) {
-      this.emitIcChange(this.searchableSelectInputValue);
-    } else if (
-      this.getValueFromLabel(this.searchableSelectInputValue) === undefined
-    ) {
-      this.emitIcChange(null);
-    }
+    if (!this.hasTimedOut && !this.loading) {
+      if (this.disableFilter) {
+        this.emitIcChange(this.searchableSelectInputValue);
+      } else if (
+        this.getValueFromLabel(this.searchableSelectInputValue) === undefined
+      ) {
+        this.emitIcChange(null);
+      }
 
-    if (this.isMenuEnabled()) {
-      this.setMenuChange(true);
-    } else {
-      this.setMenuChange(false);
-    }
+      if (this.isMenuEnabled()) {
+        this.setMenuChange(true);
+      } else {
+        this.setMenuChange(false);
+      }
 
-    if (!this.disableFilter) {
-      this.handleFilter();
-      this.debounceAriaLiveUpdate();
+      if (!this.disableFilter) {
+        this.handleFilter();
+        this.debounceAriaLiveUpdate();
+      }
     }
   };
 
@@ -663,13 +754,15 @@ export class Select {
   };
 
   private onBlur = (event: FocusEvent): void => {
+    const retryButton = this.menu?.querySelector("#retry-button");
     const isSearchableAndNoFocusedInternalElements =
       this.searchable &&
       event.relatedTarget !== this.menu &&
       !Array.from(this.menu.querySelectorAll("[role='option']")).includes(
         event.relatedTarget as Element
       ) &&
-      !(this.clearButton && event.relatedTarget === this.clearButton);
+      !(this.clearButton && event.relatedTarget === this.clearButton) &&
+      !(retryButton && event.relatedTarget === retryButton);
 
     if (isSearchableAndNoFocusedInternalElements) {
       this.setMenuChange(false);
@@ -677,6 +770,19 @@ export class Select {
     }
 
     this.icBlur.emit();
+  };
+
+  private onTimeoutBlur = (ev: CustomEvent) => {
+    if (
+      (ev.detail.ev as FocusEvent).relatedTarget !==
+        this.searchableSelectElement &&
+      !this.blurredBecauseButtonPressed
+    ) {
+      this.setMenuChange(false);
+      this.handleFocusIndicatorDisplay();
+      this.icBlur.emit();
+    }
+    this.blurredBecauseButtonPressed = false;
   };
 
   private handleFormReset = (): void => {
@@ -715,6 +821,7 @@ export class Select {
       [{ prop: this.label, propName: "label" }],
       "Select"
     );
+    if (this.loading) this.triggerLoading();
   }
 
   disconnectedCallback(): void {
@@ -741,6 +848,12 @@ export class Select {
       validationText,
       currValue,
     } = this;
+
+    const isOrHasLoaded =
+      (searchable ? this.filteredOptions : options)[0]?.label ===
+        this.loadingLabel ||
+      (searchable ? this.filteredOptions : options)[0]?.label ===
+        this.loadingErrorLabel;
 
     renderHiddenInput(true, this.host, name, currValue, disabled);
 
@@ -975,7 +1088,7 @@ export class Select {
           {!isMobileOrTablet() && (
             <ic-menu
               class={{
-                "no-results": this.noOptions !== null && this.searchable,
+                "no-results": this.noOptions !== null || isOrHasLoaded,
               }}
               ref={(el) => (this.menu = el)}
               inputEl={
@@ -995,7 +1108,9 @@ export class Select {
               onMenuOptionSelect={this.handleCustomSelectChange}
               onMenuKeyPress={this.handleMenuKeyPress}
               onUngroupedOptionsSet={this.setUngroupedOptions}
+              onRetryButtonClicked={this.handleRetry}
               parentEl={this.host}
+              onTimeoutBlur={this.onTimeoutBlur}
             ></ic-menu>
           )}
           {hasValidationStatus(this.validationStatus, this.disabled) && (
