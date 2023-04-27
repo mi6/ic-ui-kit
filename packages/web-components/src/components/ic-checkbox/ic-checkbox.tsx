@@ -26,6 +26,7 @@ import {
     delegatesFocus: true,
   },
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
   /**
    * If `true`, the checkbox will be set to the checked state.
@@ -127,6 +128,9 @@ export class Checkbox {
 
   componentWillLoad(): void {
     addFormResetListener(this.host, this.handleFormReset);
+    this.host
+      .querySelector("ic-text-field")
+      ?.addEventListener("icChange", (e) => e.stopImmediatePropagation());
   }
 
   componentDidLoad(): void {
