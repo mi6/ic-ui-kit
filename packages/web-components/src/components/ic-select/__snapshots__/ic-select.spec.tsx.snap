@@ -164,7 +164,7 @@ exports[`ic-select should render as required: required-searchable 1`] = `
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" class="select-input" id="ic-select-input-7" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-7" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>
