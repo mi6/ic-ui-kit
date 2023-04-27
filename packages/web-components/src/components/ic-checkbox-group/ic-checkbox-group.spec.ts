@@ -176,7 +176,7 @@ describe("ic-checkbox-group", () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" name="test">
-        <ic-checkbox value="test" label="test label" checked></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>    
       </ic-checkbox-group>`,
     });
 

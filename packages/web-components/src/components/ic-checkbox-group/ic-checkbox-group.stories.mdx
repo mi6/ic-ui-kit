@@ -133,6 +133,14 @@ import readme from "./readme.md";
   <Story name="Conditional dynamic">
     {(args) =>
       html`
+        <script>
+          function handleIcChange(ev) {
+            console.log(ev.detail.selectedOption.checked);
+          }
+          document
+            .querySelector("ic-checkbox-group")
+            .addEventListener("icChange", handleIcChange);
+        </script>
         <ic-checkbox-group label="This is a label" name="group1">
           <ic-checkbox
             additional-field-display="dynamic"
