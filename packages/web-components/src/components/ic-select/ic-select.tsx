@@ -850,6 +850,8 @@ export class Select {
                 <input
                   class="select-input"
                   role="combobox"
+                  type="search"
+                  autocomplete="off"
                   aria-label={label}
                   aria-describedby={describedBy}
                   aria-activedescendant={this.ariaActiveDescendant}

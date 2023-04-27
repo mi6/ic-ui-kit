@@ -1,4 +1,4 @@
-@import "../../global/normalize.css";
+@import '../../global/normalize.css';
 
 /**
  * @prop --input-width: Width of the input field
@@ -201,8 +201,7 @@ select:not([disabled]) {
   position: absolute;
   right: 2.75rem;
   border-radius: var(--ic-border-radius);
-  transition: box-shadow var(--ic-easing-transition),
-    border-radius var(--ic-easing-transition);
+  transition: box-shadow var(--ic-easing-transition), border-radius var(--ic-easing-transition);
 }
 
 .clear-button:focus {
@@ -224,4 +223,18 @@ select:not([disabled]) {
   position: absolute;
   white-space: nowrap;
   width: 0.063rem;
+}
+
+input[type='search']::-ms-clear,
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
 }
