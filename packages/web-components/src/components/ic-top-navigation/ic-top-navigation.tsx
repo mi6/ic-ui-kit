@@ -193,8 +193,12 @@ export class TopNavigation {
     this.navMenuVisible = show;
     if (show) {
       this.icNavigationMenuOpened.emit();
+      document.body.style.height = "100%";
+      document.body.style.overflow = "hidden";
     } else {
       this.icNavigationMenuClosed.emit();
+      document.body.style.height = "auto";
+      document.body.style.overflow = "auto";
     }
   }
 
