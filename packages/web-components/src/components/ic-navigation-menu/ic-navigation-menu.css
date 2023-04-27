@@ -4,6 +4,13 @@
 
 :host {
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100% !important;
+  background: rgb(0 0 0 / 60%);
+  z-index: var(--ic-z-index-navigation-menu);
 }
 
 .popout-modal {
@@ -25,7 +32,6 @@
   box-shadow: var(--ic-elevation-overlay);
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: var(--ic-z-index-navigation-menu);
 }
 
 :host(.inline) .popout-menu {
