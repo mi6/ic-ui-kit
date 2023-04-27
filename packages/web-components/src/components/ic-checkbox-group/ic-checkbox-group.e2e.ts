@@ -119,8 +119,27 @@ describe("ic-checkbox-group component", () => {
     await checkbox.click();
     await page.waitForChanges();
 
+    const checkboxElement = await page.evaluate(
+      () =>
+        document.querySelector(
+          "ic-checkbox[value='test2']"
+        ) as HTMLIcCheckboxElement
+    );
     expect(icChange).toHaveReceivedEventDetail({
       value: ["test2"],
+      checkedOptions: [checkboxElement],
+      textFieldValues: [null],
+      selectedOption: checkboxElement,
+    });
+
+    await checkbox.click();
+    await page.waitForChanges();
+
+    expect(icChange).toHaveReceivedEventDetail({
+      value: [],
+      checkedOptions: [],
+      textFieldValues: [],
+      selectedOption: checkboxElement,
     });
   });
   it("Should set checkbox to checked when space is pressed", async () => {

@@ -7,7 +7,6 @@ import {
   Element,
   Event,
   EventEmitter,
-  State,
 } from "@stencil/core";
 import {
   getInputDescribedByText,
@@ -22,6 +21,7 @@ import { IcChangeEventDetail } from "./ic-checkbox-group.types";
   styleUrl: "ic-checkbox-group.css",
   shadow: true,
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
   @Element() host: HTMLIcCheckboxGroupElement;
 
@@ -73,40 +73,28 @@ export class CheckboxGroup {
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
-  private checkboxOptions: HTMLIcCheckboxElement[];
-
-  @State() checkedOptions: string[] = [];
-
   @Listen("icCheck")
-  selectHandler(): void {
-    this.checkboxOptions = Array.from(
+  selectHandler(ev: CustomEvent): void {
+    const checkedOptions = Array.from(
       this.host.querySelectorAll("ic-checkbox")
-    );
-    this.checkboxOptions.forEach((checkbox) => {
-      if (
-        checkbox.checked &&
-        this.checkedOptions.indexOf(checkbox.value) === -1
-      ) {
-        this.checkedOptions.push(checkbox.value);
-      }
+    ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
+    this.icChange.emit({
+      value: checkedOptions.map((opt) => opt.value),
+      checkedOptions,
+      textFieldValues: checkedOptions.map(
+        (opt) => opt.querySelector("ic-text-field")?.value
+      ),
+      selectedOption: ev.target as HTMLIcCheckboxElement,
     });
-    this.icChange.emit({ value: this.checkedOptions });
   }
 
   componentDidLoad(): void {
-    this.checkboxOptions = Array.from(
-      this.host.querySelectorAll("ic-checkbox")
-    );
-    this.checkboxOptions.forEach((checkbox) => {
-      if (
-        checkbox.checked &&
-        this.checkedOptions.indexOf(checkbox.value) === -1
-      ) {
-        this.checkedOptions.push(checkbox.value);
+    Array.from(this.host.querySelectorAll("ic-checkbox")).forEach(
+      (checkbox) => {
+        if (!checkbox.name) checkbox.name = this.name;
+        checkbox.groupLabel = this.label;
       }
-      if (!checkbox.name) checkbox.name = this.name;
-      checkbox.groupLabel = this.label;
-    });
+    );
 
     onComponentRequiredPropUndefined(
       [
