@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  position: relative;
 }
 
 :host(.ic-typography-vertical-margins-h1) {
@@ -124,4 +125,42 @@
 :host ::slotted(label) {
   font: inherit;
   letter-spacing: inherit;
+}
+
+.trunc-wrapper {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: var(--truncation-max-lines, initial);
+  -webkit-line-clamp: var(--truncation-max-lines, initial);
+  overflow: hidden;
+}
+
+.trunc-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--ic-color-primary-text);
+  text-decoration: underline;
+  font-weight: var(--ic-font-weight-bold);
+  transition: var(--ic-easing-transition-fast);
+}
+
+.trunc-btn:hover,
+.trunc-btn.focus {
+  outline: none;
+  border-bottom: var(--ic-space-xxs) solid !important;
+  margin-bottom: calc(-1 * var(--ic-space-xxs)) !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@supports (text-decoration-thickness: 25%) {
+  .trunc-btn:hover,
+  .trunc-btn.focus {
+    text-decoration-line: underline;
+    text-decoration-thickness: 25%;
+    text-underline-offset: 25%;
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }

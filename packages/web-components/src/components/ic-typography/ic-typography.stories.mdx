@@ -48,11 +48,9 @@ import readme from "./readme.md";
 ### Overriding component
 
 <Canvas>
-  <Story name="Component override">
-    {html`<ic-typography variant="h1"
-      ><h3>H1 rendered as H3</h3></ic-typography
-    >`}
-  </Story>
+  <Story name="Component override">{html`
+    <ic-typography variant="h1"><h3>H1 rendered as H3</h3></ic-typography>
+  `}</Story>
 </Canvas>
 
 ### Vertical margins
@@ -96,6 +94,28 @@ import readme from "./readme.md";
       <ic-typography apply-vertical-margins variant="code-extra-small"
         >Code extra small</ic-typography
       >
+    `}
+  </Story>
+</Canvas>
+
+### Truncation
+
+<Canvas>
+  <Story name="Truncation">
+    {html`
+      <ic-typography max-lines="3" variant="body">
+        Body of text that is truncated to three lines. Click the 'See more' link
+        to expand the text, then click 'See less' to truncate the text once
+        more!
+        <br />
+        Dripper caramelization java saucer grounds galão, mocha, and robusta
+        kopi-luwak, percolator, instant, qui saucer latte in brewed café au
+        lait. Con panna, cup, cream, body americano affogato cup espresso, rich
+        milk seasonal saucer grinder spoon that cultivar strong redeye
+        frappuccino barista extraction redeye mazagran. Grounds, french press
+        dripper organic and foam id saucer, crema, black rich dark, grounds
+        breve coffee steamed caramelization percolator.
+      </ic-typography>
     `}
   </Story>
 </Canvas>
