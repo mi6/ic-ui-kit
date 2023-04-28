@@ -103,7 +103,7 @@ jobs:
 
   ic-ui-kit-deploy:
     needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' }}
     name: 'Deploy'
     runs-on: ubuntu-latest
     steps:
