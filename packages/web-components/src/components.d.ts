@@ -1768,6 +1768,10 @@ export namespace Components {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * The number of lines to display before truncating the text, only used for the 'body' variant.
+         */
+        "maxLines"?: number;
+        /**
           * The ICDS typography style to use.
          */
         "variant"?: IcTypographyVariants;
@@ -4121,6 +4125,10 @@ declare namespace LocalJSX {
           * If `true`, appropriate top and bottom margins will be applied to the typography.
          */
         "applyVerticalMargins"?: boolean;
+        /**
+          * The number of lines to display before truncating the text, only used for the 'body' variant.
+         */
+        "maxLines"?: number;
         /**
           * The ICDS typography style to use.
          */
