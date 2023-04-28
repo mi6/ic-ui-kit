@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs';
-import { IcSearchBar } from '../components';
+import { IcSearchBar, IcTypography } from '../components';
 import readme from "../../../web-components/src/components/ic-search-bar/readme.md";
 
 <Meta title="React Components/Search bar" component={IcSearchBar} />
@@ -17,25 +17,38 @@ export const ExternalFiltering = () => {
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
   ];
-  const [query, setQuery] = useState('');
+  const [event, setEvent] = useState(null);
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [optionSelected, setOptionSelected] = useState(false);
   useEffect(() => {
-    if(query.length > 1){
-      const mockAPI = (query) => {
-        const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
-        return new Promise(resolve => setTimeout(() => resolve(filteredResults), 1000));
-      };
-      mockAPI(query).then((results) => setResults(results));
+    const searchTerm = event?.detail.value
+    if (searchTerm !== optionSelected) {
+      if (searchTerm?.length > 1) {
+        if (!optionSelected) {
+          setLoading(true);
+        }
+        setOptionSelected(false);
+        const mockAPI = (query) => {
+          const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
+          return new Promise(resolve => setTimeout(() => resolve(filteredResults), event.type === 'icChange' ? 2000 : 500));
+        };
+        mockAPI(searchTerm).then((results) => setResults(results));
+      }
+      else {
+        setResults([]);  
+      }
     }
-    else{
-      setResults([]);  
-    }
-  },[query])
+    setOptionSelected(false);
+  },[event, optionSelected])
   const handleChange = (event) => {
-    setQuery(event.detail.value);
+    setEvent(event);
+  }
+  const handleOptionSelect = () => {
+    setOptionSelected(true);
   }
   return (
-    <IcSearchBar debounce={300} placeholder="Type to search" label="Search for coffee" onIcChange={handleChange} disableFilter options={results} />
+    <IcSearchBar loading={loading} timeout={1000} debounce={300} placeholder="Type to search" label="Search for coffee" onIcChange={handleChange} onIcRetryLoad={handleChange} onIcOptionSelect={handleOptionSelect} disableFilter options={results} />
   );
 };
 

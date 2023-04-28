@@ -654,7 +654,10 @@ export class SearchBar {
       this.prevNoOption = false;
     }
     const prevNoOptionsList = this.filteredOptions.find(
-      (filteredOption) => filteredOption.label === this.emptyOptionListText
+      (filteredOption) =>
+        filteredOption.label === this.emptyOptionListText ||
+        filteredOption.label === this.loadingErrorLabel ||
+        filteredOption.label === this.loadingLabel
     );
     if (prevNoOptionsList) {
       this.prevNoOption = true;
