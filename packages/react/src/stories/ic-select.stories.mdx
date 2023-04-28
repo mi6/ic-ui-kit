@@ -8,7 +8,7 @@ import {
   Description,
 } from "@storybook/addon-docs";
 
-import { IcSelect, IcButton } from "../components";
+import { IcSelect, IcButton, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 <Meta title="React Components/Select" component={IcSelect} />
@@ -803,25 +803,28 @@ export const ExternalFiltering = () => {
     { label: "Mocha", value: "Moc" },
     { label: "Macchiato", value: "Mac" },
   ];
-  const [query, setQuery] = useState('');
+  const [event, setEvent] = useState();
   const [selectedValue, setSelectedValue] = useState(null);
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if (query !== selectedValue) {
-      if (query) {
+    const searchTerm = event?.detail.value;
+    if (searchTerm !== selectedValue) {
+      if (searchTerm) {
+        setLoading(true);
         const mockAPI = (query) => {
           const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
-          return new Promise(resolve => setTimeout(() => resolve(filteredResults), 1000));
+          return new Promise(resolve => setTimeout(() => resolve(filteredResults), event.type === "icChange" ? 2000 : 500));
         };
-        mockAPI(query).then((results) => setResults(results));
+        mockAPI(searchTerm).then((results) => setResults(results));
       } else {
         setResults([]);
       }
     }
-  },[query])
+  },[event])
   const handleChange = (event) => {
     console.log(event.detail.value);
-    setQuery(event.detail.value);
+    setEvent(event);
   }
   const handleOptionSelect = (event) =>{
     setSelectedValue(event.detail.value);
@@ -830,7 +833,7 @@ export const ExternalFiltering = () => {
     setResults([]);
   }
   return (
-    <IcSelect debounce={300} label="What is your favourite coffee?" searchable disableFilter options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcClear={handleClear}/>
+    <IcSelect loading={loading} timeout={1000} debounce={300} label="What is your favourite coffee?" searchable disableFilter options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcRetryLoad={handleChange} onIcClear={handleClear}/>
   );
 };
 
