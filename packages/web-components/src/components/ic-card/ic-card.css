@@ -17,6 +17,8 @@ button {
 
 .card,
 .card.clickable {
+  display: flex;
+  flex-direction: column;
   border: var(--ic-space-1px) solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
@@ -146,6 +148,7 @@ button {
 
 .interaction-area {
   display: flex;
+  flex-grow: 1;
   gap: var(--ic-space-md);
   margin-top: var(--ic-space-md);
   align-items: flex-end;
