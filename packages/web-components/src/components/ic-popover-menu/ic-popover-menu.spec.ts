@@ -312,6 +312,10 @@ describe("ic-popover-menu", () => {
 
     jest.spyOn(page.rootInstance, "closeMenu").mockImplementation();
 
+    // Menu should be open before it can be closed
+    page.doc.querySelector("ic-popover-menu").open = true;
+    await page.waitForChanges();
+
     await page.rootInstance.handleKeyDown({
       key: "Escape",
       preventDefault: (): void => null,
@@ -331,6 +335,10 @@ describe("ic-popover-menu", () => {
     });
 
     jest.spyOn(page.rootInstance, "closeMenu").mockImplementation();
+
+    // Menu should be open before it can be closed
+    page.doc.querySelector("ic-popover-menu").open = true;
+    await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       key: "Tab",
