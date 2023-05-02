@@ -169,7 +169,7 @@ export class PopoverMenu {
 
   private closeMenu = () => {
     this.open = false;
-    this.anchorEl.focus();
+    this.anchorEl?.focus();
   };
 
   private getNextItemToSelect = (
@@ -220,8 +220,10 @@ export class PopoverMenu {
         break;
       case "Escape":
       case "Tab":
-        this.closeMenu();
-        this.host.blur();
+        if (this.open) {
+          this.closeMenu();
+          this.host.blur();
+        }
         break;
     }
   }
