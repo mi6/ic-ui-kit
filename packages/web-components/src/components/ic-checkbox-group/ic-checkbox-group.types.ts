@@ -1,6 +1,8 @@
 export interface IcChangeEventDetail {
   value: string[];
-  checkedOptions: HTMLIcCheckboxElement[];
-  textFieldValues?: string[];
+  checkedOptions: {
+    checkbox: HTMLIcCheckboxElement;
+    textFieldValue?: string;
+  }[];
   selectedOption: HTMLIcCheckboxElement;
 }
