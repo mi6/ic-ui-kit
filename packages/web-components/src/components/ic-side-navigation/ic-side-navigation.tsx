@@ -184,6 +184,7 @@ export class SideNavigation {
       this.animateCollapsedIconLabels();
     }
 
+    this.setExpandedButtonHeight();
     this.emitSideNavigationExpanded({ sideNavExpanded: this.menuExpanded });
   };
 
@@ -191,7 +192,7 @@ export class SideNavigation {
    * In order to style nested slotted elements (e.g. using React Router components), this method
    * rearranges the a tag and labels and adds inline styling expand/collaped animations as external CSS classes are not
    * do not take affect.
-   * @param menuExpanded boolean - true or false depending on seide navigation state
+   * @param menuExpanded boolean - true or false depending on side navigation state
    */
   private arrangeSlottedNavigationItem = (menuExpanded?: boolean) => {
     const navItems = this.el.querySelectorAll("ic-navigation-item");
@@ -244,6 +245,19 @@ export class SideNavigation {
       icTypography.style.whiteSpace = "nowrap";
       icTypography.style.overflow = "hidden";
       icTypography.style.textOverflow = "ellipsis";
+    }
+  };
+
+  private setExpandedButtonHeight = () => {
+    const appStatusWrapper = this.el.shadowRoot.querySelector(
+      "#side-navigation > .bottom-wrapper > .bottom-side-nav > .app-status-wrapper"
+    ) as HTMLDivElement;
+
+    if (appStatusWrapper.offsetHeight !== 0) {
+      this.el.style.setProperty(
+        "--sm-side-navigation-bottom-bar-height",
+        `${appStatusWrapper.offsetHeight}px`
+      );
     }
   };
 
@@ -580,6 +594,8 @@ export class SideNavigation {
     this.styleSlottedCollapsedIconLabel();
     this.arrangeSlottedNavigationItem(this.menuExpanded);
     this.displayTooltipWithExpandedLongLabel(this.menuExpanded);
+
+    this.setExpandedButtonHeight();
 
     !isSlotUsed(this.el, "app-title") &&
       onComponentRequiredPropUndefined(
