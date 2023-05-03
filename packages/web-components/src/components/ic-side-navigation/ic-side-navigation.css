@@ -15,6 +15,7 @@
     --ic-transition-duration-slow
   );
   --side-navigation-width: 20rem;
+  --sm-side-navigation-bottom-bar-height: 3.5rem;
 
   z-index: var(--ic-z-index-side-navigation);
 }
@@ -225,37 +226,38 @@ slot[name="app-icon"]::slotted(a) {
 }
 
 .app-status-wrapper {
-  position: absolute;
-  right: var(--ic-space-md);
+  left: 3.5rem;
+  right: var(--ic-space-sm);
   top: 0;
   bottom: 0;
   width: auto;
   display: flex;
-  align-items: center;
+  gap: var(--ic-space-xs);
+  padding: var(--ic-space-sm) 0;
+  justify-content: flex-end;
+  align-items: flex-end;
   pointer-events: none;
+  height: fit-content;
+  margin: 0 var(--ic-space-xs);
 }
 
 .app-status-wrapper .app-version {
-  max-width: 6.25rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: flex;
+  overflow-wrap: break-word;
+  padding-bottom: var(--ic-space-xxs);
 }
 
 .app-status-wrapper .app-status {
-  border-radius: 5rem;
+  display: flex;
+  border-radius: 1rem;
   background-color: var(--ic-theme-text);
   color: var(--ic-color-primary-text);
   padding: var(--ic-space-xxs) var(--ic-space-lg);
-  margin-right: var(--ic-space-xs);
-  max-width: 6.25rem;
+  min-width: 1rem;
 }
 
 .app-status-wrapper .app-status-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 6rem;
+  overflow-wrap: break-word;
 }
 
 :host(.dark) .app-status-wrapper .app-status {
@@ -299,7 +301,13 @@ slot[name="app-icon"]::slotted(a) {
 .bottom-side-nav {
   position: relative;
   align-content: flex-end;
-  height: var(--sm-side-navigation-top-bar-height);
+  min-height: var(--sm-side-navigation-top-bar-height);
+}
+
+.bottom-side-nav ic-divider {
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .primary-navigation {
@@ -322,6 +330,7 @@ slot[name="app-icon"]::slotted(a) {
 }
 
 .bottom-side-nav .menu-expand-button {
+  position: absolute;
   display: none;
 }
 
@@ -477,16 +486,20 @@ slot[name="app-icon"]::slotted(a) {
   .app-status-wrapper,
   :host(.sm-collapsed) .app-status-wrapper {
     display: none;
+    margin-left: 0;
   }
 
   :host(.sm-expanded) .app-status-wrapper {
     display: flex;
+    max-width: 16rem;
+    margin-right: calc(var(--ic-space-xxxs) + var(--ic-space-xs));
   }
 
   .bottom-side-nav {
     justify-items: flex-end;
+    align-items: flex-end;
+    justify-content: flex-end;
     display: flex;
-    flex-direction: column;
   }
 
   .bottom-side-nav .menu-expand-button {
@@ -500,6 +513,10 @@ slot[name="app-icon"]::slotted(a) {
     cursor: pointer;
     display: flex;
     transition: var(--ic-easing-transition-fast);
+  }
+
+  :host(.sm-expanded) .bottom-side-nav .menu-expand-button {
+    height: 100%;
   }
 
   .bottom-side-nav .menu-expand-button svg {
@@ -532,6 +549,8 @@ slot[name="app-icon"]::slotted(a) {
   :host(.sm-expanded) .bottom-side-nav .menu-expand-button svg {
     transform: scaleX(-1);
     transition: transform var(--ic-easing-transition-slow);
+    align-self: flex-end;
+    margin-bottom: 0.875rem;
   }
 
   :host(.anchor-right.sm-collapsed) .bottom-side-nav .menu-expand-button svg {

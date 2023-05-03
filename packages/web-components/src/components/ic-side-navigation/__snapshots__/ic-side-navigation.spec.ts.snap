@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-expanded" expanded="true">
+<ic-side-navigation app-title="ACME" class="sm-expanded" expanded="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -36,7 +36,7 @@ exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
 `;
 
 exports[`ic-side-navigation renders with app title, version and status: renders-with-app-title-version-status 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -75,7 +75,7 @@ exports[`ic-side-navigation renders with app title, version and status: renders-
 `;
 
 exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-collapsed">
+<ic-side-navigation app-title="ACME" class="sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -110,7 +110,7 @@ exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] =
 `;
 
 exports[`ic-side-navigation renders with primary navigation items and collapsed icon labels: primary-navigation-items-and-collapsed-icon-labels 1`] = `
-<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true" status="BETA" version="v0.0.0">
+<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -175,7 +175,7 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
 `;
 
 exports[`ic-side-navigation renders with primary navigation items: renders-with-primary-navigation-items 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -240,7 +240,7 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
 `;
 
 exports[`ic-side-navigation renders with secondary navigation items: renders-with-secondary-navigation-items 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0">
+<ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -305,7 +305,7 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
 `;
 
 exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels 1`] = `
-<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true">
+<ic-side-navigation app-title="ACME" class="collapsed-labels sm-collapsed" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -397,7 +397,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
 `;
 
 exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels-menu-toggle 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-expanded" collapsed-icon-labels="true">
+<ic-side-navigation app-title="ACME" class="sm-expanded" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -486,7 +486,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
 `;
 
 exports[`ic-side-navigation renders with slotted navigation item: slotted-navigation-item 1`] = `
-<ic-side-navigation app-title="ACME" class="sm-collapsed">
+<ic-side-navigation app-title="ACME" class="sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
@@ -552,7 +552,7 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
 `;
 
 exports[`ic-side-navigation renders with slotted primary secondary navigation and expanded: renders-with-slotted-primary-secondary-navigation-and-expanded 1`] = `
-<ic-side-navigation app-title="Application Name" class="sm-expanded" expanded="true" status="BETA" version="v0.0.0">
+<ic-side-navigation app-title="Application Name" class="sm-expanded" expanded="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
       <div class="light top-bar">
