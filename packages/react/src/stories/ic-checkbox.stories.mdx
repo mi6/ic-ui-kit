@@ -113,7 +113,7 @@ import { useForm } from 'react-hook-form';
 
 <Canvas>
   <Story name="Conditional dynamic">
-        <IcCheckboxGroup label="Conditional dynamic" name="1">
+        <IcCheckboxGroup label="Conditional dynamic" name="1" onIcChange={(ev) => console.log(ev.detail.selectedOption.label, ev.detail.selectedOption.checked)}>
           <IcCheckbox
             additionalFieldDisplay="dynamic"
             value="valueName1"
