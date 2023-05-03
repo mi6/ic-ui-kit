@@ -127,8 +127,7 @@ describe("ic-checkbox-group component", () => {
     );
     expect(icChange).toHaveReceivedEventDetail({
       value: ["test2"],
-      checkedOptions: [checkboxElement],
-      textFieldValues: [null],
+      checkedOptions: [{ checkbox: checkboxElement }],
       selectedOption: checkboxElement,
     });
 
@@ -138,7 +137,6 @@ describe("ic-checkbox-group component", () => {
     expect(icChange).toHaveReceivedEventDetail({
       value: [],
       checkedOptions: [],
-      textFieldValues: [],
       selectedOption: checkboxElement,
     });
   });

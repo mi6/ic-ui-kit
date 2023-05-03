@@ -145,6 +145,9 @@ export class Checkbox {
 
   disconnectedCallback(): void {
     removeFormResetListener(this.host, this.handleFormReset);
+    this.host
+      .querySelector("ic-text-field")
+      ?.removeEventListener("icChange", (e) => e.stopImmediatePropagation());
   }
 
   render() {
