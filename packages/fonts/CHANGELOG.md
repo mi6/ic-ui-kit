@@ -3,11 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.12 (2023-05-03)
+# [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
+
 
 ### Bug Fixes
 
-- **root:** updated github action for release ([d66133b](https://github.com/mi6/ic-ui-kit/commit/d66133b16cc123c60a8ed468c3aad35f9549e3f3))
+* **fonts:** add Source Code Pro font ([8afb3cb](https://github.com/mi6/ic-ui-kit/commit/8afb3cba4365a51bf5fd1c835c739fa56a550e76)), closes [#544](https://github.com/mi6/ic-ui-kit/issues/544)
+
+
+
+
 
 # [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
 
