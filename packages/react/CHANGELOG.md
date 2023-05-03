@@ -3,22 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.12 (2023-05-03)
+# [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
+
 
 ### Bug Fixes
 
-- **root:** updated github action for release ([d66133b](https://github.com/mi6/ic-ui-kit/commit/d66133b16cc123c60a8ed468c3aad35f9549e3f3))
+* **react:** add code typography variants to React Storybook ([1a81ad2](https://github.com/mi6/ic-ui-kit/commit/1a81ad2dcbb88785ccc69b1cc99a43f19a732d33)), closes [#544](https://github.com/mi6/ic-ui-kit/issues/544)
 
-# [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
-
-### Bug Fixes
-
-- **react:** remove charactersUntilSuggestions stories ([dd10547](https://github.com/mi6/ic-ui-kit/commit/dd10547e1dc3e4798701f8792e665c45965dc827))
 
 ### Features
 
-- **react:** add menu item and menu group to React components.ts ([60b815d](https://github.com/mi6/ic-ui-kit/commit/60b815d45ca04bbb0a49e57159cbfb381bb62774)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
-- **react:** create popover menu component ([96bc93c](https://github.com/mi6/ic-ui-kit/commit/96bc93c6ff137b042aff7d4908791312334ccb7b))
+* **react:** add min/max to TextField ([6b236d3](https://github.com/mi6/ic-ui-kit/commit/6b236d3d1b2b7f4df83ccfe2dc460b6108302847))
+
+
+
+
+
+# [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
+
+
+### Bug Fixes
+
+* **react:** remove charactersUntilSuggestions stories ([dd10547](https://github.com/mi6/ic-ui-kit/commit/dd10547e1dc3e4798701f8792e665c45965dc827))
+
+
+### Features
+
+* **react:** add menu item and menu group to React components.ts ([60b815d](https://github.com/mi6/ic-ui-kit/commit/60b815d45ca04bbb0a49e57159cbfb381bb62774)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
+* **react:** create popover menu component ([96bc93c](https://github.com/mi6/ic-ui-kit/commit/96bc93c6ff137b042aff7d4908791312334ccb7b))
 
 # [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
 
