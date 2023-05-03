@@ -135,7 +135,10 @@ import readme from "./readme.md";
       html`
         <script>
           function handleIcChange(ev) {
-            console.log(ev.detail.selectedOption.checked);
+            console.log(
+              ev.detail.selectedOption.label,
+              ev.detail.selectedOption.checked
+            );
           }
           document
             .querySelector("ic-checkbox-group")

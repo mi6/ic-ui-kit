@@ -80,10 +80,10 @@ export class CheckboxGroup {
     ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
     this.icChange.emit({
       value: checkedOptions.map((opt) => opt.value),
-      checkedOptions,
-      textFieldValues: checkedOptions.map(
-        (opt) => opt.querySelector("ic-text-field")?.value
-      ),
+      checkedOptions: checkedOptions.map((opt) => ({
+        checkbox: opt,
+        textFieldValue: opt.querySelector("ic-text-field")?.value,
+      })),
       selectedOption: ev.target as HTMLIcCheckboxElement,
     });
   }
