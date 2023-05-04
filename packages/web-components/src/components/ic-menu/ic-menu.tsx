@@ -401,6 +401,9 @@ export class Menu {
     this.keyboardNav = false;
 
     switch (event.key) {
+      case " ":
+        event.preventDefault();
+        break;
       case "ArrowUp":
         event.preventDefault();
         this.setPreviousOptionValue(selectedOptionIndex);
