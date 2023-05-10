@@ -1650,6 +1650,7 @@ export namespace Components {
           * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
         "validationInline": boolean;
+        "validationInlineInternal": boolean;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
@@ -3947,6 +3948,7 @@ declare namespace LocalJSX {
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
+        "onGetValidationText"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
         /**
           * Emitted when input loses focus.
          */
@@ -4005,6 +4007,7 @@ declare namespace LocalJSX {
           * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
          */
         "validationInline"?: boolean;
+        "validationInlineInternal"?: boolean;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */

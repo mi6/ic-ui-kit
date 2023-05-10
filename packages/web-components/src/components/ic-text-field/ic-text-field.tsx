@@ -155,6 +155,11 @@ export class TextField {
   @Prop() validationInline: boolean = false;
 
   /**
+   *  @internal If `true`, the validation will display inline.
+   */
+  @Prop() validationInlineInternal: boolean = false;
+
+  /**
    * The automatic capitalisation of the text value as it is entered/edited by the user.
    * Available options: "off", "none", "on", "sentences", "words", "characters".
    */
@@ -338,6 +343,15 @@ export class TextField {
     return this.rows > 1;
   };
 
+  /**
+   * @internal Emitted when the validationInlineInternal is `true`
+   */
+  @Event() getValidationText: EventEmitter<IcValueEventDetail>;
+
+  private getInlineValidationText = () => {
+    this.getValidationText.emit({ value: this.validationText });
+  };
+
   private hasLeftIconSlot(): boolean {
     const iconEl = this.el.querySelector(`[slot="icon"]`);
     if (iconEl != null) {
@@ -353,7 +367,8 @@ export class TextField {
   private showStatusText = (status: IcInformationStatusOrEmpty): boolean => {
     if (
       this.hasStatus(status) &&
-      !(status == IcInformationStatus.Success && this.validationInline)
+      !(status == IcInformationStatus.Success && this.validationInline) &&
+      !this.validationInlineInternal
     ) {
       return true;
     }
@@ -392,6 +407,9 @@ export class TextField {
       [{ prop: this.label, propName: "label" }],
       "Text Field"
     );
+    if (this.validationInlineInternal) {
+      this.getInlineValidationText();
+    }
   }
 
   disconnectedCallback(): void {
@@ -422,6 +440,7 @@ export class TextField {
       validationStatus,
       validationText,
       validationInline,
+      validationInlineInternal,
       spellcheck,
       inputmode,
       fullWidth,
@@ -479,7 +498,6 @@ export class TextField {
     if (hiddenInput) {
       renderHiddenInput(true, this.el, name, value, disabledMode);
     }
-
     return (
       <Host class={{ ["fullwidth"]: fullWidth }}>
         <ic-input-container readonly={readonly} disabled={disabledMode}>
@@ -592,45 +610,47 @@ export class TextField {
             !isEmptyString(validationText) ||
             maxNumChars > 0 ||
             maxValueExceeded ||
-            minValueUnattained) && (
-            <ic-input-validation
-              status={
-                this.hasStatus(currentStatus) === false ||
-                (currentStatus === IcInformationStatus.Success &&
-                  validationInline)
-                  ? ""
-                  : currentStatus
-              }
-              message={showStatusText ? currentValidationText : ""}
-              ariaLiveMode={messageAriaLive}
-              for={inputId}
-              fullWidth={fullWidth}
-            >
-              {!readonly && maxNumChars > 0 && (
-                <div slot="validation-message-adornment">
-                  <ic-typography
-                    variant="caption"
-                    class={{
-                      ["maxlengthtext"]: true,
-                      ["error"]: maxLengthExceeded,
-                      ["disabled"]: disabledText,
-                    }}
-                  >
-                    <span
-                      aria-live="polite"
-                      id={`${inputId}-charcount`}
-                      class="charcount"
+            minValueUnattained) &&
+            !validationInlineInternal && (
+              <ic-input-validation
+                status={
+                  this.hasStatus(currentStatus) === false ||
+                  (currentStatus === IcInformationStatus.Success &&
+                    validationInline) ||
+                  validationInlineInternal
+                    ? ""
+                    : currentStatus
+                }
+                message={showStatusText ? currentValidationText : ""}
+                ariaLiveMode={messageAriaLive}
+                for={inputId}
+                fullWidth={fullWidth}
+              >
+                {!readonly && maxNumChars > 0 && (
+                  <div slot="validation-message-adornment">
+                    <ic-typography
+                      variant="caption"
+                      class={{
+                        ["maxlengthtext"]: true,
+                        ["error"]: maxLengthExceeded,
+                        ["disabled"]: disabledText,
+                      }}
                     >
-                      {numChars}/{maxNumChars}
-                    </span>
-                    <span hidden={true} id={hiddenCharCountDescId}>
-                      Field can contain a maximum of {maxNumChars} characters.
-                    </span>
-                  </ic-typography>
-                </div>
-              )}
-            </ic-input-validation>
-          )}
+                      <span
+                        aria-live="polite"
+                        id={`${inputId}-charcount`}
+                        class="charcount"
+                      >
+                        {numChars}/{maxNumChars}
+                      </span>
+                      <span hidden={true} id={hiddenCharCountDescId}>
+                        Field can contain a maximum of {maxNumChars} characters.
+                      </span>
+                    </ic-typography>
+                  </div>
+                )}
+              </ic-input-validation>
+            )}
         </ic-input-container>
       </Host>
     );
