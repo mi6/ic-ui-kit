@@ -1,5 +1,9 @@
 @import "../../global/normalize.css";
 
+/**
+* @prop --min-width: Minimum width of the button.
+*/
+
 :host {
   display: inline-block;
 
@@ -19,7 +23,7 @@
   font-size: 0.875rem;
   transition: var(--ic-easing-transition-fast);
   border-radius: var(--ic-border-radius);
-  min-width: 6.25rem;
+  min-width: var(--min-width, 6.25rem);
   display: inline-flex;
   gap: var(--ic-space-xs);
   flex-direction: row;

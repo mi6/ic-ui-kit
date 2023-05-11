@@ -58,6 +58,13 @@ Type: `Promise<void>`
 | `"icon"` | Content will be placed to the left of the button label. |
 
 
+## CSS Custom Properties
+
+| Name          | Description                  |
+| ------------- | ---------------------------- |
+| `--min-width` | Minimum width of the button. |
+
+
 ## Dependencies
 
 ### Used by
