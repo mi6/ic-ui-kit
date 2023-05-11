@@ -138,4 +138,47 @@ describe("ic-tooltip component", () => {
 
     expect(text).toBe("test-label");
   });
+
+  it("should display the tooltip when the displayTooltip method is called", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-tooltip target="test-id" label="test-label"><button>IC Tooltip Test</button></ic-tooltip>`
+    );
+    await page.waitForChanges();
+
+    const tooltip = await page.find("ic-tooltip");
+    const tooltipContainer = await page.find(
+      ".ic-tooltip >>> .ic-tooltip-container"
+    );
+    expect(await tooltipContainer.isVisible()).toBe(false);
+
+    await tooltip.callMethod("displayTooltip", true, true);
+    expect(await tooltipContainer.isVisible()).toBe(true);
+
+    await page.keyboard.press("Escape");
+    expect(await tooltipContainer.isVisible()).toBe(true);
+
+    await tooltip.callMethod("displayTooltip", false);
+    expect(await tooltipContainer.isVisible()).toBe(false);
+  });
+
+  it("should still dismiss the tooltip using the keyboard if persistTooltip is false", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-tooltip target="test-id" label="test-label"><button>IC Tooltip Test</button></ic-tooltip>`
+    );
+    await page.waitForChanges();
+
+    const tooltip = await page.find("ic-tooltip");
+    const tooltipContainer = await page.find(
+      ".ic-tooltip >>> .ic-tooltip-container"
+    );
+    expect(await tooltipContainer.isVisible()).toBe(false);
+
+    await tooltip.callMethod("displayTooltip", true, false);
+    expect(await tooltipContainer.isVisible()).toBe(true);
+
+    await page.keyboard.press("Escape");
+    expect(await tooltipContainer.isVisible()).toBe(false);
+  });
 });

@@ -22,6 +22,33 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
   </Story>
 </Canvas>
 
+### Using external method
+
+<Canvas>
+  <Story name="Using external method">
+    {() => {
+      let display = true;
+      function func() {
+        document.querySelector("ic-tooltip").displayTooltip(display, true);
+        display = !display;
+      }
+      return (
+        <>
+          <button onClick={func}>Show tooltip</button>
+          <IcTooltip
+            label="This is a description of the button"
+            target="test-button-default"
+            >
+            <button aria-describedby="ic-tooltip-test-button-default" id="test-button-default">
+              Default
+            </button>
+          </IcTooltip>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Disabled Hover
 
 <Canvas>
