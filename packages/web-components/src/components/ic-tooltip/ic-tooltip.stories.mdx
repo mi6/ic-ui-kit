@@ -31,6 +31,37 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Using external method
+
+<Canvas>
+  <Story name="Using external method" height="100px">
+    {(args) =>
+      html`<script>
+          let display = true;
+          document
+            .querySelector("#clickMe")
+            .addEventListener("click", handleDisplay);
+          const tooltip = document.querySelector("ic-tooltip");
+          function handleDisplay() {
+            tooltip.displayTooltip(display, true);
+            display = !display;
+          }
+        </script>
+        <button id="clickMe">Show tooltip</button>
+        <ic-tooltip
+          label="This is a description of the button"
+          target="test-button-default"
+          ><button
+            id="test-button-default"
+            aria-describedby="ic-tooltip-test-button-default"
+          >
+            Default
+          </button></ic-tooltip
+        >`
+    }
+  </Story>
+</Canvas>
+
 ### Disabled Hover
 
 <Canvas>
