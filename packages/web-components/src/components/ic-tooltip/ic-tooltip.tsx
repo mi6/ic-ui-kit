@@ -47,10 +47,15 @@ export class Tooltip {
     }
   }
 
+  /**
+   * Method to programmatically show/hide the tooltip without needing to interact with an anchor element
+   * @param show Whether to show or hide the tooltip
+   * @param persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover
+   */
   @Method()
   async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
     this.persistTooltip = persistTooltip;
-    (show ? this.show : this.hide)(this.popperInstance);
+    show ? this.show(this.popperInstance) : this.hide(this.popperInstance);
   }
 
   private toolTip: HTMLDivElement;

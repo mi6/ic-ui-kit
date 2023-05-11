@@ -19,7 +19,7 @@
 
 ### `displayTooltip(show: boolean, persistTooltip?: boolean) => Promise<void>`
 
-
+Method to programmatically show/hide the tooltip without needing to interact with an anchor element
 
 #### Returns
 
