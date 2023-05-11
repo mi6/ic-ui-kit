@@ -177,5 +177,10 @@ describe("ic-loading-indicator component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.toolTip.getAttribute("data-show")).not.toBeNull;
+
+    await page.rootInstance.displayTooltip(false, false);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
   });
 });
