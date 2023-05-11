@@ -510,6 +510,22 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
+### Min width
+
+<Canvas>
+  <Story name="Min width">
+    {html`
+      <style>
+        ic-button {
+          --min-width: 4rem;
+        }
+      </style>
+      <ic-button>Min</ic-button>
+      <ic-button variant="secondary">Min</ic-button>
+    `}
+  </Story>
+</Canvas>
+
 ### Icon only
 
 <Canvas>
