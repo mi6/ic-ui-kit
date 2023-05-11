@@ -1717,6 +1717,7 @@ export namespace Components {
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
         "disableHover"?: boolean;
+        "displayTooltip": (show: boolean, persistTooltip?: boolean) => Promise<void>;
         /**
           * The text to display on the tooltip.
          */

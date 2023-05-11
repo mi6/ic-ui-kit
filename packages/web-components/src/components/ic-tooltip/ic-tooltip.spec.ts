@@ -152,4 +152,30 @@ describe("ic-loading-indicator component", () => {
 
     page.rootInstance.disconnectedCallback();
   });
+
+  it("should open the tooltip using the displayTooltip method and should persist when persistTooltip is true", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
+
+    await page.rootInstance.displayTooltip(true, true);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).not.toBeNull;
+
+    window.document.body.dispatchEvent(
+      new (window.window as any).KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).not.toBeNull;
+  });
 });

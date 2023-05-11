@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  Watch,
+  Method,
+} from "@stencil/core";
 import { Instance, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
@@ -39,6 +47,12 @@ export class Tooltip {
     }
   }
 
+  @Method()
+  async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
+    this.persistTooltip = persistTooltip;
+    (show ? this.show : this.hide)(this.popperInstance);
+  }
+
   private toolTip: HTMLDivElement;
   private arrow: HTMLDivElement;
   private mouseOverTool: boolean = false;
@@ -48,6 +62,7 @@ export class Tooltip {
   private instantHideEvents = ["focusout"];
   private delayedHideEvents = ["mouseleave"];
   private popperInstance: Instance;
+  private persistTooltip = false;
 
   private show = (popper: Instance) => {
     this.toolTip.setAttribute("data-show", "");
@@ -70,11 +85,12 @@ export class Tooltip {
         { name: "eventListeners", enabled: false },
       ],
     }));
+    this.persistTooltip = false;
   };
 
   private checkCloseTooltip = (popper: Instance) => {
     setTimeout(() => {
-      if (!this.mouseOverTool) {
+      if (!this.mouseOverTool && !this.persistTooltip) {
         this.hide(popper);
       }
     }, 100);
@@ -90,7 +106,7 @@ export class Tooltip {
   };
 
   private handleKeyDown = (key: string) => {
-    if (key === "Escape") {
+    if (key === "Escape" && !this.persistTooltip) {
       this.hide(this.popperInstance);
     }
   };
@@ -107,7 +123,10 @@ export class Tooltip {
     });
 
     this.instantHideEvents.forEach((event) => {
-      this.el[method](event, () => this.hide(this.popperInstance));
+      this.el[method](
+        event,
+        () => !this.persistTooltip && this.hide(this.popperInstance)
+      );
     });
 
     this.delayedHideEvents.forEach((event) => {
