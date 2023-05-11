@@ -15,6 +15,19 @@
 | `target`             | `target`        | The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used. | `string`                                                                                                                                                             | `undefined` |
 
 
+## Methods
+
+### `displayTooltip(show: boolean, persistTooltip?: boolean) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## CSS Custom Properties
 
 | Name                   | Description        |
