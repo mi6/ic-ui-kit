@@ -405,13 +405,16 @@ export class TopNavigation {
                       )}
                       {hasMenuContent && this.deviceSize <= DEVICE_SIZES.L && (
                         <div class="menu-button-container">
+                          <span
+                            id="navigation-landmark-button-text"
+                            class="navigation-landmark-button-text"
+                            aria-hidden="true"
+                          >
+                            Main navigation button
+                          </span>
                           <nav
-                            aria-labelledby="navigation-landmark-text"
-                            aria-hidden={
-                              !this.hasNavigation || this.navMenuVisible
-                                ? "true"
-                                : "false"
-                            }
+                            aria-labelledby="navigation-landmark-button-text"
+                            aria-hidden={this.navMenuVisible ? "true" : "false"}
                           >
                             <ic-button
                               id="menu-button"
