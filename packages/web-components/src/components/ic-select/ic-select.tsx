@@ -754,6 +754,15 @@ export class Select {
   };
 
   private onBlur = (event: FocusEvent): void => {
+    const target = event.relatedTarget as HTMLElement;
+    if (
+      target !== null &&
+      target.tagName === "UL" &&
+      target.className.includes("menu")
+    ) {
+      return;
+    }
+
     const retryButton = this.menu?.querySelector("#retry-button");
     const isSearchableAndNoFocusedInternalElements =
       this.searchable &&
