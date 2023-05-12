@@ -166,6 +166,7 @@ export class Menu {
   private isSearchBar: boolean = false;
   private hasTimedOut: boolean = false;
   private isLoading: boolean = false;
+  private hasPreviouslyBlurred: boolean = false;
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
     if (!open) this.popperInstance.destroy();
@@ -404,12 +405,13 @@ export class Menu {
   private handleBlur = (event: FocusEvent): void => {
     if (event.relatedTarget !== this.inputEl) {
       if (!this.menu.contains(event.relatedTarget as HTMLElement)) {
-        this.handleMenuChange(false, false);
+        this.handleMenuChange(false, this.hasPreviouslyBlurred);
       }
     } else {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
     }
+    this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
 
   private handleMouseDown = (event: Event): void => {
