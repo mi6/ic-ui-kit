@@ -698,12 +698,7 @@ describe("ic-select", () => {
 
   it("should test blur on searchable input", async () => {
     const page = await newSpecPage({
-      components: [
-        Select,
-        Menu,
-        InputComponentContainer,
-        InputComponentContainer,
-      ],
+      components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
@@ -717,6 +712,32 @@ describe("ic-select", () => {
     input.blur();
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalled();
+  });
+
+  it("should test blur on searchable input where target is an element of the menu but not a menu option", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const target = page.root.shadowRoot.querySelector("ul.menu");
+
+    const event = new FocusEvent("blur", {
+      bubbles: true,
+      cancelable: true,
+      relatedTarget: target,
+    });
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icBlur", eventSpy);
+
+    await page.rootInstance.onBlur(event);
+
+    await page.waitForChanges();
+    expect(eventSpy).not.toHaveBeenCalled();
   });
 
   it("should test searchable input", async () => {
