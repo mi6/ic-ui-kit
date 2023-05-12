@@ -203,10 +203,8 @@ export class Checkbox {
             indeterminate={this.indeterminate}
             onClick={this.handleClick}
           ></input>
-          <ic-typography variant="body">
-            <label class="checkbox-label" htmlFor={id}>
-              {this.label}
-            </label>
+          <ic-typography class="checkbox-label" variant="body">
+            <label htmlFor={id}>{this.label}</label>
           </ic-typography>
         </div>
         {isSlotUsed(this.host, "additional-field") && (

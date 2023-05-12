@@ -10,6 +10,7 @@
   width: fit-content;
   padding: var(--ic-space-xxs) 0 var(--ic-space-xxs) var(--ic-space-xxs);
   margin-bottom: var(--ic-space-xxs);
+  align-items: center;
 }
 
 :host(.small) .container {
@@ -32,6 +33,7 @@
   outline: none;
   cursor: pointer;
   transition: var(--ic-easing-transition-fast);
+  flex-shrink: 0;
 }
 
 .checkbox:checked {
@@ -106,18 +108,19 @@
   z-index: 1;
   background-color: transparent;
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .indeterminate-symbol {
   position: relative;
   width: 0.875rem;
   height: var(--ic-space-xxxs);
-  top: 0.688rem;
   right: -1.188rem;
   margin-left: -0.875rem;
   z-index: 1;
   background-color: var(--ic-action-default);
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .container:hover .indeterminate-symbol {
