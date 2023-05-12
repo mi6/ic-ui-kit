@@ -153,6 +153,15 @@ slot[name="toggle-icon"] svg {
   margin-left: var(--ic-space-md);
 }
 
+.menu-button-container .navigation-landmark-button-text {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .search-actions-container {
   display: flex;
 }
