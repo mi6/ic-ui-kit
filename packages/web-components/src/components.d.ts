@@ -17,7 +17,7 @@ import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
-import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcAutocorrectStates1, IcBlurEventDetail, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcThemeForeground as IcThemeForeground1, IcValueEventDetail } from "./interface";
+import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcAutocorrectStates1, IcBlurEventDetail, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcThemeForeground as IcThemeForeground1, IcValueEventDetail as IcValueEventDetail1 } from "./interface";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
@@ -1595,7 +1595,7 @@ export namespace Components {
         /**
           * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
          */
-        "max": number;
+        "max": string | number;
         /**
           * The maximum number of characters that can be entered in the field.
          */
@@ -1603,7 +1603,7 @@ export namespace Components {
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
-        "min": number;
+        "min": string | number;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -3935,7 +3935,7 @@ declare namespace LocalJSX {
         /**
           * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
          */
-        "max"?: number;
+        "max"?: string | number;
         /**
           * The maximum number of characters that can be entered in the field.
          */
@@ -3943,7 +3943,7 @@ declare namespace LocalJSX {
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
-        "min"?: number;
+        "min"?: string | number;
         /**
           * The name of the control, which is submitted with the form data.
          */

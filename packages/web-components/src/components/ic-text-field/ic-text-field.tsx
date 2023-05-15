@@ -127,12 +127,12 @@ export class TextField {
   /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
    */
-  @Prop() min: number = undefined;
+  @Prop() min: string | number = undefined;
 
   /**
    * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
    */
-  @Prop() max: number = undefined;
+  @Prop() max: string | number = undefined;
 
   /**
    * The maximum number of characters that can be entered in the field.
@@ -263,12 +263,12 @@ export class TextField {
     this.numChars = newValue.length;
 
     if (this.type === "number") {
-      if (newValue && Number(newValue) < this.min) {
+      if (newValue && Number(newValue) < Number(this.min)) {
         this.minValueUnattained = true;
       } else {
         this.minValueUnattained = false;
       }
-      if (Number(newValue) > this.max) {
+      if (Number(newValue) > Number(this.max)) {
         this.maxValueExceeded = true;
       } else {
         this.maxValueExceeded = false;
