@@ -66,12 +66,12 @@ export class TabContext {
   /**
    * @deprecated This event should not be used anymore. Use icTabSelect instead.
    */
-  @Event() tabSelect: EventEmitter<IcTabSelectEventDetail>;
+  @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
 
   /**
    * Emitted when a user selects a tab.
    */
-  @Event() icTabSelect: EventEmitter<IcTabSelectEventDetail>;
+  @Event({ bubbles: false }) icTabSelect: EventEmitter<IcTabSelectEventDetail>;
 
   @Listen("tabClick")
   tabClickHandler(event: CustomEvent<IcTabClickEventDetail>): void {
@@ -87,6 +87,7 @@ export class TabContext {
     this.tabSelect.emit({
       tabIndex: event.detail.position,
     });
+    event.stopImmediatePropagation();
   }
 
   @Listen("tabCreated")
