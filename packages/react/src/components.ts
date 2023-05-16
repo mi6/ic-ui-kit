@@ -21,6 +21,7 @@ export const IcClassificationBanner = /*@__PURE__*/createReactComponent<JSX.IcCl
 export const IcDataEntity = /*@__PURE__*/createReactComponent<JSX.IcDataEntity, HTMLIcDataEntityElement>('ic-data-entity');
 export const IcDataRow = /*@__PURE__*/createReactComponent<JSX.IcDataRow, HTMLIcDataRowElement>('ic-data-row');
 export const IcDialog = /*@__PURE__*/createReactComponent<JSX.IcDialog, HTMLIcDialogElement>('ic-dialog');
+export const IcDataTable = /*@__PURE__*/createReactComponent<JSX.IcDataTable, HTMLIcDataTableElement>('ic-data-table');
 export const IcDivider = /*@__PURE__*/createReactComponent<JSX.IcDivider, HTMLIcDividerElement>('ic-divider');
 export const IcFooter = /*@__PURE__*/createReactComponent<JSX.IcFooter, HTMLIcFooterElement>('ic-footer');
 export const IcFooterLink = /*@__PURE__*/createReactComponent<JSX.IcFooterLink, HTMLIcFooterLinkElement>('ic-footer-link');
