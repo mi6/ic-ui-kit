@@ -452,7 +452,7 @@ export class Menu {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
     }
-    this.hasPreviouslyBlurred = !!event.relatedTarget;
+    if (!this.isSearchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
 
   private handleMouseDown = (event: Event): void => {
