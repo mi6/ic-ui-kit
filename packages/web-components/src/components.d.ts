@@ -486,6 +486,15 @@ export namespace Components {
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
+    interface IcDataTable {
+        "columns": { [key: string]: any }[];
+        "data": { [key: string]: any }[];
+        "density"?: "default" | "dense" | "spacious";
+        "embedded"?: boolean;
+        "hideColumnHeaders": boolean;
+        "stickyColumn"?: boolean;
+        "stickyRow"?: boolean;
+    }
     interface IcDivider {
     }
     interface IcEmptyState {
@@ -2173,6 +2182,12 @@ declare global {
     var HTMLIcDialogElement: {
         prototype: HTMLIcDialogElement;
         new (): HTMLIcDialogElement;
+    }
+    interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
+    }
+    var HTMLIcDataTableElement: {
+        prototype: HTMLIcDataTableElement;
+        new (): HTMLIcDataTableElement;
     };
     interface HTMLIcDividerElement extends Components.IcDivider, HTMLStencilElement {
     }
@@ -2470,6 +2485,7 @@ declare global {
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
+        "ic-data-table": HTMLIcDataTableElement;
         "ic-divider": HTMLIcDividerElement;
         "ic-empty-state": HTMLIcEmptyStateElement;
         "ic-footer": HTMLIcFooterElement;
@@ -2966,6 +2982,15 @@ declare namespace LocalJSX {
           * If set, displays an alert of the corresponding variant below the heading.
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
+    }
+    interface IcDataTable {
+        "columns": { [key: string]: any }[];
+        "data": { [key: string]: any }[];
+        "density"?: "default" | "dense" | "spacious";
+        "embedded"?: boolean;
+        "hideColumnHeaders"?: boolean;
+        "stickyColumn"?: boolean;
+        "stickyRow"?: boolean;
     }
     interface IcDivider {
     }
@@ -4590,6 +4615,7 @@ declare namespace LocalJSX {
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
+        "ic-data-table": IcDataTable;
         "ic-divider": IcDivider;
         "ic-empty-state": IcEmptyState;
         "ic-footer": IcFooter;
@@ -4656,6 +4682,7 @@ declare module "@stencil/core" {
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
+            "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
             "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
             "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
