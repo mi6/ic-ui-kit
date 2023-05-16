@@ -38,10 +38,6 @@ ic-button.first-last {
   user-select: none;
 }
 
-ic-button.flip {
-  transform: scaleX(-1);
-}
-
 .hide-current-page {
   display: none;
 }
