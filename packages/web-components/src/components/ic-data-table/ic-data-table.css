@@ -1,0 +1,143 @@
+:host {
+  display: block;
+}
+
+.table-container {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+  transition: var(--ic-easing-transition-fast);
+}
+
+table {
+  table-layout: fixed;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.table-container:focus {
+  outline: none;
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  transition: var(--ic-easing-transition-fast);
+}
+
+:host([embedded="true"]) .table-container {
+  border: solid var(--ic-architectural-200) 1px;
+}
+
+.column-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.row-header-sticky {
+  position: sticky;
+  left: 0;
+}
+
+.column-header,
+.table-row {
+  box-sizing: border-box;
+}
+
+.table-density-default {
+  height: 40px;
+}
+
+.table-density-dense {
+  height: 32px;
+}
+
+.table-density-spacious {
+  height: 48px;
+}
+
+.column-header,
+.row-header {
+  text-align: left;
+  padding: 8px;
+  background-color: var(--ic-architectural-40);
+  border-right: solid var(--ic-architectural-200) 1px;
+  border-bottom: solid var(--ic-architectural-200) 1px;
+}
+
+:host([embedded="true"]) .column-header:last-child {
+  border-right: none;
+}
+
+.scrollable .column-header:last-child {
+  border-right: solid var(--ic-architectural-200) 1px !important;
+}
+
+:host([embedded="true"]) tr:last-child .table-cell, 
+:host([embedded="true"]) tr:last-child .row-header {
+  border-bottom: none;
+}
+
+.column-header-alignment-left,
+.row-header-alignment-left {
+  text-align: left;
+}
+
+.column-header-alignment-right,
+.row-header-alignment-right {
+  text-align: right;
+}
+
+.column-header-alignment-center,
+.row-header-alignment-center {
+  text-align: center;
+}
+
+.table-row:nth-child(even) {
+  background-color: var(--ic-architectural-20);
+}
+
+.table-cell {
+  padding: 8px;
+  border-bottom: solid var(--ic-architectural-100) 1px;
+}
+
+.data-type-string {
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-type-number {
+  text-align: right;
+  vertical-align: top;
+}
+
+.cell-alignment-left {
+  text-align: left;
+}
+
+.cell-alignment-right {
+  text-align: right;
+}
+
+.cell-alignment-center {
+  text-align: center;
+}
+
+.cell-alignment-top {
+  vertical-align: top;
+}
+
+.cell-alignment-middle {
+  vertical-align: middle;
+}
+
+.cell-alignment-bottom {
+  vertical-align: bottom;
+}
+
+.cell-emphasis-low {
+  color: var(--ic-color-secondary-text);
+}
+
+.cell-emphasis-high {
+  font-weight: 700;
+}

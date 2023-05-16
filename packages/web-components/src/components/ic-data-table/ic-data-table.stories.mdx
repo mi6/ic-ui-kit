@@ -1,0 +1,290 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Data table" component="ic-data-table" />
+
+<Description markdown={readme} />
+
+### Basic table
+
+<Canvas>
+  <Story name="Basic table">{html` <script>
+      dataTable = document.querySelector("ic-data-table");
+      dataTable.columns = [
+        {
+          title: "First name",
+          dataType: "string",
+        },
+        {
+          title: "Last name",
+          dataType: "string",
+        },
+        {
+          title: "Age",
+          dataType: "number",
+        },
+        {
+          title: "Job title",
+          dataType: "string",
+        },
+        {
+          title: "Address",
+          dataType: "address",
+        },
+      ];
+      dataTable.data = [
+        {
+          firstName: "Joe",
+          lastName: "Bloggs",
+          age: 30,
+          jobTitle: "Developer",
+          address: "1 Main Street, Town, County, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        }
+      ];
+    </script>
+    <ic-data-table></ic-data-table>`}</Story>
+</Canvas>
+
+### With row headers
+
+<Canvas>
+  <Story name="With row headers">{html`<script>
+      dataTable = document.querySelector("ic-data-table");
+      dataTable.columns = [
+        {
+          title: "Job type",
+          dataType: "string",
+        },
+        {
+          title: "First name",
+          dataType: "string",
+        },
+        {
+          title: "Last name",
+          dataType: "string",
+        },
+        {
+          title: "Age",
+          dataType: "number",
+        },
+        {
+          title: "Job title",
+          dataType: "string",
+        },
+        {
+          title: "Address",
+          dataType: "address",
+        },
+      ];
+      dataTable.data = [
+        {
+          header: { title: "Employee" },
+          firstName: "Joe",
+          lastName: "Bloggs",
+          age: 30,
+          jobTitle: "Developer",
+          address: "1 Main Street, Town, County, Postcode",
+        },
+        {
+          header: { title: "Manager" },
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          header: { title: "Manager" },
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          header: { title: "Manager" },
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          header: { title: "Manager" },
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+      ];
+    </script>
+    <ic-data-table></ic-data-table>`}</Story>
+</Canvas>
+
+### Scrollable
+
+<Canvas>
+  <Story name="Scrollable">{html` <script>
+      dataTable = document.querySelector("ic-data-table");
+      dataTable.columns = [
+        {
+          title: "First name",
+          dataType: "string",
+        },
+        {
+          title: "Last name",
+          dataType: "string",
+        },
+        {
+          title: "Age",
+          dataType: "number",
+        },
+        {
+          title: "Job title",
+          dataType: "string",
+        },
+        {
+          title: "Address",
+          dataType: "address",
+        },
+      ];
+      dataTable.data = [
+        {
+          firstName: "Joe",
+          lastName: "Bloggs",
+          age: 30,
+          jobTitle: "Developer",
+          address: "1 Main Street, Town, County, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+        {
+          firstName: "Sarah",
+          lastName: "Smith",
+          age: 30,
+          jobTitle: "Developer",
+          address: "2 Main Street, Town, Country, Postcode",
+        },
+      ];
+      function toggleStickyHeader(boolean) {
+        dataTable.setAttribute("sticky-column", boolean);
+      }
+    </script>
+    <ic-data-table embedded="true" style="height:366px;"></ic-data-table>
+    <div style="display:flex;padding-top:10px;gap:8px;">
+      <ic-button onclick="toggleStickyHeader(true)">Stick header</ic-button>
+      <ic-button onclick="toggleStickyHeader(false)">Unstick header</ic-button>
+    </div>`}
+  </Story>
+</Canvas>
