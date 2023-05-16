@@ -64,7 +64,9 @@ export class TabPanel {
     const tabContext = document.querySelector(
       `ic-tab-context[context-id=${this.contextId}]`
     ) as HTMLIcTabContextElement;
-    tabContext.tabRemovedHandler();
+    if (tabContext) {
+      tabContext.tabRemovedHandler();
+    }
   }
 
   render() {

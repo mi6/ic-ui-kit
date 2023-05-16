@@ -226,8 +226,9 @@ describe("ic-tab-context component", () => {
     </ic-tab-context>
     `,
     });
+    const tabs = await page.find("ic-tab-context");
     const tab1 = await page.find('ic-tab[tab-id="ic-tab--1-context-default"]');
-    const tabSelect = await page.spyOnEvent("icTabSelect");
+    const tabSelect = await tabs.spyOnEvent("icTabSelect");
     await tab1.click();
     await page.waitForChanges();
     expect(tabSelect).toHaveReceivedEventDetail({
@@ -337,5 +338,50 @@ describe("ic-tab-context component", () => {
 
     expect(focusedTab.textContent).toBe("One");
     expect(tabPanel).not.toHaveAttribute("hidden");
+  });
+
+  it("should not trigger icTabSelect event in parent tab", async () => {
+    const page = await newE2EPage({
+      html: `<ic-tab-context id='parent'>
+          <ic-tab-group label="Example tab group">
+            <ic-tab>One</ic-tab>
+            <ic-tab>Two</ic-tab>
+            <ic-tab>Three</ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>
+            <ic-tab-context context-id='child' id='nested'>
+              <ic-tab-group label="Example tab group">
+                <ic-tab>One</ic-tab>
+                <ic-tab>Two</ic-tab>
+                <ic-tab>Three</ic-tab>
+              </ic-tab-group>
+              <ic-tab-panel>Tab One</ic-tab-panel>
+              <ic-tab-panel>Tab Two</ic-tab-panel>
+              <ic-tab-panel>Tab Three</ic-tab-panel>
+            </ic-tab-context>
+          </ic-tab-panel>
+          <ic-tab-panel>Tab Two</ic-tab-panel>
+          <ic-tab-panel>Tab Three</ic-tab-panel>
+        </ic-tab-context>
+      `,
+    });
+
+    const mainTabs = await page.find('ic-tab-context[context-id="default"]');
+    const nestedTabs = await page.find('ic-tab-context[context-id="child"]');
+
+    const parentTabSelect = await mainTabs.spyOnEvent("icTabSelect");
+    const nestedTabSelect = await nestedTabs.spyOnEvent("icTabSelect");
+
+    const nestedTab1 = await page.find(
+      'ic-tab-panel[panel-id="ic-tab--0-context-default"] ic-tab[tab-id="ic-tab--1-context-child"]'
+    );
+
+    await nestedTab1.click();
+    await page.waitForChanges();
+
+    expect(parentTabSelect).not.toHaveReceivedEvent();
+    expect(nestedTabSelect).toHaveReceivedEventDetail({
+      tabIndex: 1,
+    });
   });
 });

@@ -126,7 +126,9 @@ export class Tab {
     const tabContext = document.querySelector(
       `ic-tab-context[context-id=${this.contextId}]`
     ) as HTMLIcTabContextElement;
-    tabContext.tabRemovedHandler(!!this.focusTabId);
+    if (tabContext) {
+      tabContext.tabRemovedHandler(!!this.focusTabId);
+    }
   }
 
   render() {
