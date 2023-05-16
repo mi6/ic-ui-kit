@@ -40,14 +40,6 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
-            <div class="footer-logo">
-              <slot name="logo"></slot>
-            </div>
-            <div class="footer-caption">
-              <ic-typography variant="body">
-                <slot name="caption"></slot>
-              </ic-typography>
-            </div>
             <div class="footer-copyright">
               <ic-typography variant="label-uppercase">
                 © Crown Copyright

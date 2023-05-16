@@ -15,6 +15,7 @@ import {
   getThemeForegroundColor,
   checkResizeObserver,
   hasClassificationBanner,
+  isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcAlignment,
@@ -187,19 +188,25 @@ export class Footer {
           <div class="footer-compliance">
             <ic-section-container aligned={aligned} fullHeight={true}>
               <div class="footer-compliance-inner">
-                <div class="footer-logo">
-                  {/* Logo */}
-                  <slot name="logo" />
-                </div>
-                <div class="footer-caption">
-                  <ic-typography
-                    variant={
-                      this.deviceSize <= IC_DEVICE_SIZES.M ? "caption" : "body"
-                    }
-                  >
-                    <slot name="caption">{caption}</slot>
-                  </ic-typography>
-                </div>
+                {isSlotUsed(this.el, "logo") && (
+                  <div class="footer-logo">
+                    {/* Logo */}
+                    <slot name="logo" />
+                  </div>
+                )}
+                {(isSlotUsed(this.el, "caption") || caption) && (
+                  <div class="footer-caption">
+                    <ic-typography
+                      variant={
+                        this.deviceSize <= IC_DEVICE_SIZES.M
+                          ? "caption"
+                          : "body"
+                      }
+                    >
+                      <slot name="caption">{caption}</slot>
+                    </ic-typography>
+                  </div>
+                )}
                 {copyright && (
                   <div
                     class={{
