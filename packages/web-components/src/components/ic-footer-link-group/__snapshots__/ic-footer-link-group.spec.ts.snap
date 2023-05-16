@@ -23,14 +23,6 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
-            <div class="footer-logo">
-              <slot name="logo"></slot>
-            </div>
-            <div class="footer-caption">
-              <ic-typography variant="body">
-                <slot name="caption"></slot>
-              </ic-typography>
-            </div>
             <div class="footer-copyright">
               <ic-typography variant="label-uppercase">
                 © Crown Copyright
@@ -93,14 +85,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
-            <div class="footer-logo">
-              <slot name="logo"></slot>
-            </div>
-            <div class="footer-caption">
-              <ic-typography variant="body">
-                <slot name="caption"></slot>
-              </ic-typography>
-            </div>
             <div class="footer-copyright">
               <ic-typography variant="label-uppercase">
                 © Crown Copyright
@@ -153,14 +137,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
         <div class="footer-compliance">
           <ic-section-container aligned="left" fullheight="">
             <div class="footer-compliance-inner">
-              <div class="footer-logo">
-                <slot name="logo"></slot>
-              </div>
-              <div class="footer-caption">
-                <ic-typography variant="body">
-                  <slot name="caption"></slot>
-                </ic-typography>
-              </div>
               <div class="footer-copyright">
                 <ic-typography variant="label-uppercase">
                   © Crown Copyright
