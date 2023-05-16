@@ -269,3 +269,25 @@ import classificationBanner from "../ic-classification-banner/readme.md";
     `}
   </Story>
 </Canvas>
+
+### Footer with no caption or logo
+
+<Canvas>
+  <Story name="Footer with no caption or logo">
+    {html`
+      <ic-footer
+        description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
+          please get in touch."
+      >
+        <ic-footer-link slot="link" href="/">Get Started</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Accessibility</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Styles</ic-footer-link>
+        <ic-footer-link slot="link" href="/" target="_blank"
+          >Components</ic-footer-link
+        >
+        <ic-footer-link slot="link" href="/">Patterns</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Design toolkit</ic-footer-link>
+      </ic-footer>
+    `}
+  </Story>
+</Canvas>
