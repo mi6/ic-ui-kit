@@ -389,6 +389,15 @@ export namespace Components {
          */
         "value": string;
     }
+    interface IcDataTable {
+        "columns": { [key: string]: any }[];
+        "data": { [key: string]: any }[];
+        "density"?: "default" | "dense" | "spacious";
+        "embedded"?: boolean;
+        "hideColumnHeaders": boolean;
+        "stickyColumn"?: boolean;
+        "stickyRow"?: boolean;
+    }
     interface IcDivider {
     }
     interface IcFooter {
@@ -1817,6 +1826,12 @@ declare global {
         prototype: HTMLIcDataRowElement;
         new (): HTMLIcDataRowElement;
     };
+    interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
+    }
+    var HTMLIcDataTableElement: {
+        prototype: HTMLIcDataTableElement;
+        new (): HTMLIcDataTableElement;
+    };
     interface HTMLIcDividerElement extends Components.IcDivider, HTMLStencilElement {
     }
     var HTMLIcDividerElement: {
@@ -2088,6 +2103,7 @@ declare global {
         "ic-classification-banner": HTMLIcClassificationBannerElement;
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
+        "ic-data-table": HTMLIcDataTableElement;
         "ic-divider": HTMLIcDividerElement;
         "ic-footer": HTMLIcFooterElement;
         "ic-footer-link": HTMLIcFooterLinkElement;
@@ -2510,6 +2526,15 @@ declare namespace LocalJSX {
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
+    }
+    interface IcDataTable {
+        "columns": { [key: string]: any }[];
+        "data": { [key: string]: any }[];
+        "density"?: "default" | "dense" | "spacious";
+        "embedded"?: boolean;
+        "hideColumnHeaders"?: boolean;
+        "stickyColumn"?: boolean;
+        "stickyRow"?: boolean;
     }
     interface IcDivider {
     }
@@ -3875,6 +3900,7 @@ declare namespace LocalJSX {
         "ic-classification-banner": IcClassificationBanner;
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
+        "ic-data-table": IcDataTable;
         "ic-divider": IcDivider;
         "ic-footer": IcFooter;
         "ic-footer-link": IcFooterLink;
@@ -3936,6 +3962,7 @@ declare module "@stencil/core" {
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
+            "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
             "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
             "ic-footer-link": LocalJSX.IcFooterLink & JSXBase.HTMLAttributes<HTMLIcFooterLinkElement>;
