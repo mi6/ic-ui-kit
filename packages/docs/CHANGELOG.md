@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.13 (2023-05-16)
+
+### Bug Fixes
+
+- **web-components:** updating blur functionality on ic-menu ([8cdc83f](https://github.com/mi6/ic-ui-kit/commit/8cdc83f30e3653c7d9436d3eddffc32a6a9cd060))
+
 # [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
 
 **Note:** Version bump only for package @ukic/docs
-
-
-
-
 
 # [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
 

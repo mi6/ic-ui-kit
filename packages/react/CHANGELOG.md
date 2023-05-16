@@ -3,34 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
-
+# 2.1.0-beta.13 (2023-05-16)
 
 ### Bug Fixes
 
-* **react:** add code typography variants to React Storybook ([1a81ad2](https://github.com/mi6/ic-ui-kit/commit/1a81ad2dcbb88785ccc69b1cc99a43f19a732d33)), closes [#544](https://github.com/mi6/ic-ui-kit/issues/544)
+- **web-components:** updating blur functionality on ic-menu ([8cdc83f](https://github.com/mi6/ic-ui-kit/commit/8cdc83f30e3653c7d9436d3eddffc32a6a9cd060))
 
+# [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
+
+### Bug Fixes
+
+- **react:** add code typography variants to React Storybook ([1a81ad2](https://github.com/mi6/ic-ui-kit/commit/1a81ad2dcbb88785ccc69b1cc99a43f19a732d33)), closes [#544](https://github.com/mi6/ic-ui-kit/issues/544)
 
 ### Features
 
-* **react:** add min/max to TextField ([6b236d3](https://github.com/mi6/ic-ui-kit/commit/6b236d3d1b2b7f4df83ccfe2dc460b6108302847))
-
-
-
-
+- **react:** add min/max to TextField ([6b236d3](https://github.com/mi6/ic-ui-kit/commit/6b236d3d1b2b7f4df83ccfe2dc460b6108302847))
 
 # [2.1.0-beta.11](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.10...v2.1.0-beta.11) (2023-04-12)
 
-
 ### Bug Fixes
 
-* **react:** remove charactersUntilSuggestions stories ([dd10547](https://github.com/mi6/ic-ui-kit/commit/dd10547e1dc3e4798701f8792e665c45965dc827))
-
+- **react:** remove charactersUntilSuggestions stories ([dd10547](https://github.com/mi6/ic-ui-kit/commit/dd10547e1dc3e4798701f8792e665c45965dc827))
 
 ### Features
 
-* **react:** add menu item and menu group to React components.ts ([60b815d](https://github.com/mi6/ic-ui-kit/commit/60b815d45ca04bbb0a49e57159cbfb381bb62774)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
-* **react:** create popover menu component ([96bc93c](https://github.com/mi6/ic-ui-kit/commit/96bc93c6ff137b042aff7d4908791312334ccb7b))
+- **react:** add menu item and menu group to React components.ts ([60b815d](https://github.com/mi6/ic-ui-kit/commit/60b815d45ca04bbb0a49e57159cbfb381bb62774)), closes [#258](https://github.com/mi6/ic-ui-kit/issues/258) [#433](https://github.com/mi6/ic-ui-kit/issues/433) [#434](https://github.com/mi6/ic-ui-kit/issues/434)
+- **react:** create popover menu component ([96bc93c](https://github.com/mi6/ic-ui-kit/commit/96bc93c6ff137b042aff7d4908791312334ccb7b))
 
 # [2.1.0-beta.10](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.9...v2.1.0-beta.10) (2023-03-28)
 
