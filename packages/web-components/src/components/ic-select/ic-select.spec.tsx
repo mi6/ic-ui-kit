@@ -1420,4 +1420,52 @@ describe("ic-select", () => {
       "No results found"
     );
   });
+
+  it("should focus the input when escape is pressed whilst the menu is focused", async () => {
+    const spy = jest.spyOn(HTMLButtonElement.prototype, "focus");
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+    page.root.options = menuOptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeFalsy();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it("should focus the input when escape is pressed whilst the menu is focused (searchable)", async () => {
+    const spy = jest.spyOn(HTMLInputElement.prototype, "focus");
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+    page.root.options = menuOptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeFalsy();
+    expect(spy).toHaveBeenCalled();
+  });
 });

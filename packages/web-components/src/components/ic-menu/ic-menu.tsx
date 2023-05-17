@@ -42,6 +42,7 @@ export class Menu {
   private preventClickOpen: boolean = false;
   private hasTimedOut: boolean = false;
   private isLoading: boolean = false;
+  private hasPreviouslyBlurred: boolean = false;
 
   @Element() host: HTMLIcMenuElement;
 
@@ -445,12 +446,13 @@ export class Menu {
   private handleBlur = (event: FocusEvent): void => {
     if (event.relatedTarget !== this.inputEl) {
       if (!this.menu.contains(event.relatedTarget as HTMLElement)) {
-        this.handleMenuChange(false, false);
+        this.handleMenuChange(false, this.hasPreviouslyBlurred);
       }
     } else {
       this.handleMenuChange(false);
       this.preventClickOpen = true;
     }
+    if (!this.isSearchBar) this.hasPreviouslyBlurred = !!event.relatedTarget;
   };
 
   private handleMouseDown = (event: Event): void => {
