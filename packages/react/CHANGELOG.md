@@ -3,25 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.13](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.12...v2.1.0-beta.13) (2023-05-16)
+# 2.1.0-beta.14 (2023-05-17)
 
+**Note:** Version bump only for package @ukic/react
+
+# [2.1.0-beta.13](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.12...v2.1.0-beta.13) (2023-05-16)
 
 ### Bug Fixes
 
-* **react:** ic-card will always have interaction section placed at the bottom ([eb56b1a](https://github.com/mi6/ic-ui-kit/commit/eb56b1a6519be3ec1f26f5952c09c84da12d7a47)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
-
+- **react:** ic-card will always have interaction section placed at the bottom ([eb56b1a](https://github.com/mi6/ic-ui-kit/commit/eb56b1a6519be3ec1f26f5952c09c84da12d7a47)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
 
 ### Features
 
-* **react:** add story for new internal inline validation prop ([ce43499](https://github.com/mi6/ic-ui-kit/commit/ce434996a995434db3d5c9d96143f5dadbffd91c)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
-* **react:** add story to show app status and version number text wrapping in side nav ([b451f4a](https://github.com/mi6/ic-ui-kit/commit/b451f4ae4649112bd84728d23b29ebf3e6dfa2e6)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
-* **react:** added react story ([5ac3554](https://github.com/mi6/ic-ui-kit/commit/5ac3554b0bb613c6f0154a9aedb498d6789ba5b6))
-* **react:** updated react stories ([a504677](https://github.com/mi6/ic-ui-kit/commit/a504677acd7fcf3828f3bbe92c9a17ca74c4bbf8))
-* **react:** updated react story ([2546fa6](https://github.com/mi6/ic-ui-kit/commit/2546fa666bb2cf5c72b25d6490fa66f2d2d88034))
-
-
-
-
+- **react:** add story for new internal inline validation prop ([ce43499](https://github.com/mi6/ic-ui-kit/commit/ce434996a995434db3d5c9d96143f5dadbffd91c)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
+- **react:** add story to show app status and version number text wrapping in side nav ([b451f4a](https://github.com/mi6/ic-ui-kit/commit/b451f4ae4649112bd84728d23b29ebf3e6dfa2e6)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
+- **react:** added react story ([5ac3554](https://github.com/mi6/ic-ui-kit/commit/5ac3554b0bb613c6f0154a9aedb498d6789ba5b6))
+- **react:** updated react stories ([a504677](https://github.com/mi6/ic-ui-kit/commit/a504677acd7fcf3828f3bbe92c9a17ca74c4bbf8))
+- **react:** updated react story ([2546fa6](https://github.com/mi6/ic-ui-kit/commit/2546fa666bb2cf5c72b25d6490fa66f2d2d88034))
 
 # [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
 

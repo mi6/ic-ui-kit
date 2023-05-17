@@ -3,12 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.13](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.12...v2.1.0-beta.13) (2023-05-16)
+# 2.1.0-beta.14 (2023-05-17)
 
 **Note:** Version bump only for package @ukic/fonts
 
+# [2.1.0-beta.13](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.12...v2.1.0-beta.13) (2023-05-16)
 
-
+**Note:** Version bump only for package @ukic/fonts
 
 # [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
 
