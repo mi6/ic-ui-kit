@@ -1,6 +1,11 @@
-
-import { Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs';
-import { IcTypography } from '../components';
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-typography/readme.md";
 
 <Meta title="React Components/Typography" component={IcTypography} />
@@ -42,7 +47,7 @@ import readme from "../../../web-components/src/components/ic-typography/readme.
   <Story name="Component override">
     <IcTypography variant="h1">
       <h3>H1 rendered as H3</h3>
-      </IcTypography>
+    </IcTypography>
   </Story>
 </Canvas>
 
@@ -65,5 +70,22 @@ import readme from "../../../web-components/src/components/ic-typography/readme.
   </Story>
 </Canvas>
 
+### Truncation
 
-
+<Canvas>
+  <Story name="Truncation">
+    <IcTypography max-lines="3" variant="body">
+      Body of text that is truncated to three lines. Click the 'See more' link
+      to expand the text, then click 'See less' to truncate the text once
+      more!
+      <br />
+      Dripper caramelization java saucer grounds galão, mocha, and robusta
+      kopi-luwak, percolator, instant, qui saucer latte in brewed café au
+      lait. Con panna, cup, cream, body americano affogato cup espresso, rich
+      milk seasonal saucer grinder spoon that cultivar strong redeye
+      frappuccino barista extraction redeye mazagran. Grounds, french press
+      dripper organic and foam id saucer, crema, black rich dark, grounds
+      breve coffee steamed caramelization percolator.
+    </IcTypography>
+  </Story>
+</Canvas>
