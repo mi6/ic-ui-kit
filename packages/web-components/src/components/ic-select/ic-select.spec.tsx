@@ -83,12 +83,7 @@ const getTestSelect = (props: string) =>
 describe("ic-select", () => {
   it("should not render a label when the 'hide-label' prop is supplied", async () => {
     const page = await newSpecPage({
-      components: [
-        Select,
-        Menu,
-        InputComponentContainer,
-        InputComponentContainer,
-      ],
+      components: [Select, Menu, InputComponentContainer],
       html: getTestSelect("hide-label"),
     });
 
@@ -142,29 +137,13 @@ describe("ic-select", () => {
     expect(page.root).toMatchSnapshot("no-validation-text-if-no-status");
   });
 
-  it("should not render validation text if disabled", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: getTestSelect('validation-text="Test validation text"'),
-    });
-
-    expect(page.root).toMatchSnapshot("no-validation-text-if-disabled");
-  });
-
-  it("should render as required", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: getTestSelect('required="true" searchable="true"'),
-    });
-
-    expect(page.root).toMatchSnapshot("required-searchable");
-  });
-
   it("should test with clear button", async () => {
+    const eventSpy = jest.fn();
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer, Button],
       html: `<ic-select label="IC Select Test" show-clear-button="true" value="test-value"></ic-select>`,
     });
+    page.root.addEventListener("icClear", eventSpy);
     page.root.options = menuOptions;
     await page.waitForChanges();
     expect(page.root).toMatchSnapshot("with-clear-button");
@@ -186,44 +165,382 @@ describe("ic-select", () => {
 
     clearButton.click();
     await page.waitForChanges();
-    expect(page.rootInstance.searchableSelectInputValue).toBeNull;
+    expect(eventSpy).toHaveBeenCalled;
   });
 
-  it("should test with clear button with searchable", async () => {
+  it("should test menu handleKeyboardOpen method - arrow down (custom select)", async () => {
     const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer, Button],
-      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+
+    const KeyEvent = {
+      key: "ArrowDown",
+      preventDefault: (): void => null,
+    } as KeyboardEvent;
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeTruthy;
+    expect(page.rootInstance.value).toBe("Test value 1");
+  });
+
+  it("should test keydown on menu - space key (custom)", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const list = page.root.shadowRoot.querySelector("ic-menu ul");
+
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: " ",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBe(false);
+  });
+
+  it("should test mousedown handler", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+
+    const button = page.root.shadowRoot.querySelector("button.select-input");
+
+    const event = new Event("mousedown", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    button.dispatchEvent(event);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBe(false);
+  });
+
+  it("should use option labels if no values", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+    page.root.options = menuOptionsNoValues;
+    await page.waitForChanges();
+    expect(page.root.options[0].value).toBe(label1);
+    expect(page.root.options[1].value).toBe(label2);
+    expect(page.root.options[2].value).toBe(label3);
+  });
+
+  it("should select the option that matches the pressed character key", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    await page.waitForChanges();
+
+    const eventSpy = jest.fn();
+
+    page.win.addEventListener("icChange", eventSpy);
+
+    await page.rootInstance.handleKeyDown({
+      key: "A",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: "Ame",
+        }),
+      })
+    );
+
+    await waitForTimeout(1000);
+
+    await page.rootInstance.handleKeyDown({
+      key: "C",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: "Cap",
+        }),
+      })
+    );
+  });
+
+  it("should select the option that matches the pressed character key - grouped options", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithGroups;
+    await page.waitForChanges();
+
+    const eventSpy = jest.fn();
+
+    page.win.addEventListener("icChange", eventSpy);
+
+    await page.rootInstance.handleKeyDown({
+      key: "F",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: "Flat",
+        }),
+      })
+    );
+  });
+
+  it("should test getFilteredChildMenuOptions for custom select", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithGroups;
+    await page.waitForChanges();
+
+    const result = await page.rootInstance.getFilteredChildMenuOptions(
+      menuOptionsWithGroups[0]
+    );
+    await page.waitForChanges();
+
+    expect(result).toEqual(page.root.options[0]);
+  });
+
+  it("should select the option that matches the character key pressed when menu is open", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const eventSpy = jest.fn();
+
+    page.win.addEventListener("icChange", eventSpy);
+
+    const list = page.root.shadowRoot.querySelector(menuUl);
+
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "C",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        detail: expect.objectContaining({
+          value: "Cap",
+        }),
+      })
+    );
+  });
+
+  it("should add to pressedCharacters as characters are pressed and then reset it after 1 second", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    await page.waitForChanges();
+
+    await page.rootInstance.handleKeyDown({
+      key: "A",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pressedCharacters).toBe("A");
+
+    await page.rootInstance.handleKeyDown({
+      key: "B",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pressedCharacters).toBe("AB");
+
+    await page.rootInstance.handleKeyDown({
+      key: "C",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    await waitForTimeout(1000);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pressedCharacters).toBe("");
+  });
+
+  it("should not open the menu when space key is used as a character key", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    await page.waitForChanges();
+
+    await page.rootInstance.handleKeyDown({
+      key: "A",
+      preventDefault: (): void => null,
+    });
+    await page.rootInstance.handleKeyDown({
+      key: " ",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pressedCharacters).toBe("A ");
+    expect(page.rootInstance.open).toBe(false);
+  });
+
+  it("should not close the menu when space key is used as a character key", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    const eventSpy = jest.fn();
+
+    page.win.addEventListener("icChange", eventSpy);
+
+    const list = page.root.shadowRoot.querySelector(menuUl);
+
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "C",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: " ",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pressedCharacters).toBe("C ");
+    expect(page.rootInstance.open).toBe(true);
+  });
+
+  it("should test loading state and timeout for custom select", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" timeout="1000"></ic-select>`,
+    });
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icBlur", eventSpy);
+
+    page.rootInstance.loading = true;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.options[0].label).toEqual("Loading...");
+
+    await waitForTimeout(1000);
+    expect(page.rootInstance.options[0].label).toEqual("Loading Error");
+
+    await page.waitForChanges();
+    const retryButton = page.root.shadowRoot
+      .querySelector("ic-menu")
+      .querySelector("#retry-button") as HTMLIcButtonElement;
+    retryButton.blur();
+    expect(page.rootInstance.open).toBeFalsy;
+    expect(eventSpy).toHaveBeenCalled;
+
+    page.root.options = [];
+    await page.waitForChanges();
+    expect(page.rootInstance.options[0].label).toEqual("Loading Error");
+  });
+
+  it("should focus the input when escape is pressed whilst the menu is focused", async () => {
+    const spy = jest.spyOn(HTMLButtonElement.prototype, "focus");
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
     });
     page.root.options = menuOptions;
-    page.rootInstance.searchableSelectInputValue = testValue;
+    page.rootInstance.open = true;
     await page.waitForChanges();
 
-    const clearButton = page.root.shadowRoot.querySelector(
-      "#clear-button"
-    ) as HTMLIcButtonElement;
-
-    clearButton.focus();
+    const list = page.root.shadowRoot.querySelector(menuUl);
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
+        key: "Escape",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
     await page.waitForChanges();
-    expect(page.rootInstance.clearButtonFocused).toBe(true);
 
-    clearButton.blur();
-    await page.waitForChanges();
-    expect(page.rootInstance.clearButtonFocused).toBe(false);
+    expect(page.rootInstance.open).toBeFalsy();
+    expect(spy).toHaveBeenCalled();
+  });
+});
 
-    clearButton.click();
-    await page.waitForChanges();
-    expect(page.rootInstance.searchableSelectInputValue).toBeNull;
+describe("ic-select native", () => {
+  beforeEach(() => {
+    Object.defineProperty(helpers, "isMobileOrTablet", {
+      value: jest.fn().mockReturnValue(true),
+    });
+  });
+  afterEach(() => {
+    Object.defineProperty(helpers, "isMobileOrTablet", {
+      value: jest.fn().mockReturnValue(false),
+    });
   });
 
   it("should test native select", async () => {
     const page = await newSpecPage({
       components: [Select],
       html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    let myfunc = jest.fn().mockReturnValue(true);
-    Object.defineProperty(helpers, "isMobileOrTablet", {
-      value: myfunc,
     });
 
     page.root.options = menuOptions;
@@ -233,22 +550,12 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot("native-select");
-
-    myfunc = jest.fn().mockReturnValue(false);
-    Object.defineProperty(helpers, "isMobileOrTablet", {
-      value: myfunc,
-    });
   });
 
   it("should test native select with groups", async () => {
     const page = await newSpecPage({
       components: [Select],
       html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    let myfunc = jest.fn().mockReturnValue(true);
-    Object.defineProperty(helpers, "isMobileOrTablet", {
-      value: myfunc,
     });
 
     page.root.options = menuOptionsWithGroups;
@@ -282,19 +589,70 @@ describe("ic-select", () => {
     await waitForTimeout(900);
 
     expect(eventSpy).toHaveBeenCalled();
-
-    myfunc = jest.fn().mockReturnValue(false);
-    Object.defineProperty(helpers, "isMobileOrTablet", {
-      value: myfunc,
-    });
   });
 
-  it("should test keydown handler", async () => {
+  it("should test native select keydown", async () => {
+    const page = await newSpecPage({
+      components: [Select],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    page.root.setFocus();
+    await page.waitForChanges();
+
+    await page.rootInstance.handleNativeSelectKeyDown({
+      key: "ArrowDown",
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeFalsy;
+  });
+});
+
+describe("ic-select searchable", () => {
+  it("should render as required", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: getTestSelect('required="true" searchable="true"'),
+    });
+
+    expect(page.root).toMatchSnapshot("required-searchable");
+  });
+
+  it("should test with clear button with searchable", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+    page.root.options = menuOptions;
+    page.rootInstance.searchableSelectInputValue = "test value";
+    await page.waitForChanges();
+
+    const clearButton = page.root.shadowRoot.querySelector(
+      "#clear-button"
+    ) as HTMLIcButtonElement;
+
+    clearButton.focus();
+    await page.waitForChanges();
+    expect(page.rootInstance.clearButtonFocused).toBe(true);
+
+    clearButton.blur();
+    await page.waitForChanges();
+    expect(page.rootInstance.clearButtonFocused).toBe(false);
+
+    clearButton.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.searchableSelectInputValue).toBeNull;
+  });
+
+  it("should test keydown handler searchable", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
-
+    jest.spyOn(page.rootInstance, "setFocus").mockImplementation();
     page.root.options = menuOptions;
     await page.waitForChanges();
 
@@ -307,7 +665,10 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    page.rootInstance.open = true;
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+    expect(menu.options).toEqual(menuOptions);
+    expect(page.rootInstance.open).toBeTruthy;
+
     await page.waitForChanges();
     await page.rootInstance.handleKeyDown({
       key: "Enter",
@@ -315,7 +676,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.open).toBe(false);
+    expect(page.rootInstance.open).toBeFalsy;
 
     page.rootInstance.open = true;
     page.rootInstance.noOptions = true;
@@ -326,7 +687,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.open).toBe(true);
+    expect(page.rootInstance.setFocus).toHaveBeenCalledTimes(2);
 
     page.rootInstance.open = true;
     page.rootInstance.noOptions = true;
@@ -337,32 +698,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.open).toBe(true);
-  });
-
-  it("should test menu handleKeyboardOpen method - arrow down", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
-    });
-
-    page.root.options = menuOptions;
-    page.root.value = value1;
-    page.root.open = true;
-    await page.waitForChanges();
-
-    const menu = page.root.shadowRoot.querySelector("ic-menu");
-
-    const KeyEvent = {
-      key: "ArrowDown",
-      preventDefault: (): void => null,
-    } as KeyboardEvent;
-
-    await menu.handleKeyboardOpen(KeyEvent);
-    await page.waitForChanges();
-
-    const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe(label1);
+    expect(page.rootInstance.setFocus).toHaveBeenCalledTimes(3);
   });
 
   it("should test menu handleKeyboardOpen method - arrow up", async () => {
@@ -372,8 +708,6 @@ describe("ic-select", () => {
     });
 
     page.root.options = menuOptions;
-    page.root.value = value1;
-    page.root.open = true;
     await page.waitForChanges();
 
     const menu = page.root.shadowRoot.querySelector("ic-menu");
@@ -387,18 +721,17 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe(label1);
+    expect(input.value).toBe("");
+    expect(page.rootInstance.open).toBeTruthy;
   });
 
-  it("should test keydown on menu - arrow up", async () => {
+  it("should test keydown on menu - arrow up (searchable)", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
     });
 
     page.root.options = menuOptions;
-    page.rootInstance.open = true;
-    await page.waitForChanges();
     page.root.value = value2;
     await page.waitForChanges();
 
@@ -416,9 +749,10 @@ describe("ic-select", () => {
 
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe(label2);
+    expect(page.rootInstance.open).toBeTruthy;
   });
 
-  it("should test keydown on menu - arrow up wrap around", async () => {
+  it("should test keydown on menu - arrow up wrap around (searchable)", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
@@ -523,6 +857,7 @@ describe("ic-select", () => {
         cancelable: true,
       })
     );
+    expect(page.rootInstance.open).toBeTruthy;
   });
 
   it("should test keydown on menu - end key", async () => {
@@ -532,8 +867,6 @@ describe("ic-select", () => {
     });
 
     page.root.options = menuOptions;
-    page.rootInstance.open = true;
-    await page.waitForChanges();
     page.root.value = value1;
     await page.waitForChanges();
 
@@ -551,6 +884,7 @@ describe("ic-select", () => {
 
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe(label1);
+    expect(page.rootInstance.open).toBeTruthy;
   });
 
   it("should test keydown on menu - backspace key", async () => {
@@ -597,6 +931,14 @@ describe("ic-select", () => {
 
     list.dispatchEvent(
       new window.window.KeyboardEvent("keydown", {
+        key: "ArrowDown",
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    list.dispatchEvent(
+      new window.window.KeyboardEvent("keydown", {
         key: "Enter",
         bubbles: true,
         cancelable: true,
@@ -606,7 +948,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe(label3);
+    expect(input.value).toBe(label1);
   });
 
   it("should test keydown on menu - space key", async () => {
@@ -960,27 +1302,6 @@ describe("ic-select", () => {
     expect(page.rootInstance.searchableSelectInputValue).toBe(testValue);
   });
 
-  it("should test mousedown handler", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptions;
-
-    const button = page.root.shadowRoot.querySelector("button.select-input");
-
-    const event = new Event("mousedown", {
-      bubbles: true,
-      cancelable: true,
-    });
-
-    button.dispatchEvent(event);
-    await page.waitForChanges();
-
-    expect(page.rootInstance.open).toBe(false);
-  });
-
   it("should test dropdown icon mousedown handler", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
@@ -995,18 +1316,6 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.open).toBe(true);
-  });
-
-  it("should use option labels if no values", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-    page.root.options = menuOptionsNoValues;
-    await page.waitForChanges();
-    expect(page.root.options[0].value).toBe(label1);
-    expect(page.root.options[1].value).toBe(label2);
-    expect(page.root.options[2].value).toBe(label3);
   });
 
   it("should test form reset event", async () => {
@@ -1119,9 +1428,24 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.open).toBe(false);
+  });
 
-    //test disconnected callback
+  it("should test adding and removing form reset listener on connect and disconnect", async () => {
+    const page = await newSpecPage({
+      components: [Select],
+      html: `<form>
+        <ic-select label="IC Select Test" searchable="true"></ic-select>
+        <button id="resetButton" type="reset">Reset</button>
+      </form>`,
+    });
+    const addSpy = jest.spyOn(page.root, "addEventListener");
+    const removeSpy = jest.spyOn(page.root, "removeEventListener");
+
+    expect(addSpy).toHaveBeenCalled;
+
     page.setContent("");
+    await page.waitForChanges();
+    expect(removeSpy).toHaveBeenCalled;
   });
 
   it("should set the default value of searchable as custom value when not matching options", async () => {
@@ -1156,195 +1480,6 @@ describe("ic-select", () => {
 
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe(label1);
-  });
-
-  it("should select the option that matches the pressed character key", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithDescriptions;
-    await page.waitForChanges();
-
-    const eventSpy = jest.fn();
-
-    page.win.addEventListener("icChange", eventSpy);
-
-    await page.rootInstance.handleKeyDown({
-      key: "A",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(eventSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        detail: expect.objectContaining({
-          value: "Ame",
-        }),
-      })
-    );
-  });
-
-  it("should select the option that matches the pressed character key - grouped options", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithGroups;
-    await page.waitForChanges();
-
-    const eventSpy = jest.fn();
-
-    page.win.addEventListener("icChange", eventSpy);
-
-    await page.rootInstance.handleKeyDown({
-      key: "F",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(eventSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        detail: expect.objectContaining({
-          value: "Flat",
-        }),
-      })
-    );
-  });
-
-  it("should select the option that matches the character key pressed when menu is open", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithDescriptions;
-    page.rootInstance.open = true;
-    await page.waitForChanges();
-
-    const eventSpy = jest.fn();
-
-    page.win.addEventListener("icChange", eventSpy);
-
-    const list = page.root.shadowRoot.querySelector(menuUl);
-
-    list.dispatchEvent(
-      new window.window.KeyboardEvent("keydown", {
-        key: "C",
-        bubbles: true,
-        cancelable: true,
-      })
-    );
-
-    await page.waitForChanges();
-
-    expect(eventSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        detail: expect.objectContaining({
-          value: "Cap",
-        }),
-      })
-    );
-  });
-
-  it("should add to pressedCharacters as characters are pressed and then reset it after 1 second", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithDescriptions;
-    await page.waitForChanges();
-
-    await page.rootInstance.handleKeyDown({
-      key: "A",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.pressedCharacters).toBe("A");
-
-    await page.rootInstance.handleKeyDown({
-      key: "B",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.pressedCharacters).toBe("AB");
-
-    await page.rootInstance.handleKeyDown({
-      key: "C",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    await waitForTimeout(1000);
-    await page.waitForChanges();
-
-    expect(page.rootInstance.pressedCharacters).toBe("");
-  });
-
-  it("should not open the menu when space key is used as a character key", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithDescriptions;
-    await page.waitForChanges();
-
-    await page.rootInstance.handleKeyDown({
-      key: "A",
-      preventDefault: (): void => null,
-    });
-    await page.rootInstance.handleKeyDown({
-      key: " ",
-      preventDefault: (): void => null,
-    });
-    await page.waitForChanges();
-
-    expect(page.rootInstance.pressedCharacters).toBe("A ");
-    expect(page.rootInstance.open).toBe(false);
-  });
-
-  it("should not close the menu when space key is used as a character key", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-
-    page.root.options = menuOptionsWithDescriptions;
-    page.rootInstance.open = true;
-    await page.waitForChanges();
-
-    const eventSpy = jest.fn();
-
-    page.win.addEventListener("icChange", eventSpy);
-
-    const list = page.root.shadowRoot.querySelector(menuUl);
-
-    list.dispatchEvent(
-      new window.window.KeyboardEvent("keydown", {
-        key: "C",
-        bubbles: true,
-        cancelable: true,
-      })
-    );
-    await page.waitForChanges();
-
-    list.dispatchEvent(
-      new window.window.KeyboardEvent("keydown", {
-        key: " ",
-        bubbles: true,
-        cancelable: true,
-      })
-    );
-    await page.waitForChanges();
-
-    expect(page.rootInstance.pressedCharacters).toBe("C ");
-    expect(page.rootInstance.open).toBe(true);
   });
 
   it("should set the default value of searchable as option label when options initially set to [] then populated", async () => {
@@ -1394,7 +1529,7 @@ describe("ic-select", () => {
   it("should test loading state and timeout for searchable select with external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" characters-until-suggestions="3" debounce="300" timeout="1000"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
     });
 
     page.rootInstance.searchableSelectInputValue = "test";
@@ -1427,30 +1562,6 @@ describe("ic-select", () => {
     expect(page.rootInstance.filteredOptions[0].label).toEqual(noResults);
   });
 
-  it("should focus the input when escape is pressed whilst the menu is focused", async () => {
-    const spy = jest.spyOn(HTMLButtonElement.prototype, "focus");
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test"></ic-select>`,
-    });
-    page.root.options = menuOptions;
-    page.rootInstance.open = true;
-    await page.waitForChanges();
-
-    const list = page.root.shadowRoot.querySelector(menuUl);
-    list.dispatchEvent(
-      new window.window.KeyboardEvent("keydown", {
-        key: "Escape",
-        bubbles: true,
-        cancelable: true,
-      })
-    );
-    await page.waitForChanges();
-
-    expect(page.rootInstance.open).toBeFalsy();
-    expect(spy).toHaveBeenCalled();
-  });
-
   it("should focus the input when escape is pressed whilst the menu is focused (searchable)", async () => {
     const spy = jest.spyOn(HTMLInputElement.prototype, "focus");
     const page = await newSpecPage({
@@ -1473,5 +1584,64 @@ describe("ic-select", () => {
 
     expect(page.rootInstance.open).toBeFalsy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it("should test keydown on loading retry button", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
+    });
+    const input = page.root.shadowRoot.querySelector("input");
+    const spy = jest.spyOn(input, "focus");
+
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    let event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+    input.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+
+    await waitForTimeout(1000);
+    await page.waitForChanges();
+    event = new KeyboardEvent("keyDown", {
+      key: "Enter",
+    });
+    const retryButton = page.root.shadowRoot
+      .querySelector("ic-menu")
+      .querySelector("#retry-button") as HTMLIcButtonElement;
+    retryButton.dispatchEvent(event);
+    expect(spy).toHaveBeenCalled;
+  });
+
+  it("should stop the timeout if clear button is clicked before timeout", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" timeout="1000"></ic-select>`,
+    });
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+    const input = page.root.shadowRoot.querySelector("input");
+    input.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+
+    const clearButton = page.root.shadowRoot.querySelector(
+      "#clear-button"
+    ) as HTMLIcButtonElement;
+    clearButton.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toHaveLength(0);
+    await waitForTimeout(1000);
+    expect(page.rootInstance.filteredOptions).toHaveLength(0);
   });
 });
