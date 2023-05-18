@@ -1,5 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-select native should test native select with groups: native-select-with-groups 1`] = `
+<ic-select label="IC Select Test">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label for="ic-select-input-21" helpertext="" label="New label"></ic-input-label>
+      <ic-input-component-container validationstatus="">
+        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-21">
+          <option disabled="" selected="" value="">
+            Select an option
+          </option>
+          <optgroup label="Fancy">
+            <option value="Cap">
+              Cappuccino
+            </option>
+            <option value="Flat">
+              Flat white
+            </option>
+          </optgroup>
+          <optgroup label="Boring">
+            <option value="Fil">
+              Filter
+            </option>
+            <option value="Lat">
+              Latte
+            </option>
+          </optgroup>
+        </select>
+      </ic-input-component-container>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-21" type="hidden" value="">
+</ic-select>
+`;
+
+exports[`ic-select native should test native select: native-select 1`] = `
+<ic-select label="IC Select Test">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label for="ic-select-input-20" helpertext="" label="New label"></ic-input-label>
+      <ic-input-component-container validationstatus="">
+        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-20">
+          <option disabled="" selected="" value="">
+            Select an option
+          </option>
+          <option value="Test value 1">
+            Test label 1
+          </option>
+          <option value="Test value 2">
+            Test label 2
+          </option>
+          <option value="Test value 3">
+            Test label 3
+          </option>
+        </select>
+      </ic-input-component-container>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-20" type="hidden" value="">
+</ic-select>
+`;
+
+exports[`ic-select searchable should render as required: required-searchable 1`] = `
+<ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label for="ic-select-input-23" helpertext="" label="IC Select Test" required=""></ic-input-label>
+      <ic-input-component-container>
+        <!---->
+        <div class="focus-indicator">
+          <div class="searchable-select-container">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-23-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-23" placeholder="Select an option" role="combobox">
+            <span aria-hidden="true" class="expand-icon">
+              svg
+            </span>
+            <div aria-live="polite" class="searchable-select-results-status" role="status"></div>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <ic-menu></ic-menu>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-select-input-23" type="hidden" value="">
+</ic-select>
+`;
+
 exports[`ic-select should have correct validation status: with-validation-status-error 1`] = `
 <ic-select label="IC Select Test" validation-status="error">
   <mock:shadow-root>
@@ -93,37 +178,6 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
 </ic-select>
 `;
 
-exports[`ic-select should not render validation text if disabled: no-validation-text-if-disabled 1`] = `
-<ic-select label="IC Select Test" validation-text="Test validation text">
-  <mock:shadow-root>
-    <ic-input-container>
-      <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test"></ic-input-label>
-      <ic-input-component-container>
-        <!---->
-        <div class="focus-indicator">
-          <div class="select-container">
-            <button aria-controls="ic-select-input-6-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-6-menu" class="select-input" id="ic-select-input-6">
-              <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
-              </ic-typography>
-              <div class="select-input-end">
-                <span aria-hidden="true" class="expand-icon">
-                  svg
-                </span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </ic-input-component-container>
-      <ic-menu></ic-menu>
-    </ic-input-container>
-  </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-6" type="hidden" value="">
-</ic-select>
-`;
-
 exports[`ic-select should not render validation text if no validation status has been supplied: no-validation-text-if-no-status 1`] = `
 <ic-select label="IC Select Test" validation-text="Test validation text">
   <mock:shadow-root>
@@ -152,30 +206,6 @@ exports[`ic-select should not render validation text if no validation status has
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-select-input-5" type="hidden" value="">
-</ic-select>
-`;
-
-exports[`ic-select should render as required: required-searchable 1`] = `
-<ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
-  <mock:shadow-root>
-    <ic-input-container>
-      <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test" required=""></ic-input-label>
-      <ic-input-component-container>
-        <!---->
-        <div class="focus-indicator">
-          <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-7" placeholder="Select an option" role="combobox">
-            <span aria-hidden="true" class="expand-icon">
-              svg
-            </span>
-            <div aria-live="polite" class="searchable-select-results-status" role="status"></div>
-          </div>
-        </div>
-      </ic-input-component-container>
-      <ic-menu></ic-menu>
-    </ic-input-container>
-  </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-7" type="hidden" value="">
 </ic-select>
 `;
 
@@ -231,77 +261,16 @@ exports[`ic-select should render readonly: readonly 1`] = `
 </ic-select>
 `;
 
-exports[`ic-select should test native select with groups: native-select-with-groups 1`] = `
-<ic-select label="IC Select Test">
-  <mock:shadow-root>
-    <ic-input-container>
-      <ic-input-label for="ic-select-input-11" helpertext="" label="New label"></ic-input-label>
-      <ic-input-component-container validationstatus="">
-        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-11">
-          <option disabled="" selected="" value="">
-            Select an option
-          </option>
-          <optgroup label="Fancy">
-            <option value="Cap">
-              Cappuccino
-            </option>
-            <option value="Flat">
-              Flat white
-            </option>
-          </optgroup>
-          <optgroup label="Boring">
-            <option value="Fil">
-              Filter
-            </option>
-            <option value="Lat">
-              Latte
-            </option>
-          </optgroup>
-        </select>
-      </ic-input-component-container>
-    </ic-input-container>
-  </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-11" type="hidden" value="">
-</ic-select>
-`;
-
-exports[`ic-select should test native select: native-select 1`] = `
-<ic-select label="IC Select Test">
-  <mock:shadow-root>
-    <ic-input-container>
-      <ic-input-label for="ic-select-input-10" helpertext="" label="New label"></ic-input-label>
-      <ic-input-component-container validationstatus="">
-        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-10">
-          <option disabled="" selected="" value="">
-            Select an option
-          </option>
-          <option value="Test value 1">
-            Test label 1
-          </option>
-          <option value="Test value 2">
-            Test label 2
-          </option>
-          <option value="Test value 3">
-            Test label 3
-          </option>
-        </select>
-      </ic-input-component-container>
-    </ic-input-container>
-  </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-10" type="hidden" value="">
-</ic-select>
-`;
-
 exports[`ic-select should test with clear button: with-clear-button 1`] = `
 <ic-select label="IC Select Test" show-clear-button="true" value="test-value">
   <mock:shadow-root>
     <ic-input-container>
-      <ic-input-label for="ic-select-input-8" helpertext="" label="IC Select Test"></ic-input-label>
+      <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test"></ic-input-label>
       <ic-input-component-container>
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
-            <button aria-controls="ic-select-input-8-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-8-menu" class="select-input" id="ic-select-input-8">
+            <button aria-controls="ic-select-input-6-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-6-menu" class="select-input" id="ic-select-input-6">
               <ic-typography class="placeholder value-text" variant="body">
                 <p>
                   Select an option
@@ -328,8 +297,8 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
         </div>
       </ic-input-component-container>
       <ic-menu>
-        <ul aria-activedescendant="ic-select-input-8-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-8-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-8-menu-Test value 1" role="option" tabindex="-1">
+        <ul aria-activedescendant="ic-select-input-6-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-6-menu" role="listbox" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-6-menu-Test value 1" role="option" tabindex="-1">
             <div class="option-text-container">
               <ic-typography aria-hidden="true" variant="body">
                 <p>
@@ -338,7 +307,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
               </ic-typography>
             </div>
           </li>
-          <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-8-menu-Test value 2" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-6-menu-Test value 2" role="option" tabindex="-1">
             <div class="option-text-container">
               <ic-typography aria-hidden="true" variant="body">
                 <p>
@@ -347,7 +316,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
               </ic-typography>
             </div>
           </li>
-          <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-8-menu-Test value 3" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-6-menu-Test value 3" role="option" tabindex="-1">
             <div class="option-text-container">
               <ic-typography aria-hidden="true" variant="body">
                 <p>
@@ -360,6 +329,6 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
       </ic-menu>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-8" type="hidden" value="test-value">
+  <input class="ic-input" name="ic-select-input-6" type="hidden" value="test-value">
 </ic-select>
 `;

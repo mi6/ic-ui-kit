@@ -249,7 +249,7 @@ export class Select {
           this.setOptionsValuesFromLabels();
           this.noOptions = null;
           this.filteredOptions = this.options;
-        } else if (this.isMenuEnabled()) {
+        } else {
           this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
           this.filteredOptions = this.noOptions;
         }
@@ -367,13 +367,6 @@ export class Select {
     this.value = value;
     clearTimeout(this.debounceIcChange);
     this.icChange.emit({ value: value });
-  };
-
-  private isMenuEnabled = () => {
-    return (
-      this.searchableSelectInputValue !== null ||
-      this.searchableSelectInputValue !== ""
-    );
   };
 
   private setOptionsValuesFromLabels = (): void => {
@@ -507,7 +500,7 @@ export class Select {
       }
     }
 
-    if (event.detail !== 0 && this.isMenuEnabled()) {
+    if (event.detail !== 0) {
       this.menu.handleClickOpen();
     }
   };
@@ -523,6 +516,7 @@ export class Select {
   private handleClear = (event: Event): void => {
     event.stopPropagation();
     this.hasTimedOut = false;
+    clearTimeout(this.timeoutTimer);
     this.noOptions = null;
     this.emitImmediateIcChange(null);
     this.icClear.emit();
@@ -533,10 +527,6 @@ export class Select {
       this.filteredOptions = this.options;
       this.hiddenInputValue = null;
       this.searchableSelectElement.focus();
-
-      if (!this.isMenuEnabled()) {
-        this.setMenuChange(false);
-      }
     } else {
       this.customSelectElement.focus();
     }
@@ -599,7 +589,7 @@ export class Select {
     if (this.open && event.key === "Enter") {
       this.setMenuChange(false);
     } else {
-      if (!(isArrowKey && this.noOptions !== null) && this.isMenuEnabled()) {
+      if (!(isArrowKey && this.noOptions !== null)) {
         if (!(event.key === " " && this.pressedCharacters.length > 0)) {
           // Keyboard events get passed onto ic-menu
           this.menu.handleKeyboardOpen(event);
@@ -725,12 +715,7 @@ export class Select {
 
     this.hiddenInputValue = this.searchableSelectInputValue;
     this.inputValueToFilter = this.searchableSelectInputValue;
-
-    if (this.isMenuEnabled()) {
-      this.setMenuChange(true);
-    } else {
-      this.setMenuChange(false);
-    }
+    this.setMenuChange(true);
 
     if (!this.disableFilter) {
       this.handleFilter();
