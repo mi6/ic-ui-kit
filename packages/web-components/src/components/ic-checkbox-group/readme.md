@@ -15,6 +15,7 @@
 | `label` _(required)_ | `label`             | The label for the checkbox group to be displayed.                                                  | `string`                                  | `undefined` |
 | `name` _(required)_  | `name`              | The name for the checkbox group to differentiate from other groups.                                | `string`                                  | `undefined` |
 | `required`           | `required`          | If `true`, the checkbox group will require a value.                                                | `boolean`                                 | `false`     |
+| `size`               | `size`              | The size of the checkbox(es) to be displayed. This does not affect the font size of the label.     | `"default" \| "large" \| "small"`         | `"default"` |
 | `small`              | `small`             | If `true`, the small styling will be applied to the checkbox group.                                | `boolean`                                 | `false`     |
 | `validationStatus`   | `validation-status` | The validation status - e.g. 'error' \| 'warning' \| 'success'.                                    | `"" \| "error" \| "success" \| "warning"` | `""`        |
 | `validationText`     | `validation-text`   | The validation text - e.g. 'error' \| 'warning' \| 'success'.                                      | `string`                                  | `""`        |

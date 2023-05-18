@@ -13,12 +13,12 @@ import {
 import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
-  IcButtonSizes,
   IcButtonTypes,
   IcButtonVariants,
   IcButtonTooltipPlacement,
 } from "./ic-button.types";
 import {
+  IcSizes,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
@@ -81,7 +81,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcButtonSizes = "default";
+  @Prop() size?: IcSizes = "default";
   /**
    * If `true`, the button will fill the width of the container.
    */

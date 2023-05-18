@@ -24,6 +24,7 @@ import readme from "./readme.md";
             label="Unselected / Default"
           ></ic-checkbox>
           <ic-checkbox
+            small="true"
             value="valueName2"
             label="Selected / Default"
             checked
@@ -31,7 +32,101 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {(args) =>
+      html`
+        <ic-checkbox-group
+          size="large"
+          label="These are checkboxes with the 'size' attribute set on them individually"
+          name="group1"
+        >
+          <ic-checkbox
+            size="small"
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            size="default"
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            size="large"
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="small"
+          label="This is a checkbox group with small checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="default"
+          label="This is a checkbox group with default-sized checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="large"
+          label="This is a checkbox group with large checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
           ></ic-checkbox>
         </ic-checkbox-group>
       `
@@ -58,7 +153,7 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
           ></ic-checkbox>
         </ic-checkbox-group>
       `
@@ -72,26 +167,33 @@ import readme from "./readme.md";
   <Story name="Disabled">
     {(args) =>
       html`
-        <ic-checkbox-group label="This is a label" name="group1" Disabled>
+        <ic-checkbox-group label="This is a label" name="group1" disabled>
           <ic-checkbox
             value="valueName1"
             label="Unselected / Disabled 1"
-            Disabled
+            disabled
           ></ic-checkbox>
           <ic-checkbox
             value="valueName2"
             label="Unselected / Disabled 2"
-            Disabled
+            disabled
           ></ic-checkbox>
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled 3"
-            Disabled
+            disabled
           ></ic-checkbox>
           <ic-checkbox
             value="valueName4"
             label="Selected / Disabled"
-            Disabled
+            disabled
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName4"
+            label="Selected / Indeterminate Disabled"
+            indeterminate
+            disabled
             checked
           ></ic-checkbox>
         </ic-checkbox-group>
@@ -119,7 +221,7 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
           ></ic-checkbox>
         </ic-checkbox-group>
       `
@@ -230,7 +332,7 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
           ></ic-checkbox>
         </ic-checkbox-group>
       `
@@ -259,7 +361,7 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
             small
           ></ic-checkbox>
         </ic-checkbox-group>
@@ -292,7 +394,7 @@ import readme from "./readme.md";
           <ic-checkbox
             value="valueName3"
             label="Unselected / Disabled"
-            Disabled
+            disabled
           ></ic-checkbox>
         </ic-checkbox-group>
       `
@@ -323,7 +425,7 @@ import readme from "./readme.md";
               name="checkbox3"
               value="valueName3"
               label="Unselected / Disabled"
-              Disabled
+              disabled
             ></ic-checkbox>
           </ic-checkbox-group>
           <input type="submit" value="Submit" />

@@ -9,7 +9,7 @@ import {
   State,
   Method,
 } from "@stencil/core";
-import { IcAdditionalFieldTypes } from "../../utils/types";
+import { IcAdditionalFieldTypes, IcSizes } from "../../utils/types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
@@ -65,7 +65,10 @@ export class Checkbox {
    * If `true`, the indeterminate state will be displayed when checked.
    */
   @Prop() indeterminate: boolean = false;
-
+  /**
+   * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
+   */
+  @Prop() size?: IcSizes;
   /**
    * If true, the small styling will be applied to the checkbox.
    */
@@ -157,6 +160,10 @@ export class Checkbox {
 
     id = id.replace(/ /g, "-");
 
+    const parentElementSize = (
+      this.host.parentElement as HTMLIcCheckboxGroupElement
+    ).size;
+
     this.checked
       ? renderHiddenInput(
           true,
@@ -168,7 +175,14 @@ export class Checkbox {
       : removeHiddenInput(this.host);
 
     return (
-      <Host class={{ ["disabled"]: this.disabled, ["small"]: this.small }}>
+      <Host
+        class={{
+          ["disabled"]: this.disabled,
+          ["small"]: this.small,
+          [`${this.size !== undefined ? this.size : parentElementSize}-size`]:
+            true,
+        }}
+      >
         <div class="container">
           {this.checked && !this.indeterminate && (
             <svg

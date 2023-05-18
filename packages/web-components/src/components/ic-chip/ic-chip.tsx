@@ -13,8 +13,9 @@ import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
 } from "../../utils/helpers";
-import { IcChipAppearance, IcChipSizes } from "./ic-chip.types";
+import { IcChipAppearance } from "./ic-chip.types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
+import { IcSizes } from "../../utils/types";
 
 /**
  * @slot icon - Content will be rendered at the start of the chip.
@@ -40,7 +41,7 @@ export class Chip {
   /**
    * The size of the chip.
    */
-  @Prop() size?: IcChipSizes = "default";
+  @Prop() size?: IcSizes = "default";
   /**
    * If `true`, the chip will have a close button at the end to dismiss it.
    */

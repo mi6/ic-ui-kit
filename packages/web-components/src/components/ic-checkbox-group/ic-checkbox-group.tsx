@@ -13,7 +13,7 @@ import {
   hasValidationStatus,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
-import { IcInformationStatusOrEmpty } from "../../utils/types";
+import { IcInformationStatusOrEmpty, IcSizes } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 
 @Component({
@@ -54,6 +54,11 @@ export class CheckboxGroup {
    * The helper text that will be displayed for additional field guidance.
    */
   @Prop() helperText: string = "";
+
+  /**
+   * The size of the checkbox(es) to be displayed. This does not affect the font size of the label.
+   */
+  @Prop() size?: IcSizes = "default";
 
   /**
    * If `true`, the small styling will be applied to the checkbox group.
@@ -117,7 +122,7 @@ export class CheckboxGroup {
     );
 
     return (
-      <Host class={{ ["small"]: this.small }}>
+      <Host class={{ ["small"]: this.small, [`${this.size}-size`]: true }}>
         {(this.validationStatus === "error" ||
           this.required ||
           this.hideLabel) && (
