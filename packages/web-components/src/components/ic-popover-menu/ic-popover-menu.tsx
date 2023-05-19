@@ -295,6 +295,8 @@ export class PopoverMenu {
     }
   }
 
+  const test: string = 3
+
   render() {
     return (
       <Host class={{ open: this.open }}>
