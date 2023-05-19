@@ -93,7 +93,7 @@ exports[`menu group should render a menu group without a label 1`] = `
   <ic-menu-item label="Button" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, undefined menu group" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button" disabletooltip="" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <span class="icon">
               <slot name="icon"></slot>
@@ -117,7 +117,7 @@ exports[`menu group should render a menu group without a label 1`] = `
   <ic-menu-item label="Button" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, undefined menu group" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button" disabletooltip="" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <span class="icon">
               <slot name="icon"></slot>
@@ -141,7 +141,7 @@ exports[`menu group should render a menu group without a label 1`] = `
   <ic-menu-item description="This button has a href and so it behaves like a link" href="#" label="Button" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link, undefined menu group" disabletooltip="" fullwidth="" href="#" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button, This button has a href and so it behaves like a link" disabletooltip="" fullwidth="" href="#" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">

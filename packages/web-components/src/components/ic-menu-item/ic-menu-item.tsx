@@ -155,7 +155,10 @@ export class MenuItem {
     }
     const parentEl = getParentElement(this.el);
 
-    if (parentEl.tagName === "IC-MENU-GROUP") {
+    if (
+      parentEl.tagName === "IC-MENU-GROUP" &&
+      (parentEl as HTMLIcMenuGroupElement).label
+    ) {
       return `${ariaLabel}, ${
         (parentEl as HTMLIcMenuGroupElement).label
       } menu group`;
