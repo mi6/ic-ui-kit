@@ -1222,7 +1222,7 @@ export namespace Components {
          */
         "debounce"?: number;
         /**
-          * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
         "disableFilter"?: boolean;
         /**
@@ -1258,15 +1258,15 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Trigger loading state when fetching options asyncronously
+          * If `true`, the loading state will be triggered when fetching options asyncronously.
          */
         "loading"?: boolean;
         /**
-          * Change the message displayed when external loading times out.
+          * The message displayed when external loading times out.
          */
         "loadingErrorLabel"?: string;
         /**
-          * Change the message displayed whilst the options are being loaded externally.
+          * The message displayed whilst the options are being loaded externally.
          */
         "loadingLabel"?: string;
         /**
@@ -1322,7 +1322,7 @@ export namespace Components {
          */
         "validationText"?: string;
         /**
-          * The value of the currently selected option.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
          */
         "value"?: string;
     }
@@ -3527,7 +3527,7 @@ declare namespace LocalJSX {
          */
         "debounce"?: number;
         /**
-          * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+          * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
         "disableFilter"?: boolean;
         /**
@@ -3563,15 +3563,15 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Trigger loading state when fetching options asyncronously
+          * If `true`, the loading state will be triggered when fetching options asyncronously.
          */
         "loading"?: boolean;
         /**
-          * Change the message displayed when external loading times out.
+          * The message displayed when external loading times out.
          */
         "loadingErrorLabel"?: string;
         /**
-          * Change the message displayed whilst the options are being loaded externally.
+          * The message displayed whilst the options are being loaded externally.
          */
         "loadingLabel"?: string;
         /**
@@ -3579,7 +3579,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when select loses focus.
+          * Emitted when the select loses focus.
          */
         "onIcBlur"?: (event: IcSelectCustomEvent<void>) => void;
         /**
@@ -3587,11 +3587,11 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
         /**
-          * Emitted when clear button clicked.
+          * Emitted when the clear button is clicked.
          */
         "onIcClear"?: (event: IcSelectCustomEvent<void>) => void;
         /**
-          * Emitted when select gains focus.
+          * Emitted when the select gains focus.
          */
         "onIcFocus"?: (event: IcSelectCustomEvent<void>) => void;
         /**
@@ -3599,11 +3599,11 @@ declare namespace LocalJSX {
          */
         "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
         /**
-          * Emitted when option is highlighted within the menu. Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated.
+          * Emitted when an option is highlighted within the menu. Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.
          */
         "onIcOptionSelect"?: (event: IcSelectCustomEvent<IcOptionSelectEventDetail>) => void;
         /**
-          * Emitted when the 'retry loading' button is clicked
+          * Emitted when the 'retry loading' button is clicked for a searchable variant.
          */
         "onIcRetryLoad"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
         /**
@@ -3651,7 +3651,7 @@ declare namespace LocalJSX {
          */
         "validationText"?: string;
         /**
-          * The value of the currently selected option.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
          */
         "value"?: string;
     }
