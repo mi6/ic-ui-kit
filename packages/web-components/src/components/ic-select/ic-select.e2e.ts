@@ -110,61 +110,12 @@ const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {
     input.focus();
   });
 
-  await value.split("").forEach(async (char: KeyInput) => {
+  value.split("").forEach(async (char: KeyInput) => {
     await page.keyboard.press(char);
   });
 };
 
 describe("ic-select", () => {
-  it("should render a native select on a mobile device", async () => {
-    const page = await newE2EPage();
-    await page.setUserAgent(
-      "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
-    );
-    await page.setViewport({
-      width: 375,
-      height: 667,
-      isMobile: true,
-      hasTouch: true,
-    });
-    await page.setContent(getTestSelect(options));
-    await page.waitForChanges();
-
-    const select = await page.find("ic-select");
-
-    expect(select.shadowRoot).toEqualHtml(`<ic-input-container class="hydrated">
-      <!---->
-        <div class="component-container">
-          <ic-input-label class="hydrated">
-            <ic-typography class="hydrated ic-typography-label">
-              <label for="ic-select-input-0">
-                IC Select Test
-              </label>
-            </ic-typography>
-          </ic-input-label>
-          <ic-input-component-container class="hydrated">
-            <!---->
-            <div class="focus-indicator">
-              <select aria-describedby="" aria-invalid="false" aria-label="IC Select Test" id="ic-select-input-0" class="placeholder">
-                <option disabled="" value="">
-                  Select an option
-                </option>
-                <option value="Test value 1">
-                  Test label 1
-                </option>
-                <option value="Test value 2">
-                  Test label 2
-                </option>
-                <option value="Test value 3">
-                  Test label 3
-                </option>
-              </select>
-            </div>
-          </ic-input-component-container>
-        </div>
-      </ic-input-container>`);
-  });
-
   describe("custom", () => {
     it("should render", async () => {
       const page = await newE2EPage();
@@ -190,27 +141,13 @@ describe("ic-select", () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
-
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
       await select.click();
       await page.waitForChanges();
-
-      const newMenuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(newMenuVisibility).toBe("visible");
-      expect(await select.getAttribute("aria-expanded")).toBeTruthy();
+      expect(await getMenuVisibility(page)).toBe("visible");
+      expect(select.getAttribute("aria-expanded")).toBeTruthy();
 
       const activeElId = await page.$eval(
         "ic-select",
@@ -310,6 +247,29 @@ describe("ic-select", () => {
         const lastOption = await menu.findAll("li");
         expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
+      });
+
+      it("should keep menu closed when Backspace, Home, End and Escape are pressed", async () => {
+        const page = await newE2EPage();
+        await page.setContent(getTestSelect(options));
+        await page.waitForChanges();
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.press("Backspace");
+        await page.waitForChanges();
+        expect(await getMenuVisibility(page)).toBe("hidden");
+
+        await select.press("Home");
+        await page.waitForChanges();
+        expect(await getMenuVisibility(page)).toBe("hidden");
+
+        await select.press("End");
+        await page.waitForChanges();
+        expect(await getMenuVisibility(page)).toBe("hidden");
+
+        await select.press("Escape");
+        await page.waitForChanges();
+        expect(await getMenuVisibility(page)).toBe("hidden");
       });
     });
 
@@ -421,46 +381,52 @@ describe("ic-select", () => {
 
         const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
         const firstOption = await menu.findAll("li");
-        const checkIcon = await menu.find("li .check-icon");
         expect(firstOption[0]).toHaveAttribute("aria-selected");
-        expect(checkIcon).not.toBeNull();
+        expect(await firstOption[0].find(".check-icon")).not.toBeNull;
+        expect(firstOption[1]).not.toHaveAttribute("aria-selected");
+        expect(await firstOption[1].find(".check-icon")).toBeNull;
+      });
+
+      it("should display a check next to the selected option and set aria-selected when a default value is applied", async () => {
+        const page = await newE2EPage();
+        await page.setContent(getTestSelect(options));
+        await page.waitForChanges();
+
+        const icSelect = await page.find("ic-select");
+        icSelect.setAttribute("value", "Test value 1");
+        await page.waitForChanges();
+
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const firstOption = await menu.findAll("li");
+        expect(firstOption[0]).toHaveAttribute("aria-selected");
+        expect(await firstOption[0].find(".check-icon")).not.toBeNull;
       });
 
       it("should display clear button if the 'show-clear-button' prop is supplied and an option is selected", async () => {
         const page = await newE2EPage();
         await page.setContent(getTestSelect(options));
-        const icSelect = await page.find("ic-select");
-        await icSelect.setAttribute("show-clear-button", true);
-        await page.waitForChanges();
-
-        const select = await page.find("ic-select >>> #ic-select-input-0");
-        await select.press("ArrowDown");
-        await page.keyboard.press("Enter");
-        await page.waitForChanges();
-
-        const clearButton = await page.find("ic-select >>> .clear-button");
-        expect(clearButton).not.toBeNull();
-      });
-
-      it("should not display a clear button if the 'show-clear-button' prop is not supplied", async () => {
-        const page = await newE2EPage();
-        await page.setContent(getTestSelect(options));
-        await page.waitForChanges();
-
-        const select = await page.find("ic-select >>> #ic-select-input-0");
-        await select.press("ArrowDown");
-        await page.keyboard.press("Enter");
-        await page.waitForChanges();
-
-        const clearButton = await page.find("ic-select >>> .clear-button");
+        let clearButton = await page.find("ic-select >>> .clear-button");
         expect(clearButton).toBeNull();
+
+        const icSelect = await page.find("ic-select");
+        icSelect.setAttribute("show-clear-button", true);
+        await page.waitForChanges();
+        clearButton = await page.find("ic-select >>> .clear-button");
+        expect(clearButton).toBeNull();
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.press("ArrowDown");
+        await page.keyboard.press("Enter");
+        await page.waitForChanges();
+        clearButton = await page.find("ic-select >>> .clear-button");
+        expect(clearButton).not.toBeNull();
       });
 
       it("should clear the input if the clear button is clicked", async () => {
         const page = await newE2EPage();
         await page.setContent(getTestSelect(options));
         const icSelect = await page.find("ic-select");
-        await icSelect.setAttribute("show-clear-button", true);
+        icSelect.setAttribute("show-clear-button", true);
         await page.waitForChanges();
 
         const icChange = await page.spyOnEvent("icChange");
@@ -469,7 +435,7 @@ describe("ic-select", () => {
         await page.keyboard.press("Enter");
         await page.waitForChanges();
 
-        const clearButton = await page.find("ic-select >>> .clear-button");
+        let clearButton = await page.find("ic-select >>> .clear-button");
         await clearButton.click();
         await page.waitForChanges();
 
@@ -477,6 +443,8 @@ describe("ic-select", () => {
         expect(icChange).toHaveReceivedEventDetail({
           value: null,
         });
+        clearButton = await page.find("ic-select >>> .clear-button");
+        expect(clearButton).toBeNull;
       });
     });
 
@@ -493,13 +461,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
 
       const activeElId = await page.$eval(
         "ic-select",
@@ -523,13 +485,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
       expect(icChange).toHaveReceivedEventDetail({
         value: "Test value 2",
       });
@@ -542,7 +498,7 @@ describe("ic-select", () => {
       expect(activeElId).toBe("ic-select-input-0");
     });
 
-    it("should close menu when Space is pressed", async () => {
+    it("should close menu when Space is pressed and move focus to the input", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
@@ -555,16 +511,15 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
+      const activeElId = await page.$eval(
+        "ic-select",
+        (el) => el.shadowRoot.activeElement.id
+      );
+      expect(activeElId).toBe("ic-select-input-0");
     });
 
-    it("should close menu when Enter is pressed", async () => {
+    it("should close menu when Enter is pressed and set focus to the input", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
@@ -577,16 +532,15 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
+      const activeElId = await page.$eval(
+        "ic-select",
+        (el) => el.shadowRoot.activeElement.id
+      );
+      expect(activeElId).toBe("ic-select-input-0");
     });
 
-    it("should close menu when Escape is pressed", async () => {
+    it("should close menu when Escape is pressed and set focus to the input", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
@@ -599,13 +553,12 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
+      const activeElId = await page.$eval(
+        "ic-select",
+        (el) => el.shadowRoot.activeElement.id
+      );
+      expect(activeElId).toBe("ic-select-input-0");
     });
 
     it("should close menu when another element on the page is clicked", async () => {
@@ -624,13 +577,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
     });
 
     it("should close menu when Tab is pressed to move focus onto the next element on the page", async () => {
@@ -648,13 +595,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
     });
 
     it("should close menu when Shift + Tab is pressed to move focus onto the input", async () => {
@@ -675,13 +616,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       await page.waitForTimeout(1000);
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
 
       const activeElId = await page.$eval(
         "ic-select",
@@ -694,7 +629,7 @@ describe("ic-select", () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("value", "Test value 2");
+      icSelect.setAttribute("value", "Test value 2");
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -724,7 +659,7 @@ describe("ic-select", () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("placeholder", "Test placeholder");
+      icSelect.setAttribute("placeholder", "Test placeholder");
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -735,7 +670,7 @@ describe("ic-select", () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("disabled", true);
+      icSelect.setAttribute("disabled", true);
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -743,14 +678,7 @@ describe("ic-select", () => {
 
       await select.click();
       await page.waitForChanges();
-
-      const menuVisibility = await page.evaluate(() => {
-        const menu = document
-          .querySelector("ic-select")
-          .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
-        return window.getComputedStyle(menu).visibility;
-      });
-      expect(menuVisibility).toBe("hidden");
+      expect(await getMenuVisibility(page)).toBe("hidden");
     });
 
     it("should prevent click on disabled options", async () => {
@@ -832,7 +760,6 @@ describe("ic-select", () => {
       expect(typography[1]).toBe("Test label 1");
     });
 
-    // Flaky test
     it("should render options as groups if they have children", async () => {
       const page = await newE2EPage();
       const groupedOptions = `[
@@ -1030,6 +957,159 @@ describe("ic-select", () => {
 
       expect(icBlur).toHaveReceivedEvent();
     });
+
+    describe("loading", () => {
+      it("should display a loading message and then the options when fetching options externally", async () => {
+        const page = await newE2EPage();
+        await page.setContent(`<ic-select label="IC Select Test" loading="true"></ic-select>
+        <script>
+          var select = document.querySelector('ic-select');
+          select.options = [];
+          select.addEventListener('icChange', function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          setTimeout(() => {
+            select.options = [
+              { label: 'Test label 1', value: 'Test value 1' },
+              { label: 'Test label 2', value: 'Test value 2' },
+              { label: 'Test label 3', value: 'Test value 3' },
+            ];
+          }, 1000);
+        </script>`);
+        await page.waitForChanges();
+
+        let firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toEqualText("Loading...");
+
+        await page.waitForTimeout(1500);
+        firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toEqualText("Test label 1");
+
+        const icSelect = await page.find("ic-select");
+        expect(icSelect.getAttribute("loading")).toBeFalsy;
+      });
+
+      it("should display a retry button and a custom loading error when it times out and should not update the options", async () => {
+        const page = await newE2EPage();
+        await page.setContent(
+          `<ic-select label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select>`
+        );
+        await page.waitForChanges();
+
+        let firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toEqualText("Loading...");
+        await page.waitForTimeout(560);
+
+        firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+        );
+        expect(firstOption).toEqualText("Error");
+        const retryButton = await page.find("ic-select >>> #retry-button");
+        expect(retryButton).not.toBeNull;
+
+        await page.waitForTimeout(1500);
+        firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+        );
+        expect(firstOption).toEqualText("Error");
+      });
+
+      it("should focus the retry button on tab and emit icBlur and close the menu when blurring", async () => {
+        const page = await newE2EPage();
+        await page.setContent(
+          `<ic-select label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select>`
+        );
+        await page.waitForChanges();
+        await page.waitForTimeout(560);
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+        await page.keyboard.press("Tab");
+        await page.waitForChanges();
+        const icBlur = await page.spyOnEvent("icBlur");
+        expect(icBlur).not.toHaveReceivedEvent();
+        const activeElId = await page.$eval(
+          "ic-select",
+          (el) => el.shadowRoot.activeElement.id
+        );
+        expect(activeElId).toBe("retry-button");
+
+        await page.keyboard.press("Tab");
+        await page.waitForChanges();
+        expect(icBlur).toHaveReceivedEvent();
+      });
+
+      it("should retry loading and keep the menu open when retry button is clicked", async () => {
+        const page = await newE2EPage();
+        await page.setContent(`<ic-select label="IC Select Test" loading="true" timeout="500"></ic-select>
+        <script>
+          var select = document.querySelector('ic-select');
+          select.options = [];
+          select.addEventListener('icChange', function (event) {
+            option = event.detail.value;
+            select.value = option;
+          });
+          select.addEventListener('icRetryLoad', function () {
+            select.loading = true;
+          });
+        </script>`);
+        await page.waitForChanges();
+        const icRetryLoad = await page.spyOnEvent("icRetryLoad");
+
+        await page.waitForTimeout(560);
+        let firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+        );
+        expect(firstOption).toEqualText("Loading Error");
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+
+        const retryButton = await page.find("ic-select >>> #retry-button");
+        await retryButton.click();
+        await page.waitForChanges();
+        expect(icRetryLoad).toHaveReceivedEvent;
+        firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toEqualText("Loading...");
+        expect(await getMenuVisibility(page)).toBe("visible");
+      });
+
+      it("should retry loading and keep the menu open when retry button is pressed with Enter", async () => {
+        const page = await newE2EPage();
+        await page.setContent(
+          `<ic-select label="IC Select Test" loading="true" options="[]" timeout="500"></ic-select>`
+        );
+        await page.waitForChanges();
+        const icRetryLoad = await page.spyOnEvent("icRetryLoad");
+
+        await page.waitForTimeout(560);
+        const firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+        );
+        expect(firstOption).toEqualText("Loading Error");
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+
+        const retryButton = await page.find("ic-select >>> #retry-button");
+        await retryButton.press("Enter");
+        await page.waitForChanges();
+        expect(icRetryLoad).toHaveReceivedEvent;
+        expect(await getMenuVisibility(page)).toBe("visible");
+      });
+    });
   });
 
   describe("searchable", () => {
@@ -1052,6 +1132,33 @@ describe("ic-select", () => {
       expect(menuOptions[2]).toEqualText("Mocha");
       expect(menuOptions[3]).toEqualText("Macchiato");
     });
+
+    //TODO: Uncomment when bug is fixed
+    // it("should keep the same options when characters are entered and the menu is reopened", async () => {
+    //   const page = await newE2EPage();
+    //   await page.setContent(getTestSearchableSelect(searchableOptions));
+    //   await page.waitForChanges();
+
+    //   await focusAndTypeIntoInput("foo", page);
+    //   await page.waitForChanges();
+
+    //   const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+    //   let menuOptions = await menu.findAll("li");
+    //   expect(menuOptions).toHaveLength(1);
+    //   expect(menuOptions[0]).toEqualText("No results found");
+
+    //   const select = await page.find("ic-select >>> #ic-select-input-0");
+    //   select.click();
+    //   await page.waitForChanges();
+    //   expect(await getMenuVisibility(page)).toBe("hidden");
+
+    //   select.click();
+    //   await page.waitForChanges();
+    //   expect(await getMenuVisibility(page)).toBe("visible");
+    //   menuOptions = await menu.findAll("li");
+    //   expect(menuOptions).toHaveLength(1);
+    //   expect(menuOptions[0]).toEqualText("No results found");
+    // });
 
     it("should display no results state when search term matches none of the options", async () => {
       const page = await newE2EPage();
@@ -1078,11 +1185,15 @@ describe("ic-select", () => {
       await page.waitForChanges();
       await select.press("i");
       await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      let menuOptions = await menu.findAll("li");
+      expect(menuOptions).toHaveLength(1);
+
       await select.press("Backspace");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
-      const menuOptions = await menu.findAll("li");
+      menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Filter");
       expect(menuOptions[1]).toEqualText("Flat white");
@@ -1096,13 +1207,13 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
-      await select.press("l");
+      await select.press("c");
       await page.waitForChanges();
 
       const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
-      expect(menuOptions[0]).toEqualText("Latte");
+      expect(menuOptions[0]).toEqualText("Cappuccino");
     });
 
     it("should include option descriptions in search", async () => {
@@ -1118,7 +1229,7 @@ describe("ic-select", () => {
       ]`;
       await page.setContent(getTestSearchableSelect(optionsWithDescription));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("include-descriptions-in-search", "start");
+      icSelect.setAttribute("include-descriptions-in-search", true);
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -1184,7 +1295,7 @@ describe("ic-select", () => {
       ]`;
       await page.setContent(getTestSearchableSelect(groupedOptions));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("include-group-titles-in-search", "true");
+      icSelect.setAttribute("include-group-titles-in-search", true);
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -1204,11 +1315,14 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
+
+      let clearButton = await page.find("ic-select >>> .clear-button");
+      expect(clearButton).toBeNull();
       const select = await page.find("ic-select >>> #ic-select-input-0");
       await select.press("a");
       await page.waitForChanges();
 
-      const clearButton = await page.find("ic-select >>> .clear-button");
+      clearButton = await page.find("ic-select >>> .clear-button");
       expect(clearButton).not.toBeNull();
 
       await clearButton.click();
@@ -1243,6 +1357,31 @@ describe("ic-select", () => {
       });
     });
 
+    it("should still filter the options when the input is changed after selecting an option", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
+
+      const icChange = await page.spyOnEvent("icChange");
+      const select = await page.find("ic-select >>> #ic-select-input-0");
+      await select.press("ArrowDown");
+      await page.waitForChanges();
+      await select.press("Enter");
+      await page.waitForChanges();
+
+      expect(icChange).toHaveReceivedEventDetail({
+        value: "Cap",
+      });
+
+      for (let i = 0; i <= 7; i++) select.press("Backspace");
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
+      expect(menuOptions).toHaveLength(2);
+      expect(menuOptions[0]).toEqualText("Cappuccino");
+      expect(menuOptions[1]).toEqualText("Americano");
+    });
+
     it("should close menu on blur", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSearchableSelect(searchableOptions));
@@ -1262,7 +1401,7 @@ describe("ic-select", () => {
     it("should emit icChange on delay", async () => {
       const page = await newE2EPage();
       await page.setContent(
-        `<ic-select label="IC Select Test" debounce="500" searchable disable-filter></ic-select>`
+        `<ic-select label="IC Select Test" debounce="500" searchable></ic-select>`
       );
 
       await page.waitForChanges();
@@ -1390,13 +1529,13 @@ describe("ic-select", () => {
       expect(hiddenInput.getAttribute("value")).toBe("Cappuccino1");
     });
 
-    it("should update the value of the input when passing the value directly", async () => {
+    it("should update the value of the input and options when passing the value directly", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
       const select = await page.find("ic-select");
-      await select.setAttribute("value", "foo");
+      select.setAttribute("value", "foo");
 
       await page.waitForChanges();
 
@@ -1768,6 +1907,63 @@ describe("ic-select", () => {
 
       expect(inputValue).toBe("Test label 2");
     });
+
+    describe("loading", () => {
+      it("should retry loading and keep the menu open when retry button is pressed with Spacebar", async () => {
+        const page = await newE2EPage();
+        await page.setContent(
+          `<ic-select label="IC Select Test" searchable="true" options="[]" loading="true" timeout="500"></ic-select>`
+        );
+        await page.waitForChanges();
+        const icRetryLoad = await page.spyOnEvent("icRetryLoad");
+
+        await page.waitForTimeout(560);
+        const firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+        );
+        expect(firstOption).toEqualText("Loading Error");
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+
+        const retryButton = await page.find("ic-select >>> #retry-button");
+        await retryButton.press(" ");
+        await page.waitForChanges();
+        expect(icRetryLoad).toHaveReceivedEvent;
+        expect(await getMenuVisibility(page)).toBe("visible");
+      });
+
+      it("should cancel loading if the clear button is pressed mid-load", async () => {
+        const page = await newE2EPage();
+        await page.setContent(`<ic-select label="IC Select Test" searchable="true" timeout="500"></ic-select>
+        <script>
+          var select = document.querySelector("ic-select");
+          select.options = [];
+          select.addEventListener("icChange", function() {
+            select.loading = "true";
+          });
+        </script>`);
+        await page.waitForChanges();
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.press("c");
+        await page.waitForChanges();
+        let firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toEqualText("Loading...");
+
+        const clearButton = await page.find("ic-select >>> .clear-button");
+        await clearButton.click();
+        await page.waitForChanges();
+        await page.waitForTimeout(560);
+        firstOption = await page.find(
+          "ic-select >>> #ic-select-input-0-menu li"
+        );
+        expect(firstOption).toBeNull;
+      });
+    });
   });
 
   it("should reset to initial value on form reset", async () => {
@@ -1806,7 +2002,7 @@ describe("ic-select", () => {
     expect(value).toBe(undefined);
   });
 
-  it("should not display 'no results found' on initial load if setting default value and disable filter is set", async () => {
+  it("menu should not be visible on initial load if setting default value and disable filter is set", async () => {
     const page = await newE2EPage();
     await page.setContent(getTestSearchableSelectAsync());
     await page.waitForChanges();
@@ -1872,6 +2068,46 @@ describe("ic-select", () => {
 
     it("should render", async () => {
       await page.setContent(getTestSelect(options));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select");
+
+      expect(select.shadowRoot)
+        .toEqualHtml(`<ic-input-container class="hydrated">
+      <!---->
+        <div class="component-container">
+          <ic-input-label class="hydrated">
+            <ic-typography class="hydrated ic-typography-label">
+              <label for="ic-select-input-0">
+                IC Select Test
+              </label>
+            </ic-typography>
+          </ic-input-label>
+          <ic-input-component-container class="hydrated">
+            <!---->
+            <div class="focus-indicator">
+              <select aria-describedby="" aria-invalid="false" aria-label="IC Select Test" id="ic-select-input-0" class="placeholder">
+                <option disabled="" value="">
+                  Select an option
+                </option>
+                <option value="Test value 1">
+                  Test label 1
+                </option>
+                <option value="Test value 2">
+                  Test label 2
+                </option>
+                <option value="Test value 3">
+                  Test label 3
+                </option>
+              </select>
+            </div>
+          </ic-input-component-container>
+        </div>
+      </ic-input-container>`);
+    });
+
+    it("should render a native select when searchable is applied on mobile", async () => {
+      await page.setContent(getTestSearchableSelect(options));
       await page.waitForChanges();
 
       const select = await page.find("ic-select");
