@@ -134,7 +134,7 @@ export class Select {
   @Prop() validationText?: string = "";
 
   /**
-   * The value of the currently selected option.
+   * The value of the select, reflected by the value of the currently selected option.
    */
   @Prop({ mutable: true }) value?: string;
 
@@ -184,7 +184,7 @@ export class Select {
   @Prop() emptyOptionListText = "No results found";
 
   /**
-   * Specify whether to disable the built in filtering for a searchable variant. For example, if options will already be filtered from external source.
+   * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
    */
   @Prop() disableFilter?: boolean = false;
 
@@ -194,17 +194,17 @@ export class Select {
   @Prop() timeout?: number;
 
   /**
-   * Change the message displayed whilst the options are being loaded externally.
+   * The message displayed whilst the options are being loaded externally.
    */
   @Prop() loadingLabel?: string = "Loading...";
 
   /**
-   * Change the message displayed when external loading times out.
+   * The message displayed when external loading times out.
    */
   @Prop() loadingErrorLabel?: string = "Loading Error";
 
   /**
-   * Trigger loading state when fetching options asyncronously
+   * If `true`, the loading state will be triggered when fetching options asyncronously.
    */
   @Prop({ mutable: true }) loading?: boolean = false;
 
@@ -292,23 +292,23 @@ export class Select {
   @Event() icChange!: EventEmitter<IcValueEventDetail>;
 
   /**
-   * Emitted when clear button clicked.
+   * Emitted when the clear button is clicked.
    */
   @Event() icClear!: EventEmitter<void>;
 
   /**
-   * Emitted when select gains focus.
+   * Emitted when the select gains focus.
    */
   @Event() icFocus!: EventEmitter<void>;
 
   /**
-   * Emitted when select loses focus.
+   * Emitted when the select loses focus.
    */
   @Event() icBlur!: EventEmitter<void>;
 
   /**
-   * Emitted when option is highlighted within the menu.
-   * Highlighting a menu item will trigger an `icChange/onIcChange` due to the value being updated.
+   * Emitted when an option is highlighted within the menu.
+   * Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.
    */
   @Event() icOptionSelect: EventEmitter<IcOptionSelectEventDetail>;
 
@@ -318,7 +318,7 @@ export class Select {
   @Event() icInput: EventEmitter<IcValueEventDetail>;
 
   /**
-   * Emitted when the 'retry loading' button is clicked
+   * Emitted when the 'retry loading' button is clicked for a searchable variant.
    */
   @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
 
