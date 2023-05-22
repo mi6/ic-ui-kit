@@ -927,6 +927,10 @@ export namespace Components {
          */
         "boundaryCount": number;
         /**
+          * The current page displayed by the pagination.
+         */
+        "currentPage": number;
+        /**
           * The default page to display.
          */
         "defaultPage": number;
@@ -950,6 +954,7 @@ export namespace Components {
           * The total number of pages.
          */
         "pages": number;
+        "setCurrentPage": (page: number) => Promise<void>;
         /**
           * The type of pagination to be used.
          */
@@ -3182,6 +3187,10 @@ declare namespace LocalJSX {
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
         "boundaryCount"?: number;
+        /**
+          * The current page displayed by the pagination.
+         */
+        "currentPage"?: number;
         /**
           * The default page to display.
          */

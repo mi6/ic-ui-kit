@@ -9,6 +9,7 @@ import {
   Watch,
   Event,
   EventEmitter,
+  Method,
 } from "@stencil/core";
 import paginationNextPrevious from "../../assets/pagination-next-previous.svg";
 import paginationFirstLast from "../../assets/pagination-first-last.svg";
@@ -64,8 +65,11 @@ export class Pagination {
    * The label for the pagination item (applicable when simple pagination is being used).
    */
   @Prop() label: string = "Page";
+  /**
+   * The current page displayed by the pagination.
+   */
+  @Prop({ mutable: true }) currentPage: number = this.defaultPage;
 
-  @State() currentPage: number = this.defaultPage;
   @State() startEllipsis: boolean = false;
   @State() endEllipsis: boolean = false;
   @State() startItems: number[] = [];
@@ -82,6 +86,20 @@ export class Pagination {
     const page = ev.detail.page;
     this.currentPage = page;
     this.icPageChange.emit({ value: this.currentPage });
+  }
+
+  /**
+   * Sets the currently displayed page.
+   */
+  @Method()
+  async setCurrentPage(page: number) {
+    if (typeof page === "number" && page > 0 && page <= this.pages) {
+      this.currentPage = page;
+    } else {
+      console.error(
+        "Current page must be a number greater than zero but less than or equal to the total number of pages"
+      );
+    }
   }
 
   @Watch("currentPage")
