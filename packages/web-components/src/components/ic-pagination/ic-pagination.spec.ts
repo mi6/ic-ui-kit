@@ -398,7 +398,7 @@ describe("ic-pagination complex type", () => {
     await page.rootInstance.paginationItemClickHandler({ detail: { page: 1 } });
     await page.waitForChanges();
 
-    expect(page.root.currentPage).toBe(undefined);
+    expect(page.root.currentPage).toBe(1);
   });
 });
 describe("ic-pagination appearance tests", () => {
@@ -433,5 +433,19 @@ describe("ic-pagination appearance tests", () => {
     });
 
     expect(page.root).toMatchSnapshot("render light complex pagination");
+  });
+
+  it("should change page when current page set with public method", async () => {
+    const page = await newSpecPage({
+      components: [Pagination, Button, PaginationItem],
+      html: `<ic-pagination pages="15" type="complex"></ic-pagination>
+      `,
+    });
+    expect(page.rootInstance.currentPage).toBe(1);
+
+    await page.root.setCurrentPage(3);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.currentPage).toBe(3);
   });
 });
