@@ -12,6 +12,20 @@ import readme from "./readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  disabled: false,
+  ["full-width"]: false,
+  ["helper-text"]: "Such as Arabica, Robusta or Liberica.",
+  ["hide-label"]: false,
+  label: "What is your favourite coffee?",
+  placeholder: "Select an option",
+  readonly: false,
+  required: false,
+  small: false,
+  ["validation-status"]: "",
+  ["validation-text"]: "",
+};
+
 ### Default
 
 <Canvas>
@@ -1364,6 +1378,209 @@ import readme from "./readme.md";
           });
           searchSelect.addEventListener("icOptionSelect", function (event) {
             console.log("icOptionSelect", event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Default select playground
+
+<Canvas>
+  <Story
+    name="Default select playground"
+    parameters={{ loki: { skip: true } }}
+    args={{ ...defaultArgs, ["show-clear-button"]: false }}
+    argTypes={{
+      ["validation-status"]: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) =>
+      html` <ic-select
+          id="select-playground"
+          disabled=${args.disabled}
+          full-width=${args["full-width"]}
+          helper-text=${args["helper-text"]}
+          hide-label=${args["hide-label"]}
+          label=${args.label}
+          placeholder=${args.placeholder}
+          readonly=${args.readonly}
+          required=${args.required}
+          show-clear-button=${args["show-clear-button"]}
+          small=${args.small}
+          validation-status=${args["validation-status"]}
+          validation-text=${args["validation-text"]}
+        >
+        </ic-select>
+        <script>
+          var select = document.querySelector("#select-playground");
+          select.options = [
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Boring",
+              children: [
+                {
+                  label: "Latte",
+                  value: "Lat",
+                  description: "A milkier coffee than a cappuccino",
+                },
+                {
+                  label: "Filter",
+                  value: "Fil",
+                  description: "Coffee filtered using paper or a mesh",
+                },
+              ],
+            },
+            {
+              label: "Fancy",
+              children: [
+                {
+                  label: "Flat white",
+                  value: "Fla",
+                  description:
+                    "Coffee without froth made with espresso and hot steamed milk",
+                },
+                {
+                  label: "Macchiato",
+                  value: "Mac",
+                  description:
+                    "Espresso coffee with a dash of frothy steamed milk",
+                },
+              ],
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Searchable select playground
+
+<Canvas>
+  <Story
+    name="Searchable select playground"
+    parameters={{ loki: { skip: true } }}
+    args={{
+      ...defaultArgs,
+      ["include-descriptions-in-search"]: false,
+      ["include-group-titles-in-search"]: false,
+      loading: false,
+      ["loading-label"]: "Loading...",
+      ["search-match-position"]: "anywhere",
+    }}
+    argTypes={{
+      ["search-match-position"]: {
+        defaultValue: "anywhere",
+        options: ["anywhere", "start"],
+        control: { type: "inline-radio" },
+      },
+      ["validation-status"]: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) =>
+      html` <ic-select
+          id="select-searchable-playground"
+          disabled=${args.disabled}
+          full-width=${args["full-width"]}
+          helper-text=${args["helper-text"]}
+          hide-label=${args["hide-label"]}
+          include-descriptions-in-search=${args[
+            "include-descriptions-in-search"
+          ]}
+          include-group-titles-in-search=${args[
+            "include-group-titles-in-search"
+          ]}
+          loading=${args.loading}
+          loading-label=${args["loading-label"]}
+          label=${args.label}
+          placeholder=${args.placeholder}
+          readonly=${args.readonly}
+          required=${args.required}
+          search-match-position=${args["search-match-position"]}
+          searchable="true"
+          small=${args.small}
+          validation-status=${args["validation-status"]}
+          validation-text=${args["validation-text"]}
+        >
+        </ic-select>
+        <script>
+          var select = document.querySelector("#select-searchable-playground");
+          select.options = [
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Boring",
+              children: [
+                {
+                  label: "Latte",
+                  value: "Lat",
+                  description: "A milkier coffee than a cappuccino",
+                },
+                {
+                  label: "Filter",
+                  value: "Fil",
+                  description: "Coffee filtered using paper or a mesh",
+                },
+              ],
+            },
+            {
+              label: "Fancy",
+              children: [
+                {
+                  label: "Flat white",
+                  value: "Fla",
+                  description:
+                    "Coffee without froth made with espresso and hot steamed milk",
+                },
+                {
+                  label: "Macchiato",
+                  value: "Mac",
+                  description:
+                    "Espresso coffee with a dash of frothy steamed milk",
+                },
+              ],
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
           });
         </script>`
     }
