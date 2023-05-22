@@ -13,6 +13,22 @@ import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 <Meta title="React Components/Select" component={IcSelect} />
 
+export const defaultArgs = {
+  disabled: false,
+  fullWidth: false,
+  helperText: "Such as Arabica, Robusta or Liberica.",
+  hideLabel: false,
+  loading: false,
+  loadingLabel: "Loading...",
+  label: "What is your favourite coffee?",
+  placeholder: "Select an option",
+  readonly: false,
+  required: false,
+  small: false,
+  validationStatus: "",
+  validationText: "",
+};
+
 export const options = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
@@ -151,6 +167,56 @@ export const searchableOptionsWithRecommended = [
   { label: "Mocha", value: "Moc" },
   { label: "Macchiato", value: "Mac" },
 ];
+
+export const playgroundOptions = [
+  {
+    label: "Cappuccino",
+    value: "Cap",
+    description: "Coffee frothed up with pressurised steam",
+  },
+  {
+    label: "Boring",
+    children: [
+      {
+        label: "Latte",
+        value: "Lat",
+        description: "A milkier coffee than a cappuccino",
+      },
+      {
+        label: "Filter",
+        value: "Fil",
+        description: "Coffee filtered using paper or a mesh",
+      },
+    ],
+  },
+  {
+    label: "Fancy",
+    children: [
+      {
+        label: "Flat white",
+        value: "Fla",
+        description:
+          "Coffee without froth made with espresso and hot steamed milk",
+      },
+      {
+        label: "Macchiato",
+        value: "Mac",
+        description:
+          "Espresso coffee with a dash of frothy steamed milk",
+      },
+    ],
+  },
+  {
+    label: "Americano",
+    value: "Ame",
+    description: "Espresso coffee diluted with hot water",
+  },
+  {
+    label: "Mocha",
+    value: "Moc",
+    description: "A mixture of coffee and chocolate",
+  }
+]
 
 ### Default
 
@@ -844,5 +910,92 @@ export const ExternalFiltering = () => {
     <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Filter, Cappuccino, Americano, Mocha, Macchiato.</IcTypography>
     <br/>
     <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the select menu will be updated.</IcTypography>
+  </Story>
+</Canvas>
+
+### Default select playground
+
+<Canvas>
+  <Story
+    name="Default select playground"
+    args={{...defaultArgs, 
+      showClearButton: false,}}
+    argTypes={{
+      validationStatus: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) => <IcSelect
+        id="select-playground"
+        options={playgroundOptions}
+        disabled={args.disabled}
+        fullWidth={args.fullWidth}
+        helperText={args.helperText}
+        hideLabel={args.hideLabel}
+        loading={args.loading}
+        loadingLabel={args.loadingLabel}
+        label={args.label}
+        placeholder={args.placeholder}
+        readonly={args.readonly}
+        required={args.required}
+        showClearButton={args.showClearButton}
+        small={args.small}
+        validationStatus={args.validationStatus}
+        validationText={args.validationText}
+      />
+    }
+  </Story>
+</Canvas>
+
+### Searchable select playground
+
+<Canvas>
+  <Story
+    name="Searchable select playground"
+    args={{
+      ...defaultArgs,
+      includeDescriptionsInSearch: false,
+      includeGroupTitlesInSearch: false,
+      searchMatchPosition: "anywhere",
+    }}
+    argTypes={{
+      searchMatchPosition: {
+        defaultValue: "anywhere",
+        options: ["anywhere", "start"],
+        control: { type: "inline-radio" },
+      },
+      validationStatus: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) =>
+        <IcSelect
+          id="select-searchable-playground"
+          options={playgroundOptions}
+          disabled={args.disabled}
+          fullWidth={args.fullWidth}
+          helperText={args.helperText}
+          hideLabel={args.hideLabel}
+          includeDescriptionsInSearch={args.includeDescriptionsInSearch}
+          includeGroupTitlesInSearch={args.includeGroupTitlesInSearch}
+          loading={args.loading}
+          loadingLabel={args.loadingLabel}
+          label={args.label}
+          placeholder={args.placeholder}
+          readonly={args.readonly}
+          required={args.required}
+          searchMatchPosition={args.searchMatchPosition}
+          searchable
+          small={args.small}
+          validationStatus={args.validationStatus}
+          validationText={args.validationText}
+        />
+    }
   </Story>
 </Canvas>
