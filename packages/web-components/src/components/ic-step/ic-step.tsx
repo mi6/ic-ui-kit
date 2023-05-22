@@ -175,7 +175,7 @@ export class Step {
                 this.compactStepStyling !== "active") ||
               !!this.stepStatus) && (
               <div class="step-status">
-                {statusIcon && statusIcon}
+                {statusIcon !== undefined && statusIcon}
                 {(this.stepSubtitle || stepType) && (
                   <ic-typography variant="caption">
                     {this.stepSubtitle !== null &&

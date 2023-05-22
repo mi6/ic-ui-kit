@@ -77,7 +77,7 @@ export class PopoverMenu {
     // Set the parent popover menu of the submenu and open the submenu
     childEl.parentPopover = this.host;
     childEl.anchor = this.anchor;
-    childEl.ariaLabel = this.host.getAttribute("aria-label");
+    childEl.ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
     childEl.openFromParent();
     childEl.submenuLevel = this.submenuLevel + 1;
     // Set the label in the submenu using the label of the menu item that has emitted the event
@@ -108,6 +108,7 @@ export class PopoverMenu {
   private anchorEl: HTMLElement;
   private currentFocus: number;
   private backButton: HTMLIcMenuItemElement;
+  private ARIA_LABEL: string = "aria-label";
 
   // Checks that the popover menu has an anchor
   private findAnchorEl = (anchor: string): HTMLElement => {
@@ -243,7 +244,7 @@ export class PopoverMenu {
   };
 
   private getMenuAriaLabel = (): string => {
-    const ariaLabel = this.host.getAttribute("aria-label");
+    const ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
 
     if (this.submenuId !== undefined) {
       return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;
@@ -287,7 +288,7 @@ export class PopoverMenu {
 
     if (
       this.submenuId === undefined &&
-      this.host.getAttribute("aria-label") === null
+      this.host.getAttribute(this.ARIA_LABEL) === null
     ) {
       console.error(
         `No aria-label specified for popover menu component - aria-label required`

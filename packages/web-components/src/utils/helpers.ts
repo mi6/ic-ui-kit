@@ -89,23 +89,21 @@ export const renderHiddenInput = (
   value: string | undefined | null,
   disabled: boolean
 ): void => {
-  if (name !== undefined) {
-    if (always || hasShadowDom(container)) {
-      const inputs = container.querySelectorAll("input.ic-input");
-      const inputEls = Array.from(inputs);
-      const filtered = inputEls.filter((el) => container === el.parentElement);
+  if (name !== undefined && (always || hasShadowDom(container))) {
+    const inputs = container.querySelectorAll("input.ic-input");
+    const inputEls = Array.from(inputs);
+    const filtered = inputEls.filter((el) => container === el.parentElement);
 
-      let input = filtered[0] as HTMLInputElement;
-      if (input === null || input === undefined) {
-        input = container.ownerDocument.createElement("input");
-        input.type = "hidden";
-        input.classList.add("ic-input");
-        container.appendChild(input);
-      }
-      input.disabled = disabled;
-      input.name = name;
-      input.value = value || "";
+    let input = filtered[0] as HTMLInputElement;
+    if (input === null || input === undefined) {
+      input = container.ownerDocument.createElement("input");
+      input.type = "hidden";
+      input.classList.add("ic-input");
+      container.appendChild(input);
     }
+    input.disabled = disabled;
+    input.name = name;
+    input.value = value || "";
   }
 };
 
@@ -332,12 +330,12 @@ export const getThemeColorBrightness = (): number => {
   const themeRed = getCssProperty("--ic-theme-primary-r");
   const themeGreen = getCssProperty("--ic-theme-primary-g");
   const themeBlue = getCssProperty("--ic-theme-primary-b");
-  const themeColorBrightness =
+  return (
     (parseInt(themeRed) * 299 +
       parseInt(themeGreen) * 587 +
       parseInt(themeBlue) * 114) /
-    1000;
-  return themeColorBrightness;
+    1000
+  );
 };
 
 /**
@@ -546,11 +544,9 @@ export const getParentElement = (child: HTMLElement): HTMLElement =>
   child.parentElement;
 
 export const hasClassificationBanner = (): boolean => {
-  if (document.querySelector("ic-classification-banner:not([inline='true'])")) {
-    return true;
-  } else {
-    return false;
-  }
+  return document.querySelector("ic-classification-banner:not([inline='true'])")
+    ? true
+    : false;
 };
 
 export const getForm = (el: HTMLElement): HTMLFormElement | null => {
