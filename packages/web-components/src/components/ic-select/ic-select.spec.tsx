@@ -189,6 +189,45 @@ describe("ic-select", () => {
 
     expect(page.rootInstance.open).toBeTruthy;
     expect(page.rootInstance.value).toBe("Test value 1");
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    expect(page.rootInstance.value).toBe("Test value 1");
+  });
+
+  it("should test menu handleKeyboardOpen method - arrow up (custom select)", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+
+    const KeyEvent = {
+      key: "ArrowUp",
+      preventDefault: (): void => null,
+    } as KeyboardEvent;
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.open).toBeTruthy;
+    expect(page.rootInstance.value).toBe("Test value 3");
+
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    await menu.handleKeyboardOpen(KeyEvent);
+    await page.waitForChanges();
+    expect(page.rootInstance.value).toBe("Test value 3");
   });
 
   it("should test keydown on menu - space key (custom)", async () => {
