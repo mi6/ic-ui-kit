@@ -174,10 +174,7 @@ export class Button {
 
   private hasIconSlot(): boolean {
     const iconEl = this.el.querySelector(`[slot="icon"]`);
-    if (iconEl != null) {
-      return true;
-    }
-    return false;
+    return iconEl !== null;
   }
 
   private handleHiddenFormButtonClick(form: HTMLFormElement): void {

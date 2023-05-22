@@ -109,9 +109,11 @@ export class Checkbox {
     }
   }
 
+  private IC_TEXT_FIELD: string = "ic-text-field";
+
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector("ic-text-field");
+      const textfield = this.host.querySelector(this.IC_TEXT_FIELD);
       if (!this.checked) {
         textfield && textfield.setAttribute("disabled", "");
       } else {
@@ -129,7 +131,7 @@ export class Checkbox {
   componentWillLoad(): void {
     addFormResetListener(this.host, this.handleFormReset);
     this.host
-      .querySelector("ic-text-field")
+      .querySelector(this.IC_TEXT_FIELD)
       ?.addEventListener("icChange", (e) => e.stopImmediatePropagation());
   }
 
@@ -146,7 +148,7 @@ export class Checkbox {
   disconnectedCallback(): void {
     removeFormResetListener(this.host, this.handleFormReset);
     this.host
-      .querySelector("ic-text-field")
+      .querySelector(this.IC_TEXT_FIELD)
       ?.removeEventListener("icChange", (e) => e.stopImmediatePropagation());
   }
 

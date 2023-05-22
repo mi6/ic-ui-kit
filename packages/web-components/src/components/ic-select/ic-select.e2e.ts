@@ -96,13 +96,12 @@ const getTestSelectAsync = (firstDataset: string, secondDataset: string) =>
       </script>`;
 
 const getMenuVisibility = async (page: E2EPage) => {
-  const menuVisibility = await page.evaluate(() => {
+  return await page.evaluate(() => {
     const menu = document
       .querySelector("ic-select")
       .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
     return window.getComputedStyle(menu).visibility;
   });
-  return menuVisibility;
 };
 
 const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {

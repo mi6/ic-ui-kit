@@ -133,17 +133,18 @@ export class TabContext {
       const tabId = `ic-tab-${index}-context-${this.contextId}`;
       const tabPanelId = `ic-tab-panel-${index}-context-${this.contextId}`;
       const shared = `ic-tab--${index}-context-${this.contextId}`;
+      const contextIdAttr = "context-id";
       tab.setAttribute("id", tabId);
       tab.tabId = shared;
       tab.tabPosition = index;
       tab.setAttribute("aria-controls", tabPanelId);
-      tab.setAttribute("context-id", this.contextId);
-      this.tabGroup.setAttribute("context-id", this.contextId);
+      tab.setAttribute(contextIdAttr, this.contextId);
+      this.tabGroup.setAttribute(contextIdAttr, this.contextId);
       this.tabPanels[index].setAttribute("id", tabPanelId);
       this.tabPanels[index].panelId = shared;
       this.tabPanels[index].tabPosition = index;
       this.tabPanels[index].setAttribute("aria-labelledby", tabId);
-      this.tabPanels[index].setAttribute("context-id", this.contextId);
+      this.tabPanels[index].setAttribute(contextIdAttr, this.contextId);
 
       if (this.appearance === IcThemeForegroundEnum.Light) {
         tab.appearance = this.appearance;

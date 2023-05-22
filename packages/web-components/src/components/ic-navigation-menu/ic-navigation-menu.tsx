@@ -86,13 +86,7 @@ export class NavigationMenu {
     if (this.lastTabStop !== null) {
       switch (this.lastTabStop.tagName) {
         case "IC-NAVIGATION-BUTTON":
-          focusEl = this.lastTabStop as HTMLElement;
-          focusEl.focus();
-          break;
         case "IC-NAVIGATION-ITEM":
-          focusEl = this.lastTabStop as HTMLElement;
-          focusEl.focus();
-          break;
         case "IC-NAVIGATION-GROUP":
           focusEl = this.lastTabStop as HTMLElement;
           focusEl.focus();
