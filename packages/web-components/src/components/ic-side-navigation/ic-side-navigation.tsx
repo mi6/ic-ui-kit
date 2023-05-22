@@ -87,6 +87,8 @@ export class SideNavigation {
   @State() deviceSizeAppTitle = DEVICE_SIZES.S;
   @State() hasSecondaryNavigation: boolean = false;
 
+  private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
+
   private ANIMATION_DURATION =
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
 
@@ -132,13 +134,15 @@ export class SideNavigation {
       ".bottom-wrapper"
     ) as HTMLElement;
 
+    const menuVisibilityVisible = "menu-visibility-visible";
+
     if (menuOpen) {
-      bottomWrapper.classList.add("menu-visibility-visible");
-      sideNavInner.classList.add("menu-visibility-visible");
+      bottomWrapper.classList.add(menuVisibilityVisible);
+      sideNavInner.classList.add(menuVisibilityVisible);
     } else {
       setTimeout(() => {
-        sideNavInner.classList.remove("menu-visibility-visible");
-        bottomWrapper.classList.remove("menu-visibility-visible");
+        sideNavInner.classList.remove(menuVisibilityVisible);
+        bottomWrapper.classList.remove(menuVisibilityVisible);
       }, this.ANIMATION_DURATION);
     }
   };
@@ -286,29 +290,28 @@ export class SideNavigation {
       ".bottom-wrapper > .secondary-navigation"
     );
 
+    const collapsedIconLabelsEnd = "collapsed-icon-labels-end";
+    const collapsedIconLabelsStart = "collapsed-icon-labels-start";
+
     if (primaryNavigationWrapper) {
-      primaryNavigationWrapper.classList.remove("collapsed-icon-labels-end");
-      primaryNavigationWrapper.classList.add("collapsed-icon-labels-start");
+      primaryNavigationWrapper.classList.remove(collapsedIconLabelsEnd);
+      primaryNavigationWrapper.classList.add(collapsedIconLabelsStart);
     }
 
     if (secondaryNavigationWrapper) {
-      secondaryNavigationWrapper.classList.remove("collapsed-icon-labels-end");
-      secondaryNavigationWrapper.classList.add("collapsed-icon-labels-start");
+      secondaryNavigationWrapper.classList.remove(collapsedIconLabelsEnd);
+      secondaryNavigationWrapper.classList.add(collapsedIconLabelsStart);
     }
 
     this.el.addEventListener("transitionend", () => {
       if (primaryNavigationWrapper) {
-        primaryNavigationWrapper.classList.remove(
-          "collapsed-icon-labels-start"
-        );
-        primaryNavigationWrapper.classList.add("collapsed-icon-labels-end");
+        primaryNavigationWrapper.classList.remove(collapsedIconLabelsStart);
+        primaryNavigationWrapper.classList.add(collapsedIconLabelsEnd);
       }
 
       if (secondaryNavigationWrapper) {
-        secondaryNavigationWrapper.classList.remove(
-          "collapsed-icon-labels-start"
-        );
-        secondaryNavigationWrapper.classList.add("collapsed-icon-labels-end");
+        secondaryNavigationWrapper.classList.remove(collapsedIconLabelsStart);
+        secondaryNavigationWrapper.classList.add(collapsedIconLabelsEnd);
       }
     });
   };
@@ -341,7 +344,7 @@ export class SideNavigation {
         const sideNavWidth = this.el.clientWidth;
 
         const navigationItems: HTMLIcNavigationItemElement[] = Array.from(
-          this.el.querySelectorAll("ic-navigation-item")
+          this.el.querySelectorAll(this.IC_NAVIGATION_ITEM)
         );
 
         const paddingIconDelta = navigationItems.length
@@ -370,7 +373,7 @@ export class SideNavigation {
       clearTimeout(timer);
 
       const navigationItems: HTMLIcNavigationItemElement[] = Array.from(
-        this.el.querySelectorAll("ic-navigation-item")
+        this.el.querySelectorAll(this.IC_NAVIGATION_ITEM)
       );
       navigationItems.forEach((navigationItem: HTMLIcNavigationItemElement) => {
         navigationItem.setAttribute("display-navigation-tooltip", "false");
@@ -464,7 +467,7 @@ export class SideNavigation {
 
   private setCollapsedIconLabels = () => {
     const navigationItems: HTMLIcNavigationItemElement[] = Array.from(
-      this.el.querySelectorAll("ic-navigation-item")
+      this.el.querySelectorAll(this.IC_NAVIGATION_ITEM)
     );
     navigationItems.forEach((navigationItem: HTMLIcNavigationItemElement) => {
       navigationItem.setAttribute("collapsed-icon-label", "true");

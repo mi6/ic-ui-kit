@@ -85,12 +85,13 @@ export class Breadcrumb {
 
   private setSlottedCurrentPageClass = () => {
     const icLink = this.el.querySelector("ic-link");
+    const currentPage = "current-page";
     if (icLink) {
-      icLink.classList.remove("current-page");
+      icLink.classList.remove(currentPage);
       if (this.current) {
-        const hasCurrentPageClass = icLink.classList.contains("current-page");
+        const hasCurrentPageClass = icLink.classList.contains(currentPage);
         if (!hasCurrentPageClass) {
-          icLink.classList.add("breadcrumb-link", "current-page");
+          icLink.classList.add("breadcrumb-link", currentPage);
         }
       }
     }

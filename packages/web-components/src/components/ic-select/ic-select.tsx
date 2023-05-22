@@ -711,8 +711,7 @@ export class Select {
   };
 
   private getValueFromLabel = (label: string): string | undefined => {
-    const value = this.options.find((option) => option.label === label)?.value;
-    return value;
+    return this.options.find((option) => option.label === label)?.value;
   };
 
   private handleSearchableSelectInput = (event: Event): void => {

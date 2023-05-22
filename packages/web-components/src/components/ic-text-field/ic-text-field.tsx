@@ -354,10 +354,7 @@ export class TextField {
 
   private hasLeftIconSlot(): boolean {
     const iconEl = this.el.querySelector(`[slot="icon"]`);
-    if (iconEl != null) {
-      return true;
-    }
-    return false;
+    return iconEl !== null;
   }
 
   private hasStatus = (status: IcInformationStatusOrEmpty): boolean => {
@@ -365,14 +362,11 @@ export class TextField {
   };
 
   private showStatusText = (status: IcInformationStatusOrEmpty): boolean => {
-    if (
+    return (
       this.hasStatus(status) &&
       !(status == IcInformationStatus.Success && this.validationInline) &&
       !this.validationInlineInternal
-    ) {
-      return true;
-    }
-    return false;
+    );
   };
 
   private handleFormReset = (): void => {
@@ -485,10 +479,8 @@ export class TextField {
       getInputDescribedByText(inputId, helperText !== "", showStatusText)
     ).trim();
 
-    if (this.showLeftIcon) {
-      if (!readonly && disabledMode) {
-        this.showLeftIcon = false;
-      }
+    if (this.showLeftIcon && !readonly && disabledMode) {
+      this.showLeftIcon = false;
     }
 
     const invalid =

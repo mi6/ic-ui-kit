@@ -111,26 +111,23 @@ export class PageHeader {
       actionAreaHeight = 0;
     }
 
+    const appendActionContent = () => {
+      this.actionContent = this.actionContent.reverse();
+      this.actionContent.forEach((btn: string | Node) => {
+        this.el.append(btn);
+      });
+      this.areButtonsReversed = !this.areButtonsReversed;
+    };
+
     if (
-      this.deviceSize > DEVICE_SIZES.S &&
-      actionAreaHeight <= max &&
-      !this.areButtonsReversed
-    ) {
-      this.actionContent = this.actionContent.reverse();
-      this.actionContent.forEach((btn: string | Node) => {
-        this.el.append(btn);
-      });
-      this.areButtonsReversed = !this.areButtonsReversed;
-    } else if (
-      ((this.deviceSize > DEVICE_SIZES.S && actionAreaHeight > max) ||
+      (this.deviceSize > DEVICE_SIZES.S &&
+        actionAreaHeight <= max &&
+        !this.areButtonsReversed) ||
+      (((this.deviceSize > DEVICE_SIZES.S && actionAreaHeight > max) ||
         this.deviceSize <= DEVICE_SIZES.S) &&
-      this.areButtonsReversed
+        this.areButtonsReversed)
     ) {
-      this.actionContent = this.actionContent.reverse();
-      this.actionContent.forEach((btn: string | Node) => {
-        this.el.append(btn);
-      });
-      this.areButtonsReversed = !this.areButtonsReversed;
+      appendActionContent();
     }
   };
 

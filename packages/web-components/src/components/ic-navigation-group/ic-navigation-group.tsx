@@ -56,6 +56,7 @@ export class NavigationGroup {
   private groupEl: HTMLElement;
   private dropdown: HTMLElement;
   private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
+  private IC_NAVIGATION_ITEM = "ic-navigation-item";
 
   @Listen("childBlur")
   childBlurHandler(): void {
@@ -103,14 +104,16 @@ export class NavigationGroup {
   }
 
   private setGroupedNavItemTabIndex = (tabIndexValue: string) => {
-    this.el.querySelectorAll("ic-navigation-item").forEach((navigationItem) => {
-      const navItem =
-        navigationItem.shadowRoot.querySelector("a") ||
-        navigationItem.querySelector("a");
-      if (navItem) {
-        navItem.setAttribute("tabindex", tabIndexValue);
-      }
-    });
+    this.el
+      .querySelectorAll(this.IC_NAVIGATION_ITEM)
+      .forEach((navigationItem) => {
+        const navItem =
+          navigationItem.shadowRoot.querySelector("a") ||
+          navigationItem.querySelector("a");
+        if (navItem) {
+          navItem.setAttribute("tabindex", tabIndexValue);
+        }
+      });
   };
 
   private toggleGroupedLinkWrapperHeight = (
@@ -243,8 +246,9 @@ export class NavigationGroup {
    */
   private getNavigationChildItemsHeight = (): string => {
     const navigationItemLength =
-      this.el.querySelectorAll("ic-navigation-item").length || 0;
-    const navigationItem = this.el.querySelector("ic-navigation-item") || null;
+      this.el.querySelectorAll(this.IC_NAVIGATION_ITEM).length || 0;
+    const navigationItem =
+      this.el.querySelector(this.IC_NAVIGATION_ITEM) || null;
 
     if (
       this.navigationType === "side" &&

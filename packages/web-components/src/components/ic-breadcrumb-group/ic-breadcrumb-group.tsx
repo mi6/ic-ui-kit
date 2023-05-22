@@ -31,6 +31,8 @@ export class BreadcrumbGroup {
   private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
   private ADD_CLASS_DELAY = 50;
   private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
+  private SHOW_BACK_ICON: string = "show-back-icon";
+  private IC_BREADCRUMB: string = "ic-breadcrumb";
 
   private setBackBreadcrumb = () => {
     if (this.backBreadcrumbOnly) {
@@ -39,16 +41,15 @@ export class BreadcrumbGroup {
   };
 
   private setBackBreadcrumbAttr = () => {
-    const lastParentBreadcrumb = this.getLastParentBreadcrumb();
-    if (lastParentBreadcrumb) {
-      lastParentBreadcrumb.classList.add("show");
-      lastParentBreadcrumb.setAttribute("show-back-icon", "true");
+    if (this.lastParentBreadcrumb) {
+      this.lastParentBreadcrumb.classList.add("show");
+      this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "true");
     }
   };
 
   private getLastParentBreadcrumb = (): HTMLIcBreadcrumbElement | null => {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll("ic-breadcrumb")
+    const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
 
     if (allBreadcrumbs.length === 1) {
@@ -63,19 +64,21 @@ export class BreadcrumbGroup {
     return this.breadcrumb;
   };
 
+  private lastParentBreadcrumb = this.getLastParentBreadcrumb();
+
   private setDefaultBreadcrumbs = () => {
     const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll("ic-breadcrumb")
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
     allBreadcrumbs.forEach((breadcrumb) => {
-      breadcrumb.setAttribute("show-back-icon", "false");
+      breadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
     });
   };
 
   private setCollapsed = () => {
     if (this.collapsed) {
-      const allBreadcrumbs = Array.from(
-        this.el.querySelectorAll("ic-breadcrumb")
+      const allBreadcrumbs: HTMLIcBreadcrumbElement[] = Array.from(
+        this.el.querySelectorAll(this.IC_BREADCRUMB)
       );
       this.collapsedBreadcrumbs = allBreadcrumbs
         .splice(1, allBreadcrumbs.length - 2)
@@ -163,14 +166,12 @@ export class BreadcrumbGroup {
   };
 
   private setLastParentCollapsedBackBreadcrumb = () => {
-    const lastParentBreadcrumb = this.getLastParentBreadcrumb();
     this.setBackBreadcrumbAttr();
-    lastParentBreadcrumb.classList.remove("hide");
+    this.lastParentBreadcrumb.classList.remove("hide");
   };
 
   private revertLastParentCollapsedBreadcrumb = () => {
-    const lastParentBreadcrumb = this.getLastParentBreadcrumb();
-    lastParentBreadcrumb.setAttribute("show-back-icon", "false");
+    this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
   };
 
   private resizeObserver: ResizeObserver = null;
@@ -213,7 +214,7 @@ export class BreadcrumbGroup {
 
   componentWillLoad(): void {
     const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll("ic-breadcrumb")
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
 
     if (this.backBreadcrumbOnly) {
