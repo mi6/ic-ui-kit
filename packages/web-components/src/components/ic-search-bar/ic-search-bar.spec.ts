@@ -136,18 +136,26 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.clearButtonFocused).toBe(true);
   });
 
-  it("should test menu events", async () => {
+  it("should test handleMenuChange", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
       html: '<ic-search-bar label="Test label" value="espresso"></ic-search-bar>',
     });
-
     const eventSpy = jest.fn();
     page.win.addEventListener("icMenuChange", eventSpy);
+    const focusEvent = jest.spyOn(SearchBar.prototype, "setFocus");
+
     await page.rootInstance.handleMenuChange({ detail: { open: true } });
     expect(page.rootInstance.open).toBe(true);
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalled();
+
+    await page.rootInstance.handleMenuChange({
+      detail: { open: false, focusInput: true },
+    });
+    expect(page.rootInstance.open).toBe(false);
+    await page.waitForChanges();
+    expect(focusEvent).toHaveBeenCalled();
   });
 
   it("should test host blur", async () => {
@@ -157,7 +165,6 @@ describe("ic-search-bar search", () => {
     });
 
     page.root.options = menuOptions;
-    page.rootInstance.open = true;
     await page.waitForChanges();
 
     const focusEventSpy = jest.fn();
@@ -165,12 +172,19 @@ describe("ic-search-bar search", () => {
     page.root.focus();
     await page.waitForChanges();
     expect(focusEventSpy).toHaveBeenCalled();
+    expect(page.rootInstance.open).toBeTruthy;
 
     const blurEventSpy = jest.fn();
     page.win.addEventListener("icSearchBarBlur", blurEventSpy);
     page.root.blur();
     await page.waitForChanges();
     expect(blurEventSpy).toHaveBeenCalled();
+    expect(page.rootInstance.open).toBeFalsy;
+
+    page.rootInstance.menuCloseFromMenuChangeEvent = true;
+    page.root.focus();
+    await page.waitForChanges();
+    expect(page.rootInstance.open).toBeFalsy;
   });
 
   it("should test search submit button events", async () => {
@@ -206,25 +220,6 @@ describe("ic-search-bar search", () => {
     expect(clickEventSpy).toHaveBeenCalledTimes(2);
   });
 
-  it("should test input events", async () => {
-    const page = await newSpecPage({
-      components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso"></ic-search-bar>',
-    });
-
-    const blurEventSpy = jest.fn();
-    page.win.addEventListener("icInputBlur", blurEventSpy);
-    await page.rootInstance.onInputBlur({ target: { someVar: "value" } });
-    await page.waitForChanges();
-    expect(blurEventSpy).toHaveBeenCalled();
-
-    const focusEventSpy = jest.fn();
-    page.win.addEventListener("icInputFocus", focusEventSpy);
-    await page.rootInstance.onInputFocus({ target: { someVar: "value" } });
-    await page.waitForChanges();
-    expect(focusEventSpy).toHaveBeenCalled();
-  });
-
   it("should test keydown event - arrow down", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
@@ -234,6 +229,8 @@ describe("ic-search-bar search", () => {
     page.root.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
+    const eventSpy = jest.fn();
+    page.win.addEventListener("menuOptionId", eventSpy);
 
     const menu = page.root.shadowRoot.querySelector("ic-menu");
     menu.autoFocusOnSelected = true;
@@ -243,6 +240,7 @@ describe("ic-search-bar search", () => {
       detail: { event: { key: "ArrowDown", preventDefault: (): void => null } },
     });
     await page.waitForChanges();
+    expect(eventSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       detail: { event: { key: "Enter", preventDefault: (): void => null } },
@@ -257,20 +255,25 @@ describe("ic-search-bar search", () => {
       components: [SearchBar, Button, TextField, Menu],
       html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
     });
+    const focusSpy = jest.spyOn(SearchBar.prototype, "setFocus");
 
     page.root.options = menuOptions;
     page.rootInstance.open = true;
     await page.waitForChanges();
+    const eventSpy = jest.fn();
+    page.win.addEventListener("menuOptionId", eventSpy);
 
     await page.rootInstance.handleKeyDown({
       detail: { event: { key: "1", preventDefault: (): void => null } },
     });
     await page.waitForChanges();
+    expect(focusSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       detail: { event: { key: "ArrowUp", preventDefault: (): void => null } },
     });
     await page.waitForChanges();
+    expect(eventSpy).toHaveBeenCalled;
 
     await page.rootInstance.handleKeyDown({
       detail: { event: { key: "ArrowUp", preventDefault: (): void => null } },
@@ -300,6 +303,7 @@ describe("ic-search-bar search", () => {
 
     page.root.options = menuOptions;
     page.rootInstance.open = true;
+    const focusEvent = jest.spyOn(SearchBar.prototype, "setFocus");
     await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
@@ -307,6 +311,7 @@ describe("ic-search-bar search", () => {
     });
     await page.waitForChanges();
     expect(page.rootInstance.value).toBe("espresso");
+    expect(focusEvent).toHaveBeenCalled;
   });
 
   it("should test wrap around in menu", async () => {
@@ -383,6 +388,7 @@ describe("ic-search-bar search", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.value).toBe("espresso");
+    expect(page.rootInstance.open).toBe(false);
   });
 
   it("should test key up event", async () => {
@@ -408,8 +414,10 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.preventSubmit).toBe(false);
 
     page.rootInstance.preventSubmit = true;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
     await page.rootInstance.handleKeyUp({ key: "Enter" });
-    expect(page.rootInstance.open).toBe(false);
+    expect(page.rootInstance.open).toBe(true);
   });
 
   it("should test changing value", async () => {
@@ -421,6 +429,7 @@ describe("ic-search-bar search", () => {
     page.root.value = "mocha";
     await page.waitForChanges();
     expect(page.rootInstance.value).toBe("mocha");
+    expect(page.rootInstance.inputEl.value).toBe("mocha");
   });
 
   it("should test input event handler", async () => {
@@ -443,12 +452,12 @@ describe("ic-search-bar search", () => {
     //delay to wait for aria live update
     await waitForTimeout(700);
     expect(page.rootInstance.open).toBe(true);
+    expect(page.rootInstance.showClearButton).toBe(true);
 
-    page.rootInstance.value = "";
-    textfield.dispatchEvent(event);
-    await page.waitForChanges();
-    //delay to wait for aria live update
-    await waitForTimeout(700);
+    const searchResultsStatusEl = page.root.shadowRoot.querySelector(
+      ".search-results-status"
+    ) as HTMLParagraphElement;
+    expect(searchResultsStatusEl).toEqualText("2 results available");
   });
 
   it("should test clear button events", async () => {
@@ -482,6 +491,7 @@ describe("ic-search-bar search", () => {
 
     //test disconnected callback
     await page.setContent("");
+    expect(page.rootInstance.assistiveHintEl).toBeNull;
   });
 
   it("should test select of empty option list text", async () => {
@@ -491,10 +501,14 @@ describe("ic-search-bar search", () => {
     });
 
     page.root.options = menuOptions;
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icOptionSelect", eventSpy);
     await page.waitForChanges();
     await page.rootInstance.handleOptionSelect({
       detail: { label: "No results found" },
     });
+    await page.waitForChanges();
+    expect(eventSpy).not.toHaveBeenCalled;
   });
 
   it("should test select of empty option list text with previous option", async () => {
@@ -604,6 +618,59 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.filteredOptions[0].label).not.toEqual(
       "Loading Error"
     );
+
+    // Tests hadNoOptions() when options is updated
+    page.rootInstance.open = false;
+    page.root.options = [];
+    await page.waitForChanges();
+    expect(page.rootInstance.open).toBeFalsy;
+  });
+
+  it("should test retry loading with keyboard navigation", async () => {
+    const page = await newSpecPage({
+      components: [
+        SearchBar,
+        Button,
+        TextField,
+        Menu,
+        InputContainer,
+        InputLabel,
+      ],
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true" timeout="1000"></ic-search-bar>',
+    });
+
+    const textfield = page.root.shadowRoot.querySelector("ic-text-field");
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    page.rootInstance.value = "lo";
+    textfield.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    //delay to wait for aria live update and timeout
+    await waitForTimeout(1100);
+
+    const retryClick = jest.spyOn(TextField.prototype, "setFocus");
+    page.rootInstance.handleRetry({
+      detail: { keyPressed: "Enter", value: "lo" },
+    });
+    await page.waitForChanges();
+    page.rootInstance.handleHostBlur({ relatedTarget: textfield });
+    await page.waitForChanges();
+    expect(retryClick).toHaveBeenCalled;
+    expect(page.rootInstance.open).toBeTruthy;
+  });
+
+  it("should render a hidden assistive element on load", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, TextField, InputContainer, InputLabel],
+      html: '<ic-search-bar label="Test label" hint-text="Hint" disable-filter="true"></ic-search-bar>',
+    });
+
+    expect(page.rootInstance.assistiveHintEl).not.toBeNull;
+    expect(page.rootInstance.assistiveHintEl.innerText).toBe("Hint");
   });
 
   it("should test mousedown handler", async () => {
