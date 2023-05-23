@@ -18,12 +18,12 @@ jobs:
         run: |
           RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)
           echo "VERSION=$(echo $RELEASE_CHECK | cut -c 87-117)" >> $GITHUB_ENV
+          git stash
       - name: Create develop -> main PR
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "develop -> main"
-          commit-message: "ci(root): develop -> main"
           body: >
             Version: ${{ env.VERSION }}
           branch: develop
