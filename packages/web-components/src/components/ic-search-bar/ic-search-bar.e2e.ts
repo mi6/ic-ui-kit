@@ -29,7 +29,7 @@ describe("ic-search-bar", () => {
       input.focus();
     });
 
-    await value.split("").forEach(async (char: KeyInput) => {
+    value.split("").forEach(async (char: KeyInput) => {
       await page.keyboard.press(char);
     });
   };
@@ -60,6 +60,7 @@ describe("ic-search-bar", () => {
     await page.setContent('<ic-search-bar label="Test Label"></ic-search-bar>');
 
     const searchBar = await page.find("ic-search-bar");
+    const icClear = await page.spyOnEvent("icClear");
 
     await focusAndTypeIntoInput("foo", page);
 
@@ -73,7 +74,15 @@ describe("ic-search-bar", () => {
 
     await page.waitForChanges();
 
+    const activeElId = await page.$eval(
+      "ic-search-bar",
+      (el) =>
+        el.shadowRoot.querySelector("ic-text-field").shadowRoot.activeElement.id
+    );
+
     expect(await searchBar.getProperty("value")).toBe("");
+    expect(activeElId).toBe("ic-search-bar-input-0");
+    expect(icClear).toHaveReceivedEvent;
   });
 
   it("should emit icSubmitSearch when submit is clicked", async () => {
@@ -294,6 +303,46 @@ describe("ic-search-bar", () => {
     expect(activeElId).toBe("ic-search-bar-input-0-menu-qux");
   });
 
+  it("should highlight first and last options using Home and End and move focus to menu", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+    await page.waitForChanges();
+
+    await page.keyboard.press("End");
+    await page.waitForChanges();
+
+    let menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).not.toHaveClass("focused-option");
+    expect(menuOptions[1]).toHaveClass("focused-option");
+    let activeElId = await page.$eval("ic-search-bar", (el) => {
+      return el.shadowRoot.activeElement.id;
+    });
+    expect(activeElId).toBe("ic-search-bar-input-0-menu-qux");
+
+    await page.keyboard.press("Home");
+    await page.waitForChanges();
+
+    menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).toHaveClass("focused-option");
+    expect(menuOptions[1]).not.toHaveClass("focused-option");
+    activeElId = await page.$eval("ic-search-bar", (el) => {
+      return el.shadowRoot.activeElement.id;
+    });
+    expect(activeElId).toBe("ic-search-bar-input-0-menu-bar");
+  });
+
   it("should select first option and update value as label on Enter", async () => {
     const page = await newE2EPage();
     await page.setContent(`
@@ -310,8 +359,6 @@ describe("ic-search-bar", () => {
     await focusAndTypeIntoInput("ba", page);
 
     await page.waitForChanges();
-
-    // await searchBar.press("ArrowDown");
 
     const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
     await menu.press("Enter");
@@ -340,6 +387,29 @@ describe("ic-search-bar", () => {
     await menu.press("Space");
 
     expect(await searchBar.getProperty("value")).toBe("ba ");
+  });
+
+  it("should remove a character from value on Backspace", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    await page.waitForChanges();
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+
+    await page.waitForChanges();
+
+    const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    await menu.press("Backspace");
+
+    expect(await searchBar.getProperty("value")).toBe("b");
   });
 
   it("should set value to last option when pressing up on input", async () => {
@@ -393,6 +463,38 @@ describe("ic-search-bar", () => {
 
     menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
     expect(menu).toBeNull();
+  });
+
+  it("menu should close when blurred and open when focused", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    await page.waitForChanges();
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+
+    await page.waitForChanges();
+
+    // Will focus clear button then blur
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    let menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    expect(menu).toBeNull;
+
+    await page.keyboard.down("Shift");
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+    menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    expect(await menu.isVisible()).toBeTruthy();
   });
 
   it("should emit icOptionSelect when a menu option has been selected", async () => {
@@ -488,7 +590,7 @@ describe("ic-search-bar", () => {
 
     let menuItems = menu.findAll("li");
 
-    expect(await (await menuItems).length).toBe(2);
+    expect((await menuItems).length).toBe(2);
 
     await page.keyboard.press("r");
 
@@ -496,7 +598,7 @@ describe("ic-search-bar", () => {
 
     menuItems = menu.findAll("li");
 
-    expect(await (await menuItems).length).toBe(1);
+    expect((await menuItems).length).toBe(1);
   });
 
   it("should prevent form submit event when clear is invoked using Enter", async () => {
@@ -618,9 +720,6 @@ describe("ic-search-bar", () => {
 
     const searchBar = await page.find("ic-search-bar");
     searchBar.setProperty("options", options);
-
-    await page.waitForChanges();
-
     searchBar.setProperty("charactersUntilSuggestion", 3);
 
     await page.waitForChanges();
@@ -1216,5 +1315,248 @@ describe("ic-search-bar", () => {
     });
 
     expect(activeElId).toBe("search-submit-button");
+  });
+
+  it("should not filter options when disable-filter is set to true", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" disable-filter="true"></ic-search-bar>`
+    );
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("foo", page);
+    await page.waitForChanges();
+
+    const menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions).toHaveLength(options.length);
+  });
+
+  it("should select the highlighted option when submit search is clicked", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
+    const searchBar = await page.find("ic-search-bar");
+    const searchSubmitButton = await page.find(
+      "ic-search-bar >>> ic-text-field ic-button.search-submit-button"
+    );
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+
+    // Select first filtered option
+    await focusAndTypeIntoInput("ba", page);
+    await page.waitForChanges();
+
+    let menuOption = (
+      await page.findAll("ic-search-bar >>> ic-text-field ic-menu li")
+    )[0];
+    expect(menuOption).toHaveClass("focused-option");
+    expect(menuOption).toEqualText("bar");
+    await searchSubmitButton.click();
+    await page.waitForChanges();
+    expect(await searchBar.getProperty("value")).toBe("bar");
+
+    // Select second filtered option
+    const clearButton = await page.find(
+      "ic-search-bar >>> ic-text-field ic-button.clear-button"
+    );
+    await clearButton.click();
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+    await page.waitForChanges();
+
+    await page.keyboard.press("ArrowUp");
+    await page.waitForChanges();
+
+    menuOption = (
+      await page.findAll("ic-search-bar >>> ic-text-field ic-menu li")
+    )[1];
+    expect(menuOption).toHaveClass("focused-option");
+    expect(menuOption).toEqualText("baz");
+    await searchSubmitButton.click();
+    await page.waitForChanges();
+    expect(await searchBar.getProperty("value")).toBe("qux");
+  });
+
+  it("should display the loading option in the menu when loading then cancel loading when options provided", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" loading-label="load" disable-filter="true"></ic-search-bar>`
+    );
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+
+    let menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions).toHaveLength(1);
+    expect(menuOptions[0]).toHaveClass("loading-option");
+    expect(menuOptions[0]).toEqualText("load");
+
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions).toHaveLength(3);
+    expect(menuOptions[0]).not.toHaveClass("loading-option");
+    expect(searchBar.getProperty("loading")).toBeFalsy;
+  });
+
+  it("should display the timeout state in the menu when timed out and should not update the options", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" loading-error-label="error message" timeout="1000" disable-filter="true"></ic-search-bar>`
+    );
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+    await page.waitForTimeout(1000);
+
+    const menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions).toHaveLength(1);
+    expect(menuOptions[0]).toHaveClass("timeout");
+    expect(await menuOptions[0].find("ic-typography")).toEqualText(
+      "error message"
+    );
+    expect(await menuOptions[0].find("#retry-button")).not.toBeNull;
+    const searchSubmitButton = await page.find(
+      "ic-search-bar >>> ic-text-field ic-button.search-submit-button"
+    );
+    expect(await searchSubmitButton.getProperty("disabled")).toBeTruthy;
+
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    expect(menuOptions).toHaveLength(1);
+    expect(menuOptions[0]).toHaveClass("timeout");
+  });
+
+  it("should be able to focus retry button using tab and should keep loading state when menu closed", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" timeout="1000" disable-filter="true"></ic-search-bar>`
+    );
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+    await page.waitForTimeout(1000);
+
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    const activeElId = await page.$eval(
+      "ic-search-bar",
+      (el) => el.shadowRoot.activeElement.id
+    );
+    expect(activeElId).toBe("retry-button");
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+    let menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    expect(menu).toBeNull;
+
+    await page.keyboard.down("Shift");
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+    menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    expect(await menu.isVisible()).toBeTruthy;
+    expect(await menu.findAll("li")).toHaveLength(1);
+  });
+
+  it("should trigger a retry when the retry button is pressed using space and enter", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" timeout="1000" disable-filter="true"></ic-search-bar>`
+    );
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+    await page.waitForTimeout(1000);
+
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    const retryButton = await page.find(
+      "ic-search-bar >>> ic-text-field ic-menu #retry-button"
+    );
+    await retryButton.press("Enter");
+    await page.waitForChanges();
+
+    let menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).toEqualText("Loading...");
+    await page.waitForTimeout(1000);
+
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await retryButton.press(" ");
+    await page.waitForChanges();
+
+    menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).toEqualText("Loading...");
+  });
+
+  it("should cancel loading when clear button is pressed", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-search-bar label="Test Label" timeout="1000"></ic-search-bar>`
+    );
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+    await page.waitForTimeout(1000);
+
+    const clearButton = await page.find(
+      "ic-search-bar >>> ic-text-field .clear-button"
+    );
+    await clearButton.click();
+    await page.waitForChanges();
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+
+    let menuOption = await page.find(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOption).toEqualText("Loading...");
+    await clearButton.click();
+    await page.waitForChanges();
+
+    //Check that the timeout was cancelled
+    await page.waitForTimeout(1000);
+    await searchBar.click();
+    await page.waitForChanges();
+    expect(await page.find("ic-search-bar >>> ic-text-field ic-menu")).toBeNull;
+
+    await focusAndTypeIntoInput("ba", page);
+    searchBar.setProperty("loading", true);
+    await page.waitForChanges();
+    menuOption = await page.find("ic-search-bar >>> ic-text-field ic-menu li");
+    expect(menuOption).toEqualText("Loading...");
   });
 });
