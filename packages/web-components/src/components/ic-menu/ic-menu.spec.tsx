@@ -23,12 +23,16 @@ const menuOptions = [
   { label: "Mocha", value: "mocha" },
 ];
 
+const menuIdEspresso = "menu-id-espresso";
+const menuIdMocha = "menu-id-mocha";
+const IcSearchBar = "IC-SEARCH-BAR";
+
 const createMenu = () => {
   // create necessary elements before the page is created
   const div = window.document.createElement("div");
   const input = window.document.createElement("input");
 
-  const page = newSpecPage({
+  return newSpecPage({
     components: [Menu, InputComponentContainer],
     template: () => (
       <ic-menu
@@ -44,11 +48,10 @@ const createMenu = () => {
       ></ic-menu>
     ),
   });
-  return page;
 };
 
 const keyboardEvent = (keyboardKey: string) => {
-  const keyboardPress = {
+  return {
     key: `${keyboardKey}`,
     preventDefault: (): void => null,
     shiftKey: false,
@@ -56,7 +59,6 @@ const keyboardEvent = (keyboardKey: string) => {
       id: "key-id",
     },
   };
-  return keyboardPress;
 };
 
 beforeAll(() => {
@@ -161,7 +163,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-espresso",
+          optionId: menuIdEspresso,
         }),
       })
     );
@@ -293,7 +295,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-espresso",
+          optionId: menuIdEspresso,
         }),
       })
     );
@@ -322,7 +324,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-mocha",
+          optionId: menuIdMocha,
         }),
       })
     );
@@ -379,7 +381,7 @@ describe("ic-menu in isolation", () => {
   });
   it("tests manSetInputValueKeyboardOpen function", async () => {
     const searchBar = window.document.createElement(
-      "IC-SEARCH-BAR"
+      IcSearchBar
     ) as HTMLIcSearchBarElement;
     const input = window.document.createElement("input");
 
@@ -414,7 +416,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-mocha",
+          optionId: menuIdMocha,
         }),
       })
     );
@@ -462,7 +464,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-espresso",
+          optionId: menuIdEspresso,
         }),
       })
     );
@@ -548,7 +550,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-espresso",
+          optionId: menuIdEspresso,
         }),
       })
     );
@@ -562,7 +564,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-mocha",
+          optionId: menuIdMocha,
         }),
       })
     );
@@ -894,7 +896,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         detail: expect.objectContaining({
-          optionId: "menu-id-espresso",
+          optionId: menuIdEspresso,
         }),
       })
     );
@@ -1049,7 +1051,7 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.preventClickOpen).toBe(false);
   });
   it("tests connectedCallback function", async () => {
-    const searchBar = window.document.createElement("IC-SEARCH-BAR");
+    const searchBar = window.document.createElement(IcSearchBar);
     const input = window.document.createElement("input");
 
     const page = await newSpecPage({
@@ -1088,7 +1090,7 @@ describe("ic-menu in isolation", () => {
   });
   it("tests componentDidLoad function", async () => {
     const searchBar = window.document.createElement(
-      "IC-SEARCH-BAR"
+      IcSearchBar
     ) as HTMLIcSearchBarElement;
     const input = window.document.createElement("input");
     searchBar.disableFilter = true;
