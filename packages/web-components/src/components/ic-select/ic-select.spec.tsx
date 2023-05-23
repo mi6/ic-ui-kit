@@ -20,6 +20,10 @@ const value3 = "Test value 3";
 const testValue = "Test value";
 const menuUl = "ic-menu ul";
 const noResults = "No results found";
+const clearButtonId = "#clear-button";
+const loadingLabel = "Loading...";
+const loadingErrorLabel = "Loading Error";
+const retryButtonId = "#retry-button";
 
 const menuOptions = [
   { label: label1, value: value1 },
@@ -152,7 +156,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     const clearButton = page.root.shadowRoot.querySelector(
-      "#clear-button"
+      clearButtonId
     ) as HTMLIcButtonElement;
 
     clearButton.focus();
@@ -188,7 +192,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.open).toBeTruthy;
-    expect(page.rootInstance.value).toBe("Test value 1");
+    expect(page.rootInstance.value).toBe(value1);
 
     await menu.handleKeyboardOpen(KeyEvent);
     await page.waitForChanges();
@@ -196,7 +200,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
     await menu.handleKeyboardOpen(KeyEvent);
     await page.waitForChanges();
-    expect(page.rootInstance.value).toBe("Test value 1");
+    expect(page.rootInstance.value).toBe(value1);
   });
 
   it("should test menu handleKeyboardOpen method - arrow up (custom select)", async () => {
@@ -219,7 +223,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.open).toBeTruthy;
-    expect(page.rootInstance.value).toBe("Test value 3");
+    expect(page.rootInstance.value).toBe(value3);
 
     await menu.handleKeyboardOpen(KeyEvent);
     await page.waitForChanges();
@@ -227,7 +231,7 @@ describe("ic-select", () => {
     await page.waitForChanges();
     await menu.handleKeyboardOpen(KeyEvent);
     await page.waitForChanges();
-    expect(page.rootInstance.value).toBe("Test value 3");
+    expect(page.rootInstance.value).toBe(value3);
   });
 
   it("should test keydown on menu - space key (custom)", async () => {
@@ -521,22 +525,22 @@ describe("ic-select", () => {
     page.rootInstance.loading = true;
     page.rootInstance.open = true;
     await page.waitForChanges();
-    expect(page.rootInstance.options[0].label).toEqual("Loading...");
+    expect(page.rootInstance.options[0].label).toEqual(loadingLabel);
 
     await waitForTimeout(1000);
-    expect(page.rootInstance.options[0].label).toEqual("Loading Error");
+    expect(page.rootInstance.options[0].label).toEqual(loadingErrorLabel);
 
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector("#retry-button") as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLIcButtonElement;
     retryButton.blur();
     expect(page.rootInstance.open).toBeFalsy;
     expect(eventSpy).toHaveBeenCalled;
 
     page.root.options = [];
     await page.waitForChanges();
-    expect(page.rootInstance.options[0].label).toEqual("Loading Error");
+    expect(page.rootInstance.options[0].label).toEqual(loadingErrorLabel);
   });
 
   it("should focus the input when escape is pressed whilst the menu is focused", async () => {
@@ -670,7 +674,7 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
 
     const clearButton = page.root.shadowRoot.querySelector(
-      "#clear-button"
+      clearButtonId
     ) as HTMLIcButtonElement;
 
     clearButton.focus();
@@ -738,30 +742,6 @@ describe("ic-select searchable", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.setFocus).toHaveBeenCalledTimes(3);
-  });
-
-  it("should test menu handleKeyboardOpen method - arrow up", async () => {
-    const page = await newSpecPage({
-      components: [Select, Menu, InputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
-    });
-
-    page.root.options = menuOptions;
-    await page.waitForChanges();
-
-    const menu = page.root.shadowRoot.querySelector("ic-menu");
-
-    const KeyEvent = {
-      key: "ArrowUp",
-      preventDefault: (): void => null,
-    } as KeyboardEvent;
-
-    await menu.handleKeyboardOpen(KeyEvent);
-    await page.waitForChanges();
-
-    const input = page.root.shadowRoot.querySelector("input");
-    expect(input.value).toBe("");
-    expect(page.rootInstance.open).toBeTruthy;
   });
 
   it("should test keydown on menu - arrow up (searchable)", async () => {
@@ -1510,7 +1490,7 @@ describe("ic-select searchable", () => {
           label="select test"
           searchable
           options={menuOptions}
-          value="Test value 1"
+          value={value1}
         ></ic-select>
       ),
     });
@@ -1529,7 +1509,7 @@ describe("ic-select searchable", () => {
           label="select test"
           searchable
           options={[]}
-          value="Test value 1"
+          value={value1}
         ></ic-select>
       ),
     });
@@ -1551,7 +1531,7 @@ describe("ic-select searchable", () => {
           label="select test"
           searchable
           options={[]}
-          value="Test value 1"
+          value={value1}
         ></ic-select>
       ),
     });
@@ -1582,19 +1562,21 @@ describe("ic-select searchable", () => {
     input.dispatchEvent(event);
     page.rootInstance.loading = true;
     await page.waitForChanges();
-    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(loadingLabel);
 
     await waitForTimeout(1000);
-    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading Error");
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(
+      loadingErrorLabel
+    );
 
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector("#retry-button") as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLIcButtonElement;
     retryButton.click();
     page.rootInstance.loading = true;
     await page.waitForChanges();
-    expect(page.rootInstance.filteredOptions[0].label).toEqual("Loading...");
+    expect(page.rootInstance.filteredOptions[0].label).toEqual(loadingLabel);
 
     page.root.options = [];
     await page.waitForChanges();
@@ -1651,7 +1633,7 @@ describe("ic-select searchable", () => {
     });
     const retryButton = page.root.shadowRoot
       .querySelector("ic-menu")
-      .querySelector("#retry-button") as HTMLIcButtonElement;
+      .querySelector(retryButtonId) as HTMLIcButtonElement;
     retryButton.dispatchEvent(event);
     expect(spy).toHaveBeenCalled;
   });
@@ -1675,7 +1657,7 @@ describe("ic-select searchable", () => {
     expect(page.rootInstance.filteredOptions).toHaveLength(1);
 
     const clearButton = page.root.shadowRoot.querySelector(
-      "#clear-button"
+      clearButtonId
     ) as HTMLIcButtonElement;
     clearButton.click();
     await page.waitForChanges();

@@ -639,8 +639,8 @@ export class Menu {
     this.loadUngroupedOptions();
     this.parentEl.addEventListener("icClear", this.handleClearListener);
     this.parentEl.addEventListener("icSubmitSearch", this.handleSubmitSearch);
-    this.hasTimedOut = this.options.some((opt) => opt.timedOut);
-    this.isLoading = this.options.some((opt) => opt.loading);
+    this.hasTimedOut = this.options?.some((opt) => opt.timedOut);
+    this.isLoading = this.options?.some((opt) => opt.loading);
   }
 
   componentDidLoad(): void {
