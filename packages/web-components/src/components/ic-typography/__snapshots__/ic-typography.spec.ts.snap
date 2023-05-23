@@ -164,7 +164,7 @@ exports[`ic-typography component should render the typography with truncation 2`
     <div class="trunc-wrapper">
       <slot></slot>
     </div>
-    <button class="trunc-btn">
+    <button aria-hidden="true" class="trunc-btn">
       See more
     </button>
   </mock:shadow-root>
