@@ -423,6 +423,9 @@ export class SearchBar {
     ) {
       this.value = "";
       this.inputEl.value = "";
+      this.loading = false;
+      clearTimeout(this.timeoutTimer);
+      this.filteredOptions = this.options;
       this.el.setFocus();
 
       this.icClear.emit();
@@ -475,7 +478,6 @@ export class SearchBar {
   };
 
   private handleSubmitSearchFocus = () => {
-    this.handleMenuCloseFromMenuChange(true);
     this.searchSubmitFocused = true;
   };
 

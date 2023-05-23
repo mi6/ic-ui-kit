@@ -1203,7 +1203,7 @@ describe("ic-select", () => {
       const page = await newE2EPage();
       await page.setContent(getTestSearchableSelect(searchableOptions));
       const icSelect = await page.find("ic-select");
-      await icSelect.setAttribute("search-match-position", "start");
+      icSelect.setAttribute("search-match-position", "start");
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -2072,38 +2072,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot)
-        .toEqualHtml(`<ic-input-container class="hydrated">
-      <!---->
-        <div class="component-container">
-          <ic-input-label class="hydrated">
-            <ic-typography class="hydrated ic-typography-label">
-              <label for="ic-select-input-0">
-                IC Select Test
-              </label>
-            </ic-typography>
-          </ic-input-label>
-          <ic-input-component-container class="hydrated">
-            <!---->
-            <div class="focus-indicator">
-              <select aria-describedby="" aria-invalid="false" aria-label="IC Select Test" id="ic-select-input-0" class="placeholder">
-                <option disabled="" value="">
-                  Select an option
-                </option>
-                <option value="Test value 1">
-                  Test label 1
-                </option>
-                <option value="Test value 2">
-                  Test label 2
-                </option>
-                <option value="Test value 3">
-                  Test label 3
-                </option>
-              </select>
-            </div>
-          </ic-input-component-container>
-        </div>
-      </ic-input-container>`);
+      expect(select).toMatchSnapshot();
     });
 
     it("should render a native select when searchable is applied on mobile", async () => {
@@ -2112,38 +2081,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot)
-        .toEqualHtml(`<ic-input-container class="hydrated">
-      <!---->
-        <div class="component-container">
-          <ic-input-label class="hydrated">
-            <ic-typography class="hydrated ic-typography-label">
-              <label for="ic-select-input-0">
-                IC Select Test
-              </label>
-            </ic-typography>
-          </ic-input-label>
-          <ic-input-component-container class="hydrated">
-            <!---->
-            <div class="focus-indicator">
-              <select aria-describedby="" aria-invalid="false" aria-label="IC Select Test" id="ic-select-input-0" class="placeholder">
-                <option disabled="" value="">
-                  Select an option
-                </option>
-                <option value="Test value 1">
-                  Test label 1
-                </option>
-                <option value="Test value 2">
-                  Test label 2
-                </option>
-                <option value="Test value 3">
-                  Test label 3
-                </option>
-              </select>
-            </div>
-          </ic-input-component-container>
-        </div>
-      </ic-input-container>`);
+      expect(select).toMatchSnapshot();
     });
 
     it("should render when no options are provided", async () => {
@@ -2152,30 +2090,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select.shadowRoot).toEqualHtml(`
-        <ic-input-container class="hydrated">
-      <!---->
-      <div class="component-container">
-        <ic-input-label class="hydrated">
-          <ic-typography class="hydrated ic-typography-label">
-            <label for="ic-select-input-0">
-              IC Select Test
-            </label>
-          </ic-typography>
-        </ic-input-label>
-        <ic-input-component-container class="hydrated">
-          <!---->
-          <div class="focus-indicator">
-            <select aria-describedby="" aria-invalid="false" aria-label="IC Select Test" class="placeholder" id="ic-select-input-0">
-              <option disabled="" value="">
-                Select an option
-              </option>
-            </select>
-          </div>
-        </ic-input-component-container>
-      </div>
-    </ic-input-container>
-      `);
+      expect(select).toMatchSnapshot();
     });
 
     it("should disable options correctly", async () => {
