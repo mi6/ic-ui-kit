@@ -154,7 +154,7 @@ ic-button:active .shortcut {
 /** High Contrast **/
 @media (forced-colors: active) {
   :host::part(button) {
-    border: Canvas;
+    border: canvas;
   }
 
   :host::part(button):focus-visible {
@@ -162,7 +162,7 @@ ic-button:active .shortcut {
   }
 
   .focus-border {
-    border-color: Canvas;
+    border-color: canvas;
   }
 
   :host(.disabled) ic-button:focus-within .focus-border {
