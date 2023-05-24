@@ -573,12 +573,16 @@ export class Select {
   };
 
   private handleNativeSelectKeyDown = (event: KeyboardEvent) => {
-    event.cancelBubble = true;
+    if ((event.key !== "Escape" && event.key !== "Tab") || this.open) {
+      event.cancelBubble = true;
+    }
     this.handleCharacterKeyDown(event.key);
   };
 
   private handleKeyDown = (event: KeyboardEvent): void => {
-    event.cancelBubble = true;
+    if ((event.key !== "Escape" && event.key !== "Tab") || this.open) {
+      event.cancelBubble = true;
+    }
     const isArrowKey = event.key === "ArrowDown" || event.key === "ArrowUp";
 
     if (!this.open) {

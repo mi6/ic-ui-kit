@@ -51,3 +51,15 @@ export const resizeTo = (
     outerHeight: height,
   }).dispatchEvent(new windowObj.Event("resize"));
 };
+
+export const testKeyboardEvent = (keyboardKey: string) => {
+  return {
+    key: `${keyboardKey}`,
+    preventDefault: (): void => null,
+    stopImmediatePropagation: (): void => null,
+    shiftKey: false,
+    target: {
+      id: "key-id",
+    },
+  };
+};

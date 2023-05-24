@@ -372,7 +372,13 @@ describe("ic-search-bar search", () => {
       detail: { event: { key: "Tab", preventDefault: (): void => null } },
     });
     await page.rootInstance.handleKeyDown({
-      detail: { event: { key: "Escape", preventDefault: (): void => null } },
+      detail: {
+        event: {
+          key: "Escape",
+          preventDefault: (): void => null,
+          stopImmediatePropagation: (): void => null,
+        },
+      },
     });
     await page.waitForChanges();
 
