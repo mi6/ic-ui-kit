@@ -391,6 +391,68 @@ export namespace Components {
          */
         "value": string;
     }
+    interface IcDialog {
+        /**
+          * If a status is set, sets the heading for the displayed alert.
+         */
+        "alertHeading"?: string;
+        /**
+          * If a status is set, sets the message for the displayed alert.
+         */
+        "alertMessage"?: string;
+        /**
+          * Sets the label and onclick functions for default buttons.
+         */
+        "buttonProps"?: { label: string; onclick: string }[];
+        /**
+          * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+         */
+        "buttons"?: boolean;
+        /**
+          * Cancels the dialog. Used by the default 'Cancel' button or can be called manually to trigger cancelling of dialog.
+         */
+        "cancelDialog": () => Promise<void>;
+        /**
+          * If set to `true`, the dialog will not close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick"?: boolean;
+        /**
+          * Confirms the dialog. Used by the default 'Confirm' button or can be called manually to trigger confirming of dialog.
+         */
+        "confirmDialog": () => Promise<void>;
+        /**
+          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+         */
+        "destructive"?: boolean;
+        /**
+          * Sets the dismiss label tooltip and aria label.
+         */
+        "dismissLabel"?: string;
+        /**
+          * Sets the heading for the dialog.
+         */
+        "heading": string;
+        /**
+          * Use to hide the dialog.
+         */
+        "hideDialog": () => Promise<void>;
+        /**
+          * Sets the optional label for the dialog which appears above the heading.
+         */
+        "label"?: string;
+        /**
+          * Use to show the dialog.
+         */
+        "showDialog": () => Promise<void>;
+        /**
+          * Sets the maximum and minimum height and width for the dialog.
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * If set, displays an alert of the corresponding variant below the heading.
+         */
+        "status"?: "neutral" | "info" | "warning" | "error" | "success";
+    }
     interface IcDivider {
     }
     interface IcFooter {
@@ -1805,6 +1867,10 @@ export interface IcChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcChipElement;
 }
+export interface IcDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDialogElement;
+}
 export interface IcFooterCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcFooterElement;
@@ -1953,6 +2019,12 @@ declare global {
     var HTMLIcDataRowElement: {
         prototype: HTMLIcDataRowElement;
         new (): HTMLIcDataRowElement;
+    };
+    interface HTMLIcDialogElement extends Components.IcDialog, HTMLStencilElement {
+    }
+    var HTMLIcDialogElement: {
+        prototype: HTMLIcDialogElement;
+        new (): HTMLIcDialogElement;
     };
     interface HTMLIcDividerElement extends Components.IcDivider, HTMLStencilElement {
     }
@@ -2237,6 +2309,7 @@ declare global {
         "ic-classification-banner": HTMLIcClassificationBannerElement;
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
+        "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
         "ic-footer": HTMLIcFooterElement;
         "ic-footer-link": HTMLIcFooterLinkElement;
@@ -2661,6 +2734,68 @@ declare namespace LocalJSX {
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
+    }
+    interface IcDialog {
+        /**
+          * If a status is set, sets the heading for the displayed alert.
+         */
+        "alertHeading"?: string;
+        /**
+          * If a status is set, sets the message for the displayed alert.
+         */
+        "alertMessage"?: string;
+        /**
+          * Sets the label and onclick functions for default buttons.
+         */
+        "buttonProps"?: { label: string; onclick: string }[];
+        /**
+          * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+         */
+        "buttons"?: boolean;
+        /**
+          * If set to `true`, the dialog will not close when the backdrop is clicked.
+         */
+        "closeOnBackdropClick"?: boolean;
+        /**
+          * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+         */
+        "destructive"?: boolean;
+        /**
+          * Sets the dismiss label tooltip and aria label.
+         */
+        "dismissLabel"?: string;
+        /**
+          * Sets the heading for the dialog.
+         */
+        "heading": string;
+        /**
+          * Sets the optional label for the dialog which appears above the heading.
+         */
+        "label"?: string;
+        /**
+          * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+         */
+        "onIcDialogCancelled"?: (event: IcDialogCustomEvent<void>) => void;
+        /**
+          * Emitted when dialog has closed.
+         */
+        "onIcDialogClosed"?: (event: IcDialogCustomEvent<void>) => void;
+        /**
+          * Confirmation event emitted when default 'Confirm' primary button clicked or 'confirmDialog' method is called.
+         */
+        "onIcDialogConfirmed"?: (event: IcDialogCustomEvent<void>) => void;
+        /**
+          * Emitted when dialog has opened.
+         */
+        "onIcDialogOpened"?: (event: IcDialogCustomEvent<void>) => void;
+        /**
+          * Sets the maximum and minimum height and width for the dialog.
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * If set, displays an alert of the corresponding variant below the heading.
+         */
+        "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
     }
@@ -4159,6 +4294,7 @@ declare namespace LocalJSX {
         "ic-classification-banner": IcClassificationBanner;
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
+        "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
         "ic-footer": IcFooter;
         "ic-footer-link": IcFooterLink;
@@ -4222,6 +4358,7 @@ declare module "@stencil/core" {
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
+            "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
             "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
             "ic-footer-link": LocalJSX.IcFooterLink & JSXBase.HTMLAttributes<HTMLIcFooterLinkElement>;

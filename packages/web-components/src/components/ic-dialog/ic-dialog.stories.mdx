@@ -1,0 +1,499 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Dialog" component="ic-dialog" />
+
+<Description markdown={readme} />
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showSmallDialog() {
+          dialog = document.querySelector("#small-dialog");
+          dialog.showDialog();
+        }
+        function showMediumDialog() {
+          dialog = document.querySelector("#medium-dialog");
+          dialog.showDialog();
+        }
+        function showLargeDialog() {
+          dialog = document.querySelector("#large-dialog");
+          dialog.showDialog();
+        }
+      </script>
+      <ic-button variant="primary" onclick="showSmallDialog()"
+        >Launch small dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showMediumDialog()"
+        >Launch medium dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showLargeDialog()"
+        >Launch large dialog</ic-button
+      >
+      <ic-dialog
+        heading="This is a small dialog"
+        label="Small"
+        id="small-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This is a medium dialog"
+        label="Medium"
+        size="medium"
+        id="medium-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This is a large dialog"
+        label="Large"
+        size="large"
+        id="large-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Status
+
+<Canvas>
+  <Story name="Status" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showNeutralDialog() {
+          dialog = document.querySelector("#neutral-dialog");
+          dialog.showDialog();
+        }
+        function showInfoDialog() {
+          dialog = document.querySelector("#info-dialog");
+          dialog.showDialog();
+        }
+        function showWarningDialog() {
+          dialog = document.querySelector("#warning-dialog");
+          dialog.showDialog();
+        }
+        function showErrorDialog() {
+          dialog = document.querySelector("#error-dialog");
+          dialog.showDialog();
+        }
+        function showSuccessDialog() {
+          dialog = document.querySelector("#success-dialog");
+          dialog.showDialog();
+        }
+      </script>
+      <ic-button variant="primary" onclick="showNeutralDialog()"
+        >Launch neutral dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showInfoDialog()"
+        >Launch info dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showWarningDialog()"
+        >Launch warning dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showErrorDialog()"
+        >Launch error dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showSuccessDialog()"
+        >Launch success dialog</ic-button
+      >
+      <ic-dialog
+        heading="This dialog has a neutral alert"
+        label="Neutral"
+        status="neutral"
+        alert-heading="Neutral alert"
+        alert-message="This alert is for generic/miscellaneous messages"
+        id="neutral-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has an info alert"
+        label="Info"
+        status="info"
+        alert-heading="Info alert"
+        alert-message="This alert is for information"
+        id="info-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has a warning alert"
+        label="Warning"
+        status="warning"
+        alert-heading="Warning alert"
+        alert-message="This alert is for warnings"
+        id="warning-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has an error alert"
+        label="Error"
+        status="error"
+        alert-heading="Error alert"
+        alert-message="This alert is for errors"
+        id="error-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has a success alert"
+        label="Success"
+        status="success"
+        alert-heading="Success alert"
+        alert-message="This alert is for success messages"
+        id="success-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Buttons
+
+<Canvas>
+  <Story name="Buttons" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showPlainDialog() {
+          dialog = document.querySelector("#plain-dialog");
+          dialog.showDialog();
+        }
+        function showSingleDialog() {
+          dialog = document.querySelector("#single-dialog");
+          dialog.showDialog();
+        }
+        function showDoubleDialog() {
+          dialog = document.querySelector("#double-dialog");
+          dialog.showDialog();
+        }
+        function showTripleDialog() {
+          dialog = document.querySelector("#triple-dialog");
+          dialog.showDialog();
+        }
+        function showDestructiveDialog() {
+          dialog = document.querySelector("#destructive-dialog");
+          dialog.showDialog();
+        }
+        tripleDialog = document.querySelector("#triple-dialog");
+        tripleDialog.buttonProps = [
+          { label: "Cancel", onclick: "this.hideDialog()" },
+          { label: "Options", onclick: "alert('Options...')" },
+          { label: "Confirm", onclick: "alert('Confirmed')" },
+        ];
+        singleDialog = document.querySelector("#single-dialog");
+        singleDialog.buttonProps = [
+          { label: "Confirm", onclick: "alert('Confirmed')" },
+        ];
+        destructiveDialog = document.querySelector("#destructive-dialog");
+        destructiveDialog.buttonProps = [
+          { label: "Confirm", onclick: "alert('Confirmed')" },
+        ];
+      </script>
+      <ic-button variant="primary" onclick="showPlainDialog()"
+        >Launch no button dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showSingleDialog()"
+        >Launch single button dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showDoubleDialog()"
+        >Launch two button dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showTripleDialog()"
+        >Launch three button dialog</ic-button
+      >
+      <ic-button variant="primary" onclick="showDestructiveDialog()"
+        >Launch destructive button dialog</ic-button
+      >
+      <ic-dialog
+        heading="This dialog has no default buttons"
+        label="None"
+        id="plain-dialog"
+        buttons="false"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has a single button"
+        label="Single"
+        id="single-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has two default buttons"
+        label="Double"
+        id="double-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has three default buttons"
+        label="Triple"
+        id="triple-dialog"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </ic-dialog>
+      <ic-dialog
+        heading="This dialog has a default destructive button"
+        label="Destructive"
+        id="destructive-dialog"
+        destructive="true"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Slotted content
+
+<Canvas>
+  <Story name="Slotted content" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showDialog() {
+          dialog = document.querySelector("ic-dialog");
+          dialog.showDialog();
+        }
+        function hideDialog() {
+          dialog.hideDialog();
+        }
+        function confirm() {
+          checkbox = document.querySelector("ic-checkbox");
+          if (checkbox.checked) {
+            alert("Confirmed with option");
+          } else {
+            alert("Confirmed!");
+          }
+          hideDialog();
+        }
+        var select1 = document.querySelector("#sel1");
+        select1.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        select1.addEventListener("icChange", function (event) {
+          console.log(event.detail.value);
+        });
+      </script>
+      <ic-button variant="primary" onclick="showDialog()"
+        >Launch dialog</ic-button
+      >
+      <ic-dialog
+        heading="This dialog has slotted interactive content"
+        label="slotted"
+        dismiss-label="Close"
+        size="medium"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+        <ic-text-field label="What is your favourite coffee?"> </ic-text-field>
+        <ic-select
+          id="sel1"
+          label="What is your favourite coffee?"
+          placeholder="Placeholder goes here"
+        ></ic-select>
+        <ic-checkbox-group
+          style="margin: 8px 0"
+          hide-label
+          label="confirm"
+          name="confirm-checkbox"
+        >
+          <ic-checkbox label="Option" value="confirm" id="focus"></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-button
+          variant="tertiary"
+          onclick="hideDialog()"
+          slot="dialog-controls"
+          >Cancel</ic-button
+        >
+        <ic-button variant="primary" onclick="confirm()" slot="dialog-controls"
+          >Confirm</ic-button
+        >
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Background close prevented
+
+<Canvas>
+  <Story
+    name="Background close prevented"
+    parameters={{ loki: { skip: true } }}
+  >
+    {html`
+      <script>
+        function showClosePreventedDialog() {
+          dialog = document.querySelector("ic-dialog");
+          dialog.showDialog();
+        }
+      </script>
+      <ic-button variant="primary" onclick="showClosePreventedDialog()"
+        >Launch close prevented dialog</ic-button
+      >
+      <ic-dialog
+        heading="This dialog can't be closed by clicking the background"
+        label="Background close prevented"
+        close-on-backdrop-click="false"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Scrollable
+
+<Canvas>
+  <Story name="Scrollable" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showScrollableDialog() {
+          dialog = document.querySelector("ic-dialog");
+          dialog.showDialog();
+        }
+        var select = document.querySelector("#scroll-sel");
+        select.options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        select.addEventListener("icChange", function (event) {
+          console.log(event.detail.value);
+        });
+      </script>
+      <ic-button variant="primary" onclick="showScrollableDialog()"
+        >Launch scrollable dialog</ic-button
+      >
+      <ic-dialog
+        heading="This dialog has overflowing content"
+        label="Scrollable"
+      >
+        <ic-typography>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </ic-typography>
+        <br />
+        <ic-select
+          id="scroll-sel"
+          label="What is your favourite coffee?"
+          placeholder="Placeholder goes here"
+        ></ic-select>
+        <br />
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Events example
+
+<Canvas>
+  <Story name="Events example" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showDialog() {
+          dialog = document.querySelector("ic-dialog");
+          dialog.showDialog();
+        }
+        function dialogConfirmed() {
+          dialog = document.querySelector("ic-dialog");
+          alert("Dialog confirmed");
+          dialog.hideDialog();
+        }
+        function dialogCancelled() {
+          alert("Dialog cancelled");
+        }
+        document.addEventListener("icDialogConfirmed", dialogConfirmed);
+        document.addEventListener("icDialogCancelled", dialogCancelled);
+      </script>
+      <ic-button variant="primary" onclick="showDialog()"
+        >Launch dialog</ic-button
+      >
+      <ic-dialog heading="This dialog utilises events" label="Events">
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>

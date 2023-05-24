@@ -43,6 +43,7 @@ export class Menu {
   private hasTimedOut: boolean = false;
   private isLoading: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
+  private firstRender: boolean = true;
 
   @Element() host: HTMLIcMenuElement;
 
@@ -168,7 +169,6 @@ export class Menu {
   };
 
   private handleMenuChange = (open: boolean, focusInput?: boolean): void => {
-    if (!open) this.popperInstance.destroy();
     this.menuStateChange.emit({ open, focusInput });
 
     if (!open && focusInput !== false) {
@@ -377,6 +377,9 @@ export class Menu {
         this.value = menuOptions[highlightedOptionIndex]?.value;
         break;
       case "Escape":
+        if (this.open) {
+          event.stopImmediatePropagation();
+        }
         this.handleMenuChange(false);
         this.menuOptionId.emit({ optionId: undefined });
         break;
@@ -661,25 +664,54 @@ export class Menu {
   }
 
   componentDidRender(): void {
-    if (this.open) {
-      this.popperInstance = createPopper(this.anchorEl, this.host, {
-        placement: "bottom",
-        modifiers: [
-          {
-            name: "offset",
-            options: {
-              offset: [0, 7],
+    if (this.firstRender && this.open) {
+      this.firstRender = false;
+      let adjust = false;
+
+      const dialogEl = this.parentEl.closest("ic-dialog");
+
+      const onDialog = dialogEl !== null;
+      if (onDialog) {
+        this.host.classList.add("on-dialog");
+        if (dialogEl.getAttribute("data-overflow") === "false") {
+          const menuTop = this.host.getBoundingClientRect().top;
+          const menuHeight = this.host.getBoundingClientRect().height;
+          const dialogHeight = dialogEl.getBoundingClientRect().bottom;
+          if (menuTop + menuHeight > dialogHeight) {
+            adjust = true;
+          }
+        }
+        if (adjust === false) {
+          this.host.classList.add("on-dialog-fix-translate");
+        }
+      }
+
+      if (adjust) {
+        this.popperInstance = createPopper(this.anchorEl, this.host, {
+          placement: "top",
+        });
+      } else {
+        this.popperInstance = createPopper(this.anchorEl, this.host, {
+          placement: "bottom",
+          modifiers: [
+            {
+              name: "offset",
+              options: {
+                offset: [0, 7],
+              },
             },
-          },
-          {
-            name: "flip",
-            options: {
-              fallbackPlacements: ["top"],
-              rootBoundary: "viewport",
+            {
+              name: "flip",
+              options: {
+                fallbackPlacements: ["top"],
+                rootBoundary: "viewport",
+              },
             },
-          },
-        ],
-      });
+          ],
+        });
+      }
+    } else if (this.open) {
+      this.popperInstance.update();
     }
 
     if (this.open && !!this.options.length) {
@@ -728,6 +760,9 @@ export class Menu {
   }
 
   disconnectedCallback(): void {
+    if (this.popperInstance !== undefined) {
+      this.popperInstance.destroy();
+    }
     this.parentEl.removeEventListener("icClear", this.handleClearListener);
     this.parentEl.removeEventListener(
       "icSubmitSearch",

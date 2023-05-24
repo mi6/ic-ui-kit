@@ -35,6 +35,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [ic-dialog](../ic-dialog)
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
@@ -49,6 +53,7 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-dialog --> ic-alert
   style ic-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
