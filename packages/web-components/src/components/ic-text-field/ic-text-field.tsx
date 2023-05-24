@@ -295,11 +295,9 @@ export class TextField {
     }
   }
 
-  //stop keydown event bubbling up to storybook
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
     this.icKeydown.emit({ event: ev });
-    ev.cancelBubble = true;
   }
 
   /**

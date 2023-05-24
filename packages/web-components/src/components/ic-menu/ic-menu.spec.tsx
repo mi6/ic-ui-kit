@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Menu } from "./ic-menu";
 import { InputComponentContainer } from "../ic-input-component-container/ic-input-component-container";
+import { testKeyboardEvent as keyboardEvent } from "../../testspec.setup";
 import { h } from "@stencil/core";
 
 const menuOptions = [
@@ -48,17 +49,6 @@ const createMenu = () => {
       ></ic-menu>
     ),
   });
-};
-
-const keyboardEvent = (keyboardKey: string) => {
-  return {
-    key: `${keyboardKey}`,
-    preventDefault: (): void => null,
-    shiftKey: false,
-    target: {
-      id: "key-id",
-    },
-  };
 };
 
 beforeAll(() => {
@@ -151,12 +141,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    const keyboardEvent = {
-      key: "ArrowDown",
-      preventDefault: (): void => null,
-    };
-
-    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent);
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("ArrowDown"));
 
     await page.waitForChanges();
 
@@ -177,12 +162,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    const keyboardEvent = {
-      key: "Home",
-      preventDefault: (): void => null,
-    };
-
-    page.rootInstance.autoSetValueOnMenuKeyDown(keyboardEvent);
+    page.rootInstance.autoSetValueOnMenuKeyDown(keyboardEvent("Home"));
 
     await page.waitForChanges();
 
