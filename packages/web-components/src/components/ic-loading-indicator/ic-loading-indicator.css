@@ -185,7 +185,7 @@
   height: inherit;
   overflow: hidden;
   margin: auto;
-  color: var(--ic-theme-primary);
+  color: var(--ic-status-info);
 }
 
 :host(.not-required.compact-step-progress-indicator) .inner-text {

@@ -34,7 +34,7 @@
 :host(.compact) {
   column-gap: var(--ic-space-sm);
 
-  --compact-step-inner-color: var(--ic-theme-primary);
+  --compact-step-inner-color: var(--ic-status-info);
   --compact-step-circular-line-width: var(--ic-space-xxs);
 }
 
@@ -122,7 +122,7 @@
 }
 
 :host(.default) .current {
-  color: var(--ic-theme-primary);
+  color: var(--ic-status-info);
 }
 
 :host(.default) .step-title-area {
@@ -153,7 +153,7 @@
 }
 
 .current .step-icon-inner {
-  background-color: var(--ic-theme-primary);
+  background-color: var(--ic-status-info);
   color: white;
 }
 
@@ -178,7 +178,7 @@
 }
 
 :host(.default) .current .step-icon {
-  border: var(--ic-space-xxxs) solid var(--ic-theme-primary);
+  border: var(--ic-space-xxxs) solid var(--ic-status-info);
   padding: var(--ic-space-xxxs);
   margin: 0 calc(-1 * var(--ic-space-xxxs));
 
@@ -215,7 +215,7 @@
   flex: auto;
   height: var(--ic-space-xxxs);
   border-radius: var(--ic-space-xxs);
-  background-color: var(--ic-theme-primary);
+  background-color: var(--ic-status-info);
 }
 
 .step-icon-inner .check-icon {
