@@ -164,13 +164,13 @@ describe("ic-radio-group", () => {
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
 
-    page.rootInstance.radioOptions[1].selected = true;
+    page.rootInstance.radioOptions[1].click();
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
     expect(page.rootInstance.checkedValue).toBe("Test value");
 
-    page.rootInstance.radioOptions[2].selected = true;
+    page.rootInstance.radioOptions[2].click();
     await page.waitForChanges();
     expect(page.rootInstance.checkedValue).toBe("Radio value");
   });
@@ -207,7 +207,10 @@ describe("ic-radio-group", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
-    page.rootInstance.textfieldValueHandler({ detail: { value: "value" } });
+    page.rootInstance.textfieldValueHandler({
+      detail: { value: "value" },
+      stopImmediatePropagation: jest.fn(),
+    });
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
@@ -223,7 +226,10 @@ describe("ic-radio-group", () => {
 
     const callbackFn = jest.fn();
     page.doc.addEventListener("icCheck", callbackFn);
-    page.rootInstance.textfieldValueHandler({ detail: { value: "" } });
+    page.rootInstance.textfieldValueHandler({
+      detail: { value: "" },
+      stopImmediatePropagation: jest.fn(),
+    });
     await page.waitForChanges();
 
     expect(callbackFn).toHaveBeenCalled();
