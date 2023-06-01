@@ -15,8 +15,12 @@ import {
   onComponentRequiredPropUndefined,
   renderHiddenInput,
 } from "../../utils/helpers";
-import { IcInformationStatusOrEmpty, IcOrientation } from "../../utils/types";
-import { IcValueEventDetail } from "../../interface";
+import {
+  IcInformationStatusOrEmpty,
+  IcOrientation,
+  IcValueEventDetail,
+} from "../../utils/types";
+import { IcChangeEventDetail } from "./ic-radio-group.types";
 
 @Component({
   tag: "ic-radio-group",
@@ -85,12 +89,19 @@ export class RadioGroup {
   /**
    * Emitted when a user selects a radio.
    */
-  @Event() icChange: EventEmitter<IcValueEventDetail>;
+  @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
   @Listen("icCheck")
   selectHandler(event: CustomEvent<IcValueEventDetail>): void {
     this.checkedValue = event.detail.value;
-    this.icChange.emit({ value: this.checkedValue });
+    const selectedOption = event.target as HTMLIcRadioOptionElement;
+    this.icChange.emit({
+      value: this.checkedValue,
+      selectedOption: {
+        radio: selectedOption,
+        textFieldValue: selectedOption?.querySelector("ic-text-field")?.value,
+      },
+    });
 
     if (this.radioOptions !== undefined) {
       this.radioOptions.forEach((radioOption, index) => {
@@ -110,14 +121,14 @@ export class RadioGroup {
       case "ArrowRight":
         this.radioOptions[
           this.getNextItemToSelect(this.selectedChild, true)
-        ].selected = true;
+        ].click();
         event.preventDefault();
         break;
       case "ArrowUp":
       case "ArrowLeft":
         this.radioOptions[
           this.getNextItemToSelect(this.selectedChild, false)
-        ].selected = true;
+        ].click();
         event.preventDefault();
     }
   };

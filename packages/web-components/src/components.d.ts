@@ -19,6 +19,7 @@ import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcAutocorrectStates1, IcBlurEventDetail, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcThemeForeground as IcThemeForeground1, IcValueEventDetail as IcValueEventDetail1 } from "./interface";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
@@ -3438,7 +3439,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a user selects a radio.
          */
-        "onIcChange"?: (event: IcRadioGroupCustomEvent<IcValueEventDetail1>) => void;
+        "onIcChange"?: (event: IcRadioGroupCustomEvent<IcChangeEventDetail2>) => void;
         /**
           * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
          */
