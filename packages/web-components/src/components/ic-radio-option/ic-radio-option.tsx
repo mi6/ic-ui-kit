@@ -7,7 +7,6 @@ import {
   Event,
   EventEmitter,
   Listen,
-  Watch,
   State,
   Method,
 } from "@stencil/core";
@@ -76,13 +75,6 @@ export class RadioOption {
    * Emitted when a radio is selected.
    */
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
-
-  @Watch("selected")
-  selectedChangeHandler(selected: boolean): void {
-    if (selected) {
-      this.handleClick();
-    }
-  }
 
   /**
    * Sets focus on the radio option.
@@ -170,6 +162,8 @@ export class RadioOption {
         });
       }
     }
+
+    event.stopImmediatePropagation();
   }
 
   componentDidLoad(): void {

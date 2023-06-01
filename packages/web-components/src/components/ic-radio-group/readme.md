@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event      | Description                          | Type                              |
-| ---------- | ------------------------------------ | --------------------------------- |
-| `icChange` | Emitted when a user selects a radio. | `CustomEvent<IcValueEventDetail>` |
+| Event      | Description                          | Type                               |
+| ---------- | ------------------------------------ | ---------------------------------- |
+| `icChange` | Emitted when a user selects a radio. | `CustomEvent<IcChangeEventDetail>` |
 
 
 ## Dependencies
