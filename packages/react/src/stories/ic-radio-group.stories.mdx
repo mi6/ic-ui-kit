@@ -101,7 +101,7 @@ import radioGroupReadme from '../../../web-components/src/components/ic-radio-gr
 
 <Canvas>
   <Story name="Conditional dynamic" parameters={{ loki: { skip: true } }}>
-        <IcRadioGroup label="Conditional dynamic" name="1"> 
+        <IcRadioGroup label="Conditional dynamic" name="1" onIcChange={(ev) => console.log(ev.detail.selectedOption)}> 
         <IcRadioOption additionalFieldDisplay="dynamic" value="valueName1" label="option1">
              <IcTextField slot="additional-field" placeholder="Placeholder" label="What's your favourite type of coffee? "></IcTextField>
           </IcRadioOption>
