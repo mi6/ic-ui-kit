@@ -147,6 +147,14 @@ import readme from "./readme.md";
   <Story name="Conditional dynamic">
     {(args) =>
       html`
+        <script>
+          function handleIcChange(ev) {
+            console.log(ev.detail.selectedOption);
+          }
+          document
+            .querySelector("ic-radio-group")
+            .addEventListener("icChange", handleIcChange);
+        </script>
         <ic-radio-group label="Conditional dynamic" name="1">
           <ic-radio-option
             additional-field-display="dynamic"

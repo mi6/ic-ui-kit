@@ -124,7 +124,17 @@ describe("ic-radio-group component", () => {
     await radioButton.click();
     await page.waitForChanges();
 
+    const radioElement = await page.evaluate(
+      () =>
+        document.querySelector(
+          "ic-radio-option[value='test2']"
+        ) as HTMLIcRadioOptionElement
+    );
+
     expect(icChange).toHaveReceivedEventDetail({
+      selectedOption: {
+        radio: radioElement,
+      },
       value: "test2",
     });
   });
