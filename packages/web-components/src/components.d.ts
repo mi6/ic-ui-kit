@@ -954,6 +954,9 @@ export namespace Components {
           * The total number of pages.
          */
         "pages": number;
+        /**
+          * Sets the currently displayed page.
+         */
         "setCurrentPage": (page: number) => Promise<void>;
         /**
           * The type of pagination to be used.

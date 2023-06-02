@@ -33,7 +33,7 @@
 
 ### `setCurrentPage(page: number) => Promise<void>`
 
-
+Sets the currently displayed page.
 
 #### Returns
 
