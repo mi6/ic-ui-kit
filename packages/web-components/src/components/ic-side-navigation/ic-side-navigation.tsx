@@ -433,6 +433,14 @@ export class SideNavigation {
         });
       }
 
+      let paddingLeft;
+
+      if (this.collapsedIconLabels) {
+        paddingLeft = "calc(var(--ic-space-xxl) * 2)";
+      } else {
+        paddingLeft = "calc(var(--ic-space-xxl) + var(--ic-space-xs))";
+      }
+
       if (currSize > DEVICE_SIZES.L) {
         if (!this.disableAutoParentStyling) {
           this.setParentPaddingTop("0");
@@ -440,16 +448,20 @@ export class SideNavigation {
         }
       } else if (
         currSize > DEVICE_SIZES.S &&
-        currSize <= DEVICE_SIZES.L &&
-        !this.static &&
+        currSize <= DEVICE_SIZES.M &&
+        this.static &&
         !this.disableAutoParentStyling
       ) {
-        if (this.collapsedIconLabels) {
-          this.setParentPaddingLeft("calc(var(--ic-space-xxl) * 2)");
+        this.setParentPaddingLeft(paddingLeft);
+      } else if (
+        currSize > DEVICE_SIZES.S &&
+        currSize <= DEVICE_SIZES.L &&
+        !this.disableAutoParentStyling
+      ) {
+        if (this.static) {
+          this.setParentPaddingLeft("calc(var(--ic-space-xl) * 10)");
         } else {
-          this.setParentPaddingLeft(
-            "calc(var(--ic-space-xxl) + var(--ic-space-xs))"
-          );
+          this.setParentPaddingLeft(paddingLeft);
         }
       }
     }
@@ -652,7 +664,6 @@ export class SideNavigation {
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["collapsed-labels"]:
             !isSDevice && !menuExpanded && collapsedIconLabels,
-          ["static"]: this.static,
           ["inline"]: inline,
         }}
       >

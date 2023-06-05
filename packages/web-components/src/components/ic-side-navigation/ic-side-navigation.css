@@ -361,13 +361,6 @@ slot[name="app-icon"]::slotted(a) {
     bottom: 0;
   }
 
-  :host(.static) {
-    position: relative;
-    left: auto;
-    top: auto;
-    bottom: auto;
-  }
-
   .app-icon-container {
     padding: var(--ic-space-xxs) 0;
   }
