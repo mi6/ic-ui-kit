@@ -3,52 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.14](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.13...v2.1.0-beta.14) (2023-05-17)
-
+# 2.1.0-beta.15 (2023-06-05)
 
 ### Bug Fixes
 
-* **web-components:** conditionally render divs for footer logos and caption ([3c0e765](https://github.com/mi6/ic-ui-kit/commit/3c0e76559c13da1945733aca2d04f207d5e43d06))
-* **web-components:** moved transform scale from button to svg ([a756924](https://github.com/mi6/ic-ui-kit/commit/a75692452c48c1ae4e2bc056a95d5f3316f72ed0))
+- **web-components:** fixed build issue ([ff403a1](https://github.com/mi6/ic-ui-kit/commit/ff403a109083ce8e389511cc1be5b22c72f633c1))
 
+# [2.1.0-beta.14](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.13...v2.1.0-beta.14) (2023-05-17)
 
+### Bug Fixes
 
-
+- **web-components:** conditionally render divs for footer logos and caption ([3c0e765](https://github.com/mi6/ic-ui-kit/commit/3c0e76559c13da1945733aca2d04f207d5e43d06))
+- **web-components:** moved transform scale from button to svg ([a756924](https://github.com/mi6/ic-ui-kit/commit/a75692452c48c1ae4e2bc056a95d5f3316f72ed0))
 
 # [2.1.0-beta.13](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.12...v2.1.0-beta.13) (2023-05-16)
 
-
 ### Bug Fixes
 
-* **react:** ic-card will always have interaction section placed at the bottom ([eb56b1a](https://github.com/mi6/ic-ui-kit/commit/eb56b1a6519be3ec1f26f5952c09c84da12d7a47)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
-* **web-components:** add flex-shrink 0 to checkbox and svgs, and align checkbox label ([252079d](https://github.com/mi6/ic-ui-kit/commit/252079d2f181299eb6ed51bc96b7f58535a86d9a)), closes [#659](https://github.com/mi6/ic-ui-kit/issues/659)
-* **web-components:** add min-width css custom prop to button with fallback of original min-width ([814c80e](https://github.com/mi6/ic-ui-kit/commit/814c80e87df40a1064fad6aa2d0ed4df17d1c5cc)), closes [#613](https://github.com/mi6/ic-ui-kit/issues/613)
-* **web-components:** changes ic-search-bar animation to match ic-select behaviour ([a80abe3](https://github.com/mi6/ic-ui-kit/commit/a80abe32a256102b2c6841a842c0235b9af19bf1))
-* **web-components:** fixed focusing of select on menu close ([ec5d812](https://github.com/mi6/ic-ui-kit/commit/ec5d8128891e4b6c540b2e140e9c8a62ae92c9d5))
-* **web-components:** fixes space bar bug in ic-menu ([fad6ade](https://github.com/mi6/ic-ui-kit/commit/fad6ade7ae4a31f862410d7b2805af6e0a560f04))
-* **web-components:** ic-card will always have interaction section placed at the bottom ([8c446ae](https://github.com/mi6/ic-ui-kit/commit/8c446aec5ab8205ef438468796afc0bf3bd95f3d)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
-* **web-components:** return out of onBlur for select if scrollbar/group title is clicked ([07da6d6](https://github.com/mi6/ic-ui-kit/commit/07da6d6b6277470faf107febc476972f512d504a)), closes [#596](https://github.com/mi6/ic-ui-kit/issues/596)
-* **web-components:** update type of min and max on text field to be consistent with native input ([70e2bb9](https://github.com/mi6/ic-ui-kit/commit/70e2bb93068c7305805fd3d4716808225767ab09)), closes [#677](https://github.com/mi6/ic-ui-kit/issues/677)
-* **web-components:** update typography visual tests ([8a907eb](https://github.com/mi6/ic-ui-kit/commit/8a907eb1fe96e665df8a98d2458064e1bfa11853)), closes [#601](https://github.com/mi6/ic-ui-kit/issues/601)
-* **web-components:** updated aria-hidden on mobile menu button ([25d4d00](https://github.com/mi6/ic-ui-kit/commit/25d4d00b3de20dfc5e7641cef40890de0fbe9a92))
-* **web-components:** updated select searchable to update emitted events ([2f484a6](https://github.com/mi6/ic-ui-kit/commit/2f484a641a718301c7d9c66713b548bbb0bfd411))
-* **web-components:** updating blur functionality on ic-menu ([8cdc83f](https://github.com/mi6/ic-ui-kit/commit/8cdc83f30e3653c7d9436d3eddffc32a6a9cd060))
-
+- **react:** ic-card will always have interaction section placed at the bottom ([eb56b1a](https://github.com/mi6/ic-ui-kit/commit/eb56b1a6519be3ec1f26f5952c09c84da12d7a47)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
+- **web-components:** add flex-shrink 0 to checkbox and svgs, and align checkbox label ([252079d](https://github.com/mi6/ic-ui-kit/commit/252079d2f181299eb6ed51bc96b7f58535a86d9a)), closes [#659](https://github.com/mi6/ic-ui-kit/issues/659)
+- **web-components:** add min-width css custom prop to button with fallback of original min-width ([814c80e](https://github.com/mi6/ic-ui-kit/commit/814c80e87df40a1064fad6aa2d0ed4df17d1c5cc)), closes [#613](https://github.com/mi6/ic-ui-kit/issues/613)
+- **web-components:** changes ic-search-bar animation to match ic-select behaviour ([a80abe3](https://github.com/mi6/ic-ui-kit/commit/a80abe32a256102b2c6841a842c0235b9af19bf1))
+- **web-components:** fixed focusing of select on menu close ([ec5d812](https://github.com/mi6/ic-ui-kit/commit/ec5d8128891e4b6c540b2e140e9c8a62ae92c9d5))
+- **web-components:** fixes space bar bug in ic-menu ([fad6ade](https://github.com/mi6/ic-ui-kit/commit/fad6ade7ae4a31f862410d7b2805af6e0a560f04))
+- **web-components:** ic-card will always have interaction section placed at the bottom ([8c446ae](https://github.com/mi6/ic-ui-kit/commit/8c446aec5ab8205ef438468796afc0bf3bd95f3d)), closes [#528](https://github.com/mi6/ic-ui-kit/issues/528)
+- **web-components:** return out of onBlur for select if scrollbar/group title is clicked ([07da6d6](https://github.com/mi6/ic-ui-kit/commit/07da6d6b6277470faf107febc476972f512d504a)), closes [#596](https://github.com/mi6/ic-ui-kit/issues/596)
+- **web-components:** update type of min and max on text field to be consistent with native input ([70e2bb9](https://github.com/mi6/ic-ui-kit/commit/70e2bb93068c7305805fd3d4716808225767ab09)), closes [#677](https://github.com/mi6/ic-ui-kit/issues/677)
+- **web-components:** update typography visual tests ([8a907eb](https://github.com/mi6/ic-ui-kit/commit/8a907eb1fe96e665df8a98d2458064e1bfa11853)), closes [#601](https://github.com/mi6/ic-ui-kit/issues/601)
+- **web-components:** updated aria-hidden on mobile menu button ([25d4d00](https://github.com/mi6/ic-ui-kit/commit/25d4d00b3de20dfc5e7641cef40890de0fbe9a92))
+- **web-components:** updated select searchable to update emitted events ([2f484a6](https://github.com/mi6/ic-ui-kit/commit/2f484a641a718301c7d9c66713b548bbb0bfd411))
+- **web-components:** updating blur functionality on ic-menu ([8cdc83f](https://github.com/mi6/ic-ui-kit/commit/8cdc83f30e3653c7d9436d3eddffc32a6a9cd060))
 
 ### Features
 
-* **react:** add story for new internal inline validation prop ([ce43499](https://github.com/mi6/ic-ui-kit/commit/ce434996a995434db3d5c9d96143f5dadbffd91c)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
-* **react:** add story to show app status and version number text wrapping in side nav ([b451f4a](https://github.com/mi6/ic-ui-kit/commit/b451f4ae4649112bd84728d23b29ebf3e6dfa2e6)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
-* **react:** added react story ([5ac3554](https://github.com/mi6/ic-ui-kit/commit/5ac3554b0bb613c6f0154a9aedb498d6789ba5b6))
-* **react:** updated react stories ([a504677](https://github.com/mi6/ic-ui-kit/commit/a504677acd7fcf3828f3bbe92c9a17ca74c4bbf8))
-* **react:** updated react story ([2546fa6](https://github.com/mi6/ic-ui-kit/commit/2546fa666bb2cf5c72b25d6490fa66f2d2d88034))
-* **web-components:** add internal prop to allow for validation without text or icon ([6aa58ab](https://github.com/mi6/ic-ui-kit/commit/6aa58ab6d44cf2e1b0a88144cb604176cd394e12)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
-* **web-components:** added loading state ([cbe329d](https://github.com/mi6/ic-ui-kit/commit/cbe329d299124a54ab1bf679b7a9764796bd755b))
-* **web-components:** added public method to change tooltip display ([fb162b7](https://github.com/mi6/ic-ui-kit/commit/fb162b74832fc5d031f9c79c7c61320f960d24c8))
-* **web-components:** allow text for app status and version number to wrap in side nav ([ac9d6d7](https://github.com/mi6/ic-ui-kit/commit/ac9d6d7b6aba76d9ed71ae547cd21376e6603469)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
-* **web-components:** changed event.detail for ic-checkbox icChange ([b52261d](https://github.com/mi6/ic-ui-kit/commit/b52261d12b9e3162bd583b1e1f3c44036eaf6f9e))
-* **web-components:** ic-pagination and ic-pagination-item created ([3f3658d](https://github.com/mi6/ic-ui-kit/commit/3f3658dc0f4e2cca4831d7ab0c5c902f49f84959))
-
+- **react:** add story for new internal inline validation prop ([ce43499](https://github.com/mi6/ic-ui-kit/commit/ce434996a995434db3d5c9d96143f5dadbffd91c)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
+- **react:** add story to show app status and version number text wrapping in side nav ([b451f4a](https://github.com/mi6/ic-ui-kit/commit/b451f4ae4649112bd84728d23b29ebf3e6dfa2e6)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
+- **react:** added react story ([5ac3554](https://github.com/mi6/ic-ui-kit/commit/5ac3554b0bb613c6f0154a9aedb498d6789ba5b6))
+- **react:** updated react stories ([a504677](https://github.com/mi6/ic-ui-kit/commit/a504677acd7fcf3828f3bbe92c9a17ca74c4bbf8))
+- **react:** updated react story ([2546fa6](https://github.com/mi6/ic-ui-kit/commit/2546fa666bb2cf5c72b25d6490fa66f2d2d88034))
+- **web-components:** add internal prop to allow for validation without text or icon ([6aa58ab](https://github.com/mi6/ic-ui-kit/commit/6aa58ab6d44cf2e1b0a88144cb604176cd394e12)), closes [#612](https://github.com/mi6/ic-ui-kit/issues/612)
+- **web-components:** added loading state ([cbe329d](https://github.com/mi6/ic-ui-kit/commit/cbe329d299124a54ab1bf679b7a9764796bd755b))
+- **web-components:** added public method to change tooltip display ([fb162b7](https://github.com/mi6/ic-ui-kit/commit/fb162b74832fc5d031f9c79c7c61320f960d24c8))
+- **web-components:** allow text for app status and version number to wrap in side nav ([ac9d6d7](https://github.com/mi6/ic-ui-kit/commit/ac9d6d7b6aba76d9ed71ae547cd21376e6603469)), closes [#550](https://github.com/mi6/ic-ui-kit/issues/550)
+- **web-components:** changed event.detail for ic-checkbox icChange ([b52261d](https://github.com/mi6/ic-ui-kit/commit/b52261d12b9e3162bd583b1e1f3c44036eaf6f9e))
+- **web-components:** ic-pagination and ic-pagination-item created ([3f3658d](https://github.com/mi6/ic-ui-kit/commit/3f3658dc0f4e2cca4831d7ab0c5c902f49f84959))
 
 # [2.1.0-beta.12](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.11...v2.1.0-beta.12) (2023-05-03)
 
