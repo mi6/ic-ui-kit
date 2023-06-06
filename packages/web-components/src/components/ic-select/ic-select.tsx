@@ -30,10 +30,10 @@ import {
   IcThemeForegroundEnum,
   IcMenuOption,
   IcSearchMatchPositions,
+  IcValueEventDetail,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
-import { IcValueEventDetail } from "../../interface";
 import { IcOptionSelectEventDetail } from "../ic-menu/ic-menu.types";
 
 let inputIds = 0;

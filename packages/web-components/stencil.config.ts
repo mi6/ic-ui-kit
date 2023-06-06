@@ -7,7 +7,6 @@ import { reactOutputTarget } from "@stencil/react-output-target";
 export const config: Config = {
   namespace: "core",
   globalStyle: "src/global/icds.css",
-  sourceMap: true,
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: "@ukic/web-components",
