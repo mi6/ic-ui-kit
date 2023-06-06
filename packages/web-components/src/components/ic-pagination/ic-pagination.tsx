@@ -13,7 +13,7 @@ import {
 } from "@stencil/core";
 import paginationNextPrevious from "../../assets/pagination-next-previous.svg";
 import paginationFirstLast from "../../assets/pagination-first-last.svg";
-import { IcThemeForeground } from "../../interface";
+import { IcThemeForeground } from "../../utils/types";
 import { IcPaginationTypes, IcChangeEventDetail } from "./ic-pagination.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 

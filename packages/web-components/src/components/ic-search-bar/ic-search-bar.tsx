@@ -27,7 +27,7 @@ import {
   getFilteredMenuOptions,
 } from "../../utils/helpers";
 import { IcSearchBarBlurEventDetail } from "./ic-search-bar.types";
-import { IcValueEventDetail, IcBlurEventDetail } from "../../interface";
+import { IcValueEventDetail, IcBlurEventDetail } from "../../utils/types";
 import {
   IcMenuChangeEventDetail,
   IcOptionSelectEventDetail,
