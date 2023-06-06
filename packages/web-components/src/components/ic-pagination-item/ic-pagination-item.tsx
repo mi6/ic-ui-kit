@@ -7,7 +7,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { IcPaginationItemType } from "./ic-pagination-item.types";
-import { IcThemeForeground } from "../../interface";
+import { IcThemeForeground } from "../../utils/types";
 
 @Component({
   tag: "ic-pagination-item",

@@ -10,14 +10,13 @@ import {
   State,
   Method,
 } from "@stencil/core";
-import { IcAdditionalFieldTypes } from "../../utils/types";
+import { IcAdditionalFieldTypes, IcValueEventDetail } from "../../utils/types";
 import {
   getSlotContent,
   onComponentRequiredPropUndefined,
   addFormResetListener,
   removeFormResetListener,
 } from "../../utils/helpers";
-import { IcValueEventDetail } from "../../interface";
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",

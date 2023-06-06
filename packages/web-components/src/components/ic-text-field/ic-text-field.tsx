@@ -11,14 +11,13 @@ import {
   Method,
   h,
 } from "@stencil/core";
-
 import {
+  IcInformationStatus,
   IcAutocompleteTypes,
   IcAutocorrectStates,
   IcInformationStatusOrEmpty,
   IcValueEventDetail,
-} from "../../interface";
-import { IcInformationStatus } from "../../utils/types";
+} from "../../utils/types";
 import {
   inheritAttributes,
   debounceEvent,

@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
-    "@stencil/core": "^2.16.1",
+    "@stencil/core": "^3.3.1",
     "@ukic/fonts": "^2.1.0-beta.15"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "@mdx-js/react": "^1.6.22",
     "@open-wc/testing-helpers": "^2.0.2",
     "@stencil/postcss": "^2.1.0",
-    "@stencil/react-output-target": "^0.1.0",
+    "@stencil/react-output-target": "^0.4.0",
     "@storybook/addon-a11y": "^6.4.8",
     "@storybook/addon-actions": "^6.4.3",
     "@storybook/addon-essentials": "^6.4.3",

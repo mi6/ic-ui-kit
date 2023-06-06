@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
@@ -17,7 +17,6 @@ import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicato
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
-import { IcAutocompleteTypes as IcAutocompleteTypes1, IcAutocorrectStates as IcAutocorrectStates1, IcBlurEventDetail, IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1, IcThemeForeground as IcThemeForeground1, IcValueEventDetail as IcValueEventDetail1 } from "./interface";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
@@ -29,6 +28,29 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
+export { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
+export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
+export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
+export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
+export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
+export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
+export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
+export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
+export { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
+export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
+export { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
+export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
+export { IcStepperAlignment } from "./components/ic-stepper/ic-stepper.types";
+export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.types";
+export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
+export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
+export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
     interface IcAlert {
         /**
@@ -984,7 +1006,7 @@ export namespace Components {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
-        "appearance": IcThemeForeground1;
+        "appearance": IcThemeForeground;
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
@@ -1030,7 +1052,7 @@ export namespace Components {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
-        "appearance": IcThemeForeground1;
+        "appearance": IcThemeForeground;
         /**
           * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
          */
@@ -1625,11 +1647,11 @@ export namespace Components {
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
-        "autocomplete": IcAutocompleteTypes1;
+        "autocomplete": IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
-        "autocorrect": IcAutocorrectStates1;
+        "autocorrect": IcAutocorrectStates;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -1725,7 +1747,7 @@ export namespace Components {
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus": IcInformationStatusOrEmpty1;
+        "validationStatus": IcInformationStatusOrEmpty;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
@@ -3321,7 +3343,7 @@ declare namespace LocalJSX {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
-        "appearance"?: IcThemeForeground1;
+        "appearance"?: IcThemeForeground;
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
@@ -3367,7 +3389,7 @@ declare namespace LocalJSX {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
-        "appearance"?: IcThemeForeground1;
+        "appearance"?: IcThemeForeground;
         /**
           * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
          */
@@ -3489,11 +3511,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when a radio is selected.
          */
-        "onIcCheck"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail1>) => void;
+        "onIcCheck"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
         /**
           * @deprecated This event should not be used anymore. Use icCheck instead.
          */
-        "onRadioOptionSelect"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail1>) => void;
+        "onRadioOptionSelect"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
         /**
           * If `true`, the radio option will be displayed in a selected state.
          */
@@ -3583,7 +3605,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcSearchBarCustomEvent<IcValueEventDetail1>) => void;
+        "onIcChange"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when value is cleared with clear button
          */
@@ -3592,7 +3614,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail1>) => void;
+        "onIcInput"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
           * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
          */
@@ -3600,7 +3622,7 @@ declare namespace LocalJSX {
         /**
           * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
          */
-        "onIcInputFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail1>) => void;
+        "onIcInputFocus"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when the state of the menu changes (i.e. open or close)
          */
@@ -3612,7 +3634,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the 'retry loading' button is clicked
          */
-        "onIcRetryLoad"?: (event: IcSearchBarCustomEvent<IcValueEventDetail1>) => void;
+        "onIcRetryLoad"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when blur is invoked from ic-search-bar
          */
@@ -3624,7 +3646,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the search value has been submitted
          */
-        "onIcSubmitSearch"?: (event: IcSearchBarCustomEvent<IcValueEventDetail1>) => void;
+        "onIcSubmitSearch"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
         "onIcSubmitSearchBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
         /**
           * The suggested search options.
@@ -3737,7 +3759,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value changes.
          */
-        "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
+        "onIcChange"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when the clear button is clicked.
          */
@@ -3749,7 +3771,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
+        "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when an option is highlighted within the menu. Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.
          */
@@ -3757,7 +3779,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the 'retry loading' button is clicked for a searchable variant.
          */
-        "onIcRetryLoad"?: (event: IcSelectCustomEvent<IcValueEventDetail1>) => void;
+        "onIcRetryLoad"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
         /**
           * The possible selection options.
          */
@@ -4052,11 +4074,11 @@ declare namespace LocalJSX {
         /**
           * The state of autocompletion the browser can apply on the text value.
          */
-        "autocomplete"?: IcAutocompleteTypes1;
+        "autocomplete"?: IcAutocompleteTypes;
         /**
           * The state of autocorrection the browser can apply when the user is entering/editing the text value.
          */
-        "autocorrect"?: IcAutocorrectStates1;
+        "autocorrect"?: IcAutocorrectStates;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -4106,23 +4128,23 @@ declare namespace LocalJSX {
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
-        "onGetValidationText"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
+        "onGetValidationText"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when input loses focus.
          */
-        "onIcBlur"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
+        "onIcBlur"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onIcChange"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
+        "onIcChange"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when input gains focus.
          */
-        "onIcFocus"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
+        "onIcFocus"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onIcInput"?: (event: IcTextFieldCustomEvent<IcValueEventDetail1>) => void;
+        "onIcInput"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when a keydown event occurred.
          */
@@ -4169,7 +4191,7 @@ declare namespace LocalJSX {
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty1;
+        "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The validation state - e.g. 'error' | 'warning' | 'success'.
          */
