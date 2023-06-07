@@ -6,6 +6,7 @@ import { TopNavigation } from "../ic-top-navigation/ic-top-navigation";
 import { DEVICE_SIZES } from "../../utils/helpers";
 import { NavigationGroup } from "./ic-navigation-group";
 import * as helpers from "../../utils/helpers";
+import { waitForTimeout } from "../../testspec.setup";
 
 describe("ic-navigation-group", () => {
   it("should render with label", async () => {
@@ -23,11 +24,30 @@ describe("ic-navigation-group", () => {
       html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
     });
     await waitForNavGroupLoad();
-
+    const ev = {
+      relatedTarget: {
+        nodeName: "IC-NAVIGATION-GROUP",
+      },
+    };
     expect(page.rootInstance.dropdownOpen).toBe(false);
-    await page.rootInstance.triggerShowDropdown();
+    await page.rootInstance.triggerShowDropdown(ev);
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(true);
+    await page.rootInstance.hideDropdown();
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+
+    ev.relatedTarget.nodeName = "ANOTHER-NAME";
+
+    jest.spyOn(document, "addEventListener");
+
+    await page.rootInstance.triggerShowDropdown(ev);
+    await page.waitForChanges();
+
+    expect(document.addEventListener).toHaveBeenCalledTimes(2);
+
+    await page.rootInstance.showDropdown();
+    await page.waitForChanges();
 
     await page.rootInstance.childBlurHandler();
     await page.waitForChanges();
@@ -101,6 +121,83 @@ describe("ic-navigation-group", () => {
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(true);
   });
+  it("should test handleBlur function", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem],
+      html: `<ic-navigation-group label="Group label">
+        <ic-navigation-item href="/" label="Home"></ic-navigation-item>
+        <ic-navigation-item href="/" label="andAway"></ic-navigation-item>
+        <ic-navigation-item href="/" label="closerEachDay"></ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    const ev = {
+      relatedTarget: {
+        nodeName: "IC-NAVIGATION-GROUP",
+      },
+    };
+
+    await page.rootInstance.showDropdown();
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(true);
+    await page.rootInstance.handleBlur(ev);
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+  });
+  it("should test isMouseIdle function", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem],
+      html: `<ic-navigation-group label="Group label">
+        <ic-navigation-item href="/" label="Home"></ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+    await page.rootInstance.isMouseIdle();
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+    await waitForTimeout(600);
+    expect(page.rootInstance.dropdownOpen).toBe(true);
+  });
+
+  it("should test handleMouseLeave function", async () => {
+    const page = await newSpecPage({
+      components: [NavigationGroup, NavigationItem],
+      html: `<ic-navigation-group label="Group label">
+        <ic-navigation-item href="/" label="Home"></ic-navigation-item>
+        <ic-navigation-item href="/" label="andAway"></ic-navigation-item>
+      </ic-navigation-group>`,
+    });
+    await waitForNavGroupLoad();
+    const ev = {
+      relatedTarget: {
+        nodeName: "IC-NAVIGATION-GROUP",
+      },
+    };
+
+    await page.rootInstance.showDropdown();
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(true);
+    await page.rootInstance.handleMouseLeave(ev);
+    await waitForTimeout(600);
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+    // check other branch of 'if'
+    ev.relatedTarget.nodeName = "IC-NOT-NAV-GROUP";
+    await page.rootInstance.showDropdown();
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(true);
+    await page.rootInstance.handleMouseLeave(ev);
+    await waitForTimeout(600);
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+    // check if null value called
+    await page.rootInstance.handleMouseLeave(ev);
+    await waitForTimeout(600);
+    await page.waitForChanges();
+    expect(page.rootInstance.dropdownOpen).toBe(false);
+  });
 
   it("should test key down handler", async () => {
     const page = await newSpecPage({
@@ -118,14 +215,16 @@ describe("ic-navigation-group", () => {
 
     page.rootInstance.navigationType = "side";
     await page.rootInstance.handleKeydown({
-      key: "Space",
+      key: " ",
       preventDefault: (): void => null,
     });
     await page.waitForChanges();
+    await waitForTimeout(600);
     expect(page.rootInstance.expanded).toBe(true);
 
     expect(page.rootInstance.dropdownOpen).toBe(false);
     page.rootInstance.navigationType = "top";
+    await page.waitForChanges();
     await page.rootInstance.handleKeydown({ key: "Enter" });
     await page.waitForChanges();
     expect(page.rootInstance.dropdownOpen).toBe(true);

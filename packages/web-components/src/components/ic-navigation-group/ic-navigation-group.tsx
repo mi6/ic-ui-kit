@@ -173,7 +173,7 @@ export class NavigationGroup {
   };
 
   private handleTopNavKeydown = (ev: KeyboardEvent) => {
-    if (ev.key === "Space" || ev.key === "Enter") {
+    if (ev.key === " " || ev.key === "Enter") {
       this.toggleDropdown();
     } else if (!this.inTopNavSideMenu && ev.key === "Escape") {
       document.removeEventListener("mousemove", this.isMouseIdle);
@@ -182,7 +182,7 @@ export class NavigationGroup {
   };
 
   private handleKeydown = (ev: KeyboardEvent) => {
-    if (ev.key === "Enter" || ev.key === "Space" || ev.key === "Escape") {
+    if (ev.key === "Enter" || ev.key === " " || ev.key === "Escape") {
       switch (this.navigationType) {
         case "top":
           this.handleTopNavKeydown(ev as KeyboardEvent);
@@ -235,7 +235,6 @@ export class NavigationGroup {
   };
 
   private time: any;
-
   private isMouseIdle = () => {
     clearTimeout(this.time);
     this.time = setTimeout(() => {
