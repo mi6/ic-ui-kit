@@ -3,11 +3,11 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.15 (2023-06-05)
+# [2.1.0-beta.15](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.14...v2.1.0-beta.15) (2023-06-05)
 
-### Bug Fixes
+### Features
 
-- **web-components:** fixed build issue ([ff403a1](https://github.com/mi6/ic-ui-kit/commit/ff403a109083ce8e389511cc1be5b22c72f633c1))
+* **react:** adds story for typography truncation ([b7ea9ba](https://github.com/mi6/ic-ui-kit/commit/b7ea9baff2f2743952b18f0d8232cf1fe73def50))
 
 # [2.1.0-beta.14](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.13...v2.1.0-beta.14) (2023-05-17)
 
