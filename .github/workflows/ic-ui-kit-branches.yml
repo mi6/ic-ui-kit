@@ -15,19 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:  
-  ci-check:
-    name: 'CI Check'
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5
-        with:
-          concurrent_skipping: 'same_content_newer'
   ic-ui-kit-static-analysis-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
     name: 'Static Analysis Tests'
     runs-on: ubuntu-latest
     steps:
@@ -63,8 +51,6 @@ jobs:
         run: npm run test:coverage-ci
 
   ic-ui-kit-e2e-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
     name: 'E2E Tests'
     runs-on: ubuntu-latest
     steps:
@@ -82,8 +68,6 @@ jobs:
         run: npm run test-e2e
 
   ic-ui-kit-visual-tests:
-    needs: ci-check
-    if: needs.ci-check.outputs.should_skip != 'true'
     name: 'Visual Regression Tests'
     runs-on: ubuntu-latest
     steps:
@@ -134,3 +118,4 @@ jobs:
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/react
+
