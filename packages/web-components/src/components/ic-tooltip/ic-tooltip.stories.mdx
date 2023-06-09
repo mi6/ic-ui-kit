@@ -270,3 +270,25 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Dark background
+
+<Canvas>
+  <Story name="Dark background" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<div style="height: 100px;background-color:#333333;">
+        <ic-tooltip
+          label="This is a description of the button"
+          target="test-button-dark"
+        >
+          <button
+            id="test-button-dark"
+            aria-describedby="ic-tooltip-test-button-dark"
+          >
+            Default
+          </button>
+        </ic-tooltip>
+      </div>`
+    }
+  </Story>
+</Canvas>
