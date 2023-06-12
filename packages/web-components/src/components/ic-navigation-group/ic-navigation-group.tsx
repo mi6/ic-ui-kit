@@ -144,12 +144,14 @@ export class NavigationGroup {
   };
 
   private showDropdown() {
+    document.removeEventListener("mousemove", this.isMouseIdle);
     if (!this.dropdownOpen) {
       this.toggleDropdown();
     }
   }
 
   private hideDropdown() {
+    document.removeEventListener("keydown", this.handleKeydown);
     if (this.dropdownOpen) {
       this.toggleDropdown();
     }
@@ -171,16 +173,16 @@ export class NavigationGroup {
   };
 
   private handleTopNavKeydown = (ev: KeyboardEvent) => {
-    if (!this.inTopNavSideMenu && ev.key === "Escape") {
-      this.hideDropdown();
-      this.el.blur();
-    } else if (ev.key === " " || ev.key === "Enter") {
+    if (ev.key === " " || ev.key === "Enter") {
       this.toggleDropdown();
+    } else if (!this.inTopNavSideMenu && ev.key === "Escape") {
+      document.removeEventListener("mousemove", this.isMouseIdle);
+      this.hideDropdown();
     }
   };
 
   private handleKeydown = (ev: KeyboardEvent) => {
-    if (ev.key === "Enter" || ev.key === "Space") {
+    if (ev.key === "Enter" || ev.key === " " || ev.key === "Escape") {
       switch (this.navigationType) {
         case "top":
           this.handleTopNavKeydown(ev as KeyboardEvent);
@@ -204,12 +206,40 @@ export class NavigationGroup {
       document.activeElement !== this.el &&
       !this.el.contains(document.activeElement)
     ) {
-      this.hideDropdown();
+      if (target.nodeName === "IC-NAVIGATION-GROUP") {
+        this.hideDropdown();
+      } else {
+        setTimeout(() => {
+          this.dropdownOpen ? this.hideDropdown() : null;
+        }, 500);
+      }
     }
   };
 
-  private triggerShowDropdown = () => {
-    this.showDropdown();
+  private triggerShowDropdown = (ev: MouseEvent) => {
+    const target = ev.relatedTarget as HTMLElement;
+    document.addEventListener("keydown", this.handleKeydown);
+    if (this.dropdownOpen === false) {
+      if (
+        target.nodeName === "IC-NAVIGATION-GROUP" &&
+        !this.el.contains(target) &&
+        target !== this.dropdown &&
+        document.activeElement !== this.el &&
+        !this.el.contains(document.activeElement)
+      ) {
+        this.showDropdown();
+      } else {
+        document.addEventListener("mousemove", this.isMouseIdle);
+      }
+    }
+  };
+
+  private time: any;
+  private isMouseIdle = () => {
+    clearTimeout(this.time);
+    this.time = setTimeout(() => {
+      this.showDropdown();
+    }, 500);
   };
 
   private renderDropdownGroupedLinks = (): HTMLDivElement => (
@@ -353,7 +383,7 @@ export class NavigationGroup {
       >
         <NavigationGroupElement
           tabindex={inTopNavSideMenu && !expandable ? "-1" : "0"}
-          onMouseOver={
+          onMouseEnter={
             !inTopNavSideMenu && this.navigationType === "top"
               ? this.triggerShowDropdown
               : null
