@@ -35,7 +35,7 @@ describe("ic-top-navigation", () => {
 
     const navGroup = await page.find("ic-top-navigation ic-navigation-group");
 
-    await navGroup.hover();
+    await navGroup.press("Enter");
 
     await page.waitForChanges();
 
