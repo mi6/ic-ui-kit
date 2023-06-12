@@ -57,6 +57,8 @@ export class NavigationGroup {
   private dropdown: HTMLElement;
   private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
   private IC_NAVIGATION_ITEM = "ic-navigation-item";
+  private nodeName = "IC-NAVIGATION-GROUP";
+  private mouseGate: boolean = false;
 
   @Listen("childBlur")
   childBlurHandler(): void {
@@ -139,12 +141,10 @@ export class NavigationGroup {
     const linkWrapper = this.el.shadowRoot.querySelector(
       ".grouped-links-wrapper"
     ) as HTMLElement;
-
     this.toggleGroupedLinkWrapperHeight(linkWrapper, this.expanded);
   };
 
   private showDropdown() {
-    document.removeEventListener("mousemove", this.isMouseIdle);
     if (!this.dropdownOpen) {
       this.toggleDropdown();
     }
@@ -176,7 +176,6 @@ export class NavigationGroup {
     if (ev.key === " " || ev.key === "Enter") {
       this.toggleDropdown();
     } else if (!this.inTopNavSideMenu && ev.key === "Escape") {
-      document.removeEventListener("mousemove", this.isMouseIdle);
       this.hideDropdown();
     }
   };
@@ -199,47 +198,48 @@ export class NavigationGroup {
   };
 
   private handleMouseLeave = (ev: MouseEvent) => {
-    const target = ev.relatedTarget as HTMLElement;
+    const relTarget = ev.relatedTarget as HTMLElement;
+
+    this.mouseGate = false;
+
     if (
-      !this.el.contains(target) &&
-      target !== this.dropdown &&
+      !this.el.contains(relTarget) &&
+      relTarget !== this.dropdown &&
       document.activeElement !== this.el &&
+      !this.el.contains(document.activeElement) &&
+      relTarget.nodeName === this.nodeName &&
+      this.dropdownOpen === true
+    ) {
+      this.mouseGate = true;
+      this.hideDropdown();
+    } else if (
+      !this.el.contains(relTarget) &&
+      relTarget !== this.dropdown &&
       !this.el.contains(document.activeElement)
     ) {
-      if (target.nodeName === "IC-NAVIGATION-GROUP") {
-        this.hideDropdown();
-      } else {
-        setTimeout(() => {
-          this.dropdownOpen ? this.hideDropdown() : null;
-        }, 500);
-      }
+      this.mouseGate = false;
+      setTimeout(() => {
+        this.dropdownOpen ? this.hideDropdown() : null;
+      }, 500);
     }
   };
 
-  private triggerShowDropdown = (ev: MouseEvent) => {
-    const target = ev.relatedTarget as HTMLElement;
+  private handleMouseEnter = (ev: MouseEvent) => {
+    const relTarget = ev.relatedTarget as HTMLElement;
     document.addEventListener("keydown", this.handleKeydown);
-    if (this.dropdownOpen === false) {
-      if (
-        target.nodeName === "IC-NAVIGATION-GROUP" &&
-        !this.el.contains(target) &&
-        target !== this.dropdown &&
-        document.activeElement !== this.el &&
-        !this.el.contains(document.activeElement)
-      ) {
-        this.showDropdown();
-      } else {
-        document.addEventListener("mousemove", this.isMouseIdle);
-      }
-    }
-  };
 
-  private time: any;
-  private isMouseIdle = () => {
-    clearTimeout(this.time);
-    this.time = setTimeout(() => {
+    if (relTarget.nodeName === this.nodeName && this.mouseGate === true) {
       this.showDropdown();
-    }, 500);
+    } else if (
+      this.dropdownOpen === false &&
+      relTarget !== null &&
+      this.mouseGate === false
+    ) {
+      this.mouseGate = true;
+      setTimeout(() => {
+        this.mouseGate && this.showDropdown();
+      }, 500);
+    }
   };
 
   private renderDropdownGroupedLinks = (): HTMLDivElement => (
@@ -382,13 +382,13 @@ export class NavigationGroup {
         role="listitem"
       >
         <NavigationGroupElement
-          tabindex={inTopNavSideMenu && !expandable ? "-1" : "0"}
           onMouseEnter={
-            !inTopNavSideMenu && this.navigationType === "top"
-              ? this.triggerShowDropdown
-              : null
+            !inTopNavSideMenu &&
+            this.navigationType === "top" &&
+            this.handleMouseEnter
           }
           onMouseLeave={this.navigationType === "top" && this.handleMouseLeave}
+          tabindex={inTopNavSideMenu && !expandable ? "-1" : "0"}
           onBlur={this.handleBlur}
           onClick={expandable ? this.handleClick : null}
           onKeyDown={this.handleKeydown}
