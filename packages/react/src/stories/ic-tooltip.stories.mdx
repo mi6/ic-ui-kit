@@ -238,6 +238,21 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
   </Story>
 </Canvas>
 
+### Dark background
 
+<Canvas>
+  <Story name="Dark background">
+    <div style={{"backgroundColor": "#333333", "height": "100px"}}>
+      <IcTooltip
+        label="This is a description of the button"
+        target="test-button-dark"
+      >
+        <button aria-describedby="ic-tooltip-test-button-dark" id="test-button-dark">
+          Default
+        </button>
+      </IcTooltip>
+    </div>
+  </Story>
+</Canvas>
 
 
