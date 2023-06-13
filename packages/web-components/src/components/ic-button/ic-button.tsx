@@ -225,7 +225,7 @@ export class Button {
 
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
-    this.hasTooltip = this.variant === "icon";
+    this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
   }
 
   componentDidLoad(): void {
