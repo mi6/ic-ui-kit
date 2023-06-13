@@ -55,7 +55,7 @@ export class Tooltip {
   @Method()
   async displayTooltip(show: boolean, persistTooltip?: boolean): Promise<void> {
     this.persistTooltip = persistTooltip;
-    show ? this.show(this.popperInstance) : this.hide(this.popperInstance);
+    show ? this.show() : this.hide();
   }
 
   private toolTip: HTMLDivElement;
@@ -69,34 +69,20 @@ export class Tooltip {
   private popperInstance: Instance;
   private persistTooltip = false;
 
-  private show = (popper: Instance) => {
+  private show = () => {
     this.toolTip.setAttribute("data-show", "");
-    popper.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: true },
-      ],
-    }));
-    popper.update();
+    this.popperInstance.update();
   };
 
-  private hide = (popper: Instance) => {
+  private hide = () => {
     this.toolTip.removeAttribute("data-show");
-    popper.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: false },
-      ],
-    }));
     this.persistTooltip = false;
   };
 
-  private checkCloseTooltip = (popper: Instance) => {
+  private checkCloseTooltip = () => {
     setTimeout(() => {
       if (!this.mouseOverTool && !this.persistTooltip) {
-        this.hide(popper);
+        this.hide();
       }
     }, 100);
   };
@@ -105,14 +91,14 @@ export class Tooltip {
     this.mouseOverTool = true;
   };
 
-  private mouseLeaveTooltip = (popper: Instance) => {
+  private mouseLeaveTooltip = () => {
     this.mouseOverTool = false;
-    this.checkCloseTooltip(popper);
+    this.checkCloseTooltip();
   };
 
-  private handleKeyDown = (key: string) => {
-    if (key === "Escape" && !this.persistTooltip) {
-      this.hide(this.popperInstance);
+  private handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape" && !this.persistTooltip) {
+      this.hide();
     }
   };
 
@@ -121,31 +107,26 @@ export class Tooltip {
       action === "add" ? "addEventListener" : "removeEventListener";
 
     this.showEvents.forEach((event) => {
-      this.el[method](event, () => this.show(this.popperInstance));
+      this.el[method](event, this.show);
       if (this.toolTip !== undefined) {
-        this.toolTip[method](event, () => this.mouseEnterTooltip());
+        this.toolTip[method](event, this.mouseEnterTooltip);
       }
     });
 
-    this.instantHideEvents.forEach((event) => {
-      this.el[method](
-        event,
-        () => !this.persistTooltip && this.hide(this.popperInstance)
-      );
-    });
+    if (!this.persistTooltip) {
+      this.instantHideEvents.forEach((event) => {
+        this.el[method](event, this.hide);
+      });
+    }
 
     this.delayedHideEvents.forEach((event) => {
-      this.el[method](event, () => this.checkCloseTooltip(this.popperInstance));
+      this.el[method](event, this.checkCloseTooltip);
       if (this.toolTip !== undefined) {
-        this.toolTip[method](event, () =>
-          this.mouseLeaveTooltip(this.popperInstance)
-        );
+        this.toolTip[method](event, this.mouseLeaveTooltip);
       }
     });
 
-    document[method]("keydown", (event: KeyboardEvent) =>
-      this.handleKeyDown(event.key)
-    );
+    document[method]("keydown", this.handleKeyDown);
   };
 
   private screenReaderOnlyStyles = {
@@ -200,6 +181,7 @@ export class Tooltip {
 
   disconnectedCallback(): void {
     this.manageEventListeners("remove");
+    this.popperInstance.destroy();
   }
 
   render() {
