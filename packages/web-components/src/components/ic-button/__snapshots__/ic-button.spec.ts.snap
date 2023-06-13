@@ -36,11 +36,9 @@ exports[`button component should correctly render with text 1`] = `
 exports[`button component should disable tooltip when prop set 1`] = `
 <ic-button class="button-size-default button-variant-icon" disable-tooltip="" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip class="tooltip-disabled" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
-        <slot></slot>
-      </button>
-    </ic-tooltip>
+    <button aria-label="Tooltip text" class="button" part="button" type="button">
+      <slot></slot>
+    </button>
   </mock:shadow-root>
   Button
 </ic-button>

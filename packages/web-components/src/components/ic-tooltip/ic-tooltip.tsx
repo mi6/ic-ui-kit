@@ -173,6 +173,10 @@ export class Tooltip {
             element: this.arrow,
           },
         },
+        {
+          name: "eventListeners",
+          options: { scroll: false, resize: false },
+        },
       ],
     });
 
