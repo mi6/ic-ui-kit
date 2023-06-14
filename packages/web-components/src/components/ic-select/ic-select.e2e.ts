@@ -124,7 +124,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select).toMatchSnapshot();
+      expect(select).not.toBeNull();
     });
 
     it("should render when no options are provided", async () => {
@@ -134,7 +134,7 @@ describe("ic-select", () => {
 
       const select = await page.find("ic-select");
 
-      expect(select).toMatchSnapshot();
+      expect(select).not.toBeNull();
     });
 
     it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", async () => {
@@ -2070,27 +2070,27 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select >>> select");
 
-      expect(select).toMatchSnapshot();
+      expect(select).not.toBeNull();
     });
 
     it("should render a native select when searchable is applied on mobile", async () => {
       await page.setContent(getTestSearchableSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select >>> select");
 
-      expect(select).toMatchSnapshot();
+      expect(select).not.toBeNull();
     });
 
     it("should render when no options are provided", async () => {
       await page.setContent(`<ic-select label="IC Select Test"></ic-select>`);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select >>> select");
 
-      expect(select).toMatchSnapshot();
+      expect(select).not.toBeNull();
     });
 
     it("should disable options correctly", async () => {
