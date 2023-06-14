@@ -170,19 +170,21 @@ export class Footer {
           </div>
 
           {/* Links */}
-          <div class="footer-links">
-            {groupLinks && small ? (
-              <div class="footer-links-inner">
-                <slot name="link" />
-              </div>
-            ) : (
-              <ic-section-container fullHeight aligned={aligned}>
+          {isSlotUsed(this.el, "link") && (
+            <div class="footer-links">
+              {groupLinks && small ? (
                 <div class="footer-links-inner">
                   <slot name="link" />
                 </div>
-              </ic-section-container>
-            )}
-          </div>
+              ) : (
+                <ic-section-container fullHeight aligned={aligned}>
+                  <div class="footer-links-inner">
+                    <slot name="link" />
+                  </div>
+                </ic-section-container>
+              )}
+            </div>
+          )}
 
           {/* Compliance (logo, caption, copyright) */}
           <div class="footer-compliance">
