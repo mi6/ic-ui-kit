@@ -13,13 +13,6 @@ exports[`ic-footer should render 1`] = `
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -48,13 +41,6 @@ exports[`ic-footer should render with a caption via the caption prop 1`] = `
                 This is a footer
               </slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>
@@ -93,13 +79,6 @@ exports[`ic-footer should render with a caption via the caption slot 1`] = `
                 This is a footer
               </slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>
@@ -143,13 +122,6 @@ exports[`ic-footer should render with a description via the description slot 1`]
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -185,13 +157,6 @@ exports[`ic-footer should render with classification banner: footer-classificati
             <ic-typography variant="body">
               <slot name="description"></slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>
@@ -328,13 +293,6 @@ exports[`ic-footer should render with the correct small breakpoint at extra larg
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -368,13 +326,6 @@ exports[`ic-footer should render with the correct small breakpoint at extra smal
             <ic-typography variant="body">
               <slot name="description"></slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>
@@ -414,13 +365,6 @@ exports[`ic-footer should render with the correct small breakpoint at large devi
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -454,13 +398,6 @@ exports[`ic-footer should render with the correct small breakpoint at medium dev
             <ic-typography variant="body">
               <slot name="description"></slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>
@@ -500,13 +437,6 @@ exports[`ic-footer should render with the correct small breakpoint at small devi
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -542,13 +472,6 @@ exports[`ic-footer should render without the copyright text when the copyright p
                 This is a footer
               </slot>
             </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
           </div>
         </ic-section-container>
       </div>

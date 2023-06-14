@@ -13,13 +13,6 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -75,13 +68,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -124,13 +110,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
               <ic-typography variant="body">
                 <slot name="description"></slot>
               </ic-typography>
-            </div>
-          </ic-section-container>
-        </div>
-        <div class="footer-links">
-          <ic-section-container aligned="left" fullheight="">
-            <div class="footer-links-inner">
-              <slot name="link"></slot>
             </div>
           </ic-section-container>
         </div>
