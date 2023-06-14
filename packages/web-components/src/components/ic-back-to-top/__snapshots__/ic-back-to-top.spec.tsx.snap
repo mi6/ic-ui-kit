@@ -30,13 +30,6 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
           </div>
         </ic-section-container>
       </div>
-      <div class="footer-links">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
-            <slot name="link"></slot>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
