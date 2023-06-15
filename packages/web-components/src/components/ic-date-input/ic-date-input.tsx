@@ -7,7 +7,6 @@ import {
   Prop,
   State,
   Host,
-  // Watch,
 } from "@stencil/core";
 import {
   IcDateFormat,
@@ -18,6 +17,7 @@ import { IcInformationStatusOrEmpty } from "../../interface";
 import { IcInformationStatus } from "../../utils/types";
 import {
   addFormResetListener,
+  debounce,
   getInputDescribedByText,
   isEmptyString,
   removeFormResetListener,
@@ -33,8 +33,6 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
-
-// TODO: add full width variant?
 export class DateInput {
   @Element() el: HTMLIcDateInputElement;
 
@@ -67,6 +65,14 @@ export class DateInput {
   private FIT_TO_VALUE = "fit-to-value";
   private EVENT_OBJECT_STRING = "[object Event]";
   private INPUT_EVENT_OBJECT_STRING = "[object InputEvent]";
+  private ARIA_INVALID = "aria-invalid";
+
+  private notifyScreenReaderInputDebounce: any;
+
+  private isValidDay: boolean = true;
+  private isValidMonth: boolean = true;
+  private isValidDate: boolean = true;
+  private isDisabledDate: boolean = false;
 
   /**
    * The ID for the input.
@@ -139,13 +145,6 @@ export class DateInput {
   @State() month: string = "";
   @State() year: string = "";
 
-  // @Watch("value")
-  // watchValueHandler(newValue: string): void {
-  //   this.setSelectedDate();
-
-  //   this.icChange.emit({ value: newValue });
-  // }
-
   /**
    * Emitted when the value has changed.
    */
@@ -178,7 +177,6 @@ export class DateInput {
             (input === this.monthInputEl && +input.value >= 2)) &&
           +input.value <= 9
         ) {
-          // input.value = `0${inputEvent.data}`; // Is this required if blur does the autocomplete
           this.moveToNextInput(input);
           this.setInputValue(input);
         }
@@ -222,11 +220,6 @@ export class DateInput {
     const input = event.target as HTMLInputElement;
 
     const eventKey = event.key;
-    // Regex required due to FF allowing all characters as values for number text field.
-    // const regex = /-?\d*\.?\d+(e[-+]?\d+)?|[\/-]|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Shift|Tab|Control\+C|Control\+V/;
-    // if (!regex.test(eventKey)) {
-    //   event.preventDefault();
-    // }
 
     if (eventKey === "/" || eventKey === "-" || eventKey === ".") {
       event.preventDefault();
@@ -324,7 +317,6 @@ export class DateInput {
         } else {
           input.value = maxValue.toString();
         }
-        // this.notifyScreenReaderArrowKeys(input);
       } else if (event.key === "ArrowUp") {
         event.preventDefault();
         if (input === this.yearInputEl) {
@@ -366,7 +358,6 @@ export class DateInput {
     event.preventDefault();
 
     const pastedValue = event.clipboardData.getData("Text");
-    //TODO Does this need to consider a string which includes Zulu time?
     const isValidDate =
       /\d+-\d+-\d+/.test(pastedValue) || /\d+\/\d+\/\d+/.test(pastedValue);
 
@@ -385,7 +376,6 @@ export class DateInput {
   };
 
   private setDayMonthValue = (datePart: string, value: string) => {
-    // Should the component work out the format if it's incorrectly input by developer
     switch (datePart) {
       case "D":
         this.day = value;
@@ -433,8 +423,8 @@ export class DateInput {
         newDate = date;
       }
 
-      this.day = this.convertToDoubleDigits(newDate.getDate());
-      this.month = this.convertToDoubleDigits(newDate.getMonth() + 1);
+      this.day = this.convertToDoubleDigits(newDate?.getDate()) || "";
+      this.month = this.convertToDoubleDigits(newDate?.getMonth() + 1) || "";
       this.year = newDate.getFullYear().toString();
     } else if (typeof date === "string") {
       const defaultDateArray = this.splitStringDate(date);
@@ -475,35 +465,8 @@ export class DateInput {
     }
   };
 
-  // private setAriaInvalid = (input: HTMLInputElement, isInvalid: boolean) => {
-  //   if (isInvalid) {
-  //     input.setAttribute("aria-invalid", "true");
-  //   } else {
-  //     input.removeAttribute("aria-invalid");
-  //   }
-  // };
-
   private setValidationMessage = () => {
-    let isValidDay = true;
-    let isValidMonth = true;
-    let isValidDate = true;
-    let isDisabledDate = false;
-    if (!isEmptyString(this.day)) {
-      if (+this.day > 31) {
-        isValidDay = false;
-        // this.dayInputEl.setAttribute("aria-invalid", "true");
-      }
-    } else {
-      isValidDay = true;
-    }
-
-    if (!isEmptyString(this.month)) {
-      if (+this.month > 12) {
-        isValidMonth = false;
-      }
-    } else {
-      isValidMonth = true;
-    }
+    this.setValidDate();
 
     if (
       !isEmptyString(this.day) &&
@@ -513,16 +476,16 @@ export class DateInput {
       // Check whether date actually exists
       // (used https://www.hectane.com/blog/javascript-date-validation-with-leap-year)
       this.selectedDate = this.convertToDate(this.year, this.month, this.day);
-      isValidDate =
+      this.isValidDate =
         +this.selectedDate !== 0 && this.selectedDate.getDate() == +this.day;
-      isDisabledDate = this.isSelectedDateDisabled();
+      this.isDisabledDate = this.isSelectedDateDisabled();
     } else {
       this.selectedDate = null;
     }
 
-    if (!(isValidDay && isValidMonth && isValidDate)) {
+    if (!(this.isValidDay && this.isValidMonth && this.isValidDate)) {
       this.invalidDateText = "Please enter a valid date.";
-    } else if (isDisabledDate) {
+    } else if (this.isDisabledDate) {
       if (this.disabledDates === "until-now") {
         this.invalidDateText = this.dateUntilNowMessage;
       } else {
@@ -531,20 +494,51 @@ export class DateInput {
     } else {
       this.invalidDateText = "";
     }
+  };
 
-    // let ariaInvalids = [!isValidDay, !isValidMonth, false];
+  private setValidDate = () => {
+    if (!isEmptyString(this.day)) {
+      if (+this.day > 31) {
+        this.isValidDay = false;
+      }
+    } else {
+      this.isValidDay = true;
+    }
 
-    // // Set aria-invalid on all inputs if whole date is invalid (e.g. 29th Feb but not a leap year)
-    // if (!isValidDate || isDisabledDate) {
-    //   ariaInvalids = ariaInvalids.map((ariaInvalid) => {
-    //     ariaInvalid = true;
-    //     return ariaInvalid;
-    //   });
-    // }
+    if (!isEmptyString(this.month)) {
+      if (+this.month > 12) {
+        this.isValidMonth = false;
+      }
+    } else {
+      this.isValidMonth = true;
+    }
+  };
 
-    // ariaInvalids.forEach((ariaInvalid, index) =>
-    //   this.setAriaInvalid(this.inputsInOrder[index], ariaInvalid)
-    // );
+  private setAriaInvalid = (
+    validDay: boolean,
+    validMonth: boolean,
+    validDate: boolean,
+    disabledDate: boolean
+  ) => {
+    if (this.inputsInOrder.length) {
+      this.inputsInOrder.forEach((input) => {
+        input.removeAttribute(this.ARIA_INVALID);
+      });
+
+      if (!validDay) {
+        this.dayInputEl.setAttribute(this.ARIA_INVALID, "true");
+      }
+
+      if (!validMonth) {
+        this.monthInputEl.setAttribute(this.ARIA_INVALID, "true");
+      }
+
+      if (!validDate || disabledDate) {
+        this.inputsInOrder.forEach((input) => {
+          input.setAttribute(this.ARIA_INVALID, "true");
+        });
+      }
+    }
   };
 
   // Set refs to the input elements in the order they are displayed (based on the dateFormat)
@@ -558,7 +552,6 @@ export class DateInput {
   private setAriaLabelledBy = () => {
     const labelEl = this.el.shadowRoot.querySelector("label");
     const labelId = `${this.inputId}-label`;
-    // TODO: Added conditional below that checks labelEl exists. Need to check there isn't an underlying reason why it doesn't always exist
     if (labelEl !== null && labelEl !== undefined) {
       labelEl.id = labelId;
 
@@ -607,10 +600,6 @@ export class DateInput {
         onPaste={this.handlePaste}
         type="number"
         onKeyDown={(event) => this.handleKeyDown(event, this.preventDayInput)}
-        // aria-valuetext={!isEmptyString(this.day) ? this.day : undefined}
-        // aria-live="polite"
-        // aria-describedby="live-region"
-        // value={!isEmptyString(this.day) ? +this.day : null}
       ></input>
     );
 
@@ -624,10 +613,6 @@ export class DateInput {
         onPaste={this.handlePaste}
         type="number"
         onKeyDown={(event) => this.handleKeyDown(event, this.preventMonthInput)}
-        // aria-valuetext={!isEmptyString(this.month) ? this.month : undefined}
-        // aria-live="polite"
-        // aria-describedby="live-region"
-        // value={!isEmptyString(this.month) ? +this.month : null}
       ></input>
     );
 
@@ -642,10 +627,6 @@ export class DateInput {
         onPaste={this.handlePaste}
         type="number"
         onKeyDown={(event) => this.handleKeyDown(event, this.preventYearInput)}
-        // aria-valuetext={!isEmptyString(this.year) ? this.year : undefined}
-        // aria-live="polite"
-        // aria-describedby="live-region"
-        // value={!isEmptyString(this.year) ? +this.year : null}
       ></input>
     );
 
@@ -783,7 +764,6 @@ export class DateInput {
       // Autocomplete input as 2 characters (leading zero) when only 1 character entered (for day and month)
       if (inputValue.length === 1) {
         if (+inputValue === 0) {
-          console.log("HERE");
           input.value = "01";
         } else {
           input.value = `0${inputValue}`;
@@ -860,38 +840,45 @@ export class DateInput {
   private notifyScreenReaderInput(input: HTMLInputElement, event: Event) {
     const liveRegion = this.el.shadowRoot.querySelector("#live-region");
 
-    let announcement = "";
-    const ariaLabel = input.getAttribute("aria-label");
-
     if (liveRegion) {
       if (Object.prototype.toString.call(event) === this.EVENT_OBJECT_STRING) {
         this.notifyScreenReaderArrowKeys(input);
       } else if (
         Object.prototype.toString.call(event) === this.INPUT_EVENT_OBJECT_STRING
       ) {
-        if (input === this.dayInputEl || input === this.monthInputEl) {
-          if (input.value.length === 2) {
-            if (ariaLabel === "month") {
-              announcement = `${input.value} - ${
-                IcDateInputMonths[+input.value - 1]
-              }, ${ariaLabel}`;
-            } else {
-              announcement = `${input.value}, ${ariaLabel}`;
-            }
-          } else {
-            announcement = "";
-          }
-        } else {
-          if (input.value.length === 4) {
-            announcement = `${input.value}, ${ariaLabel}`;
-          } else {
-            announcement = "";
-          }
-        }
-        liveRegion.textContent = announcement;
+        this.notifyScreenReaderInputDebounce(input, liveRegion);
       }
     }
   }
+
+  private screenReaderInput = (
+    input: HTMLInputElement,
+    liveRegion: HTMLElement
+  ) => {
+    let announcement = "";
+    const ariaLabel = input.getAttribute("aria-label");
+
+    if (input === this.dayInputEl || input === this.monthInputEl) {
+      if (input.value.length === 2) {
+        if (ariaLabel === "month") {
+          announcement = `${input.value} - ${
+            IcDateInputMonths[+input.value - 1]
+          }, ${ariaLabel}`;
+        } else {
+          announcement = `${input.value}, ${ariaLabel}`;
+        }
+      } else {
+        announcement = "";
+      }
+    } else {
+      if (input.value.length === 4) {
+        announcement = `${input.value}, ${ariaLabel}`;
+      } else {
+        announcement = "";
+      }
+    }
+    liveRegion.textContent = announcement;
+  };
 
   private setFitToValueStyling = (input: HTMLInputElement) => {
     if (input.value) {
@@ -907,7 +894,7 @@ export class DateInput {
     }
 
     if (this.value) {
-      this.setDate(this.value); // Will also be set in didUpdate
+      this.setDate(this.value);
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -915,20 +902,15 @@ export class DateInput {
     this.selectedDateInfoId = `${this.inputId}-selected-date-info`;
 
     addFormResetListener(this.el, this.handleFormReset);
-  }
 
-  componentWillUpdate() {
-    if (!this.isDateSetFromKeyboardEvent) {
-      this.setDate(this.value);
-    }
-    this.setValidationMessage();
-    this.handleDateChange();
-
-    this.isDateSetFromKeyboardEvent = false;
-  }
-
-  componentDidRender() {
-    this.setAriaLabelledBy();
+    this.notifyScreenReaderInputDebounce = debounce(
+      (input, liveRegion) =>
+        this.screenReaderInput(
+          input as HTMLInputElement,
+          liveRegion as HTMLElement
+        ),
+      750
+    );
   }
 
   componentDidLoad() {
@@ -939,6 +921,12 @@ export class DateInput {
       this.inputsInOrder.forEach((input) => {
         input.classList.add(this.FIT_TO_VALUE);
       });
+      this.setAriaInvalid(
+        this.isValidDay,
+        this.isValidMonth,
+        this.isValidDate,
+        this.isDisabledDate
+      );
     }
 
     this.inputsInOrder.forEach((input) => {
@@ -954,9 +942,28 @@ export class DateInput {
       const asteriskSpan = document.createElement("span");
       asteriskSpan.setAttribute("aria-hidden", "true");
       asteriskSpan.textContent = " *";
-      // TODO: Added conditional below that checks labelEl exists. Need to check there isn't an underlying reason why it doesn't always exist
       labelEl?.appendChild(asteriskSpan);
     }
+  }
+
+  componentWillUpdate() {
+    if (!this.isDateSetFromKeyboardEvent) {
+      this.setDate(this.value);
+    }
+    this.setValidationMessage();
+    this.setAriaInvalid(
+      this.isValidDay,
+      this.isValidMonth,
+      this.isValidDate,
+      this.isDisabledDate
+    );
+    this.handleDateChange();
+
+    this.isDateSetFromKeyboardEvent = false;
+  }
+
+  componentDidRender() {
+    this.setAriaLabelledBy();
   }
 
   disconnectedCallback(): void {
