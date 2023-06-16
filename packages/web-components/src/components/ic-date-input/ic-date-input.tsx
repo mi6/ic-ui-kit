@@ -68,6 +68,7 @@ export class DateInput {
   private KEYBOARD_EVENT_OBJECT_STRING = "[object KeyboardEvent]";
   private INPUT_EVENT_OBJECT_STRING = "[object InputEvent]";
   private ARIA_INVALID = "aria-invalid";
+  private ARIA_LABEL = "aria-label";
 
   private isValidDay: boolean = true;
   private isValidMonth: boolean = true;
@@ -176,25 +177,30 @@ export class DateInput {
   };
 
   private setDateValidity = () => {
-    console.log("setValidDate", this.day);
     if (!isEmptyString(this.day)) {
       if (+this.day > 31) {
         this.isValidDay = false;
+        this.dayInputEl.setAttribute(this.ARIA_INVALID, "true");
       } else {
         this.isValidDay = true;
+        this.dayInputEl.removeAttribute(this.ARIA_INVALID);
       }
     } else {
       this.isValidDay = true;
+      this.dayInputEl.removeAttribute(this.ARIA_INVALID);
     }
 
     if (!isEmptyString(this.month)) {
       if (+this.month > 12) {
         this.isValidMonth = false;
+        this.monthInputEl.setAttribute(this.ARIA_INVALID, "true");
       } else {
         this.isValidMonth = true;
+        this.monthInputEl.removeAttribute(this.ARIA_INVALID);
       }
     } else {
       this.isValidMonth = true;
+      this.monthInputEl.removeAttribute(this.ARIA_INVALID);
     }
   };
 
@@ -253,6 +259,12 @@ export class DateInput {
 
     // Add / remove class to make input width match size of value i.e. 2 digits' width for day / month, 4 for year
     this.setFitToValueStyling(input);
+
+    if (input.value.length === 0) {
+      this.setInputValue(input, true);
+      this.setValidationMessage();
+    }
+
     this.notifyScreenReader(input, event);
   };
 
@@ -275,7 +287,6 @@ export class DateInput {
     } else if (eventKey === "ArrowUp" || eventKey === "ArrowDown") {
       this.preventAutoFormatting = true;
       this.handleUpDownArrowKeyPress(input, event);
-      // this.notifyScreenReaderArrowKeys(input);
     }
 
     this.preventInput(event, isInputPrevented);
@@ -511,6 +522,8 @@ export class DateInput {
           this.year = newValue;
         }
     }
+
+    this.setValidationMessage();
   };
 
   // private setAriaInvalid = (input: HTMLInputElement, isInvalid: boolean) => {
@@ -523,32 +536,6 @@ export class DateInput {
 
   private setValidationMessage = () => {
     this.setDateValidity();
-
-    if (!isEmptyString(this.day)) {
-      if (+this.day > 31) {
-        this.isValidDay = false;
-        this.dayInputEl.setAttribute(this.ARIA_INVALID, "true");
-      } else {
-        this.isValidDay = true;
-        this.dayInputEl.removeAttribute(this.ARIA_INVALID);
-      }
-    } else {
-      this.isValidDay = true;
-      this.dayInputEl.removeAttribute(this.ARIA_INVALID);
-    }
-
-    if (!isEmptyString(this.month)) {
-      if (+this.month > 12) {
-        this.isValidMonth = false;
-        this.monthInputEl.setAttribute(this.ARIA_INVALID, "true");
-      } else {
-        this.isValidMonth = true;
-        this.monthInputEl.removeAttribute(this.ARIA_INVALID);
-      }
-    } else {
-      this.isValidMonth = true;
-      this.monthInputEl.removeAttribute(this.ARIA_INVALID);
-    }
 
     if (
       !isEmptyString(this.day) &&
@@ -835,7 +822,6 @@ export class DateInput {
       // Autocomplete input as 2 characters (leading zero) when only 1 character entered (for day and month)
       if (inputValue.length === 1) {
         if (+inputValue === 0) {
-          console.log("HERE");
           input.value = "01";
         } else {
           input.value = `0${inputValue}`;
@@ -891,8 +877,9 @@ export class DateInput {
     this.handleDateChange();
   };
 
-  private getAriaLabel = (input: HTMLInputElement): string =>
-    input.getAttribute(this.ARIA_INVALID);
+  private getAriaLabel = (input: HTMLInputElement): string => {
+    return input.getAttribute(this.ARIA_LABEL);
+  };
 
   private notifyScreenReaderArrowKeys = (input: HTMLInputElement) => {
     const liveRegion = this.el.shadowRoot.querySelector("#live-region");
@@ -964,20 +951,21 @@ export class DateInput {
     liveRegion: HTMLElement
   ) => {
     let announcement = "";
-    const ariaLabel = input.getAttribute(this.ARIA_INVALID);
+    const ariaLabel = this.getAriaLabel(input);
 
     if (input === this.dayInputEl || input === this.monthInputEl) {
       if (input.value.length === 2) {
         if (
           input === this.monthInputEl &&
-          !!IcDateInputMonths[+input.value - 1]
+          !!IcDateInputMonths[+input.value - 1] &&
+          this.isValidMonth
         ) {
           announcement = `${input.value} - ${
             IcDateInputMonths[+input.value - 1]
           }, ${ariaLabel}`;
         }
 
-        if (input === this.dayInputEl) {
+        if (input === this.dayInputEl && this.isValidDay) {
           announcement = `${input.value}, ${ariaLabel}`;
         }
       } else {
@@ -1048,7 +1036,7 @@ export class DateInput {
     if (!this.isDateSetFromKeyboardEvent) {
       this.setDate(this.value);
     }
-    this.setValidationMessage();
+    // this.setValidationMessage();
     this.setAriaInvalid(
       this.isValidDay,
       this.isValidMonth,
@@ -1142,7 +1130,6 @@ export class DateInput {
           <span id={this.assistiveHintId} class="sr-only" aria-hidden="true">
             {assistiveHint}
           </span>
-          <span id="live-region" aria-live="assertive" class="sr-only"></span>
           <ic-input-component-container
             id={inputId}
             ref={(el) => (this.inputCompContainerEl = el)}
@@ -1169,6 +1156,7 @@ export class DateInput {
             ></ic-input-validation>
           )}
         </ic-input-container>
+        <span id="live-region" aria-live="assertive"></span>
       </Host>
     );
   }
