@@ -70,7 +70,7 @@ export class Menu {
   /**
    * The value of the currently selected option.
    */
-  @Prop() value!: string;
+  @Prop({ mutable: true }) value!: string;
 
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -121,6 +121,11 @@ export class Menu {
     this.loadUngroupedOptions();
   }
 
+  @Watch("value")
+  watchValueHandler(): void {
+    this.menuValueChange.emit({ value: this.value });
+  }
+
   /**
    * @internal Emitted when an option is selected.
    */
@@ -140,6 +145,11 @@ export class Menu {
    * @internal Emitted when key is pressed while menu is open
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
+
+  /**
+   * @internal Emitted when menu value changes.
+   */
+  @Event() menuValueChange: EventEmitter<IcValueEventDetail>;
 
   /**
    * @internal Emitted when the ungrouped options have been set.

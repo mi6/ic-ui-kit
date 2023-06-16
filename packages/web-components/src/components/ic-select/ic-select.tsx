@@ -72,6 +72,7 @@ export class Select {
   private hasTimedOut: boolean;
   private blurredBecauseButtonPressed: boolean;
   private retryButtonClick: boolean;
+  private searchableMenuItemSelected: boolean = false;
 
   /**
    * The label for the select.
@@ -439,6 +440,7 @@ export class Select {
 
     if (this.searchable) {
       this.value = event.detail.value;
+      this.searchableMenuItemSelected = true;
 
       // After editing the input, if selecting the same option as before, set the input value to label again
       if (this.value === this.currValue) {
@@ -470,6 +472,10 @@ export class Select {
     this.handleCharacterKeyDown(ev.detail.key);
   };
 
+  private handleMenuValueChange = (ev: CustomEvent): void => {
+    this.value = ev.detail.value;
+  };
+
   private handleFocusIndicatorDisplay = () => {
     const focusIndicator =
       this.host.shadowRoot.querySelector(".focus-indicator");
@@ -491,10 +497,14 @@ export class Select {
     this.searchable && this.disableFilter;
 
   private handleClick = (event: MouseEvent): void => {
-    if (this.isExternalFiltering()) {
-      this.menu.options = this.filteredOptions;
-    } else {
-      if (!this.hasTimedOut && !this.loading) {
+    if (!this.open) {
+      if (this.isExternalFiltering()) {
+        this.menu.options = this.filteredOptions;
+      } else if (
+        !this.hasTimedOut &&
+        !this.loading &&
+        (!this.searchable || this.searchableMenuItemSelected)
+      ) {
         this.noOptions = null;
         this.menu.options = this.options;
       }
@@ -637,6 +647,7 @@ export class Select {
         this.inputValueToFilter,
         this.searchMatchPosition
       );
+      this.searchableMenuItemSelected = false;
     } else {
       menuOptionsFiltered = getFilteredMenuOptions(
         options,
@@ -872,12 +883,13 @@ export class Select {
       currValue,
     } = this;
 
-    const isOrHasLoaded =
-      (searchable ? this.filteredOptions : options)[0]?.label ===
-        this.loadingLabel ||
-      (searchable ? this.filteredOptions : options)[0]?.label ===
-        this.loadingErrorLabel;
-
+    const noOptionSelect =
+      searchable &&
+      (this.loading ||
+        this.hasTimedOut ||
+        (this.noOptions !== null &&
+          this.noOptions[0] &&
+          this.noOptions[0].label === this.emptyOptionListText));
     const inputValue = this.searchable ? this.hiddenInputValue : currValue;
 
     renderHiddenInput(true, this.host, name, inputValue, disabled);
@@ -1114,7 +1126,7 @@ export class Select {
           {!isMobileOrTablet() && (
             <ic-menu
               class={{
-                "no-results": this.noOptions !== null || isOrHasLoaded,
+                "no-results": noOptionSelect,
               }}
               ref={(el) => (this.menu = el)}
               inputEl={
@@ -1133,6 +1145,7 @@ export class Select {
               onMenuStateChange={this.handleMenuChange}
               onMenuOptionSelect={this.handleCustomSelectChange}
               onMenuKeyPress={this.handleMenuKeyPress}
+              onMenuValueChange={this.handleMenuValueChange}
               onUngroupedOptionsSet={this.setUngroupedOptions}
               onRetryButtonClicked={this.handleRetry}
               parentEl={this.host}
