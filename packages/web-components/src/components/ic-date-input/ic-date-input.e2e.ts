@@ -176,3 +176,12 @@ describe("ic-date-input", () => {
     });
   });
 });
+
+/**
+ * @todo
+ * Add tests for:
+ * - Pasting dates
+ * - Switching between arrow keys and input
+ * - Validation statuss
+ * - Focus moving between inputs
+ */

@@ -11,6 +11,8 @@ const DATE_1970 = "01/01/1970";
 const DATE_2000 = "01/01/2000";
 const HYPHEN = "-";
 
+const ARIA_INVALID = "aria-invalid";
+
 describe("ic-date-input component", () => {
   it("should render", async () => {
     const page = await newSpecPage({
@@ -94,6 +96,41 @@ describe("ic-date-input component", () => {
       expect(spyMoveToInput).toHaveBeenCalled();
       expect(spySetInputValue).toHaveBeenCalled();
       expect(spySetPreventInput).toHaveBeenCalled();
+    });
+
+    it("should call setInputValue, setPreventInput and moveToNextInput when preventFormatting is set to true and value has 2 characters", async () => {
+      const { dayInput, componentInstance } = await createDateInputEnv();
+
+      const spyMoveToInput = jest.spyOn(componentInstance, "moveToNextInput");
+      const spySetInputValue = jest.spyOn(componentInstance, "setInputValue");
+      const spySetPreventInput = jest.spyOn(
+        componentInstance,
+        "setPreventInput"
+      );
+
+      componentInstance.preventAutoFormatting = true;
+
+      dayInput.value = "11";
+      componentInstance.handleInput(handleEvent(dayInput));
+
+      expect(spyMoveToInput).toHaveBeenCalled();
+      expect(spySetInputValue).toHaveBeenCalled();
+      expect(spySetPreventInput).toHaveBeenCalled();
+    });
+
+    it("should call setInputValue when formatting is true and event is Arrow key", async () => {
+      const { componentInstance, dayInput } = await createDateInputEnv();
+
+      const spyMoveToInput = jest.spyOn(componentInstance, "moveToNextInput");
+      const spySetInputValue = jest.spyOn(componentInstance, "setInputValue");
+
+      componentInstance.preventAutoFormatting = true;
+
+      dayInput.value = "1"; // Line 249
+      componentInstance.handleInput(handleEvent(dayInput));
+
+      expect(spyMoveToInput).not.toHaveBeenCalled();
+      expect(spySetInputValue).toHaveBeenCalled();
     });
 
     it("should not call moveToNextInput and setinputValue when day set to 1", async () => {
@@ -250,6 +287,23 @@ describe("ic-date-input component", () => {
       // expect(spyNotifyScreenReader).toHaveBeenCalled();
 
       expect(componentInstance.isDateSetFromKeyboardEvent).toBe(true);
+    });
+
+    it("should call handleLeftRightArrowKeyPress when ArrowLeft is pressed", async () => {
+      const { componentInstance } = await createDateInputEnv();
+      const spyHandleLeftRightArrowKeyPress = jest.spyOn(
+        componentInstance,
+        "handleLeftRightArrowKeyPress"
+      );
+
+      const keyboardEvent = {
+        preventDefault: (): null => null,
+        key: "ArrowLeft",
+      };
+
+      componentInstance.handleKeyDown(keyboardEvent);
+
+      expect(spyHandleLeftRightArrowKeyPress).toHaveBeenCalled();
     });
 
     // it("should cancel the event and call handleLeftRightArrowKeyPress when the ArrowLeft key is pressed", async () => {
@@ -1334,6 +1388,56 @@ describe("ic-date-input component", () => {
       componentInstance.componentWillUpdate();
 
       expect(componentInstance.isDateSetFromKeyboardEvent).toBeFalsy();
+    });
+  });
+
+  describe("getArialLabel", () => {
+    it("should get aria-label day from input", async () => {
+      const { componentInstance, dayInput } = await createDateInputEnv();
+
+      const ariaLabel = componentInstance.getAriaLabel(dayInput);
+
+      expect(ariaLabel).toBe("day");
+    });
+  });
+
+  describe("setAriaInvalid", () => {
+    it("should set aria-invalid on day input if validDay is invalid", async () => {
+      const { componentInstance, dayInput } = await createDateInputEnv();
+
+      const validDay = false;
+      const validMonth = true;
+      const validDate = true;
+      const disanbledDate = false;
+
+      componentInstance.setAriaInvalid(
+        validDay,
+        validMonth,
+        validDate,
+        disanbledDate
+      );
+
+      expect(dayInput).toHaveAttribute(ARIA_INVALID);
+      expect(dayInput.getAttribute(ARIA_INVALID)).toBe("true");
+    });
+
+    it("should set aria-invalid on month input if validMonth is invalid", async () => {
+      const { componentInstance, monthInput } = await createDateInputEnv();
+
+      const validDay = true;
+      const validMonth = false;
+      const validDate = true;
+      const disanbledDate = false;
+
+      componentInstance.setAriaInvalid(
+        validDay,
+        validMonth,
+        validDate,
+        disanbledDate
+      );
+
+      expect(monthInput).toHaveAttribute(ARIA_INVALID);
+      expect(monthInput.getAttribute(ARIA_INVALID)).toBe("true");
     });
   });
 });

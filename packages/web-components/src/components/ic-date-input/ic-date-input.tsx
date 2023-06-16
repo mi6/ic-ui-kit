@@ -32,8 +32,6 @@ let inputIds = 0;
     delegatesFocus: true,
   },
 })
-
-// TODO: add full width variant?
 export class DateInput {
   @Element() el: HTMLIcDateInputElement;
 
@@ -146,13 +144,6 @@ export class DateInput {
   @State() month: string = "";
   @State() year: string = "";
 
-  // @Watch("value")
-  // watchValueHandler(newValue: string): void {
-  //   this.setSelectedDate();
-
-  //   this.icChange.emit({ value: newValue });
-  // }
-
   /**
    * Emitted when the value has changed.
    */
@@ -168,6 +159,11 @@ export class DateInput {
    */
   @Event() icFocus: EventEmitter<{ value: Date }>;
 
+  /**
+   * Using Object.prototype.string to determine type if event from user
+   * @param event - event object used to differenciate keyboard, generi or input event
+   * @returns boolean
+   */
   private isKeyboardOrEvent = (event: Event) => {
     return (
       Object.prototype.toString.call(event) === this.EVENT_OBJECT_STRING ||
@@ -237,6 +233,18 @@ export class DateInput {
         } else {
           this.setPreventInput(input, false);
         }
+      } else if (this.preventAutoFormatting) {
+        /**
+         * Using arrow keys prevents auto formatting so need to deal with
+         * switching from arrow keys to inputting numbers
+         **/
+        if (input.value.length === 2 && !this.isKeyboardOrEvent(event)) {
+          this.setInputValue(input);
+          this.setPreventInput(input, true);
+          this.moveToNextInput(input);
+        } else {
+          this.setInputValue(input);
+        }
       }
 
       if (input.value.length !== 2) {
@@ -272,9 +280,21 @@ export class DateInput {
     const input = event.target as HTMLInputElement;
 
     const eventKey = event.key;
+    console.log(eventKey);
+    // TODO: Copy and paste on Mac
     // Regex required due to FF allowing all characters as values for number text field.
-    // const regex = /-?\d*\.?\d+(e[-+]?\d+)?|[\/-]|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Shift|Tab|Control\+C|Control\+V/;
-    // if (!regex.test(eventKey)) {
+    // const regex =
+    //   /-?\d*\.?\d+(e[-+]?\d+)?|[/-]|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Shift|Tab|Backspace/;
+    // if (
+    //   !regex.test(eventKey) &&
+    //   !(
+    //     event.ctrlKey &&
+    //     (eventKey === "v" ||
+    //       eventKey === "V" ||
+    //       eventKey === "c" ||
+    //       eventKey === "C")
+    //   )
+    // ) {
     //   event.preventDefault();
     // }
 
@@ -526,14 +546,6 @@ export class DateInput {
     this.setValidationMessage();
   };
 
-  // private setAriaInvalid = (input: HTMLInputElement, isInvalid: boolean) => {
-  //   if (isInvalid) {
-  //     input.setAttribute("aria-invalid", "true");
-  //   } else {
-  //     input.removeAttribute("aria-invalid");
-  //   }
-  // };
-
   private setValidationMessage = () => {
     this.setDateValidity();
 
@@ -573,20 +585,6 @@ export class DateInput {
     } else {
       this.invalidDateText = "";
     }
-
-    // let ariaInvalids = [!isValidDay, !isValidMonth, false];
-
-    // // Set aria-invalid on all inputs if whole date is invalid (e.g. 29th Feb but not a leap year)
-    // if (!isValidDate || isDisabledDate) {
-    //   ariaInvalids = ariaInvalids.map((ariaInvalid) => {
-    //     ariaInvalid = true;
-    //     return ariaInvalid;
-    //   });
-    // }
-
-    // ariaInvalids.forEach((ariaInvalid, index) =>
-    //   this.setAriaInvalid(this.inputsInOrder[index], ariaInvalid)
-    // );
   };
 
   // Set refs to the input elements in the order they are displayed (based on the dateFormat)
@@ -600,7 +598,6 @@ export class DateInput {
   private setAriaLabelledBy = () => {
     const labelEl = this.el.shadowRoot.querySelector("label");
     const labelId = `${this.inputId}-label`;
-    // TODO: Added conditional below that checks labelEl exists. Need to check there isn't an underlying reason why it doesn't always exist
     if (labelEl !== null && labelEl !== undefined) {
       labelEl.id = labelId;
 
@@ -701,7 +698,7 @@ export class DateInput {
 
     const inputsInOrder: HTMLInputElement[] = [];
 
-    dateParts.forEach((part) => {
+    dateParts.forEach((part: string) => {
       inputsInOrder.push(this.getInputFromDatePart(part.substring(0, 1)));
     });
 
@@ -905,33 +902,6 @@ export class DateInput {
     }
   };
 
-  // private setAriaInvalid = (
-  //   validDay: boolean,
-  //   validMonth: boolean,
-  //   validDate: boolean,
-  //   disabledDate: boolean
-  // ) => {
-  //   if (this.inputsInOrder.length) {
-  //     this.inputsInOrder.forEach((input) => {
-  //       input.removeAttribute(this.ARIA_INVALID);
-  //     });
-
-  //     if (!validDay) {
-  //       this.dayInputEl.setAttribute(this.ARIA_INVALID, "true");
-  //     }
-
-  //     if (!validMonth) {
-  //       this.monthInputEl.setAttribute(this.ARIA_INVALID, "true");
-  //     }
-
-  //     if (!validDate || disabledDate) {
-  //       this.inputsInOrder.forEach((input) => {
-  //         input.setAttribute(this.ARIA_INVALID, "true");
-  //       });
-  //     }
-  //   }
-  // };
-
   private notifyScreenReader(input: HTMLInputElement, event: Event) {
     const liveRegion = this.el.shadowRoot.querySelector("#live-region");
 
@@ -1022,7 +992,7 @@ export class DateInput {
     }
 
     if (this.value) {
-      this.setDate(this.value); // Will also be set in didUpdate
+      this.setDate(this.value);
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -1036,7 +1006,6 @@ export class DateInput {
     if (!this.isDateSetFromKeyboardEvent) {
       this.setDate(this.value);
     }
-    // this.setValidationMessage();
     this.setAriaInvalid(
       this.isValidDay,
       this.isValidMonth,
@@ -1130,6 +1099,7 @@ export class DateInput {
           <span id={this.assistiveHintId} class="sr-only" aria-hidden="true">
             {assistiveHint}
           </span>
+          <span id="live-region" aria-live="assertive" class="sr-only"></span>
           <ic-input-component-container
             id={inputId}
             ref={(el) => (this.inputCompContainerEl = el)}
@@ -1156,7 +1126,6 @@ export class DateInput {
             ></ic-input-validation>
           )}
         </ic-input-container>
-        <span id="live-region" aria-live="assertive"></span>
       </Host>
     );
   }
