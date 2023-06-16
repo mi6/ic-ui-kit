@@ -968,6 +968,11 @@ describe("ic-select searchable", () => {
 
     const input = page.root.shadowRoot.querySelector("input");
     expect(input.value).toBe(label1);
+
+    input.click();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.filteredOptions).toHaveLength(3);
   });
 
   it("should test keydown on menu - space key", async () => {
@@ -1056,6 +1061,21 @@ describe("ic-select searchable", () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+
+    page.root.options = menuOptions;
+    await page.waitForChanges();
+
+    const input = page.root.shadowRoot.querySelector("input");
+    input.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.open).toBe(true);
+  });
+
+  it("should test click on input with external filtering", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true"></ic-select>`,
     });
 
     page.root.options = menuOptions;

@@ -1133,32 +1133,31 @@ describe("ic-select", () => {
       expect(menuOptions[3]).toEqualText("Macchiato");
     });
 
-    //TODO: Uncomment when bug is fixed
-    // it("should keep the same options when characters are entered and the menu is reopened", async () => {
-    //   const page = await newE2EPage();
-    //   await page.setContent(getTestSearchableSelect(searchableOptions));
-    //   await page.waitForChanges();
+    it("should keep the same options when characters are entered and the menu is reopened", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSearchableSelect(searchableOptions));
+      await page.waitForChanges();
 
-    //   await focusAndTypeIntoInput("foo", page);
-    //   await page.waitForChanges();
+      await focusAndTypeIntoInput("foo", page);
+      await page.waitForChanges();
 
-    //   const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
-    //   let menuOptions = await menu.findAll("li");
-    //   expect(menuOptions).toHaveLength(1);
-    //   expect(menuOptions[0]).toEqualText("No results found");
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      let menuOptions = await menu.findAll("li");
+      expect(menuOptions).toHaveLength(1);
+      expect(menuOptions[0]).toEqualText("No results found");
 
-    //   const select = await page.find("ic-select >>> #ic-select-input-0");
-    //   select.click();
-    //   await page.waitForChanges();
-    //   expect(await getMenuVisibility(page)).toBe("hidden");
+      const select = await page.find("ic-select >>> #ic-select-input-0");
+      select.click();
+      await page.waitForChanges();
+      expect(await getMenuVisibility(page)).toBe("hidden");
 
-    //   select.click();
-    //   await page.waitForChanges();
-    //   expect(await getMenuVisibility(page)).toBe("visible");
-    //   menuOptions = await menu.findAll("li");
-    //   expect(menuOptions).toHaveLength(1);
-    //   expect(menuOptions[0]).toEqualText("No results found");
-    // });
+      select.click();
+      await page.waitForChanges();
+      expect(await getMenuVisibility(page)).toBe("visible");
+      menuOptions = await menu.findAll("li");
+      expect(menuOptions).toHaveLength(1);
+      expect(menuOptions[0]).toEqualText("No results found");
+    });
 
     it("should display no results state when search term matches none of the options", async () => {
       const page = await newE2EPage();
