@@ -7,6 +7,7 @@
   display: inline-block;
   min-width: 2.5rem;
   text-align: center;
+  color: var(--ic-color-primary-text);
 }
 
 .small {
@@ -15,7 +16,7 @@
 }
 
 .filled-neutral {
-  background-color: var(--ic-architectural-600);
+  background-color: var(--ic-architectural-700);
   color: var(--ic-architectural-white);
 }
 
@@ -26,7 +27,6 @@
 
 .filled-warning {
   background-color: var(--ic-status-warning);
-  color: var(--ic-color-primary-text);
 }
 
 .filled-danger {
@@ -36,25 +36,21 @@
 
 .outlined-neutral {
   background-color: var(--ic-architectural-200);
-  color: var(--ic-color-secondary-text);
   border: var(--ic-space-1px) solid var(--ic-architectural-400);
 }
 
 .outlined-success {
   background-color: var(--ic-status-success-background);
-  color: var(--ic-status-success);
   border: var(--ic-space-1px) solid var(--ic-status-success);
 }
 
 .outlined-warning {
   background-color: var(--ic-status-warning-background);
-  color: var(--ic-status-warning-dark);
   border: var(--ic-space-1px) solid var(--ic-status-warning-dark);
 }
 
 .outlined-danger {
   background-color: var(--ic-status-error-background);
-  color: var(--ic-status-error);
   border: var(--ic-space-1px) solid var(--ic-status-error);
 }
 
