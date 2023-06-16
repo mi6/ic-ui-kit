@@ -17,7 +17,7 @@ import { IcInformationStatusOrEmpty } from "../../interface";
 import { IcInformationStatus } from "../../utils/types";
 import {
   addFormResetListener,
-  debounce,
+  // debounce,
   getInputDescribedByText,
   isEmptyString,
   removeFormResetListener,
@@ -67,7 +67,7 @@ export class DateInput {
   private INPUT_EVENT_OBJECT_STRING = "[object InputEvent]";
   private ARIA_INVALID = "aria-invalid";
 
-  private notifyScreenReaderInputDebounce: any;
+  // private notifyScreenReaderInputDebounce: any;
 
   private isValidDay: boolean = true;
   private isValidMonth: boolean = true;
@@ -177,17 +177,18 @@ export class DateInput {
             (input === this.monthInputEl && +input.value >= 2)) &&
           +input.value <= 9
         ) {
-          this.moveToNextInput(input);
           this.setInputValue(input);
+          this.moveToNextInput(input);
         }
 
         if (input.value.length === 2) {
           if (+input.value === 0) {
             input.value = "01";
           }
-          this.moveToNextInput(input);
           this.setInputValue(input);
           this.setPreventInput(input, true);
+          this.notifyScreenReaderInput(input, event);
+          this.moveToNextInput(input);
         } else {
           this.setPreventInput(input, false);
         }
@@ -199,12 +200,13 @@ export class DateInput {
     } else {
       if (input.value.length === 4) {
         this.setInputValue(input);
+        this.setPreventInput(input, true);
         if (
           Object.prototype.toString.call(event) !== this.EVENT_OBJECT_STRING
         ) {
+          this.notifyScreenReaderInput(input, event);
           this.moveToNextInput(input);
         }
-        this.setPreventInput(input, true);
       } else {
         this.setInputValue(input, true);
         this.setPreventInput(input, false);
@@ -213,13 +215,27 @@ export class DateInput {
 
     // Add / remove class to make input width match size of value i.e. 2 digits' width for day / month, 4 for year
     this.setFitToValueStyling(input);
-    this.notifyScreenReaderInput(input, event);
   };
 
   private handleKeyDown = (event: KeyboardEvent, isInputPrevented: boolean) => {
     const input = event.target as HTMLInputElement;
 
     const eventKey = event.key;
+    // Regex required due to FF allowing all characters as values for number text field.
+    const regex =
+      /-?\d*\.?\d+(e[-+]?\d+)?|[/-]|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Shift|Tab|Backspace/;
+    if (
+      !regex.test(eventKey) &&
+      !(
+        event.ctrlKey &&
+        (eventKey === "v" ||
+          eventKey === "V" ||
+          eventKey === "c" ||
+          eventKey === "C")
+      )
+    ) {
+      event.preventDefault();
+    }
 
     if (eventKey === "/" || eventKey === "-" || eventKey === ".") {
       event.preventDefault();
@@ -732,14 +748,26 @@ export class DateInput {
   };
 
   private moveToNextInput = (currentInput: HTMLInputElement) => {
+    const liveRegion = this.el.shadowRoot.querySelector("#live-region");
     const currentInputPos = this.inputsInOrder.findIndex(
       (input) => input === currentInput
     );
+    const nextInput = this.inputsInOrder[currentInputPos + 1];
 
     this.preventAutoFormatting = false;
 
-    if (this.inputsInOrder[currentInputPos + 1]) {
-      this.inputsInOrder[currentInputPos + 1].focus();
+    if (nextInput) {
+      nextInput.focus();
+
+      if (!isEmptyString(currentInput.value)) {
+        //   liveRegion.textContent = `${nextInput.getAttribute(
+        //     "aria-label"
+        //   )}, ${nextInput.getAttribute("placeholder")}`;
+        // } else {
+        liveRegion.textContent += `, ${nextInput.getAttribute(
+          "aria-label"
+        )}, ${nextInput.getAttribute("placeholder")}`;
+      }
     }
   };
 
@@ -747,11 +775,12 @@ export class DateInput {
     const currentInputPos = this.inputsInOrder.findIndex(
       (input) => input === currentInput
     );
+    const previousInput = this.inputsInOrder[currentInputPos - 1];
 
     this.preventAutoFormatting = false;
 
-    if (this.inputsInOrder[currentInputPos - 1]) {
-      this.inputsInOrder[currentInputPos - 1].focus();
+    if (previousInput) {
+      previousInput.focus();
     }
   };
 
@@ -846,7 +875,8 @@ export class DateInput {
       } else if (
         Object.prototype.toString.call(event) === this.INPUT_EVENT_OBJECT_STRING
       ) {
-        this.notifyScreenReaderInputDebounce(input, liveRegion);
+        this.screenReaderInput(input, liveRegion as HTMLElement);
+        // this.notifyScreenReaderInputDebounce(input, liveRegion);
       }
     }
   }
@@ -903,14 +933,14 @@ export class DateInput {
 
     addFormResetListener(this.el, this.handleFormReset);
 
-    this.notifyScreenReaderInputDebounce = debounce(
-      (input, liveRegion) =>
-        this.screenReaderInput(
-          input as HTMLInputElement,
-          liveRegion as HTMLElement
-        ),
-      750
-    );
+    // this.notifyScreenReaderInputDebounce = debounce(
+    //   (input, liveRegion) =>
+    //     this.screenReaderInput(
+    //       input as HTMLInputElement,
+    //       liveRegion as HTMLElement
+    //     ),
+    //   500
+    // );
   }
 
   componentDidLoad() {
@@ -1009,7 +1039,6 @@ export class DateInput {
           <span id={this.assistiveHintId} class="sr-only" aria-hidden="true">
             {assistiveHint}
           </span>
-          <span id="live-region" aria-live="assertive" class="sr-only"></span>
           <ic-input-component-container
             id={inputId}
             ref={(el) => (this.inputCompContainerEl = el)}
@@ -1036,6 +1065,7 @@ export class DateInput {
             ></ic-input-validation>
           )}
         </ic-input-container>
+        <span id="live-region" aria-live="assertive"></span>
       </Host>
     );
   }

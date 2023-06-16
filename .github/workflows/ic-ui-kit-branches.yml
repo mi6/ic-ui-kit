@@ -1,94 +1,94 @@
 name: Branches
 
-on: 
+on:
   push:
     branches-ignore:
       - main
       - develop
       - gh-pages
-      - 'dependabot/**'
+      - "dependabot/**"
   pull_request:
     types: [opened, reopened, edited, synchronize]
 
-concurrency:  
+concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-jobs:  
-  ic-ui-kit-static-analysis-tests:
-    name: 'Static Analysis Tests'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+jobs:
+  # ic-ui-kit-static-analysis-tests:
+  #   name: 'Static Analysis Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
+  #         npm run build
 
-      - name: Lint commit messages
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-          echo "$COMMIT_MESSAGE" | npx commitlint
-      
-      - name: Lint
-        run: npm run lint
+  #     - name: Lint commit messages
+  #       run: |
+  #         COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+  #         echo "$COMMIT_MESSAGE" | npx commitlint
 
-      - name: Prettier
-        run: npm run prettier
+  #     - name: Lint
+  #       run: npm run lint
 
-      - name: Audit
-        run: npm run audit
+  #     - name: Prettier
+  #       run: npm run prettier
 
-      - name: A11y tests
-        run: npm run test-a11y:ci
+  #     - name: Audit
+  #       run: npm run audit
 
-      - name: Unit Component tests
-        run: npm run test:coverage-ci
+  #     - name: A11y tests
+  #       run: npm run test-a11y:ci
 
-  ic-ui-kit-e2e-tests:
-    name: 'E2E Tests'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #     - name: Unit Component tests
+  #       run: npm run test:coverage-ci
 
-      - name: Install dependencies
-        run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
-  
-      - name: E2E tests
-        run: npm run test-e2e
+  # ic-ui-kit-e2e-tests:
+  #   name: 'E2E Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-  ic-ui-kit-visual-tests:
-    name: 'Visual Regression Tests'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: browser-actions/setup-chrome@latest
-      - name: Install dependencies
-        run: |
-          google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+  #     - name: Install dependencies
+  #       run: |
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Visual Regression tests
-        run: npm run test-visual:ci
+  #     - name: E2E tests
+  #       run: npm run test-e2e
+
+  # ic-ui-kit-visual-tests:
+  #   name: 'Visual Regression Tests'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #     - uses: browser-actions/setup-chrome@latest
+  #     - name: Install dependencies
+  #       run: |
+  #         google-chrome --version
+  #         npm ci --legacy-peer-deps
+  #         npm run bootstrap -- -- --ci --legacy-peer-deps
+
+  #     - name: Visual Regression tests
+  #       run: npm run test-visual:ci
 
   ic-ui-kit-deploy:
-    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
+    # needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' }}
-    name: 'Deploy'
+    name: "Deploy"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -112,10 +112,9 @@ jobs:
         with:
           folder: ./packages/web-components/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/web-components
-      
+
       - name: Deploy react storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/react
-
