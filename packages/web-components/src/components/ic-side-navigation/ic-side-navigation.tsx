@@ -401,68 +401,66 @@ export class SideNavigation {
   private resizeObserver: ResizeObserver = null;
 
   private resizeObserverCallback = (currSize: number) => {
-    if (currSize !== this.deviceSize) {
-      this.deviceSize = currSize;
+    this.deviceSize = currSize;
 
-      if (currSize === DEVICE_SIZES.S) {
-        if (!this.disableAutoParentStyling) {
-          const topBarHeight =
-            this.el.shadowRoot.querySelector(".top-bar").scrollHeight;
-          this.setParentPaddingTop(`${topBarHeight}px`);
-          this.setParentPaddingLeft("0");
+    if (currSize === DEVICE_SIZES.S) {
+      if (!this.disableAutoParentStyling) {
+        const topBarHeight =
+          this.el.shadowRoot.querySelector(".top-bar").scrollHeight;
+        this.setParentPaddingTop(`${topBarHeight}px`);
+        this.setParentPaddingLeft("0");
 
-          if (this.inline) {
-            this.el.parentElement.style.setProperty(
-              "height",
-              `calc(100% - ${topBarHeight}px)`
-            );
-          }
+        if (this.inline) {
+          this.el.parentElement.style.setProperty(
+            "height",
+            `calc(100% - ${topBarHeight}px)`
+          );
         }
-        this.emitSideNavigationExpanded({
-          sideNavExpanded: this.menuExpanded,
-          sideNavMobile: true,
-        });
-      } else {
-        if (!this.disableAutoParentStyling) {
-          this.setParentPaddingTop("0");
-          this.el.parentElement.style.setProperty("height", "100%");
-        }
-        this.emitSideNavigationExpanded({
-          sideNavExpanded: this.menuExpanded,
-          sideNavMobile: false,
-        });
       }
-
-      let paddingLeft;
-
-      if (this.collapsedIconLabels) {
-        paddingLeft = "calc(var(--ic-space-xxl) * 2)";
-      } else {
-        paddingLeft = "calc(var(--ic-space-xxl) + var(--ic-space-xs))";
+      this.emitSideNavigationExpanded({
+        sideNavExpanded: this.menuExpanded,
+        sideNavMobile: true,
+      });
+    } else {
+      if (!this.disableAutoParentStyling) {
+        this.setParentPaddingTop("0");
+        this.el.parentElement.style.setProperty("height", "100%");
       }
+      this.emitSideNavigationExpanded({
+        sideNavExpanded: this.menuExpanded,
+        sideNavMobile: false,
+      });
+    }
 
-      if (currSize > DEVICE_SIZES.L) {
-        if (!this.disableAutoParentStyling) {
-          this.setParentPaddingTop("0");
-          this.setParentPaddingLeft("0");
-        }
-      } else if (
-        currSize > DEVICE_SIZES.S &&
-        currSize <= DEVICE_SIZES.M &&
-        this.static &&
-        !this.disableAutoParentStyling
-      ) {
+    let paddingLeft;
+
+    if (this.collapsedIconLabels) {
+      paddingLeft = "calc(var(--ic-space-xxl) * 2)";
+    } else {
+      paddingLeft = "calc(var(--ic-space-xxl) + var(--ic-space-xs))";
+    }
+
+    if (currSize > DEVICE_SIZES.L) {
+      if (!this.disableAutoParentStyling) {
+        this.setParentPaddingTop("0");
+        this.setParentPaddingLeft("0");
+      }
+    } else if (
+      currSize > DEVICE_SIZES.S &&
+      currSize <= DEVICE_SIZES.M &&
+      this.static &&
+      !this.disableAutoParentStyling
+    ) {
+      this.setParentPaddingLeft(paddingLeft);
+    } else if (
+      currSize > DEVICE_SIZES.S &&
+      currSize <= DEVICE_SIZES.L &&
+      !this.disableAutoParentStyling
+    ) {
+      if (this.static) {
+        this.setParentPaddingLeft("calc(var(--ic-space-xl) * 10)");
+      } else {
         this.setParentPaddingLeft(paddingLeft);
-      } else if (
-        currSize > DEVICE_SIZES.S &&
-        currSize <= DEVICE_SIZES.L &&
-        !this.disableAutoParentStyling
-      ) {
-        if (this.static) {
-          this.setParentPaddingLeft("calc(var(--ic-space-xl) * 10)");
-        } else {
-          this.setParentPaddingLeft(paddingLeft);
-        }
       }
     }
   };
