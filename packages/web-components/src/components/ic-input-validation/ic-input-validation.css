@@ -8,14 +8,6 @@ ic-input-validation.fullwidth {
   width: 100%;
 }
 
-ic-input-validation.error {
-  color: var(--ic-status-error);
-}
-
-ic-input-validation.success {
-  color: var(--ic-status-success);
-}
-
 ic-input-validation span.status-icon {
   padding-right: var(--ic-space-xxs);
 }
