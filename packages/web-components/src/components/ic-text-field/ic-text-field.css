@@ -70,10 +70,6 @@ textarea.no-resize {
   color: var(--ic-color-secondary-text);
 }
 
-.error {
-  color: var(--ic-status-error);
-}
-
 .disabled {
   color: var(--ic-architectural-200);
 }
