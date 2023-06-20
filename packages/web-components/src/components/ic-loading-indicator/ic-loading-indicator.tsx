@@ -15,36 +15,34 @@ import {
   shadow: true,
 })
 export class LoadingIndicator {
+  private circularMeter: SVGCircleElement;
+  private innerElement?: HTMLDivElement;
+  private interval: ReturnType<typeof setInterval>;
+  private labelList: string[];
+  private outerElement?: HTMLDivElement;
+
   @Element() host: HTMLIcLoadingIndicatorElement;
 
-  /**
-   * The current amount of progress made.
-   * If not provided, component acts as an indeterminate loading indicator.
-   */
-  @Prop() progress?: number;
+  @State() circularDiameter: number;
+  @State() circularLineWidth: number;
+  @State() indeterminate: boolean;
+  @State() indicatorLabel: string;
+  @State() showSecond: boolean = false;
 
   /**
-   * The minimum value that the progress value can take.
-   * Used to calculate the proportional width of the progress bar.
+   * The appearance of the loading indicator, e.g. dark or light.
    */
-  @Prop() min?: number = 0;
-
-  /**
-   * The maximum value that the progress value can take.
-   * Used to calculate the proportional width of the progress bar.
-   */
-  @Prop() max?: number = 100;
-
-  /**
-   * The label to be displayed beneath the loading indicator.
-   * Display a changing label by separating multiple messages with forward slashes.
-   */
-  @Prop() label?: string;
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
    * The description that will be set as the aria-label of the loading indicator when not using a visible label.
    */
   @Prop() description?: string = "Loading";
+
+  /**
+   * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
+   */
+  @Prop({ reflect: true }) fullWidth?: boolean = false;
 
   /**
    * @internal The step number of a compact step, managed by ic-step.
@@ -57,6 +55,18 @@ export class LoadingIndicator {
   @Prop() labelDuration?: number = 8000;
 
   /**
+   * The maximum value that the progress value can take.
+   * Used to calculate the proportional width of the progress bar.
+   */
+  @Prop() max?: number = 100;
+
+  /**
+   * The minimum value that the progress value can take.
+   * Used to calculate the proportional width of the progress bar.
+   */
+  @Prop() min?: number = 0;
+
+  /**
    * The size of the loading indicator.
    */
   @Prop({ reflect: true }) size?: IcLoadingSizes = "default";
@@ -67,25 +77,21 @@ export class LoadingIndicator {
   @Prop({ reflect: true }) type?: IcLoadingTypes = "circular";
 
   /**
-   * If `true`, when linear, the full-width variant (i.e. without a border radius) will be displayed.
+   * The label to be displayed beneath the loading indicator.
+   * Display a changing label by separating multiple messages with forward slashes.
    */
-  @Prop({ reflect: true }) fullWidth?: boolean = false;
-
-  /**
-   * The appearance of the loading indicator, e.g. dark or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-
-  @State() indicatorLabel: string;
-  @State() indeterminate: boolean;
-  @State() showSecond: boolean = false;
-  @State() circularLineWidth: number;
-  @State() circularDiameter: number;
+  @Prop() label?: string;
 
   @Watch("label")
   watchPropHandler(): void {
     this.updateLabel();
   }
+
+  /**
+   * The current amount of progress made.
+   * If not provided, component acts as an indeterminate loading indicator.
+   */
+  @Prop() progress?: number;
 
   @Watch("progress")
   watchProgressHandler(): void {
@@ -94,11 +100,38 @@ export class LoadingIndicator {
     }
   }
 
-  private outerElement?: HTMLDivElement;
-  private innerElement?: HTMLDivElement;
-  private labelList: string[];
-  private circularMeter: SVGCircleElement;
-  private interval: ReturnType<typeof setInterval>;
+  disconnectedCallback(): void {
+    clearInterval(this.interval);
+  }
+
+  componentWillLoad(): void {
+    this.indeterminate = this.progress === undefined;
+    this.updateLabel();
+  }
+
+  componentDidLoad(): void {
+    if (this.type === "circular") {
+      this.setCircleLineWidth();
+      this.circularMeter = this.host.shadowRoot.querySelector(
+        ".ic-loading-circular-svg circle:nth-child(2)"
+      );
+      this.updateCircularProgressMeter();
+    }
+
+    if (Number(this.progress) >= 0 && this.type === "linear") {
+      this.setLinearDeterminateWidth();
+    }
+  }
+
+  componentWillUpdate(): void {
+    this.indeterminate = this.progress === undefined;
+  }
+
+  componentDidUpdate(): void {
+    if (Number(this.progress) >= 0 && this.type === "linear") {
+      this.setLinearDeterminateWidth();
+    }
+  }
 
   private updateCircularProgressMeter = () => {
     if (!this.indeterminate) {
@@ -246,38 +279,6 @@ export class LoadingIndicator {
     }
   };
 
-  componentWillLoad(): void {
-    this.indeterminate = this.progress === undefined;
-    this.updateLabel();
-  }
-
-  componentDidLoad(): void {
-    if (this.type === "circular") {
-      this.setCircleLineWidth();
-      this.circularMeter = this.host.shadowRoot.querySelector(
-        ".ic-loading-circular-svg circle:nth-child(2)"
-      );
-      this.updateCircularProgressMeter();
-    }
-
-    if (Number(this.progress) >= 0 && this.type === "linear") {
-      this.setLinearDeterminateWidth();
-    }
-  }
-
-  componentWillUpdate(): void {
-    this.indeterminate = this.progress === undefined;
-  }
-
-  componentDidUpdate(): void {
-    if (Number(this.progress) >= 0 && this.type === "linear") {
-      this.setLinearDeterminateWidth();
-    }
-  }
-
-  disconnectedCallback(): void {
-    clearInterval(this.interval);
-  }
   render() {
     const { appearance, label, description, size, fullWidth, innerLabel } =
       this;

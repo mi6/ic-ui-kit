@@ -9,17 +9,26 @@ import { IcStepTypes, IcStepVariants } from "../ic-step/ic-step.types";
   shadow: true,
 })
 export class Stepper {
+  private resizeObserver: ResizeObserver = null;
+  private steps: HTMLIcStepElement[];
+  private stepsWithStepTitles: HTMLIcStepElement[];
+
   @Element() el: HTMLIcStepperElement;
+
+  @State() alignedFullWidth: boolean = true;
+  @State() autoSetStepTitles: boolean = true;
+  @State() lastStepWidth: number = 0;
+  @State() noOfResizes?: number = 0;
+  @State() stepperWidth: number = document
+    .querySelector("ic-stepper")
+    .getBoundingClientRect().width;
+  @State() stepTypes: IcStepTypes[] = [];
+  @State() variantOverride?: boolean = this.variant !== "compact";
 
   /**
    * The alignment of the default stepper within its container.
    */
   @Prop() aligned?: IcStepperAlignment = "full-width";
-
-  /**
-   * The variant of the stepper.
-   */
-  @Prop({ mutable: true }) variant?: IcStepVariants = "default";
 
   /**
    * The length of the connnector between each step in pixels. Minimum length is 100px.
@@ -31,27 +40,27 @@ export class Stepper {
    */
   @Prop() hideStepInfo?: boolean = false;
 
-  @State() stepperWidth: number = document
-    .querySelector("ic-stepper")
-    .getBoundingClientRect().width;
+  /**
+   * The variant of the stepper.
+   */
+  @Prop({ mutable: true }) variant?: IcStepVariants = "default";
 
-  @State() lastStepWidth: number = 0;
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
 
-  @State() stepTypes: IcStepTypes[] = [];
+  componentWillLoad(): void {
+    this.setStepTypes();
+    if (this.variant === "compact") {
+      this.variantOverride = false;
+    }
+  }
 
-  @State() alignedFullWidth: boolean = true;
-
-  @State() autoSetStepTitles: boolean = true;
-
-  @State() variantOverride?: boolean = this.variant !== "compact";
-
-  @State() noOfResizes?: number = 0;
-
-  private steps: HTMLIcStepElement[];
-
-  private stepsWithStepTitles: HTMLIcStepElement[];
-
-  private resizeObserver: ResizeObserver = null;
+  componentDidLoad(): void {
+    checkResizeObserver(this.runResizeObserver);
+  }
 
   // Get all steps currently within this stepper
   private getChildren = (): void => {
@@ -250,23 +259,6 @@ export class Stepper {
     });
     this.resizeObserver.observe(this.el);
   };
-
-  componentWillLoad(): void {
-    this.setStepTypes();
-    if (this.variant === "compact") {
-      this.variantOverride = false;
-    }
-  }
-
-  componentDidLoad(): void {
-    checkResizeObserver(this.runResizeObserver);
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     return (

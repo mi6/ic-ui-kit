@@ -3,10 +3,24 @@ import { IcFocusableComponents } from "../../utils/types";
 
 @Component({ tag: "ic-toast-region" })
 export class ToastRegion {
+  pendingVisibility: HTMLIcToastElement[] = [];
+  previouslyFocused: HTMLElement;
+
   @Element() el: HTMLIcToastRegionElement;
 
-  previouslyFocused: HTMLElement;
-  pendingVisibility: HTMLIcToastElement[] = [];
+  @Listen("icDismiss", { capture: true })
+  handleDismissedToast() {
+    if (this.pendingVisibility.length > 0) {
+      this.pendingVisibility[0]
+        .setVisible()
+        .then((res) => (this.previouslyFocused = res));
+      this.pendingVisibility.shift();
+    } else {
+      if (this.previouslyFocused && "setFocus" in this.previouslyFocused) {
+        (this.previouslyFocused as IcFocusableComponents).setFocus();
+      } else this.previouslyFocused?.focus();
+    }
+  }
 
   /**
    * Handles setting the visibility of various toasts based on what is already visible
@@ -21,20 +35,6 @@ export class ToastRegion {
       toast.setVisible().then((res) => (this.previouslyFocused = res));
     }
     if (visibleToasts.length > 0) this.pendingVisibility.push(toast);
-  }
-
-  @Listen("icDismiss", { capture: true })
-  handleDismissedToast() {
-    if (this.pendingVisibility.length > 0) {
-      this.pendingVisibility[0]
-        .setVisible()
-        .then((res) => (this.previouslyFocused = res));
-      this.pendingVisibility.shift();
-    } else {
-      if (this.previouslyFocused && "setFocus" in this.previouslyFocused) {
-        (this.previouslyFocused as IcFocusableComponents).setFocus();
-      } else this.previouslyFocused?.focus();
-    }
   }
 
   render() {

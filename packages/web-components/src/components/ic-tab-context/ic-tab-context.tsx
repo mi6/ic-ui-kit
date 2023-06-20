@@ -26,20 +26,17 @@ import {
 })
 export class TabContext {
   private controlledMode: boolean;
-  private tabs: HTMLIcTabElement[];
   private enabledTabs: HTMLIcTabElement[];
-  private tabPanels: HTMLIcTabPanelElement[];
-  private tabGroup: HTMLIcTabGroupElement;
   private focusedTabIndex: number;
-  private newTabs: HTMLIcTabElement[] = [];
   private newTabPanels: HTMLIcTabPanelElement[] = [];
+  private newTabs: HTMLIcTabElement[] = [];
+  private tabs: HTMLIcTabElement[];
+  private tabGroup: HTMLIcTabGroupElement;
+  private tabPanels: HTMLIcTabPanelElement[];
 
   @Element() host: HTMLIcTabContextElement;
 
-  /**
-   * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
-   */
-  @Prop({ reflect: true }) contextId?: string = "default";
+  @State() selectedTab: number | null;
 
   /**
    * Determines whether tabs have to be manually activated (by pressing 'Enter' or 'Space') when they receive focus using keyboard navigation.
@@ -47,16 +44,19 @@ export class TabContext {
   @Prop() activationType?: IcActivationTypes = "automatic";
 
   /**
-   * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
-   */
-  @Prop() selectedTabIndex?: number;
-
-  /**
    * The appearance of the tab context, e.g dark, or light.
    */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
-  @State() selectedTab: number | null;
+  /**
+   * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.
+   */
+  @Prop({ reflect: true }) contextId?: string = "default";
+
+  /**
+   * The selected tab to be controlled by the user. Must be used alongside the icTabSelect event to manage tab selection.
+   */
+  @Prop() selectedTabIndex?: number;
 
   @Watch("selectedTabIndex")
   updateSelectedTab(newValue: number): void {
@@ -64,14 +64,39 @@ export class TabContext {
   }
 
   /**
+   * Emitted when a user selects a tab.
+   */
+  @Event({ bubbles: false }) icTabSelect: EventEmitter<IcTabSelectEventDetail>;
+
+  /**
    * @deprecated This event should not be used anymore. Use icTabSelect instead.
    */
   @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
 
-  /**
-   * Emitted when a user selects a tab.
-   */
-  @Event({ bubbles: false }) icTabSelect: EventEmitter<IcTabSelectEventDetail>;
+  disconnectedCallback(): void {
+    if (this.activationType === "manual") {
+      this.tabGroup.removeEventListener("keydown", (event) =>
+        this.handleKeyBoardNavManual(event)
+      );
+    } else {
+      this.tabGroup.removeEventListener("keydown", (event) =>
+        this.handleKeyBoardNavAutomatic(event)
+      );
+    }
+  }
+
+  componentDidLoad(): void {
+    this.setControlledMode();
+    this.getChildren();
+    this.linkTabs();
+    this.attatchEventListeners();
+    this.setInitialTab();
+    this.configureTabs();
+  }
+
+  componentWillUpdate(): void {
+    this.configureTabs();
+  }
 
   @Listen("tabClick")
   tabClickHandler(event: CustomEvent<IcTabClickEventDetail>): void {
@@ -314,31 +339,6 @@ export class TabContext {
     }
     if (preventDefault) event.preventDefault();
   };
-
-  componentDidLoad(): void {
-    this.setControlledMode();
-    this.getChildren();
-    this.linkTabs();
-    this.attatchEventListeners();
-    this.setInitialTab();
-    this.configureTabs();
-  }
-
-  componentWillUpdate(): void {
-    this.configureTabs();
-  }
-
-  disconnectedCallback(): void {
-    if (this.activationType === "manual") {
-      this.tabGroup.removeEventListener("keydown", (event) =>
-        this.handleKeyBoardNavManual(event)
-      );
-    } else {
-      this.tabGroup.removeEventListener("keydown", (event) =>
-        this.handleKeyBoardNavAutomatic(event)
-      );
-    }
-  }
 
   render() {
     return <slot></slot>;

@@ -12,25 +12,29 @@ import {
 })
 export class StatusTag {
   /**
-   * The content rendered within the status tag.
+   * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
    */
-  @Prop() label!: string;
-  /**
-   * The colour of the status tag.
-   */
-  @Prop() status?: IcStatusTagStatuses = "neutral";
+  @Prop() announced?: boolean = false;
+
   /**
    * The emphasis of the status tag.
    */
   @Prop() appearance?: IcStatusTagAppearance = "filled";
+
+  /**
+   * The content rendered within the status tag.
+   */
+  @Prop() label!: string;
+
   /**
    * If `true`, the small styling will be applied to the status tag.
    */
   @Prop() small?: boolean = false;
+
   /**
-   * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+   * The colour of the status tag.
    */
-  @Prop() announced?: boolean = false;
+  @Prop() status?: IcStatusTagStatuses = "neutral";
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
