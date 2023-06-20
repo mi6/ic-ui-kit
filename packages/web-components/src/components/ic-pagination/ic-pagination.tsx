@@ -28,82 +28,66 @@ import {
 export class Pagination {
   @Element() el: HTMLIcPaginationElement;
 
-  /**
-   * The total number of pages.
-   */
-  @Prop() pages!: number;
-  /**
-   * The type of pagination to be used.
-   */
-  @Prop() type: IcPaginationTypes = "simple";
-  /**
-   * The default page to display.
-   */
-  @Prop() defaultPage: number = 1;
+  @State() endEllipsis: boolean = false;
+  @State() endItems: number[] = [];
+  @State() midItems: number[] = [];
+  @State() startEllipsis: boolean = false;
+  @State() startItems: number[] = [];
+
   /**
    * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
   @Prop({ mutable: true }) adjacentCount: number = 1;
-  /**
-   * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
-   */
-  @Prop({ mutable: true }) boundaryCount: number = 1;
-  /**
-   * If `true`, the first and last page buttons will not be displayed.
-   */
-  @Prop() hideFirstAndLastPageButton: boolean = false;
-  /**
-   * If `true`, the current page of the simple pagination will not be displayed.
-   */
-  @Prop() hideCurrentPage: boolean = false;
-  /**
-   * If `true`, the pagination will not allow interaction.
-   */
-  @Prop() disabled: boolean = false;
+
   /**
    * The appearance of the pagination, e.g. dark, light or the default.
    */
   @Prop() appearance: IcThemeForeground = "default";
+
+  /**
+   * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
+   */
+  @Prop({ mutable: true }) boundaryCount: number = 1;
+
+  /**
+   * The default page to display.
+   */
+  @Prop() defaultPage: number = 1;
+
+  /**
+   * If `true`, the pagination will not allow interaction.
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
+   * If `true`, the current page of the simple pagination will not be displayed.
+   */
+  @Prop() hideCurrentPage: boolean = false;
+
+  /**
+   * If `true`, the first and last page buttons will not be displayed.
+   */
+  @Prop() hideFirstAndLastPageButton: boolean = false;
+
   /**
    * The label for the pagination item (applicable when simple pagination is being used).
    */
   @Prop() label: string = "Page";
+
+  /**
+   * The total number of pages.
+   */
+  @Prop() pages!: number;
+
+  /**
+   * The type of pagination to be used.
+   */
+  @Prop() type: IcPaginationTypes = "simple";
+
   /**
    * The current page displayed by the pagination.
    */
   @Prop({ mutable: true }) currentPage: number = this.defaultPage;
-
-  @State() startEllipsis: boolean = false;
-  @State() endEllipsis: boolean = false;
-  @State() startItems: number[] = [];
-  @State() endItems: number[] = [];
-  @State() midItems: number[] = [];
-
-  /**
-   * Emitted when a page is selected.
-   */
-  @Event() icPageChange: EventEmitter<IcChangeEventDetail>;
-
-  @Listen("paginationItemClick")
-  paginationItemClickHandler(ev: CustomEvent) {
-    const page = ev.detail.page;
-    this.currentPage = page;
-    this.icPageChange.emit({ value: this.currentPage });
-  }
-
-  /**
-   * Sets the currently displayed page.
-   */
-  @Method()
-  async setCurrentPage(page: number) {
-    if (typeof page === "number" && page > 0 && page <= this.pages) {
-      this.currentPage = page;
-    } else {
-      console.error(
-        "Current page must be a number greater than zero but less than or equal to the total number of pages"
-      );
-    }
-  }
 
   @Watch("currentPage")
   watchPageChangeHandler(): void {
@@ -201,11 +185,49 @@ export class Pagination {
     this.midItems = midItems;
   }
 
+  /**
+   * Emitted when a page is selected.
+   */
+  @Event() icPageChange: EventEmitter<IcChangeEventDetail>;
+
+  componentWillLoad(): void {
+    this.watchPageChangeHandler();
+    if (this.boundaryCount > 2) {
+      this.boundaryCount = 2;
+    }
+    if (this.adjacentCount > 2) {
+      this.adjacentCount = 2;
+    }
+
+    removeDisabledFalse(this.disabled, this.el);
+  }
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.pages, propName: "pages" }],
       "Pagination"
     );
+  }
+
+  @Listen("paginationItemClick")
+  paginationItemClickHandler(ev: CustomEvent) {
+    const page = ev.detail.page;
+    this.currentPage = page;
+    this.icPageChange.emit({ value: this.currentPage });
+  }
+
+  /**
+   * Sets the currently displayed page.
+   */
+  @Method()
+  async setCurrentPage(page: number) {
+    if (typeof page === "number" && page > 0 && page <= this.pages) {
+      this.currentPage = page;
+    } else {
+      console.error(
+        "Current page must be a number greater than zero but less than or equal to the total number of pages"
+      );
+    }
   }
 
   private handleClickFirst = () => {
@@ -359,18 +381,6 @@ export class Pagination {
       );
     });
   };
-
-  componentWillLoad(): void {
-    this.watchPageChangeHandler();
-    if (this.boundaryCount > 2) {
-      this.boundaryCount = 2;
-    }
-    if (this.adjacentCount > 2) {
-      this.adjacentCount = 2;
-    }
-
-    removeDisabledFalse(this.disabled, this.el);
-  }
 
   render() {
     const {

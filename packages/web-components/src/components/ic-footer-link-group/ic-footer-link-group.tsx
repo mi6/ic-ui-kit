@@ -24,18 +24,37 @@ import { IcTheme } from "../../utils/types";
 export class FooterLinkGroup {
   @Element() el: HTMLIcFooterLinkGroupElement;
 
+  @State() expanded: boolean = false;
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() dropdownIconStyle = getThemeForegroundColor();
+  @State() small: boolean = false;
+
   /**
    * The title of the link group to be displayed.
    */
   @Prop() groupTitle!: string;
 
-  @State() small: boolean = false;
+  componentWillLoad(): void {
+    this.small = this.isSmall(this.el);
+  }
 
-  @State() expanded: boolean = false;
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.groupTitle, propName: "group-title" }],
+      "Footer Link Group"
+    );
+  }
 
-  @State() dropdownIconStyle = getThemeForegroundColor();
+  @Listen("footerResized", { target: "document" })
+  footerResizeHandler(): void {
+    this.small = this.isSmall(this.el);
+  }
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @Listen("themeChange", { target: "document" })
+  footerThemeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.dropdownIconStyle = theme.mode;
+  }
 
   private isSmall(e: HTMLElement): boolean {
     if (e.parentElement !== null) {
@@ -58,28 +77,6 @@ export class FooterLinkGroup {
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
   };
-
-  @Listen("footerResized", { target: "document" })
-  footerResizeHandler(): void {
-    this.small = this.isSmall(this.el);
-  }
-
-  @Listen("themeChange", { target: "document" })
-  footerThemeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.dropdownIconStyle = theme.mode;
-  }
-
-  componentWillLoad(): void {
-    this.small = this.isSmall(this.el);
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.groupTitle, propName: "group-title" }],
-      "Footer Link Group"
-    );
-  }
 
   render() {
     const { small, groupTitle } = this;

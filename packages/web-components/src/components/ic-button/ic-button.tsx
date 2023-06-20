@@ -41,106 +41,149 @@ let buttonIds = 0;
   },
 })
 export class Button {
+  private buttonEl: HTMLElement;
+  private buttonIdNum = buttonIds++;
+  private hasTooltip: boolean = false;
+  private id: string;
+  private inheritedAttributes: { [k: string]: unknown } = {};
+  private tooltipEl: HTMLIcTooltipElement;
+
   @Element() el: HTMLIcButtonElement;
-  /**
-   * If `true`, the button will be in disabled state.
-   */
-  @Prop() disabled?: boolean = false;
-  /**
-   * If `true`, the button will be in loading state.
-   */
-  @Prop() loading?: boolean = false;
-  /**
-   * The type of the button.
-   */
-  @Prop() type?: IcButtonTypes = "button";
-  /**
-   * The URL that the link points to. This will render the button as an "a" tag.
-   */
-  @Prop() href?: string;
-  /**
-   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-   */
-  @Prop() target?: string;
-  /**
-   * The relationship of the linked URL as space-separated link types.
-   */
-  @Prop() rel?: string;
-  /**
-   * If `true`, the user can save the linked URL instead of navigating to it.
-   */
-  @Prop() download?: string | boolean = false;
-  /**
-   * The human language of the linked URL.
-   */
-  @Prop() hreflang?: string;
-  /**
-   * How much of the referrer to send when following the link.
-   */
-  @Prop() referrerpolicy?: ReferrerPolicy;
-  /**
-   * The variant of the button to be displayed.
-   */
-  @Prop() variant?: IcButtonVariants = "primary";
-  /**
-   * The size of the button to be displayed.
-   */
-  @Prop() size?: IcButtonSizes = "default";
-  /**
-   * If `true`, the button will fill the width of the container.
-   */
-  @Prop() fullWidth?: boolean = false;
-  /**
-   * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
-   */
-  @Prop() disableTooltip?: boolean = false;
-  /**
-   * The position of the tooltip in relation to the button.
-   */
-  @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
+
   /**
    * The appearance of the button, e.g. dark, light, or the default.
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
+
+  /**
+   * If `true`, the button will be in disabled state.
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
+   */
+  @Prop() disableTooltip?: boolean = false;
+
+  /**
+   * If `true`, the user can save the linked URL instead of navigating to it.
+   */
+  @Prop() download?: string | boolean = false;
+
   /**
    * The <form> element to associate the button with.
    */
   @Prop() form?: string;
+
   /**
    * The URL that processes the information submitted by the button. It overrides the action attribute of the button's form owner. Does nothing if there is no form owner.
    */
   @Prop() formaction?: string;
+
   /**
    * The way the submitted form data is encoded.
    */
   @Prop() formenctype?: string;
+
   /**
    * The HTTP method used to submit the form.
    */
   @Prop() formmethod?: string;
+
   /**
    * If `true`, the form will not be validated when submitted.
    */
   @Prop() formnovalidate?: boolean;
+
   /**
    * The place to display the response from submitting the form. It overrides the target attribute of the button's form owner.
    */
   @Prop() formtarget?: string;
+
   /**
-   * Emitted when button has focus
+   * If `true`, the button will fill the width of the container.
    */
-  @Event() icFocus!: EventEmitter<void>;
+  @Prop() fullWidth?: boolean = false;
+
+  /**
+   * The URL that the link points to. This will render the button as an "a" tag.
+   */
+  @Prop() href?: string;
+
+  /**
+   * The human language of the linked URL.
+   */
+  @Prop() hreflang?: string;
+
+  /**
+   * If `true`, the button will be in loading state.
+   */
+  @Prop() loading?: boolean = false;
+
+  /**
+   * How much of the referrer to send when following the link.
+   */
+  @Prop() referrerpolicy?: ReferrerPolicy;
+
+  /**
+   * The relationship of the linked URL as space-separated link types.
+   */
+  @Prop() rel?: string;
+
+  /**
+   * The size of the button to be displayed.
+   */
+  @Prop() size?: IcButtonSizes = "default";
+
+  /**
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   */
+  @Prop() target?: string;
+
+  /**
+   * The position of the tooltip in relation to the button.
+   */
+  @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
+
+  /**
+   * The type of the button.
+   */
+  @Prop() type?: IcButtonTypes = "button";
+
+  /**
+   * The variant of the button to be displayed.
+   */
+  @Prop() variant?: IcButtonVariants = "primary";
+
   /**
    * Emitted when button has blur
    */
   @Event() icBlur!: EventEmitter<void>;
 
-  private inheritedAttributes: { [k: string]: unknown } = {};
-  private buttonEl: HTMLElement;
-  private hasTooltip: boolean = false;
-  private buttonIdNum = buttonIds++;
-  private tooltipEl: HTMLIcTooltipElement;
-  private id: string;
+  /**
+   * Emitted when button has focus
+   */
+  @Event() icFocus!: EventEmitter<void>;
+
+  componentWillLoad(): void {
+    this.inheritedAttributes = inheritAttributes(this.el, [
+      ...IC_INHERITED_ARIA,
+      "aria-expanded",
+      "title",
+    ]);
+
+    removeDisabledFalse(this.disabled, this.el);
+
+    this.el.setAttribute("exportparts", "button");
+
+    const id = this.el.id;
+    this.id = id !== undefined ? id : null;
+    this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
+  }
+
+  componentDidLoad(): void {
+    this.updateTheme();
+  }
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
@@ -216,26 +259,6 @@ export class Button {
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.appearance = foregroundColor;
     }
-  }
-
-  componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "aria-expanded",
-      "title",
-    ]);
-
-    removeDisabledFalse(this.disabled, this.el);
-
-    this.el.setAttribute("exportparts", "button");
-
-    const id = this.el.id;
-    this.id = id !== undefined ? id : null;
-    this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
-  }
-
-  componentDidLoad(): void {
-    this.updateTheme();
   }
 
   render() {

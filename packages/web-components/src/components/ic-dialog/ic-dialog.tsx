@@ -20,17 +20,67 @@ import { isSlotUsed, checkResizeObserver } from "../../utils/helpers";
   shadow: true,
 })
 export class Dialog {
+  private DATA_OVERFLOW: string = "data-overflow";
+  private DATA_GETS_FOCUS: string = "data-gets-focus";
+  private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
+  private DIALOG_CONTROLS: string = "dialog-controls";
+  private dialogEl: HTMLDialogElement;
+  private dialogHeight: number = 0;
+  private focusedElementIndex = 0;
+  private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
+  private interactiveElementList: HTMLElement[];
+  private resizeObserver: ResizeObserver = null;
+  private resizeTimeout: number;
+  private sourceElement: HTMLElement;
+
+  /* eslint-disable */
+
+  private buttonOnclick0: Function;
+  private buttonOnclick1: Function;
+  private buttonOnclick2: Function;
+
+  /* eslint-enable */
+
+  @Element() el: HTMLIcDialogElement;
+
+  @State() dialogRendered: boolean = false;
+  @State() fadeIn: boolean = false;
+
   /**
    * @slot dialog-controls - Content will be place at the bottom of the dialog.
    * @slot heading - Content will be placed at the top of the dialog.
    * @slot label - Content will be placed above the dialog heading.
    */
-  @Element() el: HTMLIcDialogElement;
 
   /**
-   * Sets the maximum and minimum height and width for the dialog.
+   * If a status is set, sets the heading for the displayed alert.
    */
-  @Prop() size?: "small" | "medium" | "large" = "small";
+  @Prop() alertHeading?: string;
+
+  /**
+   * If a status is set, sets the message for the displayed alert.
+   */
+  @Prop() alertMessage?: string;
+
+  /**
+   * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
+   */
+  @Prop() buttons?: boolean = true;
+
+  /**
+   * If set to `true`, the dialog will not close when the backdrop is clicked.
+   */
+  @Prop() closeOnBackdropClick?: boolean = true;
+
+  /**
+   * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
+   */
+  @Prop() destructive?: boolean = false;
+
+  /**
+   * Sets the dismiss label tooltip and aria label.
+   */
+  @Prop() dismissLabel?: string = "Dismiss";
 
   /**
    * Sets the heading for the dialog.
@@ -43,37 +93,14 @@ export class Dialog {
   @Prop() label?: string;
 
   /**
-   * Sets the dismiss label tooltip and aria label.
+   * Sets the maximum and minimum height and width for the dialog.
    */
-  @Prop() dismissLabel?: string = "Dismiss";
+  @Prop() size?: "small" | "medium" | "large" = "small";
 
   /**
    * If set, displays an alert of the corresponding variant below the heading.
    */
   @Prop() status?: "neutral" | "info" | "warning" | "error" | "success";
-
-  /**
-   * If a status is set, sets the heading for the displayed alert.
-   */
-  @Prop() alertHeading?: string;
-  /**
-   * If a status is set, sets the message for the displayed alert.
-   */
-  @Prop() alertMessage?: string;
-
-  /**
-   * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
-   */
-  @Prop() buttons?: boolean = true;
-  /**
-   * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
-   */
-  @Prop() destructive?: boolean = false;
-
-  /**
-   * If set to `true`, the dialog will not close when the backdrop is clicked.
-   */
-  @Prop() closeOnBackdropClick?: boolean = true;
 
   /**
    * Sets the label and onclick functions for default buttons.
@@ -86,14 +113,15 @@ export class Dialog {
     { label: "Confirm", onclick: "this.confirmDialog();" },
   ];
 
-  @State() dialogRendered: boolean = false;
-
-  @State() fadeIn: boolean = false;
+  @Watch("buttonProps")
+  watchPropHandler(): void {
+    this.setButtonOnClick();
+  }
 
   /**
-   * Emitted when dialog has opened.
+   * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
    */
-  @Event() icDialogOpened: EventEmitter<void>;
+  @Event() icDialogCancelled: EventEmitter<void>;
 
   /**
    * Emitted when dialog has closed.
@@ -106,30 +134,53 @@ export class Dialog {
   @Event() icDialogConfirmed: EventEmitter<void>;
 
   /**
-   * Cancelation event emitted when default 'Cancel' button clicked or 'cancelDialog' method is called.
+   * Emitted when dialog has opened.
    */
-  @Event() icDialogCancelled: EventEmitter<void>;
+  @Event() icDialogOpened: EventEmitter<void>;
 
-  private sourceElement: HTMLElement;
-  private interactiveElementList: HTMLElement[];
-  private dialogEl: HTMLDialogElement;
-  private focusedElementIndex = 0;
-  private DATA_OVERFLOW: string = "data-overflow";
-  private DATA_GETS_FOCUS: string = "data-gets-focus";
-  private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
-  private DIALOG_CONTROLS: string = "dialog-controls";
-  private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
-  private resizeObserver: ResizeObserver = null;
-  private resizeTimeout: number;
-  private dialogHeight: number = 0;
+  componentWillLoad(): void {
+    this.setButtonOnClick();
+  }
 
-  /* eslint-disable */
+  componentDidLoad(): void {
+    this.getInteractiveElements();
+    this.setAlertVariant();
+  }
 
-  private buttonOnclick0: Function;
-  private buttonOnclick1: Function;
-  private buttonOnclick2: Function;
+  @Listen("keydown", { target: "document" })
+  handleKeyboard(ev: KeyboardEvent): void {
+    if (this.dialogRendered) {
+      switch (ev.key) {
+        case "Tab":
+          ev.preventDefault();
+          this.focusNextInteractiveElement(ev.shiftKey);
+          break;
+        case "Escape":
+          !ev.repeat && this.hideDialog();
+          ev.stopImmediatePropagation();
+          break;
+      }
+    }
+  }
 
-  /* eslint-enable */
+  @Listen("click")
+  handleClick(ev: MouseEvent): void {
+    const dialogElement = this.el.shadowRoot.querySelector("dialog");
+    if (
+      this.closeOnBackdropClick &&
+      ev.composedPath().indexOf(dialogElement) <= 0
+    ) {
+      const rect = this.dialogEl.getBoundingClientRect();
+      const isInDialog =
+        rect.top <= ev.clientY &&
+        ev.clientY <= rect.top + rect.height &&
+        rect.left <= ev.clientX &&
+        ev.clientX <= rect.left + rect.width;
+      if (!isInDialog) {
+        this.hideDialog();
+      }
+    }
+  }
 
   /**
    * Use to show the dialog.
@@ -185,46 +236,6 @@ export class Dialog {
   @Method()
   async confirmDialog(): Promise<void> {
     this.icDialogConfirmed.emit();
-  }
-
-  @Watch("buttonProps")
-  watchPropHandler(): void {
-    this.setButtonOnClick();
-  }
-
-  @Listen("keydown", { target: "document" })
-  handleKeyboard(ev: KeyboardEvent): void {
-    if (this.dialogRendered) {
-      switch (ev.key) {
-        case "Tab":
-          ev.preventDefault();
-          this.focusNextInteractiveElement(ev.shiftKey);
-          break;
-        case "Escape":
-          !ev.repeat && this.hideDialog();
-          ev.stopImmediatePropagation();
-          break;
-      }
-    }
-  }
-
-  @Listen("click")
-  handleClick(ev: MouseEvent): void {
-    const dialogElement = this.el.shadowRoot.querySelector("dialog");
-    if (
-      this.closeOnBackdropClick &&
-      ev.composedPath().indexOf(dialogElement) <= 0
-    ) {
-      const rect = this.dialogEl.getBoundingClientRect();
-      const isInDialog =
-        rect.top <= ev.clientY &&
-        ev.clientY <= rect.top + rect.height &&
-        rect.left <= ev.clientX &&
-        ev.clientX <= rect.left + rect.width;
-      if (!isInDialog) {
-        this.hideDialog();
-      }
-    }
   }
 
   private setContentOverflow = (): void => {
@@ -301,9 +312,9 @@ export class Dialog {
     const slottedInteractiveElements = Array.from(
       this.el.querySelectorAll(
         `a[href], button, input:not(.ic-input), textarea, select, details, [tabindex]:not([tabindex="-1"]), 
-        ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
-        ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
-        ic-navigation-item, ic-switch, ic-text-field`
+          ic-button, ic-checkbox, ic-select, ic-search-bar, ic-tab-group, ic-radio-group, 
+          ic-back-to-top, ic-breadcrumb, ic-chip[dismissible="true"], ic-footer-link, ic-link, ic-navigation-button, 
+          ic-navigation-item, ic-switch, ic-text-field`
       )
     );
     if (slottedInteractiveElements.length > 0) {
@@ -383,15 +394,6 @@ export class Dialog {
       }
     }
   };
-
-  componentWillLoad(): void {
-    this.setButtonOnClick();
-  }
-
-  componentDidLoad(): void {
-    this.getInteractiveElements();
-    this.setAlertVariant();
-  }
 
   render() {
     const {

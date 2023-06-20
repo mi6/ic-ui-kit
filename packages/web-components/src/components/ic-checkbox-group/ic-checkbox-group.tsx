@@ -27,6 +27,21 @@ export class CheckboxGroup {
   @Element() host: HTMLIcCheckboxGroupElement;
 
   /**
+   * If `true`, the checkbox group will be set to the disabled state.
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
+   * The helper text that will be displayed for additional field guidance.
+   */
+  @Prop() helperText: string = "";
+
+  /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel: boolean = false;
+
+  /**
    * The label for the checkbox group to be displayed.
    */
   @Prop() label!: string;
@@ -42,28 +57,15 @@ export class CheckboxGroup {
   @Prop() required: boolean = false;
 
   /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel: boolean = false;
-
-  /**
-   * If `true`, the checkbox group will be set to the disabled state.
-   */
-  @Prop() disabled: boolean = false;
-
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText: string = "";
-
-  /**
    * If `true`, the small styling will be applied to the checkbox group.
    */
   @Prop() small: boolean = false;
+
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+
   /**
    * The validation text - e.g. 'error' | 'warning' | 'success'.
    */
@@ -73,21 +75,6 @@ export class CheckboxGroup {
    * Emitted when a checkbox is checked.
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
-
-  @Listen("icCheck")
-  selectHandler(ev: CustomEvent): void {
-    const checkedOptions = Array.from(
-      this.host.querySelectorAll("ic-checkbox")
-    ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
-    this.icChange.emit({
-      value: checkedOptions.map((opt) => opt.value),
-      checkedOptions: checkedOptions.map((opt) => ({
-        checkbox: opt,
-        textFieldValue: opt.querySelector("ic-text-field")?.value,
-      })),
-      selectedOption: ev.target as HTMLIcCheckboxElement,
-    });
-  }
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.host);
@@ -108,6 +95,21 @@ export class CheckboxGroup {
       ],
       "Checkbox Group"
     );
+  }
+
+  @Listen("icCheck")
+  selectHandler(ev: CustomEvent): void {
+    const checkedOptions = Array.from(
+      this.host.querySelectorAll("ic-checkbox")
+    ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
+    this.icChange.emit({
+      value: checkedOptions.map((opt) => opt.value),
+      checkedOptions: checkedOptions.map((opt) => ({
+        checkbox: opt,
+        textFieldValue: opt.querySelector("ic-text-field")?.value,
+      })),
+      selectedOption: ev.target as HTMLIcCheckboxElement,
+    });
   }
 
   render() {

@@ -23,24 +23,67 @@ const SCROLL_DELAY_MS = 200;
   shadow: true,
 })
 export class HorizontalScroll {
+  private buttonStateSet: boolean = false;
+  private isScrolling: number;
+  private itemOffsets: number[];
+  private items: HTMLElement[];
+  private itemsContainerEl: HTMLElement;
+  private resizeObserver: ResizeObserver;
+  private scrollDelay: number;
+
   @Element() el: HTMLIcHorizontalScrollElement;
+
+  @State() firstItemVisible: boolean = true;
+  @State() itemOverflow: boolean = false;
+  @State() lastItemVisible: boolean = false;
 
   /**
    * The appearance of the horizontal scroll, e.g. dark, light or the default.
    */
   @Prop() appearance?: IcThemeForeground = "default";
 
-  @State() firstItemVisible: boolean = true;
-  @State() lastItemVisible: boolean = false;
-  @State() itemOverflow: boolean = false;
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== undefined) {
+      this.resizeObserver.disconnect();
+    }
+  }
 
-  private itemOffsets: number[];
-  private itemsContainerEl: HTMLElement;
-  private items: HTMLElement[];
-  private resizeObserver: ResizeObserver;
-  private isScrolling: number;
-  private scrollDelay: number;
-  private buttonStateSet: boolean = false;
+  componentWillLoad(): void {
+    this.itemsContainerEl = this.el.children[0] as HTMLElement;
+    this.itemsContainerEl.addEventListener("scroll", this.scrollHandler);
+
+    this.items = (getSlotElements(this.itemsContainerEl) ||
+      Array.from(this.itemsContainerEl.children)) as HTMLElement[];
+    this.items.forEach((item) => {
+      if (item.addEventListener) {
+        item.addEventListener("focus", () =>
+          this.itemFocusHandler(Array.from(this.items).indexOf(item))
+        );
+      }
+    });
+  }
+
+  componentDidLoad(): void {
+    let runningTotal = 0;
+    this.itemOffsets = this.items.map((item) => {
+      runningTotal += item.offsetWidth;
+      return runningTotal;
+    });
+
+    checkResizeObserver(this.runResizeObserver);
+
+    // Add event listener to scroll containers as mouse events are not fired on disabled elements (ic-button's <button>)
+    // 'mouseleave' needed in case the user moves their mouse while holding the arrow buttons
+    // - 'mouseup' otherwise not detected and scrolling not stopped
+    const scrollArrows = Array.from(
+      this.el.shadowRoot.querySelectorAll("div")
+    ) as HTMLElement[];
+    ["mouseup", "mouseleave"].forEach((event) => {
+      scrollArrows.forEach((arrow) =>
+        arrow.addEventListener(event, this.arrowMouseUpHandler)
+      );
+    });
+  }
 
   /**
    * @internal if side scrolling enabled, scrolls the specified item into view.
@@ -57,7 +100,7 @@ export class HorizontalScroll {
     this.itemsContainerEl.scrollLeft = newScrollPos;
   }
 
-  itemFocusHandler(itemPosition: number): void {
+  private itemFocusHandler(itemPosition: number): void {
     if (this.itemOverflow) {
       this.scrollItemIntoView(itemPosition);
     }
@@ -141,49 +184,6 @@ export class HorizontalScroll {
     }
     this.buttonStateSet = false;
   };
-
-  componentWillLoad(): void {
-    this.itemsContainerEl = this.el.children[0] as HTMLElement;
-    this.itemsContainerEl.addEventListener("scroll", this.scrollHandler);
-
-    this.items = (getSlotElements(this.itemsContainerEl) ||
-      Array.from(this.itemsContainerEl.children)) as HTMLElement[];
-    this.items.forEach((item) => {
-      if (item.addEventListener) {
-        item.addEventListener("focus", () =>
-          this.itemFocusHandler(Array.from(this.items).indexOf(item))
-        );
-      }
-    });
-  }
-
-  componentDidLoad(): void {
-    let runningTotal = 0;
-    this.itemOffsets = this.items.map((item) => {
-      runningTotal += item.offsetWidth;
-      return runningTotal;
-    });
-
-    checkResizeObserver(this.runResizeObserver);
-
-    // Add event listener to scroll containers as mouse events are not fired on disabled elements (ic-button's <button>)
-    // 'mouseleave' needed in case the user moves their mouse while holding the arrow buttons
-    // - 'mouseup' otherwise not detected and scrolling not stopped
-    const scrollArrows = Array.from(
-      this.el.shadowRoot.querySelectorAll("div")
-    ) as HTMLElement[];
-    ["mouseup", "mouseleave"].forEach((event) => {
-      scrollArrows.forEach((arrow) =>
-        arrow.addEventListener(event, this.arrowMouseUpHandler)
-      );
-    });
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== undefined) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     const { appearance, firstItemVisible, lastItemVisible, itemOverflow } =

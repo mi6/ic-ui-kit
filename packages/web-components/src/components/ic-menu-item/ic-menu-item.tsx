@@ -33,59 +33,69 @@ import Chevron from "../../assets/chevron-icon.svg";
 export class MenuItem {
   @Element() el: HTMLIcMenuItemElement;
 
+  @State() toggleChecked: boolean = false;
+
+  /**
+   * The description displayed in the menu item, below the label.
+   */
+  @Prop() description?: string;
+
+  /**
+   * If `true`, the menu item will be in disabled state.
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * The URL that the link points to. This will render the menu item as an "a" tag.
+   */
+  @Prop() href?: string;
+
+  /**
+   * The human language of the linked URL.
+   */
+  @Prop() hreflang?: string;
+
+  /**
+   * The label describing the keyboard shortcut for a menu item's action.
+   */
+  @Prop() keyboardShortcut?: string;
+
+  /**
+   * The label to display in the menu item.
+   */
+  @Prop() label!: string;
+
+  /**
+   * How much of the referrer to send when following the link.
+   */
+  @Prop() referrerpolicy?: ReferrerPolicy;
+
+  /**
+   * The relationship of the linked URL as space-separated link types.
+   */
+  @Prop() rel?: string;
+
+  /**
+   * This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default.
+   */
+  @Prop() submenuTriggerFor?: string;
+
+  /**
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   */
+  @Prop() target?: string;
+
   /**
    * The variant of the menu item.
    */
   @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants =
     "default";
-  /**
-   * The label to display in the menu item.
-   */
-  @Prop() label!: string;
-  /**
-   * The description displayed in the menu item, below the label.
-   */
-  @Prop() description?: string;
-  /**
-   * If `true`, the menu item will be in disabled state.
-   */
-  @Prop() disabled?: boolean = false;
-  /**
-   * The URL that the link points to. This will render the menu item as an "a" tag.
-   */
-  @Prop() href?: string;
-  /**
-   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-   */
-  @Prop() target?: string;
-  /**
-   * The relationship of the linked URL as space-separated link types.
-   */
-  @Prop() rel?: string;
-  /**
-   * The human language of the linked URL.
-   */
-  @Prop() hreflang?: string;
-  /**
-   * How much of the referrer to send when following the link.
-   */
-  @Prop() referrerpolicy?: ReferrerPolicy;
-  /**
-   * The label describing the keyboard shortcut for a menu item's action.
-   */
-  @Prop() keyboardShortcut?: string;
-  /**
-   * This references the popover menu instance that the menu item is a trigger for. If this prop is set, then the variant will always be default.
-   */
-  @Prop() submenuTriggerFor?: string;
+
   /**
    * @internal Emitted when item loses focus.
    */
   @Event() childBlur: EventEmitter<void>;
-  /**
-   * @internal Emitted when the user clicks a menu item that triggers a popover menu instance.
-   */
-  @Event() triggerPopoverMenuInstance: EventEmitter<void>;
+
   /**
    * @internal Emitted when the user clicks a menu item.
    */
@@ -94,7 +104,25 @@ export class MenuItem {
     hasSubMenu: boolean;
   }>;
 
-  @State() toggleChecked: boolean = false;
+  /**
+   * @internal Emitted when the user clicks a menu item that triggers a popover menu instance.
+   */
+  @Event() triggerPopoverMenuInstance: EventEmitter<void>;
+
+  componentWillLoad(): void {
+    // This ensures that trigger menu items are always set to the default variant
+    if (this.submenuTriggerFor !== undefined && this.variant !== "default") {
+      this.variant = "default";
+    }
+    removeDisabledFalse(this.disabled, this.el);
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Menu Item"
+    );
+  }
 
   @Listen("click", { capture: true })
   handleHostClick(e: Event): void {
@@ -117,22 +145,6 @@ export class MenuItem {
       hasSubMenu: !!this.el.submenuTriggerFor,
     });
   };
-
-  componentWillLoad(): void {
-    // This ensures that trigger menu items are always set to the default variant
-    if (this.submenuTriggerFor !== undefined && this.variant !== "default") {
-      this.variant = "default";
-    }
-
-    removeDisabledFalse(this.disabled, this.el);
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Menu Item"
-    );
-  }
 
   private getMenuItemAriaLabel = (): string => {
     let ariaLabel = this.label;

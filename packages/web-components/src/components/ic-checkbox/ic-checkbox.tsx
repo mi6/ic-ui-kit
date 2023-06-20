@@ -29,52 +29,62 @@ import {
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
-  /**
-   * If `true`, the checkbox will be set to the checked state.
-   */
-  @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
-  /**
-   * If `true`, the checkbox will be set to the disabled state.
-   */
-  @Prop() disabled?: boolean = false;
-  /**
-   * The label for the checkbox.
-   */
-  @Prop() label!: string;
-  /**
-   * The value for the checkbox.
-   */
-  @Prop() value!: string;
-  /**
-   * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
-   */
-  @Prop() name: string;
-  /**
-   * The group label for the checkbox.
-   */
-  @Prop() groupLabel: string;
-  /**
-   * The text to be displayed when dynamic.
-   */
-  @Prop() dynamicText: string = "This selection requires additional answers";
+  private additionalFieldContainer: HTMLDivElement;
+  private IC_TEXT_FIELD: string = "ic-text-field";
+
+  @Element() host: HTMLIcCheckboxElement;
+
   /**
    * The style of additionalField that will be displayed if used.
    */
   @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
+
+  /**
+   * If `true`, the checkbox will be set to the checked state.
+   */
+  @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
+  @State() initiallyChecked = this.checked;
+
+  /**
+   * If `true`, the checkbox will be set to the disabled state.
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * The text to be displayed when dynamic.
+   */
+  @Prop() dynamicText: string = "This selection requires additional answers";
+
+  /**
+   * The group label for the checkbox.
+   */
+  @Prop() groupLabel: string;
+
   /**
    * If `true`, the indeterminate state will be displayed when checked.
    */
   @Prop() indeterminate: boolean = false;
 
   /**
+   * The label for the checkbox.
+   */
+  @Prop() label!: string;
+
+  /**
+   * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
+   */
+  @Prop() name: string;
+
+  /**
    * If true, the small styling will be applied to the checkbox.
    */
   @Prop() small?: boolean = false;
 
-  @State() initiallyChecked = this.checked;
-
-  @Element() host: HTMLIcCheckboxElement;
+  /**
+   * The value for the checkbox.
+   */
+  @Prop() value!: string;
 
   /**
    * @deprecated This event should not be used anymore. Use icCheck instead.
@@ -86,47 +96,11 @@ export class Checkbox {
    */
   @Event() icCheck: EventEmitter<void>;
 
-  private additionalFieldContainer: HTMLDivElement;
-
-  private handleClick = () => {
-    this.checked = !this.checked;
-    this.icCheck.emit();
-    this.checkboxChecked.emit();
-  };
-
-  private handleFormReset = (): void => {
-    this.checked = this.initiallyChecked;
-  };
-
-  /**
-   * Sets focus on the checkbox.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    const checkboxEl: HTMLElement =
-      this.host.shadowRoot.querySelector(".checkbox");
-    if (checkboxEl) {
-      checkboxEl.focus();
-    }
-  }
-
-  private IC_TEXT_FIELD: string = "ic-text-field";
-
-  componentDidRender(): void {
-    if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector(this.IC_TEXT_FIELD);
-      if (!this.checked) {
-        textfield && textfield.setAttribute("disabled", "");
-      } else {
-        textfield && textfield.removeAttribute("disabled");
-      }
-    } else {
-      if (!this.checked) {
-        this.additionalFieldContainer.style.display = "none";
-      } else {
-        this.additionalFieldContainer.style.display = "flex";
-      }
-    }
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
+    this.host
+      .querySelector(this.IC_TEXT_FIELD)
+      ?.removeEventListener("icChange", (e) => e.stopImmediatePropagation());
   }
 
   componentWillLoad(): void {
@@ -148,12 +122,44 @@ export class Checkbox {
     );
   }
 
-  disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
-    this.host
-      .querySelector(this.IC_TEXT_FIELD)
-      ?.removeEventListener("icChange", (e) => e.stopImmediatePropagation());
+  componentDidRender(): void {
+    if (this.additionalFieldDisplay === "static") {
+      const textfield = this.host.querySelector(this.IC_TEXT_FIELD);
+      if (!this.checked) {
+        textfield && textfield.setAttribute("disabled", "");
+      } else {
+        textfield && textfield.removeAttribute("disabled");
+      }
+    } else {
+      if (!this.checked) {
+        this.additionalFieldContainer.style.display = "none";
+      } else {
+        this.additionalFieldContainer.style.display = "flex";
+      }
+    }
   }
+
+  /**
+   * Sets focus on the checkbox.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    const checkboxEl: HTMLElement =
+      this.host.shadowRoot.querySelector(".checkbox");
+    if (checkboxEl) {
+      checkboxEl.focus();
+    }
+  }
+
+  private handleClick = () => {
+    this.checked = !this.checked;
+    this.icCheck.emit();
+    this.checkboxChecked.emit();
+  };
+
+  private handleFormReset = (): void => {
+    this.checked = this.initiallyChecked;
+  };
 
   render() {
     let id = `ic-checkbox-${

@@ -36,37 +36,30 @@ import OpenInNew from "../../assets/OpenInNew.svg";
   },
 })
 export class NavigationItem {
+  private navigationSlot: HTMLElement;
+  private isInitialRender: boolean = true;
+  private itemEl: HTMLElement;
+
   @Element() el: HTMLIcNavigationItemElement;
 
-  /**
-   * The label of the navigation item.
-   */
-  @Prop() label: string;
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() focusStyle = getThemeForegroundColor();
+  @State() inTopNavSideMenu: boolean = false;
+  @State() isSideNavMobile: boolean = false;
+  @State() isTopNavChild: boolean = false;
+  @State() navigationType: IcNavType | "";
+  @State() parentEl: HTMLElement;
+  @State() sideNavExpanded: boolean = false;
 
   /**
-   * The destination of the navigation item.
+   * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
    */
-  @Prop() href: string = "";
+  @Prop() collapsedIconLabel: boolean = false;
 
   /**
-   *  The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   * @internal If `true`, the navigation item will be displayed within a tooltip.
    */
-  @Prop() target?: string;
-
-  /**
-   * The relationship of the linked URL as space-separated link types.
-   */
-  @Prop() rel?: string;
-
-  /**
-   * The human language of the linked URL.
-   */
-  @Prop() hreflang?: string;
-
-  /**
-   * How much of the referrer to send when following the link.
-   */
-  @Prop() referrerpolicy?: ReferrerPolicy;
+  @Prop() displayNavigationTooltip: boolean = false;
 
   /**
    * If `true`, the user can save the linked URL instead of navigating to it.
@@ -74,34 +67,44 @@ export class NavigationItem {
   @Prop() download?: string | boolean = false;
 
   /**
+   *  @internal If `true`, the navigation item will be expandable.
+   */
+  @Prop() expandable: boolean = false;
+
+  /**
+   * The destination of the navigation item.
+   */
+  @Prop() href: string = "";
+
+  /**
+   * The human language of the linked URL.
+   */
+  @Prop() hreflang?: string;
+
+  /**
+   * The label of the navigation item.
+   */
+  @Prop() label: string;
+
+  /**
+   * The relationship of the linked URL as space-separated link types.
+   */
+  @Prop() rel?: string;
+
+  /**
+   * How much of the referrer to send when following the link.
+   */
+  @Prop() referrerpolicy?: ReferrerPolicy;
+
+  /**
    *  If `true`, the navigation item will be set in a selected state.
    */
   @Prop() selected: boolean = false;
 
   /**
-   *  @internal If `true`, the navigation item will be expandable.
+   *  The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
-  @Prop() expandable: boolean = false;
-  /**
-   * @internal If `true`, the navigation item will be displayed within a tooltip.
-   */
-  @Prop() displayNavigationTooltip: boolean = false;
-  /**
-   * @internal If `true`, the icon and label will be displayed when side navigation is collapsed.
-   */
-  @Prop() collapsedIconLabel: boolean = false;
-
-  @State() isTopNavChild: boolean = false;
-  @State() inTopNavSideMenu: boolean = false;
-  @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() focusStyle = getThemeForegroundColor();
-  @State() navigationType: IcNavType | "";
-  @State() parentEl: HTMLElement;
-  @State() sideNavExpanded: boolean = false;
-  @State() isSideNavMobile: boolean = false;
-
-  private itemEl: HTMLElement;
-  private navigationSlot: HTMLElement;
+  @Prop() target?: string;
 
   /**
    * @internal - Emitted when item loses focus.
@@ -113,49 +116,19 @@ export class NavigationItem {
    */
   @Event() navItemClicked: EventEmitter<void>;
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.focusStyle = theme.mode;
-  }
-
-  private topNavResizedHandler = (ev: CustomEvent): void => {
-    const newSize = ev.detail.size;
-    if (newSize !== this.deviceSize) {
-      this.deviceSize = newSize;
-      this.inTopNavSideMenu = newSize <= DEVICE_SIZES.L;
-    }
-  };
-
-  private sideNavExpandHandler = (ev: CustomEvent): void => {
-    const { sideNavExpanded, sideNavMobile } = ev.detail;
-    this.sideNavExpanded = sideNavExpanded;
-    this.isSideNavMobile = sideNavMobile;
-  };
-
-  /**
-   * Sets focus on the nav item.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.itemEl) {
-      this.itemEl.focus();
+  disconnectedCallback(): void {
+    if (this.navigationType === "side") {
+      this.parentEl.removeEventListener(
+        "sideNavExpanded",
+        this.sideNavExpandHandler
+      );
+    } else if (this.navigationType === "top") {
+      this.parentEl.removeEventListener(
+        "topNavResized",
+        this.topNavResizedHandler
+      );
     }
   }
-
-  private handleBlur = (ev: FocusEvent) => {
-    if (ev.relatedTarget !== null) {
-      const target = ev.relatedTarget as HTMLElement;
-      if (target.tagName === "IC-NAVIGATION-ITEM") {
-        return;
-      }
-    }
-    this.childBlur.emit();
-  };
-
-  private handleClick = () => {
-    this.navItemClicked.emit();
-  };
 
   componentWillLoad(): void {
     const navParentDetails = getNavItemParentDetails(this.el);
@@ -192,23 +165,23 @@ export class NavigationItem {
     }
   }
 
-  private isInitialRender: boolean = true;
-
   componentDidUpdate(): void {
     this.isInitialRender = false;
   }
 
-  disconnectedCallback(): void {
-    if (this.navigationType === "side") {
-      this.parentEl.removeEventListener(
-        "sideNavExpanded",
-        this.sideNavExpandHandler
-      );
-    } else if (this.navigationType === "top") {
-      this.parentEl.removeEventListener(
-        "topNavResized",
-        this.topNavResizedHandler
-      );
+  @Listen("themeChange", { target: "document" })
+  themeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.focusStyle = theme.mode;
+  }
+
+  /**
+   * Sets focus on the nav item.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.itemEl) {
+      this.itemEl.focus();
     }
   }
 
@@ -271,6 +244,34 @@ export class NavigationItem {
         {ChevronIconComponent}
       </div>
     );
+  };
+
+  private topNavResizedHandler = (ev: CustomEvent): void => {
+    const newSize = ev.detail.size;
+    if (newSize !== this.deviceSize) {
+      this.deviceSize = newSize;
+      this.inTopNavSideMenu = newSize <= DEVICE_SIZES.L;
+    }
+  };
+
+  private sideNavExpandHandler = (ev: CustomEvent): void => {
+    const { sideNavExpanded, sideNavMobile } = ev.detail;
+    this.sideNavExpanded = sideNavExpanded;
+    this.isSideNavMobile = sideNavMobile;
+  };
+
+  private handleBlur = (ev: FocusEvent) => {
+    if (ev.relatedTarget !== null) {
+      const target = ev.relatedTarget as HTMLElement;
+      if (target.tagName === "IC-NAVIGATION-ITEM") {
+        return;
+      }
+    }
+    this.childBlur.emit();
+  };
+
+  private handleClick = () => {
+    this.navItemClicked.emit();
   };
 
   render() {

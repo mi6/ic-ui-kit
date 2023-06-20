@@ -10,35 +10,6 @@ import { IcStepVariants, IcStepStatuses, IcStepTypes } from "./ic-step.types";
 })
 export class Step {
   @Element() el: HTMLIcStepElement;
-  /**
-   * @internal The variant of the step. This is managed by ic-stepper.
-   */
-  @Prop() variant!: IcStepVariants;
-
-  /**
-   * The title of the step within the stepper.
-   */
-  @Prop() stepTitle?: string;
-
-  /**
-   * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
-   */
-  @Prop() stepSubtitle?: string;
-
-  /**
-   * The status of the step. Use this prop to display a status message on the step if it is required or optional.
-   */
-  @Prop() stepStatus?: IcStepStatuses;
-
-  /**
-   * The state of the step within the stepper.
-   */
-  @Prop() stepType?: IcStepTypes = "active";
-
-  /**
-   * @internal If `true`, and a compact stepper  is being used, the current step will be the only step in view.
-   */
-  @Prop({ mutable: true }) current?: boolean = false;
 
   /**
    * @internal If a compact stepper is being used, this sets the styling of the step.
@@ -46,9 +17,9 @@ export class Step {
   @Prop() compactStepStyling?: IcStepTypes;
 
   /**
-   * @internal The step number, managed by ic-stepper.
+   * @internal If `true`, and a compact stepper  is being used, the current step will be the only step in view.
    */
-  @Prop() stepNum?: number;
+  @Prop({ mutable: true }) current?: boolean = false;
 
   /**
    * @internal If `true`, the step will be marked as being the last one in the series. This is managed by ic-stepper.
@@ -69,6 +40,36 @@ export class Step {
    * @internal The progress of the next step, calculated by dividing the current step number by the total number of steps. This is managed by ic-stepper.
    */
   @Prop() progress?: number;
+
+  /**
+   * @internal The step number, managed by ic-stepper.
+   */
+  @Prop() stepNum?: number;
+
+  /**
+   * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+   */
+  @Prop() stepStatus?: IcStepStatuses;
+
+  /**
+   * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
+   */
+  @Prop() stepSubtitle?: string;
+
+  /**
+   * The title of the step within the stepper.
+   */
+  @Prop() stepTitle?: string;
+
+  /**
+   * @internal The variant of the step. This is managed by ic-stepper.
+   */
+  @Prop() variant!: IcStepVariants;
+
+  /**
+   * The state of the step within the stepper.
+   */
+  @Prop() stepType?: IcStepTypes = "active";
 
   @Watch("stepType")
   stepTypeChangeHandler(): void {

@@ -13,7 +13,20 @@ import {
 
 // Added ResizeObserver to find out width of breadcrumbs and parents. Use side navigation long title for ref.
 export class BreadcrumbGroup {
+  private ADD_CLASS_DELAY = 50;
+  private breadcrumb: HTMLIcBreadcrumbElement;
+  private breadcrumbs: HTMLIcBreadcrumbElement[];
+  private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
+  private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
+  private IC_BREADCRUMB: string = "ic-breadcrumb";
+  private resizeObserver: ResizeObserver = null;
+  private SHOW_BACK_ICON: string = "show-back-icon";
+
   @Element() el: HTMLIcBreadcrumbGroupElement;
+
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() expandedBreadcrumbs: boolean = false;
+
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
@@ -23,16 +36,29 @@ export class BreadcrumbGroup {
    */
   @Prop() collapsed: boolean = false;
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() expandedBreadcrumbs: boolean = false;
+  componentWillLoad(): void {
+    const allBreadcrumbs = Array.from(
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
+    );
 
-  private breadcrumbs: HTMLIcBreadcrumbElement[];
-  private breadcrumb: HTMLIcBreadcrumbElement;
-  private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
-  private ADD_CLASS_DELAY = 50;
-  private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
-  private SHOW_BACK_ICON: string = "show-back-icon";
-  private IC_BREADCRUMB: string = "ic-breadcrumb";
+    if (this.backBreadcrumbOnly) {
+      this.setBackBreadcrumb();
+    } else {
+      checkResizeObserver(this.runResizeObserver);
+    }
+
+    if (this.collapsed) {
+      this.collapsedBreadcrumbWrapper = this.renderCollapsedBreadcrumb();
+
+      if (allBreadcrumbs.length > 2) {
+        if (getCurrentDeviceSize() === DEVICE_SIZES.S) {
+          this.setLastParentCollapsedBackBreadcrumb();
+        } else {
+          this.setCollapsed();
+        }
+      }
+    }
+  }
 
   private setBackBreadcrumb = () => {
     if (this.backBreadcrumbOnly) {
@@ -174,8 +200,6 @@ export class BreadcrumbGroup {
     this.lastParentBreadcrumb.setAttribute(this.SHOW_BACK_ICON, "false");
   };
 
-  private resizeObserver: ResizeObserver = null;
-
   private resizeObserverCallback = (currSize: number) => {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
@@ -211,30 +235,6 @@ export class BreadcrumbGroup {
 
     this.resizeObserver.observe(this.el);
   };
-
-  componentWillLoad(): void {
-    const allBreadcrumbs = Array.from(
-      this.el.querySelectorAll(this.IC_BREADCRUMB)
-    );
-
-    if (this.backBreadcrumbOnly) {
-      this.setBackBreadcrumb();
-    } else {
-      checkResizeObserver(this.runResizeObserver);
-    }
-
-    if (this.collapsed) {
-      this.collapsedBreadcrumbWrapper = this.renderCollapsedBreadcrumb();
-
-      if (allBreadcrumbs.length > 2) {
-        if (getCurrentDeviceSize() === DEVICE_SIZES.S) {
-          this.setLastParentCollapsedBackBreadcrumb();
-        } else {
-          this.setCollapsed();
-        }
-      }
-    }
-  }
 
   render() {
     return (

@@ -19,50 +19,57 @@ export class PaginationItem {
   @Element() el: HTMLIcPaginationItemElement;
 
   /**
-   * The current page number.
-   */
-  @Prop() page: number | null;
-  /**
-   * If `true`, the pagination item will be selected.
-   */
-  @Prop() selected: boolean = false;
-  /**
-   * The type of pagination item - 'page' or 'ellipsis'.
-   */
-  @Prop() type: IcPaginationItemType;
-  /**
-   * If `true`, the pagination item will be disabled.
-   */
-  @Prop() disabled: boolean = false;
-  /**
    * The appearance of the pagination, e.g. dark, light or the default.
    */
   @Prop() appearance: IcThemeForeground;
-  /**
-   * The label for the pagination item (applicable when simple pagination is being used).
-   */
-  @Prop() label: string = "Page ";
+
   /**
    * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
    */
   @Prop() ariaOverride: boolean = false;
+
+  /**
+   * If `true`, the pagination item will be disabled.
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
+   * The label for the pagination item (applicable when simple pagination is being used).
+   */
+  @Prop() label: string = "Page ";
+
+  /**
+   * The current page number.
+   */
+  @Prop() page: number | null;
+
   /**
    * The total number of pages.
    */
   @Prop() pages: number;
 
   /**
+   * If `true`, the pagination item will be selected.
+   */
+  @Prop() selected: boolean = false;
+
+  /**
+   * The type of pagination item - 'page' or 'ellipsis'.
+   */
+  @Prop() type: IcPaginationItemType;
+
+  /**
    * @internal - Emitted when a pagination item is clicked.
    */
   @Event() paginationItemClick: EventEmitter<{ page: number }>;
 
-  private handleClick = () => {
-    this.paginationItemClick.emit({ page: this.page });
-  };
-
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
   }
+
+  private handleClick = () => {
+    this.paginationItemClick.emit({ page: this.page });
+  };
 
   render() {
     const {

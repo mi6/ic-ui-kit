@@ -40,6 +40,10 @@ export class Theme {
    */
   @Event() themeChange: EventEmitter<IcTheme>;
 
+  componentWillLoad(): void {
+    this.setThemeColor();
+  }
+
   private checkThemeColorContrast = (): void => {
     if (
       getThemeColorBrightness() < BLACK_MIN_COLOR_BRIGHTNESS &&
@@ -78,10 +82,6 @@ export class Theme {
       this.themeChange.emit({ mode: foregroundColor, color: colorRGBA });
     }
   };
-
-  componentWillLoad(): void {
-    this.setThemeColor();
-  }
 
   render() {
     return <Host></Host>;

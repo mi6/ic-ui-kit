@@ -24,6 +24,15 @@ type FooterConfig = { small: boolean; grouped: boolean };
 export class FooterLink {
   @Element() el: HTMLIcFooterLinkElement;
 
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() footerConfig: FooterConfig = { small: false, grouped: false };
+  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+
+  /**
+   * If `true`, the user can save the linked URL instead of navigating to it.
+   */
+  @Prop() download?: string | boolean = false;
+
   /**
    * The URL that the link points to.
    */
@@ -49,16 +58,20 @@ export class FooterLink {
    */
   @Prop() target?: string;
 
-  /**
-   * If `true`, the user can save the linked URL instead of navigating to it.
-   */
-  @Prop() download?: string | boolean = false;
+  componentWillLoad(): void {
+    this.footerConfig = this.inferConfig(this.el);
+  }
 
-  @State() footerConfig: FooterConfig = { small: false, grouped: false };
+  @Listen("footerResized", { target: "document" })
+  footerResizeHandler(): void {
+    this.footerConfig = this.inferConfig(this.el);
+  }
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
-
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @Listen("themeChange", { target: "document" })
+  footerThemeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.foregroundColor = theme.mode;
+  }
 
   private inferConfig(e: HTMLElement): FooterConfig {
     if (e.parentElement !== null) {
@@ -73,21 +86,6 @@ export class FooterLink {
     } else {
       return { small: false, grouped: false };
     }
-  }
-
-  @Listen("footerResized", { target: "document" })
-  footerResizeHandler(): void {
-    this.footerConfig = this.inferConfig(this.el);
-  }
-
-  @Listen("themeChange", { target: "document" })
-  footerThemeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
-  }
-
-  componentWillLoad(): void {
-    this.footerConfig = this.inferConfig(this.el);
   }
 
   render() {

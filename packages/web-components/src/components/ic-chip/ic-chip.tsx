@@ -30,35 +30,33 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
 export class Chip {
   @Element() el: HTMLIcChipElement;
 
-  /**
-   * The text rendered within the chip.
-   */
-  @Prop() label!: string;
+  @State() isHovered: boolean = false;
+  @State() visible: boolean = true;
+
   /**
    * The emphasis of the chip.
    */
   @Prop() appearance?: IcChipAppearance = "filled";
-  /**
-   * The size of the chip.
-   */
-  @Prop() size?: IcChipSizes = "default";
-  /**
-   * If `true`, the chip will have a close button at the end to dismiss it.
-   */
-  @Prop() dismissible?: boolean = false;
+
   /**
    * If `true`, the chip will appear disabled.
    */
   @Prop() disabled?: boolean = false;
 
-  @State() visible: boolean = true;
+  /**
+   * If `true`, the chip will have a close button at the end to dismiss it.
+   */
+  @Prop() dismissible?: boolean = false;
 
-  @State() isHovered: boolean = false;
+  /**
+   * The text rendered within the chip.
+   */
+  @Prop() label!: string;
 
-  @Listen("icDismiss", { capture: true })
-  handleClick(): void {
-    this.visible = !this.visible;
-  }
+  /**
+   * The size of the chip.
+   */
+  @Prop() size?: IcChipSizes = "default";
 
   /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.
@@ -69,29 +67,6 @@ export class Chip {
    * Is emitted when the user dismisses the chip.
    */
   @Event() icDismiss: EventEmitter<void>;
-
-  private dismissAction = (): void => {
-    this.dismiss.emit();
-    this.icDismiss.emit();
-  };
-
-  private mouseEnterHandler = (): void => {
-    this.isHovered = true;
-  };
-
-  private mouseLeaveHandler = (): void => {
-    this.isHovered = false;
-  };
-
-  /**
-   * Sets focus on the chip.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("button")) {
-      this.el.shadowRoot.querySelector("button").focus();
-    }
-  }
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
@@ -107,6 +82,34 @@ export class Chip {
       "Chip"
     );
   }
+
+  @Listen("icDismiss", { capture: true })
+  handleClick(): void {
+    this.visible = !this.visible;
+  }
+
+  /**
+   * Sets focus on the chip.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("button")) {
+      this.el.shadowRoot.querySelector("button").focus();
+    }
+  }
+
+  private dismissAction = (): void => {
+    this.dismiss.emit();
+    this.icDismiss.emit();
+  };
+
+  private mouseEnterHandler = (): void => {
+    this.isHovered = true;
+  };
+
+  private mouseLeaveHandler = (): void => {
+    this.isHovered = false;
+  };
 
   render() {
     const {

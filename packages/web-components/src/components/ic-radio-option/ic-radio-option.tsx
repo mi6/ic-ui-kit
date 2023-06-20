@@ -26,35 +26,12 @@ import {
   },
 })
 export class RadioOption {
+  private defaultRadioValue: string = "";
+  private hasAdditionalField: boolean = false;
   private radioElement: HTMLInputElement;
-  /**
-   * If `true`, the radio option will be displayed in a selected state.
-   */
-  @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
-  /**
-   * If `true`, the disabled state will be set.
-   */
-  @Prop() disabled?: boolean = false;
-  /**
-   * The label for the radio option.
-   */
-  @Prop() label?: string;
-  /**
-   * The value for the radio option.
-   */
-  @Prop({ mutable: true }) value!: string;
-  /**
-   * The name for the radio option.
-   */
-  @Prop() name: string;
-  /**
-   * The group label for the radio option.
-   */
-  @Prop() groupLabel: string;
-  /**
-   * The text to be displayed when dynamic.
-   */
-  @Prop() dynamicText: string = "This selection requires additional answers";
+  private skipFocus = false;
+
+  @Element() host: HTMLIcRadioOptionElement;
 
   /**
    * The style of additionalField that will be displayed if used.
@@ -62,14 +39,42 @@ export class RadioOption {
   @Prop({ reflect: true }) additionalFieldDisplay: IcAdditionalFieldTypes =
     "static";
 
-  @State() initiallySelected = this.selected;
-
-  @Element() host: HTMLIcRadioOptionElement;
+  /**
+   * If `true`, the disabled state will be set.
+   */
+  @Prop() disabled?: boolean = false;
 
   /**
-   * @deprecated This event should not be used anymore. Use icCheck instead.
+   * The text to be displayed when dynamic.
    */
-  @Event() radioOptionSelect: EventEmitter<IcValueEventDetail>;
+  @Prop() dynamicText: string = "This selection requires additional answers";
+
+  /**
+   * The group label for the radio option.
+   */
+  @Prop() groupLabel: string;
+
+  /**
+   * The label for the radio option.
+   */
+  @Prop() label?: string;
+
+  /**
+   * The name for the radio option.
+   */
+  @Prop() name: string;
+
+  /**
+   * If `true`, the radio option will be displayed in a selected state.
+   */
+  @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
+
+  @State() initiallySelected = this.selected;
+
+  /**
+   * The value for the radio option.
+   */
+  @Prop({ mutable: true }) value!: string;
 
   /**
    * Emitted when a radio is selected.
@@ -77,46 +82,14 @@ export class RadioOption {
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
 
   /**
-   * Sets focus on the radio option.
+   * @deprecated This event should not be used anymore. Use icCheck instead.
    */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.host.shadowRoot.querySelector("input")) {
-      this.host.shadowRoot.querySelector("input").focus();
-    }
+  @Event() radioOptionSelect: EventEmitter<IcValueEventDetail>;
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
   }
 
-  private defaultRadioValue: string = "";
-  private skipFocus = false;
-
-  private handleClick = () => {
-    if (!this.disabled) {
-      if (this.skipFocus === false) {
-        this.radioElement.focus();
-      }
-      this.skipFocus = false;
-
-      if (this.hasAdditionalField) {
-        const textfield = this.host.querySelector("ic-text-field");
-        this.value =
-          textfield.value !== "" ? textfield.value : this.defaultRadioValue;
-      }
-
-      this.icCheck.emit({
-        value: this.value,
-      });
-
-      this.radioOptionSelect.emit({
-        value: this.value,
-      });
-    }
-  };
-
-  private swallowClick = (event: MouseEvent) => {
-    event.stopPropagation();
-  };
-
-  private hasAdditionalField: boolean = false;
   componentWillLoad(): void {
     const additonalFieldContent = getSlotContent(this.host, "additional-field");
 
@@ -136,10 +109,23 @@ export class RadioOption {
     removeDisabledFalse(this.disabled, this.host);
   }
 
-  private handleFormReset = (): void => {
-    this.skipFocus = true;
-    this.selected = this.initiallySelected;
-  };
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.value, propName: "value" }],
+      "Radio Option"
+    );
+  }
+
+  componentDidRender(): void {
+    if (this.additionalFieldDisplay === "static") {
+      const textfield = this.host.querySelector("ic-text-field");
+      if (!this.selected) {
+        textfield && textfield.setAttribute("disabled", "");
+      } else {
+        textfield && textfield.removeAttribute("disabled");
+      }
+    }
+  }
 
   @Listen("icChange")
   textfieldValueHandler(event: CustomEvent<{ value: string }>): void {
@@ -168,27 +154,47 @@ export class RadioOption {
     event.stopImmediatePropagation();
   }
 
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.value, propName: "value" }],
-      "Radio Option"
-    );
-  }
-
-  componentDidRender(): void {
-    if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector("ic-text-field");
-      if (!this.selected) {
-        textfield && textfield.setAttribute("disabled", "");
-      } else {
-        textfield && textfield.removeAttribute("disabled");
-      }
+  /**
+   * Sets focus on the radio option.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.host.shadowRoot.querySelector("input")) {
+      this.host.shadowRoot.querySelector("input").focus();
     }
   }
 
-  disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
-  }
+  private handleClick = () => {
+    if (!this.disabled) {
+      if (this.skipFocus === false) {
+        this.radioElement.focus();
+      }
+      this.skipFocus = false;
+
+      if (this.hasAdditionalField) {
+        const textfield = this.host.querySelector("ic-text-field");
+        this.value =
+          textfield.value !== "" ? textfield.value : this.defaultRadioValue;
+      }
+
+      this.icCheck.emit({
+        value: this.value,
+      });
+
+      this.radioOptionSelect.emit({
+        value: this.value,
+      });
+    }
+  };
+
+  private swallowClick = (event: MouseEvent) => {
+    event.stopPropagation();
+  };
+
+  private handleFormReset = (): void => {
+    this.skipFocus = true;
+    this.selected = this.initiallySelected;
+  };
 
   render() {
     const id = `ic-radio-option-${
