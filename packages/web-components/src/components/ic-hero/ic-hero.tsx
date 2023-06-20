@@ -35,15 +35,37 @@ import { IcHeroContentAlignments } from "./ic-hero.types";
 export class Hero {
   @Element() el: HTMLIcHeroElement;
 
+  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() rightContent: boolean = false;
+  // set by above state
+  @State() leftContentFullWidth: boolean =
+    !this.rightContent && this.secondaryHeading === undefined;
+  @State() scrollFactor: string = "right -100px";
+
+  /**
+   * The alignment of the hero.
+   */
+  @Prop() aligned: IcAlignment = "left";
+
+  /**
+   * The optional background image.
+   */
+  @Prop() backgroundImage?: string;
+
+  /**
+   * The alignment of the hero content.
+   */
+  @Prop() contentAligned: IcHeroContentAlignments = "left";
+
+  /**
+   * If `true`, the background image (if set) will not scroll using a parallax effect.
+   */
+  @Prop() disableBackgroundParallax?: boolean = false;
+
   /**
    * The heading of the hero.
    */
   @Prop() heading!: string;
-
-  /**
-   * The description for the hero.
-   */
-  @Prop() subheading?: string;
 
   /**
    * The optional secondary heading, replaced by slotted right content.
@@ -56,38 +78,29 @@ export class Hero {
   @Prop() secondarySubheading?: string;
 
   /**
-   * The optional background image.
-   */
-  @Prop() backgroundImage?: string;
-
-  /**
-   * If `true`, the background image (if set) will not scroll using a parallax effect.
-   */
-  @Prop() disableBackgroundParallax?: boolean = false;
-
-  /**
-   * The alignment of the hero.
-   */
-  @Prop() aligned: IcAlignment = "left";
-
-  /**
-   * The alignment of the hero content.
-   */
-  @Prop() contentAligned: IcHeroContentAlignments = "left";
-
-  /**
    * If `true`, the small styling will be applied to the hero.
    */
   @Prop() small: boolean = false;
 
-  @State() rightContent: boolean = false;
+  /**
+   * The description for the hero.
+   */
+  @Prop() subheading?: string;
 
-  @State() scrollFactor: string = "right -100px";
+  componentWillLoad(): void {
+    this.rightContent = slotHasContent(this.el, "secondary");
+  }
 
-  @State() leftContentFullWidth: boolean =
-    !this.rightContent && this.secondaryHeading === undefined;
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.heading, propName: "heading" }],
+      "Hero"
+    );
+  }
 
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  componentWillRender(): void {
+    this.rightContent = slotHasContent(this.el, "secondary");
+  }
 
   @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
@@ -105,21 +118,6 @@ export class Hero {
     const factor = 0.4;
     const y = -100 + scrolltotop * factor;
     this.scrollFactor = "right " + y + "px";
-  }
-
-  componentWillLoad(): void {
-    this.rightContent = slotHasContent(this.el, "secondary");
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.heading, propName: "heading" }],
-      "Hero"
-    );
-  }
-
-  componentWillRender(): void {
-    this.rightContent = slotHasContent(this.el, "secondary");
   }
 
   render() {

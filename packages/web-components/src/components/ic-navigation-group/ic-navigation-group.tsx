@@ -27,38 +27,79 @@ import chevronIcon from "../../assets/chevron-icon.svg";
   },
 })
 export class NavigationGroup {
+  private dropdown: HTMLElement;
+  private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
+  private groupEl: HTMLElement;
+  private IC_NAVIGATION_ITEM = "ic-navigation-item";
+  private mouseGate: boolean = false;
+  private nodeName = "IC-NAVIGATION-GROUP";
+
   @Element() el: HTMLIcNavigationGroupElement;
 
-  /**
-   * The label to display on the group.
-   */
-  @Prop() label: string;
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() dropdownOpen: boolean = false;
+  @State() expanded: boolean = true;
+  @State() focusStyle = getThemeForegroundColor();
+  @State() inTopNavSideMenu: boolean = false;
+  @State() navigationType: IcNavType | "";
+  @State() parentEl: HTMLElement;
 
   /**
    *  If `true`, the group will be expandable in the side menu.
    */
   @Prop() expandable: boolean = false;
 
-  @State() dropdownOpen: boolean = false;
+  /**
+   * The label to display on the group.
+   */
+  @Prop() label: string;
 
-  @State() inTopNavSideMenu: boolean = false;
+  disconnectedCallback(): void {
+    if (this.navigationType === "side") {
+      this.parentEl.removeEventListener(
+        "sideNavExpanded",
+        this.sideNavExpandHandler
+      );
+    } else if (this.navigationType === "top") {
+      this.parentEl.removeEventListener(
+        "topNavResized",
+        this.topNavResizedHandler
+      );
+    }
+  }
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
+  componentWillLoad(): void {
+    this.deviceSize = getCurrentDeviceSize();
+    const navParentDetails = getNavItemParentDetails(this.el);
+    this.navigationType = navParentDetails.navType;
+    this.parentEl = navParentDetails.parent;
+    if (this.deviceSize <= DEVICE_SIZES.L && this.navigationType === "top") {
+      this.inTopNavSideMenu = true;
+    }
 
-  @State() focusStyle = getThemeForegroundColor();
+    if (this.navigationType === "side") {
+      this.parentEl.addEventListener(
+        "sideNavExpanded",
+        this.sideNavExpandHandler
+      );
+    } else if (this.navigationType === "top") {
+      this.parentEl.addEventListener(
+        "topNavResized",
+        this.topNavResizedHandler
+      );
+    }
+  }
 
-  @State() navigationType: IcNavType | "";
-
-  @State() parentEl: HTMLElement;
-
-  @State() expanded: boolean = true;
-
-  private groupEl: HTMLElement;
-  private dropdown: HTMLElement;
-  private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
-  private IC_NAVIGATION_ITEM = "ic-navigation-item";
-  private nodeName = "IC-NAVIGATION-GROUP";
-  private mouseGate: boolean = false;
+  componentDidLoad(): void {
+    /**
+     * debounce is required as the incorrect height was retrieved instantly after
+     * componentDidLoad is invoked.
+     */
+    setTimeout(
+      () => this.setInitialGroupedLinksWrapperHeight(),
+      this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS
+    );
+  }
 
   @Listen("childBlur")
   childBlurHandler(): void {
@@ -317,53 +358,6 @@ export class NavigationGroup {
 
     return null;
   };
-
-  componentWillLoad(): void {
-    this.deviceSize = getCurrentDeviceSize();
-    const navParentDetails = getNavItemParentDetails(this.el);
-    this.navigationType = navParentDetails.navType;
-    this.parentEl = navParentDetails.parent;
-    if (this.deviceSize <= DEVICE_SIZES.L && this.navigationType === "top") {
-      this.inTopNavSideMenu = true;
-    }
-
-    if (this.navigationType === "side") {
-      this.parentEl.addEventListener(
-        "sideNavExpanded",
-        this.sideNavExpandHandler
-      );
-    } else if (this.navigationType === "top") {
-      this.parentEl.addEventListener(
-        "topNavResized",
-        this.topNavResizedHandler
-      );
-    }
-  }
-
-  componentDidLoad(): void {
-    /**
-     * debounce is required as the incorrect height was retrieved instantly after
-     * componentDidLoad is invoked.
-     */
-    setTimeout(
-      () => this.setInitialGroupedLinksWrapperHeight(),
-      this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS
-    );
-  }
-
-  disconnectedCallback(): void {
-    if (this.navigationType === "side") {
-      this.parentEl.removeEventListener(
-        "sideNavExpanded",
-        this.sideNavExpandHandler
-      );
-    } else if (this.navigationType === "top") {
-      this.parentEl.removeEventListener(
-        "topNavResized",
-        this.topNavResizedHandler
-      );
-    }
-  }
 
   render() {
     const { label, dropdownOpen, inTopNavSideMenu, expandable } = this;

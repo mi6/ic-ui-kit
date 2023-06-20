@@ -40,75 +40,98 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 export class Card {
   @Element() el: HTMLIcCardElement;
 
+  @State() appearance?: IcThemeForeground = "default";
+  @State() areaExpanded: boolean = false;
+  @State() isFocussed: boolean = false;
+  @State() parentEl: HTMLElement | null = null;
+  @State() parentIsAnchorTag: boolean = false;
+
   /**
    * If `true`, the card will be a clickable variant, instead of static.
    */
   @Prop({ mutable: true }) clickable?: boolean = false;
-  /**
-   * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
-   */
-  @Prop() href?: string | undefined;
-  /**
-   * The human language of the linked URL.
-   */
-  @Prop() hreflang?: string = "";
-  /**
-   * How much of the referrer to send when following the link.
-   */
-  @Prop() referrerpolicy?: ReferrerPolicy;
-  /**
-   * The relationship of the linked URL as space-separated link types.
-   */
-  @Prop() rel?: string;
-  /**
-   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-   */
-  @Prop() target?: string;
-  /**
-   * The heading for the card.
-   */
-  @Prop() heading!: string;
-  /**
-   * The subheading for the card.
-   */
-  @Prop() subheading?: string;
-  /**
-   * The main body message of the card.
-   */
-  @Prop() message?: string = "";
+
   /**
    * If `true`, the card will be disabled if it is clickable.
    */
   @Prop() disabled?: boolean = false;
-  /**
-   *  If `true`, the card will fill the width of the container.
-   */
-  @Prop() fullWidth?: boolean = false;
+
   /**
    *  If `true`, the card will have an expandable area and expansion toggle button.
    */
   @Prop() expandable?: boolean = false;
 
-  @State() parentIsAnchorTag: boolean = false;
-
-  @State() isFocussed: boolean = false;
-
-  @State() parentEl: HTMLElement | null = null;
-
-  @State() appearance?: IcThemeForeground = "default";
-
-  @State() areaExpanded: boolean = false;
+  /**
+   *  If `true`, the card will fill the width of the container.
+   */
+  @Prop() fullWidth?: boolean = false;
 
   /**
-   * Sets focus on the card.
+   * The heading for the card.
    */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("a")) {
-      this.el.shadowRoot.querySelector("a").focus();
-    } else if (this.el.shadowRoot.querySelector("button")) {
-      this.el.shadowRoot.querySelector("button").focus();
+  @Prop() heading!: string;
+
+  /**
+   * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
+   */
+  @Prop() href?: string | undefined;
+
+  /**
+   * The human language of the linked URL.
+   */
+  @Prop() hreflang?: string = "";
+
+  /**
+   * The main body message of the card.
+   */
+  @Prop() message?: string = "";
+
+  /**
+   * How much of the referrer to send when following the link.
+   */
+  @Prop() referrerpolicy?: ReferrerPolicy;
+
+  /**
+   * The relationship of the linked URL as space-separated link types.
+   */
+  @Prop() rel?: string;
+
+  /**
+   * The subheading for the card.
+   */
+  @Prop() subheading?: string;
+
+  /**
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   */
+  @Prop() target?: string;
+
+  disconnectedCallback(): void {
+    if (this.parentIsAnchorTag) {
+      this.parentEl.removeEventListener("focus", this.parentFocussed);
+      this.parentEl.removeEventListener("blur", this.parentBlurred);
     }
+  }
+
+  componentWillLoad(): void {
+    this.parentEl = this.el.parentElement;
+
+    if (this.parentEl.tagName === "A") {
+      this.clickable = true;
+      this.parentIsAnchorTag = true;
+      this.parentEl.classList.add("ic-card-wrapper-link");
+      this.parentEl.addEventListener("focus", this.parentFocussed);
+      this.parentEl.addEventListener("blur", this.parentBlurred);
+    }
+    removeDisabledFalse(this.disabled, this.el);
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.heading, propName: "heading" }],
+      "Card"
+    );
+    this.updateTheme();
   }
 
   @Listen("click", { capture: true })
@@ -122,6 +145,18 @@ export class Card {
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.updateTheme(theme.mode);
+  }
+
+  /**
+   * Sets focus on the card.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("a")) {
+      this.el.shadowRoot.querySelector("a").focus();
+    } else if (this.el.shadowRoot.querySelector("button")) {
+      this.el.shadowRoot.querySelector("button").focus();
+    }
   }
 
   private parentFocussed = (): void => {
@@ -143,35 +178,6 @@ export class Card {
   private toggleExpanded = (): void => {
     this.areaExpanded = !this.areaExpanded;
   };
-
-  componentWillLoad(): void {
-    this.parentEl = this.el.parentElement;
-
-    if (this.parentEl.tagName === "A") {
-      this.clickable = true;
-      this.parentIsAnchorTag = true;
-      this.parentEl.classList.add("ic-card-wrapper-link");
-      this.parentEl.addEventListener("focus", this.parentFocussed);
-      this.parentEl.addEventListener("blur", this.parentBlurred);
-    }
-
-    removeDisabledFalse(this.disabled, this.el);
-  }
-
-  disconnectedCallback(): void {
-    if (this.parentIsAnchorTag) {
-      this.parentEl.removeEventListener("focus", this.parentFocussed);
-      this.parentEl.removeEventListener("blur", this.parentBlurred);
-    }
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.heading, propName: "heading" }],
-      "Card"
-    );
-    this.updateTheme();
-  }
 
   render() {
     const {

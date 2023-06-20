@@ -25,7 +25,14 @@ import { removeDisabledFalse } from "../../utils/helpers";
   shadow: true,
 })
 export class Tab {
+  private focusFromClick: boolean = false;
+  private focusTabId: string;
+  private isInitialRender: boolean = true;
+
   @Element() host: HTMLIcTabElement;
+
+  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /** @internal The unique context needed if using multiple tabs inside one another i.e. rendering another tabs inside a tab panel. */
   @Prop({ reflect: true }) contextId?: string = "default";
@@ -44,31 +51,56 @@ export class Tab {
   /** @internal The position of the tab inside the tabs array in context. */
   @Prop() tabPosition?: number;
 
-  /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
-
   /**
    * @internal Emitted when a tab is selected.
    */
   @Event() tabClick: EventEmitter<IcTabClickEventDetail>;
 
   /**
-   * @internal Emitted when a tab is focussed.
-   */
-  @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
-  /**
    * @internal Emitted when a tab is dynamically created.
    */
   @Event() tabCreated: EventEmitter<HTMLIcTabElement>;
+
+  /**
+   * @internal Emitted when a tab is focussed.
+   */
+  @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
 
   /**
    * @internal Emitted when a tab is unmounted.
    */
   @Event() tabRemoved: EventEmitter<void>;
 
-  private isInitialRender: boolean = true;
-  private focusFromClick: boolean = false;
-  private focusTabId: string;
+  connectedCallback(): void {
+    this.tabCreated.emit(this.host);
+  }
+
+  disconnectedCallback(): void {
+    const tabContext = document.querySelector(
+      `ic-tab-context[context-id=${this.contextId}]`
+    ) as HTMLIcTabContextElement;
+    if (tabContext) {
+      tabContext.tabRemovedHandler(!!this.focusTabId);
+    }
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
+  }
+
+  componentDidUpdate(): void {
+    this.isInitialRender = false;
+  }
+
+  /**
+   * Sets focus on the tab.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.host) {
+      this.host.focus();
+    }
+  }
 
   private handleClick = () => {
     this.tabClick.emit({
@@ -104,37 +136,6 @@ export class Tab {
     //the focus does need to be a seperate event though to handle focus from keyboard
     this.focusFromClick = true;
   };
-
-  /**
-   * Sets focus on the tab.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.host) {
-      this.host.focus();
-    }
-  }
-
-  componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
-  }
-
-  componentDidUpdate(): void {
-    this.isInitialRender = false;
-  }
-
-  connectedCallback(): void {
-    this.tabCreated.emit(this.host);
-  }
-
-  disconnectedCallback(): void {
-    const tabContext = document.querySelector(
-      `ic-tab-context[context-id=${this.contextId}]`
-    ) as HTMLIcTabContextElement;
-    if (tabContext) {
-      tabContext.tabRemovedHandler(!!this.focusTabId);
-    }
-  }
 
   render() {
     const { disabled, selected, appearance } = this;

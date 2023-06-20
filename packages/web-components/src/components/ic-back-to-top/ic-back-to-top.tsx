@@ -15,18 +15,20 @@ const backToTopLabel = "Back to top";
   },
 })
 export class BackToTop {
+  private isTargetElNull: boolean;
+  private targetEl: Element;
+  private topObserver: IntersectionObserver = null;
+
   @Element() el: HTMLIcBackToTopElement;
+
+  @State() bannerOffset: boolean = false;
+  @State() footerVisible: boolean = false;
+  @State() targetElVisible: boolean = true;
 
   /**
    * The ID of the element to jump back to when the link is clicked.
    */
   @Prop() target!: string;
-
-  @State() bannerOffset: boolean = false;
-
-  @State() targetElVisible: boolean = true;
-
-  @State() footerVisible: boolean = false;
 
   @Watch("target")
   watchPropHandler(newValue: string, oldValue: string): void {
@@ -35,9 +37,36 @@ export class BackToTop {
       this.createTopObserver(newValue);
     });
   }
-  private topObserver: IntersectionObserver = null;
-  private targetEl: Element;
-  private isTargetElNull: boolean;
+
+  componentWillLoad(): void {
+    this.createTopObserver(this.target);
+    this.checkForClassificationBanner();
+
+    //observer for when footer scrolls into view
+    let footers = document.querySelectorAll(
+      "ic-footer"
+    ) as NodeListOf<HTMLElement>;
+    if (footers.length === 0) {
+      footers = document.querySelectorAll("footer");
+    }
+
+    if (footers.length) {
+      const footerEl = footers[footers.length - 1];
+      const threshold = this.bannerOffset ? 0.15 : 0;
+      const footerObserver = new IntersectionObserver(
+        this.footerObserverCallback,
+        { threshold: [threshold] }
+      );
+      footerObserver.observe(footerEl);
+    }
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.target, propName: "target" }],
+      "Back to Top"
+    );
+  }
 
   private setTargetElVisible = (visible: boolean) => {
     this.targetElVisible = visible;
@@ -130,36 +159,6 @@ export class BackToTop {
     );
     this.bannerOffset = banners.length > 0;
   };
-
-  componentWillLoad(): void {
-    this.createTopObserver(this.target);
-    this.checkForClassificationBanner();
-
-    //observer for when footer scrolls into view
-    let footers = document.querySelectorAll(
-      "ic-footer"
-    ) as NodeListOf<HTMLElement>;
-    if (footers.length === 0) {
-      footers = document.querySelectorAll("footer");
-    }
-
-    if (footers.length) {
-      const footerEl = footers[footers.length - 1];
-      const threshold = this.bannerOffset ? 0.15 : 0;
-      const footerObserver = new IntersectionObserver(
-        this.footerObserverCallback,
-        { threshold: [threshold] }
-      );
-      footerObserver.observe(footerEl);
-    }
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.target, propName: "target" }],
-      "Back to Top"
-    );
-  }
 
   render() {
     const { bannerOffset, targetElVisible, footerVisible } = this;

@@ -26,39 +26,39 @@ import { VARIANT_ICONS } from "../../utils/constants";
 export class Alert {
   @Element() el: HTMLIcAlertElement;
 
-  /**
-   * The variant of the alert which will be rendered.
-   */
-  @Prop() variant?: IcStatusVariants = "neutral";
-  /**
-   * The optional title to display at the start of the alert.
-   */
-  @Prop() heading?: string = "";
-  /**
-   * The main body message of the alert.
-   */
-  @Prop() message?: string;
-  /**
-   * If `true`, the title and message will appear inline instead of above and below.
-   */
-  @Prop() titleAbove?: boolean = false;
-  /**
-   * If `true`, the alert will have a close icon at the end to dismiss it.
-   */
-  @Prop() dismissible?: boolean = false;
+  @State() alertTitleWrap: boolean = false;
+  @State() visible: boolean = true;
+
   /**
    * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
    */
   @Prop() announced?: boolean = true;
 
-  @State() visible: boolean = true;
+  /**
+   * If `true`, the alert will have a close icon at the end to dismiss it.
+   */
+  @Prop() dismissible?: boolean = false;
 
-  @State() alertTitleWrap: boolean = false;
+  /**
+   * The optional title to display at the start of the alert.
+   */
+  @Prop() heading?: string = "";
 
-  @Listen("icDismiss", { capture: true })
-  handleClick(): void {
-    this.visible = !this.visible;
-  }
+  /**
+   * The main body message of the alert.
+   */
+  @Prop() message?: string;
+
+  /**
+   * If `true`, the title and message will appear inline instead of above and below.
+   */
+  @Prop() titleAbove?: boolean = false;
+
+  /**
+   * The variant of the alert which will be rendered.
+   */
+  @Prop() variant?: IcStatusVariants = "neutral";
+
   /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.
    */
@@ -69,6 +69,15 @@ export class Alert {
    */
   @Event() icDismiss: EventEmitter<void>;
 
+  componentDidLoad(): void {
+    this.alertTitleShouldWrap();
+  }
+
+  @Listen("icDismiss", { capture: true })
+  handleClick(): void {
+    this.visible = !this.visible;
+  }
+
   private dismissAction = (): void => {
     this.dismiss.emit();
     this.icDismiss.emit();
@@ -78,10 +87,6 @@ export class Alert {
     const titleHeight =
       this.el.shadowRoot.querySelector(".alert-title")?.clientHeight;
     if (titleHeight > 24) this.alertTitleWrap = true;
-  }
-
-  componentDidLoad(): void {
-    this.alertTitleShouldWrap();
   }
 
   render() {

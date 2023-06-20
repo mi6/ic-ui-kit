@@ -11,37 +11,44 @@ import {
 })
 export class InputLabel {
   /**
-   * The ID of the form element the label is bound to.
+   * If `true`, the dark variant of the input label will be displayed.
    */
-  @Prop() for: string;
-  /**
-   * If `true`, the input label will require a value.
-   */
-  @Prop() required: boolean = false;
-  /**
-   * The helper text that will be displayed.
-   */
-  @Prop() helperText: string = "";
-  /**
-   * The text content of the label.
-   */
-  @Prop() label!: string;
+  @Prop() dark?: boolean = false;
+
   /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
-  /**
-   * If `true`, the readonly state will be set.
-   */
-  @Prop() readonly: boolean = false;
+
   /**
    * If `true`, the input label will display with error styling.
    */
   @Prop() error?: boolean = false;
+
   /**
-   * If `true`, the dark variant of the input label will be displayed.
+   * The ID of the form element the label is bound to.
    */
-  @Prop() dark?: boolean = false;
+  @Prop() for: string;
+
+  /**
+   * The helper text that will be displayed.
+   */
+  @Prop() helperText: string = "";
+
+  /**
+   * The text content of the label.
+   */
+  @Prop() label!: string;
+
+  /**
+   * If `true`, the readonly state will be set.
+   */
+  @Prop() readonly: boolean = false;
+
+  /**
+   * If `true`, the input label will require a value.
+   */
+  @Prop() required: boolean = false;
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(

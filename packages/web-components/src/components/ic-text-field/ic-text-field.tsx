@@ -48,10 +48,16 @@ let inputIds = 0;
   shadow: true,
 })
 export class TextField {
+  private inheritedAttributes: { [k: string]: unknown } = {};
+  private inputEl: HTMLInputElement | HTMLTextAreaElement;
+  private showLeftIcon: boolean = this.hasLeftIconSlot();
+
   @Element() el: HTMLIcTextFieldElement;
 
-  private inputEl: HTMLInputElement | HTMLTextAreaElement;
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  @State() numChars: number = 0;
+  @State() maxLengthExceeded: boolean = false;
+  @State() maxValueExceeded: boolean = false;
+  @State() minValueUnattained: boolean = false;
 
   /**
    * @slot clear-button - an ic-button clear component will render as an end adornment to the input.
@@ -60,104 +66,24 @@ export class TextField {
    */
 
   /**
-   * The ID for the input.
+   * @internal The active element when focus is on the ic-menu items.
    */
-  @Prop() inputId?: string = `ic-text-field-input-${inputIds++}`;
+  @Prop() ariaActiveDescendant?: string;
 
   /**
-   * The label for the input.
+   * @internal Used to identify whether inputting any text triggers more predictions
    */
-  @Prop() label!: string;
+  @Prop() ariaAutocomplete: IcAriaAutocompleteTypes = undefined;
 
   /**
-   * If `true`, the input will require a value.
+   * @internal Used to identify if the slotted menu is rendered
    */
-  @Prop() required: boolean = false;
-  /**
-   * If `true`, the disabled state will be set.
-   */
-  @Prop() disabled: boolean = false;
+  @Prop() ariaExpanded: string;
 
   /**
-   * If `true`, the read only state will be set.
+   * @internal Used to identify any related child component
    */
-  @Prop({ reflect: true }) readonly: boolean = false;
-
-  /**
-   * The placeholder value to be displayed.
-   */
-  @Prop() placeholder: string = "";
-
-  /**
-   * Specify whether the text field fills the full width of the container.
-   * If `true`, this overrides the --input-width CSS variable.
-   */
-  @Prop() fullWidth: boolean = false;
-
-  /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel: boolean = false;
-
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText: string = "";
-
-  /**
-   * The number of rows to transform the text field into a text area with a specific height.
-   */
-  @Prop() rows: number = 1;
-
-  /**
-   * If `true`, the multiline text area will be resizeable.
-   */
-  @Prop() resize: boolean = false;
-
-  /**
-   * If `true`, the small styling will be applied to the text field.
-   */
-  @Prop({ reflect: true }) small: boolean = false;
-
-  /**
-   * The value of the text field.
-   */
-  @Prop({ reflect: true, mutable: true }) value: string = "";
-
-  /**
-   * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
-   */
-  @Prop() min: string | number = undefined;
-
-  /**
-   * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
-   */
-  @Prop() max: string | number = undefined;
-
-  /**
-   * The maximum number of characters that can be entered in the field.
-   */
-  @Prop() maxLength: number = 0;
-
-  /**
-   * The validation state - e.g. 'error' | 'warning' | 'success'.
-   */
-  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
-
-  /**
-   * The validation state - e.g. 'error' | 'warning' | 'success'.
-   */
-  @Prop() validationText: string = "";
-
-  /**
-   * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
-   */
-  @Prop() validationInline: boolean = false;
-
-  /**
-   *  @internal If `true`, the validation will display inline.
-   */
-  @Prop() validationInlineInternal: boolean = false;
+  @Prop() ariaOwns: string;
 
   /**
    * The automatic capitalisation of the text value as it is entered/edited by the user.
@@ -181,21 +107,35 @@ export class TextField {
   @Prop() autoFocus = false;
 
   /**
-   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   * If `true`, the disabled state will be set.
    */
-  @Prop() debounce: number = 0;
-
-  private showLeftIcon: boolean = this.hasLeftIconSlot();
-
-  @Watch("debounce")
-  private debounceChanged() {
-    this.icChange = debounceEvent(this.icChange, this.debounce);
-  }
+  @Prop() disabled: boolean = false;
 
   /**
-   * The type of control to display. The default type is text.
+   * Specify whether the text field fills the full width of the container.
+   * If `true`, this overrides the --input-width CSS variable.
    */
-  @Prop() type: IcTextFieldTypes = "text";
+  @Prop() fullWidth: boolean = false;
+
+  /**
+   * The helper text that will be displayed for additional field guidance.
+   */
+  @Prop() helperText: string = "";
+
+  /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel: boolean = false;
+
+  /**
+   * @internal If `true`, the hidden form input will stop rendering for form submission.
+   */
+  @Prop() hiddenInput: boolean = true;
+
+  /**
+   * The ID for the input.
+   */
+  @Prop() inputId?: string = `ic-text-field-input-${inputIds++}`;
 
   /**
    * A hint to the browser for which keyboard to display.
@@ -205,38 +145,49 @@ export class TextField {
   @Prop() inputmode: IcTextFieldInputModes = "text";
 
   /**
+   * The label for the input.
+   */
+  @Prop() label!: string;
+
+  /**
+   * The maximum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of max value in `helperText` or `label`)
+   */
+  @Prop() max: string | number = undefined;
+
+  /**
+   * The maximum number of characters that can be entered in the field.
+   */
+  @Prop() maxLength: number = 0;
+
+  /**
+   * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
+   */
+  @Prop() min: string | number = undefined;
+
+  /**
    * The name of the control, which is submitted with the form data.
    */
   @Prop() name: string = this.inputId;
 
   /**
-   * If `true`, the value of the text field will have its spelling and grammar checked.
+   * The placeholder value to be displayed.
    */
-  @Prop() spellcheck: boolean = false;
+  @Prop() placeholder: string = "";
 
   /**
-   * @internal The active element when focus is on the ic-menu items.
+   * If `true`, the read only state will be set.
    */
-  @Prop() ariaActiveDescendant?: string;
-  /**
-   * @internal If `true`, an ellipsis will be displayed at the end of the value if the value is longer than the container.
-   */
-  @Prop() truncateValue?: boolean;
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   /**
-   * @internal Used to identify if the slotted menu is rendered
+   * If `true`, the input will require a value.
    */
-  @Prop() ariaExpanded: string;
+  @Prop() required: boolean = false;
 
   /**
-   * @internal Used to identify any related child component
+   * If `true`, the multiline text area will be resizeable.
    */
-  @Prop() ariaOwns: string;
-
-  /**
-   * @internal Used to identify whether inputting any text triggers more predictions
-   */
-  @Prop() ariaAutocomplete: IcAriaAutocompleteTypes = undefined;
+  @Prop() resize: boolean = false;
 
   /**
    * @internal Used to set the role if not default textbox;
@@ -244,18 +195,67 @@ export class TextField {
   @Prop() role: string;
 
   /**
-   * @internal If `true`, the hidden form input will stop rendering for form submission.
+   * The number of rows to transform the text field into a text area with a specific height.
    */
-  @Prop() hiddenInput: boolean = true;
+  @Prop() rows: number = 1;
 
-  @State() numChars: number = 0;
-  @State() maxLengthExceeded: boolean = false;
-  @State() minValueUnattained: boolean = false;
-  @State() maxValueExceeded: boolean = false;
+  /**
+   * If `true`, the small styling will be applied to the text field.
+   */
+  @Prop({ reflect: true }) small: boolean = false;
+
+  /**
+   * If `true`, the value of the text field will have its spelling and grammar checked.
+   */
+  @Prop() spellcheck: boolean = false;
+  /**
+   * @internal If `true`, an ellipsis will be displayed at the end of the value if the value is longer than the container.
+   */
+  @Prop() truncateValue?: boolean;
+
+  /**
+   * The type of control to display. The default type is text.
+   */
+  @Prop() type: IcTextFieldTypes = "text";
+
+  /**
+   * If `true`, the icon in input control will be displayed - only applies when validationStatus ='success'.
+   */
+  @Prop() validationInline: boolean = false;
+
+  /**
+   *  @internal If `true`, the validation will display inline.
+   */
+  @Prop() validationInlineInternal: boolean = false;
+
+  /**
+   * The validation state - e.g. 'error' | 'warning' | 'success'.
+   */
+  @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+
+  /**
+   * The validation state - e.g. 'error' | 'warning' | 'success'.
+   */
+  @Prop() validationText: string = "";
+
+  /**
+   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   */
+  @Prop() debounce: number = 0;
+
+  @Watch("debounce")
+  private debounceChanged() {
+    this.icChange = debounceEvent(this.icChange, this.debounce);
+  }
+
+  /**
+   * The value of the text field.
+   */
+  @Prop({ reflect: true, mutable: true }) value: string = "";
   @State() initialValue = this.value;
 
   @Watch("value")
-  watchValueHandler(newValue: string): void {
+  private watchValueHandler(newValue: string): void {
     if (this.inputEl && this.inputEl.value !== newValue) {
       this.inputEl.value = newValue;
     }
@@ -286,93 +286,41 @@ export class TextField {
   }
 
   /**
-   * Sets focus on the native `input`.
+   * @internal Emitted when the validationInlineInternal is `true`
    */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.inputEl) {
-      this.inputEl.focus();
-    }
-  }
-
-  @Listen("keydown", {})
-  handleKeyDown(ev: KeyboardEvent): void {
-    this.icKeydown.emit({ event: ev });
-  }
-
-  /**
-   * Emitted when a keydown event occurred.
-   */
-  @Event() icKeydown: EventEmitter<{ event: KeyboardEvent }>;
-
-  /**
-   * Emitted when a keyboard input occurred.
-   */
-  @Event() icInput: EventEmitter<IcValueEventDetail>;
-  private onInput = (ev: Event) => {
-    this.value = (ev.target as HTMLInputElement).value;
-    this.icInput.emit({ value: this.value });
-  };
+  @Event() getValidationText: EventEmitter<IcValueEventDetail>;
 
   /**
    * Emitted when input loses focus.
    */
   @Event() icBlur: EventEmitter<IcValueEventDetail>;
-  private onBlur = (ev: Event) => {
-    const value = (ev.target as HTMLInputElement).value;
-    this.icBlur.emit({ value: value });
-  };
-
-  /**
-   * Emitted when input gains focus.
-   */
-  @Event() icFocus: EventEmitter<IcValueEventDetail>;
-  private onFocus = (ev: Event) => {
-    const value = (ev.target as HTMLInputElement).value;
-    this.icFocus.emit({ value: value });
-  };
 
   /**
    * Emitted when the value has changed.
    */
   @Event() icChange: EventEmitter<IcValueEventDetail>;
 
-  private isTextArea = (): boolean => {
-    return this.rows > 1;
-  };
+  /**
+   * Emitted when input gains focus.
+   */
+  @Event() icFocus: EventEmitter<IcValueEventDetail>;
 
   /**
-   * @internal Emitted when the validationInlineInternal is `true`
+   * Emitted when a keyboard input occurred.
    */
-  @Event() getValidationText: EventEmitter<IcValueEventDetail>;
+  @Event() icInput: EventEmitter<IcValueEventDetail>;
 
-  private getInlineValidationText = () => {
-    this.getValidationText.emit({ value: this.validationText });
-  };
-
-  private hasLeftIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="icon"]`);
-    return iconEl !== null;
-  }
-
-  private hasStatus = (status: IcInformationStatusOrEmpty): boolean => {
-    return status !== "" && !this.disabled;
-  };
-
-  private showStatusText = (status: IcInformationStatusOrEmpty): boolean => {
-    return (
-      this.hasStatus(status) &&
-      !(status == IcInformationStatus.Success && this.validationInline) &&
-      !this.validationInlineInternal
-    );
-  };
-
-  private handleFormReset = (): void => {
-    this.value = this.initialValue;
-  };
+  /**
+   * Emitted when a keydown event occurred.
+   */
+  @Event() icKeydown: EventEmitter<{ event: KeyboardEvent }>;
 
   connectedCallback(): void {
     this.debounceChanged();
+  }
+
+  disconnectedCallback(): void {
+    removeFormResetListener(this.el, this.handleFormReset);
   }
 
   componentWillLoad(): void {
@@ -406,9 +354,65 @@ export class TextField {
     }
   }
 
-  disconnectedCallback(): void {
-    removeFormResetListener(this.el, this.handleFormReset);
+  @Listen("keydown", {})
+  handleKeyDown(ev: KeyboardEvent): void {
+    this.icKeydown.emit({ event: ev });
   }
+
+  /**
+   * Sets focus on the native `input`.
+   */
+
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.inputEl) {
+      this.inputEl.focus();
+    }
+  }
+
+  private onInput = (ev: Event) => {
+    this.value = (ev.target as HTMLInputElement).value;
+    this.icInput.emit({ value: this.value });
+  };
+
+  private onBlur = (ev: Event) => {
+    const value = (ev.target as HTMLInputElement).value;
+    this.icBlur.emit({ value: value });
+  };
+
+  private onFocus = (ev: Event) => {
+    const value = (ev.target as HTMLInputElement).value;
+    this.icFocus.emit({ value: value });
+  };
+
+  private isTextArea = (): boolean => {
+    return this.rows > 1;
+  };
+
+  private getInlineValidationText = () => {
+    this.getValidationText.emit({ value: this.validationText });
+  };
+
+  private hasLeftIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasStatus = (status: IcInformationStatusOrEmpty): boolean => {
+    return status !== "" && !this.disabled;
+  };
+
+  private showStatusText = (status: IcInformationStatusOrEmpty): boolean => {
+    return (
+      this.hasStatus(status) &&
+      !(status == IcInformationStatus.Success && this.validationInline) &&
+      !this.validationInlineInternal
+    );
+  };
+
+  private handleFormReset = (): void => {
+    this.value = this.initialValue;
+  };
 
   render() {
     const {

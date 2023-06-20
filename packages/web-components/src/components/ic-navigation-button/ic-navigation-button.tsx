@@ -34,46 +34,65 @@ import { IcNavButtonModes } from "./ic-navigation-button.types";
   },
 })
 export class NavigationButton {
+  private buttonEl: HTMLIcButtonElement;
+  private inheritedAttributes: { [k: string]: unknown } = {};
+
   @Element() el: HTMLIcNavigationButtonElement;
+
+  @State() initialAppearance = getThemeForegroundColor();
+  /**
+   * The display mode.
+   */
+  @State() mode: IcNavButtonModes = "navbar";
+
+  /**
+   * If `true`, the user can save the linked URL instead of navigating to it.
+   */
+  @Prop() download?: string | boolean = false;
+
+  /**
+   * The URL that the link points to. This will render the button as an "a" tag.
+   */
+  @Prop() href?: string;
+
+  /**
+   * The human language of the linked URL.
+   */
+  @Prop() hreflang?: string;
 
   /**
    * The label info to display.
    */
   @Prop() label!: string;
-  /**
-   * The URL that the link points to. This will render the button as an "a" tag.
-   */
-  @Prop() href?: string;
-  /**
-   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-   */
-  @Prop() target?: string;
-  /**
-   * The relationship of the linked URL as space-separated link types.
-   */
-  @Prop() rel?: string;
-  /**
-   * If `true`, the user can save the linked URL instead of navigating to it.
-   */
-  @Prop() download?: string | boolean = false;
-  /**
-   * The human language of the linked URL.
-   */
-  @Prop() hreflang?: string;
+
   /**
    * How much of the referrer to send when following the link.
    */
   @Prop() referrerpolicy?: ReferrerPolicy;
 
   /**
-   * The display mode.
+   * The relationship of the linked URL as space-separated link types.
    */
-  @State() mode: IcNavButtonModes = "navbar";
+  @Prop() rel?: string;
 
-  @State() initialAppearance = getThemeForegroundColor();
+  /**
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+   */
+  @Prop() target?: string;
 
-  private buttonEl: HTMLIcButtonElement;
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  componentWillLoad(): void {
+    this.inheritedAttributes = inheritAttributes(this.el, [
+      ...IC_INHERITED_ARIA,
+      "title",
+    ]);
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Navigation Button"
+    );
+  }
 
   @Listen("icNavigationMenuOpened", { target: "document" })
   navBarMenuOpenHandler(): void {
@@ -99,20 +118,6 @@ export class NavigationButton {
     if (this.buttonEl) {
       this.buttonEl.focus();
     }
-  }
-
-  componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "title",
-    ]);
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Navigation Button"
-    );
   }
 
   render() {

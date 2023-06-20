@@ -36,39 +36,48 @@ export class Switch {
 
   @Element() el: HTMLIcSwitchElement;
 
+  @State() checkedState: boolean = false;
+  @State() initiallyChecked = this.checked;
+
+  /**
+   * If `true`, the switch will display as checked.
+   */
+  @Prop() checked?: boolean = false;
+
+  /**
+   * If `true`, the disabled state will be set.
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * The helper text that will be displayed for additional field guidance.
+   */
+  @Prop() helperText?: string = "";
+
+  /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel?: boolean = false;
+
   /**
    * The aria-label applied to the switch when no visual 'name' is provided.
    */
   @Prop() label!: string;
 
   /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel?: boolean = false;
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText?: string = "";
-  /**
-   * If `true`, the switch will display as checked.
-   */
-  @Prop() checked?: boolean = false;
-  /**
-   * If `true`, the small styling will be applied to the switch.
-   */
-  @Prop() small?: boolean = false;
-  /**
-   * If `true`, the disabled state will be set.
-   */
-  @Prop() disabled?: boolean = false;
-  /**
    * The name of the control, which is submitted with the form data.
    */
   @Prop() name?: string = this.inputId;
+
   /**
    * If `true`, the switch will render the On/Off state text.
    */
   @Prop() showState?: boolean = false;
+
+  /**
+   * If `true`, the small styling will be applied to the switch.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * The value of the toggle does not mean if it's checked or not, use the `checked`
@@ -80,6 +89,11 @@ export class Switch {
   @Prop() value?: string | null = "on";
 
   /**
+   * Emitted when the toggle loses focus.
+   */
+  @Event() icBlur!: EventEmitter<void>;
+
+  /**
    * Emitted when the value property has changed.
    */
   @Event() icChange!: EventEmitter<IcSwitchChangeEventDetail>;
@@ -89,13 +103,32 @@ export class Switch {
    */
   @Event() icFocus!: EventEmitter<void>;
 
-  /**
-   * Emitted when the toggle loses focus.
-   */
-  @Event() icBlur!: EventEmitter<void>;
+  disconnectedCallback(): void {
+    removeFormResetListener(this.el, this.handleFormReset);
+  }
 
-  @State() checkedState: boolean = false;
-  @State() initiallyChecked = this.checked;
+  componentWillLoad(): void {
+    this.checkedState = this.checked;
+    addFormResetListener(this.el, this.handleFormReset);
+    removeDisabledFalse(this.disabled, this.el);
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Switch"
+    );
+  }
+
+  /**
+   * Sets focus on the switch.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("input")) {
+      this.el.shadowRoot.querySelector("input").focus();
+    }
+  }
 
   private handleChange = () => {
     this.checkedState = !this.checkedState;
@@ -116,34 +149,6 @@ export class Switch {
   private handleFormReset = (): void => {
     this.checkedState = this.initiallyChecked;
   };
-
-  /**
-   * Sets focus on the switch.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("input")) {
-      this.el.shadowRoot.querySelector("input").focus();
-    }
-  }
-
-  componentWillLoad(): void {
-    this.checkedState = this.checked;
-    addFormResetListener(this.el, this.handleFormReset);
-
-    removeDisabledFalse(this.disabled, this.el);
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Switch"
-    );
-  }
-
-  disconnectedCallback(): void {
-    removeFormResetListener(this.el, this.handleFormReset);
-  }
 
   render() {
     const {

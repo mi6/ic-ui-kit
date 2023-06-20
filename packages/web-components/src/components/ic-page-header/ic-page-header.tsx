@@ -26,47 +26,69 @@ import {
   shadow: true,
 })
 export class PageHeader {
+  private resizeObserver: ResizeObserver = null;
+
   @Element() el: HTMLIcPageHeaderElement;
-  /**
-   * The title to render on the page header.
-   */
-  @Prop() heading?: string;
-  /**
-   * The subtitle to render on the page header.
-   */
-  @Prop() subheading?: string;
+
+  @State() actionContent: Node[];
+  @State() areButtonsReversed: boolean = false;
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+
   /**
    * The alignment of the page header.
    */
   @Prop() aligned?: IcAlignment = "left";
-  /**
-   * If `true`, the small styling will be applied to the page header.
-   */
-  @Prop() small?: boolean = false;
+
   /**
    * If `true`, a border will be displayed along the bottom of the page header.
    */
   @Prop() border?: boolean = true;
+
   /**
-   * If `true`, the page header will be sticky at all breakpoints.
+   * The title to render on the page header.
    */
-  @Prop() sticky?: boolean = false;
-  /**
-   *  If `true`, the page header will only be sticky for viewport widths of 992px and above.
-   */
-  @Prop() stickyDesktopOnly?: boolean = false;
+  @Prop() heading?: string;
+
   /**
    * If `true`, the reading pattern and tab order will change in the action area for viewport widths of above 576px and when actions have not wrapped.
    */
   @Prop() reverseOrder?: boolean = false;
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
+  /**
+   * If `true`, the small styling will be applied to the page header.
+   */
+  @Prop() small?: boolean = false;
 
-  @State() areButtonsReversed: boolean = false;
+  /**
+   * If `true`, the page header will be sticky at all breakpoints.
+   */
+  @Prop() sticky?: boolean = false;
 
-  @State() actionContent: Node[];
+  /**
+   *  If `true`, the page header will only be sticky for viewport widths of 992px and above.
+   */
+  @Prop() stickyDesktopOnly?: boolean = false;
 
-  private resizeObserver: ResizeObserver = null;
+  /**
+   * The subtitle to render on the page header.
+   */
+  @Prop() subheading?: string;
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  componentWillLoad(): void {
+    this.actionContent = Array.from(
+      this.el.querySelectorAll(`[slot="actions"]`)
+    );
+  }
+
+  componentDidLoad(): void {
+    checkResizeObserver(this.runResizeObserver);
+  }
 
   private resizeObserverCallback = () => {
     if (this.reverseOrder && isSlotUsed(this.el, "actions")) {
@@ -130,22 +152,6 @@ export class PageHeader {
       appendActionContent();
     }
   };
-
-  componentWillLoad(): void {
-    this.actionContent = Array.from(
-      this.el.querySelectorAll(`[slot="actions"]`)
-    );
-  }
-
-  componentDidLoad(): void {
-    checkResizeObserver(this.runResizeObserver);
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     const {

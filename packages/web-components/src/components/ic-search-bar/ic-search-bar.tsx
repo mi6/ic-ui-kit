@@ -48,85 +48,32 @@ let inputIds = 0;
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class SearchBar {
-  @Element() el: HTMLIcSearchBarElement;
-
-  private inputId = `ic-search-bar-input-${inputIds++}`;
+  private anchorEl: HTMLElement;
+  private assistiveHintEl: HTMLSpanElement = null;
+  private debounceAriaLive: number;
+  private hasTimedOut = false;
   private inputEl: HTMLIcTextFieldElement;
-
-  private menuId = `${this.inputId}-menu`;
-  private searchSubmitButton: HTMLIcButtonElement;
+  private inputId = `ic-search-bar-input-${inputIds++}`;
   private menu: HTMLIcMenuElement;
   private menuCloseFromMenuChangeEvent: boolean = false;
-
-  private anchorEl: HTMLElement;
-  private truncateValue = false;
-
-  private assistiveHintEl: HTMLSpanElement = null;
-  private preventSubmit: boolean = false;
-  private debounceAriaLive: number;
-
-  private timeoutTimer: number;
-  private prevNoOption: boolean = false;
-  private hasTimedOut = false;
+  private menuId = `${this.inputId}-menu`;
   private preLoad = true;
-  private retryViaKeyPress: boolean;
+  private preventSubmit: boolean = false;
+  private prevNoOption: boolean = false;
   private retryButtonClick: boolean = false;
+  private retryViaKeyPress: boolean;
+  private timeoutTimer: number;
+  private truncateValue = false;
+  private searchSubmitButton: HTMLIcButtonElement;
 
-  /**
-   * The label for the search bar.
-   */
-  @Prop() label!: string;
+  @Element() el: HTMLIcSearchBarElement;
 
-  /**
-   * If `true`, the search bar will require a value.
-   */
-  @Prop() required?: boolean = false;
-  /**
-   * If `true`, the disabled state will be set.
-   */
-  @Prop() disabled?: boolean = false;
-
-  /**
-   * If `true`, the readonly state will be set.
-   */
-  @Prop() readonly?: boolean = false;
-
-  /**
-   * The placeholder value to display.
-   */
-  @Prop() placeholder?: string = "Search";
-
-  /**
-   * Specify whether the search bar fills the full width of the container.
-   * If `true`, this overrides the --input-width CSS variable.
-   */
-  @Prop() fullWidth?: boolean = false;
-
-  /**
-   * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
-   * If `true`, all options provided will be displayed.
-   */
-  @Prop() disableFilter?: boolean = false;
-
-  /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel?: boolean = false;
-
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText?: string = "";
-
-  /**
-   * If `true`, the small styling will be applied to the search bar.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
-   * The value of the search input.
-   */
-  @Prop({ reflect: true, mutable: true }) value: string = "";
+  @State() ariaActiveDescendant: string;
+  @State() clearButtonFocused: boolean = false;
+  @State() highlightedValue: string;
+  @State() open: boolean = false;
+  @State() searchSubmitFocused: boolean = false;
+  @State() showClearButton: boolean = false;
 
   /**
    * The automatic capitalisation of the text value as it is entered/edited by the user.
@@ -150,33 +97,67 @@ export class SearchBar {
   @Prop() autofocus = false;
 
   /**
+   * The number of characters until suggestions appear.
+   */
+  @Prop() charactersUntilSuggestion: number = 2;
+
+  /**
+   * If `true`, the disabled state will be set.
+   */
+  @Prop() disabled?: boolean = false;
+
+  /**
+   * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
+   * If `true`, all options provided will be displayed.
+   */
+  @Prop() disableFilter?: boolean = false;
+
+  /**
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
    */
   @Prop() debounce?: number = 0;
 
   /**
-   * The name of the control, which is submitted with the form data.
+   * The text displayed when there are no options in the option list.
    */
-  @Prop() name: string = this.inputId;
+  @Prop() emptyOptionListText = "No results found";
 
   /**
-   * If `true`, the value of the search will have its spelling and grammar checked.
+   * If `true`, the search bar will be focused when component loaded.
    */
-  @Prop() spellcheck: boolean = false;
-  /**
-   * The suggested search options.
-   */
-  @Prop() options?: IcMenuOption[] = [];
+  @Prop() focusOnLoad?: boolean = false;
 
   /**
-   * If using external filtering, set a timeout for when loading takes too long.
+   * Specify whether the search bar fills the full width of the container.
+   * If `true`, this overrides the --input-width CSS variable.
    */
-  @Prop() timeout?: number;
+  @Prop() fullWidth?: boolean = false;
 
   /**
-   * Change the message displayed whilst the options are being loaded externally.
+   * The helper text that will be displayed for additional field guidance.
    */
-  @Prop() loadingLabel?: string = "Loading...";
+  @Prop() helperText?: string = "";
+
+  /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel?: boolean = false;
+
+  /**
+   * The hint text for the hidden assistive description element.
+   */
+  @Prop() hintText?: string =
+    "When autocomplete results are available use the up and down arrows to choose and press enter to select";
+
+  /**
+   * The label for the search bar.
+   */
+  @Prop() label!: string;
+
+  /**
+   * Trigger loading state when fetching options asyncronously
+   */
+  @Prop({ mutable: true }) loading?: boolean = false;
 
   /**
    * Change the message displayed when external loading times out.
@@ -184,9 +165,44 @@ export class SearchBar {
   @Prop() loadingErrorLabel?: string = "Loading Error";
 
   /**
-   * Trigger loading state when fetching options asyncronously
+   * Change the message displayed whilst the options are being loaded externally.
    */
-  @Prop({ mutable: true }) loading?: boolean = false;
+  @Prop() loadingLabel?: string = "Loading...";
+
+  /**
+   * The name of the control, which is submitted with the form data.
+   */
+  @Prop() name: string = this.inputId;
+
+  /**
+   * The placeholder value to display.
+   */
+  @Prop() placeholder?: string = "Search";
+
+  /**
+   * If `true`, the readonly state will be set.
+   */
+  @Prop() readonly?: boolean = false;
+
+  /**
+   * If `true`, the search bar will require a value.
+   */
+  @Prop() required?: boolean = false;
+
+  /**
+   * If `true`, the small styling will be applied to the search bar.
+   */
+  @Prop() small?: boolean = false;
+
+  /**
+   * If `true`, the value of the search will have its spelling and grammar checked.
+   */
+  @Prop() spellcheck: boolean = false;
+
+  /**
+   * If using external filtering, set a timeout for when loading takes too long.
+   */
+  @Prop() timeout?: number;
 
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
@@ -196,10 +212,17 @@ export class SearchBar {
     }
   }
 
+  @State() filteredOptions: IcMenuOption[] = [];
+
   @Watch("filteredOptions")
   filteredOptionsHandler(newOptions: IcMenuOption[]): void {
     this.hasTimedOut = newOptions.some((opt) => opt.timedOut);
   }
+
+  /**
+   * The suggested search options.
+   */
+  @Prop() options?: IcMenuOption[] = [];
 
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
@@ -224,25 +247,9 @@ export class SearchBar {
   }
 
   /**
-   * If `true`, the search bar will be focused when component loaded.
+   * The value of the search input.
    */
-  @Prop() focusOnLoad?: boolean = false;
-
-  /**
-   * The hint text for the hidden assistive description element.
-   */
-  @Prop() hintText?: string =
-    "When autocomplete results are available use the up and down arrows to choose and press enter to select";
-
-  /**
-   * The text displayed when there are no options in the option list.
-   */
-  @Prop() emptyOptionListText = "No results found";
-
-  /**
-   * The number of characters until suggestions appear.
-   */
-  @Prop() charactersUntilSuggestion: number = 2;
+  @Prop({ reflect: true, mutable: true }) value: string = "";
 
   @Watch("value")
   watchValueHandler(newValue: string): void {
@@ -257,84 +264,37 @@ export class SearchBar {
     }
   }
 
+  // The icChange event is defined here so that it appears as an event for search bar
+  // The actual event is emitted from the child ic-text-field
   /**
-   * Sets focus on the native `input`.
+   * Emitted when the value has changed.
    */
-  @Method()
-  async setFocus(): Promise<void> {
-    this.retryViaKeyPress = false;
-    this.retryButtonClick = false;
-    if (this.inputEl) {
-      this.inputEl.setFocus();
-    }
-  }
+  @Event() icChange: EventEmitter<IcValueEventDetail>;
 
-  @Listen("icKeydown", {})
-  handleKeyDown(ev: CustomEvent): void {
-    const keyEv: KeyboardEvent = ev.detail.event;
-    if (this.menu && this.open) {
-      this.menu.handleKeyboardOpen(keyEv);
-    }
-  }
+  /**
+   * Emitted when value is cleared with clear button
+   */
+  @Event() icClear: EventEmitter<void>;
+  private handleClear = (ev: Event) => {
+    const keyboardEvent = ev as KeyboardEvent;
+    const mouseEvent = ev as MouseEvent;
 
-  @Listen("keyup", {})
-  handleKeyUp(ev: KeyboardEvent): void {
-    if (ev.key === "Enter") {
-      if (this.preventSubmit || this.isSubmitDisabled()) {
-        return;
-      }
+    if (
+      mouseEvent.type === "click" ||
+      keyboardEvent.code === "Enter" ||
+      keyboardEvent.code === "Space"
+    ) {
+      this.value = "";
+      this.inputEl.value = "";
+      this.loading = false;
+      clearTimeout(this.timeoutTimer);
+      this.filteredOptions = this.options;
+      this.el.setFocus();
 
-      this.handleSubmitSearch();
-      this.setMenuChange(false);
-    }
-
-    if (ev.key === "Escape") {
-      this.setMenuChange(false);
-    }
-
-    if (this.preventSubmit) {
-      this.preventSubmit = false;
-    }
-  }
-
-  private handleSubmitSearch = () => {
-    this.highlightedValue && (this.value = this.highlightedValue);
-    this.highlightedValue = undefined;
-    this.icSubmitSearch.emit({ value: this.value });
-
-    const form: HTMLFormElement = this.el.closest("FORM");
-
-    if (this.searchSubmitButton && !!form && !this.preventSubmit) {
-      handleHiddenFormButtonClick(form, this.searchSubmitButton);
-    }
-  };
-
-  private handleSubmitSearchKeyDown = (ev: KeyboardEvent) => {
-    if (ev.key === " ") {
+      this.icClear.emit();
       ev.preventDefault();
-      this.handleSubmitSearch();
-    }
-  };
 
-  private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
-    this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
-    this.icRetryLoad.emit({ value: ev.detail.value });
-    this.triggerLoading();
-    this.retryButtonClick = true;
-  };
-
-  private triggerLoading = () => {
-    const loadingOption: IcMenuOption[] = [
-      { label: this.loadingLabel, value: "", loading: true },
-    ];
-    if (this.filteredOptions !== loadingOption)
-      this.filteredOptions = loadingOption;
-    if (this.timeout) {
-      this.timeoutTimer = window.setTimeout(() => {
-        this.filteredOptions = [
-          { label: this.loadingErrorLabel, value: "", timedOut: true },
-        ];
-      }, this.timeout);
+      this.preventSubmit = true;
     }
   };
 
@@ -372,14 +332,6 @@ export class SearchBar {
     this.debounceAriaLiveUpdate();
   };
 
-  private debounceAriaLiveUpdate() {
-    clearTimeout(this.debounceAriaLive);
-
-    this.debounceAriaLive = window.setTimeout(() => {
-      this.updateSearchResultAriaLive();
-    }, 500);
-  }
-
   /**
    * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
    */
@@ -401,49 +353,6 @@ export class SearchBar {
 
     this.handleShowClearButton(true);
   };
-
-  // The icChange event is defined here so that it appears as an event for search bar
-  // The actual event is emitted from the child ic-text-field
-  /**
-   * Emitted when the value has changed.
-   */
-  @Event() icChange: EventEmitter<IcValueEventDetail>;
-
-  /**
-   * Emitted when value is cleared with clear button
-   */
-  @Event() icClear: EventEmitter<void>;
-  private handleClear = (ev: Event) => {
-    const keyboardEvent = ev as KeyboardEvent;
-    const mouseEvent = ev as MouseEvent;
-
-    if (
-      mouseEvent.type === "click" ||
-      keyboardEvent.code === "Enter" ||
-      keyboardEvent.code === "Space"
-    ) {
-      this.value = "";
-      this.inputEl.value = "";
-      this.loading = false;
-      clearTimeout(this.timeoutTimer);
-      this.filteredOptions = this.options;
-      this.el.setFocus();
-
-      this.icClear.emit();
-      ev.preventDefault();
-
-      this.preventSubmit = true;
-    }
-  };
-
-  private handleMouseDown = (ev: Event) => {
-    ev.preventDefault();
-  };
-
-  /**
-   * Emitted when the search value has been submitted
-   */
-  @Event() icSubmitSearch: EventEmitter<IcValueEventDetail>;
 
   /**
    * Emitted when option is highlighted within the menu
@@ -467,6 +376,16 @@ export class SearchBar {
   };
 
   /**
+   * Emitted when the 'retry loading' button is clicked
+   */
+  @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
+
+  /**
+   * Emitted when the search value has been submitted
+   */
+  @Event() icSubmitSearch: EventEmitter<IcValueEventDetail>;
+
+  /**
    * @internal - Emitted when blur is invoked from search submit button
    */
   @Event() icSubmitSearchBlur: EventEmitter<IcBlurEventDetail>;
@@ -476,10 +395,6 @@ export class SearchBar {
     this.icSubmitSearchBlur.emit({ relatedTarget: nextFocus });
 
     this.searchSubmitFocused = false;
-  };
-
-  private handleSubmitSearchFocus = () => {
-    this.searchSubmitFocused = true;
   };
 
   /**
@@ -492,18 +407,142 @@ export class SearchBar {
    */
   @Event() icSearchBarFocus: EventEmitter<void>;
 
-  /**
-   * Emitted when the 'retry loading' button is clicked
-   */
-  @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
+  disconnectedCallback(): void {
+    if (this.assistiveHintEl) {
+      this.assistiveHintEl.remove();
+    }
+  }
 
-  @State() open: boolean = false;
-  @State() filteredOptions: IcMenuOption[] = [];
-  @State() ariaActiveDescendant: string;
-  @State() showClearButton: boolean = false;
-  @State() clearButtonFocused: boolean = false;
-  @State() searchSubmitFocused: boolean = false;
-  @State() highlightedValue: string;
+  componentWillLoad(): void {
+    this.watchValueHandler(this.value);
+
+    removeDisabledFalse(this.disabled, this.el);
+  }
+
+  componentDidLoad(): void {
+    if (this.focusOnLoad) {
+      this.el.setFocus();
+    }
+
+    if (this.hasOptionsOrFilterDisabled()) {
+      this.renderAssistiveHintEl();
+      if (this.disableFilter) {
+        this.filteredOptions = this.options;
+      }
+    }
+
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Search Bar"
+    );
+
+    if (this.inputEl !== undefined) {
+      this.anchorEl = this.inputEl.shadowRoot.querySelector(
+        "ic-input-component-container"
+      );
+    }
+  }
+
+  componentWillRender(): void {
+    this.highlightFirstOptionAfterNoResults();
+  }
+
+  @Listen("icKeydown", {})
+  handleKeyDown(ev: CustomEvent): void {
+    const keyEv: KeyboardEvent = ev.detail.event;
+    if (this.menu && this.open) {
+      this.menu.handleKeyboardOpen(keyEv);
+    }
+  }
+
+  @Listen("keyup", {})
+  handleKeyUp(ev: KeyboardEvent): void {
+    if (ev.key === "Enter") {
+      if (this.preventSubmit || this.isSubmitDisabled()) {
+        return;
+      }
+
+      this.handleSubmitSearch();
+      this.setMenuChange(false);
+    }
+
+    if (ev.key === "Escape") {
+      this.setMenuChange(false);
+    }
+
+    if (this.preventSubmit) {
+      this.preventSubmit = false;
+    }
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    this.retryViaKeyPress = false;
+    this.retryButtonClick = false;
+    if (this.inputEl) {
+      this.inputEl.setFocus();
+    }
+  }
+
+  private handleMouseDown = (ev: Event) => {
+    ev.preventDefault();
+  };
+
+  private handleSubmitSearchFocus = () => {
+    this.searchSubmitFocused = true;
+  };
+
+  private handleSubmitSearch = () => {
+    this.highlightedValue && (this.value = this.highlightedValue);
+    this.highlightedValue = undefined;
+    this.icSubmitSearch.emit({ value: this.value });
+
+    const form: HTMLFormElement = this.el.closest("FORM");
+
+    if (this.searchSubmitButton && !!form && !this.preventSubmit) {
+      handleHiddenFormButtonClick(form, this.searchSubmitButton);
+    }
+  };
+
+  private debounceAriaLiveUpdate() {
+    clearTimeout(this.debounceAriaLive);
+
+    this.debounceAriaLive = window.setTimeout(() => {
+      this.updateSearchResultAriaLive();
+    }, 500);
+  }
+
+  private handleSubmitSearchKeyDown = (ev: KeyboardEvent) => {
+    if (ev.key === " ") {
+      ev.preventDefault();
+      this.handleSubmitSearch();
+    }
+  };
+
+  private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
+    this.retryViaKeyPress = ev.detail.keyPressed === "Enter";
+    this.icRetryLoad.emit({ value: ev.detail.value });
+    this.triggerLoading();
+    this.retryButtonClick = true;
+  };
+
+  private triggerLoading = () => {
+    const loadingOption: IcMenuOption[] = [
+      { label: this.loadingLabel, value: "", loading: true },
+    ];
+    if (this.filteredOptions !== loadingOption)
+      this.filteredOptions = loadingOption;
+    if (this.timeout) {
+      this.timeoutTimer = window.setTimeout(() => {
+        this.filteredOptions = [
+          { label: this.loadingErrorLabel, value: "", timedOut: true },
+        ];
+      }, this.timeout);
+    }
+  };
 
   private handleOptionSelect = (ev: CustomEvent) => {
     if (ev.detail.label === this.emptyOptionListText) {
@@ -675,46 +714,6 @@ export class SearchBar {
       this.prevNoOption = true;
     }
   };
-
-  componentWillRender(): void {
-    this.highlightFirstOptionAfterNoResults();
-  }
-
-  componentWillLoad(): void {
-    this.watchValueHandler(this.value);
-
-    removeDisabledFalse(this.disabled, this.el);
-  }
-
-  componentDidLoad(): void {
-    if (this.focusOnLoad) {
-      this.el.setFocus();
-    }
-
-    if (this.hasOptionsOrFilterDisabled()) {
-      this.renderAssistiveHintEl();
-      if (this.disableFilter) {
-        this.filteredOptions = this.options;
-      }
-    }
-
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Search Bar"
-    );
-
-    if (this.inputEl !== undefined) {
-      this.anchorEl = this.inputEl.shadowRoot.querySelector(
-        "ic-input-component-container"
-      );
-    }
-  }
-
-  disconnectedCallback(): void {
-    if (this.assistiveHintEl) {
-      this.assistiveHintEl.remove();
-    }
-  }
 
   render() {
     const {

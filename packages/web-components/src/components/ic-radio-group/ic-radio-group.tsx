@@ -33,6 +33,24 @@ export class RadioGroup {
 
   @Element() host: HTMLIcRadioGroupElement;
 
+  @State() checkedValue: string = "";
+  @State() selectedChild: number = -1;
+
+  /**
+   * If `true`, the disabled state will be set.
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
+   * The helper text that will be displayed for additional field guidance.
+   */
+  @Prop() helperText: string;
+
+  /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel: boolean = false;
+
   /**
    * The label for the radio group to be displayed.
    */
@@ -44,30 +62,15 @@ export class RadioGroup {
   @Prop() name!: string;
 
   /**
-   * If `true`, the radio group will require a value.
-   */
-  @Prop() required: boolean = false;
-
-  /**
    * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
    */
   @Prop({ reflect: true, mutable: true }) orientation: IcOrientation =
     "vertical";
 
   /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   * If `true`, the radio group will require a value.
    */
-  @Prop() hideLabel: boolean = false;
-
-  /**
-   * If `true`, the disabled state will be set.
-   */
-  @Prop() disabled: boolean = false;
-
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText: string;
+  @Prop() required: boolean = false;
 
   /**
    * If `true`, the small styling will be applied to the radio group.
@@ -81,16 +84,54 @@ export class RadioGroup {
    * The validation text - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationText: string = "";
-  /**
-   * The checked state.
-   */
-  @State() checkedValue: string = "";
-  @State() selectedChild: number = -1;
 
   /**
    * Emitted when a user selects a radio.
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
+  }
+
+  componentDidLoad(): void {
+    this.radioOptions = Array.from(
+      this.host.querySelectorAll("ic-radio-option")
+    );
+
+    this.radioOptions.forEach((radioOption, index) => {
+      if (!radioOption.selected) {
+        radioOption.selected = this.checkedValue === radioOption.value;
+      }
+      radioOption.name = this.name;
+      radioOption.groupLabel = this.label;
+      if (radioOption.selected) {
+        this.selectedChild = index;
+        this.checkedValue = radioOption.value;
+      }
+    });
+    this.radioOptions[0].shadowRoot.querySelector("input").tabIndex =
+      this.selectedChild > 0 ? -1 : 0;
+
+    if (
+      this.orientation === "horizontal" &&
+      this.radioOptions !== undefined &&
+      (this.radioOptions.length > 2 ||
+        (this.radioOptions.length === 2 &&
+          (isSlotUsed(this.radioOptions[0], "additional-field") ||
+            isSlotUsed(this.radioOptions[1], "additional-field"))))
+    ) {
+      this.orientation = "vertical";
+    }
+
+    onComponentRequiredPropUndefined(
+      [
+        { prop: this.label, propName: "label" },
+        { prop: this.name, propName: "name" },
+      ],
+      "Radio Group"
+    );
+  }
 
   @Listen("icCheck")
   selectHandler(event: CustomEvent<IcValueEventDetail>): void {
@@ -160,49 +201,6 @@ export class RadioGroup {
 
     return nextItem;
   };
-
-  componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
-  }
-
-  componentDidLoad(): void {
-    this.radioOptions = Array.from(
-      this.host.querySelectorAll("ic-radio-option")
-    );
-
-    this.radioOptions.forEach((radioOption, index) => {
-      if (!radioOption.selected) {
-        radioOption.selected = this.checkedValue === radioOption.value;
-      }
-      radioOption.name = this.name;
-      radioOption.groupLabel = this.label;
-      if (radioOption.selected) {
-        this.selectedChild = index;
-        this.checkedValue = radioOption.value;
-      }
-    });
-    this.radioOptions[0].shadowRoot.querySelector("input").tabIndex =
-      this.selectedChild > 0 ? -1 : 0;
-
-    if (
-      this.orientation === "horizontal" &&
-      this.radioOptions !== undefined &&
-      (this.radioOptions.length > 2 ||
-        (this.radioOptions.length === 2 &&
-          (isSlotUsed(this.radioOptions[0], "additional-field") ||
-            isSlotUsed(this.radioOptions[1], "additional-field"))))
-    ) {
-      this.orientation = "vertical";
-    }
-
-    onComponentRequiredPropUndefined(
-      [
-        { prop: this.label, propName: "label" },
-        { prop: this.name, propName: "name" },
-      ],
-      "Radio Group"
-    );
-  }
 
   render() {
     renderHiddenInput(

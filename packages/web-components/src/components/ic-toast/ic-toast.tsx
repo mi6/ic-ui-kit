@@ -38,71 +38,108 @@ const TOAST_MESSAGE_CHAR_LIMIT = 140;
   shadow: true,
 })
 export class Toast {
+  dismissTimeout: number;
+  interactiveElements: ActionAreaElementTypes[] = [];
+  isManual: boolean;
+  neutralVariantLabel: string;
+  timerRefreshInterval: number;
+
   @Element() el: HTMLIcToastElement;
-  /**
-   * The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)
-   */
-  @Prop() heading!: string;
-  /**
-   * The variant of the toast being rendered
-   */
-  @Prop({ mutable: true }) variant?: IcStatusVariants;
-  /**
-   * The main body message of the toast. (NOTE: Should be no more than `140` characters)
-   */
-  @Prop() message?: string;
-  /**
-   * How the toast will be dismissed. If manual will display a dismiss button.
-   */
-  @Prop({ mutable: true }) dismissMode?: IcActivationTypes = "manual";
+
+  @State() timerProgress = 100;
+  @State() visible = false;
+
   /**
    * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)
    * (NOTE: Has a minimum value of `5000ms`)
    */
   @Prop({ mutable: true }) autoDismissTimeout? = 5000;
-  /**
-   * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
-   */
-  @Prop() neutralIconAriaLabel?: string;
+
   /**
    * If toast can be manually dismissed, this prop sets a custom aria-label for the ic-button component
    */
   @Prop() dismissButtonAriaLabel? = "dismiss";
+
+  /**
+   * How the toast will be dismissed. If manual will display a dismiss button.
+   */
+  @Prop({ mutable: true }) dismissMode?: IcActivationTypes = "manual";
+
+  /**
+   * The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)
+   */
+  @Prop() heading!: string;
+
+  /**
+   * The main body message of the toast. (NOTE: Should be no more than `140` characters)
+   */
+  @Prop() message?: string;
+
+  /**
+   * Provides a custom alt-text to be announced to screen readers, if slotting a custom neutral icon
+   */
+  @Prop() neutralIconAriaLabel?: string;
+
+  /**
+   * The variant of the toast being rendered
+   */
+  @Prop({ mutable: true }) variant?: IcStatusVariants;
+
   /**
    * Is emitted when the user dismisses the toast
    */
   @Event() icDismiss: EventEmitter<void>;
 
-  @State() visible = false;
-  @State() timerProgress = 100;
+  disconnectedCallback() {
+    window.clearTimeout(this.dismissTimeout);
+    window.clearInterval(this.timerRefreshInterval);
+  }
 
-  dismissTimeout: number;
-  timerRefreshInterval: number;
-  isManual: boolean;
-  interactiveElements: ActionAreaElementTypes[] = [];
-  neutralVariantLabel: string;
+  componentWillLoad() {
+    this.handleLongText(
+      this.heading.length > TOAST_HEADING_CHAR_LIMIT,
+      this.message?.length > TOAST_MESSAGE_CHAR_LIMIT
+    );
 
-  /**
-   * Used to display the individual toast
-   * @returns The element that previously had focus before the toast appeared
-   */
-  @Method()
-  async setVisible() {
-    if (!this.visible) this.visible = true;
-    if (!this.isManual) {
-      this.dismissTimeout = window.setTimeout(
-        this.dismissAction,
-        this.autoDismissTimeout
-      );
-      this.timerRefreshInterval = window.setInterval(
-        this.handleProgressChange,
-        AUTO_DISMISS_TIMER_REFRESH_RATE_MS
-      );
-      return null;
-    } else {
-      window.setTimeout(() => this.interactiveElements[0].setFocus(), 200);
-      return document.activeElement as HTMLElement;
+    if (this.autoDismissTimeout < 5000) this.autoDismissTimeout = 5000;
+
+    if (isSlotUsed(this.el, "action")) this.dismissMode = "manual";
+    this.isManual = this.dismissMode === "manual";
+
+    if (isSlotUsed(this.el, "neutral-icon")) this.variant = "neutral";
+    if (this.variant === "neutral") {
+      this.neutralVariantLabel =
+        this.neutralIconAriaLabel ?? VARIANT_ICONS[this.variant].ariaLabel;
     }
+
+    if (this.isManual) {
+      this.el.setAttribute(
+        "aria-label",
+        this.variant
+          ? this.neutralVariantLabel || VARIANT_ICONS[this.variant].ariaLabel
+          : this.heading
+      );
+      (this.variant || this.message) &&
+        this.el.setAttribute(
+          "aria-description",
+          this.variant
+            ? `${this.heading}${
+                this.message !== undefined ? `. ${this.message}` : ""
+              }`
+            : this.message
+        );
+    }
+  }
+
+  componentDidLoad() {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.heading, propName: "heading" }],
+      "Toast"
+    );
+    const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
+    const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+    if (actionContent) this.interactiveElements.push(actionContent);
+    if (dismissButton) this.interactiveElements.push(dismissButton);
   }
 
   @Listen("icDismiss", { capture: true })
@@ -149,6 +186,29 @@ export class Toast {
           );
           break;
       }
+    }
+  }
+
+  /**
+   * Used to display the individual toast
+   * @returns The element that previously had focus before the toast appeared
+   */
+  @Method()
+  async setVisible() {
+    if (!this.visible) this.visible = true;
+    if (!this.isManual) {
+      this.dismissTimeout = window.setTimeout(
+        this.dismissAction,
+        this.autoDismissTimeout
+      );
+      this.timerRefreshInterval = window.setInterval(
+        this.handleProgressChange,
+        AUTO_DISMISS_TIMER_REFRESH_RATE_MS
+      );
+      return null;
+    } else {
+      window.setTimeout(() => this.interactiveElements[0].setFocus(), 200);
+      return document.activeElement as HTMLElement;
     }
   }
 
@@ -200,58 +260,6 @@ export class Toast {
   private isActive(targetEl: HTMLElement): boolean {
     if (targetEl === this.el) return !!this.el.shadowRoot.activeElement;
     return document.activeElement === targetEl;
-  }
-
-  componentWillLoad() {
-    this.handleLongText(
-      this.heading.length > TOAST_HEADING_CHAR_LIMIT,
-      this.message?.length > TOAST_MESSAGE_CHAR_LIMIT
-    );
-
-    if (this.autoDismissTimeout < 5000) this.autoDismissTimeout = 5000;
-
-    if (isSlotUsed(this.el, "action")) this.dismissMode = "manual";
-    this.isManual = this.dismissMode === "manual";
-
-    if (isSlotUsed(this.el, "neutral-icon")) this.variant = "neutral";
-    if (this.variant === "neutral") {
-      this.neutralVariantLabel =
-        this.neutralIconAriaLabel ?? VARIANT_ICONS[this.variant].ariaLabel;
-    }
-
-    if (this.isManual) {
-      this.el.setAttribute(
-        "aria-label",
-        this.variant
-          ? this.neutralVariantLabel || VARIANT_ICONS[this.variant].ariaLabel
-          : this.heading
-      );
-      (this.variant || this.message) &&
-        this.el.setAttribute(
-          "aria-description",
-          this.variant
-            ? `${this.heading}${
-                this.message !== undefined ? `. ${this.message}` : ""
-              }`
-            : this.message
-        );
-    }
-  }
-
-  componentDidLoad() {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.heading, propName: "heading" }],
-      "Toast"
-    );
-    const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
-    const dismissButton = this.el.shadowRoot.querySelector("ic-button");
-    if (actionContent) this.interactiveElements.push(actionContent);
-    if (dismissButton) this.interactiveElements.push(dismissButton);
-  }
-
-  disconnectedCallback() {
-    window.clearTimeout(this.dismissTimeout);
-    window.clearInterval(this.timerRefreshInterval);
   }
 
   render() {
