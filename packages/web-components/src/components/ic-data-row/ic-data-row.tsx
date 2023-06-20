@@ -17,7 +17,13 @@ import {
   shadow: true,
 })
 export class DataRow {
+  private hasEndComponent: boolean = false;
+  private resizeObserver: ResizeObserver = null;
+
   @Element() el: HTMLIcDataRowElement;
+
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() entitySize: "xl" | "m" | "xs";
 
   /**
    * The label in the leftmost cell of the row.
@@ -25,22 +31,33 @@ export class DataRow {
   @Prop() label: string;
 
   /**
-   * The value of the middle (right if no end-component supplied) cell of the row.
-   */
-  @Prop() value: string;
-
-  /**
    * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
    */
   @Prop() small: boolean = false;
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
+  /**
+   * The value of the middle (right if no end-component supplied) cell of the row.
+   */
+  @Prop() value: string;
 
-  @State() entitySize: "xl" | "m" | "xs";
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
 
-  private resizeObserver: ResizeObserver = null;
+  componentWillLoad(): void {
+    this.deviceSize = getCurrentDeviceSize();
+    this.hasEndComponent = slotHasContent(this.el, "end-component");
+    this.checkLabelAbove();
+  }
 
-  private hasEndComponent: boolean = false;
+  componentDidLoad(): void {
+    checkResizeObserver(this.runResizeObserver);
+    if (this.hasEndComponent) {
+      this.labelEndComponent();
+    }
+  }
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
@@ -71,25 +88,6 @@ export class DataRow {
     component.forEach((child: HTMLElement) =>
       child.setAttribute("aria-label", "for " + this.label + " row")
     );
-  }
-
-  componentWillLoad(): void {
-    this.deviceSize = getCurrentDeviceSize();
-    this.hasEndComponent = slotHasContent(this.el, "end-component");
-    this.checkLabelAbove();
-  }
-
-  componentDidLoad(): void {
-    checkResizeObserver(this.runResizeObserver);
-    if (this.hasEndComponent) {
-      this.labelEndComponent();
-    }
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
   }
 
   render() {

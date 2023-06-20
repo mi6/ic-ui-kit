@@ -17,12 +17,31 @@ import { onComponentRequiredPropUndefined } from "../../utils/helpers";
   shadow: true,
 })
 export class Tooltip {
+  private arrow: HTMLDivElement;
+  private delayedHideEvents = ["mouseleave"];
+  private instantHideEvents = ["focusout"];
+  private mouseOverTool: boolean = false;
+  private persistTooltip = false;
+  private popperInstance: Instance;
+  private screenReaderOnlyStyles = {
+    position: "absolute",
+    left: "-10000px",
+    top: "auto",
+    width: "1px",
+    height: "1px",
+    overflow: "hidden",
+  };
+  private showEvents = this.disableHover
+    ? ["click"]
+    : ["mouseenter", "focusin"];
+  private toolTip: HTMLDivElement;
+
   @Element() el: HTMLIcTooltipElement;
 
   /**
-   * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
+   * If `true`, the tooltip will not be displayed on hover, it will require a click.
    */
-  @Prop({ reflect: true }) target?: string;
+  @Prop() disableHover?: boolean = false;
 
   /**
    * The position of the tool-tip in relation to the parent element.
@@ -30,20 +49,66 @@ export class Tooltip {
   @Prop() placement?: IcTooltipPlacements = "bottom";
 
   /**
+   * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
+   */
+  @Prop({ reflect: true }) target?: string;
+
+  /**
    * The text to display on the tooltip.
    */
   @Prop() label!: string;
-
-  /**
-   * If `true`, the tooltip will not be displayed on hover, it will require a click.
-   */
-  @Prop() disableHover?: boolean = false;
 
   @Watch("label")
   updateLabel(newValue: string): void {
     const describedBySpan = this.el.previousElementSibling as HTMLElement;
     if (describedBySpan !== null) {
       describedBySpan.innerText = newValue;
+    }
+  }
+
+  disconnectedCallback(): void {
+    this.manageEventListeners("remove");
+    this.popperInstance.destroy();
+  }
+
+  componentDidLoad(): void {
+    this.popperInstance = createPopper(this.el, this.toolTip, {
+      placement: this.placement,
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 10],
+          },
+        },
+        {
+          name: "arrow",
+          options: {
+            element: this.arrow,
+          },
+        },
+        {
+          name: "eventListeners",
+          options: { scroll: false, resize: false },
+        },
+      ],
+    });
+
+    this.manageEventListeners("add");
+
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Tooltip"
+    );
+
+    if (this.target !== undefined) {
+      const ariaDescribedBy = document.createElement("span");
+      ariaDescribedBy.id = `ic-tooltip-${this.target}`;
+      ariaDescribedBy.innerText = this.label;
+      ariaDescribedBy.classList.add("ic-tooltip-label");
+      Object.assign(ariaDescribedBy.style, this.screenReaderOnlyStyles);
+
+      this.el.insertAdjacentElement("beforebegin", ariaDescribedBy);
     }
   }
 
@@ -57,17 +122,6 @@ export class Tooltip {
     this.persistTooltip = persistTooltip;
     show ? this.show() : this.hide();
   }
-
-  private toolTip: HTMLDivElement;
-  private arrow: HTMLDivElement;
-  private mouseOverTool: boolean = false;
-  private showEvents = this.disableHover
-    ? ["click"]
-    : ["mouseenter", "focusin"];
-  private instantHideEvents = ["focusout"];
-  private delayedHideEvents = ["mouseleave"];
-  private popperInstance: Instance;
-  private persistTooltip = false;
 
   private show = () => {
     this.toolTip.setAttribute("data-show", "");
@@ -128,61 +182,6 @@ export class Tooltip {
 
     document[method]("keydown", this.handleKeyDown);
   };
-
-  private screenReaderOnlyStyles = {
-    position: "absolute",
-    left: "-10000px",
-    top: "auto",
-    width: "1px",
-    height: "1px",
-    overflow: "hidden",
-  };
-
-  componentDidLoad(): void {
-    this.popperInstance = createPopper(this.el, this.toolTip, {
-      placement: this.placement,
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: "arrow",
-          options: {
-            element: this.arrow,
-          },
-        },
-        {
-          name: "eventListeners",
-          options: { scroll: false, resize: false },
-        },
-      ],
-    });
-
-    this.manageEventListeners("add");
-
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Tooltip"
-    );
-
-    if (this.target !== undefined) {
-      const ariaDescribedBy = document.createElement("span");
-      ariaDescribedBy.id = `ic-tooltip-${this.target}`;
-      ariaDescribedBy.innerText = this.label;
-      ariaDescribedBy.classList.add("ic-tooltip-label");
-      Object.assign(ariaDescribedBy.style, this.screenReaderOnlyStyles);
-
-      this.el.insertAdjacentElement("beforebegin", ariaDescribedBy);
-    }
-  }
-
-  disconnectedCallback(): void {
-    this.manageEventListeners("remove");
-    this.popperInstance.destroy();
-  }
 
   render() {
     const { label } = this;

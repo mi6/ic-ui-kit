@@ -8,22 +8,21 @@ import { IcSkeletonVariants } from "./ic-skeleton.types";
 })
 export class Skeleton {
   @Element() el: HTMLIcSkeletonElement;
-  /**
-   * The variant of the skeleton that will be displayed.
-   */
-  @Prop() variant?: IcSkeletonVariants = "rectangle";
+
+  @State() default: boolean;
+  @State() hasChild: boolean;
+  @State() heightOnly: boolean;
+  @State() widthOnly: boolean;
+
   /**
    * If `true`, the skeleton will be set to the light variant.
    */
   @Prop() light?: boolean = false;
 
-  @State() hasChild: boolean;
-
-  @State() default: boolean;
-
-  @State() heightOnly: boolean;
-
-  @State() widthOnly: boolean;
+  /**
+   * The variant of the skeleton that will be displayed.
+   */
+  @Prop() variant?: IcSkeletonVariants = "rectangle";
 
   componentWillLoad(): void {
     if (this.el.style.height === "" && this.el.style.width === "") {

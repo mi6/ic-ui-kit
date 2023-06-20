@@ -21,15 +21,15 @@ export class TabPanel {
   @Element() host: HTMLIcTabPanelElement;
 
   /**
+   * @internal The appearance of the tabs, e.g dark, or light.
+   */
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+
+  /**
    * @deprecated This is no longer required.
    * The context id is passed down from `ic-tab-context`
    */
   @Prop({ reflect: true }) contextId?: string = "default";
-
-  /**
-   * @internal The position of the tab panel inside the tabs array in context.
-   */
-  @Prop({ reflect: true }) tabPosition?: number;
 
   /**
    * @internal The shared ID that links the panel and tab.
@@ -42,9 +42,9 @@ export class TabPanel {
   @Prop() selectedTab?: string;
 
   /**
-   * @internal The appearance of the tabs, e.g dark, or light.
+   * @internal The position of the tab panel inside the tabs array in context.
    */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+  @Prop({ reflect: true }) tabPosition?: number;
 
   /**
    * @internal Emitted when a tab panel is dynamically created.

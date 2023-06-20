@@ -21,12 +21,15 @@ import { getSlot, getSlotContent, isSlotUsed } from "../../utils/helpers";
   shadow: true,
 })
 export class NavigationMenu {
-  @Element() el: HTMLIcNavigationMenuElement;
+  private closeButton: HTMLIcButtonElement = null;
+  private hasButtons: boolean = false;
+  private hasNavigation: boolean = false;
+  private lastTabStop: HTMLElement = null;
+  private navBarEl: HTMLIcTopNavigationElement;
+  private navGroupFirst: boolean = false;
+  private navItemAboveButtons: boolean = false;
 
-  /**
-   * The version info to display.
-   */
-  @Prop() version: string = "";
+  @Element() el: HTMLIcNavigationMenuElement;
 
   /**
    * The status info to display.
@@ -34,69 +37,14 @@ export class NavigationMenu {
   @Prop() status: string = "";
 
   /**
+   * The version info to display.
+   */
+  @Prop() version: string = "";
+
+  /**
    * @internal - Emitted when the menu is closed.
    */
   @Event() icNavigationMenuClose: EventEmitter<void>;
-
-  @Listen("navItemClicked")
-  navItemClickHandler(): void {
-    this.closeMenu();
-  }
-
-  @Listen("keydown", { target: "document" })
-  handleKeyDown(ev: KeyboardEvent): void {
-    if (ev.key === "Tab") {
-      if (ev.shiftKey) {
-        if (document.activeElement === this.navBarEl) {
-          ev.preventDefault();
-          this.focusLastTabStop();
-        }
-      } else if (
-        document.activeElement === this.lastTabStop ||
-        this.lastTabStop === null
-      ) {
-        ev.preventDefault();
-        this.focusCloseButton();
-      }
-    } else if (ev.key === "Escape") {
-      this.closeMenu();
-    }
-  }
-
-  private hasButtons: boolean = false;
-  private hasNavigation: boolean = false;
-  private navItemAboveButtons: boolean = false;
-  private navGroupFirst: boolean = false;
-  private lastTabStop: HTMLElement = null;
-  private closeButton: HTMLIcButtonElement = null;
-  private navBarEl: HTMLIcTopNavigationElement;
-
-  private closeMenu = () => {
-    this.icNavigationMenuClose.emit();
-  };
-
-  private focusCloseButton = () => {
-    if (this.closeButton.focus) {
-      this.closeButton.focus();
-    }
-  };
-
-  private focusLastTabStop = () => {
-    let focusEl;
-    if (this.lastTabStop !== null) {
-      switch (this.lastTabStop.tagName) {
-        case "IC-NAVIGATION-BUTTON":
-        case "IC-NAVIGATION-ITEM":
-        case "IC-NAVIGATION-GROUP":
-          focusEl = this.lastTabStop as HTMLElement;
-          focusEl.focus();
-          break;
-        case "A":
-          this.lastTabStop.focus();
-          break;
-      }
-    }
-  };
 
   componentWillLoad(): void {
     this.navBarEl = document.querySelector("ic-top-navigation");
@@ -139,6 +87,58 @@ export class NavigationMenu {
     this.hasNavigation = isSlotUsed(this.el, "navigation");
     this.hasButtons = isSlotUsed(this.el, "buttons");
   }
+
+  @Listen("navItemClicked")
+  navItemClickHandler(): void {
+    this.closeMenu();
+  }
+
+  @Listen("keydown", { target: "document" })
+  handleKeyDown(ev: KeyboardEvent): void {
+    if (ev.key === "Tab") {
+      if (ev.shiftKey) {
+        if (document.activeElement === this.navBarEl) {
+          ev.preventDefault();
+          this.focusLastTabStop();
+        }
+      } else if (
+        document.activeElement === this.lastTabStop ||
+        this.lastTabStop === null
+      ) {
+        ev.preventDefault();
+        this.focusCloseButton();
+      }
+    } else if (ev.key === "Escape") {
+      this.closeMenu();
+    }
+  }
+
+  private closeMenu = () => {
+    this.icNavigationMenuClose.emit();
+  };
+
+  private focusCloseButton = () => {
+    if (this.closeButton.focus) {
+      this.closeButton.focus();
+    }
+  };
+
+  private focusLastTabStop = () => {
+    let focusEl;
+    if (this.lastTabStop !== null) {
+      switch (this.lastTabStop.tagName) {
+        case "IC-NAVIGATION-BUTTON":
+        case "IC-NAVIGATION-ITEM":
+        case "IC-NAVIGATION-GROUP":
+          focusEl = this.lastTabStop as HTMLElement;
+          focusEl.focus();
+          break;
+        case "A":
+          this.lastTabStop.focus();
+          break;
+      }
+    }
+  };
 
   render() {
     return (

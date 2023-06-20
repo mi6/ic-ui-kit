@@ -38,17 +38,13 @@ import { IcFooterBreakpoints } from "./ic-footer.types";
   shadow: true,
 })
 export class Footer {
+  private footerEl: HTMLElement;
+  private resizeObserver: ResizeObserver;
+
   @Element() el: HTMLIcFooterElement;
 
-  /**
-   *  @internal Triggers on page resize and triggers style changes in footer links and link groups
-   */
-  @Event() footerResized: EventEmitter<void>;
-
-  /**
-   * The description displayed at the top of the footer.
-   */
-  @Prop() description: string;
+  @State() deviceSize: number = IC_DEVICE_SIZES.XL;
+  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
 
   /**
    * The alignment of the section containers used within the footer.
@@ -61,11 +57,6 @@ export class Footer {
   @Prop() breakpoint?: IcFooterBreakpoints = "medium";
 
   /**
-   * If `true`, the footer will be set up to handle link groups instead of standalone links.
-   */
-  @Prop() groupLinks?: boolean = false;
-
-  /**
    * The caption displayed at the bottom of the footer.
    */
   @Prop() caption: string;
@@ -75,9 +66,38 @@ export class Footer {
    */
   @Prop() copyright: boolean = true;
 
-  @State() deviceSize: number = IC_DEVICE_SIZES.XL;
+  /**
+   * The description displayed at the top of the footer.
+   */
+  @Prop() description: string;
 
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  /**
+   * If `true`, the footer will be set up to handle link groups instead of standalone links.
+   */
+  @Prop() groupLinks?: boolean = false;
+
+  /**
+   *  @internal Triggers on page resize and triggers style changes in footer links and link groups
+   */
+  @Event() footerResized: EventEmitter<void>;
+
+  disconnectedCallback(): void {
+    this.resizeObserver.disconnect();
+  }
+
+  componentWillLoad(): void {
+    this.deviceSize = getCurrentDeviceSize();
+  }
+
+  componentDidLoad(): void {
+    checkResizeObserver(this.runResizeObserver);
+  }
+
+  @Listen("themeChange", { target: "document" })
+  themeChangeHandler(ev: CustomEvent): void {
+    const theme: IcTheme = ev.detail;
+    this.foregroundColor = theme.mode;
+  }
 
   private isSmall() {
     const bp = this.breakpoint;
@@ -95,15 +115,6 @@ export class Footer {
       : false;
   }
 
-  @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
-  }
-
-  private resizeObserver: ResizeObserver;
-  private footerEl: HTMLElement;
-
   private resizeObserverCallback = (currSize: number) => {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
@@ -119,18 +130,6 @@ export class Footer {
 
     this.resizeObserver.observe(this.footerEl);
   };
-
-  componentWillLoad(): void {
-    this.deviceSize = getCurrentDeviceSize();
-  }
-
-  componentDidLoad(): void {
-    checkResizeObserver(this.runResizeObserver);
-  }
-
-  disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
-  }
 
   render() {
     const {

@@ -9,12 +9,19 @@ import { checkResizeObserver } from "../../utils/helpers";
   shadow: true,
 })
 export class Typography {
+  private focusBtnFromKeyboard: boolean = true;
+  private lastMarkerTop: number = 0;
+  private lastWidth: number = 0;
+  private marker: HTMLElement;
+  private resizeInterval: number;
+  private resizeObserver: ResizeObserver = null;
+  private truncatedHeight: number = 0;
+  private truncWrapperEl: Element;
+
   @Element() el: HTMLIcTypographyElement;
 
-  /**
-   * The ICDS typography style to use.
-   */
-  @Prop() variant?: IcTypographyVariants = "body";
+  @State() truncated: boolean = false;
+  @State() truncButtonFocussed: boolean = false;
 
   /**
    * If `true`, appropriate top and bottom margins will be applied to the typography.
@@ -26,19 +33,12 @@ export class Typography {
    */
   @Prop() maxLines?: number;
 
+  /**
+   * The ICDS typography style to use.
+   */
+  @Prop() variant?: IcTypographyVariants = "body";
+
   @State() expanded: boolean = false;
-  @State() truncated: boolean = false;
-  @State() truncButtonFocussed: boolean = false;
-
-  private truncWrapperEl: Element;
-  private resizeObserver: ResizeObserver = null;
-
-  private resizeInterval: number;
-  private lastWidth: number = 0;
-  private lastMarkerTop: number = 0;
-  private truncatedHeight: number = 0;
-  private marker: HTMLElement;
-  private focusBtnFromKeyboard: boolean = true;
 
   @Watch("expanded")
   watchExpandedHandler(): void {
@@ -46,6 +46,24 @@ export class Typography {
       "style",
       `--truncation-max-lines: ${this.expanded ? "initial" : this.maxLines}`
     );
+  }
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  componentDidLoad(): void {
+    if (this.variant === "body" && this.maxLines > 0) {
+      const marker = document.createElement("span");
+      marker.style.visibility = "hidden";
+      this.el.appendChild(marker);
+      this.marker = marker;
+      this.lastWidth = this.el.clientWidth;
+      this.checkMaxLines(this.el.clientHeight);
+      checkResizeObserver(this.runResizeObserver);
+    }
   }
 
   private toggleExpanded = () => {
@@ -117,24 +135,6 @@ export class Typography {
   private truncButtonFocusFromMouse = (): void => {
     this.focusBtnFromKeyboard = false;
   };
-
-  componentDidLoad(): void {
-    if (this.variant === "body" && this.maxLines > 0) {
-      const marker = document.createElement("span");
-      marker.style.visibility = "hidden";
-      this.el.appendChild(marker);
-      this.marker = marker;
-      this.lastWidth = this.el.clientWidth;
-      this.checkMaxLines(this.el.clientHeight);
-      checkResizeObserver(this.runResizeObserver);
-    }
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     const { variant, applyVerticalMargins, maxLines, truncated, expanded } =

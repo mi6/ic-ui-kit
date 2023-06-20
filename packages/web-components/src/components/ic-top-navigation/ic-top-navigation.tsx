@@ -43,22 +43,39 @@ import {
   shadow: true,
 })
 export class TopNavigation {
+  private hasAppIcon: boolean = false;
+  private hasIconButtons: boolean = false;
+  private hasNavigation: boolean = false;
+  private hasSearchSlotContent: boolean = false;
+  private mobileSearchButtonEl: HTMLIcButtonElement;
+  private resizeObserver: ResizeObserver = null;
+  private searchBar: HTMLIcSearchBarElement = null;
+
   @Element() el: HTMLIcTopNavigationElement;
 
-  /**
-   * The app title to be displayed. This is required, unless a slotted app title link is used.
-   */
-  @Prop() appTitle: string;
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() hasFullWidthSearchBar: boolean = false;
+  @State() menuOpen: boolean = false;
+  @State() mobileSearchBarVisible: boolean = false;
+  @State() mobileSearchHiddenOnBlur: boolean = false;
+  @State() navMenuVisible: boolean = false;
+  @State() searchButtonClick: boolean = false;
+  @State() searchValue: string = "";
 
+  /**
+   * The alignment of the top navigation content.
+   */
+  @Prop() contentAligned: IcAlignment = "full-width";
   /**
    *  The URL to navigate to when the app title is clicked.
    */
   @Prop() href: string = "/";
 
   /**
-   * The version info to be displayed.
+   * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
    */
-  @Prop() version: string = "";
+  @Prop() inline: boolean = false;
 
   /**
    * The status info to be displayed.
@@ -66,25 +83,14 @@ export class TopNavigation {
   @Prop() status: string = "";
 
   /**
-   * The alignment of the top navigation content.
+   * The version info to be displayed.
    */
-  @Prop() contentAligned: IcAlignment = "full-width";
+  @Prop() version: string = "";
 
   /**
-   * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
+   * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
-  @Prop() inline: boolean = false;
-
-  @State() menuOpen: boolean = false;
-  @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() mobileSearchBarVisible: boolean = false;
-  @State() navMenuVisible: boolean = false;
-  @State() searchValue: string = "";
-  @State() mobileSearchHiddenOnBlur: boolean = false;
-  @State() searchButtonClick: boolean = false;
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
-  @State() hasFullWidthSearchBar: boolean = false;
-
+  @Prop() appTitle: string;
   @Watch("appTitle")
   watchPropHandler(newValue: string, oldValue: string): void {
     //added for gatsby rehydration issue where prop is initially undefined but then changes to actual value
@@ -97,21 +103,45 @@ export class TopNavigation {
   }
 
   /**
-   * @internal - Emitted when the menu is opened.
-   */
-  @Event() icNavigationMenuOpened: EventEmitter<void>;
-
-  /**
    * @internal - Emitted when the menu is closed.
    */
   @Event() icNavigationMenuClosed: EventEmitter<void>;
 
-  private hasAppIcon: boolean = false;
-  private hasNavigation: boolean = false;
-  private hasIconButtons: boolean = false;
-  private hasSearchSlotContent: boolean = false;
-  private searchBar: HTMLIcSearchBarElement = null;
-  private mobileSearchButtonEl: HTMLIcButtonElement;
+  /**
+   * @internal - Emitted when the menu is opened.
+   */
+  @Event() icNavigationMenuOpened: EventEmitter<void>;
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  componentWillLoad(): void {
+    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
+    this.hasNavigation = isSlotUsed(this.el, "navigation");
+    this.hasIconButtons = isSlotUsed(this.el, "buttons");
+    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
+    this.deviceSize = getCurrentDeviceSize();
+    this.initialiseSearchBar();
+  }
+
+  componentDidLoad(): void {
+    checkResizeObserver(this.runResizeObserver);
+    !isSlotUsed(this.el, "app-title") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.appTitle, propName: "app-title" }],
+        "Top Navigation"
+      );
+  }
+
+  componentWillRender(): void {
+    this.hasNavigation = isSlotUsed(this.el, "navigation");
+    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
+    this.hasIconButtons = isSlotUsed(this.el, "buttons");
+    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
+  }
 
   @Listen("icNavigationMenuClose", {})
   navBarMenuCloseHandler(): void {
@@ -211,8 +241,6 @@ export class TopNavigation {
     this.searchButtonClick = false;
   };
 
-  private resizeObserver: ResizeObserver = null;
-
   private resizeObserverCallback = (currSize: number) => {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
@@ -246,38 +274,6 @@ export class TopNavigation {
 
     this.resizeObserver.observe(this.el);
   };
-
-  componentWillLoad(): void {
-    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
-    this.hasNavigation = isSlotUsed(this.el, "navigation");
-    this.hasIconButtons = isSlotUsed(this.el, "buttons");
-    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
-    this.deviceSize = getCurrentDeviceSize();
-    this.initialiseSearchBar();
-  }
-
-  componentWillRender(): void {
-    this.hasNavigation = isSlotUsed(this.el, "navigation");
-    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
-    this.hasIconButtons = isSlotUsed(this.el, "buttons");
-    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
-  }
-
-  componentDidLoad(): void {
-    checkResizeObserver(this.runResizeObserver);
-
-    !isSlotUsed(this.el, "app-title") &&
-      onComponentRequiredPropUndefined(
-        [{ prop: this.appTitle, propName: "app-title" }],
-        "Top Navigation"
-      );
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     const hasMenuContent =

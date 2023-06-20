@@ -35,6 +35,11 @@ export class Link {
   @Element() el: HTMLIcLinkElement;
 
   /**
+   * The appearance of the link, e.g. dark, light, or default.
+   */
+  @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
+
+  /**
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
@@ -60,24 +65,38 @@ export class Link {
   @Prop() rel?: string;
 
   /**
-   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
-   */
-  @Prop() target?: string;
-
-  /**
    * @deprecated This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target="_blank".
    */
   @Prop() showIcon?: boolean;
 
   /**
-   * The appearance of the link, e.g. dark, light, or default.
+   * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
    */
-  @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
+  @Prop() target?: string;
+
+  componentWillLoad(): void {
+    this.inheritedAttributes = inheritAttributes(this.el, [
+      ...IC_INHERITED_ARIA,
+      "aria-expanded",
+    ]);
+
+    this.updateTheme();
+  }
 
   @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
     const theme: IcTheme = ev.detail;
     this.updateTheme(theme.mode);
+  }
+
+  /**
+   * Sets focus on the link.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.el.shadowRoot.querySelector("a")) {
+      this.el.shadowRoot.querySelector("a").focus();
+    }
   }
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
@@ -91,25 +110,6 @@ export class Link {
         this.appearance = IcThemeForegroundEnum.Dark;
         break;
     }
-  }
-
-  /**
-   * Sets focus on the link.
-   */
-  @Method()
-  async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("a")) {
-      this.el.shadowRoot.querySelector("a").focus();
-    }
-  }
-
-  componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "aria-expanded",
-    ]);
-
-    this.updateTheme();
   }
 
   private hasRouterSlot(): boolean {

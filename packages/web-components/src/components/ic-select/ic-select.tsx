@@ -48,52 +48,41 @@ let inputIds = 0;
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Select {
-  private nativeSelectElement: HTMLSelectElement;
-  private customSelectElement: HTMLButtonElement;
-  private searchableSelectElement: HTMLInputElement;
-  private menu: HTMLIcMenuElement;
   private anchorEl: HTMLElement;
+  private blurredBecauseButtonPressed: boolean;
+  private characterKeyPressTimer: number;
   private clearButton: HTMLIcButtonElement;
-
-  private inputId = `ic-select-input-${inputIds++}`;
-  private menuId = `${this.inputId}-menu`;
-
-  private ungroupedOptions: IcMenuOption[] = [];
-
-  private inheritedAttributes: { [k: string]: unknown } = {};
-
+  private customSelectElement: HTMLButtonElement;
   private debounceAria: number;
   private hasSetDefaultValue = false;
-  private initialOptionsEmpty = false;
-
-  private characterKeyPressTimer: number;
-
-  private timeoutTimer: number;
-
   private hasTimedOut: boolean;
-  private blurredBecauseButtonPressed: boolean;
+  private inheritedAttributes: { [k: string]: unknown } = {};
+  private initialOptionsEmpty = false;
+  private inputId = `ic-select-input-${inputIds++}`;
+  private menu: HTMLIcMenuElement;
+  private menuId = `${this.inputId}-menu`;
+  private nativeSelectElement: HTMLSelectElement;
   private retryButtonClick: boolean;
   private searchableMenuItemSelected: boolean = false;
+  private searchableSelectElement: HTMLInputElement;
+  private timeoutTimer: number;
+  private ungroupedOptions: IcMenuOption[] = [];
+
+  @Element() host!: HTMLIcSelectElement;
+
+  @State() ariaActiveDescendant: string;
+  @State() clearButtonFocused: boolean = false;
+  @State() debounceIcChange: number;
+  @State() hiddenInputValue: string;
+  @State() noOptions: IcMenuOption[] = null;
+  @State() open: boolean = false;
+  @State() pressedCharacters: string = "";
+  @State() searchableSelectInputValue: string = null;
 
   /**
-   * The label for the select.
+   * @deprecated This prop should not be used anymore.
    */
-  @Prop() label!: string;
-
-  /**
-   * The possible selection options.
-   */
-  @Prop() options?: IcMenuOption[] = [];
-
-  /**
-   * If `true`, the select will require a value.
-   */
-  @Prop() required?: boolean = false;
-
-  /**
-   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
-   */
-  @Prop() hideLabel?: boolean = false;
+  @Prop() charactersUntilSuggestions?: number = 0;
 
   /**
    * If `true`, the disabled state will be set.
@@ -101,24 +90,14 @@ export class Select {
   @Prop({ reflect: true }) disabled?: boolean = false;
 
   /**
-   * If `true`, the readonly state will be set.
+   * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
    */
-  @Prop() readonly?: boolean = false;
+  @Prop() disableFilter?: boolean = false;
 
   /**
-   * The placeholder value to be displayed.
+   * The text displayed when there are no options in the option list.
    */
-  @Prop() placeholder?: string = "Select an option";
-
-  /**
-   * The helper text that will be displayed for additional field guidance.
-   */
-  @Prop() helperText?: string = "";
-
-  /**
-   * If `true`, the small styling will be applied to the select.
-   */
-  @Prop() small?: boolean = false;
+  @Prop() emptyOptionListText = "No results found";
 
   /**
    * If `true`, the select element will fill the width of the container.
@@ -126,39 +105,14 @@ export class Select {
   @Prop() fullWidth: boolean = false;
 
   /**
-   * The validation status - e.g. 'error' | 'warning' | 'success'.
+   * The helper text that will be displayed for additional field guidance.
    */
-  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
+  @Prop() helperText?: string = "";
 
   /**
-   * The text to display as the validation message.
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
-  @Prop() validationText?: string = "";
-
-  /**
-   * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
-   */
-  @Prop({ mutable: true }) value?: string;
-
-  /**
-   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
-   */
-  @Prop() debounce?: number = 0;
-
-  /**
-   * The name of the control, which is submitted with the form data.
-   */
-  @Prop() name?: string = this.inputId;
-
-  /**
-   * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
-   */
-  @Prop() showClearButton?: boolean = false;
-
-  /**
-   * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
-   */
-  @Prop() searchable?: boolean = false;
+  @Prop() hideLabel?: boolean = false;
 
   /**
    * If `true`, descriptions of options will be included when filtering options in a searchable select. Only applies to built in filtering.
@@ -171,34 +125,9 @@ export class Select {
   @Prop() includeGroupTitlesInSearch?: boolean = false;
 
   /**
-   * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+   * The label for the select.
    */
-  @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
-
-  /**
-   * @deprecated This prop should not be used anymore.
-   */
-  @Prop() charactersUntilSuggestions?: number = 0;
-
-  /**
-   * The text displayed when there are no options in the option list.
-   */
-  @Prop() emptyOptionListText = "No results found";
-
-  /**
-   * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
-   */
-  @Prop() disableFilter?: boolean = false;
-
-  /**
-   * If using external filtering, set a timeout for when loading takes too long.
-   */
-  @Prop() timeout?: number;
-
-  /**
-   * The message displayed whilst the options are being loaded externally.
-   */
-  @Prop() loadingLabel?: string = "Loading...";
+  @Prop() label!: string;
 
   /**
    * The message displayed when external loading times out.
@@ -206,40 +135,80 @@ export class Select {
   @Prop() loadingErrorLabel?: string = "Loading Error";
 
   /**
+   * The message displayed whilst the options are being loaded externally.
+   */
+  @Prop() loadingLabel?: string = "Loading...";
+
+  /**
+   * The name of the control, which is submitted with the form data.
+   */
+  @Prop() name?: string = this.inputId;
+
+  /**
+   * The placeholder value to be displayed.
+   */
+  @Prop() placeholder?: string = "Select an option";
+
+  /**
+   * If `true`, the readonly state will be set.
+   */
+  @Prop() readonly?: boolean = false;
+
+  /**
+   * If `true`, the select will require a value.
+   */
+  @Prop() required?: boolean = false;
+
+  /**
+   * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
+   */
+  @Prop() searchable?: boolean = false;
+
+  /**
+   * Whether the search string of the searchable select should match the start of or anywhere in the options. Only applies to built in filtering.
+   */
+  @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
+
+  /**
+   * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
+   */
+  @Prop() showClearButton?: boolean = false;
+
+  /**
+   * If `true`, the small styling will be applied to the select.
+   */
+  @Prop() small?: boolean = false;
+
+  /**
+   * If using external filtering, set a timeout for when loading takes too long.
+   */
+  @Prop() timeout?: number;
+
+  /**
+   * The validation status - e.g. 'error' | 'warning' | 'success'.
+   */
+  @Prop() validationStatus?: IcInformationStatusOrEmpty = "";
+
+  /**
+   * The text to display as the validation message.
+   */
+  @Prop() validationText?: string = "";
+
+  /**
    * If `true`, the loading state will be triggered when fetching options asyncronously.
    */
   @Prop({ mutable: true }) loading?: boolean = false;
-
-  @State() open: boolean = false;
-
-  @State() clearButtonFocused: boolean = false;
-
-  @State() searchableSelectInputValue: string = null;
-
-  @State() filteredOptions: IcMenuOption[] = this.options;
-
-  @State() ariaActiveDescendant: string;
-
-  @State() noOptions: IcMenuOption[] = null;
-
-  @State() initialValue = this.value;
-
-  @State() currDebounce = this.debounce;
-
-  @State() currValue = this.value;
-
-  @State() debounceIcChange: number;
-
-  @State() pressedCharacters: string = "";
-
-  @State() hiddenInputValue: string;
-
-  @State() inputValueToFilter = this.value;
 
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
     newValue && this.triggerLoading();
   }
+
+  /**
+   * The possible selection options.
+   */
+  @Prop() options?: IcMenuOption[] = [];
+  @State() filteredOptions: IcMenuOption[] = this.options;
 
   @Watch("options")
   watchOptionsHandler(): void {
@@ -271,10 +240,24 @@ export class Select {
     }
   }
 
+  /**
+   * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
+   */
+  @Prop() debounce?: number = 0;
+  @State() currDebounce = this.debounce;
+
   @Watch("debounce")
   debounceChangedHandler(newValue: number) {
     this.updateOnChangeDebounce(newValue);
   }
+
+  /**
+   * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input.
+   */
+  @Prop({ mutable: true }) value?: string;
+  @State() initialValue = this.value;
+  @State() inputValueToFilter = this.value;
+  @State() currValue = this.value;
 
   @Watch("value")
   valueChangedHandler() {
@@ -287,6 +270,11 @@ export class Select {
         this.getLabelFromValue(this.currValue) || this.currValue;
     }
   }
+
+  /**
+   * Emitted when the select loses focus.
+   */
+  @Event() icBlur!: EventEmitter<void>;
 
   /**
    * Emitted when the value changes.
@@ -304,9 +292,9 @@ export class Select {
   @Event() icFocus!: EventEmitter<void>;
 
   /**
-   * Emitted when the select loses focus.
+   * Emitted when a keyboard input occurred.
    */
-  @Event() icBlur!: EventEmitter<void>;
+  @Event() icInput: EventEmitter<IcValueEventDetail>;
 
   /**
    * Emitted when an option is highlighted within the menu.
@@ -315,16 +303,50 @@ export class Select {
   @Event() icOptionSelect: EventEmitter<IcOptionSelectEventDetail>;
 
   /**
-   * Emitted when a keyboard input occurred.
-   */
-  @Event() icInput: EventEmitter<IcValueEventDetail>;
-
-  /**
    * Emitted when the 'retry loading' button is clicked for a searchable variant.
    */
   @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
 
-  @Element() host!: HTMLIcSelectElement;
+  disconnectedCallback(): void {
+    removeFormResetListener(this.host, this.handleFormReset);
+  }
+
+  componentWillLoad(): void {
+    this.inheritedAttributes = inheritAttributes(this.host, [
+      ...IC_INHERITED_ARIA,
+      "tabindex",
+      "title",
+    ]);
+
+    removeDisabledFalse(this.disabled, this.host);
+
+    this.setOptionsValuesFromLabels();
+
+    addFormResetListener(this.host, this.handleFormReset);
+
+    if (!this.options.length) {
+      this.initialOptionsEmpty = true;
+    } else {
+      this.setDefaultValue();
+    }
+  }
+
+  componentDidLoad(): void {
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Select"
+    );
+
+    if (this.loading) this.triggerLoading();
+
+    this.hiddenInputValue = this.searchable && this.currValue;
+  }
+
+  componentDidRender(): void {
+    if (this.nativeSelectElement && !this.disabled) {
+      this.setTextColor();
+    }
+  }
 
   /**
    * Sets focus on the input box.
@@ -823,47 +845,6 @@ export class Select {
       this.hiddenInputValue = this.value;
     }
   };
-
-  componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.host, [
-      ...IC_INHERITED_ARIA,
-      "tabindex",
-      "title",
-    ]);
-
-    removeDisabledFalse(this.disabled, this.host);
-
-    this.setOptionsValuesFromLabels();
-
-    addFormResetListener(this.host, this.handleFormReset);
-
-    if (!this.options.length) {
-      this.initialOptionsEmpty = true;
-    } else {
-      this.setDefaultValue();
-    }
-  }
-
-  componentDidRender(): void {
-    if (this.nativeSelectElement && !this.disabled) {
-      this.setTextColor();
-    }
-  }
-
-  componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Select"
-    );
-
-    if (this.loading) this.triggerLoading();
-
-    this.hiddenInputValue = this.searchable && this.currValue;
-  }
-
-  disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
-  }
 
   render() {
     const {

@@ -17,6 +17,11 @@ export class TabGroup {
   @Element() host: HTMLIcTabGroupElement;
 
   /**
+   * @internal The appearance of the tab group, e.g dark, or light.
+   */
+  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+
+  /**
    * @deprecated This is no longer required.
    * The context id is passed down from `ic-tab-context`
    */
@@ -31,11 +36,6 @@ export class TabGroup {
    * The label to describe the purpose of the set of tabs to screen reader users.
    */
   @Prop() label!: string;
-
-  /**
-   * @internal The appearance of the tab group, e.g dark, or light.
-   */
-  @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(

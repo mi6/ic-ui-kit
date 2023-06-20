@@ -41,56 +41,104 @@ import { IcTopBar } from "./ic-side-navigation.types";
   shadow: true,
 })
 export class SideNavigation {
+  private ANIMATION_DURATION =
+    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
+  private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
+  private resizeObserver: ResizeObserver = null;
+
   @Element() el: HTMLIcSideNavigationElement;
+
+  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() deviceSizeAppTitle = DEVICE_SIZES.S;
+  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
+  @State() hasSecondaryNavigation: boolean = false;
+  @State() menuExpanded: boolean = false;
+  @State() menuOpen: boolean = false;
+
   /**
    * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
   @Prop() appTitle: string;
-  /**
-   * The status of the app to be displayed.
-   */
-  @Prop() status: string;
-  /**
-   * The version of the app to be displayed.
-   */
-  @Prop() version: string;
-  /**
-   * If `true`, the side navigation will load in an expanded state.
-   */
-  @Prop() expanded: boolean = false;
-  /**
-   * The URL that the app title link points to.
-   */
-  @Prop() href: string = "/";
-  /**
-   * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
-   */
-  @Prop() static: boolean = false;
+
   /**
    * If `true`, the icon and label will appear when side navigation is collapsed.
    */
   @Prop() collapsedIconLabels: boolean = false;
-  /**
-   * @internal If `true`, side navigation will be contained by its parent element.
-   */
-  @Prop() inline: boolean = false;
 
   /**
    * If `true`, automatic parent wrapper styling will be disabled.
    */
   @Prop() disableAutoParentStyling: boolean = false;
 
-  @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
-  @State() menuOpen: boolean = false;
-  @State() menuExpanded: boolean = false;
-  @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() deviceSizeAppTitle = DEVICE_SIZES.S;
-  @State() hasSecondaryNavigation: boolean = false;
+  /**
+   * If `true`, the side navigation will load in an expanded state.
+   */
+  @Prop() expanded: boolean = false;
 
-  private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
+  /**
+   * The URL that the app title link points to.
+   */
+  @Prop() href: string = "/";
 
-  private ANIMATION_DURATION =
-    parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
+  /**
+   * @internal If `true`, side navigation will be contained by its parent element.
+   */
+  @Prop() inline: boolean = false;
+
+  /**
+   * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
+   */
+  @Prop() static: boolean = false;
+
+  /**
+   * The status of the app to be displayed.
+   */
+  @Prop() status: string;
+
+  /**
+   * The version of the app to be displayed.
+   */
+  @Prop() version: string;
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  componentWillLoad(): void {
+    if (this.expanded) {
+      this.setMenuExpanded(true);
+    } else {
+      this.setMenuExpanded(false);
+    }
+
+    if (this.collapsedIconLabels) {
+      this.setCollapsedIconLabels();
+    }
+
+    this.hasSecondaryNavigation = isSlotUsed(this.el, "secondary-navigation");
+  }
+
+  componentDidLoad(): void {
+    this.emitSideNavigationExpanded({
+      sideNavExpanded: this.menuExpanded,
+      sideNavMobile: this.deviceSize === DEVICE_SIZES.S,
+    });
+
+    checkResizeObserver(this.runResizeObserver);
+    this.styleSlottedCollapsedIconLabel();
+    this.arrangeSlottedNavigationItem(this.menuExpanded);
+    this.displayTooltipWithExpandedLongLabel(this.menuExpanded);
+
+    this.setExpandedButtonHeight();
+
+    !isSlotUsed(this.el, "app-title") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.appTitle, propName: "app-title" }],
+        "Side Navigation"
+      );
+  }
 
   @Listen("themeChange", { target: "document" })
   themeChangeHandler(ev: CustomEvent): void {
@@ -398,8 +446,6 @@ export class SideNavigation {
     this.el.parentElement.style.setProperty("padding-left", value);
   };
 
-  private resizeObserver: ResizeObserver = null;
-
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
@@ -582,46 +628,6 @@ export class SideNavigation {
       </div>
     );
   };
-
-  componentWillLoad(): void {
-    if (this.expanded) {
-      this.setMenuExpanded(true);
-    } else {
-      this.setMenuExpanded(false);
-    }
-
-    if (this.collapsedIconLabels) {
-      this.setCollapsedIconLabels();
-    }
-
-    this.hasSecondaryNavigation = isSlotUsed(this.el, "secondary-navigation");
-  }
-
-  componentDidLoad(): void {
-    this.emitSideNavigationExpanded({
-      sideNavExpanded: this.menuExpanded,
-      sideNavMobile: this.deviceSize === DEVICE_SIZES.S,
-    });
-
-    checkResizeObserver(this.runResizeObserver);
-    this.styleSlottedCollapsedIconLabel();
-    this.arrangeSlottedNavigationItem(this.menuExpanded);
-    this.displayTooltipWithExpandedLongLabel(this.menuExpanded);
-
-    this.setExpandedButtonHeight();
-
-    !isSlotUsed(this.el, "app-title") &&
-      onComponentRequiredPropUndefined(
-        [{ prop: this.appTitle, propName: "app-title" }],
-        "Side Navigation"
-      );
-  }
-
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
 
   render() {
     const {

@@ -13,28 +13,35 @@ import { isSlotUsed } from "../../utils/helpers";
   },
 })
 export class Breadcrumb {
+  @Element() el: HTMLIcBreadcrumbElement;
+
   /**
    * @slot icon - Content will be rendered to the left of the breadcrumb page title.
    */
 
-  @Element() el: HTMLIcBreadcrumbElement;
-  /**
-   * The title of the breadcrumb.
-   */
-  @Prop() pageTitle!: string;
-  /**
-   * The URL that the breadcrumb link points to.
-   */
-  @Prop() href?: string;
   /**
    * If `true`, aria-current will be set on the breadcrumb.
    */
   @Prop() current?: boolean = false;
 
   /**
+   * The URL that the breadcrumb link points to.
+   */
+  @Prop() href?: string;
+
+  /**
+   * The title of the breadcrumb.
+   */
+  @Prop() pageTitle!: string;
+
+  /**
    * @internal If `true`, back icon will be displayed.
    */
   @Prop({ reflect: true }) showBackIcon: boolean = false;
+
+  componentWillRender(): void {
+    this.setSlottedCurrentPageClass();
+  }
 
   /**
    * Sets focus on the breadcrumb.
@@ -96,10 +103,6 @@ export class Breadcrumb {
       }
     }
   };
-
-  componentWillRender(): void {
-    this.setSlottedCurrentPageClass();
-  }
 
   render() {
     const { current, href, pageTitle } = this;
