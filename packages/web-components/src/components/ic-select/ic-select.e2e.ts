@@ -600,9 +600,7 @@ describe("ic-select", () => {
 
     it("should close menu when Shift + Tab is pressed to move focus onto the input", async () => {
       const page = await newE2EPage();
-      await page.setContent(
-        `${getTestSelect(options)}<button>Test button</button>`
-      );
+      await page.setContent(`${getTestSelect(options)}`);
       await page.waitForChanges();
 
       const select = await page.find("ic-select >>> #ic-select-input-0");
@@ -612,6 +610,8 @@ describe("ic-select", () => {
 
       await page.keyboard.down("Shift");
       await page.keyboard.press("Tab");
+      await page.waitForChanges();
+
       await page.keyboard.up("Shift");
       await page.waitForChanges();
 
