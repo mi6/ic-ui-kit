@@ -12,6 +12,7 @@ import {
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcChipAppearance, IcChipSizes } from "./ic-chip.types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
@@ -90,6 +91,10 @@ export class Chip {
     if (this.el.shadowRoot.querySelector("button")) {
       this.el.shadowRoot.querySelector("button").focus();
     }
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {

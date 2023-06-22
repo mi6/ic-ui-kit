@@ -11,6 +11,7 @@ import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
   getThemeFromContext,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -153,6 +154,8 @@ export class Card {
       this.parentEl.addEventListener("focus", this.parentFocussed);
       this.parentEl.addEventListener("blur", this.parentBlurred);
     }
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   disconnectedCallback(): void {

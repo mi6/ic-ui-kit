@@ -12,6 +12,7 @@ import {
   getInputDescribedByText,
   hasValidationStatus,
   onComponentRequiredPropUndefined,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcInformationStatusOrEmpty } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-checkbox-group.types";
@@ -86,6 +87,10 @@ export class CheckboxGroup {
       })),
       selectedOption: ev.target as HTMLIcCheckboxElement,
     });
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
   }
 
   componentDidLoad(): void {

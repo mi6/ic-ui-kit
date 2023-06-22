@@ -13,6 +13,7 @@ import {
   hasValidationStatus,
   isSlotUsed,
   onComponentRequiredPropUndefined,
+  removeDisabledFalse,
   renderHiddenInput,
 } from "../../utils/helpers";
 import {
@@ -159,6 +160,10 @@ export class RadioGroup {
 
     return nextItem;
   };
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
+  }
 
   componentDidLoad(): void {
     this.radioOptions = Array.from(

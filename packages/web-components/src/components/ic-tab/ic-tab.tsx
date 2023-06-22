@@ -14,6 +14,7 @@ import {
   IcThemeForegroundNoDefault,
   IcThemeForegroundEnum,
 } from "../../utils/types";
+import { removeDisabledFalse } from "../../utils/helpers";
 
 /**
  * @slot icon - Content will be rendered next to the tab label.
@@ -112,6 +113,10 @@ export class Tab {
     if (this.host) {
       this.host.focus();
     }
+  }
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
   }
 
   componentDidUpdate(): void {

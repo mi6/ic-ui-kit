@@ -28,6 +28,7 @@ import {
   addFormResetListener,
   removeFormResetListener,
   isSlotUsed,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -391,6 +392,8 @@ export class TextField {
     }
 
     addFormResetListener(this.el, this.handleFormReset);
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
