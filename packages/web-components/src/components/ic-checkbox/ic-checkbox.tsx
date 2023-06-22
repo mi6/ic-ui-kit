@@ -17,6 +17,7 @@ import {
   removeHiddenInput,
   addFormResetListener,
   removeFormResetListener,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 
 @Component({
@@ -129,6 +130,8 @@ export class Checkbox {
   }
 
   componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.host);
+
     addFormResetListener(this.host, this.handleFormReset);
     this.host
       .querySelector(this.IC_TEXT_FIELD)

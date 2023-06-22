@@ -16,6 +16,7 @@ import {
   onComponentRequiredPropUndefined,
   addFormResetListener,
   removeFormResetListener,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 @Component({
   tag: "ic-radio-option",
@@ -131,6 +132,8 @@ export class RadioOption {
     this.defaultRadioValue = this.value;
 
     addFormResetListener(this.host, this.handleFormReset);
+
+    removeDisabledFalse(this.disabled, this.host);
   }
 
   private handleFormReset = (): void => {

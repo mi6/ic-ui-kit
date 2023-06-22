@@ -25,6 +25,7 @@ import {
   getLabelFromValue,
   onComponentRequiredPropUndefined,
   getFilteredMenuOptions,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcSearchBarBlurEventDetail } from "./ic-search-bar.types";
 import { IcValueEventDetail, IcBlurEventDetail } from "../../utils/types";
@@ -681,6 +682,8 @@ export class SearchBar {
 
   componentWillLoad(): void {
     this.watchValueHandler(this.value);
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {

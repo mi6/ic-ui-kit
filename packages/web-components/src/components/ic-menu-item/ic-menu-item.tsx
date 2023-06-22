@@ -13,6 +13,7 @@ import {
   getParentElement,
   isSlotUsed,
   onComponentRequiredPropUndefined,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcMenuItemVariants } from "./ic-menu-item.types";
 import Check from "../../assets/check-icon.svg";
@@ -122,6 +123,8 @@ export class MenuItem {
     if (this.submenuTriggerFor !== undefined && this.variant !== "default") {
       this.variant = "default";
     }
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
