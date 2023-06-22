@@ -577,3 +577,12 @@ export const pxToRem = (px: string, base = 16) => {
   const tempPx = parseInt(px);
   return `${(1 / base) * tempPx}rem`;
 };
+
+export const removeDisabledFalse = (
+  disabled: boolean,
+  element: HTMLElement
+) => {
+  if (!disabled) {
+    element.removeAttribute("disabled");
+  }
+};

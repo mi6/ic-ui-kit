@@ -8,6 +8,7 @@ import {
 } from "@stencil/core";
 import { IcPaginationItemType } from "./ic-pagination-item.types";
 import { IcThemeForeground } from "../../utils/types";
+import { removeDisabledFalse } from "../../utils/helpers";
 
 @Component({
   tag: "ic-pagination-item",
@@ -58,6 +59,10 @@ export class PaginationItem {
   private handleClick = () => {
     this.paginationItemClick.emit({ page: this.page });
   };
+
+  componentWillLoad(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   render() {
     const {

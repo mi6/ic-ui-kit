@@ -15,6 +15,7 @@ import {
   renderHiddenInput,
   addFormResetListener,
   removeFormResetListener,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcSwitchChangeEventDetail } from "./ic-switch.types";
 
@@ -129,6 +130,8 @@ export class Switch {
   componentWillLoad(): void {
     this.checkedState = this.checked;
     addFormResetListener(this.el, this.handleFormReset);
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {

@@ -15,7 +15,10 @@ import paginationNextPrevious from "../../assets/pagination-next-previous.svg";
 import paginationFirstLast from "../../assets/pagination-first-last.svg";
 import { IcThemeForeground } from "../../utils/types";
 import { IcPaginationTypes, IcChangeEventDetail } from "./ic-pagination.types";
-import { onComponentRequiredPropUndefined } from "../../utils/helpers";
+import {
+  onComponentRequiredPropUndefined,
+  removeDisabledFalse,
+} from "../../utils/helpers";
 
 @Component({
   tag: "ic-pagination",
@@ -365,6 +368,8 @@ export class Pagination {
     if (this.adjacentCount > 2) {
       this.adjacentCount = 2;
     }
+
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   render() {

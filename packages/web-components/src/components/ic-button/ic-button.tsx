@@ -10,7 +10,11 @@ import {
   h,
 } from "@stencil/core";
 
-import { getThemeFromContext, inheritAttributes } from "../../utils/helpers";
+import {
+  getThemeFromContext,
+  inheritAttributes,
+  removeDisabledFalse,
+} from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   IcButtonSizes,
@@ -220,6 +224,8 @@ export class Button {
       "aria-expanded",
       "title",
     ]);
+
+    removeDisabledFalse(this.disabled, this.el);
 
     this.el.setAttribute("exportparts", "button");
 
