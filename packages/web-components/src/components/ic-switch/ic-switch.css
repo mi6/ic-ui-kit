@@ -135,7 +135,7 @@ input {
 
 .ic-switch-input:disabled + .ic-switch-toggle {
   background-color: var(--ic-architectural-80);
-  border: var(--ic-space-1px) dashed var(--ic-architectural-300);
+  border: var(--ic-border-disabled);
 }
 
 .ic-switch-input:disabled ~ .ic-switch-checked-status {

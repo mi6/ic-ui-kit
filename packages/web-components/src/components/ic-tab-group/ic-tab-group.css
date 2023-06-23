@@ -3,7 +3,7 @@
 
   display: block;
   margin-bottom: var(--ic-space-md);
-  border-bottom: 1px solid var(--border-bottom-color);
+  border-bottom: var(--ic-border-default);
 }
 
 :host(.inline) {
@@ -12,7 +12,7 @@
 }
 
 .light {
-  --border-bottom-color: var(--ic-architectural-white);
+  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-white);
 }
 
 .tabs-container {

@@ -19,7 +19,7 @@ button {
 .card.clickable {
   display: flex;
   flex-direction: column;
-  border: var(--ic-space-1px) solid var(--ic-architectural-300);
+  border: var(--ic-border-default);
   border-radius: var(--ic-border-radius);
   box-sizing: border-box;
   padding: var(--ic-space-md);
@@ -35,7 +35,7 @@ button {
 
 .card.clickable:hover {
   background-color: var(--ic-action-default-bg-hover);
-  border-color: var(--ic-action-default-hover);
+  border: var(--ic-border-hover);
   cursor: pointer;
 }
 
@@ -44,6 +44,7 @@ button {
   background-color: var(--ic-action-default-bg-hover);
   box-shadow: var(--ic-border-focus);
   outline: var(--ic-hc-focus-outline);
+  border: var(--ic-border-pressed);
 }
 
 .card.clickable:active {

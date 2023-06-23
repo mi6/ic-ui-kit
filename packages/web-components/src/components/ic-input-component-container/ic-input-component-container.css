@@ -33,18 +33,42 @@ ic-input-component-container.readonly:hover {
 }
 
 ic-input-component-container.error {
-  border: var(--ic-space-xxxs) solid var(--ic-status-error);
+  border: var(--ic-error-border-default);
   padding: 0;
+}
+
+ic-input-component-container.error:hover {
+  border: var(--ic-error-border-hover);
+}
+
+ic-input-component-container.error:focus-within {
+  border: var(--ic-error-border-pressed);
 }
 
 ic-input-component-container.warning {
-  border: var(--ic-space-xxxs) solid var(--ic-status-warning-mid);
+  border: var(--ic-warning-border-default);
   padding: 0;
 }
 
+ic-input-component-container.warning:hover {
+  border: var(--ic-warning-border-hover);
+}
+
+ic-input-component-container.warning:focus-within {
+  border: var(--ic-warning-border-pressed);
+}
+
 ic-input-component-container.success {
-  border: var(--ic-space-xxxs) solid var(--ic-status-success);
+  border: var(--ic-success-border-default);
   padding: 0;
+}
+
+ic-input-component-container.success:hover {
+  border: var(--ic-success-border-hover);
+}
+
+ic-input-component-container.success:focus-within {
+  border: var(--ic-success-border-pressed);
 }
 
 ic-input-component-container.small {
@@ -93,8 +117,12 @@ ic-input-component-container .inline-success > svg {
 }
 
 ic-input-component-container:hover {
-  border-color: var(--ic-action-dark-hover);
+  border: var(--ic-border-hover);
   color: var(--ic-action-dark-hover);
+}
+
+ic-input-component-container:focus {
+  border: var(--ic-border-pressed);
 }
 
 .focus-indicator {
