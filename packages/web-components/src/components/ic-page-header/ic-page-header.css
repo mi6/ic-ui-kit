@@ -20,7 +20,7 @@ header {
 }
 
 header.border-bottom {
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-300);
+  border-bottom: var(--ic-border-default);
 }
 
 header.tabs {

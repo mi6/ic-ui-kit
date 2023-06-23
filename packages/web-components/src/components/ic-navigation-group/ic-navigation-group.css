@@ -128,7 +128,7 @@
 
 :host .navigation-group-dropdown {
   background-color: var(--ic-architectural-20);
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-300);
+  border-bottom: var(--ic-border-default);
   position: absolute;
   left: 0;
   right: 0;

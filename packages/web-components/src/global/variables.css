@@ -18,8 +18,30 @@
     cubic-bezier(0.165, 0.84, 0.44, 1);
   --ic-transition-duration-fast: 100ms;
   --ic-transition-duration-slow: 300ms;
-  --ic-border-disabled: 1px dashed var(--ic-architectural-200);
-  --ic-hc-border: 1px solid transparent;
+
+  /* borders */
+  --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
+  --ic-border-hover: var(--ic-space-1px) solid var(--ic-architectural-500);
+  --ic-border-pressed: var(--ic-space-1px) solid var(--ic-architectural-600);
+  --ic-hc-border: var(--ic-space-1px) solid transparent;
+  --ic-error-border-default: var(--ic-space-xxxs) solid var(--ic-status-error);
+  --ic-error-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-error-hover);
+  --ic-error-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-error-pressed);
+  --ic-success-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-success);
+  --ic-success-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-success-hover);
+  --ic-success-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-success-pressed);
+  --ic-warning-border-default: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-mid);
+  --ic-warning-border-hover: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-mid-hover);
+  --ic-warning-border-pressed: var(--ic-space-xxxs) solid
+    var(--ic-status-warning-mid-pressed);
 
   /* fonts */
   --ic-font-body-family: "Open Sans", "Helvetica Neue", "Arial", "sans-serif";
@@ -96,13 +118,62 @@
   --ic-keyline-lighten: 1px solid var(--ic-keyline-lighten-rgb);
 
   /* status */
-  --ic-status-error: #d4351c;
+  --ic-status-error-r: 212;
+  --ic-status-error-g: 53;
+  --ic-status-error-b: 28;
+  --ic-status-error-a: 1;
+  --ic-status-error: rgb(
+    var(--ic-status-error-r) var(--ic-status-error-g) var(--ic-status-error-b) /
+      var(--ic-status-error-a)
+  );
+  --ic-status-error-hover: rgb(
+    calc(var(--ic-status-error-r) * 0.8) calc(var(--ic-status-error-g) * 0.8)
+      calc(var(--ic-status-error-b) * 0.8) / var(--ic-status-error-a)
+  );
+  --ic-status-error-pressed: rgb(
+    calc(var(--ic-status-error-r) * 0.6) calc(var(--ic-status-error-g) * 0.6)
+      calc(var(--ic-status-error-b) * 0.6) / var(--ic-status-error-a)
+  );
   --ic-status-error-background: #ffe4e3;
   --ic-status-warning: #ffc107;
   --ic-status-warning-background: #fffbd8;
-  --ic-status-warning-mid: #d07932;
+  --ic-status-warning-r: 208;
+  --ic-status-warning-g: 121;
+  --ic-status-warning-b: 50;
+  --ic-status-warning-a: 1;
+  --ic-status-warning-mid: rgb(
+    var(--ic-status-warning-r) var(--ic-status-warning-g)
+      var(--ic-status-warning-b) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-mid-hover: rgb(
+    calc(var(--ic-status-warning-r) * 0.8)
+      calc(var(--ic-status-warning-g) * 0.8)
+      calc(var(--ic-status-warning-b) * 0.8) / var(--ic-status-warning-a)
+  );
+  --ic-status-warning-mid-pressed: rgb(
+    calc(var(--ic-status-warning-r) * 0.6)
+      calc(var(--ic-status-warning-g) * 0.6)
+      calc(var(--ic-status-warning-b) * 0.6) / var(--ic-status-warning-a)
+  );
   --ic-status-warning-dark: #7a4c3c;
-  --ic-status-success: #00703c;
+  --ic-status-success-r: 0;
+  --ic-status-success-g: 112;
+  --ic-status-success-b: 60;
+  --ic-status-success-a: 1;
+  --ic-status-success: rgb(
+    var(--ic-status-success-r) var(--ic-status-success-g)
+      var(--ic-status-success-b) / var(--ic-status-success-a)
+  );
+  --ic-status-success-hover: rgb(
+    calc(var(--ic-status-success-r) * 0.8)
+      calc(var(--ic-status-success-g) * 0.8)
+      calc(var(--ic-status-success-b) * 0.8) / var(--ic-status-success-a)
+  );
+  --ic-status-success-pressed: rgb(
+    calc(var(--ic-status-success-r) * 0.6)
+      calc(var(--ic-status-success-g) * 0.6)
+      calc(var(--ic-status-success-b) * 0.6) / var(--ic-status-success-a)
+  );
   --ic-status-success-background: #e8fef3;
   --ic-status-info: #3170c2;
   --ic-status-info-background: #e1f0fc;
