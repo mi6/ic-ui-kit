@@ -1,22 +1,17 @@
 name: Branches
 
-on: 
-  push:
-    branches-ignore:
-      - main
-      - develop
-      - gh-pages
-      - 'dependabot/**'
+on:
+  workflow_dispatch:
   pull_request:
     types: [opened, reopened, edited, synchronize]
 
-concurrency:  
+concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-jobs:  
+jobs:
   ic-ui-kit-static-analysis-tests:
-    name: 'Static Analysis Tests'
+    name: "Static Analysis Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,7 +29,7 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
           echo "$COMMIT_MESSAGE" | npx commitlint
-      
+
       - name: Lint
         run: npm run lint
 
@@ -51,7 +46,7 @@ jobs:
         run: npm run test:coverage-ci
 
   ic-ui-kit-e2e-tests:
-    name: 'E2E Tests'
+    name: "E2E Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -63,12 +58,12 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-  
+
       - name: E2E tests
         run: npm run test-e2e
 
   ic-ui-kit-visual-tests:
-    name: 'Visual Regression Tests'
+    name: "Visual Regression Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -86,9 +81,14 @@ jobs:
         run: npm run test-visual:ci
 
   ic-ui-kit-deploy:
-    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' }}
-    name: 'Deploy'
+    needs:
+      [
+        ic-ui-kit-static-analysis-tests,
+        ic-ui-kit-e2e-tests,
+        ic-ui-kit-visual-tests,
+      ]
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    name: "Deploy"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -112,10 +112,9 @@ jobs:
         with:
           folder: ./packages/web-components/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/web-components
-      
+
       - name: Deploy react storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/${{ github.ref_name }}/react
-
