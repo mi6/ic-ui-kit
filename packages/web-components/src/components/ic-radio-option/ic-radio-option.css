@@ -61,7 +61,7 @@
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   background-color: transparent;
-  border: var(--ic-space-1px) solid #a7acb3;
+  border: var(--ic-border-default);
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
   box-sizing: border-box;

@@ -157,7 +157,7 @@
 }
 
 .last-recommended-option {
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-400);
+  border-bottom: var(--ic-border-default);
 }
 
 .disabled-option {
