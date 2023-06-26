@@ -3,11 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.16 (2023-06-26)
+# [2.1.0-beta.16](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.15...v2.1.0-beta.16) (2023-06-26)
 
 ### Bug Fixes
 
 - **web-components:** add wait for changes and remove unnecessary test button from select test ([e56ee81](https://github.com/mi6/ic-ui-kit/commit/e56ee81386b5887c1f3b698ea137192e03f10ba3)), closes [.#694](https://github.com/./issues/694)
+- **web-components:** fix resizeObserver calculation for top nav height to remove extra padding ([780ce5e](https://github.com/mi6/ic-ui-kit/commit/780ce5e7e4867577db7fb257fbc4ab2d93046717)), closes [#785](https://github.com/mi6/ic-ui-kit/issues/785)
+- **web-components:** fix static side navigation falling off screen ([702582e](https://github.com/mi6/ic-ui-kit/commit/702582ec6489f34c660a7dd0df05f9cc75c4fa3a)), closes [.#700](https://github.com/./issues/700)
+- **web-components:** fix suggestions after typing ([22e81c6](https://github.com/mi6/ic-ui-kit/commit/22e81c6a37d2897ccfaf2bb3829c73f49d556d1d))
+- **web-components:** fixes memory leak in ic-button\ic-tooltip ([a4aba85](https://github.com/mi6/ic-ui-kit/commit/a4aba8538e3cf11bbd45fcfca637de706b9fb25e))
+- **web-components:** fixes rendering of footer with no links ([0f62e3a](https://github.com/mi6/ic-ui-kit/commit/0f62e3ad2e33b0a632058c9a21a3ab942cfef511))
+- **web-components:** fixes tidyup of events ([95dd242](https://github.com/mi6/ic-ui-kit/commit/95dd2421a16d00ab09e7defd88d42af5e65268a2))
+- **web-components:** remove disabled attribute from components when disabled is false ([e7b5bb8](https://github.com/mi6/ic-ui-kit/commit/e7b5bb8dd3b812527e7256ee77e1297b5e7fda8c)), closes [#799](https://github.com/mi6/ic-ui-kit/issues/799)
+- **web-components:** update all validation text on inputs to be primary text colour ([8ef84ed](https://github.com/mi6/ic-ui-kit/commit/8ef84ed31293bfa7a7b28e0758a6bbfea8f09861)), closes [#780](https://github.com/mi6/ic-ui-kit/issues/780)
+- **web-components:** update border colours to meet WCAG contrast standards ([a2ac096](https://github.com/mi6/ic-ui-kit/commit/a2ac0965922cf3c3b61130b193ded5d43682974b)), closes [#735](https://github.com/mi6/ic-ui-kit/issues/735)
+- **web-components:** update outlined tag text colour and filled neutral background colour ([8e6a1a9](https://github.com/mi6/ic-ui-kit/commit/8e6a1a91d82b234559daee92a9afa2040736dc37)), closes [#781](https://github.com/mi6/ic-ui-kit/issues/781)
+- **web-components:** update visual tests after chrome update ([4bb62be](https://github.com/mi6/ic-ui-kit/commit/4bb62be7ed8a7d70902e223f77be5c3581a03471))
+
+### Features
+
+- **web-components:** add ic-dialog component ([1f37206](https://github.com/mi6/ic-ui-kit/commit/1f37206c20f8b9175a34dc390c152db0756c4740))
+- **web-components:** group nav features ([f36baf2](https://github.com/mi6/ic-ui-kit/commit/f36baf2239c6c2456be606e3cc92f9f2ecb9c7ef))
+- **web-components:** reviewed ic-search-bar e2e tests ([44a1b6b](https://github.com/mi6/ic-ui-kit/commit/44a1b6beadab1c03178d69fe56b3f37dd6cee885))
+- **web-components:** reviewed ic-select unit tests ([95f9151](https://github.com/mi6/ic-ui-kit/commit/95f9151d4df226418765f59926c5d1e01148a9de))
+- **web-components:** reviewed search bar unit tests ([10c5e71](https://github.com/mi6/ic-ui-kit/commit/10c5e717f4cc46e5a3dfde1b5616c245b321b50d))
+- **web-components:** update event.detail for radio icChange ([7a03e24](https://github.com/mi6/ic-ui-kit/commit/7a03e24e1521a6d37b78a691c4ef13c0f75b76dd)), closes [#673](https://github.com/mi6/ic-ui-kit/issues/673)
+- **web-components:** updated e2e tests for ic-select ([2197dc3](https://github.com/mi6/ic-ui-kit/commit/2197dc334fc65c9bb89e5f89e6f9d5ed11c4e3b7))
+- **web-components:** updates to tooltip styling ([93539a2](https://github.com/mi6/ic-ui-kit/commit/93539a2271edaa0a22c0f457b231e2f046d74b05))
+- **web-components:** upgrade stencil to V3 ([22a85f4](https://github.com/mi6/ic-ui-kit/commit/22a85f41ab243f1d1cc356030ec33f15db439c11)), closes [#386](https://github.com/mi6/ic-ui-kit/issues/386)
 
 # [2.1.0-beta.15](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.14...v2.1.0-beta.15) (2023-06-05)
 
