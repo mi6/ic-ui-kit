@@ -3,11 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.16 (2023-06-26)
+# [2.1.0-beta.16](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.15...v2.1.0-beta.16) (2023-06-26)
 
 ### Bug Fixes
 
-- **web-components:** add wait for changes and remove unnecessary test button from select test ([e56ee81](https://github.com/mi6/ic-ui-kit/commit/e56ee81386b5887c1f3b698ea137192e03f10ba3)), closes [.#694](https://github.com/./issues/694)
+- **react:** adds footer example with no links ([00130eb](https://github.com/mi6/ic-ui-kit/commit/00130eb26002c0ff3dee44325222ab989e7b63da))
+- **react:** update status tag stories to appearance outlined ([9098ba0](https://github.com/mi6/ic-ui-kit/commit/9098ba0e6a73abc74601190b571bbe34668da002)), closes [#781](https://github.com/mi6/ic-ui-kit/issues/781)
+
+### Features
+
+- **react:** adds react stories for ic-dialog ([57e6e6c](https://github.com/mi6/ic-ui-kit/commit/57e6e6ce7b336876eef8c8b7c6b7ddb35706ade5))
+- **react:** adds react storybook example ([b19664b](https://github.com/mi6/ic-ui-kit/commit/b19664bfb8a0da2295f8e1999aa3acd95219c146))
+- **react:** upgrade stencil to V3 ([a34c41b](https://github.com/mi6/ic-ui-kit/commit/a34c41b19b7cfe22f7298a096354d48937521b5a)), closes [#386](https://github.com/mi6/ic-ui-kit/issues/386)
 
 # [2.1.0-beta.15](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.14...v2.1.0-beta.15) (2023-06-05)
 
