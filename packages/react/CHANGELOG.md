@@ -3,11 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.16 (2023-06-26)
+
+### Bug Fixes
+
+- **web-components:** add wait for changes and remove unnecessary test button from select test ([e56ee81](https://github.com/mi6/ic-ui-kit/commit/e56ee81386b5887c1f3b698ea137192e03f10ba3)), closes [.#694](https://github.com/./issues/694)
+
 # [2.1.0-beta.15](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.14...v2.1.0-beta.15) (2023-06-05)
 
 ### Features
 
-* **react:** adds story for typography truncation ([b7ea9ba](https://github.com/mi6/ic-ui-kit/commit/b7ea9baff2f2743952b18f0d8232cf1fe73def50))
+- **react:** adds story for typography truncation ([b7ea9ba](https://github.com/mi6/ic-ui-kit/commit/b7ea9baff2f2743952b18f0d8232cf1fe73def50))
 
 # [2.1.0-beta.14](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.13...v2.1.0-beta.14) (2023-05-17)
 

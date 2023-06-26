@@ -3,24 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.16 (2023-06-26)
+
+### Bug Fixes
+
+- **web-components:** add wait for changes and remove unnecessary test button from select test ([e56ee81](https://github.com/mi6/ic-ui-kit/commit/e56ee81386b5887c1f3b698ea137192e03f10ba3)), closes [.#694](https://github.com/./issues/694)
+
 # [2.1.0-beta.15](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.14...v2.1.0-beta.15) (2023-06-05)
 
 ### Bug Fixes
 
-* **web-components:** add aria-hidden to see more/see less typography ([4e439fd](https://github.com/mi6/ic-ui-kit/commit/4e439fdef16ab4059dd17e3fedee730cfc6084d3)), closes [#712](https://github.com/mi6/ic-ui-kit/issues/712)
-* **web-components:** add condition to menu item aria label so it doesn't read undefined menu group ([c16c9ce](https://github.com/mi6/ic-ui-kit/commit/c16c9ce6d34ee4cdb14b42fb3e45749c1901dd91)), closes [#656](https://github.com/mi6/ic-ui-kit/issues/656)
-* **web-components:** added stopImmediatePropagation to icTabSelect ([e25e104](https://github.com/mi6/ic-ui-kit/commit/e25e10413d6f513a77a004606b4f6fcf1b149123))
-* **web-components:** changes ic-search-bar animation to match ic-select behaviour ([b9cbe76](https://github.com/mi6/ic-ui-kit/commit/b9cbe76fa0f0a4d4b7e592d0bed4e57b0da4ef99))
-* **web-components:** fixed build issue ([ff403a1](https://github.com/mi6/ic-ui-kit/commit/ff403a109083ce8e389511cc1be5b22c72f633c1))
-* **web-components:** fixed focus behaviour on blurring of menu for ic-select ([232feb4](https://github.com/mi6/ic-ui-kit/commit/232feb4ce2d6be0bfa5b6245b3931499a88b2579))
-* **web-components:** replaced box-shadow for page-header selected nav item ([a58ada3](https://github.com/mi6/ic-ui-kit/commit/a58ada3058fdd83fe891733201769f193da8708a))
-* **web-components:** variables changed ([c693f7c](https://github.com/mi6/ic-ui-kit/commit/c693f7c500e05a2500ba8facbf1d392a0eb6fd7a))
+- **web-components:** add aria-hidden to see more/see less typography ([4e439fd](https://github.com/mi6/ic-ui-kit/commit/4e439fdef16ab4059dd17e3fedee730cfc6084d3)), closes [#712](https://github.com/mi6/ic-ui-kit/issues/712)
+- **web-components:** add condition to menu item aria label so it doesn't read undefined menu group ([c16c9ce](https://github.com/mi6/ic-ui-kit/commit/c16c9ce6d34ee4cdb14b42fb3e45749c1901dd91)), closes [#656](https://github.com/mi6/ic-ui-kit/issues/656)
+- **web-components:** added stopImmediatePropagation to icTabSelect ([e25e104](https://github.com/mi6/ic-ui-kit/commit/e25e10413d6f513a77a004606b4f6fcf1b149123))
+- **web-components:** changes ic-search-bar animation to match ic-select behaviour ([b9cbe76](https://github.com/mi6/ic-ui-kit/commit/b9cbe76fa0f0a4d4b7e592d0bed4e57b0da4ef99))
+- **web-components:** fixed build issue ([ff403a1](https://github.com/mi6/ic-ui-kit/commit/ff403a109083ce8e389511cc1be5b22c72f633c1))
+- **web-components:** fixed focus behaviour on blurring of menu for ic-select ([232feb4](https://github.com/mi6/ic-ui-kit/commit/232feb4ce2d6be0bfa5b6245b3931499a88b2579))
+- **web-components:** replaced box-shadow for page-header selected nav item ([a58ada3](https://github.com/mi6/ic-ui-kit/commit/a58ada3058fdd83fe891733201769f193da8708a))
+- **web-components:** variables changed ([c693f7c](https://github.com/mi6/ic-ui-kit/commit/c693f7c500e05a2500ba8facbf1d392a0eb6fd7a))
 
 ### Features
 
-* **react:** adds story for typography truncation ([b7ea9ba](https://github.com/mi6/ic-ui-kit/commit/b7ea9baff2f2743952b18f0d8232cf1fe73def50))
-* **web-components:** adds method to set current page to pagination ([dec30f7](https://github.com/mi6/ic-ui-kit/commit/dec30f71cba286d1e1e3e855d347127dbe16c46e))
-* **web-components:** truncation ([d9f9166](https://github.com/mi6/ic-ui-kit/commit/d9f916613d9865c272dd9b7112f40ff4b16c78ad))
+- **react:** adds story for typography truncation ([b7ea9ba](https://github.com/mi6/ic-ui-kit/commit/b7ea9baff2f2743952b18f0d8232cf1fe73def50))
+- **web-components:** adds method to set current page to pagination ([dec30f7](https://github.com/mi6/ic-ui-kit/commit/dec30f71cba286d1e1e3e855d347127dbe16c46e))
+- **web-components:** truncation ([d9f9166](https://github.com/mi6/ic-ui-kit/commit/d9f916613d9865c272dd9b7112f40ff4b16c78ad))
 
 # [2.1.0-beta.14](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.13...v2.1.0-beta.14) (2023-05-17)
 
