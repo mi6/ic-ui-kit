@@ -12,6 +12,7 @@ export const IcAccordion = /*@__PURE__*/createReactComponent<JSX.IcAccordion, HT
 export const IcAccordionGroup = /*@__PURE__*/createReactComponent<JSX.IcAccordionGroup, HTMLIcAccordionGroupElement>('ic-accordion-group');
 export const IcAlert = /*@__PURE__*/createReactComponent<JSX.IcAlert, HTMLIcAlertElement>('ic-alert');
 export const IcBackToTop = /*@__PURE__*/createReactComponent<JSX.IcBackToTop, HTMLIcBackToTopElement>('ic-back-to-top');
+export const IcBadge = /*@__PURE__*/createReactComponent<JSX.IcBadge, HTMLIcBadgeElement>('ic-badge');
 export const IcBreadcrumb = /*@__PURE__*/createReactComponent<JSX.IcBreadcrumb, HTMLIcBreadcrumbElement>('ic-breadcrumb');
 export const IcBreadcrumbGroup = /*@__PURE__*/createReactComponent<JSX.IcBreadcrumbGroup, HTMLIcBreadcrumbGroupElement>('ic-breadcrumb-group');
 export const IcButton = /*@__PURE__*/createReactComponent<JSX.IcButton, HTMLIcButtonElement>('ic-button');
