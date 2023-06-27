@@ -22,6 +22,7 @@ import {
   getFilteredMenuOptions,
   addFormResetListener,
   removeFormResetListener,
+  removeDisabledFalse,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -829,6 +830,8 @@ export class Select {
       "tabindex",
       "title",
     ]);
+
+    removeDisabledFalse(this.disabled, this.host);
 
     this.setOptionsValuesFromLabels();
 
