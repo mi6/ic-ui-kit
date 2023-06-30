@@ -32,6 +32,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [ic-data-table](../ic-data-table)
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
@@ -74,6 +78,7 @@ graph TD;
   ic-text-field --> ic-input-component-container
   ic-text-field --> ic-input-validation
   ic-text-field --> ic-typography
+  ic-data-table --> ic-pagination-bar
   style ic-pagination-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

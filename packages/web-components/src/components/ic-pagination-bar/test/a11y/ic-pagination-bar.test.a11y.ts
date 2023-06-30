@@ -1,6 +1,6 @@
 import { fixture } from "@open-wc/testing-helpers";
 import { axe } from "jest-axe";
-import { checkShadowElementRendersCorrectly } from "../../utils/testa11y.helpers";
+import { checkShadowElementRendersCorrectly } from "../../../../utils/testa11y.helpers";
 
 describe("pagination bar component", () => {
   it("passes accessibility", async () => {

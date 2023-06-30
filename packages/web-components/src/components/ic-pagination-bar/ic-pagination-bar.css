@@ -8,7 +8,8 @@
   align-items: center;
   justify-content: flex-end;
   gap: var(--ic-space-xl);
-  padding: var(--ic-space-xs);
+  padding: var(--ic-space-xs) var(--ic-space-md);
+  box-sizing: border-box;
 }
 
 .pagination-bar-left {
