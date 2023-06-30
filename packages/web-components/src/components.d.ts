@@ -485,12 +485,60 @@ export namespace Components {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDataTable {
+        /**
+          * The title for the table only visible to screen readers.
+         */
+        "caption": string;
+        /**
+          * The column headers for the table.
+         */
         "columns": { [key: string]: any }[];
+        /**
+          * The row content for the table.
+         */
         "data": { [key: string]: any }[];
+        /**
+          * Set the density of the table including font and padding.
+         */
         "density"?: "default" | "dense" | "spacious";
+        /**
+          * Applies a border
+         */
         "embedded"?: boolean;
-        "hideColumnHeaders": boolean;
+        /**
+          * Sets the column headers to not be visible if set to `true`.
+         */
+        "hideColumnHeaders"?: boolean;
+        /**
+          * Sets the props for the pagination bar.
+         */
+        "paginationOptions"?: {
+    itemsPerPage?: { label: string; value: string }[],
+    type?: "data" | "page",
+    control?: "simple" | "complex",
+    itemsPerPageControl?: boolean,
+    goToPageControl?: boolean,
+    alignment?: "left" | "right" | "space-between",
+  };
+        /**
+          * Adds a pagination bar to the bottom of the table if set to `true`.
+         */
+        "showPagination"?: boolean;
+        /**
+          * Sets the order columns will be sorted in and allows for 'default' sorts to be added.
+         */
+        "sortOptions"?: { sortOrder: string[]; defaultColumn?: string };
+        /**
+          * Allows table columns to be sorted using applied sort buttons if set to `true`.
+         */
+        "sortable"?: boolean;
+        /**
+          * Column headers will remain at the top of the table when scrolling vertically if set to `true`.
+         */
         "stickyColumn"?: boolean;
+        /**
+          * Row headers will remain to the left when scrolling horizontally if set to `true`.
+         */
         "stickyRow"?: boolean;
     }
     interface IcDivider {
@@ -1077,7 +1125,7 @@ export namespace Components {
         /**
           * Sets the styling for the items in the pagination bar.
          */
-        "appearance"?: IcThemeForeground1;
+        "appearance"?: IcThemeForeground;
         /**
           * What label will be used in place of 'items' if paginationType is data, should be capitalised.
          */
@@ -2929,12 +2977,60 @@ declare namespace LocalJSX {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDataTable {
+        /**
+          * The title for the table only visible to screen readers.
+         */
+        "caption": string;
+        /**
+          * The column headers for the table.
+         */
         "columns": { [key: string]: any }[];
+        /**
+          * The row content for the table.
+         */
         "data": { [key: string]: any }[];
+        /**
+          * Set the density of the table including font and padding.
+         */
         "density"?: "default" | "dense" | "spacious";
+        /**
+          * Applies a border
+         */
         "embedded"?: boolean;
+        /**
+          * Sets the column headers to not be visible if set to `true`.
+         */
         "hideColumnHeaders"?: boolean;
+        /**
+          * Sets the props for the pagination bar.
+         */
+        "paginationOptions"?: {
+    itemsPerPage?: { label: string; value: string }[],
+    type?: "data" | "page",
+    control?: "simple" | "complex",
+    itemsPerPageControl?: boolean,
+    goToPageControl?: boolean,
+    alignment?: "left" | "right" | "space-between",
+  };
+        /**
+          * Adds a pagination bar to the bottom of the table if set to `true`.
+         */
+        "showPagination"?: boolean;
+        /**
+          * Sets the order columns will be sorted in and allows for 'default' sorts to be added.
+         */
+        "sortOptions"?: { sortOrder: string[]; defaultColumn?: string };
+        /**
+          * Allows table columns to be sorted using applied sort buttons if set to `true`.
+         */
+        "sortable"?: boolean;
+        /**
+          * Column headers will remain at the top of the table when scrolling vertically if set to `true`.
+         */
         "stickyColumn"?: boolean;
+        /**
+          * Row headers will remain to the left when scrolling horizontally if set to `true`.
+         */
         "stickyRow"?: boolean;
     }
     interface IcDivider {
@@ -3515,7 +3611,7 @@ declare namespace LocalJSX {
         /**
           * Sets the styling for the items in the pagination bar.
          */
-        "appearance"?: IcThemeForeground1;
+        "appearance"?: IcThemeForeground;
         /**
           * What label will be used in place of 'items' if paginationType is data, should be capitalised.
          */
