@@ -157,6 +157,17 @@ export class RadioGroup {
     }
   }
 
+  @Listen("icSelectedChange")
+  changeHandler(): void {
+    const selectedOption = this.radioOptions.findIndex(
+      (radioOption) => radioOption.selected
+    );
+    if (selectedOption < 0) {
+      this.radioOptions[0].shadowRoot.querySelector("input").tabIndex = 0;
+      this.selectedChild = selectedOption;
+    }
+  }
+
   private handleKeyDown = (event: KeyboardEvent): void => {
     switch (event.key) {
       case "ArrowDown":

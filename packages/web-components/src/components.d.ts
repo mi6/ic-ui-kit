@@ -3510,9 +3510,13 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when a radio is selected.
+          * Emitted when the radio option is selected.
          */
         "onIcCheck"?: (event: IcRadioOptionCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the radio option is selected or deselected.
+         */
+        "onIcSelectedChange"?: (event: IcRadioOptionCustomEvent<void>) => void;
         /**
           * @deprecated This event should not be used anymore. Use icCheck instead.
          */
