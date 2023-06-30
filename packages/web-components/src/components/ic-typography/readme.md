@@ -33,6 +33,7 @@
  - [ic-dialog](../ic-dialog)
  - [ic-empty-state](../ic-empty-state)
  - [ic-data-table](../ic-data-table)
+ - [ic-dialog](../ic-dialog)
  - [ic-footer](../ic-footer)
  - [ic-footer-link-group](../ic-footer-link-group)
  - [ic-hero](../ic-hero)
@@ -75,6 +76,7 @@ graph TD;
   ic-dialog --> ic-typography
   ic-empty-state --> ic-typography
   ic-data-table --> ic-typography
+  ic-dialog --> ic-typography
   ic-footer --> ic-typography
   ic-footer-link-group --> ic-typography
   ic-hero --> ic-typography
