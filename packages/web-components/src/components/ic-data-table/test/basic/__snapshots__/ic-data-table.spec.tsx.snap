@@ -1,0 +1,2392 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-data-table should render 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render embedded 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render sortable 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Name
+                  </ic-typography>
+                  <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-name" variant="icon">
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Age
+                  </ic-typography>
+                  <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-age" variant="icon">
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Department
+                  </ic-typography>
+                  <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-department" variant="icon">
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Employee number
+                  </ic-typography>
+                  <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-employeeNumber" variant="icon">
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="polite" class="screen-reader-sort-text">
+        table unsorted
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with cell overrides 1`] = `
+<ic-data-table show-pagination="">
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+        <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with column overrides 1`] = `
+<ic-data-table show-pagination="">
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header column-header-alignment-middle table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-center cell-alignment-middle data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+        <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with pagination 1`] = `
+<ic-data-table show-pagination="">
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  7
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  8
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  9
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  10
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+        <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="20"></ic-pagination-bar>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with row headers 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                1
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                2
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                3
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                4
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                5
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                6
+              </th>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with row overrides 1`] = `
+<ic-data-table show-pagination="">
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Employee number
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <ic-typography variant="subtitle-large">
+                  Department
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                1
+              </th>
+              <td class="cell-alignment-middle data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-middle data-type-number table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-middle data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                2
+              </th>
+              <td class="cell-alignment-top data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-top data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-top data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                3
+              </th>
+              <td class="cell-alignment-bottom data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-bottom data-type-number table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-bottom data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                4
+              </th>
+              <td class="cell-alignment-middle data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-middle data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-middle data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                5
+              </th>
+              <td class="cell-alignment-top data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-top data-type-number table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-top data-type-string table-cell">
+                <ic-typography class="cell-emphasis-high" variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <th class="row-header" scope="row">
+                6
+              </th>
+              <td class="cell-alignment-bottom data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-bottom data-type-number table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="cell-alignment-bottom data-type-string table-cell">
+                <ic-typography class="cell-emphasis-low" variant="body">
+                  HR
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+        <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Name
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Age
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Department
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-department" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Employee number
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-employeeNumber" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="polite" class="screen-reader-sort-text">
+        table unsorted
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Name
+                  </ic-typography>
+                  <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort descending" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Age
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Department
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-department" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Employee number
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-employeeNumber" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="polite" class="screen-reader-sort-text">
+        name sorted ascending
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Name
+                  </ic-typography>
+                  <ic-button aria-label="Remove sort" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Remove sort" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Age
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Department
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-department" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Employee number
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-employeeNumber" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="polite" class="screen-reader-sort-text">
+        name sorted descending
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Name
+                  </ic-typography>
+                  <ic-button aria-label="Sort ascending" class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Age
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Department
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-department">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-department" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-department" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+              <th class="column-header table-density-default" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography variant="subtitle-large">
+                    Employee number
+                  </ic-typography>
+                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                    <mock:shadow-root>
+                      <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-employeeNumber">
+                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-employeeNumber" aria-label="Sort ascending" class="button" id="ic-button-with-tooltip-sort-button-employeeNumber" part="button" type="button">
+                          <slot></slot>
+                        </button>
+                      </ic-tooltip>
+                    </mock:shadow-root>
+                    svg
+                  </ic-button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-density-default table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div aria-live="polite" class="screen-reader-sort-text">
+        table unsorted
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
