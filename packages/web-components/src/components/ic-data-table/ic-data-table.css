@@ -1,12 +1,29 @@
+/**
+  * @prop --height: height of the table row container
+  */
+
 :host {
+  position: relative;
   display: block;
+  height: 100%;
+  max-height: 100%;
 }
 
 .table-container {
   position: relative;
+  height: calc(100% - 2px);
+}
+
+.table-row-container {
+  position: relative;
   height: 100%;
   overflow: auto;
   transition: var(--ic-easing-transition-fast);
+  overflow-anchor: none;
+}
+
+:host([show-pagination="true"]) .table-row-container {
+  height: calc(100% - 57px);
 }
 
 table {
@@ -15,11 +32,12 @@ table {
   width: 100%;
 }
 
-.table-container:focus {
+.table-row-container:focus {
   outline: none;
   box-shadow: var(--ic-border-focus);
   border-radius: var(--ic-border-radius);
   transition: var(--ic-easing-transition-fast);
+  z-index: 1;
 }
 
 :host([embedded="true"]) .table-container {
@@ -32,6 +50,13 @@ table {
   z-index: 1;
 }
 
+.column-header-overlay {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 6px 8px -4px rgb(0 0 0 / 20%);
+}
+
 .row-header-sticky {
   position: sticky;
   left: 0;
@@ -40,6 +65,31 @@ table {
 .column-header,
 .table-row {
   box-sizing: border-box;
+}
+
+.column-header-inner-container {
+  display: flex;
+  align-items: center;
+}
+
+.sort-button {
+  margin-left: auto;
+}
+
+.sort-button:hover {
+  background-color: var(--ic-action-dark-bg-hover);
+}
+
+.sort-button:active {
+  background-color: var(--ic-action-dark-bg-active);
+}
+
+.sort-button svg {
+  color: black;
+}
+
+.sort-button-unsorted svg {
+  color: var(--ic-color-tertiary-text);
 }
 
 .table-density-default {
@@ -63,7 +113,7 @@ table {
   border-bottom: solid var(--ic-architectural-200) 1px;
 }
 
-:host([embedded="true"]) .column-header:last-child {
+.column-header:last-child {
   border-right: none;
 }
 
@@ -71,7 +121,7 @@ table {
   border-right: solid var(--ic-architectural-200) 1px !important;
 }
 
-:host([embedded="true"]) tr:last-child .table-cell, 
+:host([embedded="true"]) tr:last-child .table-cell,
 :host([embedded="true"]) tr:last-child .row-header {
   border-bottom: none;
 }
@@ -140,4 +190,22 @@ table {
 
 .cell-emphasis-high {
   font-weight: 700;
+}
+
+.pagination-container {
+  background-color: var(--ic-architectural-40);
+  border-top: solid var(--ic-architectural-200) 1px;
+}
+
+.screen-reader-sort-text,
+.table-caption {
+  position: absolute;
+  left: -100rem;
+}
+
+.table-cell,
+.column-header,
+.row-header {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }

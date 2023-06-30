@@ -11,7 +11,7 @@ exports[`ic-pagination-bar should only allow a maximum of 4 custom items per pag
           </ic-typography>
           <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="25"></ic-select>
         </div>
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 6
         </ic-typography>
       </div>
@@ -36,7 +36,7 @@ exports[`ic-pagination-bar should remove items per page options larger than the 
           </ic-typography>
           <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
         </div>
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -55,7 +55,7 @@ exports[`ic-pagination-bar should render 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -74,7 +74,7 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="item-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="item-pagination-label pagination-text-default" variant="label">
           1 - 10 of 100 rowss
         </ic-typography>
       </div>
@@ -93,7 +93,7 @@ exports[`ic-pagination-bar should render with a custom page label 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Sheets 1 of 10
         </ic-typography>
       </div>
@@ -112,7 +112,7 @@ exports[`ic-pagination-bar should render with complex pagination controls 1`] = 
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -137,7 +137,7 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
           </ic-typography>
           <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
         </div>
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -156,7 +156,7 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -175,7 +175,7 @@ exports[`ic-pagination-bar should render with data pagination type 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="item-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="item-pagination-label pagination-text-default" variant="label">
           1 - 10 of 100 items
         </ic-typography>
       </div>
@@ -194,7 +194,7 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -230,7 +230,7 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
           </ic-typography>
           <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
         </div>
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -249,7 +249,7 @@ exports[`ic-pagination-bar should render with left alignment 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-left">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -268,7 +268,7 @@ exports[`ic-pagination-bar should render with light appearance 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-light" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-light" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -287,7 +287,7 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-space-between">
       <div class="item-controls">
-        <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
           Page 1 of 10
         </ic-typography>
       </div>
@@ -308,7 +308,7 @@ Object {
     <mock:shadow-root>
       <div class="pagination-bar pagination-bar-right">
         <div class="item-controls">
-          <ic-typography class="page-pagination-label pagination-text-default" variant="label">
+          <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
             Page 1 of 10
           </ic-typography>
         </div>

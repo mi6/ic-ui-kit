@@ -1,10 +1,10 @@
-import { PaginationBar } from "./ic-pagination-bar";
-import { Pagination } from "../ic-pagination/ic-pagination";
-import { Button } from "../ic-button/ic-button";
-import { Tooltip } from "../ic-tooltip/ic-tooltip";
-import { TextField } from "../ic-text-field/ic-text-field";
-import { DEVICE_SIZES } from "../../utils/helpers";
-import { waitForTimeout } from "../../testspec.setup";
+import { PaginationBar } from "../../ic-pagination-bar";
+import { Pagination } from "../../../ic-pagination/ic-pagination";
+import { Button } from "../../../ic-button/ic-button";
+import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
+import { TextField } from "../../../ic-text-field/ic-text-field";
+import { DEVICE_SIZES } from "../../../../utils/helpers";
+import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-pagination-bar", () => {
