@@ -193,7 +193,7 @@ import radioGroupReadme from '../../../web-components/src/components/ic-radio-gr
 export const Form = () => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log("Form value: ", document.querySelector("[name='1']:checked").value);
+    console.log("Form value: ", document.querySelector("input[name='1']").value);
   }
   return (
     <form onSubmit={(ev) => handleSubmit(ev)}>
@@ -205,7 +205,6 @@ export const Form = () => {
         <IcRadioOption
           value="valueName2"
           label="Selected / Default"
-          selected
         />
         <IcRadioOption
           value="valueName3"
@@ -213,7 +212,8 @@ export const Form = () => {
           disabled
         />
       </IcRadioGroup>
-      <IcButton type="submit">Submit</IcButton>
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
     </form>
   )
 }
