@@ -9,6 +9,7 @@ import {
   Listen,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes, IcValueEventDetail } from "../../utils/types";
 import {
@@ -65,19 +66,23 @@ export class RadioOption {
   @Prop() name: string;
 
   /**
-   * If `true`, the radio option will be displayed in a selected state.
-   */
-  @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
-
-  @State() initiallySelected = this.selected;
-
-  /**
    * The value for the radio option.
    */
   @Prop({ mutable: true }) value!: string;
 
   /**
-   * Emitted when a radio is selected.
+   * If `true`, the radio option will be displayed in a selected state.
+   */
+  @Prop({ reflect: true, mutable: true }) selected?: boolean = false;
+  @State() initiallySelected = this.selected;
+
+  @Watch("selected")
+  watchSelectedHandler(): void {
+    this.icSelectedChange.emit();
+  }
+
+  /**
+   * Emitted when the radio option is selected.
    */
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
 
@@ -85,6 +90,11 @@ export class RadioOption {
    * @deprecated This event should not be used anymore. Use icCheck instead.
    */
   @Event() radioOptionSelect: EventEmitter<IcValueEventDetail>;
+
+  /**
+   * Emitted when the radio option is selected or deselected.
+   */
+  @Event() icSelectedChange: EventEmitter<void>;
 
   disconnectedCallback(): void {
     removeFormResetListener(this.host, this.handleFormReset);
