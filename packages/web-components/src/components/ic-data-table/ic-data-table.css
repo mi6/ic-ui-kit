@@ -1,3 +1,7 @@
+/**
+  * @prop --height: height of the table row container
+  */
+
 :host {
   position: relative;
   display: block;
@@ -211,4 +215,22 @@ table {
     display: flex;
     align-items: center;
   }
+}
+
+.pagination-container {
+  background-color: var(--ic-architectural-40);
+  border-top: solid var(--ic-architectural-200) 1px;
+}
+
+.screen-reader-sort-text,
+.table-caption {
+  position: absolute;
+  left: -100rem;
+}
+
+.table-cell,
+.column-header,
+.row-header {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }

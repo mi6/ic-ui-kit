@@ -114,6 +114,87 @@ export class PaginationBar {
    */
   @Event() icPageChange: EventEmitter<{ value: number }>;
 
+  @State() inputError: string = "Please enter a valid page";
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
+  componentWillLoad(): void {
+    if (
+      this.itemsPerPageOptions === undefined ||
+      this.itemsPerPageOptions === null
+    ) {
+      this.setDefaultItemsPerPageOptions();
+    }
+    this.trimItemsPerPageOptions();
+    this.setDefaultItemsPerPage();
+    this.setNumberPages();
+    this.setUpperBound();
+  }
+
+  componentDidLoad(): void {
+    this.paginationWidth = this.paginationBarEl.clientWidth;
+    checkResizeObserver(this.runResizeObserver);
+    this.setGoToPageInputStyles();
+    this.paginationShouldWrap();
+  }
+
+  /**
+   * What label will be used in place of 'items' if paginationType is data, should be capitalised.
+   */
+  @Prop() itemLabel?: string = "Item";
+
+  /**
+   * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
+   */
+  @Prop({ mutable: true }) itemsPerPageOptions?: {
+    label: string;
+    value: string;
+  }[];
+
+  /**
+   * Whether the displayed pagination is simple or complex.
+   */
+  @Prop() paginationControl?: "simple" | "complex" = "simple";
+
+  /**
+   * Whether total number of items and current item range or total number of pages and current page is displayed.
+   */
+  @Prop() paginationType?: "data" | "page" = "page";
+
+  /**
+   * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
+   */
+  @Prop() pageLabel?: string = "Page";
+
+  /**
+   * If `true`, the 'go to page' control should be displayed.
+   */
+  @Prop() showGoToPageControl?: boolean = false;
+
+  /**
+   * If `true`, the number of total items and current item range or number of total pages and current page should be displayed.
+   */
+  @Prop() showItemsPerPage?: boolean = true;
+
+  /**
+   * If `true`, the select input to control 'items per page' should be displayed.
+   */
+  @Prop() showItemsPerPageControl?: boolean = false;
+
+  /**
+   * Total number of items to be displayed across all pages.
+   */
+  @Prop() totalItems!: number;
+
+  /**
+   * Emitted when a page is navigated to via the 'go to' input.
+   */
+  @Event() icPageChange: EventEmitter<{ value: number }>;
+
   /**
    * Emitted when the items per page option is changed.
    */
