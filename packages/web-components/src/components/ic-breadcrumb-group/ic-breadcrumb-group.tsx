@@ -16,6 +16,7 @@ export class BreadcrumbGroup {
   private ADD_CLASS_DELAY = 50;
   private breadcrumb: HTMLIcBreadcrumbElement;
   private breadcrumbs: HTMLIcBreadcrumbElement[];
+  private collapsedBreadcrumbEl: any;
   private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
   private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
   private IC_BREADCRUMB: string = "ic-breadcrumb";
@@ -58,6 +59,14 @@ export class BreadcrumbGroup {
         }
       }
     }
+  }
+
+  disconnectedCallback(): void {
+    this.breadcrumb.removeEventListener(
+      "transitionend",
+      this.transitionendHandler
+    );
+    this.collapsedBreadcrumbEl.removeEventListener("click", this.clickHandler);
   }
 
   private setBackBreadcrumb = () => {
@@ -128,18 +137,22 @@ export class BreadcrumbGroup {
     }
   };
 
+  private clickHandler = () => {
+    this.handleHiddenCollapsedBreadcrumbs(this.collapsedBreadcrumbWrapper);
+  };
+
   private renderCollapsedBreadcrumb = () => {
     this.collapsedBreadcrumbWrapper = document.createElement("ic-breadcrumb");
     this.collapsedBreadcrumbWrapper.classList.add(
       "collapsed-breadcrumb-wrapper"
     );
-    const collapsedBreadcrumbEl = document.createElement("button");
+    this.collapsedBreadcrumbEl = document.createElement("button");
 
     const ariaLabel = document.createElement("span");
     ariaLabel.id = "collapsed-button-label";
     ariaLabel.innerText = "Collapsed breadcrumbs";
     ariaLabel.className = "hide";
-    collapsedBreadcrumbEl.setAttribute(
+    this.collapsedBreadcrumbEl.setAttribute(
       "aria-labelledby",
       "collapsed-button-label"
     );
@@ -148,21 +161,19 @@ export class BreadcrumbGroup {
     ariaDescribed.id = "collapsed-button-described";
     ariaDescribed.innerText = "Select to view collapsed breadcrumbs";
     ariaDescribed.className = "hide";
-    collapsedBreadcrumbEl.setAttribute(
+    this.collapsedBreadcrumbEl.setAttribute(
       "aria-describedby",
       "collapsed-button-described"
     );
 
-    collapsedBreadcrumbEl.id = "collapsed-ellipsis";
-    collapsedBreadcrumbEl.innerText = "...";
-    collapsedBreadcrumbEl.classList.add("collapsed-breadcrumb");
-    collapsedBreadcrumbEl.addEventListener("click", () => {
-      this.handleHiddenCollapsedBreadcrumbs(this.collapsedBreadcrumbWrapper);
-    });
+    this.collapsedBreadcrumbEl.id = "collapsed-ellipsis";
+    this.collapsedBreadcrumbEl.innerText = "...";
+    this.collapsedBreadcrumbEl.classList.add("collapsed-breadcrumb");
+    this.collapsedBreadcrumbEl.addEventListener("click", this.clickHandler);
 
     this.collapsedBreadcrumbWrapper.append(ariaDescribed);
     this.collapsedBreadcrumbWrapper.append(ariaLabel);
-    this.collapsedBreadcrumbWrapper.append(collapsedBreadcrumbEl);
+    this.collapsedBreadcrumbWrapper.append(this.collapsedBreadcrumbEl);
 
     return this.collapsedBreadcrumbWrapper;
   };
@@ -183,12 +194,14 @@ export class BreadcrumbGroup {
     this.expandedBreadcrumbs = true;
   };
 
+  private transitionendHandler = (event: any) => {
+    if (event.propertyName === "opacity") {
+      event.target.classList.remove("visuallyhidden");
+    }
+  };
+
   private removeVisuallyHiddenClass = (breadcrumb: HTMLIcBreadcrumbElement) => {
-    breadcrumb.addEventListener("transitionend", (e) => {
-      if (e.propertyName === "opacity") {
-        breadcrumb.classList.remove("visuallyhidden");
-      }
-    });
+    breadcrumb.addEventListener("transitionend", this.transitionendHandler);
   };
 
   private setLastParentCollapsedBackBreadcrumb = () => {
