@@ -42,12 +42,6 @@ export class HorizontalScroll {
    */
   @Prop() appearance?: IcThemeForeground = "default";
 
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== undefined) {
-      this.resizeObserver.disconnect();
-    }
-  }
-
   componentWillLoad(): void {
     this.itemsContainerEl = this.el.children[0] as HTMLElement;
     this.itemsContainerEl.addEventListener("scroll", this.scrollHandler);
@@ -56,9 +50,7 @@ export class HorizontalScroll {
       Array.from(this.itemsContainerEl.children)) as HTMLElement[];
     this.items.forEach((item) => {
       if (item.addEventListener) {
-        item.addEventListener("focus", () =>
-          this.itemFocusHandler(Array.from(this.items).indexOf(item))
-        );
+        item.addEventListener("focus", this.focusHandler);
       }
     });
   }
@@ -85,6 +77,29 @@ export class HorizontalScroll {
     });
   }
 
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== undefined) {
+      this.resizeObserver.disconnect();
+    }
+
+    const scrollArrows = Array.from(
+      this.el.shadowRoot.querySelectorAll("div")
+    ) as HTMLElement[];
+    ["mouseup", "mouseleave"].forEach((event) => {
+      scrollArrows.forEach((arrow) =>
+        arrow.removeEventListener(event, this.arrowMouseUpHandler)
+      );
+    });
+
+    this.items.forEach((item) => {
+      if (item.removeEventListener) {
+        item.removeEventListener("focus", this.focusHandler);
+      }
+    });
+
+    this.itemsContainerEl.removeEventListener("scroll", this.scrollHandler);
+  }
+
   /**
    * @internal if side scrolling enabled, scrolls the specified item into view.
    */
@@ -99,6 +114,10 @@ export class HorizontalScroll {
     this.buttonStateSet = true;
     this.itemsContainerEl.scrollLeft = newScrollPos;
   }
+
+  private focusHandler = (event: any) => {
+    this.itemFocusHandler(Array.from(this.items).indexOf(event.target));
+  };
 
   private itemFocusHandler(itemPosition: number): void {
     if (this.itemOverflow) {

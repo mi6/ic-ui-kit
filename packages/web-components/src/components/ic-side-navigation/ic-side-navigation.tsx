@@ -45,6 +45,8 @@ export class SideNavigation {
     parseInt(getCssProperty("--ic-transition-duration-slow")) || 0;
   private IC_NAVIGATION_ITEM: string = "ic-navigation-item";
   private resizeObserver: ResizeObserver = null;
+  private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
+  private COLLAPSED_ICON_LABELS_START = "collapsed-icon-labels-start";
 
   @Element() el: HTMLIcSideNavigationElement;
 
@@ -100,12 +102,6 @@ export class SideNavigation {
    */
   @Prop() version: string;
 
-  disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-  }
-
   componentWillLoad(): void {
     if (this.expanded) {
       this.setMenuExpanded(true);
@@ -138,6 +134,14 @@ export class SideNavigation {
         [{ prop: this.appTitle, propName: "app-title" }],
         "Side Navigation"
       );
+  }
+
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+
+    this.el.removeEventListener("transitionend", this.transitionEndHandler);
   }
 
   @Listen("themeChange", { target: "document" })
@@ -330,38 +334,34 @@ export class SideNavigation {
     }
   };
 
-  private animateCollapsedIconLabels = () => {
+  private transitionEndHandler = () => {
     const primaryNavigationWrapper = this.el.shadowRoot.querySelector(
       ".primary-navigation"
     );
+
     const secondaryNavigationWrapper = this.el.shadowRoot.querySelector(
       ".bottom-wrapper > .secondary-navigation"
     );
 
-    const collapsedIconLabelsEnd = "collapsed-icon-labels-end";
-    const collapsedIconLabelsStart = "collapsed-icon-labels-start";
-
     if (primaryNavigationWrapper) {
-      primaryNavigationWrapper.classList.remove(collapsedIconLabelsEnd);
-      primaryNavigationWrapper.classList.add(collapsedIconLabelsStart);
+      primaryNavigationWrapper.classList.remove(this.COLLAPSED_ICON_LABELS_END);
+      primaryNavigationWrapper.classList.add(this.COLLAPSED_ICON_LABELS_START);
     }
 
     if (secondaryNavigationWrapper) {
-      secondaryNavigationWrapper.classList.remove(collapsedIconLabelsEnd);
-      secondaryNavigationWrapper.classList.add(collapsedIconLabelsStart);
+      secondaryNavigationWrapper.classList.remove(
+        this.COLLAPSED_ICON_LABELS_END
+      );
+      secondaryNavigationWrapper.classList.add(
+        this.COLLAPSED_ICON_LABELS_START
+      );
     }
+  };
 
-    this.el.addEventListener("transitionend", () => {
-      if (primaryNavigationWrapper) {
-        primaryNavigationWrapper.classList.remove(collapsedIconLabelsStart);
-        primaryNavigationWrapper.classList.add(collapsedIconLabelsEnd);
-      }
+  private animateCollapsedIconLabels = () => {
+    this.transitionEndHandler();
 
-      if (secondaryNavigationWrapper) {
-        secondaryNavigationWrapper.classList.remove(collapsedIconLabelsStart);
-        secondaryNavigationWrapper.classList.add(collapsedIconLabelsEnd);
-      }
-    });
+    this.el.addEventListener("transitionend", this.transitionEndHandler);
   };
 
   private paddingIconWidth = (
