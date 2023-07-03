@@ -73,18 +73,6 @@ export class TabContext {
    */
   @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
 
-  disconnectedCallback(): void {
-    if (this.activationType === "manual") {
-      this.tabGroup.removeEventListener("keydown", (event) =>
-        this.handleKeyBoardNavManual(event)
-      );
-    } else {
-      this.tabGroup.removeEventListener("keydown", (event) =>
-        this.handleKeyBoardNavAutomatic(event)
-      );
-    }
-  }
-
   componentDidLoad(): void {
     this.setControlledMode();
     this.getChildren();
@@ -96,6 +84,10 @@ export class TabContext {
 
   componentWillUpdate(): void {
     this.configureTabs();
+  }
+
+  disconnectedCallback(): void {
+    this.tabGroup.removeEventListener("keydown", this.keydownHandler);
   }
 
   @Listen("tabClick")
@@ -193,17 +185,17 @@ export class TabContext {
     this.enabledTabs = this.getEnabledTabs();
   };
 
+  private keydownHandler = (event: any) => {
+    if (this.activationType === "automatic") {
+      this.handleKeyBoardNavAutomatic(event);
+    } else {
+      this.handleKeyBoardNavManual(event);
+    }
+  };
+
   // Determines how keyboard navigation is to be handled based on the activation type
   private attatchEventListeners = (): void => {
-    if (this.activationType === "automatic") {
-      this.tabGroup.addEventListener("keydown", (event) => {
-        this.handleKeyBoardNavAutomatic(event);
-      });
-    } else {
-      this.tabGroup.addEventListener("keydown", (event) => {
-        this.handleKeyBoardNavManual(event);
-      });
-    }
+    this.tabGroup.addEventListener("keydown", this.keydownHandler);
   };
 
   // Determines whether the selected tab is being controlled within the component
