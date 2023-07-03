@@ -1,0 +1,94 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Date picker" component="Date Picker" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {(args) => html` <ic-date-picker></ic-date-picker> `}
+  </Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+  <Story name="Large" parameters={{ loki: { skip: true } }}>
+    {(args) => html` <ic-date-picker size="large"></ic-date-picker> `}
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-date-picker start-of-week="1" size="small"></ic-date-picker> `
+    }
+  </Story>
+</Canvas>
+
+### Start of week - Sunday
+
+<Canvas>
+  <Story name="Start of week - Sunday" parameters={{ loki: { skip: true } }}>
+    {(args) => html` <ic-date-picker start-of-week="0"></ic-date-picker> `}
+  </Story>
+</Canvas>
+
+### With max and min set
+
+<Canvas>
+  <Story name="With max and min set" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-date-picker min="2023-08-28" max="2023-09-28"></ic-date-picker>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Days outside month hidden
+
+<Canvas>
+  <Story name="Days outside month hidden" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-date-picker show-days-outside-month="false"></ic-date-picker> `
+    }
+  </Story>
+</Canvas>
+
+### Focus day on open
+
+<Canvas>
+  <Story name="Focus day on open" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-date-picker focus-day-on-open="true"></ic-date-picker> `
+    }
+  </Story>
+</Canvas>
+
+### Working weekdays only
+
+<Canvas>
+  <Story name="Working weekdays only" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <script>
+          document.querySelector("#weekday-picker").disabledDays = [0, 6];
+        </script>
+        <ic-date-picker id="weekday-picker"></ic-date-picker>
+      `
+    }
+  </Story>
+</Canvas>

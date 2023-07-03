@@ -1,0 +1,84 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcDatePicker } from "../components";
+import readme from "../../../web-components/src/components/ic-date-picker/readme.md";
+
+export const disabledWeekends = [0, 6];
+
+<Meta
+  title="React Components/Date picker"
+  component={IcDatePicker}
+/>
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <IcDatePicker />
+  </Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+  <Story name="Large">
+    <IcDatePicker size="large" />
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story name="Small">
+    <IcDatePicker size="small" />
+  </Story>
+</Canvas>
+
+### Start of week - Sunday
+
+<Canvas>
+  <Story name="Start of week - Sunday">
+    <IcDatePicker startOfWeek="0" />
+  </Story>
+</Canvas>
+
+### With max and min set
+
+<Canvas>
+  <Story name="With max and min set">
+    <IcDatePicker min="2023-08-28" max="2023-09-28" />
+  </Story>
+</Canvas>
+
+### Days outside month hidden
+
+<Canvas>
+  <Story name="Days outside month hidden">
+    <IcDatePicker showDaysOutsideMonth="false" />
+  </Story>
+</Canvas>
+
+### Focus day on open
+
+<Canvas>
+  <Story name="Focus day on open">
+    <IcDatePicker focusDayOnOpen />
+  </Story>
+</Canvas>
+
+### Working weekdays only
+
+<Canvas>
+  <Story name="Working weekdays only">
+    <IcDatePicker disabledDays={disabledWeekends} />
+  </Story>
+</Canvas>
+
+  

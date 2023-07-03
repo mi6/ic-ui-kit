@@ -36,6 +36,8 @@ export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { WeekDays } from "./components/ic-date-picker/ic-date-picker-utils";
+export { IcDatePickerSizes } from "./components/ic-date-picker/ic-date-picker.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -563,6 +565,43 @@ export namespace Components {
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
+    interface IcDatePicker {
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "backBehaviour"?: boolean;
+        /**
+          * Days.
+         */
+        "disabledDays"?: WeekDays[];
+        /**
+          * Determines whether the selected day should receive focus when calendar is opened. If `true` and no day selected then the current day or first focussable day in range will receive focus.
+         */
+        "focusDayOnOpen"?: boolean;
+        /**
+          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "max"?: string;
+        /**
+          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "min"?: string;
+        /**
+          * Determines whether days outside the current month are rendered.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "size"?: IcDatePickerSizes;
+        /**
+          * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: WeekDays;
+        /**
+          * Determines whether a Go to today button should appear on the picker.
+         */
+        "todayButton"?: boolean;
     }
     interface IcDialog {
         /**
@@ -2296,6 +2335,11 @@ declare global {
     var HTMLIcDateInputElement: {
         prototype: HTMLIcDateInputElement;
         new (): HTMLIcDateInputElement;
+    interface HTMLIcDatePickerElement extends Components.IcDatePicker, HTMLStencilElement {
+    }
+    var HTMLIcDatePickerElement: {
+        prototype: HTMLIcDatePickerElement;
+        new (): HTMLIcDatePickerElement;
     };
     interface HTMLIcDialogElement extends Components.IcDialog, HTMLStencilElement {
     }
@@ -2595,6 +2639,7 @@ declare global {
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
         "ic-date-input": HTMLIcDateInputElement;
+        "ic-date-picker": HTMLIcDatePickerElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
         "ic-empty-state": HTMLIcEmptyStateElement;
@@ -3175,6 +3220,43 @@ declare namespace LocalJSX {
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
+    interface IcDatePicker {
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "backBehaviour"?: boolean;
+        /**
+          * Days.
+         */
+        "disabledDays"?: WeekDays[];
+        /**
+          * Determines whether the selected day should receive focus when calendar is opened. If `true` and no day selected then the current day or first focussable day in range will receive focus.
+         */
+        "focusDayOnOpen"?: boolean;
+        /**
+          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "max"?: string;
+        /**
+          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "min"?: string;
+        /**
+          * Determines whether days outside the current month are rendered.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "size"?: IcDatePickerSizes;
+        /**
+          * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: WeekDays;
+        /**
+          * Determines whether a Go to today button should appear on the picker.
+         */
+        "todayButton"?: boolean;
     }
     interface IcDialog {
         /**
@@ -4822,6 +4904,7 @@ declare namespace LocalJSX {
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
         "ic-date-input": IcDateInput;
+        "ic-date-picker": IcDatePicker;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
         "ic-empty-state": IcEmptyState;
@@ -4890,6 +4973,7 @@ declare module "@stencil/core" {
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
+            "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
             "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;

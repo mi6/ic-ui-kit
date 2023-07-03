@@ -76,6 +76,7 @@ Type: `Promise<void>`
  - [ic-alert](../ic-alert)
  - [ic-card](../ic-card)
  - [ic-date-input](../ic-date-input)
+ - [ic-date-picker](../ic-date-picker)
  - [ic-dialog](../ic-dialog)
  - [ic-horizontal-scroll](../ic-horizontal-scroll)
  - [ic-menu](../ic-menu)
@@ -105,6 +106,7 @@ graph TD;
   ic-alert --> ic-button
   ic-card --> ic-button
   ic-date-input --> ic-button
+  ic-date-picker --> ic-button
   ic-dialog --> ic-button
   ic-horizontal-scroll --> ic-button
   ic-menu --> ic-button

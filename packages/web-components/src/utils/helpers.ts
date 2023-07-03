@@ -20,6 +20,97 @@ import {
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
+const IC_ISO_DATE_FORMAT = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+export enum IcDateInputMonths {
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+}
+
+export enum IcShortDayNames {
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+}
+
+export enum IcDayNames {
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+}
+
+/**
+ * converts an enum of strings into an array of strings
+ */
+export const stringEnumToArray = (
+  theEnum: Record<string, string | number>
+): string[] => {
+  const arr: string[] = [];
+  Object.values(theEnum).forEach((val) => {
+    if (isNaN(Number(val))) {
+      const str = val as string;
+      arr.push(str);
+    }
+  });
+  return arr;
+};
+
+export const createDateFromISOString = (isoDate: string): Date => {
+  if (isoDate === null || isoDate === "" || isoDate === undefined) {
+    return null;
+  }
+
+  const matches = isoDate.match(IC_ISO_DATE_FORMAT);
+
+  if (matches) {
+    return createDate(matches[1], matches[2], matches[3]);
+  }
+
+  return null;
+};
+
+export const createDate = (year: string, month: string, day: string): Date => {
+  const dayInt = parseInt(day, 10);
+  const monthInt = parseInt(month, 10);
+  const yearInt = parseInt(year, 10);
+
+  const isValid =
+    Number.isInteger(yearInt) && // all parts should be integers
+    Number.isInteger(monthInt) &&
+    Number.isInteger(dayInt) &&
+    monthInt > 0 && // month must be 1-12
+    monthInt <= 12 &&
+    dayInt > 0 && // day must be 1-31
+    dayInt <= 31 &&
+    yearInt > 0;
+
+  if (isValid) {
+    return new Date(yearInt, monthInt - 1, dayInt);
+  }
+  return null;
+};
+
+// export const SHORT_DAY_NAMES = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+// export const DAY_NAMES = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// export const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 /**
  * Used to inherit global attributes set on the host. Called in componentWillLoad and assigned

@@ -32,6 +32,7 @@
  - [ic-classification-banner](../ic-classification-banner)
  - [ic-data-entity](../ic-data-entity)
  - [ic-data-row](../ic-data-row)
+ - [ic-date-picker](../ic-date-picker)
  - [ic-dialog](../ic-dialog)
  - [ic-empty-state](../ic-empty-state)
  - [ic-footer](../ic-footer)
@@ -74,6 +75,7 @@ graph TD;
   ic-classification-banner --> ic-typography
   ic-data-entity --> ic-typography
   ic-data-row --> ic-typography
+  ic-date-picker --> ic-typography
   ic-dialog --> ic-typography
   ic-empty-state --> ic-typography
   ic-footer --> ic-typography
