@@ -96,6 +96,10 @@ jobs:
         with:
           node-version: 16
 
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Install dependencies
         run: |
           npm ci --legacy-peer-deps
@@ -111,10 +115,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/web-components
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/web-components
 
       - name: Deploy react storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/react/storybook-static
-          target-folder: ./branches/${{ github.ref_name }}/react
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/react
