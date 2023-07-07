@@ -8,6 +8,8 @@ import type { JSX } from '@ukic/web-components';
 import { defineCustomElements } from '@ukic/web-components/loader';
 
 defineCustomElements();
+export const IcAccordion = /*@__PURE__*/createReactComponent<JSX.IcAccordion, HTMLIcAccordionElement>('ic-accordion');
+export const IcAccordionGroup = /*@__PURE__*/createReactComponent<JSX.IcAccordionGroup, HTMLIcAccordionGroupElement>('ic-accordion-group');
 export const IcAlert = /*@__PURE__*/createReactComponent<JSX.IcAlert, HTMLIcAlertElement>('ic-alert');
 export const IcBackToTop = /*@__PURE__*/createReactComponent<JSX.IcBackToTop, HTMLIcBackToTopElement>('ic-back-to-top');
 export const IcBreadcrumb = /*@__PURE__*/createReactComponent<JSX.IcBreadcrumb, HTMLIcBreadcrumbElement>('ic-breadcrumb');
