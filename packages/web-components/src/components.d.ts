@@ -54,6 +54,51 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
+    interface IcAccordion {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded": boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
+    interface IcAccordionGroup {
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance": IcThemeForeground;
+        /**
+          * If `true`, the accordion will load in an expanded state.
+         */
+        "expanded": boolean;
+        /**
+          * The header for the accordion group.
+         */
+        "groupTitle": string;
+        /**
+          * If `true`, only one accordion will open at a time.
+         */
+        "singleExpansion": boolean;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
     interface IcAlert {
         /**
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
@@ -1954,6 +1999,10 @@ export namespace Components {
         "variant"?: IcTypographyVariants;
     }
 }
+export interface IcAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcAccordionElement;
+}
 export interface IcAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcAlertElement;
@@ -2055,6 +2104,18 @@ export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTopNavigationElement;
 }
 declare global {
+    interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
+    }
+    var HTMLIcAccordionElement: {
+        prototype: HTMLIcAccordionElement;
+        new (): HTMLIcAccordionElement;
+    };
+    interface HTMLIcAccordionGroupElement extends Components.IcAccordionGroup, HTMLStencilElement {
+    }
+    var HTMLIcAccordionGroupElement: {
+        prototype: HTMLIcAccordionGroupElement;
+        new (): HTMLIcAccordionGroupElement;
+    };
     interface HTMLIcAlertElement extends Components.IcAlert, HTMLStencilElement {
     }
     var HTMLIcAlertElement: {
@@ -2410,6 +2471,8 @@ declare global {
         new (): HTMLIcTypographyElement;
     };
     interface HTMLElementTagNameMap {
+        "ic-accordion": HTMLIcAccordionElement;
+        "ic-accordion-group": HTMLIcAccordionGroupElement;
         "ic-alert": HTMLIcAlertElement;
         "ic-back-to-top": HTMLIcBackToTopElement;
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
@@ -2472,6 +2535,52 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IcAccordion {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded"?: boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        "onAccordionClicked"?: (event: IcAccordionCustomEvent<{ id: string }>) => void;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
+    interface IcAccordionGroup {
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will load in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The header for the accordion group.
+         */
+        "groupTitle"?: string;
+        /**
+          * If `true`, only one accordion will open at a time.
+         */
+        "singleExpansion"?: boolean;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
     interface IcAlert {
         /**
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
@@ -4484,6 +4593,8 @@ declare namespace LocalJSX {
         "variant"?: IcTypographyVariants;
     }
     interface IntrinsicElements {
+        "ic-accordion": IcAccordion;
+        "ic-accordion-group": IcAccordionGroup;
         "ic-alert": IcAlert;
         "ic-back-to-top": IcBackToTop;
         "ic-breadcrumb": IcBreadcrumb;
@@ -4549,6 +4660,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
+            "ic-accordion-group": LocalJSX.IcAccordionGroup & JSXBase.HTMLAttributes<HTMLIcAccordionGroupElement>;
             "ic-alert": LocalJSX.IcAlert & JSXBase.HTMLAttributes<HTMLIcAlertElement>;
             "ic-back-to-top": LocalJSX.IcBackToTop & JSXBase.HTMLAttributes<HTMLIcBackToTopElement>;
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
