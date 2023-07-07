@@ -411,6 +411,10 @@ svg {
 :host(.navigation-item-side-nav.navigation-item-top-nav-child)
   a.link
   ic-typography,
+:host(.navigation-item-side-nav) div.link ic-typography,
+:host(.navigation-item-side-nav.navigation-item-top-nav-child)
+  div.link
+  ic-typography,
 .navigation-item-side-nav-slotted-text {
   opacity: var(--navigation-item-label-opacity);
   transition: opacity var(--ic-easing-transition-slow);
