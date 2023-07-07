@@ -167,6 +167,8 @@ export class SideNavigation {
     this.menuOpen = !this.menuOpen;
     this.setMobileMenuAriaAttributes(this.menuOpen);
 
+    this.arrangeSlottedNavigationItem(this.menuOpen);
+
     this.setToggleMenuFlyoutMenuVisibility(this.menuOpen);
 
     this.emitSideNavigationExpanded({
