@@ -72,6 +72,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
  - [ic-card](../ic-card)
  - [ic-dialog](../ic-dialog)
@@ -99,6 +100,7 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-accordion-group --> ic-button
   ic-alert --> ic-button
   ic-card --> ic-button
   ic-dialog --> ic-button

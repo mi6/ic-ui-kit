@@ -22,6 +22,8 @@
 
 ### Used by
 
+ - [ic-accordion](../ic-accordion)
+ - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
  - [ic-back-to-top](../ic-back-to-top)
  - [ic-card](../ic-card)
@@ -62,6 +64,8 @@
 ### Graph
 ```mermaid
 graph TD;
+  ic-accordion --> ic-typography
+  ic-accordion-group --> ic-typography
   ic-alert --> ic-typography
   ic-back-to-top --> ic-typography
   ic-card --> ic-typography

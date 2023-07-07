@@ -28,6 +28,8 @@ export enum IcInformationStatus {
   Success = "success",
 }
 
+export type IcSizes = "default" | "large" | "small";
+
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 
 export type IcNavType = "side" | "top" | "page-header";

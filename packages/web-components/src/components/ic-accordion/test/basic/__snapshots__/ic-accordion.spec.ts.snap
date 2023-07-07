@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-accordion snapshots should match default snapshot: renders as default 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-0">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-0" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should match large snapshot: renders large accordion 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-5" size="large">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="large section-button" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-5" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should match light snapshot: renders as light 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-1">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-1" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should match small snapshot: renders small accordion 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-4" size="small">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-4" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should match with icon snapshot: renders with icon 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-2">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" tabindex="0">
+      <div class="icon-container">
+        <slot name="icon"></slot>
+      </div>
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-2" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <svg fill="currentColor" height="1em" slot="icon" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+    <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"></path>
+  </svg>
+  <ic-typography variant="body">
+    This is an example of the main body text
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] = `
+<ic-accordion aria-disabled="true" class="default disabled" disabled="" heading="Accordion 1" id="ic-accordion-7">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" disabled="" tabindex="-1">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-7" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should render with a heading slot when supplied: renders with heading slot 1`] = `
+<ic-accordion aria-disabled="false" class="default" id="ic-accordion-6">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large"></ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-6" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <slot name="heading"></slot>
+  <ic-typography variant="body">
+    This is an example of the main body text.
+  </ic-typography>
+</ic-accordion>
+`;
+
+exports[`ic-accordion snapshots should render with slot: renders small accordion 1`] = `
+<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-3" size="small">
+  <mock:shadow-root>
+    <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" tabindex="0">
+      <ic-typography class="section-header" variant="subtitle-large">
+        Accordion 1
+      </ic-typography>
+      <span aria-hidden="true" class="expand-chevron">
+        svg
+      </span>
+    </button>
+    <div aria-hidden="true" aria-labelledby="ic-accordion-3" class="expanded-content" id="expanded-content-area">
+      <div class="expanded-content-inner">
+        <slot></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <slot>
+    This is an example of the main body text.
+  </slot>
+</ic-accordion>
+`;
