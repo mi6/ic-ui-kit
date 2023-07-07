@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -28,10 +28,10 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-export { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-export { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -52,6 +52,51 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
 export namespace Components {
+    interface IcAccordion {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded": boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
+    interface IcAccordionGroup {
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance": IcThemeForeground;
+        /**
+          * If `true`, the accordion will load in an expanded state.
+         */
+        "expanded": boolean;
+        /**
+          * The header for the accordion group.
+         */
+        "groupTitle": string;
+        /**
+          * If `true`, only one accordion will open at a time.
+         */
+        "singleExpansion": boolean;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
     interface IcAlert {
         /**
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
@@ -185,7 +230,7 @@ export namespace Components {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -366,7 +411,7 @@ export namespace Components {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -1870,6 +1915,10 @@ export namespace Components {
         "variant"?: IcTypographyVariants;
     }
 }
+export interface IcAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcAccordionElement;
+}
 export interface IcAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcAlertElement;
@@ -1971,6 +2020,18 @@ export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTopNavigationElement;
 }
 declare global {
+    interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
+    }
+    var HTMLIcAccordionElement: {
+        prototype: HTMLIcAccordionElement;
+        new (): HTMLIcAccordionElement;
+    };
+    interface HTMLIcAccordionGroupElement extends Components.IcAccordionGroup, HTMLStencilElement {
+    }
+    var HTMLIcAccordionGroupElement: {
+        prototype: HTMLIcAccordionGroupElement;
+        new (): HTMLIcAccordionGroupElement;
+    };
     interface HTMLIcAlertElement extends Components.IcAlert, HTMLStencilElement {
     }
     var HTMLIcAlertElement: {
@@ -2320,6 +2381,8 @@ declare global {
         new (): HTMLIcTypographyElement;
     };
     interface HTMLElementTagNameMap {
+        "ic-accordion": HTMLIcAccordionElement;
+        "ic-accordion-group": HTMLIcAccordionGroupElement;
         "ic-alert": HTMLIcAlertElement;
         "ic-back-to-top": HTMLIcBackToTopElement;
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
@@ -2381,6 +2444,52 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IcAccordion {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the accordion appears expanded.
+         */
+        "expanded"?: boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "heading"?: string;
+        /**
+          * The main body message of the accordion.
+         */
+        "message"?: string;
+        "onAccordionClicked"?: (event: IcAccordionCustomEvent<{ id: string }>) => void;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
+    interface IcAccordionGroup {
+        /**
+          * The appearance of the accordion group, e.g dark, or light.
+         */
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the accordion will load in an expanded state.
+         */
+        "expanded"?: boolean;
+        /**
+          * The header for the accordion group.
+         */
+        "groupTitle"?: string;
+        /**
+          * If `true`, only one accordion will open at a time.
+         */
+        "singleExpansion"?: boolean;
+        /**
+          * The size of the accordion.
+         */
+        "size"?: IcSizes;
+    }
     interface IcAlert {
         /**
           * If `true`, the alert will have the 'alert' ARIA role and will be announced to screen readers.
@@ -2522,7 +2631,7 @@ declare namespace LocalJSX {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -2710,7 +2819,7 @@ declare namespace LocalJSX {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -4310,6 +4419,8 @@ declare namespace LocalJSX {
         "variant"?: IcTypographyVariants;
     }
     interface IntrinsicElements {
+        "ic-accordion": IcAccordion;
+        "ic-accordion-group": IcAccordionGroup;
         "ic-alert": IcAlert;
         "ic-back-to-top": IcBackToTop;
         "ic-breadcrumb": IcBreadcrumb;
@@ -4374,6 +4485,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ic-accordion": LocalJSX.IcAccordion & JSXBase.HTMLAttributes<HTMLIcAccordionElement>;
+            "ic-accordion-group": LocalJSX.IcAccordionGroup & JSXBase.HTMLAttributes<HTMLIcAccordionGroupElement>;
             "ic-alert": LocalJSX.IcAlert & JSXBase.HTMLAttributes<HTMLIcAlertElement>;
             "ic-back-to-top": LocalJSX.IcBackToTop & JSXBase.HTMLAttributes<HTMLIcBackToTopElement>;
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;

@@ -18,12 +18,12 @@ import {
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
-  IcButtonSizes,
   IcButtonTypes,
   IcButtonVariants,
   IcButtonTooltipPlacement,
 } from "./ic-button.types";
 import {
+  IcSizes,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
@@ -139,7 +139,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcButtonSizes = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
