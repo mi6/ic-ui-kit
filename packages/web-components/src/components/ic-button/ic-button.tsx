@@ -24,6 +24,7 @@ import {
   IcButtonTooltipPlacement,
 } from "./ic-button.types";
 import {
+  IcSizes,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
