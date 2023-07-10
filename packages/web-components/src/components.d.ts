@@ -11,6 +11,8 @@ import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
+import { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
+import { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -35,6 +37,8 @@ export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
+export { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
+export { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -423,6 +427,65 @@ export namespace Components {
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value": string;
+    }
+    interface IcDateInput {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The text to display as the validation message when `disabledDates` is `from-now` and a disabled date is entered.
+         */
+        "dateFromNowMessage"?: string;
+        /**
+          * The text to display as the validation message when `disabledDates` is `until-now` and a disabled date is entered.
+         */
+        "dateUntilNowMessage"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The dates (until now or from now) that the user cannot select. A validation message will appear if they enter a disabled date.
+         */
+        "disabledDates"?: IcDisabledDateTypes;
+        /**
+          * Returns the value as a Date object
+          * @returns Date
+         */
+        "getDate": () => Promise<Date>;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
+         */
+        "helperText"?: string;
+        /**
+          * The ID for the input.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty1;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
     }
     interface IcDialog {
         /**
@@ -1974,6 +2037,10 @@ export interface IcChipCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcChipElement;
 }
+export interface IcDateInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDateInputElement;
+}
 export interface IcDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDialogElement;
@@ -2126,6 +2193,12 @@ declare global {
     var HTMLIcDataRowElement: {
         prototype: HTMLIcDataRowElement;
         new (): HTMLIcDataRowElement;
+    };
+    interface HTMLIcDateInputElement extends Components.IcDateInput, HTMLStencilElement {
+    }
+    var HTMLIcDateInputElement: {
+        prototype: HTMLIcDateInputElement;
+        new (): HTMLIcDateInputElement;
     };
     interface HTMLIcDialogElement extends Components.IcDialog, HTMLStencilElement {
     }
@@ -2422,6 +2495,7 @@ declare global {
         "ic-classification-banner": HTMLIcClassificationBannerElement;
         "ic-data-entity": HTMLIcDataEntityElement;
         "ic-data-row": HTMLIcDataRowElement;
+        "ic-date-input": HTMLIcDateInputElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
         "ic-empty-state": HTMLIcEmptyStateElement;
@@ -2856,6 +2930,72 @@ declare namespace LocalJSX {
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
         "value"?: string;
+    }
+    interface IcDateInput {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The text to display as the validation message when `disabledDates` is `from-now` and a disabled date is entered.
+         */
+        "dateFromNowMessage"?: string;
+        /**
+          * The text to display as the validation message when `disabledDates` is `until-now` and a disabled date is entered.
+         */
+        "dateUntilNowMessage"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The dates (until now or from now) that the user cannot select. A validation message will appear if they enter a disabled date.
+         */
+        "disabledDates"?: IcDisabledDateTypes;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
+         */
+        "helperText"?: string;
+        /**
+          * The ID for the input.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onIcBlur"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        /**
+          * Emitted when the input gains focus.
+         */
+        "onIcFocus"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty1;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
     }
     interface IcDialog {
         /**
@@ -4496,6 +4636,7 @@ declare namespace LocalJSX {
         "ic-classification-banner": IcClassificationBanner;
         "ic-data-entity": IcDataEntity;
         "ic-data-row": IcDataRow;
+        "ic-date-input": IcDateInput;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
         "ic-empty-state": IcEmptyState;
@@ -4561,6 +4702,7 @@ declare module "@stencil/core" {
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
             "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
+            "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
             "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
