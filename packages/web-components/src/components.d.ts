@@ -36,6 +36,8 @@ export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
+export { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
