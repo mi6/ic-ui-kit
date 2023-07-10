@@ -429,11 +429,8 @@ svg {
   content: "";
   display: block;
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0.313rem;
+  inset: 0 0 0 0.313rem;
   border-radius: 0.688rem !important;
-  bottom: 0;
   transition: var(--ic-easing-transition-slow);
 }
 
