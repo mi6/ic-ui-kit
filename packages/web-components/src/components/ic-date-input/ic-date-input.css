@@ -1,0 +1,52 @@
+@import "../../global/normalize.css";
+
+input {
+  border: 0;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  background: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+ic-input-component-container {
+  cursor: text;
+}
+
+ic-input-component-container,
+ic-input-component-container:hover {
+  color: var(--ic-color-tertiary-text);
+}
+
+.focus-indicator {
+  padding: var(--ic-space-xxxs) var(--ic-space-xs);
+  align-items: center;
+}
+
+.day-input {
+  width: 1.438rem;
+}
+
+.month-input {
+  width: 1.813rem;
+}
+
+.year-input,
+.year-input.fit-to-value {
+  width: 2.313rem;
+}
+
+.fit-to-value {
+  width: 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}

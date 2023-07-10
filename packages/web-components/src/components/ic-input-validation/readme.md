@@ -28,6 +28,7 @@
 ### Used by
 
  - [ic-checkbox-group](../ic-checkbox-group)
+ - [ic-date-input](../ic-date-input)
  - [ic-radio-group](../ic-radio-group)
  - [ic-select](../ic-select)
  - [ic-text-field](../ic-text-field)
@@ -41,6 +42,7 @@
 graph TD;
   ic-input-validation --> ic-typography
   ic-checkbox-group --> ic-input-validation
+  ic-date-input --> ic-input-validation
   ic-radio-group --> ic-input-validation
   ic-select --> ic-input-validation
   ic-text-field --> ic-input-validation

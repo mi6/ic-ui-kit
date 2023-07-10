@@ -86,7 +86,7 @@ export const renderHiddenInput = (
   always: boolean,
   container: HTMLElement,
   name: string,
-  value: string | undefined | null,
+  value: string | Date | undefined | null,
   disabled: boolean
 ): void => {
   if (name !== undefined && (always || hasShadowDom(container))) {
@@ -103,7 +103,12 @@ export const renderHiddenInput = (
     }
     input.disabled = disabled;
     input.name = name;
-    input.value = value || "";
+
+    if (value instanceof Date) {
+      input.value = value ? value.toISOString() : null;
+    } else {
+      input.value = value || "";
+    }
   }
 };
 
@@ -219,6 +224,10 @@ export const isEmptyString = (value: string): boolean => {
   }
 
   return value.trim().length === 0;
+};
+
+export const isSet = (value: string | null | undefined): boolean => {
+  return value !== "" && value !== null && value !== undefined;
 };
 
 /**
@@ -585,4 +594,8 @@ export const removeDisabledFalse = (
   if (!disabled) {
     element.removeAttribute("disabled");
   }
+};
+
+export const isNumeric = (value: string) => {
+  return /^-?\d+$/.test(value);
 };
