@@ -1,0 +1,386 @@
+import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Date input" component="ic-date-input" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInput = document.querySelector("ic-date-input");
+        {
+          dateInput.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        }
+      </script>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        date-format="MM/DD/YYYY"
+      ></ic-date-input>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        date-format="YYYY/MM/DD"
+      ></ic-date-input> `}
+  </Story>
+</Canvas>
+
+### With value
+
+<Canvas>
+  <Story name="With value" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        id="date-input-default-date-with-value"
+        label="When would you like to collect your coffee?"
+        date-format="DD/MM/YYYY"
+        value="21/01/2001"
+      ></ic-date-input>
+      <ic-button id="update">Update date</ic-button>
+      <ic-button id="log">Log value</ic-button>
+      <script>
+        var input = document.querySelector(
+          "#date-input-default-date-with-value"
+        );
+        var btn = document.querySelector("#update");
+        btn.addEventListener("click", () => {
+          var dateInputWithValue = document.querySelector(
+            "#date-input-default-date-with-value"
+          );
+          dateInputWithValue.value = new Date("05 May 2005");
+        });
+        var btn2 = document.querySelector("#log");
+        btn2.addEventListener("click", () => {
+          var dateInputLog = document.querySelector(
+            "#date-input-default-date-with-value"
+          );
+          console.log(dateInputLog.value);
+        });
+      </script>`}
+  </Story>
+</Canvas>
+
+### Required.
+
+<Canvas>
+  <Story name="Required">
+    {html`<ic-date-input
+      label="When would you like to collect your coffee?"
+      required
+    ></ic-date-input>`}
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    {html`<ic-date-input
+      label="When would you like to collect your coffee?"
+      disabled
+    ></ic-date-input>`}
+  </Story>
+</Canvas>
+
+### Custom helper text
+
+<Canvas>
+  <Story name="Custom helper text">
+    {html`<ic-date-input
+      label="When would you like to collect your coffee?"
+      helper-text="We will have your order ready for you on this day"
+    ></ic-date-input>`}
+  </Story>
+</Canvas>
+
+### Custom validation
+
+<Canvas>
+  <Story name="Custom validation">
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+        validation-status="error"
+        validation-text="There is a coffee shortage forecast for that day. Please choose a different date."
+      ></ic-date-input>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        validation-status="warning"
+        validation-text="Please be aware that there may be a coffee shortage on that day."
+      ></ic-date-input>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        validation-status="success"
+        validation-text="Your coffee will be available for you to collect on this day."
+      ></ic-date-input> `}
+  </Story>
+</Canvas>
+
+### Default date (Date object)
+
+<Canvas>
+  <Story name="Default date (Date object)">
+    {html`<ic-date-input
+        id="date-input-default-date-date"
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInputDate = document.querySelector(
+          "#date-input-default-date-date"
+        );
+        dateInputDate.value = new Date("28 November 2021");
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date (string DD/MM/YYYY)
+
+<Canvas>
+  <Story name="Default date (with slashes)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = "21/01/2005";
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date (string DD-MM-YYYY)
+
+<Canvas>
+  <Story name="Default date (with dashes)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = "25-05-2005";
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date epoch time
+
+<Canvas>
+  <Story name="Default date (epoch time)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = new Date(1686039778757);
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date / Disabled dates (until-now)
+
+<Canvas>
+  <Story name="Default date / Disabled dates (until-now)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+        disabled-dates="until-now"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = "25-05-2005";
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date / Disabled dates (from-now)
+
+<Canvas>
+  <Story name="Default date / Disabled dates (from-now)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+        disabled-dates="from-now"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = "25-05-2025";
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date (not matching format)
+
+<Canvas>
+  <Story name="Default date (not matching format)">
+    {html`<ic-date-input
+        id="date-input-default-date-string"
+        label="When would you like to collect your coffee?"
+        date-format="MM/DD/YYYY"
+      ></ic-date-input>
+      <script>
+        var dateInputString = document.querySelector(
+          "#date-input-default-date-string"
+        );
+        dateInputString.value = "25-05-2025";
+      </script>`}
+  </Story>
+</Canvas>
+
+### Dates until now disabled
+
+<Canvas>
+  <Story name="Dates until now disabled" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+        disabled-dates="until-now"
+      ></ic-date-input>
+      <ic-typography>Enter a date in the past</ic-typography> `}
+  </Story>
+</Canvas>
+
+### Dates from now disabled
+
+<Canvas>
+  <Story name="Dates from now disabled" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+        disabled-dates="from-now"
+      ></ic-date-input>
+      <ic-typography>Enter a date in the future</ic-typography> `}
+  </Story>
+</Canvas>
+
+### Form
+
+<Canvas>
+  <Story name="Form" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <form>
+          <ic-date-input
+            label="When would you like to collect your coffee?"
+            value="13/03/1951"
+          ></ic-date-input>
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
+        <script>
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(
+              document.querySelector('input[name^="ic-date-input-"]').value
+            );
+          });
+        </script>
+      `
+    }
+  </Story>
+</Canvas>
+
+### With alert and validation
+
+<Canvas>
+  <Story name="with alert and validation" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-alert
+        message="Error"
+        variant="error"
+        style="display: none;"
+      ></ic-alert>
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        disabled-dates="from-now"
+        required
+      ></ic-date-input>
+      <ic-button>Submit</ic-button>
+      <script>
+        var alert = document.querySelector("ic-alert");
+        var btn = document.querySelector("ic-button");
+        btn.addEventListener("click", () => {
+          alert.style.display = "block";
+        });
+      </script>
+    `}
+  </Story>
+</Canvas>
+
+### a11y: required
+
+<Canvas>
+  <Story name="a11y: required" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-date-input
+          label="When would you like to collect your coffee?"
+          required
+        ></ic-date-input>
+        <br />
+        <ic-button>Submit</ic-button>`
+    }
+  </Story>
+</Canvas>
+
+### a11y: disabled dates (until now)
+
+<Canvas>
+  <Story
+    name="a11y: disabled dates (until now)"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html` <ic-date-input
+          label="When would you like to collect your coffee?"
+          helper-text="Enter date in the past"
+          disabled-dates="until-now"
+        ></ic-date-input>
+        <br />
+        <ic-button>Submit</ic-button>`
+    }
+  </Story>
+</Canvas>
+
+### a11y: default dates - disabled dates (until now)
+
+<Canvas>
+  <Story
+    name="a11y: default dates - disabled dates (until now)"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html` <ic-date-input
+          label="When would you like to collect your coffee?"
+          helper-text="Enter date in the past"
+          disabled-dates="until-now"
+          value="1/1/1990"
+        ></ic-date-input>
+        <br />
+        <ic-button>Submit</ic-button>`
+    }
+  </Story>
+</Canvas>
