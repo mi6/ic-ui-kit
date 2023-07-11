@@ -62,6 +62,7 @@
   --ic-font-size-regular: 1rem;
   --ic-font-size-label: 0.875rem;
   --ic-font-size-caption: 0.75rem;
+  --ic-font-size-badge-small: 0.563rem;
 
   /* line height */
   --ic-font-line-height-h1: 3.5rem;
@@ -73,6 +74,8 @@
   --ic-font-line-height-body: 1.5rem;
   --ic-font-line-height-caption: 1.25rem;
   --ic-font-line-height-code: 1.5rem;
+  --ic-font-line-height-badge: 0.875rem;
+  --ic-font-line-height-badge-small: 0.75rem;
 
   /* letter spacing */
   --ic-font-letter-spacing-0pt025: 0.025rem;
@@ -109,6 +112,11 @@
   --ic-font-code-extra-small: var(--ic-font-weight-regular)
     var(--ic-font-size-caption) / var(--ic-font-line-height-code)
     var(--ic-font-code-family);
+  --ic-font-badge: var(--ic-font-weight-semibold) var(--ic-font-size-caption) /
+    var(--ic-font-line-height-badge) var(--ic-font-body-family);
+  --ic-font-badge-small: var(--ic-font-weight-semibold)
+    var(--ic-font-size-badge-small) / var(--ic-font-line-height-badge-small)
+    var(--ic-font-body-family);
 
   /* colours */
 

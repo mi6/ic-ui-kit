@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
@@ -28,7 +29,8 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 export { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
@@ -83,6 +85,48 @@ export namespace Components {
           * The ID of the element to jump back to when the link is clicked.
          */
         "target": string;
+    }
+    interface IcBadge {
+        /**
+          * The accessible label of the badge component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+         */
+        "customColor"?: IcColor;
+        /**
+          * Use to hide the badge.
+         */
+        "hideBadge": () => Promise<void>;
+        /**
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+         */
+        "maxNumber"?: number;
+        /**
+          * The positioning of the badge in reference to the parent element.
+         */
+        "position"?: IcBadgePositions;
+        /**
+          * Use to show the badge.
+         */
+        "showBadge": () => Promise<void>;
+        /**
+          * The size of the badge to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The text displayed in the badge. This will only be displayed if type="text".
+         */
+        "textLabel"?: string;
+        /**
+          * The type of badge to be displayed.
+         */
+        "type"?: IcBadgeTypes;
+        /**
+          * The variant of the badge to be displayed.
+         */
+        "variant"?: IcBadgeVariants;
     }
     interface IcBreadcrumb {
         /**
@@ -1983,6 +2027,12 @@ declare global {
         prototype: HTMLIcBackToTopElement;
         new (): HTMLIcBackToTopElement;
     };
+    interface HTMLIcBadgeElement extends Components.IcBadge, HTMLStencilElement {
+    }
+    var HTMLIcBadgeElement: {
+        prototype: HTMLIcBadgeElement;
+        new (): HTMLIcBadgeElement;
+    };
     interface HTMLIcBreadcrumbElement extends Components.IcBreadcrumb, HTMLStencilElement {
     }
     var HTMLIcBreadcrumbElement: {
@@ -2322,6 +2372,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ic-alert": HTMLIcAlertElement;
         "ic-back-to-top": HTMLIcBackToTopElement;
+        "ic-badge": HTMLIcBadgeElement;
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
         "ic-breadcrumb-group": HTMLIcBreadcrumbGroupElement;
         "ic-button": HTMLIcButtonElement;
@@ -2420,6 +2471,40 @@ declare namespace LocalJSX {
           * The ID of the element to jump back to when the link is clicked.
          */
         "target": string;
+    }
+    interface IcBadge {
+        /**
+          * The accessible label of the badge component to provide context for screen reader users.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The custom badge colour. This will only style the badge component if variant="custom". Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+         */
+        "customColor"?: IcColor;
+        /**
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+         */
+        "maxNumber"?: number;
+        /**
+          * The positioning of the badge in reference to the parent element.
+         */
+        "position"?: IcBadgePositions;
+        /**
+          * The size of the badge to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The text displayed in the badge. This will only be displayed if type="text".
+         */
+        "textLabel"?: string;
+        /**
+          * The type of badge to be displayed.
+         */
+        "type"?: IcBadgeTypes;
+        /**
+          * The variant of the badge to be displayed.
+         */
+        "variant"?: IcBadgeVariants;
     }
     interface IcBreadcrumb {
         /**
@@ -4308,6 +4393,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ic-alert": IcAlert;
         "ic-back-to-top": IcBackToTop;
+        "ic-badge": IcBadge;
         "ic-breadcrumb": IcBreadcrumb;
         "ic-breadcrumb-group": IcBreadcrumbGroup;
         "ic-button": IcButton;
@@ -4372,6 +4458,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ic-alert": LocalJSX.IcAlert & JSXBase.HTMLAttributes<HTMLIcAlertElement>;
             "ic-back-to-top": LocalJSX.IcBackToTop & JSXBase.HTMLAttributes<HTMLIcBackToTopElement>;
+            "ic-badge": LocalJSX.IcBadge & JSXBase.HTMLAttributes<HTMLIcBadgeElement>;
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
             "ic-breadcrumb-group": LocalJSX.IcBreadcrumbGroup & JSXBase.HTMLAttributes<HTMLIcBreadcrumbGroupElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;

@@ -137,6 +137,24 @@ describe("ic-typography component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render badge with badge variant", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="badge">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render badge small with badge-small variant", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="badge-small">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should allow semantic component to be passed in and variant styling applied", async () => {
     const page = await newSpecPage({
       components: [Typography],

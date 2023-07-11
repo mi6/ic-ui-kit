@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-badge should render custom variant with custom colour in hex: should render custom variant with custom colour in hex 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="custom default far foreground-dark show text" custom-color="#F8C8DC" id="badge" slot="badge" text-label="1" variant="custom" style="background-color: rgba(248, 200, 220, 1);">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render custom variant with custom colour in rgb: should render custom variant with custom colour in rgb 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="custom default far foreground-dark show text" custom-color="rgb(248,200,220)" id="badge" slot="badge" text-label="1" variant="custom" style="background-color: rgba(248, 200, 220, 1);">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render error variant: should render error variant 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default error far foreground-light show text" id="badge" slot="badge" text-label="1" variant="error">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render info variant: should render info variant 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light info show text" id="badge" slot="badge" text-label="1" variant="info">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render light variant: should render light variant 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light light show text" id="badge" slot="badge" text-label="1" variant="light">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render size large: should render size large 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="far foreground-light large neutral show text" id="badge" size="large" slot="badge" text-label="100">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        100
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render size small: should render size small 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="far foreground-light neutral show small text" id="badge" size="small" slot="badge" text-label="100">
+    <mock:shadow-root>
+      <ic-typography variant="badge-small">
+        100
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render slotted in a chip: should render slotted in a chip 1`] = `
+<ic-chip label="Badge">
+  <mock:shadow-root>
+    <div class="chip default filled">
+      <ic-typography class="label" variant="label">
+        <span>
+          Badge
+        </span>
+      </ic-typography>
+      <slot name="badge"></slot>
+    </div>
+  </mock:shadow-root>
+  <ic-badge class="default foreground-light near neutral show text" id="badge" position="near" slot="badge" text-label="1">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-chip>
+`;
+
+exports[`ic-badge should render slotted in a tab: should render slotted in a tab 1`] = `
+<ic-tab aria-disabled="false" aria-selected="false" context-id="default" role="tab" tabindex="-1">
+  <mock:shadow-root>
+    <ic-typography class="ic-tab-label" variant="label">
+      <span>
+        <slot></slot>
+      </span>
+    </ic-typography>
+    <slot name="badge"></slot>
+  </mock:shadow-root>
+  Tab
+  <ic-badge class="default foreground-light inline neutral show text" id="badge" position="inline" slot="badge" text-label="1">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-tab>
+`;
+
+exports[`ic-badge should render success variant: should render success variant 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light show success text" id="badge" slot="badge" text-label="1" variant="success">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render type dot: should render type dot 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default dot far foreground-light neutral show" id="badge" slot="badge" type="dot">
+    <mock:shadow-root></mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render type icon: should render type icon 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light icon neutral show" id="badge" slot="badge" type="icon">
+    <mock:shadow-root>
+      <slot name="badge-icon"></slot>
+    </mock:shadow-root>
+    <svg fill="#000000" height="24px" slot="badge-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0V0z" fill="none"></path>
+      <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
+    </svg>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render warning variant: should render warning variant 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light show text warning" id="badge" slot="badge" text-label="1" variant="warning">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render with accessible label: should render with accessible label 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge accessible-label="1 notification found" aria-label="badge displaying 1 notification found" class="default far foreground-light neutral show text" id="badge" slot="badge" text-label="1">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render with max number prop set: should render with max number prop set 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light neutral show text" id="badge" max-number="9" slot="badge" text-label="100">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        9+
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;
+
+exports[`ic-badge should render with text slotted in a button: should render with text slotted in a button 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light neutral show text" id="badge" slot="badge" text-label="1">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;

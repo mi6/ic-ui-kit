@@ -29,6 +29,24 @@ exports[`ic-typography component should apply vertical margins class if vertical
 </ic-typography>
 `;
 
+exports[`ic-typography component should render badge small with badge-small variant 1`] = `
+<ic-typography class="ic-typography-badge-small" variant="badge-small">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
+exports[`ic-typography component should render badge with badge variant 1`] = `
+<ic-typography class="ic-typography-badge" variant="badge">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
 exports[`ic-typography component should render caption uppercase variant 1`] = `
 <ic-typography class="ic-typography-caption-uppercase" variant="caption-uppercase">
   <mock:shadow-root>

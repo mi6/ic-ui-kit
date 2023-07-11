@@ -53,9 +53,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                             |
-| -------- | ------------------------------------------------------- |
-| `"icon"` | Content will be placed to the left of the button label. |
+| Slot      | Description                                             |
+| --------- | ------------------------------------------------------- |
+| `"badge"` | Badge component overlaying the top right of the button. |
+| `"icon"`  | Content will be placed to the left of the button label. |
 
 
 ## CSS Custom Properties

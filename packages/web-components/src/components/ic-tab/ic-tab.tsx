@@ -14,10 +14,11 @@ import {
   IcThemeForegroundNoDefault,
   IcThemeForegroundEnum,
 } from "../../utils/types";
-import { removeDisabledFalse } from "../../utils/helpers";
+import { isSlotUsed, removeDisabledFalse } from "../../utils/helpers";
 
 /**
  * @slot icon - Content will be rendered next to the tab label.
+ * @slot badge - Badge component displayed inline with the tab.
  */
 @Component({
   tag: "ic-tab",
@@ -161,6 +162,7 @@ export class Tab {
             <slot></slot>
           </span>
         </ic-typography>
+        {isSlotUsed(this.host, "badge") && <slot name="badge"></slot>}
       </Host>
     );
   }

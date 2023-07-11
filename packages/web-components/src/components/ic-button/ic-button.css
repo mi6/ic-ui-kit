@@ -6,6 +6,7 @@
 
 :host {
   display: inline-block;
+  position: relative;
 
   --button-default: var(--ic-action-default);
   --button-default-hover: var(--ic-action-default-hover);
@@ -331,7 +332,8 @@ div.icon-container {
   align-items: center;
 }
 
-::slotted(*) {
+::slotted(svg),
+::slotted(img) {
   width: var(--icon-width) !important;
   height: var(--icon-height) !important;
   fill: currentcolor !important;

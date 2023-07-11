@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property               | Attribute                | Description                                                                                  | Type                                                                                                                                                                                                       | Default     |
-| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `applyVerticalMargins` | `apply-vertical-margins` | If `true`, appropriate top and bottom margins will be applied to the typography.             | `boolean`                                                                                                                                                                                                  | `false`     |
-| `maxLines`             | `max-lines`              | The number of lines to display before truncating the text, only used for the 'body' variant. | `number`                                                                                                                                                                                                   | `undefined` |
-| `variant`              | `variant`                | The ICDS typography style to use.                                                            | `"body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
+| Property               | Attribute                | Description                                                                                  | Type                                                                                                                                                                                                                                   | Default     |
+| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `applyVerticalMargins` | `apply-vertical-margins` | If `true`, appropriate top and bottom margins will be applied to the typography.             | `boolean`                                                                                                                                                                                                                              | `false`     |
+| `maxLines`             | `max-lines`              | The number of lines to display before truncating the text, only used for the 'body' variant. | `number`                                                                                                                                                                                                                               | `undefined` |
+| `variant`              | `variant`                | The ICDS typography style to use.                                                            | `"badge" \| "badge-small" \| "body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
 
 
 ## Dependencies
@@ -20,6 +20,7 @@
 
  - [ic-alert](../ic-alert)
  - [ic-back-to-top](../ic-back-to-top)
+ - [ic-badge](../ic-badge)
  - [ic-card](../ic-card)
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)
@@ -59,6 +60,7 @@
 graph TD;
   ic-alert --> ic-typography
   ic-back-to-top --> ic-typography
+  ic-badge --> ic-typography
   ic-card --> ic-typography
   ic-checkbox --> ic-typography
   ic-chip --> ic-typography

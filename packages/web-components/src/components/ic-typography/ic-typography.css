@@ -111,6 +111,16 @@
   letter-spacing: var(--ic-font-letter-spacing-0pt025);
 }
 
+:host(.ic-typography-badge) {
+  font: var(--ic-font-badge);
+  letter-spacing: var(--ic-font-letter-spacing-0pt0025);
+}
+
+:host(.ic-typography-badge-small) {
+  font: var(--ic-font-badge-small);
+  letter-spacing: var(--ic-font-letter-spacing-0pt0025);
+}
+
 :host(.ic-typography-no-wrap) {
   white-space: nowrap;
 }

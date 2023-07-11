@@ -13,6 +13,7 @@ import {
 import {
   getThemeFromContext,
   inheritAttributes,
+  isSlotUsed,
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
@@ -32,6 +33,7 @@ let buttonIds = 0;
 
 /**
  * @slot icon - Content will be placed to the left of the button label.
+ * @slot badge - Badge component overlaying the top right of the button.
  */
 @Component({
   tag: "ic-button",
@@ -375,7 +377,7 @@ export class Button {
             <ButtonContent />
           </ic-tooltip>
         )}
-
+        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         {!this.hasTooltip && <ButtonContent />}
       </Host>
     );

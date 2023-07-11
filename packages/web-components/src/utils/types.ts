@@ -28,6 +28,8 @@ export enum IcInformationStatus {
   Success = "success",
 }
 
+export type IcSizes = "default" | "large" | "small";
+
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 
 export type IcNavType = "side" | "top" | "page-header";
@@ -142,7 +144,9 @@ export type IcTypographyVariants =
   | "caption-uppercase"
   | "code-large"
   | "code-small"
-  | "code-extra-small";
+  | "code-extra-small"
+  | "badge"
+  | "badge-small";
 
 export interface IcMenuOption {
   value?: string;

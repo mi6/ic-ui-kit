@@ -19,6 +19,7 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
  * @slot icon - Content will be rendered at the start of the chip.
+ * @slot badge - Badge component overlaying the top right of the chip.
  */
 @Component({
   tag: "ic-chip",
@@ -167,6 +168,7 @@ export class Chip {
               ></button>
             </ic-tooltip>
           )}
+          {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         </div>
       )
     );
