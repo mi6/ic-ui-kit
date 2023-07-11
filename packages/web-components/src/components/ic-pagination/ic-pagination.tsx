@@ -210,7 +210,7 @@ export class Pagination {
   }
 
   @Listen("paginationItemClick")
-  paginationItemClickHandler(ev: CustomEvent) {
+  paginationItemClickHandler(ev: CustomEvent): void {
     const page = ev.detail.page;
     this.currentPage = page;
     this.icPageChange.emit({ value: this.currentPage });
@@ -220,7 +220,7 @@ export class Pagination {
    * Sets the currently displayed page.
    */
   @Method()
-  async setCurrentPage(page: number) {
+  async setCurrentPage(page: number): Promise<void> {
     if (typeof page === "number" && page > 0 && page <= this.pages) {
       this.currentPage = page;
     } else {

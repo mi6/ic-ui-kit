@@ -16,7 +16,7 @@ export class BreadcrumbGroup {
   private ADD_CLASS_DELAY = 50;
   private breadcrumb: HTMLIcBreadcrumbElement;
   private breadcrumbs: HTMLIcBreadcrumbElement[];
-  private collapsedBreadcrumbEl: any;
+  private collapsedBreadcrumbEl: HTMLButtonElement;
   private collapsedBreadcrumbs: HTMLIcBreadcrumbElement[];
   private collapsedBreadcrumbWrapper: HTMLIcBreadcrumbElement;
   private IC_BREADCRUMB: string = "ic-breadcrumb";
@@ -194,9 +194,9 @@ export class BreadcrumbGroup {
     this.expandedBreadcrumbs = true;
   };
 
-  private transitionendHandler = (event: any) => {
+  private transitionendHandler = (event: TransitionEvent) => {
     if (event.propertyName === "opacity") {
-      event.target.classList.remove("visuallyhidden");
+      (event.target as HTMLElement).classList.remove("visuallyhidden");
     }
   };
 

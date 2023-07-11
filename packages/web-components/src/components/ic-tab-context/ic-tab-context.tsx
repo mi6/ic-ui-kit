@@ -109,7 +109,7 @@ export class TabContext {
 
   @Listen("tabCreated")
   @Listen("tabPanelCreated")
-  tabCreatedHandler(ev: CustomEvent) {
+  tabCreatedHandler(ev: CustomEvent): void {
     if (this.tabs && this.tabPanels) {
       (ev.detail.setFocus ? this.newTabs : this.newTabPanels).push(ev.detail);
       if (this.newTabs.length === this.newTabPanels.length) {
@@ -127,7 +127,7 @@ export class TabContext {
    * @internal Used to set tab/tab panel IDs when a tab/tab panel has been removed
    */
   @Method()
-  async tabRemovedHandler(hadFocus?: boolean) {
+  async tabRemovedHandler(hadFocus?: boolean): Promise<void> {
     this.getChildren();
     this.enabledTabs = this.getEnabledTabs();
     this.linkTabs();
@@ -185,7 +185,7 @@ export class TabContext {
     this.enabledTabs = this.getEnabledTabs();
   };
 
-  private keydownHandler = (event: any) => {
+  private keydownHandler = (event: KeyboardEvent) => {
     if (this.activationType === "automatic") {
       this.handleKeyBoardNavAutomatic(event);
     } else {
