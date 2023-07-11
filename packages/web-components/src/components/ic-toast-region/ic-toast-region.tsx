@@ -3,13 +3,13 @@ import { IcFocusableComponents } from "../../utils/types";
 
 @Component({ tag: "ic-toast-region" })
 export class ToastRegion {
-  pendingVisibility: HTMLIcToastElement[] = [];
-  previouslyFocused: HTMLElement;
+  private pendingVisibility: HTMLIcToastElement[] = [];
+  private previouslyFocused: HTMLElement;
 
   @Element() el: HTMLIcToastRegionElement;
 
   @Listen("icDismiss", { capture: true })
-  handleDismissedToast() {
+  handleDismissedToast(): void {
     if (this.pendingVisibility.length > 0) {
       this.pendingVisibility[0]
         .setVisible()
@@ -27,7 +27,7 @@ export class ToastRegion {
    * @param toast The toast element being requested to display
    */
   @Method()
-  async setVisible(toast: HTMLIcToastElement) {
+  async setVisible(toast: HTMLIcToastElement): Promise<void> {
     const visibleToasts = Array.from(
       document.querySelectorAll("ic-toast")
     ).filter((el) => window.getComputedStyle(el).display !== "none");

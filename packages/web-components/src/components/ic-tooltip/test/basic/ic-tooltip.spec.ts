@@ -123,7 +123,7 @@ describe("ic-loading-indicator component", () => {
     const body = window.document.body;
 
     body.dispatchEvent(
-      new (window.window as any).KeyboardEvent("keydown", {
+      new window.window.KeyboardEvent("keydown", {
         key: "Escape",
         bubbles: true,
         cancelable: true,
@@ -167,7 +167,7 @@ describe("ic-loading-indicator component", () => {
     expect(page.rootInstance.toolTip.getAttribute("data-show")).not.toBeNull;
 
     window.document.body.dispatchEvent(
-      new (window.window as any).KeyboardEvent("keydown", {
+      new window.window.KeyboardEvent("keydown", {
         key: "Escape",
         bubbles: true,
         cancelable: true,

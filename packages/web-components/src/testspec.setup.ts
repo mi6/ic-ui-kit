@@ -3,6 +3,14 @@ import * as helpers from "./utils/helpers";
 //common setup to be used across all spec tests
 import { DEVICE_SIZES as device_sizes } from "./utils/helpers";
 
+type TestKeyboardEvent = {
+  key: string;
+  preventDefault: () => void;
+  stopImmediatePropagation: () => void;
+  shiftKey: boolean;
+  target: { id: string };
+};
+
 Object.defineProperty(device_sizes, "XS", { value: 0 });
 Object.defineProperty(device_sizes, "S", { value: 576 });
 Object.defineProperty(device_sizes, "M", { value: 768 });
@@ -52,7 +60,7 @@ export const resizeTo = (
   }).dispatchEvent(new windowObj.Event("resize"));
 };
 
-export const testKeyboardEvent = (keyboardKey: string) => {
+export const testKeyboardEvent = (keyboardKey: string): TestKeyboardEvent => {
   return {
     key: `${keyboardKey}`,
     preventDefault: (): void => null,

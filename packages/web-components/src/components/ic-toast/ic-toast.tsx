@@ -38,11 +38,11 @@ const TOAST_MESSAGE_CHAR_LIMIT = 140;
   shadow: true,
 })
 export class Toast {
-  dismissTimeout: number;
-  interactiveElements: ActionAreaElementTypes[] = [];
-  isManual: boolean;
-  neutralVariantLabel: string;
-  timerRefreshInterval: number;
+  private dismissTimeout: number;
+  private interactiveElements: ActionAreaElementTypes[] = [];
+  private isManual: boolean;
+  private neutralVariantLabel: string;
+  private timerRefreshInterval: number;
 
   @Element() el: HTMLIcToastElement;
 
@@ -90,12 +90,12 @@ export class Toast {
    */
   @Event() icDismiss: EventEmitter<void>;
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     window.clearTimeout(this.dismissTimeout);
     window.clearInterval(this.timerRefreshInterval);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.handleLongText(
       this.heading.length > TOAST_HEADING_CHAR_LIMIT,
       this.message?.length > TOAST_MESSAGE_CHAR_LIMIT
@@ -131,7 +131,7 @@ export class Toast {
     }
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.heading, propName: "heading" }],
       "Toast"
@@ -194,7 +194,7 @@ export class Toast {
    * @returns The element that previously had focus before the toast appeared
    */
   @Method()
-  async setVisible() {
+  async setVisible(): Promise<HTMLElement> {
     if (!this.visible) this.visible = true;
     if (!this.isManual) {
       this.dismissTimeout = window.setTimeout(

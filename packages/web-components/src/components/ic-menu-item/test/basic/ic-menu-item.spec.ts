@@ -120,7 +120,7 @@ describe("menu item variants", () => {
     });
 
     const mockEvent = { preventDefault: jest.fn() };
-    page.rootInstance.handleClick(mockEvent as any);
+    page.rootInstance.handleClick(mockEvent as unknown as MouseEvent);
 
     expect(mockEvent.preventDefault).toHaveBeenCalled();
   });
