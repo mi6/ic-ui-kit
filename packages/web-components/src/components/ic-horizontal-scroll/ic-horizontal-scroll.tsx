@@ -115,8 +115,10 @@ export class HorizontalScroll {
     this.itemsContainerEl.scrollLeft = newScrollPos;
   }
 
-  private focusHandler = (event: any) => {
-    this.itemFocusHandler(Array.from(this.items).indexOf(event.target));
+  private focusHandler = (event: FocusEvent) => {
+    this.itemFocusHandler(
+      Array.from(this.items).indexOf(event.target as HTMLElement)
+    );
   };
 
   private itemFocusHandler(itemPosition: number): void {

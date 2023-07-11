@@ -247,7 +247,7 @@ export class Select {
   @State() currDebounce = this.debounce;
 
   @Watch("debounce")
-  debounceChangedHandler(newValue: number) {
+  debounceChangedHandler(newValue: number): void {
     this.updateOnChangeDebounce(newValue);
   }
 
@@ -260,7 +260,7 @@ export class Select {
   @State() currValue = this.value;
 
   @Watch("value")
-  valueChangedHandler() {
+  valueChangedHandler(): void {
     if (this.value !== this.currValue) {
       this.currValue = this.value;
     }
