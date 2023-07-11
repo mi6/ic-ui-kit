@@ -39,9 +39,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                        |
-| -------- | -------------------------------------------------- |
-| `"icon"` | Content will be rendered at the start of the chip. |
+| Slot      | Description                                           |
+| --------- | ----------------------------------------------------- |
+| `"badge"` | Badge component overlaying the top right of the chip. |
+| `"icon"`  | Content will be rendered at the start of the chip.    |
 
 
 ## Dependencies

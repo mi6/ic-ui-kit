@@ -27,9 +27,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                     |
-| -------- | ----------------------------------------------- |
-| `"icon"` | Content will be rendered next to the tab label. |
+| Slot      | Description                                     |
+| --------- | ----------------------------------------------- |
+| `"badge"` | Badge component displayed inline with the tab.  |
+| `"icon"`  | Content will be rendered next to the tab label. |
 
 
 ## Dependencies
