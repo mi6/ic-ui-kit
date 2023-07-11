@@ -88,6 +88,10 @@
   pointer-events: none;
 }
 
+:host(.loading-with-icon) .button {
+  min-width: var(--min-width, 8.25rem);
+}
+
 /* Variants */
 
 /* Primary */

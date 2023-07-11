@@ -358,6 +358,7 @@ export class Button {
           [`button-variant-${this.variant}`]: true,
           [`button-size-${this.size}`]: true,
           ["loading"]: this.loading,
+          ["loading-with-icon"]: this.loading && this.hasIconSlot(),
           ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
