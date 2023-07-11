@@ -55,6 +55,7 @@ Type: `Promise<void>`
 
 | Slot           | Description                                                                                 |
 | -------------- | ------------------------------------------------------------------------------------------- |
+| `"badge"`      | Badge component overlaying the top right of the button.                                     |
 | `"icon"`       | Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead. |
 | `"left-icon"`  | Content will be placed to the left of the button label.                                     |
 | `"right-icon"` | Content will be placed to the right of the button label.                                    |

@@ -7,6 +7,7 @@
 
 :host {
   display: inline-block;
+  position: relative;
 
   --button-default: var(--ic-action-default);
   --button-default-hover: var(--ic-action-default-hover);
@@ -346,7 +347,12 @@ div.icon-container {
   height: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
-::slotted(*) {
+:host(.button-size-large) div.icon-container {
+  width: calc(var(--ic-space-md) + var(--ic-space-xxs));
+  height: calc(var(--ic-space-md) + var(--ic-space-xxs));
+}
+
+::slotted(:not(ic-badge)) {
   width: var(--icon-width) !important;
   height: var(--icon-height) !important;
   fill: currentcolor !important;
