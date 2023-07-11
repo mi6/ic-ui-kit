@@ -144,7 +144,9 @@ export type IcTypographyVariants =
   | "caption-uppercase"
   | "code-large"
   | "code-small"
-  | "code-extra-small";
+  | "code-extra-small"
+  | "badge"
+  | "badge-small";
 
 /**
  * @interface IcMenuOption

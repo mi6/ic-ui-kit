@@ -36,6 +36,7 @@ let buttonIds = 0;
  * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
  * @slot left-icon - Content will be placed to the left of the button label.
  * @slot right-icon - Content will be placed to the right of the button label.
+ * @slot badge - Badge component overlaying the top right of the button.
  */
 @Component({
   tag: "ic-button",
@@ -472,7 +473,7 @@ export class Button {
             <ButtonContent />
           </ic-tooltip>
         )}
-
+        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
         {!this.hasTooltip && <ButtonContent />}
         {this.describedByContent && (
           <span id={describedBy} class="ic-button-describedby">
