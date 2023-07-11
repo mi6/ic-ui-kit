@@ -163,7 +163,7 @@ export class Dialog {
     }
   }
 
-  @Listen("click")
+  @Listen("click", {})
   handleClick(ev: MouseEvent): void {
     const dialogElement = this.el.shadowRoot.querySelector("dialog");
     if (
@@ -186,7 +186,7 @@ export class Dialog {
    * Use to show the dialog.
    */
   @Method()
-  async showDialog() {
+  async showDialog(): Promise<void> {
     this.dialogRendered = true;
     this.dialogEl.showModal();
     setTimeout(() => {
@@ -206,7 +206,7 @@ export class Dialog {
    * Use to hide the dialog.
    */
   @Method()
-  async hideDialog() {
+  async hideDialog(): Promise<void> {
     this.fadeIn = false;
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();

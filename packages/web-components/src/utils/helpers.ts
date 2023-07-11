@@ -370,7 +370,9 @@ export const getSlotContent = (
   return null;
 };
 
-export const getSlotElements = (slot: Element) => {
+export const getSlotElements = (
+  slot: Element
+): NodeListOf<ChildNode> | Element[] => {
   const slotContent = slot.firstElementChild as HTMLSlotElement;
 
   if (slotContent !== null) {
@@ -573,7 +575,7 @@ export const removeFormResetListener = (
   }
 };
 
-export const pxToRem = (px: string, base = 16) => {
+export const pxToRem = (px: string, base = 16): string => {
   const tempPx = parseInt(px);
   return `${(1 / base) * tempPx}rem`;
 };
@@ -581,7 +583,7 @@ export const pxToRem = (px: string, base = 16) => {
 export const removeDisabledFalse = (
   disabled: boolean,
   element: HTMLElement
-) => {
+): void => {
   if (!disabled) {
     element.removeAttribute("disabled");
   }
