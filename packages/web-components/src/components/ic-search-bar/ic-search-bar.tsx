@@ -312,6 +312,8 @@ export class SearchBar {
     if (this.options.length > 0) {
       this.setMenuChange(true);
 
+      this.preLoad = false;
+
       if (this.disableFilter === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
