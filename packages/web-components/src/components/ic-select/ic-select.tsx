@@ -265,7 +265,7 @@ export class Select {
       this.currValue = this.value;
     }
 
-    if (this.searchable && !!this.currValue) {
+    if (this.searchable) {
       this.searchableSelectInputValue =
         this.getLabelFromValue(this.currValue) || this.currValue;
     }

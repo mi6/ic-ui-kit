@@ -648,7 +648,7 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.value).toBe(null);
+    expect(page.rootInstance.value).toBe(menuOptions[0].value);
   });
   it("tests setInputValue function when default parameter passed", async () => {
     const select = window.document.createElement(
