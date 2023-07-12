@@ -550,7 +550,6 @@ export class Menu {
           this.setHighlightedOption(0);
         } else if (this.isSearchableSelect) {
           (this.parentEl as HTMLIcSelectElement).setFocus();
-          this.value = null;
         }
         this.focusFromSearchKeypress = true;
         break;
@@ -561,7 +560,6 @@ export class Menu {
             this.setHighlightedOption(0);
           } else if (this.isSearchableSelect) {
             (this.parentEl as HTMLIcSelectElement).setFocus();
-            this.value = null;
           }
           this.focusFromSearchKeypress = true;
         }
