@@ -1685,4 +1685,27 @@ describe("ic-select searchable", () => {
     await waitForTimeout(1000);
     expect(page.rootInstance.filteredOptions).toHaveLength(0);
   });
+
+  it("should clear the searchable input if the value is programatically set to undefined", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,
+    });
+    page.rootInstance.searchableSelectInputValue = "test";
+    await page.waitForChanges();
+
+    const event = new Event("input", {
+      bubbles: true,
+      cancelable: true,
+    });
+    const input = page.root.shadowRoot.querySelector("input");
+    input.dispatchEvent(event);
+    page.rootInstance.loading = true;
+    await page.waitForChanges();
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+
+    page.rootInstance.value = undefined;
+    await page.waitForChanges();
+    expect(page.rootInstance.searchableSelectInputValue).toBeUndefined;
+  });
 });
