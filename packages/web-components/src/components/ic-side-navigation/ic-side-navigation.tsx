@@ -270,7 +270,7 @@ export class SideNavigation {
           "navigation-item-side-nav-slotted-text"
         );
 
-        iconWrapper.className = "icon-container";
+        iconWrapper.style.height = "var(--ic-space-lg)";
         iconWrapper.append(icon);
 
         navItemSlot.textContent = "";
