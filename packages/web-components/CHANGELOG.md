@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.17 (2023-07-13)
+
+### Bug Fixes
+
+- **web-components:** increase min-width of button when it has an icon and it is loading ([e314aa3](https://github.com/mi6/ic-ui-kit/commit/e314aa3484aada0e8611bc1933a01559a5d85d1f)), closes [.#838](https://github.com/./issues/838)
+
 # [2.1.0-beta.16](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.15...v2.1.0-beta.16) (2023-06-26)
 
 ### Bug Fixes
