@@ -350,6 +350,7 @@ svg {
 }
 
 .icon {
+  height: var(--ic-space-lg);
   width: var(--ic-space-xxl);
   margin-left: calc(-1 * var(--ic-space-md));
   flex: 0 1 0%;

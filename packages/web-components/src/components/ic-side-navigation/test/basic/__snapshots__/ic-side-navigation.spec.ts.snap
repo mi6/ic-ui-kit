@@ -366,7 +366,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
       </ic-tooltip>
     </mock:shadow-root>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div class="icon-container">
+      <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -455,7 +455,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
       </ic-tooltip>
     </mock:shadow-root>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div class="icon-container">
+      <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -538,7 +538,7 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
       </ic-tooltip>
     </mock:shadow-root>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div class="icon-container">
+      <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -618,7 +618,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
       </ic-tooltip>
     </mock:shadow-root>
     <a aria-label="Daily Tippers" class="active" href="/child-item-2" slot="navigation-item">
-      <div class="icon-container">
+      <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
@@ -651,7 +651,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
         </ic-tooltip>
       </mock:shadow-root>
       <a aria-label="Daily Tippers" href="/child-item-2" slot="navigation-item">
-        <div class="icon-container">
+        <div style="height: var(--ic-space-lg);">
           <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
           </svg>
@@ -671,7 +671,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
       </ic-tooltip>
     </mock:shadow-root>
     <a aria-label="bar" href="/bar" slot="navigation-item">
-      <div class="icon-container">
+      <div style="height: var(--ic-space-lg);">
         <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
         </svg>
