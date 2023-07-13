@@ -138,6 +138,8 @@ These tools are ran as part of the pre-commit and can also be ran separately.
 
 Resolve linting and formatting issues via `npm run lint:fix` and `npm run prettier:fix`.
 
+Refer to the [StencilJS Style Guide](https://stenciljs.com/docs/style-guide) for examples of directory structure and component style (with the caveat that the render() function is always the final method in the class).
+
 ### Git commit
 
 For automated versioning, we use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
@@ -222,6 +224,11 @@ export class Component {
     @Prop() status?: string;
 
     @Event() icComponentThemeChange!: EventEmitter<{ mode: string }>;
+        
+    @Listen("themeChange", { target: "document" })
+    themeChangeHandler(ev: CustomEvent): void {
+        this.theme = ev.detail.mode;
+    }
 
     @Method()
     async updateLabel(label: string) {
@@ -232,11 +239,6 @@ export class Component {
 
     private updateStatus(status: string) {
         this.status = status;
-    }
-
-    @Listen("themeChange", { target: "document" })
-    themeChangeHandler(ev: CustomEvent): void {
-        this.theme = ev.detail.mode;
     }
 
     private clickHandler() {
