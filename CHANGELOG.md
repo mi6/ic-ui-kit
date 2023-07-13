@@ -3,11 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.17 (2023-07-13)
+# [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
 
 ### Bug Fixes
 
-- **web-components:** increase min-width of button when it has an icon and it is loading ([e314aa3](https://github.com/mi6/ic-ui-kit/commit/e314aa3484aada0e8611bc1933a01559a5d85d1f)), closes [.#838](https://github.com/./issues/838)
+- **root:** added branch name extraction step ([b7fc985](https://github.com/mi6/ic-ui-kit/commit/b7fc985b6853b3539fcd43e1943e1e774f252bd2))
+- **root:** update automated release to create PR with api ([96c38a4](https://github.com/mi6/ic-ui-kit/commit/96c38a4dd63cb1c41e11acd88c61530e4ac29ad4))
+- **web-components:** add event for selecting / deselecting radio option, update tab index ([feb9d8b](https://github.com/mi6/ic-ui-kit/commit/feb9d8b56f45223346341ace7c6bf2261c5f7321)), closes [.#822](https://github.com/./issues/822)
+- **web-components:** add removeDisabledFalse helper to select ([06ef212](https://github.com/mi6/ic-ui-kit/commit/06ef21290ae97abc5b84c1824ae6fa9e5f6b7b00))
+- **web-components:** cSS styling updates after stylelint update ([c52d1ad](https://github.com/mi6/ic-ui-kit/commit/c52d1adb37741bb66e6228a8409865197dbea6b4))
+- **web-components:** duplicate a.link styles for div.link on nav items ([4da31ef](https://github.com/mi6/ic-ui-kit/commit/4da31ef028517d393ebd68b87b5464e3ca383e47)), closes [#726](https://github.com/mi6/ic-ui-kit/issues/726)
+- **web-components:** increase min-width of button when it has an icon and it is loading ([3a323e7](https://github.com/mi6/ic-ui-kit/commit/3a323e726e3c6dbf648ea270860fdf5b8573e93d)), closes [.#838](https://github.com/./issues/838)
+- **web-components:** remove event listeners ([cbc6008](https://github.com/mi6/ic-ui-kit/commit/cbc6008693cfbfd824479212d985284a44fbc1fd)), closes [#791](https://github.com/mi6/ic-ui-kit/issues/791)
+- **web-components:** update navigation items to display slotted labels on menu open ([bdf1292](https://github.com/mi6/ic-ui-kit/commit/bdf1292da659a081ef3574c19d54335d8a66dd9e)), closes [#775](https://github.com/mi6/ic-ui-kit/issues/775)
+
+### Features
+
+- **react:** remove selected prop from radio story, add reset button ([65d7ad0](https://github.com/mi6/ic-ui-kit/commit/65d7ad0b86752fe74c9df3e3bfe4b88e452170ca)), closes [.#822](https://github.com/./issues/822)
+- **root:** added latest stencil eslint plugin rules ([1de3e14](https://github.com/mi6/ic-ui-kit/commit/1de3e140dbde13f3a3ba4a3993d1674f2d043167))
 
 # [2.1.0-beta.16](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.15...v2.1.0-beta.16) (2023-06-26)
 
