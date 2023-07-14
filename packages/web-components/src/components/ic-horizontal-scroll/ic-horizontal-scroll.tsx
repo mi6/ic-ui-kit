@@ -225,6 +225,7 @@ export class HorizontalScroll {
             ["hidden"]: !itemOverflow,
             ["disabled"]: firstItemVisible,
           }}
+          role="tab"
         >
           <ic-button
             class="scroll-arrow"
@@ -247,6 +248,7 @@ export class HorizontalScroll {
             ["hidden"]: !itemOverflow,
             ["disabled"]: lastItemVisible,
           }}
+          role="tab"
         >
           <span class="scroll-splitter-right"></span>
           <ic-button
