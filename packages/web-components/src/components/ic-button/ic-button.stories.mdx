@@ -791,3 +791,28 @@ export const defaultArgs = {
     `}
   </Story>
 </Canvas>
+
+### Aria-describedby
+
+<Canvas>
+  <Story name="Aria-describedby" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function btnClick() {
+          var descEl = document.querySelector("#button-description");
+          descEl.innerText = "See, I told you it was amazing!";
+        }
+      </script>
+      <div style="padding: 6px">
+        <span id="button-description">This button does something amazing</span>
+        <br />
+        <ic-button
+          variant="primary"
+          onclick="btnClick()"
+          aria-describedby="button-description"
+          >Button</ic-button
+        >
+      </div>
+    `}
+  </Story>
+</Canvas>

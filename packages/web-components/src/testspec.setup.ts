@@ -28,6 +28,17 @@ Object.defineProperty(global, "ResizeObserver", {
   value: mockResizeObserver,
 });
 
+// MutationObserver isn't available in test environment
+const mockMutationObserver = jest.fn();
+mockMutationObserver.mockReturnValue({
+  observe: jest.fn().mockReturnValue(null),
+  unobserve: jest.fn().mockReturnValue(null),
+  disconnect: jest.fn().mockReturnValue(null),
+});
+Object.defineProperty(global, "MutationObserver", {
+  value: mockMutationObserver,
+});
+
 export const waitForTimeout = async (ms: number): Promise<void> => {
   await new Promise((r) => setTimeout(r, ms));
 };

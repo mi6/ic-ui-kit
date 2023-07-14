@@ -257,6 +257,38 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should test aria-describedby is set", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `<span id="button-description">
+        This is the button description
+      </span>
+      <ic-button id='ic-button' aria-describedby="button-description">Button</ic-button>
+      `,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should test aria-describedby is updated", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: `<span id="button-description">
+        This is the button description
+      </span>
+      <ic-button id='ic-button' aria-describedby="button-description">Button</ic-button>
+      `,
+    });
+
+    (document.querySelector("#button-description") as HTMLElement).innerText =
+      "This is the new description";
+    page.rootInstance.mutationCallback();
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should test blur handler", async () => {
     const page = await newSpecPage({
       components: [Button],
