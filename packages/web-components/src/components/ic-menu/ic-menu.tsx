@@ -25,6 +25,7 @@ import {
   IcMenuChangeEventDetail,
   IcMenuOptionIdEventDetail,
 } from "./ic-menu.types";
+import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
 
 @Component({
   tag: "ic-menu",
@@ -99,6 +100,11 @@ export class Menu {
   @Prop() parentEl?: HTMLElement;
 
   /**
+   * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+   */
+  @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
+
+  /**
    * If `true`, the small styling will be applied to the menu.
    */
   @Prop({ reflect: true }) small?: boolean = false;
@@ -170,7 +176,7 @@ export class Menu {
     this.getParentEl(this.parentEl);
 
     if (this.isSearchBar) {
-      this.setHighlightedOption(0);
+      if (this.searchMode === "navigation") this.setHighlightedOption(0);
       this.initialOptionsListRender = true;
     }
   }
@@ -547,7 +553,7 @@ export class Menu {
       case "Backspace":
         if (this.isSearchBar) {
           (this.parentEl as HTMLIcSearchBarElement).setFocus();
-          this.setHighlightedOption(0);
+          if (this.searchMode === "navigation") this.setHighlightedOption(0);
         } else if (this.isSearchableSelect) {
           (this.parentEl as HTMLIcSelectElement).setFocus();
         }
@@ -557,7 +563,7 @@ export class Menu {
         if (event.key !== "Tab") {
           if (this.isSearchBar) {
             (this.parentEl as HTMLIcSearchBarElement).setFocus();
-            this.setHighlightedOption(0);
+            if (this.searchMode === "navigation") this.setHighlightedOption(0);
           } else if (this.isSearchableSelect) {
             (this.parentEl as HTMLIcSelectElement).setFocus();
           }

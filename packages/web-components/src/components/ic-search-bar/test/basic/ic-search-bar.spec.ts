@@ -250,6 +250,24 @@ describe("ic-search-bar search", () => {
     expect(page.rootInstance.value).toBe("doubleespresso");
   });
 
+  it("should test searchMode = `query`", async () => {
+    const page = await newSpecPage({
+      components: [SearchBar, Button, TextField, Menu],
+      html: '<ic-search-bar label="Test label" search-mode="query"></ic-search-bar>',
+    });
+
+    page.root.options = menuOptions;
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    await page.rootInstance.handleKeyDown({
+      detail: { event: { key: "Enter", preventDefault: (): void => null } },
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.value).toBe("");
+  });
+
   it("should test keydown event - arrow up", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
