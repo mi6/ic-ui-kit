@@ -1,5 +1,9 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-typograpghy", () => {
   it("should test truncation", async () => {
     const page = await newE2EPage();
