@@ -505,7 +505,7 @@ export class SideNavigation {
       currSize <= DEVICE_SIZES.L &&
       !this.disableAutoParentStyling
     ) {
-      if (this.static) {
+      if (this.static && this.menuExpanded) {
         this.setParentPaddingLeft("calc(var(--ic-space-xl) * 10)");
       } else {
         this.setParentPaddingLeft(paddingLeft);
