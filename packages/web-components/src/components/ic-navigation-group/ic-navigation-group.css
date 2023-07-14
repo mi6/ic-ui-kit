@@ -198,11 +198,3 @@
   left: var(--navigation-group-title-position-left);
   white-space: nowrap;
 }
-
-.menu-visibility-visible {
-  visibility: visible;
-}
-
-.menu-visibility-hidden {
-  visibility: hidden;
-}
