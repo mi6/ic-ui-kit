@@ -859,6 +859,17 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
+  it("tests searchMode=`query", async () => {
+    const page = await createMenu();
+
+    page.rootInstance.searchMode = "query";
+
+    await page.waitForChanges();
+
+    page.rootInstance.handleMenuKeyDown(keyboardEvent("F"));
+
+    expect(page.rootInstance.optionHighlighted).toBeUndefined;
+  });
   it("tests handleMenuKeyDown function as searchableSelect", async () => {
     const page = await createMenu();
 

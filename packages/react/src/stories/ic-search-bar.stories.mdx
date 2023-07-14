@@ -208,3 +208,23 @@ export const ExternalFiltering = () => {
     <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the searchbar menu will be updated.</IcTypography>
   </Story>
 </Canvas>
+
+### Query search mode
+
+<Canvas>
+  <Story name="Query search mode">
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      searchMode="query"
+      onIcSubmitSearch={() => console.log('submit search')}
+      options={[
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappucino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ]}
+    />
+  </Story>
+</Canvas>
