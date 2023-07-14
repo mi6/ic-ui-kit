@@ -233,4 +233,39 @@ describe("ic-button component", () => {
 
     expect(spy).toHaveReceivedEvent();
   });
+
+  it("should test aria-describedby being updated", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `
+      <script>
+        function btnClick(){
+          var descEl = document.querySelector("#button-description");
+          descEl.innerText = "See, I told you it was amazing!";
+        }
+      </script>
+      <div>
+        <span id="button-description">This button does something amazing</span>
+        <br />
+        <ic-button variant="primary" onclick="btnClick()" aria-describedby="button-description"
+          >Button</ic-button
+        >
+      </div>
+      `
+    );
+
+    const button = await page.find("ic-button");
+    let hiddenDescribedBy = await page.find(
+      "ic-button >>> #button-description"
+    );
+    expect(hiddenDescribedBy.innerText).toBe(
+      "This button does something amazing"
+    );
+
+    await button.click();
+    await page.waitForChanges();
+
+    hiddenDescribedBy = await page.find("ic-button >>> #button-description");
+    expect(hiddenDescribedBy.innerText).toBe("See, I told you it was amazing!");
+  });
 });

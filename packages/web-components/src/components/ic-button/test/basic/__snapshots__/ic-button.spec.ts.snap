@@ -221,6 +221,34 @@ exports[`button component should render with defined "a" tag props 1`] = `
 </ic-button>
 `;
 
+exports[`button component should test aria-describedby is set 1`] = `
+<ic-button class="button-size-default button-variant-primary light" exportparts="button" id="ic-button">
+  <mock:shadow-root>
+    <button aria-describedby="button-description" class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+    <span class="ic-button-describedby" id="button-description">
+      This is the button description
+    </span>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should test aria-describedby is updated 1`] = `
+<ic-button class="button-size-default button-variant-primary light" exportparts="button" id="ic-button">
+  <mock:shadow-root>
+    <button aria-describedby="button-description" class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+    <span class="ic-button-describedby" id="button-description">
+      This is the new description
+    </span>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
 exports[`button component should test button as submit button on form 1`] = `
 <ic-button class="button-size-default button-variant-primary light" exportparts="button" form="new-form" id="ic-button" type="submit">
   <mock:shadow-root>

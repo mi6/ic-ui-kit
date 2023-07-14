@@ -1,6 +1,10 @@
 import { E2EPage, newE2EPage } from "@stencil/core/testing";
 import { KeyInput } from "puppeteer";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 const options = `[
   { label: 'Test label 1', value: 'Test value 1' },
   { label: 'Test label 2', value: 'Test value 2' },

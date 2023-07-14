@@ -7,6 +7,7 @@ import {
   Listen,
   Method,
   Prop,
+  State,
   h,
 } from "@stencil/core";
 
@@ -47,8 +48,13 @@ export class Button {
   private id: string;
   private inheritedAttributes: { [k: string]: unknown } = {};
   private tooltipEl: HTMLIcTooltipElement;
+  private describedByEl: HTMLElement = null;
+  private describedById: string = null;
+  private mutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcButtonElement;
+
+  @State() describedByContent: string = null;
 
   /**
    * The appearance of the button, e.g. dark, light, or the default.
@@ -165,6 +171,12 @@ export class Button {
    */
   @Event() icFocus!: EventEmitter<void>;
 
+  disconnectedCallback(): void {
+    if (this.mutationObserver !== null && this.mutationObserver !== undefined) {
+      this.mutationObserver.disconnect();
+    }
+  }
+
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
@@ -179,10 +191,33 @@ export class Button {
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
     this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
+
+    if (!this.hasTooltip) {
+      const describedById = this.inheritedAttributes[
+        "aria-describedby"
+      ] as string;
+      if (describedById !== undefined) {
+        this.describedById = describedById;
+        const el = this.el.parentElement.querySelector(
+          `#${describedById}`
+        ) as HTMLElement;
+        this.describedByContent = el.innerText;
+        this.describedByEl = el;
+      }
+    }
   }
 
   componentDidLoad(): void {
     this.updateTheme();
+
+    if (this.describedById) {
+      this.mutationObserver = new MutationObserver(this.mutationCallback);
+      this.mutationObserver.observe(this.describedByEl, {
+        characterData: true,
+        childList: true,
+        subtree: true,
+      });
+    }
   }
 
   @Listen("click", { capture: true })
@@ -261,6 +296,11 @@ export class Button {
     }
   }
 
+  // triggered when text content of sibling element in light DOM changes
+  private mutationCallback = (): void => {
+    this.describedByContent = this.describedByEl.innerText;
+  };
+
   render() {
     const TagType = (this.href && "a") || "button";
     const {
@@ -307,6 +347,8 @@ export class Button {
           ? `ic-button-with-tooltip-${this.id}`
           : `ic-button-with-tooltip-${this.buttonIdNum}`;
       describedBy = `ic-tooltip-${buttonId}`;
+    } else {
+      describedBy = this.describedById;
     }
 
     const ButtonContent = () => {
@@ -378,6 +420,11 @@ export class Button {
         )}
 
         {!this.hasTooltip && <ButtonContent />}
+        {this.describedByContent && (
+          <span id={describedBy} class="ic-button-describedby">
+            {this.describedByContent}
+          </span>
+        )}
       </Host>
     );
   }
