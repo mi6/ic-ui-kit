@@ -27,7 +27,10 @@ import {
   getFilteredMenuOptions,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcSearchBarBlurEventDetail } from "./ic-search-bar.types";
+import {
+  IcSearchBarBlurEventDetail,
+  IcSearchBarSearchModes,
+} from "./ic-search-bar.types";
 import { IcValueEventDetail, IcBlurEventDetail } from "../../utils/types";
 import {
   IcMenuChangeEventDetail,
@@ -188,6 +191,11 @@ export class SearchBar {
    * If `true`, the search bar will require a value.
    */
   @Prop() required?: boolean = false;
+
+  /**
+   * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+   */
+  @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
 
   /**
    * If `true`, the small styling will be applied to the search bar.
@@ -685,7 +693,8 @@ export class SearchBar {
 
   private hadNoOptions = (): boolean =>
     this.filteredOptions.length === 1 &&
-    this.filteredOptions[0].label === this.emptyOptionListText;
+    this.filteredOptions[0].label === this.emptyOptionListText &&
+    this.searchMode === "navigation";
 
   private isSubmitDisabled = (): boolean => {
     const valueNotSet =
@@ -909,6 +918,7 @@ export class SearchBar {
                 activationType="manual"
                 anchorEl={this.anchorEl}
                 autoFocusOnSelected={false}
+                searchMode={this.searchMode}
                 inputEl={this.inputEl}
                 inputLabel={label}
                 ref={(el) => (this.menu = el)}

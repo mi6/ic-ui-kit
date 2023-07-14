@@ -349,3 +349,27 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Query search mode
+
+<Canvas>
+  <Story name="Query search mode">
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+          search-mode="query"
+        >
+        </ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>

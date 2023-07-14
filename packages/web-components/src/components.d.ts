@@ -14,12 +14,12 @@ import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 import { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
+import { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
-import { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
@@ -37,12 +37,12 @@ export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
 export { IcLoadingSizes, IcLoadingTypes } from "./components/ic-loading-indicator/ic-loading-indicator.types";
+export { IcSearchBarBlurEventDetail, IcSearchBarSearchModes } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail } from "./components/ic-menu/ic-menu.types";
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
-export { IcSearchBarBlurEventDetail } from "./components/ic-search-bar/ic-search-bar.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
@@ -805,6 +805,10 @@ export namespace Components {
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
         /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode"?: IcSearchBarSearchModes;
+        /**
           * If `true`, the small styling will be applied to the menu.
          */
         "small"?: boolean;
@@ -1274,6 +1278,10 @@ export namespace Components {
           * If `true`, the search bar will require a value.
          */
         "required"?: boolean;
+        /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode"?: IcSearchBarSearchModes;
         /**
           * Sets focus on the native `input`.
          */
@@ -3150,6 +3158,10 @@ declare namespace LocalJSX {
         "options": IcMenuOption[];
         "parentEl"?: HTMLElement;
         /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode"?: IcSearchBarSearchModes;
+        /**
           * If `true`, the small styling will be applied to the menu.
          */
         "small"?: boolean;
@@ -3673,6 +3685,10 @@ declare namespace LocalJSX {
           * If `true`, the search bar will require a value.
          */
         "required"?: boolean;
+        /**
+          * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
+         */
+        "searchMode"?: IcSearchBarSearchModes;
         /**
           * If `true`, the small styling will be applied to the search bar.
          */

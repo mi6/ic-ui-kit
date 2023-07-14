@@ -366,6 +366,79 @@ describe("ic-search-bar", () => {
     expect(await searchBar.getProperty("value")).toBe("bar");
   });
 
+  it("should keep the input value on Enter when searchMode is set to `query`", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label" search-mode="query"></ic-search-bar>
+    `);
+
+    await page.waitForChanges();
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+
+    await page.waitForChanges();
+
+    const menu = await page.find("ic-search-bar >>> ic-text-field ic-menu");
+    await menu.press("Enter");
+
+    expect(await searchBar.getProperty("value")).toBe("ba");
+  });
+
+  it("should not highlight options when typing and searchMode is `query`", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label" search-mode="query"></ic-search-bar>
+    `);
+
+    await page.waitForChanges();
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("bar", page);
+
+    await page.waitForChanges();
+
+    const menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).not.toHaveClass("focused-option");
+  });
+
+  it("should move focus to first option after one ArrowDown press when searchMode is set to `query`", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label" search-mode="query"></ic-search-bar>
+    `);
+
+    await page.waitForChanges();
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    await focusAndTypeIntoInput("ba", page);
+
+    await page.waitForChanges();
+
+    await page.keyboard.press("ArrowDown");
+
+    await page.waitForChanges();
+
+    const menuOptions = await page.findAll(
+      "ic-search-bar >>> ic-text-field ic-menu li"
+    );
+    expect(menuOptions[0]).toHaveClass("focused-option");
+  });
+
   it("should add a space to value on Space", async () => {
     const page = await newE2EPage();
     await page.setContent(`
