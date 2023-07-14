@@ -3,14 +3,14 @@
 exports[`ic-horizontal-scroll should render the correct HTML for the chosen appearance: renders-appearance 1`] = `
 <ic-horizontal-scroll>
   <mock:shadow-root>
-    <div aria-hidden="true" class="disabled hidden scroll-container-left">
+    <div aria-hidden="true" class="disabled hidden scroll-container-left" role="tab">
       <ic-button appearance="default" aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" variant="icon">
         svg
       </ic-button>
       <span class="scroll-splitter-left"></span>
     </div>
     <slot></slot>
-    <div aria-hidden="true" class="hidden scroll-container-right">
+    <div aria-hidden="true" class="hidden scroll-container-right" role="tab">
       <span class="scroll-splitter-right"></span>
       <ic-button appearance="default" aria-label="Scroll right" class="scroll-arrow" tabindex="-1" variant="icon">
         svg
@@ -91,14 +91,14 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
 exports[`ic-horizontal-scroll should render: renders 1`] = `
 <ic-horizontal-scroll>
   <mock:shadow-root>
-    <div aria-hidden="true" class="disabled hidden scroll-container-left">
+    <div aria-hidden="true" class="disabled hidden scroll-container-left" role="tab">
       <ic-button appearance="default" aria-label="Scroll left" class="scroll-arrow" disabled="" tabindex="-1" variant="icon">
         svg
       </ic-button>
       <span class="scroll-splitter-left"></span>
     </div>
     <slot></slot>
-    <div aria-hidden="true" class="hidden scroll-container-right">
+    <div aria-hidden="true" class="hidden scroll-container-right" role="tab">
       <span class="scroll-splitter-right"></span>
       <ic-button appearance="default" aria-label="Scroll right" class="scroll-arrow" tabindex="-1" variant="icon">
         svg
