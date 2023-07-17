@@ -56,4 +56,36 @@ describe("ic-top-navigation", () => {
     );
     expect(dropDownDiv).toBeNull();
   });
+
+  it("should toggle to short title at small screen sizes", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<ic-top-navigation app-title="ApplicationName" short-title="AppName">
+    </ic-top-navigation>`);
+
+    await page.setViewport({
+      width: 576,
+      height: pageHeight,
+    });
+
+    await page.waitForChanges();
+
+    let appTitle = await page.find(
+      "ic-top-navigation >>> .title-link ic-typography"
+    );
+
+    expect(appTitle.textContent).toBe("AppName");
+
+    await page.setViewport({
+      width: 1200,
+      height: pageHeight,
+    });
+
+    await page.waitForChanges();
+
+    appTitle = await page.find(
+      "ic-top-navigation >>> .title-link ic-typography"
+    );
+
+    expect(appTitle.textContent).toBe("ApplicationName");
+  });
 });
