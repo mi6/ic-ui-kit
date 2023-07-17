@@ -413,7 +413,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
         </div>
       </div>
       <div class="side-navigation-inner">
-        <nav aria-labelledby="primary-navigation-landmark" class="collapsed-icon-labels-start primary-navigation">
+        <nav aria-labelledby="primary-navigation-landmark" class="collapsed-icon-labels-end primary-navigation">
           <span aria-hidden="true" class="navigation-landmark-title" id="primary-navigation-landmark">
             Primary
           </span>
@@ -423,7 +423,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
         </nav>
       </div>
       <div class="bottom-wrapper">
-        <nav aria-labelledby="secondary-navigation-landmark" class="collapsed-icon-labels-start secondary-navigation">
+        <nav aria-labelledby="secondary-navigation-landmark" class="collapsed-icon-labels-end secondary-navigation">
           <span aria-hidden="true" class="navigation-landmark-title" id="secondary-navigation-landmark">
             Secondary
           </span>
