@@ -283,6 +283,21 @@ describe("ic-top-navigation", () => {
     expect(page.rootInstance.navMenuVisible).toBe(false);
   });
 
+  it("tests short title on mobile devices", async () => {
+    const page = await newSpecPage({
+      components: [TopNavigation],
+      html: `<ic-top-navigation
+      app-title="Application Name"
+      short-title="App Name"
+    >
+    </ic-top-navigation>`,
+    });
+
+    await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("renders-with-short-title");
+  });
+
   it("should test search value change", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],

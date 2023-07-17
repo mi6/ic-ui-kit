@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                     | Type                                 | Default        |
-| ---------------- | ----------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------ | -------------- |
-| `appTitle`       | `app-title`       | The app title to be displayed. This is required, unless a slotted app title link is used.       | `string`                             | `undefined`    |
-| `contentAligned` | `content-aligned` | The alignment of the top navigation content.                                                    | `"center" \| "full-width" \| "left"` | `"full-width"` |
-| `href`           | `href`            | The URL to navigate to when the app title is clicked.                                           | `string`                             | `"/"`          |
-| `inline`         | `inline`          | If `true`, the flyout navigation menu on small devices will be contained by the parent element. | `boolean`                            | `false`        |
-| `status`         | `status`          | The status info to be displayed.                                                                | `string`                             | `""`           |
-| `version`        | `version`         | The version info to be displayed.                                                               | `string`                             | `""`           |
+| Property         | Attribute         | Description                                                                                         | Type                                 | Default        |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------ | -------------- |
+| `appTitle`       | `app-title`       | The app title to be displayed. This is required, unless a slotted app title link is used.           | `string`                             | `undefined`    |
+| `contentAligned` | `content-aligned` | The alignment of the top navigation content.                                                        | `"center" \| "full-width" \| "left"` | `"full-width"` |
+| `href`           | `href`            | The URL to navigate to when the app title is clicked.                                               | `string`                             | `"/"`          |
+| `inline`         | `inline`          | If `true`, the flyout navigation menu on small devices will be contained by the parent element.     | `boolean`                            | `false`        |
+| `shortTitle`     | `short-title`     | The short title of the app to be displayed at small screen sizes in place of the regular app title. | `string`                             | `""`           |
+| `status`         | `status`          | The status info to be displayed.                                                                    | `string`                             | `""`           |
+| `version`        | `version`         | The version info to be displayed.                                                                   | `string`                             | `""`           |
 
 
 ## Slots

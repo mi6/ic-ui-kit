@@ -78,6 +78,11 @@ export class TopNavigation {
   @Prop() inline: boolean = false;
 
   /**
+   * The short title of the app to be displayed at small screen sizes in place of the regular app title.
+   */
+  @Prop() shortTitle: string = "";
+
+  /**
    * The status info to be displayed.
    */
   @Prop() status: string = "";
@@ -327,15 +332,25 @@ export class TopNavigation {
                           <slot name="app-icon" />
                         </div>
                       )}
-                      <ic-typography variant={appTitleVariant}>
-                        <h1 class="title-wrap">
-                          {isSlotUsed(this.el, "app-title") ? (
-                            <slot name="app-title"></slot>
-                          ) : (
-                            this.appTitle
-                          )}
-                        </h1>
-                      </ic-typography>
+                      {this.deviceSize <= DEVICE_SIZES.S &&
+                      this.shortTitle !== "" ? (
+                        <ic-typography
+                          variant="subtitle-small"
+                          aria-label={`${this.appTitle} (${this.shortTitle})`}
+                        >
+                          {this.shortTitle}
+                        </ic-typography>
+                      ) : (
+                        <ic-typography variant={appTitleVariant}>
+                          <h1 class="title-wrap">
+                            {isSlotUsed(this.el, "app-title") ? (
+                              <slot name="app-title"></slot>
+                            ) : (
+                              this.appTitle
+                            )}
+                          </h1>
+                        </ic-typography>
+                      )}
                     </Component>
                   )}
                   {this.status !== "" && (
