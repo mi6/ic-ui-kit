@@ -1847,9 +1847,9 @@ export namespace Components {
          */
         "inline": boolean;
         /**
-          * The short title of the app to be displayed at small screen sizes in place of the regular app title.
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
-        "shortTitle": string;
+        "shortAppTitle": string;
         /**
           * The status info to be displayed.
          */
@@ -4291,9 +4291,9 @@ declare namespace LocalJSX {
         "onIcNavigationMenuClosed"?: (event: IcTopNavigationCustomEvent<void>) => void;
         "onIcNavigationMenuOpened"?: (event: IcTopNavigationCustomEvent<void>) => void;
         /**
-          * The short title of the app to be displayed at small screen sizes in place of the regular app title.
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
-        "shortTitle"?: string;
+        "shortAppTitle"?: string;
         /**
           * The status info to be displayed.
          */

@@ -288,7 +288,7 @@ describe("ic-top-navigation", () => {
       components: [TopNavigation],
       html: `<ic-top-navigation
       app-title="Application Name"
-      short-title="App Name"
+      short-app-title="App Name"
     >
     </ic-top-navigation>`,
     });

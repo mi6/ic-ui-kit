@@ -343,7 +343,7 @@ exports[`ic-top-navigation tests form in search slot: form-in-search-slot 1`] = 
 `;
 
 exports[`ic-top-navigation tests short title on mobile devices: renders-with-short-title 1`] = `
-<ic-top-navigation app-title="Application Name" short-title="App Name">
+<ic-top-navigation app-title="Application Name" short-app-title="App Name">
   <mock:shadow-root>
     <div class="top-navigation">
       <ic-section-container aligned="full-width" full-height="">
@@ -352,7 +352,9 @@ exports[`ic-top-navigation tests short title on mobile devices: renders-with-sho
             <div class="app-details-container">
               <a class="title-link" href="/">
                 <ic-typography aria-label="Application Name (App Name)" variant="subtitle-small">
-                  App Name
+                  <h1>
+                    App Name
+                  </h1>
                 </ic-typography>
               </a>
             </div>
