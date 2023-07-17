@@ -13,6 +13,7 @@
   position: sticky;
   top: 0;
   box-shadow: var(--ic-elevation-overlay);
+  z-index: var(--ic-z-index-sticky-page-header);
 }
 
 header {
@@ -103,7 +104,6 @@ header.tabs {
 @media screen and (max-width: 576px) {
   ::slotted(ic-text-field) {
     --input-width: 100%;
-
     max-width: 20rem;
   }
 
@@ -131,5 +131,6 @@ header.tabs {
     position: sticky;
     top: 0;
     box-shadow: var(--ic-elevation-overlay);
+    z-index: var(--ic-z-index-sticky-page-header);
   }
 }

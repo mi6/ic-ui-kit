@@ -369,6 +369,7 @@
   --ic-z-index-popover: calc(var(--ic-z-index-base-value) + 50);
   --ic-z-index-navigation-item: calc(var(--ic-z-index-base-value) + 50);
   --ic-z-index-navigation-menu: calc(var(--ic-z-index-base-value) + 60);
+  --ic-z-index-sticky-page-header: calc(var(--ic-z-index-base-value) + 60);
   --ic-z-index-side-navigation: calc(var(--ic-z-index-base-value) + 60);
   --ic-z-index-dialog: calc(var(--ic-z-index-base-value) + 100);
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
