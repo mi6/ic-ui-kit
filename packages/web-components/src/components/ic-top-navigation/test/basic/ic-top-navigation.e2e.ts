@@ -59,7 +59,7 @@ describe("ic-top-navigation", () => {
 
   it("should toggle to short title at small screen sizes", async () => {
     const page = await newE2EPage();
-    await page.setContent(`<ic-top-navigation app-title="ApplicationName" short-title="AppName">
+    await page.setContent(`<ic-top-navigation app-title="ApplicationName" short-app-title="AppName">
     </ic-top-navigation>`);
 
     await page.setViewport({
