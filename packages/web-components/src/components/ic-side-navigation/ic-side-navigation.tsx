@@ -336,7 +336,7 @@ export class SideNavigation {
     }
   };
 
-  private transitionEndHandler = () => {
+  private transitionHandler = (type: string) => {
     const primaryNavigationWrapper = this.el.shadowRoot.querySelector(
       ".primary-navigation"
     );
@@ -345,22 +345,33 @@ export class SideNavigation {
       ".bottom-wrapper > .secondary-navigation"
     );
 
+    const classToRemove =
+      type === "start"
+        ? this.COLLAPSED_ICON_LABELS_END
+        : this.COLLAPSED_ICON_LABELS_START;
+
+    const classToAdd =
+      type === "start"
+        ? this.COLLAPSED_ICON_LABELS_START
+        : this.COLLAPSED_ICON_LABELS_END;
+
     if (primaryNavigationWrapper) {
-      primaryNavigationWrapper.classList.remove(this.COLLAPSED_ICON_LABELS_END);
-      primaryNavigationWrapper.classList.add(this.COLLAPSED_ICON_LABELS_START);
+      primaryNavigationWrapper.classList.remove(classToRemove);
+      primaryNavigationWrapper.classList.add(classToAdd);
     }
 
     if (secondaryNavigationWrapper) {
-      secondaryNavigationWrapper.classList.remove(
-        this.COLLAPSED_ICON_LABELS_END
-      );
-      secondaryNavigationWrapper.classList.add(
-        this.COLLAPSED_ICON_LABELS_START
-      );
+      secondaryNavigationWrapper.classList.remove(classToRemove);
+      secondaryNavigationWrapper.classList.add(classToAdd);
     }
   };
 
+  private transitionEndHandler = () => {
+    this.transitionHandler("end");
+  };
+
   private animateCollapsedIconLabels = () => {
+    this.transitionHandler("start");
     this.transitionEndHandler();
 
     this.el.addEventListener("transitionend", this.transitionEndHandler);
