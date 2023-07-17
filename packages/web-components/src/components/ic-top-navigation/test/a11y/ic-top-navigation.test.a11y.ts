@@ -24,7 +24,7 @@ describe("ic-top-navigation", () => {
 
   it("passes accessibility with short title prop set", async () => {
     const el = await fixture(`
-      <ic-top-navigation app-title="A11y test title" short-title="A11y"/>
+      <ic-top-navigation app-title="A11y test title" short-app-title="A11y"/>
     `);
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();

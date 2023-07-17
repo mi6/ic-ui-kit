@@ -27,6 +27,7 @@ import {
   onComponentPropUndefinedChange,
   onComponentRequiredPropUndefined,
   isSlotUsed,
+  isEmptyString,
 } from "../../utils/helpers";
 
 /**
@@ -78,9 +79,9 @@ export class TopNavigation {
   @Prop() inline: boolean = false;
 
   /**
-   * The short title of the app to be displayed at small screen sizes in place of the regular app title.
+   * The short title of the app to be displayed at small screen sizes in place of the app title.
    */
-  @Prop() shortTitle: string = "";
+  @Prop() shortAppTitle: string = "";
 
   /**
    * The status info to be displayed.
@@ -333,12 +334,12 @@ export class TopNavigation {
                         </div>
                       )}
                       {this.deviceSize <= DEVICE_SIZES.S &&
-                      this.shortTitle !== "" ? (
+                      !isEmptyString(this.shortAppTitle) ? (
                         <ic-typography
                           variant="subtitle-small"
-                          aria-label={`${this.appTitle} (${this.shortTitle})`}
+                          aria-label={`${this.appTitle} (${this.shortAppTitle})`}
                         >
-                          {this.shortTitle}
+                          <h1>{this.shortAppTitle}</h1>
                         </ic-typography>
                       ) : (
                         <ic-typography variant={appTitleVariant}>
