@@ -17,7 +17,7 @@ import readme from "./readme.md";
         var dateInput = document.querySelector("ic-date-input");
         {
           dateInput.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange", event.detail.value);
           });
         }
       </script>
@@ -142,6 +142,30 @@ import readme from "./readme.md";
           "#date-input-default-date-date"
         );
         dateInputDate.value = new Date("28 November 2021");
+      </script>`}
+  </Story>
+</Canvas>
+
+### Default date (Zulu time)
+
+<Canvas>
+  <Story name="Default date (Zulu time)">
+    {html`<div>
+        <ic-date-input
+          id="date-input-default-date-date"
+          label="When would you like to collect your coffee?"
+        ></ic-date-input>
+        <ic-button>Update value with Zulu</ic-button>
+      </div>
+      <script>
+        var dateInputDate = document.querySelector(
+          "#date-input-default-date-date"
+        );
+        dateInputDate.value = new Date("28 November 2021").toISOString();
+        var btn = document.querySelector("ic-button");
+        btn.addEventListener("click", () => {
+          dateInputDate.value = new Date("1 May 1990").toISOString();
+        });
       </script>`}
   </Story>
 </Canvas>
