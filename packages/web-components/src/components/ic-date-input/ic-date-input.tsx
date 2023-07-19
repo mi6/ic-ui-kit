@@ -53,6 +53,7 @@ export class DateInput {
   private isValidDay: boolean = true;
   private isValidMonth: boolean = true;
   private isValidDate: boolean = true;
+  private isZuluTime: boolean = false;
 
   private KEYBOARD_EVENT_OBJECT_STRING = "[object KeyboardEvent]";
   private MAX_DAY = 31;
@@ -438,6 +439,7 @@ export class DateInput {
 
     this.setPasteInvalidText();
     this.autocompleteInput(input);
+    this.isDateSetFromKeyboardEvent = false;
   };
 
   private handleLeftRightArrowKeyPress = (
@@ -553,10 +555,26 @@ export class DateInput {
       : datePart;
   };
 
-  private isPastedStringDateValid = (value: string) =>
-    /\d+-\d+-\d+/.test(value) ||
-    /\d+\/\d+\/\d+/.test(value) ||
-    /\d+\.\d+\.\d+/.test(value);
+  private isPastedStringDateValid = (value: string) => {
+    if (
+      /\d+-\d+-\d+$/.test(value) ||
+      /\d+\/\d+\/\d+/.test(value) ||
+      /\d+\.\d+\.\d+/.test(value)
+    ) {
+      return true;
+    }
+
+    if (
+      /[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(?::[0-9]{2}(?:\.\d+)?)?Z/.test(
+        value
+      )
+    ) {
+      this.isZuluTime = true;
+      return true;
+    }
+
+    return false;
+  };
 
   // Set value of each input to value of pasted date part
   // Allows formats separated by '-' or '/'
@@ -564,11 +582,9 @@ export class DateInput {
     event.preventDefault();
 
     const pastedValue = event.clipboardData.getData("Text");
-    // Remove /r or /n from string
-    const newPastedValue = pastedValue.replace(/^[\r\n]+|\.|[\r\n]+$/g, "");
-    const isValidDate = this.isPastedStringDateValid(newPastedValue);
+    const isValidDate = this.isPastedStringDateValid(pastedValue);
 
-    this.setPastedValueAndValidation(isValidDate, newPastedValue, event);
+    this.setPastedValueAndValidation(isValidDate, pastedValue, event);
   };
 
   private setDayMonthValue = (datePart: string, value: string) => {
@@ -581,14 +597,29 @@ export class DateInput {
         this.month =
           value.length === 1 ? this.convertToDoubleDigits(value) : value;
         break;
+      case "Y":
+        if (this.isZuluTime) {
+          this.day =
+            value.length === 1 ? this.convertToDoubleDigits(value) : value;
+        }
+        break;
       default:
         break;
     }
   };
 
+  private extractDateFromZuluDateTime = (zuluDateTime: string) =>
+    zuluDateTime.slice(0, zuluDateTime.indexOf("T"));
+
   private splitStringDate = (date: string): string[] => {
     if (date.split("/").length > 1) {
       return date.split("/");
+    }
+
+    if (date.includes("T") && date.includes("Z")) {
+      const nextDate = this.extractDateFromZuluDateTime(date);
+      this.isZuluTime = true;
+      return nextDate.split("-");
     }
 
     if (date.split("-").length > 1) {
@@ -634,6 +665,11 @@ export class DateInput {
           this.setDayMonthValue(dateParts[i].substring(0, 1), d);
         }
       });
+
+      if (this.isZuluTime) {
+        // Reset Zulu flag as ISO string has been parsed
+        this.isZuluTime = false;
+      }
     }
 
     this.setValidationMessage();
@@ -1031,54 +1067,81 @@ export class DateInput {
 
   private setPastedValueAndValidation(
     isValidDate: boolean,
-    newPastedValue: string,
+    pastedValue: string,
     event: ClipboardEvent
   ) {
     switch (true) {
       case isValidDate: {
-        const dateParts = newPastedValue.split(/-|\/|\./);
+        const nextParsedValue = this.isZuluTime
+          ? this.extractDateFromZuluDateTime(pastedValue)
+          : pastedValue;
+        const dateParts = nextParsedValue.split(/-|\/|\./);
         this.inputsInOrder.forEach((input, index) => {
           input.classList.add(this.FIT_TO_VALUE);
-          let dateValue;
 
-          if (input === this.dayInputEl || input === this.monthInputEl) {
-            dateValue = this.slicePastedDate(2, dateParts[index]);
+          if (this.isZuluTime) {
+            this.pasteZuluDateTime(dateParts, index);
           } else {
-            dateValue = this.slicePastedDate(4, dateParts[index]);
+            let dateValue;
+
+            if (input === this.dayInputEl || input === this.monthInputEl) {
+              dateValue = this.slicePastedDate(2, dateParts[index]);
+            } else {
+              dateValue = this.slicePastedDate(4, dateParts[index]);
+            }
+
+            input.value = dateValue;
+
+            this.setInputValue(input);
+            this.autocompleteInput(input);
           }
-
-          input.value = dateValue;
-
-          this.setInputValue(input);
-          this.autocompleteInput(input);
         });
+        this.isZuluTime = false;
         break;
       }
 
-      case (newPastedValue.length === 1 ||
-        newPastedValue.length === 2 ||
-        newPastedValue.length === 4) &&
-        isNumeric(newPastedValue):
-        if (this.checkSingleCopiedValueIsValid(event.target, newPastedValue)) {
+      case (pastedValue.length === 1 ||
+        pastedValue.length === 2 ||
+        pastedValue.length === 4) &&
+        isNumeric(pastedValue):
+        if (this.checkSingleCopiedValueIsValid(event.target, pastedValue)) {
           // Check if copied value can be pasted into input
-          this.setInputPasteValue(event.target, newPastedValue);
+          this.setInputPasteValue(event.target, pastedValue);
           this.setInputValue(event.target as HTMLInputElement);
         } else {
           this.displayPastedValidation(event);
         }
         break;
 
-      case newPastedValue.length === 3 && isNumeric(newPastedValue):
+      case pastedValue.length === 3 && isNumeric(pastedValue):
         if (event.target !== this.yearInputEl) {
           this.displayPastedValidation(event);
         } else {
-          this.setInputPasteValue(event.target, newPastedValue);
+          this.setInputPasteValue(event.target, pastedValue);
           this.setInputValue(event.target as HTMLInputElement);
         }
         break;
 
-      case newPastedValue.length >= 5 && isNumeric(newPastedValue):
+      case pastedValue.length >= 5 && isNumeric(pastedValue):
         this.displayPastedValidation(event);
+    }
+  }
+
+  private pasteZuluDateTime(dateParts: string[], index: number) {
+    // ['YYYY', 'MM', 'DD']
+    if (index === 0) {
+      const dateValue = this.slicePastedDate(4, dateParts[index]);
+      this.yearInputEl.value = dateValue;
+      this.setInputValue(this.yearInputEl);
+    } else if (index === 1) {
+      // The month value is the second item in the array
+      const dateValue = this.slicePastedDate(2, dateParts[index]);
+      this.monthInputEl.value = dateValue;
+      this.setInputValue(this.monthInputEl);
+    } else {
+      const dateValue = this.slicePastedDate(2, dateParts[index]);
+      this.dayInputEl.value = dateValue;
+      this.setInputValue(this.dayInputEl);
     }
   }
 
