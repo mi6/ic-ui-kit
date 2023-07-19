@@ -1,0 +1,12 @@
+name: Prevent PRs with tasks not completed
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  check-tasks:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.body, '- [ ]')
+    steps:
+      - run: exit 1
