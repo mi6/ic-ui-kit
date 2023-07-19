@@ -9,6 +9,7 @@ import { InputLabel } from "../../../ic-input-label/ic-input-label";
 
 const DATE_1970 = "01/01/1970";
 const DATE_2000 = "01/01/2000";
+const ZULU_TIME_2000 = new Date("28 November 2001").toISOString();
 const HYPHEN = "-";
 
 const ARIA_INVALID = "aria-invalid";
@@ -797,6 +798,17 @@ describe("ic-date-input component", () => {
       expect(yearInput.value).toBe("2000");
     });
 
+    it(`should set day, month and year input values from paste event with ${ZULU_TIME_2000}`, async () => {
+      const { componentInstance, dayInput, monthInput, yearInput } =
+        await createDateInputEnv("YYYY/MM/DD");
+
+      componentInstance.handlePaste(clipboardEvent(ZULU_TIME_2000)); // 2001-11-28T00:00:00.000Z
+
+      expect(dayInput.value).toBe("28");
+      expect(monthInput.value).toBe("11");
+      expect(yearInput.value).toBe("2001");
+    });
+
     it("should call setInputValue if date valid", async () => {
       const { componentInstance } = await createDateInputEnv();
 
@@ -1115,6 +1127,15 @@ describe("ic-date-input component", () => {
       expect(spySplitStringDate).toHaveBeenCalled();
       expect(spySetDayMonthValue).toHaveBeenCalled();
       expect(spySetValidationMessage).toHaveBeenCalled();
+    });
+    it("should set the Zulu ISOString into the correct date variables", async () => {
+      const { componentInstance } = await createDateInputEnv();
+
+      componentInstance.setDate(ZULU_TIME_2000); // 2001-11-28T00:00:00.000Z
+
+      expect(componentInstance.day).toMatch("28");
+      expect(componentInstance.month).toMatch("11");
+      expect(componentInstance.year).toMatch("2001");
     });
   });
 
