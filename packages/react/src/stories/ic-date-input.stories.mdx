@@ -7,89 +7,80 @@ import {
 } from "@storybook/addon-docs";
 import { IcDateInput, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-date-input/readme.md";
-import { useRef } from 'react';
+import { useRef } from "react";
 
-<Meta
-  title="React Components/Date input"
-  component={IcDateInput}
-/>
+<Meta title="React Components/Date input" component={IcDateInput} />
 
 <Description markdown={readme} />
 
 <Canvas>
-    <Story name='Default'>
-        <IcDateInput
-          label='When would you like to collect your coffee?'
-          onIcChange={(ev) => console.log(event.detail.value)}
-        />
-        <br/>
-        <IcDateInput
-          label='When would you like to collect your coffee?'
-          dateFormat='MM/DD/YYYY'
-        />
-        <br/>
-        <IcDateInput
-          label='When would you like to collect your coffee?'
-          dateFormat='YYYY/MM/DD'
-        />
-    </Story>
+  <Story name="Default">
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      onIcChange={(ev) => console.log(event.detail.value)}
+    />
+    <br />
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      dateFormat="MM/DD/YYYY"
+    />
+    <br />
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      dateFormat="YYYY/MM/DD"
+    />
+  </Story>
 </Canvas>
 
 export const DateInputWithValue = () => {
-    const dateInput = useRef(null);
-    const updateDate = () => {
-        dateInput.current.value = new Date('5 May 2005');
-    }
-    return (
-        <>
-          <IcDateInput
-            ref={dateInput}
-            id='date-input-default-date-with-value'
-            label='When would you like to collect your coffee?'
-            value='21/01/2001'
-          />
-          <IcButton onClick={updateDate}>Update date</IcButton>
-        </>
-    )
-}
+  const dateInput = useRef(null);
+  const updateDate = () => {
+    dateInput.current.value = new Date("5 May 2005");
+  };
+  return (
+    <>
+      <IcDateInput
+        ref={dateInput}
+        id="date-input-default-date-with-value"
+        label="When would you like to collect your coffee?"
+        value="21/01/2001"
+      />
+      <IcButton onClick={updateDate}>Update date</IcButton>
+    </>
+  );
+};
 
 <Canvas>
-    <Story name="With value" parameters={{ loki: { skip: true } }}>
-      <DateInputWithValue />
-    </Story>
+  <Story name="With value" parameters={{ loki: { skip: true } }}>
+    <DateInputWithValue />
+  </Story>
 </Canvas>
 
 ### Required
 
 <Canvas>
-    <Story name='Required'>
-      <IcDateInput
-        label='When would you like to collect your coffee?'
-        required
-      />
-    </Story>
+  <Story name="Required">
+    <IcDateInput label="When would you like to collect your coffee?" required />
+  </Story>
 </Canvas>
 
 ### Disabled
 
 <Canvas>
-    <Story name='Disabled'>
-      <IcDateInput
-        label='When would you like to collect your coffee?'
-        disabled
-      />
-    </Story>
+  <Story name="Disabled">
+    <IcDateInput label="When would you like to collect your coffee?" disabled />
+  </Story>
 </Canvas>
 
 ### Custom helper text
 
 <Canvas>
-    <Story name='Custom helper text'>
-      <IcDateInput
-        label='When would you like to collect your coffee?'
-        helperText='We will have your order ready for you on this day'
-      />
-    </Story>
+  <Story name="Custom helper text">
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      helperText="We will have your order ready for you on this day"
+    />
+  </Story>
 </Canvas>
 
 ### Custom validation
@@ -97,21 +88,21 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Custom validation">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      validationStatus='error'
-      validationText='There is a coffee shortage forecast for that day. Please choose a different date.'
+      label="When would you like to collect your coffee?"
+      validationStatus="error"
+      validationText="There is a coffee shortage forecast for that day. Please choose a different date."
     />
     <br />
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      validationStatus='warning'
-      validationText='Please be aware that there may be a coffee shortage on that day.'
+      label="When would you like to collect your coffee?"
+      validationStatus="warning"
+      validationText="Please be aware that there may be a coffee shortage on that day."
     />
     <br />
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      validationStatus='success'
-      validationText='Your coffee will be available for you to collect on this day.'
+      label="When would you like to collect your coffee?"
+      validationStatus="success"
+      validationText="Your coffee will be available for you to collect on this day."
     />
     <br />
   </Story>
@@ -122,8 +113,19 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (Date object)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      value={new Date('28 November 2021')}
+      label="When would you like to collect your coffee?"
+      value={new Date("28 November 2021")}
+    />
+  </Story>
+</Canvas>
+
+### Default date (Zulu object)
+
+<Canvas>
+  <Story name="Default date (Zulu object)">
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      value={new Date("28 November 2021").toISOString()}
     />
   </Story>
 </Canvas>
@@ -133,8 +135,8 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (with slashes)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      value='21/01/2005'
+      label="When would you like to collect your coffee?"
+      value="21/01/2005"
     />
   </Story>
 </Canvas>
@@ -144,8 +146,8 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (with dashes)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      value='25-05-2005'
+      label="When would you like to collect your coffee?"
+      value="25-05-2005"
     />
   </Story>
 </Canvas>
@@ -155,7 +157,7 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (epoch time)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
+      label="When would you like to collect your coffee?"
       value={Date.now()}
     />
   </Story>
@@ -166,9 +168,9 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (until now)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      value='25-05-2005'
-      disabledDates='until-now'
+      label="When would you like to collect your coffee?"
+      value="25-05-2005"
+      disabledDates="until-now"
     />
   </Story>
 </Canvas>
@@ -178,9 +180,9 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Default date (not matching format)">
     <IcDateInput
-      label='When would you like to collect your coffee?'
-      dateFormat='MM/DD/YYYY'
-      value='25-05-2025'
+      label="When would you like to collect your coffee?"
+      dateFormat="MM/DD/YYYY"
+      value="25-05-2025"
     />
   </Story>
 </Canvas>
@@ -191,8 +193,8 @@ export const DateInputWithValue = () => {
   <Story name="Dates until now disabled">
     <>
       <IcDateInput
-        label='When would you like to collect your coffee?'
-        disabledDates='until-now'
+        label="When would you like to collect your coffee?"
+        disabledDates="until-now"
       />
       <IcTypography>Enter a date in the past</IcTypography>
     </>
@@ -204,10 +206,10 @@ export const DateInputWithValue = () => {
 <Canvas>
   <Story name="Dates from now disabled">
     <>
-    <IcDateInput
-      label='When would you like to collect your coffee?'
-      disabledDates='from-now'
-    />
+      <IcDateInput
+        label="When would you like to collect your coffee?"
+        disabledDates="from-now"
+      />
       <IcTypography>Enter a date in the future</IcTypography>
     </>
   </Story>
@@ -218,21 +220,21 @@ export const DateInputWithValue = () => {
 export const Form = () => {
   const formSubmit = (e) => {
     console.log(e);
-  }
+  };
   return (
     <form onSubmit={formSubmit}>
       <IcDateInput
-        label='When would you like to collect your coffee?'
-        value={new Date('13 March 1951')}
+        label="When would you like to collect your coffee?"
+        value={new Date("13 March 1951")}
       />
-      <IcButton type='submit'>Submit</IcButton>
-      <IcButton type='reset'>Reset</IcButton>
+      <IcButton type="submit">Submit</IcButton>
+      <IcButton type="reset">Reset</IcButton>
     </form>
-  )
-}
+  );
+};
 
 <Canvas>
-  <Story name='Form' parameters={{ loki: { skip: true }}}>
+  <Story name="Form" parameters={{ loki: { skip: true } }}>
     <Form />
   </Story>
 </Canvas>
