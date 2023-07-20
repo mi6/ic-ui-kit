@@ -56,6 +56,41 @@ Storybook is used during development; this command will launch separate web comp
 npm run storybook
 ```
 
+## Local build and install
+
+Developers are able to build and install components locally, enabling effective testing of apps and IC UI kit components in a local environment.
+
+To get started make sure you are in the top-level directory of `ic-ui-kit`:
+
+```
+npm run build
+cd packages/docs
+npm pack
+cd ../fonts
+npm pack
+cd ../react
+npm pack
+cd ../web-components
+npm pack
+```
+
+In the `package.json` of your project replace the value of `@ukic/docs`, `@ukic/fonts`, `@ukic/react` and `@ukic/web-components` with the full filepath to the .tgz file in each respective directory, for example:
+
+```
+./package.json
+  "@ukic/docs": "../ic-ui-kit/packages/docs/ukic-docs-2.1.0-beta.17.tgz"
+  "@ukic/fonts": "../ic-ui-kit/packages/fonts/ukic-fonts-2.1.0-beta.17.tgz",
+  "@ukic/react": "../ic-ui-kit/packages/react/ukic-react-2.1.0-beta.17.tgz",
+  "@ukic/web-components": "../ic-ui-kit/packages/web-components/ukic-web-components-2.1.0-beta.17.tgz",
+```
+
+Finally, install the dependencies:
+
+```
+npm install
+```
+
+
 ## Contributing
 
 We have a couple of resources to help you with contributing.
