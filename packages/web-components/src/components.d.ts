@@ -552,21 +552,33 @@ export namespace Components {
          */
         "dateFormat"?: IcDateFormat;
         /**
-          * The text to display as the validation message when `disabledDates` is `from-now` and a disabled date is entered.
+          * The text to display as the validation message when `disableFromNow` is true and a disabled date is entered.
          */
         "dateFromNowMessage"?: string;
         /**
-          * The text to display as the validation message when `disabledDates` is `until-now` and a disabled date is entered.
+          * The text to display as the validation message when `disableUntilNow` is true and a disabled date is entered.
          */
         "dateUntilNowMessage"?: string;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, the user cannot select dates from now. A validation message will appear if they enter a disabled date.
+         */
+        "disableFromNow"?: boolean;
+        /**
+          * If `true`, the user cannot select dates until now. A validation message will appear if they enter a disabled date.
+         */
+        "disableUntilNow"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
-        /**
-          * The dates (until now or from now) that the user cannot select. A validation message will appear if they enter a disabled date.
-         */
-        "disabledDates"?: IcDisabledDateTypes;
         /**
           * Returns the value as a Date object
           * @returns Date
@@ -585,6 +597,14 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
@@ -592,10 +612,21 @@ export namespace Components {
           * If `true`, the input will require a value.
          */
         "required"?: boolean;
+        "setCalendarFocus": () => Promise<void>;
+        "setDisabledDays": (days: IcWeekDays[]) => Promise<void>;
+        "showCalendarButton"?: boolean;
+        /**
+          * If `true`, a button which clears the date input when clicked will be displayed.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * The size of the date input to be displayed.
+         */
+        "size"?: IcSizes;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty1;
+        "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
          */
@@ -820,7 +851,11 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
-          * If `true`, the small styling will be applied to the input component container.
+          * The size of the input component container.
+         */
+        "size": IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small": boolean;
         /**
@@ -3238,21 +3273,33 @@ declare namespace LocalJSX {
          */
         "dateFormat"?: IcDateFormat;
         /**
-          * The text to display as the validation message when `disabledDates` is `from-now` and a disabled date is entered.
+          * The text to display as the validation message when `disableFromNow` is true and a disabled date is entered.
          */
         "dateFromNowMessage"?: string;
         /**
-          * The text to display as the validation message when `disabledDates` is `until-now` and a disabled date is entered.
+          * The text to display as the validation message when `disableUntilNow` is true and a disabled date is entered.
          */
         "dateUntilNowMessage"?: string;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, the user cannot select dates from now. A validation message will appear if they enter a disabled date.
+         */
+        "disableFromNow"?: boolean;
+        /**
+          * If `true`, the user cannot select dates until now. A validation message will appear if they enter a disabled date.
+         */
+        "disableUntilNow"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
-        /**
-          * The dates (until now or from now) that the user cannot select. A validation message will appear if they enter a disabled date.
-         */
-        "disabledDates"?: IcDisabledDateTypes;
         /**
           * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
          */
@@ -3266,9 +3313,18 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
+        "onCalendarButtonClicked"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
         /**
           * Emitted when the input loses focus.
          */
@@ -3278,6 +3334,10 @@ declare namespace LocalJSX {
          */
         "onIcChange"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
         /**
+          * Emitted when value is cleared with clear button
+         */
+        "onIcClear"?: (event: IcDateInputCustomEvent<void>) => void;
+        /**
           * Emitted when the input gains focus.
          */
         "onIcFocus"?: (event: IcDateInputCustomEvent<{ value: Date }>) => void;
@@ -3285,10 +3345,19 @@ declare namespace LocalJSX {
           * If `true`, the input will require a value.
          */
         "required"?: boolean;
+        "showCalendarButton"?: boolean;
+        /**
+          * If `true`, a button which clears the date input when clicked will be displayed.
+         */
+        "showClearButton"?: boolean;
+        /**
+          * The size of the date input to be displayed.
+         */
+        "size"?: IcSizes;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
-        "validationStatus"?: IcInformationStatusOrEmpty1;
+        "validationStatus"?: IcInformationStatusOrEmpty;
         /**
           * The text to display as the validation message. This will override the built-in date validation.
          */
@@ -3513,7 +3582,11 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the input component container.
+          * The size of the input component container.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**

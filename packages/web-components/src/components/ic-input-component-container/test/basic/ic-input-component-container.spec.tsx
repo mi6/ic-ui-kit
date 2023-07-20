@@ -65,14 +65,29 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with small, multiline & fullwidth props set", async () => {
+  it("renders with size small, multiline & fullwidth props set", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
-      html: `<ic-input-component-container small=true multi-line=true full-width=true>content</ic-input-component-container>`,
+      html: `<ic-input-component-container size=small multi-line=true full-width=true>content</ic-input-component-container>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="small fullwidth multiline" small="true" full-width="true" multi-line="true">
+    <ic-input-component-container class="small fullwidth multiline" size="small" full-width="true" multi-line="true">
+      <div class="focus-indicator">
+        content
+      </div>
+    </ic-input-component-container>
+    `);
+  });
+
+  it("renders with size large", async () => {
+    const page = await newSpecPage({
+      components: [InputComponentContainer],
+      html: `<ic-input-component-container size=large>content</ic-input-component-container>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-input-component-container class="large" size="large">
       <div class="focus-indicator">
         content
       </div>

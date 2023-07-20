@@ -6,6 +6,7 @@ import {
   keyboardEvent,
 } from "../helpers/ic-date-input";
 import { InputLabel } from "../../../ic-input-label/ic-input-label";
+import { Button } from "../../../ic-button/ic-button";
 
 const DATE_1970 = "01/01/1970";
 const DATE_2000 = "01/01/2000";
@@ -42,6 +43,24 @@ describe("ic-date-input component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render small", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, InputLabel],
+      html: `<ic-date-input label="Test label" size="small" show-calendar-button="true"></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render large", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, InputLabel],
+      html: `<ic-date-input label="Test label" size="large" show-calendar-button="true"></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with custom helper text", async () => {
     const page = await newSpecPage({
       components: [DateInput, InputLabel],
@@ -73,6 +92,15 @@ describe("ic-date-input component", () => {
     const page = await newSpecPage({
       components: [DateInput, InputLabel],
       html: `<ic-date-input label="Test label" validation-status="error" validation-text="Test error text"></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with open calendar button", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, InputLabel, Button],
+      html: `<ic-date-input label="Test label" value="21/01/2001" show-calendar-button="true"></ic-date-input>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -789,6 +817,7 @@ describe("ic-date-input component", () => {
 
     it("should set day, month and year input values from paste event with 2000/01/01", async () => {
       const { componentInstance, dayInput, monthInput, yearInput } =
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         await createDateInputEnv("YYYY/MM/DD");
 
       componentInstance.handlePaste(clipboardEvent("2000/01/01"));
@@ -1025,7 +1054,82 @@ describe("ic-date-input component", () => {
     it("should set invalidDateText to dateUntilNowMessage if date is in past", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
-      component.disabledDates = "until-now";
+      component.disableUntilNow = true;
+
+      componentInstance.day = "10";
+      componentInstance.month = "8";
+      componentInstance.year = "2022";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        componentInstance.dateUntilNowMessage
+      );
+    });
+    it("should set invalidDateText to dateFromNowMessage if date is in future", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      component.disableFromNow = true;
+
+      componentInstance.day = "31";
+      componentInstance.month = "8";
+      componentInstance.year = "2024";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        componentInstance.dateFromNowMessage
+      );
+    });
+    it("should set invalidDateText empty string if date valid", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      component.disableFromNow = true;
+
+      componentInstance.day = "1";
+      componentInstance.month = "1";
+      componentInstance.year = "2000";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe("");
+    });
+    it("should set invalidDateText to min message if date is before min date", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      component.min = "10-07-2023";
+
+      componentInstance.day = "1";
+      componentInstance.month = "1";
+      componentInstance.year = "2023";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date after 10/07/2023."
+      );
+
+      component.dateFormat = "MM/DD/YYYY";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date after 07/10/2023."
+      );
+
+      component.dateFormat = "YYYY/MM/DD";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date after 2023/07/10."
+      );
+    });
+    it("should set invalidDateText to dateUntilNowMessage if both dateUntilNow and min prop have been set", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      component.disableUntilNow = true;
+      component.min = "30-07-2024";
 
       componentInstance.day = "1";
       componentInstance.month = "1";
@@ -1037,13 +1141,45 @@ describe("ic-date-input component", () => {
         componentInstance.dateUntilNowMessage
       );
     });
-    it("should set invalidDateText to dateFromNowMessage if date is in future", async () => {
+    it("should set invalidDateText to max message if date is after max date", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
-      component.disabledDates = "from-now";
+      component.max = "10-07-2023";
 
       componentInstance.day = "1";
-      componentInstance.month = "1";
+      componentInstance.month = "8";
+      componentInstance.year = "2023";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date before 10/07/2023."
+      );
+
+      component.dateFormat = "MM/DD/YYYY";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date before 07/10/2023."
+      );
+
+      component.dateFormat = "YYYY/MM/DD";
+
+      componentInstance.setValidationMessage();
+
+      expect(componentInstance.invalidDateText).toBe(
+        "Please enter a date before 2023/07/10."
+      );
+    });
+    it("should set invalidDateText to dateFromNowMessage if both dateFromNow and max prop have been set", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      component.disableFromNow = true;
+      component.max = "30-07-2023";
+
+      componentInstance.day = "1";
+      componentInstance.month = "8";
       componentInstance.year = "2025";
 
       componentInstance.setValidationMessage();
@@ -1052,18 +1188,20 @@ describe("ic-date-input component", () => {
         componentInstance.dateFromNowMessage
       );
     });
-    it("should set invalidDateText empty string if date valid", async () => {
+    it("should set invalidDateText to disableDays message if date is on a disabled weekday", async () => {
       const { component, componentInstance } = await createDateInputEnv();
 
-      component.disabledDates = "from-now";
+      component.disableDays = [0, 1];
 
-      componentInstance.day = "1";
-      componentInstance.month = "1";
-      componentInstance.year = "2000";
+      componentInstance.day = "16";
+      componentInstance.month = "7";
+      componentInstance.year = "2023";
 
       componentInstance.setValidationMessage();
 
-      expect(componentInstance.invalidDateText).toBe("");
+      expect(componentInstance.invalidDateText).toBe(
+        componentInstance.disableDaysMessage
+      );
     });
   });
 
@@ -1136,6 +1274,15 @@ describe("ic-date-input component", () => {
       expect(componentInstance.day).toMatch("28");
       expect(componentInstance.month).toMatch("11");
       expect(componentInstance.year).toMatch("2001");
+    });
+    it("should set inputs to null if date is null", async () => {
+      const { componentInstance } = await createDateInputEnv();
+
+      componentInstance.setDate(null);
+
+      expect(componentInstance.day).toBeNull();
+      expect(componentInstance.month).toBeNull();
+      expect(componentInstance.year).toBeNull();
     });
   });
 
@@ -1361,6 +1508,56 @@ describe("ic-date-input component", () => {
 
       expect(eventSpy).toHaveBeenCalledWith(
         expect.objectContaining({ detail: expect.objectContaining(value) })
+      );
+    });
+  });
+
+  describe("handleClear", () => {
+    it("should clear the inputs", async () => {
+      const { componentInstance } = await createDateInputEnv();
+
+      componentInstance.day = "1";
+      componentInstance.month = "1";
+      componentInstance.year = "2000";
+
+      componentInstance.handleClear();
+
+      expect(componentInstance.day).toMatch("");
+      expect(componentInstance.month).toMatch("");
+      expect(componentInstance.year).toMatch("");
+    });
+  });
+
+  describe("handleCalendarOpen", () => {
+    it("should emit calendarButtonClicked with 1st January 2000 as Date object if calendar button is clicked", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+
+      const eventSpy = jest.fn();
+
+      componentInstance.day = "01";
+      componentInstance.month = "01";
+      componentInstance.year = "2000";
+
+      const date = new Date(
+        +componentInstance.year,
+        +componentInstance.month - 1,
+        +componentInstance.day
+      );
+
+      componentInstance.selectedDate = date;
+
+      component?.addEventListener("calendarButtonClicked", eventSpy);
+
+      componentInstance.handleCalendarOpen({
+        stopImmediatePropagation: jest.fn(),
+      });
+
+      expect(eventSpy).toBeCalledWith(
+        expect.objectContaining({
+          detail: expect.objectContaining({
+            value: date,
+          }),
+        })
       );
     });
   });
