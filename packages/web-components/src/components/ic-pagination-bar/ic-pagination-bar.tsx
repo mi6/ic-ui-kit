@@ -10,6 +10,11 @@ import {
 } from "@stencil/core";
 import { checkResizeObserver } from "../../utils/helpers";
 import { IcThemeForeground } from "../../interface";
+import {
+  IcPaginationAlignmentOptions,
+  IcPaginationControlTypes,
+  IcPaginationTypes,
+} from "../ic-pagination/ic-pagination.types";
 
 @Component({
   tag: "ic-pagination-bar",
@@ -20,6 +25,7 @@ export class PaginationBar {
   private PAGINATION = "ic-pagination";
   private TEXT_FIELD = "ic-text-field";
   private TOOLTIP = "ic-tooltip";
+  private PAGE_INPUT_FIELD_ID = "go-to-page-input";
 
   private INVALID_PAGE_ERROR = "Please enter a valid page";
   private NAN_ERROR = "Please enter a number";
@@ -48,7 +54,7 @@ export class PaginationBar {
   /**
    * Sets the alignment of the items in the pagination bar.
    */
-  @Prop() alignment?: "left" | "right" | "space-between" = "right";
+  @Prop() alignment?: IcPaginationAlignmentOptions = "right";
 
   /**
    * Sets the styling for the items in the pagination bar.
@@ -71,12 +77,12 @@ export class PaginationBar {
   /**
    * Whether the displayed pagination is simple or complex.
    */
-  @Prop() paginationControl?: "simple" | "complex" = "simple";
+  @Prop() paginationControl?: IcPaginationControlTypes = "simple";
 
   /**
    * Whether total number of items and current item range or total number of pages and current page is displayed.
    */
-  @Prop() paginationType?: "data" | "page" = "page";
+  @Prop() paginationType?: IcPaginationTypes = "page";
 
   /**
    * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
@@ -140,7 +146,7 @@ export class PaginationBar {
   }
 
   @Listen("icPageChange")
-  pageChangeHandler(ev: CustomEvent) {
+  pageChangeHandler(ev: CustomEvent): void {
     const page = ev.detail.value;
     this.changePage(page);
   }
@@ -163,15 +169,10 @@ export class PaginationBar {
   };
 
   private changePage = (page: number) => {
-    if (page === 1) {
-      this.currentPage = 1;
-      this.lowerBound = 1;
-      this.setUpperBound();
-    } else {
-      this.currentPage = page;
-      this.lowerBound = (page - 1) * Number(this.itemsPerPage) + 1;
-      this.setUpperBound();
-    }
+    this.currentPage = page;
+    this.lowerBound =
+      page !== 1 ? (page - 1) * Number(this.itemsPerPage) + 1 : page;
+    this.setUpperBound();
   };
 
   private goToPage = () => {
@@ -254,14 +255,10 @@ export class PaginationBar {
 
     if (ev.key === "Enter") {
       if (textField.validationStatus === "error") {
-        tooltip.displayTooltip(false, false);
-        setTimeout(() => tooltip.displayTooltip(true, true), 50);
+        tooltip.displayTooltip(true, true);
       } else {
         this.goToPage();
       }
-    } else if (ev.key === "Backspace") {
-      tooltip.displayTooltip(false, true);
-      textField.validationStatus = "";
     } else {
       tooltip.displayTooltip(false, false);
       textField.validationStatus = "";
@@ -344,7 +341,9 @@ export class PaginationBar {
   };
 
   private setGoToPageInputStyles = () => {
-    const textField = this.el.shadowRoot?.querySelector(".go-to-page-input");
+    const textField = this.el.shadowRoot?.querySelector(
+      `.${this.PAGE_INPUT_FIELD_ID}`
+    );
     if (textField !== undefined) {
       const input = textField?.shadowRoot?.querySelector("input");
       if (input !== undefined) {
@@ -387,6 +386,7 @@ export class PaginationBar {
       appearance,
       alignment,
       itemsPerPageOptions,
+      PAGE_INPUT_FIELD_ID,
       paginationControl,
       paginationType,
       showItemsPerPage,
@@ -402,9 +402,9 @@ export class PaginationBar {
         }}
         ref={(el) => (this.paginationBarEl = el)}
       >
-        {showItemsPerPage || showItemsPerPageControl ? (
+        {(showItemsPerPage || showItemsPerPageControl) && (
           <div class="item-controls">
-            {showItemsPerPageControl ? (
+            {showItemsPerPageControl && (
               <div class="items-per-page-holder">
                 <ic-typography
                   class={{
@@ -425,7 +425,7 @@ export class PaginationBar {
                   onIcChange={() => this.changeItemsPerPage()}
                 ></ic-select>
               </div>
-            ) : null}
+            )}
             {showItemsPerPage && paginationType === "data" ? (
               <ic-typography
                 class={{
@@ -439,20 +439,22 @@ export class PaginationBar {
                 {this.itemLabel.toLowerCase()}
                 {this.totalItems > 1 ? "s" : ""}
               </ic-typography>
-            ) : showItemsPerPage ? (
-              <ic-typography
-                class={{
-                  [`pagination-text-${appearance}`]: true,
-                  ["page-pagination-label"]: true,
-                }}
-                variant="label"
-                aria-live="polite"
-              >
-                {this.pageLabel} {this.currentPage} of {this.totalPages}
-              </ic-typography>
-            ) : null}
+            ) : (
+              showItemsPerPage && (
+                <ic-typography
+                  class={{
+                    [`pagination-text-${appearance}`]: true,
+                    ["page-pagination-label"]: true,
+                  }}
+                  variant="label"
+                  aria-live="polite"
+                >
+                  {this.pageLabel} {this.currentPage} of {this.totalPages}
+                </ic-typography>
+              )
+            )}
           </div>
-        ) : null}
+        )}
         <div
           class={{
             ["pagination-controls"]: true,
@@ -466,7 +468,7 @@ export class PaginationBar {
               pages={this.totalPages}
             ></ic-pagination>
           </div>
-          {showGoToPageControl ? (
+          {showGoToPageControl && (
             <div class="go-to-page-holder">
               <ic-typography
                 class={{ [`pagination-text-${appearance}`]: true }}
@@ -476,16 +478,16 @@ export class PaginationBar {
               </ic-typography>
               <ic-tooltip
                 label={this.inputError}
-                target="#go-to-page-input"
+                target={`#${PAGE_INPUT_FIELD_ID}`}
                 disableHover
                 disableClick
               >
                 <ic-text-field
                   type="number"
                   small
-                  label="go-to-page-input"
-                  class="go-to-page-input"
-                  id="go-to-page-input"
+                  label={PAGE_INPUT_FIELD_ID}
+                  class={PAGE_INPUT_FIELD_ID}
+                  id={PAGE_INPUT_FIELD_ID}
                   hideLabel
                   onKeyDown={(ev) => this.handleKeydown(ev)}
                   onKeyUp={(ev) => this.handleKeyUp(ev)}
@@ -507,7 +509,7 @@ export class PaginationBar {
                 Go
               </ic-button>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     );
