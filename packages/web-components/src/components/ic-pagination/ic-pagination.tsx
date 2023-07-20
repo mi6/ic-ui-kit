@@ -14,7 +14,10 @@ import {
 import paginationNextPrevious from "../../assets/pagination-next-previous.svg";
 import paginationFirstLast from "../../assets/pagination-first-last.svg";
 import { IcThemeForeground } from "../../utils/types";
-import { IcPaginationTypes, IcChangeEventDetail } from "./ic-pagination.types";
+import {
+  IcChangeEventDetail,
+  IcPaginationControlTypes,
+} from "./ic-pagination.types";
 import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
@@ -87,7 +90,7 @@ export class Pagination {
   /**
    * The type of pagination to be used.
    */
-  @Prop() type: IcPaginationTypes = "simple";
+  @Prop() type: IcPaginationControlTypes = "simple";
 
   /**
    * The current page displayed by the pagination.

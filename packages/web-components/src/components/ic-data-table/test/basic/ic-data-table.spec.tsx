@@ -5,6 +5,7 @@ import { Pagination } from "../../../ic-pagination/ic-pagination";
 import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
 import { PaginationItem } from "../../../ic-pagination-item/ic-pagination-item";
 import { h } from "@stencil/core";
+import { IcDataTableColumnObject } from "../../ic-data-table.types";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -18,27 +19,27 @@ const name3 = "Luke Fisher";
 const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
 
-const columns = [
+const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
   { key: "age", title: "Age", dataType: "number" },
   { key: "department", title: "Department", dataType: "string" },
   { key: "employeeNumber", title: employeeNumber, dataType: "number" },
 ];
 
-const columnsWithRowHeader = [
+const columnsWithRowHeader: IcDataTableColumnObject[] = [
   { key: "header", title: employeeNumber, dataType: "number" },
   { key: "name", title: "Name", dataType: "string" },
   { key: "age", title: "Age", dataType: "number" },
   { key: "department", title: "Department", dataType: "string" },
 ];
 
-const columnsWithOverrides = [
-  { key: "name", title: "Name", dataType: "string", alignment: "middle" },
+const columnsWithOverrides: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string", cellAlignment: "middle" },
   {
     key: "age",
     title: "Age",
     dataType: "number",
-    cellAlignment: { horizontal: "middle", vertical: "center" },
+    columnAlignment: { horizontal: "middle", vertical: "center" },
   },
   {
     key: "department",
@@ -99,37 +100,37 @@ const dataWithRowHeaders = [
 
 const dataWithRowOverrides = [
   {
-    header: { title: 1, cellAlignment: "middle", emphasis: "high" },
+    header: { title: 1, rowAlignment: "middle", emphasis: "high" },
     name: name1,
     age: 36,
     department: "Accounts",
   },
   {
-    header: { title: 2, cellAlignment: "top", emphasis: "low" },
+    header: { title: 2, rowAlignment: "top", emphasis: "low" },
     name: name2,
     age: 32,
     department: "Engineering",
   },
   {
-    header: { title: 3, cellAlignment: "bottom", emphasis: "high" },
+    header: { title: 3, rowAlignment: "bottom", emphasis: "high" },
     name: "Tim Rayes",
     age: 41,
     department: "Sales",
   },
   {
-    header: { title: 4, cellAlignment: "middle", emphasis: "low" },
+    header: { title: 4, rowAlignment: "middle", emphasis: "low" },
     name: name3,
     age: "23",
     department: "Engineering",
   },
   {
-    header: { title: 5, cellAlignment: "top", emphasis: "high" },
+    header: { title: 5, rowAlignment: "top", emphasis: "high" },
     name: name4,
     age: 34,
     department: "Engineering",
   },
   {
-    header: { title: 6, cellAlignment: "bottom", emphasis: "low" },
+    header: { title: 6, rowAlignment: "bottom", emphasis: "low" },
     name: name5,
     age: 45,
     department: "HR",
@@ -164,7 +165,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: name1,
-      cellAlignment: { horizontal: "middle", vertical: "center" },
+      columnAlignment: { horizontal: "middle", vertical: "center" },
       emphasis: "high",
     },
     age: 36,
@@ -174,7 +175,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: name2,
-      cellAlignment: { horizontal: "top", vertical: "right" },
+      columnAlignment: { horizontal: "top", vertical: "right" },
       emphasis: "low",
     },
     age: 32,
@@ -184,7 +185,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: "Tim Rayes",
-      cellAlignment: { horizontal: "bottom", vertical: "left" },
+      columnAlignment: { horizontal: "bottom", vertical: "left" },
       emphasis: "high",
     },
     age: 41,
@@ -194,7 +195,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: name3,
-      cellAlignment: { horizontal: "middle", vertical: "center" },
+      columnAlignment: { horizontal: "middle", vertical: "center" },
       emphasis: "low",
     },
     age: "23",
@@ -204,7 +205,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: name4,
-      cellAlignment: { horizontal: "top", vertical: "right" },
+      columnAlignment: { horizontal: "top", vertical: "right" },
       emphasis: "high",
     },
     age: 34,
@@ -214,7 +215,7 @@ const dataWithCellOverrides = [
   {
     name: {
       data: name5,
-      cellAlignment: { horizontal: "bottom", vertical: "left" },
+      columnAlignment: { horizontal: "bottom", vertical: "left" },
       emphasis: "high",
     },
     age: 45,
