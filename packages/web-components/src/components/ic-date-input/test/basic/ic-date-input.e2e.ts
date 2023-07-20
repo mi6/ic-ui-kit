@@ -181,8 +181,8 @@ describe("ic-date-input", () => {
     await page.setContent(
       `<ic-date-input
         label="Test label"
-        disabled-dates='from-now'
-        value='1/1/3000'
+        disable-from-now
+        value='31/08/2025'
       ></ic-date-input>`
     );
 
@@ -215,8 +215,8 @@ describe("ic-date-input", () => {
     await page.setContent(
       `<ic-date-input
         label="Test label"
-        disabled-dates='until-now'
-        value='1/1/1990'
+        disable-until-now
+        value='10/08/2022'
       ></ic-date-input>`
     );
 

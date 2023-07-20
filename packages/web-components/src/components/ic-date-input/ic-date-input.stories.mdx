@@ -92,13 +92,48 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### With calendar
+
+<Canvas>
+  <Story name="With calendar" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        show-calendar-button="true"
+      ></ic-date-input>
+    `}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+        size="small"
+      ></ic-date-input>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <br />
+      <br />
+      <ic-date-input
+        label="When would you like to collect your coffee?"
+        size="large"
+      ></ic-date-input> `}
+  </Story>
+</Canvas>
+
 ### Custom helper text
 
 <Canvas>
   <Story name="Custom helper text">
     {html`<ic-date-input
       label="When would you like to collect your coffee?"
-      helper-text="We will have your order ready for you on this day"
+      helper-text="We will have your order ready for you on this date"
     ></ic-date-input>`}
   </Story>
 </Canvas>
@@ -228,7 +263,7 @@ import readme from "./readme.md";
     {html`<ic-date-input
         id="date-input-default-date-string"
         label="When would you like to collect your coffee?"
-        disabled-dates="until-now"
+        disable-until-now
       ></ic-date-input>
       <script>
         var dateInputString = document.querySelector(
@@ -246,7 +281,7 @@ import readme from "./readme.md";
     {html`<ic-date-input
         id="date-input-default-date-string"
         label="When would you like to collect your coffee?"
-        disabled-dates="from-now"
+        disable-from-now
       ></ic-date-input>
       <script>
         var dateInputString = document.querySelector(
@@ -281,7 +316,7 @@ import readme from "./readme.md";
   <Story name="Dates until now disabled" parameters={{ loki: { skip: true } }}>
     {html`<ic-date-input
         label="When would you like to collect your coffee?"
-        disabled-dates="until-now"
+        disable-until-now
       ></ic-date-input>
       <ic-typography>Enter a date in the past</ic-typography> `}
   </Story>
@@ -293,9 +328,39 @@ import readme from "./readme.md";
   <Story name="Dates from now disabled" parameters={{ loki: { skip: true } }}>
     {html`<ic-date-input
         label="When would you like to collect your coffee?"
-        disabled-dates="from-now"
+        disable-from-now
       ></ic-date-input>
       <ic-typography>Enter a date in the future</ic-typography> `}
+  </Story>
+</Canvas>
+
+### Disabled days
+
+<Canvas>
+  <Story name="Disabled days" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+      ></ic-date-input>
+      <script>
+        var dateInput = document.querySelector("ic-date-input");
+        dateInput.disableDays = [0, 1];
+      </script> `}
+  </Story>
+</Canvas>
+
+### Min and max
+
+<Canvas>
+  <Story name="Min and max" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        label="When would you like to collect your coffee?"
+        min="02/01/2023"
+        max="20-07-2023"
+      ></ic-date-input>
+      <ic-typography
+        >Enter a date after 2nd Jan 2023 and before 20th July
+        2023.</ic-typography
+      > `}
   </Story>
 </Canvas>
 
@@ -340,7 +405,7 @@ import readme from "./readme.md";
       ></ic-alert>
       <ic-date-input
         label="When would you like to collect your coffee?"
-        disabled-dates="from-now"
+        disable-from-now
         required
       ></ic-date-input>
       <ic-button>Submit</ic-button>
@@ -381,7 +446,7 @@ import readme from "./readme.md";
       html` <ic-date-input
           label="When would you like to collect your coffee?"
           helper-text="Enter date in the past"
-          disabled-dates="until-now"
+          disable-until-now
         ></ic-date-input>
         <br />
         <ic-button>Submit</ic-button>`
@@ -400,7 +465,7 @@ import readme from "./readme.md";
       html` <ic-date-input
           label="When would you like to collect your coffee?"
           helper-text="Enter date in the past"
-          disabled-dates="until-now"
+          disable-until-now
           value="1/1/1990"
         ></ic-date-input>
         <br />

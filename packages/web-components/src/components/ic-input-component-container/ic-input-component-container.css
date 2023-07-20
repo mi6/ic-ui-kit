@@ -75,6 +75,10 @@ ic-input-component-container.small {
   height: var(--ic-space-xl);
 }
 
+ic-input-component-container.large {
+  height: var(--ic-space-xxl);
+}
+
 ic-input-component-container.multiline {
   height: auto;
 }
