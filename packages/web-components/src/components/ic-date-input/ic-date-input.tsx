@@ -8,22 +8,28 @@ import {
   State,
   Host,
   Method,
+  Watch,
 } from "@stencil/core";
 import {
+  IcInformationStatus,
+  IcInformationStatusOrEmpty,
+  IcSizes,
+  IcThemeForegroundEnum,
   IcDateFormat,
   IcDateInputMonths,
-  IcDisabledDateTypes,
-} from "./ic-date-input.types";
-import { IcInformationStatusOrEmpty } from "../../interface";
-import { IcInformationStatus } from "../../utils/types";
+  IcWeekDays,
+} from "../../utils/types";
 import {
   addFormResetListener,
   getInputDescribedByText,
   isEmptyString,
   isNumeric,
+  onComponentRequiredPropUndefined,
   removeFormResetListener,
   renderHiddenInput,
 } from "../../utils/helpers";
+import Clear from "../../assets/clear-icon.svg";
+import Calendar from "../../assets/calendar.svg";
 
 let inputIds = 0;
 
@@ -38,6 +44,7 @@ export class DateInput {
   private ARIA_INVALID = "aria-invalid";
   private ARIA_LABEL = "aria-label";
   private assistiveHintId: string;
+  private calendarButtonEl: HTMLIcButtonElement;
   private dayInputEl: HTMLInputElement;
   private EVENT_OBJECT_STRING = "[object Event]";
   private FIT_TO_VALUE = "fit-to-value";
@@ -47,8 +54,11 @@ export class DateInput {
   private INPUT_EVENT_OBJECT_STRING = "[object InputEvent]";
   private inputsInOrder: HTMLInputElement[] = [];
 
+  private isAfterMax: boolean = false;
+  private isBeforeMin: boolean = false;
   private isDateSetFromKeyboardEvent: boolean = false;
   private isDisabledDate: boolean = false;
+  private isLarge = this.size === "large";
   private isPasteValidationDisplayed: boolean;
   private isValidDay: boolean = true;
   private isValidMonth: boolean = true;
@@ -79,22 +89,25 @@ export class DateInput {
 
   @State() day: string = "";
   @State() invalidDateText: string;
+  @State() maxDate: Date;
+  @State() minDate: Date;
   @State() month: string = "";
   @State() year: string = "";
 
   /**
    * The format in which the date will be displayed.
    */
+  // eslint-disable-next-line sonarjs/no-duplicate-string
   @Prop() dateFormat?: IcDateFormat = "DD/MM/YYYY";
 
   /**
-   * The text to display as the validation message when `disabledDates` is `from-now` and a disabled date is entered.
+   * The text to display as the validation message when `disableFromNow` is true and a disabled date is entered.
    */
   @Prop() dateFromNowMessage?: string =
     "Dates in the future are not allowed. Please select a date in the past.";
 
   /**
-   * The text to display as the validation message when `disabledDates` is `until-now` and a disabled date is entered.
+   * The text to display as the validation message when `disableUntilNow` is true and a disabled date is entered.
    */
   @Prop() dateUntilNowMessage?: string =
     "Dates in the past are not allowed. Please select a date in the future.";
@@ -105,9 +118,25 @@ export class DateInput {
   @Prop() disabled?: boolean = false;
 
   /**
-   * The dates (until now or from now) that the user cannot select. A validation message will appear if they enter a disabled date.
+   * The days of the week to disable.
    */
-  @Prop() disabledDates?: IcDisabledDateTypes;
+  @Prop() disableDays?: IcWeekDays[] = [];
+
+  /**
+   * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+   */
+  @Prop() disableDaysMessage?: string =
+    "The date you have selected is on a day of the week that is not allowed. Please select another date.";
+
+  /**
+   * If `true`, the user cannot select dates from now. A validation message will appear if they enter a disabled date.
+   */
+  @Prop() disableFromNow?: boolean = false;
+
+  /**
+   * If `true`, the user cannot select dates until now. A validation message will appear if they enter a disabled date.
+   */
+  @Prop() disableUntilNow?: boolean = false;
 
   /**
    * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
@@ -125,6 +154,36 @@ export class DateInput {
   @Prop() label!: string;
 
   /**
+   * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   * The value of this prop is ignored if `disableFromNow` is set to `true`.
+   */
+  @Prop() max?: string | Date = "";
+
+  @Watch("max")
+  watchMaxHandler(): void {
+    if (this.disableFromNow) {
+      this.maxDate = new Date();
+    } else {
+      this.maxDate = this.setMinMax(this.max);
+    }
+  }
+
+  /**
+   * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   * The value of this prop is ignored if `disableUntilNow` is set to `true`.
+   */
+  @Prop() min?: string | Date = "";
+
+  @Watch("min")
+  watchMinHandler(): void {
+    if (this.disableUntilNow) {
+      this.minDate = new Date();
+    } else {
+      this.minDate = this.setMinMax(this.min);
+    }
+  }
+
+  /**
    * The name of the control, which is submitted with the form data.
    */
   @Prop() name: string = this.inputId;
@@ -133,6 +192,21 @@ export class DateInput {
    * If `true`, the input will require a value.
    */
   @Prop() required?: boolean = false;
+
+  /**
+   * @internal If `true`, a button which displays the calendar view when clicked will be displayed.
+   */
+  @Prop() showCalendarButton?: boolean = false;
+
+  /**
+   * If `true`, a button which clears the date input when clicked will be displayed.
+   */
+  @Prop() showClearButton?: boolean = true;
+
+  /**
+   * The size of the date input to be displayed.
+   */
+  @Prop() size?: IcSizes = "default";
 
   /**
    * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
@@ -150,6 +224,11 @@ export class DateInput {
   @Prop() validationText?: string = "";
 
   /**
+   * @internal Emitted when the calendar is opened.
+   */
+  @Event() calendarButtonClicked: EventEmitter<{ value: Date }>;
+
+  /**
    * Emitted when the input loses focus.
    */
   @Event() icBlur: EventEmitter<{ value: Date }>;
@@ -160,6 +239,11 @@ export class DateInput {
   @Event() icChange: EventEmitter<{ value: Date }>;
 
   /**
+   * Emitted when value is cleared with clear button
+   */
+  @Event() icClear: EventEmitter<void>;
+
+  /**
    * Emitted when the input gains focus.
    */
   @Event() icFocus: EventEmitter<{ value: Date }>;
@@ -168,10 +252,13 @@ export class DateInput {
     removeFormResetListener(this.el, this.handleFormReset);
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     if (isEmptyString(this.helperText)) {
       this.helperText = this.dateFormat;
     }
+
+    this.watchMinHandler();
+    this.watchMaxHandler();
 
     if (this.value) {
       this.setDate(this.value);
@@ -184,8 +271,13 @@ export class DateInput {
     addFormResetListener(this.el, this.handleFormReset);
   }
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setInputsInOrder();
+
+    onComponentRequiredPropUndefined(
+      [{ prop: this.label, propName: "label" }],
+      "Date Input"
+    );
 
     if (this.value) {
       this.updateInputValues(this.day, this.month, this.year);
@@ -222,7 +314,7 @@ export class DateInput {
     }
   }
 
-  componentWillUpdate() {
+  componentWillUpdate(): void {
     if (!this.isDateSetFromKeyboardEvent) {
       this.setDate(this.value);
     }
@@ -232,12 +324,11 @@ export class DateInput {
       this.isValidDate,
       this.isDisabledDate
     );
-    this.handleDateChange();
-
+    this.handleDateChange(false);
     this.isDateSetFromKeyboardEvent = false;
   }
 
-  componentDidRender() {
+  componentDidRender(): void {
     this.setAriaLabelledBy();
   }
 
@@ -248,6 +339,24 @@ export class DateInput {
   @Method()
   async getDate(): Promise<Date> {
     return this.selectedDate;
+  }
+
+  /**
+   * @internal Sets focus on the calendar button.
+   */
+  @Method()
+  async setCalendarFocus(): Promise<void> {
+    if (this.calendarButtonEl) {
+      this.calendarButtonEl.focus();
+    }
+  }
+
+  /**
+   * @internal Used to pass disabledDays from parent component.
+   */
+  @Method()
+  async setDisabledDays(days: IcWeekDays[]): Promise<void> {
+    this.disableDays = days;
   }
 
   private setInputPasteValue = (input: EventTarget, pastedValue: string) => {
@@ -399,7 +508,7 @@ export class DateInput {
     const eventKey = event.key.toLowerCase();
     // Regex required due to FF allowing all characters as values for number text field.
     const regex =
-      /-?\d*\.?\d+(e[-+]?\d+)?|[/-]|arrowup|arrowdown|arrowleft|arrowright|shift|tab|backspace/;
+      /-?\d*\.?\d+(e[-+]?\d+)?|[/-]|arrowup|arrowdown|arrowleft|arrowright|shift|tab|backspace|delete/;
     if (
       !regex.test(eventKey) &&
       !(
@@ -431,7 +540,6 @@ export class DateInput {
     const input = event.target as HTMLInputElement;
 
     input.select();
-    this.isDateSetFromKeyboardEvent = true;
   };
 
   private handleBlur = (event: FocusEvent) => {
@@ -527,10 +635,15 @@ export class DateInput {
     this.setFitToValueStyling(input);
   };
 
-  private handleDateChange = () => {
+  private handleDateChange = (force: boolean) => {
     // Prevent icChange being emitted when each individual input is changed
     // This method is used within componentWillUpdate instead of using @Watch('value');
-    if (this.selectedDate !== this.previousSelectedDate) {
+    if (force || this.selectedDate !== this.previousSelectedDate) {
+      if (this.value) {
+        this.inputsInOrder.forEach((input) => {
+          input.classList.add(this.FIT_TO_VALUE);
+        });
+      }
       if (this.day && this.month && this.year && this.invalidDateText === "") {
         this.icChange.emit({ value: this.selectedDate });
         this.value = this.selectedDate;
@@ -651,9 +764,15 @@ export class DateInput {
         newDate = date;
       }
 
-      this.day = this.convertToDoubleDigits(newDate.getDate());
-      this.month = this.convertToDoubleDigits(newDate.getMonth() + 1);
-      this.year = newDate.getFullYear().toString();
+      if (date === null) {
+        this.day = null;
+        this.month = null;
+        this.year = null;
+      } else {
+        this.day = this.convertToDoubleDigits(newDate.getDate());
+        this.month = this.convertToDoubleDigits(newDate.getMonth() + 1);
+        this.year = newDate.getFullYear().toString();
+      }
     } else if (typeof date === "string") {
       const defaultDateArray = this.splitStringDate(date);
 
@@ -672,6 +791,72 @@ export class DateInput {
     }
 
     this.setValidationMessage();
+  };
+
+  private formatMinMax = (date: Date) => {
+    let formattedDate;
+
+    const day = this.convertToDoubleDigits(date.getDate());
+    const month = this.convertToDoubleDigits(date.getMonth() + 1);
+    const year = date.getFullYear();
+
+    switch (this.dateFormat) {
+      case "DD/MM/YYYY":
+        formattedDate = `${day}/${month}/${year}`;
+        break;
+      case "MM/DD/YYYY":
+        formattedDate = `${month}/${day}/${year}`;
+        break;
+      case "YYYY/MM/DD":
+        formattedDate = `${year}/${month}/${day}`;
+        break;
+      default:
+        break;
+    }
+    return formattedDate;
+  };
+
+  private setMinMax = (date: string | Date) => {
+    const dateParts = this.dateFormat.split("/");
+    let newDate;
+    if (this.isDateOrEpoch(date)) {
+      if (typeof date === "string") {
+        newDate = new Date(date);
+      } else {
+        newDate = date;
+      }
+    } else if (typeof date === "string") {
+      const dateArray = this.splitStringDate(date);
+
+      let year;
+      let month;
+      let day;
+
+      dateArray.forEach((d, i) => {
+        if (d.length === 4) {
+          year = d;
+        } else {
+          switch (dateParts[i].substring(0, 1)) {
+            case "D":
+              day = d;
+              break;
+            case "M":
+              month = Number(d) - 1;
+              break;
+            case "Y":
+              if (this.isZuluTime) {
+                day = d;
+              }
+              break;
+            default:
+              break;
+          }
+        }
+      });
+
+      newDate = new Date(year, month, day);
+    }
+    return newDate;
   };
 
   private updateInputValues = (day: string, month: string, year: string) => {
@@ -730,11 +915,32 @@ export class DateInput {
 
     if (!(this.isValidDay && this.isValidMonth && this.isValidDate)) {
       this.invalidDateText = "Please enter a valid date.";
-    } else if (this.isDisabledDate) {
-      if (this.disabledDates === "until-now") {
-        this.invalidDateText = this.dateUntilNowMessage;
+    } else if (this.isDisabledDate && this.selectedDate !== null) {
+      if (this.isBeforeMin) {
+        if (this.disableUntilNow) {
+          this.invalidDateText = this.dateUntilNowMessage;
+        } else {
+          this.invalidDateText = `Please enter a date after ${this.formatMinMax(
+            this.minDate
+          )}.`;
+        }
+      } else if (this.isAfterMax) {
+        if (this.disableFromNow) {
+          this.invalidDateText = this.dateFromNowMessage;
+        } else {
+          this.invalidDateText = `Please enter a date before ${this.formatMinMax(
+            this.maxDate
+          )}.`;
+        }
+      } else if (this.disableDays.length !== 0) {
+        this.invalidDateText = this.disableDaysMessage;
       } else {
-        this.invalidDateText = this.dateFromNowMessage;
+        if (this.disableUntilNow) {
+          this.invalidDateText = this.dateUntilNowMessage;
+        }
+        if (this.disableFromNow) {
+          this.invalidDateText = this.dateFromNowMessage;
+        }
       }
     } else {
       this.invalidDateText = "";
@@ -926,18 +1132,31 @@ export class DateInput {
     }
   };
 
-  // Get whether date has been disabled using disableDates prop, but always allow current day
+  // Get whether date has been disabled using disableFromNow or disableUntilNow prop, but always allow current day
   private isSelectedDateDisabled = () => {
     const currentDate = new Date();
+    this.isAfterMax = false;
+    this.isBeforeMin = false;
 
     let disabled = false;
 
+    if (this.min && this.selectedDate < this.minDate) {
+      this.isBeforeMin = true;
+      disabled = true;
+    }
+
+    if (this.max && this.selectedDate > this.maxDate) {
+      this.isAfterMax = true;
+      disabled = true;
+    }
+
+    if (this.disableDays.includes(this.selectedDate.getDay())) {
+      disabled = true;
+    }
+
     if (
-      this.disabledDates &&
-      ((this.disabledDates === "until-now" &&
-        this.selectedDate < currentDate) ||
-        (this.disabledDates === "from-now" &&
-          this.selectedDate > currentDate)) &&
+      ((this.disableUntilNow && this.selectedDate < currentDate) ||
+        (this.disableFromNow && this.selectedDate > currentDate)) &&
       this.selectedDate.getDate() !== currentDate.getDate()
     ) {
       disabled = true;
@@ -1034,7 +1253,7 @@ export class DateInput {
     // Get the initial value and populate day, month and year again.
     this.setDate(this.initialValue);
     this.setValidationMessage();
-    this.handleDateChange();
+    this.handleDateChange(false);
   };
 
   private getAriaLabel = (input: HTMLInputElement): string => {
@@ -1251,8 +1470,36 @@ export class DateInput {
     }
   };
 
+  private handleClear = () => {
+    this.inputsInOrder.forEach((input) => {
+      input.classList.remove(this.FIT_TO_VALUE);
+      this.setInputValue(input, true);
+      this.setPreventInput(input, false);
+    });
+    this.isDateSetFromKeyboardEvent = false;
+    this.value = null;
+    this.setValidationMessage();
+    this.handleDateChange(true);
+
+    this.inputsInOrder[0].focus();
+  };
+
+  private handleCalendarOpen = (ev: MouseEvent) => {
+    ev.stopImmediatePropagation();
+    this.calendarButtonClicked.emit({ value: this.selectedDate });
+  };
+
   render() {
-    const { inputId, label, disabled, helperText } = this;
+    const {
+      inputId,
+      label,
+      disabled,
+      helperText,
+      showClearButton,
+      showCalendarButton,
+      size,
+      isLarge,
+    } = this;
 
     const hasCustomValidation =
       !isEmptyString(this.validationStatus) &&
@@ -1296,9 +1543,53 @@ export class DateInput {
             ref={(el) => (this.inputCompContainerEl = el)}
             disabled={disabled}
             validationStatus={validationStatus}
+            size={size}
           >
-            {this.getInputsInOrder()[0]}/{this.getInputsInOrder()[1]}/
-            {this.getInputsInOrder()[2]}
+            <div class="input-container">
+              <div class="date-inputs">
+                {this.getInputsInOrder()[0]}/{this.getInputsInOrder()[1]}/
+                {this.getInputsInOrder()[2]}
+              </div>
+              <div class="action-buttons">
+                {showClearButton && (
+                  <ic-button
+                    id="clear-button"
+                    aria-label="Clear input"
+                    class={{
+                      ["clear-button"]: true,
+                      ["hidden"]:
+                        isEmptyString(this.day) &&
+                        isEmptyString(this.month) &&
+                        isEmptyString(this.year),
+                    }}
+                    innerHTML={Clear}
+                    onClick={this.handleClear}
+                    variant="icon"
+                    appearance={IcThemeForegroundEnum.Dark}
+                    size={isLarge ? "default" : "small"}
+                  ></ic-button>
+                )}
+                {(this.day || this.month || this.year) &&
+                  showClearButton &&
+                  showCalendarButton && (
+                    <div
+                      class={{ divider: true, "large-divider": isLarge }}
+                    ></div>
+                  )}
+                {showCalendarButton && (
+                  <ic-button
+                    id="calendar-button"
+                    ref={(el) => (this.calendarButtonEl = el)}
+                    aria-label="Display calendar"
+                    class="calendar-button"
+                    innerHTML={Calendar}
+                    onClick={this.handleCalendarOpen}
+                    variant="icon"
+                    size={isLarge ? "default" : "small"}
+                  ></ic-button>
+                )}
+              </div>
+            </div>
           </ic-input-component-container>
           <span id={this.selectedDateInfoId} class="sr-only" aria-live="polite">
             Selected date:
