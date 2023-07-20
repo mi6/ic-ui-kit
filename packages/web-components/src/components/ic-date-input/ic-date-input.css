@@ -50,3 +50,52 @@ ic-input-component-container:hover {
   position: absolute;
   left: -9999px;
 }
+
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.clear-button,
+.calendar-button {
+  border-radius: var(--ic-border-radius);
+  transition: box-shadow var(--ic-easing-transition),
+    border-radius var(--ic-easing-transition);
+  margin: 0;
+}
+
+.clear-button.hidden {
+  display: none;
+}
+
+.clear-button:focus,
+.calendar-button:focus {
+  background-color: var(--ic-focus-blue);
+  box-shadow: inset 0 0 0 0.125rem var(--ic-focus-glow);
+  border-radius: 0.25rem;
+}
+
+.clear-button:focus *,
+.calendar-button:focus * {
+  fill: var(--ic-architectural-white);
+}
+
+.divider {
+  margin: 0 var(--ic-space-xs);
+  width: var(--ic-space-1px);
+  background-color: var(--ic-architectural-400);
+  border-radius: var(--ic-space-1px);
+  height: var(--ic-space-md);
+}
+
+.large-divider {
+  margin: 0 var(--ic-space-xxs);
+}
