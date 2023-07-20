@@ -5,20 +5,19 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { html } from "lit-html";
-import readme from "./readme.md";
+import { IcDataTable, IcButton } from "../components";
+import readme from "../../../web-components/src/components/ic-data-table/readme.md";
 
-<Meta title="Web Components/Data table" component="ic-data-table" />
+<Meta
+  title="React Components/Data table"
+  component={IcDataTable}
+/>
 
 <Description markdown={readme} />
 
 ### Basic table
 
-<Canvas>
-  <Story name="Basic table">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const basicColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -45,7 +44,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const basicData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -82,8 +82,10 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-      </script>
-      <ic-data-table caption="basic table"></ic-data-table>`}
+
+<Canvas>
+  <Story name="Basic table">
+      <IcDataTable caption="basic table" columns={basicColumns} data={basicData}></IcDataTable>
   </Story>
 </Canvas>
 
@@ -91,74 +93,7 @@ import readme from "./readme.md";
 
 <Canvas>
   <Story name="Embedded">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="embedded table" embedded="true"></ic-data-table>`}
+      <IcDataTable caption="embedded table" embedded="true" columns={basicColumns} data={basicData}></IcDataTable>
   </Story>
 </Canvas>
 
@@ -166,84 +101,13 @@ import readme from "./readme.md";
 
 <Canvas>
   <Story name="Spacious">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="dense table" density="spacious"></ic-data-table>`}
+      <IcDataTable caption="spacious table" density="spacious" columns={basicColumns} data={basicData}></IcDataTable>
   </Story>
 </Canvas>
 
 ### Scrollable
 
-<Canvas>
-  <Story name="Scrollable">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const longDataColumns = [
           {
             key: "employeeNumber",
             title: "Employee number",
@@ -271,7 +135,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const longData = [
           {
             employeeNumber: 1,
             name: "Joe Bloggs",
@@ -316,7 +181,7 @@ import readme from "./readme.md";
           },
           {
             employeeNumber: 7,
-            name: "Amy Fox",
+            lastName: "Amy Fox",
             age: 27,
             jobTitle: "Analyst",
             address: "3 Main Street, Town, Country, Postcode",
@@ -413,30 +278,31 @@ import readme from "./readme.md";
             address: "2 Long Street, Town, Country, Postcode",
           },
         ];
-        function toggleStickyHeader(boolean) {
+        
+        export const toggleStickyHeader = (boolean) => {
+          const dataTable = document.querySelector('ic-data-table');
           dataTable.setAttribute("sticky-column-headers", boolean);
         }
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="Scrollable">
+      <IcDataTable
         caption="scrollable table"
         embedded="true"
-        style="height: 366px;"
-      ></ic-data-table>
-      <div style="display:flex;padding-top:10px;gap:8px;">
-        <ic-button onclick="toggleStickyHeader(true)">Stick header</ic-button>
-        <ic-button onclick="toggleStickyHeader(false)"
-          >Unstick header</ic-button
-        >
-      </div>`}
+        style={{height: "366px"}}
+        columns={longDataColumns}
+        data={longData}
+      ></IcDataTable>
+      <div style={{display: "flex", paddingTop: "10px", gap: "8px"}}>
+        <IcButton onClick={() => toggleStickyHeader(true)}>Stick header</IcButton>
+        <IcButton onClick={() => toggleStickyHeader(false)}>Unstick header</IcButton>
+      </div>
   </Story>
 </Canvas>
 
 ### Row headers
 
-<Canvas>
-  <Story name="Row headers">{html`<script>
-      dataTable = document.querySelector("ic-data-table");
-      dataTable.columns = [
+export const rowHeaderColumns = [
         {
           key: "header",
           title: "Job type",
@@ -468,7 +334,8 @@ import readme from "./readme.md";
           dataType: "address",
         },
       ];
-      dataTable.data = [
+      
+      export const rowHeaderData = [
         {
           header: { title: "Employee" },
           firstName: "Joe",
@@ -510,17 +377,16 @@ import readme from "./readme.md";
           address: "5 New Street, Town, Country, Postcode",
         },
       ];
-    </script>
-    <ic-data-table caption="table with row headers"></ic-data-table>`}</Story>
+
+<Canvas>
+  <Story name="Row headers">
+    <IcDataTable caption="table with row headers" columns={rowHeaderColumns} data={rowHeaderData}></IcDataTable>
+  </Story>
 </Canvas>
 
 ### Column overrides
 
-<Canvas>
-  <Story name="Column overrides">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const columnOverrideColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -549,7 +415,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+    export const columnOverrideData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -586,17 +453,16 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-      </script>
-      <ic-data-table caption="table with column overrides"></ic-data-table>`}
+
+<Canvas>
+  <Story name="Column overrides">
+      <IcDataTable caption="table with column overrides" columns={columnOverrideColumns} data={columnOverrideData}></IcDataTable>
   </Story>
 </Canvas>
 
 ### Row overrides
 
-<Canvas>
-  <Story name="Row overrides">{html`<script>
-      dataTable = document.querySelector("ic-data-table");
-      dataTable.columns = [
+export const rowOverrideColumns = [
         {
           key: "header",
           title: "Job type",
@@ -628,7 +494,8 @@ import readme from "./readme.md";
           dataType: "address",
         },
       ];
-      dataTable.data = [
+    
+    export const rowOverrideData = [
         {
           header: { title: "Employee" },
           firstName: "Joe",
@@ -678,17 +545,16 @@ import readme from "./readme.md";
           address: "5 New Street, Town, Country, Postcode",
         },
       ];
-    </script>
-    <ic-data-table caption="table with row overrides"></ic-data-table>`}</Story>
+
+<Canvas>
+  <Story name="Row overrides">
+    <IcDataTable caption="table with row overrides" columns={rowOverrideColumns} data={rowOverrideData}></IcDataTable>
+  </Story>
 </Canvas>
 
 ### Cell overrides
 
-<Canvas>
-  <Story name="Cell overrides">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const cellOverrideColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -715,7 +581,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+export const cellOverrideData = [
           {
             firstName: {
               data: "Joe",
@@ -772,18 +639,16 @@ import readme from "./readme.md";
             },
           },
         ];
-      </script>
-      <ic-data-table caption="table with cell overrides"></ic-data-table>`}
+
+<Canvas>
+  <Story name="Cell overrides">
+      <IcDataTable caption="table with cell overrides" columns={cellOverrideColumns} data={cellOverrideData}></IcDataTable>
   </Story>
 </Canvas>
 
 ### Links in data
 
-<Canvas>
-  <Story name="Links in data">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const dataLinkColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -810,7 +675,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+    
+    export const dataLink = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -862,18 +728,16 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-      </script>
-      <ic-data-table caption="table with links in data"></ic-data-table>`}
+
+<Canvas>
+  <Story name="Links in data">
+      <IcDataTable caption="table with links in data" columns={dataLinkColumns} data={dataLink}></IcDataTable>
   </Story>
 </Canvas>
 
 ### HTML elements in data
 
-<Canvas>
-  <Story name="HTML elements in data">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const htmlElementColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -906,14 +770,15 @@ import readme from "./readme.md";
             columnAlignment: { horizontal: "center" },
           },
         ];
-        dataTable.data = [
+    
+    export const htmlElementData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
             age: 30,
             jobTitle: "Developer",
             address: "1 Main Street, Town, County, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
+            actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
           },
           {
             firstName: "Sarah",
@@ -921,7 +786,7 @@ import readme from "./readme.md";
             age: 28,
             jobTitle: "Developer",
             address: "2 Main Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
+            actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
           },
           {
             firstName: "Mark",
@@ -929,7 +794,7 @@ import readme from "./readme.md";
             age: 45,
             jobTitle: "Team Lead",
             address: "12 Key Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
+            actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
           },
           {
             firstName: "Naomit",
@@ -937,7 +802,7 @@ import readme from "./readme.md";
             age: 32,
             jobTitle: "Developer",
             address: "8 Side Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
+            actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
           },
           {
             firstName: "Luke",
@@ -945,23 +810,23 @@ import readme from "./readme.md";
             age: 18,
             jobTitle: "Junior Developer",
             address: "5 New Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
+            actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
           },
         ];
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="HTML elements in data">
+      <IcDataTable
         caption="table with HTML elements in data"
-      ></ic-data-table>`}
+        columns={htmlElementColumns}
+        data={htmlElementData}
+      ></IcDataTable>
   </Story>
 </Canvas>
 
 ### Sortable
 
-<Canvas>
-  <Story name="Sortable">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const sortableColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -988,7 +853,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+    export const sortableData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -1025,18 +891,16 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-      </script>
-      <ic-data-table caption="sortable table" sortable="true"></ic-data-table>`}
+
+<Canvas>
+  <Story name="Sortable">
+      <IcDataTable caption="sortable table" sortable="true" columns={sortableColumns} data={sortableData}></IcDataTable>
   </Story>
 </Canvas>
 
 ### Custom sort order
 
-<Canvas>
-  <Story name="Custom sort order">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const customSortcolumns = [
           {
             key: "firstName",
             title: "First name",
@@ -1063,7 +927,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const customSortData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -1100,24 +965,26 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-        dataTable.sortOptions = {
+        
+        export const customSortOrderOptions = {
           sortOrders: ["unsorted", "descending", "ascending"],
         };
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="Custom sort order">
+      <IcDataTable
         caption="sortable table with custom sort order"
         sortable="true"
-      ></ic-data-table>`}
+        columns={customSortcolumns}
+        data={customSortData}
+        sortOptions={customSortOrderOptions}
+      ></IcDataTable>
   </Story>
 </Canvas>
 
 ### Default sorted column
 
-<Canvas>
-  <Story name="Default sorted column">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const defaultSortColumns = [
           {
             key: "firstName",
             title: "First name",
@@ -1144,7 +1011,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const defaultSortData = [
           {
             firstName: "Joe",
             lastName: "Bloggs",
@@ -1181,25 +1049,27 @@ import readme from "./readme.md";
             address: "5 New Street, Town, Country, Postcode",
           },
         ];
-        dataTable.sortOptions = {
+        
+        export const defaultSort = {
           sortOrders: ["descending", "unsorted", "ascending"],
           defaultColumn: "age",
         };
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="Default sorted column">
+      <IcDataTable
         caption="sortable table with default sort"
         sortable="true"
-      ></ic-data-table>`}
+        columns={defaultSortColumns}
+        data={defaultSortData}
+        sortOptions={defaultSort}
+      ></IcDataTable>
   </Story>
 </Canvas>
 
 ### Pagination
 
-<Canvas>
-  <Story name="Pagination">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const paginationColumns = [
           {
             key: "employeeNumber",
             title: "Employee number",
@@ -1227,7 +1097,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const paginationData = [
           {
             employeeNumber: 1,
             name: "Joe Bloggs",
@@ -1369,7 +1240,8 @@ import readme from "./readme.md";
             address: "2 Long Street, Town, Country, Postcode",
           },
         ];
-        dataTable.paginationOptions = {
+        
+        export const paginationOptions = {
           itemsPerPage: [
             { label: "5", value: "5" },
             { label: "10", value: "10" },
@@ -1378,21 +1250,22 @@ import readme from "./readme.md";
           itemsPerPageControl: true,
           goToPageControl: true,
         };
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="Pagination">
+      <IcDataTable
         caption="table with pagination"
-        show-pagination="true"
-      ></ic-data-table>`}
+        showPagination="true"
+        columns={paginationColumns}
+        data={paginationData}
+        paginationOptions={paginationOptions}
+      ></IcDataTable>
   </Story>
 </Canvas>
 
 ### Complex example
 
-<Canvas>
-  <Story name="Complex example">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
+export const complexColumns = [
           {
             key: "employeeNumber",
             title: "Employee number",
@@ -1420,7 +1293,8 @@ import readme from "./readme.md";
             dataType: "address",
           },
         ];
-        dataTable.data = [
+        
+        export const complexData = [
           {
             employeeNumber: 1,
             name: "Joe Bloggs",
@@ -1765,22 +1639,21 @@ import readme from "./readme.md";
             address: "32 Long Street, Town, Country, Postcode",
           },
         ];
-        function toggleStickyHeader(boolean) {
-          dataTable.setAttribute("sticky-column-headers", boolean);
-        }
-      </script>
-      <ic-data-table
+
+<Canvas>
+  <Story name="Complex example">
+      <IcDataTable
         caption="complex example table"
         embedded="true"
-        style="height: 366px;"
-        show-pagination="true"
+        style={{height: "366px"}}
+        showPagination="true"
         sortable="true"
-      ></ic-data-table>
-      <div style="display:flex;padding-top:10px;gap:8px;">
-        <ic-button onclick="toggleStickyHeader(true)">Stick header</ic-button>
-        <ic-button onclick="toggleStickyHeader(false)"
-          >Unstick header</ic-button
-        >
-      </div>`}
+        columns={complexColumns}
+        data={complexData}
+      ></IcDataTable>
+      <div style={{display: "flex", paddingTop: "10px", gap: "8px"}}>
+        <IcButton onClick={() => toggleStickyHeader(true)}>Stick header</IcButton>
+        <IcButton onClick={() => toggleStickyHeader(false)}>Unstick header</IcButton>
+      </div>
   </Story>
 </Canvas>
