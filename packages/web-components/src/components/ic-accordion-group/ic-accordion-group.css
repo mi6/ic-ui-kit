@@ -1,0 +1,24 @@
+@import "../../global/normalize.css";
+
+.group-title-container {
+  padding: var(--ic-space-xs) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host(.small) .group-title-container {
+  padding: var(--ic-space-xxs) var(--ic-space-xs);
+}
+
+:host(.large) .group-title-container {
+  padding: var(--ic-space-sm) var(--ic-space-xs);
+}
+
+:host(.light) {
+  color: var(--ic-architectural-white);
+}
+
+:host(.accordion-group.dark) ::slotted(ic-accordion) {
+  color: var(--ic-architectural-white);
+}
