@@ -382,8 +382,10 @@ export class SideNavigation {
   ): number => {
     const navItemLink =
       (navItems[0].shadowRoot &&
-        navItems[0].shadowRoot.querySelector("ic-tooltip a")) ||
-      navItems[0].querySelector("a");
+        (navItems[0].shadowRoot.querySelector("ic-tooltip a") ||
+          navItems[0].shadowRoot.querySelector("ic-tooltip div"))) ||
+      navItems[0].querySelector("a") ||
+      navItems[0].querySelector("div");
     const navItemSVG = navItems[0].querySelector("svg");
 
     const navStyles = {
