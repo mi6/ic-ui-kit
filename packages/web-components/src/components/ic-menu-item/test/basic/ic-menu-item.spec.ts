@@ -109,19 +109,24 @@ describe("menu item variants", () => {
     await page.rootInstance.handleClick;
   });
 
-  it("should prevent default action on click", async () => {
+  it("should prevent default action on click if variant is 'toggle'", async () => {
     const page = await newSpecPage({
       components: [MenuItem],
       html: `<ic-menu-item
       id="test-menu-item"
             label="I emit an event"
-            submenu-trigger-for="test-submenu"
+            variant="toggle"
           />`,
     });
 
-    const mockEvent = { preventDefault: jest.fn() };
-    page.rootInstance.handleClick(mockEvent as unknown as MouseEvent);
+    const eventSpy = jest.fn();
 
-    expect(mockEvent.preventDefault).toHaveBeenCalled();
+    const mockEvent = {
+      preventDefault: eventSpy,
+    };
+
+    await page.rootInstance.handleClick(mockEvent as unknown as MouseEvent);
+
+    expect(eventSpy).toHaveBeenCalled();
   });
 });
