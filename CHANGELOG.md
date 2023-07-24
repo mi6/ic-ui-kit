@@ -3,11 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# 2.1.0-beta.18 (2023-07-24)
+# [2.1.0-beta.18](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.17...v2.1.0-beta.18) (2023-07-24)
+
+
+### Bug Fixes
+
+* **react:** update shortTitle to shortAppTitle for top navigation ([6373cce](https://github.com/mi6/ic-ui-kit/commit/6373cceb8c014bce66e5be64f60dd3561b2f60f0)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
+* **web-components:** add role tab to divs in horizontal scroll to stop axe issue ([9275490](https://github.com/mi6/ic-ui-kit/commit/92754900e82a5dbed114ea120e14f65ab458c49e)), closes [#721](https://github.com/mi6/ic-ui-kit/issues/721)
+* **web-components:** fix padding on static side navigation ([caaae78](https://github.com/mi6/ic-ui-kit/commit/caaae78a75a94c9b710ebc13e0ce76f77b39754c)), closes [.mi6/ic-ui-kit#885](https://github.com/.mi6/ic-ui-kit/issues/885)
+* **web-components:** fix vertical alignment of icons on side navigation ([f2e581e](https://github.com/mi6/ic-ui-kit/commit/f2e581e32e84b97bcd53f26855668d34bfc284c7)), closes [.#500](https://github.com/./issues/500)
+* **web-components:** fixes ic-button aria-describedby not working ([048e603](https://github.com/mi6/ic-ui-kit/commit/048e60394383f9069480100c25ec31bbff763f75))
+* **web-components:** update search bar to correctly show no results found ([8ebb118](https://github.com/mi6/ic-ui-kit/commit/8ebb118cdb620f03b5dd70f28fb51945692dc39b)), closes [#849](https://github.com/mi6/ic-ui-kit/issues/849)
+* **web-components:** update short-title to short-app-title for top navigation ([fb2251f](https://github.com/mi6/ic-ui-kit/commit/fb2251fae3f07f825dd2c52c933c0f5c2c8417da)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
+* **web-components:** update side nav CSS to ensure visibility of menu content is correct ([a4619be](https://github.com/mi6/ic-ui-kit/commit/a4619be16453b2efac9faf71eff727a0acd33b55)), closes [.#739](https://github.com/./issues/739)
+* **web-components:** update side nav transition handlers to fix bug with collapsed labels variant ([5f3f9b0](https://github.com/mi6/ic-ui-kit/commit/5f3f9b085635aeac1d8603caa23a0c817b0e1e13)), closes [.#896](https://github.com/./issues/896)
+* **web-components:** updated searchable select to clear input when value programatically set ([334446a](https://github.com/mi6/ic-ui-kit/commit/334446acc7d0e554034c154ee53c9d087b1e88f1))
+
 
 ### Features
 
-- **root:** add action to check for tasks in PR description not completed ([1855799](https://github.com/mi6/ic-ui-kit/commit/18557997963e181e6efa7d7dc64c48b91994d05e)), closes [.#866](https://github.com/./issues/866)
+* **react:** add story for short app title for top navigation ([02a4c01](https://github.com/mi6/ic-ui-kit/commit/02a4c01ef1159b7f69f0202c7aed8898d51afabc)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
+* **root:** add action to check for tasks in PR description not completed ([1855799](https://github.com/mi6/ic-ui-kit/commit/18557997963e181e6efa7d7dc64c48b91994d05e)), closes [.#866](https://github.com/./issues/866)
+* **web-components:** add short title for top navigation that shows instead of app title on s device ([b818442](https://github.com/mi6/ic-ui-kit/commit/b818442d0d03346f14071f66b7884f25ae10c8e5)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
+
+
+
+
 
 # [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
 
