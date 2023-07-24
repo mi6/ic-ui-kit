@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0-beta.18 (2023-07-24)
+
+### Features
+
+- **root:** add action to check for tasks in PR description not completed ([1855799](https://github.com/mi6/ic-ui-kit/commit/18557997963e181e6efa7d7dc64c48b91994d05e)), closes [.#866](https://github.com/./issues/866)
+
 # [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
 
 ### Features
