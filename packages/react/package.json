@@ -1,7 +1,7 @@
 {
   "name": "@ukic/react",
   "sideEffects": false,
-  "version": "2.1.0-beta.18",
+  "version": "2.1.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
