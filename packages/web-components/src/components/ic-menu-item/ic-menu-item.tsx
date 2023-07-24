@@ -132,10 +132,10 @@ export class MenuItem {
   }
 
   private handleClick = (e: Event): void => {
-    e.preventDefault();
     if (this.submenuTriggerFor !== undefined) {
       this.triggerPopoverMenuInstance.emit();
     } else if (this.variant === "toggle") {
+      e.preventDefault();
       this.toggleChecked
         ? (this.toggleChecked = false)
         : (this.toggleChecked = true);

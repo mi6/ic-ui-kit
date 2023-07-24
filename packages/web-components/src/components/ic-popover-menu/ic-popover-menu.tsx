@@ -145,7 +145,6 @@ export class PopoverMenu {
 
   @Listen("click", { target: "document" })
   handleClick(ev: Event): void {
-    ev.preventDefault();
     if (this.open && this.isNotPopoverMenuEl(ev)) {
       // If menu is open and the next click on the document is not a popover El, close the popover
       this.closeMenu();
