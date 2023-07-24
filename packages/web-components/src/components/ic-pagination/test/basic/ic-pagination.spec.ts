@@ -448,4 +448,19 @@ describe("ic-pagination appearance tests", () => {
 
     expect(page.rootInstance.currentPage).toBe(3);
   });
+
+  it("should update number of pages dynamically if the prop is updated", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15 ></ic-pagination>`,
+    });
+
+    expect(page.rootInstance.pages).toEqual(15);
+
+    page.rootInstance.pages = 7;
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.pages).toEqual(7);
+  });
 });

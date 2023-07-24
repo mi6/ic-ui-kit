@@ -79,6 +79,11 @@ export class Pagination {
    */
   @Prop() pages!: number;
 
+  @Watch("pages")
+  watchNumberPagesHandler(): void {
+    this.watchPageChangeHandler();
+  }
+
   /**
    * The type of pagination to be used.
    */
@@ -94,6 +99,12 @@ export class Pagination {
     if (this.type === "simple") {
       return;
     }
+
+    this.startEllipsis = false;
+    this.endEllipsis = false;
+    this.startItems = [];
+    this.endItems = [];
+    this.midItems = [];
 
     const startItems = [];
     let startItemCount = 0;
