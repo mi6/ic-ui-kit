@@ -14,6 +14,7 @@
 | `disableAutoParentStyling` | `disable-auto-parent-styling` | If `true`, automatic parent wrapper styling will be disabled.                                                       | `boolean` | `false`     |
 | `expanded`                 | `expanded`                    | If `true`, the side navigation will load in an expanded state.                                                      | `boolean` | `false`     |
 | `href`                     | `href`                        | The URL that the app title link points to.                                                                          | `string`  | `"/"`       |
+| `shortAppTitle`            | `short-app-title`             | The short title of the app to be displayed at small screen sizes in place of the app title.                         | `string`  | `""`        |
 | `static`                   | `static`                      | If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above). | `boolean` | `false`     |
 | `status`                   | `status`                      | The status of the app to be displayed.                                                                              | `string`  | `undefined` |
 | `version`                  | `version`                     | The version of the app to be displayed.                                                                             | `string`  | `undefined` |

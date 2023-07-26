@@ -336,6 +336,7 @@ svg {
   .link
   ic-typography {
   opacity: 1;
+  min-width: min-content;
 }
 
 :host(.navigation-item-side-nav-collapsed) svg,
@@ -419,9 +420,10 @@ svg {
 .navigation-item-side-nav-slotted-text {
   opacity: var(--navigation-item-label-opacity);
   transition: opacity var(--ic-easing-transition-slow);
-  white-space: nowrap;
+  white-space: wrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  min-width: 256px;
 }
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link,
