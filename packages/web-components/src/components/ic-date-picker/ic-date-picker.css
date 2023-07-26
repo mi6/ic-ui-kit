@@ -1,4 +1,8 @@
-/* @import "../../global/normalize.css"; */
+@import "../../global/normalize.css";
+
+/**
+* @prop --input-width: Width of the input field
+*/
 
 :host {
   /* z-index: var(--ic-z-index-popover); */
@@ -8,36 +12,32 @@
   --date-picker-flex-gap: var(--ic-space-xxs);
   --month-year-picker-button-width: 6.5rem;
   --month-button-width: 5.5rem;
+  --input-field-width: var(--input-width, 314px);
 }
 
 :host(.large) {
   --date-picker-flex-gap: var(--ic-space-xs);
   --month-button-width: 6.5rem;
+  --input-field-width: var(--input-width, 354px);
 }
 
 :host(.small) {
   --month-year-picker-button-width: 5rem;
   --month-button-width: 6.5rem;
+  --input-field-width: var(--input-width, 266px);
 }
 
-/* :host(.small) {
-  --date-picker-flex-gap: var(--ic-space-xxs);
-} */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  :host .opening-from-parent {
-    animation: slide-in var(--ic-transition-duration-slow) ease-in-out;
-  }
-
-  :host .opening-from-child {
-    animation: slide-out var(--ic-transition-duration-slow) ease-in-out;
-  }
-}
-*/
-
-.date-input-container {
-  display: flex;
+:host .date-input-container {
   position: relative;
+}
+
+ic-date-input {
+  --input-width: var(--input-field-width);
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
 }
 
 .calendar-button {
@@ -60,7 +60,7 @@
   position: absolute;
   width: 19.625rem;
   border: var(--ic-border-default);
-  border-radius: var(--ic-space-xs);
+  border-radius: var(--ic-border-radius);
   align-items: center;
   background-color: var(--ic-architectural-white);
   z-index: var(--ic-z-index-date-picker);
@@ -156,8 +156,9 @@
   min-width: var(--month-button-width);
 }
 
-:host .year-button.outside-decade::part(button) {
-  color: var(--ic-color-tertiary-text);
+:host .month-button.disabled::part(button),
+:host .year-button.disabled::part(button) {
+  text-decoration-line: line-through;
 }
 
 :host .year-picker-container {
@@ -372,7 +373,7 @@
   cursor: pointer;
 }
 
-:host .day-button:disabled {
+:host .day-button.disabled {
   cursor: default;
 }
 
@@ -386,31 +387,24 @@
   margin: 0 2px;
 }
 
-:host .day-button ic-typography {
-  display: flex;
-  width: 1.75rem;
-  flex-direction: column;
-  text-align: center;
+:host .day-button.outside-range ic-typography {
+  color: var(--ic-architectural-400);
 }
 
 :host .day-button.outside-month ic-typography {
+  --custom-font-weight: 400;
+}
+
+:host .day-button.outside-month:not(.outside-range) ic-typography {
   color: var(--ic-color-primary-text);
-  font-style: italic;
-  font-weight: 400;
-  padding-right: var(--ic-space-xxxs);
 }
 
-:host .day-button.outside-range ic-typography {
-  color: var(--ic-architectural-400);
-  text-decoration-line: line-through;
-}
-
-:host .day-button:hover:not(:disabled) {
+:host .day-button:hover:not(.disabled) {
   background-color: var(--ic-action-dark-bg-hover);
   transition: all var(--ic-transition-duration-slow) ease-in-out;
 }
 
-:host .day-button:active:not(:disabled) {
+:host .day-button:active:not(.disabled) {
   background-color: var(--ic-action-dark-bg-active);
   transition: all var(--ic-transition-duration-slow) ease-in-out;
 }

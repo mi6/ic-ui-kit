@@ -200,6 +200,26 @@ export enum IcDateInputMonths {
   "December",
 }
 
+export enum IcShortDayNames {
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+}
+
+export enum IcDayNames {
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+}
+
 export enum IcWeekDays {
   Sunday = 0,
   Monday = 1,

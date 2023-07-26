@@ -1,30 +1,23 @@
 /* istanbul ignore file */
 import { h, FunctionalComponent } from "@stencil/core";
-// import { DAY_NAMES, MONTH_NAMES } from "../../utils/helpers";
-// import {
-//   IcDateInputMonths,
-//   stringEnumToArray,
-// } from "../../utils/helpers";
-import { IcDatePickerSizes } from "./ic-date-picker.types";
+import {
+  dateInRange,
+  getMonthStart,
+  getMonthEnd,
+} from "./ic-date-picker-utils";
+import { stringEnumToArray } from "../../utils/helpers";
+import { IcSizes, IcDateInputMonths } from "../../utils/types";
 
 export type MonthPickerProps = {
-  size: IcDatePickerSizes;
+  size: IcSizes;
   focussedMonth: number;
   monthInView: number;
-  // hidden: boolean;
-  monthNames: string[];
-  // day: Date;
+  yearInView: number;
   onSelectMonth: (month: number) => void;
   onKeyDown: (ev: KeyboardEvent) => void;
-  // focussedMonthRef?: (element: HTMLIcButtonElement) => void;
-  // selected: boolean;
-  // disabled: boolean
-  // inRange: boolean
-  // isSelected: boolean
-  // dateFormatter: Intl.DateTimeFormat
-  // onDaySelect: (event: MouseEvent, day: Date) => void
-  // onKeyboardNavigation: (event: KeyboardEvent) => void
-  // focusedDayRef?: (element: HTMLElement) => void
+  focussedMonthRef: (element: HTMLIcButtonElement) => void;
+  minDate: Date;
+  maxDate: Date;
 };
 
 export const MonthPicker: FunctionalComponent<MonthPickerProps> = ({
@@ -32,42 +25,19 @@ export const MonthPicker: FunctionalComponent<MonthPickerProps> = ({
   focussedMonth,
   monthInView,
   onSelectMonth,
-  // hidden,
-  monthNames,
   onKeyDown,
-  // focussedMonthRef?,
-
-  // onDaySelect,
-  // onKeyboardNavigation,
-  // focusedDayRef,
-  // disabled,
-  // inRange,
-  // isSelected,
-  // dateFormatter,
+  focussedMonthRef,
+  minDate,
+  maxDate,
+  yearInView,
 }) => {
-  // const isToday = dateMatches(day, today)
-  // const isMonth = isEqualMonth(day, focusedDay)
-  // const isFocused = isEqual(day, focusedDay)
-  // const isOutsideRange = !inRange
-
   const handleMonthClick = (ev: MouseEvent): void => {
     const button = ev.target as HTMLElement;
-    // console.log(button.getAttribute("data-month"));
-    // this.monthInView = Number(button.getAttribute("data-month"));
     onSelectMonth(Number(button.getAttribute("data-month")));
   };
-  // const disabled = false;
 
-  // const months = stringEnumToArray(IcDateInputMonths);
   const buttonSize = size === "small" ? "small" : "default";
-
-  let focussedMonthEl: HTMLIcButtonElement;
-
-  // console.log(focussedMonthEl)
-
-  setTimeout(() => {
-    focussedMonthEl.setFocus(), 100;
-  });
+  const monthNames = stringEnumToArray(IcDateInputMonths);
 
   return (
     <div
@@ -79,23 +49,33 @@ export const MonthPicker: FunctionalComponent<MonthPickerProps> = ({
       {monthNames.map((month, index) => {
         const current = monthInView === index;
         const focussed = focussedMonth === index;
+        const outsideRange = !dateInRange(
+          new Date(yearInView, index, 1),
+          minDate ? getMonthStart(minDate) : null,
+          maxDate ? getMonthEnd(maxDate) : null
+        );
+
         return (
           <ic-button
             class={{
               "month-button": true,
               selected: current,
+              disabled: outsideRange,
             }}
             full-width
+            disabled={outsideRange}
             variant={current ? "primary" : "tertiary"}
             data-month={index}
             size={buttonSize}
             tabIndex={focussed ? 0 : -1}
-            aria-label={current ? `choose ${month}` : `${month} selected`}
+            aria-label={
+              current ? `${month} selected` : `choose ${month} ${yearInView}`
+            }
             onClick={handleMonthClick}
             onKeyDown={onKeyDown}
             ref={(el: HTMLIcButtonElement) => {
               if (focussed && el) {
-                focussedMonthEl = el;
+                focussedMonthRef(el);
               }
             }}
           >

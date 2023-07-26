@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-date-picker should render 1`] = `
+<ic-date-picker class="default" label="Date picker label">
+  <mock:shadow-root>
+    <div class="date-input-container">
+      <ic-date-input label="Date picker label" showcalendarbutton="" showclearbutton="" value=""></ic-date-input>
+    </div>
+    <div aria-label="choose date" aria-modal="true" class="calendar-container" role="dialog">
+      <span aria-live="polite" class="sr-only">
+        in view. Please select a day.
+      </span>
+      <div class="month-year-nav-container">
+        <div class="month-year-nav">
+          <div aria-hidden="true">
+            <ic-button aria-hidden="true" class="flip" disabletooltip="" id="previous-month-button" size="small" tabindex="-1" variant="icon">
+              svg
+            </ic-button>
+          </div>
+          <span aria-hidden="true" id="select-month-hint">
+            undefined undefined selected. Click to open month picker view or use the left and right arrow keys to change month.
+          </span>
+          <ic-button aria-describedby="select-month-hint" aria-label="select month" aria-pressed="false" class="month-picker-button" full-width="true" id="month-picker-button" size="small" variant="tertiary"></ic-button>
+          <div aria-hidden="true">
+            <ic-button aria-hidden="true" disabletooltip="" id="next-month-button" size="small" tabindex="-1" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+        <div class="month-year-nav">
+          <div aria-hidden="true">
+            <ic-button aria-hidden="true" class="flip" disabletooltip="" id="previous-year-button" size="small" tabindex="-1" variant="icon">
+              svg
+            </ic-button>
+          </div>
+          <span aria-hidden="true" id="select-year-hint">
+            undefined selected. Click to open year picker view or use the left and right arrow keys to change year.
+          </span>
+          <ic-button aria-describedby="select-year-hint" aria-label="select year" aria-pressed="false" class="year-picker-button" full-width="true" id="year-picker-button" size="small" variant="tertiary"></ic-button>
+          <div aria-hidden="true">
+            <ic-button aria-hidden="true" disabletooltip="" id="next-year-button" size="small" tabindex="-1" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </div>
+      <div aria-label="undefined undefined" class="calendar">
+        <div class="weekdays">
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Mon
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Tue
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Wed
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Thu
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Fri
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Sat
+            </ic-typography>
+          </div>
+          <div class="calendar-day-header">
+            <ic-typography variant="caption">
+              Sun
+            </ic-typography>
+          </div>
+        </div>
+        <div class="calendar-days-container"></div>
+      </div>
+      <div class="bottom-buttons">
+        <ic-button aria-label="go to today" size="small" variant="tertiary">
+          Go to today
+        </ic-button>
+        <ic-button aria-label="clear selected date" disabled="" id="clear-button" size="small" variant="tertiary">
+          Clear
+        </ic-button>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-date-picker>
+`;

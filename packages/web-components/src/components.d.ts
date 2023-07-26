@@ -11,8 +11,6 @@ import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
-import { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
-import { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -36,8 +34,7 @@ export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
-export { WeekDays } from "./components/ic-date-picker/ic-date-picker-utils";
-export { IcDatePickerSizes } from "./components/ic-date-picker/ic-date-picker.types";
+export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -565,43 +562,106 @@ export namespace Components {
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
+    }
     interface IcDatePicker {
         /**
-          * The size of the date picker to be displayed.
+          * The format in which the date will be displayed.
          */
-        "backBehaviour"?: boolean;
+        "dateFormat"?: IcDateFormat;
         /**
-          * Days.
+          * The text to display as the validation message when `disableFromNow` is true and a disabled date is entered in the input field.
          */
-        "disabledDays"?: WeekDays[];
+        "dateFromNowMessage"?: string;
+        /**
+          * The text to display as the validation message when `disableUntilNow` is true and a disabled date is entered in the input field.
+         */
+        "dateUntilNowMessage"?: string;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, the user cannot select dates from now. A validation message will appear if they enter a disabled date.
+         */
+        "disableFromNow"?: boolean;
+        /**
+          * If `true`, the user cannot select dates until now. A validation message will appear if they enter a disabled date.
+         */
+        "disableUntilNow"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
         /**
           * Determines whether the selected day should receive focus when calendar is opened. If `true` and no day selected then the current day or first focussable day in range will receive focus.
          */
         "focusDayOnOpen"?: boolean;
         /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
          */
-        "max"?: string;
+        "helperText"?: string;
         /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+          * The ID for the input field. The default will be an automatically generated value.
          */
-        "min"?: string;
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        "newDialogLabel": boolean;
+        "openOnFirstLoad": boolean;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
         /**
           * Determines whether days outside the current month are rendered.
          */
         "showDaysOutsideMonth"?: boolean;
         /**
+          * Determines whether the `Clear` button on the date picker is visible.
+         */
+        "showPickerClearButton"?: boolean;
+        /**
+          * Determines whether the `Go to today` button on the date picker is visible.
+         */
+        "showPickerTodayButton"?: boolean;
+        /**
           * The size of the date picker to be displayed.
          */
-        "size"?: IcDatePickerSizes;
+        "size"?: IcSizes;
         /**
           * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
-        "startOfWeek"?: WeekDays;
+        "startOfWeek"?: IcWeekDays;
         /**
-          * Determines whether a Go to today button should appear on the picker.
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
-        "todayButton"?: boolean;
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date picker - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
     }
     interface IcDialog {
         /**
@@ -2335,6 +2395,7 @@ declare global {
     var HTMLIcDateInputElement: {
         prototype: HTMLIcDateInputElement;
         new (): HTMLIcDateInputElement;
+    };
     interface HTMLIcDatePickerElement extends Components.IcDatePicker, HTMLStencilElement {
     }
     var HTMLIcDatePickerElement: {
@@ -3220,43 +3281,106 @@ declare namespace LocalJSX {
           * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
+    }
     interface IcDatePicker {
         /**
-          * The size of the date picker to be displayed.
+          * The format in which the date will be displayed.
          */
-        "backBehaviour"?: boolean;
+        "dateFormat"?: IcDateFormat;
         /**
-          * Days.
+          * The text to display as the validation message when `disableFromNow` is true and a disabled date is entered in the input field.
          */
-        "disabledDays"?: WeekDays[];
+        "dateFromNowMessage"?: string;
+        /**
+          * The text to display as the validation message when `disableUntilNow` is true and a disabled date is entered in the input field.
+         */
+        "dateUntilNowMessage"?: string;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, the user cannot select dates from now. A validation message will appear if they enter a disabled date.
+         */
+        "disableFromNow"?: boolean;
+        /**
+          * If `true`, the user cannot select dates until now. A validation message will appear if they enter a disabled date.
+         */
+        "disableUntilNow"?: boolean;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
         /**
           * Determines whether the selected day should receive focus when calendar is opened. If `true` and no day selected then the current day or first focussable day in range will receive focus.
          */
         "focusDayOnOpen"?: boolean;
         /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
          */
-        "max"?: string;
+        "helperText"?: string;
         /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+          * The ID for the input field. The default will be an automatically generated value.
          */
-        "min"?: string;
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        "newDialogLabel"?: boolean;
+        "openOnFirstLoad"?: boolean;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
         /**
           * Determines whether days outside the current month are rendered.
          */
         "showDaysOutsideMonth"?: boolean;
         /**
+          * Determines whether the `Clear` button on the date picker is visible.
+         */
+        "showPickerClearButton"?: boolean;
+        /**
+          * Determines whether the `Go to today` button on the date picker is visible.
+         */
+        "showPickerTodayButton"?: boolean;
+        /**
           * The size of the date picker to be displayed.
          */
-        "size"?: IcDatePickerSizes;
+        "size"?: IcSizes;
         /**
           * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
-        "startOfWeek"?: WeekDays;
+        "startOfWeek"?: IcWeekDays;
         /**
-          * Determines whether a Go to today button should appear on the picker.
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
-        "todayButton"?: boolean;
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date picker - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
     }
     interface IcDialog {
         /**

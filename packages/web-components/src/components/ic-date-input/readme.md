@@ -56,6 +56,10 @@ Date
 
 ## Dependencies
 
+### Used by
+
+ - [ic-date-picker](../ic-date-picker)
+
 ### Depends on
 
 - [ic-input-container](../ic-input-container)
@@ -78,6 +82,7 @@ graph TD;
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
   ic-input-validation --> ic-typography
+  ic-date-picker --> ic-date-input
   style ic-date-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
