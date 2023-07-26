@@ -16,11 +16,9 @@ exports[`ic-card should render 1`] = `
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a static card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a static card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -43,11 +41,9 @@ exports[`ic-card should render as a button 1`] = `
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a clickable card rendered as a button
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a clickable card rendered as a button
+        </ic-typography>
       </div>
     </button>
   </mock:shadow-root>
@@ -70,11 +66,9 @@ exports[`ic-card should render as a link 1`] = `
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a clickable card rendered as a button
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a clickable card rendered as a button
+        </ic-typography>
       </div>
     </a>
   </mock:shadow-root>
@@ -104,11 +98,9 @@ exports[`ic-card should render as expandable 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
       <div class="interaction-area">
         <div class="interaction-controls">
@@ -146,11 +138,9 @@ exports[`ic-card should render content in expanded area 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
       <div class="interaction-area">
         <div class="interaction-controls">
@@ -187,11 +177,9 @@ exports[`ic-card should render full width variant 1`] = `
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a full width card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a full width card
+        </ic-typography>
       </div>
     </button>
   </mock:shadow-root>
@@ -214,11 +202,9 @@ exports[`ic-card should render with a link parent 1`] = `
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a clickable card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -251,11 +237,9 @@ exports[`ic-card should render with a middle image 1`] = `
         <slot name="image-mid"></slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -288,11 +272,9 @@ exports[`ic-card should render with a subheading 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -325,11 +307,9 @@ exports[`ic-card should render with a top image 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -365,11 +345,9 @@ exports[`ic-card should render with an interaction button 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
     </div>
   </mock:shadow-root>
@@ -402,11 +380,9 @@ exports[`ic-card should render with interaction controls 1`] = `
         </slot>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a card
+        </ic-typography>
       </div>
       <div class="interaction-area">
         <div class="interaction-controls">
@@ -437,11 +413,9 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a clickable card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
       </div>
       <div class="interaction-area">
         <div class="interaction-controls">
@@ -475,11 +449,9 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
         </div>
       </div>
       <div class="card-message">
-        <slot name="message">
-          <ic-typography variant="body">
-            This is a clickable card
-          </ic-typography>
-        </slot>
+        <ic-typography variant="body">
+          This is a clickable card
+        </ic-typography>
       </div>
       <div class="interaction-area">
         <div class="interaction-controls">
