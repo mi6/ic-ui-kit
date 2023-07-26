@@ -277,9 +277,8 @@ export class Card {
               ["card-message"]: true,
             }}
           >
-            <slot name="message">
-              <ic-typography variant="body">{message}</ic-typography>
-            </slot>
+            {message && <ic-typography variant="body">{message}</ic-typography>}
+            {isSlotUsed(this.el, "message") && <slot name="message"></slot>}
           </div>
         )}
         {(isSlotUsed(this.el, "interaction-controls") || expandable) && (
