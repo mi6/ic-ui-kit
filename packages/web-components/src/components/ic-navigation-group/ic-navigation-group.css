@@ -162,13 +162,17 @@
 }
 
 :host(.expanded) .grouped-links-wrapper {
-  height: var(--navigation-child-items-height, auto);
+  height: var(--navigation-child-items-height, auto) !important;
   transition: var(--ic-easing-transition-slow);
   overflow: hidden;
 }
+:host(.navigation-group-side-nav) .link,
+:host(.navigation-group-side-nav) ::slotted(a) {
+  height: var(--navigation-child-items-height, auto);
+}
 
 :host(.collapsed) .grouped-links-wrapper {
-  height: var(--navigation-child-items-height, 0);
+  height: 0;
   transition: var(--ic-easing-transition-slow);
   overflow: hidden;
 }
