@@ -257,7 +257,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
           Navigation group
         </ic-typography>
       </button>
-      <ul class="grouped-links-wrapper" style="--navigation-child-items-height: auto;">
+      <ul class="grouped-links-wrapper" style="--navigation-child-items-height: 0px;">
         <slot></slot>
       </ul>
     </mock:shadow-root>

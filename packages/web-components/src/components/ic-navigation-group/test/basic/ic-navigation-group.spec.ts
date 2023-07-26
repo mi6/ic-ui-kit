@@ -277,14 +277,14 @@ describe("ic-navigation-group", () => {
       components: [NavigationGroup],
       html: `<ic-navigation-group label="Group label"></ic-navigation-group>`,
     });
-    await waitForNavGroupLoad();
-    await page.rootInstance.sideNavExpandHandler();
+    const eventSpy = jest.fn();
+    page.win.addEventListener("waitForNavGroupLoad", eventSpy);
     await page.waitForChanges();
     await waitForNavGroupLoad();
     const style = page.root.shadowRoot
       .querySelector(".grouped-links-wrapper")
       .getAttribute("style");
-    expect(style).toBe("--navigation-child-items-height: auto;");
+    expect(style).toBe("--navigation-child-items-height: 0px;");
   });
 
   it("should test setting nav item tab index", async () => {

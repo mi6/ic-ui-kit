@@ -1458,6 +1458,10 @@ export namespace Components {
         "href": string;
         "inline": boolean;
         /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle": string;
+        /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
         "static": boolean;
@@ -3908,6 +3912,10 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         "inline"?: boolean;
+        /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle"?: string;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
