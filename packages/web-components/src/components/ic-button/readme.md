@@ -62,6 +62,7 @@ Type: `Promise<void>`
 
 | Name          | Description                  |
 | ------------- | ---------------------------- |
+| `--height`    | The height of the button.    |
 | `--min-width` | Minimum width of the button. |
 
 
