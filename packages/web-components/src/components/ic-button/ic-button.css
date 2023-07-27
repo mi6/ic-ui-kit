@@ -2,6 +2,7 @@
 
 /**
 * @prop --min-width: Minimum width of the button.
+* @prop --height: The height of the button.
 */
 
 :host {
@@ -244,34 +245,34 @@
 /* Sizing */
 
 :host(.button-size-default) .button {
-  height: 2.5rem;
+  height: var(--height, 2.5rem);
   padding: var(--ic-space-xs) var(--ic-space-md);
 }
 
 :host(.button-size-small) .button {
-  height: var(--ic-space-xl);
+  height: var(--height, var(--ic-space-xl));
   padding: var(--ic-space-xxs) var(--ic-space-md);
 }
 
 :host(.button-size-large) .button {
-  height: var(--ic-space-xxl);
+  height: var(--height, var(--ic-space-xxl));
   padding: var(--ic-space-sm) var(--ic-space-md);
 }
 
 :host(.button-size-default.button-variant-icon) .button {
-  height: var(--ic-space-xl);
+  height: var(--height, var(--ic-space-xl));
   width: var(--ic-space-xl);
   padding: 0.375rem;
 }
 
 :host(.button-size-small.button-variant-icon) .button {
-  height: var(--ic-space-lg);
+  height: var(--height, var(--ic-space-lg));
   width: var(--ic-space-lg);
   padding: var(--ic-space-xxs);
 }
 
 :host(.button-size-large.button-variant-icon) .button {
-  height: 2.5rem;
+  height: var(--height, 2.5rem);
   width: 2.5rem;
   padding: var(--ic-space-xs);
 }
