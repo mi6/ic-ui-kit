@@ -3,6 +3,7 @@ import {
   checkResizeObserver,
   DEVICE_SIZES,
   getCurrentDeviceSize,
+  isSlotUsed,
   slotHasContent,
 } from "../../utils/helpers";
 
@@ -80,6 +81,33 @@ export class DataRow {
     }
   }
 
+  /**
+   * Renders the label either as a ic-typography or slot. Slotted content takes precedence.
+   * @param label string - label of value
+   * @returns HTMLDivElement - returns label as slot or ic-typography with label as textContent
+   */
+  private renderLabel = (label: string) => {
+    if (isSlotUsed(this.el, "label")) {
+      return (
+        <div class="label">
+          <slot name="label"></slot>
+        </div>
+      );
+    } else if (label) {
+      return (
+        <div class="label">
+          <ic-typography
+            variant={this.entitySize === "xs" ? "label" : "subtitle-large"}
+          >
+            {label}
+          </ic-typography>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   private labelEndComponent(): void {
     const component = this.el.shadowRoot.querySelectorAll(
       "slot[name=end-component]"
@@ -104,17 +132,7 @@ export class DataRow {
       >
         <div class="data">
           <div class="text-cells">
-            <div class="label">
-              <slot name="label">
-                <ic-typography
-                  variant={
-                    this.entitySize === "xs" ? "label" : "subtitle-large"
-                  }
-                >
-                  {label}
-                </ic-typography>
-              </slot>
-            </div>
+            {this.renderLabel(label)}
             <div class="value">
               <slot name="value">
                 <ic-typography variant="body">{value}</ic-typography>
