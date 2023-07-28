@@ -13,6 +13,7 @@
   position: sticky;
   top: 0;
   box-shadow: var(--ic-elevation-overlay);
+  z-index: var(--ic-z-index-sticky-page-header);
 }
 
 header {
@@ -131,5 +132,6 @@ header.tabs {
     position: sticky;
     top: 0;
     box-shadow: var(--ic-elevation-overlay);
+    z-index: var(--ic-z-index-sticky-page-header);
   }
 }
