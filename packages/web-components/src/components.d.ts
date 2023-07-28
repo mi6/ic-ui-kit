@@ -1199,7 +1199,7 @@ export namespace Components {
          */
         "autofocus": boolean;
         /**
-          * The number of characters until suggestions appear.
+          * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
         "charactersUntilSuggestion": number;
         /**
@@ -3552,7 +3552,7 @@ declare namespace LocalJSX {
          */
         "autofocus"?: boolean;
         /**
-          * The number of characters until suggestions appear.
+          * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
          */
         "charactersUntilSuggestion"?: number;
         /**
