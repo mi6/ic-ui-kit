@@ -97,7 +97,7 @@ export class SearchBar {
   @Prop() autofocus = false;
 
   /**
-   * The number of characters until suggestions appear.
+   * The number of characters until suggestions appear. The submit button will be disabled until the inputted value is equal to or greater than this number.
    */
   @Prop() charactersUntilSuggestion: number = 2;
 
