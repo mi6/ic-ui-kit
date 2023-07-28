@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-data-row should not render label element if no label provided 1`] = `
+<ic-data-row role="listitem" value="value">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body">
+              value
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+</ic-data-row>
+`;
+
+exports[`ic-data-row should render 1`] = `
+<ic-data-row label="label" role="listitem" value="value">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="label">
+          <ic-typography variant="subtitle-large">
+            label
+          </ic-typography>
+        </div>
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body">
+              value
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+</ic-data-row>
+`;
+
+exports[`ic-data-row should render slotted content in the end-component slot 1`] = `
+<ic-data-row label="label" role="listitem" value="test value">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="label">
+          <ic-typography variant="subtitle-large">
+            label
+          </ic-typography>
+        </div>
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body">
+              test value
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <div class="end-component">
+        <div role="cell">
+          <slot aria-label="for label row" name="end-component"></slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+  <ic-status-tag label="success" slot="end-component" variant="success"></ic-status-tag>
+</ic-data-row>
+`;
+
+exports[`ic-data-row should render slotted content in the label slot 1`] = `
+<ic-data-row role="listitem" value="value">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="label">
+          <slot name="label"></slot>
+        </div>
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body">
+              value
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+  <ic-typography slot="label">
+    Label
+  </ic-typography>
+</ic-data-row>
+`;
+
+exports[`ic-data-row should render slotted content in the value slot 1`] = `
+<ic-data-row label="label" role="listitem">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="label">
+          <ic-typography variant="subtitle-large">
+            label
+          </ic-typography>
+        </div>
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body"></ic-typography>
+          </slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+  <ic-status-tag label="success" slot="value" variant="success"></ic-status-tag>
+</ic-data-row>
+`;
+
+exports[`ic-data-row should render the label variant of typography when entity size is xs 1`] = `
+<ic-data-row class="breakpoint-xs" label="label" role="listitem">
+  <mock:shadow-root>
+    <div class="data">
+      <div class="text-cells">
+        <div class="label">
+          <ic-typography variant="label">
+            label
+          </ic-typography>
+        </div>
+        <div class="value">
+          <slot name="value">
+            <ic-typography variant="body"></ic-typography>
+          </slot>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </mock:shadow-root>
+  <ic-status-tag label="success" slot="value" variant="success"></ic-status-tag>
+</ic-data-row>
+`;
