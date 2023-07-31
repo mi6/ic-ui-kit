@@ -3,16 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
+# [2.1.0-beta.18](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.17...v2.1.0-beta.18) (2023-07-24)
+
+
+### Bug Fixes
+
+* **react:** update shortTitle to shortAppTitle for top navigation ([6373cce](https://github.com/mi6/ic-ui-kit/commit/6373cceb8c014bce66e5be64f60dd3561b2f60f0)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
 
 
 ### Features
 
-* **react:** remove selected prop from radio story, add reset button ([65d7ad0](https://github.com/mi6/ic-ui-kit/commit/65d7ad0b86752fe74c9df3e3bfe4b88e452170ca)), closes [.#822](https://github.com/./issues/822)
+* **react:** add story for short app title for top navigation ([02a4c01](https://github.com/mi6/ic-ui-kit/commit/02a4c01ef1159b7f69f0202c7aed8898d51afabc)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
 
 
 
 
+
+# [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
+
+### Features
+
+- **react:** remove selected prop from radio story, add reset button ([65d7ad0](https://github.com/mi6/ic-ui-kit/commit/65d7ad0b86752fe74c9df3e3bfe4b88e452170ca)), closes [.#822](https://github.com/./issues/822)
 
 # [2.1.0-beta.16](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.15...v2.1.0-beta.16) (2023-06-26)
 
