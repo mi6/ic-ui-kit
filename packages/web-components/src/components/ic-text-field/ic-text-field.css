@@ -70,10 +70,6 @@ textarea.no-resize {
   color: var(--ic-color-secondary-text);
 }
 
-.disabled {
-  color: var(--ic-architectural-200);
-}
-
 .no-left-pad {
   padding-left: 0;
 }
