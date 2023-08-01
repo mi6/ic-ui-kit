@@ -489,4 +489,27 @@ describe("ic-tab-context component", () => {
     expect(newlyUpdatedTab.tabId).toBe("ic-tab--1-context-default");
     expect(newlyUpdatedTabPanel.panelId).toBe("ic-tab--1-context-default");
   });
+
+  it("should add a tab to enabledTabs when the tab changes from disabled to enabled", async () => {
+    const page = await newSpecPage({
+      components: [TabContext, TabGroup, Tab, TabPanel],
+      html: `<ic-tab-context>
+      <ic-tab-group label="Example tab group">
+        <ic-tab disabled>One</ic-tab>
+        <ic-tab>Two</ic-tab>
+        <ic-tab>Three</ic-tab>
+      </ic-tab-group>
+      <ic-tab-panel>Tab One</ic-tab-panel>
+      <ic-tab-panel>Tab Two</ic-tab-panel>
+      <ic-tab-panel>Tab Three</ic-tab-panel>
+      </ic-tab-context>`,
+    });
+
+    const tab = page.root.querySelector("ic-tab");
+    expect(page.rootInstance.enabledTabs).not.toContain(tab);
+    tab.disabled = false;
+    expect(page.rootInstance.enabledTabs).toContain(tab);
+    tab.disabled = true;
+    expect(page.rootInstance.enabledTabs).not.toContain(tab);
+  });
 });
