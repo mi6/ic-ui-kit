@@ -6,10 +6,6 @@ ic-input-label.with-helper {
   margin-bottom: var(--ic-space-xxxs);
 }
 
-ic-input-label.disabled {
-  color: var(--ic-color-tertiary-text);
-}
-
 ic-input-label.readonly {
   color: var(--ic-color-tertiary-text);
 }
