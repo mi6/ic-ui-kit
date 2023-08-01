@@ -4024,6 +4024,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
+        "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
         "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
         "selected"?: boolean;

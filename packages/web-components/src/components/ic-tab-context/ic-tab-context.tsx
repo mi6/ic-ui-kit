@@ -123,6 +123,11 @@ export class TabContext {
     }
   }
 
+  @Listen("tabEnabled")
+  tabEnabledHandler(): void {
+    this.enabledTabs = this.getEnabledTabs();
+  }
+
   /**
    * @internal Used to set tab/tab panel IDs when a tab/tab panel has been removed
    */
