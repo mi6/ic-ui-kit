@@ -7,6 +7,7 @@ import {
   Prop,
   h,
   Method,
+  Watch,
 } from "@stencil/core";
 
 import { IcTabClickEventDetail } from "./ic-tab.types";
@@ -51,6 +52,11 @@ export class Tab {
   /** @internal The position of the tab inside the tabs array in context. */
   @Prop() tabPosition?: number;
 
+  @Watch("disabled")
+  disabledWatchHandler(): void {
+    this.tabEnabled.emit();
+  }
+
   /**
    * @internal Emitted when a tab is selected.
    */
@@ -60,6 +66,11 @@ export class Tab {
    * @internal Emitted when a tab is dynamically created.
    */
   @Event() tabCreated: EventEmitter<HTMLIcTabElement>;
+
+  /**
+   * @internal Emitted when a tab's disabled prop changes
+   */
+  @Event() tabEnabled: EventEmitter<void>;
 
   /**
    * @internal Emitted when a tab is focussed.
