@@ -14,6 +14,7 @@ import {
 import {
   getThemeFromContext,
   inheritAttributes,
+  isSlotUsed,
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
@@ -406,6 +407,7 @@ export class Button {
           ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
+          ["with-badge"]: isSlotUsed(this.el, "badge"),
         }}
         onClick={this.handleClick}
       >
