@@ -53,7 +53,7 @@ module.exports = {
     },
     "overrides": [
         {
-            "files": ["*.e2e.ts", "*.spec.ts"],
+            "files": ["*.e2e.ts", "*.spec.ts", "package-lock.json"],
             "rules": {
                 "sonarjs/no-duplicate-string": "off"
             }
