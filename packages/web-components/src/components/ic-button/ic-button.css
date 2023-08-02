@@ -37,6 +37,10 @@
   vertical-align: middle;
 }
 
+:host(.with-badge) .button {
+  border-radius: 0.2188rem;
+}
+
 .button:hover {
   cursor: pointer;
 }
