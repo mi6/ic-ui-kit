@@ -36,7 +36,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.14",
     "@storybook/manager-webpack5": "^6.5.14",
-    "@storybook/react": "6.5.15",
+    "@storybook/react": "^6.5.15",
     "@types/jest": "27.0.3",
     "@types/node": "^16.11.11",
     "@types/react": "^17.0.37",
