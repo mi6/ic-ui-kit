@@ -17,8 +17,6 @@
   ],
   "scripts": {
     "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
-    "build:watch": "npm run build -- --watch",
     "test": "stencil test --spec --passWithNoTests",
     "test:coverage": "npm run test -- --coverage",
     "test-e2e": "stencil test --e2e --passWithNoTests",
