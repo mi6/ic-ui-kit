@@ -8,7 +8,6 @@
     "test-a11y": "npm run build && lerna run test-a11y",
     "test-a11y:ci": "lerna run test-a11y --stream",
     "test-e2e": "lerna run test-e2e --stream",
-    "start": "lerna run start --scope=@ukic/web-components --stream",
     "build": "lerna run build --scope=@ukic/web-components --scope=@ukic/fonts --scope=@ukic/docs --stream  && lerna run build --scope=@ukic/react --stream",
     "release-check": "lerna version --no-push --no-git-tag-version",
     "storybook": "lerna run storybook --stream --parallel",
