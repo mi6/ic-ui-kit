@@ -1,7 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-checkbox-group should pass the size on the checkbox group to the child checkboxes when there's no size set on them individually 1`] = `
+<ic-checkbox-group class="small" label="test label" name="test" size="small">
+  <mock:shadow-root>
+    <fieldset aria-labelledby="" id="test">
+      <legend>
+        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+      </legend>
+      <div class="checkboxes-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+  <ic-checkbox additional-field-display="static" class="small" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-checkbox>
+  <ic-checkbox additional-field-display="static" class="small" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-checkbox>
+</ic-checkbox-group>
+`;
+
+exports[`ic-checkbox-group should prioritise the size on an individual checkbox over the size on the checkbox group 1`] = `
+<ic-checkbox-group class="large" label="test label" name="test" size="large">
+  <mock:shadow-root>
+    <fieldset aria-labelledby="" id="test">
+      <legend>
+        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+      </legend>
+      <div class="checkboxes-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+  <ic-checkbox additional-field-display="static" class="large" id="large-checkbox" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-checkbox>
+  <ic-checkbox additional-field-display="static" class="small" id="small-checkbox" label="test label" size="small" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+        <ic-typography class="checkbox-label" variant="body">
+          <label htmlfor="ic-checkbox-test-label-test-label">
+            test label
+          </label>
+        </ic-typography>
+      </div>
+    </mock:shadow-root>
+  </ic-checkbox>
+</ic-checkbox-group>
+`;
+
 exports[`ic-checkbox-group should remove disabled attribute from static additional field when checked: renders-with-disabled-attribute-removed-from-field 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test" validation-status="error">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test" validation-status="error">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label invalid data
@@ -13,7 +91,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" checked="" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" checked="" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +132,7 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
 `;
 
 exports[`ic-checkbox-group should render an aria label when label hidden: renders-hidden-label 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label
@@ -65,7 +143,7 @@ exports[`ic-checkbox-group should render an aria label when label hidden: render
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -81,7 +159,7 @@ exports[`ic-checkbox-group should render an aria label when label hidden: render
 `;
 
 exports[`ic-checkbox-group should render as helper text: renders-with-helpertext 1`] = `
-<ic-checkbox-group helper-text="helper test" label="test label" name="test">
+<ic-checkbox-group class="default" helper-text="helper test" label="test label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="test-helper-text" id="test">
       <legend>
@@ -92,7 +170,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -108,7 +186,7 @@ exports[`ic-checkbox-group should render as helper text: renders-with-helpertext
 `;
 
 exports[`ic-checkbox-group should render as required: renders-required 1`] = `
-<ic-checkbox-group label="test label" name="test" required="">
+<ic-checkbox-group class="default" label="test label" name="test" required="">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label required
@@ -122,7 +200,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -138,7 +216,7 @@ exports[`ic-checkbox-group should render as required: renders-required 1`] = `
 `;
 
 exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
-<ic-checkbox-group label="test label" name="test">
+<ic-checkbox-group class="default" label="test label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
@@ -149,7 +227,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" checked="" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" checked="" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +250,7 @@ exports[`ic-checkbox-group should render checked: renders-checked 1`] = `
 `;
 
 exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1`] = `
-<ic-checkbox-group label="test label" name="test">
+<ic-checkbox-group class="default" label="test label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
@@ -183,7 +261,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" class="disabled" disabled="" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default disabled" disabled="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" disabled="" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -199,7 +277,7 @@ exports[`ic-checkbox-group should render in a disabled state: renders-disabled 1
 `;
 
 exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`] = `
-<ic-checkbox-group label="test label" name="test">
+<ic-checkbox-group class="default" label="test label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
@@ -210,7 +288,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" checked="" indeterminate="" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" checked="" class="default" indeterminate="" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <div class="indeterminate-symbol"></div>
@@ -228,7 +306,7 @@ exports[`ic-checkbox-group should render indeterminate: renders-indeterminate 1`
 `;
 
 exports[`ic-checkbox-group should render with disabled static additional field: renders-with-disabled-additional-field 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test" validation-status="error">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test" validation-status="error">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label invalid data
@@ -240,7 +318,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -274,7 +352,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
 `;
 
 exports[`ic-checkbox-group should render with dynamic additional field when checked: renders-with-dynamic-field-when-checked 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test" validation-status="error">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test" validation-status="error">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label invalid data
@@ -286,7 +364,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="dynamic" checked="" label="test label" value="test">
+  <ic-checkbox additional-field-display="dynamic" checked="" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <svg class="checkmark" clip-rule="evenodd" fill-rule="evenodd" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" xmlns="http://www.w3.org/2000/svg">
@@ -333,7 +411,7 @@ exports[`ic-checkbox-group should render with dynamic additional field when chec
 `;
 
 exports[`ic-checkbox-group should render with hidden dynamic additional field: renders-with-dynamic-field 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test" validation-status="error">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test" validation-status="error">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label invalid data
@@ -345,7 +423,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="dynamic" label="test label" value="test">
+  <ic-checkbox additional-field-display="dynamic" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -385,7 +463,7 @@ exports[`ic-checkbox-group should render with hidden dynamic additional field: r
 `;
 
 exports[`ic-checkbox-group should render with validation status: renders-with-validation 1`] = `
-<ic-checkbox-group hide-label="" label="test label" name="test" validation-status="error">
+<ic-checkbox-group class="default" hide-label="" label="test label" name="test" validation-status="error">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
       test label invalid data
@@ -397,7 +475,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
     </fieldset>
     <ic-input-validation arialivemode="polite" for="test" message="" status="error"></ic-input-validation>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
@@ -413,7 +491,7 @@ exports[`ic-checkbox-group should render with validation status: renders-with-va
 `;
 
 exports[`ic-checkbox-group should render: renders 1`] = `
-<ic-checkbox-group label="test label" name="test">
+<ic-checkbox-group class="default" label="test label" name="test">
   <mock:shadow-root>
     <fieldset aria-labelledby="" id="test">
       <legend>
@@ -424,7 +502,7 @@ exports[`ic-checkbox-group should render: renders 1`] = `
       </div>
     </fieldset>
   </mock:shadow-root>
-  <ic-checkbox additional-field-display="static" label="test label" value="test">
+  <ic-checkbox additional-field-display="static" class="default" label="test label" value="test">
     <mock:shadow-root>
       <div class="container">
         <input class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">

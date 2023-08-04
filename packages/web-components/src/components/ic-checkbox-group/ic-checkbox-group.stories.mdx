@@ -100,6 +100,100 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {(args) =>
+      html`
+        <ic-checkbox-group
+          size="large"
+          label="These are checkboxes with the 'size' attribute set on them individually"
+          name="group1"
+        >
+          <ic-checkbox
+            size="small"
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            size="default"
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            size="large"
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="small"
+          label="This is a checkbox group with small checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="default"
+          label="This is a checkbox group with default-sized checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+        <ic-checkbox-group
+          size="large"
+          label="This is a checkbox group with large checkboxes"
+          name="group1"
+        >
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
 ### Hidden label
 
 <Canvas>
@@ -231,36 +325,6 @@ import readme from "./readme.md";
             value="valueName3"
             label="Unselected / Disabled"
             Disabled
-          ></ic-checkbox>
-        </ic-checkbox-group>
-      `
-    }
-  </Story>
-</Canvas>
-
-### Small
-
-<Canvas>
-  <Story name="Small">
-    {(args) =>
-      html`
-        <ic-checkbox-group label="This is a label" name="group1" small>
-          <ic-checkbox
-            value="valueName1"
-            label="Unselected / Default"
-            small
-          ></ic-checkbox>
-          <ic-checkbox
-            value="valueName2"
-            label="Selected / Default"
-            checked
-            small
-          ></ic-checkbox>
-          <ic-checkbox
-            value="valueName3"
-            label="Unselected / Disabled"
-            Disabled
-            small
           ></ic-checkbox>
         </ic-checkbox-group>
       `
