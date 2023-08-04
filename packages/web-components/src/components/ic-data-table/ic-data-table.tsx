@@ -19,23 +19,31 @@ import {
   shadow: true,
 })
 export class DataTable {
+  private SORT_ICONS = {
+    unsorted: unsortedIcon,
+    ascending: ascendingIcon,
+    descending: descendingIcon,
+  };
+
   @Element() el: HTMLIcDataTableElement;
 
   @State() fromRow: number = 0;
+
+  @State() previousRowsPerPage: number;
+
+  @State() rowsPerPage: number;
 
   @State() scrollable: boolean = false;
 
   @State() scrollOffset: number = 0;
 
-  @State() rowsPerPage: number;
-
-  @State() previousRowsPerPage: number;
-
-  @State() toRow: number;
+  @State() selectedRow: object;
 
   @State() sortedColumn: string;
 
   @State() sortedColumnOrder: IcDataTableSortOrderOptions;
+
+  @State() toRow: number;
 
   /**
    * The title for the table only visible to screen readers.
@@ -50,7 +58,7 @@ export class DataTable {
   /**
    * The row content for the table.
    */
-  @Prop() data!: { [key: string]: any }[];
+  @Prop() data: { [key: string]: any }[];
 
   /**
    * Set the density of the table including font and padding.
@@ -58,12 +66,12 @@ export class DataTable {
   @Prop() density?: IcDataTableDensityOptions = "default";
 
   /**
-   * Applies a border
+   * Applies a border to the table container.
    */
   @Prop() embedded?: boolean = false;
 
   /**
-   * Sets the column headers to not be visible if set to `true`.
+   * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
 
@@ -91,12 +99,12 @@ export class DataTable {
   };
 
   /**
-   * Adds a pagination bar to the bottom of the table if set to `true`.
+   * If `true`, adds a pagination bar to the bottom of the table.
    */
   @Prop() showPagination?: boolean = false;
 
   /**
-   * Allows table columns to be sorted using applied sort buttons if set to `true`.
+   * If `true`, allows table columns to be sorted using applied sort buttons.
    */
   @Prop() sortable?: boolean = false;
 
@@ -112,12 +120,12 @@ export class DataTable {
   };
 
   /**
-   * Column headers will remain at the top of the table when scrolling vertically if set to `true`.
+   * If `true`, column headers will remain at the top of the table when scrolling vertically.
    */
   @Prop() stickyColumnHeaders?: boolean = false;
 
   /**
-   * Row headers will remain to the left when scrolling horizontally if set to `true`.
+   * If `true`, row headers will remain to the left when scrolling horizontally.
    */
   @Prop() stickyRowHeaders?: boolean = false;
 
@@ -132,7 +140,10 @@ export class DataTable {
   componentDidLoad(): void {
     const tableElement = this.el.shadowRoot.querySelector("table");
     const tableContainer = this.el.shadowRoot.querySelector(".table-container");
-    if (tableElement?.clientHeight > tableContainer?.clientHeight) {
+    if (
+      tableElement?.clientHeight > tableContainer?.clientHeight ||
+      tableElement?.clientWidth > tableContainer?.clientWidth
+    ) {
       this.scrollable = true;
     }
   }
@@ -160,7 +171,14 @@ export class DataTable {
     }
   }
 
+  @Listen("click", { target: "window" })
+  clickListener(ev: MouseEvent): void {
+    if (ev.target !== this.el) this.selectedRow = undefined;
+  }
+
   private isObject = (value: any) => typeof value === "object";
+
+  private notDefaultDensity = () => this.density !== "default";
 
   private createCells = (row: object) => {
     const rowValues = Object.values(row);
@@ -179,19 +197,12 @@ export class DataTable {
       const column = this.columns[index];
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
-      const getAlignment = (
-        alignment: "horizontal" | "vertical",
-        returnValue?: boolean
-      ) => {
+      const getAlignment = (alignment: "horizontal" | "vertical") => {
         if (
           this.isObject(cell) &&
           Object.keys(cell).includes("cellAlignment")
         ) {
-          const alignmentVal = this.getObjectValue(
-            cellValue("cellAlignment"),
-            alignment
-          );
-          return returnValue ? alignmentVal : alignmentVal !== undefined;
+          return this.getObjectValue(cellValue("cellAlignment"), alignment);
         }
       };
 
@@ -202,7 +213,7 @@ export class DataTable {
           class={{
             ["row-header"]: true,
             [`row-header-alignment-${cellValue("cellAlignment")}`]:
-              cellValue("cellAlignment") !== undefined,
+              !!cellValue("cellAlignment"),
             ["row-header-sticky"]: this.stickyRowHeaders,
           }}
         >
@@ -213,21 +224,21 @@ export class DataTable {
           innerHTML={column?.dataType === "element" ? (cell as string) : null}
           class={{
             ["table-cell"]: true,
+            [`table-density-${this.density}`]: this.notDefaultDensity(),
             [`data-type-${column?.dataType}`]: true,
             [`cell-alignment-${
-              column?.columnAlignment?.horizontal ||
-              getAlignment("horizontal", true)
+              column?.columnAlignment?.horizontal || getAlignment("horizontal")
             }`]:
               !!column?.columnAlignment?.horizontal ||
-              getAlignment("horizontal"),
+              !!getAlignment("horizontal"),
             [`cell-alignment-${
               column?.columnAlignment?.vertical ||
               rowAlignment ||
-              getAlignment("vertical", true)
+              getAlignment("vertical")
             }`]:
               !!column?.columnAlignment?.vertical ||
               !!rowAlignment ||
-              getAlignment("vertical"),
+              !!getAlignment("vertical"),
           }}
         >
           <ic-typography
@@ -241,6 +252,7 @@ export class DataTable {
                 (this.isObject(cell) && !!cellValue("emphasis")) ||
                 !!column?.emphasis ||
                 !!rowEmphasis,
+              [`text-${this.density}`]: this.notDefaultDensity(),
             }}
           >
             {this.isObject(cell) ? (
@@ -259,46 +271,58 @@ export class DataTable {
   };
 
   private createColumnHeaders = () => {
-    return this.columns.map((column) => (
+    return this.columns.map(({ cellAlignment, colspan, key, title }) => (
       <th
         scope="col"
         class={{
           ["column-header"]: true,
-          [`column-header-alignment-${column.cellAlignment}`]:
-            column.cellAlignment !== undefined,
-          [`table-density-${this.density}`]: true,
+          [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+          [`table-density-${this.density}`]: this.notDefaultDensity(),
         }}
-        colSpan={column.colspan}
+        colSpan={colspan}
       >
         {this.sortable ? (
           <div class="column-header-inner-container">
-            <ic-typography variant="subtitle-large">
-              {column.title}
+            <ic-typography
+              variant="body"
+              class={{
+                ["column-header-text"]: true,
+                [`text-${this.density}`]: this.notDefaultDensity(),
+              }}
+            >
+              {title}
             </ic-typography>
             <ic-button
               variant="icon"
-              id={`sort-button-${column.key}`}
-              aria-label={this.getSortButtonLabel(column.key)}
+              id={`sort-button-${key}`}
+              aria-label={this.getSortButtonLabel(key)}
               // eslint-disable-next-line react/jsx-no-bind
-              onClick={() => this.sortRows(column.key)}
+              onClick={() => this.sortRows(key)}
               innerHTML={
-                this.sortedColumn === column.key &&
-                this.sortedColumnOrder !== "unsorted"
-                  ? this.sortedColumnOrder === "ascending"
-                    ? ascendingIcon
-                    : descendingIcon
-                  : unsortedIcon
+                this.SORT_ICONS[
+                  this.sortedColumn === key
+                    ? this.sortedColumnOrder
+                    : "unsorted"
+                ]
               }
               class={{
                 ["sort-button"]: true,
                 ["sort-button-unsorted"]:
-                  this.sortedColumn !== column.key ||
+                  this.sortedColumn !== key ||
                   this.sortedColumnOrder === "unsorted",
               }}
             ></ic-button>
           </div>
         ) : (
-          <ic-typography variant="subtitle-large">{column.title}</ic-typography>
+          <ic-typography
+            variant="body"
+            class={{
+              ["column-header-text"]: true,
+              [`text-${this.density}`]: this.notDefaultDensity(),
+            }}
+          >
+            {title}
+          </ic-typography>
         )}
       </th>
     ));
@@ -312,9 +336,10 @@ export class DataTable {
       .sort(!this.sortable ? undefined : this.getSortFunction())
       .map((row) => (
         <tr
+          onClick={() => (this.selectedRow = this.selectedRow !== row && row)}
           class={{
             ["table-row"]: true,
-            [`table-density-${this.density}`]: true,
+            ["table-row-selected"]: this.selectedRow === row,
           }}
         >
           {this.createCells(row)}
@@ -328,16 +353,16 @@ export class DataTable {
 
   private getSortButtonLabel = (key: string) => {
     let label = "";
-    const getSortOption = (option: IcDataTableSortOrderOptions) => {
+    const getNextSortOption = (option: IcDataTableSortOrderOptions) => {
       const sortOrders = this.sortOptions.sortOrders;
       return sortOrders[(sortOrders.indexOf(option) + 1) % sortOrders.length];
     };
 
     if (this.sortedColumn === key) {
-      const sortOption = getSortOption(this.sortedColumnOrder);
+      const sortOption = getNextSortOption(this.sortedColumnOrder);
       label = sortOption !== "unsorted" ? `Sort ${sortOption}` : "Remove sort";
     } else {
-      label = `Sort ${getSortOption("unsorted")}`;
+      label = `Sort ${getNextSortOption("unsorted")}`;
     }
 
     return label;
@@ -385,13 +410,13 @@ export class DataTable {
         this.sortedColumnOrder = "unsorted";
       }
 
-      let sortOrderIndex = sortOrders.indexOf(this.sortedColumnOrder) + 1;
+      let nextSortOrderIndex = sortOrders.indexOf(this.sortedColumnOrder) + 1;
 
-      if (sortOrderIndex > sortOrders.length - 1) {
-        sortOrderIndex = 0;
+      if (nextSortOrderIndex > sortOrders.length - 1) {
+        nextSortOrderIndex = 0;
       }
 
-      this.sortedColumnOrder = sortOrders[sortOrderIndex];
+      this.sortedColumnOrder = sortOrders[nextSortOrderIndex];
 
       sortButton.updateAriaLabel(this.getSortButtonLabel(column));
     }
@@ -426,7 +451,7 @@ export class DataTable {
         <div
           class={{
             ["table-row-container"]: true,
-            ["scrollable"]: scrollable,
+            scrollable,
           }}
           tabIndex={scrollable ? 0 : null}
           onScroll={updateScrollOffset}
@@ -436,15 +461,15 @@ export class DataTable {
             {!hideColumnHeaders && (
               <thead
                 class={{
-                  [`column-header-sticky`]: stickyColumnHeaders,
-                  [`column-header-overlay`]:
+                  ["column-header-sticky"]: stickyColumnHeaders,
+                  ["column-header-overlay"]:
                     stickyColumnHeaders && scrollOffset !== 0,
                 }}
               >
                 <tr>{createColumnHeaders()}</tr>
               </thead>
             )}
-            <tbody>{createRows()}</tbody>
+            {data?.length > 0 && <tbody>{createRows()}</tbody>}
           </table>
         </div>
         {showPagination && (

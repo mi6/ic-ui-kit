@@ -6,6 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { IcDataTable, IcButton } from "../components";
+import { useState } from "react"; 
 import readme from "../../../web-components/src/components/ic-data-table/readme.md";
 
 <Meta
@@ -97,10 +98,11 @@ export const basicColumns = [
   </Story>
 </Canvas>
 
-### Spacious
+### Density
 
 <Canvas>
-  <Story name="Spacious">
+  <Story name="Density">
+      <IcDataTable caption="dense table" density="dense" columns={basicColumns} data={basicData}></IcDataTable>
       <IcDataTable caption="spacious table" density="spacious" columns={basicColumns} data={basicData}></IcDataTable>
   </Story>
 </Canvas>
@@ -1655,5 +1657,19 @@ export const complexColumns = [
         <IcButton onClick={() => toggleStickyHeader(true)}>Stick header</IcButton>
         <IcButton onClick={() => toggleStickyHeader(false)}>Unstick header</IcButton>
       </div>
+  </Story>
+</Canvas>
+
+### Async data loading
+
+export const AsyncExample = () => {
+  const [data, setData] = useState();
+  setTimeout(() => setData(basicData), 5000);
+  return <IcDataTable caption="async table" columns={basicColumns} data={data}></IcDataTable>
+}
+
+<Canvas>
+  <Story name="Async data loading">
+    <AsyncExample />
   </Story>
 </Canvas>

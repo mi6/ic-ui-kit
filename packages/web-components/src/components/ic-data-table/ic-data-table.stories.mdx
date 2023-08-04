@@ -162,78 +162,81 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Spacious
+### Density
 
 <Canvas>
-  <Story name="Spacious">
+  <Story name="Density">
     {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
+        dataTables = document.querySelectorAll("ic-data-table");
+        dataTables.forEach((dataTable) => {
+          dataTable.columns = [
+            {
+              key: "firstName",
+              title: "First name",
+              dataType: "string",
+            },
+            {
+              key: "lastName",
+              title: "Last name",
+              dataType: "string",
+            },
+            {
+              key: "age",
+              title: "Age",
+              dataType: "number",
+            },
+            {
+              key: "jobTitle",
+              title: "Job title",
+              dataType: "string",
+            },
+            {
+              key: "address",
+              title: "Address",
+              dataType: "address",
+            },
+          ];
+          dataTable.data = [
+            {
+              firstName: "Joe",
+              lastName: "Bloggs",
+              age: 30,
+              jobTitle: "Developer",
+              address: "1 Main Street, Town, County, Postcode",
+            },
+            {
+              firstName: "Sarah",
+              lastName: "Smith",
+              age: 28,
+              jobTitle: "Analyst",
+              address: "2 Main Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Mark",
+              lastName: "Owens",
+              age: 45,
+              jobTitle: "Team Lead",
+              address: "12 Key Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Naomi",
+              lastName: "Thomas",
+              age: 32,
+              jobTitle: "Developer",
+              address: "8 Side Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Luke",
+              lastName: "Ashford",
+              age: 18,
+              jobTitle: "Junior Developer",
+              address: "5 New Street, Town, Country, Postcode",
+            },
+          ];
+        });
       </script>
-      <ic-data-table caption="dense table" density="spacious"></ic-data-table>`}
+      <ic-data-table caption="Dense" density="dense"></ic-data-table>
+      <ic-data-table caption="Spacious" density="spacious"></ic-data-table>`}
   </Story>
 </Canvas>
 
@@ -1782,5 +1785,82 @@ import readme from "./readme.md";
           >Unstick header</ic-button
         >
       </div>`}
+  </Story>
+</Canvas>
+
+### Async data loading
+
+<Canvas>
+  <Story name="Async data loading" parameters={{ loki: { skip: true } }}>
+    {html` <script>
+        dataTable = document.querySelector("ic-data-table");
+        dataTable.columns = [
+          {
+            key: "firstName",
+            title: "First name",
+            dataType: "string",
+          },
+          {
+            key: "lastName",
+            title: "Last name",
+            dataType: "string",
+          },
+          {
+            key: "age",
+            title: "Age",
+            dataType: "number",
+          },
+          {
+            key: "jobTitle",
+            title: "Job title",
+            dataType: "string",
+          },
+          {
+            key: "address",
+            title: "Address",
+            dataType: "address",
+          },
+        ];
+        setTimeout(() => {
+          dataTable.data = [
+            {
+              firstName: "Joe",
+              lastName: "Bloggs",
+              age: 30,
+              jobTitle: "Developer",
+              address: "1 Main Street, Town, County, Postcode",
+            },
+            {
+              firstName: "Sarah",
+              lastName: "Smith",
+              age: 28,
+              jobTitle: "Analyst",
+              address: "2 Main Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Mark",
+              lastName: "Owens",
+              age: 45,
+              jobTitle: "Team Lead",
+              address: "12 Key Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Naomi",
+              lastName: "Thomas",
+              age: 32,
+              jobTitle: "Developer",
+              address: "8 Side Street, Town, Country, Postcode",
+            },
+            {
+              firstName: "Luke",
+              lastName: "Ashford",
+              age: 18,
+              jobTitle: "Junior Developer",
+              address: "5 New Street, Town, Country, Postcode",
+            },
+          ];
+        }, 5000);
+      </script>
+      <ic-data-table caption="async table"></ic-data-table>`}
   </Story>
 </Canvas>

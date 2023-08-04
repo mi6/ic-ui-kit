@@ -6,6 +6,8 @@ import { TextField } from "../../../ic-text-field/ic-text-field";
 import { DEVICE_SIZES } from "../../../../utils/helpers";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { newSpecPage } from "@stencil/core/testing";
+import { Select } from "../../../ic-select/ic-select";
+import { Typography } from "../../../ic-typography/ic-typography";
 
 describe("ic-pagination-bar", () => {
   it("should render", async () => {
@@ -611,5 +613,41 @@ describe("ic-pagination-bar", () => {
     await page.waitForChanges();
 
     expect(input.validationStatus).toEqual("");
+  });
+
+  it("should focus the number of items select when clicking its label", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, Pagination, Select, Typography],
+      html: `<ic-pagination-bar total-items="100" show-items-per-page-control="true"></ic-pagination-bar>`,
+    });
+    const label = document
+      .querySelector("ic-pagination-bar")
+      .shadowRoot.querySelector(
+        ".items-per-page-control-label"
+      ) as HTMLIcTypographyElement;
+
+    const event = jest.spyOn(Select.prototype, "setFocus");
+    label.click();
+
+    await page.waitForChanges();
+
+    expect(event).toHaveBeenCalled();
+  });
+
+  it("should focus the go to page text-field when clicking its label", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar, Pagination, TextField, Typography],
+      html: `<ic-pagination-bar total-items="100" show-items-per-page="false" show-go-to-page-control="true"></ic-pagination-bar>`,
+    });
+    const label = document
+      .querySelector("ic-pagination-bar")
+      .shadowRoot.querySelector("ic-typography");
+
+    const event = jest.spyOn(TextField.prototype, "setFocus");
+    label.click();
+
+    await page.waitForChanges();
+
+    expect(event).toHaveBeenCalled();
   });
 });

@@ -11,30 +11,30 @@ exports[`ic-data-table should render 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -56,7 +56,7 @@ exports[`ic-data-table should render 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -78,7 +78,7 @@ exports[`ic-data-table should render 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -100,7 +100,7 @@ exports[`ic-data-table should render 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -122,7 +122,7 @@ exports[`ic-data-table should render 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -144,7 +144,7 @@ exports[`ic-data-table should render 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -185,30 +185,30 @@ exports[`ic-data-table should render embedded 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -230,7 +230,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -252,7 +252,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -274,7 +274,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -296,7 +296,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -318,7 +318,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -359,9 +359,9 @@ exports[`ic-data-table should render sortable 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-name" variant="icon">
@@ -369,9 +369,9 @@ exports[`ic-data-table should render sortable 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-age" variant="icon">
@@ -379,9 +379,9 @@ exports[`ic-data-table should render sortable 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-department" variant="icon">
@@ -389,9 +389,9 @@ exports[`ic-data-table should render sortable 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="sort-button sort-button-unsorted" id="sort-button-employeeNumber" variant="icon">
@@ -402,7 +402,7 @@ exports[`ic-data-table should render sortable 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -424,7 +424,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -446,7 +446,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -468,7 +468,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -490,7 +490,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -512,7 +512,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -556,30 +556,30 @@ exports[`ic-data-table should render with cell overrides 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-high" variant="body">
                   John Smith
@@ -601,7 +601,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-low" variant="body">
                   Sally Jones
@@ -623,7 +623,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-high" variant="body">
                   Tim Rayes
@@ -645,7 +645,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-low" variant="body">
                   Luke Fisher
@@ -667,7 +667,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-high" variant="body">
                   Jane Lock
@@ -689,7 +689,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography class="cell-emphasis-high" variant="body">
                   Margaret Hale
@@ -733,30 +733,30 @@ exports[`ic-data-table should render with column overrides 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header column-header-alignment-middle table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header column-header-alignment-middle" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -778,7 +778,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -800,7 +800,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -822,7 +822,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -844,7 +844,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -866,7 +866,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -910,30 +910,30 @@ exports[`ic-data-table should render with pagination 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -955,7 +955,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -977,7 +977,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -999,7 +999,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -1021,7 +1021,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -1043,7 +1043,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -1065,7 +1065,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -1087,7 +1087,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -1109,7 +1109,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -1131,7 +1131,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -1175,30 +1175,30 @@ exports[`ic-data-table should render with row headers 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 1
               </th>
@@ -1218,7 +1218,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 2
               </th>
@@ -1238,7 +1238,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 3
               </th>
@@ -1258,7 +1258,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 4
               </th>
@@ -1278,7 +1278,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 5
               </th>
@@ -1298,7 +1298,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 6
               </th>
@@ -1337,30 +1337,30 @@ exports[`ic-data-table should render with row overrides 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Employee number
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Name
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Age
                 </ic-typography>
               </th>
-              <th class="column-header table-density-default" scope="col">
-                <ic-typography variant="subtitle-large">
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
                   Department
                 </ic-typography>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 1
               </th>
@@ -1380,7 +1380,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 2
               </th>
@@ -1400,7 +1400,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 3
               </th>
@@ -1420,7 +1420,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 4
               </th>
@@ -1440,7 +1440,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 5
               </th>
@@ -1460,7 +1460,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <th class="row-header" scope="row">
                 6
               </th>
@@ -1502,9 +1502,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
@@ -1519,9 +1519,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
@@ -1536,9 +1536,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
@@ -1553,9 +1553,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
@@ -1573,7 +1573,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -1595,7 +1595,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -1617,7 +1617,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -1639,7 +1639,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -1661,7 +1661,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -1683,7 +1683,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -1727,9 +1727,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
@@ -1744,9 +1744,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
@@ -1761,9 +1761,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
@@ -1778,9 +1778,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
@@ -1798,7 +1798,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -1820,7 +1820,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -1842,7 +1842,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -1864,7 +1864,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -1886,7 +1886,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -1908,7 +1908,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -1952,9 +1952,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
                   <ic-button aria-label="Remove sort" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
@@ -1969,9 +1969,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
@@ -1986,9 +1986,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
@@ -2003,9 +2003,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
@@ -2023,7 +2023,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -2045,7 +2045,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -2067,7 +2067,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale
@@ -2089,7 +2089,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -2111,7 +2111,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -2133,7 +2133,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -2177,9 +2177,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
           </caption>
           <thead>
             <tr>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
@@ -2194,9 +2194,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
@@ -2211,9 +2211,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
@@ -2228,9 +2228,9 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-button>
                 </div>
               </th>
-              <th class="column-header table-density-default" scope="col">
+              <th class="column-header" scope="col">
                 <div class="column-header-inner-container">
-                  <ic-typography variant="subtitle-large">
+                  <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
                   <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
@@ -2248,7 +2248,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   John Smith
@@ -2270,7 +2270,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Sally Jones
@@ -2292,7 +2292,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Tim Rayes
@@ -2314,7 +2314,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Luke Fisher
@@ -2336,7 +2336,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Jane Lock
@@ -2358,7 +2358,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </ic-typography>
               </td>
             </tr>
-            <tr class="table-density-default table-row">
+            <tr class="table-row">
               <td class="data-type-string table-cell">
                 <ic-typography variant="body">
                   Margaret Hale

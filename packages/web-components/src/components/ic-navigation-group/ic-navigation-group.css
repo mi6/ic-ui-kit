@@ -9,7 +9,7 @@
 }
 
 :host(.in-side-menu) {
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-200);
+  border-bottom: var(--ic-border-light);
   padding: var(--ic-space-md) 0;
 }
 
