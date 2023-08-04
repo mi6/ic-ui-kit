@@ -47,12 +47,12 @@
 
 .menu-buttons-container {
   padding: var(--ic-space-sm) 0;
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-200);
+  border-bottom: var(--ic-border-light);
 }
 
 .menu-buttons-container-nav-item-above {
   margin-top: var(--ic-space-md);
-  border-top: var(--ic-space-1px) solid var(--ic-architectural-200);
+  border-top: var(--ic-border-light);
 }
 
 .menu-status-version-container {

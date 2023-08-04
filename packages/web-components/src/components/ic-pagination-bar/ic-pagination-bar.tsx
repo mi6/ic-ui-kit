@@ -62,12 +62,12 @@ export class PaginationBar {
   @Prop() appearance?: IcThemeForeground = "default";
 
   /**
-   * What label will be used in place of 'items' if paginationType is data, should be capitalised.
+   * The label which will be used in place of 'items' if paginationType is data. Should be capitalised.
    */
   @Prop() itemLabel?: string = "Item";
 
   /**
-   * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
+   * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
    */
   @Prop({ mutable: true }) itemsPerPageOptions?: {
     label: string;
@@ -85,7 +85,7 @@ export class PaginationBar {
   @Prop() paginationType?: IcPaginationTypes = "page";
 
   /**
-   * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
+   * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
    */
   @Prop() pageLabel?: string = "Page";
 
@@ -394,6 +394,10 @@ export class PaginationBar {
       showGoToPageControl,
     } = this;
 
+    const focusElFromLabel = (el: "ic-select" | "ic-text-field") => {
+      this.paginationBarEl.querySelector(el)?.setFocus();
+    };
+
     return (
       <div
         class={{
@@ -412,6 +416,7 @@ export class PaginationBar {
                     ["items-per-page-control-label"]: true,
                   }}
                   variant="label"
+                  onClick={() => focusElFromLabel("ic-select")}
                 >
                   {this.itemLabel}s per {this.pageLabel.toLowerCase()}
                 </ic-typography>
@@ -473,6 +478,7 @@ export class PaginationBar {
               <ic-typography
                 class={{ [`pagination-text-${appearance}`]: true }}
                 variant="label"
+                onClick={() => focusElFromLabel("ic-text-field")}
               >
                 Go to {this.pageLabel.toLowerCase()}
               </ic-typography>
