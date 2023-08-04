@@ -21,6 +21,7 @@
 
   /* borders */
   --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  --ic-border-light: var(--ic-space-1px) solid var(--ic-architectural-200);
   --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
   --ic-border-hover: var(--ic-space-1px) solid var(--ic-architectural-500);
   --ic-border-pressed: var(--ic-space-1px) solid var(--ic-architectural-600);
@@ -340,6 +341,9 @@
   --ic-focus-blue: #0044d7;
   --ic-focus-glow: #80a1e8;
   --ic-hc-focus-outline: 3px solid transparent;
+
+  /* data tables */
+  --ic-table-row-selected: #c7d7ef;
 
   /* breakpoints */
 

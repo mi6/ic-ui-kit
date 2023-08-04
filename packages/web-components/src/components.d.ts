@@ -444,11 +444,11 @@ export namespace Components {
          */
         "density"?: IcDataTableDensityOptions;
         /**
-          * Applies a border
+          * Applies a border to the table container.
          */
         "embedded"?: boolean;
         /**
-          * Sets the column headers to not be visible if set to `true`.
+          * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
         /**
@@ -463,7 +463,7 @@ export namespace Components {
     alignment?: IcPaginationAlignmentOptions;
   };
         /**
-          * Adds a pagination bar to the bottom of the table if set to `true`.
+          * If `true`, adds a pagination bar to the bottom of the table.
          */
         "showPagination"?: boolean;
         /**
@@ -474,15 +474,15 @@ export namespace Components {
     defaultColumn?: string;
   };
         /**
-          * Allows table columns to be sorted using applied sort buttons if set to `true`.
+          * If `true`, allows table columns to be sorted using applied sort buttons.
          */
         "sortable"?: boolean;
         /**
-          * Column headers will remain at the top of the table when scrolling vertically if set to `true`.
+          * If `true`, column headers will remain at the top of the table when scrolling vertically.
          */
         "stickyColumnHeaders"?: boolean;
         /**
-          * Row headers will remain to the left when scrolling horizontally if set to `true`.
+          * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
     }
@@ -1134,18 +1134,18 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground1;
         /**
-          * What label will be used in place of 'items' if paginationType is data, should be capitalised.
+          * The label which will be used in place of 'items' if paginationType is data. Should be capitalised.
          */
         "itemLabel"?: string;
         /**
-          * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
         "itemsPerPageOptions"?: {
     label: string;
     value: string;
   }[];
         /**
-          * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
+          * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
          */
         "pageLabel"?: string;
         /**
@@ -2933,17 +2933,17 @@ declare namespace LocalJSX {
         /**
           * The row content for the table.
          */
-        "data": { [key: string]: any }[];
+        "data"?: { [key: string]: any }[];
         /**
           * Set the density of the table including font and padding.
          */
         "density"?: IcDataTableDensityOptions;
         /**
-          * Applies a border
+          * Applies a border to the table container.
          */
         "embedded"?: boolean;
         /**
-          * Sets the column headers to not be visible if set to `true`.
+          * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
         /**
@@ -2958,7 +2958,7 @@ declare namespace LocalJSX {
     alignment?: IcPaginationAlignmentOptions;
   };
         /**
-          * Adds a pagination bar to the bottom of the table if set to `true`.
+          * If `true`, adds a pagination bar to the bottom of the table.
          */
         "showPagination"?: boolean;
         /**
@@ -2969,15 +2969,15 @@ declare namespace LocalJSX {
     defaultColumn?: string;
   };
         /**
-          * Allows table columns to be sorted using applied sort buttons if set to `true`.
+          * If `true`, allows table columns to be sorted using applied sort buttons.
          */
         "sortable"?: boolean;
         /**
-          * Column headers will remain at the top of the table when scrolling vertically if set to `true`.
+          * If `true`, column headers will remain at the top of the table when scrolling vertically.
          */
         "stickyColumnHeaders"?: boolean;
         /**
-          * Row headers will remain to the left when scrolling horizontally if set to `true`.
+          * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
     }
@@ -3623,11 +3623,11 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground1;
         /**
-          * What label will be used in place of 'items' if paginationType is data, should be capitalised.
+          * The label which will be used in place of 'items' if paginationType is data. Should be capitalised.
          */
         "itemLabel"?: string;
         /**
-          * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
+          * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
         "itemsPerPageOptions"?: {
     label: string;
@@ -3642,7 +3642,7 @@ declare namespace LocalJSX {
          */
         "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
         /**
-          * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
+          * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
          */
         "pageLabel"?: string;
         /**
