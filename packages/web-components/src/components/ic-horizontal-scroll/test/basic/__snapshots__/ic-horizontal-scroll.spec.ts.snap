@@ -21,7 +21,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 1
             </ic-typography>
@@ -32,7 +32,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 2
             </ic-typography>
@@ -43,7 +43,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 3
             </ic-typography>
@@ -54,7 +54,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 4
             </ic-typography>
@@ -65,7 +65,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 5
             </ic-typography>
@@ -76,7 +76,7 @@ exports[`ic-horizontal-scroll should render the correct HTML for the chosen appe
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 6
             </ic-typography>
@@ -109,7 +109,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 1" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 1" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 1
             </ic-typography>
@@ -120,7 +120,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 2" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 2" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 2
             </ic-typography>
@@ -131,7 +131,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 3" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 3" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 3
             </ic-typography>
@@ -142,7 +142,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 4" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 4" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 4
             </ic-typography>
@@ -153,7 +153,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 5" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 5" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 5
             </ic-typography>
@@ -164,7 +164,7 @@ exports[`ic-horizontal-scroll should render: renders 1`] = `
     <ic-navigation-item class="light navigation-item" label="Test nav item 6" role="listitem">
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="Test nav item 6" placement="right" target="navigation-item">
-          <div aria-labelledby="ic-tooltip-navigation-item" class="link" tabindex="0">
+          <div class="link" tabindex="0">
             <ic-typography variant="label">
               Test nav item 6
             </ic-typography>

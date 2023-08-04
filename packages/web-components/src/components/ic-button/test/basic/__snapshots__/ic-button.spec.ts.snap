@@ -177,7 +177,7 @@ exports[`button component should render icon variant with a tooltip based on ari
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" tooltip-placement="top" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="top" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
+      <button aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -264,7 +264,7 @@ exports[`button component should update when method called 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
+      <button aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
@@ -277,7 +277,7 @@ exports[`button component should update when method called 2`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
+      <button aria-label="null" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
