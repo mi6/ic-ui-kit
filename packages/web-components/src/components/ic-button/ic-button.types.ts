@@ -7,6 +7,4 @@ export type IcButtonVariants =
   | "icon"
   | "destructive";
 
-export type IcButtonSizes = "default" | "large" | "small";
-
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";

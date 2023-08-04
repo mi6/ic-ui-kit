@@ -36,6 +36,18 @@
   flex-shrink: 0;
 }
 
+:host(.small) .checkbox,
+:host(.small) .container svg {
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
+}
+
+:host(.large) .checkbox,
+:host(.large) .container svg {
+  width: var(--ic-space-xl);
+  height: var(--ic-space-xl);
+}
+
 .checkbox:checked {
   background-color: var(--ic-action-default);
   border: var(--ic-space-1px) solid var(--ic-action-default);
@@ -111,6 +123,16 @@
   flex-shrink: 0;
 }
 
+:host(.small) .checkmark {
+  margin-left: calc(-1 * var(--ic-space-md));
+  right: calc(-1 * var(--ic-space-md));
+}
+
+:host(.large) .checkmark {
+  margin-left: calc(-1 * var(--ic-space-xl));
+  right: calc(-1 * var(--ic-space-xl));
+}
+
 .indeterminate-symbol {
   position: relative;
   width: 0.875rem;
@@ -121,6 +143,18 @@
   background-color: var(--ic-action-default);
   pointer-events: none;
   flex-shrink: 0;
+}
+
+:host(.small) .indeterminate-symbol {
+  width: 0.6rem;
+  right: -0.8rem;
+  margin-left: -0.6rem;
+}
+
+:host(.large) .indeterminate-symbol {
+  width: 1.25rem;
+  right: -1.625rem;
+  margin-left: -1.25rem;
 }
 
 .container:hover .indeterminate-symbol {

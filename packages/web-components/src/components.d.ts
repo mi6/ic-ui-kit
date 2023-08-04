@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -28,10 +28,10 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-export { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-export { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
@@ -185,7 +185,7 @@ export namespace Components {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -296,7 +296,11 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If true, the small styling will be applied to the checkbox.
+          * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -330,7 +334,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * If `true`, the small styling will be applied to the checkbox group.
+          * The size of the checkboxes to be displayed. This does not affect the font size of the label.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small": boolean;
         /**
@@ -366,7 +374,7 @@ export namespace Components {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -2534,7 +2542,7 @@ declare namespace LocalJSX {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -2644,7 +2652,11 @@ declare namespace LocalJSX {
          */
         "onIcCheck"?: (event: IcCheckboxCustomEvent<void>) => void;
         /**
-          * If true, the small styling will be applied to the checkbox.
+          * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -2682,7 +2694,11 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the checkbox group.
+          * The size of the checkboxes to be displayed. This does not affect the font size of the label.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -2722,7 +2738,7 @@ declare namespace LocalJSX {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
