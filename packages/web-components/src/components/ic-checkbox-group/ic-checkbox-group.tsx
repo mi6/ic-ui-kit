@@ -14,7 +14,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcInformationStatusOrEmpty } from "../../utils/types";
+import { IcInformationStatusOrEmpty, IcSizes } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 
 @Component({
@@ -57,7 +57,12 @@ export class CheckboxGroup {
   @Prop() required: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the checkbox group.
+   * The size of the checkboxes to be displayed. This does not affect the font size of the label.
+   */
+  @Prop() size?: IcSizes = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small: boolean = false;
 
@@ -124,7 +129,7 @@ export class CheckboxGroup {
     );
 
     return (
-      <Host class={{ ["small"]: this.small }}>
+      <Host class={{ ["small"]: this.small, [`${this.size}`]: true }}>
         {(this.validationStatus === "error" ||
           this.required ||
           this.hideLabel) && (

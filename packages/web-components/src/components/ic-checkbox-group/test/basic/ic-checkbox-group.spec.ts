@@ -148,6 +148,46 @@ describe("ic-checkbox-group", () => {
     );
   });
 
+  it("should pass the size on the checkbox group to the child checkboxes when there's no size set on them individually", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" name="test" size="small">
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
+        <ic-checkbox value="test" label="test label"></ic-checkbox>  
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    const checkboxes = page.root.querySelectorAll("ic-checkbox");
+
+    checkboxes.forEach((checkbox) => {
+      expect(checkbox.classList.contains("small")).toBe(true);
+    });
+  });
+
+  it("should prioritise the size on an individual checkbox over the size on the checkbox group", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" name="test" size="large">
+        <ic-checkbox value="test" label="test label" id="large-checkbox"></ic-checkbox>
+        <ic-checkbox value="test" label="test label" size="small" id="small-checkbox"></ic-checkbox>  
+      </ic-checkbox-group>`,
+    });
+
+    const smallCheckbox = page.root.querySelector(
+      "ic-checkbox#small-checkbox"
+    ) as HTMLIcCheckboxElement;
+    expect(smallCheckbox["size"]).toMatch("small");
+
+    const largeCheckbox = page.root.querySelector(
+      "ic-checkbox:not(#small-checkbox)"
+    ) as HTMLIcCheckboxElement;
+    expect(largeCheckbox.classList.contains("large")).toBe(true);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should change checked state", async () => {
     const page = await newSpecPage({
       components: [Checkbox],
