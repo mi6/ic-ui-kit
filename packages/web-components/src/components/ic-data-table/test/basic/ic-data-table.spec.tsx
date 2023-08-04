@@ -18,6 +18,7 @@ const name2 = "Sally Jones";
 const name3 = "Luke Fisher";
 const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
+const highlightedRowClass = "table-row-selected";
 
 const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
@@ -581,5 +582,47 @@ describe(icDataTable, () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should highlight the correct row when clicked", async () => {
+    const page = await newSpecPage({
+      components: [Button, DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+        ></ic-data-table>
+      ),
+    });
+
+    const dataTable = document.querySelector(icDataTable);
+
+    const rows = dataTable.shadowRoot.querySelectorAll("tr");
+
+    rows[1].click();
+
+    await page.waitForChanges();
+
+    expect(rows[1]).toHaveClass(highlightedRowClass);
+
+    rows[2].click();
+
+    await page.waitForChanges();
+
+    expect(rows[1]).not.toHaveClass(highlightedRowClass);
+    expect(rows[2]).toHaveClass(highlightedRowClass);
+
+    page.win.dispatchEvent(
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    await page.waitForChanges();
+
+    expect(rows[1]).not.toHaveClass(highlightedRowClass);
+    expect(rows[2]).not.toHaveClass(highlightedRowClass);
   });
 });
