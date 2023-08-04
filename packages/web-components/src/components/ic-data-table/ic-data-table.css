@@ -1,7 +1,3 @@
-/**
-  * @prop --height: height of the table row container
-  */
-
 :host {
   position: relative;
   display: block;
@@ -27,7 +23,7 @@
 }
 
 table {
-  table-layout: fixed;
+  table-layout: auto;
   border-spacing: 0;
   width: 100%;
 }

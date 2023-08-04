@@ -108,12 +108,12 @@ export class DataTable {
   @State() toRow: number = Number(this.paginationOptions.itemsPerPage[0].value);
 
   /**
-   * Adds a pagination bar to the bottom of the table if set to `true`.
+   * If `true`, adds a pagination bar to the bottom of the table.
    */
   @Prop() showPagination?: boolean = false;
 
   /**
-   * Allows table columns to be sorted using applied sort buttons if set to `true`.
+   * If `true`, allows table columns to be sorted using applied sort buttons.
    */
   @Prop() sortable?: boolean = false;
 
