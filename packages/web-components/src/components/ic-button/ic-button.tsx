@@ -250,6 +250,8 @@ export class Button {
   async updateAriaLabel(newValue: string): Promise<void> {
     if (this.hasTooltip) {
       this.tooltipEl.label = newValue;
+      this.buttonEl.setAttribute("aria-label", null);
+    } else {
       this.buttonEl.setAttribute("aria-label", newValue);
     }
   }
@@ -364,7 +366,7 @@ export class Button {
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}
           id={buttonId}
-          aria-describedby={describedBy}
+          aria-describedby={this.hasTooltip && ariaLabel ? null : describedBy}
           part="button"
         >
           {this.hasIconSlot() && !this.loading && (

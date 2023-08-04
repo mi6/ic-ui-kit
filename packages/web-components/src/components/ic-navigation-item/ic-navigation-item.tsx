@@ -196,7 +196,6 @@ export class NavigationItem {
   ): HTMLElement => {
     const variant =
       this.isTopNavChild || this.inTopNavSideMenu ? "body" : "label";
-    const tooltipId = "ic-tooltip-navigation-item";
     const ChevronIconComponent = this.expandable && (
       <div class={{ svg: true }} innerHTML={chevronIcon}></div>
     );
@@ -219,7 +218,6 @@ export class NavigationItem {
           class="link"
           ref={(el) => (this.itemEl = el)}
           part="link"
-          aria-labelledby={tooltipId}
         >
           {IconComponent}
 
@@ -233,12 +231,7 @@ export class NavigationItem {
     }
 
     return (
-      <div
-        tabindex="0"
-        class="link"
-        ref={(el) => (this.itemEl = el)}
-        aria-labelledby={tooltipId}
-      >
+      <div tabindex="0" class="link" ref={(el) => (this.itemEl = el)}>
         {IconComponent}
         <ic-typography variant={variant}>{label}</ic-typography>
         {ChevronIconComponent}

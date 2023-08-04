@@ -156,7 +156,7 @@ export class NavigationButton {
       <Host class={{ ["in-side-menu"]: this.mode === "menu" }}>
         <ic-button
           class={className}
-          aria-label={this.label}
+          aria-label={variant == "icon" ? this.label : null}
           ref={(el) => (this.buttonEl = el)}
           {...buttonProps}
           {...this.inheritedAttributes}
