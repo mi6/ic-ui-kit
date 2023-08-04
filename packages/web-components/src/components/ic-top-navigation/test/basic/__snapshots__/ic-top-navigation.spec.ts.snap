@@ -217,7 +217,7 @@ exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] 
   <ic-navigation-item class="light navigation-item navigation-item-top-nav" href="/" label="Navigation 1" role="listitem" slot="navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="Navigation 1" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <ic-typography variant="label">
             Navigation 1
           </ic-typography>
