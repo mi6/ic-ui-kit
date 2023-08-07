@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcDateFormat, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail, IcWeekDays } from "./utils/types";
-import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
@@ -31,7 +31,7 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcDateFormat, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
