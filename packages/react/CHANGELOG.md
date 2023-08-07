@@ -3,21 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.1.0-beta.18](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.17...v2.1.0-beta.18) (2023-07-24)
-
+# [2.2.0](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.18...v2.2.0) (2023-08-07)
 
 ### Bug Fixes
 
-* **react:** update shortTitle to shortAppTitle for top navigation ([6373cce](https://github.com/mi6/ic-ui-kit/commit/6373cceb8c014bce66e5be64f60dd3561b2f60f0)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
+- **web-components:** added prop to prevent auto highlighting first option ([9b4e755](https://github.com/mi6/ic-ui-kit/commit/9b4e755bf2011a9e735e551d6a8efadca20fc522))
 
+# [2.1.0-beta.18](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.17...v2.1.0-beta.18) (2023-07-24)
+
+### Bug Fixes
+
+- **react:** update shortTitle to shortAppTitle for top navigation ([6373cce](https://github.com/mi6/ic-ui-kit/commit/6373cceb8c014bce66e5be64f60dd3561b2f60f0)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
 
 ### Features
 
-* **react:** add story for short app title for top navigation ([02a4c01](https://github.com/mi6/ic-ui-kit/commit/02a4c01ef1159b7f69f0202c7aed8898d51afabc)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
-
-
-
-
+- **react:** add story for short app title for top navigation ([02a4c01](https://github.com/mi6/ic-ui-kit/commit/02a4c01ef1159b7f69f0202c7aed8898d51afabc)), closes [#853](https://github.com/mi6/ic-ui-kit/issues/853)
 
 # [2.1.0-beta.17](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.16...v2.1.0-beta.17) (2023-07-13)
 

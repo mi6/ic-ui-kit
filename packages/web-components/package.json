@@ -1,6 +1,6 @@
 {
   "name": "@ukic/web-components",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A web component UI library compiled with StencilJS",
   "main": "dist/index.cjs.js",
   "module": "./dist/index.js",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^3.3.1",
-    "@ukic/fonts": "^2.1.0-beta.18"
+    "@ukic/fonts": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
