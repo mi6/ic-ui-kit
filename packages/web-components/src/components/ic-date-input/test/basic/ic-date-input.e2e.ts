@@ -421,4 +421,142 @@ describe("ic-date-input", () => {
 
     expect(await yearInput.getProperty("value")).toBe("1999");
   });
+
+  it("should test setting date to null programatically", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-date-input
+        label="Test label"
+        value='31/08/2025'
+      ></ic-date-input>
+      <button>Set Null</button>
+      <script>
+        function setValue(){
+          input.value=null;
+        } 
+       const input = document.querySelector("ic-date-input");
+       const button = document.querySelector("button");
+       button.addEventListener("click", setValue); 
+      </script>`
+    );
+
+    const dayInput = await page.find(
+      'ic-date-input >>> input[aria-label="day"]'
+    );
+
+    const monthInput = await page.find(
+      'ic-date-input >>> input[aria-label="month"]'
+    );
+
+    const yearInput = await page.find(
+      'ic-date-input >>> input[aria-label="year"]'
+    );
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBe("31");
+    expect(await monthInput.getProperty("value")).toBe("08");
+    expect(await yearInput.getProperty("value")).toBe("2025");
+
+    const button = await page.find("button");
+    button.click();
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBeNull;
+    expect(await monthInput.getProperty("value")).toBeNull;
+    expect(await yearInput.getProperty("value")).toBeNull;
+  });
+
+  it("should test setting date to empty string programatically", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-date-input
+        label="Test label"
+        value='31/08/2025'
+      ></ic-date-input>
+      <button>Set Empty</button>
+      <script>
+        function setValue(){
+          input.value="";
+        } 
+       const input = document.querySelector("ic-date-input");
+       const button = document.querySelector("button");
+       button.addEventListener("click", setValue); 
+      </script>`
+    );
+
+    const dayInput = await page.find(
+      'ic-date-input >>> input[aria-label="day"]'
+    );
+
+    const monthInput = await page.find(
+      'ic-date-input >>> input[aria-label="month"]'
+    );
+
+    const yearInput = await page.find(
+      'ic-date-input >>> input[aria-label="year"]'
+    );
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBe("31");
+    expect(await monthInput.getProperty("value")).toBe("08");
+    expect(await yearInput.getProperty("value")).toBe("2025");
+
+    const button = await page.find("button");
+    button.click();
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBeNull;
+    expect(await monthInput.getProperty("value")).toBeNull;
+    expect(await yearInput.getProperty("value")).toBeNull;
+  });
+
+  it("should test setting date to undefined programatically", async () => {
+    const page = await newE2EPage();
+    await page.setContent(
+      `<ic-date-input
+        label="Test label"
+        value='31/08/2025'
+      ></ic-date-input>
+      <button>Set undefined</button>
+      <script>
+        function setValue(){
+          input.value=undefined;
+        } 
+       const input = document.querySelector("ic-date-input");
+       const button = document.querySelector("button");
+       button.addEventListener("click", setValue); 
+      </script>`
+    );
+
+    const dayInput = await page.find(
+      'ic-date-input >>> input[aria-label="day"]'
+    );
+
+    const monthInput = await page.find(
+      'ic-date-input >>> input[aria-label="month"]'
+    );
+
+    const yearInput = await page.find(
+      'ic-date-input >>> input[aria-label="year"]'
+    );
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBe("31");
+    expect(await monthInput.getProperty("value")).toBe("08");
+    expect(await yearInput.getProperty("value")).toBe("2025");
+
+    const button = await page.find("button");
+    button.click();
+
+    await page.waitForChanges();
+
+    expect(await dayInput.getProperty("value")).toBeNull;
+    expect(await monthInput.getProperty("value")).toBeNull;
+    expect(await yearInput.getProperty("value")).toBeNull;
+  });
 });

@@ -755,38 +755,43 @@ export class DateInput {
   private setDate = (date: string | Date) => {
     const dateParts = this.dateFormat.split("/");
 
-    if (this.isDateOrEpoch(date)) {
-      let newDate;
-      if (typeof date === "string") {
-        // Checking if epoch date time
-        newDate = new Date(+date);
-      } else {
-        newDate = date;
-      }
+    if (date === null || date === "" || date === undefined) {
+      this.day = null;
+      this.month = null;
+      this.year = null;
+      this.inputsInOrder.forEach((input) => {
+        input.classList.remove(this.FIT_TO_VALUE);
+        this.setPreventInput(input, false);
+      });
+      this.handleDateChange(true);
+    } else {
+      if (this.isDateOrEpoch(date)) {
+        let newDate;
+        if (typeof date === "string") {
+          // Checking if epoch date time
+          newDate = new Date(+date);
+        } else {
+          newDate = date;
+        }
 
-      if (date === null) {
-        this.day = null;
-        this.month = null;
-        this.year = null;
-      } else {
         this.day = this.convertToDoubleDigits(newDate.getDate());
         this.month = this.convertToDoubleDigits(newDate.getMonth() + 1);
         this.year = newDate.getFullYear().toString();
-      }
-    } else if (typeof date === "string") {
-      const defaultDateArray = this.splitStringDate(date);
+      } else if (typeof date === "string") {
+        const defaultDateArray = this.splitStringDate(date);
 
-      defaultDateArray.forEach((d, i) => {
-        if (d.length === 4) {
-          this.year = d;
-        } else {
-          this.setDayMonthValue(dateParts[i].substring(0, 1), d);
+        defaultDateArray.forEach((d, i) => {
+          if (d.length === 4) {
+            this.year = d;
+          } else {
+            this.setDayMonthValue(dateParts[i].substring(0, 1), d);
+          }
+        });
+
+        if (this.isZuluTime) {
+          // Reset Zulu flag as ISO string has been parsed
+          this.isZuluTime = false;
         }
-      });
-
-      if (this.isZuluTime) {
-        // Reset Zulu flag as ISO string has been parsed
-        this.isZuluTime = false;
       }
     }
 
