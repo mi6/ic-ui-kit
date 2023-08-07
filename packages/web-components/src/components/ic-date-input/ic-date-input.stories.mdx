@@ -473,3 +473,41 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### With clearing value
+
+<Canvas>
+  <Story name="With clearing value" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+        id="date-input-default-date-with-value"
+        label="When would you like to collect your coffee?"
+        date-format="DD/MM/YYYY"
+        value="21/01/2001"
+      ></ic-date-input>
+      <ic-button id="update">Update date</ic-button>
+      <ic-button id="null-btn">set null</ic-button>
+      <ic-button id="empty-btn">set empty string</ic-button>
+      <ic-button id="undef-btn">set undefined</ic-button>
+      <script>
+        var input = document.querySelector(
+          "#date-input-default-date-with-value"
+        );
+        var btn = document.querySelector("#update");
+        btn.addEventListener("click", () => {
+          input.value = new Date("05 May 2005");
+        });
+        var btn2 = document.querySelector("#null-btn");
+        btn2.addEventListener("click", () => {
+          input.value = null;
+        });
+        var btn3 = document.querySelector("#empty-btn");
+        btn3.addEventListener("click", () => {
+          input.value = "";
+        });
+        var btn4 = document.querySelector("#undef-btn");
+        btn4.addEventListener("click", () => {
+          input.value = undefined;
+        });
+      </script>`}
+  </Story>
+</Canvas>
