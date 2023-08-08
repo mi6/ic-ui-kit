@@ -22,6 +22,7 @@ export const IcDataEntity = /*@__PURE__*/createReactComponent<JSX.IcDataEntity, 
 export const IcDataRow = /*@__PURE__*/createReactComponent<JSX.IcDataRow, HTMLIcDataRowElement>('ic-data-row');
 export const IcDialog = /*@__PURE__*/createReactComponent<JSX.IcDialog, HTMLIcDialogElement>('ic-dialog');
 export const IcDivider = /*@__PURE__*/createReactComponent<JSX.IcDivider, HTMLIcDividerElement>('ic-divider');
+export const IcEmptyState = /*@__PURE__*/createReactComponent<JSX.IcEmptyState, HTMLIcEmptyStateElement>('ic-empty-state');
 export const IcFooter = /*@__PURE__*/createReactComponent<JSX.IcFooter, HTMLIcFooterElement>('ic-footer');
 export const IcFooterLink = /*@__PURE__*/createReactComponent<JSX.IcFooterLink, HTMLIcFooterLinkElement>('ic-footer-link');
 export const IcFooterLinkGroup = /*@__PURE__*/createReactComponent<JSX.IcFooterLinkGroup, HTMLIcFooterLinkGroupElement>('ic-footer-link-group');
