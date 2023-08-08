@@ -23,7 +23,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test-a11y": "jest",
     "create-component": "stencil generate",
-    "storybook": "npm-run-all --parallel build:watch start-storybook",
+    "storybook": "npm-run-all --parallel build start-storybook",
     "start-storybook": "start-storybook -p 6006 -s dist --no-manager-cache",
     "build-storybook": "rimraf /storybook-static && build-storybook -s public",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
