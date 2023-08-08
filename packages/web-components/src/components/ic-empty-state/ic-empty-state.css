@@ -1,0 +1,49 @@
+:host {
+  gap: var(--ic-space-xs);
+  padding: var(--ic-space-xs);
+}
+
+:host,
+.action-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-area {
+  gap: var(--ic-space-md);
+}
+
+:host ::slotted(svg),
+:host ::slotted(img) {
+  border-radius: var(--ic-space-xxs);
+}
+
+:host(.right),
+:host(.right) .action-area {
+  align-items: flex-end;
+  text-align: right;
+}
+
+:host(.center),
+:host(.center) .action-area {
+  align-items: center;
+  text-align: center;
+}
+
+:host(.image-default) ::slotted(svg),
+:host(.image-default) ::slotted(img) {
+  height: calc(3 * var(--ic-space-lg)) !important;
+  width: calc(3 * var(--ic-space-lg)) !important;
+}
+
+:host(.image-small) ::slotted(svg),
+:host(.image-small) ::slotted(img) {
+  height: var(--ic-space-xxl) !important;
+  width: var(--ic-space-xxl) !important;
+}
+
+:host(.image-large) ::slotted(svg),
+:host(.image-large) ::slotted(img) {
+  height: calc(4 * var(--ic-space-xl)) !important;
+  width: calc(4 * var(--ic-space-xl)) !important;
+}

@@ -10,6 +10,7 @@ import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -33,6 +34,7 @@ export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -485,6 +487,32 @@ export namespace Components {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
+    }
+    interface IcEmptyState {
+        /**
+          * The alignment of the empty state container.
+         */
+        "aligned"?: IcEmptyStateAlignment;
+        /**
+          * The body text rendered in the empty state container.
+         */
+        "body"?: string;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "bodyMaxLines"?: number;
+        /**
+          * The title rendered in the empty state container.
+         */
+        "heading": string;
+        /**
+          * The size of the image or icon used in the image slot.
+         */
+        "imageSize"?: IcSizes;
+        /**
+          * The subtitle rendered in the empty state container.
+         */
+        "subheading"?: string;
     }
     interface IcFooter {
         /**
@@ -2075,6 +2103,12 @@ declare global {
         prototype: HTMLIcDividerElement;
         new (): HTMLIcDividerElement;
     };
+    interface HTMLIcEmptyStateElement extends Components.IcEmptyState, HTMLStencilElement {
+    }
+    var HTMLIcEmptyStateElement: {
+        prototype: HTMLIcEmptyStateElement;
+        new (): HTMLIcEmptyStateElement;
+    };
     interface HTMLIcFooterElement extends Components.IcFooter, HTMLStencilElement {
     }
     var HTMLIcFooterElement: {
@@ -2354,6 +2388,7 @@ declare global {
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
+        "ic-empty-state": HTMLIcEmptyStateElement;
         "ic-footer": HTMLIcFooterElement;
         "ic-footer-link": HTMLIcFooterLinkElement;
         "ic-footer-link-group": HTMLIcFooterLinkGroupElement;
@@ -2849,6 +2884,32 @@ declare namespace LocalJSX {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
+    }
+    interface IcEmptyState {
+        /**
+          * The alignment of the empty state container.
+         */
+        "aligned"?: IcEmptyStateAlignment;
+        /**
+          * The body text rendered in the empty state container.
+         */
+        "body"?: string;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "bodyMaxLines"?: number;
+        /**
+          * The title rendered in the empty state container.
+         */
+        "heading": string;
+        /**
+          * The size of the image or icon used in the image slot.
+         */
+        "imageSize"?: IcSizes;
+        /**
+          * The subtitle rendered in the empty state container.
+         */
+        "subheading"?: string;
     }
     interface IcFooter {
         /**
@@ -4365,6 +4426,7 @@ declare namespace LocalJSX {
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
+        "ic-empty-state": IcEmptyState;
         "ic-footer": IcFooter;
         "ic-footer-link": IcFooterLink;
         "ic-footer-link-group": IcFooterLinkGroup;
@@ -4429,6 +4491,7 @@ declare module "@stencil/core" {
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
+            "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
             "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
             "ic-footer-link": LocalJSX.IcFooterLink & JSXBase.HTMLAttributes<HTMLIcFooterLinkElement>;
             "ic-footer-link-group": LocalJSX.IcFooterLinkGroup & JSXBase.HTMLAttributes<HTMLIcFooterLinkGroupElement>;
