@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-empty state should render 1`] = `
+<ic-empty-state class="left" heading="Empty state title">
+  <mock:shadow-root>
+    <div>
+      <ic-typography variant="h4">
+        Empty state title
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-empty-state>
+`;
+
+exports[`ic-empty state should render with a slotted image 1`] = `
+<ic-empty-state class="image-default left" heading="Empty state title">
+  <mock:shadow-root>
+    <slot name="image"></slot>
+    <div>
+      <ic-typography variant="h4">
+        Empty state title
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+  <svg fill="currentColor" height="24px" slot="image" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+    <title>
+      close icon
+    </title>
+  </svg>
+</ic-empty-state>
+`;
+
+exports[`ic-empty state should render with actions 1`] = `
+<ic-empty-state class="left" heading="Empty state title">
+  <mock:shadow-root>
+    <div>
+      <ic-typography variant="h4">
+        Empty state title
+      </ic-typography>
+    </div>
+    <div class="action-area">
+      <slot name="actions"></slot>
+    </div>
+  </mock:shadow-root>
+  <ic-button class="button-size-default button-variant-primary" exportparts="button" slot="actions">
+    <mock:shadow-root>
+      <button class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </mock:shadow-root>
+    Action
+  </ic-button>
+</ic-empty-state>
+`;
+
+exports[`ic-empty state should render with subheading and body text 1`] = `
+<ic-empty-state body="Body text for empty state." class="left" heading="Empty state title" subheading="Empty state subtitle">
+  <mock:shadow-root>
+    <div>
+      <ic-typography variant="h4">
+        Empty state title
+      </ic-typography>
+      <ic-typography variant="subtitle-small">
+        Empty state subtitle
+      </ic-typography>
+      <ic-typography>
+        Body text for empty state.
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-empty-state>
+`;
