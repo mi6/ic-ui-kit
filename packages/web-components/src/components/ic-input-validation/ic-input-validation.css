@@ -26,7 +26,7 @@ ic-input-validation span.icon-error > svg {
 }
 
 ic-input-validation span.icon-warning > svg {
-  fill: var(--ic-status-warning-mid);
+  fill: var(--ic-status-warning);
 }
 
 ic-input-validation .statustext {
