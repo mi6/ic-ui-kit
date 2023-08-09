@@ -171,6 +171,34 @@ describe("ic-search-bar", () => {
     expect(await menu.isVisible()).toBeTruthy();
   });
 
+  it("should begin with no aria-owns attribute and then add one when the menu appears", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`
+      <ic-search-bar label="Test Label"></ic-search-bar>
+    `);
+
+    const searchBar = await page.find("ic-search-bar");
+    searchBar.setProperty("options", options);
+
+    await page.waitForChanges();
+
+    let textField = await page.find("ic-search-bar >>> ic-text-field");
+    let menu = await textField.find("ic-menu");
+
+    expect(textField).not.toHaveAttribute("aria-owns");
+    expect(menu).toBeNull();
+
+    await focusAndTypeIntoInput("ba", page);
+
+    await page.waitForChanges();
+
+    textField = await page.find("ic-search-bar >>> ic-text-field");
+    menu = await textField.find("ic-menu");
+
+    expect(textField).toHaveAttribute("aria-owns");
+    expect(menu).not.toBeNull();
+  });
+
   it("should focus on input when menu is initially displayed", async () => {
     const page = await newE2EPage();
     await page.setContent(`

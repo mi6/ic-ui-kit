@@ -775,6 +775,8 @@ export class SearchBar {
     const disabledText = disabledMode && !readonly;
     const hasSuggestedSearch = value && this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
+    const menuRendered =
+      menuOpen && value.length >= this.charactersUntilSuggestion;
     const isOrHasLoaded =
       this.filteredOptions.length === 1 &&
       (this.filteredOptions[0].label === this.loadingLabel ||
@@ -829,7 +831,7 @@ export class SearchBar {
           onFocus={this.onInputFocus}
           aria-label={hideLabel ? label : ""}
           aria-describedby={describedById}
-          aria-owns={hasSuggestedSearch ? menuId : undefined}
+          aria-owns={menuRendered ? menuId : undefined}
           aria-haspopup={options.length > 0 ? "listbox" : undefined}
           ariaExpanded={expanded}
           ariaActiveDescendant={ariaActiveDescendant}
@@ -910,7 +912,7 @@ export class SearchBar {
             }}
             slot="menu"
           >
-            {menuOpen && value.length >= this.charactersUntilSuggestion && (
+            {menuRendered && (
               <ic-menu
                 class={{
                   "no-results": this.hadNoOptions() || isOrHasLoaded,
