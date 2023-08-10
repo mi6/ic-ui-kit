@@ -23,7 +23,7 @@
 }
 
 table {
-  table-layout: auto;
+  table-layout: fixed;
   border-spacing: 0;
   width: 100%;
 }
@@ -162,7 +162,8 @@ table {
   vertical-align: top;
 }
 
-.data-type-number {
+.data-type-number,
+.data-type-date {
   text-align: right;
   vertical-align: top;
 }

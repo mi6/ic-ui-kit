@@ -100,18 +100,6 @@ export class Tooltip {
       ...options,
       modifiers: [
         ...options.modifiers,
-        {
-          name: "offset",
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: "arrow",
-          options: {
-            element: this.arrow,
-          },
-        },
         { name: "eventListeners", enabled: true },
       ],
     }));
@@ -186,6 +174,28 @@ export class Tooltip {
   };
 
   componentDidLoad(): void {
+    this.popperInstance = createPopper(this.el, this.toolTip, {
+      placement: this.placement,
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 10],
+          },
+        },
+        {
+          name: "arrow",
+          options: {
+            element: this.arrow,
+          },
+        },
+        {
+          name: "eventListeners",
+          options: { scroll: false, resize: false },
+        },
+      ],
+    });
+
     this.manageEventListeners("add");
 
     this.icDialogEl = this.el.closest("ic-dialog");

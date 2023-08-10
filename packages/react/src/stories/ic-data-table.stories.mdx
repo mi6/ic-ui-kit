@@ -1069,6 +1069,95 @@ export const defaultSortColumns = [
   </Story>
 </Canvas>
 
+### Sort dates
+
+export const dateColumns = [
+          {
+            key: "firstName",
+            title: "First name",
+            dataType: "string",
+          },
+          {
+            key: "lastName",
+            title: "Last name",
+            dataType: "string",
+          },
+          {
+            key: "age",
+            title: "Age",
+            dataType: "number",
+          },
+          {
+            key: "jobTitle",
+            title: "Job title",
+            dataType: "string",
+          },
+          {
+            key: "address",
+            title: "Address",
+            dataType: "address",
+          },
+          {
+            key: "birthday",
+            title: "Birthday",
+            dataType: "date",
+          },
+        ];
+
+export const dateData = [
+          {
+            firstName: "Joe",
+            lastName: "Bloggs",
+            age: 30,
+            jobTitle: "Developer",
+            address: "1 Main Street, Town, County, Postcode",
+            birthday: "12-11-2000",
+          },
+          {
+            firstName: "Sarah",
+            lastName: "Smith",
+            age: 28,
+            jobTitle: "Analyst",
+            address: "2 Main Street, Town, Country, Postcode",
+            birthday: "12-11-2001",
+          },
+          {
+            firstName: "Mark",
+            lastName: "Owens",
+            age: 45,
+            jobTitle: "Team Lead",
+            address: "12 Key Street, Town, Country, Postcode",
+            birthday: "1212-11-13",
+          },
+          {
+            firstName: "Naomi",
+            lastName: "Thomas",
+            age: 32,
+            jobTitle: "Developer",
+            address: "8 Side Street, Town, Country, Postcode",
+            birthday: new Date("2004-03-27"),
+          },
+          {
+            firstName: "Luke",
+            lastName: "Ashford",
+            age: 18,
+            jobTitle: "Junior Developer",
+            address: "5 New Street, Town, Country, Postcode",
+            birthday: new Date("2007-01-01").toLocaleDateString(),
+          },
+        ];
+
+<Canvas>
+  <Story name="Sort dates">
+    <IcDataTable
+      caption="dates in table"
+      sortable={true}
+      columns={dateColumns}
+      data={dateData}
+    ></IcDataTable>
+  </Story>
+</Canvas>
+
 ### Pagination
 
 export const paginationColumns = [

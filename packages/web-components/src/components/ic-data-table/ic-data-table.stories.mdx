@@ -1196,6 +1196,93 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Sort dates
+
+<Canvas>
+  <Story name="Sort dates" parameters={{ loki: { skip: true } }}>
+    {html` <script>
+        dataTable = document.querySelector("ic-data-table");
+        DATE = new Date("2004-03-27");
+        DATE_STRING = new Date("2007-01-01").toLocaleDateString();
+        dataTable.columns = [
+          {
+            key: "firstName",
+            title: "First name",
+            dataType: "string",
+          },
+          {
+            key: "lastName",
+            title: "Last name",
+            dataType: "string",
+          },
+          {
+            key: "age",
+            title: "Age",
+            dataType: "number",
+          },
+          {
+            key: "jobTitle",
+            title: "Job title",
+            dataType: "string",
+          },
+          {
+            key: "address",
+            title: "Address",
+            dataType: "address",
+          },
+          {
+            key: "birthday",
+            title: "Birthday",
+            dataType: "date",
+          },
+        ];
+        dataTable.data = [
+          {
+            firstName: "Joe",
+            lastName: "Bloggs",
+            age: 30,
+            jobTitle: "Developer",
+            address: "1 Main Street, Town, County, Postcode",
+            birthday: "12-11-2000",
+          },
+          {
+            firstName: "Sarah",
+            lastName: "Smith",
+            age: 28,
+            jobTitle: "Analyst",
+            address: "2 Main Street, Town, Country, Postcode",
+            birthday: "12-11-2001",
+          },
+          {
+            firstName: "Mark",
+            lastName: "Owens",
+            age: 45,
+            jobTitle: "Team Lead",
+            address: "12 Key Street, Town, Country, Postcode",
+            birthday: "1212-11-13",
+          },
+          {
+            firstName: "Naomi",
+            lastName: "Thomas",
+            age: 32,
+            jobTitle: "Developer",
+            address: "8 Side Street, Town, Country, Postcode",
+            birthday: DATE,
+          },
+          {
+            firstName: "Luke",
+            lastName: "Ashford",
+            age: 18,
+            jobTitle: "Junior Developer",
+            address: "5 New Street, Town, Country, Postcode",
+            birthday: DATE_STRING,
+          },
+        ];
+      </script>
+      <ic-data-table caption="dates in table" sortable="true"></ic-data-table>`}
+  </Story>
+</Canvas>
+
 ### Pagination
 
 <Canvas>

@@ -9,7 +9,8 @@ export type IcDataTableColumnDataTypes =
   | "string"
   | "number"
   | "address"
-  | "element";
+  | "element"
+  | "date";
 
 export type IcDataTableColumnObject = {
   key: string;
