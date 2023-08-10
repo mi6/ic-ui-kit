@@ -410,6 +410,62 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should return correct alignment from getCellAlignment", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={dataWithCellOverrides}
+          show-pagination
+        ></ic-data-table>
+      ),
+    });
+
+    let cellAlignment = await page.rootInstance.getCellAlignment(
+      {
+        data: name1,
+        cellAlignment: { horizontal: "middle", vertical: "center" },
+        emphasis: "high",
+      },
+      "vertical"
+    );
+    expect(cellAlignment).toBe("center");
+
+    cellAlignment = await page.rootInstance.getCellAlignment(
+      {
+        data: name1,
+        cellAlignment: { horizontal: "middle", vertical: "center" },
+        emphasis: "high",
+      },
+      "horizontal"
+    );
+    expect(cellAlignment).toBe("middle");
+
+    cellAlignment = await page.rootInstance.getCellAlignment(
+      {
+        data: name1,
+        columnAlignment: { horizontal: "middle", vertical: "center" },
+        emphasis: "high",
+      },
+      "horizontal"
+    );
+    expect(cellAlignment).toBeUndefined;
+
+    cellAlignment = await page.rootInstance.getCellAlignment(
+      name1,
+      "horizontal"
+    );
+    expect(cellAlignment).toBeUndefined;
+
+    cellAlignment = await page.rootInstance.getCellAlignment(
+      undefined,
+      "horizontal"
+    );
+    expect(cellAlignment).toBeUndefined;
+  });
+
   it("should change page when the pagination items are clicked", async () => {
     const page = await newSpecPage({
       components: [
@@ -559,25 +615,25 @@ describe(icDataTable, () => {
 
     const dataTable = document.querySelector(icDataTable);
 
-    const sortButton = dataTable.shadowRoot.querySelector(
-      ".sort-button"
-    ) as HTMLIcButtonElement;
+    const sortButton = Array.from(
+      dataTable.shadowRoot.querySelectorAll(".sort-button")
+    ) as HTMLIcButtonElement[];
 
     expect(page.root).toMatchSnapshot();
 
-    sortButton.click();
+    sortButton[0].click();
 
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
 
-    sortButton.click();
+    sortButton[0].click();
 
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
 
-    sortButton.click();
+    sortButton[1].click();
 
     await page.waitForChanges();
 

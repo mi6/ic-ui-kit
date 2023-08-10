@@ -3,6 +3,7 @@ import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
 import descendingIcon from "./assets/descending-icon.svg";
 import {
+  IcDataTableColumnDataTypes,
   IcDataTableColumnObject,
   IcDataTableDensityOptions,
   IcDataTableSortOrderOptions,
@@ -180,6 +181,34 @@ export class DataTable {
 
   private notDefaultDensity = () => this.density !== "default";
 
+  private getCellContent = (
+    cell: any,
+    dataType: IcDataTableColumnDataTypes
+  ): any => {
+    switch (dataType) {
+      case "element":
+        return undefined;
+      case "date":
+        return (
+          cell instanceof Date ? cell : new Date(cell)
+        ).toLocaleDateString();
+      default:
+        return cell;
+    }
+  };
+
+  private getCellAlignment = (
+    cell: any,
+    alignment: "horizontal" | "vertical"
+  ) => {
+    if (this.isObject(cell) && Object.keys(cell).includes("cellAlignment")) {
+      return this.getObjectValue(
+        this.getObjectValue(cell, "cellAlignment"),
+        alignment
+      );
+    }
+  };
+
   private createCells = (row: object) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
@@ -194,17 +223,8 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const column = this.columns[index];
+      const { columnAlignment, dataType, emphasis } = this.columns[index];
       const cellValue = (key: string) => this.getObjectValue(cell, key);
-
-      const getAlignment = (alignment: "horizontal" | "vertical") => {
-        if (
-          this.isObject(cell) &&
-          Object.keys(cell).includes("cellAlignment")
-        ) {
-          return this.getObjectValue(cellValue("cellAlignment"), alignment);
-        }
-      };
 
       return rowKeys[index] === "header" ? (
         <th
@@ -221,24 +241,25 @@ export class DataTable {
         </th>
       ) : (
         <td
-          innerHTML={column?.dataType === "element" ? (cell as string) : null}
+          innerHTML={dataType === "element" ? (cell as string) : null}
           class={{
             ["table-cell"]: true,
             [`table-density-${this.density}`]: this.notDefaultDensity(),
-            [`data-type-${column?.dataType}`]: true,
+            [`data-type-${dataType}`]: true,
             [`cell-alignment-${
-              column?.columnAlignment?.horizontal || getAlignment("horizontal")
+              columnAlignment?.horizontal ||
+              this.getCellAlignment(cell, "horizontal")
             }`]:
-              !!column?.columnAlignment?.horizontal ||
-              !!getAlignment("horizontal"),
+              !!columnAlignment?.horizontal ||
+              !!this.getCellAlignment(cell, "horizontal"),
             [`cell-alignment-${
-              column?.columnAlignment?.vertical ||
+              columnAlignment?.vertical ||
               rowAlignment ||
-              getAlignment("vertical")
+              this.getCellAlignment(cell, "vertical")
             }`]:
-              !!column?.columnAlignment?.vertical ||
+              !!columnAlignment?.vertical ||
               !!rowAlignment ||
-              !!getAlignment("vertical"),
+              !!this.getCellAlignment(cell, "vertical"),
           }}
         >
           <ic-typography
@@ -246,23 +267,23 @@ export class DataTable {
             class={{
               [`cell-emphasis-${
                 (this.isObject(cell) && cellValue("emphasis")) ||
-                column?.emphasis ||
+                emphasis ||
                 rowEmphasis
               }`]:
                 (this.isObject(cell) && !!cellValue("emphasis")) ||
-                !!column?.emphasis ||
+                !!emphasis ||
                 !!rowEmphasis,
               [`text-${this.density}`]: this.notDefaultDensity(),
             }}
           >
-            {this.isObject(cell) ? (
+            {this.isObject(cell) && dataType !== "date" ? (
               Object.keys(cell).includes("href") ? (
                 <ic-link href={cellValue("href")}>{cellValue("data")}</ic-link>
               ) : (
                 cellValue("data")
               )
             ) : (
-              column?.dataType !== "element" && cell
+              this.getCellContent(cell, dataType)
             )}
           </ic-typography>
         </td>
@@ -371,19 +392,23 @@ export class DataTable {
   private getComparison = (targetRow: any, comparisonRow: any): number => {
     const targetRowValue = targetRow[this.sortedColumn];
     const comparisonRowValue = comparisonRow[this.sortedColumn];
-    return String(
-      this.isObject(targetRowValue)
-        ? Object.values(targetRowValue)[0]
-        : targetRowValue
-    ).localeCompare(
-      String(
-        this.isObject(comparisonRowValue)
-          ? Object.values(comparisonRowValue)[0]
-          : comparisonRowValue
-      ),
-      undefined,
-      { numeric: true, sensitivity: "base" }
-    );
+    return this.columns.find((col) => col.key === this.sortedColumn)
+      .dataType === "date"
+      ? new Date(targetRowValue).valueOf() -
+          new Date(comparisonRowValue).valueOf()
+      : String(
+          this.isObject(targetRowValue)
+            ? Object.values(targetRowValue)[0]
+            : targetRowValue
+        ).localeCompare(
+          String(
+            this.isObject(comparisonRowValue)
+              ? Object.values(comparisonRowValue)[0]
+              : comparisonRowValue
+          ),
+          undefined,
+          { numeric: true, sensitivity: "base" }
+        );
   };
 
   private getSortFunction = () => {
@@ -404,22 +429,26 @@ export class DataTable {
 
     const sortOrders = this.sortOptions.sortOrders;
 
-    if (column) {
-      if (column !== this.sortedColumn) {
-        this.sortedColumn = column;
-        this.sortedColumnOrder = "unsorted";
+    if (column !== this.sortedColumn) {
+      if (this.sortedColumn) {
+        const previousSortedButton = this.el.shadowRoot.querySelector(
+          `#sort-button-${this.sortedColumn}`
+        ) as HTMLIcButtonElement;
+        previousSortedButton.updateAriaLabel(this.getSortButtonLabel(column)); // Passing through unsorted column returns correct label for newly unsorted column
       }
-
-      let nextSortOrderIndex = sortOrders.indexOf(this.sortedColumnOrder) + 1;
-
-      if (nextSortOrderIndex > sortOrders.length - 1) {
-        nextSortOrderIndex = 0;
-      }
-
-      this.sortedColumnOrder = sortOrders[nextSortOrderIndex];
-
-      sortButton.updateAriaLabel(this.getSortButtonLabel(column));
+      this.sortedColumn = column;
+      this.sortedColumnOrder = "unsorted";
     }
+
+    let nextSortOrderIndex = sortOrders.indexOf(this.sortedColumnOrder) + 1;
+
+    if (nextSortOrderIndex > sortOrders.length - 1) {
+      nextSortOrderIndex = 0;
+    }
+
+    this.sortedColumnOrder = sortOrders[nextSortOrderIndex];
+
+    sortButton.updateAriaLabel(this.getSortButtonLabel(column));
   };
 
   private updateScrollOffset = () => {

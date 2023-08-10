@@ -30,10 +30,9 @@
  - [ic-classification-banner](../ic-classification-banner)
  - [ic-data-entity](../ic-data-entity)
  - [ic-data-row](../ic-data-row)
- - [ic-dialog](../ic-dialog)
- - [ic-empty-state](../ic-empty-state)
  - [ic-data-table](../ic-data-table)
  - [ic-dialog](../ic-dialog)
+ - [ic-empty-state](../ic-empty-state)
  - [ic-footer](../ic-footer)
  - [ic-footer-link-group](../ic-footer-link-group)
  - [ic-hero](../ic-hero)
@@ -73,10 +72,9 @@ graph TD;
   ic-classification-banner --> ic-typography
   ic-data-entity --> ic-typography
   ic-data-row --> ic-typography
-  ic-dialog --> ic-typography
-  ic-empty-state --> ic-typography
   ic-data-table --> ic-typography
   ic-dialog --> ic-typography
+  ic-empty-state --> ic-typography
   ic-footer --> ic-typography
   ic-footer-link-group --> ic-typography
   ic-hero --> ic-typography
