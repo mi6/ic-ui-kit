@@ -74,7 +74,6 @@ export class Tooltip {
     if (this.ariaDescribedBy !== null) {
       this.ariaDescribedBy.innerText = newValue;
     }
-    this.show(this.popperInstance);
   }
 
   disconnectedCallback(): void {
