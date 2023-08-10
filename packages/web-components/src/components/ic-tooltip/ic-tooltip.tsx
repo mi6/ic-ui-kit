@@ -71,7 +71,6 @@ export class Tooltip {
     if (describedBySpan !== null) {
       describedBySpan.innerText = newValue;
     }
-    this.show(this.popperInstance);
   }
 
   disconnectedCallback(): void {
