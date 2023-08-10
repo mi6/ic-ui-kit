@@ -632,6 +632,7 @@ export class DateInput {
       }
     }
 
+    this.setInputValue(input);
     this.setFitToValueStyling(input);
   };
 
@@ -1138,19 +1139,22 @@ export class DateInput {
   };
 
   // Get whether date has been disabled using disableFromNow or disableUntilNow prop, but always allow current day
+  // Consider using dateClamp and inDateRange
   private isSelectedDateDisabled = () => {
     const currentDate = new Date();
     this.isAfterMax = false;
     this.isBeforeMin = false;
 
     let disabled = false;
+    const isNotToday =
+      this.selectedDate.toDateString() !== currentDate.toDateString();
 
-    if (this.min && this.selectedDate < this.minDate) {
+    if (this.minDate && this.selectedDate < this.minDate && isNotToday) {
       this.isBeforeMin = true;
       disabled = true;
     }
 
-    if (this.max && this.selectedDate > this.maxDate) {
+    if (this.maxDate && this.selectedDate > this.maxDate && isNotToday) {
       this.isAfterMax = true;
       disabled = true;
     }
@@ -1162,7 +1166,7 @@ export class DateInput {
     if (
       ((this.disableUntilNow && this.selectedDate < currentDate) ||
         (this.disableFromNow && this.selectedDate > currentDate)) &&
-      this.selectedDate.getDate() !== currentDate.getDate()
+      isNotToday
     ) {
       disabled = true;
     }
