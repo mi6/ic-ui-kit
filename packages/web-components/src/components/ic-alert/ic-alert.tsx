@@ -50,7 +50,7 @@ export class Alert {
   @Prop() message?: string;
 
   /**
-   * If `true`, the title and message will appear inline instead of above and below.
+   * If `true`, the title and message will appear above and below instead of inline.
    */
   @Prop() titleAbove?: boolean = false;
 
