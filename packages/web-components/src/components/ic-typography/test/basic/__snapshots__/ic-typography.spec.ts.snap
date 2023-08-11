@@ -182,8 +182,44 @@ exports[`ic-typography component should render with body variant 1`] = `
 </ic-typography>
 `;
 
+exports[`ic-typography component should render with bold style 1`] = `
+<ic-typography bold="true" class="bold ic-typography-body" variant="body">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
 exports[`ic-typography component should render with default body styles 1`] = `
 <ic-typography class="ic-typography-body">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
+exports[`ic-typography component should render with italic style 1`] = `
+<ic-typography class="ic-typography-body italic" italic="true" variant="body">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
+exports[`ic-typography component should render with strikethrough 1`] = `
+<ic-typography class="ic-typography-body strikethrough" strikethrough="true" variant="body">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+  IC Typography Test
+</ic-typography>
+`;
+
+exports[`ic-typography component should render with underline 1`] = `
+<ic-typography class="ic-typography-body underline" underline="true" variant="body">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
