@@ -1881,9 +1881,25 @@ export namespace Components {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */
@@ -4342,9 +4358,25 @@ declare namespace LocalJSX {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */

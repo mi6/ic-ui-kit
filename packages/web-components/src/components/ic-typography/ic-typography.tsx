@@ -29,9 +29,29 @@ export class Typography {
   @Prop() applyVerticalMargins?: boolean = false;
 
   /**
+   * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+   */
+  @Prop() bold?: boolean = false;
+
+  /**
+   * If `true`, the typography will have an italic font style.
+   */
+  @Prop() italic?: boolean = false;
+
+  /**
    * The number of lines to display before truncating the text, only used for the 'body' variant.
    */
   @Prop() maxLines?: number;
+
+  /**
+   * If `true`, the typography will have a line through it.
+   */
+  @Prop() strikethrough?: boolean = false;
+
+  /**
+   * If `true`, the typography will have a line under it.
+   */
+  @Prop() underline?: boolean = false;
 
   /**
    * The ICDS typography style to use.
@@ -137,14 +157,27 @@ export class Typography {
   };
 
   render() {
-    const { variant, applyVerticalMargins, maxLines, truncated, expanded } =
-      this;
+    const {
+      variant,
+      applyVerticalMargins,
+      maxLines,
+      truncated,
+      expanded,
+      strikethrough,
+      underline,
+      italic,
+      bold,
+    } = this;
 
     return (
       <Host
         class={{
           [`ic-typography-${variant}`]: true,
           [`ic-typography-vertical-margins-${variant}`]: applyVerticalMargins,
+          ["bold"]: bold,
+          ["italic"]: italic,
+          ["strikethrough"]: strikethrough,
+          ["underline"]: underline,
         }}
       >
         {variant === "body" && maxLines > 0 ? (
