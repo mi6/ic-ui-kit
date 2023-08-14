@@ -12,6 +12,11 @@ import { isSlotUsed } from "../../utils/helpers";
 import chevronIcon from "../../assets/chevron-icon.svg";
 import { IcThemeForeground, IcSizes } from "../../utils/types";
 
+/**
+ * @slot heading - Content is placed as the accordion heading.
+ * @slot icon - Content is placed to the left of the heading.
+ */
+
 let accordionIds = 0;
 @Component({
   tag: "ic-accordion",
@@ -132,6 +137,7 @@ export class Accordion {
         aria-disabled={disabled ? "true" : "false"}
       >
         <button
+          id={`${this.accordionId}-button`}
           disabled={disabled}
           tabindex={disabled ? -1 : 0}
           class={{
@@ -169,7 +175,8 @@ export class Accordion {
             ["expanded-content"]: true,
             ["expanded-content-open"]: expanded && !disabled,
           }}
-          aria-labelledby={this.accordionId}
+          aria-labelledby={`${this.accordionId}-button`}
+          role="region"
           aria-hidden={`${!expanded}`}
           id="expanded-content-area"
           ref={(el) => (this.expandedContentEl = el)}
