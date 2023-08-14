@@ -397,7 +397,7 @@ export class TopNavigation {
                             appearance={this.foregroundColor}
                             onClick={this.searchButtonClickHandler}
                           >
-                            <slot name="toggle-icon" slot="icon">
+                            <slot name="toggle-icon">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"

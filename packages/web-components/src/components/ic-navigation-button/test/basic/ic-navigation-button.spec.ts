@@ -29,7 +29,7 @@ describe("ic-navigation-button", () => {
       <ic-navigation-button label="button1" onclick="alert('test')">
         <mock:shadow-root>
           <ic-button aria-label="button1" appearance="light" size="large" variant="icon">
-            <slot name="icon" slot="icon"></slot>
+            <slot name="icon" slot="left-icon"></slot>
           </ic-button>
         </mock:shadow-root>
         <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
