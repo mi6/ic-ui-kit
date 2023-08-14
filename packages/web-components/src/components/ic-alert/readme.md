@@ -13,7 +13,7 @@
 | `dismissible` | `dismissible` | If `true`, the alert will have a close icon at the end to dismiss it.                         | `boolean`                                                  | `false`     |
 | `heading`     | `heading`     | The optional title to display at the start of the alert.                                      | `string`                                                   | `""`        |
 | `message`     | `message`     | The main body message of the alert.                                                           | `string`                                                   | `undefined` |
-| `titleAbove`  | `title-above` | If `true`, the title and message will appear inline instead of above and below.               | `boolean`                                                  | `false`     |
+| `titleAbove`  | `title-above` | If `true`, the title and message will appear above and below instead of inline.               | `boolean`                                                  | `false`     |
 | `variant`     | `variant`     | The variant of the alert which will be rendered.                                              | `"error" \| "info" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
 
 
