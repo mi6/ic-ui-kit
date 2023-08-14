@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
+<ic-side-navigation app-title="ACME" class="sm-expanded" expanded="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
+  <mock:shadow-root>
+    <div class="side-navigation" id="side-navigation">
+      <div class="light top-bar">
+        <div class="app-title-wrapper">
+          <a class="title-link" href="/">
+            <div aria-hidden="true" class="app-icon-container">
+              <slot name="app-icon"></slot>
+            </div>
+            <ic-typography variant="subtitle-small">
+              <h1>
+                ACME
+              </h1>
+            </ic-typography>
+          </a>
+        </div>
+      </div>
+      <div class="side-navigation-inner"></div>
+      <div class="bottom-wrapper">
+        <div class="bottom-side-nav">
+          <button aria-label="Collapse side navigation" class="menu-expand-button">
+            svg
+          </button>
+          <div class="app-status-wrapper">
+            <div class="app-status">
+              <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase"></ic-typography>
+            </div>
+            <ic-typography aria-label="app version" class="app-version" variant="label"></ic-typography>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-side-navigation>
+`;
+
 exports[`ic-side-navigation renders with app title, version and status: renders-with-app-title-version-status 1`] = `
 <ic-side-navigation app-title="ACME" class="sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
