@@ -85,13 +85,13 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
           <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
             <button aria-label="button1" class="button" id="ic-button-with-tooltip-" part="button" type="button">
               <div class="icon-container">
-                <slot name="icon"></slot>
+                <slot name="left-icon"></slot>
               </div>
               <slot></slot>
             </button>
           </ic-tooltip>
         </mock:shadow-root>
-        <slot name="icon" slot="icon"></slot>
+        <slot name="icon" slot="left-icon"></slot>
       </ic-button>
     </mock:shadow-root>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -190,13 +190,13 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
           <ic-tooltip label="button1" placement="bottom" target="ic-button-with-tooltip-">
             <button aria-label="button1" class="button" id="ic-button-with-tooltip-" part="button" type="button">
               <div class="icon-container">
-                <slot name="icon"></slot>
+                <slot name="left-icon"></slot>
               </div>
               <slot></slot>
             </button>
           </ic-tooltip>
         </mock:shadow-root>
-        <slot name="icon" slot="icon"></slot>
+        <slot name="icon" slot="left-icon"></slot>
       </ic-button>
     </mock:shadow-root>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">

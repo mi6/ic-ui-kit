@@ -162,7 +162,7 @@ export class NavigationButton {
           {...this.inheritedAttributes}
         >
           {label}
-          <slot slot="icon" name="icon"></slot>
+          <slot slot="left-icon" name="icon"></slot>
         </ic-button>
       </Host>
     );
