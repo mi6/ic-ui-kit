@@ -28,7 +28,6 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
-  IcSizes,
 } from "../../utils/types";
 
 let buttonIds = 0;
