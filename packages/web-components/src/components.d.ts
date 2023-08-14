@@ -70,7 +70,7 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
@@ -2447,7 +2447,7 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
