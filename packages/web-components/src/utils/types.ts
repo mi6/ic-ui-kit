@@ -183,8 +183,6 @@ export type IcRelatedTarget = EventTarget | undefined;
 
 export type IcOrientation = "horizontal" | "vertical";
 
-export type IcSizes = "default" | "large" | "small";
-
 export interface IcValueEventDetail {
   value: string;
   keyPressed?: string;
