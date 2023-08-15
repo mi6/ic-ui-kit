@@ -1885,7 +1885,7 @@ export namespace Components {
          */
         "applyVerticalMargins"?: boolean;
         /**
-          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body, code-large and code-extra-small variants.
          */
         "bold"?: boolean;
         /**
@@ -4366,7 +4366,7 @@ declare namespace LocalJSX {
          */
         "applyVerticalMargins"?: boolean;
         /**
-          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+          * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body, code-large and code-extra-small variants.
          */
         "bold"?: boolean;
         /**

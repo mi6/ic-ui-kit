@@ -29,7 +29,7 @@ export class Typography {
   @Prop() applyVerticalMargins?: boolean = false;
 
   /**
-   * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body and code-large variants.
+   * If `true`, the typography will have a bold font weight. Note: This will only take affect on h3, body, code-large and code-extra-small variants.
    */
   @Prop() bold?: boolean = false;
 
