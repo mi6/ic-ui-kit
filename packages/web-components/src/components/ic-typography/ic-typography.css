@@ -107,7 +107,7 @@
 }
 
 :host(.ic-typography-code-extra-small) {
-  font: var(--ic-font-code-extra-small) !important;
+  font: var(--ic-font-code-extra-small);
   letter-spacing: var(--ic-font-letter-spacing-0pt025);
 }
 
