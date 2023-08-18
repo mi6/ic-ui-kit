@@ -18,6 +18,7 @@ import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 })
 export class Tooltip {
   private arrow: HTMLDivElement;
+  private ariaDescribedBy: HTMLElement;
   private delayedHideEvents = ["mouseleave"];
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
@@ -60,9 +61,8 @@ export class Tooltip {
 
   @Watch("label")
   updateLabel(newValue: string): void {
-    const describedBySpan = this.el.previousElementSibling as HTMLElement;
-    if (describedBySpan !== null) {
-      describedBySpan.innerText = newValue;
+    if (this.ariaDescribedBy !== null) {
+      this.ariaDescribedBy.innerText = newValue;
     }
   }
 
@@ -102,13 +102,13 @@ export class Tooltip {
     );
 
     if (this.target !== undefined) {
-      const ariaDescribedBy = document.createElement("span");
-      ariaDescribedBy.id = `ic-tooltip-${this.target}`;
-      ariaDescribedBy.innerText = this.label;
-      ariaDescribedBy.classList.add("ic-tooltip-label");
-      Object.assign(ariaDescribedBy.style, this.screenReaderOnlyStyles);
+      this.ariaDescribedBy = document.createElement("span");
+      this.ariaDescribedBy.id = `ic-tooltip-${this.target}`;
+      this.ariaDescribedBy.innerText = this.label;
+      this.ariaDescribedBy.classList.add("ic-tooltip-label");
+      Object.assign(this.ariaDescribedBy.style, this.screenReaderOnlyStyles);
 
-      this.el.insertAdjacentElement("beforebegin", ariaDescribedBy);
+      this.el.insertAdjacentElement("beforebegin", this.ariaDescribedBy);
     }
   }
 
