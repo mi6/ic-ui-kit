@@ -19,6 +19,7 @@ import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+import { IcPopoverMenuClickEnum } from "./components/ic-popover-menu/ic-popover-menu.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
@@ -42,6 +43,7 @@ export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
+export { IcPopoverMenuClickEnum } from "./components/ic-popover-menu/ic-popover-menu.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
@@ -1100,13 +1102,37 @@ export namespace Components {
          */
         "anchor": string;
         /**
+          * The ID of the element that can open the popover menu if mouseAnchor is set to `true`. If `null`, then use the root element.
+         */
+        "clickEventEle": string;
+        /**
+          * The MouseEvent.button values that can trigger an ic-popover-menu close. Defaults to `IcPopoverMenuClickEnum.Left` only.
+         */
+        "mouseEventCloseButtonPressVals": IcPopoverMenuClickEnum[];
+        /**
+          * The MouseEvent.button values that can trigger an ic-popover-menu open. Defaults to `IcPopoverMenuClickEnum.Right` only.
+         */
+        "mouseEventOpenButtonPressVals": IcPopoverMenuClickEnum[];
+        /**
           * If `true`, the popover menu will be displayed.
          */
         "open": boolean;
-        "openFromChild": () => Promise<void>;
-        "openFromParent": () => Promise<void>;
+        "openFromChild": (renderX?: number, renderY?: number) => Promise<void>;
+        "openFromParent": (renderX?: number, renderY?: number) => Promise<void>;
+        /**
+          * If `true`, the ic-popover-menu will open when a MouseEvent button press occurs. If the "anchor" property element id is defined, this will only happen when clicking within the bounds of the anchor element. ButtonPressVals can be used to define which mouse buttons can trigger this behaviour: by default this is a left click.
+         */
+        "openOnMouseEventButtonPress": boolean;
         "parentLabel"?: string;
         "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * Absolute screen X co-ordinate for popover menu render position.
+         */
+        "renderX": number;
+        /**
+          * Absolute screen Y co-ordinate for popover menu render position.
+         */
+        "renderY": number;
         /**
           * The unique identifier for a popover submenu.
          */
@@ -3459,11 +3485,35 @@ declare namespace LocalJSX {
          */
         "anchor"?: string;
         /**
+          * The ID of the element that can open the popover menu if mouseAnchor is set to `true`. If `null`, then use the root element.
+         */
+        "clickEventEle"?: string;
+        /**
+          * The MouseEvent.button values that can trigger an ic-popover-menu close. Defaults to `IcPopoverMenuClickEnum.Left` only.
+         */
+        "mouseEventCloseButtonPressVals"?: IcPopoverMenuClickEnum[];
+        /**
+          * The MouseEvent.button values that can trigger an ic-popover-menu open. Defaults to `IcPopoverMenuClickEnum.Right` only.
+         */
+        "mouseEventOpenButtonPressVals"?: IcPopoverMenuClickEnum[];
+        /**
           * If `true`, the popover menu will be displayed.
          */
         "open"?: boolean;
+        /**
+          * If `true`, the ic-popover-menu will open when a MouseEvent button press occurs. If the "anchor" property element id is defined, this will only happen when clicking within the bounds of the anchor element. ButtonPressVals can be used to define which mouse buttons can trigger this behaviour: by default this is a left click.
+         */
+        "openOnMouseEventButtonPress"?: boolean;
         "parentLabel"?: string;
         "parentPopover"?: HTMLIcPopoverMenuElement;
+        /**
+          * Absolute screen X co-ordinate for popover menu render position.
+         */
+        "renderX"?: number;
+        /**
+          * Absolute screen Y co-ordinate for popover menu render position.
+         */
+        "renderY"?: number;
         /**
           * The unique identifier for a popover submenu.
          */

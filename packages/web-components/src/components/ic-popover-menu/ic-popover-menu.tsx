@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import { getSlotElements } from "../../utils/helpers";
 import { createPopper } from "@popperjs/core";
+import { IcPopoverMenuClickEnum } from "./ic-popover-menu.types";
 
 @Component({
   tag: "ic-popover-menu",
@@ -20,21 +21,63 @@ import { createPopper } from "@popperjs/core";
   },
 })
 export class PopoverMenu {
-  private anchorEl: HTMLElement;
   private ARIA_LABEL: string = "aria-label";
+  private anchorEl: HTMLElement;
   private backButton: HTMLIcMenuItemElement;
   private currentFocus: number;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
 
   @Element() host: HTMLIcPopoverMenuElement;
 
-  @State() openingFromChild: boolean = false;
-  @State() openingFromParent: boolean = false;
-
   /**
    * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
    */
   @Prop() anchor: string;
+
+  /**
+   * The ID of the element that can open the popover menu if mouseAnchor is set to `true`.
+   * If `null`, then use the root element.
+   */
+  @Prop() clickEventEle: string = document.documentElement.id;
+
+  /**
+   *  Absolute screen X co-ordinate for popover menu render position.
+   */
+  @Prop() renderX: number = null;
+  /**
+   *  Absolute screen Y co-ordinate for popover menu render position.
+   */
+  @Prop() renderY: number = null;
+
+  /**
+   * The MouseEvent.button values that can trigger an ic-popover-menu open.
+   * Defaults to `IcPopoverMenuClickEnum.Right` only.
+   */
+  @Prop() mouseEventOpenButtonPressVals: IcPopoverMenuClickEnum[] = [
+    IcPopoverMenuClickEnum.Right,
+  ];
+
+  /**
+   * The MouseEvent.button values that can trigger an ic-popover-menu close.
+   * Defaults to `IcPopoverMenuClickEnum.Left` only.
+   */
+  @Prop() mouseEventCloseButtonPressVals: IcPopoverMenuClickEnum[] = [
+    IcPopoverMenuClickEnum.Left,
+  ];
+
+  /**
+   * If `true`, the popover menu will be displayed.
+   */
+  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+
+  /**
+   * If `true`, the ic-popover-menu will open when a MouseEvent button press occurs.
+   * If the "anchor" property element id is defined, this will only happen when clicking
+   * within the bounds of the anchor element.
+   * ButtonPressVals can be used to define which mouse buttons
+   * can trigger this behaviour: by default this is a left click.
+   */
+  @Prop({ reflect: true }) openOnMouseEventButtonPress: boolean = false;
 
   /**
    * @internal The parent popover menu of a child popover menu.
@@ -56,64 +99,9 @@ export class PopoverMenu {
    */
   @Prop() submenuLevel: number = 1;
 
-  /**
-   * If `true`, the popover menu will be displayed.
-   */
-  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+  @State() openingFromChild: boolean = false;
 
-  @Watch("open")
-  watchOpenHandler(): void {
-    if (this.open) {
-      if (
-        this.parentPopover !== undefined &&
-        !this.popoverMenuEls.some((menuItem) => menuItem.id)
-      ) {
-        this.popoverMenuEls.unshift(this.backButton);
-      }
-
-      this.currentFocus = this.submenuId !== undefined ? 1 : 0;
-      // Needed so that anchorEl isn't always focused
-      setTimeout(this.setButtonFocus, 50);
-    }
-  }
-
-  componentDidLoad(): void {
-    const slotWrapper = this.host.shadowRoot.querySelector("ul.button");
-    const popoverMenuElements = getSlotElements(slotWrapper);
-
-    if (popoverMenuElements !== null) {
-      this.addMenuItems(popoverMenuElements);
-    }
-
-    if (
-      this.submenuId === undefined &&
-      this.host.getAttribute(this.ARIA_LABEL) === null
-    ) {
-      console.error(
-        `No aria-label specified for popover menu component - aria-label required`
-      );
-    }
-  }
-
-  componentWillRender(): void {
-    this.anchorEl = this.findAnchorEl(this.anchor);
-  }
-
-  componentDidRender(): void {
-    if (this.open) {
-      createPopper(this.anchorEl, this.host, {
-        placement: "bottom-start",
-        modifiers: [
-          {
-            name: "offset",
-            options: {
-              offset: [0, 4],
-            },
-          },
-        ],
-      });
-    }
-  }
+  @State() openingFromParent: boolean = false;
 
   @Listen("handleMenuItemClick")
   handleMenuItemClick(ev: CustomEvent): void {
@@ -137,17 +125,70 @@ export class PopoverMenu {
     childEl.parentPopover = this.host;
     childEl.anchor = this.anchor;
     childEl.ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
-    childEl.openFromParent();
+    childEl.openFromParent(this.host.renderX, this.host.renderY);
     childEl.submenuLevel = this.submenuLevel + 1;
     // Set the label in the submenu using the label of the menu item that has emitted the event
     childEl.parentLabel = target.label;
   }
 
+  @Watch("open")
+  watchOpenHandler(): void {
+    if (this.open) {
+      if (
+        this.parentPopover !== undefined &&
+        !this.popoverMenuEls.some((menuItem) => menuItem.id)
+      ) {
+        this.popoverMenuEls.unshift(this.backButton);
+      }
+
+      this.currentFocus = this.submenuId !== undefined ? 1 : 0;
+      // Needed so that anchorEl isn't always focused
+      setTimeout(this.setButtonFocus, 50);
+    }
+  }
+
   @Listen("click", { target: "document" })
-  handleClick(ev: Event): void {
-    if (this.open && this.isNotPopoverMenuEl(ev)) {
-      // If menu is open and the next click on the document is not a popover El, close the popover
+  handleClick(ev: MouseEvent): void {
+    ev.preventDefault();
+    if (
+      this.open &&
+      this.isNotPopoverMenuEl(ev) &&
+      this.mouseEventCloseButtonPressVals.includes(
+        ev.button as IcPopoverMenuClickEnum
+      )
+    ) {
+      // If menu is open and the next click on the document is
+      // not a popover El, close the popover
       this.closeMenu();
+    } else if (
+      this.openOnMouseEventButtonPress &&
+      !this.open &&
+      this.isClickEventEle(ev) &&
+      this.mouseEventOpenButtonPressVals.includes(
+        ev.button as IcPopoverMenuClickEnum
+      )
+    ) {
+      // If the menu is not open and the next click on document is
+      // the specified click element (root element by default), then open the popover
+      this.renderX = ev.clientX;
+      this.renderY = ev.clientY;
+      this.open = true;
+    }
+  }
+
+  @Listen("contextmenu", { target: "document" })
+  handleContextMenu(ev: MouseEvent): void {
+    if (this.isClickEventEle(ev)) {
+      ev.preventDefault();
+      if (!this.open) {
+        const new_ev = new MouseEvent("click", {
+          bubbles: true,
+          button: ev.button ?? IcPopoverMenuClickEnum.Right.valueOf(), // default if we can't propagate existing mouse click id
+          clientX: ev.clientX,
+          clientY: ev.clientY,
+        });
+        ev.target.dispatchEvent(new_ev);
+      }
     }
   }
 
@@ -189,10 +230,14 @@ export class PopoverMenu {
    * @internal Opens the menu from the child menu.
    */
   @Method()
-  async openFromChild(): Promise<void> {
+  async openFromChild(
+    renderX: number = null,
+    renderY: number = null
+  ): Promise<void> {
     this.open = true;
     this.openingFromChild = true;
-
+    this.renderX = renderX;
+    this.renderY = renderY;
     setTimeout(() => (this.openingFromChild = false), 1000);
   }
 
@@ -200,21 +245,92 @@ export class PopoverMenu {
    * @internal Opens the menu from the parent menu.
    */
   @Method()
-  async openFromParent(): Promise<void> {
+  async openFromParent(
+    renderX: number = null,
+    renderY: number = null
+  ): Promise<void> {
     this.open = true;
     this.openingFromParent = true;
-
+    this.renderX = renderX;
+    this.renderY = renderY;
     setTimeout(() => (this.openingFromParent = false), 1000);
   }
 
-  private setButtonFocus = () => {
-    this.popoverMenuEls[this.currentFocus]?.focus();
+  componentDidLoad(): void {
+    const slotWrapper = this.host.shadowRoot.querySelector("ul.button");
+    const popoverMenuElements = getSlotElements(slotWrapper);
+
+    if (popoverMenuElements !== null) {
+      this.addMenuItems(popoverMenuElements);
+    }
+
+    if (
+      this.submenuId === undefined &&
+      this.host.getAttribute(this.ARIA_LABEL) === null
+    ) {
+      console.error(
+        `No aria-label specified for popover menu component - aria-label required`
+      );
+    }
+  }
+
+  componentDidRender(): void {
+    if (this.open) {
+      let anchorElRef;
+      if (this.renderX != null && this.renderY != null) {
+        // use mouse pos
+        anchorElRef = {
+          getBoundingClientRect: this.generateBoundingClientRectForMouse(),
+        };
+      } else {
+        // use anchorEle
+        anchorElRef = this.anchorEl;
+      }
+      createPopper(anchorElRef, this.host, {
+        placement: "bottom-start",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 4],
+            },
+          },
+        ],
+      });
+    } else {
+      // set render pos to null on close so .open does not use the last MouseEvent pos
+      this.renderX = null;
+      this.renderY = null;
+    }
+  }
+
+  componentWillRender(): void {
+    this.anchorEl = this.findAnchorEl(this.anchor);
+  }
+
+  private addMenuItems = (elements: Element[] | NodeListOf<ChildNode>) => {
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i] as HTMLIcMenuItemElement;
+      if (el.tagName === "IC-MENU-ITEM") {
+        this.popoverMenuEls.push(el);
+      } else if (el.tagName === "IC-MENU-GROUP") {
+        const groupSlotWrapper = el.shadowRoot.querySelector("ul");
+        const menuGroupElements = getSlotElements(groupSlotWrapper);
+
+        this.addMenuItems(menuGroupElements);
+      }
+    }
+  };
+
+  private closeMenu = () => {
+    this.open = false;
+    this.anchorEl?.focus();
   };
 
   // Checks that the popover menu has an anchor
   private findAnchorEl = (anchor: string): HTMLElement => {
     let anchorElement: HTMLElement = null;
-    if (anchor === null || anchor === undefined) {
+    if (anchor === null || anchor === undefined || anchor.length === 0) {
       this.submenuId === undefined &&
         console.error("No anchor specified for popover component");
     } else {
@@ -228,19 +344,28 @@ export class PopoverMenu {
     return anchorElement;
   };
 
-  private isNotPopoverMenuEl = (ev: Event) => {
-    const target = ev.target as HTMLElement;
-    return (
-      target.id !== this.anchor &&
-      target.tagName !== "IC-MENU-ITEM" &&
-      target.tagName !== "IC-MENU-GROUP" &&
-      target.tagName !== "IC-POPOVER-MENU"
-    );
+  private generateBoundingClientRectForMouse = (): (() => DOMRect) => {
+    return () => ({
+      width: 0,
+      height: 0,
+      top: this.renderY,
+      right: this.renderX,
+      bottom: this.renderY,
+      left: this.renderX,
+      x: this.renderX,
+      y: this.renderY,
+      toJSON: (): string | null => null,
+    });
   };
 
-  private closeMenu = () => {
-    this.open = false;
-    this.anchorEl?.focus();
+  private getMenuAriaLabel = (): string => {
+    const ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
+
+    if (this.submenuId !== undefined) {
+      return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;
+    } else {
+      return ariaLabel;
+    }
   };
 
   private getNextItemToSelect = (
@@ -265,33 +390,43 @@ export class PopoverMenu {
     return nextItem;
   };
 
-  private addMenuItems = (elements: Element[] | NodeListOf<ChildNode>) => {
-    for (let i = 0; i < elements.length; i++) {
-      const el = elements[i] as HTMLIcMenuItemElement;
-      if (el.tagName === "IC-MENU-ITEM") {
-        this.popoverMenuEls.push(el);
-      } else if (el.tagName === "IC-MENU-GROUP") {
-        const groupSlotWrapper = el.shadowRoot.querySelector("ul");
-        const menuGroupElements = getSlotElements(groupSlotWrapper);
-
-        this.addMenuItems(menuGroupElements);
-      }
-    }
-  };
-
-  private getMenuAriaLabel = (): string => {
-    const ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
-
-    if (this.submenuId !== undefined) {
-      return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;
-    } else {
-      return ariaLabel;
-    }
-  };
-
   private handleBackButtonClick = (): void => {
-    this.parentPopover.openFromChild();
+    this.parentPopover.openFromChild(this.renderX, this.renderY);
     this.open = false;
+  };
+
+  private isClickEventEle = (ev: MouseEvent) => {
+    const target = ev.target as HTMLElement;
+    const clickEventRect: DOMRect = this.findAnchorEl(
+      this.clickEventEle
+    )?.getBoundingClientRect?.();
+    if (clickEventRect == null) {
+      return false;
+    } else {
+      return (
+        target.id === this.clickEventEle ||
+        (ev.clientX &&
+          ev.clientX > clickEventRect.left &&
+          ev.clientX < clickEventRect.right &&
+          ev.clientY &&
+          ev.clientY > clickEventRect.top &&
+          ev.clientY < clickEventRect.bottom)
+      );
+    }
+  };
+
+  private isNotPopoverMenuEl = (ev: Event) => {
+    const target = ev.target as HTMLElement;
+    return (
+      target.id !== this.anchor &&
+      target.tagName !== "IC-MENU-ITEM" &&
+      target.tagName !== "IC-MENU-GROUP" &&
+      target.tagName !== "IC-POPOVER-MENU"
+    );
+  };
+
+  private setButtonFocus = () => {
+    this.popoverMenuEls[this.currentFocus]?.focus();
   };
 
   render() {
