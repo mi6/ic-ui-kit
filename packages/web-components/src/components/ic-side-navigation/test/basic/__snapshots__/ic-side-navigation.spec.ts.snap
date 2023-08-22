@@ -11,7 +11,9 @@ exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -46,7 +48,9 @@ exports[`ic-side-navigation renders with app title, version and status: renders-
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -85,7 +89,9 @@ exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] =
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -120,7 +126,9 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -185,7 +193,9 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -250,7 +260,9 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -315,7 +327,9 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -407,7 +421,9 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -496,7 +512,9 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -562,7 +580,9 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              Application Name
+              <h1>
+                Application Name
+              </h1>
             </ic-typography>
           </a>
         </div>

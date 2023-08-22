@@ -8,7 +8,7 @@ exports[`ic-navigation-group should render with label: renders-with-label 1`] = 
         Group label
       </ic-typography>
     </button>
-    <ul class="grouped-links-wrapper" style="--navigation-child-items-height: auto;">
+    <ul class="grouped-links-wrapper" style="--navigation-child-items-height: 0px;">
       <slot></slot>
     </ul>
   </mock:shadow-root>

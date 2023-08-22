@@ -154,6 +154,10 @@
   align-items: center;
 }
 
+.app-title-wrapper ic-typography h1 {
+  margin: 0;
+}
+
 @media screen and (min-width: 340px) {
   .app-title-wrapper ic-typography {
     margin-left: var(--ic-space-xs);

@@ -13,23 +13,23 @@
 }
 
 .container-neutral {
-  background-color: var(--ic-architectural-40);
+  background-color: var(--ic-status-unknown-light);
 }
 
 .container-info {
-  background-color: var(--ic-status-info-background);
+  background-color: var(--ic-status-info-light);
 }
 
 .container-warning {
-  background-color: var(--ic-status-warning-background);
+  background-color: var(--ic-status-warning-light);
 }
 
 .container-error {
-  background-color: var(--ic-status-error-background);
+  background-color: var(--ic-status-error-light);
 }
 
 .container-success {
-  background-color: var(--ic-status-success-background);
+  background-color: var(--ic-status-success-light);
 }
 
 .alert-icon-container {
@@ -46,7 +46,7 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-architectural-500);
+  background-color: var(--ic-status-unknown);
 }
 
 .divider-info {
@@ -54,7 +54,7 @@
 }
 
 .divider-warning {
-  background-color: var(--ic-status-warning-mid);
+  background-color: var(--ic-status-warning);
 }
 
 .divider-error {
@@ -78,7 +78,7 @@
 }
 
 .icon-neutral > svg {
-  fill: var(--ic-architectural-500);
+  fill: var(--ic-status-unknown);
 }
 
 :host([variant="info"]) .alert-icon svg {
@@ -86,7 +86,7 @@
 }
 
 :host([variant="warning"]) .alert-icon svg {
-  fill: var(--ic-status-warning-mid);
+  fill: var(--ic-status-warning);
 }
 
 :host([variant="error"]) .alert-icon svg {

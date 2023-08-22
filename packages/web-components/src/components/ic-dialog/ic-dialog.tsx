@@ -443,7 +443,7 @@ export class Dialog {
               onClick={this.closeIconClick}
               data-gets-focus={destructive || !buttons ? "" : null}
             >
-              <span class="close-icon-svg" slot="icon" innerHTML={closeIcon} />
+              <span class="close-icon-svg" innerHTML={closeIcon} />
             </ic-button>
           </div>
           <div class="content-area">

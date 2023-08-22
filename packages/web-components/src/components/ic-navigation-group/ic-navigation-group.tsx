@@ -27,10 +27,14 @@ import chevronIcon from "../../assets/chevron-icon.svg";
   },
 })
 export class NavigationGroup {
+  private allGroupedNavigationItems: HTMLIcNavigationItemElement[] = [];
+  private collapsedIconLabelsNavigationItemsHeight: string;
   private dropdown: HTMLElement;
   private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
   private groupEl: HTMLElement;
   private IC_NAVIGATION_ITEM = "ic-navigation-item";
+  private isCollapsedLabelVariant: boolean;
+  private isSideNavExpanded: boolean;
   private mouseGate: boolean = false;
   private nodeName = "IC-NAVIGATION-GROUP";
 
@@ -91,6 +95,10 @@ export class NavigationGroup {
   }
 
   componentDidLoad(): void {
+    this.allGroupedNavigationItems = Array.from(
+      this.el.querySelectorAll(this.IC_NAVIGATION_ITEM)
+    );
+
     /**
      * debounce is required as the incorrect height was retrieved instantly after
      * componentDidLoad is invoked.
@@ -127,7 +135,21 @@ export class NavigationGroup {
     }
   }
 
-  private sideNavExpandHandler = (): void => {
+  private sideNavExpandHandler = (event?: CustomEvent): void => {
+    this.isSideNavExpanded = event.detail.sideNavExpanded;
+
+    if (this.isCollapsedLabelVariant === undefined) {
+      this.isCollapsedLabelVariant = !!(
+        event.target as HTMLIcSideNavigationElement
+      ).getAttribute("collapsed-icon-labels");
+    }
+
+    // Store sum of heights on all collapsed icon label items
+    if (this.isCollapsedLabelVariant && !this.isSideNavExpanded) {
+      this.collapsedIconLabelsNavigationItemsHeight =
+        this.getNavigationChildItemsHeight();
+    }
+
     setTimeout(
       () => this.setInitialGroupedLinksWrapperHeight(),
       this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS
@@ -316,22 +338,12 @@ export class NavigationGroup {
    * smoothness of expand/collapse animations
    */
   private getNavigationChildItemsHeight = (): string => {
-    const navigationItemLength =
-      this.el.querySelectorAll(this.IC_NAVIGATION_ITEM).length || 0;
-    const navigationItem =
-      this.el.querySelector(this.IC_NAVIGATION_ITEM) || null;
+    let navigationChildItemsHeight = 0;
+    this.allGroupedNavigationItems.forEach((navItem) => {
+      navigationChildItemsHeight += navItem.clientHeight;
+    });
 
-    if (
-      this.navigationType === "side" &&
-      !!navigationItemLength &&
-      navigationItem
-    ) {
-      return `${
-        parseInt(getComputedStyle(navigationItem).height) * navigationItemLength
-      }px`;
-    }
-
-    return "auto";
+    return `${navigationChildItemsHeight}px`;
   };
 
   private setInitialGroupedLinksWrapperHeight = () => {
@@ -339,7 +351,21 @@ export class NavigationGroup {
       ".grouped-links-wrapper"
     ) as HTMLElement;
 
-    if (linkWrapper && this.expanded) {
+    if (
+      linkWrapper &&
+      this.expanded &&
+      !this.isSideNavExpanded &&
+      this.isCollapsedLabelVariant
+    ) {
+      /**
+       * Collapsed icon labels height is different depending on if ic-side-navigation is collapsed or expanded.
+       * If collapsed, use collapsedIconLabelsNavigationItemsHeight which is set on initial load.
+       */
+      linkWrapper.setAttribute(
+        "style",
+        `--navigation-child-items-height: ${this.collapsedIconLabelsNavigationItemsHeight}px`
+      );
+    } else if (linkWrapper && this.expanded) {
       linkWrapper.setAttribute(
         "style",
         `--navigation-child-items-height: ${this.getNavigationChildItemsHeight()}`
@@ -361,10 +387,8 @@ export class NavigationGroup {
 
   render() {
     const { label, dropdownOpen, inTopNavSideMenu, expandable } = this;
-
     const NavigationGroupElement =
       !inTopNavSideMenu || expandable ? "button" : "div";
-
     return (
       <Host
         class={{

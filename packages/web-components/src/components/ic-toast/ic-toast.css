@@ -47,7 +47,7 @@
 }
 
 .divider-neutral {
-  background-color: var(--ic-architectural-500);
+  background-color: var(--ic-status-unknown);
 }
 
 .divider-info {
@@ -75,7 +75,7 @@
 
 :host([variant="neutral"]) .toast-icon svg,
 ::slotted(svg) {
-  fill: var(--ic-architectural-500);
+  fill: var(--ic-status-unknown);
 }
 
 :host([variant="info"]) .toast-icon svg {

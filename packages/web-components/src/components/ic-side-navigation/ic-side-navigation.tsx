@@ -20,6 +20,7 @@ import {
   getCssProperty,
   hasClassificationBanner,
   onComponentRequiredPropUndefined,
+  isEmptyString,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -86,6 +87,11 @@ export class SideNavigation {
    * @internal If `true`, side navigation will be contained by its parent element.
    */
   @Prop() inline: boolean = false;
+
+  /**
+   * The short title of the app to be displayed at small screen sizes in place of the app title.
+   */
+  @Prop() shortAppTitle: string = "";
 
   /**
    * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
@@ -461,6 +467,27 @@ export class SideNavigation {
     this.el.parentElement.style.setProperty("padding-left", value);
   };
 
+  private renderAppTitle = (isAppNameSubtitleVariant: boolean) => {
+    const displayShortAppTitle =
+      this.deviceSize <= DEVICE_SIZES.S && !isEmptyString(this.shortAppTitle);
+    return (
+      <ic-typography
+        variant={
+          displayShortAppTitle || isAppNameSubtitleVariant
+            ? "subtitle-small"
+            : "h3"
+        }
+        aria-label={
+          displayShortAppTitle
+            ? `${this.appTitle} (${this.shortAppTitle})`
+            : undefined
+        }
+      >
+        <h1>{displayShortAppTitle ? this.shortAppTitle : this.appTitle}</h1>
+      </ic-typography>
+    );
+  };
+
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
@@ -571,7 +598,6 @@ export class SideNavigation {
     menuOpen,
     href,
     isAppNameSubtitleVariant,
-    appTitle,
   }: IcTopBar) => {
     const hasTitle = this.appTitle !== "" && this.appTitle !== undefined;
 
@@ -628,15 +654,11 @@ export class SideNavigation {
               <div class="app-icon-container" aria-hidden="true">
                 <slot name="app-icon"></slot>
               </div>
-              <ic-typography
-                variant={isAppNameSubtitleVariant ? "subtitle-small" : "h3"}
-              >
-                {isSlotUsed(this.el, "app-title") ? (
-                  <slot name="app-title"></slot>
-                ) : (
-                  appTitle
-                )}
-              </ic-typography>
+              {isSlotUsed(this.el, "app-title") ? (
+                <slot name="app-title"></slot>
+              ) : (
+                this.renderAppTitle(isAppNameSubtitleVariant)
+              )}
             </Component>
           )}
         </div>

@@ -70,7 +70,7 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
@@ -1458,6 +1458,10 @@ export namespace Components {
         "href": string;
         "inline": boolean;
         /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle": string;
+        /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
         "static": boolean;
@@ -1881,9 +1885,25 @@ export namespace Components {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */
@@ -2427,7 +2447,7 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
@@ -3893,6 +3913,10 @@ declare namespace LocalJSX {
         "href"?: string;
         "inline"?: boolean;
         /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle"?: string;
+        /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
         "static"?: boolean;
@@ -4342,9 +4366,25 @@ declare namespace LocalJSX {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */
