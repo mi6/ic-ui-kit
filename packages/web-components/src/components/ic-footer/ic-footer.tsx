@@ -39,7 +39,7 @@ import { IcFooterBreakpoints } from "./ic-footer.types";
 })
 export class Footer {
   private footerEl: HTMLElement;
-  private resizeObserver: ResizeObserver;
+  private resizeObserver: ResizeObserver = null;
 
   @Element() el: HTMLIcFooterElement;
 
@@ -82,7 +82,9 @@ export class Footer {
   @Event() footerResized: EventEmitter<void>;
 
   disconnectedCallback(): void {
-    this.resizeObserver.disconnect();
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
   }
 
   componentWillLoad(): void {
