@@ -6,7 +6,7 @@ beforeAll(() => {
   jest.spyOn(console, "error").mockImplementation(jest.fn());
 });
 
-describe("ic-loading-indicator component", () => {
+describe("ic-tooltip component", () => {
   it("should render", async () => {
     const page = await newSpecPage({
       components: [Tooltip],
@@ -182,5 +182,198 @@ describe("ic-loading-indicator component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
+  });
+
+  describe("getTooltipTranslate", () => {
+    it("should update for bottom", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for bottom-start", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="bottom-start"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for bottom-end", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="bottom-end"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for top", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="top"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for top-start", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="top-start"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for top-end", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="top-end"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for left", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="left"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for left-end", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="left-end"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for right", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="right"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update for right-end", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="right-end"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should update when tooltip is outside of dialog", async () => {
+      const page = await newSpecPage({
+        components: [Tooltip],
+        html: `<ic-tooltip target="test-button" label="tooltip" placement="left"><button id="test-button">Click</button></ic-tooltip>`,
+      });
+
+      page.rootInstance.dialogOverflow = true;
+      await page.waitForChanges();
+
+      await page.rootInstance.getTooltipTranslate({
+        left: 0,
+        right: 40,
+        top: 100,
+        bottom: 132,
+      });
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+      expect(page.root.placement).toBe("right");
+    });
   });
 });

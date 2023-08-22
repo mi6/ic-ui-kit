@@ -20,10 +20,13 @@ export class Tooltip {
   private arrow: HTMLDivElement;
   private ariaDescribedBy: HTMLElement;
   private delayedHideEvents = ["mouseleave"];
+  private dialogOverflow = false;
+  private icDialogEl: HTMLIcDialogElement;
   private instantHideEvents = ["focusout"];
   private mouseOverTool: boolean = false;
   private persistTooltip = false;
   private popperInstance: Instance;
+  private onDialog: boolean = false;
   private screenReaderOnlyStyles = {
     position: "absolute",
     left: "-10000px",
@@ -47,7 +50,7 @@ export class Tooltip {
   /**
    * The position of the tool-tip in relation to the parent element.
    */
-  @Prop() placement?: IcTooltipPlacements = "bottom";
+  @Prop({ mutable: true }) placement?: IcTooltipPlacements = "bottom";
 
   /**
    * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
@@ -68,33 +71,19 @@ export class Tooltip {
 
   disconnectedCallback(): void {
     this.manageEventListeners("remove");
-    this.popperInstance.destroy();
+    if (this.popperInstance !== undefined) {
+      this.popperInstance.destroy();
+    }
   }
 
   componentDidLoad(): void {
-    this.popperInstance = createPopper(this.el, this.toolTip, {
-      placement: this.placement,
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: "arrow",
-          options: {
-            element: this.arrow,
-          },
-        },
-        {
-          name: "eventListeners",
-          options: { scroll: false, resize: false },
-        },
-      ],
-    });
-
     this.manageEventListeners("add");
+
+    this.icDialogEl = this.el.closest("ic-dialog");
+    this.dialogOverflow =
+      this.icDialogEl?.getAttribute("data-overflow") === "true";
+
+    this.onDialog = this.icDialogEl !== null;
 
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -123,9 +112,105 @@ export class Tooltip {
     show ? this.show() : this.hide();
   }
 
+  private getTooltipTranslate = (dialogEl: DOMRect) => {
+    const child = this.el.children[0].getBoundingClientRect();
+    let tooltipX;
+    let tooltipY;
+    switch (this.placement) {
+      case "bottom":
+        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
+        tooltipY = child.bottom - dialogEl.top;
+        break;
+      case "bottom-start":
+        tooltipX = child.left - dialogEl.left;
+        tooltipY = child.bottom - dialogEl.top;
+        break;
+      case "bottom-end":
+        tooltipX = child.right - dialogEl.right;
+        tooltipY = child.bottom - dialogEl.top;
+        break;
+      case "top":
+        tooltipX = child.left - dialogEl.left - 0.5 * child.width;
+        tooltipY = child.top - dialogEl.bottom;
+        break;
+      case "top-start":
+        tooltipX = child.left - dialogEl.left;
+        tooltipY = child.top - dialogEl.bottom;
+        break;
+      case "top-end":
+        tooltipX = child.right - dialogEl.right;
+        tooltipY = child.top - dialogEl.bottom;
+        break;
+      case "left":
+      case "left-start":
+        tooltipX = child.right - dialogEl.right - child.width;
+        tooltipY = child.bottom - dialogEl.top - child.height;
+        break;
+      case "left-end":
+        tooltipX = child.right - dialogEl.right - child.width;
+        tooltipY = child.top - dialogEl.bottom + child.height;
+        break;
+      case "right":
+      case "right-start":
+        tooltipX = child.left - dialogEl.left + child.width;
+        tooltipY = child.bottom - dialogEl.top - child.height;
+        break;
+      case "right-end":
+        tooltipX = child.left - dialogEl.left + child.width;
+        tooltipY = child.top - dialogEl.bottom + child.height;
+        break;
+    }
+    if (this.dialogOverflow && tooltipX < 0) {
+      if (this.placement.includes("top") || this.placement.includes("bottom")) {
+        this.toolTip.style.setProperty(
+          "--tooltip-arrow-translate",
+          `${tooltipX}px`
+        );
+        tooltipX = child.left - dialogEl.left;
+      }
+      if (this.placement.includes("left")) {
+        this.placement = "right";
+        tooltipX = child.left - dialogEl.left + child.width;
+      }
+    }
+
+    this.toolTip.style.setProperty("--tooltip-translate-x", `${tooltipX}px`);
+    this.toolTip.style.setProperty("--tooltip-translate-y", `${tooltipY}px`);
+  };
+
   private show = () => {
     this.toolTip.setAttribute("data-show", "");
-    this.popperInstance.update();
+
+    if (this.onDialog) {
+      this.el.classList.add("on-dialog");
+      const dialogEl = this.icDialogEl.shadowRoot
+        .querySelector("dialog")
+        .getBoundingClientRect();
+
+      this.getTooltipTranslate(dialogEl);
+    }
+
+    this.popperInstance = createPopper(this.el, this.toolTip, {
+      placement: this.placement,
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 10],
+          },
+        },
+        {
+          name: "arrow",
+          options: {
+            element: this.arrow,
+          },
+        },
+        {
+          name: "eventListeners",
+          options: { scroll: false, resize: false },
+        },
+      ],
+    });
   };
 
   private hide = () => {

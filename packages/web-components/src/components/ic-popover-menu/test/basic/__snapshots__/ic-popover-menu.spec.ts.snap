@@ -149,6 +149,95 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 </ic-popover-menu>
 `;
 
+exports[`ic-popover-menu should render on a dialog 1`] = `
+<ic-dialog class="hidden">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4"></ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button aria-label="Dismiss" class="close-icon" variant="icon">
+          <span class="close-icon-svg">
+            svg
+          </span>
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <div id="dialog-content">
+          <slot></slot>
+        </div>
+      </div>
+      <div class="dialog-controls">
+        <slot name="dialog-controls">
+          <ic-button class="dialog-control-button" variant="tertiary">
+            Cancel
+          </ic-button>
+          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+            Confirm
+          </ic-button>
+        </slot>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+  <ic-button data-gets-focus id="anchorEl"></ic-button>
+  <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" class="on-dialog on-dialog-translate-y open" data-popper-placement="top" data-popper-reference-hidden open="" style="--translate-y: 108px; position: absolute; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
+        <div>
+          <ul aria-label="popover-menu" class="button" role="menu">
+            <slot></slot>
+          </ul>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <ic-menu-item label="Button 1" variant="default">
+      <mock:shadow-root>
+        <li aria-disabled="false" role="menuitem">
+          <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+            <div class="focus-border">
+              <div class="menu-item-info">
+                <div class="menu-labels">
+                  <ic-typography class="menu-item-label">
+                    Button 1
+                  </ic-typography>
+                </div>
+              </div>
+            </div>
+          </ic-button>
+        </li>
+      </mock:shadow-root>
+    </ic-menu-item>
+    <ic-menu-item label="Button 2" variant="default">
+      <mock:shadow-root>
+        <li aria-disabled="false" role="menuitem">
+          <ic-button aria-disabled="false" aria-label="Button 2" disabletooltip="" fullwidth="" variant="tertiary">
+            <div class="focus-border">
+              <div class="menu-item-info">
+                <div class="menu-labels">
+                  <ic-typography class="menu-item-label">
+                    Button 2
+                  </ic-typography>
+                </div>
+              </div>
+            </div>
+          </ic-button>
+        </li>
+      </mock:shadow-root>
+    </ic-menu-item>
+  </ic-popover-menu>
+</ic-dialog>
+`;
+
 exports[`ic-popover-menu should render when anchor starts with #: should render when target starts with # 1`] = `
 <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu">
   <mock:shadow-root>
