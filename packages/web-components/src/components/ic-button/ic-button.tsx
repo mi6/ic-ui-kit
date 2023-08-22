@@ -33,7 +33,9 @@ import {
 let buttonIds = 0;
 
 /**
- * @slot icon - Content will be placed to the left of the button label.
+ * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
+ * @slot left-icon - Content will be placed to the left of the button label.
+ * @slot right-icon - Content will be placed to the right of the button label.
  */
 @Component({
   tag: "ic-button",
@@ -262,6 +264,16 @@ export class Button {
     return iconEl !== null;
   }
 
+  private hasLeftIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="left-icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasRightIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="right-icon"]`);
+    return iconEl !== null;
+  }
+
   private handleHiddenFormButtonClick(form: HTMLFormElement): void {
     const hiddenFormButton = document.createElement("button");
 
@@ -375,6 +387,11 @@ export class Button {
               <slot name="icon" />
             </div>
           )}
+          {this.hasLeftIconSlot() && !this.loading && (
+            <div class="icon-container">
+              <slot name="left-icon" />
+            </div>
+          )}
           {this.loading ? (
             <div class="loading-container">
               <ic-loading-indicator
@@ -392,6 +409,11 @@ export class Button {
           ) : (
             <slot />
           )}
+          {this.hasRightIconSlot() && !this.loading && (
+            <div class="icon-container">
+              <slot name="right-icon" />
+            </div>
+          )}
         </TagType>
       );
     };
@@ -403,7 +425,11 @@ export class Button {
           [`button-variant-${this.variant}`]: true,
           [`button-size-${this.size}`]: true,
           ["loading"]: this.loading,
-          ["loading-with-icon"]: this.loading && this.hasIconSlot(),
+          ["loading-with-icon"]:
+            this.loading &&
+            (this.hasIconSlot() ||
+              this.hasLeftIconSlot() ||
+              this.hasRightIconSlot()),
           ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,

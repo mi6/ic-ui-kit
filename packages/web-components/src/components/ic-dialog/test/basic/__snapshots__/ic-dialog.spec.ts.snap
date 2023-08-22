@@ -23,14 +23,11 @@ exports[`ic-dialog component should render 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -68,14 +65,11 @@ exports[`ic-dialog component should render as large size 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -113,14 +107,11 @@ exports[`ic-dialog component should render as medium size 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -158,14 +149,11 @@ exports[`ic-dialog component should render with a destructive default button 1`]
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -217,14 +205,11 @@ exports[`ic-dialog component should render with a label 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -262,14 +247,11 @@ exports[`ic-dialog component should render with a single default button 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -319,14 +301,11 @@ exports[`ic-dialog component should render with an alert 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -362,7 +341,7 @@ exports[`ic-dialog component should render with no buttons 1`] = `
           </div>
         </div>
         <ic-button aria-label="Dismiss" class="close-icon" data-gets-focus variant="icon">
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -401,14 +380,11 @@ exports[`ic-dialog component should render with no more than three default butto
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -474,14 +450,11 @@ exports[`ic-dialog component should render with slotted content 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -558,14 +531,11 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -614,14 +584,11 @@ exports[`ic-dialog component should render with three default buttons 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>
@@ -687,14 +654,11 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
           <mock:shadow-root>
             <ic-tooltip label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
               <button aria-label="Dismiss" class="button" id="ic-button-with-tooltip-" part="button" type="button">
-                <div class="icon-container">
-                  <slot name="icon"></slot>
-                </div>
                 <slot></slot>
               </button>
             </ic-tooltip>
           </mock:shadow-root>
-          <span class="close-icon-svg" slot="icon">
+          <span class="close-icon-svg">
             svg
           </span>
         </ic-button>

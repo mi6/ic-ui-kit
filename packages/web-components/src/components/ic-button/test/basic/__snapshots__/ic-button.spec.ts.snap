@@ -142,17 +142,35 @@ exports[`button component should render correct HTML when loading 1`] = `
 </ic-button>
 `;
 
-exports[`button component should render correct HTML with Icon 1`] = `
+exports[`button component should render correct HTML with left icon 1`] = `
 <ic-button class="button-size-default button-variant-primary" exportparts="button">
   <mock:shadow-root>
     <button class="button" part="button" type="button">
       <div class="icon-container">
-        <slot name="icon"></slot>
+        <slot name="left-icon"></slot>
       </div>
       <slot></slot>
     </button>
   </mock:shadow-root>
-  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+  <svg fill="#000000" height="24px" slot="left-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
+  </svg>
+  Button
+</ic-button>
+`;
+
+exports[`button component should render correct HTML with right icon 1`] = `
+<ic-button class="button-size-default button-variant-primary" exportparts="button">
+  <mock:shadow-root>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+      <div class="icon-container">
+        <slot name="right-icon"></slot>
+      </div>
+    </button>
+  </mock:shadow-root>
+  <svg fill="#000000" height="24px" slot="right-icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0V0z" fill="none"></path>
     <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"></path>
   </svg>
