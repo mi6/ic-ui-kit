@@ -27,6 +27,18 @@
   display: none;
 }
 
+:host(.on-dialog) {
+  inset: auto !important;
+}
+
+:host(.on-dialog-fix-translate) {
+  transform: translate(0, var(--ic-space-xs)) !important;
+}
+
+:host(.on-dialog-translate-y) {
+  transform: translate(0, calc(-1 * var(--translate-y))) !important;
+}
+
 .menu {
   border: var(--ic-border-default);
   border-radius: var(--ic-border-radius);
