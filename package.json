@@ -25,7 +25,8 @@
     "prettier:fix": "lerna run prettier:fix",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
-    "static-analysis": "npm run lint && npm run prettier && npm run audit"
+    "static-analysis": "npm run lint && npm run prettier && npm run audit",
+    "audit:fix": "lerna-audit"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
