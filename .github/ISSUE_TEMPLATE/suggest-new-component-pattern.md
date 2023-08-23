@@ -1,24 +1,30 @@
 ---
-name: "✍️ Suggest an improvement"
-about:  Suggest something for the UI Kit, website code, design, research or investigation work.
+name: "\U0001F4A1 Suggest a new component or pattern"
+about: 'Suggest a UI Kit component or design pattern.'
 title: ''
 labels: ''
 assignees: ''
-type: 'Feature improvement'
-
+type: 'Feature'
 ---
 
 ## Summary 
-Tell us, in a few words, what the improvement is. 
+Tell us, in a few words, what the component or pattern would do. 
 
 ## 💬 Description 
-A full description of what the improvement should be and how it should work. 
+A full description of what the component or pattern should be and how it should work. 
 
-## 💰 Use value 
+## 💰 User value 
 Describe why this is important and how it will help users (either developers, designers or the end-users). Think about how it makes people's lives easier, more accessible or quicker to build stuff. 
 
+## 📚 User Stories 
+If relevant, describe the high-level functionality as user stories. 
+
+*As an* ICDS user:  
+*I need* 
+*So that*  
+
 ## 📝 Acceptance Criteria  
-If relevant, describe in full detail the different interactions and edge cases that the component or patterns needs to fulfil.  
+If relevant, describe in full detail the different interactions and edge cases that the component or patterns needs to fulfil. 
 
 *Given* 
 *When*  
