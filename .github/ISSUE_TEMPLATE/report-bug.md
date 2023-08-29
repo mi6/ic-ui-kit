@@ -3,7 +3,6 @@ name: "\U0001F41B Report a bug"
 about: Tell us about a problem with the UI Kit or Design System website.
 title: ''
 labels: 'type: bug 🐛'
-projects: ['mi6/2']
 assignees: ''
 type: 'Bug'
 
