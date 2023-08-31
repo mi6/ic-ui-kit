@@ -5,1949 +5,639 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { html } from "lit-html";
+import {
+  COLS,
+  DATA,
+  Basic,
+  Embedded,
+  Dense,
+  Spacious,
+  Scrollable,
+  RowHeaders,
+  Sort,
+  SortOptions,
+  Pagination,
+  ColumnOverrides,
+  RowOverrides,
+  CellOverrides,
+  LinksHTMLElements,
+} from "./story-data";
 import readme from "./readme.md";
 
-<Meta title="Web Components/Data table" component="ic-data-table" />
+<Meta
+  title="Web Components/Data Table"
+  component="ic-data-table"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
 
-<Description markdown={readme} />
+# [Canary]: Data Table
 
-### Basic table
+Use the data table component to display data in a tabular form.
 
-<Canvas>
-  <Story name="Basic table">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="basic table"></ic-data-table>`}
-  </Story>
+There are two required props for data table:
+
+- Caption: `string`
+- Columns: `IcDataTableColumnObject[]`
+
+Click the 'Component API' tab to view all the available props, events and slots for Data Tables.
+
+To import the data table web component into your application, import `@ukic/canary-web-components` into your application.
+
+### Basic
+
+A basic example with no functionality.
+
+<Canvas withSource="none">
+  <Story name="Basic">{Basic()}</Story>
 </Canvas>
+
+#### Basic code example
+
+```html
+<ic-data-table id="data-table" caption="Basic Table"></ic-data-table>
+<script>
+  const dataTable1 = document.querySelector("#data-table");
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      // dataType types: "string" | "number" | "address" | "element" | "date";
+      dataType: "string",
+    },
+    {
+      key: "lastName",
+      title: "Last name",
+      dataType: "string",
+    },
+    {
+      key: "age",
+      title: "Age",
+      dataType: "number",
+    },
+    {
+      key: "jobTitle",
+      title: "Job title",
+      dataType: "string",
+    },
+    {
+      key: "address",
+      title: "Address",
+      dataType: "address",
+    },
+  ];
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    {
+      firstName: "Sarah",
+      lastName: "Smith",
+      age: 28,
+      jobTitle: "Analyst",
+      address: "2 Main Street, Town, Country, Postcode",
+    },
+    {
+      firstName: "Mark",
+      lastName: "Owens",
+      age: 45,
+      jobTitle: "Team Lead",
+      address: "12 Key Street, Town, Country, Postcode",
+    },
+    {
+      firstName: "Naomi",
+      lastName: "Thomas",
+      age: 32,
+      jobTitle: "Developer",
+      address: "8 Side Street, Town, Country, Postcode",
+    },
+    {
+      firstName: "Luke",
+      lastName: "Ashford",
+      age: 18,
+      jobTitle: "Junior Developer",
+      address: "5 New Street, Town, Country, Postcode",
+    },
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
 
 ### Embedded
 
-<Canvas>
-  <Story name="Embedded">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="embedded table" embedded="true"></ic-data-table>`}
-  </Story>
+The `embedded` boolean adds a border around the table so it can be added as a standalone table and is not required to stretch the full width of its parent container.
+
+<Canvas withSource="none">
+  <Story name="Embedded">{Embedded()}</Story>
 </Canvas>
+
+#### Embedded code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Embedded Table"
+  embedded="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
 
 ### Density
 
-<Canvas>
-  <Story name="Density">
-    {html` <script>
-        dataTables = document.querySelectorAll("ic-data-table");
-        dataTables.forEach((dataTable) => {
-          dataTable.columns = [
-            {
-              key: "firstName",
-              title: "First name",
-              dataType: "string",
-            },
-            {
-              key: "lastName",
-              title: "Last name",
-              dataType: "string",
-            },
-            {
-              key: "age",
-              title: "Age",
-              dataType: "number",
-            },
-            {
-              key: "jobTitle",
-              title: "Job title",
-              dataType: "string",
-            },
-            {
-              key: "address",
-              title: "Address",
-              dataType: "address",
-            },
-          ];
-          dataTable.data = [
-            {
-              firstName: "Joe",
-              lastName: "Bloggs",
-              age: 30,
-              jobTitle: "Developer",
-              address: "1 Main Street, Town, County, Postcode",
-            },
-            {
-              firstName: "Sarah",
-              lastName: "Smith",
-              age: 28,
-              jobTitle: "Analyst",
-              address: "2 Main Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Mark",
-              lastName: "Owens",
-              age: 45,
-              jobTitle: "Team Lead",
-              address: "12 Key Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Naomi",
-              lastName: "Thomas",
-              age: 32,
-              jobTitle: "Developer",
-              address: "8 Side Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Luke",
-              lastName: "Ashford",
-              age: 18,
-              jobTitle: "Junior Developer",
-              address: "5 New Street, Town, Country, Postcode",
-            },
-          ];
-        });
-      </script>
-      <ic-data-table caption="Dense" density="dense"></ic-data-table>
-      <ic-data-table caption="Spacious" density="spacious"></ic-data-table>`}
-  </Story>
+The `density` variant provides three different styles for the data table.
+
+- `dense` reduces the padding and font size of the table cells to give the data a more dense style.
+- `default` provides a padding of `8px` which is the default spacing. This variant is seen in the first [basic](#basic) example.
+- `spacious` gives the data table a more spacious look and feel by increasing the vertical padding as well as the font size.
+
+### Dense
+
+<Canvas withSource="none">
+  <Story name="Dense">{Dense()}</Story>
 </Canvas>
 
-### Scrollable
+#### Dense code example
 
-<Canvas>
-  <Story name="Scrollable">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "employeeNumber",
-            title: "Employee number",
-            dataType: "number",
-            columnAlignment: { horizontal: "left" },
-          },
-          {
-            key: "name",
-            title: "Name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            employeeNumber: 1,
-            name: "Joe Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 2,
-            name: "Sarah Jones",
-            age: 28,
-            jobTitle: "Developer",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 3,
-            name: "Mark Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 4,
-            name: "Naomi Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 5,
-            name: "Luke Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 6,
-            name: "Dave Smith",
-            age: 33,
-            jobTitle: "Analyst",
-            address: "4 Extra Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 7,
-            name: "Amy Fox",
-            age: 27,
-            jobTitle: "Analyst",
-            address: "3 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 8,
-            name: "Mary Cooper",
-            age: 31,
-            jobTitle: "Developer",
-            address: "8 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 9,
-            name: "Alice Cole",
-            age: 38,
-            jobTitle: "Team Lead",
-            address: "10 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 10,
-            name: "Ben Fields",
-            age: 40,
-            jobTitle: "Team Lead",
-            address: "14 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 11,
-            name: "Pete Norton",
-            age: 32,
-            jobTitle: "Analyst",
-            address: "6 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 12,
-            name: "Ashley Langford",
-            age: 29,
-            jobTitle: "Developer",
-            address: "7 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 13,
-            name: "Michael Hall",
-            age: 35,
-            jobTitle: "Team Lead",
-            address: "5 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 14,
-            name: "David Frank",
-            age: 28,
-            jobTitle: "Developer",
-            address: "3 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 15,
-            name: "Mary Lincoln",
-            age: 23,
-            jobTitle: "Developer",
-            address: "10 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 16,
-            name: "Will Barns",
-            age: 36,
-            jobTitle: "Analyst",
-            address: "1 New Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 17,
-            name: "Elizabeth Long",
-            age: 43,
-            jobTitle: "Analyst",
-            address: "9 Short Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 18,
-            name: "Keith Jones",
-            age: 37,
-            jobTitle: "Developer",
-            address: "11 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 19,
-            name: "Olivia Brown",
-            age: 19,
-            jobTitle: "Trainee Analyst",
-            address: "4 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 20,
-            name: "Tim Green",
-            age: 50,
-            jobTitle: "Developer",
-            address: "2 Long Street, Town, Country, Postcode",
-          },
-        ];
-        function toggleStickyHeader(boolean) {
-          dataTable.setAttribute("sticky-column-headers", boolean);
-        }
-      </script>
-      <ic-data-table
-        caption="scrollable table"
-        embedded="true"
-        style="height: 366px;"
-      ></ic-data-table>
-      <div style="display:flex;padding-top:10px;gap:8px;">
-        <ic-button onclick="toggleStickyHeader(true)">Stick header</ic-button>
-        <ic-button onclick="toggleStickyHeader(false)"
-          >Unstick header</ic-button
-        >
-      </div>`}
-  </Story>
+```html
+<ic-data-table
+  id="data-table"
+  caption="Dense Table"
+  density="dense"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Spacious
+
+<Canvas withSource="none">
+  <Story name="Spacious">{Spacious()}</Story>
 </Canvas>
+
+#### Spacious code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Spacious Table"
+  density="spacious"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Sticky column headers
+
+When the height of the data table, the scroll bar will appear to the right. However, by default, the column headers will move up and out of view making it difficult to understand what the data means.
+This can be mitigated by using the `sticky-column-headers` prop which takes a boolean. This can be toggled within the example below.
+
+<Canvas withSource="none">
+  <Story name="Sticky Column Headers">{Scrollable()}</Story>
+</Canvas>
+
+#### Sticky column headers code example
+
+```html
+<ic-data-table
+  style="height: 366px"
+  id="data-table"
+  caption="Sticky header Table"
+  sticky-column-headers="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
 
 ### Row headers
 
-<Canvas>
-  <Story name="Row headers">{html`<script>
-      dataTable = document.querySelector("ic-data-table");
-      dataTable.columns = [
-        {
-          key: "header",
-          title: "Job type",
-          dataType: "string",
-        },
-        {
-          key: "firstName",
-          title: "First name",
-          dataType: "string",
-        },
-        {
-          key: "lastName",
-          title: "Last name",
-          dataType: "string",
-        },
-        {
-          key: "age",
-          title: "Age",
-          dataType: "number",
-        },
-        {
-          key: "jobTitle",
-          title: "Job title",
-          dataType: "string",
-        },
-        {
-          key: "address",
-          title: "Address",
-          dataType: "address",
-        },
-      ];
-      dataTable.data = [
-        {
-          header: { title: "Employee" },
-          firstName: "Joe",
-          lastName: "Bloggs",
-          age: 30,
-          jobTitle: "Developer",
-          address: "1 Main Street, Town, County, Postcode",
-        },
-        {
-          header: { title: "Employee" },
-          firstName: "Sarah",
-          lastName: "Smith",
-          age: 28,
-          jobTitle: "Analyst",
-          address: "2 Main Street, Town, Country, Postcode",
-        },
-        {
-          header: { title: "Manager" },
-          firstName: "Mark",
-          lastName: "Owens",
-          age: 45,
-          jobTitle: "Team Lead",
-          address: "12 Key Street, Town, Country, Postcode",
-        },
-        {
-          header: { title: "Employee" },
-          firstName: "Naomi",
-          lastName: "Thomas",
-          age: 32,
-          jobTitle: "Developer",
-          address: "8 Side Street, Town, Country, Postcode",
-        },
-        {
-          header: { title: "Apprentice" },
-          firstName: "Luke",
-          lastName: "Ashford",
-          age: 18,
-          jobTitle: "Junior Developer",
-          address: "5 New Street, Town, Country, Postcode",
-        },
-      ];
-    </script>
-    <ic-data-table caption="table with row headers"></ic-data-table>`}</Story>
+Row headers allow headings to be added to individual rows and styles them as column heading. The column array includes an additional `header` key which aligns with the row headers. The structure of the `header` column is the same as the columns.
+The data array includes an additional `header` key which takes an object. The title of the row header is set by passing `title` as the key and a value.
+
+<Canvas withSource="none">
+  <Story name="Row Headers">{RowHeaders()}</Story>
 </Canvas>
 
-### Column overrides
+#### Row headers code example
 
-<Canvas>
-  <Story name="Column overrides">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-            columnAlignment: { horizontal: "center", vertical: "middle" },
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-            emphasis: "high",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="table with column overrides"></ic-data-table>`}
-  </Story>
+```html
+<ic-data-table id="data-table" caption="Row headers"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "header",
+      title: "Job type",
+      dataType: "string",
+    },
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      header: { title: 'Employee' }
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Sort
+
+Set `sortable` to `true` to set the sort functionality on all columns. It is possible to set the sorting to `unsorted`, `ascending` and `descending` but press the sort buttons next to the column heading.
+
+<Canvas withSource="none">
+  <Story name="Sort">{Sort()}</Story>
 </Canvas>
 
-### Row overrides
+#### Sort code example
 
-<Canvas>
-  <Story name="Row overrides">{html`<script>
-      dataTable = document.querySelector("ic-data-table");
-      dataTable.columns = [
-        {
-          key: "header",
-          title: "Job type",
-          dataType: "string",
-        },
-        {
-          key: "firstName",
-          title: "First name",
-          dataType: "string",
-        },
-        {
-          key: "lastName",
-          title: "Last name",
-          dataType: "string",
-        },
-        {
-          key: "age",
-          title: "Age",
-          dataType: "number",
-        },
-        {
-          key: "jobTitle",
-          title: "Job title",
-          dataType: "string",
-        },
-        {
-          key: "address",
-          title: "Address",
-          dataType: "address",
-        },
-      ];
-      dataTable.data = [
-        {
-          header: { title: "Employee" },
-          firstName: "Joe",
-          lastName: "Bloggs",
-          age: 30,
-          jobTitle: "Developer",
-          address: "1 Main Street, Town, County, Postcode",
-        },
-        {
-          header: { title: "Employee" },
-          firstName: "Sarah",
-          lastName: "Smith",
-          age: 28,
-          jobTitle: "Analyst",
-          address: "2 Main Street, Town, Country, Postcode",
-        },
-        {
-          header: {
-            title: "Manager",
-            rowAlignment: "middle",
-            emphasis: "high",
-          },
-          firstName: "Mark",
-          lastName: "Owens",
-          age: 45,
-          jobTitle: "Team Lead",
-          address: "12 Key Street, Town, Country, Postcode",
-        },
-        {
-          header: { title: "Employee" },
-          firstName: "Naomi",
-          lastName: "Thomas",
-          age: 32,
-          jobTitle: "Developer",
-          address: "8 Side Street, Town, Country, Postcode",
-        },
-        {
-          header: {
-            title: "Apprentice",
-            rowAlignment: "middle",
-            emphasis: "low",
-          },
-          firstName: "Luke",
-          lastName: "Ashford",
-          age: 18,
-          jobTitle: "Junior Developer",
-          address: "5 New Street, Town, Country, Postcode",
-        },
-      ];
-    </script>
-    <ic-data-table caption="table with row overrides"></ic-data-table>`}</Story>
+```html
+<ic-data-table id="data-table" caption="Sort" sortable="true"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+#### Sort options
+
+It is possible to change the sort options for the sort buttons. The `sortOptions` prop takes an object with `sortOrders` and `defaultColumn`. `sortOrders` makes it possible to change the order to `descending`, `unsorted` and have `ascending` removed. `defaultColumn` sets which column is ordered by default. This is set by padding the column key as the `defaultColumn` value.
+
+<Canvas withSource="none">
+  <Story name="Sort Options">{SortOptions()}</Story>
 </Canvas>
 
-### Cell overrides
+#### Sort options code example
 
-<Canvas>
-  <Story name="Cell overrides">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: {
-              data: "Joe",
-              cellAlignment: { horizontal: "center", vertical: "middle" },
-              emphasis: "high",
-            },
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: {
-              data: "Smith",
-              cellAlignment: { horizontal: "center", vertical: "middle" },
-              emphasis: "high",
-            },
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: {
-              data: 45,
-              cellAlignment: { horizontal: "center", vertical: "middle" },
-              emphasis: "high",
-            },
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: {
-              data: "Developer",
-              cellAlignment: { horizontal: "center", vertical: "middle" },
-              emphasis: "high",
-            },
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: {
-              data: "5 New Street, Town, Country, Postcode",
-              cellAlignment: { horizontal: "center", vertical: "middle" },
-              emphasis: "high",
-            },
-          },
-        ];
-      </script>
-      <ic-data-table caption="table with cell overrides"></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### Links in data
-
-<Canvas>
-  <Story name="Links in data">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: {
-              data: "Developer",
-              href: "https://en.wikipedia.org/wiki/Software_development#Software_developer",
-            },
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: {
-              data: "Analyst",
-              href: "https://en.wikipedia.org/wiki/Business_analyst",
-            },
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owen",
-            age: 45,
-            jobTitle: {
-              data: "Team Lead",
-              href: "https://en.wikipedia.org/wiki/Management",
-            },
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: {
-              data: "Developer",
-              href: "https://en.wikipedia.org/wiki/Software_development#Software_developer",
-            },
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: {
-              data: "Developer",
-              href: "https://en.wikipedia.org/wiki/Software_development#Software_developer",
-            },
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="table with links in data"></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### HTML elements in data
-
-<Canvas>
-  <Story name="HTML elements in data">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-          {
-            key: "actions",
-            title: "Actions",
-            dataType: "element",
-            columnAlignment: { horizontal: "center" },
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Developer",
-            address: "2 Main Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
-          },
-          {
-            firstName: "Naomit",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-            actions: \`<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>\`,
-          },
-        ];
-      </script>
-      <ic-data-table
-        caption="table with HTML elements in data"
-      ></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### Sortable
-
-<Canvas>
-  <Story name="Sortable">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-      </script>
-      <ic-data-table caption="sortable table" sortable="true"></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### Custom sort order
-
-<Canvas>
-  <Story name="Custom sort order">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-        dataTable.sortOptions = {
-          sortOrders: ["unsorted", "descending", "ascending"],
-        };
-      </script>
-      <ic-data-table
-        caption="sortable table with custom sort order"
-        sortable="true"
-      ></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### Default sorted column
-
-<Canvas>
-  <Story name="Default sorted column">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-        ];
-        dataTable.sortOptions = {
-          sortOrders: ["descending", "unsorted", "ascending"],
-          defaultColumn: "age",
-        };
-      </script>
-      <ic-data-table
-        caption="sortable table with default sort"
-        sortable="true"
-      ></ic-data-table>`}
-  </Story>
-</Canvas>
-
-### Sort dates
-
-<Canvas>
-  <Story name="Sort dates" parameters={{ loki: { skip: true } }}>
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        DATE = new Date("2004-03-27");
-        DATE_STRING = new Date("2007-01-01").toLocaleDateString();
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-          {
-            key: "birthday",
-            title: "Birthday",
-            dataType: "date",
-          },
-        ];
-        dataTable.data = [
-          {
-            firstName: "Joe",
-            lastName: "Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-            birthday: "12-11-2000",
-          },
-          {
-            firstName: "Sarah",
-            lastName: "Smith",
-            age: 28,
-            jobTitle: "Analyst",
-            address: "2 Main Street, Town, Country, Postcode",
-            birthday: "12-11-2001",
-          },
-          {
-            firstName: "Mark",
-            lastName: "Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, Country, Postcode",
-            birthday: "1212-11-13",
-          },
-          {
-            firstName: "Naomi",
-            lastName: "Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-            birthday: DATE,
-          },
-          {
-            firstName: "Luke",
-            lastName: "Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-            birthday: DATE_STRING,
-          },
-        ];
-      </script>
-      <ic-data-table caption="dates in table" sortable="true"></ic-data-table>`}
-  </Story>
-</Canvas>
+```html
+<ic-data-table
+  id="data-table"
+  caption="Sort Options"
+  sortable="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.sortOptions = {
+    sortOrders: ['descending', 'unsorted'],
+    defaultColumn: 'firstName'
+  };
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
 
 ### Pagination
 
-<Canvas>
-  <Story name="Pagination">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "employeeNumber",
-            title: "Employee number",
-            dataType: "number",
-            columnAlignment: { horizontal: "left" },
-          },
-          {
-            key: "name",
-            title: "Name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            employeeNumber: 1,
-            name: "Joe Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 2,
-            name: "Sarah Jones",
-            age: 28,
-            jobTitle: "Developer",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 3,
-            name: "Mark Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 4,
-            name: "Naomi Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 5,
-            name: "Luke Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 6,
-            name: "Dave Smith",
-            age: 33,
-            jobTitle: "Analyst",
-            address: "4 Extra Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 7,
-            name: "Amy Fox",
-            age: 27,
-            jobTitle: "Analyst",
-            address: "3 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 8,
-            name: "Mary Cooper",
-            age: 31,
-            jobTitle: "Developer",
-            address: "8 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 9,
-            name: "Alice Cole",
-            age: 38,
-            jobTitle: "Team Lead",
-            address: "10 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 10,
-            name: "Ben Fields",
-            age: 40,
-            jobTitle: "Team Lead",
-            address: "14 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 11,
-            name: "Pete Norton",
-            age: 32,
-            jobTitle: "Analyst",
-            address: "6 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 12,
-            name: "Ashley Langford",
-            age: 29,
-            jobTitle: "Developer",
-            address: "7 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 13,
-            name: "Michael Hall",
-            age: 35,
-            jobTitle: "Team Lead",
-            address: "5 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 14,
-            name: "David Frank",
-            age: 28,
-            jobTitle: "Developer",
-            address: "3 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 15,
-            name: "Mary Lincoln",
-            age: 23,
-            jobTitle: "Developer",
-            address: "10 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 16,
-            name: "Will Barns",
-            age: 36,
-            jobTitle: "Analyst",
-            address: "1 New Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 17,
-            name: "Elizabeth Long",
-            age: 43,
-            jobTitle: "Analyst",
-            address: "9 Short Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 18,
-            name: "Keith Jones",
-            age: 37,
-            jobTitle: "Developer",
-            address: "11 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 19,
-            name: "Olivia Brown",
-            age: 19,
-            jobTitle: "Trainee Analyst",
-            address: "4 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 20,
-            name: "Tim Green",
-            age: 50,
-            jobTitle: "Developer",
-            address: "2 Long Street, Town, Country, Postcode",
-          },
-        ];
-        dataTable.paginationOptions = {
-          itemsPerPage: [
-            { label: "5", value: "5" },
-            { label: "10", value: "10" },
-            { label: "15", value: "15" },
-          ],
-          itemsPerPageControl: true,
-          goToPageControl: true,
-        };
-      </script>
-      <ic-data-table
-        caption="table with pagination"
-        show-pagination="true"
-      ></ic-data-table>`}
-  </Story>
+Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `show-pagination` to `true` will set append `ic-pagination` to the bottom of the table. There a several sub components within pagination which are set via the `paginationOptions` prop.
+
+- `itemsPerPage` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
+- `itemsPerPageControl` which show or hides the `itemsPerPage` component.
+- `goToPageControl` displays a textfield and go button which allows jumping between pages in a non-linear approach.
+
+<Canvas withSource="none">
+  <Story name="Pagination">{Pagination()}</Story>
 </Canvas>
 
-### Complex example
+#### Pagination code example
 
-<Canvas>
-  <Story name="Complex example">
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "employeeNumber",
-            title: "Employee number",
-            dataType: "number",
-            columnAlignment: { horizontal: "left" },
-          },
-          {
-            key: "name",
-            title: "Name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        dataTable.data = [
-          {
-            employeeNumber: 1,
-            name: "Joe Bloggs",
-            age: 30,
-            jobTitle: "Developer",
-            address: "1 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 2,
-            name: "Sarah Jones",
-            age: 28,
-            jobTitle: "Developer",
-            address: "2 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 3,
-            name: "Mark Owens",
-            age: 45,
-            jobTitle: "Team Lead",
-            address: "12 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 4,
-            name: "Naomi Thomas",
-            age: 32,
-            jobTitle: "Developer",
-            address: "8 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 5,
-            name: "Luke Ashford",
-            age: 18,
-            jobTitle: "Junior Developer",
-            address: "5 New Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 6,
-            name: "Dave Smith",
-            age: 33,
-            jobTitle: "Analyst",
-            address: "4 Extra Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 7,
-            name: "Amy Fox",
-            age: 27,
-            jobTitle: "Analyst",
-            address: "3 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 8,
-            name: "Mary Cooper",
-            age: 31,
-            jobTitle: "Developer",
-            address: "8 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 9,
-            name: "Alice Cole",
-            age: 38,
-            jobTitle: "Team Lead",
-            address: "10 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 10,
-            name: "Ben Fields",
-            age: 40,
-            jobTitle: "Team Lead",
-            address: "14 High Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 11,
-            name: "Pete Norton",
-            age: 32,
-            jobTitle: "Analyst",
-            address: "6 Key Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 12,
-            name: "Ashley Langford",
-            age: 29,
-            jobTitle: "Developer",
-            address: "7 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 13,
-            name: "Michael Hall",
-            age: 35,
-            jobTitle: "Team Lead",
-            address: "5 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 14,
-            name: "David Frank",
-            age: 28,
-            jobTitle: "Developer",
-            address: "3 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 15,
-            name: "Mary Lincoln",
-            age: 23,
-            jobTitle: "Developer",
-            address: "10 Main Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 16,
-            name: "Will Barns",
-            age: 36,
-            jobTitle: "Analyst",
-            address: "1 New Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 17,
-            name: "Elizabeth Long",
-            age: 43,
-            jobTitle: "Analyst",
-            address: "9 Short Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 18,
-            name: "Keith Jones",
-            age: 37,
-            jobTitle: "Developer",
-            address: "11 Main Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 19,
-            name: "Olivia Brown",
-            age: 19,
-            jobTitle: "Trainee Analyst",
-            address: "4 Side Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 20,
-            name: "Tim Green",
-            age: 50,
-            jobTitle: "Developer",
-            address: "2 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 21,
-            name: "Christopher Stafford",
-            age: 21,
-            jobTitle: "Developer",
-            address: "1 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 22,
-            name: "Susan Kahn",
-            age: 23,
-            jobTitle: "Analyst",
-            address: "3 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 23,
-            name: "Nicolas Meadows",
-            age: 39,
-            jobTitle: "Analyst",
-            address: "4 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 24,
-            name: "Victoria George",
-            age: 45,
-            jobTitle: "Developer",
-            address: "6 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 25,
-            name: "Calvin Leon",
-            age: 49,
-            jobTitle: "Team Lead",
-            address: "8 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 26,
-            name: "Jayden Shepherd",
-            age: 48,
-            jobTitle: "Analyst",
-            address: "9 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 27,
-            name: "Judith Larson",
-            age: 25,
-            jobTitle: "Developer",
-            address: "10 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 28,
-            name: "Patrick Kemp",
-            age: 30,
-            jobTitle: "Developer",
-            address: "11 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 29,
-            name: "Reagan Keller",
-            age: 28,
-            jobTitle: "Developer",
-            address: "12 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 30,
-            name: "Lily Omar",
-            age: 40,
-            jobTitle: "Team Lead",
-            address: "13 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 31,
-            name: "Gabrielle Cooper",
-            age: 27,
-            jobTitle: "Analyst",
-            address: "14 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 32,
-            name: "Hugh Stewart",
-            age: 29,
-            jobTitle: "Developer",
-            address: "15 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 33,
-            name: "Cole Henson",
-            age: 39,
-            jobTitle: "Analyst",
-            address: "16 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 34,
-            name: "Amanda O'Neill",
-            age: 42,
-            jobTitle: "Team Lead",
-            address: "17 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 35,
-            name: "Dustin Steele",
-            age: 31,
-            jobTitle: "Developer",
-            address: "18 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 36,
-            name: "Arabella Cross",
-            age: 41,
-            jobTitle: "Developer",
-            address: "19 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 37,
-            name: "Krish Greene",
-            age: 23,
-            jobTitle: "Developer",
-            address: "20 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 38,
-            name: "Jerome Barr",
-            age: 25,
-            jobTitle: "Analyst",
-            address: "21 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 39,
-            name: "Jacob Shepherd",
-            age: 32,
-            jobTitle: "Analyst",
-            address: "22 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 40,
-            name: "Liam Noon",
-            age: 32,
-            jobTitle: "Developer",
-            address: "23 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 41,
-            name: "Ralph Powers",
-            age: 38,
-            jobTitle: "Developer",
-            address: "24 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 42,
-            name: "Lacey Proctor",
-            age: 44,
-            jobTitle: "Developer",
-            address: "25 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 43,
-            name: "Dustin Ware",
-            age: 29,
-            jobTitle: "Developer",
-            address: "26 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 44,
-            name: "Brett Conway",
-            age: 33,
-            jobTitle: "Analyst",
-            address: "27 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 45,
-            name: "Pamela Cabrera",
-            age: 43,
-            jobTitle: "Developer",
-            address: "28 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 46,
-            name: "Rory Matthews",
-            age: 37,
-            jobTitle: "Developer",
-            address: "29 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 47,
-            name: "Lucille Walker",
-            age: 46,
-            jobTitle: "Team Lead",
-            address: "30 Long Street, Town, Country, Postcode",
-          },
-          {
-            employeeNumber: 48,
-            name: "Finley Kirk",
-            age: 28,
-            jobTitle: "Developer",
-            address: "31 Long Street, Town, County, Postcode",
-          },
-          {
-            employeeNumber: 49,
-            name: "Micaela Kim",
-            age: 22,
-            jobTitle: "Analyst",
-            address: "32 Long Street, Town, Country, Postcode",
-          },
-        ];
-        function toggleStickyHeader(boolean) {
-          dataTable.setAttribute("sticky-column-headers", boolean);
-        }
-      </script>
-      <ic-data-table
-        caption="complex example table"
-        embedded="true"
-        style="height: 366px;"
-        show-pagination="true"
-        sortable="true"
-      ></ic-data-table>
-      <div style="display:flex;padding-top:10px;gap:8px;">
-        <ic-button onclick="toggleStickyHeader(true)">Stick header</ic-button>
-        <ic-button onclick="toggleStickyHeader(false)"
-          >Unstick header</ic-button
-        >
-      </div>`}
-  </Story>
+```html
+<ic-data-table
+  id="data-table"
+  caption="Pagination"
+  show-pagination="true"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.paginationOptions = {
+    itemsPerPage: [
+      { label: "5", value: "5" },
+      { label: "10", value: "10" },
+      { label: "15", value: "15" },
+    ],
+    itemsPerPageControl: true,
+    goToPageControl: true,
+  };
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Column overrides
+
+There may be a requirement to style a column differently to the rest of the data to add emphasis. For example, there may be a requirement to centre align data within the 'age' column. To do this, add `columnAlignment` to the column. `columnAlignment` takes an object which sets the `horizontal` and `vertical` property.
+
+- `horizontal` accepts `left`, `right` or `center`.
+- `vertical` accepts `top`, `middle`, `bottom`.
+
+<Canvas withSource="none">
+  <Story name="Column Overrides">{ColumnOverrides()}</Story>
 </Canvas>
 
-### Async data loading
+#### Column overrides code example
 
-<Canvas>
-  <Story name="Async data loading" parameters={{ loki: { skip: true } }}>
-    {html` <script>
-        dataTable = document.querySelector("ic-data-table");
-        dataTable.columns = [
-          {
-            key: "firstName",
-            title: "First name",
-            dataType: "string",
-          },
-          {
-            key: "lastName",
-            title: "Last name",
-            dataType: "string",
-          },
-          {
-            key: "age",
-            title: "Age",
-            dataType: "number",
-          },
-          {
-            key: "jobTitle",
-            title: "Job title",
-            dataType: "string",
-          },
-          {
-            key: "address",
-            title: "Address",
-            dataType: "address",
-          },
-        ];
-        setTimeout(() => {
-          dataTable.data = [
-            {
-              firstName: "Joe",
-              lastName: "Bloggs",
-              age: 30,
-              jobTitle: "Developer",
-              address: "1 Main Street, Town, County, Postcode",
-            },
-            {
-              firstName: "Sarah",
-              lastName: "Smith",
-              age: 28,
-              jobTitle: "Analyst",
-              address: "2 Main Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Mark",
-              lastName: "Owens",
-              age: 45,
-              jobTitle: "Team Lead",
-              address: "12 Key Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Naomi",
-              lastName: "Thomas",
-              age: 32,
-              jobTitle: "Developer",
-              address: "8 Side Street, Town, Country, Postcode",
-            },
-            {
-              firstName: "Luke",
-              lastName: "Ashford",
-              age: 18,
-              jobTitle: "Junior Developer",
-              address: "5 New Street, Town, Country, Postcode",
-            },
-          ];
-        }, 5000);
-      </script>
-      <ic-data-table caption="async table"></ic-data-table>`}
-  </Story>
+```html
+<ic-data-table id="data-table" caption="Column Overrides"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+      columnAlignment: { horizontal: 'center', vertical: 'middle'}
+    },
+    ...
+  ];
+
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Row overrides
+
+Row overrides allow styling to be applied at a row level and is set within the `header` object. The row overrides are used inconjunction with row headers. The following row overrides options apply:
+
+- `rowAlignment` accepts `left`, `right` and `center`.
+- `emphasis` accepts `high` or `low`.
+
+<Canvas withSource="none">
+  <Story name="Row Overrides">{RowOverrides()}</Story>
 </Canvas>
+
+#### Row overrides code example
+
+```html
+<ic-data-table id="data-table" caption="Row Overrides"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "header",
+      title: "Job type",
+      dataType: "string",
+    },
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      header: {
+        title: 'Employee',
+        rowAlignment: 'middle',
+        emphasis: 'high'
+      }
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Cell overrides
+
+Cell overrides allows styling to be applied at a granular level. The cell which requires an override accepts an object which contains `data`, `cellAlignment` and `emphasis`.
+
+- `data` is the cell value.
+- `cellAlignment` accepts an object with the following key pairs:
+  - `horizontal` accepts `left`, `right` or `center`.
+  - `vertical` accepts `top`, `middle`, `bottom`.
+- `emphasis` accepts `high` or `low`.
+
+<Canvas withSource="none">
+  <Story name="Cell Overrides">{CellOverrides()}</Story>
+</Canvas>
+
+#### Cell overrides code example
+
+```html
+<ic-data-table id="data-table" caption="Cell Overrides"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      firstName: {
+        data: "Joe",
+        cellAlignment: { horizontal: "center", vertical: "middle" },
+        emphasis: "high",
+      },
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
