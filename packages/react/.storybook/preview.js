@@ -9,5 +9,10 @@ export const parameters = {
         date: /Date$/,
       },
       hideNoControlsWarning: true
-    }
+    },
+    viewMode: "docs",
+    previewTabs: {
+      "storybook/docs/panel": { title: "Documentation" },
+      canvas: { title: "Live example" },
+    },
   }
