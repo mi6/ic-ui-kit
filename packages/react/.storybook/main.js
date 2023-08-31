@@ -12,6 +12,7 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
+    "./addon-tab/register"
   ],
   "framework": "@storybook/react"
 }
