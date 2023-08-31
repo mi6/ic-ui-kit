@@ -35,22 +35,15 @@ export class Tooltip {
     height: "1px",
     overflow: "hidden",
   };
-  private showEvents = [
-    !this.disableHover && "mouseenter",
-    !this.disableHover && "focusin",
-    !this.disableClick && "click",
-  ];
+  private showEvents = this.disableHover
+    ? ["click"]
+    : ["mouseenter", "focusin"];
   private toolTip: HTMLDivElement;
 
   @Element() el: HTMLIcTooltipElement;
 
   /**
-   * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
-   */
-  @Prop() disableClick?: boolean = false;
-
-  /**
-   * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
+   * If `true`, the tooltip will not be displayed on hover, it will require a click.
    */
   @Prop() disableHover?: boolean = false;
 
