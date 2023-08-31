@@ -166,6 +166,7 @@
   transition: var(--ic-easing-transition-slow);
   overflow: hidden;
 }
+
 :host(.navigation-group-side-nav) .link,
 :host(.navigation-group-side-nav) ::slotted(a) {
   height: var(--navigation-child-items-height, auto);
