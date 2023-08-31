@@ -35,22 +35,15 @@ export class Tooltip {
     height: "1px",
     overflow: "hidden",
   };
-  private showEvents = [
-    !this.disableHover && "mouseenter",
-    !this.disableHover && "focusin",
-    !this.disableClick && "click",
-  ];
+  private showEvents = this.disableHover
+    ? ["click"]
+    : ["mouseenter", "focusin"];
   private toolTip: HTMLDivElement;
 
   @Element() el: HTMLIcTooltipElement;
 
   /**
-   * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
-   */
-  @Prop() disableClick?: boolean = false;
-
-  /**
-   * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
+   * If `true`, the tooltip will not be displayed on hover, it will require a click.
    */
   @Prop() disableHover?: boolean = false;
 
@@ -82,85 +75,6 @@ export class Tooltip {
       this.popperInstance.destroy();
     }
   }
-
-  private show = (popper: Instance) => {
-    this.toolTip.setAttribute("data-show", "");
-    popper.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: true },
-      ],
-    }));
-    popper.update();
-  };
-
-  private hide = (popper: Instance) => {
-    this.toolTip.removeAttribute("data-show");
-    popper.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: "eventListeners", enabled: false },
-      ],
-    }));
-    this.persistTooltip = false;
-  };
-
-  private checkCloseTooltip = (popper: Instance) => {
-    setTimeout(() => {
-      if (!this.mouseOverTool && !this.persistTooltip) {
-        this.hide(popper);
-      }
-    }, 100);
-  };
-
-  private mouseEnterTooltip = () => {
-    this.mouseOverTool = true;
-  };
-
-  private mouseLeaveTooltip = (popper: Instance) => {
-    this.mouseOverTool = false;
-    this.checkCloseTooltip(popper);
-  };
-
-  private handleKeyDown = (key: string) => {
-    if (key === "Escape" && !this.persistTooltip) {
-      this.hide(this.popperInstance);
-    }
-  };
-
-  private manageEventListeners = (action: "add" | "remove") => {
-    const method =
-      action === "add" ? "addEventListener" : "removeEventListener";
-
-    this.showEvents.forEach((event) => {
-      this.el[method](event, () => this.show(this.popperInstance));
-      if (this.toolTip !== undefined) {
-        this.toolTip[method](event, () => this.mouseEnterTooltip());
-      }
-    });
-
-    this.instantHideEvents.forEach((event) => {
-      this.el[method](
-        event,
-        () => !this.persistTooltip && this.hide(this.popperInstance)
-      );
-    });
-
-    this.delayedHideEvents.forEach((event) => {
-      this.el[method](event, () => this.checkCloseTooltip(this.popperInstance));
-      if (this.toolTip !== undefined) {
-        this.toolTip[method](event, () =>
-          this.mouseLeaveTooltip(this.popperInstance)
-        );
-      }
-    });
-
-    document[method]("keydown", (event: KeyboardEvent) =>
-      this.handleKeyDown(event.key)
-    );
-  };
 
   componentDidLoad(): void {
     this.manageEventListeners("add");
