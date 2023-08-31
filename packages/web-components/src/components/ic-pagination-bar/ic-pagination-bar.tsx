@@ -486,7 +486,6 @@ export class PaginationBar {
                 label={this.inputError}
                 target={`#${PAGE_INPUT_FIELD_ID}`}
                 disableHover
-                disableClick
               >
                 <ic-text-field
                   type="number"
