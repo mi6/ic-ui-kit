@@ -3,11 +3,11 @@
 exports[`ic-tooltip component getTooltipTranslate should update for bottom 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -20,11 +20,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom 1`] =
 exports[`ic-tooltip component getTooltipTranslate should update for bottom-end 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-end" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -37,11 +37,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom-end 1
 exports[`ic-tooltip component getTooltipTranslate should update for bottom-start 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-start" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -54,11 +54,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom-start
 exports[`ic-tooltip component getTooltipTranslate should update for left 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -71,11 +71,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for left 1`] = `
 exports[`ic-tooltip component getTooltipTranslate should update for left-end 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="left-end" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -88,11 +88,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for left-end 1`]
 exports[`ic-tooltip component getTooltipTranslate should update for right 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="right" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -105,11 +105,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for right 1`] = 
 exports[`ic-tooltip component getTooltipTranslate should update for right-end 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="right-end" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -122,11 +122,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for right-end 1`
 exports[`ic-tooltip component getTooltipTranslate should update for top 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="top" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -139,11 +139,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for top 1`] = `
 exports[`ic-tooltip component getTooltipTranslate should update for top-end 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="top-end" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -156,11 +156,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for top-end 1`] 
 exports[`ic-tooltip component getTooltipTranslate should update for top-start 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="top-start" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -173,11 +173,11 @@ exports[`ic-tooltip component getTooltipTranslate should update for top-start 1`
 exports[`ic-tooltip component getTooltipTranslate should update when tooltip is outside of dialog 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0; --tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>
@@ -190,11 +190,11 @@ exports[`ic-tooltip component getTooltipTranslate should update when tooltip is 
 exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip">
+    <div class="ic-tooltip-container" role="tooltip" style="position: absolute; left: 0; top: 0; margin: 0;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
-      <div class="ic-tooltip-arrow" data-popper-arrow></div>
+      <div class="ic-tooltip-arrow" data-popper-arrow style="position: absolute;"></div>
     </div>
     <slot></slot>
   </mock:shadow-root>

@@ -1209,55 +1209,6 @@ export namespace Components {
          */
         "totalItems": number;
     }
-    interface IcPaginationBar {
-        /**
-          * Sets the alignment of the items in the pagination bar.
-         */
-        "alignment"?: "left" | "right" | "space-between";
-        /**
-          * Sets the styling for the items in the pagination bar.
-         */
-        "appearance"?: IcThemeForeground1;
-        /**
-          * What label will be used in place of 'items' if paginationType is data, should be capitalised.
-         */
-        "itemLabel"?: string;
-        /**
-          * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
-         */
-        "itemsPerPageOptions"?: {
-    label: string;
-    value: string;
-  }[];
-        /**
-          * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
-         */
-        "pageLabel"?: string;
-        /**
-          * Whether the displayed pagination is simple or complex.
-         */
-        "paginationControl"?: "simple" | "complex";
-        /**
-          * Whether total number of items and current item range or total number of pages and current page is displayed.
-         */
-        "paginationType"?: "data" | "page";
-        /**
-          * If `true`, the 'go to page' control should be displayed.
-         */
-        "showGoToPageControl"?: boolean;
-        /**
-          * If `true`, the number of total items and current item range or number of total pages and current page should be displayed.
-         */
-        "showItemsPerPage"?: boolean;
-        /**
-          * If `true`, the select input to control 'items per page' should be displayed.
-         */
-        "showItemsPerPageControl"?: boolean;
-        /**
-          * Total number of items to be displayed across all pages.
-         */
-        "totalItems": number;
-    }
     interface IcPaginationItem {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
@@ -2032,6 +1983,10 @@ export namespace Components {
         "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
+        "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
@@ -3820,63 +3775,6 @@ declare namespace LocalJSX {
          */
         "totalItems": number;
     }
-    interface IcPaginationBar {
-        /**
-          * Sets the alignment of the items in the pagination bar.
-         */
-        "alignment"?: "left" | "right" | "space-between";
-        /**
-          * Sets the styling for the items in the pagination bar.
-         */
-        "appearance"?: IcThemeForeground1;
-        /**
-          * What label will be used in place of 'items' if paginationType is data, should be capitalised.
-         */
-        "itemLabel"?: string;
-        /**
-          * What options will be displayed for 'items per page' select input, maximum of 4 options including a required 'All' option with value equal to total number of items.
-         */
-        "itemsPerPageOptions"?: {
-    label: string;
-    value: string;
-  }[];
-        /**
-          * Emitted when the items per page option is changed.
-         */
-        "onIcItemsPerPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
-        /**
-          * Emitted when a page is navigated to via the 'go to' input.
-         */
-        "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
-        /**
-          * What label will be used in place of 'Page' if paginationType is page, should be capitalised.
-         */
-        "pageLabel"?: string;
-        /**
-          * Whether the displayed pagination is simple or complex.
-         */
-        "paginationControl"?: "simple" | "complex";
-        /**
-          * Whether total number of items and current item range or total number of pages and current page is displayed.
-         */
-        "paginationType"?: "data" | "page";
-        /**
-          * If `true`, the 'go to page' control should be displayed.
-         */
-        "showGoToPageControl"?: boolean;
-        /**
-          * If `true`, the number of total items and current item range or number of total pages and current page should be displayed.
-         */
-        "showItemsPerPage"?: boolean;
-        /**
-          * If `true`, the select input to control 'items per page' should be displayed.
-         */
-        "showItemsPerPageControl"?: boolean;
-        /**
-          * Total number of items to be displayed across all pages.
-         */
-        "totalItems": number;
-    }
     interface IcPaginationItem {
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
@@ -4758,6 +4656,10 @@ declare namespace LocalJSX {
     interface IcToastRegion {
     }
     interface IcTooltip {
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
+        "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
