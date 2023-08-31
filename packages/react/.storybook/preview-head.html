@@ -1,0 +1,402 @@
+<style type="text/css">
+  /** 
+      This is a semi-supported Storybook method of
+      changing styles outside of their APIs.
+      Accept this might break in the future, but
+      the benefit of aligning SB to the ICDS spec
+      is quite high.
+    **/
+  #docs-root > footer {
+    padding-left: 80px;
+    border-top: 1px solid #e5e6e7;
+    margin-top: 48px;
+  }
+
+  .sbdocs.sbdocs-content {
+    max-width: 1100px;
+    padding-left: 124px;
+    box-sizing: border-box;
+  }
+
+  .sbdocs.sbdocs-wrapper {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+
+  .sbdocs.sbdocs-a,
+  .sbdocs.sbdocs-p a {
+    text-decoration: underline;
+    color: #1759bc;
+  }
+
+  .sbdocs.sbdocs-a:hover,
+  .sbdocs.sbdocs-p a:hover {
+    text-decoration: none;
+    color: #7c2855;
+  }
+
+  .sbdocs.sbdocs-a:visited,
+  .sbdocs.sbdocs-p a:visited {
+    text-decoration: underline;
+    color: #330072;
+  }
+
+  .sbdocs.sbdocs-a:active,
+  .sbdocs.sbdocs-a:focus,
+  .sbdocs.sbdocs-p a:active,
+  .sbdocs.sbdocs-p a:focus {
+    transition: box-shadow 0.25s;
+    text-decoration: none !important;
+    color: #1759bc;
+    outline: none;
+    box-shadow: 0 0 0 2px #1759bc, 0 0 0 5px rgb(23, 89, 188, 0.52) !important;
+    border-radius: 2px;
+  }
+
+  .sbdocs.sbdocs-p {
+    margin: 12px 0;
+    line-height: 30px;
+    font-size: 14px;
+    font-family: var(--ic-font-body-family);
+  }
+
+  .sbdocs.sbdocs-preview {
+    border: none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (max-width: 750px) {
+    .sbdocs.sbdocs-preview,
+    .sbdocs.sbdocs-content > div > table {
+      min-width: 0px;
+    }
+
+    #docs-root > footer {
+      padding-left: 0;
+    }
+
+    .sbdocs.sbdocs-content {
+      padding-left: 16px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    #docs-root > footer {
+      padding-left: 0px;
+    }
+
+    .sbdocs.sbdocs-content {
+      padding-left: 48px;
+    }
+  }
+
+  .react-json-view {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    font-family: "Operator Mono", "Fira Code Retina", "Fira Code",
+      "FiraCode-Retina", "Andale Mono", "Lucida Console", "Consolas", "Monaco",
+      monospace !important;
+  }
+
+  .react-json-view .object-key-val:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+
+  .sbdocs.sbdocs-p code {
+    font-size: 16px;
+    font-family: "Operator Mono", "Fira Code Retina", "Fira Code",
+      "FiraCode-Retina", "Andale Mono", "Lucida Console", "Consolas", "Monaco",
+      monospace;
+  }
+
+  .sbdocs.sbdocs-li {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  .sbdocs.sbdocs-li ul {
+    margin-top: 6px;
+  }
+
+  .sbdocs.sbdocs-p .sbdocs-a,
+  .sbdocs.sbdocs-li .sbdocs-a,
+  .sbdocs.sbdocs-p a,
+  .sbdocs.sbdocs-li a {
+    font-weight: 600;
+  }
+
+  .sbdocs.sbdocs-h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-left: -3px;
+
+    margin-bottom: 22px !important;
+  }
+
+  .sbdocs.sbdocs-h2 {
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: -1px;
+
+    border: none;
+    margin-top: 48px !important;
+  }
+
+  .sbdocs.sbdocs-h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+
+    margin-top: 24px !important;
+  }
+
+  .sbdocs.sbdocs-h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+
+    margin-top: 24px !important;
+  }
+
+  /**
+    * ICDS: It isn't possible to override the SB syntax highlighting in v6.2.
+    * When it is, this should be replaced.
+    * 
+    * a11y-dark theme for JavaScript, CSS, and HTML
+    * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+    * @author ericwbailey
+    */
+
+  .sbdocs-pre > .docblock-source code[class*="language-"],
+  .sbdocs-pre > .docblock-source pre[class*="language-"],
+  .sbdocs-pre > .docblock-source [class*="language-"] {
+    color: #f8f8f2;
+    background: none;
+    font-family: "Operator Mono", "Fira Code Retina", "Fira Code",
+      "FiraCode-Retina", "Andale Mono", "Lucida Console", "Consolas", "Monaco",
+      monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  /* Code blocks */
+  .sbdocs-pre > .docblock-source pre[class*="language-"] {
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    border-radius: 0.3em;
+  }
+
+  .sbdocs-pre > .docblock-source :not(pre) > code[class*="language-"],
+  .sbdocs.sbdocs-pre:not(.prismjs) > .docblock-source {
+    background: #2b2b2b;
+    border-radius: 3px;
+  }
+
+  .sbdocs.sbdocs-preview > div:nth-child(2) {
+    background: #2b2b2b;
+  }
+
+  /* Inline code */
+  .sbdocs-pre > .docblock-source :not(pre) > code[class*="language-"] {
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+  }
+
+  .sbdocs-pre > .docblock-source button {
+    background: #030303;
+    color: #fff;
+    border-radius: 4px 0 0 0;
+  }
+
+  .sbdocs-pre > .docblock-source button:focus {
+    box-shadow: #1ea7fd 0 -3px 0 0 inset;
+  }
+
+  .sbdocs-pre > .docblock-source > div:nth-child(2) {
+    background: none;
+  }
+
+  .sbdocs-pre > .docblock-source .token.comment,
+  .sbdocs-pre > .docblock-source .token.prolog,
+  .sbdocs-pre > .docblock-source .token.doctype,
+  .sbdocs-pre > .docblock-source .token.cdata,
+  .sbdocs.sbdocs-preview .token.comment,
+  .sbdocs.sbdocs-preview .token.prolog,
+  .sbdocs.sbdocs-preview .token.doctype,
+  .sbdocs.sbdocs-preview .token.cdata {
+    color: #d4d0ab;
+  }
+
+  .sbdocs-pre > .docblock-source .token.punctuation,
+  .sbdocs.sbdocs-preview .token.punctuation {
+    color: #fefefe;
+  }
+
+  .sbdocs-pre > .docblock-source .token.property,
+  .sbdocs-pre > .docblock-source .token.tag,
+  .sbdocs-pre > .docblock-source .token.constant,
+  .sbdocs-pre > .docblock-source .token.symbol,
+  .sbdocs-pre > .docblock-source .token.deleted,
+  .sbdocs.sbdocs-preview .token.property,
+  .sbdocs.sbdocs-preview .token.tag,
+  .sbdocs.sbdocs-preview .token.constant,
+  .sbdocs.sbdocs-preview .token.symbol,
+  .sbdocs.sbdocs-preview .token.deleted {
+    color: #ffa07a;
+  }
+
+  .sbdocs-pre > .docblock-source .token.boolean,
+  .sbdocs-pre > .docblock-source .token.number,
+  .sbdocs.sbdocs-preview .token.boolean,
+  .sbdocs.sbdocs-preview .token.number {
+    color: #00e0e0;
+  }
+
+  .sbdocs-pre > .docblock-source .token.selector,
+  .sbdocs-pre > .docblock-source .token.attr-name,
+  .sbdocs-pre > .docblock-source .token.string,
+  .sbdocs-pre > .docblock-source .token.char,
+  .sbdocs-pre > .docblock-source .token.builtin,
+  .sbdocs-pre > .docblock-source .token.inserted,
+  .sbdocs.sbdocs-preview .token.selector,
+  .sbdocs.sbdocs-preview .token.attr-name,
+  .sbdocs.sbdocs-preview .token.string,
+  .sbdocs.sbdocs-preview .token.char,
+  .sbdocs.sbdocs-preview .token.builtin,
+  .sbdocs.sbdocs-preview .token.inserted {
+    color: #abe338;
+  }
+
+  .sbdocs-pre > .docblock-source .token.operator,
+  .sbdocs-pre > .docblock-source .token.entity,
+  .sbdocs-pre > .docblock-source .token.url,
+  .sbdocs-pre > .docblock-source .language-css .token.string,
+  .sbdocs-pre > .docblock-source .style .token.string,
+  .sbdocs-pre > .docblock-source .token.variable,
+  .sbdocs.sbdocs-preview .token.operator,
+  .sbdocs.sbdocs-preview .token.entity,
+  .sbdocs.sbdocs-preview .token.url,
+  .sbdocs.sbdocs-preview .language-css .token.string,
+  .sbdocs.sbdocs-preview .style .token.string,
+  .sbdocs.sbdocs-preview .token.variable {
+    color: #00e0e0;
+  }
+
+  .sbdocs-pre > .docblock-source .token.atrule,
+  .sbdocs-pre > .docblock-source .token.attr-value,
+  .sbdocs-pre > .docblock-source .token.function,
+  .sbdocs.sbdocs-preview .token.atrule,
+  .sbdocs.sbdocs-preview .token.attr-value,
+  .sbdocs.sbdocs-preview .token.function {
+    color: #ffd700;
+  }
+
+  .sbdocs-pre > .docblock-source .token.keyword,
+  .sbdocs.sbdocs-preview .token.keyword {
+    color: #00e0e0;
+  }
+
+  .sbdocs-pre > .docblock-source .token.regex,
+  .sbdocs-pre > .docblock-source .token.important,
+  .sbdocs.sbdocs-preview .token.regex,
+  .sbdocs.sbdocs-preview .token.important {
+    color: #ffd700;
+  }
+
+  .sbdocs-pre > .docblock-source .token.important,
+  .sbdocs-pre > .docblock-source .token.bold,
+  .sbdocs.sbdocs-preview .token.important,
+  .sbdocs.sbdocs-preview .token.bold {
+    font-weight: bold;
+  }
+
+  .sbdocs-pre > .docblock-source .token.italic,
+  .sbdocs.sbdocs-preview .token.italic {
+    font-style: italic;
+  }
+
+  .sbdocs-pre > .docblock-source .token.entity,
+  .sbdocs.sbdocs-preview .token.entity {
+    cursor: help;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .sbdocs-pre > .docblock-source code[class*="language-"],
+    .sbdocs-pre > .docblock-source pre[class*="language-"] {
+      color: windowText;
+      background: window;
+    }
+
+    .sbdocs-pre > .docblock-source :not(pre) > code[class*="language-"],
+    .sbdocs-pre > .docblock-source pre[class*="language-"] {
+      background: window;
+    }
+
+    .sbdocs-pre > .docblock-source .token.important,
+    .sbdocs.sbdocs-preview .token.important {
+      background: highlight;
+      color: window;
+      font-weight: normal;
+    }
+
+    .sbdocs-pre > .docblock-source .token.atrule,
+    .sbdocs-pre > .docblock-source .token.attr-value,
+    .sbdocs-pre > .docblock-source .token.function,
+    .sbdocs-pre > .docblock-source .token.keyword,
+    .sbdocs-pre > .docblock-source .token.operator,
+    .sbdocs-pre > .docblock-source .token.selector,
+    .sbdocs.sbdocs-preview .token.atrule,
+    .sbdocs.sbdocs-preview .token.attr-value,
+    .sbdocs.sbdocs-preview .token.function,
+    .sbdocs.sbdocs-preview .token.keyword,
+    .sbdocs.sbdocs-preview .token.operator,
+    .sbdocs.sbdocs-preview .token.selector {
+      font-weight: bold;
+    }
+
+    .sbdocs-pre > .docblock-source .token.attr-value,
+    .sbdocs-pre > .docblock-source .token.comment,
+    .sbdocs-pre > .docblock-source .token.doctype,
+    .sbdocs-pre > .docblock-source .token.function,
+    .sbdocs-pre > .docblock-source .token.keyword,
+    .sbdocs-pre > .docblock-source .token.operator,
+    .sbdocs-pre > .docblock-source .token.property,
+    .sbdocs-pre > .docblock-source .token.string,
+    .sbdocs.sbdocs-preview .token.attr-value,
+    .sbdocs.sbdocs-preview .token.comment,
+    .sbdocs.sbdocs-preview .token.doctype,
+    .sbdocs.sbdocs-preview .token.function,
+    .sbdocs.sbdocs-preview .token.keyword,
+    .sbdocs.sbdocs-preview .token.operator,
+    .sbdocs.sbdocs-preview .token.property,
+    .sbdocs.sbdocs-preview .token.string {
+      color: highlight;
+    }
+
+    .sbdocs-pre > .docblock-source .token.attr-value,
+    .sbdocs.sbdocs-preview .token.url,
+    .sbdocs-pre > .docblock-source .token.attr-value,
+    .sbdocs.sbdocs-preview .token.url {
+      font-weight: normal;
+    }
+  }
+</style>
