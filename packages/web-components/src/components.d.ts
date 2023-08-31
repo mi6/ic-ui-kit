@@ -2082,11 +2082,7 @@ export namespace Components {
     }
     interface IcTooltip {
         /**
-          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
-         */
-        "disableClick"?: boolean;
-        /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
+          * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
         "disableHover"?: boolean;
         /**
@@ -4876,11 +4872,7 @@ declare namespace LocalJSX {
     }
     interface IcTooltip {
         /**
-          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
-         */
-        "disableClick"?: boolean;
-        /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
+          * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
         "disableHover"?: boolean;
         /**
