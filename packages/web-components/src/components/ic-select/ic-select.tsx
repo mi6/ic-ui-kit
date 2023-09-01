@@ -209,6 +209,7 @@ export class Select {
    */
   @Prop() options?: IcMenuOption[] = [];
   @State() filteredOptions: IcMenuOption[] = this.options;
+  @State() uniqueOptions: IcMenuOption[] = this.options;
 
   @Watch("options")
   watchOptionsHandler(): void {
@@ -219,17 +220,19 @@ export class Select {
         if (this.options.length > 0) {
           this.setOptionsValuesFromLabels();
           this.noOptions = null;
-          this.filteredOptions = this.options;
+          this.uniqueOptions = this.deduplicateOptions(this.options);
+          this.filteredOptions = this.uniqueOptions;
         } else {
           this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
+          this.uniqueOptions = this.noOptions;
           this.filteredOptions = this.noOptions;
         }
         this.updateSearchableSelectResultAriaLive();
         this.setDefaultValue();
       } else {
         this.setOptionsValuesFromLabels();
-        this.filteredOptions = this.options;
-
+        this.uniqueOptions = this.deduplicateOptions(this.options);
+        this.filteredOptions = this.uniqueOptions;
         if (this.initialOptionsEmpty) {
           this.setDefaultValue();
           this.initialOptionsEmpty = false;
@@ -328,6 +331,7 @@ export class Select {
       this.initialOptionsEmpty = true;
     } else {
       this.setDefaultValue();
+      this.uniqueOptions = this.deduplicateOptions(this.options);
     }
   }
 
@@ -337,8 +341,9 @@ export class Select {
       "Select"
     );
 
-    if (this.loading) this.triggerLoading();
-
+    if (this.loading) {
+      this.triggerLoading();
+    }
     this.hiddenInputValue = this.searchable && this.currValue;
   }
 
@@ -393,6 +398,54 @@ export class Select {
     this.icChange.emit({ value: value });
   };
 
+  /**
+   * Processes the provided array of IcMenuOptions, removing duplicates and reporting them with a console.warn
+   * @param options array of IcMenuOptions
+   * @returns a new options object, with all entries possessing a duplicate 'value' field removed
+   */
+  private deduplicateOptions = (options: IcMenuOption[]): IcMenuOption[] => {
+    const uniqueValues: string[] = [];
+    const dedupedOptions: IcMenuOption[] = [];
+    let dedupedChildren: IcMenuOption[];
+
+    options.forEach((option: IcMenuOption) => {
+      if (option.children) {
+        //If an option has children, we will loop through them
+        dedupedChildren = [];
+        option.children.forEach((child) => {
+          if (uniqueValues.includes(child.value)) {
+            console.warn(
+              `ic-select with label ${this.label} was populated with duplicate option (value: ${child.value}) which has been removed.`
+            );
+          } else {
+            uniqueValues.push(child.value);
+            dedupedChildren.push(child);
+          }
+        });
+        // construct a modified option, inserting the deduplicated children alongside the original information
+        const modifiedParent: IcMenuOption = {
+          ...option,
+          children: dedupedChildren,
+        };
+        dedupedOptions.push(modifiedParent);
+      } else {
+        // If an option does not have children, assess to see if it's value has been included already
+        if (uniqueValues.includes(option.value)) {
+          console.warn(
+            `ic-select with label ${this.label} was populated with duplicate option (value: ${option.value}) which has been removed.`
+          );
+        } else {
+          uniqueValues.push(option.value);
+          dedupedOptions.push(option);
+        }
+      }
+    });
+    return dedupedOptions;
+  };
+
+  /**
+   * Loop through options array and for all options with no value, infer it from the label
+   */
   private setOptionsValuesFromLabels = (): void => {
     if (this.options.length > 0 && this.options.map) {
       this.options.map((option) => {
@@ -422,7 +475,7 @@ export class Select {
   };
 
   private getLabelFromValue = (value: string): string | undefined => {
-    return getLabelFromValue(value, this.options);
+    return getLabelFromValue(value, this.uniqueOptions);
   };
 
   private getFilteredChildMenuOptions = (option: IcMenuOption) => {
@@ -529,7 +582,7 @@ export class Select {
         (!this.searchable || this.searchableMenuItemSelected)
       ) {
         this.noOptions = null;
-        this.menu.options = this.options;
+        this.menu.options = this.uniqueOptions;
       }
     }
 
@@ -557,7 +610,7 @@ export class Select {
     if (this.searchable) {
       this.searchableSelectElement.value = null;
       this.searchableSelectInputValue = null;
-      this.filteredOptions = this.options;
+      this.filteredOptions = this.uniqueOptions;
       this.hiddenInputValue = null;
       this.searchableSelectElement.focus();
     } else {
@@ -614,7 +667,7 @@ export class Select {
       } else {
         if (!this.hasTimedOut) {
           this.noOptions = null;
-          this.menu.options = this.options;
+          this.menu.options = this.uniqueOptions;
         }
       }
     }
@@ -652,7 +705,9 @@ export class Select {
   };
 
   private handleFilter = (): void => {
-    const options = this.searchable ? [...this.options] : this.ungroupedOptions;
+    const options = this.deduplicateOptions(
+      this.searchable ? [...this.uniqueOptions] : this.ungroupedOptions
+    );
 
     let isGrouped = false;
     let newFilteredOptions: IcMenuOption[] = [];
@@ -718,13 +773,18 @@ export class Select {
     }
   };
 
+  /**
+   * Put the select component into loading state.
+   * Replace options with the loading message. If timeout is enabled, set the timeout and once passed, replace options with the loading error message
+   */
   private triggerLoading = () => {
     this.hasTimedOut = false;
     this.noOptions = [{ label: this.loadingLabel, value: "", loading: true }];
-    if (this.filteredOptions !== this.noOptions && this.searchable)
+    if (this.filteredOptions !== this.noOptions && this.searchable) {
       this.filteredOptions = this.noOptions;
-    else if (!this.searchable && this.options !== this.noOptions)
-      this.options = this.noOptions;
+    } else if (this.uniqueOptions !== this.noOptions && !this.searchable) {
+      this.uniqueOptions = this.noOptions;
+    }
     if (this.timeout) {
       this.timeoutTimer = window.setTimeout(() => {
         this.loading = false;
@@ -733,13 +793,13 @@ export class Select {
           { label: this.loadingErrorLabel, value: "", timedOut: true },
         ];
         this.filteredOptions = this.noOptions;
-        if (!this.searchable) this.options = this.noOptions;
+        if (!this.searchable) this.uniqueOptions = this.noOptions;
       }, this.timeout);
     }
   };
 
   private getValueFromLabel = (label: string): string | undefined => {
-    return this.options.find((option) => option.label === label)?.value;
+    return this.uniqueOptions.find((option) => option.label === label)?.value;
   };
 
   private handleSearchableSelectInput = (event: Event): void => {
@@ -1123,7 +1183,7 @@ export class Select {
               small={small}
               menuId={menuId}
               open={this.open}
-              options={searchable ? this.filteredOptions : options}
+              options={searchable ? this.filteredOptions : this.uniqueOptions}
               value={currValue}
               fullWidth={fullWidth}
               onMenuStateChange={this.handleMenuChange}

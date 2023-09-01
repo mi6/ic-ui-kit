@@ -17,6 +17,9 @@ const label2 = "Test label 2";
 const value2 = "Test value 2";
 const label3 = "Test label 3";
 const value3 = "Test value 3";
+const label4 = "Test label 4";
+const value4 = "Test value 4";
+const groupLabel = "Test Group Label";
 const testValue = "Test value";
 const menuUl = "ic-menu ul";
 const noResults = "No results found";
@@ -53,6 +56,20 @@ const menuOptionsNoValues = [
   { label: label1 },
   { label: label2 },
   { label: label3 },
+];
+
+const menuOptionsWithDuplicates = [
+  { label: label1, value: value1 },
+  { label: label2, value: value2 },
+  { label: label3, value: value3 },
+  { label: label3, value: value3 },
+  {
+    label: groupLabel,
+    children: [
+      { label: label1, value: value1 },
+      { label: label4, value: value4 },
+    ],
+  },
 ];
 
 const menuOptionsWithGroups = [
@@ -525,10 +542,10 @@ describe("ic-select", () => {
     page.rootInstance.loading = true;
     page.rootInstance.open = true;
     await page.waitForChanges();
-    expect(page.rootInstance.options[0].label).toEqual(loadingLabel);
+    expect(page.rootInstance.uniqueOptions[0].label).toEqual(loadingLabel);
 
     await waitForTimeout(1000);
-    expect(page.rootInstance.options[0].label).toEqual(loadingErrorLabel);
+    expect(page.rootInstance.uniqueOptions[0].label).toEqual(loadingErrorLabel);
 
     await page.waitForChanges();
     const retryButton = page.root.shadowRoot
@@ -540,7 +557,7 @@ describe("ic-select", () => {
 
     page.root.options = [];
     await page.waitForChanges();
-    expect(page.rootInstance.options[0].label).toEqual(loadingErrorLabel);
+    expect(page.rootInstance.uniqueOptions[0].label).toEqual(loadingErrorLabel);
   });
 
   it("should focus the input when escape is pressed whilst the menu is focused", async () => {
@@ -565,6 +582,42 @@ describe("ic-select", () => {
 
     expect(page.rootInstance.open).toBeFalsy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it("should deduplicateOptions and log a console warning about the offending items", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.rootInstance.options = menuOptionsWithDuplicates;
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.uniqueOptions).toEqual([
+      {
+        label: label1,
+        value: value1,
+      },
+      {
+        label: label2,
+        value: value2,
+      },
+      {
+        label: label3,
+        value: value3,
+      },
+      {
+        label: groupLabel,
+        value: groupLabel,
+        children: [
+          {
+            label: label4,
+            value: value4,
+          },
+        ],
+      },
+    ]);
   });
 });
 
