@@ -5,6 +5,10 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 import backIcon from "../../assets/back-icon.svg";
 import { isSlotUsed } from "../../utils/helpers";
 
+/**
+ * @slot icon - Content will be rendered to the left of the breadcrumb page title.
+ */
+
 @Component({
   tag: "ic-breadcrumb",
   styleUrl: "ic-breadcrumb.css",
@@ -14,10 +18,6 @@ import { isSlotUsed } from "../../utils/helpers";
 })
 export class Breadcrumb {
   @Element() el: HTMLIcBreadcrumbElement;
-
-  /**
-   * @slot icon - Content will be rendered to the left of the breadcrumb page title.
-   */
 
   /**
    * If `true`, aria-current will be set on the breadcrumb.
