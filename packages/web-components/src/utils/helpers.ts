@@ -229,8 +229,16 @@ export const isEmptyString = (value: string): boolean => {
  */
 export const getLabelFromValue = (
   value: string,
-  options: IcMenuOption[]
+  options: IcMenuOption[],
+  valueField?: string,
+  labelField?: string
 ): string | undefined => {
+  if (valueField === undefined) {
+    valueField = "value";
+  }
+  if (labelField === undefined) {
+    labelField = "label";
+  }
   const ungroupedOptions: IcMenuOption[] = [];
   if (options.length > 0 && options.map) {
     options.map((option) => {
@@ -242,7 +250,14 @@ export const getLabelFromValue = (
         ungroupedOptions.push(option);
       }
     });
-    return ungroupedOptions.find((option) => option.value === value)?.label;
+    if (
+      ungroupedOptions.find((option) => option[valueField] === value) !==
+      undefined
+    ) {
+      return ungroupedOptions.find((option) => option[valueField] === value)[
+        labelField
+      ];
+    }
   }
 
   return undefined;
@@ -260,32 +275,43 @@ export const getFilteredMenuOptions = (
   options: IcMenuOption[],
   includeDescriptions: boolean,
   searchString: string,
-  position: IcSearchMatchPositions
+  position: IcSearchMatchPositions,
+  labelField?: string
 ): IcMenuOption[] => {
   let rawFilteredOptions;
+
+  if (labelField === undefined) {
+    labelField = "label";
+  }
 
   if (position === "anywhere") {
     rawFilteredOptions = options.filter((option) => {
       if (includeDescriptions) {
         return (
-          option.label.toLowerCase().includes(searchString.toLowerCase()) ||
+          option[labelField]
+            .toLowerCase()
+            .includes(searchString.toLowerCase()) ||
           option.description?.toLowerCase().includes(searchString.toLowerCase())
         );
       } else {
-        return option.label.toLowerCase().includes(searchString.toLowerCase());
+        return option[labelField]
+          .toLowerCase()
+          .includes(searchString.toLowerCase());
       }
     });
   } else {
     rawFilteredOptions = options.filter((option) => {
       if (includeDescriptions) {
         return (
-          option.label.toLowerCase().startsWith(searchString.toLowerCase()) ||
+          option[labelField]
+            .toLowerCase()
+            .startsWith(searchString.toLowerCase()) ||
           option.description
             ?.toLowerCase()
             .startsWith(searchString.toLowerCase())
         );
       } else {
-        return option.label
+        return option[labelField]
           .toLowerCase()
           .startsWith(searchString.toLowerCase());
       }
