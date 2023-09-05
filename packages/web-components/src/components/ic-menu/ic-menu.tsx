@@ -85,6 +85,11 @@ export class Menu {
   @Prop() inputLabel!: string;
 
   /**
+   * The custom name for the label field for IcMenuOption.
+   */
+  @Prop() labelField: string = "label";
+
+  /**
    * The ID of the menu.
    */
   @Prop() menuId!: string;
@@ -131,6 +136,11 @@ export class Menu {
   watchValueHandler(): void {
     this.menuValueChange.emit({ value: this.value });
   }
+
+  /**
+   * The custom name for the value field for IcMenuOption.
+   */
+  @Prop() valueField: string = "value";
 
   /**
    * @internal Emitted when key is pressed while menu is open
@@ -222,7 +232,7 @@ export class Menu {
 
   componentDidUpdate(): void {
     const inputValueInOptions: boolean = this.options.some(
-      (option) => option.value === this.value
+      (option) => option[this.valueField] === this.value
     );
 
     const optionHighlightedIsSet =
@@ -358,7 +368,7 @@ export class Menu {
 
   private handleSubmitSearch = (): void => {
     const highlightedOptionIndex = this.options.findIndex(
-      (option) => option.value === this.optionHighlighted
+      (option) => option[this.valueField] === this.optionHighlighted
     );
 
     this.setInputValue(highlightedOptionIndex);
@@ -376,15 +386,15 @@ export class Menu {
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex + 1].value,
+        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex + 1].value
+          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[0].value,
-        optionId: this.getOptionId(this.ungroupedOptions[0].value),
+        value: this.ungroupedOptions[0][this.valueField],
+        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
       });
     }
   };
@@ -392,16 +402,21 @@ export class Menu {
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex - 1].value,
+        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
         optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex - 1].value
+          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
         ),
       });
     } else {
       this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
+        value:
+          this.ungroupedOptions[this.ungroupedOptions.length - 1][
+            this.valueField
+          ],
         optionId: this.getOptionId(
-          this.ungroupedOptions[this.ungroupedOptions.length - 1].value
+          this.ungroupedOptions[this.ungroupedOptions.length - 1][
+            this.valueField
+          ]
         ),
       });
     }
@@ -433,12 +448,12 @@ export class Menu {
     menuOptions[highlightedIndex] &&
       !menuOptions[highlightedIndex].timedOut &&
       (this.optionHighlighted =
-        menuOptions[highlightedIndex].value || undefined);
+        menuOptions[highlightedIndex][this.valueField] || undefined);
   };
 
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option.value === this.value
+      (option) => option[this.valueField] === this.value
     );
 
     this.keyboardNav = false;
@@ -469,7 +484,7 @@ export class Menu {
     this.keyboardNav = false;
 
     const highlightedOptionIndex = menuOptions.findIndex(
-      (option) => option.value === this.optionHighlighted
+      (option) => option[this.valueField] === this.optionHighlighted
     );
 
     const getOptionId = (index: number): string =>
@@ -534,7 +549,9 @@ export class Menu {
       case "Enter":
         event.preventDefault();
         this.setInputValue(highlightedOptionIndex);
-        this.value = menuOptions[highlightedOptionIndex]?.value;
+        if (menuOptions[highlightedOptionIndex] !== undefined) {
+          this.value = menuOptions[highlightedOptionIndex][this.valueField];
+        }
         break;
       case "Escape":
         if (this.open) {
@@ -576,9 +593,9 @@ export class Menu {
   private setInputValue = (highlightedOptionIndex: number) => {
     const menuOptions = this.setMenuOptions();
 
-    if (menuOptions[highlightedOptionIndex]) {
+    if (menuOptions[highlightedOptionIndex] !== undefined) {
       this.menuOptionSelect.emit({
-        value: menuOptions[highlightedOptionIndex]?.value,
+        value: menuOptions[highlightedOptionIndex][this.valueField],
       });
       this.optionHighlighted = undefined;
       this.menuOptionId.emit({ optionId: undefined });
@@ -635,7 +652,7 @@ export class Menu {
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
     event.cancelBubble = true;
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option.value === this.value
+      (option) => option[this.valueField] === this.value
     );
 
     const isSearchableSelect = this.inputEl.tagName === "INPUT";
@@ -662,13 +679,16 @@ export class Menu {
         break;
       case "Home":
         this.menuOptionSelect.emit({
-          value: this.ungroupedOptions[0].value,
+          value: this.ungroupedOptions[0][this.valueField],
         });
         this.keyboardNav = true;
         break;
       case "End":
         this.menuOptionSelect.emit({
-          value: this.ungroupedOptions[this.ungroupedOptions.length - 1].value,
+          value:
+            this.ungroupedOptions[this.ungroupedOptions.length - 1][
+              this.valueField
+            ],
         });
         this.keyboardNav = true;
         break;
@@ -711,14 +731,14 @@ export class Menu {
     option: IcMenuOption,
     parentOption: IcMenuOption
   ): string => {
-    let ariaLabel = option.label;
+    let ariaLabel = option[this.labelField];
 
     if (option.description) {
       ariaLabel = `${ariaLabel}, ${option.description}`;
     }
 
     if (parentOption) {
-      return `${ariaLabel}, ${parentOption.label} group`;
+      return `${ariaLabel}, ${parentOption[this.labelField]} group`;
     } else {
       return ariaLabel;
     }
@@ -790,11 +810,11 @@ export class Menu {
         {option.loading && <ic-loading-indicator size="icon" />}
         <div class="option-text-container">
           <ic-typography variant="body" aria-hidden="true">
-            <p>{option.label}</p>
+            <p>{option[this.labelField]}</p>
           </ic-typography>
           {option.description && (
             <ic-typography
-              id={`${this.getOptionId(option?.value)}-description`}
+              id={`${this.getOptionId(option[this.valueField])}-description`}
               class="option-description"
               variant="caption"
               aria-hidden="true"
@@ -803,9 +823,9 @@ export class Menu {
             </ic-typography>
           )}
         </div>
-        {!!option.value &&
+        {!!option[this.valueField] &&
           !!this.value &&
-          option?.value.toLowerCase() === this.value?.toLowerCase() &&
+          option[this.valueField].toLowerCase() === this.value?.toLowerCase() &&
           this.parentEl.tagName !== "IC-SEARCH-BAR" && (
             <span class="check-icon" innerHTML={Check} />
           )}
@@ -830,13 +850,13 @@ export class Menu {
 
     return (
       <li
-        id={this.getOptionId(option.value)}
+        id={this.getOptionId(option[this.valueField])}
         class={{
           option: true,
           "focused-option": isManualMode
             ? (keyboardNav || initialOptionsListRender) &&
-              option.value === optionHighlighted
-            : keyboardNav && option.value === value,
+              option[this.valueField] === optionHighlighted
+            : keyboardNav && option[this.valueField] === value,
           "last-recommended-option":
             option.recommended &&
             options[index + 1] &&
@@ -848,19 +868,20 @@ export class Menu {
         role="option"
         tabindex={
           open &&
-          (option.value === value || option.value === optionHighlighted) &&
+          (option[this.valueField] === value ||
+            option[this.valueField] === optionHighlighted) &&
           keyboardNav
             ? "0"
             : "-1"
         }
         aria-label={this.getOptionAriaLabel(option, parentOption)}
-        aria-selected={option.value === value}
+        aria-selected={option[this.valueField] === value}
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}
         onMouseDown={this.handleMouseDown}
-        data-value={option.value}
-        data-label={option.label}
+        data-value={option[this.valueField]}
+        data-label={option[this.labelField]}
       >
         {option.timedOut ? (
           <Fragment>
@@ -876,7 +897,9 @@ export class Menu {
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
               </svg>
-              <ic-typography variant="label">{option.label}</ic-typography>
+              <ic-typography variant="label">
+                {option[this.labelField]}
+              </ic-typography>
             </div>
             <ic-button
               size="small"
@@ -947,7 +970,7 @@ export class Menu {
                         role="presentation"
                         variant="subtitle-small"
                       >
-                        <p>{option.label}</p>
+                        <p>{option[this.labelField]}</p>
                       </ic-typography>
                       {option.children.map((childOption) =>
                         this.displayOption(childOption, index, option)
