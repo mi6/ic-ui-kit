@@ -1,6 +1,8 @@
 {
   "name": "@ukic/react",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "2.3.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
