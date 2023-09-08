@@ -11,7 +11,9 @@ exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -46,7 +48,9 @@ exports[`ic-side-navigation renders with app title, version and status: renders-
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -85,7 +89,9 @@ exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] =
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -120,7 +126,9 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -157,7 +165,7 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
           </div>
@@ -185,7 +193,9 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -222,7 +232,7 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
           </div>
@@ -250,7 +260,9 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -287,7 +299,7 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
           </div>
@@ -315,7 +327,9 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -379,7 +393,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
           </div>
@@ -407,7 +421,9 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -468,7 +484,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
-        <a aria-labelledby="ic-tooltip-navigation-item" class="link" href="/" part="link">
+        <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
           </div>
@@ -496,7 +512,9 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              ACME
+              <h1>
+                ACME
+              </h1>
             </ic-typography>
           </a>
         </div>
@@ -562,7 +580,9 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
               <slot name="app-icon"></slot>
             </div>
             <ic-typography variant="subtitle-small">
-              Application Name
+              <h1>
+                Application Name
+              </h1>
             </ic-typography>
           </a>
         </div>

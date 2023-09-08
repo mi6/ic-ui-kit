@@ -147,7 +147,7 @@ input {
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle {
-  background-color: var(--ic-status-info-background);
+  background-color: var(--ic-status-info-light);
   border: var(--ic-space-1px) dashed #98c9f5;
 }
 

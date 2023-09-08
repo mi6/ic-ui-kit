@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/mi6/ic-ui-kit/compare/v2.2.0...v2.3.0) (2023-09-04)
+
+### Bug Fixes
+
+- **web-components:** adds check to see if resizeObserver exists before removing ([c11e60b](https://github.com/mi6/ic-ui-kit/commit/c11e60b372bb47002b726e0120ddf31b17b7f4f6))
+- **web-components:** adds short title ([c313835](https://github.com/mi6/ic-ui-kit/commit/c313835ea8286487b24934aa8805b85d96b8810c))
+- **web-components:** conditionally adding aria-owns to search-bar ([92a6857](https://github.com/mi6/ic-ui-kit/commit/92a68575736da28c33bfe043719535d58d8247cd))
+- **web-components:** ic-button and ic-navigation no longer read twice to screen readers ([8ae07b9](https://github.com/mi6/ic-ui-kit/commit/8ae07b9c2e586988911904fff689848cfdda0bb9))
+- **web-components:** ic-tooltip no longer interacting with previousSibling ([932a6c9](https://github.com/mi6/ic-ui-kit/commit/932a6c9b799d198f4f430a1eab20165070080b41))
+- **web-components:** prevents sticky page header overlapping dropdown menu ([a26bf3d](https://github.com/mi6/ic-ui-kit/commit/a26bf3ddf5f58a5acb196c9c5902e9be8c38d957)), closes [#653](https://github.com/mi6/ic-ui-kit/issues/653)
+- **web-components:** remove !important from all font sizes except h1 ([59afec9](https://github.com/mi6/ic-ui-kit/commit/59afec941e5174606f7b21de2bb085378962f918))
+- **web-components:** remove !important so bold is applied to code extra small ([b2ede34](https://github.com/mi6/ic-ui-kit/commit/b2ede34297da1f5c6c0f1ec42078f74f23738a4e))
+- **web-components:** run new audit fix command ([eecaef4](https://github.com/mi6/ic-ui-kit/commit/eecaef4076650448a8e85b4ff2e417da4e6c0f5a))
+- **web-components:** update tooltip and popover menu to adjust placement on dialogs ([adbf3c0](https://github.com/mi6/ic-ui-kit/commit/adbf3c088379a5ce7ceab9816ea836199e152be3)), closes [#1006](https://github.com/mi6/ic-ui-kit/issues/1006)
+
+### Features
+
+- **web-components:** add new props to typography and add playground story to demonstrate ([fa75460](https://github.com/mi6/ic-ui-kit/commit/fa754603d0716f39ecbfae605a2704ba2c2826c6)), closes [#988](https://github.com/mi6/ic-ui-kit/issues/988)
+- **web-components:** add right icon to ic button, deprecate icon slot and update icon sizes ([2e96862](https://github.com/mi6/ic-ui-kit/commit/2e96862741c4f08a718be89d2cbf914f972686a2)), closes [#974](https://github.com/mi6/ic-ui-kit/issues/974)
+- **web-components:** add sizes small and large to checkboxes ([07337cc](https://github.com/mi6/ic-ui-kit/commit/07337cce01396bac4918e344e58c823438f6d9db)), closes [#643](https://github.com/mi6/ic-ui-kit/issues/643)
+- **web-components:** create empty state component ([2f5d653](https://github.com/mi6/ic-ui-kit/commit/2f5d653c0a837049ca492f7c2c6a005cd50ded0c)), closes [#655](https://github.com/mi6/ic-ui-kit/issues/655)
+- **web-components:** update iconography and add new colour variables ([e67c9c7](https://github.com/mi6/ic-ui-kit/commit/e67c9c7ca801594c9077a56ca69540c0cb92cf31)), closes [#713](https://github.com/mi6/ic-ui-kit/issues/713)
+
 # [2.2.0](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.18...v2.2.0) (2023-08-07)
 
 ### Bug Fixes

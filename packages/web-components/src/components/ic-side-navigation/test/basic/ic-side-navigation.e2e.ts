@@ -13,6 +13,7 @@ const MOBILE_VIEWPORT = {
   height: 667,
 };
 
+const pageHeight = 600;
 const ANIMATION_MS_THRESHOLD = 300;
 
 describe("ic-side-navigation", () => {
@@ -457,6 +458,38 @@ describe("ic-side-navigation", () => {
       });
 
       expect(applicationNameOpacity).toBe("1");
+    });
+
+    it("should toggle to short title at small screen sizes", async () => {
+      const page = await newE2EPage();
+      await page.setContent(`<ic-side-navigation app-title="ApplicationName" short-app-title="AppName">
+      </ic-side-navigation>`);
+
+      await page.setViewport({
+        width: 576,
+        height: pageHeight,
+      });
+
+      await page.waitForChanges();
+
+      let appTitle = await page.find(
+        "ic-side-navigation >>> .title-link ic-typography"
+      );
+
+      expect(appTitle.textContent).toBe("AppName");
+
+      await page.setViewport({
+        width: 1200,
+        height: pageHeight,
+      });
+
+      await page.waitForChanges();
+
+      appTitle = await page.find(
+        "ic-side-navigation >>> .title-link ic-typography"
+      );
+
+      expect(appTitle.textContent).toBe("ApplicationName");
     });
 
     it("collapse group nav items in collapsed side menu", async () => {

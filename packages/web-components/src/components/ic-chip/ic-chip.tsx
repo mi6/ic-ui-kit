@@ -14,7 +14,8 @@ import {
   isSlotUsed,
   removeDisabledFalse,
 } from "../../utils/helpers";
-import { IcChipAppearance, IcChipSizes } from "./ic-chip.types";
+import { IcChipAppearance } from "./ic-chip.types";
+import { IcSizes } from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
@@ -56,7 +57,7 @@ export class Chip {
   /**
    * The size of the chip.
    */
-  @Prop() size?: IcChipSizes = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.

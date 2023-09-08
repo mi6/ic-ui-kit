@@ -26,7 +26,7 @@
   border-radius: var(--ic-border-radius);
   min-width: var(--min-width, 6.25rem);
   display: inline-flex;
-  gap: var(--ic-space-xs);
+  gap: var(--ic-space-xxs);
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -35,6 +35,10 @@
   box-sizing: border-box;
   white-space: nowrap;
   vertical-align: middle;
+}
+
+:host(.with-badge) .button {
+  border-radius: 0.2188rem;
 }
 
 .button:hover {
@@ -200,6 +204,12 @@
 :host(.button-variant-icon) .button {
   color: var(--button-default);
   min-width: 0;
+  gap: var(--ic-space-xs);
+}
+
+:host(.button-variant-icon) .icon-container {
+  width: var(--ic-space-lg) !important;
+  height: var(--ic-space-lg) !important;
 }
 
 :host(.button-variant-icon) .button:hover:not(:focus) {
@@ -256,6 +266,7 @@
 
 :host(.button-size-large) .button {
   height: var(--height, var(--ic-space-xxl));
+  gap: var(--ic-space-xs);
   padding: var(--ic-space-sm) var(--ic-space-md);
 }
 
@@ -329,11 +340,16 @@ ic-loading-indicator {
 
 div.icon-container {
   box-sizing: border-box;
-  width: var(--ic-space-lg);
-  height: var(--ic-space-lg);
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+:host(.button-size-large) div.icon-container {
+  width: calc(var(--ic-space-md) + var(--ic-space-xxs));
+  height: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
 ::slotted(*) {

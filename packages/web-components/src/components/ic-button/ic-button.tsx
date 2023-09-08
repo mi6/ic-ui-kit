@@ -14,11 +14,11 @@ import {
 import {
   getThemeFromContext,
   inheritAttributes,
+  isSlotUsed,
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
-  IcButtonSizes,
   IcButtonTypes,
   IcButtonVariants,
   IcButtonTooltipPlacement,
@@ -27,12 +27,15 @@ import {
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcSizes,
 } from "../../utils/types";
 
 let buttonIds = 0;
 
 /**
- * @slot icon - Content will be placed to the left of the button label.
+ * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
+ * @slot left-icon - Content will be placed to the left of the button label.
+ * @slot right-icon - Content will be placed to the right of the button label.
  */
 @Component({
   tag: "ic-button",
@@ -139,7 +142,7 @@ export class Button {
   /**
    * The size of the button to be displayed.
    */
-  @Prop() size?: IcButtonSizes = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
@@ -250,12 +253,24 @@ export class Button {
   async updateAriaLabel(newValue: string): Promise<void> {
     if (this.hasTooltip) {
       this.tooltipEl.label = newValue;
+      this.buttonEl.setAttribute("aria-label", null);
+    } else {
       this.buttonEl.setAttribute("aria-label", newValue);
     }
   }
 
   private hasIconSlot(): boolean {
     const iconEl = this.el.querySelector(`[slot="icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasLeftIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="left-icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasRightIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="right-icon"]`);
     return iconEl !== null;
   }
 
@@ -364,12 +379,17 @@ export class Button {
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}
           id={buttonId}
-          aria-describedby={describedBy}
+          aria-describedby={this.hasTooltip && ariaLabel ? null : describedBy}
           part="button"
         >
           {this.hasIconSlot() && !this.loading && (
             <div class="icon-container">
               <slot name="icon" />
+            </div>
+          )}
+          {this.hasLeftIconSlot() && !this.loading && (
+            <div class="icon-container">
+              <slot name="left-icon" />
             </div>
           )}
           {this.loading ? (
@@ -389,6 +409,11 @@ export class Button {
           ) : (
             <slot />
           )}
+          {this.hasRightIconSlot() && !this.loading && (
+            <div class="icon-container">
+              <slot name="right-icon" />
+            </div>
+          )}
         </TagType>
       );
     };
@@ -400,10 +425,15 @@ export class Button {
           [`button-variant-${this.variant}`]: true,
           [`button-size-${this.size}`]: true,
           ["loading"]: this.loading,
-          ["loading-with-icon"]: this.loading && this.hasIconSlot(),
+          ["loading-with-icon"]:
+            this.loading &&
+            (this.hasIconSlot() ||
+              this.hasLeftIconSlot() ||
+              this.hasRightIconSlot()),
           ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
+          ["with-badge"]: isSlotUsed(this.el, "badge"),
         }}
         onClick={this.handleClick}
       >

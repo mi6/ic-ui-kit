@@ -144,15 +144,19 @@ export type IcTypographyVariants =
   | "code-small"
   | "code-extra-small";
 
+/**
+ * @interface IcMenuOption
+ * @field {string} A label field to options. Defaults to "label", but can have any custom name.
+ * @field {string} A value field to options. Defaults to "value", but can have any custom name.
+ */
 export interface IcMenuOption {
-  value?: string;
-  label: string;
   description?: string;
   disabled?: boolean;
   recommended?: boolean;
   children?: IcMenuOption[];
   loading?: boolean;
   timedOut?: boolean;
+  [key: string]: any;
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
@@ -171,6 +175,8 @@ export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
 export type IcRelatedTarget = EventTarget | undefined;
 
 export type IcOrientation = "horizontal" | "vertical";
+
+export type IcSizes = "default" | "large" | "small";
 
 export interface IcValueEventDetail {
   value: string;

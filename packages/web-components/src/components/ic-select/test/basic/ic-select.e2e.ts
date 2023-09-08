@@ -11,6 +11,21 @@ const options = `[
   { label: 'Test label 3', value: 'Test value 3' },
 ]`;
 
+const optionsWithDuplicate = `[
+  { label: 'Test label 1', value: 'Test value 1' },
+  { label: 'Test label 2', value: 'Test value 2' },
+  { label: 'Test label 3', value: 'Test value 3' },
+  { label: 'Parent',
+    children: [
+      { label: 'Test label 1', value: 'Test value 1' },
+      { label: 'Test label 2', value: 'Test value 2' },
+      { label: 'Test label 4', value: 'Test value 4' },
+    ]
+  },
+  { label: 'Test label 3', value: 'Test value 3' },
+  { label: 'Test label 3 diff label', value: 'Test value 3' },
+]`;
+
 const largeOptions = `[
   { label: 'Test label 1', value: 'Test value 1' },
   { label: 'Test label 2', value: 'Test value 2' },
@@ -175,6 +190,25 @@ describe("ic-select", () => {
       expect(menuOptions[0]).toEqualText("Test label 1");
       expect(menuOptions[1]).toEqualText("Test label 2");
       expect(menuOptions[2]).toEqualText("Test label 3");
+    });
+
+    it("should deduplicate options and warn about duplicate", async () => {
+      const page = await newE2EPage();
+      await page.setContent(getTestSelect(optionsWithDuplicate));
+      await page.waitForChanges();
+
+      const select = await page.find("ic-select >>> #ic-select-input-0");
+      await select.click();
+      await page.waitForChanges();
+
+      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menuOptions = await menu.findAll("li");
+      expect(menuOptions).toHaveLength(4);
+      expect(menuOptions[0]).toEqualText("Test label 1");
+      expect(menuOptions[1]).toEqualText("Test label 2");
+      expect(menuOptions[2]).toEqualText("Test label 3");
+      expect(menuOptions[3]).toEqualText("Test label 4");
+      // We can't test for ic-warn being called because it's already called seven times over 'hiddeninputvalue' changing
     });
 
     it("should call icChange when the selected option is changed", async () => {

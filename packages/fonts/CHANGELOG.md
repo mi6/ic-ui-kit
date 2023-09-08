@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/mi6/ic-ui-kit/compare/v2.2.0...v2.3.0) (2023-09-04)
+
+### Bug Fixes
+
+- **fonts:** run new audit fix command ([86477f5](https://github.com/mi6/ic-ui-kit/commit/86477f551ee9e7983d8e2283a8be987a66a100e7))
+
 # [2.2.0](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.18...v2.2.0) (2023-08-07)
 
 **Note:** Version bump only for package @ukic/fonts
