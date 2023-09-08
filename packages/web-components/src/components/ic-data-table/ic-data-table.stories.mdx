@@ -60,7 +60,7 @@ A basic example with no functionality.
 ```html
 <ic-data-table id="data-table" caption="Basic Table"></ic-data-table>
 <script>
-  const dataTable1 = document.querySelector("#data-table");
+  const dataTable = document.querySelector("#data-table");
   const columns = [
     {
       key: "firstName",
@@ -266,7 +266,7 @@ The `density` variant provides three different styles for the data table.
 
 ### Sticky column headers
 
-When the height of the data table, the scroll bar will appear to the right. However, by default, the column headers will move up and out of view making it difficult to understand what the data means.
+When a height for the data table is set, the scroll bar will appear to the right. However, by default, the column headers will move up and out of view making it difficult to understand what the data means.
 This can be mitigated by using the `sticky-column-headers` prop which takes a boolean. This can be toggled within the example below.
 
 <Canvas withSource="none">
@@ -277,7 +277,7 @@ This can be mitigated by using the `sticky-column-headers` prop which takes a bo
 
 ```html
 <ic-data-table
-  style="height: 366px"
+  style="height: 150px"
   id="data-table"
   caption="Sticky header Table"
   sticky-column-headers="true"
@@ -311,7 +311,7 @@ This can be mitigated by using the `sticky-column-headers` prop which takes a bo
 
 ### Row headers
 
-Row headers allow headings to be added to individual rows and styles them as column heading. The column array includes an additional `header` key which aligns with the row headers. The structure of the `header` column is the same as the columns.
+Row headers allow headings to be added to individual rows and styles them as column headings. The column collection includes an additional `header` key which aligns with the row headers. The structure of the `header` column is the same as the columns (i.e. key, title, dataType).
 The data array includes an additional `header` key which takes an object. The title of the row header is set by passing `title` as the key and a value.
 
 <Canvas withSource="none">
@@ -341,7 +341,8 @@ The data array includes an additional `header` key which takes an object. The ti
 
   const data = [
     {
-      header: { title: 'Employee' }
+      // Each data row requires a 'header' key/value pair like below `header: { title: 'Employee' }`
+      header: { title: 'Employee' },
       firstName: "Joe",
       lastName: "Bloggs",
       age: 30,
@@ -357,7 +358,7 @@ The data array includes an additional `header` key which takes an object. The ti
 
 ### Sort
 
-Set `sortable` to `true` to set the sort functionality on all columns. It is possible to set the sorting to `unsorted`, `ascending` and `descending` but press the sort buttons next to the column heading.
+Set `sortable` to `true` to set the sort functionality on all columns. Sorting can be set to `unsorted`, `ascending` and `descending` by press the sort buttons next to the column heading.
 
 <Canvas withSource="none">
   <Story name="Sort">{Sort()}</Story>
@@ -396,7 +397,7 @@ Set `sortable` to `true` to set the sort functionality on all columns. It is pos
 
 #### Sort options
 
-It is possible to change the sort options for the sort buttons. The `sortOptions` prop takes an object with `sortOrders` and `defaultColumn`. `sortOrders` makes it possible to change the order to `descending`, `unsorted` and have `ascending` removed. `defaultColumn` sets which column is ordered by default. This is set by padding the column key as the `defaultColumn` value.
+It is possible to change the sort options for the sort buttons. The `sortOptions` prop takes an object with `sortOrders` and `defaultColumn`. `sortOrders` allows the sort order to be amended as we all as remove a sort type. Such as changing the order to `descending`, `unsorted` and remove `ascending`. `defaultColumn` sets which column is ordered by default. This is set by padding the column key as the `defaultColumn` value.
 
 <Canvas withSource="none">
   <Story name="Sort Options">{SortOptions()}</Story>
@@ -443,11 +444,11 @@ It is possible to change the sort options for the sort buttons. The `sortOptions
 
 ### Pagination
 
-Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `show-pagination` to `true` will set append `ic-pagination` to the bottom of the table. There a several sub components within pagination which are set via the `paginationOptions` prop.
+Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `show-pagination` to `true` will add the `ic-pagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationOptions` prop.
 
-- `itemsPerPage` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
-- `itemsPerPageControl` which show or hides the `itemsPerPage` component.
-- `goToPageControl` displays a textfield and go button which allows jumping between pages in a non-linear approach.
+- `itemsPerPage` allows customization on the number of items on each page. This requires a collection with `label` and `value` key pairs.
+- `itemsPerPageControl` shows or hides the `itemsPerPage` component using `true` or `false`.
+- `goToPageControl` displays controls which allows jumping between pages in a non-linear approach.
 
 <Canvas withSource="none">
   <Story name="Pagination">{Pagination()}</Story>
@@ -499,10 +500,12 @@ Pagination allows large data sets to be split into pages in order to make the da
 
 ### Column overrides
 
-There may be a requirement to style a column differently to the rest of the data to add emphasis. For example, there may be a requirement to centre align data within the 'age' column. To do this, add `columnAlignment` to the column. `columnAlignment` takes an object which sets the `horizontal` and `vertical` property.
+There may be a requirement to style a column differently to the rest of the data to add emphasis. For example, centre align data within the 'first name' column. To do this, add `columnAlignment` to the column. `columnAlignment` takes an object which sets the `horizontal` and `vertical` property.
 
 - `horizontal` accepts `left`, `right` or `center`.
 - `vertical` accepts `top`, `middle`, `bottom`.
+
+`emphasis` can be added to the column by setting `high` or `low`
 
 <Canvas withSource="none">
   <Story name="Column Overrides">{ColumnOverrides()}</Story>
@@ -520,11 +523,11 @@ There may be a requirement to style a column differently to the rest of the data
       key: "firstName",
       title: "First name",
       dataType: "string",
-      columnAlignment: { horizontal: 'center', vertical: 'middle'}
+      columnAlignment: { horizontal: 'center', vertical: 'middle'},
+      emphasis: 'high'
     },
     ...
   ];
-
   // Copy data array for 'basic' example
   const data = [
     {
@@ -595,7 +598,7 @@ Row overrides allow styling to be applied at a row level and is set within the `
 
 ### Cell overrides
 
-Cell overrides allows styling to be applied at a granular level. The cell which requires an override accepts an object which contains `data`, `cellAlignment` and `emphasis`.
+Cell overrides allows styling to be applied at a cell level. The cell which requires an override accepts an object which requires `data` and can contain `cellAlignment` and/or `emphasis`.
 
 - `data` is the cell value.
 - `cellAlignment` accepts an object with the following key pairs:
