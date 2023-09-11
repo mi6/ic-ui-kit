@@ -75,6 +75,15 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot                | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| `"dialog-controls"` | Content will be place at the bottom of the dialog. |
+| `"heading"`         | Content will be placed at the top of the dialog.   |
+| `"label"`           | Content will be placed above the dialog heading.   |
+
+
 ## CSS Custom Properties
 
 | Name                  | Description       |

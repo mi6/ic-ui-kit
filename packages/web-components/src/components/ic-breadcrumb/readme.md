@@ -27,6 +27,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot     | Description                                                        |
+| -------- | ------------------------------------------------------------------ |
+| `"icon"` | Content will be rendered to the left of the breadcrumb page title. |
+
+
 ## Dependencies
 
 ### Used by
