@@ -737,6 +737,10 @@ export class Menu {
       ariaLabel = `${ariaLabel}, ${option.description}`;
     }
 
+    if (option.element) {
+      ariaLabel = `${ariaLabel}, ${option.element.ariaLabel}`;
+    }
+
     if (parentOption) {
       return `${ariaLabel}, ${parentOption[this.labelField]} group`;
     } else {
@@ -809,9 +813,18 @@ export class Menu {
       <Fragment>
         {option.loading && <ic-loading-indicator size="icon" />}
         <div class="option-text-container">
-          <ic-typography variant="body" aria-hidden="true">
-            <p>{option[this.labelField]}</p>
-          </ic-typography>
+          <div class="option-label">
+            {option.icon && (
+              <div
+                class="option-icon"
+                innerHTML={option.icon}
+                aria-hidden="true"
+              ></div>
+            )}
+            <ic-typography variant="body" aria-hidden="true">
+              <p>{option[this.labelField]}</p>
+            </ic-typography>
+          </div>
           {option.description && (
             <ic-typography
               id={`${this.getOptionId(option[this.valueField])}-description`}
@@ -821,6 +834,13 @@ export class Menu {
             >
               <p>{option.description}</p>
             </ic-typography>
+          )}
+          {option.element && (
+            <div
+              class="option-element"
+              innerHTML={option.element.component}
+              aria-hidden="true"
+            ></div>
           )}
         </div>
         {!!option[this.valueField] &&
