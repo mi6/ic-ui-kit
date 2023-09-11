@@ -157,6 +157,11 @@ export interface IcMenuOption {
   loading?: boolean;
   timedOut?: boolean;
   [key: string]: any;
+  element?: {
+    component: any;
+    ariaLabel: string;
+  };
+  icon?: any;
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
