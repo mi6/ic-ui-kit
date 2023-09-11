@@ -14,6 +14,11 @@ import {
 import closeIcon from "../../assets/close-icon.svg";
 import { isSlotUsed, checkResizeObserver } from "../../utils/helpers";
 
+/**
+ * @slot dialog-controls - Content will be place at the bottom of the dialog.
+ * @slot heading - Content will be placed at the top of the dialog.
+ * @slot label - Content will be placed above the dialog heading.
+ */
 @Component({
   tag: "ic-dialog",
   styleUrl: "ic-dialog.css",
@@ -45,12 +50,6 @@ export class Dialog {
 
   @State() dialogRendered: boolean = false;
   @State() fadeIn: boolean = false;
-
-  /**
-   * @slot dialog-controls - Content will be place at the bottom of the dialog.
-   * @slot heading - Content will be placed at the top of the dialog.
-   * @slot label - Content will be placed above the dialog heading.
-   */
 
   /**
    * If a status is set, sets the heading for the displayed alert.
