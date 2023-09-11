@@ -7,11 +7,13 @@ Object {
     <ul aria-activedescendant="menu-id-espresso" aria-label="input-label" class="menu" id="menu-id" role="listbox" tabindex="-1">
       <li aria-disabled="false" aria-label="Espresso" aria-selected="" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Espresso
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Espresso
+              </p>
+            </ic-typography>
+          </div>
         </div>
         <span class="check-icon">
           svg
@@ -19,29 +21,35 @@ Object {
       </li>
       <li aria-disabled="false" aria-label="Double Espresso" class="option" data-label="Double Espresso" data-value="doubleespresso" id="menu-id-doubleespresso" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Double Espresso
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Double Espresso
+              </p>
+            </ic-typography>
+          </div>
         </div>
       </li>
       <li aria-disabled="false" aria-label="Flat White" class="option" data-label="Flat White" data-value="flatwhite" id="menu-id-flatwhite" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Flat White
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Flat White
+              </p>
+            </ic-typography>
+          </div>
         </div>
       </li>
       <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" class="option" data-label="Cappuccino" data-value="cappucino" id="menu-id-cappucino" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Cappuccino
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Cappuccino
+              </p>
+            </ic-typography>
+          </div>
           <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
             <p>
               with chocolate is best!
@@ -51,20 +59,24 @@ Object {
       </li>
       <li aria-disabled="false" aria-label="Americano" class="option" data-label="Americano" data-value="americano" id="menu-id-americano" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Americano
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Americano
+              </p>
+            </ic-typography>
+          </div>
         </div>
       </li>
       <li aria-disabled="false" aria-label="Ameno" class="option" data-label="Ameno" data-value="ameno" id="menu-id-ameno" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Ameno
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Ameno
+              </p>
+            </ic-typography>
+          </div>
         </div>
       </li>
       <div>
@@ -75,30 +87,46 @@ Object {
         </ic-typography>
         <li aria-disabled="false" aria-label="green, Tea group" class="option" data-label="green" data-value="green" id="menu-id-green" role="option" tabindex="-1">
           <div class="option-text-container">
-            <ic-typography aria-hidden="true" variant="body">
-              <p>
-                green
-              </p>
-            </ic-typography>
+            <div class="option-label">
+              <ic-typography aria-hidden="true" variant="body">
+                <p>
+                  green
+                </p>
+              </ic-typography>
+            </div>
           </div>
         </li>
       </div>
       <li aria-disabled="false" aria-label="Aicano" class="option" data-label="Aicano" data-value="acano" id="menu-id-acano" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Aicano
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <div aria-hidden="true" class="option-icon">
+              <svg aria-labelledby="warning-title" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g id="warning">
+                  <path d="M4.47 20.5037H19.53C21.07 20.5037 22.03 18.8337 21.26 17.5037L13.73 4.49375C12.96 3.16375 11.04 3.16375 10.27 4.49375L2.74 17.5037C1.97 18.8337 2.93 20.5037 4.47 20.5037ZM12 13.5037C11.45 13.5037 11 13.0537 11 12.5037V10.5037C11 9.95375 11.45 9.50375 12 9.50375C12.55 9.50375 13 9.95375 13 10.5037V12.5037C13 13.0537 12.55 13.5037 12 13.5037ZM13 17.5037H11V15.5037H13V17.5037Z" id="Vector"></path>
+                </g>
+              </svg>
+            </div>
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Aicano
+              </p>
+            </ic-typography>
+          </div>
         </div>
       </li>
-      <li aria-disabled="false" aria-label="Mocha" class="option" data-label="Mocha" data-value="mocha" id="menu-id-mocha" role="option" tabindex="-1">
+      <li aria-disabled="false" aria-label="Mocha, Neutral status tag" class="option" data-label="Mocha" data-value="mocha" id="menu-id-mocha" role="option" tabindex="-1">
         <div class="option-text-container">
-          <ic-typography aria-hidden="true" variant="body">
-            <p>
-              Mocha
-            </p>
-          </ic-typography>
+          <div class="option-label">
+            <ic-typography aria-hidden="true" variant="body">
+              <p>
+                Mocha
+              </p>
+            </ic-typography>
+          </div>
+          <div aria-hidden="true" class="option-element">
+            <ic-status-tag label="Neutral status"></ic-status-tag>
+          </div>
         </div>
       </li>
     </ul>
