@@ -300,29 +300,35 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
         <ul aria-activedescendant="ic-select-input-6-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-6-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-6-menu-Test value 1" role="option" tabindex="-1">
             <div class="option-text-container">
-              <ic-typography aria-hidden="true" variant="body">
-                <p>
-                  Test label 1
-                </p>
-              </ic-typography>
+              <div class="option-label">
+                <ic-typography aria-hidden="true" variant="body">
+                  <p>
+                    Test label 1
+                  </p>
+                </ic-typography>
+              </div>
             </div>
           </li>
           <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-6-menu-Test value 2" role="option" tabindex="-1">
             <div class="option-text-container">
-              <ic-typography aria-hidden="true" variant="body">
-                <p>
-                  Test label 2
-                </p>
-              </ic-typography>
+              <div class="option-label">
+                <ic-typography aria-hidden="true" variant="body">
+                  <p>
+                    Test label 2
+                  </p>
+                </ic-typography>
+              </div>
             </div>
           </li>
           <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-6-menu-Test value 3" role="option" tabindex="-1">
             <div class="option-text-container">
-              <ic-typography aria-hidden="true" variant="body">
-                <p>
-                  Test label 3
-                </p>
-              </ic-typography>
+              <div class="option-label">
+                <ic-typography aria-hidden="true" variant="body">
+                  <p>
+                    Test label 3
+                  </p>
+                </ic-typography>
+              </div>
             </div>
           </li>
         </ul>
