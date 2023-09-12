@@ -21,6 +21,8 @@ import {
   RowOverrides,
   CellOverrides,
   LinksHTMLElements,
+  EmptyLoading,
+  Updating,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -634,6 +636,124 @@ Cell overrides allows styling to be applied at a granular level. The cell which 
       age: 30,
       jobTitle: "Developer",
       address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Empty and Loading State
+
+<Canvas withSource="none">
+  <Story name="Empty and Loading State">{EmptyLoading()}</Story>
+</Canvas>
+
+#### Empty and Loading State code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Empty and Loading State"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+
+  setTimeout(() => dataTable.loading = true, 5000);
+</script>
+```
+
+### Updating State
+
+<Canvas withSource="none">
+  <Story name="Updating State">{Updating()}</Story>
+</Canvas>
+
+#### Updating State code example
+
+```html
+<ic-data-table id="data-table" caption="Updating State"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+
+  setTimeout(() => dataTable.updating = true, 5000);
+</script>
+```
+
+### Links and Elements in data
+
+<Canvas withSource="none">
+  <Story name="Links and Elements in data">{LinksHTMLElements()}</Story>
+</Canvas>
+
+#### Links and Elements in data code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Links and Elements in data"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+    {
+      key: "actions",
+      title: "Actions",
+      dataType: "element",
+      columnAlignment: { horizontal: "center" },
+    },
+  ];
+
+  const data = [
+    {
+      firstName: {
+        data: "Joe",
+        href: "https://www.example.com",
+      },
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+      actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
     },
     ...
   ];

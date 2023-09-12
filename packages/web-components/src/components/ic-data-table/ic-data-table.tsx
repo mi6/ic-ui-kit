@@ -1,4 +1,12 @@
-import { Component, Element, h, Prop, State, Listen } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Prop,
+  State,
+  Listen,
+  Watch,
+} from "@stencil/core";
 import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
 import descendingIcon from "./assets/descending-icon.svg";
@@ -13,6 +21,7 @@ import {
   IcPaginationControlTypes,
   IcPaginationTypes,
 } from "../ic-pagination/ic-pagination.types";
+import { IcThemeForegroundNoDefault } from "../../utils/types";
 
 @Component({
   tag: "ic-data-table",
@@ -25,6 +34,9 @@ export class DataTable {
     ascending: ascendingIcon,
     descending: descendingIcon,
   };
+
+  private hasLoadedForOneSecond: boolean = true;
+  private timerStarted: number;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -75,6 +87,27 @@ export class DataTable {
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
+
+  /**
+   * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+   */
+  @Prop() loading?: boolean = false;
+
+  /**
+   * Sets the props for the circular loading indicator used in the loading state.
+   */
+  @Prop() loadingOptions?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    label?: string;
+    labelDuration?: number;
+    max?: number;
+    min?: number;
+    progress?: number;
+  } = {
+    description: "Loading table data",
+    label: "Loading...",
+  };
 
   /**
    * Sets the props for the pagination bar.
@@ -130,6 +163,24 @@ export class DataTable {
    */
   @Prop() stickyRowHeaders?: boolean = false;
 
+  /**
+   * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+   */
+  @Prop() updating?: boolean = false;
+
+  /**
+   * Sets the props for the linear loading indicator used in the updating state.
+   */
+  @Prop() updatingOptions?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    max?: number;
+    min?: number;
+    progress?: number;
+  } = {
+    description: "Updating table data",
+  };
+
   componentWillLoad(): void {
     this.rowsPerPage = Number(this.paginationOptions.itemsPerPage[0].value);
     this.previousRowsPerPage = this.rowsPerPage;
@@ -147,6 +198,7 @@ export class DataTable {
     ) {
       this.scrollable = true;
     }
+    if (this.loading) this.startLoadingTimer();
   }
 
   @Listen("icItemsPerPageChange")
@@ -176,6 +228,33 @@ export class DataTable {
   clickListener(ev: MouseEvent): void {
     if (ev.target !== this.el) this.selectedRow = undefined;
   }
+
+  @Watch("loading")
+  loadingHandler(newValue: boolean): void {
+    if (newValue) this.startLoadingTimer();
+  }
+
+  @Watch("data")
+  dataHandler(): void {
+    if (this.loading) {
+      !this.hasLoadedForOneSecond
+        ? setTimeout(
+            () => (this.loading = false),
+            1000 - (Date.now() - this.timerStarted)
+          )
+        : (this.loading = false);
+    }
+    if (this.updating) this.updating = false;
+  }
+
+  private startLoadingTimer = (): void => {
+    this.hasLoadedForOneSecond = false;
+    this.timerStarted = Date.now();
+    setTimeout(() => {
+      this.hasLoadedForOneSecond = true;
+      this.timerStarted = null;
+    }, 1000);
+  };
 
   private isObject = (value: any) => typeof value === "object";
 
@@ -208,6 +287,16 @@ export class DataTable {
       );
     }
   };
+
+  private createUpdatingIndicator = () => (
+    <th colSpan={this.columns.length} class="updating-state">
+      <ic-loading-indicator
+        {...this.updatingOptions}
+        type="linear"
+        size="small"
+      ></ic-loading-indicator>
+    </th>
+  );
 
   private createCells = (row: object) => {
     const rowValues = Object.values(row);
@@ -299,6 +388,7 @@ export class DataTable {
           ["column-header"]: true,
           [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
           [`table-density-${this.density}`]: this.notDefaultDensity(),
+          ["updating-state-headers"]: this.updating,
         }}
         colSpan={colspan}
       >
@@ -462,8 +552,11 @@ export class DataTable {
       caption,
       createColumnHeaders,
       createRows,
+      createUpdatingIndicator,
       data,
       hideColumnHeaders,
+      loading,
+      loadingOptions,
       paginationOptions,
       scrollable,
       scrollOffset,
@@ -473,6 +566,7 @@ export class DataTable {
       sortedColumn,
       stickyColumnHeaders,
       updateScrollOffset,
+      updating,
     } = this;
 
     return (
@@ -498,8 +592,28 @@ export class DataTable {
                 <tr>{createColumnHeaders()}</tr>
               </thead>
             )}
-            {data?.length > 0 && <tbody>{createRows()}</tbody>}
+            {updating &&
+              (hideColumnHeaders ? (
+                <thead>{createUpdatingIndicator()}</thead>
+              ) : (
+                createUpdatingIndicator()
+              ))}
+            {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
           </table>
+          {loading ? (
+            <ic-loading-indicator
+              class="below-table"
+              {...loadingOptions}
+            ></ic-loading-indicator>
+          ) : (
+            !data?.length && (
+              <ic-empty-state
+                class="below-table"
+                heading="No Data"
+                aligned="center"
+              ></ic-empty-state>
+            )
+          )}
         </div>
         {showPagination && (
           <div class="pagination-container">

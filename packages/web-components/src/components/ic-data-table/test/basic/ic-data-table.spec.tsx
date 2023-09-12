@@ -6,6 +6,7 @@ import { PaginationBar } from "../../../ic-pagination-bar/ic-pagination-bar";
 import { PaginationItem } from "../../../ic-pagination-item/ic-pagination-item";
 import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
+import { waitForTimeout } from "../../../../testspec.setup";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -407,6 +408,143 @@ describe(icDataTable, () => {
       ),
     });
 
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render the empty state when data is null", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="test table" columns={columns}></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render the empty state when no data is passed through", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={[]}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render the loading state when the `loading` prop is passed through", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          loading={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render the updating state when the `updating` prop is passed through", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          updating={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should pass through the loadingOptions to the loading indicator", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          loadingOptions={{
+            appearance: "light",
+          }}
+          loading={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should pass through the updatingOptions to the linear loading indicator", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          updatingOptions={{
+            progress: 30,
+          }}
+          updating={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("when loading is `true`, setting data should cancel the loading after 1 second from initial loading", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          loading={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    await waitForTimeout(1100);
+    page.root.data = data;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it.only("when loading is `true`, if data is set before 1 second of loading it will wait 1 second before rendering the data", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          loading={true}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.data = data;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    await waitForTimeout(1500);
+    await page.waitForChanges();
     expect(page.root).toMatchSnapshot();
   });
 

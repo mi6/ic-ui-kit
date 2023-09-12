@@ -33,6 +33,7 @@
 ### Used by
 
  - [ic-button](../ic-button)
+ - [ic-data-table](../ic-data-table)
  - [ic-menu](../ic-menu)
  - [ic-step](../ic-step)
  - [ic-toast](../ic-toast)
@@ -46,6 +47,7 @@
 graph TD;
   ic-loading-indicator --> ic-typography
   ic-button --> ic-loading-indicator
+  ic-data-table --> ic-loading-indicator
   ic-menu --> ic-loading-indicator
   ic-step --> ic-loading-indicator
   ic-toast --> ic-loading-indicator

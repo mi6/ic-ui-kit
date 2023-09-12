@@ -1,5 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-data-table should pass through the loadingOptions to the loading indicator 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-loading-indicator appearance="light" class="below-table"></ic-loading-indicator>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should pass through the updatingOptions to the linear loading indicator 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <th class="updating-state" colspan="4">
+            <ic-loading-indicator progress="30" size="small" type="linear"></ic-loading-indicator>
+          </th>
+        </table>
+        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should render 1`] = `
 <ic-data-table>
   <mock:shadow-root>
@@ -539,6 +624,173 @@ exports[`ic-data-table should render sortable 1`] = `
       </div>
       <div aria-live="polite" class="screen-reader-sort-text">
         table unsorted
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render the empty state when data is null 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render the empty state when no data is passed through 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render the loading state when the \`loading\` prop is passed through 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render the updating state when the \`updating\` prop is passed through 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header updating-state-headers" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <th class="updating-state" colspan="4">
+            <ic-loading-indicator description="Updating table data" size="small" type="linear"></ic-loading-indicator>
+          </th>
+        </table>
+        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
       </div>
     </div>
   </mock:shadow-root>
@@ -2385,6 +2637,477 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
       </div>
       <div aria-live="polite" class="screen-reader-sort-text">
         age sorted ascending
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 2`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table when loading is \`true\`, if data is set before 1 second of loading it will wait 1 second before rendering the data 3`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table when loading is \`true\`, setting data should cancel the loading after 1 second from initial loading 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table when loading is \`true\`, setting data should cancel the loading after 1 second from initial loading 2`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </mock:shadow-root>
