@@ -27,6 +27,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [ic-data-table](../ic-data-table)
+
 ### Depends on
 
 - [ic-typography](../ic-typography)
@@ -35,6 +39,7 @@
 ```mermaid
 graph TD;
   ic-empty-state --> ic-typography
+  ic-data-table --> ic-empty-state
   style ic-empty-state fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
