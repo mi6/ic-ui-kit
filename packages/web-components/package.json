@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
-    "@stencil/core": "^3.3.1",
+    "@stencil/core": "^4.1.0",
     "@ukic/fonts": "^2.3.0"
   },
   "devDependencies": {

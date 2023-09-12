@@ -93,7 +93,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb class="back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="">
+  <ic-breadcrumb class="back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
