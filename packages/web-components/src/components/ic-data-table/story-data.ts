@@ -43,7 +43,7 @@ export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
     title: "First name",
     dataType: "string",
     columnAlignment: { horizontal: "center", vertical: "middle" },
-    emphasis: 'high'
+    emphasis: "high",
   },
   {
     key: "lastName",
