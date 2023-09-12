@@ -8,8 +8,10 @@ import {
   Description,
 } from "@storybook/addon-docs";
 
-import { IcSelect, IcButton, IcTypography } from "../components";
+import { IcSelect, IcButton, IcTypography, IcStatusTag } from "../components";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
+
+import ReactDOMServer from "react-dom/server";
 
 <Meta title="React Components/Select" component={IcSelect} />
 
@@ -92,7 +94,7 @@ export const optionsWithCustomElements = [
   {
     label: "Latte",
     value: "Lat",
-    element: { component: `<ic-status-tag label="Neutral status"></ic-status-tag>`, ariaLabel: "Neutral status tag" },
+    element: { component: ReactDOMServer.renderToString(<IcStatusTag label="Neutral status tag"></IcStatusTag>), ariaLabel: "Neutral status tag" },
   },
   {
     label: "Americano",
