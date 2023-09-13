@@ -106,6 +106,80 @@ describe("ic-date-input component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render disabled, with calendar button", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, InputLabel, Button],
+      html: `<ic-date-input label="Test label" value="21/01/2001" show-calendar-button="true" disabled></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  describe("date format conversion", () => {
+    it("should handle single digit day and month", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="1/1/2001"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle US format value - DD/MM/YYYY date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/26/2001"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle US format value - MM/DD/YYYY date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/26/2001" date-format="MM/DD/YYYY"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle US format value - YYYY/MM/DD date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/26/2001" date-format="YYYY/MM/DD"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle ambiguous value - DD/MM/YYYY date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/10/2001" date-format="DD/MM/YYYY"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle ambiguous value - MM/DD/YYYY date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/10/2001" date-format="MM/DD/YYYY"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    it("should handle ambiguous value - YYYY/MM/DD date format", async () => {
+      const page = await newSpecPage({
+        components: [DateInput, InputLabel],
+        html: `<ic-date-input label="Test label" value="07/10/2001" date-format="YYYY/MM/DD"></ic-date-input>`,
+      });
+
+      expect(page.root).toMatchSnapshot();
+    });
+  });
+
   describe("handleInput", () => {
     it("should call moveToNextInput, setinputValue and setPreventInput when day set to 4", async () => {
       const { dayInput, componentInstance } = await createDateInputEnv();
@@ -954,41 +1028,24 @@ describe("ic-date-input component", () => {
     });
   });
 
-  describe("setDayMonthValue", () => {
-    it("should work out the correct format of a date if it's inputted incorrectly ", async () => {
-      const { componentInstance } = await createDateInputEnv();
-      componentInstance.setDayMonthValue("D", "33");
-      expect(componentInstance.day).toMatch("33");
-
-      componentInstance.setDayMonthValue("M", "13");
-      expect(componentInstance.month).toMatch("13");
-
-      expect(componentInstance.setDayMonthValue("Y", "1970")).toBeUndefined();
-    });
-  });
-
   describe("splitStringDate", () => {
     it("should create an array of the day, month and year of a date if there's more than one slash in the date string", async () => {
       const { componentInstance } = await createDateInputEnv();
 
       expect(componentInstance.splitStringDate(DATE_1970)).toEqual([
-        "01",
-        "01",
         "1970",
+        "01",
+        "01",
       ]);
-      expect(componentInstance.splitStringDate("13/12")).toEqual(["13", "12"]);
-      expect(componentInstance.splitStringDate("13")).toEqual([]);
     });
     it("should create an array of the day, month and year of a date if there's more than one hyphen in the date string", async () => {
       const { componentInstance } = await createDateInputEnv();
 
       expect(componentInstance.splitStringDate("31-12-2000")).toEqual([
-        "31",
-        "12",
         "2000",
+        "12",
+        "31",
       ]);
-      expect(componentInstance.splitStringDate("01-12")).toEqual(["01", "12"]);
-      expect(componentInstance.splitStringDate("29")).toEqual([]);
     });
   });
 
@@ -1247,11 +1304,6 @@ describe("ic-date-input component", () => {
         "splitStringDate"
       );
 
-      const spySetDayMonthValue = jest.spyOn(
-        componentInstance,
-        "setDayMonthValue"
-      );
-
       const spySetValidationMessage = jest.spyOn(
         componentInstance,
         "setValidationMessage"
@@ -1263,7 +1315,6 @@ describe("ic-date-input component", () => {
       expect(componentInstance.year).toMatch("1970");
 
       expect(spySplitStringDate).toHaveBeenCalled();
-      expect(spySetDayMonthValue).toHaveBeenCalled();
       expect(spySetValidationMessage).toHaveBeenCalled();
     });
     it("should set the Zulu ISOString into the correct date variables", async () => {
@@ -1903,6 +1954,15 @@ describe("ic-date-input component", () => {
       expect(
         componentInstance.isPastedStringDateValid("123456789")
       ).toBeFalsy();
+    });
+  });
+
+  describe("setDisabledDays", () => {
+    it("should test setting disabledDays ", async () => {
+      const { component, componentInstance } = await createDateInputEnv();
+      await component.setDisabledDays([0, 1]);
+
+      expect(componentInstance.disableDays).toEqual([0, 1]);
     });
   });
 });
