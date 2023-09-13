@@ -114,6 +114,23 @@
   color: var(--ic-color-secondary-text);
 }
 
+.option .option-label {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+}
+
+.option .option-element {
+  margin-top: var(--ic-space-xxs);
+}
+
+.option .option-icon {
+  height: var(--ic-space-md);
+  width: var(--ic-space-md);
+  margin-top: var(--ic-space-xxs);
+  margin-right: var(--ic-space-xxxs);
+}
+
 .option-text-container {
   pointer-events: none;
 }
