@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/mi6/ic-ui-kit/compare/v2.3.0...v2.4.0) (2023-09-13)
+
+### Features
+
+- **react:** add icons and elements to select ([4cedb9c](https://github.com/mi6/ic-ui-kit/commit/4cedb9cbe0bcb58d7aed52af60b7abd4c11bd0eb)), closes [#224](https://github.com/mi6/ic-ui-kit/issues/224)
+
 # [2.3.0](https://github.com/mi6/ic-ui-kit/compare/v2.2.0...v2.3.0) (2023-09-04)
 
 ### Bug Fixes

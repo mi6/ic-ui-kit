@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/mi6/ic-ui-kit/compare/v2.3.0...v2.4.0) (2023-09-13)
+
+### Bug Fixes
+
+- **web-components:** deduplicate ic-select option values ([283f2f9](https://github.com/mi6/ic-ui-kit/commit/283f2f9e56094c393c043c198ee640a49c6bedb7))
+- **web-components:** moves slot guidance so it shows in code guidance ([e6226f0](https://github.com/mi6/ic-ui-kit/commit/e6226f0935275083bac1639d0534a40bf0f39160))
+
+### Features
+
+- **web-components:** allow for custom value and label field names for search bar ([ebb95da](https://github.com/mi6/ic-ui-kit/commit/ebb95da2dabfa302b629f92894102f93cc088d41)), closes [#442](https://github.com/mi6/ic-ui-kit/issues/442)
+- **web-components:** update select to accept icons and custom elements ([224f6c6](https://github.com/mi6/ic-ui-kit/commit/224f6c6e45db1b3a307a888a53281c473fb4c73d)), closes [#224](https://github.com/mi6/ic-ui-kit/issues/224)
+
 # [2.3.0](https://github.com/mi6/ic-ui-kit/compare/v2.2.0...v2.3.0) (2023-09-04)
 
 ### Bug Fixes
