@@ -11,8 +11,6 @@ import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
-import { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
-import { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -37,8 +35,6 @@ export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
-export { IcDateFormat, IcDisabledDateTypes } from "./components/ic-date-input/ic-date-input.types";
-export { IcInformationStatusOrEmpty as IcInformationStatusOrEmpty1 } from "./interface";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -479,11 +475,11 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
          */
         "max"?: string | Date;
         /**
-          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
          */
         "min"?: string | Date;
         /**
@@ -514,7 +510,7 @@ export namespace Components {
          */
         "validationText"?: string;
         /**
-          * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
     }
@@ -3012,11 +3008,11 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFromNow` is set to `true`.
          */
         "max"?: string | Date;
         /**
-          * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableUntilNow` is set to `true`.
          */
         "min"?: string | Date;
         /**
@@ -3062,7 +3058,7 @@ declare namespace LocalJSX {
          */
         "validationText"?: string;
         /**
-          * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+          * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
         "value"?: string | Date;
     }
