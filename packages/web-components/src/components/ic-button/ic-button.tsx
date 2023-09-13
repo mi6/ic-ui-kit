@@ -180,6 +180,10 @@ export class Button {
     }
   }
 
+  componentWillUpdate(): void {
+    this.loadingWidth();
+  }
+
   componentWillLoad(): void {
     this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
@@ -311,6 +315,15 @@ export class Button {
     }
   }
 
+  private loadingWidth = () => {
+    if (this.loading) {
+      this.el.style.setProperty(
+        "--min-width",
+        `${this.el.getBoundingClientRect().width}px`
+      );
+    }
+  };
+
   // triggered when text content of sibling element in light DOM changes
   private mutationCallback = (): void => {
     this.describedByContent = this.describedByEl.innerText;
@@ -425,11 +438,6 @@ export class Button {
           [`button-variant-${this.variant}`]: true,
           [`button-size-${this.size}`]: true,
           ["loading"]: this.loading,
-          ["loading-with-icon"]:
-            this.loading &&
-            (this.hasIconSlot() ||
-              this.hasLeftIconSlot() ||
-              this.hasRightIconSlot()),
           ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
