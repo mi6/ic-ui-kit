@@ -20,6 +20,7 @@ import {
   ROW_ALIGNMENT,
   DATA_CELL_ALIGNMENT,
   COLS_ELEMENTS,
+  DATA_REACT_ELEMENTS,
 } from "../../../web-components/src/components/ic-data-table/story-data";
 
 <Meta
@@ -241,6 +242,8 @@ export default DataTable;
       data={DATA}
       density="spacious"
     />
+  </Story>
+</Canvas>
 
 #### Spacious code example
 
@@ -781,6 +784,163 @@ const data = [
 const DataTable = () => (
   <IcDataTable
     caption="Row overrides"
+    columns={columns}
+    data={data}
+  />
+);
+
+export default DataTable;
+```
+
+### Empty and Loading state
+
+export const LoadingExample = () => {
+  const [loading, setLoading] = useState(false);
+  setTimeout(() => setLoading(true), 5000);
+  return <IcDataTable caption="Empty and Loading state" columns={COLS} loading={loading}></IcDataTable>
+}
+
+<Canvas withSource="none">
+  <Story name="Empty and Loading state">
+    <LoadingExample />
+  </Story>
+</Canvas>
+
+#### Empty and Loading state code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/react";
+import { IcDataTableColumnObject } from "@ukic/web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const DataTable = () => {
+  const [loading, setLoading] = React.useState(false);
+  setTimeout(() => setLoading(true), 5000);
+  return <IcDataTable
+    caption="Empty and Loading state"
+    columns={columns}
+    loading={loading}
+  />
+};
+
+export default DataTable;
+```
+
+### Updating state
+
+export const UpdatingExample = () => {
+  const [updating, setUpdating] = useState(false);
+  setTimeout(() => setUpdating(true), 5000);
+  return <IcDataTable caption="Updating state" columns={COLS} data={DATA} updating={true}></IcDataTable>
+}
+
+<Canvas withSource="none">
+  <Story name="Updating state">
+    <UpdatingExample />
+  </Story>
+</Canvas>
+
+#### Updating state code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/react";
+import { IcDataTableColumnObject } from "@ukic/web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return <IcDataTable
+    caption="Updating state"
+    columns={columns}
+    data={data}
+    updating={true}
+  />
+};
+
+export default DataTable;
+```
+
+### Links and Elements in data
+
+<Canvas withSource="none">
+  <Story name="Links and Elements in data">
+    <IcDataTable
+      caption="Links and Elements in data"
+      columns={COLS_ELEMENTS}
+      data={DATA_REACT_ELEMENTS}
+    />
+  </Story>
+</Canvas>
+
+#### Links and Elements in data code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable, IcButton } from "@ukic/react";
+import { IcDataTableColumnObject } from "@ukic/web-components";
+import ReactDOMServer from "react-dom/server";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+  {
+    key: "actions",
+    title: "Actions",
+    dataType: "element",
+    columnAlignment: { horizontal: "center" },
+  },
+];
+
+const data = [
+  {
+    firstName: {
+      data: "Joe",
+      cellAlignment: { horizontal: "center", vertical: "middle" },
+      emphasis: "high",
+    },
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+    actions: ReactDOMServer.renderToString(<IcButton variant='destructive' onClick={() => this.closest("tr").remove()}>Delete</IcButton>),
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Links and Elements in data"
     columns={columns}
     data={data}
   />
