@@ -10,7 +10,7 @@ import {
   Method,
 } from "@stencil/core";
 import { getSlotElements } from "../../utils/helpers";
-import { createPopper } from "@popperjs/core";
+import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 
 @Component({
   tag: "ic-popover-menu",
@@ -24,7 +24,9 @@ export class PopoverMenu {
   private ARIA_LABEL: string = "aria-label";
   private backButton: HTMLIcMenuItemElement;
   private currentFocus: number;
+  private firstRender: boolean = true;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
+  private popperInstance: PopperInstance;
 
   @Element() host: HTMLIcPopoverMenuElement;
 
@@ -77,6 +79,12 @@ export class PopoverMenu {
     }
   }
 
+  disconnectedCallback(): void {
+    if (this.popperInstance !== undefined) {
+      this.popperInstance.destroy();
+    }
+  }
+
   componentDidLoad(): void {
     const slotWrapper = this.host.shadowRoot.querySelector("ul.button");
     const popoverMenuElements = getSlotElements(slotWrapper);
@@ -100,18 +108,67 @@ export class PopoverMenu {
   }
 
   componentDidRender(): void {
-    if (this.open) {
-      createPopper(this.anchorEl, this.host, {
-        placement: "bottom-start",
-        modifiers: [
-          {
-            name: "offset",
-            options: {
-              offset: [0, 4],
+    if (this.firstRender && this.open) {
+      this.firstRender = false;
+      let adjust = false;
+
+      const dialogEl = this.host.closest("ic-dialog");
+      const onDialog = dialogEl !== null;
+
+      if (onDialog) {
+        this.host.classList.add("on-dialog");
+        const menu = this.host.getBoundingClientRect();
+        const dialogBottom = dialogEl.getBoundingClientRect().bottom;
+        const anchorHeight = this.anchorEl.getBoundingClientRect().height;
+        let offset;
+        if (dialogEl.getAttribute("data-overflow") === "false") {
+          if (dialogBottom - menu.top < menu.height) {
+            adjust = true;
+            offset = menu.height + anchorHeight + 8;
+          }
+        } else {
+          adjust = true;
+          // 100 added here as that's the offset when data-overflow is true
+          offset = menu.height + anchorHeight + 8 + 100;
+        }
+        if (adjust === false) {
+          this.host.classList.add("on-dialog-fix-translate");
+        } else {
+          this.host.style.setProperty(
+            "--translate-y",
+            `${offset}px`,
+            "important"
+          );
+          this.host.classList.add("on-dialog-translate-y");
+        }
+      }
+
+      if (adjust) {
+        this.popperInstance = createPopper(this.anchorEl, this.host, {
+          placement: "top",
+        });
+      } else {
+        this.popperInstance = createPopper(this.anchorEl, this.host, {
+          placement: "bottom-start",
+          modifiers: [
+            {
+              name: "offset",
+              options: {
+                offset: [0, 4],
+              },
             },
-          },
-        ],
-      });
+            {
+              name: "flip",
+              options: {
+                fallbackPlacements: ["top-start", "top-end", "bottom-end"],
+                rootBoundary: "viewport",
+              },
+            },
+          ],
+        });
+      }
+    } else if (this.open) {
+      this.popperInstance.update();
     }
   }
 

@@ -158,6 +158,11 @@ export class SearchBar {
   @Prop() label!: string;
 
   /**
+   * The custom name for the label field to correspond with the IcMenuOption type.
+   */
+  @Prop() labelField?: string = "label";
+
+  /**
    * Trigger loading state when fetching options asyncronously
    */
   @Prop({ mutable: true }) loading?: boolean = false;
@@ -212,6 +217,11 @@ export class SearchBar {
    */
   @Prop() timeout?: number;
 
+  /**
+   * The custom name for the value field to correspond with the IcMenuOption type.
+   */
+  @Prop() valueField?: string = "value";
+
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
     if (newValue && !this.hasTimedOut) {
@@ -246,7 +256,10 @@ export class SearchBar {
         this.setMenuChange(true);
         !this.preLoad &&
           (this.filteredOptions = [
-            { label: this.emptyOptionListText, value: "" },
+            {
+              [this.labelField]: this.emptyOptionListText,
+              [this.valueField]: "",
+            },
           ]);
         this.preLoad = true;
       }
@@ -264,9 +277,19 @@ export class SearchBar {
     if (
       this.inputEl &&
       this.options &&
-      !!getLabelFromValue(newValue, this.options)
+      !!getLabelFromValue(
+        newValue,
+        this.options,
+        this.valueField,
+        this.labelField
+      )
     ) {
-      this.inputEl.value = getLabelFromValue(newValue, this.options);
+      this.inputEl.value = getLabelFromValue(
+        newValue,
+        this.options,
+        this.valueField,
+        this.labelField
+      );
     } else if (this.inputEl && this.inputEl.value !== newValue) {
       this.inputEl.value = newValue;
     }
@@ -315,7 +338,9 @@ export class SearchBar {
   private onInput = (ev: Event) => {
     this.value = (ev.target as HTMLInputElement).value;
 
-    const noOptions = [{ label: this.emptyOptionListText, value: "" }];
+    const noOptions = [
+      { [this.labelField]: this.emptyOptionListText, [this.valueField]: "" },
+    ];
 
     if (this.options.length > 0) {
       this.setMenuChange(true);
@@ -327,7 +352,8 @@ export class SearchBar {
           this.options,
           false,
           this.value,
-          "anywhere"
+          "anywhere",
+          this.labelField
         );
 
         this.filteredOptions =
@@ -541,14 +567,22 @@ export class SearchBar {
 
   private triggerLoading = () => {
     const loadingOption: IcMenuOption[] = [
-      { label: this.loadingLabel, value: "", loading: true },
+      {
+        [this.labelField]: this.loadingLabel,
+        [this.valueField]: "",
+        loading: true,
+      },
     ];
     if (this.filteredOptions !== loadingOption)
       this.filteredOptions = loadingOption;
     if (this.timeout) {
       this.timeoutTimer = window.setTimeout(() => {
         this.filteredOptions = [
-          { label: this.loadingErrorLabel, value: "", timedOut: true },
+          {
+            [this.labelField]: this.loadingErrorLabel,
+            [this.valueField]: "",
+            timedOut: true,
+          },
         ];
       }, this.timeout);
     }
@@ -693,7 +727,7 @@ export class SearchBar {
 
   private hadNoOptions = (): boolean =>
     this.filteredOptions.length === 1 &&
-    this.filteredOptions[0].label === this.emptyOptionListText &&
+    this.filteredOptions[0][this.labelField] === this.emptyOptionListText &&
     this.searchMode === "navigation";
 
   private isSubmitDisabled = (): boolean => {
@@ -717,9 +751,9 @@ export class SearchBar {
     }
     const prevNoOptionsList = this.filteredOptions.find(
       (filteredOption) =>
-        filteredOption.label === this.emptyOptionListText ||
-        filteredOption.label === this.loadingErrorLabel ||
-        filteredOption.label === this.loadingLabel
+        filteredOption[this.labelField] === this.emptyOptionListText ||
+        filteredOption[this.labelField] === this.loadingErrorLabel ||
+        filteredOption[this.labelField] === this.loadingLabel
     );
     if (prevNoOptionsList) {
       this.prevNoOption = true;
@@ -775,10 +809,12 @@ export class SearchBar {
     const disabledText = disabledMode && !readonly;
     const hasSuggestedSearch = value && this.hasOptionsOrFilterDisabled();
     const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
+    const menuRendered =
+      menuOpen && value.length >= this.charactersUntilSuggestion;
     const isOrHasLoaded =
       this.filteredOptions.length === 1 &&
-      (this.filteredOptions[0].label === this.loadingLabel ||
-        filteredOptions[0].label === this.loadingErrorLabel);
+      (this.filteredOptions[0][this.labelField] === this.loadingLabel ||
+        filteredOptions[0][this.labelField] === this.loadingErrorLabel);
 
     let expanded;
 
@@ -819,8 +855,19 @@ export class SearchBar {
           name={name}
           truncateValue={truncateValue}
           value={
-            options && !!getLabelFromValue(value, options)
-              ? getLabelFromValue(value, options)
+            options &&
+            !!getLabelFromValue(
+              value,
+              options,
+              this.valueField,
+              this.labelField
+            )
+              ? getLabelFromValue(
+                  value,
+                  options,
+                  this.valueField,
+                  this.labelField
+                )
               : value
           }
           placeholder={placeholder}
@@ -829,7 +876,7 @@ export class SearchBar {
           onFocus={this.onInputFocus}
           aria-label={hideLabel ? label : ""}
           aria-describedby={describedById}
-          aria-owns={hasSuggestedSearch ? menuId : undefined}
+          aria-owns={menuRendered ? menuId : undefined}
           aria-haspopup={options.length > 0 ? "listbox" : undefined}
           ariaExpanded={expanded}
           ariaActiveDescendant={ariaActiveDescendant}
@@ -910,7 +957,7 @@ export class SearchBar {
             }}
             slot="menu"
           >
-            {menuOpen && value.length >= this.charactersUntilSuggestion && (
+            {menuRendered && (
               <ic-menu
                 class={{
                   "no-results": this.hadNoOptions() || isOrHasLoaded,
@@ -933,6 +980,8 @@ export class SearchBar {
                 onRetryButtonClicked={this.handleRetry}
                 parentEl={this.el}
                 value={value}
+                labelField={this.labelField}
+                valueField={this.valueField}
               ></ic-menu>
             )}
           </div>

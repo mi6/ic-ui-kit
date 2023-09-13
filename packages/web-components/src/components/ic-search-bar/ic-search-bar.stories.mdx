@@ -47,6 +47,35 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### With custom label and value fields
+
+<Canvas>
+  <Story
+    name="With custom label and value fields"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+          label-field="urn"
+          value-field="reference"
+        ></ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { urn: "Espresso", reference: "espresso" },
+            { urn: "Double Espresso", reference: "doubleespresso" },
+            { urn: "Flat White", reference: "flatwhite" },
+            { urn: "Cappuccino", reference: "cappucino" },
+            { urn: "Americano", reference: "americano" },
+            { urn: "Ameno", reference: "ameno" },
+            { urn: "Aicano", reference: "acano" },
+            { urn: "Mocha", reference: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### With options
 
 <Canvas>

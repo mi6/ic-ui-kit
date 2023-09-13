@@ -18,7 +18,7 @@ exports[`ic-search-bar search should render aria-label when hidelLabel is set: r
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -31,7 +31,7 @@ exports[`ic-search-bar search should render aria-label when hidelLabel is set: r
         <ic-button class="button-size-default button-variant-icon disabled search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -67,7 +67,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -80,7 +80,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
         <ic-button class="button-size-default button-variant-icon disabled search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -116,7 +116,7 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -129,7 +129,7 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
         <ic-button class="button-size-default button-variant-icon disabled search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -165,7 +165,7 @@ exports[`ic-search-bar search should render required variant: renders-required 1
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -178,7 +178,7 @@ exports[`ic-search-bar search should render required variant: renders-required 1
         <ic-button class="button-size-default button-variant-icon disabled search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -198,7 +198,7 @@ exports[`ic-search-bar search should render required variant: renders-required 1
 exports[`ic-search-bar search should render with helper-text: renders-with-helpertext 1`] = `
 <ic-search-bar class="search" helper-text="This is a description" label="Test label" value="espresso">
   <mock:shadow-root>
-    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" aria-owns="ic-search-bar-input-7-menu" value="Espresso">
+    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-7-helper-text ic-search-bar-input-7-assistive-hint" aria-haspopup="listbox" value="Espresso">
       <mock:shadow-root>
         <ic-input-container>
           <!---->
@@ -216,7 +216,7 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
               </ic-typography>
             </ic-input-label>
             <ic-input-component-container validationstatus="">
-              <input aria-describedby="ic-search-bar-input-7-helper-text" aria-expanded="false" aria-invalid="false" aria-label="" aria-owns="ic-search-bar-input-7-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" role="combobox" type="text" value="Espresso">
+              <input aria-describedby="ic-search-bar-input-7-helper-text" aria-expanded="false" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-7" inputmode="search" name="ic-search-bar-input-7" placeholder="Search" role="combobox" type="text" value="Espresso">
               <slot name="clear-button"></slot>
               <slot name="search-submit-button"></slot>
             </ic-input-component-container>
@@ -228,7 +228,7 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -241,7 +241,7 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
         <ic-button class="button-size-default button-variant-icon search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -261,12 +261,12 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
 exports[`ic-search-bar search should render with options: renders-with-options 1`] = `
 <ic-search-bar class="search" label="Test label" value="espresso">
   <mock:shadow-root>
-    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" aria-owns="ic-search-bar-input-6-menu" value="Espresso">
+    <ic-text-field aria-autocomplete="list" aria-describedby="ic-search-bar-input-6-assistive-hint" aria-haspopup="listbox" value="Espresso">
       <mock:shadow-root>
         <ic-input-container>
           <ic-input-label for="ic-search-bar-input-6" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container validationstatus="">
-            <input aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="" aria-owns="ic-search-bar-input-6-menu" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" role="combobox" type="text" value="Espresso">
+            <input aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" id="ic-search-bar-input-6" inputmode="search" name="ic-search-bar-input-6" placeholder="Search" role="combobox" type="text" value="Espresso">
             <slot name="clear-button"></slot>
             <slot name="search-submit-button"></slot>
           </ic-input-component-container>
@@ -277,7 +277,7 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -290,7 +290,7 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
         <ic-button class="button-size-default button-variant-icon search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -326,7 +326,7 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -339,7 +339,7 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
         <ic-button class="button-size-default button-variant-icon search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-label="Search" class="button" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -375,7 +375,7 @@ exports[`ic-search-bar search should render: renders 1`] = `
         <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
           <mock:shadow-root>
             <ic-tooltip label="Clear" placement="bottom" target="ic-button-with-tooltip-clear-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
+              <button aria-label="Clear" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -388,7 +388,7 @@ exports[`ic-search-bar search should render: renders 1`] = `
         <ic-button class="button-size-default button-variant-icon disabled search-submit-button" exportparts="button" id="search-submit-button">
           <mock:shadow-root>
             <ic-tooltip label="Search" placement="bottom" target="ic-button-with-tooltip-search-submit-button">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-search-submit-button" aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
+              <button aria-disabled="true" aria-label="Search" class="button" disabled="" id="ic-button-with-tooltip-search-submit-button" part="button" type="submit">
                 <slot></slot>
               </button>
             </ic-tooltip>

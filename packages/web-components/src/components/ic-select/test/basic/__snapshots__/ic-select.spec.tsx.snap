@@ -4,9 +4,9 @@ exports[`ic-select native should test native select with groups: native-select-w
 <ic-select label="IC Select Test">
   <mock:shadow-root>
     <ic-input-container>
-      <ic-input-label for="ic-select-input-22" helpertext="" label="New label"></ic-input-label>
+      <ic-input-label for="ic-select-input-23" helpertext="" label="New label"></ic-input-label>
       <ic-input-component-container validationstatus="">
-        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-22">
+        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-23">
           <option disabled="" selected="" value="">
             Select an option
           </option>
@@ -30,7 +30,7 @@ exports[`ic-select native should test native select with groups: native-select-w
       </ic-input-component-container>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-22" type="hidden" value="">
+  <input class="ic-input" name="ic-select-input-23" type="hidden" value="">
 </ic-select>
 `;
 
@@ -38,9 +38,9 @@ exports[`ic-select native should test native select: native-select 1`] = `
 <ic-select label="IC Select Test">
   <mock:shadow-root>
     <ic-input-container>
-      <ic-input-label for="ic-select-input-21" helpertext="" label="New label"></ic-input-label>
+      <ic-input-label for="ic-select-input-22" helpertext="" label="New label"></ic-input-label>
       <ic-input-component-container validationstatus="">
-        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-21">
+        <select aria-describedby="" aria-invalid="false" aria-label="New label" class="select-option-selected" id="ic-select-input-22">
           <option disabled="" selected="" value="">
             Select an option
           </option>
@@ -57,7 +57,7 @@ exports[`ic-select native should test native select: native-select 1`] = `
       </ic-input-component-container>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-21" type="hidden" value="">
+  <input class="ic-input" name="ic-select-input-22" type="hidden" value="">
 </ic-select>
 `;
 
@@ -65,12 +65,12 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 <ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
   <mock:shadow-root>
     <ic-input-container>
-      <ic-input-label for="ic-select-input-24" helpertext="" label="IC Select Test" required=""></ic-input-label>
+      <ic-input-label for="ic-select-input-25" helpertext="" label="IC Select Test" required=""></ic-input-label>
       <ic-input-component-container>
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-24-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-24" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-25-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-25" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>
@@ -81,7 +81,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
       <ic-menu></ic-menu>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-24" type="hidden" value="">
+  <input class="ic-input" name="ic-select-input-25" type="hidden" value="">
 </ic-select>
 `;
 
@@ -286,7 +286,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
             <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip label="Clear selection" placement="bottom" target="ic-button-with-tooltip-clear-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="button">
+                  <button aria-label="Clear selection" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>

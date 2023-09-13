@@ -5,11 +5,12 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-import { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-import { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 import { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 import { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -28,11 +29,12 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
-export { IcButtonSizes, IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
-export { IcChipAppearance, IcChipSizes } from "./components/ic-chip/ic-chip.types";
+export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
+export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
 export { IcHeroContentAlignments } from "./components/ic-hero/ic-hero.types";
 export { IcAriaLiveModeVariants } from "./components/ic-input-validation/ic-input-validation.types";
@@ -70,7 +72,7 @@ export namespace Components {
          */
         "message"?: string;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
@@ -185,7 +187,7 @@ export namespace Components {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -296,7 +298,11 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If true, the small styling will be applied to the checkbox.
+          * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -330,7 +336,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * If `true`, the small styling will be applied to the checkbox group.
+          * The size of the checkboxes to be displayed. This does not affect the font size of the label.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small": boolean;
         /**
@@ -366,7 +376,7 @@ export namespace Components {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -477,6 +487,32 @@ export namespace Components {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
+    }
+    interface IcEmptyState {
+        /**
+          * The alignment of the empty state container.
+         */
+        "aligned"?: IcEmptyStateAlignment;
+        /**
+          * The body text rendered in the empty state container.
+         */
+        "body"?: string;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "bodyMaxLines"?: number;
+        /**
+          * The title rendered in the empty state container.
+         */
+        "heading": string;
+        /**
+          * The size of the image or icon used in the image slot.
+         */
+        "imageSize"?: IcSizes;
+        /**
+          * The subtitle rendered in the empty state container.
+         */
+        "subheading"?: string;
     }
     interface IcFooter {
         /**
@@ -792,6 +828,10 @@ export namespace Components {
          */
         "inputLabel": string;
         /**
+          * The custom name for the label field for IcMenuOption.
+         */
+        "labelField": string;
+        /**
           * The ID of the menu.
          */
         "menuId": string;
@@ -816,6 +856,10 @@ export namespace Components {
           * The value of the currently selected option.
          */
         "value": string;
+        /**
+          * The custom name for the value field for IcMenuOption.
+         */
+        "valueField": string;
     }
     interface IcMenuGroup {
         /**
@@ -1247,6 +1291,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The custom name for the label field to correspond with the IcMenuOption type.
+         */
+        "labelField"?: string;
+        /**
           * Trigger loading state when fetching options asyncronously
          */
         "loading"?: boolean;
@@ -1302,6 +1350,10 @@ export namespace Components {
           * The value of the search input.
          */
         "value": string;
+        /**
+          * The custom name for the value field to correspond with the IcMenuOption type.
+         */
+        "valueField"?: string;
     }
     interface IcSectionContainer {
         /**
@@ -1449,6 +1501,10 @@ export namespace Components {
          */
         "href": string;
         "inline": boolean;
+        /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle": string;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
@@ -1873,9 +1929,25 @@ export namespace Components {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */
@@ -2066,6 +2138,12 @@ declare global {
     var HTMLIcDividerElement: {
         prototype: HTMLIcDividerElement;
         new (): HTMLIcDividerElement;
+    };
+    interface HTMLIcEmptyStateElement extends Components.IcEmptyState, HTMLStencilElement {
+    }
+    var HTMLIcEmptyStateElement: {
+        prototype: HTMLIcEmptyStateElement;
+        new (): HTMLIcEmptyStateElement;
     };
     interface HTMLIcFooterElement extends Components.IcFooter, HTMLStencilElement {
     }
@@ -2346,6 +2424,7 @@ declare global {
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
+        "ic-empty-state": HTMLIcEmptyStateElement;
         "ic-footer": HTMLIcFooterElement;
         "ic-footer-link": HTMLIcFooterLinkElement;
         "ic-footer-link-group": HTMLIcFooterLinkGroupElement;
@@ -2419,7 +2498,7 @@ declare namespace LocalJSX {
          */
         "onIcDismiss"?: (event: IcAlertCustomEvent<void>) => void;
         /**
-          * If `true`, the title and message will appear inline instead of above and below.
+          * If `true`, the title and message will appear above and below instead of inline.
          */
         "titleAbove"?: boolean;
         /**
@@ -2534,7 +2613,7 @@ declare namespace LocalJSX {
         /**
           * The size of the button to be displayed.
          */
-        "size"?: IcButtonSizes;
+        "size"?: IcSizes;
         /**
           * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
          */
@@ -2644,7 +2723,11 @@ declare namespace LocalJSX {
          */
         "onIcCheck"?: (event: IcCheckboxCustomEvent<void>) => void;
         /**
-          * If true, the small styling will be applied to the checkbox.
+          * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -2682,7 +2765,11 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the checkbox group.
+          * The size of the checkboxes to be displayed. This does not affect the font size of the label.
+         */
+        "size"?: IcSizes;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -2722,7 +2809,7 @@ declare namespace LocalJSX {
         /**
           * The size of the chip.
          */
-        "size"?: IcChipSizes;
+        "size"?: IcSizes;
     }
     interface IcClassificationBanner {
         /**
@@ -2833,6 +2920,32 @@ declare namespace LocalJSX {
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
     interface IcDivider {
+    }
+    interface IcEmptyState {
+        /**
+          * The alignment of the empty state container.
+         */
+        "aligned"?: IcEmptyStateAlignment;
+        /**
+          * The body text rendered in the empty state container.
+         */
+        "body"?: string;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "bodyMaxLines"?: number;
+        /**
+          * The title rendered in the empty state container.
+         */
+        "heading": string;
+        /**
+          * The size of the image or icon used in the image slot.
+         */
+        "imageSize"?: IcSizes;
+        /**
+          * The subtitle rendered in the empty state container.
+         */
+        "subheading"?: string;
     }
     interface IcFooter {
         /**
@@ -3137,6 +3250,10 @@ declare namespace LocalJSX {
          */
         "inputLabel": string;
         /**
+          * The custom name for the label field for IcMenuOption.
+         */
+        "labelField"?: string;
+        /**
           * The ID of the menu.
          */
         "menuId": string;
@@ -3169,6 +3286,10 @@ declare namespace LocalJSX {
           * The value of the currently selected option.
          */
         "value": string;
+        /**
+          * The custom name for the value field for IcMenuOption.
+         */
+        "valueField"?: string;
     }
     interface IcMenuGroup {
         /**
@@ -3608,6 +3729,10 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
+          * The custom name for the label field to correspond with the IcMenuOption type.
+         */
+        "labelField"?: string;
+        /**
           * Trigger loading state when fetching options asyncronously
          */
         "loading"?: boolean;
@@ -3705,6 +3830,10 @@ declare namespace LocalJSX {
           * The value of the search input.
          */
         "value"?: string;
+        /**
+          * The custom name for the value field to correspond with the IcMenuOption type.
+         */
+        "valueField"?: string;
     }
     interface IcSectionContainer {
         /**
@@ -3876,6 +4005,10 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         "inline"?: boolean;
+        /**
+          * The short title of the app to be displayed at small screen sizes in place of the app title.
+         */
+        "shortAppTitle"?: string;
         /**
           * If `true`, the menu expand button will be removed (PLEASE NOTE: This takes effect on screen sizes 992px and above).
          */
@@ -4326,9 +4459,25 @@ declare namespace LocalJSX {
          */
         "applyVerticalMargins"?: boolean;
         /**
+          * If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).
+         */
+        "bold"?: boolean;
+        /**
+          * If `true`, the typography will have an italic font style.
+         */
+        "italic"?: boolean;
+        /**
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * If `true`, the typography will have a line through it.
+         */
+        "strikethrough"?: boolean;
+        /**
+          * If `true`, the typography will have a line under it.
+         */
+        "underline"?: boolean;
         /**
           * The ICDS typography style to use.
          */
@@ -4349,6 +4498,7 @@ declare namespace LocalJSX {
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
+        "ic-empty-state": IcEmptyState;
         "ic-footer": IcFooter;
         "ic-footer-link": IcFooterLink;
         "ic-footer-link-group": IcFooterLinkGroup;
@@ -4413,6 +4563,7 @@ declare module "@stencil/core" {
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
+            "ic-empty-state": LocalJSX.IcEmptyState & JSXBase.HTMLAttributes<HTMLIcEmptyStateElement>;
             "ic-footer": LocalJSX.IcFooter & JSXBase.HTMLAttributes<HTMLIcFooterElement>;
             "ic-footer-link": LocalJSX.IcFooterLink & JSXBase.HTMLAttributes<HTMLIcFooterLinkElement>;
             "ic-footer-link-group": LocalJSX.IcFooterLinkGroup & JSXBase.HTMLAttributes<HTMLIcFooterLinkGroupElement>;

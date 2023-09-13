@@ -7,11 +7,15 @@
 
 ## Properties
 
-| Property               | Attribute                | Description                                                                                  | Type                                                                                                                                                                                                       | Default     |
-| ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `applyVerticalMargins` | `apply-vertical-margins` | If `true`, appropriate top and bottom margins will be applied to the typography.             | `boolean`                                                                                                                                                                                                  | `false`     |
-| `maxLines`             | `max-lines`              | The number of lines to display before truncating the text, only used for the 'body' variant. | `number`                                                                                                                                                                                                   | `undefined` |
-| `variant`              | `variant`                | The ICDS typography style to use.                                                            | `"body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
+| Property               | Attribute                | Description                                                                                                                                                                           | Type                                                                                                                                                                                                       | Default     |
+| ---------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `applyVerticalMargins` | `apply-vertical-margins` | If `true`, appropriate top and bottom margins will be applied to the typography.                                                                                                      | `boolean`                                                                                                                                                                                                  | `false`     |
+| `bold`                 | `bold`                   | If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large). | `boolean`                                                                                                                                                                                                  | `false`     |
+| `italic`               | `italic`                 | If `true`, the typography will have an italic font style.                                                                                                                             | `boolean`                                                                                                                                                                                                  | `false`     |
+| `maxLines`             | `max-lines`              | The number of lines to display before truncating the text, only used for the 'body' variant.                                                                                          | `number`                                                                                                                                                                                                   | `undefined` |
+| `strikethrough`        | `strikethrough`          | If `true`, the typography will have a line through it.                                                                                                                                | `boolean`                                                                                                                                                                                                  | `false`     |
+| `underline`            | `underline`              | If `true`, the typography will have a line under it.                                                                                                                                  | `boolean`                                                                                                                                                                                                  | `false`     |
+| `variant`              | `variant`                | The ICDS typography style to use.                                                                                                                                                     | `"body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
 
 
 ## Dependencies
@@ -27,6 +31,7 @@
  - [ic-data-entity](../ic-data-entity)
  - [ic-data-row](../ic-data-row)
  - [ic-dialog](../ic-dialog)
+ - [ic-empty-state](../ic-empty-state)
  - [ic-footer](../ic-footer)
  - [ic-footer-link-group](../ic-footer-link-group)
  - [ic-hero](../ic-hero)
@@ -66,6 +71,7 @@ graph TD;
   ic-data-entity --> ic-typography
   ic-data-row --> ic-typography
   ic-dialog --> ic-typography
+  ic-empty-state --> ic-typography
   ic-footer --> ic-typography
   ic-footer-link-group --> ic-typography
   ic-hero --> ic-typography

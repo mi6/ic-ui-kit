@@ -137,6 +137,42 @@ describe("ic-typography component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with italic style", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="body" italic="true">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with bold style", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="body" bold="true">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with strikethrough", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="body" strikethrough="true">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with underline", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography variant="body" underline="true">IC Typography Test</ic-typography>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should allow semantic component to be passed in and variant styling applied", async () => {
     const page = await newSpecPage({
       components: [Typography],

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/mi6/ic-ui-kit/compare/v2.2.0...v2.3.0) (2023-09-04)
+
+### Bug Fixes
+
+- **react:** fix for react package error running bootstrap ([ba9a5a7](https://github.com/mi6/ic-ui-kit/commit/ba9a5a77e154c82133e356c2b89d1f6ff8c47e1d))
+- **react:** run new audit fix command ([85a1e3c](https://github.com/mi6/ic-ui-kit/commit/85a1e3c5302c9ca7ff74c71bb63c43b4e5c4cf55))
+
+### Features
+
+- **react:** add stories for empty state component ([defecfa](https://github.com/mi6/ic-ui-kit/commit/defecfafc0f7f53bf3db77e7421e75d57fa09139)), closes [#655](https://github.com/mi6/ic-ui-kit/issues/655)
+- **react:** add story for new sizes for checkboxes ([6656c9c](https://github.com/mi6/ic-ui-kit/commit/6656c9c98c5854a1023909e09321b17f312b28e8)), closes [#643](https://github.com/mi6/ic-ui-kit/issues/643)
+- **react:** update button to use left-icon slot ([a600ce9](https://github.com/mi6/ic-ui-kit/commit/a600ce9a6a6646393da6ee3ff297751602e31936)), closes [#974](https://github.com/mi6/ic-ui-kit/issues/974)
+- **react:** update stories for typography to show new props ([ddb4404](https://github.com/mi6/ic-ui-kit/commit/ddb440484202acd6682da64b4d8983d2e9df2ff0)), closes [#988](https://github.com/mi6/ic-ui-kit/issues/988)
+- **web-components:** add right icon to ic button, deprecate icon slot and update icon sizes ([2e96862](https://github.com/mi6/ic-ui-kit/commit/2e96862741c4f08a718be89d2cbf914f972686a2)), closes [#974](https://github.com/mi6/ic-ui-kit/issues/974)
+
 # [2.2.0](https://github.com/mi6/ic-ui-kit/compare/v2.1.0-beta.18...v2.2.0) (2023-08-07)
 
 ### Bug Fixes

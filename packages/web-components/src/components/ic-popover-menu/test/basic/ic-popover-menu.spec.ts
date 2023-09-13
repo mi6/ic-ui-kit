@@ -3,6 +3,7 @@ import { MenuItem } from "../../../ic-menu-item/ic-menu-item";
 import { PopoverMenu } from "../../ic-popover-menu";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { MenuGroup } from "../../../ic-menu-group/ic-menu-group";
+import { Dialog } from "../../../ic-dialog/ic-dialog";
 
 describe("ic-popover-menu", () => {
   it("should render with anchor", async () => {
@@ -57,6 +58,21 @@ describe("ic-popover-menu", () => {
     expect(page.root).toMatchSnapshot(
       "should render a back button when submenu-id is set"
     );
+  });
+
+  it("should render on a dialog", async () => {
+    const page = await newSpecPage({
+      components: [PopoverMenu, MenuItem, Dialog],
+      html: `<ic-dialog>
+      <ic-button id="anchorEl"></ic-button>
+      <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" open="true">
+      <ic-menu-item label="Button 1"></ic-menu-item>
+      <ic-menu-item label="Button 2"></ic-menu-item>
+      </ic-popover-menu>
+      </ic-dialog>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
   });
 
   it("should set openingFromChild to true when openFromChild method is called", async () => {

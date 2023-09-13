@@ -53,9 +53,11 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot     | Description                                             |
-| -------- | ------------------------------------------------------- |
-| `"icon"` | Content will be placed to the left of the button label. |
+| Slot           | Description                                                                                 |
+| -------------- | ------------------------------------------------------------------------------------------- |
+| `"icon"`       | Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead. |
+| `"left-icon"`  | Content will be placed to the left of the button label.                                     |
+| `"right-icon"` | Content will be placed to the right of the button label.                                    |
 
 
 ## CSS Custom Properties

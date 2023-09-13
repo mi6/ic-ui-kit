@@ -86,6 +86,80 @@ import { useForm } from 'react-hook-form';
   </Story>
 </Canvas>
 
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    <IcCheckboxGroup size="large" label="These are checkboxes with the 'size' attribute set on them individually" name="group1">
+      <IcCheckbox
+        size="small"
+        value="valueName1"
+        label="Unselected / Default"
+      ></IcCheckbox>
+      <IcCheckbox
+        size="default"
+        value="valueName2"
+        label="Selected / Default"
+        checked
+      ></IcCheckbox>
+      <IcCheckbox
+        size="large"
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></IcCheckbox>
+    </IcCheckboxGroup>
+    <IcCheckboxGroup size="small" label="This is a checkbox group with small checkboxes" name="group2">
+      <IcCheckbox
+        value="valueName1"
+        label="Unselected / Default"
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName2"
+        label="Selected / Default"
+        checked
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></IcCheckbox>
+    </IcCheckboxGroup>
+    <IcCheckboxGroup size="default" label="This is a checkbox group with default-sized checkboxes" name="group3">
+      <IcCheckbox
+        value="valueName1"
+        label="Unselected / Default"
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName2"
+        label="Selected / Default"
+        checked
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></IcCheckbox>
+    </IcCheckboxGroup>
+    <IcCheckboxGroup size="large" label="This is a checkbox group with large checkboxes" name="group4">
+      <IcCheckbox
+        value="valueName1"
+        label="Unselected / Default"
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName2"
+        label="Selected / Default"
+        checked
+      ></IcCheckbox>
+      <IcCheckbox
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
+      ></IcCheckbox>
+    </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
 ### Hidden label
 
 <Canvas>
@@ -188,32 +262,6 @@ import { useForm } from 'react-hook-form';
             value="valueName3"
             label="Unselected / Disabled"
             disabled
-          ></IcCheckbox>
-        </IcCheckboxGroup>
-  </Story>
-</Canvas>
-
-### Small
-
-<Canvas>
-  <Story name="Small">
-    <IcCheckboxGroup label="This is a label" name="1" small>
-        <IcCheckbox
-            value="valueName1"
-            label="Unselected / Default"
-            small
-          ></IcCheckbox>
-          <IcCheckbox
-            value="valueName2"
-            label="Selected / Default"
-            checked
-            small
-          ></IcCheckbox>
-          <IcCheckbox
-            value="valueName3"
-            label="Unselected / Disabled"
-            disabled
-            small
           ></IcCheckbox>
         </IcCheckboxGroup>
   </Story>

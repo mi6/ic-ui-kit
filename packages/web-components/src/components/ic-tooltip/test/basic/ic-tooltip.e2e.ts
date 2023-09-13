@@ -22,6 +22,9 @@ describe("ic-tooltip component", () => {
     await page.waitForChanges();
 
     const tooltip = await page.find(".ic-tooltip >>> .ic-tooltip-container");
+    const button = await page.find("button");
+
+    await button.hover();
 
     expect(await tooltip.getAttribute("data-popper-placement")).toBe(
       "right-end"
