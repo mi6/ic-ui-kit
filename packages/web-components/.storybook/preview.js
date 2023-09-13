@@ -1,5 +1,6 @@
 import "../src/global/normalize.css"
 import "@ukic/fonts/dist/fonts.css";
+import "./storybook.css";
 import "../src/global/icds.css";
 
 
