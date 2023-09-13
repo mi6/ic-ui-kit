@@ -120,7 +120,7 @@ export class DateInput {
   /**
    * The days of the week to disable.
    */
-  @Prop() disableDays?: IcWeekDays[] = [];
+  @Prop({ mutable: true }) disableDays?: IcWeekDays[] = [];
 
   /**
    * The text to display as the validation message when `disableDays` is set and a disabled date is entered.
@@ -154,7 +154,7 @@ export class DateInput {
   @Prop() label!: string;
 
   /**
-   * The latest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disableFromNow` is set to `true`.
    */
   @Prop() max?: string | Date = "";
@@ -169,7 +169,7 @@ export class DateInput {
   }
 
   /**
-   * The earliest date that will be allowed - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    * The value of this prop is ignored if `disableUntilNow` is set to `true`.
    */
   @Prop() min?: string | Date = "";
@@ -209,7 +209,7 @@ export class DateInput {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * The value of the date input - in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   * The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    */
   @Prop({ mutable: true }) value?: string | Date = "";
 
@@ -700,46 +700,48 @@ export class DateInput {
     this.setPastedValueAndValidation(isValidDate, pastedValue, event);
   };
 
-  private setDayMonthValue = (datePart: string, value: string) => {
-    switch (datePart) {
-      case "D":
-        this.day =
-          value.length === 1 ? this.convertToDoubleDigits(value) : value;
-        break;
-      case "M":
-        this.month =
-          value.length === 1 ? this.convertToDoubleDigits(value) : value;
-        break;
-      case "Y":
-        if (this.isZuluTime) {
-          this.day =
-            value.length === 1 ? this.convertToDoubleDigits(value) : value;
-        }
-        break;
-      default:
-        break;
-    }
-  };
-
   private extractDateFromZuluDateTime = (zuluDateTime: string) =>
     zuluDateTime.slice(0, zuluDateTime.indexOf("T"));
 
   private splitStringDate = (date: string): string[] => {
-    if (date.split("/").length > 1) {
-      return date.split("/");
-    }
-
+    // returns an array where item 1 is year, item 2 is month, item 3 is day
     if (date.includes("T") && date.includes("Z")) {
       const nextDate = this.extractDateFromZuluDateTime(date);
       this.isZuluTime = true;
       return nextDate.split("-");
     }
 
-    if (date.split("-").length > 1) {
-      return date.split("-");
+    let newDate: string[] = [];
+
+    const dateWithSlashes = date.replace(/-/g, "/");
+    if (dateWithSlashes.split("/").length > 1) {
+      const dateParts = dateWithSlashes.split("/");
+
+      // pad any values to 2 characters
+      dateParts.forEach((d, i) => {
+        if (d.length === 1) {
+          dateParts[i] = this.convertToDoubleDigits(d);
+        }
+      });
+      if (dateParts[0].length < 4) {
+        const newDateStr = dateParts.join("/");
+        const validDayFirst = this.isDayFirstFormat(newDateStr);
+        const validMonthFirst = this.isMonthFirstFormat(newDateStr);
+        if (validDayFirst && validMonthFirst) {
+          if (this.dateFormat.charAt(0) === "M") {
+            newDate = [dateParts[2], dateParts[0], dateParts[1]];
+          } else {
+            newDate = [dateParts[2], dateParts[1], dateParts[0]];
+          }
+        } else if (validMonthFirst) {
+          newDate = [dateParts[2], dateParts[0], dateParts[1]];
+        } else {
+          newDate = [dateParts[2], dateParts[1], dateParts[0]];
+        }
+      }
     }
 
-    return [];
+    return newDate;
   };
 
   private convertToDoubleDigits = (value: string | number): string => {
@@ -753,9 +755,19 @@ export class DateInput {
     return date instanceof Date || !isNaN(+new Date(+date));
   };
 
-  private setDate = (date: string | Date) => {
-    const dateParts = this.dateFormat.split("/");
+  private isMonthFirstFormat = (dateString: string) => {
+    const monthFirstFormat =
+      /^(0[1-9]|1[0-2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)\d{4}$/;
+    return monthFirstFormat.test(dateString);
+  };
 
+  private isDayFirstFormat = (dateString: string) => {
+    const monthFirstFormat =
+      /^(0[1-9]|[12][0-9]|3[01])(\/|-)(0[1-9]|1[0-2])(\/|-)\d{4}$/;
+    return monthFirstFormat.test(dateString);
+  };
+
+  private setDate = (date: string | Date) => {
     if (date === null || date === "" || date === undefined) {
       this.day = null;
       this.month = null;
@@ -780,14 +792,9 @@ export class DateInput {
         this.year = newDate.getFullYear().toString();
       } else if (typeof date === "string") {
         const defaultDateArray = this.splitStringDate(date);
-
-        defaultDateArray.forEach((d, i) => {
-          if (d.length === 4) {
-            this.year = d;
-          } else {
-            this.setDayMonthValue(dateParts[i].substring(0, 1), d);
-          }
-        });
+        this.year = defaultDateArray[0];
+        this.month = defaultDateArray[1];
+        this.day = defaultDateArray[2];
 
         if (this.isZuluTime) {
           // Reset Zulu flag as ISO string has been parsed
@@ -823,7 +830,6 @@ export class DateInput {
   };
 
   private setMinMax = (date: string | Date) => {
-    const dateParts = this.dateFormat.split("/");
     let newDate;
     if (this.isDateOrEpoch(date)) {
       if (typeof date === "string") {
@@ -833,33 +839,9 @@ export class DateInput {
       }
     } else if (typeof date === "string") {
       const dateArray = this.splitStringDate(date);
-
-      let year;
-      let month;
-      let day;
-
-      dateArray.forEach((d, i) => {
-        if (d.length === 4) {
-          year = d;
-        } else {
-          switch (dateParts[i].substring(0, 1)) {
-            case "D":
-              day = d;
-              break;
-            case "M":
-              month = Number(d) - 1;
-              break;
-            case "Y":
-              if (this.isZuluTime) {
-                day = d;
-              }
-              break;
-            default:
-              break;
-          }
-        }
-      });
-
+      const year = Number(dateArray[0]);
+      const month = Number(dateArray[1]) - 1;
+      const day = Number(dateArray[2]);
       newDate = new Date(year, month, day);
     }
     return newDate;
@@ -1571,6 +1553,7 @@ export class DateInput {
                         isEmptyString(this.month) &&
                         isEmptyString(this.year),
                     }}
+                    disabled={this.disabled}
                     innerHTML={Clear}
                     onClick={this.handleClear}
                     variant="icon"
@@ -1591,6 +1574,7 @@ export class DateInput {
                     ref={(el) => (this.calendarButtonEl = el)}
                     aria-label="Display calendar"
                     class="calendar-button"
+                    disabled={this.disabled}
                     innerHTML={Calendar}
                     onClick={this.handleCalendarOpen}
                     variant="icon"

@@ -1,5 +1,362 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-date-input component date format conversion should handle US format value - DD/MM/YYYY date format 1`] = `
+<ic-date-input label="Test label" value="07/26/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-12" id="ic-date-input-12-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-12-helper-text">
+            DD/MM/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-screen-reader-info">
+        Date format: DD/MM/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-12-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the day, month, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-12-label ic-date-input-12-screen-reader-info  ic-date-input-12-selected-date-info ic-date-input-12-assistive-hint" id="ic-date-input-12" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
+            /
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            /
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-12-selected-date-info">
+        Selected date:
+        <span role="status">
+          Thu Jul 26 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-12" type="hidden" value="2001-07-26T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle US format value - MM/DD/YYYY date format 1`] = `
+<ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/26/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-13" id="ic-date-input-13-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-13-helper-text">
+            MM/DD/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-screen-reader-info">
+        Date format: MM/DD/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-13-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the month, day, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-13-label ic-date-input-13-screen-reader-info  ic-date-input-13-selected-date-info ic-date-input-13-assistive-hint" id="ic-date-input-13" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            /
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
+            /
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-13-selected-date-info">
+        Selected date:
+        <span role="status">
+          Thu Jul 26 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-13" type="hidden" value="2001-07-26T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle US format value - YYYY/MM/DD date format 1`] = `
+<ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/26/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-14" id="ic-date-input-14-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-14-helper-text">
+            YYYY/MM/DD
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-screen-reader-info">
+        Date format: YYYY/MM/DD.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-14-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the year, month, and day.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-14-label ic-date-input-14-screen-reader-info  ic-date-input-14-selected-date-info ic-date-input-14-assistive-hint" id="ic-date-input-14" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            /
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            /
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="26">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-14-selected-date-info">
+        Selected date:
+        <span role="status">
+          Thu Jul 26 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-14" type="hidden" value="2001-07-26T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle ambiguous value - DD/MM/YYYY date format 1`] = `
+<ic-date-input date-format="DD/MM/YYYY" label="Test label" value="07/10/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-15" id="ic-date-input-15-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-15-helper-text">
+            DD/MM/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-screen-reader-info">
+        Date format: DD/MM/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-15-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the day, month, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-15-label ic-date-input-15-screen-reader-info  ic-date-input-15-selected-date-info ic-date-input-15-assistive-hint" id="ic-date-input-15" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+            /
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
+            /
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-15-selected-date-info">
+        Selected date:
+        <span role="status">
+          Sun Oct 07 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-15" type="hidden" value="2001-10-07T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle ambiguous value - MM/DD/YYYY date format 1`] = `
+<ic-date-input date-format="MM/DD/YYYY" label="Test label" value="07/10/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-16" id="ic-date-input-16-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-16-helper-text">
+            MM/DD/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-screen-reader-info">
+        Date format: MM/DD/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-16-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the month, day, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-16-label ic-date-input-16-screen-reader-info  ic-date-input-16-selected-date-info ic-date-input-16-assistive-hint" id="ic-date-input-16" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="07">
+            /
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="10">
+            /
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-16-selected-date-info">
+        Selected date:
+        <span role="status">
+          Tue Jul 10 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-16" type="hidden" value="2001-07-10T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle ambiguous value - YYYY/MM/DD date format 1`] = `
+<ic-date-input date-format="YYYY/MM/DD" label="Test label" value="07/10/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-17" id="ic-date-input-17-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-17-helper-text">
+            YYYY/MM/DD
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-screen-reader-info">
+        Date format: YYYY/MM/DD.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-17-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the year, month, and day.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-17-label ic-date-input-17-screen-reader-info  ic-date-input-17-selected-date-info ic-date-input-17-assistive-hint" id="ic-date-input-17" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+            /
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="10">
+            /
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="07">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-17-selected-date-info">
+        Selected date:
+        <span role="status">
+          Sun Oct 07 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-17" type="hidden" value="2001-10-07T00:00:00.000Z">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component date format conversion should handle single digit day and month 1`] = `
+<ic-date-input label="Test label" value="1/1/2001">
+  <mock:shadow-root>
+    <ic-input-container>
+      <ic-input-label class="with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-11" id="ic-date-input-11-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext helpertext-normal" variant="caption">
+          <span id="ic-date-input-11-helper-text">
+            DD/MM/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-screen-reader-info">
+        Date format: DD/MM/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-11-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the day, month, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-11-label ic-date-input-11-screen-reader-info  ic-date-input-11-selected-date-info ic-date-input-11-assistive-hint" id="ic-date-input-11" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="day" class="day-input fit-to-value" inputmode="number" pattern="[0-9]*" placeholder="DD" value="01">
+            /
+            <input aria-label="month" class="fit-to-value month-input" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+            /
+            <input aria-label="year" class="fit-to-value year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button" id="clear-button" size="small" variant="icon">
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-11-selected-date-info">
+        Selected date:
+        <span role="status">
+          Mon Jan 01 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" name="ic-date-input-11" type="hidden" value="2001-01-01T00:00:00.000Z">
+</ic-date-input>
+`;
+
 exports[`ic-date-input component should render 1`] = `
 <ic-date-input label="Test label">
   <mock:shadow-root>
@@ -82,7 +439,7 @@ exports[`ic-date-input component should render as disabled 1`] = `
             <input aria-label="year" class="year-input" disabled="" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY">
           </div>
           <div class="action-buttons">
-            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="small" variant="icon">
+            <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" disabled="" id="clear-button" size="small" variant="icon">
               svg
             </ic-button>
           </div>
@@ -245,6 +602,75 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
     </ic-input-container>
   </mock:shadow-root>
   <input class="ic-input" name="ic-date-input-7" type="hidden" value="">
+</ic-date-input>
+`;
+
+exports[`ic-date-input component should render disabled, with calendar button 1`] = `
+<ic-date-input disabled="" label="Test label" show-calendar-button="true" value="21/01/2001">
+  <mock:shadow-root>
+    <ic-input-container disabled="">
+      <ic-input-label class="disabled with-helper">
+        <ic-typography variant="label">
+          <label htmlfor="ic-date-input-10" id="ic-date-input-10-label">
+            Test label
+          </label>
+        </ic-typography>
+        <ic-typography class="helpertext" variant="caption">
+          <span id="ic-date-input-10-helper-text">
+            DD/MM/YYYY
+          </span>
+        </ic-typography>
+      </ic-input-label>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-screen-reader-info">
+        Date format: DD/MM/YYYY.
+      </span>
+      <span aria-hidden="true" class="sr-only" id="ic-date-input-10-assistive-hint">
+        Type or use the up and down arrow keys to change the values for the day, month, and year.
+      </span>
+      <span aria-live="assertive" class="sr-only" id="live-region"></span>
+      <ic-input-component-container aria-labelledby="ic-date-input-10-label ic-date-input-10-screen-reader-info  ic-date-input-10-selected-date-info ic-date-input-10-assistive-hint" disabled="" id="ic-date-input-10" size="default" validationstatus="">
+        <div class="input-container">
+          <div class="date-inputs">
+            <input aria-label="day" class="day-input fit-to-value" disabled="" inputmode="number" pattern="[0-9]*" placeholder="DD" value="21">
+            /
+            <input aria-label="month" class="fit-to-value month-input" disabled="" inputmode="number" pattern="[0-9]*" placeholder="MM" value="01">
+            /
+            <input aria-label="year" class="fit-to-value year-input" disabled="" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
+          </div>
+          <div class="action-buttons">
+            <ic-button class="button-size-small button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
+              <mock:shadow-root>
+                <ic-tooltip label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
+                  <button aria-disabled="true" aria-label="Clear input" class="button" disabled="" id="ic-button-with-tooltip-clear-button" part="button" type="button">
+                    <slot></slot>
+                  </button>
+                </ic-tooltip>
+              </mock:shadow-root>
+              svg
+            </ic-button>
+            <div class="divider"></div>
+            <ic-button class="button-size-small button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
+              <mock:shadow-root>
+                <ic-tooltip label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
+                  <button aria-disabled="true" aria-label="Display calendar" class="button" disabled="" id="ic-button-with-tooltip-calendar-button" part="button" type="button">
+                    <slot></slot>
+                  </button>
+                </ic-tooltip>
+              </mock:shadow-root>
+              svg
+            </ic-button>
+          </div>
+        </div>
+      </ic-input-component-container>
+      <span aria-live="polite" class="sr-only" id="ic-date-input-10-selected-date-info">
+        Selected date:
+        <span role="status">
+          Sun Jan 21 2001
+        </span>
+      </span>
+    </ic-input-container>
+  </mock:shadow-root>
+  <input class="ic-input" disabled="" name="ic-date-input-10" type="hidden" value="2001-01-21T00:00:00.000Z">
 </ic-date-input>
 `;
 
