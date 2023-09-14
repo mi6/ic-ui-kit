@@ -5,7 +5,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcDataTable, IcButton } from "../components";
+import { IcDataTable, IcButton, IcEmptyState } from "../components";
 import { useState } from "react";
 import readme from "../../../web-components/src/components/ic-data-table/readme.md";
 import { useRef } from "react";
@@ -792,21 +792,17 @@ const DataTable = () => (
 export default DataTable;
 ```
 
-### Empty and Loading state
+### Default Empty State
 
-export const LoadingExample = () => {
-  const [loading, setLoading] = useState(false);
-  setTimeout(() => setLoading(true), 5000);
-  return <IcDataTable caption="Empty and Loading state" columns={COLS} loading={loading}></IcDataTable>
-}
+When the table recieves no data (either null or an empty array) it will automatically show an ic-empty-state below the headers.
 
 <Canvas withSource="none">
-  <Story name="Empty and Loading state">
-    <LoadingExample />
+  <Story name="Default Empty State">
+    <IcDataTable caption="Default Empty State" columns={COLS} />
   </Story>
 </Canvas>
 
-#### Empty and Loading state code example
+#### Default Empty State code example
 
 ```tsx
 import * as React from "react";
@@ -823,12 +819,110 @@ const columns: IcDataTableColumnObject[] = [
 ];
 
 const DataTable = () => {
-  const [loading, setLoading] = React.useState(false);
-  setTimeout(() => setLoading(true), 5000);
   return <IcDataTable
-    caption="Empty and Loading state"
+    caption="Default Empty State"
     columns={columns}
-    loading={loading}
+  />
+};
+
+export default DataTable;
+```
+
+### Slotted Empty State
+
+You can customise your own `ic-empty-state` component and slot it into the data table using the `empty-state` slot, to reflect different scenarios.
+
+<Canvas withSource="none">
+  <Story name="Slotted Empty State">
+    <IcDataTable caption="Slotted Empty State" columns={COLS}>
+      <IcEmptyState slot="empty-state" aligned="left" heading="Data source error" body="Error loading new data">
+        <IcButton slot="actions">Retry</IcButton>
+      </IcEmptyState>
+    </IcDataTable>
+  </Story>
+</Canvas>
+
+#### Slotted Empty State code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/react";
+import { IcDataTableColumnObject } from "@ukic/web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return <IcDataTable
+    caption="Slotted Empty State"
+    columns={columns}
+  >
+    <IcEmptyState slot="empty-state" aligned="left" heading="Data source error" body="Error loading new data">
+      <IcButton slot="actions">Retry</IcButton>
+    </IcEmptyState>
+  </IcDataTable>
+};
+
+export default DataTable;
+```
+
+### Loading state
+
+When a user wants to fetch their data asyncronously, a `loading` prop can be set to `true`, which then renders a circular variant of the ic-loading-indicator.
+The loading indicator can be customised using the `loadingOptions` prop:
+
+- `appearance` can be `light` or `dark`
+- `description` sets the aria-label of the component
+- `label` sets the visual message
+- `labelDuration` is the number of milliseconds before the label changes
+- `showBackground` allows for a white background and grey border to help the indicator stand out
+
+If it needs to be determinate, use `max`, `min` and `progress`.
+
+<Canvas withSource="none">
+  <Story name="Loading state">
+    <IcDataTable caption="Loading state" columns={COLS} data={DATA} loading={true} />
+  </Story>
+</Canvas>
+
+#### Loading state code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/react";
+import { IcDataTableColumnObject } from "@ukic/web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  return <IcDataTable
+    caption="Loading state"
+    columns={columns}
+    data={data}
+    loading={true}
   />
 };
 
@@ -837,15 +931,13 @@ export default DataTable;
 
 ### Updating state
 
-export const UpdatingExample = () => {
-  const [updating, setUpdating] = useState(false);
-  setTimeout(() => setUpdating(true), 5000);
-  return <IcDataTable caption="Updating state" columns={COLS} data={DATA} updating={true}></IcDataTable>
-}
+If certain data in the table has changed, an `updating` prop has been supplied to show a linear ic-loading-indicator just above the data rows.
+
+This prop is also accompanied by an `updatingOptions` prop, which contains similar options to `loadingOptions`, minus `label` and `labelDuration` since the linear version is displayed.
 
 <Canvas withSource="none">
   <Story name="Updating state">
-    <UpdatingExample />
+    <IcDataTable caption="Updating state" columns={COLS} data={DATA} updating={true} updatingOptions={{ progress: 30 }} />
   </Story>
 </Canvas>
 
@@ -881,6 +973,7 @@ const DataTable = () => {
     columns={columns}
     data={data}
     updating={true}
+    updatingOptions={{ progress: 30 }}
   />
 };
 
@@ -889,13 +982,17 @@ export default DataTable;
 
 ### Links and Elements in data
 
+Custom HTML elements can be slotted or passed via the `data` prop to display in certain cells. When using the slotted method, the slot name follows the format of `{COLUMN_TAG}-{ROW_INDEX}`.
+
 <Canvas withSource="none">
   <Story name="Links and Elements in data">
     <IcDataTable
       caption="Links and Elements in data"
       columns={COLS_ELEMENTS}
       data={DATA_REACT_ELEMENTS}
-    />
+    >
+      {DATA_REACT_ELEMENTS.map((_, index) => <IcButton key={index} variant="destructive" slot={`actions-${index}`} onClick={() => console.log("Delete")}>Delete</IcButton>)}
+    </IcDataTable>
   </Story>
 </Canvas>
 
@@ -933,7 +1030,6 @@ const data = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
-    actions: ReactDOMServer.renderToString(<IcButton variant='destructive' onClick={() => this.closest("tr").remove()}>Delete</IcButton>),
   },
   ...
 ];
@@ -943,7 +1039,9 @@ const DataTable = () => (
     caption="Links and Elements in data"
     columns={columns}
     data={data}
-  />
+  >
+    {data.map((_, index) => <IcButton key={index} slot={`actions-${index}`} variant="destructive" onClick={() => console.log("Delete")}>Delete</IcButton>)}
+  </IcDataTable>
 );
 
 export default DataTable;
