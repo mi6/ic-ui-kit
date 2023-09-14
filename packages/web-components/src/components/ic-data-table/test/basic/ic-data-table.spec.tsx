@@ -7,12 +7,14 @@ import { PaginationItem } from "../../../ic-pagination-item/ic-pagination-item";
 import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
+import { EmptyState } from "../../../ic-empty-state/ic-empty-state";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
 });
 
 const icDataTable = "ic-data-table";
+const icLoadingIndicator = "ic-loading-indicator";
 const employeeNumber = "Employee number";
 const name1 = "John Smith";
 const name2 = "Sally Jones";
@@ -20,12 +22,21 @@ const name3 = "Luke Fisher";
 const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
 const highlightedRowClass = "table-row-selected";
+const showBackgroundClass = "show-background";
 
 const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
   { key: "age", title: "Age", dataType: "number" },
   { key: "department", title: "Department", dataType: "string" },
   { key: "employeeNumber", title: employeeNumber, dataType: "number" },
+];
+
+const columnsWithElements: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
+  { key: "actions", title: "Actions", dataType: "element" },
 ];
 
 const columnsWithRowHeader: IcDataTableColumnObject[] = [
@@ -437,6 +448,26 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should be able to slot a custom empty state into the data table", async () => {
+    const page = await newSpecPage({
+      components: [Button, DataTable, EmptyState],
+      template: () => (
+        <ic-data-table caption="test table" columns={columns} data={[]}>
+          <ic-empty-state
+            slot="empty-state"
+            aligned="left"
+            heading="Test heading"
+            body="test body"
+          >
+            <ic-button slot="actions">Button</ic-button>
+          </ic-empty-state>
+        </ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render the loading state when the `loading` prop is passed through", async () => {
     const page = await newSpecPage({
       components: [DataTable],
@@ -501,6 +532,45 @@ describe(icDataTable, () => {
     });
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should apply a background to the loading indicator if data is supplied to the table", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columns}
+          data={data}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
+    const loadingIndicator =
+      page.root.shadowRoot.querySelector(icLoadingIndicator);
+    expect(loadingIndicator).toHaveClass(showBackgroundClass);
+  });
+
+  it("should not apply a background to the loading indicator if no data is supplied to the table, and apply one when data is provided later", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="Table" columns={columns}></ic-data-table>
+      ),
+    });
+
+    expect(page.rootInstance.loadingOptions.showBackground).toBeFalsy();
+    let loadingIndicator =
+      page.root.shadowRoot.querySelector(icLoadingIndicator);
+    expect(loadingIndicator).not.toHaveClass(showBackgroundClass);
+
+    page.root.data = data;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
+    loadingIndicator = page.root.shadowRoot.querySelector(icLoadingIndicator);
+    expect(loadingIndicator).toHaveClass(showBackgroundClass);
   });
 
   it("when loading is `true`, setting data should cancel the loading after 1 second from initial loading", async () => {
@@ -818,5 +888,26 @@ describe(icDataTable, () => {
 
     expect(rows[1]).not.toHaveClass(highlightedRowClass);
     expect(rows[2]).not.toHaveClass(highlightedRowClass);
+  });
+
+  it("should slot a custom element into a cell", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithElements}
+          data={data}
+        >
+          {data.map((_, index) => (
+            <ic-button key={index} slot={`actions-${index}`}>
+              Delete
+            </ic-button>
+          ))}
+        </ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
   });
 });

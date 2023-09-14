@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-data-table should be able to slot a custom empty state into the data table 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+        </table>
+        <slot name="empty-state"></slot>
+      </div>
+      <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+  <ic-empty-state class="left" slot="empty-state">
+    <mock:shadow-root>
+      <div>
+        <ic-typography variant="h4">
+          Test heading
+        </ic-typography>
+        <ic-typography>
+          test body
+        </ic-typography>
+      </div>
+      <div class="action-area">
+        <slot name="actions"></slot>
+      </div>
+    </mock:shadow-root>
+    <ic-button class="button-size-default button-variant-primary" exportparts="button" slot="actions">
+      <mock:shadow-root>
+        <button class="button" part="button" type="button">
+          <slot></slot>
+        </button>
+      </mock:shadow-root>
+      Button
+    </ic-button>
+  </ic-empty-state>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should pass through the loadingOptions to the loading indicator 1`] = `
 <ic-data-table>
   <mock:shadow-root>
@@ -34,8 +99,8 @@ exports[`ic-data-table should pass through the loadingOptions to the loading ind
             </tr>
           </thead>
         </table>
-        <ic-loading-indicator appearance="light" class="below-table"></ic-loading-indicator>
       </div>
+      <ic-loading-indicator appearance="light" class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -75,11 +140,12 @@ exports[`ic-data-table should pass through the updatingOptions to the linear loa
             </tr>
           </thead>
           <th class="updating-state" colspan="4">
-            <ic-loading-indicator progress="30" size="small" type="linear"></ic-loading-indicator>
+            <ic-loading-indicator description="Updating table data" fullwidth="" progress="30" size="small" type="linear"></ic-loading-indicator>
           </th>
         </table>
-        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+        <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -254,6 +320,7 @@ exports[`ic-data-table should render 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -428,6 +495,7 @@ exports[`ic-data-table should render embedded 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -622,6 +690,7 @@ exports[`ic-data-table should render sortable 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div aria-live="polite" class="screen-reader-sort-text">
         table unsorted
       </div>
@@ -664,8 +733,9 @@ exports[`ic-data-table should render the empty state when data is null 1`] = `
             </tr>
           </thead>
         </table>
-        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+        <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -705,8 +775,9 @@ exports[`ic-data-table should render the empty state when no data is passed thro
             </tr>
           </thead>
         </table>
-        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+        <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -746,8 +817,8 @@ exports[`ic-data-table should render the loading state when the \`loading\` prop
             </tr>
           </thead>
         </table>
-        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
       </div>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -787,11 +858,12 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
             </tr>
           </thead>
           <th class="updating-state" colspan="4">
-            <ic-loading-indicator description="Updating table data" size="small" type="linear"></ic-loading-indicator>
+            <ic-loading-indicator description="Updating table data" fullwidth="" size="small" type="linear"></ic-loading-indicator>
           </th>
         </table>
-        <ic-empty-state aligned="center" class="below-table" heading="No Data"></ic-empty-state>
+        <ic-empty-state aligned="center" class="loading-empty" heading="No Data"></ic-empty-state>
       </div>
+      <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -966,6 +1038,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
       </div>
@@ -1143,6 +1216,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
       </div>
@@ -1408,6 +1482,7 @@ exports[`ic-data-table should render with pagination 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="20"></ic-pagination-bar>
       </div>
@@ -1573,6 +1648,7 @@ exports[`ic-data-table should render with row headers 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -1735,11 +1811,228 @@ exports[`ic-data-table should render with row overrides 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
       </div>
     </div>
   </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should slot a custom element into a cell 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            Table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Name
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Age
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Department
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Employee number
+                </ic-typography>
+              </th>
+              <th class="column-header" scope="col">
+                <ic-typography class="column-header-text" variant="body">
+                  Actions
+                </ic-typography>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  John Smith
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  36
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Accounts
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  1
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-0"></slot>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sally Jones
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  32
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  2
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-1"></slot>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Tim Rayes
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  41
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Sales
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  3
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-2"></slot>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Luke Fisher
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  23
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  4
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-3"></slot>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Jane Lock
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  34
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Engineering
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  5
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-4"></slot>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  Margaret Hale
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  45
+                </ic-typography>
+              </td>
+              <td class="data-type-string table-cell">
+                <ic-typography variant="body">
+                  HR
+                </ic-typography>
+              </td>
+              <td class="data-type-number table-cell">
+                <ic-typography variant="body">
+                  6
+                </ic-typography>
+              </td>
+              <td class="data-type-element table-cell">
+                <slot name="actions-5"></slot>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+  <ic-button slot="actions-0">
+    Delete
+  </ic-button>
+  <ic-button slot="actions-1">
+    Delete
+  </ic-button>
+  <ic-button slot="actions-2">
+    Delete
+  </ic-button>
+  <ic-button slot="actions-3">
+    Delete
+  </ic-button>
+  <ic-button slot="actions-4">
+    Delete
+  </ic-button>
+  <ic-button slot="actions-5">
+    Delete
+  </ic-button>
 </ic-data-table>
 `;
 
@@ -1960,6 +2253,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div aria-live="polite" class="screen-reader-sort-text">
         table unsorted
       </div>
@@ -2185,6 +2479,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div aria-live="polite" class="screen-reader-sort-text">
         name sorted ascending
       </div>
@@ -2410,6 +2705,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div aria-live="polite" class="screen-reader-sort-text">
         name sorted descending
       </div>
@@ -2635,6 +2931,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
       <div aria-live="polite" class="screen-reader-sort-text">
         age sorted ascending
       </div>
@@ -2677,8 +2974,8 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
             </tr>
           </thead>
         </table>
-        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
       </div>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2718,8 +3015,8 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
             </tr>
           </thead>
         </table>
-        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
       </div>
+      <ic-loading-indicator class="loading loading-empty show show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2894,6 +3191,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -2933,8 +3231,8 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
             </tr>
           </thead>
         </table>
-        <ic-loading-indicator class="below-table" description="Loading table data" label="Loading..."></ic-loading-indicator>
       </div>
+      <ic-loading-indicator class="loading loading-empty show" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3109,6 +3407,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
           </tbody>
         </table>
       </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
