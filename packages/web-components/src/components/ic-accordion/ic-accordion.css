@@ -94,15 +94,21 @@ button:disabled {
 }
 
 .expanded-content {
-  height: 0;
+  height: var(--ic-accordion-content-height, 0);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .expanded-content-inner {
   padding: var(--ic-space-xs);
 }
 
-.expanded-content-open {
-  display: flex;
-  flex-direction: column;
+/* .expanded-content-open {
+
+} */
+
+.expanded-content-opened {
+  overflow: visible;
+  /* height: auto; */
 }

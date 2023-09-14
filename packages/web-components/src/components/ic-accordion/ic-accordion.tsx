@@ -101,7 +101,10 @@ export class Accordion {
   private animateExpandedContent = () => {
     const elementHeight = this.expandedContentEl.scrollHeight;
     if (elementHeight > 0 && this.expanded) {
-      this.expandedContentEl.style.height = `${elementHeight}px`;
+      this.expandedContentEl.style.setProperty(
+        "--ic-accordion-content-height",
+        `${elementHeight}px`
+      );
       this.setAccordionAnimation(
         this.expandedContentEl,
         "300",
@@ -109,18 +112,21 @@ export class Accordion {
         "ease-out"
       );
       this.animationTimer = setTimeout(() => {
-        this.expandedContentEl.style.height = "auto";
+        this.expandedContentEl.classList.add("expanded-content-opened");
       }, 400);
     } else if (!this.expanded) {
-      this.expandedContentEl.style.height = `${this.expandedContentEl.scrollHeight}px`;
       this.animationTimer = setTimeout(() => {
-        this.expandedContentEl.style.height = "0";
+        this.expandedContentEl.style.setProperty(
+          "--ic-accordion-content-height",
+          `0`
+        );
         this.setAccordionAnimation(
           this.expandedContentEl,
           "300",
           "height",
           "ease-in"
         );
+        this.expandedContentEl.classList.remove("expanded-content-opened");
       }, 25);
     }
   };
