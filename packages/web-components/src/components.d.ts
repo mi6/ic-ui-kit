@@ -468,7 +468,12 @@ export namespace Components {
     max?: number;
     min?: number;
     progress?: number;
+    showBackground?: boolean;
   };
+        /**
+          * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+         */
+        "minimumLoadingDisplayDuration"?: number;
         /**
           * Sets the props for the pagination bar.
          */
@@ -3062,7 +3067,12 @@ declare namespace LocalJSX {
     max?: number;
     min?: number;
     progress?: number;
+    showBackground?: boolean;
   };
+        /**
+          * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+         */
+        "minimumLoadingDisplayDuration"?: number;
         /**
           * Sets the props for the pagination bar.
          */

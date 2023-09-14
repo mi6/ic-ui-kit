@@ -22,7 +22,12 @@ import {
   IcPaginationTypes,
 } from "../ic-pagination/ic-pagination.types";
 import { IcThemeForegroundNoDefault } from "../../utils/types";
+import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
+/**
+ * @slot empty-state - Content is placed below the table header when there is no data and the table is not loading.
+ * @slot {COLUMN_TAG}-{ROW_INDEX} - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed.
+ */
 @Component({
   tag: "ic-data-table",
   styleUrl: "ic-data-table.css",
@@ -104,10 +109,13 @@ export class DataTable {
     max?: number;
     min?: number;
     progress?: number;
-  } = {
-    description: "Loading table data",
-    label: "Loading...",
+    showBackground?: boolean;
   };
+
+  /**
+   * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+   */
+  @Prop() minimumLoadingDisplayDuration?: number = 1000;
 
   /**
    * Sets the props for the pagination bar.
@@ -177,8 +185,6 @@ export class DataTable {
     max?: number;
     min?: number;
     progress?: number;
-  } = {
-    description: "Updating table data",
   };
 
   componentWillLoad(): void {
@@ -187,6 +193,10 @@ export class DataTable {
     this.toRow = this.rowsPerPage;
     this.sortedColumn = this.sortOptions.defaultColumn;
     this.sortedColumnOrder = this.sortOptions.sortOrders[0];
+    this.loadingOptions = {
+      ...this.loadingOptions,
+      showBackground: this.data?.length > 0,
+    };
   }
 
   componentDidLoad(): void {
@@ -235,12 +245,17 @@ export class DataTable {
   }
 
   @Watch("data")
-  dataHandler(): void {
+  dataHandler(newData: { [key: string]: any }[]): void {
+    this.loadingOptions = {
+      ...this.loadingOptions,
+      showBackground: newData?.length > 0,
+    };
     if (this.loading) {
       !this.hasLoadedForOneSecond
         ? setTimeout(
             () => (this.loading = false),
-            1000 - (Date.now() - this.timerStarted)
+            this.minimumLoadingDisplayDuration -
+              (Date.now() - this.timerStarted)
           )
         : (this.loading = false);
     }
@@ -253,7 +268,7 @@ export class DataTable {
     setTimeout(() => {
       this.hasLoadedForOneSecond = true;
       this.timerStarted = null;
-    }, 1000);
+    }, this.minimumLoadingDisplayDuration);
   };
 
   private isObject = (value: any) => typeof value === "object";
@@ -288,17 +303,26 @@ export class DataTable {
     }
   };
 
-  private createUpdatingIndicator = () => (
-    <th colSpan={this.columns.length} class="updating-state">
-      <ic-loading-indicator
-        {...this.updatingOptions}
-        type="linear"
-        size="small"
-      ></ic-loading-indicator>
-    </th>
-  );
+  private createUpdatingIndicator = () => {
+    const { appearance, description, max, min, progress } =
+      this.updatingOptions || {};
+    return (
+      <th colSpan={this.columns.length} class="updating-state">
+        <ic-loading-indicator
+          appearance={appearance}
+          description={description || "Updating table data"}
+          fullWidth={true}
+          max={max}
+          min={min}
+          progress={progress}
+          type="linear"
+          size="small"
+        ></ic-loading-indicator>
+      </th>
+    );
+  };
 
-  private createCells = (row: object) => {
+  private createCells = (row: object, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
     let rowAlignment: string;
@@ -312,7 +336,8 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const { columnAlignment, dataType, emphasis } = this.columns[index];
+      const { columnAlignment, dataType, emphasis, key } = this.columns[index];
+      const cellSlotName = `${key}-${rowIndex}`;
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
       return rowKeys[index] === "header" ? (
@@ -330,7 +355,11 @@ export class DataTable {
         </th>
       ) : (
         <td
-          innerHTML={dataType === "element" ? (cell as string) : null}
+          innerHTML={
+            dataType === "element" && !isSlotUsed(this.el, cellSlotName)
+              ? (cell as string)
+              : null
+          }
           class={{
             ["table-cell"]: true,
             [`table-density-${this.density}`]: this.notDefaultDensity(),
@@ -351,30 +380,36 @@ export class DataTable {
               !!this.getCellAlignment(cell, "vertical"),
           }}
         >
-          <ic-typography
-            variant="body"
-            class={{
-              [`cell-emphasis-${
-                (this.isObject(cell) && cellValue("emphasis")) ||
-                emphasis ||
-                rowEmphasis
-              }`]:
-                (this.isObject(cell) && !!cellValue("emphasis")) ||
-                !!emphasis ||
-                !!rowEmphasis,
-              [`text-${this.density}`]: this.notDefaultDensity(),
-            }}
-          >
-            {this.isObject(cell) && dataType !== "date" ? (
-              Object.keys(cell).includes("href") ? (
-                <ic-link href={cellValue("href")}>{cellValue("data")}</ic-link>
+          {isSlotUsed(this.el, cellSlotName) ? (
+            <slot name={cellSlotName} />
+          ) : (
+            <ic-typography
+              variant="body"
+              class={{
+                [`cell-emphasis-${
+                  (this.isObject(cell) && cellValue("emphasis")) ||
+                  emphasis ||
+                  rowEmphasis
+                }`]:
+                  (this.isObject(cell) && !!cellValue("emphasis")) ||
+                  !!emphasis ||
+                  !!rowEmphasis,
+                [`text-${this.density}`]: this.notDefaultDensity(),
+              }}
+            >
+              {this.isObject(cell) && dataType !== "date" ? (
+                Object.keys(cell).includes("href") ? (
+                  <ic-link href={cellValue("href")}>
+                    {cellValue("data")}
+                  </ic-link>
+                ) : (
+                  cellValue("data")
+                )
               ) : (
-                cellValue("data")
-              )
-            ) : (
-              this.getCellContent(cell, dataType)
-            )}
-          </ic-typography>
+                this.getCellContent(cell, dataType)
+              )}
+            </ic-typography>
+          )}
         </td>
       );
     });
@@ -388,7 +423,7 @@ export class DataTable {
           ["column-header"]: true,
           [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
           [`table-density-${this.density}`]: this.notDefaultDensity(),
-          ["updating-state-headers"]: this.updating,
+          ["updating-state-headers"]: this.updating && !this.loading,
         }}
         colSpan={colspan}
       >
@@ -443,17 +478,37 @@ export class DataTable {
     const data = this.showPagination
       ? this.data.slice(this.fromRow, this.toRow)
       : this.data.slice();
+
+    /**
+     * Ensures that createCells has a value in data to map over to actually render the slot.
+     * Removes the need for the user to add it multiple times.
+     */
+    this.columns.forEach(({ key }) => {
+      data.forEach((row, rowIndex) => {
+        const cellSlotName = `${key}-${rowIndex}`;
+        if (isSlotUsed(this.el, cellSlotName)) {
+          row[key] = getSlotContent(this.el, cellSlotName);
+        }
+      });
+    });
+
     return data
       .sort(!this.sortable ? undefined : this.getSortFunction())
-      .map((row) => (
+      .map((row, index) => (
         <tr
-          onClick={() => (this.selectedRow = this.selectedRow !== row && row)}
+          onClick={() =>
+            (this.selectedRow =
+              this.selectedRow !== row &&
+              !this.loading &&
+              !this.updating &&
+              row)
+          }
           class={{
             ["table-row"]: true,
             ["table-row-selected"]: this.selectedRow === row,
           }}
         >
-          {this.createCells(row)}
+          {this.createCells(row, index)}
         </tr>
       ));
   };
@@ -593,6 +648,7 @@ export class DataTable {
               </thead>
             )}
             {updating &&
+              !loading &&
               (hideColumnHeaders ? (
                 <thead>{createUpdatingIndicator()}</thead>
               ) : (
@@ -600,21 +656,33 @@ export class DataTable {
               ))}
             {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
           </table>
-          {loading ? (
-            <ic-loading-indicator
-              class="below-table"
-              {...loadingOptions}
-            ></ic-loading-indicator>
-          ) : (
-            !data?.length && (
+          {!data?.length &&
+            !loading &&
+            (isSlotUsed(this.el, "empty-state") ? (
+              <slot name="empty-state" />
+            ) : (
               <ic-empty-state
-                class="below-table"
-                heading="No Data"
                 aligned="center"
+                heading="No Data"
+                class="loading-empty"
               ></ic-empty-state>
-            )
-          )}
+            ))}
         </div>
+        <ic-loading-indicator
+          appearance={loadingOptions?.appearance}
+          class={{
+            "loading-empty": loading,
+            loading: true,
+            show: loading,
+            "show-background": loadingOptions.showBackground,
+          }}
+          description={loadingOptions.description || "Loading table data"}
+          label={loadingOptions.label || "Loading..."}
+          labelDuration={loadingOptions?.labelDuration}
+          max={loadingOptions?.max}
+          min={loadingOptions?.min}
+          progress={loadingOptions?.progress}
+        ></ic-loading-indicator>
         {showPagination && (
           <div class="pagination-container">
             <ic-pagination-bar

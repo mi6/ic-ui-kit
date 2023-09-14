@@ -21,7 +21,9 @@ import {
   RowOverrides,
   CellOverrides,
   LinksHTMLElements,
-  EmptyLoading,
+  Empty,
+  EmptySlotted,
+  Loading,
   Updating,
 } from "./story-data";
 import readme from "./readme.md";
@@ -644,19 +646,18 @@ Cell overrides allows styling to be applied at a granular level. The cell which 
 </script>
 ```
 
-### Empty and Loading State
+### Default Empty State
+
+When the table recieves no data (either null or an empty array) it will automatically show an ic-empty-state below the headers.
 
 <Canvas withSource="none">
-  <Story name="Empty and Loading State">{EmptyLoading()}</Story>
+  <Story name="Default Empty State">{Empty()}</Story>
 </Canvas>
 
-#### Empty and Loading State code example
+#### Default Empty State code example
 
 ```html
-<ic-data-table
-  id="data-table"
-  caption="Empty and Loading State"
-></ic-data-table>
+<ic-data-table id="data-table" caption="Default Empty State"></ic-data-table>
 <script>
   const dataTable = document.querySelector("#data-table");
 
@@ -669,12 +670,99 @@ Cell overrides allows styling to be applied at a granular level. The cell which 
     ...
   ];
   dataTable.columns = columns;
+</script>
+```
 
-  setTimeout(() => dataTable.loading = true, 5000);
+### Slotted Empty State
+
+You can customise your own `ic-empty-state` component and slot it into the data table using the `empty-state` slot, to reflect different scenarios.
+
+<Canvas withSource="none">
+  <Story name="Slotted Empty State">{EmptySlotted()}</Story>
+</Canvas>
+
+#### Slotted Empty State code example
+
+```html
+<ic-data-table id="data-table" caption="Slotted Empty State">
+  <ic-empty-state
+    aligned="left"
+    heading="Data source error"
+    body="Error loading new data"
+  >
+    <ic-button slot="actions">Retry</ic-button>
+  </ic-empty-state>
+</ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+</script>
+```
+
+### Loading State
+
+When a user wants to fetch their data asyncronously, a `loading` prop can be set to `true`, which then renders a circular variant of the ic-loading-indicator.
+The loading indicator can be customised using the `loadingOptions` prop:
+
+- `appearance` can be `light` or `dark`
+- `description` sets the aria-label of the component
+- `label` sets the visual message
+- `labelDuration` is the number of milliseconds before the label changes
+- `showBackground` allows for a white background and grey border to help the indicator stand out
+
+If it needs to be determinate, use `max`, `min` and `progress`.
+
+<Canvas withSource="none">
+  <Story name="Loading State" parameters={{ loki: { skip: true } }}>
+    {Loading()}
+  </Story>
+</Canvas>
+
+#### Loading State code example
+
+```html
+<ic-data-table id="data-table" caption="Loading State"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+  dataTable.loading = true;
 </script>
 ```
 
 ### Updating State
+
+If certain data in the table has changed, an `updating` prop has been supplied to show a linear ic-loading-indicator just above the data rows.
+
+This prop is also accompanied by an `updatingOptions` prop, which contains similar options to `loadingOptions`, minus `label` and `labelDuration` since the linear version is displayed.
 
 <Canvas withSource="none">
   <Story name="Updating State">{Updating()}</Story>
@@ -707,12 +795,14 @@ Cell overrides allows styling to be applied at a granular level. The cell which 
   ];
   dataTable.columns = columns;
   dataTable.data = data;
-
-  setTimeout(() => dataTable.updating = true, 5000);
+  dataTable.updatingOptions = { progress: 30 };
+  dataTable.updating = true;
 </script>
 ```
 
 ### Links and Elements in data
+
+Custom HTML elements can be slotted or passed via the `data` prop to display in certain cells. When using the slotted method, the slot name follows the format of `{COLUMN_TAG}-{ROW_INDEX}`.
 
 <Canvas withSource="none">
   <Story name="Links and Elements in data">{LinksHTMLElements()}</Story>
