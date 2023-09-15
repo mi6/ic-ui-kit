@@ -177,7 +177,7 @@ exports[`compact variant of ic-stepper component should render a stepper with hi
       <slot></slot>
     </ul>
   </mock:shadow-root>
-  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-title="Create" step-type="completed">
+  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-title="Create" step-type="completed" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-completed step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="1" progress="25" size="small"></ic-loading-indicator>
@@ -212,7 +212,7 @@ exports[`compact variant of ic-stepper component should render a stepper with hi
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-title="Read" step-type="current">
+  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-title="Read" step-type="current" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-active current step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="2" progress="50" size="small"></ic-loading-indicator>
@@ -239,7 +239,7 @@ exports[`compact variant of ic-stepper component should render a stepper with hi
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-label="Step 3" class="compact" role="listitem" step-title="Update">
+  <ic-step aria-label="Step 3" class="compact" role="listitem" step-title="Update" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-active step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
@@ -266,7 +266,7 @@ exports[`compact variant of ic-stepper component should render a stepper with hi
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-label="Step 4" class="compact" role="listitem" step-title="Delete" style="max-width: none;">
+  <ic-step aria-label="Step 4" class="compact last-step" role="listitem" step-title="Delete" style="max-width: none;">
     <mock:shadow-root>
       <div class="compact-step-active step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="4" progress="95" size="small"></ic-loading-indicator>
@@ -299,7 +299,7 @@ exports[`compact variant of ic-stepper component should render a stepper without
       <slot></slot>
     </ul>
   </mock:shadow-root>
-  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-type="completed">
+  <ic-step aria-label="Step 1. Completed step" class="compact" role="listitem" step-type="completed" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-completed step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="1" progress="25" size="small"></ic-loading-indicator>
@@ -327,7 +327,7 @@ exports[`compact variant of ic-stepper component should render a stepper without
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-type="current">
+  <ic-step aria-current="step" aria-label="Step 2" class="compact show" role="listitem" step-type="current" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-active current step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="2" progress="50" size="small"></ic-loading-indicator>
@@ -347,7 +347,7 @@ exports[`compact variant of ic-stepper component should render a stepper without
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-label="Step 3. Non-required step" class="compact" role="listitem" step-type="disabled">
+  <ic-step aria-label="Step 3. Non-required step" class="compact" role="listitem" step-type="disabled" style="width: 0rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="compact-step-disabled step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="75" size="small"></ic-loading-indicator>
@@ -375,7 +375,7 @@ exports[`compact variant of ic-stepper component should render a stepper without
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-label="Step 4" class="compact" role="listitem" step-type="active" style="max-width: none;">
+  <ic-step aria-label="Step 4" class="compact last-step" role="listitem" step-type="active" style="max-width: none;">
     <mock:shadow-root>
       <div class="compact-step-active step">
         <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="4" progress="95" size="small"></ic-loading-indicator>
@@ -686,20 +686,6 @@ exports[`default variant of ic-stepper component should render a full-width step
 </ic-stepper>
 `;
 
-exports[`default variant of ic-stepper component should render a left-aligned stepper 1`] = `
-<ic-stepper aligned="left" class="aligned-left default">
-  <mock:shadow-root>
-    <ul class="step-item-list">
-      <slot></slot>
-    </ul>
-  </mock:shadow-root>
-  <ic-step step-title="Create" step-type="completed"></ic-step>
-  <ic-step step-title="Read" step-type="current"></ic-step>
-  <ic-step step-title="Update"></ic-step>
-  <ic-step step-title="Delete"></ic-step>
-</ic-stepper>
-`;
-
 exports[`default variant of ic-stepper component should render a stepper with a custom connector width 1`] = `
 <ic-stepper aligned="left" class="aligned-left default" connector-width="150">
   <mock:shadow-root>
@@ -707,7 +693,7 @@ exports[`default variant of ic-stepper component should render a stepper with a 
       <slot></slot>
     </ul>
   </mock:shadow-root>
-  <ic-step aria-label="Step 1. Completed step" class="default" role="listitem" step-title="Create" step-type="completed" style="width: 12.375rem;">
+  <ic-step aria-label="Step 1. Completed step" class="default" role="listitem" step-title="Create" step-type="completed" style="width: 12.375rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="completed step">
         <div class="step-top">
@@ -728,7 +714,7 @@ exports[`default variant of ic-stepper component should render a stepper with a 
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-current="step" aria-label="Step 2" class="default" role="listitem" step-title="Read" step-type="current" style="width: 12.375rem;">
+  <ic-step aria-current="step" aria-label="Step 2" class="default" role="listitem" step-title="Read" step-type="current" style="width: 12.375rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="current step">
         <div class="step-top">
@@ -751,7 +737,7 @@ exports[`default variant of ic-stepper component should render a stepper with a 
       </div>
     </mock:shadow-root>
   </ic-step>
-  <ic-step aria-label="Step 3" class="default" role="listitem" step-title="Update" style="width: 12.375rem;">
+  <ic-step aria-label="Step 3" class="default" role="listitem" step-title="Update" style="width: 12.375rem; min-width: 9.25rem;">
     <mock:shadow-root>
       <div class="active step">
         <div class="step-top">

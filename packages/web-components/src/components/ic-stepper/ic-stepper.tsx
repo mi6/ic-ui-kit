@@ -58,6 +58,10 @@ export class Stepper {
     }
   }
 
+  componentWillRender(): void {
+    this.initialiseStepStates();
+  }
+
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
   }
