@@ -94,7 +94,7 @@ button:disabled {
 }
 
 .expanded-content {
-  height: var(--ic-accordion-content-height, 0);
+  height: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -104,11 +104,6 @@ button:disabled {
   padding: var(--ic-space-xs);
 }
 
-/* .expanded-content-open {
-
-} */
-
 .expanded-content-opened {
   overflow: visible;
-  /* height: auto; */
 }

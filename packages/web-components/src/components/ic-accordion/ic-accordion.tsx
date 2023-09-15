@@ -101,10 +101,7 @@ export class Accordion {
   private animateExpandedContent = () => {
     const elementHeight = this.expandedContentEl.scrollHeight;
     if (elementHeight > 0 && this.expanded) {
-      this.expandedContentEl.style.setProperty(
-        "--ic-accordion-content-height",
-        `${elementHeight}px`
-      );
+      this.expandedContentEl.style.height = `${elementHeight}px`;
       this.setAccordionAnimation(
         this.expandedContentEl,
         "300",
@@ -113,13 +110,13 @@ export class Accordion {
       );
       this.animationTimer = setTimeout(() => {
         this.expandedContentEl.classList.add("expanded-content-opened");
+        this.expandedContentEl.style.height = "auto";
       }, 400);
     } else if (!this.expanded) {
+      this.expandedContentEl.style.height = `${this.expandedContentEl.scrollHeight}px`;
+
       this.animationTimer = setTimeout(() => {
-        this.expandedContentEl.style.setProperty(
-          "--ic-accordion-content-height",
-          `0`
-        );
+        this.expandedContentEl.style.height = "0";
         this.setAccordionAnimation(
           this.expandedContentEl,
           "300",
