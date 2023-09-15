@@ -30,13 +30,16 @@ describe("default variant of ic-stepper component", () => {
 
   it("should render a left-aligned stepper", async () => {
     const page = await newSpecPage({
-      components: [Stepper],
+      components: [Stepper, Step],
       html: `<ic-stepper aligned="left">
       <ic-step step-title="Create" step-type="completed"></ic-step>
       <ic-step step-title="Read" step-type="current"></ic-step>
       <ic-step step-title="Update"></ic-step>
       <ic-step step-title="Delete"></ic-step></ic-stepper>`,
     });
+
+    page.rootInstance.resizeObserverCallback();
+    await page.waitForChanges();
 
     expect(page.rootInstance.variant).toMatch("default");
     expect(page.rootInstance.aligned).toMatch("left");
