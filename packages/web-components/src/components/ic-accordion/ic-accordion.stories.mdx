@@ -383,6 +383,8 @@ import readme from "./readme.md";
           id="select-1"
           label="What is your favourite coffee?"
         ></ic-select>
+        <ic-button id="set-content-btn">Set Content</ic-button>
+        <div id="extra-content" style="width: 50px"></div>
       </ic-accordion>
       <ic-accordion heading="With Tooltip">
         <ic-tooltip
@@ -461,9 +463,40 @@ import readme from "./readme.md";
           >Show popover</ic-button
         >
       </ic-accordion>
+      <ic-button id="with-dialog">With Dialog</ic-button>
+      <ic-dialog
+        heading="This is a medium dialog"
+        label="medium"
+        size="medium"
+        id="medium-dialog"
+      >
+        <ic-accordion heading="Internal 1">
+          <ic-typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </ic-typography>
+          <ic-select
+            id="select-2"
+            label="What is your favourite coffee?"
+          ></ic-select>
+        </ic-accordion>
+        <ic-accordion heading="Internal 2">
+          <ic-typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </ic-typography>
+        </ic-accordion>
+      </ic-dialog>
       <script>
-        var select = document.querySelector("#select-1");
-        select.options = [
+        document.querySelector("#with-dialog").addEventListener("click", () => {
+          document.querySelector("#medium-dialog").showDialog();
+        });
+        document.querySelector("#select-1").options = [
+          { label: "Cappuccino", value: "Cap" },
+          { label: "Latte", value: "Lat" },
+          { label: "Americano", value: "Ame" },
+        ];
+        document.querySelector("#select-2").options = [
           { label: "Cappuccino", value: "Cap" },
           { label: "Latte", value: "Lat" },
           { label: "Americano", value: "Ame" },
@@ -482,6 +515,12 @@ import readme from "./readme.md";
         function buttonClick() {
           icPopover.open = true;
         }
+        document
+          .querySelector("#set-content-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#extra-content").innerHTML =
+              "This is a very very very lon sentence which should appear below without any issues";
+          });
       </script>
     `}
   </Story>
