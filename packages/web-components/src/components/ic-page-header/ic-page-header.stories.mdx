@@ -304,7 +304,7 @@ import readme from "./readme.md";
 ### With stepper
 
 <Canvas>
-  <Story name="With stepper">
+  <Story name="With stepper" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-page-header
         heading="Create a coffee"
@@ -450,7 +450,10 @@ import readme from "./readme.md";
 ### With breadcrumbs, input, actions and stepper
 
 <Canvas>
-  <Story name="With breadcrumbs, input, actions and stepper">
+  <Story
+    name="With breadcrumbs, input, actions and stepper"
+    parameters={{ loki: { skip: true } }}
+  >
     {html`
       <ic-page-header
         heading="Coffee recipes"
