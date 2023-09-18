@@ -491,7 +491,7 @@ export namespace Components {
          */
         "required"?: boolean;
         "setCalendarFocus": () => Promise<void>;
-        "setDisabledDays": (days: IcWeekDays[]) => Promise<void>;
+        "setDisableDays": (days: IcWeekDays[]) => Promise<void>;
         "showCalendarButton"?: boolean;
         /**
           * If `true`, a button which clears the date input when clicked will be displayed.
