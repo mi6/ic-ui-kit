@@ -317,6 +317,9 @@
     - The ICDS does not use pure black RGB(0, 0, 0) as it's font, it uses #0b0c0c/RGB(11, 12, 12)
     - The max() CSS function therefore ensures any negative numbers can be no less than 0
     - As any negative numbers are now 0, finally the numbers 11, 12 and 12 are added to the R, G, B values to make the ICDS shade of black
+    - A similar adjustment is made to add 60, 70 and 77 to give hover & active colors
+    - The min() CSS function is then used to ensure that none of the values exceeds 255
+    - This is due to an issue found in Chromium v117 (sept 2023), where very large values would result the alpha value being ignored and everything appearing white
     - The result then returns the RGB values for the ICDS white or black font color, dependent on which is the most color contrast compliant
     This is a similar calculation to it's JS counterpart: "getThemeFontColor"
   */
@@ -335,16 +338,19 @@
   --ic-theme-primary-calc: calc(var(--ic-theme-primary-subtract-calc) * -10000);
   --ic-theme-calc: max(0, var(--ic-theme-primary-calc));
   --ic-theme-text: rgb(
-    calc(var(--ic-theme-calc) + 11) calc(var(--ic-theme-calc) + 12)
-      calc(var(--ic-theme-calc) + 12) / var(--ic-theme-primary-a)
+    min(255, calc(var(--ic-theme-calc) + 11))
+      min(255, calc(var(--ic-theme-calc) + 12))
+      min(255, calc(var(--ic-theme-calc) + 12)) / var(--ic-theme-primary-a)
   );
   --ic-theme-hover: rgb(
-    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
-      calc(var(--ic-theme-calc) + 77) / 10%
+    min(255, calc(var(--ic-theme-calc) + 65))
+      min(255, calc(var(--ic-theme-calc) + 70))
+      min(255, calc(var(--ic-theme-calc) + 77)) / 10%
   );
   --ic-theme-active: rgb(
-    calc(var(--ic-theme-calc) + 65) calc(var(--ic-theme-calc) + 70)
-      calc(var(--ic-theme-calc) + 77) / 20%
+    min(255, calc(var(--ic-theme-calc) + 65))
+      min(255, calc(var(--ic-theme-calc) + 70))
+      min(255, calc(var(--ic-theme-calc) + 77)) / 20%
   );
 
   /* hyperlinks */
