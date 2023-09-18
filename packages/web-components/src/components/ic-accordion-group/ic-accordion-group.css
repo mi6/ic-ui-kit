@@ -1,7 +1,7 @@
 @import "../../global/normalize.css";
 
 .group-title-container {
-  padding: var(--ic-space-xs) 0;
+  padding: var(--ic-space-xs);
   display: flex;
   justify-content: space-between;
   align-items: center;

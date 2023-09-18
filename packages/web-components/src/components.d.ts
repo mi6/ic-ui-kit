@@ -73,6 +73,10 @@ export namespace Components {
          */
         "message"?: string;
         /**
+          * Sets focus on accordion heading.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The size of the accordion.
          */
         "size"?: IcSizes;

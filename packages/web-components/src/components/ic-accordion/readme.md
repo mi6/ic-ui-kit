@@ -16,6 +16,19 @@
 | `size`     | `size`     | The size of the accordion.                    | `"default" \| "large" \| "small"` | `"default"` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets focus on accordion heading.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

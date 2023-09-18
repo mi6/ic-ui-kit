@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Host,
   Watch,
+  Method,
 } from "@stencil/core";
 import { isSlotUsed } from "../../utils/helpers";
 import chevronIcon from "../../assets/chevron-icon.svg";
@@ -25,8 +26,8 @@ let accordionIds = 0;
 })
 export class Accordion {
   private accordionId = `ic-accordion-${accordionIds++}`;
-  private animationTimer: ReturnType<typeof setTimeout>;
   private expandedContentEl: HTMLDivElement;
+  private accordionBtnHeading: HTMLButtonElement;
 
   @Element() el: HTMLIcAccordionElement;
   /**
@@ -70,8 +71,27 @@ export class Accordion {
     this.animateExpandedContent();
   }
 
+  /**
+   * Sets focus on accordion heading.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    if (this.accordionBtnHeading) {
+      this.accordionBtnHeading.focus();
+    }
+  }
+
   disconnectedCallback(): void {
-    clearTimeout(this.animationTimer);
+    this.expandedContentEl.removeEventListener(
+      "transitionend",
+      (e) => this.setExpandedContentStyle(e, this.expandedContentEl),
+      true
+    );
+    this.expandedContentEl.removeEventListener(
+      "transitionend",
+      (e) => this.hideExpandedContent(e, this.expandedContentEl),
+      true
+    );
   }
 
   componentDidLoad(): void {
@@ -98,9 +118,35 @@ export class Accordion {
     el.style.transitionDelay = delay;
   };
 
+  private setExpandedContentStyle = (
+    ev: TransitionEvent,
+    expandedContent: HTMLDivElement
+  ) => {
+    if (ev.propertyName === "height" && expandedContent.clientHeight > 0) {
+      expandedContent.classList.add("expanded-content-opened");
+      expandedContent.style.height = "auto";
+    }
+  };
+
+  private hideExpandedContent = (
+    ev: TransitionEvent,
+    expandedContent: HTMLDivElement
+  ) => {
+    if (ev.propertyName === "height" && expandedContent.clientHeight === 0) {
+      expandedContent.style.setProperty(
+        "--ic-expanded-content-visiblity",
+        "hidden"
+      );
+    }
+  };
+
   private animateExpandedContent = () => {
     const elementHeight = this.expandedContentEl.scrollHeight;
     if (elementHeight > 0 && this.expanded) {
+      this.expandedContentEl.style.setProperty(
+        "--ic-expanded-content-visiblity",
+        "visible"
+      );
       this.expandedContentEl.style.height = `${elementHeight}px`;
       this.setAccordionAnimation(
         this.expandedContentEl,
@@ -108,14 +154,16 @@ export class Accordion {
         "height",
         "ease-out"
       );
-      this.animationTimer = setTimeout(() => {
-        this.expandedContentEl.classList.add("expanded-content-opened");
-        this.expandedContentEl.style.height = "auto";
-      }, 400);
+
+      this.expandedContentEl.addEventListener(
+        "transitionend",
+        (e: TransitionEvent) => {
+          this.setExpandedContentStyle(e, this.expandedContentEl);
+        }
+      );
     } else if (!this.expanded) {
       this.expandedContentEl.style.height = `${this.expandedContentEl.scrollHeight}px`;
-
-      this.animationTimer = setTimeout(() => {
+      if (this.expandedContentEl.scrollHeight > 0 && !this.expanded) {
         this.expandedContentEl.style.height = "0";
         this.setAccordionAnimation(
           this.expandedContentEl,
@@ -124,7 +172,10 @@ export class Accordion {
           "ease-in"
         );
         this.expandedContentEl.classList.remove("expanded-content-opened");
-      }, 25);
+      }
+      this.expandedContentEl.addEventListener("transitionend", (e) => {
+        this.hideExpandedContent(e, this.expandedContentEl);
+      });
     }
   };
 
@@ -140,6 +191,7 @@ export class Accordion {
         aria-disabled={disabled ? "true" : "false"}
       >
         <button
+          ref={(el) => (this.accordionBtnHeading = el)}
           id={`${this.accordionId}-button`}
           disabled={disabled}
           tabindex={disabled ? -1 : 0}
@@ -176,7 +228,6 @@ export class Accordion {
         <div
           class={{
             ["expanded-content"]: true,
-            ["expanded-content-open"]: expanded && !disabled,
           }}
           aria-labelledby={`${this.accordionId}-button`}
           role="region"
