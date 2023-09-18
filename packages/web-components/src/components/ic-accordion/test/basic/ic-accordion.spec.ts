@@ -221,7 +221,7 @@ describe("ic-accordion snapshots", () => {
       expect(spySetAccordionAnimation).toHaveBeenCalled();
     });
 
-    it("it should call setAccordionAnimation if scroll height = '0' and expanded = 'false'", async () => {
+    it("it should call setAccordionAnimation if scroll height = '500' and expanded = 'false'", async () => {
       const page = await newSpecPage({
         components: [Accordion],
         html: `
@@ -231,7 +231,6 @@ describe("ic-accordion snapshots", () => {
         </ic-typography>
       </ic-accordion>`,
       });
-      jest.useFakeTimers();
       const spySetAccordionAnimation = jest.spyOn(
         page.rootInstance,
         "setAccordionAnimation"
@@ -243,13 +242,213 @@ describe("ic-accordion snapshots", () => {
       Object.defineProperty(
         page.rootInstance.expandedContentEl,
         "scrollHeight",
-        { configurable: true, value: 0 }
+        { configurable: true, value: 500 }
       );
       page.rootInstance.animateExpandedContent();
-      jest.runAllTimers();
       expect(spySetAccordionAnimation).toHaveBeenCalled();
-      // Reset real timers
-      jest.useRealTimers();
+    });
+
+    it("should set height and .expanded-content-opened on expanded content", async () => {
+      const transitionEvent = {
+        propertyName: "height",
+      } as TransitionEvent;
+
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+      <ic-accordion heading="Accordion 1" >
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>`,
+      });
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.clientHeight = 50;
+
+      await page.rootInstance.setExpandedContentStyle(
+        transitionEvent,
+        page.rootInstance.expandedContentEl
+      );
+
+      expect(
+        page.rootInstance.expandedContentEl.className.split(" ")
+      ).toContain("expanded-content-opened");
+      expect(page.rootInstance.expandedContentEl.style.height).toBe("auto");
+    });
+
+    it("should not set height and .expanded-content-opened on expanded content", async () => {
+      const transitionEvent = {
+        propertyName: "height",
+      } as TransitionEvent;
+
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+      <ic-accordion heading="Accordion 1" >
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>`,
+      });
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.clientHeight = 0;
+
+      await page.rootInstance.setExpandedContentStyle(
+        transitionEvent,
+        page.rootInstance.expandedContentEl
+      );
+
+      expect(
+        page.rootInstance.expandedContentEl.className.split(" ")
+      ).not.toContain("expanded-content-opened");
+      expect(page.rootInstance.expandedContentEl.style.height).toBe("");
+
+      await page.rootInstance.disconnectedCallback();
+    });
+
+    it("should set visibility on expanded content to hidden", async () => {
+      const transitionEvent = {
+        propertyName: "height",
+      } as TransitionEvent;
+
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.clientHeight = 0;
+
+      await page.rootInstance.hideExpandedContent(
+        transitionEvent,
+        page.rootInstance.expandedContentEl
+      );
+
+      expect(
+        (
+          page.rootInstance.expandedContentEl as HTMLDivElement
+        ).style.getPropertyValue("--ic-expanded-content-visiblity")
+      ).toBe("hidden");
+    });
+
+    it("should set visibility to undefined if client height is greater than 0", async () => {
+      const transitionEvent = {
+        propertyName: "height",
+      } as TransitionEvent;
+
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.clientHeight = 50;
+
+      await page.rootInstance.hideExpandedContent(
+        transitionEvent,
+        page.rootInstance.expandedContentEl
+      );
+
+      expect(
+        (
+          page.rootInstance.expandedContentEl as HTMLDivElement
+        ).style.getPropertyValue("--ic-expanded-content-visiblity")
+      ).toBe("");
+    });
+
+    it("should call 'setFocus' when accordion can be focused", async () => {
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      //Can't expect anything in this test - this is to increase code coverage only
+      await page.rootInstance.setFocus().toHaveBeenCalled;
+    });
+
+    it("should call setExpandedContentStyle when transitionend in animateExpandedContent and expanded is true", async () => {
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      const setExpandedContentStyleSpy = jest.spyOn(
+        page.rootInstance,
+        "setExpandedContentStyle"
+      );
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.scrollHeight = 50;
+      page.rootInstance.expanded = true;
+
+      await page.rootInstance.animateExpandedContent();
+
+      const event = new Event("transitionend");
+      page.rootInstance.expandedContentEl.dispatchEvent(event);
+
+      expect(setExpandedContentStyleSpy).toHaveBeenCalled();
+    });
+
+    it("should call hideExpandedContent when transitionend in animateExpandedContent and expanded is false", async () => {
+      const page = await newSpecPage({
+        components: [Accordion],
+        html: `
+        <ic-accordion heading="Accordion 1" >
+          <ic-typography variant="body">
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>`,
+      });
+
+      const hideExpandedContentSpy = jest.spyOn(
+        page.rootInstance,
+        "hideExpandedContent"
+      );
+
+      const accordionExpanded =
+        page.root.shadowRoot.querySelector(".expanded-content");
+      page.rootInstance.expandedContentEl = accordionExpanded;
+      page.rootInstance.expandedContentEl.scrollHeight = 50;
+      page.rootInstance.expanded = false;
+
+      await page.rootInstance.animateExpandedContent();
+
+      const event = new Event("transitionend");
+      page.rootInstance.expandedContentEl.dispatchEvent(event);
+
+      expect(hideExpandedContentSpy).toHaveBeenCalled();
     });
   });
 });

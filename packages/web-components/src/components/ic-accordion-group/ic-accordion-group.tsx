@@ -13,7 +13,9 @@ let accordionGroupIds = 0;
 @Component({
   tag: "ic-accordion-group",
   styleUrl: "ic-accordion-group.css",
-  shadow: true,
+  shadow: {
+    delegatesFocus: true,
+  },
 })
 export class AccordionGroup {
   private accordionGroupId = `ic-accordion-group-${accordionGroupIds++}`;
