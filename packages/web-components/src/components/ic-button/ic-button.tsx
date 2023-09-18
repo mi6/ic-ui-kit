@@ -227,6 +227,10 @@ export class Button {
     }
   }
 
+  componentWillRender(): void {
+    this.setViewBox()?.setAttribute("viewBox", "0 0 24 24");
+  }
+
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
     if (this.disabled || this.loading) {
@@ -277,6 +281,18 @@ export class Button {
     const iconEl = this.el.querySelector(`[slot="right-icon"]`);
     return iconEl !== null;
   }
+
+  private setViewBox = () => {
+    let iconEl;
+    if (this.hasLeftIconSlot()) {
+      iconEl = this.el.querySelector(`[slot="left-icon"]`);
+    } else if (this.hasRightIconSlot()) {
+      iconEl = this.el.querySelector(`[slot="right-icon"]`);
+    } else {
+      iconEl = null;
+    }
+    return iconEl;
+  };
 
   private handleHiddenFormButtonClick(form: HTMLFormElement): void {
     const hiddenFormButton = document.createElement("button");
