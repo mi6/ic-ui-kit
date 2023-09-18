@@ -91,7 +91,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
             </button>
           </ic-tooltip>
         </mock:shadow-root>
-        <slot name="icon" slot="left-icon"></slot>
+        <slot name="icon" slot="left-icon" viewbox="0 0 24 24"></slot>
       </ic-button>
     </mock:shadow-root>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -196,7 +196,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
             </button>
           </ic-tooltip>
         </mock:shadow-root>
-        <slot name="icon" slot="left-icon"></slot>
+        <slot name="icon" slot="left-icon" viewbox="0 0 24 24"></slot>
       </ic-button>
     </mock:shadow-root>
     <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">

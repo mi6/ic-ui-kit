@@ -94,6 +94,11 @@ export class NavigationButton {
     );
   }
 
+  componentWillRender(): void {
+    const iconEl = this.el.querySelector(`[slot="icon"]`);
+    iconEl !== null && iconEl.setAttribute("viewBox", "0 0 24 24");
+  }
+
   @Listen("icNavigationMenuOpened", { target: "document" })
   navBarMenuOpenHandler(): void {
     this.mode = "menu";
