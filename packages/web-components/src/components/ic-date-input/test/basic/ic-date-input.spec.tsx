@@ -1957,10 +1957,10 @@ describe("ic-date-input component", () => {
     });
   });
 
-  describe("setDisabledDays", () => {
-    it("should test setting disabledDays ", async () => {
+  describe("setDisableDays", () => {
+    it("should test setting disableDays ", async () => {
       const { component, componentInstance } = await createDateInputEnv();
-      await component.setDisabledDays([0, 1]);
+      await component.setDisableDays([0, 1]);
 
       expect(componentInstance.disableDays).toEqual([0, 1]);
     });

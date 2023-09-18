@@ -355,7 +355,7 @@ export class DateInput {
    * @internal Used to pass disabledDays from parent component.
    */
   @Method()
-  async setDisabledDays(days: IcWeekDays[]): Promise<void> {
+  async setDisableDays(days: IcWeekDays[]): Promise<void> {
     this.disableDays = days;
   }
 
