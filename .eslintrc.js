@@ -26,13 +26,13 @@ module.exports = {
         "@stencil-community/decorators-context": "error",
         "@stencil-community/decorators-style": [
             "error", {
-            "prop": "inline",
-            "state": "inline",
-            "element": "inline",
-            "event": "inline",
-            "method": "multiline",
-            "watch": "multiline",
-            "listen": "multiline"
+                "prop": "inline",
+                "state": "inline",
+                "element": "inline",
+                "event": "inline",
+                "method": "multiline",
+                "watch": "multiline",
+                "listen": "multiline"
             }
         ],
         "@stencil-community/element-type": "error",
@@ -53,7 +53,7 @@ module.exports = {
     },
     "overrides": [
         {
-            "files": ["*.e2e.ts", "*.spec.ts", "package-lock.json"],
+            "files": ["*.e2e.ts", "*.spec.ts", "package-lock.json", "packages/docs/docs.json"],
             "rules": {
                 "sonarjs/no-duplicate-string": "off"
             }
