@@ -20,7 +20,7 @@ jobs:
       - name: Run release check
         run: |
           RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)
-          echo "VERSION=$(echo $RELEASE_CHECK | cut -c 87-117)" >> $GITHUB_ENV
+          echo "VERSION=$(echo $RELEASE_CHECK | cut -c 87-101)" >> $GITHUB_ENV
           git stash
       - name: Create develop -> main PR
         run: |
