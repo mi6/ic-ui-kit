@@ -104,10 +104,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Runs git stash to ignore the timestamp change in the docs.json file
       - name: Publish
         run: |
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
+          git stash
           npx lerna publish --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
