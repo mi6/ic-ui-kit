@@ -7,7 +7,6 @@ packages/web-components/.loki/difference
 packages/web-components/docs.d.ts
 packages/react/css/
 packages/docs/docs.d.ts
-packages/docs/docs.json
 
 packages/web-components/storybook-static
 packages/react/storybook-static

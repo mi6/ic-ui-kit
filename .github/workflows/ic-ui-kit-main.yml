@@ -104,10 +104,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Runs git checkout for docs.json file to revert timestamp changes
       - name: Publish
         run: |
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
+          git checkout packages/docs/docs.json
           npx lerna publish --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
