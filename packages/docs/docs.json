@@ -1,11 +1,346 @@
 {
-  "timestamp": "2023-09-19T08:02:38",
+  "timestamp": "2023-09-19T09:54:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.2.1",
     "typescriptVersion": "5.1.6"
   },
   "components": [
+    {
+      "filePath": "src/components/ic-accordion/ic-accordion.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-accordion",
+      "readme": "# ic-accordion\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the accordion will be disabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "If `true`, the accordion appears expanded.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The section header outlining section content.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "The main body message of the accordion.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the accordion.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-accordion": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-accordion-group",
+      "readme": "# ic-accordion-title\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"light\"",
+            "references": {
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the accordion group, e.g dark, or light.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "If `true`, the accordion will load in an expanded state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "groupTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "group-title",
+          "reflectToAttr": false,
+          "docs": "The header for the accordion group.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "singleExpansion",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "single-expansion",
+          "reflectToAttr": false,
+          "docs": "If `true`, only one accordion will open at a time.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the accordion.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "accordionClicked",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
+      "dependencyGraph": {
+        "ic-accordion-group": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
     {
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
@@ -1212,6 +1547,7 @@
       ],
       "parts": [],
       "dependents": [
+        "ic-accordion-group",
         "ic-alert",
         "ic-card",
         "ic-dialog",
@@ -1241,6 +1577,9 @@
         ],
         "ic-tooltip": [
           "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-button"
         ],
         "ic-alert": [
           "ic-button"
@@ -15225,6 +15564,8 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "ic-accordion",
+        "ic-accordion-group",
         "ic-alert",
         "ic-back-to-top",
         "ic-card",
@@ -15264,6 +15605,12 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-accordion": [
+          "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-typography"
+        ],
         "ic-alert": [
           "ic-typography"
         ],
@@ -15376,6 +15723,16 @@
     }
   ],
   "typeLibrary": {
+    "src/utils/types.ts::IcThemeForeground": {
+      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcSizes": {
+      "declaration": "export type IcSizes = \"default\" | \"large\" | \"small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcStatusVariants": {
       "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
@@ -15395,16 +15752,6 @@
       "declaration": "export type IcFooterBreakpoints =\n  | \"extra small\"\n  | \"small\"\n  | \"medium\"\n  | \"large\"\n  | \"extra large\";",
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
-    },
-    "src/utils/types.ts::IcThemeForeground": {
-      "declaration": "export type IcThemeForeground = \"default\" | \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcSizes": {
-      "declaration": "export type IcSizes = \"default\" | \"large\" | \"small\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
       "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
