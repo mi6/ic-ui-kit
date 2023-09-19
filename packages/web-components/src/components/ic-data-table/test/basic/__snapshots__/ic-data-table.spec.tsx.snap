@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-data-table should render 1`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should render 1`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -171,11 +171,11 @@ exports[`ic-data-table should render 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render embedded 1`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should render embedded 1`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -345,11 +345,11 @@ exports[`ic-data-table should render embedded 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render sortable 1`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should render sortable 1`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -542,11 +542,11 @@ exports[`ic-data-table should render sortable 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render with cell overrides 1`] = `
-<ic-data-table show-pagination="">
+exports[`ic-unstable-data-table should render with cell overrides 1`] = `
+<ic-unstable-data-table show-pagination="">
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -719,11 +719,11 @@ exports[`ic-data-table should render with cell overrides 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render with column overrides 1`] = `
-<ic-data-table show-pagination="">
+exports[`ic-unstable-data-table should render with column overrides 1`] = `
+<ic-unstable-data-table show-pagination="">
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -896,11 +896,11 @@ exports[`ic-data-table should render with column overrides 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render with pagination 1`] = `
-<ic-data-table show-pagination="">
+exports[`ic-unstable-data-table should render with pagination 1`] = `
+<ic-unstable-data-table show-pagination="">
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -1161,11 +1161,11 @@ exports[`ic-data-table should render with pagination 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render with row headers 1`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should render with row headers 1`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -1323,11 +1323,11 @@ exports[`ic-data-table should render with row headers 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should render with row overrides 1`] = `
-<ic-data-table show-pagination="">
+exports[`ic-unstable-data-table should render with row overrides 1`] = `
+<ic-unstable-data-table show-pagination="">
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -1488,11 +1488,11 @@ exports[`ic-data-table should render with row overrides 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should sort data when the sort button is clicked 1`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -1713,11 +1713,11 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should sort data when the sort button is clicked 2`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -1938,11 +1938,11 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should sort data when the sort button is clicked 3`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -2163,11 +2163,11 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;
 
-exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
-<ic-data-table>
+exports[`ic-unstable-data-table should sort data when the sort button is clicked 4`] = `
+<ic-unstable-data-table>
   <mock:shadow-root>
     <div class="table-container">
       <div class="table-row-container">
@@ -2388,5 +2388,5 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-data-table>
+</ic-unstable-data-table>
 `;

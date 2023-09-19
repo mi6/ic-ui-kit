@@ -295,7 +295,7 @@ exports[`button component should update when method called 2`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
+      <button aria-label="null" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>

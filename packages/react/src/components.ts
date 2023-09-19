@@ -3,9 +3,9 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@ukic/web-components';
+import type { JSX } from '@ukic/canary-web-components';
 
-import { defineCustomElements } from '@ukic/web-components/loader';
+import { defineCustomElements } from '@ukic/canary-web-components/loader';
 
 defineCustomElements();
 export const IcAlert = /*@__PURE__*/createReactComponent<JSX.IcAlert, HTMLIcAlertElement>('ic-alert');

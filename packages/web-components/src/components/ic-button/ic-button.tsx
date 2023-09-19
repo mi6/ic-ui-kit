@@ -261,7 +261,7 @@ export class Button {
   async updateAriaLabel(newValue: string): Promise<void> {
     if (this.hasTooltip) {
       this.tooltipEl.label = newValue;
-      this.buttonEl.removeAttribute("aria-label");
+      this.buttonEl.setAttribute("aria-label", null);
     } else {
       this.buttonEl.setAttribute("aria-label", newValue);
     }

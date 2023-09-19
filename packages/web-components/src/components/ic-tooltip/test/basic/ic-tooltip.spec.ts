@@ -183,6 +183,7 @@ describe("ic-tooltip component", () => {
 
     expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
   });
+<<<<<<< HEAD
 
   describe("getTooltipTranslate", () => {
     it("should update for bottom", async () => {
@@ -376,4 +377,6 @@ describe("ic-tooltip component", () => {
       expect(page.root.placement).toBe("right");
     });
   });
+=======
+>>>>>>> 2930a1ff (chore(root): [ci skip]: initial commit)
 });

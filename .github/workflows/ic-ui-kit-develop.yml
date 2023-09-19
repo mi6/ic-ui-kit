@@ -1,17 +1,17 @@
 name: Develop
 
-on: 
+on:
   push:
     branches:
-      - develop
+      - canary/develop
 
-concurrency:  
+concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  ic-ui-kit-static-analysis-tests:
-    name: 'Static Analysis Tests'
+  canary-ic-ui-kit-static-analysis-tests:
+    name: "Static Analysis Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,8 +45,8 @@ jobs:
       - name: Unit Component tests
         run: npm run test:coverage-ci
 
-  ic-ui-kit-e2e-tests:
-    name: 'E2E Tests'
+  canary-ic-ui-kit-e2e-tests:
+    name: "E2E Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,12 +58,12 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-  
+
       - name: E2E tests
         run: npm run test-e2e
 
-  ic-ui-kit-visual-tests:
-    name: 'Visual Regression Tests'
+  canary-ic-ui-kit-visual-tests:
+    name: "Visual Regression Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -80,9 +80,14 @@ jobs:
       - name: Visual Regression tests
         run: npm run test-visual:ci
 
-  ic-ui-kit-deploy:
-    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
-    name: 'Deploy QA Storybook'
+  canary-ic-ui-kit-deploy:
+    needs:
+      [
+        canary-ic-ui-kit-static-analysis-tests,
+        canary-ic-ui-kit-e2e-tests,
+        canary-ic-ui-kit-visual-tests,
+      ]
+    name: "Deploy QA Storybook"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -98,9 +103,16 @@ jobs:
         run: |
           npm run build
           npm run build-storybook:web-components
+          npm run build-storybook:react
 
-      - name: Deploy web components storybook
+      - name: Deploy canary web components storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/develop
+          target-folder: ./docs/canary/develop/web-components
+
+      - name: Deploy canary react storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/storybook-static
+          target-folder: ./docs/canary/develop/react

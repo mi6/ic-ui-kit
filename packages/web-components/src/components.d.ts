@@ -1988,7 +1988,7 @@ export namespace Components {
          */
         "disableClick"?: boolean;
         /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
          */
         "disableHover"?: boolean;
         /**
@@ -4661,7 +4661,7 @@ declare namespace LocalJSX {
          */
         "disableClick"?: boolean;
         /**
-          * If `true`, the tooltip will not be displayed on hover, it will require a click.
+          * If `true`, the tooltip will not be displayed on hover, it will require a click or using the display method.
          */
         "disableHover"?: boolean;
         /**

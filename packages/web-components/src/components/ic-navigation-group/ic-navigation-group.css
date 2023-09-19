@@ -9,7 +9,7 @@
 }
 
 :host(.in-side-menu) {
-  border-bottom: var(--ic-border-light);
+  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-200);
   padding: var(--ic-space-md) 0;
 }
 
@@ -166,7 +166,10 @@
   transition: var(--ic-easing-transition-slow);
   overflow: hidden;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2930a1ff (chore(root): [ci skip]: initial commit)
 :host(.navigation-group-side-nav) .link,
 :host(.navigation-group-side-nav) ::slotted(a) {
   height: var(--navigation-child-items-height, auto);

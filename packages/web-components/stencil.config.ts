@@ -9,7 +9,7 @@ export const config: Config = {
   globalStyle: "src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
-      componentCorePackage: "@ukic/web-components",
+      componentCorePackage: "@ukic/canary-web-components",
       proxiesFile: "../react/src/components.ts",
       includeDefineCustomElements: true,
     }),
@@ -32,10 +32,6 @@ export const config: Config = {
     {
       type: "docs-readme",
       footer: "",
-    },
-    {
-      type: "docs-json",
-      file: "../docs/docs.json",
     },
     {
       type: "www",

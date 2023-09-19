@@ -1,13 +1,13 @@
 {
   "packages": ["packages/*"],
-  "version": "2.4.1",
+  "version": "2.0.0-canary.0",
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org"
     },
     "version": {
       "conventionalCommits": true,
-      "message": "chore(release): [ci skip] components publish"
+      "message": "chore(release): [ci skip] canary components publish"
     }
   }
 }

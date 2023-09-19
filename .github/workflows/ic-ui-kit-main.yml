@@ -3,10 +3,10 @@ name: Main
 on:
   push:
     branches:
-      - main
+      - canary/main
 
 jobs:
-  ic-ui-kit-static-analysis-tests:
+  canary-ic-ui-kit-static-analysis-tests:
     name: "Static Analysis Tests"
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,7 @@ jobs:
       - name: Unit Component tests
         run: npm run test:coverage-ci
 
-  ic-ui-kit-e2e-tests:
+  canary-ic-ui-kit-e2e-tests:
     name: "E2E Tests"
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
       - name: E2E tests
         run: npm run test-e2e
 
-  ic-ui-kit-visual-tests:
+  canary-ic-ui-kit-visual-tests:
     name: "Visual Regression Tests"
     runs-on: ubuntu-latest
     steps:
@@ -76,12 +76,12 @@ jobs:
       - name: Visual Regression tests
         run: npm run test-visual:ci
 
-  ic-ui-kit-publish:
+  canary-ic-ui-kit-publish:
     needs:
       [
-        ic-ui-kit-static-analysis-tests,
-        ic-ui-kit-e2e-tests,
-        ic-ui-kit-visual-tests,
+        canary-ic-ui-kit-static-analysis-tests,
+        canary-ic-ui-kit-e2e-tests,
+        canary-ic-ui-kit-visual-tests,
       ]
     name: "Publish Production Packages"
     runs-on: ubuntu-latest
@@ -109,21 +109,39 @@ jobs:
         run: |
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.EMAIL }}
-          git checkout packages/docs/docs.json
-          npx lerna publish --no-commit-hooks -y
+          npx lerna publish --no-commit-hooks -y --conventional-prerelease --preid=canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  # Triggers a workflow in the design system repo
-  ic-ui-kit-update-design-system:
-    needs: [ic-ui-kit-publish]
-    name: "Trigger design system release workflow"
+  canary-ic-ui-kit-storybook-deploy:
+    needs: [canary-ic-ui-kit-publish]
+    name: "Canary Storybook Deploy"
     runs-on: ubuntu-latest
     steps:
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          token: ${{ secrets.PUBLISH_PAT }}
-          repository: mi6/ic-design-system
-          event-type: design-system-release
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Build components and canary web-components and react storybook
+        run: |
+          npm run build
+          npm run build-storybook:web-components
+          npm run build-storybook:react
+
+      - name: Deploy canary web components storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/web-components/storybook-static
+          target-folder: ./docs/canary/web-components
+
+      - name: Deploy canary react storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/storybook-static
+          target-folder: ./docs/canary/react
