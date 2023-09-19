@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.0...v2.4.1) (2023-09-19)
+
+### Bug Fixes
+
+- **web-components:** add viewbox to icons in buttons to stop sizing issues ([e32bf26](https://github.com/mi6/ic-ui-kit/commit/e32bf2662243ed02436a3e069721b3aa96bc357a)), closes [#1065](https://github.com/mi6/ic-ui-kit/issues/1065)
+- **web-components:** fix for css calc issue in new chromium version ([ebcf053](https://github.com/mi6/ic-ui-kit/commit/ebcf0533c921e048ed63863c51e6c41abaef407d))
+- **web-components:** update loading button to have minimum width of original button ([4fdb908](https://github.com/mi6/ic-ui-kit/commit/4fdb908249aaab7e381eb7689f31efc7ae6e64e3)), closes [#1066](https://github.com/mi6/ic-ui-kit/issues/1066)
+
 # [2.4.0](https://github.com/mi6/ic-ui-kit/compare/v2.3.0...v2.4.0) (2023-09-13)
 
 ### Bug Fixes
