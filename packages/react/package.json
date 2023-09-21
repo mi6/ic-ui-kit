@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "2.0.0-canary.0",
+  "version": "2.0.0-canary.1",
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
@@ -24,8 +24,8 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/fonts": "^2.3.0",
-    "@ukic/canary-web-components": "2.0.0-canary.0"
+    "@ukic/canary-web-components": "^2.0.0-canary.1",
+    "@ukic/fonts": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

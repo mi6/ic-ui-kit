@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.0.0-canary.1) (2023-09-21)
+
+### Features
+
+- **canary-react:** fine tuned react contents for data table ([7a85861](https://github.com/mi6/ic-ui-kit/commit/7a85861ac6831009fbb18034769b6ba6981e46ac))
+- **react:** add data table stories ([2d7c77a](https://github.com/mi6/ic-ui-kit/commit/2d7c77a02445aed789bc24848b3946e18c3fd8b4))
+- **react:** add pagination bar component ([6bff162](https://github.com/mi6/ic-ui-kit/commit/6bff162af6ad57f8f7bc16d8629da7d6fb356a84))
+- **react:** adds initial data table component ([ed92007](https://github.com/mi6/ic-ui-kit/commit/ed9200796427abe555a29378c20355c979c5df52))
+- **web-components:** added date type support ([322c173](https://github.com/mi6/ic-ui-kit/commit/322c1733bc0494ba86da3741b0c883f9d103a57b))
+
 ## [2.4.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.0...v2.4.1) (2023-09-19)
 
 ### Bug Fixes

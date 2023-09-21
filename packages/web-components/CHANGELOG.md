@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.0.0-canary.1) (2023-09-21)
+
+### Features
+
+- **react:** add data table stories ([2d7c77a](https://github.com/mi6/ic-ui-kit/commit/2d7c77a02445aed789bc24848b3946e18c3fd8b4))
+- **web-components:** add pagination and sorting to data table ([26b8c47](https://github.com/mi6/ic-ui-kit/commit/26b8c473e5a7be0fc4fada1ba55ea60085d68fee))
+- **web-components:** add pagination bar component ([9f70889](https://github.com/mi6/ic-ui-kit/commit/9f70889ffae1dc2850e6d2eb46dcb0c2fc4496fb))
+- **web-components:** add pagination bar component ([c131f8a](https://github.com/mi6/ic-ui-kit/commit/c131f8aede45424ec18caf146424f2a2cfdfb83d))
+- **web-components:** added date type support ([394f2b9](https://github.com/mi6/ic-ui-kit/commit/394f2b97c6bc7763bf29f85157742833220a6442))
+- **web-components:** added date type support ([322c173](https://github.com/mi6/ic-ui-kit/commit/322c1733bc0494ba86da3741b0c883f9d103a57b))
+- **web-components:** adds initial data table component ([3e7d58b](https://github.com/mi6/ic-ui-kit/commit/3e7d58b35758a47d1a19a2263739b7f6f0f3c40d))
+
+### Performance Improvements
+
+- **web-components:** deleted visual regression due to filename issue ([69e0fba](https://github.com/mi6/ic-ui-kit/commit/69e0fbaae4d841ec024b3b839ffbd9b49efee35d))
+
 ## [2.4.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.0...v2.4.1) (2023-09-19)
 
 ### Bug Fixes
