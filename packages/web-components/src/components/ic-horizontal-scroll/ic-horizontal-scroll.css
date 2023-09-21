@@ -54,7 +54,7 @@
 }
 
 .scroll-arrow {
-  margin: var(--ic-space-xxs) 0 var(--ic-space-xs) 0;
+  margin: var(--ic-space-xxs) 0;
 }
 
 .disabled .ic-tooltip-container {
