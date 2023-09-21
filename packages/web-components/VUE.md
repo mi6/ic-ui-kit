@@ -7,9 +7,9 @@ These instructions were used with Vue version 3.2.31.
 Install the packages with `npm` or `yarn`.
 
 ```shell
-npm install @ukic/web-components @ukic/fonts
+npm install @ukic/canary-web-components @ukic/fonts
 
-yarn add @ukic/web-components @ukic/fonts
+yarn add @ukic/canary-web-components @ukic/fonts
 ```
 
 Add options into your relevant config
@@ -18,7 +18,7 @@ Add options into your relevant config
 
 ```js
 // Only works if using in-browser compilation.
-app.config.compilerOptions.isCustomElement = (tag) => tag.includes('-')
+app.config.compilerOptions.isCustomElement = (tag) => tag.includes("-");
 ```
 
 ### Vite config
@@ -33,12 +33,12 @@ export default {
       template: {
         compilerOptions: {
           // treat all tags with a dash as custom elements
-          isCustomElement: (tag) => tag.includes('-')
-        }
-      }
-    })
-  ]
-}
+          isCustomElement: (tag) => tag.includes("-"),
+        },
+      },
+    }),
+  ],
+};
 ```
 
 ### Vue CLI config
@@ -46,26 +46,26 @@ export default {
 ```js
 // vue.config.js
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
-      .rule('vue')
-      .use('vue-loader')
-      .tap(options => ({
+      .rule("vue")
+      .use("vue-loader")
+      .tap((options) => ({
         ...options,
         compilerOptions: {
           // treat any tag that starts with ic- as custom elements
-          isCustomElement: tag => tag.startsWith('ic-')
-        }
-      }))
-  }
-}
+          isCustomElement: (tag) => tag.startsWith("ic-"),
+        },
+      }));
+  },
+};
 ```
 
 Import `defineCustomElements` in your `main.js` file and call it at the bottom of the file:
 
 ```js
 // main.js
-import { defineCustomElements } from '@ukic/web-components/loader';
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
 
 // ...
 
@@ -75,7 +75,7 @@ defineCustomElements();
 Declare and use components in your file, e.g.:
 
 ```html
-<ic-status-tag label="Neutral"></ic-status-tag>
+<ic-data-table ...></ic-data-table>
 ```
 
 ## Importing CSS styles and fonts
@@ -85,7 +85,7 @@ Import the ICDS CSS file into your app's top level CSS file:
 ```css
 /* In your top level CSS file */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/core.css";
+@import "@ukic/canary-web-components/dist/core/core.css";
 ```
 
 Import ICDS typography into your project from `@ukic/fonts`.
@@ -103,5 +103,5 @@ Import the normalised styles that are used within the ICDS components if you wou
 ```css
 /* usually src/styles.css */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/normalize.css";
+@import "@ukic/canary-web-components/dist/core/normalize.css";
 ```

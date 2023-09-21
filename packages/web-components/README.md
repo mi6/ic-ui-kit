@@ -7,17 +7,6 @@ The [Intelligence Community Design System](https://design.sis.gov.uk) helps the 
 
 This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ](https://www.gchq.gov.uk) and [MI5](https://www.mi5.gov.uk).
 
-## Using the components
-
-Web components can be used without the need for a framework. To use web components without a framework, follow the [web components instructions](#installing).
-
-To use the components in a particular framework, follow the framework instructions.
-
-- [Angular](https://design.sis.gov.uk/get-started/install-components/angular)
-- [Vue](https://design.sis.gov.uk/get-started/install-components/vue)
-- [Svelte](https://design.sis.gov.uk/get-started/install-components/svelte)
-- [React](https://design.sis.gov.uk/get-started/install-components/react)
-
 ## Installing
 
 To install the components:
@@ -28,11 +17,11 @@ In the root of your project:
 
 ```shell
 // using npm
-npm install @ukic/web-components @ukic/fonts
+npm install @ukic/canary-web-components @ukic/fonts
 
 // using yarn
 rm package-lock.json
-yarn add @ukic/web-components @ukic/fonts
+yarn add @ukic/canary-web-components @ukic/fonts
 ```
 
 ### Step two
@@ -40,7 +29,7 @@ yarn add @ukic/web-components @ukic/fonts
 Import `defineCustomElements` in your file. Where you do this will depend on your framework or build tool, but the format is as follows:
 
 ```jsx
-import { defineCustomElements } from "@ukic/web-components/loader";
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
 ```
 
 ### Step three
@@ -58,7 +47,7 @@ defineCustomElements();
 In your HTML, you can now declare a component as follows:
 
 ```jsx
-<ic-status-tag label="Neutral"></ic-status-tag>
+<ic-data-table ...></ic-data-table>
 ```
 
 ### Step five
@@ -69,7 +58,7 @@ Add the following into the top level CSS file for your project.
 
 ```css
 @import "@ukic/fonts/dist/fonts.css";
-@import "@ukic/web-components/dist/core/core.css";
+@import "@ukic/canary-web-components/dist/core/core.css";
 ```
 
 In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
@@ -77,7 +66,7 @@ In order to be rendered consistently across browsers and in line with modern sta
 If you would like to import these styles to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
 
 ```css
-@import "@ukic/web-components/dist/core/normalize.css";
+@import "@ukic/canary-web-components/dist/core/normalize.css";
 ```
 
 ## Webpack example
@@ -112,11 +101,11 @@ module.exports = {
 
 ```shell
 // using npm
-npm install @ukic/web-components @ukic/fonts
+npm install @ukic/canary-web-components @ukic/fonts
 
 // using yarn
 rm package-lock.json
-yarn add @ukic/web-components @ukic/fonts
+yarn add @ukic/canary-web-components @ukic/fonts
 
 ```
 
@@ -127,9 +116,9 @@ In the file defined as the `entry` in the `webpack.config.js`, add the following
 ```jsx
 //src/index.js
 import "@ukic/fonts/dist/fonts.css";
-import "@ukic/web-components/dist/core/core.css";
+import "@ukic/canary-web-components/dist/core/core.css";
 
-import { defineCustomElements } from "@ukic/web-components/loader";
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
 defineCustomElements();
 ```
 
@@ -146,7 +135,7 @@ You can now use any of the ICDS components so long as your HTML page includes th
   </head>
   <body>
     <script src="dist/main.js"></script>
-    <ic-status-tag label="Neutral"></ic-status-tag>
+    <ic-data-table ....></ic-data-table>
   </body>
 </html>
 ```

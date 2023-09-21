@@ -7,9 +7,9 @@ These instructions were used with Angular version 13.2.5.
 Install the packages with `npm` or `yarn`.
 
 ```shell
-npm install @ukic/web-components @ukic/fonts
+npm install @ukic/canary-web-components @ukic/fonts
 
-yarn add @ukic/web-components @ukic/fonts
+yarn add @ukic/canary-web-components @ukic/fonts
 ```
 
 In the `app.modules.ts` file, import the `CUSTOM_ELEMENTS_SCHEMA` and include it in the `@NgModule` decorator object:
@@ -33,7 +33,7 @@ Import `defineCustomElements` in your `main.js` file and call it at the bottom o
 
 ```js
 // main.ts
-import { defineCustomElements } from '@ukic/web-components/loader';
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
 
 // ...
 
@@ -44,7 +44,7 @@ Declare the component in your `app.component.html` file, e.g.:
 
 ```html
 <!-- app.component.html -->
-<ic-status-tag label="Neutral"></ic-status-tag>
+<ic-data-table ....></ic-data-table>
 ```
 
 ## Importing CSS styles and fonts
@@ -54,7 +54,7 @@ Import the ICDS CSS file into your app's top level CSS file:
 ```css
 /* usually src/styles.css */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/core.css";
+@import "@ukic/canary-web-components/dist/core/core.css";
 ```
 
 Import ICDS typography into your project from `@ukic/fonts`.
@@ -72,5 +72,5 @@ Import the normalised styles that are used within the ICDS components if you wou
 ```css
 /* usually src/styles.css */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/normalize.css";
+@import "@ukic/canary-web-components/dist/core/normalize.css";
 ```
