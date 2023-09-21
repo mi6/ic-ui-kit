@@ -1,12 +1,53 @@
 {
   "allowlist": [
-    "GHSA-7p7h-4mm5-852v",
-    "GHSA-ww39-953v-wcq6",
-    "GHSA-pfrx-2q88-qq97",
-    "GHSA-w5p7-h5w8-2hfq",
-    "GHSA-h9rv-jmmf-4pgx",
-    "GHSA-hxcc-f52p-wc94",
-    "GHSA-c2qf-rxjj-qqgw",
-    "GHSA-j8xg-fqg3-53r7"
+    {
+      "GHSA-7p7h-4mm5-852v": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "5 October 2023"
+      }
+    },
+    {
+      "GHSA-ww39-953v-wcq6": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "9 October 2023"
+      }
+    },
+    {
+      "GHSA-pfrx-2q88-qq97": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "12 October 2023"
+      }
+    },
+    {
+      "GHSA-w5p7-h5w8-2hfq": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "16 October 2023"
+      }
+    },
+    {
+      "GHSA-hxcc-f52p-wc94": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "18 October 2023"
+      }
+    },
+    {
+      "GHSA-c2qf-rxjj-qqgw": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "20 October 2023"
+      }
+    },
+    {
+      "GHSA-j8xg-fqg3-53r7": {
+        "active": true,
+        "notes": "At next renewal, add reason for allowing.",
+        "expiry": "20 October 2023"
+      }
+    }
   ]
 }
