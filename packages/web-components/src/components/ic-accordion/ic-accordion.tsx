@@ -13,12 +13,13 @@ import { isSlotUsed } from "../../utils/helpers";
 import chevronIcon from "../../assets/chevron-icon.svg";
 import { IcThemeForeground, IcSizes } from "../../utils/types";
 
+let accordionIds = 0;
+
 /**
  * @slot heading - Content is placed as the accordion heading.
  * @slot icon - Content is placed to the left of the heading.
  */
 
-let accordionIds = 0;
 @Component({
   tag: "ic-accordion",
   styleUrl: "ic-accordion.css",
@@ -82,16 +83,18 @@ export class Accordion {
   }
 
   disconnectedCallback(): void {
-    this.expandedContentEl.removeEventListener(
-      "transitionend",
-      (e) => this.setExpandedContentStyle(e, this.expandedContentEl),
-      true
-    );
-    this.expandedContentEl.removeEventListener(
-      "transitionend",
-      (e) => this.hideExpandedContent(e, this.expandedContentEl),
-      true
-    );
+    if (this.expandedContentEl) {
+      this.expandedContentEl.removeEventListener(
+        "transitionend",
+        (e) => this.setExpandedContentStyle(e, this.expandedContentEl),
+        true
+      );
+      this.expandedContentEl.removeEventListener(
+        "transitionend",
+        (e) => this.hideExpandedContent(e, this.expandedContentEl),
+        true
+      );
+    }
   }
 
   componentDidLoad(): void {
