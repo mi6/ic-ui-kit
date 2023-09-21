@@ -58,7 +58,7 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
         focussed: focussed,
       }}
       tabIndex={focussed ? 0 : -1}
-      aria-disabled={disabled}
+      aria-disabled={disabled ? "true" : "false"}
       // aria-pressed={selected ? "true" : "false"}
       aria-current={today ? "date" : undefined}
       aria-label={

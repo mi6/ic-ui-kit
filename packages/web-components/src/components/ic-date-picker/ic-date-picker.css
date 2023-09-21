@@ -35,6 +35,10 @@ ic-date-input {
   --input-width: var(--input-field-width);
 }
 
+.hidden-describe {
+  display: none;
+}
+
 .sr-only {
   position: absolute;
   left: -9999px;
