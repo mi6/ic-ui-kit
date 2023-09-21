@@ -29,6 +29,14 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot        | Description                                   |
+| ----------- | --------------------------------------------- |
+| `"heading"` | Content is placed as the accordion heading.   |
+| `"icon"`    | Content is placed to the left of the heading. |
+
+
 ## Dependencies
 
 ### Depends on
