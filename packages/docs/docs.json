@@ -1,8 +1,8 @@
 {
-  "timestamp": "2023-09-19T09:54:00",
+  "timestamp": "2023-09-21T15:01:39",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.2.1",
+    "version": "4.3.0",
     "typescriptVersion": "5.1.6"
   },
   "components": [
@@ -12,7 +12,16 @@
       "tag": "ic-accordion",
       "readme": "# ic-accordion\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content is placed as the accordion heading."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content is placed to the left of the heading."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -141,11 +150,43 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on accordion heading.",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content is placed as the accordion heading."
+        },
+        {
+          "name": "icon",
+          "docs": "Content is placed to the left of the heading."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
