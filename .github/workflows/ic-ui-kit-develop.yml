@@ -109,10 +109,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/web-components/storybook-static
-          target-folder: ./docs/canary/develop/web-components
+          target-folder: ./branches/canary/develop/web-components
 
       - name: Deploy canary react storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/react/storybook-static
-          target-folder: ./docs/canary/develop/react
+          target-folder: ./branches/canary/develop/react
