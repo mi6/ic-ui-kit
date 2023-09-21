@@ -7,15 +7,6 @@
 
 ## Properties
 
-<<<<<<< HEAD
-| Property             | Attribute       | Description                                                                                               | Type                                                                                                                                                                 | Default     |
-| -------------------- | --------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `disableClick`       | `disable-click` | If `true`, the tooltip will not be displayed on click, it will require hover or using the display method. | `boolean`                                                                                                                                                            | `false`     |
-| `disableHover`       | `disable-hover` | If `true`, the tooltip will not be displayed on hover, it will require a click.                           | `boolean`                                                                                                                                                            | `false`     |
-| `label` _(required)_ | `label`         | The text to display on the tooltip.                                                                       | `string`                                                                                                                                                             | `undefined` |
-| `placement`          | `placement`     | The position of the tool-tip in relation to the parent element.                                           | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"bottom"`  |
-| `target`             | `target`        | The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.   | `string`                                                                                                                                                             | `undefined` |
-=======
 | Property             | Attribute       | Description                                                                                                 | Type                                                                                                                                                                 | Default     |
 | -------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `disableClick`       | `disable-click` | If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.   | `boolean`                                                                                                                                                            | `false`     |
@@ -23,7 +14,6 @@
 | `label` _(required)_ | `label`         | The text to display on the tooltip.                                                                         | `string`                                                                                                                                                             | `undefined` |
 | `placement`          | `placement`     | The position of the tool-tip in relation to the parent element.                                             | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `"bottom"`  |
 | `target`             | `target`        | The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.     | `string`                                                                                                                                                             | `undefined` |
->>>>>>> 2930a1ff (chore(root): [ci skip]: initial commit)
 
 
 ## Methods

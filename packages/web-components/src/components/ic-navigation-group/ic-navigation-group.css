@@ -166,10 +166,7 @@
   transition: var(--ic-easing-transition-slow);
   overflow: hidden;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2930a1ff (chore(root): [ci skip]: initial commit)
 :host(.navigation-group-side-nav) .link,
 :host(.navigation-group-side-nav) ::slotted(a) {
   height: var(--navigation-child-items-height, auto);

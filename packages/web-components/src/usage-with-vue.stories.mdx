@@ -11,9 +11,9 @@ These instructions were used with Vue version 3.2.31.
 Install the packages with `npm` or `yarn`.
 
 ```shell
-npm install @ukic/web-components @ukic/fonts
+npm install @ukic/canary-web-components @ukic/fonts
 
-yarn add @ukic/web-components @ukic/fonts
+yarn add @ukic/canary-web-components @ukic/fonts
 ```
 
 Add options into your relevant config
@@ -69,7 +69,7 @@ Import `defineCustomElements` in your `main.js` file and call it at the bottom o
 
 ```js
 // main.js
-import { defineCustomElements } from "@ukic/web-components/loader";
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
 
 // ...
 
@@ -89,7 +89,7 @@ Import the ICDS CSS file into your app's top level CSS file:
 ```css
 /* In your top level CSS file */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/core.css";
+@import "@ukic/canary-web-components/dist/core/core.css";
 ```
 
 Import ICDS typography into your project from `@ukic/fonts`.
@@ -107,5 +107,5 @@ Import the normalised styles that are used within the ICDS components if you wou
 ```css
 /* usually src/styles.css */
 /* Depending on your setup, a path to node_modules may be needed instead */
-@import "@ukic/web-components/dist/core/normalize.css";
+@import "@ukic/canary-web-components/dist/core/normalize.css";
 ```
