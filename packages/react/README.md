@@ -17,11 +17,11 @@ In the root of your project:
 
 ```shell
 // using npm
-npm install @ukic/react @ukic/fonts
+npm install @ukic/canary-react @ukic/fonts
 
 // using yarn
 rm package-lock.json
-yarn add @ukic/react @ukic/fonts
+yarn add @ukic/canary-react @ukic/fonts
 ```
 
 ### Step two
@@ -29,7 +29,7 @@ yarn add @ukic/react @ukic/fonts
 Import the component(s) in your React files.
 
 ```jsx
-import { IcComponent } from "@ukic/react";
+import { IcComponent } from "@ukic/canary-react";
 ```
 
 ### Step three
@@ -40,7 +40,7 @@ Add the following into the top level CSS file for your project.
 
 ```css
 @import "@ukic/fonts/dist/fonts.css";
-@import "@ukic/react/dist/core/core.css";
+@import "@ukic/canary-react/dist/core/core.css";
 ```
 
 In order to be rendered consistently across browsers and in line with modern standards, each of the ICDS components uses styles from a global CSS file based on [Normalize.css](https://necolas.github.io/normalize.css/). 
@@ -48,41 +48,18 @@ In order to be rendered consistently across browsers and in line with modern sta
 If you would like to import these styles to apply them to the rest of your project and slotted elements used within any of the ICDS components, add the following into the top level CSS file as well.
 
 ```css
-@import "@ukic/react/dist/core/normalize.css";
+@import "@ukic/canary-react/dist/core/normalize.css";
 ```
 
 ### Step four
 
-The `@ukic/react` package will need to be transformed before you can use these components in Jest tests.
+The `@ukic/canary-react` package will need to be transformed before you can use these components in Jest tests.
 
-Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/react)"]` to your Jest config.
-
-## Contributing
-
-We have a couple of resources to help you with contributing.
-
-- To find out more about the different types of contributions, the criteria, raising issues or our release roadmap, read [how to contribute to the Design System and UI Kit](https://design.sis.gov.uk/community/contribute).
-- Make sure to also read our [coding standards and technical instructions](https://github.com/mi6/ic-ui-kit/blob/main/CONTRIBUTING.md).
-- [IC Design System guidance site repository](https://github.com/mi6/ic-design-system) contains the code and content for the Design System guidance site.
-- [IC UI Kit repository](https://github.com/mi6/ic-ui-kit) contains the code and content for the web components.
-
-## Changelog
-
-For a comprehensive changelog of the React components, please read the web components [CHANGELOG](https://github.com/mi6/ic-ui-kit/blob/main/CHANGELOG.md). The released updates made to the web components are reflected on the React components. 
+Add a `transformIgnorePatterns` field with the value `["/node_modules/(?!@ukic/canary-react)"]` to your Jest config.
 
 ## Security
 
 If you've found a vulnerability, we want to know so that we can fix it. [Our security policy](https://github.com/mi6/ic-ui-kit/blob/main/SECURITY.md) tells you how to do this.
-
-## Questions about the departments
-
-The team is only able to talk about the projects we've put on GitHub 🕵️. We unfortunately can't talk about the work of our departments 😢.
-
-Visit our websites to learn more about:
-
-- The [Secret Intelligence Service (MI6)](https://www.sis.gov.uk).
-- The [Government Communications Headquarters (GCHQ)](https://www.gchq.gov.uk).
-- The [Security Service (MI5)](https://www.mi5.gov.uk).
 
 ## License
 
