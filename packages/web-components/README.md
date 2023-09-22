@@ -1,4 +1,4 @@
-# The UK Intelligence Community Web Components UI Kit
+# [Canary]: The UK Intelligence Community Web Components UI Kit
 
 [![OGL V3 License](https://img.shields.io/badge/license-OGLv3-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
@@ -119,6 +119,7 @@ import "@ukic/fonts/dist/fonts.css";
 import "@ukic/canary-web-components/dist/core/core.css";
 
 import { defineCustomElements } from "@ukic/canary-web-components/loader";
+
 defineCustomElements();
 ```
 
