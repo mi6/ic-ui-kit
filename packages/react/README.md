@@ -1,4 +1,4 @@
-# The UK Intelligence Community React UI Kit
+# [Canary]: The UK Intelligence Community React UI Kit
 
 [![OGL V3 License](https://img.shields.io/badge/license-OGLv3-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mi6/ic-design-system/tree/main/LICENSE)
