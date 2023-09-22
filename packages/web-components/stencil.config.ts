@@ -3,6 +3,7 @@ import autoprefixer from "autoprefixer";
 import { inlineSvg } from "stencil-inline-svg";
 import { postcss } from "@stencil/postcss";
 import { reactOutputTarget } from "@stencil/react-output-target";
+import { angularOutputTarget } from "@stencil/angular-output-target";
 
 export const config: Config = {
   namespace: "core",
@@ -41,6 +42,10 @@ export const config: Config = {
       type: "www",
       serviceWorker: null,
     },
+    angularOutputTarget({
+      componentCorePackage: '@ukic/web-components',
+      directivesProxyFile: '../angular/src/directives/proxies.ts',
+    }),
   ],
   testing: {
     browserArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
