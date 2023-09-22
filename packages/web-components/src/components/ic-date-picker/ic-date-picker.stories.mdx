@@ -72,6 +72,22 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Open at date
+
+<Canvas>
+  <Story name="Open at date" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-date-picker
+          label="When would you like to collect your coffee?"
+          helper-text="The calendar will open showing 25th December 2023, if not date selected"
+          open-at-date="2023-12-25"
+        ></ic-date-picker>
+      `
+    }
+  </Story>
+</Canvas>
+
 ### Alternative dialog label
 
 <Canvas>
@@ -150,21 +166,6 @@ import readme from "./readme.md";
         <ic-date-picker
           label="When would you like to collect your coffee?"
           show-days-outside-month="false"
-        ></ic-date-picker>
-      `
-    }
-  </Story>
-</Canvas>
-
-### Focus day on open
-
-<Canvas>
-  <Story name="Focus day on open" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
-        <ic-date-picker
-          label="When would you like to collect your coffee?"
-          focus-day-on-open="true"
         ></ic-date-picker>
       `
     }

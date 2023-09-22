@@ -399,7 +399,9 @@ ic-date-input {
   --custom-font-weight: 400;
 }
 
-:host .day-button.outside-month:not(.outside-range) ic-typography {
+:host
+  .day-button.outside-month:not(.outside-range):not(.selected)
+  ic-typography {
   color: var(--ic-color-primary-text);
 }
 

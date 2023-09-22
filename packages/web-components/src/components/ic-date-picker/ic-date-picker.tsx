@@ -172,7 +172,7 @@ export class DatePicker {
    * Determines whether the selected day should receive focus when calendar is opened.
    * If `true` and no day selected then the current day or first focussable day in range will receive focus.
    */
-  @Prop() focusDayOnOpen?: boolean = false;
+  @Prop() focusDayOnOpen?: boolean = true;
 
   /**
    * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
@@ -207,12 +207,18 @@ export class DatePicker {
   @Prop() name?: string;
 
   /**
+   * The date visible when the calendar opens. Used if no date is currently selected.
+   * In ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+   */
+  @Prop() openAtDate: string | Date = "";
+
+  /**
    * @internal If `true`, calendar will initially be open. Used for visual regression testing
    */
   @Prop() openOnFirstLoad: boolean = false;
 
   /**
-   * @internal If `true`, calendar will initially be open. Used for visual regression testing
+   * @internal use different format dialog label
    */
   @Prop() newDialogLabel: boolean = false;
 
@@ -265,20 +271,27 @@ export class DatePicker {
   @Watch("calendarOpen")
   watchOpenHandler(): void {
     if (this.calendarOpen) {
-      this.focusDay = false;
+      // this.focusDay = false;
       if (
         this.selectedDate === null ||
         !dateInRange(this.selectedDate, this.minDate, this.maxDate)
       ) {
-        this.setFocussedDate(new Date());
+        let openAt =
+          typeof this.openAtDate === "object"
+            ? this.openAtDate
+            : createDateFromISOString(this.openAtDate);
+        if (openAt === null) {
+          openAt = new Date();
+        }
+        this.setFocussedDate(openAt);
       } else {
         this.setFocussedDate(this.selectedDate);
       }
-      if (this.focusDayOnOpen) {
-        setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
-      } else {
-        setTimeout(() => this.focusFirstElement(), FOCUS_TIMER);
-      }
+      // if (this.focusDayOnOpen) {
+      setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+      // } else {
+      //   setTimeout(() => this.focusFirstElement(), FOCUS_TIMER);
+      // }
       document.addEventListener("click", this.handleDocumentClick);
     } else {
       document.removeEventListener("click", this.handleDocumentClick);
@@ -483,7 +496,8 @@ export class DatePicker {
 
   private clearButtonClickHandler = () => {
     this.setSelectedDate(null);
-    this.focusFirstElement();
+    this.focusFocussedDay();
+    // this.focusFirstElement();
   };
 
   private clearButtonKeyDownHandler = (ev: KeyboardEvent) => {
