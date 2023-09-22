@@ -1,6 +1,6 @@
 {
   "packages": ["packages/*"],
-  "version": "2.0.0-canary.2",
+  "version": "2.0.0-canary.3",
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org"

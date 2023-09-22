@@ -1,6 +1,6 @@
 {
   "name": "@ukic/canary-web-components",
-  "version": "2.0.0-canary.2",
+  "version": "2.0.0-canary.3",
   "description": "A web component UI library compiled with StencilJS",
   "main": "dist/index.cjs.js",
   "module": "./dist/index.js",
