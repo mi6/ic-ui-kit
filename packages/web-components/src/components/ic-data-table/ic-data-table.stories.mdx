@@ -25,6 +25,7 @@ import {
   EmptySlotted,
   Loading,
   Updating,
+  CustomIcons,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -844,6 +845,107 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
       jobTitle: "Developer",
       address: "1 Main Street, Town, County, Postcode",
       actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Custom icons
+
+Custom icons can be added to cells, columns and headers in the data table. To add it to headers, set the icon via the `columns` prop:
+
+```json
+icon: {
+  icon: //ICON_STRING_GOES_HERE,
+  onAllCells: //Boolean to determine whether column header icon should be replicated on all cells in the column,
+  hideOnHeader: //Boolean for whether this icon should only be shown on cells and not on the header,
+}
+```
+
+To add icons to individual cells, they can be added through the `data` prop, in a similar method to overriding the cell. Cell icons take priority over the `onAllCells` prop, meaning specific cells can be made to stand out.
+
+Both cells and headers can also have icons slotted in. Cells use the slot format: `{COLUMN_KEY}-{ROW_INDEX}-icon`, and Headers use the format: `{COLUMN_KEY}-column-icon`. Slotted icons take priority over icons inserted via the `columns` and `data` props.
+
+<Canvas withSource="none">
+  <Story name="Custom icons">{CustomIcons()}</Story>
+</Canvas>
+
+#### Custom icons code example
+
+```html
+<ic-data-table id="data-table" caption="Custom icons"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+      cellAlignment: "right",
+      columnAlignment: { horizontal: "right", vertical: "middle" },
+      icon: {
+        icon: '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>',
+        onAllCells: true,
+        hideOnHeader: true,
+      },
+    },
+    {
+      key: "lastName",
+      title: "Last name",
+      dataType: "string",
+      cellAlignment: "center",
+      columnAlignment: { horizontal: "center", vertical: "bottom" },
+      icon: {
+        icon: '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>',
+        onAllCells: true,
+      },
+    },
+    ...
+    {
+      key: "address",
+      title: "Address",
+      dataType: "address",
+      icon: {
+        icon: '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>',
+      },
+    },
+  ];
+
+  const data = [
+    {
+      firstName: {
+        data: "Joe",
+        icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
+      },
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    {
+      firstName: "Sarah",
+      lastName: {
+        data: "Smith",
+        icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
+      },
+      age: 28,
+      jobTitle: "Analyst",
+      address: "2 Main Street, Town, Country, Postcode",
+    },
+    ...
+    {
+      firstName: "Naomi",
+      lastName: "Thomas",
+      age: 32,
+      jobTitle: {
+        data: "Developer",
+        icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
+      },
+      address: "8 Side Street, Town, Country, Postcode",
     },
     ...
   ];

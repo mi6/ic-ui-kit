@@ -6,6 +6,7 @@ import {
   State,
   Listen,
   Watch,
+  Fragment,
 } from "@stencil/core";
 import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
@@ -26,7 +27,8 @@ import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
 /**
  * @slot empty-state - Content is placed below the table header when there is no data and the table is not loading.
- * @slot {COLUMN_TAG}-{ROW_INDEX} - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed.
+ * @slot {COLUMN_KEY}-{ROW_INDEX}[-icon] - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot.
+ * @slot {COLUMN_KEY}-column-icon - The icon slot for a column header.
  */
 @Component({
   tag: "ic-data-table",
@@ -336,8 +338,10 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const { columnAlignment, dataType, emphasis, key } = this.columns[index];
+      const { columnAlignment, dataType, emphasis, icon, key } =
+        this.columns[index];
       const cellSlotName = `${key}-${rowIndex}`;
+      const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
       return rowKeys[index] === "header" ? (
@@ -355,21 +359,10 @@ export class DataTable {
         </th>
       ) : (
         <td
-          innerHTML={
-            dataType === "element" && !isSlotUsed(this.el, cellSlotName)
-              ? (cell as string)
-              : null
-          }
           class={{
             ["table-cell"]: true,
             [`table-density-${this.density}`]: this.notDefaultDensity(),
             [`data-type-${dataType}`]: true,
-            [`cell-alignment-${
-              columnAlignment?.horizontal ||
-              this.getCellAlignment(cell, "horizontal")
-            }`]:
-              !!columnAlignment?.horizontal ||
-              !!this.getCellAlignment(cell, "horizontal"),
             [`cell-alignment-${
               columnAlignment?.vertical ||
               rowAlignment ||
@@ -380,64 +373,106 @@ export class DataTable {
               !!this.getCellAlignment(cell, "vertical"),
           }}
         >
-          {isSlotUsed(this.el, cellSlotName) ? (
-            <slot name={cellSlotName} />
-          ) : (
-            <ic-typography
-              variant="body"
-              class={{
-                [`cell-emphasis-${
-                  (this.isObject(cell) && cellValue("emphasis")) ||
-                  emphasis ||
-                  rowEmphasis
-                }`]:
-                  (this.isObject(cell) && !!cellValue("emphasis")) ||
-                  !!emphasis ||
-                  !!rowEmphasis,
-                [`text-${this.density}`]: this.notDefaultDensity(),
-              }}
-            >
-              {this.isObject(cell) && dataType !== "date" ? (
-                Object.keys(cell).includes("href") ? (
-                  <ic-link href={cellValue("href")}>
-                    {cellValue("data")}
-                  </ic-link>
+          <div
+            innerHTML={
+              dataType === "element" && !isSlotUsed(this.el, cellSlotName)
+                ? (cell as string)
+                : null
+            }
+            class={{
+              "cell-container": dataType !== "element",
+              [`data-type-${dataType}`]: true,
+              [`cell-alignment-${
+                columnAlignment?.horizontal ||
+                this.getCellAlignment(cell, "horizontal")
+              }`]:
+                !!columnAlignment?.horizontal ||
+                !!this.getCellAlignment(cell, "horizontal"),
+            }}
+          >
+            {isSlotUsed(this.el, cellSlotName) ? (
+              <slot name={cellSlotName} />
+            ) : (
+              <Fragment>
+                {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
+                  <slot name={`${cellSlotName}-icon`} />
                 ) : (
-                  cellValue("data")
-                )
-              ) : (
-                this.getCellContent(cell, dataType)
-              )}
-            </ic-typography>
-          )}
+                  (hasIcon || icon?.onAllCells) && (
+                    <span
+                      class="icon"
+                      innerHTML={cellValue("icon") || icon.icon}
+                    ></span>
+                  )
+                )}
+                <ic-typography
+                  variant="body"
+                  class={{
+                    [`cell-emphasis-${
+                      (this.isObject(cell) && cellValue("emphasis")) ||
+                      emphasis ||
+                      rowEmphasis
+                    }`]:
+                      (this.isObject(cell) && !!cellValue("emphasis")) ||
+                      !!emphasis ||
+                      !!rowEmphasis,
+                    [`text-${this.density}`]: this.notDefaultDensity(),
+                  }}
+                >
+                  {this.isObject(cell) && dataType !== "date" ? (
+                    Object.keys(cell).includes("href") ? (
+                      <ic-link href={cellValue("href")}>
+                        {cellValue("data")}
+                      </ic-link>
+                    ) : (
+                      cellValue("data")
+                    )
+                  ) : (
+                    this.getCellContent(cell, dataType)
+                  )}
+                </ic-typography>
+              </Fragment>
+            )}
+          </div>
         </td>
       );
     });
   };
 
   private createColumnHeaders = () => {
-    return this.columns.map(({ cellAlignment, colspan, key, title }) => (
+    return this.columns.map(({ cellAlignment, colspan, icon, key, title }) => (
       <th
         scope="col"
         class={{
           ["column-header"]: true,
-          [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
           [`table-density-${this.density}`]: this.notDefaultDensity(),
           ["updating-state-headers"]: this.updating && !this.loading,
         }}
         colSpan={colspan}
       >
-        {this.sortable ? (
-          <div class="column-header-inner-container">
-            <ic-typography
-              variant="body"
-              class={{
-                ["column-header-text"]: true,
-                [`text-${this.density}`]: this.notDefaultDensity(),
-              }}
-            >
-              {title}
-            </ic-typography>
+        <div
+          class={{
+            "column-header-inner-container": true,
+            [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+          }}
+        >
+          {isSlotUsed(this.el, `${key}-column-icon`) ? (
+            <slot name={`${key}-column-icon`} />
+          ) : (
+            icon &&
+            !icon.hideOnHeader && (
+              <span class="icon" innerHTML={icon.icon}></span>
+            )
+          )}
+          <ic-typography
+            variant="body"
+            class={{
+              ["column-header-text"]: true,
+              [`text-${this.density}`]: this.notDefaultDensity(),
+            }}
+          >
+            {title}
+          </ic-typography>
+          {this.sortable && (
             <ic-button
               variant="icon"
               id={`sort-button-${key}`}
@@ -458,18 +493,8 @@ export class DataTable {
                   this.sortedColumnOrder === "unsorted",
               }}
             ></ic-button>
-          </div>
-        ) : (
-          <ic-typography
-            variant="body"
-            class={{
-              ["column-header-text"]: true,
-              [`text-${this.density}`]: this.notDefaultDensity(),
-            }}
-          >
-            {title}
-          </ic-typography>
-        )}
+          )}
+        </div>
       </th>
     ));
   };
