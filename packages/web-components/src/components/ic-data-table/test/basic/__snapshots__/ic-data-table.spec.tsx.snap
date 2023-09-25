@@ -2954,9 +2954,7 @@ exports[`ic-data-table should render with row headers 1`] = `
           <tbody>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  1
-                </div>
+                1
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -2982,9 +2980,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  2
-                </div>
+                2
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3010,9 +3006,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  3
-                </div>
+                3
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3038,9 +3032,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  4
-                </div>
+                4
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3066,9 +3058,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  5
-                </div>
+                5
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3094,9 +3084,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  6
-                </div>
+                6
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3173,9 +3161,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
           <tbody>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  1
-                </div>
+                1
               </th>
               <td class="cell-alignment-middle data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3201,9 +3187,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  2
-                </div>
+                2
               </th>
               <td class="cell-alignment-top data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3229,9 +3213,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  3
-                </div>
+                3
               </th>
               <td class="cell-alignment-bottom data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3257,9 +3239,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  4
-                </div>
+                4
               </th>
               <td class="cell-alignment-middle data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3285,9 +3265,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  5
-                </div>
+                5
               </th>
               <td class="cell-alignment-top data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3313,9 +3291,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row">
               <th class="row-header" scope="row">
-                <div class="cell-container">
-                  6
-                </div>
+                6
               </th>
               <td class="cell-alignment-bottom data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -3430,7 +3406,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-0"></slot>
                 </div>
               </td>
@@ -3465,7 +3441,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-1"></slot>
                 </div>
               </td>
@@ -3500,7 +3476,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-2"></slot>
                 </div>
               </td>
@@ -3535,7 +3511,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-3"></slot>
                 </div>
               </td>
@@ -3570,7 +3546,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-4"></slot>
                 </div>
               </td>
@@ -3605,7 +3581,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
               <td class="data-type-element table-cell">
-                <div class="cell-container data-type-element">
+                <div class="data-type-element">
                   <slot name="actions-5"></slot>
                 </div>
               </td>
