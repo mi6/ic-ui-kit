@@ -268,6 +268,11 @@ table {
   display: inline-block;
 }
 
+.icon > svg,
+::slotted(svg) {
+  fill: var(--ic-color-secondary-text);
+}
+
 @media screen and (min-width: 576px) {
   .column-header-inner-container {
     display: flex;
@@ -276,5 +281,12 @@ table {
 
   .cell-container {
     display: flex;
+  }
+}
+
+@media (forced-colors: active) {
+  .icon > svg,
+  ::slotted(svg) {
+    fill: currentcolor;
   }
 }
