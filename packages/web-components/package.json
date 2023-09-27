@@ -2,6 +2,15 @@
   "name": "@ukic/web-components",
   "version": "2.4.1",
   "description": "A web component UI library compiled with StencilJS",
+  "author": "mi6",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "directory": "packages/react"
+  },
   "main": "dist/index.cjs.js",
   "module": "./dist/index.js",
   "es2015": "dist/esm/index.mjs",
