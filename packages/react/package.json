@@ -5,6 +5,15 @@
   ],
   "version": "2.4.1",
   "description": "React-wrapped web components compiled using StencilJS",
+  "author": "mi6",
+  "bugs": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "email": "icds@gchq.gov.uk"
+  },
+  "repository": {
+    "url": "https://github.com/mi6/ic-ui-kit",
+    "directory": "packages/react"
+  },
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
     "clean": "rimraf dist",
