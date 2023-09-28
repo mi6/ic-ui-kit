@@ -95,11 +95,14 @@ ic-date-input {
   opacity: 1;
   visibility: visible;
   height: auto;
-  transition: opacity var(--ic-transition-duration-slow);
-
-  /* transition: none; */
 
   /* animation: fadeInCalendar var(--ic-transition-duration-slow); */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .calendar-container.open {
+    transition: opacity var(--ic-transition-duration-slow);
+  }
 }
 
 :host .month-year-nav-container {
@@ -281,8 +284,6 @@ ic-date-input {
   flex-shrink: 0;
 }
 
-/* @media (prefers-reduced-motion: no-preference) { */
-
 /* .calendar-container {
     animation: fadeOutCalendar var(--ic-transition-duration-slow);
   } */
@@ -407,15 +408,20 @@ ic-date-input {
 
 :host .day-button:hover:not(.disabled) {
   background-color: var(--ic-action-dark-bg-hover);
-  transition: all var(--ic-transition-duration-slow) ease-in-out;
 }
 
 :host .day-button:active:not(.disabled) {
   background-color: var(--ic-action-dark-bg-active);
-  transition: all var(--ic-transition-duration-slow) ease-in-out;
 }
 
-:host .day-button.selected {
+@media (prefers-reduced-motion: no-preference) {
+  :host .day-button:hover:not(.disabled),
+  :host .day-button:active:not(.disabled) {
+    transition: all var(--ic-transition-duration-slow) ease-in-out;
+  }
+}
+
+:host .day-button.selected:not(.hidden) {
   background-color: var(--ic-action-default);
 }
 
@@ -423,11 +429,11 @@ ic-date-input {
   color: var(--ic-color-white-text);
 }
 
-:host .day-button.selected:hover {
+:host .day-button.selected:not(.hidden):hover {
   background-color: var(--ic-action-default-hover);
 }
 
-:host .day-button.selected:active {
+:host .day-button.selected:not(.hidden):active {
   background-color: var(--ic-action-default-active);
 }
 
@@ -440,7 +446,7 @@ ic-date-input {
   z-index: 2;
 }
 
-:host .day-button.today::after {
+:host .day-button.today:not(.hidden)::after {
   content: "";
   position: absolute;
   width: 0.875rem;
@@ -464,86 +470,21 @@ ic-date-input {
   display: none;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .calendar-container.open {
-    
-  }
-} */
-
-/*
-:host {
-  border-radius: var(--ic-border-radius);
-  color: var(--ic-color-primary-text);
-  background-color: var(--ic-architectural-white);
-  position: relative;
-  z-index: var(--ic-z-index-popover);
-  box-sizing: border-box;
-  box-shadow: var(--ic-elevation-overlay);
-  display: none;
-}
-
-.menu {
-  border: 0.063rem solid var(--ic-architectural-400);
-  border-radius: var(--ic-border-radius);
-  background-color: var(--ic-architectural-white);
-  visibility: hidden;
-  height: 0;
-}
-
-.button {
-  text-decoration: none;
-  list-style-type: none;
-}
-
-:host(:focus-within) {
-  box-shadow: var(--ic-border-focus);
-}
-
-.menu:focus-visible {
-  outline: none;
-}
-
-:host(.open) {
-  display: block;
-  min-width: calc(20rem - var(--ic-space-xl));
-  width: var(--popover-width, 20rem);
-  max-width: calc(100vw - var(--ic-space-xl));
-}
-
-:host(.open) .menu {
-  visibility: visible;
-  height: fit-content;
-  max-height: var(--max-height, fit-content);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.parent-label {
-  color: var(--ic-color-tertiary-text);
-  margin: var(--ic-space-xs) var(--ic-space-xs) 0;
-}
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(10rem);
+@media (forced-colors: active) {
+  :host .day-button.today:not(.hidden)::after {
+    background-color: highlight;
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out {
-  from {
-    opacity: 0;
-    transform: translateX(-10rem);
+  :host .day-button.selected:not(.hidden) {
+    background-color: highlight;
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  :host .day-button.focussed:focus {
+    border: var(--ic-hc-border);
+  }
+
+  :host .month-button.selected::part(button),
+  :host .year-button.selected::part(button) {
+    background-color: highlight;
   }
 }
-*/

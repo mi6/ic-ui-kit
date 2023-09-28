@@ -52,12 +52,14 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
         "day-button": true,
         "outside-month": outsideMonth,
         "outside-range": outsideRange,
+        hidden: outsideMonth && !showDaysOutsideMonth,
         disabled: disabled,
         today: today,
         selected: selected,
         focussed: focussed,
       }}
       tabIndex={focussed ? 0 : -1}
+      aria-hidden={outsideMonth && !showDaysOutsideMonth}
       aria-disabled={disabled ? "true" : "false"}
       // aria-pressed={selected ? "true" : "false"}
       aria-current={today ? "date" : undefined}

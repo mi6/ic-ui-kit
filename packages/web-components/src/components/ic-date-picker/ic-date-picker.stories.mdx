@@ -49,7 +49,6 @@ import readme from "./readme.md";
       html`
         <ic-date-picker
           label="When would you like to collect your coffee?"
-          start-of-week="1"
           size="small"
         ></ic-date-picker>
       `
@@ -80,7 +79,7 @@ import readme from "./readme.md";
       html`
         <ic-date-picker
           label="When would you like to collect your coffee?"
-          helper-text="The calendar will open showing 25th December 2023, if not date selected"
+          helper-text="The calendar will open showing 25th December 2023, if no date selected"
           open-at-date="2023-12-25"
         ></ic-date-picker>
       `
@@ -118,60 +117,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### With max and min set
-
-<Canvas>
-  <Story name="With max and min set" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
-        <script>
-          var dp = document.querySelector("#min-max-dp");
-          dp.max = new Date("28 September 2024");
-        </script>
-        <ic-date-picker
-          label="When would you like to collect your coffee?"
-          id="min-max-dp"
-          min="2023-07-28"
-          date-format="MM/DD/YYYY"
-        ></ic-date-picker>
-      `
-    }
-  </Story>
-</Canvas>
-
-### Only dates in July 2023
-
-<Canvas>
-  <Story name="Only dates in July 2023" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
-        <ic-date-picker
-          label="When would you like to collect your coffee?"
-          helper-text="Choose a date between the 1st and 31st of July"
-          min="2023-07-01"
-          max="2023-07-31"
-          show-picker-today-button="false"
-        ></ic-date-picker>
-      `
-    }
-  </Story>
-</Canvas>
-
-### Days outside month hidden
-
-<Canvas>
-  <Story name="Days outside month hidden" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
-        <ic-date-picker
-          label="When would you like to collect your coffee?"
-          show-days-outside-month="false"
-        ></ic-date-picker>
-      `
-    }
-  </Story>
-</Canvas>
-
 ### Working weekdays only
 
 <Canvas>
@@ -184,6 +129,24 @@ import readme from "./readme.md";
         <ic-date-picker
           id="weekday-picker"
           label="When would you like to collect your coffee?"
+        ></ic-date-picker>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Max & Min - July 2023
+
+<Canvas>
+  <Story name="Max & Min - July 2023" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-date-picker
+          label="When would you like to collect your coffee?"
+          helper-text="Choose a date between the 1st and 31st of July"
+          min="2023-07-01"
+          max="2023-07-31"
+          show-picker-today-button="false"
         ></ic-date-picker>
       `
     }
@@ -217,6 +180,21 @@ import readme from "./readme.md";
         <ic-date-picker
           label="When would you like to collect your coffee?"
           disable-from-now
+        ></ic-date-picker>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Days outside month hidden
+
+<Canvas>
+  <Story name="Days outside month hidden" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-date-picker
+          label="When would you like to collect your coffee?"
+          show-days-outside-month="false"
         ></ic-date-picker>
       `
     }

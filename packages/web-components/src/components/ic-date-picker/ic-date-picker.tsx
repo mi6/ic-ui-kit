@@ -99,6 +99,7 @@ export class DatePicker {
   private focussedYearEl: HTMLIcButtonElement;
   private monthButtonEl: HTMLIcButtonElement;
   private monthNames: string[] = [];
+  private myCalendarButtonClicked: boolean = false;
   private today = new Date();
   private todayButtonEl: HTMLIcButtonElement = null;
   private yearButtonEl: HTMLIcButtonElement;
@@ -366,7 +367,7 @@ export class DatePicker {
   @Watch("focussedDayEl")
   watchFocussedDayEl(): void {
     if (this.focusDay) {
-      this.focusFocussedDay();
+      setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
     }
 
     this.focusDay = true;
@@ -398,11 +399,22 @@ export class DatePicker {
   // componentDidLoad(): void {}
 
   @Listen("calendarButtonClicked")
-  calendarButtonClickHandler(ev: CustomEvent): void {
+  localCalendarButtonClickHandler(ev: CustomEvent): void {
+    this.myCalendarButtonClicked = true;
     if (!this.calendarOpen) {
       this.setSelectedDate(ev.detail.value);
     }
+
     this.calendarOpen = !this.calendarOpen;
+  }
+
+  @Listen("calendarButtonClicked", { target: "document" })
+  calendarButtonClickHandler(): void {
+    //closes this picker if calendar button in another clicked
+    if (!this.myCalendarButtonClicked) {
+      this.calendarOpen = false;
+    }
+    this.myCalendarButtonClicked = false;
   }
 
   private setDecadeView = (start: number) => {
@@ -663,31 +675,14 @@ export class DatePicker {
   };
 
   private updateMonthInView = (): void => {
+    this.currMonthView = this.getMonthView(this.focussedDate);
+
     this.focussedDay = this.focussedDate.getDate();
     this.monthInView = this.focussedDate.getMonth();
     this.yearInView = this.focussedDate.getFullYear();
-
-    this.currMonthView = this.getMonthView(this.focussedDate);
   };
 
   private handleSelectDay = (day: Date): void => {
-    // const isInRange = inRange(day, parseISODate(this.min), parseISODate(this.max))
-    // const isAllowed = !this.isDateDisabled(day)
-
-    // if (isInRange && isAllowed) {
-    //   this.setValue(day)
-    //   this.hide()
-    // } else {
-    //   // for consistency we should set the focused day in cases where
-    //   // user has selected a day that has been specifically disallowed
-    //   this.setFocusedDay(day)
-    // }
-    // const month = day.getMonth();
-    // if (month !== this.monthInView){
-    //   this.monthInView = month;
-    //   this.updateMonthInView();
-    // }
-
     this.setSelectedDate(day);
     this.calendarOpen = false;
     this.inputEl.setCalendarFocus();
@@ -743,6 +738,12 @@ export class DatePicker {
         handled = this.calendarTabHandler(ev);
         break;
 
+      case "Escape":
+        ev.stopImmediatePropagation();
+        this.monthPickerVisible = false;
+        setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+        break;
+
       default:
         handled = false;
     }
@@ -776,6 +777,12 @@ export class DatePicker {
         handled = this.calendarTabHandler(ev);
         break;
 
+      case "Escape":
+        ev.stopImmediatePropagation();
+        this.yearPickerVisible = false;
+        setTimeout(() => this.focusFocussedDay(), FOCUS_TIMER);
+        break;
+
       default:
         handled = false;
     }
@@ -802,16 +809,37 @@ export class DatePicker {
         }
         break;
 
+      case "Escape":
+        if (this.monthPickerVisible) {
+          this.monthPickerVisible = false;
+          ev.stopImmediatePropagation();
+        }
+        break;
+
       default:
         break;
     }
   };
 
   private yearButtonKeyDownHandler = (ev: KeyboardEvent): void => {
-    if (ev.key === "ArrowLeft") {
-      this.gotoPreviousYear();
-    } else if (ev.key === "ArrowRight") {
-      this.gotoNextYear();
+    switch (ev.key) {
+      case "ArrowLeft":
+        this.gotoPreviousYear();
+        break;
+
+      case "ArrowRight":
+        this.gotoNextYear();
+        break;
+
+      case "Escape":
+        if (this.yearPickerVisible) {
+          this.yearPickerVisible = false;
+          ev.stopImmediatePropagation();
+        }
+        break;
+
+      default:
+        break;
     }
   };
 
