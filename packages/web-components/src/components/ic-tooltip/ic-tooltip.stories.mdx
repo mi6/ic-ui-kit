@@ -31,6 +31,43 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Silent
+
+<Canvas>
+  <Story name="Silent" height="100px">
+    {(args) =>
+      html`<ic-tooltip
+          label="This is a description of the button"
+          target="test-button-silent-one"
+          ><button
+            id="test-button-button-silent-one"
+            aria-describedby="ic-tooltip-test-button-silent-one"
+          >
+            Label for button
+          </button></ic-tooltip
+        >
+        <br />
+        <br />
+        <p>
+          Tooltips should be silenced when they duplicate the screen-reader
+          accessible text already within the button
+        </p>
+        <br />
+        <ic-tooltip
+          label="Label for button"
+          target="test-button-button-silent-two"
+          silent
+          ><button
+            id="test-button-default"
+            aria-describedby="ic-tooltip-test-button-silent-two"
+          >
+            Label for button
+          </button></ic-tooltip
+        >`
+    }
+  </Story>
+</Canvas>
+
 ### Using external method
 
 <Canvas>

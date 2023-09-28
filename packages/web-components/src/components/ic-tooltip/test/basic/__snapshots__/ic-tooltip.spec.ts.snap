@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-tooltip component getTooltipTranslate should update for bottom 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -18,9 +18,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom 1`] =
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for bottom-end 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-end" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-end" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -35,9 +35,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom-end 1
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for bottom-start 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-start" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="bottom-start" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -52,9 +52,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for bottom-start
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for left 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -69,9 +69,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for left 1`] = `
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for left-end 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="left-end" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="left-end" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -86,9 +86,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for left-end 1`]
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for right 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="right" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="right" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -103,9 +103,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for right 1`] = 
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for right-end 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="right-end" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="right-end" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -120,9 +120,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for right-end 1`
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for top 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="top" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="top" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -137,9 +137,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for top 1`] = `
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for top-end 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="top-end" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="top-end" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: -40px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -154,9 +154,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for top-end 1`] 
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update for top-start 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="top-start" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="top-start" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -132px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -171,9 +171,9 @@ exports[`ic-tooltip component getTooltipTranslate should update for top-start 1`
 `;
 
 exports[`ic-tooltip component getTooltipTranslate should update when tooltip is outside of dialog 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button">
+<ic-tooltip class="ic-tooltip" label="tooltip" placement="left" target="test-button" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip" style="--tooltip-translate-x: 0px; --tooltip-translate-y: -100px;">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>
@@ -188,9 +188,9 @@ exports[`ic-tooltip component getTooltipTranslate should update when tooltip is 
 `;
 
 exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
-<ic-tooltip class="ic-tooltip" label="tooltip">
+<ic-tooltip class="ic-tooltip" label="tooltip" title="tooltip">
   <mock:shadow-root>
-    <div class="ic-tooltip-container" role="tooltip">
+    <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
       <ic-typography variant="caption">
         tooltip
       </ic-typography>

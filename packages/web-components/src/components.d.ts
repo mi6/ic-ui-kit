@@ -1938,6 +1938,10 @@ export namespace Components {
          */
         "placement"?: IcTooltipPlacements;
         /**
+          * Whether the tooltip should be silent to screen readers. Set to true if your tooltip text only duplicates the accessible label of the child element
+         */
+        "silent"?: boolean;
+        /**
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */
         "target"?: string;
@@ -4529,6 +4533,10 @@ declare namespace LocalJSX {
           * The position of the tool-tip in relation to the parent element.
          */
         "placement"?: IcTooltipPlacements;
+        /**
+          * Whether the tooltip should be silent to screen readers. Set to true if your tooltip text only duplicates the accessible label of the child element
+         */
+        "silent"?: boolean;
         /**
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */

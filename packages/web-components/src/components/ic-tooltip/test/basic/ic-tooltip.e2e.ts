@@ -129,19 +129,6 @@ describe("ic-tooltip component", () => {
     expect(await tooltip.isVisible()).toBe(false);
   });
 
-  it("should apply the aria description from hidden span to an element using aria-describedby", async () => {
-    const page = await newE2EPage();
-    await page.setContent(
-      `<ic-tooltip target="ic-tooltip-test-button-right-end" label="test-label" placement="right-end"><button aria-describedby="test-button-right-end">IC Tooltip Test</button></ic-tooltip>`
-    );
-    await page.waitForChanges();
-
-    const tooltipSpan = await page.find("span.ic-tooltip-label");
-    const text = await tooltipSpan.innerText;
-
-    expect(text).toBe("test-label");
-  });
-
   it("should display the tooltip when the displayTooltip method is called", async () => {
     const page = await newE2EPage();
     await page.setContent(
