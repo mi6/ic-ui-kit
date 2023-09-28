@@ -181,11 +181,9 @@ exports[`button component should render correct HTML with right icon 1`] = `
 exports[`button component should render icon variant with a tooltip 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
-        <slot></slot>
-      </button>
-    </ic-tooltip>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
   </mock:shadow-root>
   Button
 </ic-button>
@@ -194,7 +192,7 @@ exports[`button component should render icon variant with a tooltip 1`] = `
 exports[`button component should render icon variant with a tooltip based on aria-label 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" tooltip-placement="top" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="top" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip label="Tooltip text" placement="top" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
@@ -207,7 +205,7 @@ exports[`button component should render icon variant with a tooltip based on ari
 exports[`button component should render icon variant with a tooltip based on title 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
@@ -281,7 +279,7 @@ exports[`button component should test button as submit button on form 1`] = `
 exports[`button component should update when method called 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-label="Tooltip text" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>
@@ -294,7 +292,7 @@ exports[`button component should update when method called 1`] = `
 exports[`button component should update when method called 2`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
       <button aria-label="null" class="button" id="ic-button-with-tooltip-test-button" part="button" type="button">
         <slot></slot>
       </button>

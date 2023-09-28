@@ -78,7 +78,7 @@ describe("ic-side-navigation", () => {
       expect(mobileBtnLabel).toContain("Close");
     });
 
-    it("dyanmically updated native button aria-label and aria-expanded", async () => {
+    it("dynamically updated native button aria-label and aria-expanded", async () => {
       const page = await newE2EPage();
       await page.setContent(icSideNavigation);
 
@@ -163,8 +163,8 @@ describe("ic-side-navigation", () => {
       const navigationItems = await page.evaluate(() => {
         return Array.from(
           document.querySelectorAll("ic-side-navigation ic-navigation-item")
-        ).map((i) =>
-          i.shadowRoot.querySelector(".ic-tooltip").textContent.slice(2)
+        ).map((item) =>
+          item.shadowRoot.querySelector(".ic-tooltip").textContent.slice(2)
         );
       });
 

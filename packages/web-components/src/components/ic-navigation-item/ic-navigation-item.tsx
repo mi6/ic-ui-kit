@@ -321,6 +321,7 @@ export class NavigationItem {
           label={label || navigationSlot.textContent}
           target="navigation-item"
           placement="right"
+          silent
           class={{
             ["tooltip-navigation-item"]: true,
             ["tooltip-navigation-item-side-nav-collapsed"]:

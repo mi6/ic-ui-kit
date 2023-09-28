@@ -152,6 +152,7 @@ export class Chip {
               label="Dismiss"
               target="dismiss-icon"
               class={{ ["tooltip-disabled"]: disabled }}
+              silent
             >
               <button
                 id="dismiss-icon"

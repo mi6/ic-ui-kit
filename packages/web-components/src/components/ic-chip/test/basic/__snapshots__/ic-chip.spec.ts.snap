@@ -12,7 +12,7 @@ exports[`ic-chip component renders label should render disabled 1`] = `
           Label
         </span>
       </ic-typography>
-      <ic-tooltip class="tooltip-disabled" label="Dismiss" target="dismiss-icon">
+      <ic-tooltip class="tooltip-disabled" label="Dismiss" silent="" target="dismiss-icon">
         <button aria-label="Dismiss Label chip" class="dismiss-icon" disabled="" id="dismiss-icon" tabindex="-1">
           svg
         </button>
@@ -37,7 +37,7 @@ exports[`ic-chip component renders label should render dismissible 1`] = `
           Label
         </span>
       </ic-typography>
-      <ic-tooltip label="Dismiss" target="dismiss-icon">
+      <ic-tooltip label="Dismiss" silent="" target="dismiss-icon">
         <button aria-label="Dismiss Label chip" class="dismiss-icon" id="dismiss-icon" tabindex="0">
           svg
         </button>
@@ -62,7 +62,7 @@ exports[`ic-chip component renders label should render small 1`] = `
           Label
         </span>
       </ic-typography>
-      <ic-tooltip label="Dismiss" target="dismiss-icon">
+      <ic-tooltip label="Dismiss" silent="" target="dismiss-icon">
         <button aria-label="Dismiss Label chip" class="dismiss-icon" id="dismiss-icon" tabindex="0">
           svg
         </button>

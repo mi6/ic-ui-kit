@@ -383,6 +383,13 @@ export class Button {
       }
     }
 
+    if (tooltipText == undefined) {
+      console.error(
+        "Icon Button created without accessible label. Please provide a title or aria-label on the button."
+      );
+      this.hasTooltip = false;
+    }
+
     let describedBy: string = null;
     let buttonId: string = null;
     if (this.hasTooltip) {
@@ -468,6 +475,7 @@ export class Button {
             label={tooltipText}
             target={buttonId}
             placement={this.tooltipPlacement}
+            silent
           >
             <ButtonContent />
           </ic-tooltip>

@@ -164,7 +164,7 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" silent="" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -231,7 +231,7 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="Home" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="Home" placement="right" silent="" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -298,7 +298,7 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
   </mock:shadow-root>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" silent="" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -375,7 +375,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
                 
               
               Daily Tippers
-            " placement="right" target="navigation-item">
+            " placement="right" silent="" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
@@ -392,7 +392,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
   </ic-navigation-item>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav navigation-item-side-nav-collapsed navigation-item-side-nav-collapsed-with-label" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item tooltip-navigation-item-side-nav-collapsed" label="a11y" placement="right" silent="" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -466,7 +466,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="
                 
-              Daily Tippers" placement="right" target="navigation-item">
+              Daily Tippers" placement="right" silent="" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
@@ -483,7 +483,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
   </ic-navigation-item>
   <ic-navigation-item class="light navigation-item navigation-item-side-nav" collapsed-icon-label="true" display-navigation-tooltip="false" href="/" label="a11y" role="listitem" slot="secondary-navigation">
     <mock:shadow-root>
-      <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" target="navigation-item">
+      <ic-tooltip class="tooltip-navigation-item" label="a11y" placement="right" silent="" target="navigation-item">
         <a class="link" href="/" part="link">
           <div class="icon">
             <slot name="icon"></slot>
@@ -551,7 +551,7 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
                 
               
               Daily Tippers
-            " placement="right" target="navigation-item">
+            " placement="right" silent="" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
@@ -633,7 +633,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="
             
-          Daily Tippers" placement="right" target="navigation-item">
+          Daily Tippers" placement="right" silent="" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
@@ -666,7 +666,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
       <mock:shadow-root>
         <ic-tooltip class="tooltip-navigation-item" label="
               
-            Daily Tippers" placement="right" target="navigation-item">
+            Daily Tippers" placement="right" silent="" target="navigation-item">
           <slot name="navigation-item"></slot>
         </ic-tooltip>
       </mock:shadow-root>
@@ -686,7 +686,7 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
     <mock:shadow-root>
       <ic-tooltip class="tooltip-navigation-item" label="
             
-          bar" placement="right" target="navigation-item">
+          bar" placement="right" silent="" target="navigation-item">
         <slot name="navigation-item"></slot>
       </ic-tooltip>
     </mock:shadow-root>
