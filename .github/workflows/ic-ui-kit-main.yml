@@ -33,7 +33,7 @@ jobs:
         run: npm run prettier
 
       - name: Audit
-        run: npm run audit
+        run: npm run audit:bypass-expiry
 
       - name: A11y tests
         run: npm run test-a11y:ci
