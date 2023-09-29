@@ -22,6 +22,16 @@ svg {
   margin-left: auto;
 }
 
+.chevron-container svg,
+.chevron-container .svg {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+}
+
+.chevron-container {
+  flex-grow: 1;
+}
+
 :host(.expandable.navigation-item) .link,
 :host(.expandable.navigation-item) ::slotted(a) {
   padding-right: 0;
@@ -324,6 +334,8 @@ svg {
   ::slotted(a) {
   height: auto !important;
   gap: 0;
+  width: auto;
+  padding: var(--ic-space-xs) !important;
 }
 
 :host(.navigation-item-side-nav.navigation-item-side-nav-collapsed-with-label)
@@ -367,8 +379,9 @@ svg {
 
 :host(.navigation-item-side-nav) .link,
 :host(.navigation-item-side-nav) ::slotted(a) {
-  height: var(--navigation-item-height);
-  width: var(--navigation-item-width);
+  height: var(--navigation-item-height, 56px);
+  min-height: var(--navigation-item-min-height);
+  width: var(--navigation-item-width, auto);
   justify-content: var(--navigation-item-justify-content);
   display: flex;
   gap: var(--ic-space-xs);
@@ -376,7 +389,11 @@ svg {
   color: var(--navigation-item-child-color) !important;
   text-decoration: none !important;
   white-space: nowrap;
-  padding: 0 var(--ic-space-md);
+  padding-top: var(--ic-space-md) !important;
+  padding-left: var(--ic-space-md) !important;
+  padding-bottom: var(--ic-space-md) !important;
+  padding-right: var(--navigation-item-side-nav-right) !important;
+  text-wrap: wrap;
 }
 
 :host(.navigation-item-side-nav.navigation-item-top-nav-child) .link,
@@ -423,7 +440,6 @@ svg {
   white-space: wrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  min-width: 256px;
 }
 
 :host(.navigation-item-side-nav.navigation-item-selected) .link,

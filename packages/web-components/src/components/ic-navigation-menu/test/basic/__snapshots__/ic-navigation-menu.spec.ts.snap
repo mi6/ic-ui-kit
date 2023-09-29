@@ -211,6 +211,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
           <ic-typography variant="label">
             Navigation 1
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -304,6 +305,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
           <ic-typography variant="label">
             Navigation 1
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
