@@ -66,6 +66,7 @@ export const IcTabGroup = /*@__PURE__*/createReactComponent<JSX.IcTabGroup, HTML
 export const IcTabPanel = /*@__PURE__*/createReactComponent<JSX.IcTabPanel, HTMLIcTabPanelElement>('ic-tab-panel');
 export const IcTextField = /*@__PURE__*/createReactComponent<JSX.IcTextField, HTMLIcTextFieldElement>('ic-text-field');
 export const IcTheme = /*@__PURE__*/createReactComponent<JSX.IcTheme, HTMLIcThemeElement>('ic-theme');
+export const IcTitleBar = /*@__PURE__*/createReactComponent<JSX.IcTitleBar, HTMLIcTitleBarElement>('ic-title-bar');
 export const IcToast = /*@__PURE__*/createReactComponent<JSX.IcToast, HTMLIcToastElement>('ic-toast');
 export const IcToastRegion = /*@__PURE__*/createReactComponent<JSX.IcToastRegion, HTMLIcToastRegionElement>('ic-toast-region');
 export const IcTooltip = /*@__PURE__*/createReactComponent<JSX.IcTooltip, HTMLIcTooltipElement>('ic-tooltip');

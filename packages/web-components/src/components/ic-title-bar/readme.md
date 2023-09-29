@@ -7,13 +7,12 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                                                                                      | Type      | Default     |
-| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `description`       | `description`         | The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.                                              | `string`  | `undefined` |
-| `fullWidth`         | `full-width`          | If `true`, will apply a background colour and a bottom border to the title bar.                                                                                  | `boolean` | `true`      |
-| `header`            | `header`              | The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden. | `string`  | `undefined` |
-| `hideDensitySelect` | `hide-density-select` | When `true`, the density select will not be rendered.                                                                                                            | `boolean` | `false`     |
-| `metadata`          | `metadata`            | The metadata displayed next to the `header`.                                                                                                                     | `string`  | `undefined` |
+| Property            | Attribute             | Description                                                                                                                                                      | Type      | Default                    |
+| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------- |
+| `description`       | `description`         | The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.                                              | `string`  | `undefined`                |
+| `header`            | `header`              | The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden. | `string`  | `DEFAULT_TITLE_BAR_HEADER` |
+| `hideDensitySelect` | `hide-density-select` | When `true`, the density select will not be rendered.                                                                                                            | `boolean` | `false`                    |
+| `metadata`          | `metadata`            | The metadata displayed next to the `header`.                                                                                                                     | `string`  | `undefined`                |
 
 
 ## Events

@@ -1,0 +1,80 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcTitleBar, IcLink, IcButton, IcTypography } from "../components";
+import readme from "../../../web-components/src/components/ic-title-bar/readme.md";
+import { SlottedSVG } from "../react-component-lib/slottedSVG";
+
+import { mdiImage } from '@mdi/js';
+
+<Meta title="React Components/Title Bar" component={IcTitleBar} />
+
+<Description markdown={readme} />
+
+### Basic
+
+<Canvas>
+  <Story name="Basic">
+    <IcTitleBar header="Title Bar" />
+  </Story>
+</Canvas>
+
+### With metadata and description
+
+<Canvas>
+  <Story name="With metadata and description">
+    <IcTitleBar
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    />
+  </Story>
+</Canvas>
+
+### Hide density selector
+
+<Canvas>
+  <Story name="Hide density selector">
+    <IcTitleBar
+      hideDensitySelect
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    />
+  </Story>
+</Canvas>
+
+### Custom actions
+
+<Canvas>
+  <Story name="Custom actions">
+    <IcTitleBar header="Title Bar" metadata="128 items | 32gb | Updated: 01/02/03" description="Data table description that describes the purpose of the table.">
+      <IcButton slot="primary-action" size="small">Primary</IcButton>
+      <IcButton slot="custom-actions" variant="icon" aria-label="Icon Button">
+        <SlottedSVG path={mdiImage} viewBox="0 0 24 24"/>
+      </IcButton>
+    </IcTitleBar>
+  </Story>
+</Canvas>
+
+### Slotted header and description
+
+<Canvas>
+  <Story name="Slotted header and description">
+    <IcTitleBar hideDensitySelect>
+      <IcTypography slot="header" variant="h3">
+        <IcLink href="/" inline>Title Bar</IcLink>
+      </IcTypography>
+      <IcTypography slot="description" variant="body">
+        <p>
+          This is some text and <IcLink href="/" inline>this is an inline link</IcLink> within
+          the text.
+        </p>
+      </IcTypography>
+    </IcTitleBar>
+  </Story>
+</Canvas>
