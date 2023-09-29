@@ -23,7 +23,7 @@
 }
 
 table {
-  table-layout: auto;
+  table-layout: fixed;
   border-spacing: 0;
   width: 100%;
 }
@@ -36,7 +36,7 @@ table {
   z-index: 1;
 }
 
-:host([embedded="true"]) .table-container {
+:host([embedded="true"]) .table-row-container {
   border: var(--ic-border-light);
 }
 
