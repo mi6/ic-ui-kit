@@ -188,6 +188,7 @@ slot[name="app-icon"]::slotted(a) {
   color: var(--ic-theme-text);
   outline: none;
   text-decoration: none;
+  display: flex;
 }
 
 slot[name="app-title"]::slotted(ic-typography),
@@ -207,6 +208,7 @@ slot[name="app-title"]::slotted(a) {
     opacity: 0;
     transition: opacity var(--ic-easing-transition-slow);
   }
+
   :host(.sm-expanded) slot[name="app-title"]::slotted(a) {
     font: var(--ic-font-h3) !important;
     font-weight: var(--ic-font-weight-semibold) !important;
@@ -322,7 +324,6 @@ slot[name="app-title"]::slotted(a) {
 
 ::slotted(ic-navigation-item),
 ::slotted(ic-navigation-group) {
-  --navigation-item-height: 3.5rem;
   --navigation-item-justify-content: flex-start;
   --navigation-item-min-height: 56px;
   --navigation-item-height: 100%;

@@ -806,7 +806,7 @@ describe("ic-side-navigation", () => {
       expect(visibleLabel).toBe("visible");
     });
 
-    it("renders visible labels when slotted menu items and expanded", async () => {
+    it("renders visible labels when slotted menu items and side nav is expanded", async () => {
       const page = await newE2EPage();
       await page.setContent(icSideNavigationSlotted);
 

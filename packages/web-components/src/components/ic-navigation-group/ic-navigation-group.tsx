@@ -157,7 +157,7 @@ export class NavigationGroup {
             linkWrapper,
             this.expandedNavItemsHeight
           );
-        }, 125);
+        }, this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS);
       }
     } else {
       if (this.expanded && this.collapsedNavItemsHeight) {
@@ -173,7 +173,7 @@ export class NavigationGroup {
             linkWrapper,
             this.collapsedNavItemsHeight
           );
-        }, 125);
+        }, this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS);
       }
     }
   };

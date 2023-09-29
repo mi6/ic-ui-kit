@@ -390,9 +390,7 @@ svg {
   text-decoration: none !important;
   white-space: nowrap;
   padding-top: var(--ic-space-md) !important;
-  padding-left: var(--ic-space-md) !important;
   padding-bottom: var(--ic-space-md) !important;
-  padding-right: var(--navigation-item-side-nav-right) !important;
   text-wrap: wrap;
 }
 
