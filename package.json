@@ -22,7 +22,7 @@
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
     "audit-expiry": "node check-audit-expiry.js",
-    "prepare": "husky ins:bypass-expirytall",
+    "prepare": "husky install",
     "prettier": "lerna run prettier",
     "prettier:fix": "lerna run prettier:fix",
     "lint": "lerna run lint",
