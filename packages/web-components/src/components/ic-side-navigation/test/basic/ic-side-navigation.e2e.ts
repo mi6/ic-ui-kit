@@ -6,6 +6,8 @@ import {
   icSideNavigationTheme,
   icSideNavigationStatic,
   icSideNavigationSlottedExpanded,
+  icSideNavigationAppTitle,
+  icSideNavigationSlotted,
 } from "./ic-side-navigation-test-examples";
 
 const MOBILE_VIEWPORT = {
@@ -769,6 +771,74 @@ describe("ic-side-navigation", () => {
       });
 
       expect(labelVisibility).toBe("visible");
+    });
+
+    it("renders navigation item labels when using slotted app-title and side nav is expanded", async () => {
+      const page = await newE2EPage();
+      await page.setContent(icSideNavigationAppTitle);
+
+      let visibleLabel = await page.evaluate(() => {
+        const label = document
+          .querySelector("ic-side-navigation ic-navigation-item")
+          .querySelector("ic-typography");
+
+        return window.getComputedStyle(label).visibility;
+      });
+
+      expect(visibleLabel).toBe("hidden");
+
+      const menuExpandBtn = await page.find(
+        "ic-side-navigation >>> .side-navigation button.menu-expand-button"
+      );
+
+      await menuExpandBtn.click();
+
+      await page.waitForTimeout(ANIMATION_MS_THRESHOLD);
+
+      visibleLabel = await page.evaluate(() => {
+        const label = document
+          .querySelector("ic-side-navigation ic-navigation-item")
+          .querySelector("ic-typography");
+
+        return window.getComputedStyle(label).visibility;
+      });
+
+      expect(visibleLabel).toBe("visible");
+    });
+
+    it("renders visible labels when slotted menu items and expanded", async () => {
+      const page = await newE2EPage();
+      await page.setContent(icSideNavigationSlotted);
+
+      const menuBtn = await page.find(
+        "ic-side-navigation >>> .menu-expand-button"
+      );
+
+      await menuBtn.click();
+      await page.waitForChanges();
+
+      let visibleLabel = await page.evaluate(() => {
+        const label = document
+          .querySelector("ic-side-navigation ic-navigation-item")
+          .querySelector("ic-typography");
+
+        return window.getComputedStyle(label).visibility;
+      });
+
+      expect(visibleLabel).toBe("visible");
+
+      await menuBtn.click();
+      await page.waitForChanges();
+
+      visibleLabel = await page.evaluate(() => {
+        const label = document
+          .querySelector("ic-side-navigation ic-navigation-item")
+          .querySelector("ic-typography");
+
+        return window.getComputedStyle(label).visibility;
+      });
+
+      expect(visibleLabel).toBe("hidden");
     });
   });
 });

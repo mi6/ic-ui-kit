@@ -221,6 +221,7 @@ exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] 
           <ic-typography variant="label">
             Navigation 1
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>

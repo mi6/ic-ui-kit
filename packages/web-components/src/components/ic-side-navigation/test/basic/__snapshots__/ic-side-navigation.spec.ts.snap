@@ -10,11 +10,13 @@ exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -47,11 +49,13 @@ exports[`ic-side-navigation renders with app title, version and status: renders-
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -88,11 +92,13 @@ exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] =
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -125,11 +131,13 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -172,6 +180,7 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
           <ic-typography variant="label">
             Home
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -192,11 +201,13 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -239,6 +250,7 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
           <ic-typography variant="label">
             Home
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -259,11 +271,13 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -306,6 +320,7 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
           <ic-typography variant="label">
             a11y
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -326,11 +341,13 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -400,6 +417,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
           <ic-typography variant="label">
             a11y
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -420,11 +438,13 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper app-title-show">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -491,6 +511,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
           <ic-typography variant="label">
             a11y
           </ic-typography>
+          <div class="chevron-container"></div>
         </a>
       </ic-tooltip>
     </mock:shadow-root>
@@ -511,11 +532,13 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                ACME
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  ACME
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>
@@ -579,11 +602,13 @@ exports[`ic-side-navigation renders with slotted primary secondary navigation an
             <div aria-hidden="true" class="app-icon-container">
               <slot name="app-icon"></slot>
             </div>
-            <ic-typography variant="subtitle-small">
-              <h1>
-                Application Name
-              </h1>
-            </ic-typography>
+            <div class="app-title-inner-wrapper">
+              <ic-typography variant="subtitle-small">
+                <h1>
+                  Application Name
+                </h1>
+              </ic-typography>
+            </div>
           </a>
         </div>
       </div>

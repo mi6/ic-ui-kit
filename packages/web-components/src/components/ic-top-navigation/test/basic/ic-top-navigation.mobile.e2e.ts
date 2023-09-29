@@ -77,6 +77,7 @@ describe("ic-top-navigation on mobile", () => {
       <ic-navigation-item
         label="Navigation"
         slot="navigation"
+        href="#"
       ></ic-navigation-item>
     </ic-top-navigation>`);
 
@@ -105,7 +106,7 @@ describe("ic-top-navigation on mobile", () => {
     );
 
     const navItem = await page.find("ic-navigation-item");
-
+    await page.waitForTimeout(5000);
     await navItem.click();
     await page.waitForChanges();
 
