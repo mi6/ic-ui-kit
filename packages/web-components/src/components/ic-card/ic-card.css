@@ -26,6 +26,7 @@ button {
   text-align: left;
   color: var(--ic-architechtural-black);
   transition: var(--ic-easing-transition-fast);
+  width: inherit;
 }
 
 .dark.card,
