@@ -222,9 +222,9 @@ export class SideNavigation {
   };
 
   private setAndRemoveNoWrapAfterMenuExpanded = () => {
-    const appTitle = this.el.shadowRoot.querySelector(
-      ".title-link ic-typography"
-    );
+    const appTitle =
+      this.el.shadowRoot.querySelector(".title-link ic-typography") ||
+      this.el.querySelector("[slot='app-title']");
 
     appTitle.classList.add("ic-typography-no-wrap");
 
@@ -238,6 +238,20 @@ export class SideNavigation {
 
     if (this.menuExpanded) {
       this.setAndRemoveNoWrapAfterMenuExpanded();
+      this.el.shadowRoot
+        .querySelector(".app-title-inner-wrapper")
+        .classList.add("app-title-show");
+    } else {
+      this.el.style.setProperty("--navigation-item-width", "320px");
+      this.el.shadowRoot
+        .querySelector(".app-title-inner-wrapper")
+        .classList.remove("app-title-show");
+
+      this.el.addEventListener("transitionend", (e) => {
+        if (e.propertyName === "width") {
+          this.el.style.setProperty("--navigation-item-width", null);
+        }
+      });
     }
 
     this.arrangeSlottedNavigationItem(this.menuExpanded);
@@ -260,12 +274,17 @@ export class SideNavigation {
    */
   private arrangeSlottedNavigationItem = (menuExpanded?: boolean) => {
     const navItems = this.el.querySelectorAll("ic-navigation-item");
-
     navItems.forEach((navItem) => {
-      const hasUsedSlot = isSlotUsed(navItem, "navigation-item");
-
-      if (hasUsedSlot) {
-        const navItemSlot = navItem.querySelector("[slot='navigation-item']");
+      const isNamedSlot = isSlotUsed(navItem, "navigation-item");
+      const isUnnamedSlot =
+        navItem.children[0] && !navItem.children[0].getAttribute("slot");
+      if (isNamedSlot || isUnnamedSlot) {
+        let navItemSlot;
+        if (isNamedSlot) {
+          navItemSlot = navItem.querySelector("[slot='navigation-item']");
+        } else {
+          navItemSlot = navItem.children[0];
+        }
         const iconWrapper = document.createElement("div");
         const icon = navItemSlot.querySelector("svg");
         const label = navItem.textContent.trim();
@@ -654,11 +673,13 @@ export class SideNavigation {
               <div class="app-icon-container" aria-hidden="true">
                 <slot name="app-icon"></slot>
               </div>
-              {isSlotUsed(this.el, "app-title") ? (
-                <slot name="app-title"></slot>
-              ) : (
-                this.renderAppTitle(isAppNameSubtitleVariant)
-              )}
+              <div class="app-title-inner-wrapper">
+                {isSlotUsed(this.el, "app-title") ? (
+                  <slot name="app-title"></slot>
+                ) : (
+                  this.renderAppTitle(isAppNameSubtitleVariant)
+                )}
+              </div>
             </Component>
           )}
         </div>

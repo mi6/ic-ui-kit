@@ -209,6 +209,46 @@ describe("ic-side-navigation", () => {
     expect(page.rootInstance.menuExpanded).toBe(true);
   });
 
+  it("should set navigation item width to 320px when expanded", async () => {
+    const page = await newSpecPage({
+      components: [SideNavigation, NavigationItem],
+      html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="false">
+        <ic-navigation-item slot="primary-navigation">
+            <a
+              slot="navigation-item"
+              class="active"
+              href="/child-item-2"
+              aria-label="Daily Tippers"
+            >
+              <svg
+                slot="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+              Daily Tippers
+            </a>
+          </ic-navigation-item>
+      </ic-side-navigation>`,
+    });
+
+    page.rootInstance.menuExpanded = true;
+    await page.rootInstance.toggleMenuExpanded();
+
+    expect(
+      (
+        page.rootInstance.el as HTMLIcSideNavigationElement
+      ).style.getPropertyValue("--navigation-item-width")
+    ).toBe("320px");
+  });
+
   it("renders expanded", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],

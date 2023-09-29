@@ -18,7 +18,6 @@ import {
 import { IcNavType, IcTheme } from "../../utils/types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
-
 @Component({
   tag: "ic-navigation-group",
   styleUrl: "ic-navigation-group.css",
@@ -28,15 +27,16 @@ import chevronIcon from "../../assets/chevron-icon.svg";
 })
 export class NavigationGroup {
   private allGroupedNavigationItems: HTMLIcNavigationItemElement[] = [];
-  private collapsedIconLabelsNavigationItemsHeight: string;
+  private collapsedNavItemsHeight: string;
   private dropdown: HTMLElement;
-  private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 50;
+  private DYNAMIC_GROUPED_LINKS_HEIGHT_MS = 100;
+  private expandedNavItemsHeight: string;
   private groupEl: HTMLElement;
   private IC_NAVIGATION_ITEM = "ic-navigation-item";
-  private isCollapsedLabelVariant: boolean;
   private isSideNavExpanded: boolean;
   private mouseGate: boolean = false;
   private nodeName = "IC-NAVIGATION-GROUP";
+  private GROUPED_LINKS_WRAPPER_CLASS = ".grouped-links-wrapper";
 
   @Element() el: HTMLIcNavigationGroupElement;
 
@@ -137,23 +137,45 @@ export class NavigationGroup {
 
   private sideNavExpandHandler = (event?: CustomEvent): void => {
     this.isSideNavExpanded = event.detail.sideNavExpanded;
+    const linkWrapper = this.el.shadowRoot.querySelector(
+      this.GROUPED_LINKS_WRAPPER_CLASS
+    ) as HTMLElement;
 
-    if (this.isCollapsedLabelVariant === undefined) {
-      this.isCollapsedLabelVariant = !!(
-        event.target as HTMLIcSideNavigationElement
-      ).getAttribute("collapsed-icon-labels");
+    if (!linkWrapper) return;
+
+    if (this.isSideNavExpanded) {
+      if (this.expanded && this.expandedNavItemsHeight) {
+        this.setGroupedLinksElementHeight(
+          linkWrapper,
+          this.expandedNavItemsHeight
+        );
+      } else if (this.expanded) {
+        setTimeout(() => {
+          this.expandedNavItemsHeight = this.getNavigationChildItemsHeight();
+
+          this.setGroupedLinksElementHeight(
+            linkWrapper,
+            this.expandedNavItemsHeight
+          );
+        }, 125);
+      }
+    } else {
+      if (this.expanded && this.collapsedNavItemsHeight) {
+        this.setGroupedLinksElementHeight(
+          linkWrapper,
+          this.collapsedNavItemsHeight
+        );
+      } else if (this.expanded) {
+        setTimeout(() => {
+          this.collapsedNavItemsHeight = this.getNavigationChildItemsHeight();
+
+          this.setGroupedLinksElementHeight(
+            linkWrapper,
+            this.collapsedNavItemsHeight
+          );
+        }, 125);
+      }
     }
-
-    // Store sum of heights on all collapsed icon label items
-    if (this.isCollapsedLabelVariant && !this.isSideNavExpanded) {
-      this.collapsedIconLabelsNavigationItemsHeight =
-        this.getNavigationChildItemsHeight();
-    }
-
-    setTimeout(
-      () => this.setInitialGroupedLinksWrapperHeight(),
-      this.DYNAMIC_GROUPED_LINKS_HEIGHT_MS
-    );
   };
 
   private topNavResizedHandler = (ev: CustomEvent): void => {
@@ -185,24 +207,28 @@ export class NavigationGroup {
     wrapper: HTMLElement,
     expanded: boolean
   ) => {
-    if (wrapper) {
-      if (expanded) {
-        wrapper.setAttribute(
-          "style",
-          `--navigation-child-items-height: ${this.getNavigationChildItemsHeight()}`
-        );
-        this.setGroupedNavItemTabIndex("0");
+    if (!wrapper) return;
+
+    if (expanded) {
+      if (this.isSideNavExpanded) {
+        this.setGroupedLinksElementHeight(wrapper, this.expandedNavItemsHeight);
       } else {
-        wrapper.setAttribute("style", `--navigation-child-items-height: 0`);
-        this.setGroupedNavItemTabIndex("-1");
+        this.setGroupedLinksElementHeight(
+          wrapper,
+          this.collapsedNavItemsHeight
+        );
       }
+      this.setGroupedNavItemTabIndex("0");
+    } else {
+      wrapper.style.setProperty("--navigation-child-items-height", "0");
+      this.setGroupedNavItemTabIndex("-1");
     }
   };
 
   private toggleExpanded = () => {
     this.expanded = !this.expanded;
     const linkWrapper = this.el.shadowRoot.querySelector(
-      ".grouped-links-wrapper"
+      this.GROUPED_LINKS_WRAPPER_CLASS
     ) as HTMLElement;
     this.toggleGroupedLinkWrapperHeight(linkWrapper, this.expanded);
   };
@@ -340,7 +366,7 @@ export class NavigationGroup {
   private getNavigationChildItemsHeight = (): string => {
     let navigationChildItemsHeight = 0;
     this.allGroupedNavigationItems.forEach((navItem) => {
-      navigationChildItemsHeight += navItem.clientHeight;
+      navigationChildItemsHeight += navItem.offsetHeight;
     });
 
     return `${navigationChildItemsHeight}px`;
@@ -348,27 +374,28 @@ export class NavigationGroup {
 
   private setInitialGroupedLinksWrapperHeight = () => {
     const linkWrapper = this.el.shadowRoot.querySelector(
-      ".grouped-links-wrapper"
+      this.GROUPED_LINKS_WRAPPER_CLASS
     ) as HTMLElement;
 
+    if (!linkWrapper) return;
+
     if (
-      linkWrapper &&
-      this.expanded &&
       !this.isSideNavExpanded &&
-      this.isCollapsedLabelVariant
+      !this.collapsedNavItemsHeight &&
+      this.expanded
     ) {
-      /**
-       * Collapsed icon labels height is different depending on if ic-side-navigation is collapsed or expanded.
-       * If collapsed, use collapsedIconLabelsNavigationItemsHeight which is set on initial load.
-       */
-      linkWrapper.setAttribute(
-        "style",
-        `--navigation-child-items-height: ${this.collapsedIconLabelsNavigationItemsHeight}px`
+      this.collapsedNavItemsHeight = this.getNavigationChildItemsHeight();
+      this.setGroupedLinksElementHeight(
+        linkWrapper,
+        this.collapsedNavItemsHeight
       );
-    } else if (linkWrapper && this.expanded) {
-      linkWrapper.setAttribute(
-        "style",
-        `--navigation-child-items-height: ${this.getNavigationChildItemsHeight()}`
+    }
+
+    if (this.isSideNavExpanded && this.expanded) {
+      this.expandedNavItemsHeight = this.getNavigationChildItemsHeight();
+      this.setGroupedLinksElementHeight(
+        linkWrapper,
+        this.expandedNavItemsHeight
       );
     }
   };
@@ -384,6 +411,16 @@ export class NavigationGroup {
 
     return null;
   };
+
+  private setGroupedLinksElementHeight(
+    groupedNavItemWrapper: HTMLElement,
+    height: string
+  ) {
+    groupedNavItemWrapper.style.setProperty(
+      "--navigation-child-items-height",
+      height
+    );
+  }
 
   render() {
     const { label, dropdownOpen, inTopNavSideMenu, expandable } = this;

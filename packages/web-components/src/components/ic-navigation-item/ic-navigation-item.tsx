@@ -222,7 +222,7 @@ export class NavigationItem {
           {IconComponent}
 
           <ic-typography variant={variant}>{label}</ic-typography>
-          {ChevronIconComponent}
+          <div class="chevron-container">{ChevronIconComponent}</div>
           {target === "_blank" && (
             <span class="open-in-new-icon" innerHTML={OpenInNew} />
           )}
@@ -267,20 +267,43 @@ export class NavigationItem {
     this.navItemClicked.emit();
   };
 
+  private generateTooltipLabel = () => {
+    if (this.label) {
+      return this.label;
+    }
+
+    if (this.navigationSlot) {
+      return this.navigationSlot.textContent;
+    }
+
+    if (this.el.children[0]) {
+      return this.el.children[0].textContent;
+    }
+
+    return "";
+  };
+
+  private renderNavigationItemContent = () => {
+    if (this.label) {
+      return this.displayDefaultNavigationItem(
+        this.href,
+        this.hreflang,
+        this.target,
+        this.rel,
+        this.referrerpolicy,
+        this.download,
+        this.label
+      );
+    }
+
+    if (this.navigationSlot) {
+      return <slot name="navigation-item"></slot>;
+    }
+    return <slot></slot>;
+  };
+
   render() {
-    const {
-      href,
-      hreflang,
-      target,
-      rel,
-      referrerpolicy,
-      download,
-      label,
-      inTopNavSideMenu,
-      isTopNavChild,
-      selected,
-      navigationSlot,
-    } = this;
+    const { inTopNavSideMenu, isTopNavChild, selected } = this;
 
     return (
       <Host
@@ -318,7 +341,7 @@ export class NavigationItem {
       >
         {/* Tooltip enabled by applying navigation-item-side-nav-collapsed class to host */}
         <ic-tooltip
-          label={label || navigationSlot.textContent}
+          label={this.generateTooltipLabel()}
           target="navigation-item"
           placement="right"
           class={{
@@ -330,19 +353,7 @@ export class NavigationItem {
               this.el.hasAttribute("[display-navigation-tooltip = 'true']"),
           }}
         >
-          {navigationSlot ? (
-            <slot name="navigation-item"></slot>
-          ) : (
-            this.displayDefaultNavigationItem(
-              href,
-              hreflang,
-              target,
-              rel,
-              referrerpolicy,
-              download,
-              label
-            )
-          )}
+          {this.renderNavigationItemContent()}
         </ic-tooltip>
       </Host>
     );
