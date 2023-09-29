@@ -27,6 +27,7 @@ import {
   Updating,
   CustomIcons,
   CustomRowHeights,
+  CustomTitleBar,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -854,9 +855,9 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
 </script>
 ```
 
-### Custom icons
+### Custom Icons
 
-Custom icons can be added to cells, columns and headers in the data table. To add it to headers, set the icon via the `columns` prop:
+Custom Icons can be added to cells, columns and headers in the data table. To add it to headers, set the icon via the `columns` prop:
 
 ```json
 icon: {
@@ -871,13 +872,13 @@ To add icons to individual cells, they can be added through the `data` prop, in 
 Both cells and headers can also have icons slotted in. Cells use the slot format: `{COLUMN_KEY}-{ROW_INDEX}-icon`, and Headers use the format: `{COLUMN_KEY}-column-icon`. Slotted icons take priority over icons inserted via the `columns` and `data` props.
 
 <Canvas withSource="none">
-  <Story name="Custom icons">{CustomIcons()}</Story>
+  <Story name="Custom Icons">{CustomIcons()}</Story>
 </Canvas>
 
-#### Custom icons code example
+#### Custom Icons code example
 
 ```html
-<ic-data-table id="data-table" caption="Custom icons"></ic-data-table>
+<ic-data-table id="data-table" caption="Custom Icons"></ic-data-table>
 <script>
   const dataTable = document.querySelector("#data-table");
 
@@ -1007,5 +1008,100 @@ If you'd rather let the row calculate its own height based on its content, eithe
   dataTable.data = data;
   dataTable.globalRowHeight = 80;
   dataTable.variableRowHeight = ({ firstName, lastName }) => firstName === "Joe" || lastName === "Owens" ? 200 : null;
+</script>
+```
+
+### Custom Title Bar
+
+To add additonal information about the data held in your ic-data-table, you can use the `title-bar` slot to add an `ic-title-bar`, which will appear above the column headers.
+
+The title bar can have a description and metadata added, to provide supporting information to display some context about the data to the user. Primary and custom action slots also exist to allow for actions to be performed that are related to the data, which can be prominently displayed.
+
+The `ic-title-bar` has a built in density selector, which allows a user to quickly change the size and padding of cells to make it more readable. This can also be hidden if preferred.
+
+Full documentation for this component can be found in the code examples located <ic-link href="/?path=/story/web-components-title-bar--basic" inline="">here</ic-link>.
+
+<Canvas withSource="none">
+  <Story name="Custom Title Bar">{CustomTitleBar()}</Story>
+</Canvas>
+
+#### Custom Title Bar code example
+
+```html
+<ic-data-table id="data-table" caption="Custom Title Bar">
+  <ic-title-bar
+    description="Data table description that describes the purpose of the table."
+    metadata="128 items | 32gb | Updated: 01/02/03"
+  >
+    <ic-button slot="primary-action">Primary</ic-button>
+    <ic-button slot="custom-actions" variant="icon" aria-label="Icon 1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+      >
+        <path
+          d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"
+        />
+      </svg>
+    </ic-button>
+    <ic-button slot="custom-actions" variant="icon" aria-label="Icon 2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+      >
+        <path
+          d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"
+        />
+      </svg>
+    </ic-button>
+    <ic-button slot="custom-actions" variant="icon" aria-label="Icon 3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 -960 960 960"
+        width="24"
+      >
+        <path
+          d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"
+        />
+      </svg>
+    </ic-button>
+    <ic-typography slot="description" variant="body">
+      <p>
+        This is some text and
+        <ic-link href="/" inline="">this is an inline link</ic-link> within the
+        text.
+      </p>
+    </ic-typography>
+  </ic-title-bar>
+</ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
 </script>
 ```

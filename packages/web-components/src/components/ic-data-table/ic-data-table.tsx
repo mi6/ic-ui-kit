@@ -21,6 +21,7 @@ import {
   IcDataTableDensityOptions,
   IcDataTableRowHeights,
   IcDataTableSortOrderOptions,
+  IcDensityUpdateEventDetail,
 } from "./ic-data-table.types";
 import {
   IcPaginationAlignmentOptions,
@@ -31,9 +32,10 @@ import { IcThemeForegroundNoDefault } from "../../utils/types";
 import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
 /**
- * @slot empty-state - Content is placed below the table header when there is no data and the table is not loading.
+ * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
  * @slot {COLUMN_KEY}-{ROW_INDEX}[-icon] - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot.
  * @slot {COLUMN_KEY}-column-icon - The icon slot for a column header.
+ * @slot title-bar - A custom ic-title-bar can be slotted above the column headers to display additional information about the table.
  */
 @Component({
   tag: "ic-data-table",
@@ -94,7 +96,7 @@ export class DataTable {
   /**
    * Set the density of the table including font and padding.
    */
-  @Prop() density?: IcDataTableDensityOptions = "default";
+  @Prop({ mutable: true }) density?: IcDataTableDensityOptions = "default";
 
   /**
    * Applies a border to the table container.
@@ -114,7 +116,7 @@ export class DataTable {
   /**
    * When set to `true`, the full table will show a loading state, featuring a radial indicator.
    */
-  @Prop() loading?: boolean = false;
+  @Prop({ mutable: true }) loading?: boolean = false;
 
   /**
    * Sets the props for the circular loading indicator used in the loading state.
@@ -264,6 +266,11 @@ export class DataTable {
     } else {
       this.previousRowsPerPage = this.rowsPerPage;
     }
+  }
+
+  @Listen("icTableDensityUpdate")
+  handleDensityChange(ev: CustomEvent<IcDensityUpdateEventDetail>): void {
+    this.density = ev.detail.value;
   }
 
   @Listen("click", { target: "window" })
@@ -721,6 +728,7 @@ export class DataTable {
           tabIndex={scrollable ? 0 : null}
           onScroll={updateScrollOffset}
         >
+          {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
           <table>
             <caption class="table-caption">{caption}</caption>
             {!hideColumnHeaders && (

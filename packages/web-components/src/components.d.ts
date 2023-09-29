@@ -10,7 +10,7 @@ import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -36,7 +36,7 @@ export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -2039,6 +2039,28 @@ export namespace Components {
          */
         "color"?: string;
     }
+    interface IcTitleBar {
+        /**
+          * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * If `true`, will apply a background colour and a bottom border to the title bar.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "header"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `header`.
+         */
+        "metadata"?: string;
+    }
     interface IcToast {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
@@ -2273,6 +2295,10 @@ export interface IcTextFieldCustomEvent<T> extends CustomEvent<T> {
 export interface IcThemeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcThemeElement;
+}
+export interface IcTitleBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTitleBarElement;
 }
 export interface IcToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2631,6 +2657,12 @@ declare global {
         prototype: HTMLIcThemeElement;
         new (): HTMLIcThemeElement;
     };
+    interface HTMLIcTitleBarElement extends Components.IcTitleBar, HTMLStencilElement {
+    }
+    var HTMLIcTitleBarElement: {
+        prototype: HTMLIcTitleBarElement;
+        new (): HTMLIcTitleBarElement;
+    };
     interface HTMLIcToastElement extends Components.IcToast, HTMLStencilElement {
     }
     var HTMLIcToastElement: {
@@ -2720,6 +2752,7 @@ declare global {
         "ic-tab-panel": HTMLIcTabPanelElement;
         "ic-text-field": HTMLIcTextFieldElement;
         "ic-theme": HTMLIcThemeElement;
+        "ic-title-bar": HTMLIcTitleBarElement;
         "ic-toast": HTMLIcToastElement;
         "ic-toast-region": HTMLIcToastRegionElement;
         "ic-tooltip": HTMLIcTooltipElement;
@@ -4836,6 +4869,32 @@ declare namespace LocalJSX {
         "color"?: string;
         "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
     }
+    interface IcTitleBar {
+        /**
+          * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * If `true`, will apply a background colour and a bottom border to the title bar.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "header"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `header`.
+         */
+        "metadata"?: string;
+        /**
+          * Emitted when the table density select value is changed.
+         */
+        "onIcTableDensityUpdate"?: (event: IcTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
+    }
     interface IcToast {
         /**
           * If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS) (NOTE: Has a minimum value of `5000ms`)
@@ -5015,6 +5074,7 @@ declare namespace LocalJSX {
         "ic-tab-panel": IcTabPanel;
         "ic-text-field": IcTextField;
         "ic-theme": IcTheme;
+        "ic-title-bar": IcTitleBar;
         "ic-toast": IcToast;
         "ic-toast-region": IcToastRegion;
         "ic-tooltip": IcTooltip;
@@ -5084,6 +5144,7 @@ declare module "@stencil/core" {
             "ic-tab-panel": LocalJSX.IcTabPanel & JSXBase.HTMLAttributes<HTMLIcTabPanelElement>;
             "ic-text-field": LocalJSX.IcTextField & JSXBase.HTMLAttributes<HTMLIcTextFieldElement>;
             "ic-theme": LocalJSX.IcTheme & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
+            "ic-title-bar": LocalJSX.IcTitleBar & JSXBase.HTMLAttributes<HTMLIcTitleBarElement>;
             "ic-toast": LocalJSX.IcToast & JSXBase.HTMLAttributes<HTMLIcToastElement>;
             "ic-toast-region": LocalJSX.IcToastRegion & JSXBase.HTMLAttributes<HTMLIcToastRegionElement>;
             "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;

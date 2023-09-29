@@ -59,6 +59,7 @@
  - [ic-switch](../ic-switch)
  - [ic-tab](../ic-tab)
  - [ic-text-field](../ic-text-field)
+ - [ic-title-bar](../ic-title-bar)
  - [ic-toast](../ic-toast)
  - [ic-tooltip](../ic-tooltip)
  - [ic-top-navigation](../ic-top-navigation)
@@ -103,6 +104,7 @@ graph TD;
   ic-switch --> ic-typography
   ic-tab --> ic-typography
   ic-text-field --> ic-typography
+  ic-title-bar --> ic-typography
   ic-toast --> ic-typography
   ic-tooltip --> ic-typography
   ic-top-navigation --> ic-typography
