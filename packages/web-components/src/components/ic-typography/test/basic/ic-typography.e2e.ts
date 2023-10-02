@@ -30,7 +30,7 @@ describe("ic-typograpghy", () => {
     expect(truncBtn).not.toBeNull();
     expect(btnText).toBe("See more");
 
-    truncBtn.click();
+    await truncBtn.click();
     await page.waitForChanges();
 
     btnText = (truncBtn as unknown as HTMLButtonElement).innerText;
