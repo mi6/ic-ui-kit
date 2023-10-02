@@ -1,4 +1,4 @@
-# ic-title-bar
+# ic-data-table-title-bar
 
 
 
@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                                                                                      | Type      | Default                    |
-| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------- |
-| `description`       | `description`         | The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.                                              | `string`  | `undefined`                |
-| `header`            | `header`              | The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden. | `string`  | `DEFAULT_TITLE_BAR_HEADER` |
-| `hideDensitySelect` | `hide-density-select` | When `true`, the density select will not be rendered.                                                                                                            | `boolean` | `false`                    |
-| `metadata`          | `metadata`            | The metadata displayed next to the `header`.                                                                                                                     | `string`  | `undefined`                |
+| Property            | Attribute             | Description                                                                                                                                                        | Type      | Default                     |
+| ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | --------------------------- |
+| `description`       | `description`         | The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.                                               | `string`  | `undefined`                 |
+| `heading`           | `heading`             | The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden. | `string`  | `DEFAULT_TITLE_BAR_HEADING` |
+| `hideDensitySelect` | `hide-density-select` | When `true`, the density select will not be rendered.                                                                                                              | `boolean` | `false`                     |
+| `metadata`          | `metadata`            | The metadata displayed next to the `heading`.                                                                                                                      | `string`  | `undefined`                 |
 
 
 ## Events
@@ -28,7 +28,7 @@
 | ------------------ | ------------------------------------------------------------------------------------------------------------- |
 | `"custom-actions"` | Render additional custom actions to the left of the density select.                                           |
 | `"description"`    | Render an alternative description in the description section.                                                 |
-| `"header"`         | Render an alternative header in the header section.                                                           |
+| `"heading"`        | The heading to render on the data table title bar.                                                            |
 | `"primary-action"` | Render an interactive element that will perform a primary action. Renders to the right of the density select. |
 
 
@@ -42,8 +42,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  ic-title-bar --> ic-typography
-  ic-title-bar --> ic-select
+  ic-data-table-title-bar --> ic-typography
+  ic-data-table-title-bar --> ic-select
   ic-select --> ic-input-container
   ic-select --> ic-input-label
   ic-select --> ic-input-component-container
@@ -60,7 +60,7 @@ graph TD;
   ic-menu --> ic-typography
   ic-menu --> ic-button
   ic-input-validation --> ic-typography
-  style ic-title-bar fill:#f9f,stroke:#333,stroke-width:4px
+  style ic-data-table-title-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

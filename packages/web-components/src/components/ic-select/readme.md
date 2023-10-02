@@ -76,8 +76,8 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ic-data-table-title-bar](../ic-data-table-title-bar)
  - [ic-pagination-bar](../ic-pagination-bar)
- - [ic-title-bar](../ic-title-bar)
 
 ### Depends on
 
@@ -108,8 +108,8 @@ graph TD;
   ic-menu --> ic-typography
   ic-menu --> ic-button
   ic-input-validation --> ic-typography
+  ic-data-table-title-bar --> ic-select
   ic-pagination-bar --> ic-select
-  ic-title-bar --> ic-select
   style ic-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
