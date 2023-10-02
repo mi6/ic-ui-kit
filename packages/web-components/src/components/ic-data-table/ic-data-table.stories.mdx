@@ -1013,13 +1013,13 @@ If you'd rather let the row calculate its own height based on its content, eithe
 
 ### Custom Title Bar
 
-To add additonal information about the data held in your ic-data-table, you can use the `title-bar` slot to add an `ic-title-bar`, which will appear above the column headers.
+To add additonal information about the data held in your ic-data-table, you can use the `title-bar` slot to add an `ic-data-table-title-bar`, which will appear above the column headers.
 
 The title bar can have a description and metadata added, to provide supporting information to display some context about the data to the user. Primary and custom action slots also exist to allow for actions to be performed that are related to the data, which can be prominently displayed.
 
-The `ic-title-bar` has a built in density selector, which allows a user to quickly change the size and padding of cells to make it more readable. This can also be hidden if preferred.
+The `ic-data-table-title-bar` has a built-in density selector, which allows a user to quickly change the size and padding of cells to make it more readable. This can also be hidden if preferred.
 
-Full documentation for this component can be found in the code examples located <ic-link href="/?path=/story/web-components-title-bar--basic" inline="">here</ic-link>.
+Full documentation for this component can be found in the code examples located <ic-link href="/?path=/story/web-components-data-table-title-bar--basic" inline="">here</ic-link>.
 
 <Canvas withSource="none">
   <Story name="Custom Title Bar">{CustomTitleBar()}</Story>
@@ -1029,7 +1029,7 @@ Full documentation for this component can be found in the code examples located 
 
 ```html
 <ic-data-table id="data-table" caption="Custom Title Bar">
-  <ic-title-bar
+  <ic-data-table-title-bar
     description="Data table description that describes the purpose of the table."
     metadata="128 items | 32gb | Updated: 01/02/03"
   >
@@ -1077,7 +1077,7 @@ Full documentation for this component can be found in the code examples located 
         text.
       </p>
     </ic-typography>
-  </ic-title-bar>
+  </ic-data-table-title-bar>
 </ic-data-table>
 <script>
   const dataTable = document.querySelector("#data-table");

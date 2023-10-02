@@ -13,34 +13,34 @@ import {
 } from "../ic-data-table/ic-data-table.types";
 import { isSlotUsed } from "../../utils/helpers";
 
-const DEFAULT_TITLE_BAR_HEADER = "Title Bar";
+const DEFAULT_TITLE_BAR_HEADING = "Title Bar";
 
 /**
  * @slot primary-action - Render an interactive element that will perform a primary action. Renders to the right of the density select.
  * @slot custom-actions - Render additional custom actions to the left of the density select.
- * @slot header - Render an alternative header in the header section.
+ * @slot heading - The heading to render on the data table title bar.
  * @slot description - Render an alternative description in the description section.
  */
 @Component({
-  tag: "ic-title-bar",
-  styleUrl: "ic-title-bar.css",
+  tag: "ic-data-table-title-bar",
+  styleUrl: "ic-data-table-title-bar.css",
   shadow: true,
 })
-export class TitleBar {
+export class DataTableTitleBar {
   private initialDensitySelectOption: IcDataTableDensityOptions = "default";
   private isEmbedded: boolean = false;
 
-  @Element() el: HTMLIcTitleBarElement;
+  @Element() el: HTMLIcDataTableTitleBarElement;
 
   /**
-   * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
+   * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
    */
   @Prop() description?: string;
 
   /**
-   * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+   * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
    */
-  @Prop() header?: string = DEFAULT_TITLE_BAR_HEADER;
+  @Prop() heading?: string = DEFAULT_TITLE_BAR_HEADING;
 
   /**
    * When `true`, the density select will not be rendered.
@@ -48,7 +48,7 @@ export class TitleBar {
   @Prop() hideDensitySelect?: boolean = false;
 
   /**
-   * The metadata displayed next to the `header`.
+   * The metadata displayed next to the `heading`.
    */
   @Prop() metadata?: string;
 
@@ -63,8 +63,8 @@ export class TitleBar {
       const dataTable = parentEl as HTMLIcDataTableElement;
       this.initialDensitySelectOption = dataTable.density;
       this.isEmbedded = dataTable.embedded;
-      if (this.header === DEFAULT_TITLE_BAR_HEADER) {
-        this.header = dataTable.caption;
+      if (this.heading === DEFAULT_TITLE_BAR_HEADING) {
+        this.heading = dataTable.caption;
       }
     }
   }
@@ -80,7 +80,7 @@ export class TitleBar {
       changeDensity,
       description,
       el,
-      header,
+      heading,
       hideDensitySelect,
       initialDensitySelectOption,
       isEmbedded,
@@ -100,8 +100,8 @@ export class TitleBar {
         }}
       >
         <div class="header-container">
-          <slot name="header">
-            <ic-typography variant="h3">{header}</ic-typography>
+          <slot name="heading">
+            <ic-typography variant="h3">{heading}</ic-typography>
           </slot>
           {metadata && (
             <ic-typography variant="subtitle-small">{metadata}</ic-typography>
@@ -117,7 +117,9 @@ export class TitleBar {
             {showActionArea && (
               <div class="action-area">
                 {isSlotUsed(el, "custom-actions") && (
-                  <slot name="custom-actions" />
+                  <div class="custom-actions-wrapper">
+                    <slot name="custom-actions" />
+                  </div>
                 )}
                 {!hideDensitySelect && (
                   <ic-select
