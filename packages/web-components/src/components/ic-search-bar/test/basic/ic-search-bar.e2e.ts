@@ -1596,6 +1596,8 @@ describe("ic-search-bar", () => {
 
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
     const retryButton = await page.find(
       "ic-search-bar >>> ic-text-field ic-menu #retry-button"
     );
@@ -1610,6 +1612,8 @@ describe("ic-search-bar", () => {
 
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
     await retryButton.press(" ");
     await page.waitForChanges();
 
@@ -1640,6 +1644,7 @@ describe("ic-search-bar", () => {
     await focusAndTypeIntoInput("ba", page);
     searchBar.setProperty("loading", true);
     await page.waitForChanges();
+    await page.waitForTimeout(750);
 
     let menuOption = await page.find(
       "ic-search-bar >>> ic-text-field ic-menu li"
@@ -1657,6 +1662,7 @@ describe("ic-search-bar", () => {
     await focusAndTypeIntoInput("ba", page);
     searchBar.setProperty("loading", true);
     await page.waitForChanges();
+    await page.waitForTimeout(750);
     menuOption = await page.find("ic-search-bar >>> ic-text-field ic-menu li");
     expect(menuOption).toEqualText("Loading...");
   });

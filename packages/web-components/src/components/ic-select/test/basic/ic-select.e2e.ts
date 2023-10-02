@@ -1410,7 +1410,10 @@ describe("ic-select", () => {
         value: "Cap",
       });
 
-      for (let i = 0; i <= 7; i++) select.press("Backspace");
+      for (let i = 0; i <= 7; i++) {
+        select.press("Backspace");
+        await page.waitForChanges();
+      }
 
       const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
       const menuOptions = await menu.findAll("li");
