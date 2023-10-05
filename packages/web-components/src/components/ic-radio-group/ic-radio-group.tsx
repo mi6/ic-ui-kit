@@ -8,6 +8,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import {
   hasValidationStatus,
@@ -15,6 +16,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   renderHiddenInput,
+  checkResizeObserver,
 } from "../../utils/helpers";
 import {
   IcInformationStatusOrEmpty,
@@ -29,11 +31,15 @@ import { IcChangeEventDetail } from "./ic-radio-group.types";
   shadow: true,
 })
 export class RadioGroup {
+  private radioContainer: HTMLDivElement;
   private radioOptions: HTMLIcRadioOptionElement[];
+  private resizeObserver: ResizeObserver = null;
 
   @Element() host: HTMLIcRadioGroupElement;
 
   @State() checkedValue: string = "";
+  @State() currentOrientation: IcOrientation;
+  @State() initialOrientation: IcOrientation;
   @State() selectedChild: number = -1;
 
   /**
@@ -64,8 +70,7 @@ export class RadioGroup {
   /**
    * The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.
    */
-  @Prop({ reflect: true, mutable: true }) orientation: IcOrientation =
-    "vertical";
+  @Prop() orientation: IcOrientation = "vertical";
 
   /**
    * If `true`, the radio group will require a value.
@@ -85,13 +90,27 @@ export class RadioGroup {
    */
   @Prop() validationText: string = "";
 
+  @Watch("orientation")
+  orientationChangeHandler(): void {
+    this.initialOrientation = this.orientation;
+  }
+
   /**
    * Emitted when a user selects a radio.
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
+  disconnectedCallback(): void {
+    if (this.resizeObserver !== null) {
+      this.resizeObserver.disconnect();
+    }
+  }
+
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.host);
+
+    this.orientationChangeHandler();
+    this.currentOrientation = this.initialOrientation;
   }
 
   componentDidLoad(): void {
@@ -114,15 +133,17 @@ export class RadioGroup {
       this.selectedChild > 0 ? -1 : 0;
 
     if (
-      this.orientation === "horizontal" &&
+      this.initialOrientation === "horizontal" &&
       this.radioOptions !== undefined &&
       (this.radioOptions.length > 2 ||
         (this.radioOptions.length === 2 &&
           (isSlotUsed(this.radioOptions[0], "additional-field") ||
             isSlotUsed(this.radioOptions[1], "additional-field"))))
     ) {
-      this.orientation = "vertical";
+      this.currentOrientation = "vertical";
     }
+
+    checkResizeObserver(this.runResizeObserver);
 
     onComponentRequiredPropUndefined(
       [
@@ -165,6 +186,39 @@ export class RadioGroup {
     if (selectedOption < 0) {
       this.radioOptions[0].shadowRoot.querySelector("input").tabIndex = 0;
       this.selectedChild = selectedOption;
+    }
+  }
+
+  private runResizeObserver = () => {
+    this.resizeObserver = new ResizeObserver(() => {
+      this.checkOrientation();
+    });
+
+    this.resizeObserver.observe(this.host);
+  };
+
+  private checkOrientation() {
+    if (this.initialOrientation === "horizontal") {
+      let totalWidth = 0;
+      const radioOptionGap = 40;
+      for (let i = 0; i < this.radioOptions.length; i++) {
+        totalWidth += this.radioOptions[i].clientWidth;
+        if (i < this.radioOptions.length - 1) {
+          totalWidth += radioOptionGap;
+        }
+      }
+
+      if (
+        this.currentOrientation === "horizontal" &&
+        totalWidth > this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = "vertical";
+      } else if (
+        this.currentOrientation === "vertical" &&
+        totalWidth < this.radioContainer.clientWidth
+      ) {
+        this.currentOrientation = "horizontal";
+      }
     }
   }
 
@@ -237,7 +291,13 @@ export class RadioGroup {
               disabled={this.disabled}
             ></ic-input-label>
           )}
-          <div class="radio-buttons-container">
+          <div
+            class={{
+              "radio-buttons-container": true,
+              horizontal: this.currentOrientation === "horizontal",
+            }}
+            ref={(el) => (this.radioContainer = el)}
+          >
             <slot></slot>
           </div>
         </div>
