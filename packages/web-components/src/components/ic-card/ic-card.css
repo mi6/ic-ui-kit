@@ -178,3 +178,24 @@ button {
 .expanded-content {
   margin-top: var(--ic-space-md);
 }
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .card ::slotted(svg) {
+    fill: currentcolor;
+  }
+
+  .card.disabled ::slotted(svg) {
+    fill: GrayText !important;
+  }
+
+  .card.disabled {
+    border-color: GrayText !important;
+  }
+
+  .card.disabled .card-message,
+  .card.disabled .subheading,
+  .card.disabled .card-title {
+    color: GrayText;
+  }
+}
