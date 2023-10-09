@@ -377,6 +377,7 @@ describe("ic-menu in isolation", () => {
     const input = window.document.createElement("input");
 
     searchBar.setFocus = jest.fn();
+    searchBar.setCurrentOptionDisabled = jest.fn();
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],

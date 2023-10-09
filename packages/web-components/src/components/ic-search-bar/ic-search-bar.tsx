@@ -523,6 +523,14 @@ export class SearchBar {
     }
   }
 
+  /**
+   * @internal Prevents the search bar from submitting if the highlighted option is disabled.
+   */
+  @Method()
+  async setCurrentOptionDisabled(disabled: boolean): Promise<void> {
+    this.preventSubmit = disabled;
+  }
+
   private handleMouseDown = (ev: Event) => {
     ev.preventDefault();
   };

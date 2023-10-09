@@ -487,6 +487,12 @@ export class Menu {
       (option) => option[this.valueField] === this.optionHighlighted
     );
 
+    if (this.isSearchBar && event.key === "Enter") {
+      (this.parentEl as HTMLIcSearchBarElement).setCurrentOptionDisabled(
+        menuOptions[highlightedOptionIndex].disabled
+      );
+    }
+
     const getOptionId = (index: number): string =>
       Array.from(this.host.querySelectorAll("li"))[index]?.id;
 
@@ -548,8 +554,17 @@ export class Menu {
         break;
       case "Enter":
         event.preventDefault();
-        this.setInputValue(highlightedOptionIndex);
-        if (menuOptions[highlightedOptionIndex] !== undefined) {
+        if (this.isSearchBar) {
+          menuOptions[highlightedOptionIndex].disabled !== true &&
+            this.setInputValue(highlightedOptionIndex);
+        } else {
+          this.setInputValue(highlightedOptionIndex);
+        }
+
+        if (
+          menuOptions[highlightedOptionIndex] !== undefined &&
+          menuOptions[highlightedOptionIndex].disabled !== true
+        ) {
           this.value = menuOptions[highlightedOptionIndex][this.valueField];
         }
         break;

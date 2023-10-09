@@ -1379,6 +1379,7 @@ export namespace Components {
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode"?: IcSearchBarSearchModes;
+        "setCurrentOptionDisabled": (disabled: boolean) => Promise<void>;
         /**
           * Sets focus on the native `input`.
          */
