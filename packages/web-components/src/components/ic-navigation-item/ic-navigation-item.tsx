@@ -17,6 +17,7 @@ import {
   getThemeForegroundColor,
   getParentElementType,
   getNavItemParentDetails,
+  isSlotUsed,
 } from "../../utils/helpers";
 import { IcNavType, IcTheme } from "../../utils/types";
 
@@ -26,6 +27,7 @@ import OpenInNew from "../../assets/OpenInNew.svg";
 
 /**
  * @part link - The `<a>` within ic-navigation-item
+ * @slot badge - Badge component overlaying the top right of the icon.
  */
 
 @Component({
@@ -201,8 +203,8 @@ export class NavigationItem {
     );
     const IconComponent = this.el.querySelector('[slot="icon"]') && (
       <div class="icon">
-        {" "}
-        <slot name="icon"></slot>{" "}
+        <slot name="icon"></slot>
+        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
       </div>
     );
 

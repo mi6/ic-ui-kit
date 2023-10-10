@@ -41,6 +41,7 @@ Type: `Promise<void>`
 | Slot                     | Description                                                                               |
 | ------------------------ | ----------------------------------------------------------------------------------------- |
 | `"adornment"`            | Content will be placed below the card subheading.                                         |
+| `"badge"`                | Badge component overlaying the top right of the card.                                     |
 | `"expanded-content"`     | Content will be placed below the interaction controls but will not initially be rendered. |
 | `"heading"`              | Content will be placed at the top of the card to the right of the icon.                   |
 | `"icon"`                 | Content will be placed to the left of the card heading.                                   |
