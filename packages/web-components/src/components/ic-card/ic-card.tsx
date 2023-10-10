@@ -31,6 +31,7 @@ import chevronIcon from "../../assets/chevron-icon.svg";
  * @slot interaction-button - Content will be placed in the top right corner of the heading section.
  * @slot interaction-controls - Content will be placed below the card message.
  * @slot expanded-content - Content will be placed below the interaction controls but will not initially be rendered.
+ * @slot badge - Badge component overlaying the top right of the card.
  */
 @Component({
   tag: "ic-card",
@@ -310,6 +311,7 @@ export class Card {
             <slot name="expanded-content"></slot>
           </div>
         )}
+        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
       </Component>
     );
   }

@@ -32,6 +32,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot      | Description                                           |
+| --------- | ----------------------------------------------------- |
+| `"badge"` | Badge component overlaying the top right of the icon. |
+
+
 ## Shadow Parts
 
 | Part     | Description                         |

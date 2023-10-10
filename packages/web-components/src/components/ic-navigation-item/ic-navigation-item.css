@@ -367,6 +367,7 @@ svg {
   width: var(--ic-space-xxl);
   margin-left: calc(-1 * var(--ic-space-md));
   flex: 0 1 0%;
+  position: relative;
 }
 
 .icon > ::slotted(*) {

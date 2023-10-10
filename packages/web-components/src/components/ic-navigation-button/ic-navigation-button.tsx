@@ -13,6 +13,7 @@ import {
   getThemeForegroundColor,
   inheritAttributes,
   onComponentRequiredPropUndefined,
+  isSlotUsed,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -24,6 +25,7 @@ import { IcNavButtonModes } from "./ic-navigation-button.types";
 
 /**
  * @slot icon - Content will be placed to the left of the button label.
+ * @slot badge - Badge component overlaying the top right of the button.
  */
 
 @Component({
@@ -168,6 +170,9 @@ export class NavigationButton {
         >
           {label}
           <slot slot="left-icon" name="icon"></slot>
+          {isSlotUsed(this.el, "badge") && variant === "icon" && (
+            <slot name="badge"></slot>
+          )}
         </ic-button>
       </Host>
     );

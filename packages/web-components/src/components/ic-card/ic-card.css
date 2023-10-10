@@ -27,6 +27,7 @@ button {
   color: var(--ic-architechtural-black);
   transition: var(--ic-easing-transition-fast);
   width: inherit;
+  position: relative;
 }
 
 .dark.card,
