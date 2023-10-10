@@ -165,9 +165,7 @@ describe("ic-side-navigation", () => {
       const navigationItems = await page.evaluate(() => {
         return Array.from(
           document.querySelectorAll("ic-side-navigation ic-navigation-item")
-        ).map((i) =>
-          i.shadowRoot.querySelector(".ic-tooltip").textContent.slice(2)
-        );
+        ).map((i) => i.shadowRoot.querySelector("ic-tooltip").textContent);
       });
 
       expect(navigationItems.length).toBe(2);
