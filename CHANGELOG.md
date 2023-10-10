@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/mi6/ic-ui-kit/compare/v2.5.0...v2.5.1) (2023-10-10)
+
+**Note:** Version bump only for package ic-ui-kit
+
 # [2.5.0](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.5.0) (2023-10-10)
 
 ### Bug Fixes
