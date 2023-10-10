@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.5.0) (2023-10-10)
+
+### Bug Fixes
+
+- **react:** adds react story for unnamed slot ([849784d](https://github.com/mi6/ic-ui-kit/commit/849784d7c6f54cb94aebc2ebef553c070022a443))
+- **web-components:** update labelledby ids ([22bed11](https://github.com/mi6/ic-ui-kit/commit/22bed114385a23928e719286e402a4a0473d2726))
+
+### Features
+
+- **react:** added accordion react stories ([21f0767](https://github.com/mi6/ic-ui-kit/commit/21f076793e0512e3f4951033ef9311e3778228db))
+- **react:** create badge component ([750cc43](https://github.com/mi6/ic-ui-kit/commit/750cc43f43e96d8c88ece94f7412b1ef7a398451))
+
 ## [2.4.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.0...v2.4.1) (2023-09-19)
 
 ### Bug Fixes

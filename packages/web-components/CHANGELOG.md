@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.5.0) (2023-10-10)
+
+### Bug Fixes
+
+- **react:** adds react story for unnamed slot ([849784d](https://github.com/mi6/ic-ui-kit/commit/849784d7c6f54cb94aebc2ebef553c070022a443))
+- **web-components:** add css styling for ic-card icons when displayed in high contrast mode ([5a78f8e](https://github.com/mi6/ic-ui-kit/commit/5a78f8e5beecf4abb7604f30b5fa2585e5f38e34)), closes [#1139](https://github.com/mi6/ic-ui-kit/issues/1139)
+- **web-components:** add margin top and bottom to icon button ([d88f712](https://github.com/mi6/ic-ui-kit/commit/d88f71239de0e26845568af543086b8b171b0fa9)), closes [#891](https://github.com/mi6/ic-ui-kit/issues/891)
+- **web-components:** added additional stories for popover testing ([fe5b47e](https://github.com/mi6/ic-ui-kit/commit/fe5b47ea87c3357abc5b2ca696157f0b5e1086c4))
+- **web-components:** added overflow:visible once expanded content has completed animation ([e399b53](https://github.com/mi6/ic-ui-kit/commit/e399b53b444fc6fc5bc291cce617edb8e0cf6535))
+- **web-components:** changes side-nav and nav-items z-index ([2511b0d](https://github.com/mi6/ic-ui-kit/commit/2511b0db219f9851b4b661d6d3b7758887daf81b))
+- **web-components:** fixes app-title slot bug and introduces unnamed slot ([0fe9418](https://github.com/mi6/ic-ui-kit/commit/0fe9418d01da3896f82b505e71cd33feb0984f73))
+- **web-components:** fixes card with changing on expand ([565e422](https://github.com/mi6/ic-ui-kit/commit/565e422e2854df24c9b43c944d528f58c7bbc594))
+- **web-components:** initialise stepper states before render to fix flickering ([0c2251c](https://github.com/mi6/ic-ui-kit/commit/0c2251c31f00422c8b245331404f120304e43b63))
+- **web-components:** moved position of slot information ([8343de3](https://github.com/mi6/ic-ui-kit/commit/8343de3737e6dcfd4071c82e9ed9d8e0175c874d))
+- **web-components:** update labelledby ids ([22bed11](https://github.com/mi6/ic-ui-kit/commit/22bed114385a23928e719286e402a4a0473d2726))
+- **web-components:** update radio group to use resize observer ([27fbdae](https://github.com/mi6/ic-ui-kit/commit/27fbdaed458a1315cfea65f346ff8378c767c475)), closes [#1055](https://github.com/mi6/ic-ui-kit/issues/1055)
+- **web-components:** updated dialog and accordion component ([9e77290](https://github.com/mi6/ic-ui-kit/commit/9e77290eab01f8cce78b491a8584b601a37dc633))
+
+### Features
+
+- **web-components:** adds accordion component ([2eb1b7e](https://github.com/mi6/ic-ui-kit/commit/2eb1b7ee8759b245e42c84bd4ff93e11137fd166)), closes [#240](https://github.com/mi6/ic-ui-kit/issues/240)
+- **web-components:** create badge component ([d53c0d8](https://github.com/mi6/ic-ui-kit/commit/d53c0d882cdbad4bf1f05ee9f2f75b062ebb82ac)), closes [#751](https://github.com/mi6/ic-ui-kit/issues/751)
+
 ## [2.4.1](https://github.com/mi6/ic-ui-kit/compare/v2.4.0...v2.4.1) (2023-09-19)
 
 ### Bug Fixes
