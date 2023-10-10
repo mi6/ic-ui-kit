@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-21T15:01:39",
+  "timestamp": "2023-10-10T14:14:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -692,6 +692,338 @@
       }
     },
     {
+      "filePath": "src/components/ic-badge/ic-badge.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-badge",
+      "readme": "# ic-badge\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "accessibleLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessible-label",
+          "reflectToAttr": false,
+          "docs": "The accessible label of the badge component to provide context for screen reader users.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "customColor",
+          "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
+          "complexType": {
+            "original": "IcColor",
+            "resolved": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
+            "references": {
+              "IcColor": {
+                "location": "import",
+                "path": "./ic-badge.types",
+                "id": "src/components/ic-badge/ic-badge.types.ts::IcColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "custom-color",
+          "reflectToAttr": false,
+          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "`#${string}`"
+            },
+            {
+              "type": "`rgb(${string})`"
+            },
+            {
+              "type": "`rgba(${string})`"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxNumber",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-number",
+          "reflectToAttr": false,
+          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and textLabel is not empty.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "\"far\" | \"inline\" | \"near\"",
+          "complexType": {
+            "original": "IcBadgePositions",
+            "resolved": "\"far\" | \"inline\" | \"near\"",
+            "references": {
+              "IcBadgePositions": {
+                "location": "import",
+                "path": "./ic-badge.types",
+                "id": "src/components/ic-badge/ic-badge.types.ts::IcBadgePositions"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": false,
+          "docs": "The positioning of the badge in reference to the parent element.",
+          "docsTags": [],
+          "default": "\"far\"",
+          "values": [
+            {
+              "value": "far",
+              "type": "string"
+            },
+            {
+              "value": "inline",
+              "type": "string"
+            },
+            {
+              "value": "near",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the badge to be displayed.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "textLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "text-label",
+          "reflectToAttr": false,
+          "docs": "The text displayed in the badge. This will only be displayed if type=\"text\".",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"dot\" | \"icon\" | \"text\"",
+          "complexType": {
+            "original": "IcBadgeTypes",
+            "resolved": "\"dot\" | \"icon\" | \"text\"",
+            "references": {
+              "IcBadgeTypes": {
+                "location": "import",
+                "path": "./ic-badge.types",
+                "id": "src/components/ic-badge/ic-badge.types.ts::IcBadgeTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of badge to be displayed.",
+          "docsTags": [],
+          "default": "\"text\"",
+          "values": [
+            {
+              "value": "dot",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "IcBadgeVariants",
+            "resolved": "\"custom\" | \"error\" | \"info\" | \"light\" | \"neutral\" | \"success\" | \"warning\"",
+            "references": {
+              "IcBadgeVariants": {
+                "location": "import",
+                "path": "./ic-badge.types",
+                "id": "src/components/ic-badge/ic-badge.types.ts::IcBadgeVariants"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant of the badge to be displayed.",
+          "docsTags": [],
+          "default": "\"neutral\"",
+          "values": [
+            {
+              "value": "custom",
+              "type": "string"
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "neutral",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "hideBadge",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "hideBadge() => Promise<void>",
+          "parameters": [],
+          "docs": "Use to hide the badge.",
+          "docsTags": []
+        },
+        {
+          "name": "showBadge",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "showBadge() => Promise<void>",
+          "parameters": [],
+          "docs": "Use to show the badge.",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-badge": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
@@ -910,6 +1242,10 @@
         {
           "name": "slot",
           "text": "right-icon - Content will be placed to the right of the button label."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the button."
         }
       ],
       "usage": {},
@@ -1573,6 +1909,10 @@
         }
       ],
       "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the button."
+        },
         {
           "name": "icon",
           "docs": "Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead."
@@ -2801,6 +3141,10 @@
         {
           "name": "slot",
           "text": "icon - Content will be rendered at the start of the chip."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the chip."
         }
       ],
       "usage": {},
@@ -3010,6 +3354,10 @@
       ],
       "styles": [],
       "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the chip."
+        },
         {
           "name": "icon",
           "docs": "Content will be rendered at the start of the chip."
@@ -9101,9 +9449,9 @@
               }
             }
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "orientation",
-          "reflectToAttr": true,
+          "reflectToAttr": false,
           "docs": "The orientation of the radio buttons in the radio group. If there are more than two radio buttons in a radio group or either of the radio buttons use the `additional-field` slot, then the orientation will always be vertical.",
           "docsTags": [],
           "default": "\"vertical\"",
@@ -12875,6 +13223,10 @@
         {
           "name": "slot",
           "text": "icon - Content will be rendered next to the tab label."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component displayed inline with the tab."
         }
       ],
       "usage": {},
@@ -12930,6 +13282,10 @@
       "listeners": [],
       "styles": [],
       "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component displayed inline with the tab."
+        },
         {
           "name": "icon",
           "docs": "Content will be rendered next to the tab label."
@@ -15518,10 +15874,10 @@
         },
         {
           "name": "variant",
-          "type": "\"body\" | \"caption\" | \"caption-uppercase\" | \"code-extra-small\" | \"code-large\" | \"code-small\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"label\" | \"label-uppercase\" | \"subtitle-large\" | \"subtitle-small\"",
+          "type": "\"badge\" | \"badge-small\" | \"body\" | \"caption\" | \"caption-uppercase\" | \"code-extra-small\" | \"code-large\" | \"code-small\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"label\" | \"label-uppercase\" | \"subtitle-large\" | \"subtitle-small\"",
           "complexType": {
             "original": "IcTypographyVariants",
-            "resolved": "\"body\" | \"caption\" | \"caption-uppercase\" | \"code-extra-small\" | \"code-large\" | \"code-small\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"label\" | \"label-uppercase\" | \"subtitle-large\" | \"subtitle-small\"",
+            "resolved": "\"badge\" | \"badge-small\" | \"body\" | \"caption\" | \"caption-uppercase\" | \"code-extra-small\" | \"code-large\" | \"code-small\" | \"h1\" | \"h2\" | \"h3\" | \"h4\" | \"label\" | \"label-uppercase\" | \"subtitle-large\" | \"subtitle-small\"",
             "references": {
               "IcTypographyVariants": {
                 "location": "import",
@@ -15537,6 +15893,14 @@
           "docsTags": [],
           "default": "\"body\"",
           "values": [
+            {
+              "value": "badge",
+              "type": "string"
+            },
+            {
+              "value": "badge-small",
+              "type": "string"
+            },
             {
               "value": "body",
               "type": "string"
@@ -15609,6 +15973,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-back-to-top",
+        "ic-badge",
         "ic-card",
         "ic-checkbox",
         "ic-chip",
@@ -15656,6 +16021,9 @@
           "ic-typography"
         ],
         "ic-back-to-top": [
+          "ic-typography"
+        ],
+        "ic-badge": [
           "ic-typography"
         ],
         "ic-card": [
@@ -15794,6 +16162,26 @@
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
+    "src/components/ic-badge/ic-badge.types.ts::IcColor": {
+      "declaration": "export type IcColor = RGB | RGBA | HEX;",
+      "docstring": "",
+      "path": "src/components/ic-badge/ic-badge.types.ts"
+    },
+    "src/components/ic-badge/ic-badge.types.ts::IcBadgePositions": {
+      "declaration": "export type IcBadgePositions = \"far\" | \"near\" | \"inline\";",
+      "docstring": "",
+      "path": "src/components/ic-badge/ic-badge.types.ts"
+    },
+    "src/components/ic-badge/ic-badge.types.ts::IcBadgeTypes": {
+      "declaration": "export type IcBadgeTypes = \"dot\" | \"text\" | \"icon\";",
+      "docstring": "",
+      "path": "src/components/ic-badge/ic-badge.types.ts"
+    },
+    "src/components/ic-badge/ic-badge.types.ts::IcBadgeVariants": {
+      "declaration": "export type IcBadgeVariants = IcStatusVariants | \"light\" | \"custom\";",
+      "docstring": "",
+      "path": "src/components/ic-badge/ic-badge.types.ts"
+    },
     "src/components/ic-button/ic-button.types.ts::IcButtonTooltipPlacement": {
       "declaration": "export type IcButtonTooltipPlacement = \"top\" | \"right\" | \"bottom\" | \"left\";",
       "docstring": "",
@@ -15808,6 +16196,21 @@
       "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"icon\"\n  | \"destructive\";",
       "docstring": "",
       "path": "src/components/ic-button/ic-button.types.ts"
+    },
+    "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance": {
+      "declaration": "export type IcChipAppearance = \"filled\" | \"outline\";",
+      "docstring": "",
+      "path": "src/components/ic-chip/ic-chip.types.ts"
+    },
+    "src/utils/types.ts::IcThemeForegroundNoDefault": {
+      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
+      "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",
+      "docstring": "",
+      "path": "src/components/ic-tab/ic-tab.types.ts"
     },
     "src/utils/types.ts::IcAdditionalFieldTypes": {
       "declaration": "export type IcAdditionalFieldTypes = \"static\" | \"dynamic\";",
@@ -15854,18 +16257,13 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
-    "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance": {
-      "declaration": "export type IcChipAppearance = \"filled\" | \"outline\";",
-      "docstring": "",
-      "path": "src/components/ic-chip/ic-chip.types.ts"
-    },
     "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
       "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
       "docstring": "",
       "path": "src/components/ic-empty-state/ic-empty-state.types.ts"
     },
     "src/utils/types.ts::IcTypographyVariants": {
-      "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\";",
+      "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -15878,11 +16276,6 @@
       "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\";",
       "docstring": "",
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
-    },
-    "src/utils/types.ts::IcThemeForegroundNoDefault": {
-      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx::IcLoadingSizes": {
       "declaration": "export type IcLoadingSizes = \"default\" | \"small\" | \"large\" | \"icon\";",
@@ -16008,11 +16401,6 @@
       "declaration": "export interface IcSwitchChangeEventDetail {\n  value: string | null;\n  checked: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-switch/ic-switch.types.ts"
-    },
-    "src/components/ic-tab/ic-tab.types.ts::IcTabClickEventDetail": {
-      "declaration": "export interface IcTabClickEventDetail {\n  tabId: string;\n  contextId: string;\n  position: number;\n}",
-      "docstring": "",
-      "path": "src/components/ic-tab/ic-tab.types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail": {
       "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n}",
