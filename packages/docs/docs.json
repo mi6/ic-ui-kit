@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-10T14:14:57",
+  "timestamp": "2023-10-10T15:01:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -2052,6 +2052,10 @@
         {
           "name": "slot",
           "text": "expanded-content - Content will be placed below the interaction controls but will not initially be rendered."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the card."
         }
       ],
       "usage": {},
@@ -2395,6 +2399,10 @@
         {
           "name": "adornment",
           "docs": "Content will be placed below the card subheading."
+        },
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the card."
         },
         {
           "name": "expanded-content",
@@ -7482,6 +7490,10 @@
         {
           "name": "slot",
           "text": "icon - Content will be placed to the left of the button label."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the button."
         }
       ],
       "usage": {},
@@ -7723,6 +7735,10 @@
       "styles": [],
       "slots": [
         {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the button."
+        },
+        {
           "name": "icon",
           "docs": "Content will be placed to the left of the button label."
         }
@@ -7873,6 +7889,10 @@
         {
           "name": "part",
           "text": "link - The `<a>` within ic-navigation-item"
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the icon."
         }
       ],
       "usage": {},
@@ -8129,7 +8149,12 @@
           "docs": "z-index of navigation item"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the icon."
+        }
+      ],
       "parts": [
         {
           "name": "link",
