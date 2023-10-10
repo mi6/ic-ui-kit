@@ -15,6 +15,7 @@ import {
   IcSectionContainer,
   IcButton,
   IcTheme,
+  IcBadge
 } from "../components";
 import { useState } from "react";
 import readme from "../../../web-components/src/components/ic-top-navigation/readme.md";
@@ -120,6 +121,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         slot="buttons"
         onClick={() => alert("test")}
       >
+        <IcBadge text-label="1" slot="badge" variant="light"></IcBadge>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"

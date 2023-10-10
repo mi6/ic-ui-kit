@@ -11,7 +11,8 @@ import {
   IcButton,
   IcTheme,
   IcSectionContainer,
-  IcTypography
+  IcTypography,
+  IcBadge
 } from "../components";
 import { useState } from "react";
 import readme from "../../../web-components/src/components/ic-side-navigation/readme.md";
@@ -58,6 +59,7 @@ import { NavLink, MemoryRouter, Route, Routes } from "react-router-dom";
           label="Home"
           selected
         >
+            <IcBadge text-label="1" slot="badge" variant="light"></IcBadge>
             <svg
               slot="icon"
               width="24"
