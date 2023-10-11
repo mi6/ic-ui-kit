@@ -102,13 +102,9 @@ export class DataTable {
   @Prop() embedded?: boolean = false;
 
   /**
-   * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.
-   * If the function returns `null`, that row's height will be set to the `rowHeight` property.
+   * Sets the row height on all rows in the table that aren't set using the variableRowHeight method.
    */
-  @Prop({ mutable: true }) getRowHeight?: (parmas: {
-    [key: string]: any;
-    index: number;
-  }) => IcDataTableRowHeights | null;
+  @Prop({ mutable: true }) globalRowHeight?: IcDataTableRowHeights = 40;
 
   /**
    * If `true`, column headers will not be visible.
@@ -163,11 +159,6 @@ export class DataTable {
   };
 
   /**
-   * Sets the row height on all rows in the table that aren't set using the getRowHeight method.
-   */
-  @Prop({ mutable: true }) rowHeight?: IcDataTableRowHeights = 40;
-
-  /**
    * If `true`, adds a pagination bar to the bottom of the table.
    */
   @Prop() showPagination?: boolean = false;
@@ -215,7 +206,16 @@ export class DataTable {
   };
 
   /**
-   * Emitted when the `rowHeight` or `getRowHeight` properties change in the data table.
+   * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.
+   * If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+   */
+  @Prop({ mutable: true }) variableRowHeight?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
+
+  /**
+   * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
 
@@ -294,19 +294,19 @@ export class DataTable {
     if (this.updating) this.updating = false;
   }
 
-  @Watch("rowHeight")
-  @Watch("getRowHeight")
+  @Watch("globalRowHeight")
+  @Watch("variableRowHeight")
   rowHeightChangeHandler(): void {
     this.icRowHeightChange.emit();
   }
 
   /**
-   * Resets the `rowHeight` prop to `40px` and sets the `getRowHeight` prop to `null`.
+   * Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.
    */
   @Method()
   async resetRowHeights(): Promise<void> {
-    this.rowHeight = 40;
-    this.getRowHeight = null;
+    this.globalRowHeight = 40;
+    this.variableRowHeight = null;
   }
 
   private startLoadingTimer = (): void => {
@@ -565,10 +565,13 @@ export class DataTable {
     return data
       .sort(!this.sortable ? undefined : this.getSortFunction())
       .map((row, index) => {
-        const getRowHeightVal = this.getRowHeight?.({ ...row, index });
-        const findRowHeight = getRowHeightVal
-          ? getRowHeightVal !== "auto" && getRowHeightVal
-          : this.rowHeight !== "auto" && this.rowHeight;
+        const variableRowHeightVal = this.variableRowHeight?.({
+          ...row,
+          index,
+        });
+        const findRowHeight = variableRowHeightVal
+          ? variableRowHeightVal !== "auto" && variableRowHeightVal
+          : this.globalRowHeight !== "auto" && this.globalRowHeight;
         return (
           <tr
             // eslint-disable-next-line react/jsx-no-bind
