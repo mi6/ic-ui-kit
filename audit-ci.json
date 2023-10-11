@@ -48,6 +48,13 @@
         "notes": "At next renewal, add reason for allowing.",
         "expiry": "20 October 2023"
       }
+    },
+    {
+      "GHSA-7fh5-64p2-3v2j": {
+        "active": true,
+        "notes": "requires upgrade to storybook v7",
+        "expiry": "31 October 2023"
+      }
     }
   ]
 }
