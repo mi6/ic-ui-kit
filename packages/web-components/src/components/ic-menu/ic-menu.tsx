@@ -35,6 +35,7 @@ import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
   private firstRender: boolean = true;
+  private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
   private hasTimedOut: boolean = false;
   private isLoading: boolean = false;
@@ -548,9 +549,20 @@ export class Menu {
         break;
       case "Enter":
         event.preventDefault();
-        this.setInputValue(highlightedOptionIndex);
-        if (menuOptions[highlightedOptionIndex] !== undefined) {
-          this.value = menuOptions[highlightedOptionIndex][this.valueField];
+        if (highlightedOptionIndex >= 0) {
+          if (menuOptions[highlightedOptionIndex] !== undefined) {
+            if (
+              this.isSearchBar &&
+              menuOptions[highlightedOptionIndex].disabled === true
+            ) {
+              this.disabledOptionSelected = true;
+            } else {
+              this.setInputValue(highlightedOptionIndex);
+              this.value = menuOptions[highlightedOptionIndex][this.valueField];
+            }
+          }
+        } else {
+          this.setInputValue(highlightedOptionIndex);
         }
         break;
       case "Escape":
@@ -720,6 +732,10 @@ export class Menu {
   private handleMenuKeyUp = (event: KeyboardEvent): void => {
     if (event.key === "Tab" && event.shiftKey) {
       this.preventClickOpen = false;
+    }
+    if (event.key === "Enter" && this.disabledOptionSelected) {
+      this.disabledOptionSelected = false;
+      event.stopImmediatePropagation();
     }
   };
 
