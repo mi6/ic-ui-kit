@@ -1,5 +1,929 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ic-data-table should apply a specified row height to all rows when rowHeight is set 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should apply a specified row height to specific rows when getRowHeight is set, and any not included should use the default rowHeight 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should apply the correct density scaler to rowHeights when not using the default density 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-dense" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-dense" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-dense" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-dense" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-dense" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-dense" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-dense" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-dense" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 64px;">
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-dense">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-dense" variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-dense">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-dense" variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should apply the correct density scaler to rowHeights when not using the default density 2`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header table-density-spacious" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-spacious" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-spacious" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-spacious" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-spacious" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-spacious" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header table-density-spacious" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text text-spacious" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 96px;">
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell table-density-spacious">
+                <div class="cell-container data-type-string">
+                  <ic-typography class="text-spacious" variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell table-density-spacious">
+                <div class="cell-container data-type-number">
+                  <ic-typography class="text-spacious" variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should be able to slot a custom empty state into the data table 1`] = `
 <ic-data-table>
   <mock:shadow-root>
@@ -96,6 +1020,468 @@ exports[`ic-data-table should correctly render a custom icon in the header when 
                       </g>
                     </svg>
                   </span>
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should not override the height of certain rows if \`getRowHeight\` returns auto 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should not override the height of rows if \`rowHeight\` is set to auto 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
@@ -356,7 +1742,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -386,7 +1772,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -416,7 +1802,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -446,7 +1832,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -476,7 +1862,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -506,7 +1892,7 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -689,7 +2075,7 @@ exports[`ic-data-table should render 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -719,7 +2105,7 @@ exports[`ic-data-table should render 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -749,7 +2135,7 @@ exports[`ic-data-table should render 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -779,7 +2165,7 @@ exports[`ic-data-table should render 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -809,7 +2195,7 @@ exports[`ic-data-table should render 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -839,7 +2225,7 @@ exports[`ic-data-table should render 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -920,7 +2306,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <slot name="name-0-icon"></slot>
@@ -951,7 +2337,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -981,7 +2367,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1011,7 +2397,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1041,7 +2427,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1071,7 +2457,7 @@ exports[`ic-data-table should render a slotted icon instead of an icon defined i
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1165,7 +2551,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1200,7 +2586,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1240,7 +2626,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1280,7 +2666,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1320,7 +2706,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1360,7 +2746,7 @@ exports[`ic-data-table should render column icon on all column cells if onAllCel
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <span class="icon">
@@ -1451,7 +2837,7 @@ exports[`ic-data-table should render embedded 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1481,7 +2867,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1511,7 +2897,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1541,7 +2927,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1571,7 +2957,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1601,7 +2987,7 @@ exports[`ic-data-table should render embedded 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1694,7 +3080,7 @@ exports[`ic-data-table should render sortable 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1724,7 +3110,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1754,7 +3140,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1784,7 +3170,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1814,7 +3200,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -1844,7 +3230,7 @@ exports[`ic-data-table should render sortable 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2130,7 +3516,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-high" variant="body">
@@ -2160,7 +3546,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-low" variant="body">
@@ -2190,7 +3576,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-high" variant="body">
@@ -2220,7 +3606,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-low" variant="body">
@@ -2250,7 +3636,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-high" variant="body">
@@ -2280,7 +3666,7 @@ exports[`ic-data-table should render with cell overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography class="cell-emphasis-high" variant="body">
@@ -2364,7 +3750,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2394,7 +3780,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2424,7 +3810,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2454,7 +3840,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2484,7 +3870,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2514,7 +3900,7 @@ exports[`ic-data-table should render with column overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2598,7 +3984,7 @@ exports[`ic-data-table should render with pagination 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2628,7 +4014,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2658,7 +4044,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2688,7 +4074,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2718,7 +4104,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2748,7 +4134,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2778,7 +4164,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2808,7 +4194,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2838,7 +4224,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2868,7 +4254,7 @@ exports[`ic-data-table should render with pagination 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -2952,7 +4338,7 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 1
               </th>
@@ -2978,7 +4364,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 2
               </th>
@@ -3004,7 +4390,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 3
               </th>
@@ -3030,7 +4416,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 4
               </th>
@@ -3056,7 +4442,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 5
               </th>
@@ -3082,7 +4468,7 @@ exports[`ic-data-table should render with row headers 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 6
               </th>
@@ -3159,7 +4545,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 1
               </th>
@@ -3185,7 +4571,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 2
               </th>
@@ -3211,7 +4597,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 3
               </th>
@@ -3237,7 +4623,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 4
               </th>
@@ -3263,7 +4649,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 5
               </th>
@@ -3289,7 +4675,7 @@ exports[`ic-data-table should render with row overrides 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
                 6
               </th>
@@ -3322,6 +4708,468 @@ exports[`ic-data-table should render with row overrides 1`] = `
       <div class="pagination-container">
         <ic-pagination-bar alignment="right" paginationcontrol="simple" paginationtype="page" showgotopagecontrol="" showitemsperpagecontrol="" totalitems="6"></ic-pagination-bar>
       </div>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should reset all rows to the default height when resetRowHeights is called 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 200px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 80px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should reset all rows to the default height when resetRowHeights is called 2`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row" style="height: 40px;">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
 </ic-data-table>
@@ -3376,7 +5224,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3411,7 +5259,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3446,7 +5294,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3481,7 +5329,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3516,7 +5364,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3551,7 +5399,7 @@ exports[`ic-data-table should slot a custom element into a cell 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3695,7 +5543,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3725,7 +5573,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3755,7 +5603,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3785,7 +5633,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3815,7 +5663,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3845,7 +5693,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3969,7 +5817,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -3999,7 +5847,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4029,7 +5877,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4059,7 +5907,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4089,7 +5937,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4119,7 +5967,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4243,7 +6091,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4273,7 +6121,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4303,7 +6151,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4333,7 +6181,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4363,7 +6211,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4393,7 +6241,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4517,7 +6365,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4547,7 +6395,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4577,7 +6425,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4607,7 +6455,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4637,7 +6485,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4667,7 +6515,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4849,7 +6697,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4879,7 +6727,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4909,7 +6757,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4939,7 +6787,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4969,7 +6817,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -4999,7 +6847,7 @@ exports[`ic-data-table when loading is \`true\`, if data is set before 1 second 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5129,7 +6977,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
             </tr>
           </thead>
           <tbody>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5159,7 +7007,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5189,7 +7037,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5219,7 +7067,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5249,7 +7097,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
@@ -5279,7 +7127,7 @@ exports[`ic-data-table when loading is \`true\`, setting data should cancel the 
                 </div>
               </td>
             </tr>
-            <tr class="table-row">
+            <tr class="table-row" style="height: 40px;">
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
                   <ic-typography variant="body">
