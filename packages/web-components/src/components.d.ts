@@ -499,12 +499,9 @@ export namespace Components {
          */
         "embedded"?: boolean;
         /**
-          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `rowHeight` property.
+          * Sets the row height on all rows in the table that aren't set using the variableRowHeight method.
          */
-        "getRowHeight"?: (parmas: {
-    [key: string]: any;
-    index: number;
-  }) => IcDataTableRowHeights | null;
+        "globalRowHeight"?: IcDataTableRowHeights;
         /**
           * If `true`, column headers will not be visible.
          */
@@ -542,13 +539,9 @@ export namespace Components {
     alignment?: IcPaginationAlignmentOptions;
   };
         /**
-          * Resets the `rowHeight` prop to `40px` and sets the `getRowHeight` prop to `null`.
+          * Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.
          */
         "resetRowHeights": () => Promise<void>;
-        /**
-          * Sets the row height on all rows in the table that aren't set using the getRowHeight method.
-         */
-        "rowHeight"?: IcDataTableRowHeights;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */
@@ -586,6 +579,13 @@ export namespace Components {
     min?: number;
     progress?: number;
   };
+        /**
+          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+         */
+        "variableRowHeight"?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
     }
     interface IcDialog {
         /**
@@ -3181,12 +3181,9 @@ declare namespace LocalJSX {
          */
         "embedded"?: boolean;
         /**
-          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `rowHeight` property.
+          * Sets the row height on all rows in the table that aren't set using the variableRowHeight method.
          */
-        "getRowHeight"?: (parmas: {
-    [key: string]: any;
-    index: number;
-  }) => IcDataTableRowHeights | null;
+        "globalRowHeight"?: IcDataTableRowHeights;
         /**
           * If `true`, column headers will not be visible.
          */
@@ -3213,7 +3210,7 @@ declare namespace LocalJSX {
          */
         "minimumLoadingDisplayDuration"?: number;
         /**
-          * Emitted when the `rowHeight` or `getRowHeight` properties change in the data table.
+          * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
@@ -3227,10 +3224,6 @@ declare namespace LocalJSX {
     goToPageControl?: boolean;
     alignment?: IcPaginationAlignmentOptions;
   };
-        /**
-          * Sets the row height on all rows in the table that aren't set using the getRowHeight method.
-         */
-        "rowHeight"?: IcDataTableRowHeights;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */
@@ -3268,6 +3261,13 @@ declare namespace LocalJSX {
     min?: number;
     progress?: number;
   };
+        /**
+          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+         */
+        "variableRowHeight"?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
     }
     interface IcDialog {
         /**
