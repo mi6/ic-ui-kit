@@ -376,6 +376,9 @@ describe("ic-menu in isolation", () => {
     ) as HTMLIcSearchBarElement;
     const input = window.document.createElement("input");
 
+    const searchMenuOptions = JSON.parse(JSON.stringify(menuOptions));
+    searchMenuOptions[3].disabled = true;
+
     searchBar.setFocus = jest.fn();
 
     const page = await newSpecPage({
@@ -384,12 +387,12 @@ describe("ic-menu in isolation", () => {
         <ic-menu
           open
           activationType="automatic"
-          options={menuOptions}
+          options={searchMenuOptions}
           menuId="menu-id"
           inputLabel="input-label"
           inputEl={input}
           anchorEl={searchBar}
-          value={menuOptions[0].value}
+          value={searchMenuOptions[0].value}
           parentEl={searchBar}
         ></ic-menu>
       ),
@@ -475,6 +478,23 @@ describe("ic-menu in isolation", () => {
         }),
       })
     );
+
+    page.rootInstance.setHighlightedOption(2);
+
+    await page.waitForChanges();
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("ArrowDown"));
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.value).toBe(searchMenuOptions[2].value);
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("Enter"));
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.disabledOptionSelected).toBe(true);
+    expect(page.rootInstance.value).toBe(searchMenuOptions[2].value);
 
     page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("Escape"));
 
@@ -1040,7 +1060,7 @@ describe("ic-menu in isolation", () => {
 
     page.rootInstance.preventClickOpen = true;
 
-    const key = keyboardEvent("Tab");
+    let key = keyboardEvent("Tab");
 
     key.shiftKey = true;
 
@@ -1051,6 +1071,16 @@ describe("ic-menu in isolation", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.preventClickOpen).toBe(false);
+
+    page.rootInstance.disabledOptionSelected = true;
+    key = keyboardEvent("Enter");
+    await page.waitForChanges();
+
+    page.rootInstance.handleMenuKeyUp(key);
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.disabledOptionSelected).toBe(false);
   });
   it("tests connectedCallback function", async () => {
     const searchBar = window.document.createElement(IcSearchBar);
