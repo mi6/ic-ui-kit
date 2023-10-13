@@ -41,7 +41,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
 <Canvas>
   <Story name="Heading with adornment">
     <IcPageHeader heading="Page header">
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -55,7 +55,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -70,11 +70,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       subheading="This is a simple page header component and this is the text."
       small={true}
     >
-      <IcStatusTag
-        slot="heading-adornment"
-        label="Beta"
-        small={true}
-      ></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" small={true} />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -88,7 +84,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -102,7 +98,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -116,7 +112,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -146,7 +142,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
     <IcSectionContainer style={{ height: "800px" }}>
       This is an example of how the sticky variant of the page header would work
@@ -218,7 +214,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a simple page header component and this is the text. This page header is only sticky for viewport widths of 992px and above.."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
     </IcPageHeader>
     <IcSectionContainer style={{ height: "800px" }}>
       This is an example of how the stickyDesktopOnly variant of the page header
@@ -275,15 +271,12 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       reverse-order
     >
       <IcBreadcrumbGroup slot="breadcrumbs">
-        <IcBreadcrumb
-          page-title="Breadcrumb 1"
-          href="/breadcrumb-1"
-        ></IcBreadcrumb>
+        <IcBreadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1" />
         <IcBreadcrumb
           current="true"
           page-title="Breadcrumb 2"
           href="/breadcrumb-2"
-        ></IcBreadcrumb>
+        />
       </IcBreadcrumbGroup>
     </IcPageHeader>
   </Story>
@@ -329,7 +322,7 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Page header"
       subheading="This is a page header component with additional functionality and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
       <IcTextField
         slot="input"
         placeholder="Enter your input"
@@ -349,13 +342,13 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       subheading="This is a page header component with additional functionality and this is the text."
     >
       <IcStepper slot="stepper">
-        <IcStep step-title="Warm kettle" step-type="completed"></IcStep>
+        <IcStep step-title="Warm kettle" step-type="completed" />
         <IcStep
           step-title="Warm milk"
           step-subtitle="Optional"
           step-type="completed"
-        ></IcStep>
-        <IcStep step-title="Pour milk" step-type="current"></IcStep>
+        />
+        <IcStep step-title="Pour milk" step-type="current" />
       </IcStepper>
     </IcPageHeader>
   </Story>
@@ -369,58 +362,58 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       heading="Coffee recipes"
       subheading="This is a page header component with additional functionality and this is the text."
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
       <IcNavigationItem
         slot="tabs"
         label="All recipes"
         href="?path=/story/web-components-page-header--with-tabs"
         selected
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Favourites"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Three"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Four"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Five"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Six"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Seven"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Eight"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Nine"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Section Ten"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
     </IcPageHeader>
   </Story>
 </Canvas>
@@ -434,17 +427,14 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       subheading="This is a page header component that has breadcrumbs, an input area, actions and tabs."
       reverseOrder
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
       <IcBreadcrumbGroup slot="breadcrumbs">
-        <IcBreadcrumb
-          page-title="Breadcrumb 1"
-          href="/breadcrumb-1"
-        ></IcBreadcrumb>
+        <IcBreadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1" />
         <IcBreadcrumb
           current="true"
           page-title="Breadcrumb 2"
           href="/breadcrumb-2"
-        ></IcBreadcrumb>
+        />
       </IcBreadcrumbGroup>
       <IcButton slot="actions" variant="primary">
         Create coffee
@@ -470,12 +460,12 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
         label="All recipes"
         href="?path=/story/web-components-page-header--with-tabs"
         selected
-      ></IcNavigationItem>
+      />
       <IcNavigationItem
         slot="tabs"
         label="Favourites"
         href="?path=/story/web-components-page-header--with-tabs"
-      ></IcNavigationItem>
+      />
       <IcTextField
         slot="input"
         placeholder="Enter your input"
@@ -495,17 +485,14 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
       subheading="This is a page header component that has breadcrumbs, an input area, actions and stepper."
       reverseOrder
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
       <IcBreadcrumbGroup slot="breadcrumbs">
-        <IcBreadcrumb
-          page-title="Breadcrumb 1"
-          href="/breadcrumb-1"
-        ></IcBreadcrumb>
+        <IcBreadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1" />
         <IcBreadcrumb
           current="true"
           page-title="Breadcrumb 2"
           href="/breadcrumb-2"
-        ></IcBreadcrumb>
+        />
       </IcBreadcrumbGroup>
       <IcButton slot="actions" variant="primary">
         Create coffee
@@ -527,13 +514,13 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
         Filter coffee
       </IcButton>
       <IcStepper slot="stepper">
-        <IcStep step-title="Warm kettle" step-type="completed"></IcStep>
+        <IcStep step-title="Warm kettle" step-type="completed" />
         <IcStep
           step-title="Warm milk"
           step-subtitle="Optional"
           step-type="completed"
-        ></IcStep>
-        <IcStep step-title="Pour milk" step-type="current"></IcStep>
+        />
+        <IcStep step-title="Pour milk" step-type="current" />
       </IcStepper>
       <IcTextField
         slot="input"
@@ -561,15 +548,15 @@ export const AllRecipes = () => (
       <IcCard
         heading="Macchiato"
         message="Put your coffee machine to work and brew an easy macchiato. Ideal for breakfast, brunch or whenever you need a pick-me-up."
-      ></IcCard>
+      />
       <IcCard
         heading="Mocha"
         message="If you have a coffee machine, treat yourself to a comforting, chocolatey mocha. You don't need to be a trained barista with our..."
-      ></IcCard>
+      />
       <IcCard
         heading="Espresso"
         message="Capture the classic taste of espresso without the hassle of expensive brewing equipment! For best flavor, serve espresso immediately. Pour..."
-      ></IcCard>
+      />
     </div>
   </>
 );
@@ -588,15 +575,15 @@ export const Favourites = () => (
       <IcCard
         heading="Macchiato"
         message="Put your coffee machine to work and brew an easy macchiato. Ideal for breakfast, brunch or whenever you need a pick-me-up."
-      ></IcCard>
+      />
       <IcCard
         heading="Mocha"
         message="If you have a coffee machine, treat yourself to a comforting, chocolatey mocha. You don't need to be a trained barista with our..."
-      ></IcCard>
+      />
       <IcCard
         heading="Latte"
         message="Dust off that coffee machine and learn a few barista skills to make a creamy latte. Our easy recipe takes breakfast, or brunch, to the next..."
-      ></IcCard>
+      />
     </div>
   </>
 );
@@ -617,7 +604,7 @@ export const Favourites = () => (
       subheading="This is a page header component that has an input area, actions and tabs."
       reverseOrder
     >
-      <IcStatusTag slot="heading-adornment" label="Beta"></IcStatusTag>
+      <IcStatusTag slot="heading-adornment" label="Beta" />
       <IcButton slot="actions" variant="primary">
         Create coffee
         <svg
