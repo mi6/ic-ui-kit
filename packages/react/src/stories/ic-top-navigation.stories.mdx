@@ -15,7 +15,7 @@ import {
   IcSectionContainer,
   IcButton,
   IcTheme,
-  IcBadge
+  IcBadge,
 } from "../components";
 import { useState } from "react";
 import readme from "../../../web-components/src/components/ic-top-navigation/readme.md";
@@ -86,11 +86,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
     </IcTopNavigation>
   </Story>
 </Canvas>
@@ -111,17 +107,13 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
         onClick={() => alert("test")}
       >
-        <IcBadge text-label="1" slot="badge" variant="light"></IcBadge>
+        <IcBadge text-label="1" slot="badge" variant="light" />
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -192,11 +184,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -234,11 +222,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -256,32 +240,16 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
         </svg>
       </IcNavigationButton>
-      <IcNavigationItem
-        label="One"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Two"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Three"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
+      <IcNavigationItem label="One" href="/" slot="navigation" />
+      <IcNavigationItem label="Two" href="/" slot="navigation" />
+      <IcNavigationItem label="Three" href="/" slot="navigation" />
       <IcNavigationItem
         label="Four"
         href="/"
         selected="true"
         slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Five"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
+      />
+      <IcNavigationItem label="Five" href="/" slot="navigation" />
     </IcTopNavigation>
   </Story>
 </Canvas>
@@ -302,11 +270,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -329,28 +293,24 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         expandable="true"
         slot="navigation"
       >
-        <IcNavigationItem label="One" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Two" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Three" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Four" href="/"></IcNavigationItem>
+        <IcNavigationItem label="One" href="/" />
+        <IcNavigationItem label="Two" href="/" />
+        <IcNavigationItem label="Three" href="/" />
+        <IcNavigationItem label="Four" href="/" />
       </IcNavigationGroup>
       <IcNavigationGroup
         label="Second Nav Group"
         expandable="true"
         slot="navigation"
       >
-        <IcNavigationItem label="One" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Two" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Three" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Four" href="/"></IcNavigationItem>
-        <IcNavigationItem
-          label="Five"
-          href="/"
-          selected="true"
-        ></IcNavigationItem>
-        <IcNavigationItem label="Six" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Seven" href="/"></IcNavigationItem>
-        <IcNavigationItem label="Eight" href="/"></IcNavigationItem>
+        <IcNavigationItem label="One" href="/" />
+        <IcNavigationItem label="Two" href="/" />
+        <IcNavigationItem label="Three" href="/" />
+        <IcNavigationItem label="Four" href="/" />
+        <IcNavigationItem label="Five" href="/" selected="true" />
+        <IcNavigationItem label="Six" href="/" />
+        <IcNavigationItem label="Seven" href="/" />
+        <IcNavigationItem label="Eight" href="/" />
       </IcNavigationGroup>
     </IcTopNavigation>
   </Story>
@@ -366,7 +326,7 @@ export const Controlled = () => {
   };
   return (
     <>
-      <IcTheme color={color}></IcTheme>
+      <IcTheme color={color} />
       <IcButton variant="primary" onClick={defaultButtonClickHandler}>
         Default theme
       </IcButton>
@@ -381,7 +341,7 @@ export const Controlled = () => {
 
 <Canvas>
   <Story name="Theming" parameters={{ layout: "fullscreen" }}>
-    <Controlled></Controlled>
+    <Controlled />
     <IcTopNavigation appTitle="ApplicationName" status="alpha" version="v0.0.7">
       <svg
         slot="app-icon"
@@ -394,11 +354,7 @@ export const Controlled = () => {
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -416,62 +372,22 @@ export const Controlled = () => {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
         </svg>
       </IcNavigationButton>
-      <IcNavigationItem
-        label="One"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Two"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Three"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
+      <IcNavigationItem label="One" href="/" slot="navigation" />
+      <IcNavigationItem label="Two" href="/" slot="navigation" />
+      <IcNavigationItem label="Three" href="/" slot="navigation" />
       <IcNavigationItem
         label="Four"
         href="/"
         selected="true"
         slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Five"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Six"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Seven"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Eight"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Nine"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Ten"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
-      <IcNavigationItem
-        label="Eleven"
-        href="/"
-        slot="navigation"
-      ></IcNavigationItem>
+      />
+      <IcNavigationItem label="Five" href="/" slot="navigation" />
+      <IcNavigationItem label="Six" href="/" slot="navigation" />
+      <IcNavigationItem label="Seven" href="/" slot="navigation" />
+      <IcNavigationItem label="Eight" href="/" slot="navigation" />
+      <IcNavigationItem label="Nine" href="/" slot="navigation" />
+      <IcNavigationItem label="Ten" href="/" slot="navigation" />
+      <IcNavigationItem label="Eleven" href="/" slot="navigation" />
     </IcTopNavigation>
   </Story>
 </Canvas>
@@ -524,11 +440,7 @@ export const DailyTippers = () => (
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -609,11 +521,7 @@ export const DailyTippersGrouped = () => (
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"
@@ -654,7 +562,10 @@ export const DailyTippersGrouped = () => (
 ### With long single-word app title
 
 <Canvas>
-  <Story name="Long single-word app title" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Long single-word app title"
+    parameters={{ layout: "fullscreen" }}
+  >
     <IcTopNavigation
       appTitle="Applicationwithareallyreallylongsinglewordname"
       status="alpha"
@@ -671,11 +582,7 @@ export const DailyTippersGrouped = () => (
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z" />
       </svg>
-      <IcSearchBar
-        slot="search"
-        placeholder="Search"
-        label="Search"
-      ></IcSearchBar>
+      <IcSearchBar slot="search" placeholder="Search" label="Search" />
       <IcNavigationButton
         label="Button One"
         slot="buttons"

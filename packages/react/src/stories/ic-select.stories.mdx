@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import {
   Meta,
@@ -92,7 +91,10 @@ export const optionsWithCustomElements = [
   {
     label: "Latte",
     value: "Lat",
-    element: { component: `<ic-status-tag label="Neutral status"></ic-status-tag>`, ariaLabel: "Neutral status tag" },
+    element: {
+      component: `<ic-status-tag label="Neutral status"></ic-status-tag>`,
+      ariaLabel: "Neutral status tag",
+    },
   },
   {
     label: "Americano",
@@ -150,8 +152,7 @@ export const searchableOptionsWithDescriptions = [
   {
     label: "Flat white",
     value: "Fla",
-    description:
-      "Coffee without froth made with espresso and hot steamed milk",
+    description: "Coffee without froth made with espresso and hot steamed milk",
   },
   {
     label: "Mocha",
@@ -218,8 +219,7 @@ export const playgroundOptions = [
       {
         label: "Macchiato",
         value: "Mac",
-        description:
-          "Espresso coffee with a dash of frothy steamed milk",
+        description: "Espresso coffee with a dash of frothy steamed milk",
       },
     ],
   },
@@ -232,8 +232,8 @@ export const playgroundOptions = [
     label: "Mocha",
     value: "Moc",
     description: "A mixture of coffee and chocolate",
-  }
-]
+  },
+];
 
 ### Default
 
@@ -245,7 +245,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -261,7 +261,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -278,7 +278,7 @@ export const playgroundOptions = [
           showClearButton
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -294,7 +294,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithDescriptions}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -311,7 +311,7 @@ export const playgroundOptions = [
           helperText="Some helper text"
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -328,7 +328,7 @@ export const playgroundOptions = [
           placeholder="Placeholder goes here"
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -344,7 +344,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithCustomElements}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -355,13 +355,13 @@ export const playgroundOptions = [
 <Canvas>
   <Story name="Small">
     {() => {
-       return (
+      return (
         <IcSelect
           label="What is your favourite coffee?"
           small
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -378,7 +378,7 @@ export const playgroundOptions = [
           disabled
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -394,7 +394,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithDisabled}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -411,7 +411,7 @@ export const playgroundOptions = [
           fullWidth
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -428,7 +428,7 @@ export const playgroundOptions = [
           hideLabel
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -445,7 +445,7 @@ export const playgroundOptions = [
           required
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -463,7 +463,7 @@ export const playgroundOptions = [
           options={options}
           value="Cap"
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -479,7 +479,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={groupedOptions}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -495,7 +495,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithRecommended}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -514,21 +514,21 @@ export const playgroundOptions = [
             validationText="Success message"
             options={options}
             onIcChange={(event) => setValue1(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="warning"
             validationText="Warning message"
             options={options}
             onIcChange={(event) => setValue2(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="error"
             validationText="Error message"
             options={options}
             onIcChange={(event) => setValue3(event.detail.value)}
-          ></IcSelect>
+          />
         </div>
       );
     }}
@@ -545,7 +545,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={manyOptions}
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -562,7 +562,7 @@ export const playgroundOptions = [
           options={searchableOptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -575,20 +575,19 @@ export const SearchableDefaultValue = () => {
       required
       value="Cap"
       options={searchableOptions}
-      onIcChange={e => console.log(e.detail.value)}
+      onIcChange={(e) => console.log(e.detail.value)}
       searchable
       showClearButton
     />
-)}
+  );
+};
 
 ### Searchable default value
 
 <Canvas>
   <Story name="Searchable default value">
     {() => {
-      return (
-        <SearchableDefaultValue />
-      );
+      return <SearchableDefaultValue />;
     }}
   </Story>
 </Canvas>
@@ -601,22 +600,21 @@ export const SearchableFormDefaultValue = () => {
         required
         value="Cap"
         options={searchableOptions}
-        onIcChange={e => console.log(e.detail.value)}
+        onIcChange={(e) => console.log(e.detail.value)}
         searchable
         showClearButton
       />
-      <IcButton type='reset'>Reset</IcButton>
+      <IcButton type="reset">Reset</IcButton>
     </form>
-)}
+  );
+};
 
 ### Searchable Form reset default value
 
 <Canvas>
   <Story name="Searchable form reset default value">
     {() => {
-      return (
-        <SearchableFormDefaultValue />
-      );
+      return <SearchableFormDefaultValue />;
     }}
   </Story>
 </Canvas>
@@ -633,7 +631,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           filterMatchPosition="start"
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -650,7 +648,7 @@ export const SearchableFormDefaultValue = () => {
           options={searchableOptionsWithDescriptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -668,7 +666,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           includeDescriptionsInSearch
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -686,7 +684,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           helperText="Some helper text"
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -704,7 +702,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           small
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -722,7 +720,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           disabled
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -739,7 +737,7 @@ export const SearchableFormDefaultValue = () => {
           options={searchableOptionsWithDisabled}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -757,7 +755,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           hideLabel
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -775,7 +773,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           required
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -792,7 +790,7 @@ export const SearchableFormDefaultValue = () => {
           options={groupedOptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -810,7 +808,7 @@ export const SearchableFormDefaultValue = () => {
           searchable
           includeGroupTitlesInSearch
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -827,7 +825,7 @@ export const SearchableFormDefaultValue = () => {
           options={searchableOptionsWithRecommended}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -847,7 +845,7 @@ export const SearchableFormDefaultValue = () => {
             options={options}
             searchable
             onIcChange={(event) => setValue1(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="warning"
@@ -855,7 +853,7 @@ export const SearchableFormDefaultValue = () => {
             options={options}
             searchable
             onIcChange={(event) => setValue2(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="error"
@@ -863,7 +861,7 @@ export const SearchableFormDefaultValue = () => {
             options={options}
             searchable
             onIcChange={(event) => setValue3(event.detail.value)}
-          ></IcSelect>
+          />
         </div>
       );
     }}
@@ -881,7 +879,7 @@ export const SearchableFormDefaultValue = () => {
           options={manyOptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -890,7 +888,7 @@ export const SearchableFormDefaultValue = () => {
 ### Searchable external filtering
 
 export const ExternalFiltering = () => {
-   const mockData = [
+  const mockData = [
     { label: "Espresso", value: "Esp" },
     { label: "Double Espresso", value: "Dou" },
     { label: "Cappuccino", value: "Cap" },
@@ -911,37 +909,62 @@ export const ExternalFiltering = () => {
       if (searchTerm) {
         setLoading(true);
         const mockAPI = (query) => {
-          const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
-          return new Promise(resolve => setTimeout(() => resolve(filteredResults), event.type === "icChange" ? 2000 : 500));
+          const filteredResults = mockData.filter((m) =>
+            m.label.toLowerCase().includes(query.toLowerCase())
+          );
+          return new Promise((resolve) =>
+            setTimeout(
+              () => resolve(filteredResults),
+              event.type === "icChange" ? 2000 : 500
+            )
+          );
         };
         mockAPI(searchTerm).then((results) => setResults(results));
       } else {
         setResults([]);
       }
     }
-  },[event])
+  }, [event]);
   const handleChange = (event) => {
     console.log(event.detail.value);
     setEvent(event);
-  }
-  const handleOptionSelect = (event) =>{
+  };
+  const handleOptionSelect = (event) => {
     setSelectedValue(event.detail.value);
-  }
+  };
   const handleClear = () => {
     setResults([]);
-  }
+  };
   return (
-    <IcSelect loading={loading} timeout={1000} debounce={300} label="What is your favourite coffee?" searchable disableFilter options={results} onIcOptionSelect={handleOptionSelect} onIcChange={handleChange} onIcRetryLoad={handleChange} onIcClear={handleClear}/>
+    <IcSelect
+      loading={loading}
+      timeout={1000}
+      debounce={300}
+      label="What is your favourite coffee?"
+      searchable
+      disableFilter
+      options={results}
+      onIcOptionSelect={handleOptionSelect}
+      onIcChange={handleChange}
+      onIcRetryLoad={handleChange}
+      onIcClear={handleClear}
+    />
   );
 };
 
 <Canvas>
   <Story name="Searchable external filtering">
-   <ExternalFiltering />
-    <br/>
-    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Filter, Cappuccino, Americano, Mocha, Macchiato.</IcTypography>
-    <br/>
-    <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the select menu will be updated.</IcTypography>
+    <ExternalFiltering />
+    <br />
+    <IcTypography>
+      Suggested search options: Espresso, Double Espresso, Flat White, Filter,
+      Cappuccino, Americano, Mocha, Macchiato.
+    </IcTypography>
+    <br />
+    <IcTypography>
+      The IcChange event will trigger 300ms after you finish typing. 1 second
+      later, the options in the select menu will be updated.
+    </IcTypography>
   </Story>
 </Canvas>
 
@@ -950,8 +973,7 @@ export const ExternalFiltering = () => {
 <Canvas>
   <Story
     name="Default select playground"
-    args={{...defaultArgs, 
-      showClearButton: false,}}
+    args={{ ...defaultArgs, showClearButton: false }}
     argTypes={{
       validationStatus: {
         defaultValue: "",
@@ -960,7 +982,8 @@ export const ExternalFiltering = () => {
       },
     }}
   >
-    {(args) => <IcSelect
+    {(args) => (
+      <IcSelect
         id="select-playground"
         options={playgroundOptions}
         disabled={args.disabled}
@@ -978,7 +1001,7 @@ export const ExternalFiltering = () => {
         validationStatus={args.validationStatus}
         validationText={args.validationText}
       />
-    }
+    )}
   </Story>
 </Canvas>
 
@@ -1006,28 +1029,28 @@ export const ExternalFiltering = () => {
       },
     }}
   >
-    {(args) =>
-        <IcSelect
-          id="select-searchable-playground"
-          options={playgroundOptions}
-          disabled={args.disabled}
-          fullWidth={args.fullWidth}
-          helperText={args.helperText}
-          hideLabel={args.hideLabel}
-          includeDescriptionsInSearch={args.includeDescriptionsInSearch}
-          includeGroupTitlesInSearch={args.includeGroupTitlesInSearch}
-          loading={args.loading}
-          loadingLabel={args.loadingLabel}
-          label={args.label}
-          placeholder={args.placeholder}
-          readonly={args.readonly}
-          required={args.required}
-          searchMatchPosition={args.searchMatchPosition}
-          searchable
-          small={args.small}
-          validationStatus={args.validationStatus}
-          validationText={args.validationText}
-        />
-    }
+    {(args) => (
+      <IcSelect
+        id="select-searchable-playground"
+        options={playgroundOptions}
+        disabled={args.disabled}
+        fullWidth={args.fullWidth}
+        helperText={args.helperText}
+        hideLabel={args.hideLabel}
+        includeDescriptionsInSearch={args.includeDescriptionsInSearch}
+        includeGroupTitlesInSearch={args.includeGroupTitlesInSearch}
+        loading={args.loading}
+        loadingLabel={args.loadingLabel}
+        label={args.label}
+        placeholder={args.placeholder}
+        readonly={args.readonly}
+        required={args.required}
+        searchMatchPosition={args.searchMatchPosition}
+        searchable
+        small={args.small}
+        validationStatus={args.validationStatus}
+        validationText={args.validationText}
+      />
+    )}
   </Story>
 </Canvas>

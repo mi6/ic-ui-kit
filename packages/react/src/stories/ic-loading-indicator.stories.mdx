@@ -18,7 +18,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 
 <Canvas>
   <Story name="Circular (indeterminate)">
-    <IcLoadingIndicator label="Loading..."></IcLoadingIndicator>
+    <IcLoadingIndicator label="Loading..." />
   </Story>
 </Canvas>
 
@@ -37,7 +37,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
         min={args.min}
         max={args.max}
         label="Loading..."
-      ></IcLoadingIndicator>
+      />
     )}
   </Story>
 </Canvas>
@@ -47,9 +47,9 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story name="Circular variants (indeterminate)">
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Small" size="small"></IcLoadingIndicator>
-      <IcLoadingIndicator label="Default"></IcLoadingIndicator>
-      <IcLoadingIndicator label="Large" size="large"></IcLoadingIndicator>
+      <IcLoadingIndicator label="Small" size="small" />
+      <IcLoadingIndicator label="Default" />
+      <IcLoadingIndicator label="Large" size="large" />
     </div>
   </Story>
 </Canvas>
@@ -73,20 +73,20 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
           max={args.max}
           label="Small"
           size="small"
-        ></IcLoadingIndicator>
+        />
         <IcLoadingIndicator
           progress={args.progress}
           min={args.min}
           max={args.max}
           label="Default"
-        ></IcLoadingIndicator>
+        />
         <IcLoadingIndicator
           progress={args.progress}
           min={args.min}
           max={args.max}
           label="Large"
           size="large"
-        ></IcLoadingIndicator>
+        />
       </div>
     )}
   </Story>
@@ -96,7 +96,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 
 <Canvas>
   <Story name="Icon (circular)">
-    <IcLoadingIndicator size="icon"></IcLoadingIndicator>
+    <IcLoadingIndicator size="icon" />
   </Story>
 </Canvas>
 
@@ -104,7 +104,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 
 <Canvas>
   <Story name="Linear (indeterminate)">
-    <IcLoadingIndicator label="Loading..." type="linear"></IcLoadingIndicator>
+    <IcLoadingIndicator label="Loading..." type="linear" />
   </Story>
 </Canvas>
 
@@ -126,7 +126,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
         max={args.max}
         label="Loading..."
         type="linear"
-      ></IcLoadingIndicator>
+      />
     )}
   </Story>
 </Canvas>
@@ -136,23 +136,15 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story name="Linear variants (indeterminate)">
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator
-        label="Small"
-        size="small"
-        type="linear"
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator label="Default" type="linear"></IcLoadingIndicator>
-      <IcLoadingIndicator
-        label="Large"
-        size="large"
-        type="linear"
-      ></IcLoadingIndicator>
+      <IcLoadingIndicator label="Small" size="small" type="linear" />
+      <IcLoadingIndicator label="Default" type="linear" />
+      <IcLoadingIndicator label="Large" size="large" type="linear" />
       <IcLoadingIndicator
         label="Full-width"
         size="default"
         type="linear"
         variant="full-width"
-      ></IcLoadingIndicator>
+      />
     </div>
   </Story>
 </Canvas>
@@ -177,14 +169,14 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
           label="Small"
           size="small"
           type="linear"
-        ></IcLoadingIndicator>
+        />
         <IcLoadingIndicator
           progress={args.progress}
           min={args.min}
           max={args.max}
           label="Default"
           type="linear"
-        ></IcLoadingIndicator>
+        />
         <IcLoadingIndicator
           progress={args.progress}
           min={args.min}
@@ -192,7 +184,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
           label="Large"
           size="large"
           type="linear"
-        ></IcLoadingIndicator>
+        />
         <IcLoadingIndicator
           progress={args.progress}
           min={args.min}
@@ -201,7 +193,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
           size="default"
           type="linear"
           variant="full-width"
-        ></IcLoadingIndicator>
+        />
       </div>
     )}
   </Story>
@@ -212,9 +204,9 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story name="Circular dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator label="Small" size="small" dark></IcLoadingIndicator>
-      <IcLoadingIndicator label="Default" dark></IcLoadingIndicator>
-      <IcLoadingIndicator label="Large" size="large" dark></IcLoadingIndicator>
+      <IcLoadingIndicator label="Small" size="small" dark />
+      <IcLoadingIndicator label="Default" dark />
+      <IcLoadingIndicator label="Large" size="large" dark />
     </div>
   </Story>
 </Canvas>
@@ -226,7 +218,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
     name="Icon dark (circular)"
     parameters={{ backgrounds: { default: "dark" } }}
   >
-    <IcLoadingIndicator size="icon" dark></IcLoadingIndicator>
+    <IcLoadingIndicator size="icon" dark />
   </Story>
 </Canvas>
 
@@ -235,23 +227,14 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story name="Linear dark" parameters={{ backgrounds: { default: "dark" } }}>
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator
-        label="Default"
-        type="linear"
-        dark
-      ></IcLoadingIndicator>
-      <IcLoadingIndicator
-        label="Large"
-        size="large"
-        type="linear"
-        dark
-      ></IcLoadingIndicator>
+      <IcLoadingIndicator label="Default" type="linear" dark />
+      <IcLoadingIndicator label="Large" size="large" type="linear" dark />
       <IcLoadingIndicator
         label="Full-width"
         type="linear"
         variant="full-width"
         dark
-      ></IcLoadingIndicator>
+      />
     </div>
   </Story>
 </Canvas>
@@ -261,8 +244,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story name="No label">
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator name="Loading"></IcLoadingIndicator>
-      <IcLoadingIndicator name="Loading" type="linear"></IcLoadingIndicator>
+      <IcLoadingIndicator name="Loading" />
+      <IcLoadingIndicator name="Loading" type="linear" />
     </div>
   </Story>
 </Canvas>
@@ -274,7 +257,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
     <IcLoadingIndicator
       label="Loading.../Still loading..."
       labelDuration="4000"
-    ></IcLoadingIndicator>
+    />
   </Story>
 </Canvas>
 
@@ -297,7 +280,7 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
         progress={args.progress}
         min={args.min}
         max={args.max}
-      ></IcLoadingIndicator>
+      />
     )}
   </Story>
 </Canvas>

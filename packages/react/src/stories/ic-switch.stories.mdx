@@ -5,7 +5,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcSwitch } from '../components';
+import { IcSwitch } from "../components";
 import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Meta title="React Components/Switch" component={IcSwitch} />
@@ -16,7 +16,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Default">
-    <IcSwitch label="Label"></IcSwitch>
+    <IcSwitch label="Label" />
   </Story>
 </Canvas>
 
@@ -24,7 +24,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Name">
-    <IcSwitch label="Label"></IcSwitch>
+    <IcSwitch label="Label" />
   </Story>
 </Canvas>
 
@@ -32,7 +32,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="State">
-    <IcSwitch showState label="Label"></IcSwitch>
+    <IcSwitch showState label="Label" />
   </Story>
 </Canvas>
 
@@ -40,7 +40,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Checked">
-    <IcSwitch checked showState label="Label"></IcSwitch>
+    <IcSwitch checked showState label="Label" />
   </Story>
 </Canvas>
 
@@ -48,7 +48,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Small">
-    <IcSwitch small showState label="Label"></IcSwitch>
+    <IcSwitch small showState label="Label" />
   </Story>
 </Canvas>
 
@@ -56,7 +56,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Disabled">
-    <IcSwitch disabled label="Label"></IcSwitch>
+    <IcSwitch disabled label="Label" />
   </Story>
 </Canvas>
 
@@ -64,7 +64,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Disabled, name and state">
-    <IcSwitch disabled showState label="Label"></IcSwitch>
+    <IcSwitch disabled showState label="Label" />
   </Story>
 </Canvas>
 
@@ -72,7 +72,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Disabled, name, state and checked">
-    <IcSwitch disabled showState label="Label" checked></IcSwitch>
+    <IcSwitch disabled showState label="Label" checked />
   </Story>
 </Canvas>
 
@@ -80,7 +80,7 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="ARIA label">
-    <IcSwitch label="Custom label"></IcSwitch>
+    <IcSwitch label="Custom label" />
   </Story>
 </Canvas>
 
@@ -89,9 +89,19 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 <Canvas>
   <Story name="Right adornment">
     <IcSwitch label="Right adornment">
-      <svg slot="right-adornment" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z" fill="black"/>
-</svg>
+      <svg
+        slot="right-adornment"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z"
+          fill="black"
+        />
+      </svg>
     </IcSwitch>
   </Story>
 </Canvas>
@@ -100,6 +110,6 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Canvas>
   <Story name="Helper text">
-    <IcSwitch label="Helper text" helperText="This is some helper text"></IcSwitch>
+    <IcSwitch label="Helper text" helperText="This is some helper text" />
   </Story>
 </Canvas>
