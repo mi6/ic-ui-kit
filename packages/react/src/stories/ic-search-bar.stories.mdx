@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
-import { Meta, Story, Canvas, ArgsTable, Description} from '@storybook/addon-docs';
-import { IcSearchBar, IcTypography } from '../components';
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { IcSearchBar, IcTypography } from "../components";
 import readme from "../../../web-components/src/components/ic-search-bar/readme.md";
 
 <Meta title="React Components/Search bar" component={IcSearchBar} />
 
 <Description markdown={readme} />
-
 
 export const ExternalFiltering = () => {
   const mockData = [
@@ -22,7 +27,7 @@ export const ExternalFiltering = () => {
   const [loading, setLoading] = useState(false);
   const [optionSelected, setOptionSelected] = useState(false);
   useEffect(() => {
-    const searchTerm = event?.detail.value
+    const searchTerm = event?.detail.value;
     if (searchTerm !== optionSelected) {
       if (searchTerm?.length > 1) {
         if (!optionSelected) {
@@ -30,25 +35,42 @@ export const ExternalFiltering = () => {
         }
         setOptionSelected(false);
         const mockAPI = (query) => {
-          const filteredResults = mockData.filter(m => m.label.toLowerCase().includes(query.toLowerCase()));
-          return new Promise(resolve => setTimeout(() => resolve(filteredResults), event.type === 'icChange' ? 2000 : 500));
+          const filteredResults = mockData.filter((m) =>
+            m.label.toLowerCase().includes(query.toLowerCase())
+          );
+          return new Promise((resolve) =>
+            setTimeout(
+              () => resolve(filteredResults),
+              event.type === "icChange" ? 2000 : 500
+            )
+          );
         };
         mockAPI(searchTerm).then((results) => setResults(results));
-      }
-      else {
-        setResults([]);  
+      } else {
+        setResults([]);
       }
     }
     setOptionSelected(false);
-  },[event, optionSelected])
+  }, [event, optionSelected]);
   const handleChange = (event) => {
     setEvent(event);
-  }
+  };
   const handleOptionSelect = () => {
     setOptionSelected(true);
-  }
+  };
   return (
-    <IcSearchBar loading={loading} timeout={1000} debounce={300} placeholder="Type to search" label="Search for coffee" onIcChange={handleChange} onIcRetryLoad={handleChange} onIcOptionSelect={handleOptionSelect} disableFilter options={results} />
+    <IcSearchBar
+      loading={loading}
+      timeout={1000}
+      debounce={300}
+      placeholder="Type to search"
+      label="Search for coffee"
+      onIcChange={handleChange}
+      onIcRetryLoad={handleChange}
+      onIcOptionSelect={handleOptionSelect}
+      disableFilter
+      options={results}
+    />
   );
 };
 
@@ -58,7 +80,7 @@ export const ExternalFiltering = () => {
   <Story name="Default">
     <IcSearchBar
       label="What is your favourite coffee?"
-      onIcSubmitSearch={() => console.log('submit search')}
+      onIcSubmitSearch={() => console.log("submit search")}
     />
   </Story>
 </Canvas>
@@ -78,8 +100,11 @@ export const ExternalFiltering = () => {
         { label: "Mocha", value: "mocha" },
       ]}
     />
-    <br/>
-    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Cappuccino, Americano, Mocha</IcTypography>
+    <br />
+    <IcTypography>
+      Suggested search options: Espresso, Double Espresso, Flat White,
+      Cappuccino, Americano, Mocha
+    </IcTypography>
   </Story>
 </Canvas>
 
@@ -99,7 +124,7 @@ export const ExternalFiltering = () => {
         { label: "Mocha", value: "mocha" },
       ]}
     />
-    <br/>
+    <br />
     <IcTypography>All options will be displayed as you type</IcTypography>
   </Story>
 </Canvas>
@@ -108,10 +133,8 @@ export const ExternalFiltering = () => {
 
 <Canvas>
   <Story name="In a form">
-    <form onSubmit={() => console.log('form submit')}>
-      <IcSearchBar
-        label="What is your favourite coffee?"
-      />
+    <form onSubmit={() => console.log("form submit")}>
+      <IcSearchBar label="What is your favourite coffee?" />
     </form>
   </Story>
 </Canvas>
@@ -131,10 +154,7 @@ export const ExternalFiltering = () => {
 
 <Canvas>
   <Story name="Small">
-    <IcSearchBar
-      label="What is your favourite coffee?"
-      small
-    />
+    <IcSearchBar label="What is your favourite coffee?" small />
   </Story>
 </Canvas>
 
@@ -142,10 +162,7 @@ export const ExternalFiltering = () => {
 
 <Canvas>
   <Story name="Hidden label">
-    <IcSearchBar
-      label="What is your favourite coffee?"
-      hideLabel
-    />
+    <IcSearchBar label="What is your favourite coffee?" hideLabel />
   </Story>
 </Canvas>
 
@@ -153,10 +170,7 @@ export const ExternalFiltering = () => {
 
 <Canvas>
   <Story name="Disabled">
-    <IcSearchBar
-      label="What is your favourite coffee?"
-      disabled
-    />
+    <IcSearchBar label="What is your favourite coffee?" disabled />
   </Story>
 </Canvas>
 
@@ -176,8 +190,11 @@ export const ExternalFiltering = () => {
         { label: "Mocha", value: "mocha" },
       ]}
     />
-    <br/>
-    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Cappuccino, Americano, Mocha</IcTypography>
+    <br />
+    <IcTypography>
+      Suggested search options: Espresso, Double Espresso, Flat White,
+      Cappuccino, Americano, Mocha
+    </IcTypography>
   </Story>
 </Canvas>
 
@@ -187,13 +204,10 @@ export const ExternalFiltering = () => {
   <Story
     name="Dark"
     parameters={{
-      backgrounds: { default: "dark" }
+      backgrounds: { default: "dark" },
     }}
   >
-    <IcSearchBar
-      label="What is your favourite coffee?"
-      dark
-    />
+    <IcSearchBar label="What is your favourite coffee?" dark />
   </Story>
 </Canvas>
 
@@ -202,10 +216,16 @@ export const ExternalFiltering = () => {
 <Canvas>
   <Story name="External filtering">
     <ExternalFiltering />
-    <br/>
-    <IcTypography>Suggested search options: Espresso, Double Espresso, Flat White, Cappuccino, Americano, Mocha</IcTypography>
-    <br/>
-    <IcTypography>The IcChange event will trigger 300ms after you finish typing. 1 second later, the options in the searchbar menu will be updated.</IcTypography>
+    <br />
+    <IcTypography>
+      Suggested search options: Espresso, Double Espresso, Flat White,
+      Cappuccino, Americano, Mocha
+    </IcTypography>
+    <br />
+    <IcTypography>
+      The IcChange event will trigger 300ms after you finish typing. 1 second
+      later, the options in the searchbar menu will be updated.
+    </IcTypography>
   </Story>
 </Canvas>
 
@@ -216,7 +236,7 @@ export const ExternalFiltering = () => {
     <IcSearchBar
       label="What is your favourite coffee?"
       searchMode="query"
-      onIcSubmitSearch={() => console.log('submit search')}
+      onIcSubmitSearch={() => console.log("submit search")}
       options={[
         { label: "Espresso", value: "espresso" },
         { label: "Double Espresso", value: "doubleespresso" },

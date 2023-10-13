@@ -22,10 +22,10 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Full-width stepper">
     <IcStepper>
-      <IcStep stepTitle="Create" stepType="completed"></IcStep>
-      <IcStep stepTitle="Read" stepType="current"></IcStep>
-      <IcStep stepTitle="Update" stepType="active"></IcStep>
-      <IcStep stepTitle="Delete" stepType="disabled"></IcStep>
+      <IcStep stepTitle="Create" stepType="completed" />
+      <IcStep stepTitle="Read" stepType="current" />
+      <IcStep stepTitle="Update" stepType="active" />
+      <IcStep stepTitle="Delete" stepType="disabled" />
     </IcStepper>
   </Story>
 </Canvas>
@@ -35,10 +35,10 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Left-aligned stepper">
     <IcStepper aligned="left">
-      <IcStep stepTitle="Create" stepType="completed"></IcStep>
-      <IcStep stepTitle="Read" stepType="current"></IcStep>
-      <IcStep stepTitle="Update" stepType="active"></IcStep>
-      <IcStep stepTitle="Delete" stepType="disabled"></IcStep>
+      <IcStep stepTitle="Create" stepType="completed" />
+      <IcStep stepTitle="Read" stepType="current" />
+      <IcStep stepTitle="Update" stepType="active" />
+      <IcStep stepTitle="Delete" stepType="disabled" />
     </IcStepper>
   </Story>
 </Canvas>
@@ -48,10 +48,10 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="With hidden step information">
     <IcStepper hideStepInfo>
-      <IcStep stepTitle="Create" stepType="completed"></IcStep>
-      <IcStep stepTitle="Read" stepType="current"></IcStep>
-      <IcStep stepTitle="Update" stepType="active"></IcStep>
-      <IcStep stepTitle="Delete" stepType="disabled"></IcStep>
+      <IcStep stepTitle="Create" stepType="completed" />
+      <IcStep stepTitle="Read" stepType="current" />
+      <IcStep stepTitle="Update" stepType="active" />
+      <IcStep stepTitle="Delete" stepType="disabled" />
     </IcStepper>
   </Story>
 </Canvas>
@@ -61,10 +61,10 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Without step titles">
     <IcStepper>
-      <IcStep stepType="completed"></IcStep>
-      <IcStep stepType="completed"></IcStep>
-      <IcStep stepType="current"></IcStep>
-      <IcStep></IcStep>
+      <IcStep stepType="completed" />
+      <IcStep stepType="completed" />
+      <IcStep stepType="current" />
+      <IcStep />
     </IcStepper>
   </Story>
 </Canvas>
@@ -74,18 +74,18 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Custom stepper">
     <IcStepper>
-      <IcStep stepTitle="First"></IcStep>
+      <IcStep stepTitle="First" />
       <IcStep
         stepTitle="Second With a Very Long Title"
         stepSubtitle="Optional subtitle that is long and should wrap"
         stepType="current"
-      ></IcStep>
-      <IcStep stepTitle="Third" stepType="disabled"></IcStep>
+      />
+      <IcStep stepTitle="Third" stepType="disabled" />
       <IcStep
         stepTitle="Fourth title that is long and should wrap"
         stepSubtitle="Optional Subtitle"
         stepType="completed"
-      ></IcStep>
+      />
     </IcStepper>
   </Story>
 </Canvas>
@@ -95,18 +95,18 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Custom connector width">
     <IcStepper aligned="left" connectorWidth="200">
-      <IcStep stepTitle="First"></IcStep>
+      <IcStep stepTitle="First" />
       <IcStep
         stepTitle="Second With a Very Long Title"
         stepSubtitle="Optional subtitle that is long and should wrap"
         stepType="current"
-      ></IcStep>
-      <IcStep stepTitle="Third" stepType="disabled"></IcStep>
+      />
+      <IcStep stepTitle="Third" stepType="disabled" />
       <IcStep
         stepTitle="Fourth title that is long and should wrap"
         stepSubtitle="Optional Subtitle"
         stepType="completed"
-      ></IcStep>
+      />
     </IcStepper>
   </Story>
 </Canvas>
@@ -116,10 +116,10 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Compact stepper" parameters={{ loki: { skip: true } }}>
     <IcStepper variant="compact" id="standard-compact-stepper">
-      <IcStep stepTitle="Create"></IcStep>
-      <IcStep stepTitle="Read" stepType="current"></IcStep>
-      <IcStep stepTitle="Update" stepStatus="optional"></IcStep>
-      <IcStep stepTitle="Delete" stepStatus="required"></IcStep>
+      <IcStep stepTitle="Create" />
+      <IcStep stepTitle="Read" stepType="current" />
+      <IcStep stepTitle="Update" stepStatus="optional" />
+      <IcStep stepTitle="Delete" stepStatus="required" />
     </IcStepper>
     <IcButton
       class="back-btn-compact-stepper"
@@ -192,24 +192,24 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 <Canvas>
   <Story name="Custom compact stepper" parameters={{ loki: { skip: true } }}>
     <IcStepper variant="compact" id="custom-compact-stepper">
-      <IcStep stepTitle="First"></IcStep>
+      <IcStep stepTitle="First" />
       <IcStep
         stepTitle="Second With a Very Long Title"
         stepSubtitle="Optional subtitle that is long and should wrap"
         stepType="current"
-      ></IcStep>
-      <IcStep stepTitle="Third" stepType="disabled"></IcStep>
+      />
+      <IcStep stepTitle="Third" stepType="disabled" />
       <IcStep
         stepTitle="Fourth title that is long and should wrap"
         stepSubtitle="Optional Subtitle"
         stepType="completed"
-      ></IcStep>
+      />
       <IcStep
         stepTitle="Fifth and final step"
         stepSubtitle="Optional Subtitle"
         stepStatus="optional"
         stepType="completed"
-      ></IcStep>
+      />
     </IcStepper>
     <IcButton
       class="back-btn-custom-compact-stepper"
