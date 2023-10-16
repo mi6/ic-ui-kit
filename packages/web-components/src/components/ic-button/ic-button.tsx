@@ -66,6 +66,16 @@ export class Button {
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
 
   /**
+   * @internal Used to identify any related child component
+   */
+  @Prop() ariaControlsId: string | boolean;
+
+  /**
+   * @internal Used to identify any related child component
+   */
+  @Prop() ariaOwnsId: string | boolean;
+
+  /**
    * If `true`, the button will be in disabled state.
    */
   @Prop() disabled?: boolean = false;
@@ -461,6 +471,8 @@ export class Button {
           ["with-badge"]: isSlotUsed(this.el, "badge"),
         }}
         onClick={this.handleClick}
+        aria-owns={this.ariaOwnsId}
+        aria-controls={this.ariaControlsId}
       >
         {this.hasTooltip && (
           <ic-tooltip

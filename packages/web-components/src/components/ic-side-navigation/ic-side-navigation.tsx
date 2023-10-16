@@ -647,7 +647,7 @@ export class SideNavigation {
               full-width="true"
               appearance={foregroundColor}
               onClick={this.toggleMenu}
-              aria-owns="side-navigation"
+              ariaOwnsId="side-navigation"
               aria-haspopup="true"
               aria-expanded="false"
             >
