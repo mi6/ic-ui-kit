@@ -100,7 +100,39 @@ export class Select {
   @Prop() emptyOptionListText = "No results found";
 
   /**
-   * If `true`, the select element will fill the width of the container.
+   * The <form> element to associate the select with.
+   */
+  @Prop() form?: string;
+
+  /**
+   * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.
+   * This prop should only be used with searchable select and will only be applied if searchable is true.
+   */
+  @Prop() formaction?: string;
+
+  /**
+   * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
+   */
+  @Prop() formenctype?: string;
+
+  /**
+   * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
+   */
+  @Prop() formmethod?: string;
+
+  /**
+   * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
+   */
+  @Prop() formnovalidate?: boolean;
+
+  /**
+   * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.
+   * This prop should only be used with searchable select and will only be applied if searchable is true.
+   */
+  @Prop() formtarget?: string;
+
+  /**
+   * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
    */
   @Prop() fullWidth: boolean = false;
 
@@ -994,6 +1026,7 @@ export class Select {
                 onBlur={this.onBlur}
                 onFocus={this.onFocus}
                 onKeyDown={this.handleNativeSelectKeyDown}
+                form={this.form}
                 {...this.inheritedAttributes}
               >
                 <option value="" selected disabled={!showClearButton}>
@@ -1051,6 +1084,12 @@ export class Select {
                   onKeyDown={this.handleKeyDown}
                   onFocus={this.onFocus}
                   onBlur={this.onBlur}
+                  form={this.form}
+                  formaction={this.formaction}
+                  formenctype={this.formenctype}
+                  formmethod={this.formmethod}
+                  formnovalidate={this.formnovalidate}
+                  formtarget={this.formtarget}
                 ></input>
                 {this.searchableSelectInputValue &&
                   (showClearButton || searchable) && (

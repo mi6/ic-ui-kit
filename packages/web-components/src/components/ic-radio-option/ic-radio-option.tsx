@@ -51,6 +51,36 @@ export class RadioOption {
   @Prop() dynamicText: string = "This selection requires additional answers";
 
   /**
+   * The <form> element to associate the radio with.
+   */
+  @Prop() form?: string;
+
+  /**
+   * The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.
+   */
+  @Prop() formaction?: string;
+
+  /**
+   * The way the submitted form data is encoded.
+   */
+  @Prop() formenctype?: string;
+
+  /**
+   * The HTTP method used to submit the form.
+   */
+  @Prop() formmethod?: string;
+
+  /**
+   * If `true`, the form will not be validated when submitted.
+   */
+  @Prop() formnovalidate?: boolean;
+
+  /**
+   * The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.
+   */
+  @Prop() formtarget?: string;
+
+  /**
    * The group label for the radio option.
    */
   @Prop() groupLabel: string;
@@ -225,6 +255,12 @@ export class RadioOption {
               disabled={this.disabled ? true : null}
               checked={this.selected}
               ref={(el) => (this.radioElement = el)}
+              form={this.form}
+              formaction={this.formaction}
+              formenctype={this.formenctype}
+              formmethod={this.formmethod}
+              formnovalidate={this.formnovalidate}
+              formtarget={this.formtarget}
             ></input>
             <span class="checkmark"></span>
           </div>

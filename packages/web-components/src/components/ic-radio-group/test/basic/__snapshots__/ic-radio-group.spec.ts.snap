@@ -308,3 +308,21 @@ exports[`ic-radio-group should render: renders 1`] = `
   <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
+
+exports[`ic-radio-group should test radio option as submit on form 1`] = `
+<ic-radio-option additional-field-display="static" form="new-form" id="ic-radio-option" label="IC Radio Test" selected="" value="test-value">
+  <mock:shadow-root>
+    <div class="container">
+      <div>
+        <input checked="" form="new-form" id="ic-radio-option-IC Radio Test-undefined" role="radio" tabindex="0" type="radio" value="test-value">
+        <span class="checkmark"></span>
+      </div>
+      <ic-typography class="radio-label" variant="body">
+        <label htmlfor="ic-radio-option-IC Radio Test-undefined">
+          IC Radio Test
+        </label>
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-radio-option>
+`;
