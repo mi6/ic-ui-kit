@@ -213,6 +213,8 @@ export namespace Components {
           * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
+        "ariaControlsId": string | boolean;
+        "ariaOwnsId": string | boolean;
         /**
           * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
@@ -2740,6 +2742,8 @@ declare namespace LocalJSX {
           * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
+        "ariaControlsId"?: string | boolean;
+        "ariaOwnsId"?: string | boolean;
         /**
           * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
          */
