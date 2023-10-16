@@ -25,7 +25,7 @@
       "GHSA-w5p7-h5w8-2hfq": {
         "active": true,
         "notes": "requires upgrade to storybook v7",
-        "expiry": "16 October 2023"
+        "expiry": "5 November 2023"
       }
     },
     {
