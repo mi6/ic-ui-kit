@@ -52,6 +52,15 @@ describe("ic-radio-group", () => {
     expect(page.root).toMatchSnapshot("renders-with-selected-option");
   });
 
+  it("should test radio option as submit on form", async () => {
+    const page = await newSpecPage({
+      components: [RadioOption],
+      html: `<form id="new-form"></form><ic-radio-option id="ic-radio-option" label="IC Radio Test" value="test-value" form="new-form" selected></ic-radio-option>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render with validation status", async () => {
     const page = await newSpecPage({
       components: [RadioGroup, RadioOption],
