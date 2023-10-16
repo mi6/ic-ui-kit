@@ -240,7 +240,7 @@ export class MenuItem {
             }
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
-            aria-controls={
+            ariaControlsId={
               this.submenuTriggerFor !== undefined
                 ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
@@ -251,7 +251,7 @@ export class MenuItem {
                 ? "menu"
                 : false
             }
-            aria-owns={
+            ariaOwnsId={
               this.submenuTriggerFor !== undefined
                 ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
