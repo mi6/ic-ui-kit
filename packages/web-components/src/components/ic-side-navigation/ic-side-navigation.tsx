@@ -74,6 +74,11 @@ export class SideNavigation {
   @Prop() disableAutoParentStyling: boolean = false;
 
   /**
+   * If `true`, the side navigation will not display as a top bar on small devices.
+   */
+  @Prop() disableTopBarBehaviour: boolean = false;
+
+  /**
    * If `true`, the side navigation will load in an expanded state.
    */
   @Prop() expanded: boolean = false;
@@ -125,7 +130,8 @@ export class SideNavigation {
   componentDidLoad(): void {
     this.emitSideNavigationExpanded({
       sideNavExpanded: this.menuExpanded,
-      sideNavMobile: this.deviceSize === DEVICE_SIZES.S,
+      sideNavMobile:
+        this.deviceSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour,
     });
 
     checkResizeObserver(this.runResizeObserver);
@@ -510,7 +516,7 @@ export class SideNavigation {
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
-    if (currSize === DEVICE_SIZES.S) {
+    if (currSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour) {
       if (!this.disableAutoParentStyling) {
         const topBarHeight =
           this.el.shadowRoot.querySelector(".top-bar").scrollHeight;
@@ -553,14 +559,14 @@ export class SideNavigation {
         this.setParentPaddingLeft("0");
       }
     } else if (
-      currSize > DEVICE_SIZES.S &&
+      (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
       currSize <= DEVICE_SIZES.M &&
       this.static &&
       !this.disableAutoParentStyling
     ) {
       this.setParentPaddingLeft(paddingLeft);
     } else if (
-      currSize > DEVICE_SIZES.S &&
+      (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
       currSize <= DEVICE_SIZES.L &&
       !this.disableAutoParentStyling
     ) {
@@ -700,11 +706,13 @@ export class SideNavigation {
       inline,
     } = this;
 
-    const isSDevice = this.deviceSize === DEVICE_SIZES.S;
+    const isSDevice =
+      !this.disableTopBarBehaviour && this.deviceSize === DEVICE_SIZES.S;
     const isMdDevice = this.deviceSize === DEVICE_SIZES.M;
     const isLgDevice = this.deviceSize >= DEVICE_SIZES.L;
     const isAppNameSubtitleVariant = this.deviceSizeAppTitle === DEVICE_SIZES.S;
-    const displayExpandBtn = isMdDevice || (isLgDevice && !this.static);
+    const displayExpandBtn =
+      isMdDevice || this.disableTopBarBehaviour || (isLgDevice && !this.static);
 
     const topBarProps: IcTopBar = {
       isSDevice,
@@ -722,6 +730,8 @@ export class SideNavigation {
           "xs-menu-close": !menuOpen && isSDevice,
           "sm-collapsed": !isSDevice && !menuExpanded,
           "sm-expanded": !isSDevice && menuExpanded,
+          "side-display":
+            this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
           [IcThemeForegroundEnum.Dark]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["collapsed-labels"]:

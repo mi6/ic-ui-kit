@@ -1660,6 +1660,10 @@ export namespace Components {
          */
         "disableAutoParentStyling": boolean;
         /**
+          * If `true`, the side navigation will not display as a top bar on small devices.
+         */
+        "disableTopBarBehaviour": boolean;
+        /**
           * If `true`, the side navigation will load in an expanded state.
          */
         "expanded": boolean;
@@ -4342,6 +4346,10 @@ declare namespace LocalJSX {
           * If `true`, automatic parent wrapper styling will be disabled.
          */
         "disableAutoParentStyling"?: boolean;
+        /**
+          * If `true`, the side navigation will not display as a top bar on small devices.
+         */
+        "disableTopBarBehaviour"?: boolean;
         /**
           * If `true`, the side navigation will load in an expanded state.
          */
