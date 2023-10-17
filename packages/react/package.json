@@ -39,7 +39,7 @@
     "@ukic/web-components": "^2.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.23.2",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "^6.4.8",
