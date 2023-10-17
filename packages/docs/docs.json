@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-10T15:01:57",
+  "timestamp": "2023-10-17T11:33:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -12207,6 +12207,28 @@
           "attr": "disable-auto-parent-styling",
           "reflectToAttr": false,
           "docs": "If `true`, automatic parent wrapper styling will be disabled.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disableTopBarBehaviour",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-top-bar-behaviour",
+          "reflectToAttr": false,
+          "docs": "If `true`, the side navigation will not display as a top bar on small devices.",
           "docsTags": [],
           "default": "false",
           "values": [
