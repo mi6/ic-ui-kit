@@ -561,6 +561,10 @@ export namespace Components {
          */
         "heading": string;
         /**
+          * Determines whether or not the close icon is displayed
+         */
+        "hideCloseIcon"?: boolean;
+        /**
           * Use to hide the dialog.
          */
         "hideDialog": () => Promise<void>;
@@ -3092,6 +3096,10 @@ declare namespace LocalJSX {
           * Sets the heading for the dialog.
          */
         "heading": string;
+        /**
+          * Determines whether or not the close icon is displayed
+         */
+        "hideCloseIcon"?: boolean;
         /**
           * Sets the optional label for the dialog which appears above the heading.
          */
