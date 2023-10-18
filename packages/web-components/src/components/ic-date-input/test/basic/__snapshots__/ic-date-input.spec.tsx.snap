@@ -640,8 +640,8 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
           <div class="action-buttons">
             <ic-button class="button-size-small button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
               <mock:shadow-root>
-                <ic-tooltip label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
-                  <button aria-disabled="true" aria-label="Clear input" class="button" disabled="" id="ic-button-with-tooltip-clear-button" part="button" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -651,8 +651,8 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             <div class="divider"></div>
             <ic-button class="button-size-small button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
               <mock:shadow-root>
-                <ic-tooltip label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
-                  <button aria-disabled="true" aria-label="Display calendar" class="button" disabled="" id="ic-button-with-tooltip-calendar-button" part="button" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -912,8 +912,8 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
           <div class="action-buttons">
             <ic-button class="button-size-small button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
-                <ic-tooltip label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
-                  <button aria-label="Clear input" class="button" id="ic-button-with-tooltip-clear-button" part="button" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -923,8 +923,8 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             <div class="divider"></div>
             <ic-button class="button-size-small button-variant-icon calendar-button" exportparts="button" id="calendar-button">
               <mock:shadow-root>
-                <ic-tooltip label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
-                  <button aria-label="Display calendar" class="button" id="ic-button-with-tooltip-calendar-button" part="button" type="button">
+                <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-label="Display calendar" class="button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
