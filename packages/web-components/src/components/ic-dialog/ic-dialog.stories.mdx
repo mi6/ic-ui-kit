@@ -535,13 +535,23 @@ import readme from "./readme.md";
     {html`
       <script>
         function showHiddenCloseIconDialog() {
-          dialog = document.querySelector('#hidden-close-icon-dialog');
+          dialog = document.querySelector("#hidden-close-icon-dialog");
           dialog.showDialog();
         }
       </script>
-      <ic-button variant="primary" onclick="showHiddenCloseIconDialog()">Launch dialog with hidden close icon</ic-button>
-      <ic-dialog id="hidden-close-icon-dialog" heading="This dialog does not have a close icon" label="Hidden Close Icon Dialog" hide-close-icon>
-        <ic-typography> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </ic-typography>
+      <ic-button variant="primary" onclick="showHiddenCloseIconDialog()"
+        >Launch dialog with hidden close icon</ic-button
+      >
+      <ic-dialog
+        id="hidden-close-icon-dialog"
+        heading="This dialog does not have a close icon"
+        label="Hidden Close Icon Dialog"
+        hide-close-icon
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
       </ic-dialog>
     `}
   </Story>
