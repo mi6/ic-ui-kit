@@ -33,12 +33,11 @@
 
 ## Events
 
-| Event      | Description                                     | Type                            |
-| ---------- | ----------------------------------------------- | ------------------------------- |
-| `icBlur`   | Emitted when the input loses focus.             | `CustomEvent<{ value: Date; }>` |
-| `icChange` | Emitted when the value has changed.             | `CustomEvent<{ value: Date; }>` |
-| `icClear`  | Emitted when value is cleared with clear button | `CustomEvent<void>`             |
-| `icFocus`  | Emitted when the input gains focus.             | `CustomEvent<{ value: Date; }>` |
+| Event      | Description                         | Type                            |
+| ---------- | ----------------------------------- | ------------------------------- |
+| `icBlur`   | Emitted when the input loses focus. | `CustomEvent<{ value: Date; }>` |
+| `icChange` | Emitted when the value has changed. | `CustomEvent<{ value: Date; }>` |
+| `icFocus`  | Emitted when the input gains focus. | `CustomEvent<{ value: Date; }>` |
 
 
 ## Methods

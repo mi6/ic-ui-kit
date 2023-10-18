@@ -239,11 +239,6 @@ export class DateInput {
   @Event() icChange: EventEmitter<{ value: Date }>;
 
   /**
-   * Emitted when value is cleared with clear button
-   */
-  @Event() icClear: EventEmitter<void>;
-
-  /**
    * Emitted when the input gains focus.
    */
   @Event() icFocus: EventEmitter<{ value: Date }>;
@@ -646,12 +641,10 @@ export class DateInput {
         });
       }
       if (this.day && this.month && this.year && this.invalidDateText === "") {
-        this.icChange.emit({ value: this.selectedDate });
-        this.value = this.selectedDate;
+        this.setValueAndEmitChange(this.selectedDate);
         this.selectedDateInfoEl.textContent = ` ${this.selectedDate.toDateString()}`;
       } else {
-        this.icChange.emit({ value: null });
-        this.value = null;
+        this.setValueAndEmitChange(null);
         this.selectedDateInfoEl.textContent = "";
       }
       this.previousSelectedDate = this.selectedDate;
@@ -1468,7 +1461,7 @@ export class DateInput {
       this.setPreventInput(input, false);
     });
     this.isDateSetFromKeyboardEvent = false;
-    this.value = null;
+    this.setValueAndEmitChange(null);
     this.setValidationMessage();
     this.handleDateChange(true);
 
@@ -1478,6 +1471,13 @@ export class DateInput {
   private handleCalendarOpen = (ev: MouseEvent) => {
     ev.stopImmediatePropagation();
     this.calendarButtonClicked.emit({ value: this.selectedDate });
+  };
+
+  private setValueAndEmitChange = (value: Date) => {
+    if (this.value !== value) {
+      this.icChange.emit({ value: value });
+      this.value = value;
+    }
   };
 
   render() {
