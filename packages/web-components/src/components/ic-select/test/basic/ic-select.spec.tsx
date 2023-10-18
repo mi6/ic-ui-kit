@@ -111,6 +111,15 @@ describe("ic-select", () => {
     expect(page.root).toMatchSnapshot("hide-label-set");
   });
 
+  it("should test select as submit on form", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer, Button],
+      html: `<form id="new-form"></form><ic-select id="ic-select" form="new-form" label="IC Select Test" value="test-value"></ic-select>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render readonly", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, InputComponentContainer],

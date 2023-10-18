@@ -12,6 +12,7 @@
 | `appTitle`                 | `app-title`                   | The app title to be displayed. This is required, unless a slotted app title link is used.                           | `string`  | `undefined` |
 | `collapsedIconLabels`      | `collapsed-icon-labels`       | If `true`, the icon and label will appear when side navigation is collapsed.                                        | `boolean` | `false`     |
 | `disableAutoParentStyling` | `disable-auto-parent-styling` | If `true`, automatic parent wrapper styling will be disabled.                                                       | `boolean` | `false`     |
+| `disableTopBarBehaviour`   | `disable-top-bar-behaviour`   | If `true`, the side navigation will not display as a top bar on small devices.                                      | `boolean` | `false`     |
 | `expanded`                 | `expanded`                    | If `true`, the side navigation will load in an expanded state.                                                      | `boolean` | `false`     |
 | `href`                     | `href`                        | The URL that the app title link points to.                                                                          | `string`  | `"/"`       |
 | `shortAppTitle`            | `short-app-title`             | The short title of the app to be displayed at small screen sizes in place of the app title.                         | `string`  | `""`        |
