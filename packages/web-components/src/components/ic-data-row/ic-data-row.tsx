@@ -6,6 +6,7 @@ import {
   isSlotUsed,
   slotHasContent,
 } from "../../utils/helpers";
+import { IcSizesNoLarge } from "../../utils/types";
 
 /**
  * @slot label - Content will be rendered in the leftmost cell.
@@ -32,9 +33,14 @@ export class DataRow {
   @Prop() label: string;
 
   /**
-   * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
+   * The size of the data row component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * The value of the middle (right if no end-component supplied) cell of the row.
@@ -119,12 +125,12 @@ export class DataRow {
   }
 
   render() {
-    const { label, value, small } = this;
+    const { label, value, small, size } = this;
 
     return (
       <Host
         class={{
-          ["small"]: small,
+          ["small"]: small || size === "small",
           ["breakpoint-medium"]: this.entitySize === "m",
           ["breakpoint-xs"]: this.entitySize === "xs",
         }}

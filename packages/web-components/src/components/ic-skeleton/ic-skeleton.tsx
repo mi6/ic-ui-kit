@@ -15,7 +15,12 @@ export class Skeleton {
   @State() widthOnly: boolean;
 
   /**
-   * If `true`, the skeleton will be set to the light variant.
+   * The appearance of the skeleton.
+   */
+  @Prop() appearance?: "light" | "default" = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
    */
   @Prop() light?: boolean = false;
 
@@ -35,7 +40,7 @@ export class Skeleton {
   }
 
   render() {
-    const { variant, light } = this;
+    const { variant, light, appearance } = this;
 
     this.hasChild = !!this.el.firstElementChild;
 
@@ -59,7 +64,7 @@ export class Skeleton {
         class={{
           ["skeleton"]: true,
           ["circle"]: variant == "circle",
-          ["light"]: light,
+          ["light"]: light || appearance === "light",
         }}
         style={
           (!this.hasChild && this.default && defaultSkeletonStyle) ||

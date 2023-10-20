@@ -490,7 +490,7 @@ exports[`ic-dialog component should render with slotted content 1`] = `
     <mock:shadow-root>
       <ic-input-container>
         <ic-input-label for="ic-text-field-input-0" helpertext="" label="What is your favourite coffee?"></ic-input-label>
-        <ic-input-component-container validationstatus="">
+        <ic-input-component-container size="default" validationstatus="">
           <input aria-describedby="" aria-invalid="false" aria-label="What is your favourite coffee?" autocapitalize="off" autocomplete="off" id="ic-text-field-input-0" inputmode="text" name="ic-text-field-input-0" placeholder="" type="text" value="">
         </ic-input-component-container>
       </ic-input-container>

@@ -53,12 +53,33 @@ import readme from "./readme.md";
         aligned="left"
         heading="Page header"
         subheading="This is a simple page header component and this is the text."
-        small="true"
+        size="small"
       >
         <ic-status-tag
           slot="heading-adornment"
           label="Beta"
-          small="true"
+          size="small"
+        ></ic-status-tag>
+      </ic-page-header>
+    `}
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    {html`
+      <ic-page-header
+        aligned="left"
+        heading="Page header"
+        subheading="This is a simple page header component and this is the text."
+        small
+      >
+        <ic-status-tag
+          slot="heading-adornment"
+          label="Beta"
+          size="small"
         ></ic-status-tag>
       </ic-page-header>
     `}

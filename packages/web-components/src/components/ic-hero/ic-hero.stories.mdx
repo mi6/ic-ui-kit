@@ -140,6 +140,26 @@ import image from "./assets/example-background.png";
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
       aligned="center"
+      size="small"
+    >
+      <ic-button variant="primary" appearance="light" slot="interaction"
+        >Button</ic-button
+      >
+      <ic-button variant="secondary" appearance="light" slot="interaction"
+        >Button</ic-button
+      >
+    </ic-hero>`}
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small" parameters={{ layout: "fullscreen" }}>
+    {html`<ic-hero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      aligned="center"
       small
     >
       <ic-button variant="primary" appearance="light" slot="interaction"

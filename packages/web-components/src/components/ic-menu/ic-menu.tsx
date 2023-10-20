@@ -16,6 +16,7 @@ import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 import {
   IcActivationTypes,
   IcMenuOption,
+  IcSizesNoLarge,
   IcValueEventDetail,
 } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
@@ -111,9 +112,14 @@ export class Menu {
   @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
 
   /**
-   * If `true`, the small styling will be applied to the menu.
+   * The size of the menu component.
    */
-  @Prop({ reflect: true }) small?: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * The possible menu selection options.
@@ -965,6 +971,7 @@ export class Menu {
       hasTimedOut,
       isLoading,
       small,
+      size,
       open,
       inputEl,
       keyboardNav,
@@ -975,7 +982,7 @@ export class Menu {
         class={{
           "full-width": fullWidth,
           "no-focus": inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
-          small: small,
+          small: small || size === "small",
           open: open,
         }}
       >

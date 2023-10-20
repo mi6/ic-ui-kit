@@ -18,7 +18,7 @@ import readme from "./readme.md";
   <Story name="Neutral">
     {html`
       <ic-status-tag label="Neutral"></ic-status-tag>
-      <ic-status-tag label="Neutral" appearance="outlined"></ic-status-tag>
+      <ic-status-tag label="Neutral" variant="outlined"></ic-status-tag>
     `}
   </Story>
 </Canvas>
@@ -32,7 +32,7 @@ import readme from "./readme.md";
       <ic-status-tag
         label="Success"
         status="success"
-        appearance="outlined"
+        variant="outlined"
       ></ic-status-tag>
     `}
   </Story>
@@ -47,7 +47,7 @@ import readme from "./readme.md";
       <ic-status-tag
         label="Warning"
         status="warning"
-        appearance="outlined"
+        variant="outlined"
       ></ic-status-tag>
     `}
   </Story>
@@ -62,7 +62,7 @@ import readme from "./readme.md";
       <ic-status-tag
         label="Danger"
         status="danger"
-        appearance="outlined"
+        variant="outlined"
       ></ic-status-tag>
     `}
   </Story>
@@ -73,8 +73,34 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Small">
     {html`
-      <ic-status-tag label="Small" small></ic-status-tag>
-      <ic-status-tag label="Small" appearance="outlined" small></ic-status-tag>
+      <ic-status-tag label="Small" size="small"></ic-status-tag>
+      <ic-status-tag
+        label="Small"
+        variant="outlined"
+        size="small"
+      ></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    {html`
+      <ic-status-tag label="Small" size="small"></ic-status-tag>
+      <ic-status-tag label="Small" variant="outlined" small></ic-status-tag>
+    `}
+  </Story>
+</Canvas>
+
+### Deprecated - appearance
+
+<Canvas>
+  <Story name="Deprecated - appearance">
+    {html`
+      <ic-status-tag label="Neutral"></ic-status-tag>
+      <ic-status-tag label="Neutral" appearance="outlined"></ic-status-tag>
     `}
   </Story>
 </Canvas>
@@ -92,7 +118,7 @@ import readme from "./readme.md";
       ></ic-status-tag>
       <br />
       <br />
-      <ic-button appearance="primary" size="small" onClick="onClick()" id="btn"
+      <ic-button variant="primary" size="small" onClick="onClick()" id="btn"
         >Toggle announced prop</ic-button
       >
       <script>

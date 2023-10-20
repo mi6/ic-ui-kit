@@ -257,23 +257,47 @@ import readme from "./readme.md";
   <Story name="Small">
     {(args) =>
       html`
-        <ic-radio-group label="This is a label" name="1" small>
+        <ic-radio-group label="This is a label" name="1" size="small">
           <ic-radio-option
             value="valueName1"
             label="Unselected / Default"
-            small
           ></ic-radio-option>
           <ic-radio-option
             value="valueName2"
             label="Selected / Default"
             selected
-            small
           ></ic-radio-option>
           <ic-radio-option
             value="valueName3"
             label="Unselected / Disabled"
             disabled
-            small
+          ></ic-radio-option>
+        </ic-radio-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    {(args) =>
+      html`
+        <ic-radio-group label="This is a label" name="1" small>
+          <ic-radio-option
+            value="valueName1"
+            label="Unselected / Default"
+          ></ic-radio-option>
+          <ic-radio-option
+            value="valueName2"
+            label="Selected / Default"
+            selected
+          ></ic-radio-option>
+          <ic-radio-option
+            value="valueName3"
+            label="Unselected / Disabled"
+            disabled
           ></ic-radio-option>
         </ic-radio-group>
       `

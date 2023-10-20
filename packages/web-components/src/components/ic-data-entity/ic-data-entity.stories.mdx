@@ -79,6 +79,30 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Small">
+    {html`<ic-data-entity heading="Personal details" size="small">
+      <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
+      <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
+      <ic-data-row label="Telephone" value="07449 7654873"></ic-data-row>
+      <ic-data-row label="Email" value="mjohnson@coffee.gov"></ic-data-row>
+      <ic-data-row label="Address">
+        <ic-typography variant="body" slot="value">
+          383 Coffee Drive
+          <br />
+          London
+          <br />
+          SW7 988
+          <br />
+          United Kingdom
+        </ic-typography>
+      </ic-data-row>
+    </ic-data-entity>`}
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
     {html`<ic-data-entity heading="Personal details" small>
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
@@ -229,15 +253,16 @@ import Typography from "../ic-typography/readme.md";
         <ic-status-tag
           status="success"
           label="confirmed"
-          variant="secondary"
+          variant="filled"
           slot="end-component"
-        />
+        >
+        </ic-status-tag>
       </ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995">
         <ic-status-tag
           status="warning"
           label="in review"
-          variant="secondary"
+          variant="filled"
           slot="end-component"
         />
       </ic-data-row>
@@ -245,7 +270,7 @@ import Typography from "../ic-typography/readme.md";
         <ic-status-tag
           status="warning"
           label="in review"
-          variant="secondary"
+          variant="filled"
           slot="end-component"
         />
       </ic-data-row>
@@ -253,7 +278,7 @@ import Typography from "../ic-typography/readme.md";
         <ic-status-tag
           status="success"
           label="confirmed"
-          variant="secondary"
+          variant="filled"
           slot="end-component"
         />
       </ic-data-row>
@@ -269,7 +294,7 @@ import Typography from "../ic-typography/readme.md";
         </ic-typography>
         <ic-status-tag
           label="not confirmed"
-          variant="secondary"
+          variant="filled"
           slot="end-component"
         />
       </ic-data-row>
@@ -286,35 +311,35 @@ import Typography from "../ic-typography/readme.md";
         ><ic-status-tag
           status="success"
           label="approved"
-          variant="secondary"
+          variant="filled"
           slot="value"
       /></ic-data-row>
       <ic-data-row label="Date of birth"
         ><ic-status-tag
           status="success"
           label="approved"
-          variant="secondary"
+          variant="filled"
           slot="value"
       /></ic-data-row>
       <ic-data-row label="Telephone"
         ><ic-status-tag
           status="success"
           label="approved"
-          variant="secondary"
+          variant="filled"
           slot="value"
       /></ic-data-row>
       <ic-data-row label="Address"
         ><ic-status-tag
           status="success"
           label="approved"
-          variant="secondary"
+          variant="filled"
           slot="value"
       /></ic-data-row>
       <ic-data-row label="Email"
         ><ic-status-tag
           status="success"
           label="approved"
-          variant="secondary"
+          variant="filled"
           slot="value"
       /></ic-data-row>
     </ic-data-entity>`}
