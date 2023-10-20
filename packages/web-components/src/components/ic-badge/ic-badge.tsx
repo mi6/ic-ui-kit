@@ -24,6 +24,7 @@ import {
   getParentElement,
   getParentElementType,
   hexToRgba,
+  isPropDefined,
   onComponentRequiredPropUndefined,
   rgbaStrToObj,
 } from "../../utils/helpers";
@@ -215,7 +216,7 @@ export class Badge {
   };
 
   private isAccessibleLabelDefined = () => {
-    return this.accessibleLabel !== undefined && this.accessibleLabel !== null;
+    return isPropDefined(this.accessibleLabel) && this.accessibleLabel !== null;
   };
 
   render() {

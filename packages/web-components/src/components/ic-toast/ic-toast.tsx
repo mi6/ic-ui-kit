@@ -14,6 +14,7 @@ import closeIcon from "../../assets/close-icon.svg";
 import { VARIANT_ICONS } from "../../utils/constants";
 import {
   getSlot,
+  isPropDefined,
   isSlotUsed,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
@@ -124,7 +125,7 @@ export class Toast {
           "aria-description",
           this.variant
             ? `${this.heading}${
-                this.message !== undefined ? `. ${this.message}` : ""
+                isPropDefined(this.message) ? `. ${this.message}` : ""
               }`
             : this.message
         );

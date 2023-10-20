@@ -28,6 +28,7 @@ import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
   isEmptyString,
+  isPropDefined,
 } from "../../utils/helpers";
 
 /**
@@ -293,7 +294,7 @@ export class TopNavigation {
 
     let appTitleVariant: IcTypographyVariants = "h3";
 
-    const hasTitle = this.appTitle !== "" && this.appTitle !== undefined;
+    const hasTitle = this.appTitle !== "" && isPropDefined(this.appTitle);
 
     if (this.deviceSize <= DEVICE_SIZES.L) {
       appTitleVariant = "h4";
