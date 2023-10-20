@@ -145,7 +145,6 @@ describe("ic-tooltip component", () => {
 
     page.root.label = "new tooltip";
 
-    page.rootInstance.updateLabel();
     await page.waitForChanges();
 
     expect(page.rootInstance.label).toBe("new tooltip");
