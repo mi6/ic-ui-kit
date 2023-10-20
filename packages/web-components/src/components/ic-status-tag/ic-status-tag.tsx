@@ -4,6 +4,7 @@ import {
   IcStatusTagStatuses,
   IcStatusTagAppearance,
 } from "./ic-status-tag.types";
+import { IcEmphasisType, IcSizesNoLarge } from "../../utils/types";
 
 @Component({
   tag: "ic-status-tag",
@@ -17,9 +18,9 @@ export class StatusTag {
   @Prop() announced?: boolean = false;
 
   /**
-   * The emphasis of the status tag.
+   * @deprecated This prop should not be used anymore. Use variant prop instead.
    */
-  @Prop() appearance?: IcStatusTagAppearance = "filled";
+  @Prop() appearance?: IcStatusTagAppearance;
 
   /**
    * The content rendered within the status tag.
@@ -27,7 +28,12 @@ export class StatusTag {
   @Prop() label!: string;
 
   /**
-   * If `true`, the small styling will be applied to the status tag.
+   * The size of the status tag component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -35,6 +41,17 @@ export class StatusTag {
    * The colour of the status tag.
    */
   @Prop() status?: IcStatusTagStatuses = "neutral";
+
+  /**
+   * The emphasis of the status tag.
+   */
+  @Prop() variant?: IcEmphasisType = "filled";
+
+  componentWillLoad(): void {
+    if (this.appearance === "outlined") {
+      this.variant = "outlined";
+    }
+  }
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
@@ -44,14 +61,15 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, appearance, small, announced } = this;
+    const { label, status, appearance, variant, small, size, announced } = this;
     return (
       <Host role={announced ? "status" : null} aria-label="Status">
         <strong
           class={{
             ["tag"]: true,
-            [`${appearance}-${status}`]: true,
-            ["small"]: small,
+            [`${appearance}-${status}`]: appearance !== undefined,
+            [`${variant}-${status}`]: true,
+            ["small"]: small || size === "small",
           }}
         >
           <ic-typography

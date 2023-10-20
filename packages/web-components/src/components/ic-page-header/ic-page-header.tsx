@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, Element, State } from "@stencil/core";
 
-import { IcAlignment } from "../../utils/types";
+import { IcAlignment, IcSizesNoLarge } from "../../utils/types";
 
 import {
   isSlotUsed,
@@ -55,7 +55,12 @@ export class PageHeader {
   @Prop() reverseOrder?: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the page header.
+   * The size of the page header component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -156,6 +161,7 @@ export class PageHeader {
   render() {
     const {
       small,
+      size,
       border,
       heading,
       subheading,
@@ -191,7 +197,7 @@ export class PageHeader {
                 <div class="header-content">
                   <slot name="heading">
                     <ic-typography
-                      variant={small ? "h4" : "h2"}
+                      variant={small || size === "small" ? "h4" : "h2"}
                       class="heading"
                     >
                       <h2>{heading}</h2>
@@ -204,7 +210,10 @@ export class PageHeader {
                     {subheading && (
                       <ic-typography
                         variant="body"
-                        class={{ ["subheading"]: true, ["small"]: small }}
+                        class={{
+                          ["subheading"]: true,
+                          ["small"]: small || size === "small",
+                        }}
                       >
                         {subheading}
                       </ic-typography>

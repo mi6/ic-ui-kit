@@ -21,6 +21,7 @@ import {
 import {
   IcInformationStatusOrEmpty,
   IcOrientation,
+  IcSizesNoLarge,
   IcValueEventDetail,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-radio-group.types";
@@ -78,9 +79,15 @@ export class RadioGroup {
   @Prop() required: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the radio group.
+   * The size of the radio group component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
+
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
@@ -277,7 +284,10 @@ export class RadioGroup {
     );
 
     return (
-      <Host onKeyDown={this.handleKeyDown} class={{ small: this.small }}>
+      <Host
+        onKeyDown={this.handleKeyDown}
+        class={{ small: this.small || this.size === "small" }}
+      >
         <div
           role="radiogroup"
           aria-label={`${this.label}${this.required ? ", required" : ""}`}
