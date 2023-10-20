@@ -14,6 +14,7 @@ import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
+  isPropDefined,
 } from "../../utils/helpers";
 import { IcMenuItemVariants } from "./ic-menu-item.types";
 import Check from "../../assets/check-icon.svg";
@@ -111,7 +112,7 @@ export class MenuItem {
 
   componentWillLoad(): void {
     // This ensures that trigger menu items are always set to the default variant
-    if (this.submenuTriggerFor !== undefined && this.variant !== "default") {
+    if (isPropDefined(this.submenuTriggerFor) && this.variant !== "default") {
       this.variant = "default";
     }
     removeDisabledFalse(this.disabled, this.el);
@@ -132,7 +133,7 @@ export class MenuItem {
   }
 
   private handleClick = (e: Event): void => {
-    if (this.submenuTriggerFor !== undefined) {
+    if (isPropDefined(this.submenuTriggerFor)) {
       this.triggerPopoverMenuInstance.emit();
     } else if (this.variant === "toggle") {
       e.preventDefault();
@@ -149,11 +150,11 @@ export class MenuItem {
   private getMenuItemAriaLabel = (): string => {
     let ariaLabel = this.label;
 
-    if (this.description !== undefined) {
+    if (isPropDefined(this.description)) {
       ariaLabel = `${ariaLabel}, ${this.description}`;
     }
 
-    if (this.keyboardShortcut !== undefined) {
+    if (isPropDefined(this.keyboardShortcut)) {
       ariaLabel = `${ariaLabel}, ${this.keyboardShortcut}`;
     }
 
@@ -161,7 +162,7 @@ export class MenuItem {
       ariaLabel = `${ariaLabel}, destructive`;
     }
 
-    if (this.submenuTriggerFor !== undefined) {
+    if (isPropDefined(this.submenuTriggerFor)) {
       ariaLabel = `${ariaLabel}, triggers submenu`;
     }
 
@@ -183,11 +184,6 @@ export class MenuItem {
   };
 
   render() {
-    // A helper function that checks if a prop has been defined
-    const isPropDefined = (prop: string) => {
-      return prop !== undefined ? prop : null;
-    };
-
     // A sub-component to layout the menu information correctly in ic-button
     const MenuItemInformation = () => {
       return (
@@ -240,18 +236,18 @@ export class MenuItem {
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
             ariaControlsId={
-              this.submenuTriggerFor !== undefined
+              isPropDefined(this.submenuTriggerFor)
                 ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
             }
             aria-haspopup={
-              this.submenuTriggerFor !== undefined ||
+              isPropDefined(this.submenuTriggerFor) ||
               this.el.classList.contains("ic-popover-submenu-back-button")
                 ? "menu"
                 : false
             }
             ariaOwnsId={
-              this.submenuTriggerFor !== undefined
+              isPropDefined(this.submenuTriggerFor)
                 ? `ic-popover-submenu-${this.submenuTriggerFor}`
                 : false
             }
@@ -273,7 +269,7 @@ export class MenuItem {
                   innerHTML={Check}
                 />
               )}
-              {this.submenuTriggerFor !== undefined && (
+              {isPropDefined(this.submenuTriggerFor) && (
                 <span
                   class={{ ["submenu-icon"]: true }}
                   aria-hidden="true"

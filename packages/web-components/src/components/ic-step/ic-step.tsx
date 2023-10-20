@@ -2,6 +2,7 @@ import { Component, Host, h, Prop, Element, Watch } from "@stencil/core";
 import checkIcon from "../../assets/check-icon.svg";
 import warningIcon from "../../assets/warning-icon-outline.svg";
 import { IcStepVariants, IcStepStatuses, IcStepTypes } from "./ic-step.types";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-step",
@@ -96,7 +97,7 @@ export class Step {
 
     // STEP STATUS
     let stepStatus;
-    if (this.stepStatus) {
+    if (isPropDefined(this.stepStatus)) {
       stepStatus = this.stepStatus[0].toUpperCase() + this.stepStatus.slice(1);
     }
 
@@ -180,7 +181,7 @@ export class Step {
                 {(this.stepSubtitle || stepType) && (
                   <ic-typography variant="caption">
                     {this.stepSubtitle !== null &&
-                    this.stepSubtitle !== undefined
+                    isPropDefined(this.stepSubtitle)
                       ? this.stepSubtitle
                       : this.stepType === "disabled" ||
                         (this.variant === "compact" &&
@@ -200,7 +201,7 @@ export class Step {
               Last step
             </ic-typography>
           ) : (
-            this.nextStepTitle !== undefined && (
+            isPropDefined(this.nextStepTitle) && (
               <ic-typography variant="subtitle-small" class="next-step">
                 Next<span class="visually-hidden"> step is</span>:{" "}
                 {this.nextStepTitle}
@@ -268,7 +269,7 @@ export class Step {
             )}
             {this.stepTitle && (this.stepSubtitle || this.stepStatus) && (
               <ic-typography variant="caption" class="step-subtitle">
-                {this.stepSubtitle !== null && this.stepSubtitle !== undefined
+                {this.stepSubtitle !== null && isPropDefined(this.stepSubtitle)
                   ? this.stepSubtitle
                   : stepStatus}
               </ic-typography>

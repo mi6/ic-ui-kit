@@ -21,6 +21,7 @@ import {
   hasClassificationBanner,
   onComponentRequiredPropUndefined,
   isEmptyString,
+  isPropDefined,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -623,7 +624,7 @@ export class SideNavigation {
     href,
     isAppNameSubtitleVariant,
   }: IcTopBar) => {
-    const hasTitle = this.appTitle !== "" && this.appTitle !== undefined;
+    const hasTitle = this.appTitle !== "" && isPropDefined(this.appTitle);
 
     const Component = isSlotUsed(this.el, "app-title") ? "div" : "a";
 

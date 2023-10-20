@@ -18,6 +18,7 @@ import {
   addFormResetListener,
   removeFormResetListener,
   removeDisabledFalse,
+  isPropDefined,
 } from "../../utils/helpers";
 @Component({
   tag: "ic-radio-option",
@@ -242,7 +243,7 @@ export class RadioOption {
 
   render() {
     const id = `ic-radio-option-${
-      this.label !== undefined ? this.label : this.value
+      isPropDefined(this.label) ? this.label : this.value
     }-${this.groupLabel}`;
 
     return (
