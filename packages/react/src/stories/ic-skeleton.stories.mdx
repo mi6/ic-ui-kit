@@ -104,10 +104,24 @@ import readme from "../../../web-components/src/components/ic-skeleton/readme.md
   </Story>
 </Canvas>
 
-### Dark
+### Light
 
 <Canvas>
-  <Story name="Dark">
+  <Story name="Light">
+    <IcSkeleton variant="circle" height="20" appearance="light" />
+    <div style={{ height: "8px" }}></div>
+    <IcTypography variant="caption">
+      <IcSkeleton variant="text" appearance="light" />
+    </IcTypography>
+    <div style={{ height: "8px" }}></div>
+    <IcSkeleton appearance="light" />
+  </Story>
+</Canvas>
+
+### Deprecated - dark
+
+<Canvas>
+  <Story name="Deprecated - dark">
     <IcSkeleton variant="circle" height="20" dark="true" />
     <div style={{ height: "8px" }}></div>
     <IcTypography variant="caption">
