@@ -9,7 +9,7 @@ import {
   State,
   Method,
 } from "@stencil/core";
-import { getSlotElements } from "../../utils/helpers";
+import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 
 @Component({
@@ -73,7 +73,7 @@ export class PopoverMenu {
         this.popoverMenuEls.unshift(this.backButton);
       }
 
-      this.currentFocus = this.submenuId !== undefined ? 1 : 0;
+      this.currentFocus = isPropDefined(this.submenuId) ? 1 : 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
     }
@@ -339,7 +339,7 @@ export class PopoverMenu {
   private getMenuAriaLabel = (): string => {
     const ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
 
-    if (this.submenuId !== undefined) {
+    if (isPropDefined(this.submenuId)) {
       return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;
     } else {
       return ariaLabel;
@@ -371,7 +371,7 @@ export class PopoverMenu {
               "opening-from-child": this.openingFromChild,
             }}
           >
-            {this.submenuId !== undefined && (
+            {isPropDefined(this.submenuId) && (
               <div>
                 <ic-menu-item
                   class="ic-popover-submenu-back-button"
@@ -403,12 +403,12 @@ export class PopoverMenu {
               aria-label={this.getMenuAriaLabel()}
               role="menu"
               aria-owns={
-                this.submenuId !== undefined
+                isPropDefined(this.submenuId)
                   ? `ic-popover-submenu-back-button-${this.submenuLevel}`
                   : false
               }
               aria-controls={
-                this.submenuId !== undefined
+                isPropDefined(this.submenuId)
                   ? `ic-popover-submenu-back-button-${this.submenuLevel}`
                   : false
               }

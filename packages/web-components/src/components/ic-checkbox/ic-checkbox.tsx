@@ -18,6 +18,7 @@ import {
   addFormResetListener,
   removeFormResetListener,
   removeDisabledFalse,
+  isPropDefined,
 } from "../../utils/helpers";
 
 /**
@@ -206,7 +207,7 @@ export class Checkbox {
 
   render() {
     let id = `ic-checkbox-${
-      this.label !== undefined ? this.label : this.value
+      isPropDefined(this.label) ? this.label : this.value
     }-${this.groupLabel}`;
 
     id = id.replace(/ /g, "-");

@@ -18,6 +18,7 @@ import {
   slotHasContent,
   getThemeForegroundColor,
   onComponentRequiredPropUndefined,
+  isPropDefined,
 } from "../../utils/helpers";
 import { IcHeroContentAlignments } from "./ic-hero.types";
 
@@ -142,7 +143,7 @@ export class Hero {
 
     let style = {};
 
-    if (backgroundImage !== undefined) {
+    if (isPropDefined(backgroundImage)) {
       style = {
         "background-image": "url(" + backgroundImage + ")",
         "background-position": scrollFactor,
@@ -192,7 +193,7 @@ export class Hero {
               <slot name="interaction"></slot>
             </div>
           </div>
-          {(secondaryHeading !== undefined || this.rightContent) && (
+          {(isPropDefined(secondaryHeading) || this.rightContent) && (
             <div class="right-container">
               <slot name="secondary">
                 {secondaryHeading && (

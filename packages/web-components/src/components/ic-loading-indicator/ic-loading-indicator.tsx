@@ -8,6 +8,7 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-loading-indicator",
@@ -232,7 +233,7 @@ export class LoadingIndicator {
   };
 
   private updateLabel = (): void => {
-    if (this.label !== undefined) {
+    if (isPropDefined(this.label)) {
       this.labelList = this.label.split("/");
       const labelIndex = 0;
       this.indicatorLabel = this.labelList[labelIndex];

@@ -11,6 +11,7 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-tab-panel",
@@ -78,7 +79,7 @@ export class TabPanel {
         }}
         role="tabpanel"
         hidden={
-          panelId !== undefined && selectedTab !== undefined
+          isPropDefined(panelId) && isPropDefined(selectedTab)
             ? !(panelId === selectedTab)
             : true
         }

@@ -221,6 +221,11 @@ export const isEmptyString = (value: string): boolean => {
   return value.trim().length === 0;
 };
 
+// A helper function that checks if a prop has been defined
+export const isPropDefined = (prop: string) => {
+  return prop !== undefined ? prop : null;
+};
+
 /**
  * Extracts the label using the value from an object. Requires the object to have a label and value property.
  * @param value - value from object

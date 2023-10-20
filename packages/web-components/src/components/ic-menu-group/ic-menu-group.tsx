@@ -1,4 +1,5 @@
 import { Component, Element, Host, h, Prop } from "@stencil/core";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-menu-group",
@@ -17,7 +18,7 @@ export class MenuGroup {
 
     return (
       <Host aria-label={this.label !== null ? this.label : ""}>
-        {this.label !== undefined && (
+        {isPropDefined(this.label) && (
           <ic-typography variant="subtitle-small">{this.label}</ic-typography>
         )}
         <ul role="group">

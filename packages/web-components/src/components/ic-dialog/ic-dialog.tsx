@@ -12,7 +12,11 @@ import {
   h,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
-import { isSlotUsed, checkResizeObserver } from "../../utils/helpers";
+import {
+  isSlotUsed,
+  checkResizeObserver,
+  isPropDefined,
+} from "../../utils/helpers";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
@@ -297,7 +301,7 @@ export class Dialog {
   };
 
   private setAlertVariant = () => {
-    if (this.status !== undefined && this.status !== null) {
+    if (isPropDefined(this.status) && this.status !== null) {
       const alert = this.el.shadowRoot.querySelector("ic-alert");
       alert.setAttribute("variant", this.status);
     }
