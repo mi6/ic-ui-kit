@@ -48,7 +48,7 @@ export class Menu {
   private preventClickOpen: boolean = false;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() host: HTMLIcMenuElement;
+  @Element() el: HTMLIcMenuElement;
 
   @State() focusFromSearchKeypress: boolean = false;
   @State() initialOptionsListRender: boolean = false;
@@ -266,7 +266,7 @@ export class Menu {
         !this.focusFromSearchKeypress &&
         !this.preventIncorrectTabOrder
       ) {
-        const highlightedEl = this.host.querySelector(
+        const highlightedEl = this.el.querySelector(
           `li[data-value="${this.optionHighlighted}"]`
         ) as HTMLElement;
 
@@ -286,26 +286,26 @@ export class Menu {
 
       const onDialog = dialogEl !== null;
       if (onDialog) {
-        this.host.classList.add("on-dialog");
+        this.el.classList.add("on-dialog");
         if (dialogEl.getAttribute("data-overflow") === "false") {
-          const menuTop = this.host.getBoundingClientRect().top;
-          const menuHeight = this.host.getBoundingClientRect().height;
+          const menuTop = this.el.getBoundingClientRect().top;
+          const menuHeight = this.el.getBoundingClientRect().height;
           const dialogHeight = dialogEl.getBoundingClientRect().bottom;
           if (menuTop + menuHeight > dialogHeight) {
             adjust = true;
           }
         }
         if (adjust === false) {
-          this.host.classList.add("on-dialog-fix-translate");
+          this.el.classList.add("on-dialog-fix-translate");
         }
       }
 
       if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "top",
         });
       } else {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "bottom",
           modifiers: [
             {
@@ -495,7 +495,7 @@ export class Menu {
     );
 
     const getOptionId = (index: number): string =>
-      Array.from(this.host.querySelectorAll("li"))[index]?.id;
+      Array.from(this.el.querySelectorAll("li"))[index]?.id;
 
     switch (event.key) {
       case "ArrowDown":
@@ -817,7 +817,7 @@ export class Menu {
 
   private setMenuScrollbar = () => {
     let optionsHeight = 0;
-    this.host
+    this.el
       .querySelectorAll(".option")
       .forEach((option) => (optionsHeight += option.clientHeight));
 

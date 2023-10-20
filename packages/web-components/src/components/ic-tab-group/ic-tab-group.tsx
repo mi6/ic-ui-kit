@@ -14,7 +14,7 @@ import {
   },
 })
 export class TabGroup {
-  @Element() host: HTMLIcTabGroupElement;
+  @Element() el: HTMLIcTabGroupElement;
 
   /**
    * @internal The appearance of the tab group, e.g dark, or light.

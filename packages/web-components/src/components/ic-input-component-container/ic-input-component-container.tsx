@@ -16,7 +16,7 @@ import { isSlotUsed } from "../../utils/helpers";
   styleUrl: "ic-input-component-container.css",
 })
 export class InputComponentContainer {
-  @Element() host: HTMLIcInputComponentContainerElement;
+  @Element() el: HTMLIcInputComponentContainerElement;
 
   /**
    * The appearance of the input component container.
@@ -103,7 +103,7 @@ export class InputComponentContainer {
             dark: dark || appearance === "dark",
           }}
         >
-          {isSlotUsed(this.host, "left-icon") && (
+          {isSlotUsed(this.el, "left-icon") && (
             <div
               class={{
                 ["icon-container"]: true,
