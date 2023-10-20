@@ -28,7 +28,7 @@ export class PopoverMenu {
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
   private popperInstance: PopperInstance;
 
-  @Element() host: HTMLIcPopoverMenuElement;
+  @Element() el: HTMLIcPopoverMenuElement;
 
   @State() openingFromChild: boolean = false;
   @State() openingFromParent: boolean = false;
@@ -86,7 +86,7 @@ export class PopoverMenu {
   }
 
   componentDidLoad(): void {
-    const slotWrapper = this.host.shadowRoot.querySelector("ul.button");
+    const slotWrapper = this.el.shadowRoot.querySelector("ul.button");
     const popoverMenuElements = getSlotElements(slotWrapper);
 
     if (popoverMenuElements !== null) {
@@ -95,7 +95,7 @@ export class PopoverMenu {
 
     if (
       this.submenuId === undefined &&
-      this.host.getAttribute(this.ARIA_LABEL) === null
+      this.el.getAttribute(this.ARIA_LABEL) === null
     ) {
       console.error(
         `No aria-label specified for popover menu component - aria-label required`
@@ -112,12 +112,12 @@ export class PopoverMenu {
       this.firstRender = false;
       let adjust = false;
 
-      const dialogEl = this.host.closest("ic-dialog");
+      const dialogEl = this.el.closest("ic-dialog");
       const onDialog = dialogEl !== null;
 
       if (onDialog) {
-        this.host.classList.add("on-dialog");
-        const menu = this.host.getBoundingClientRect();
+        this.el.classList.add("on-dialog");
+        const menu = this.el.getBoundingClientRect();
         const dialogBottom = dialogEl.getBoundingClientRect().bottom;
         const anchorHeight = this.anchorEl.getBoundingClientRect().height;
         let offset;
@@ -132,23 +132,23 @@ export class PopoverMenu {
           offset = menu.height + anchorHeight + 8 + 100;
         }
         if (adjust === false) {
-          this.host.classList.add("on-dialog-fix-translate");
+          this.el.classList.add("on-dialog-fix-translate");
         } else {
-          this.host.style.setProperty(
+          this.el.style.setProperty(
             "--translate-y",
             `${offset}px`,
             "important"
           );
-          this.host.classList.add("on-dialog-translate-y");
+          this.el.classList.add("on-dialog-translate-y");
         }
       }
 
       if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "top",
         });
       } else {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "bottom-start",
           modifiers: [
             {
@@ -191,9 +191,9 @@ export class PopoverMenu {
       `ic-popover-menu[submenu-id=${target.submenuTriggerFor}]`
     ) as HTMLIcPopoverMenuElement;
     // Set the parent popover menu of the submenu and open the submenu
-    childEl.parentPopover = this.host;
+    childEl.parentPopover = this.el;
     childEl.anchor = this.anchor;
-    childEl.ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
+    childEl.ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
     childEl.openFromParent();
     childEl.submenuLevel = this.submenuLevel + 1;
     // Set the label in the submenu using the label of the menu item that has emitted the event
@@ -236,7 +236,7 @@ export class PopoverMenu {
       case "Tab":
         if (this.open) {
           this.closeMenu();
-          this.host.blur();
+          this.el.blur();
         }
         break;
     }
@@ -337,7 +337,7 @@ export class PopoverMenu {
   };
 
   private getMenuAriaLabel = (): string => {
-    const ariaLabel = this.host.getAttribute(this.ARIA_LABEL);
+    const ariaLabel = this.el.getAttribute(this.ARIA_LABEL);
 
     if (this.submenuId !== undefined) {
       return `${ariaLabel}, within nested level ${this.submenuLevel} ${this.parentLabel} submenu,`;

@@ -36,7 +36,7 @@ export class RadioGroup {
   private radioOptions: HTMLIcRadioOptionElement[];
   private resizeObserver: ResizeObserver = null;
 
-  @Element() host: HTMLIcRadioGroupElement;
+  @Element() el: HTMLIcRadioGroupElement;
 
   @State() checkedValue: string = "";
   @State() currentOrientation: IcOrientation;
@@ -114,16 +114,14 @@ export class RadioGroup {
   }
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
 
     this.orientationChangeHandler();
     this.currentOrientation = this.initialOrientation;
   }
 
   componentDidLoad(): void {
-    this.radioOptions = Array.from(
-      this.host.querySelectorAll("ic-radio-option")
-    );
+    this.radioOptions = Array.from(this.el.querySelectorAll("ic-radio-option"));
 
     this.radioOptions.forEach((radioOption, index) => {
       if (!radioOption.selected) {
@@ -201,7 +199,7 @@ export class RadioGroup {
       this.checkOrientation();
     });
 
-    this.resizeObserver.observe(this.host);
+    this.resizeObserver.observe(this.el);
   };
 
   private checkOrientation() {
@@ -277,7 +275,7 @@ export class RadioGroup {
   render() {
     renderHiddenInput(
       true,
-      this.host,
+      this.el,
       this.name,
       this.checkedValue,
       this.disabled

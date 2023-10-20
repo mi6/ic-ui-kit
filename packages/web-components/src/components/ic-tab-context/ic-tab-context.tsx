@@ -34,7 +34,7 @@ export class TabContext {
   private tabGroup: HTMLIcTabGroupElement;
   private tabPanels: HTMLIcTabPanelElement[];
 
-  @Element() host: HTMLIcTabContextElement;
+  @Element() el: HTMLIcTabContextElement;
 
   @State() selectedTab: number | null;
 
@@ -182,9 +182,9 @@ export class TabContext {
   // Gets tabs and tabpanels with the same context ID
   // Using querySelector to selector the children in relation to the host
   private getChildren = (): void => {
-    this.tabGroup = this.host.querySelector("ic-tab-group");
+    this.tabGroup = this.el.querySelector("ic-tab-group");
     this.tabs = Array.from(this.tabGroup.querySelectorAll("ic-tab"));
-    this.tabPanels = Array.from(this.host.children).filter(
+    this.tabPanels = Array.from(this.el.children).filter(
       (child) => child.tagName === "IC-TAB-PANEL"
     ) as HTMLIcTabPanelElement[];
     this.enabledTabs = this.getEnabledTabs();
