@@ -182,23 +182,33 @@ import radioGroupReadme from "../../../web-components/src/components/ic-radio-gr
   </Story>
 </Canvas>
 
-### Small
+### Size small
 
 <Canvas>
-  <Story name="Small">
-    <IcRadioGroup label="This is a label" name="1" small>
-      <IcRadioOption value="valueName1" label="Unselected / Default" small />
-      <IcRadioOption
-        value="valueName2"
-        label="Selected / Default"
-        selected
-        small
-      />
+  <Story name="Size small">
+    <IcRadioGroup label="This is a label" name="1" size="small">
+      <IcRadioOption value="valueName1" label="Unselected / Default" />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
       <IcRadioOption
         value="valueName3"
         label="Unselected / Disabled"
         disabled
-        small
+      />
+    </IcRadioGroup>
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    <IcRadioGroup label="This is a label" name="1" small>
+      <IcRadioOption value="valueName1" label="Unselected / Default" />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+      <IcRadioOption
+        value="valueName3"
+        label="Unselected / Disabled"
+        disabled
       />
     </IcRadioGroup>
   </Story>
@@ -214,18 +224,12 @@ import radioGroupReadme from "../../../web-components/src/components/ic-radio-gr
       validationStatus="error"
       validationText="Error message"
     >
-      <IcRadioOption value="valueName1" label="Unselected / Default" small />
-      <IcRadioOption
-        value="valueName2"
-        label="Selected / Default"
-        selected
-        small
-      />
+      <IcRadioOption value="valueName1" label="Unselected / Default" />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
       <IcRadioOption
         value="valueName3"
         label="Unselected / Disabled"
         disabled
-        small
       />
     </IcRadioGroup>
   </Story>
