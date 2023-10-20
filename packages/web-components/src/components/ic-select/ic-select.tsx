@@ -32,6 +32,7 @@ import {
   IcMenuOption,
   IcSearchMatchPositions,
   IcValueEventDetail,
+  IcSizesNoLarge,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -207,7 +208,12 @@ export class Select {
   @Prop() showClearButton?: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the select.
+   * The size of the select component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -941,6 +947,7 @@ export class Select {
   render() {
     const {
       small,
+      size,
       disabled,
       fullWidth,
       helperText,
@@ -984,7 +991,7 @@ export class Select {
         class={{
           disabled: disabled,
           searchable: searchable,
-          small: small,
+          small: small || size === "small",
           "full-width": fullWidth,
         }}
         onBlur={this.onBlur}
@@ -1003,7 +1010,7 @@ export class Select {
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
-            small={small}
+            small={small || size === "small"}
             fullWidth={fullWidth}
             disabled={disabled}
             readonly={readonly}
@@ -1107,7 +1114,7 @@ export class Select {
                         onClick={this.handleClear}
                         onFocus={this.handleClearButtonFocus}
                         onBlur={this.handleClearButtonBlur}
-                        size={small ? "small" : "default"}
+                        size={size}
                         variant="icon"
                         appearance={
                           this.clearButtonFocused
@@ -1194,7 +1201,7 @@ export class Select {
                     onClick={this.handleClear}
                     onFocus={this.handleClearButtonFocus}
                     onBlur={this.handleClearButtonBlur}
-                    size={small ? "small" : "default"}
+                    size={size}
                     variant="icon"
                     appearance={
                       this.clearButtonFocused
@@ -1219,7 +1226,7 @@ export class Select {
               }
               inputLabel={label}
               anchorEl={this.anchorEl}
-              small={small}
+              small={small || size === "small"}
               menuId={menuId}
               open={this.open}
               options={searchable ? this.filteredOptions : this.uniqueOptions}

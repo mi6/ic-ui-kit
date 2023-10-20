@@ -30,6 +30,8 @@ export enum IcInformationStatus {
 
 export type IcSizes = "default" | "large" | "small";
 
+export type IcSizesNoLarge = "default" | "small";
+
 export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 
 export type IcNavType = "side" | "top" | "page-header";
@@ -184,6 +186,8 @@ export type IcPropObject = { prop: IcRequiredPropsTypes; propName: string };
 export type IcRelatedTarget = EventTarget | undefined;
 
 export type IcOrientation = "horizontal" | "vertical";
+
+export type IcEmphasisType = "filled" | "outlined";
 
 export interface IcValueEventDetail {
   value: string;

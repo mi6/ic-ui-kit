@@ -1,4 +1,5 @@
 import { Component, Element, Host, h, Prop } from "@stencil/core";
+import { IcSizesNoLarge } from "../../utils/types";
 
 @Component({
   tag: "ic-data-entity",
@@ -14,23 +15,28 @@ export class DataEntity {
   @Prop() heading: string;
 
   /**
-   * If `true`, the small styling will be applied to the data heading and all child data rows.
+   * The size of the data entity component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   render() {
-    const { heading, small } = this;
+    const { heading, small, size } = this;
 
     const children = this.el.children;
 
-    if (small) {
+    if (small || size === "small") {
       for (let i = 0; i < children.length; i++) {
-        children[i].setAttribute("small", "true");
+        children[i].setAttribute("size", "small");
       }
     }
 
     return (
-      <Host class={{ ["small"]: small }}>
+      <Host class={{ ["small"]: small || size === "small" }}>
         <div class="heading" id="data-entity-heading">
           <slot name="heading">
             <ic-typography variant="h3">{heading}</ic-typography>

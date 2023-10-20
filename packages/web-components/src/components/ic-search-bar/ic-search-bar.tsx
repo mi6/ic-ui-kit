@@ -17,6 +17,7 @@ import {
   IcAutocorrectStates,
   IcThemeForegroundEnum,
   IcMenuOption,
+  IcSizesNoLarge,
 } from "../../utils/types";
 import {
   getInputDescribedByText,
@@ -203,7 +204,12 @@ export class SearchBar {
   @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
 
   /**
-   * If `true`, the small styling will be applied to the search bar.
+   * The size of the search bar component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -453,6 +459,10 @@ export class SearchBar {
     this.watchValueHandler(this.value);
 
     removeDisabledFalse(this.disabled, this.el);
+
+    if (this.small) {
+      this.size = "small";
+    }
   }
 
   componentDidLoad(): void {
@@ -768,6 +778,7 @@ export class SearchBar {
       label,
       required,
       small,
+      size,
       placeholder,
       helperText,
       disabled,
@@ -837,7 +848,7 @@ export class SearchBar {
           ["search"]: true,
           ["fullwidth"]: fullWidth,
           ["disabled"]: disabled,
-          ["small"]: small,
+          ["small"]: size === "small",
         }}
         onFocus={this.handleHostFocus}
         onBlur={this.handleHostBlur}
@@ -850,7 +861,7 @@ export class SearchBar {
           required={required}
           disabled={disabledText}
           readonly={readonly}
-          small={small}
+          size={size}
           hideLabel={hideLabel}
           fullWidth={fullWidth}
           name={name}
@@ -905,7 +916,7 @@ export class SearchBar {
               innerHTML={clearIcon}
               onClick={this.handleClear}
               onMouseDown={this.handleMouseDown}
-              size={small ? "small" : "default"}
+              size={size}
               onFocus={this.handleFocusClearButton}
               onBlur={this.handleClearBlur}
               onKeyDown={this.handleClear}
@@ -936,7 +947,7 @@ export class SearchBar {
               }}
               disabled={this.isSubmitDisabled()}
               innerHTML={searchIcon}
-              size={small ? "small" : "default"}
+              size={size}
               onClick={this.handleSubmitSearch}
               onMouseDown={this.handleMouseDown}
               onBlur={this.handleSubmitSearchBlur}
@@ -970,7 +981,7 @@ export class SearchBar {
                 inputEl={this.inputEl}
                 inputLabel={label}
                 ref={(el) => (this.menu = el)}
-                small={small}
+                small={size === "small"}
                 fullWidth={fullWidth}
                 menuId={menuId}
                 open={true}

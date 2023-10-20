@@ -71,9 +71,9 @@ describe("ic-data-entity", () => {
           <slot></slot>
         </ul>
       </mock:shadow-root>
-     <ic-data-row small="true" label="Label" value="value"></ic-data-row>
-     <ic-data-row small="true" label="Label" value="value"></ic-data-row>
-     <ic-data-row small="true" label="Label" value="value"></ic-data-row>
+     <ic-data-row size="small" label="Label" value="value"></ic-data-row>
+     <ic-data-row size="small" label="Label" value="value"></ic-data-row>
+     <ic-data-row size="small" label="Label" value="value"></ic-data-row>
     </ic-data-entity>
     `);
   });
