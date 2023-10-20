@@ -296,7 +296,6 @@ export class Card {
                 }}
                 variant="icon"
                 size="large"
-                disableTooltip
                 aria-label="Toggle expandable area"
                 aria-expanded={this.areaExpanded}
                 aria-controls="expanded-content-area"

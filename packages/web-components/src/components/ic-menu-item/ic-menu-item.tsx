@@ -227,7 +227,6 @@ export class MenuItem {
           }
         >
           <ic-button
-            disableTooltip
             fullWidth
             variant="tertiary"
             onClick={this.handleClick}
