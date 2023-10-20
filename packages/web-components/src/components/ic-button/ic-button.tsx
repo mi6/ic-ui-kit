@@ -51,7 +51,6 @@ export class Button {
   private hasTooltip: boolean = false;
   private id: string;
   private inheritedAttributes: { [k: string]: unknown } = {};
-  private tooltipEl: HTMLIcTooltipElement;
   private describedByEl: HTMLElement = null;
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
@@ -208,7 +207,9 @@ export class Button {
 
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
-    this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
+    this.hasTooltip =
+      !this.disableTooltip &&
+      (!!this.inheritedAttributes.title || this.variant === "icon");
 
     if (!this.hasTooltip) {
       const describedById = this.inheritedAttributes[
@@ -266,16 +267,11 @@ export class Button {
   }
 
   /**
-   * @internal Updates tooltip/aria-label text - needed as can't watch an ARIA attribute change.
+   * @internal Updates aria-label text - needed as can't watch an ARIA attribute change.
    */
   @Method()
   async updateAriaLabel(newValue: string): Promise<void> {
-    if (this.hasTooltip) {
-      this.tooltipEl.label = newValue;
-      this.buttonEl.setAttribute("aria-label", null);
-    } else {
-      this.buttonEl.setAttribute("aria-label", newValue);
-    }
+    this.buttonEl.setAttribute("aria-label", newValue);
   }
 
   private hasIconSlot(): boolean {
@@ -383,16 +379,6 @@ export class Button {
             referrerpolicy: this.referrerpolicy,
             hreflang: this.hreflang,
           };
-    const newTitle = title && (title as string);
-    const titleAttr = this.hasTooltip ? {} : { title: newTitle };
-    let tooltipText = "";
-    if (this.hasTooltip) {
-      if (newTitle !== undefined) {
-        tooltipText = newTitle;
-      } else if (ariaLabel !== null) {
-        tooltipText = ariaLabel as string;
-      }
-    }
 
     let describedBy: string = null;
     let buttonId: string = null;
@@ -414,12 +400,10 @@ export class Button {
           aria-label={this.loading ? "Loading" : ariaLabel}
           {...buttonAttrs}
           {...restInheritedAttributes}
-          {...titleAttr}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}
-          id={buttonId}
-          aria-describedby={this.hasTooltip && ariaLabel ? null : describedBy}
+          aria-describedby={describedBy}
           part="button"
         >
           {this.hasIconSlot() && !this.loading && (
@@ -476,9 +460,8 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            class={{ ["tooltip-disabled"]: this.disableTooltip }}
-            ref={(el) => (this.tooltipEl = el)}
-            label={tooltipText}
+            id={describedBy}
+            label={title ? (title as string) : (ariaLabel as string)}
             target={buttonId}
             placement={this.tooltipPlacement}
           >

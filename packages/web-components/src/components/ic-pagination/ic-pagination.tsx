@@ -267,7 +267,6 @@ export class Pagination {
       <ic-button
         id="first-page-button"
         aria-label="Go to first page"
-        disableTooltip={true}
         appearance={this.appearance}
         onClick={this.handleClickFirst}
         class="page-button first-last"
@@ -283,7 +282,6 @@ export class Pagination {
       <ic-button
         id="previous-page-button"
         aria-label="Go to previous page"
-        disableTooltip={true}
         appearance={this.appearance}
         onClick={this.handleClickPrevious}
         class="page-button next-previous flip"
@@ -299,7 +297,6 @@ export class Pagination {
       <ic-button
         id="next-page-button"
         aria-label="Go to next page"
-        disableTooltip={true}
         appearance={this.appearance}
         onClick={this.handleClickNext}
         class="page-button next-previous"
@@ -315,7 +312,6 @@ export class Pagination {
       <ic-button
         id="last-page-button"
         aria-label="Go to last page"
-        disableTooltip={true}
         appearance={this.appearance}
         onClick={this.handleClickLast}
         class="page-button first-last flip"

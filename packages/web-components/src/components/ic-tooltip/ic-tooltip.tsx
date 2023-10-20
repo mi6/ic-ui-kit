@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  h,
-  Watch,
-  Method,
-} from "@stencil/core";
+import { Component, Element, Host, Prop, h, Method } from "@stencil/core";
 import { Instance, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
@@ -18,7 +10,6 @@ import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 })
 export class Tooltip {
   private arrow: HTMLDivElement;
-  private ariaDescribedBy: HTMLElement;
   private delayedHideEvents = ["mouseleave"];
   private dialogOverflow = false;
   private icDialogEl: HTMLIcDialogElement;
@@ -27,14 +18,6 @@ export class Tooltip {
   private persistTooltip = false;
   private popperInstance: Instance;
   private onDialog: boolean = false;
-  private screenReaderOnlyStyles = {
-    position: "absolute",
-    left: "-10000px",
-    top: "auto",
-    width: "1px",
-    height: "1px",
-    overflow: "hidden",
-  };
   private showEvents = this.disableHover
     ? ["click"]
     : ["mouseenter", "focusin"];
@@ -62,13 +45,6 @@ export class Tooltip {
    */
   @Prop() label!: string;
 
-  @Watch("label")
-  updateLabel(newValue: string): void {
-    if (this.ariaDescribedBy !== null) {
-      this.ariaDescribedBy.innerText = newValue;
-    }
-  }
-
   disconnectedCallback(): void {
     this.manageEventListeners("remove");
     if (this.popperInstance !== undefined) {
@@ -89,16 +65,6 @@ export class Tooltip {
       [{ prop: this.label, propName: "label" }],
       "Tooltip"
     );
-
-    if (this.target !== undefined) {
-      this.ariaDescribedBy = document.createElement("span");
-      this.ariaDescribedBy.id = `ic-tooltip-${this.target}`;
-      this.ariaDescribedBy.innerText = this.label;
-      this.ariaDescribedBy.classList.add("ic-tooltip-label");
-      Object.assign(this.ariaDescribedBy.style, this.screenReaderOnlyStyles);
-
-      this.el.insertAdjacentElement("beforebegin", this.ariaDescribedBy);
-    }
   }
 
   /**
@@ -281,7 +247,6 @@ export class Tooltip {
           <div
             ref={(el) => (this.arrow = el as HTMLDivElement)}
             class="ic-tooltip-arrow"
-            data-popper-arrow
           ></div>
         </div>
         <slot></slot>
