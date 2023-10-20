@@ -49,6 +49,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot                 | Description                                   |
+| -------------------- | --------------------------------------------- |
+| `"additional-field"` | Content to be displayed alongside a checkbox. |
+
+
 ## Dependencies
 
 ### Depends on
