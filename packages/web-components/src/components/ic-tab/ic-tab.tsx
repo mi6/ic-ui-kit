@@ -31,7 +31,7 @@ export class Tab {
   private focusTabId: string;
   private isInitialRender: boolean = true;
 
-  @Element() host: HTMLIcTabElement;
+  @Element() el: HTMLIcTabElement;
 
   /** @internal Determines whether the light or dark variant of the tabs should be displayed. */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
@@ -84,7 +84,7 @@ export class Tab {
   @Event() tabRemoved: EventEmitter<void>;
 
   connectedCallback(): void {
-    this.tabCreated.emit(this.host);
+    this.tabCreated.emit(this.el);
   }
 
   disconnectedCallback(): void {
@@ -97,7 +97,7 @@ export class Tab {
   }
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidUpdate(): void {
@@ -109,8 +109,8 @@ export class Tab {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.host) {
-      this.host.focus();
+    if (this.el) {
+      this.el.focus();
     }
   }
 
@@ -167,13 +167,13 @@ export class Tab {
         aria-disabled={disabled ? "true" : "false"}
         tabindex={this.selected ? 0 : -1}
       >
-        {this.host.querySelector('[slot="icon"]') && <slot name="icon"></slot>}
+        {this.el.querySelector('[slot="icon"]') && <slot name="icon"></slot>}
         <ic-typography class="ic-tab-label" variant="label">
           <span>
             <slot></slot>
           </span>
         </ic-typography>
-        {isSlotUsed(this.host, "badge") && <slot name="badge"></slot>}
+        {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
       </Host>
     );
   }

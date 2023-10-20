@@ -36,7 +36,7 @@ export class RadioOption {
   private radioElement: HTMLInputElement;
   private skipFocus = false;
 
-  @Element() host: HTMLIcRadioOptionElement;
+  @Element() el: HTMLIcRadioOptionElement;
 
   /**
    * The style of additionalField that will be displayed if used.
@@ -131,14 +131,11 @@ export class RadioOption {
   @Event() icSelectedChange: EventEmitter<void>;
 
   disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
+    removeFormResetListener(this.el, this.handleFormReset);
   }
 
   componentWillLoad(): void {
-    const additionalFieldContent = getSlotContent(
-      this.host,
-      "additional-field"
-    );
+    const additionalFieldContent = getSlotContent(this.el, "additional-field");
 
     if (additionalFieldContent !== null) {
       this.hasAdditionalField = true;
@@ -151,9 +148,9 @@ export class RadioOption {
 
     this.defaultRadioValue = this.value;
 
-    addFormResetListener(this.host, this.handleFormReset);
+    addFormResetListener(this.el, this.handleFormReset);
 
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
@@ -165,7 +162,7 @@ export class RadioOption {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector("ic-text-field");
+      const textfield = this.el.querySelector("ic-text-field");
       if (!this.selected) {
         textfield && textfield.setAttribute("disabled", "");
       } else {
@@ -206,8 +203,8 @@ export class RadioOption {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.host.shadowRoot.querySelector("input")) {
-      this.host.shadowRoot.querySelector("input").focus();
+    if (this.el.shadowRoot.querySelector("input")) {
+      this.el.shadowRoot.querySelector("input").focus();
     }
   }
 
@@ -219,7 +216,7 @@ export class RadioOption {
       this.skipFocus = false;
 
       if (this.hasAdditionalField) {
-        const textfield = this.host.querySelector("ic-text-field");
+        const textfield = this.el.querySelector("ic-text-field");
         this.value =
           textfield.value !== "" ? textfield.value : this.defaultRadioValue;
       }

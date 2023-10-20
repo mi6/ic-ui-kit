@@ -35,7 +35,7 @@ export class Checkbox {
   private additionalFieldContainer: HTMLDivElement;
   private IC_TEXT_FIELD: string = "ic-text-field";
 
-  @Element() host: HTMLIcCheckboxElement;
+  @Element() el: HTMLIcCheckboxElement;
 
   /**
    * The style of additionalField that will be displayed if used.
@@ -136,10 +136,10 @@ export class Checkbox {
   @Event() icCheck: EventEmitter<void>;
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
 
-    addFormResetListener(this.host, this.handleFormReset);
-    this.host
+    addFormResetListener(this.el, this.handleFormReset);
+    this.el
       .querySelector(this.IC_TEXT_FIELD)
       ?.addEventListener("icChange", this.eventHandler);
   }
@@ -156,7 +156,7 @@ export class Checkbox {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector(this.IC_TEXT_FIELD);
+      const textfield = this.el.querySelector(this.IC_TEXT_FIELD);
       if (!this.checked) {
         textfield && textfield.setAttribute("disabled", "");
       } else {
@@ -172,8 +172,8 @@ export class Checkbox {
   }
 
   disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
-    this.host
+    removeFormResetListener(this.el, this.handleFormReset);
+    this.el
       .querySelector(this.IC_TEXT_FIELD)
       ?.removeEventListener("icChange", this.eventHandler);
   }
@@ -184,7 +184,7 @@ export class Checkbox {
   @Method()
   async setFocus(): Promise<void> {
     const checkboxEl: HTMLElement =
-      this.host.shadowRoot.querySelector(".checkbox");
+      this.el.shadowRoot.querySelector(".checkbox");
     if (checkboxEl) {
       checkboxEl.focus();
     }
@@ -212,18 +212,18 @@ export class Checkbox {
     id = id.replace(/ /g, "-");
 
     const parentElementSize = (
-      this.host.parentElement as HTMLIcCheckboxGroupElement
+      this.el.parentElement as HTMLIcCheckboxGroupElement
     ).size;
 
     this.checked
       ? renderHiddenInput(
           true,
-          this.host,
+          this.el,
           this.name,
           this.checked && this.value,
           this.disabled
         )
-      : removeHiddenInput(this.host);
+      : removeHiddenInput(this.el);
 
     return (
       <Host
@@ -277,7 +277,7 @@ export class Checkbox {
             <label htmlFor={id}>{this.label}</label>
           </ic-typography>
         </div>
-        {isSlotUsed(this.host, "additional-field") && (
+        {isSlotUsed(this.el, "additional-field") && (
           <div
             class="dynamic-container"
             ref={(el) => (this.additionalFieldContainer = el)}

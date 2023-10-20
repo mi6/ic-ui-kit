@@ -18,7 +18,7 @@ import {
   shadow: true,
 })
 export class TabPanel {
-  @Element() host: HTMLIcTabPanelElement;
+  @Element() el: HTMLIcTabPanelElement;
 
   /**
    * @internal The appearance of the tabs, e.g dark, or light.
@@ -57,7 +57,7 @@ export class TabPanel {
   @Event() tabPanelRemoved: EventEmitter<void>;
 
   connectedCallback(): void {
-    this.tabPanelCreated.emit(this.host);
+    this.tabPanelCreated.emit(this.el);
   }
 
   disconnectedCallback(): void {
