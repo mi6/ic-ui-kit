@@ -198,6 +198,18 @@ export type IcInformationStatusOrEmpty = "warning" | "error" | "success" | "";
 ```
 Global interfaces and types should be added to `./packages/web-components/utils/types.ts`
 
+### When to use props, slots or methods
+
+Generally, props have the most usage throughout the components as this is the simplest way to provide the correct functionality for the components without too much flexibility. 
+
+When utilising ICDS components within another ICDS component, some suggestions are:
+- If the component requires text (e.g. a heading), use a prop where the correct styling would be applied (e.g h4), but (in most cases) with the option to also slot in a heading.
+- If the component requires actions (e.g buttons) or another non-text based ICDS component (e.g status tag), use a slot.
+
+For functionality that a developer would want to control within a component, some suggestions are:
+- In most cases, use a prop (e.g. open/visible) that can then be controlled any way a developer would like.
+- For setting focus, use a method.
+
 ### Styling
 
 - Avoid using inline css.
