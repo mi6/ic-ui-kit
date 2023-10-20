@@ -14,6 +14,13 @@
 | `small`   | `small`   | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/> | `boolean`              | `false`     |
 
 
+## Slots
+
+| Slot        | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| `"heading"` | Content will be placed at the top of the data entity. |
+
+
 ## Dependencies
 
 ### Depends on

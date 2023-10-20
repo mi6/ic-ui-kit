@@ -1,6 +1,9 @@
 import { Component, Element, Host, h, Prop } from "@stencil/core";
 import { IcSizesNoLarge } from "../../utils/types";
 
+/**
+ * @slot heading - Content will be placed at the top of the data entity.
+ */
 @Component({
   tag: "ic-data-entity",
   styleUrl: "ic-data-entity.css",
