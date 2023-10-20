@@ -24,6 +24,7 @@ import {
   getParentElement,
   getParentElementType,
   hexToRgba,
+  onComponentRequiredPropUndefined,
   rgbaStrToObj,
 } from "../../utils/helpers";
 
@@ -90,6 +91,14 @@ export class Badge {
     this.getBadgeForeground();
 
     this.isAccessibleLabelDefined() && this.setAccessibleLabel();
+  }
+
+  componentDidLoad(): void {
+    this.type === "text" &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.textLabel, propName: "text-label" }],
+        "Badge"
+      );
   }
 
   /**

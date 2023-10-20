@@ -4,9 +4,11 @@ exports[`ic-empty state should render 1`] = `
 <ic-empty-state class="left" heading="Empty state title">
   <mock:shadow-root>
     <div>
-      <ic-typography variant="h4">
-        Empty state title
-      </ic-typography>
+      <slot name="heading">
+        <ic-typography variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
     </div>
   </mock:shadow-root>
 </ic-empty-state>
@@ -17,9 +19,11 @@ exports[`ic-empty state should render with a slotted image 1`] = `
   <mock:shadow-root>
     <slot name="image"></slot>
     <div>
-      <ic-typography variant="h4">
-        Empty state title
-      </ic-typography>
+      <slot name="heading">
+        <ic-typography variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
     </div>
   </mock:shadow-root>
   <svg fill="currentColor" height="24px" slot="image" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -36,9 +40,11 @@ exports[`ic-empty state should render with actions 1`] = `
 <ic-empty-state class="left" heading="Empty state title">
   <mock:shadow-root>
     <div>
-      <ic-typography variant="h4">
-        Empty state title
-      </ic-typography>
+      <slot name="heading">
+        <ic-typography variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
     </div>
     <div class="action-area">
       <slot name="actions"></slot>
@@ -59,9 +65,11 @@ exports[`ic-empty state should render with subheading and body text 1`] = `
 <ic-empty-state body="Body text for empty state." class="left" heading="Empty state title" subheading="Empty state subtitle">
   <mock:shadow-root>
     <div>
-      <ic-typography variant="h4">
-        Empty state title
-      </ic-typography>
+      <slot name="heading">
+        <ic-typography variant="h4">
+          Empty state title
+        </ic-typography>
+      </slot>
       <ic-typography variant="subtitle-small">
         Empty state subtitle
       </ic-typography>

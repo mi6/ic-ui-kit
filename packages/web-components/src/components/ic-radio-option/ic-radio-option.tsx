@@ -26,6 +26,10 @@ import {
     delegatesFocus: true,
   },
 })
+
+/**
+ * @slot additional-field - Content to displayed alongside a radio option.
+ */
 export class RadioOption {
   private defaultRadioValue: string = "";
   private hasAdditionalField: boolean = false;
@@ -131,11 +135,14 @@ export class RadioOption {
   }
 
   componentWillLoad(): void {
-    const additonalFieldContent = getSlotContent(this.host, "additional-field");
+    const additionalFieldContent = getSlotContent(
+      this.host,
+      "additional-field"
+    );
 
-    if (additonalFieldContent !== null) {
+    if (additionalFieldContent !== null) {
       this.hasAdditionalField = true;
-      const Element = additonalFieldContent[0] as HTMLElement;
+      const Element = additionalFieldContent[0] as HTMLElement;
       if (Element.tagName === "IC-TEXT-FIELD") {
         const textField = Element as HTMLIcTextFieldElement;
         textField.hiddenInput = false;

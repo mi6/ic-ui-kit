@@ -20,6 +20,9 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 
+/**
+ * @slot additional-field - Content to be displayed alongside a checkbox.
+ */
 @Component({
   tag: "ic-checkbox",
   styleUrl: "ic-checkbox.css",
