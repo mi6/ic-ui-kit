@@ -75,26 +75,12 @@ export class EmptyState {
           <slot name="heading">
             <ic-typography variant="h4">{heading}</ic-typography>
           </slot>
-          {subheading ? (
+          <slot name="subheading">
             <ic-typography variant="subtitle-small">{subheading}</ic-typography>
-          ) : (
-            isSlotUsed(this.el, "subheading") && (
-              <slot name="subheading">
-                <ic-typography variant="subtitle-small">
-                  {subheading}
-                </ic-typography>
-              </slot>
-            )
-          )}
-          {body ? (
+          </slot>
+          <slot name="body">
             <ic-typography maxLines={bodyMaxLines}>{body}</ic-typography>
-          ) : (
-            isSlotUsed(this.el, "body") && (
-              <slot name="body">
-                <ic-typography>{body}</ic-typography>
-              </slot>
-            )
-          )}
+          </slot>
         </div>
         {isSlotUsed(this.el, "actions") && (
           <div class="action-area">
