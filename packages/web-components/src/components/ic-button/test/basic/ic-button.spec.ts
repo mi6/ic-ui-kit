@@ -204,7 +204,7 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should update when method called", async () => {
+  it("should update aria-label when attribute changed", async () => {
     const page = await newSpecPage({
       components: [Button],
       html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
@@ -212,7 +212,46 @@ describe("button component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    await page.root.updateAriaLabel("New tooltip text");
+    page.root.setAttribute("aria-label", "New tooltip text");
+    await page.waitForChanges();
+
+    page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update aria-expanded when attribute changed", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: "<ic-button variant='icon' aria-expanded='false' id='test-button'>Button</ic-button>",
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.setAttribute("aria-expanded", "true");
+    await page.waitForChanges();
+
+    page.rootInstance.hostMutationCallback([
+      { attributeName: "aria-expanded" },
+    ]);
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should update tooltip label when title attribute changed", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: "<ic-button variant='icon' title='Tooltip text' id='test-button'>Button</ic-button>",
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.setAttribute("title", "New tooltip text");
+    await page.waitForChanges();
+
+    page.rootInstance.hostMutationCallback([{ attributeName: "title" }]);
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();

@@ -278,7 +278,33 @@ exports[`button component should test button as submit button on form 1`] = `
 </ic-button>
 `;
 
-exports[`button component should update when method called 1`] = `
+exports[`button component should update aria-expanded when attribute changed 1`] = `
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-expanded="false" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should update aria-expanded when attribute changed 2`] = `
+<ic-button aria-expanded="true" class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-expanded="true" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should update aria-label when attribute changed 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
@@ -291,11 +317,37 @@ exports[`button component should update when method called 1`] = `
 </ic-button>
 `;
 
-exports[`button component should update when method called 2`] = `
+exports[`button component should update aria-label when attribute changed 2`] = `
+<ic-button aria-label="New tooltip text" class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="New tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should update tooltip label when title attribute changed 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
     <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
-      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="New tooltip text" class="button" part="button" type="button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should update tooltip label when title attribute changed 2`] = `
+<ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" title="New tooltip text" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="New tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
         <slot></slot>
       </button>
     </ic-tooltip>
