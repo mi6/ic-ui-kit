@@ -147,7 +147,7 @@ export namespace Components {
          */
         "customColor"?: IcColor;
         /**
-          * Use to hide the badge.
+          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
          */
         "hideBadge": () => Promise<void>;
         /**
@@ -159,7 +159,7 @@ export namespace Components {
          */
         "position"?: IcBadgePositions;
         /**
-          * Use to show the badge.
+          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
          */
         "showBadge": () => Promise<void>;
         /**
@@ -178,6 +178,10 @@ export namespace Components {
           * The variant of the badge to be displayed.
          */
         "variant"?: IcBadgeVariants;
+        /**
+          * If `true`, the badge will be displayed.
+         */
+        "visible": boolean;
     }
     interface IcBreadcrumb {
         /**
@@ -556,11 +560,11 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If a status is set, sets the heading for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
          */
         "alertHeading"?: string;
         /**
-          * If a status is set, sets the message for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
          */
         "alertMessage"?: string;
         /**
@@ -596,7 +600,7 @@ export namespace Components {
          */
         "heading": string;
         /**
-          * Use to hide the dialog.
+          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
          */
         "hideDialog": () => Promise<void>;
         /**
@@ -604,7 +608,11 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * Use to show the dialog.
+          * If `true`, the dialog will be displayed.
+         */
+        "open": boolean;
+        /**
+          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
          */
         "showDialog": () => Promise<void>;
         /**
@@ -612,7 +620,7 @@ export namespace Components {
          */
         "size"?: "small" | "medium" | "large";
         /**
-          * If set, displays an alert of the corresponding variant below the heading.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
@@ -634,7 +642,7 @@ export namespace Components {
         /**
           * The title rendered in the empty state container.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The size of the image or icon used in the image slot.
          */
@@ -2858,6 +2866,10 @@ declare namespace LocalJSX {
           * The variant of the badge to be displayed.
          */
         "variant"?: IcBadgeVariants;
+        /**
+          * If `true`, the badge will be displayed.
+         */
+        "visible"?: boolean;
     }
     interface IcBreadcrumb {
         /**
@@ -3244,11 +3256,11 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If a status is set, sets the heading for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
          */
         "alertHeading"?: string;
         /**
-          * If a status is set, sets the message for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
          */
         "alertMessage"?: string;
         /**
@@ -3296,11 +3308,15 @@ declare namespace LocalJSX {
          */
         "onIcDialogOpened"?: (event: IcDialogCustomEvent<void>) => void;
         /**
+          * If `true`, the dialog will be displayed.
+         */
+        "open"?: boolean;
+        /**
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
         /**
-          * If set, displays an alert of the corresponding variant below the heading.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
@@ -3322,7 +3338,7 @@ declare namespace LocalJSX {
         /**
           * The title rendered in the empty state container.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The size of the image or icon used in the image slot.
          */

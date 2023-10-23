@@ -14,7 +14,7 @@ describe("ic-dialog", () => {
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button id="showBtn" variant="primary" onclick="showDialog()"
@@ -100,7 +100,7 @@ describe("ic-dialog", () => {
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button id="showBtn" variant="primary" onclick="showDialog()"
@@ -146,7 +146,7 @@ describe("ic-dialog", () => {
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button id="showBtn" variant="primary" onclick="showDialog()"
@@ -193,7 +193,7 @@ describe("ic-dialog", () => {
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button id="showBtn" variant="primary" onclick="showDialog()"

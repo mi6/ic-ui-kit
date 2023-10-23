@@ -144,6 +144,15 @@ describe("ic-badge", () => {
     expect(page.root).toMatchSnapshot("should render type icon");
   });
 
+  it("should render with visible false", async () => {
+    const page = await newSpecPage({
+      components: [Button, Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" visible="false" text-label="1"/></ic-button>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with visible false");
+  });
+
   it("should render slotted in a chip", async () => {
     const page = await newSpecPage({
       components: [Chip, Badge],
@@ -239,6 +248,28 @@ describe("ic-badge", () => {
     );
   });
 
+  it("should hide and show the badge using visible prop", async () => {
+    const page = await newSpecPage({
+      components: [Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" text-label="1"/></ic-button>`,
+    });
+
+    const badge = document.querySelector("ic-badge");
+
+    expect(page.rootInstance.visible).toBe(true);
+
+    badge.visible = false;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.visible).toBe(false);
+
+    badge.visible = true;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.visible).toBe(true);
+  });
+
+  //To be removed when we remove show and hide methods
   it("should hide and show the badge using methods", async () => {
     const page = await newSpecPage({
       components: [Badge],

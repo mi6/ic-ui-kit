@@ -20,6 +20,10 @@ import {
   removeDisabledFalse,
   isPropDefined,
 } from "../../utils/helpers";
+
+/**
+ * @slot additional-field - Content to displayed alongside a radio option.
+ */
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",
@@ -27,10 +31,6 @@ import {
     delegatesFocus: true,
   },
 })
-
-/**
- * @slot additional-field - Content to displayed alongside a radio option.
- */
 export class RadioOption {
   private defaultRadioValue: string = "";
   private hasAdditionalField: boolean = false;

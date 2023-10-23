@@ -943,9 +943,9 @@ import readme from "./readme.md";
         function showHideBadge() {
           badge = document.querySelector("ic-badge");
           if (badge.classList.contains("show")) {
-            badge.hideBadge();
+            badge.visible = false;
           } else {
-            badge.showBadge();
+            badge.visible = true;
           }
         }
       </script>
