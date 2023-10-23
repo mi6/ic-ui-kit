@@ -295,7 +295,6 @@ export namespace Components {
           * The type of the button.
          */
         "type"?: IcButtonTypes;
-        "updateAriaLabel": (newValue: string) => Promise<void>;
         /**
           * The variant of the button to be displayed.
          */

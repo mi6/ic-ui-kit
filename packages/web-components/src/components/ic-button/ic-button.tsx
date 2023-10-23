@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  forceUpdate,
   h,
 } from "@stencil/core";
 
@@ -54,10 +55,13 @@ export class Button {
   private describedByEl: HTMLElement = null;
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcButtonElement;
 
+  @State() ariaLabel: string = null;
   @State() describedByContent: string = null;
+  @State() title: string = null;
 
   /**
    * The appearance of the button, e.g. dark, light, or the default.
@@ -188,6 +192,12 @@ export class Button {
     if (this.mutationObserver !== null && this.mutationObserver !== undefined) {
       this.mutationObserver.disconnect();
     }
+    if (
+      this.hostMutationObserver !== null &&
+      this.hostMutationObserver !== undefined
+    ) {
+      this.hostMutationObserver.disconnect();
+    }
   }
 
   componentWillUpdate(): void {
@@ -195,11 +205,20 @@ export class Button {
   }
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
+    const allInheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
-      "aria-expanded",
       "title",
     ]);
+
+    const {
+      title,
+      "aria-label": ariaLabel,
+      ...restInheritedAttributes
+    } = allInheritedAttributes;
+
+    this.title = title as string;
+    this.ariaLabel = ariaLabel as string;
+    this.inheritedAttributes = restInheritedAttributes;
 
     removeDisabledFalse(this.disabled, this.el);
 
@@ -208,8 +227,7 @@ export class Button {
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
     this.hasTooltip =
-      !this.disableTooltip &&
-      (!!this.inheritedAttributes.title || this.variant === "icon");
+      !this.disableTooltip && (!!this.title || this.variant === "icon");
 
     if (!this.hasTooltip) {
       const describedById = this.inheritedAttributes[
@@ -237,6 +255,11 @@ export class Button {
         subtree: true,
       });
     }
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   componentWillRender(): void {
@@ -264,14 +287,6 @@ export class Button {
     if (this.buttonEl) {
       this.buttonEl.focus();
     }
-  }
-
-  /**
-   * @internal Updates aria-label text - needed as can't watch an ARIA attribute change.
-   */
-  @Method()
-  async updateAriaLabel(newValue: string): Promise<void> {
-    this.buttonEl.setAttribute("aria-label", newValue);
   }
 
   private hasIconSlot(): boolean {
@@ -352,13 +367,31 @@ export class Button {
     this.describedByContent = this.describedByEl.innerText;
   };
 
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach((item) => {
+      if (item.attributeName === "title") {
+        this.title = this.el.getAttribute(item.attributeName);
+      }
+      if (item.attributeName === "aria-label") {
+        this.ariaLabel = this.el.getAttribute(item.attributeName);
+      }
+      if (IC_INHERITED_ARIA.includes(item.attributeName)) {
+        this.inheritedAttributes[item.attributeName] = this.el.getAttribute(
+          item.attributeName
+        );
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
+  };
+
   render() {
     const TagType = (this.href && "a") || "button";
-    const {
-      title,
-      "aria-label": ariaLabel,
-      ...restInheritedAttributes
-    } = this.inheritedAttributes;
+    const { title, ariaLabel, inheritedAttributes } = this;
     const buttonAttrs =
       TagType === "button"
         ? {
@@ -399,7 +432,7 @@ export class Button {
           aria-disabled={this.loading || this.disabled ? "true" : null}
           aria-label={this.loading ? "Loading" : ariaLabel}
           {...buttonAttrs}
-          {...restInheritedAttributes}
+          {...inheritedAttributes}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}

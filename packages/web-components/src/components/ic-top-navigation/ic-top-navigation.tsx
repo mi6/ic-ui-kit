@@ -202,14 +202,14 @@ export class TopNavigation {
 
     if (this.searchBar !== null) {
       if (this.mobileSearchBarVisible) {
-        this.mobileSearchButtonEl.updateAriaLabel("Hide search");
+        this.mobileSearchButtonEl.setAttribute("aria-label", "Hide search");
         this.hasFullWidthSearchBar = true;
         this.searchBar.fullWidth = true;
         setTimeout(() => {
           this.searchBar.focus();
         }, 100);
       } else {
-        this.mobileSearchButtonEl.updateAriaLabel("Show search");
+        this.mobileSearchButtonEl.setAttribute("aria-label", "Show search");
         this.hasFullWidthSearchBar = false;
         this.searchBar.fullWidth = false;
       }
