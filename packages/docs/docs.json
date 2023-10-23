@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-03T19:52:37",
+  "timestamp": "2023-11-06T14:24:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -189,9 +189,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-accordion": ["ic-typography"]
+        "ic-accordion": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -357,12 +361,25 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-accordion-group": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-accordion-group": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -594,14 +611,31 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-dialog"],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependents": [
+        "ic-dialog"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-alert": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-dialog": ["ic-alert"]
+        "ic-alert": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-dialog": [
+          "ic-alert"
+        ]
       }
     },
     {
@@ -648,9 +682,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-back-to-top": ["ic-typography"]
+        "ic-back-to-top": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -922,6 +960,28 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "visible",
+          "reflectToAttr": false,
+          "docs": "If `true`, the badge will be displayed.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [
@@ -944,8 +1004,14 @@
           },
           "signature": "hideBadge() => Promise<void>",
           "parameters": [],
-          "docs": "Use to hide the badge.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
         },
         {
           "name": "showBadge",
@@ -966,8 +1032,14 @@
           },
           "signature": "showBadge() => Promise<void>",
           "parameters": [],
-          "docs": "Use to show the badge.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
         }
       ],
       "events": [],
@@ -976,9 +1048,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-badge": ["ic-typography"]
+        "ic-badge": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -1094,11 +1170,19 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-breadcrumb-group"],
-      "dependencies": ["ic-link"],
+      "dependents": [
+        "ic-breadcrumb-group"
+      ],
+      "dependencies": [
+        "ic-link"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb": ["ic-link"],
-        "ic-breadcrumb-group": ["ic-breadcrumb"]
+        "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ]
       }
     },
     {
@@ -1162,10 +1246,16 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-breadcrumb"],
+      "dependencies": [
+        "ic-breadcrumb"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb-group": ["ic-breadcrumb"],
-        "ic-breadcrumb": ["ic-link"]
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ],
+        "ic-breadcrumb": [
+          "ic-link"
+        ]
       }
     },
     {
@@ -1888,26 +1978,66 @@
         "ic-toast",
         "ic-top-navigation"
       ],
-      "dependencies": ["ic-loading-indicator", "ic-tooltip"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-accordion-group": ["ic-button"],
-        "ic-alert": ["ic-button"],
-        "ic-card": ["ic-button"],
-        "ic-dialog": ["ic-button"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-menu": ["ic-button"],
-        "ic-menu-item": ["ic-button"],
-        "ic-navigation-button": ["ic-button"],
-        "ic-navigation-menu": ["ic-button"],
-        "ic-pagination": ["ic-button"],
-        "ic-search-bar": ["ic-button"],
-        "ic-select": ["ic-button"],
-        "ic-side-navigation": ["ic-button"],
-        "ic-toast": ["ic-button"],
-        "ic-top-navigation": ["ic-button"]
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-button"
+        ],
+        "ic-alert": [
+          "ic-button"
+        ],
+        "ic-card": [
+          "ic-button"
+        ],
+        "ic-dialog": [
+          "ic-button"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-menu": [
+          "ic-button"
+        ],
+        "ic-menu-item": [
+          "ic-button"
+        ],
+        "ic-navigation-button": [
+          "ic-button"
+        ],
+        "ic-navigation-menu": [
+          "ic-button"
+        ],
+        "ic-pagination": [
+          "ic-button"
+        ],
+        "ic-search-bar": [
+          "ic-button"
+        ],
+        "ic-select": [
+          "ic-button"
+        ],
+        "ic-side-navigation": [
+          "ic-button"
+        ],
+        "ic-toast": [
+          "ic-button"
+        ],
+        "ic-top-navigation": [
+          "ic-button"
+        ]
       }
     },
     {
@@ -2347,12 +2477,25 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-card": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-card": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -2361,7 +2504,12 @@
       "tag": "ic-checkbox",
       "readme": "# ic-checkbox\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "additional-field - Content to be displayed alongside a checkbox."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2826,12 +2974,21 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "additional-field",
+          "docs": "Content to be displayed alongside a checkbox."
+        }
+      ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-checkbox": ["ic-typography"]
+        "ic-checkbox": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3135,11 +3292,21 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-checkbox-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-checkbox-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3177,9 +3344,14 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The emphasis of the chip.",
-          "docsTags": [],
-          "default": "\"filled\"",
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use variant prop instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
           "values": [
             {
               "value": "filled",
@@ -3294,6 +3466,39 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\"",
+          "complexType": {
+            "original": "IcEmphasisType",
+            "resolved": "\"filled\" | \"outlined\"",
+            "references": {
+              "IcEmphasisType": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcEmphasisType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The emphasis of the chip.",
+          "docsTags": [],
+          "default": "\"filled\"",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [
@@ -3376,10 +3581,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-chip": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-chip": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3538,9 +3751,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-classification-banner": ["ic-typography"]
+        "ic-classification-banner": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3549,7 +3766,12 @@
       "tag": "ic-data-entity",
       "readme": "# ic-data-entity\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content will be placed at the top of the data entity."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -3574,6 +3796,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the data entity component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -3584,15 +3839,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the data heading and all child data rows.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -3600,12 +3861,21 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content will be placed at the top of the data entity."
+        }
+      ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-data-entity": ["ic-typography"]
+        "ic-data-entity": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3652,6 +3922,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the data row component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -3662,15 +3965,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3715,9 +4024,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-data-row": ["ic-typography"]
+        "ic-data-row": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3738,6 +4051,10 @@
         {
           "name": "slot",
           "text": "label - Content will be placed above the dialog heading."
+        },
+        {
+          "name": "slot",
+          "text": "alert - Content will be placed at the top of the content area of the dialog."
         }
       ],
       "usage": {},
@@ -3753,8 +4070,14 @@
           "mutable": false,
           "attr": "alert-heading",
           "reflectToAttr": false,
-          "docs": "If a status is set, sets the heading for the displayed alert.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.",
           "values": [
             {
               "type": "string"
@@ -3774,8 +4097,14 @@
           "mutable": false,
           "attr": "alert-message",
           "reflectToAttr": false,
-          "docs": "If a status is set, sets the message for the displayed alert.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.",
           "values": [
             {
               "type": "string"
@@ -3936,6 +4265,28 @@
           "required": false
         },
         {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "If `true`, the dialog will be displayed.",
+          "docsTags": [],
+          "default": "undefined",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
           "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
@@ -3977,8 +4328,14 @@
           "mutable": false,
           "attr": "status",
           "reflectToAttr": false,
-          "docs": "If set, displays an alert of the corresponding variant below the heading.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.",
           "values": [
             {
               "value": "error",
@@ -4069,8 +4426,14 @@
           },
           "signature": "hideDialog() => Promise<void>",
           "parameters": [],
-          "docs": "Use to hide the dialog.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         },
         {
           "name": "showDialog",
@@ -4091,8 +4454,14 @@
           },
           "signature": "showDialog() => Promise<void>",
           "parameters": [],
-          "docs": "Use to show the dialog.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         }
       ],
       "events": [
@@ -4175,6 +4544,10 @@
       ],
       "slots": [
         {
+          "name": "alert",
+          "docs": "Content will be placed at the top of the content area of the dialog."
+        },
+        {
           "name": "dialog-controls",
           "docs": "Content will be place at the bottom of the dialog."
         },
@@ -4189,13 +4562,31 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button", "ic-alert"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button",
+        "ic-alert"
+      ],
       "dependencyGraph": {
-        "ic-dialog": ["ic-typography", "ic-button", "ic-alert"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-alert": ["ic-typography", "ic-button"]
+        "ic-dialog": [
+          "ic-typography",
+          "ic-button",
+          "ic-alert"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-alert": [
+          "ic-typography",
+          "ic-button"
+        ]
       }
     },
     {
@@ -4220,10 +4611,14 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-side-navigation"],
+      "dependents": [
+        "ic-side-navigation"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-divider"]
+        "ic-side-navigation": [
+          "ic-divider"
+        ]
       }
     },
     {
@@ -4240,6 +4635,18 @@
         {
           "name": "slot",
           "text": "actions - Content is placed at the bottom below all other content."
+        },
+        {
+          "name": "slot",
+          "text": "heading - Content will be rendered in place of the heading prop."
+        },
+        {
+          "name": "slot",
+          "text": "subheading - Content will be rendered in place of the subheading prop."
+        },
+        {
+          "name": "slot",
+          "text": "body - Content will be rendered in place of the body prop."
         }
       ],
       "usage": {},
@@ -4341,8 +4748,8 @@
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         },
         {
           "name": "imageSize",
@@ -4413,15 +4820,31 @@
           "docs": "Content is placed at the bottom below all other content."
         },
         {
+          "name": "body",
+          "docs": "Content will be rendered in place of the body prop."
+        },
+        {
+          "name": "heading",
+          "docs": "Content will be rendered in place of the heading prop."
+        },
+        {
           "name": "image",
           "docs": "Content is placed at the top above all other content."
+        },
+        {
+          "name": "subheading",
+          "docs": "Content will be rendered in place of the subheading prop."
         }
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-empty-state": ["ic-typography"]
+        "ic-empty-state": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -4650,9 +5073,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container", "ic-typography"]
+        "ic-footer": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
@@ -4907,9 +5336,15 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-section-container"],
+      "dependencies": [
+        "ic-typography",
+        "ic-section-container"
+      ],
       "dependencyGraph": {
-        "ic-footer-link-group": ["ic-typography", "ic-section-container"]
+        "ic-footer-link-group": [
+          "ic-typography",
+          "ic-section-container"
+        ]
       }
     },
     {
@@ -5115,6 +5550,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the hero component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -5125,15 +5593,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the hero.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5195,9 +5669,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-hero": ["ic-section-container", "ic-typography"]
+        "ic-hero": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
@@ -5253,16 +5733,37 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-page-header", "ic-tab-group", "ic-top-navigation"],
-      "dependencies": ["ic-button"],
+      "dependents": [
+        "ic-page-header",
+        "ic-tab-group",
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-page-header": ["ic-horizontal-scroll"],
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-top-navigation": ["ic-horizontal-scroll"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-page-header": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-top-navigation": [
+          "ic-horizontal-scroll"
+        ]
       }
     },
     {
@@ -5280,6 +5781,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\"",
+          "complexType": {
+            "original": "\"dark\" | \"default\"",
+            "resolved": "\"dark\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the input component container.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dark",
           "type": "boolean",
           "complexType": {
@@ -5290,9 +5818,15 @@
           "mutable": false,
           "attr": "dark",
           "reflectToAttr": false,
-          "docs": "If `true`, the dark variant of the input component container will be displayed.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -5390,6 +5924,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the input component container component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -5400,15 +5967,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the input component container.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5491,11 +6064,18 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-component-container"],
-        "ic-text-field": ["ic-input-component-container"]
+        "ic-select": [
+          "ic-input-component-container"
+        ],
+        "ic-text-field": [
+          "ic-input-component-container"
+        ]
       }
     },
     {
@@ -5558,11 +6138,18 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-container"],
-        "ic-text-field": ["ic-input-container"]
+        "ic-select": [
+          "ic-input-container"
+        ],
+        "ic-text-field": [
+          "ic-input-container"
+        ]
       }
     },
     {
@@ -5575,6 +6162,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\"",
+          "complexType": {
+            "original": "\"dark\" | \"default\"",
+            "resolved": "\"dark\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the input label.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dark",
           "type": "boolean",
           "complexType": {
@@ -5585,9 +6199,15 @@
           "mutable": false,
           "attr": "dark",
           "reflectToAttr": false,
-          "docs": "If `true`, the dark variant of the input label will be displayed.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -5762,14 +6382,28 @@
         "ic-switch",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-label": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-label"],
-        "ic-radio-group": ["ic-input-label"],
-        "ic-select": ["ic-input-label"],
-        "ic-switch": ["ic-input-label"],
-        "ic-text-field": ["ic-input-label"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-label"
+        ],
+        "ic-radio-group": [
+          "ic-input-label"
+        ],
+        "ic-select": [
+          "ic-input-label"
+        ],
+        "ic-switch": [
+          "ic-input-label"
+        ],
+        "ic-text-field": [
+          "ic-input-label"
+        ]
       }
     },
     {
@@ -5941,13 +6575,25 @@
         "ic-select",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-validation": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-validation"],
-        "ic-radio-group": ["ic-input-validation"],
-        "ic-select": ["ic-input-validation"],
-        "ic-text-field": ["ic-input-validation"]
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-validation"
+        ],
+        "ic-radio-group": [
+          "ic-input-validation"
+        ],
+        "ic-select": [
+          "ic-input-validation"
+        ],
+        "ic-text-field": [
+          "ic-input-validation"
+        ]
       }
     },
     {
@@ -6238,10 +6884,14 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-breadcrumb"],
+      "dependents": [
+        "ic-breadcrumb"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-breadcrumb": ["ic-link"]
+        "ic-breadcrumb": [
+          "ic-link"
+        ]
       }
     },
     {
@@ -6525,14 +7175,31 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-button", "ic-menu", "ic-step", "ic-toast"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-button",
+        "ic-menu",
+        "ic-step",
+        "ic-toast"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator"],
-        "ic-menu": ["ic-loading-indicator"],
-        "ic-step": ["ic-loading-indicator"],
-        "ic-toast": ["ic-loading-indicator"]
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator"
+        ],
+        "ic-step": [
+          "ic-loading-indicator"
+        ],
+        "ic-toast": [
+          "ic-loading-indicator"
+        ]
       }
     },
     {
@@ -6794,6 +7461,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the menu component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -6803,10 +7503,16 @@
           },
           "mutable": false,
           "attr": "small",
-          "reflectToAttr": true,
-          "docs": "If `true`, the small styling will be applied to the menu.",
-          "docsTags": [],
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -6913,15 +7619,37 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-search-bar", "ic-select"],
-      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
+      "dependents": [
+        "ic-search-bar",
+        "ic-select"
+      ],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-search-bar": ["ic-menu"],
-        "ic-select": ["ic-menu"]
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-menu"
+        ],
+        "ic-select": [
+          "ic-menu"
+        ]
       }
     },
     {
@@ -6962,9 +7690,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-menu-group": ["ic-typography"]
+        "ic-menu-group": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -7284,14 +8016,31 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-popover-menu"],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependents": [
+        "ic-popover-menu"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-popover-menu": ["ic-menu-item"]
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-popover-menu": [
+          "ic-menu-item"
+        ]
       }
     },
     {
@@ -7559,12 +8308,23 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button"],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-navigation-button": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -7673,9 +8433,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-group": ["ic-typography"]
+        "ic-navigation-group": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -7961,10 +8725,18 @@
         }
       ],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-navigation-item": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-item": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8063,14 +8835,31 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-top-navigation"],
-      "dependencies": ["ic-button", "ic-typography"],
+      "dependents": [
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-menu": ["ic-button", "ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-top-navigation": ["ic-navigation-menu"]
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-top-navigation": [
+          "ic-navigation-menu"
+        ]
       }
     },
     {
@@ -8218,6 +9007,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the page header component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -8228,9 +9050,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the page header.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -8362,10 +9190,19 @@
           "ic-typography",
           "ic-horizontal-scroll"
         ],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8707,13 +9544,28 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button", "ic-pagination-item"],
+      "dependencies": [
+        "ic-button",
+        "ic-pagination-item"
+      ],
       "dependencyGraph": {
-        "ic-pagination": ["ic-button", "ic-pagination-item"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-pagination-item": ["ic-typography"]
+        "ic-pagination": [
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8934,11 +9786,19 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-pagination"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-pagination"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-pagination-item": ["ic-typography"],
-        "ic-pagination": ["ic-pagination-item"]
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-pagination-item"
+        ]
       }
     },
     {
@@ -9061,13 +9921,29 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-menu-item", "ic-typography"],
+      "dependencies": [
+        "ic-menu-item",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-popover-menu": ["ic-menu-item", "ic-typography"],
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-popover-menu": [
+          "ic-menu-item",
+          "ic-typography"
+        ],
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -9242,6 +10118,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the radio group component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -9252,15 +10161,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the radio group.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9365,11 +10280,21 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-radio-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-radio-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -9378,7 +10303,12 @@
       "tag": "ic-radio-option",
       "readme": "# ic-radio-option\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "additional-field - Content to displayed alongside a radio option."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -9785,12 +10715,21 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "additional-field",
+          "docs": "Content to displayed alongside a radio option."
+        }
+      ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-radio-option": ["ic-typography"]
+        "ic-radio-option": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -10598,6 +11537,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the search bar component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -10608,9 +11580,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the search bar.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -10975,9 +11953,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-text-field", "ic-button", "ic-menu"],
+      "dependencies": [
+        "ic-text-field",
+        "ic-button",
+        "ic-menu"
+      ],
       "dependencyGraph": {
-        "ic-search-bar": ["ic-text-field", "ic-button", "ic-menu"],
+        "ic-search-bar": [
+          "ic-text-field",
+          "ic-button",
+          "ic-menu"
+        ],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -10985,12 +11971,27 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ]
       }
     },
     {
@@ -11077,11 +12078,21 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container"],
-        "ic-footer-link-group": ["ic-section-container"],
-        "ic-hero": ["ic-section-container"],
-        "ic-page-header": ["ic-section-container"],
-        "ic-top-navigation": ["ic-section-container"]
+        "ic-footer": [
+          "ic-section-container"
+        ],
+        "ic-footer-link-group": [
+          "ic-section-container"
+        ],
+        "ic-hero": [
+          "ic-section-container"
+        ],
+        "ic-page-header": [
+          "ic-section-container"
+        ],
+        "ic-top-navigation": [
+          "ic-section-container"
+        ]
       }
     },
     {
@@ -11725,6 +12736,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the select component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -11735,9 +12779,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the select.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12034,12 +13084,27 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12323,12 +13388,27 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button", "ic-divider"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button",
+        "ic-divider"
+      ],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-typography", "ic-button", "ic-divider"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-side-navigation": [
+          "ic-typography",
+          "ic-button",
+          "ic-divider"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12341,6 +13421,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"default\" | \"light\"",
+          "complexType": {
+            "original": "\"light\" | \"default\"",
+            "resolved": "\"default\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the skeleton.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "light",
           "type": "boolean",
           "complexType": {
@@ -12351,9 +13458,15 @@
           "mutable": false,
           "attr": "light",
           "reflectToAttr": false,
-          "docs": "If `true`, the skeleton will be set to the light variant.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12458,9 +13571,14 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The emphasis of the status tag.",
-          "docsTags": [],
-          "default": "\"filled\"",
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use variant prop instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
           "values": [
             {
               "value": "filled",
@@ -12496,6 +13614,39 @@
           "required": true
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the status tag component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -12506,9 +13657,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the status tag.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12557,6 +13714,39 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\"",
+          "complexType": {
+            "original": "IcEmphasisType",
+            "resolved": "\"filled\" | \"outlined\"",
+            "references": {
+              "IcEmphasisType": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcEmphasisType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The emphasis of the status tag.",
+          "docsTags": [],
+          "default": "\"filled\"",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -12566,9 +13756,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-status-tag": ["ic-typography"]
+        "ic-status-tag": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12703,10 +13897,18 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-loading-indicator", "ic-typography"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-step": ["ic-loading-indicator", "ic-typography"],
-        "ic-loading-indicator": ["ic-typography"]
+        "ic-step": [
+          "ic-loading-indicator",
+          "ic-typography"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13007,6 +14209,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the switch component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -13017,9 +14252,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the switch.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -13135,10 +14376,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-typography"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-switch": ["ic-input-label", "ic-typography"],
-        "ic-input-label": ["ic-typography"]
+        "ic-switch": [
+          "ic-input-label",
+          "ic-typography"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13221,9 +14470,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tab": ["ic-typography"]
+        "ic-tab": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13511,13 +14764,26 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-horizontal-scroll"],
+      "dependencies": [
+        "ic-horizontal-scroll"
+      ],
       "dependencyGraph": {
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -14315,6 +15581,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the text field component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -14324,16 +15623,22 @@
           },
           "mutable": false,
           "attr": "small",
-          "reflectToAttr": true,
-          "docs": "If `true`, the small styling will be applied to the text field.",
-          "docsTags": [],
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -14664,7 +15969,9 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-search-bar"],
+      "dependents": [
+        "ic-search-bar"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -14680,9 +15987,15 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-search-bar": ["ic-text-field"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-text-field"
+        ]
       }
     },
     {
@@ -15021,12 +16334,27 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-loading-indicator", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-loading-indicator",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toast": ["ic-typography", "ic-loading-indicator", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-toast": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -15327,13 +16655,27 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-button", "ic-chip", "ic-navigation-item"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-button",
+        "ic-chip",
+        "ic-navigation-item"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tooltip": ["ic-typography"],
-        "ic-button": ["ic-tooltip"],
-        "ic-chip": ["ic-tooltip"],
-        "ic-navigation-item": ["ic-tooltip"]
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-tooltip"
+        ],
+        "ic-chip": [
+          "ic-tooltip"
+        ],
+        "ic-navigation-item": [
+          "ic-tooltip"
+        ]
       }
     },
     {
@@ -15608,11 +16950,23 @@
           "ic-horizontal-scroll",
           "ic-navigation-menu"
         ],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-navigation-menu": ["ic-button", "ic-typography"]
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ]
       }
     },
     {
@@ -15894,45 +17248,123 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-accordion": ["ic-typography"],
-        "ic-accordion-group": ["ic-typography"],
-        "ic-alert": ["ic-typography"],
-        "ic-back-to-top": ["ic-typography"],
-        "ic-badge": ["ic-typography"],
-        "ic-card": ["ic-typography"],
-        "ic-checkbox": ["ic-typography"],
-        "ic-chip": ["ic-typography"],
-        "ic-classification-banner": ["ic-typography"],
-        "ic-data-entity": ["ic-typography"],
-        "ic-data-row": ["ic-typography"],
-        "ic-dialog": ["ic-typography"],
-        "ic-empty-state": ["ic-typography"],
-        "ic-footer": ["ic-typography"],
-        "ic-footer-link-group": ["ic-typography"],
-        "ic-hero": ["ic-typography"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-menu": ["ic-typography"],
-        "ic-menu-group": ["ic-typography"],
-        "ic-menu-item": ["ic-typography"],
-        "ic-navigation-group": ["ic-typography"],
-        "ic-navigation-item": ["ic-typography"],
-        "ic-navigation-menu": ["ic-typography"],
-        "ic-page-header": ["ic-typography"],
-        "ic-pagination-item": ["ic-typography"],
-        "ic-popover-menu": ["ic-typography"],
-        "ic-radio-option": ["ic-typography"],
-        "ic-select": ["ic-typography"],
-        "ic-side-navigation": ["ic-typography"],
-        "ic-status-tag": ["ic-typography"],
-        "ic-step": ["ic-typography"],
-        "ic-switch": ["ic-typography"],
-        "ic-tab": ["ic-typography"],
-        "ic-text-field": ["ic-typography"],
-        "ic-toast": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-top-navigation": ["ic-typography"]
+        "ic-accordion": [
+          "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-typography"
+        ],
+        "ic-alert": [
+          "ic-typography"
+        ],
+        "ic-back-to-top": [
+          "ic-typography"
+        ],
+        "ic-badge": [
+          "ic-typography"
+        ],
+        "ic-card": [
+          "ic-typography"
+        ],
+        "ic-checkbox": [
+          "ic-typography"
+        ],
+        "ic-chip": [
+          "ic-typography"
+        ],
+        "ic-classification-banner": [
+          "ic-typography"
+        ],
+        "ic-data-entity": [
+          "ic-typography"
+        ],
+        "ic-data-row": [
+          "ic-typography"
+        ],
+        "ic-dialog": [
+          "ic-typography"
+        ],
+        "ic-empty-state": [
+          "ic-typography"
+        ],
+        "ic-footer": [
+          "ic-typography"
+        ],
+        "ic-footer-link-group": [
+          "ic-typography"
+        ],
+        "ic-hero": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-typography"
+        ],
+        "ic-menu-group": [
+          "ic-typography"
+        ],
+        "ic-menu-item": [
+          "ic-typography"
+        ],
+        "ic-navigation-group": [
+          "ic-typography"
+        ],
+        "ic-navigation-item": [
+          "ic-typography"
+        ],
+        "ic-navigation-menu": [
+          "ic-typography"
+        ],
+        "ic-page-header": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-popover-menu": [
+          "ic-typography"
+        ],
+        "ic-radio-option": [
+          "ic-typography"
+        ],
+        "ic-select": [
+          "ic-typography"
+        ],
+        "ic-side-navigation": [
+          "ic-typography"
+        ],
+        "ic-status-tag": [
+          "ic-typography"
+        ],
+        "ic-step": [
+          "ic-typography"
+        ],
+        "ic-switch": [
+          "ic-typography"
+        ],
+        "ic-tab": [
+          "ic-typography"
+        ],
+        "ic-text-field": [
+          "ic-typography"
+        ],
+        "ic-toast": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-top-navigation": [
+          "ic-typography"
+        ]
       }
     }
   ],
@@ -16007,6 +17439,11 @@
       "docstring": "",
       "path": "src/components/ic-chip/ic-chip.types.ts"
     },
+    "src/utils/types.ts::IcEmphasisType": {
+      "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcThemeForegroundNoDefault": {
       "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
       "docstring": "",
@@ -16051,6 +17488,11 @@
       "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "src/utils/types.ts::IcSizesNoLarge": {
+      "declaration": "export type IcSizesNoLarge = \"default\" | \"small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
       "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",
