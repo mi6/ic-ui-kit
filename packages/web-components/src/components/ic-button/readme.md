@@ -61,6 +61,14 @@ Type: `Promise<void>`
 | `"right-icon"` | Content will be placed to the right of the button label.                                    |
 
 
+## CSS Custom Properties
+
+| Name          | Description                  |
+| ------------- | ---------------------------- |
+| `--height`    | The height of the button.    |
+| `--min-width` | Minimum width of the button. |
+
+
 ## Dependencies
 
 ### Used by

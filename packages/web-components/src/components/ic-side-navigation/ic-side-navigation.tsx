@@ -48,6 +48,7 @@ export class SideNavigation {
   private resizeObserver: ResizeObserver = null;
   private COLLAPSED_ICON_LABELS_END = "collapsed-icon-labels-end";
   private COLLAPSED_ICON_LABELS_START = "collapsed-icon-labels-start";
+  private menuButton: HTMLIcButtonElement = null;
 
   @Element() el: HTMLIcSideNavigationElement;
 
@@ -214,16 +215,14 @@ export class SideNavigation {
   };
 
   private setMobileMenuAriaAttributes = (menuOpen: boolean) => {
-    const nativeButton = this.el.shadowRoot
-      .querySelector("#menu-button")
-      .shadowRoot.querySelector("button");
-
-    if (menuOpen) {
-      nativeButton.setAttribute("aria-expanded", "true");
-      nativeButton.setAttribute("aria-label", "Close navigation menu");
-    } else {
-      nativeButton.setAttribute("aria-expanded", "false");
-      nativeButton.setAttribute("aria-label", "Open navigation menu");
+    if (this.menuButton !== null) {
+      if (menuOpen) {
+        this.menuButton.setAttribute("aria-expanded", "true");
+        this.menuButton.setAttribute("aria-label", "Close navigation menu");
+      } else {
+        this.menuButton.setAttribute("aria-expanded", "false");
+        this.menuButton.setAttribute("aria-label", "Open navigation menu");
+      }
     }
   };
 
@@ -656,6 +655,7 @@ export class SideNavigation {
               ariaOwnsId="side-navigation"
               aria-haspopup="true"
               aria-expanded="false"
+              ref={(el) => (this.menuButton = el)}
             >
               <span
                 class="mobile-top-bar-menu-icon"

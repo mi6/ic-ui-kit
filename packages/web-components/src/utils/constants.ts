@@ -31,6 +31,7 @@ export const VARIANT_ICONS = {
 // Global ARIA attributes
 export const IC_INHERITED_ARIA = [
   "aria-atomic",
+  "aria-autocomplete",
   "aria-busy",
   "aria-controls",
   "aria-current",
@@ -40,6 +41,7 @@ export const IC_INHERITED_ARIA = [
   "aria-disabled",
   "aria-dropeffect",
   "aria-errormessage",
+  "aria-expanded",
   "aria-flowto",
   "aria-grabbed",
   "aria-haspopup",

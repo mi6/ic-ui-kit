@@ -329,8 +329,6 @@ export class TextField {
     this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
       "title",
-      "aria-autocomplete",
-      "aria-haspopup",
     ]);
 
     if (this.readonly) {
