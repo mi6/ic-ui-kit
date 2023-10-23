@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Method,
-  Prop,
-  State,
-  h,
-} from "@stencil/core";
+import { Component, Element, Host, Method, Prop, h } from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -41,8 +33,6 @@ export class Badge {
   private foregroundColour: IcThemeForeground;
 
   @Element() el: HTMLIcBadgeElement;
-
-  @State() visible: boolean = true;
 
   /**
    * The accessible label of the badge component to provide context for screen reader users.
@@ -86,6 +76,11 @@ export class Badge {
    */
   @Prop() variant?: IcBadgeVariants = "neutral";
 
+  /**
+   * If `true`, the badge will be displayed.
+   */
+  @Prop() visible: boolean = true;
+
   componentWillLoad(): void {
     this.variant === "custom" && this.setBadgeColour();
 
@@ -103,7 +98,7 @@ export class Badge {
   }
 
   /**
-   * Use to show the badge.
+   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
    */
   @Method()
   async showBadge(): Promise<void> {
@@ -111,7 +106,7 @@ export class Badge {
   }
 
   /**
-   * Use to hide the badge.
+   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
    */
   @Method()
   async hideBadge(): Promise<void> {

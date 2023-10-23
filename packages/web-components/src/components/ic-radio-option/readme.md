@@ -47,6 +47,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot                 | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| `"additional-field"` | Content to displayed alongside a radio option. |
+
+
 ## Dependencies
 
 ### Depends on

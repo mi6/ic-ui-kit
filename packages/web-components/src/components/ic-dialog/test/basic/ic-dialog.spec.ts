@@ -196,6 +196,68 @@ describe("ic-dialog component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should display with the open prop", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: `<ic-dialog heading="Dialog heading"></ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+
+    const dialog = document.querySelector("ic-dialog");
+
+    expect(page.rootInstance.dialogRendered).toBe(false);
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icDialogOpened", eventSpy);
+
+    dialog.open = true;
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(eventSpy).toHaveBeenCalled();
+
+    expect(page.rootInstance.dialogRendered).toBe(true);
+  });
+
+  it("should hide with the open prop", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: `<ic-dialog heading="Dialog heading"></ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+
+    const dialog = document.querySelector("ic-dialog");
+
+    expect(page.rootInstance.dialogRendered).toBe(false);
+
+    dialog.open = true;
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.dialogRendered).toBe(true);
+
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icDialogClosed", eventSpy);
+
+    dialog.open = false;
+
+    await page.waitForChanges();
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(eventSpy).toHaveBeenCalled();
+
+    expect(page.rootInstance.dialogRendered).toBe(false);
+  });
+
   it("should display with the showDialog method", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
@@ -271,6 +333,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -304,6 +367,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -337,6 +401,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -372,6 +437,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -407,6 +473,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -428,6 +495,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -460,6 +528,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -498,6 +567,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -536,6 +606,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -571,6 +642,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -603,6 +675,7 @@ describe("ic-dialog component", () => {
     const dialog = document.querySelector("ic-dialog");
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -627,6 +700,7 @@ describe("ic-dialog component", () => {
     const dialog = document.querySelector("ic-dialog");
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -646,6 +720,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.el.getAttribute("data-overflow")).toBe("false");
 
     await dialog.hideDialog();
+    dialog.open = false;
 
     await page.waitForChanges();
 
@@ -653,6 +728,7 @@ describe("ic-dialog component", () => {
     await waitForTimeout(DIALOG_DELAY_MS);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -692,6 +768,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -710,6 +787,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -749,6 +827,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -767,6 +846,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 
@@ -785,6 +865,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(false);
 
     await dialog.showDialog();
+    dialog.open = true;
 
     await page.waitForChanges();
 

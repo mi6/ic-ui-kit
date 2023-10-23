@@ -9,8 +9,8 @@
 
 | Property               | Attribute                 | Description                                                                                                                                                                                 | Type                                                       | Default                                                                                                                                        |
 | ---------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `alertHeading`         | `alert-heading`           | If a status is set, sets the heading for the displayed alert.                                                                                                                               | `string`                                                   | `undefined`                                                                                                                                    |
-| `alertMessage`         | `alert-message`           | If a status is set, sets the message for the displayed alert.                                                                                                                               | `string`                                                   | `undefined`                                                                                                                                    |
+| `alertHeading`         | `alert-heading`           | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.<br/><br/>              | `string`                                                   | `undefined`                                                                                                                                    |
+| `alertMessage`         | `alert-message`           | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.<br/><br/>              | `string`                                                   | `undefined`                                                                                                                                    |
 | `buttonProps`          | --                        | Sets the label and onclick functions for default buttons.                                                                                                                                   | `{ label: string; onclick: string; }[]`                    | `[     {       label: "Cancel",       onclick: "this.cancelDialog();",     },     { label: "Confirm", onclick: "this.confirmDialog();" },   ]` |
 | `buttons`              | `buttons`                 | If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.                                                                                 | `boolean`                                                  | `true`                                                                                                                                         |
 | `closeOnBackdropClick` | `close-on-backdrop-click` | If set to `true`, the dialog will not close when the backdrop is clicked.                                                                                                                   | `boolean`                                                  | `true`                                                                                                                                         |
@@ -18,8 +18,9 @@
 | `dismissLabel`         | `dismiss-label`           | Sets the dismiss label tooltip and aria label.                                                                                                                                              | `string`                                                   | `"Dismiss"`                                                                                                                                    |
 | `heading` _(required)_ | `heading`                 | Sets the heading for the dialog.                                                                                                                                                            | `string`                                                   | `undefined`                                                                                                                                    |
 | `label`                | `label`                   | Sets the optional label for the dialog which appears above the heading.                                                                                                                     | `string`                                                   | `undefined`                                                                                                                                    |
+| `open`                 | `open`                    | If `true`, the dialog will be displayed.                                                                                                                                                    | `boolean`                                                  | `undefined`                                                                                                                                    |
 | `size`                 | `size`                    | Sets the maximum and minimum height and width for the dialog.                                                                                                                               | `"large" \| "medium" \| "small"`                           | `"small"`                                                                                                                                      |
-| `status`               | `status`                  | If set, displays an alert of the corresponding variant below the heading.                                                                                                                   | `"error" \| "info" \| "neutral" \| "success" \| "warning"` | `undefined`                                                                                                                                    |
+| `status`               | `status`                  | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.<br/><br/>              | `"error" \| "info" \| "neutral" \| "success" \| "warning"` | `undefined`                                                                                                                                    |
 
 
 ## Events
@@ -56,7 +57,7 @@ Type: `Promise<void>`
 
 ### `hideDialog() => Promise<void>`
 
-Use to hide the dialog.
+<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use open prop to set dialog visibility.<br/><br/>
 
 #### Returns
 
@@ -66,7 +67,7 @@ Type: `Promise<void>`
 
 ### `showDialog() => Promise<void>`
 
-Use to show the dialog.
+<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use open prop to set dialog visibility.<br/><br/>
 
 #### Returns
 
@@ -77,11 +78,12 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                | Description                                        |
-| ------------------- | -------------------------------------------------- |
-| `"dialog-controls"` | Content will be place at the bottom of the dialog. |
-| `"heading"`         | Content will be placed at the top of the dialog.   |
-| `"label"`           | Content will be placed above the dialog heading.   |
+| Slot                | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `"alert"`           | Content will be placed at the top of the content area of the dialog. |
+| `"dialog-controls"` | Content will be place at the bottom of the dialog.                   |
+| `"heading"`         | Content will be placed at the top of the dialog.                     |
+| `"label"`           | Content will be placed above the dialog heading.                     |
 
 
 ## CSS Custom Properties

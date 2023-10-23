@@ -9,6 +9,12 @@ exports[`ic-empty state should render 1`] = `
           Empty state title
         </ic-typography>
       </slot>
+      <slot name="subheading">
+        <ic-typography variant="subtitle-small"></ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography></ic-typography>
+      </slot>
     </div>
   </mock:shadow-root>
 </ic-empty-state>
@@ -23,6 +29,12 @@ exports[`ic-empty state should render with a slotted image 1`] = `
         <ic-typography variant="h4">
           Empty state title
         </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography variant="subtitle-small"></ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography></ic-typography>
       </slot>
     </div>
   </mock:shadow-root>
@@ -44,6 +56,12 @@ exports[`ic-empty state should render with actions 1`] = `
         <ic-typography variant="h4">
           Empty state title
         </ic-typography>
+      </slot>
+      <slot name="subheading">
+        <ic-typography variant="subtitle-small"></ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography></ic-typography>
       </slot>
     </div>
     <div class="action-area">
@@ -70,12 +88,16 @@ exports[`ic-empty state should render with subheading and body text 1`] = `
           Empty state title
         </ic-typography>
       </slot>
-      <ic-typography variant="subtitle-small">
-        Empty state subtitle
-      </ic-typography>
-      <ic-typography>
-        Body text for empty state.
-      </ic-typography>
+      <slot name="subheading">
+        <ic-typography variant="subtitle-small">
+          Empty state subtitle
+        </ic-typography>
+      </slot>
+      <slot name="body">
+        <ic-typography>
+          Body text for empty state.
+        </ic-typography>
+      </slot>
     </div>
   </mock:shadow-root>
 </ic-empty-state>

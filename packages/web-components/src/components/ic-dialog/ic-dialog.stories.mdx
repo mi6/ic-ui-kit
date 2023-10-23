@@ -20,15 +20,15 @@ import readme from "./readme.md";
       <script>
         function showSmallDialog() {
           dialog = document.querySelector("#small-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showMediumDialog() {
           dialog = document.querySelector("#medium-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showLargeDialog() {
           dialog = document.querySelector("#large-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button variant="primary" onclick="showSmallDialog()"
@@ -86,23 +86,23 @@ import readme from "./readme.md";
       <script>
         function showNeutralDialog() {
           dialog = document.querySelector("#neutral-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showInfoDialog() {
           dialog = document.querySelector("#info-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showWarningDialog() {
           dialog = document.querySelector("#warning-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showErrorDialog() {
           dialog = document.querySelector("#error-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showSuccessDialog() {
           dialog = document.querySelector("#success-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button variant="primary" onclick="showNeutralDialog()"
@@ -197,23 +197,23 @@ import readme from "./readme.md";
       <script>
         function showPlainDialog() {
           dialog = document.querySelector("#plain-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showSingleDialog() {
           dialog = document.querySelector("#single-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showDoubleDialog() {
           dialog = document.querySelector("#double-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showTripleDialog() {
           dialog = document.querySelector("#triple-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function showDestructiveDialog() {
           dialog = document.querySelector("#destructive-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         tripleDialog = document.querySelector("#triple-dialog");
         tripleDialog.buttonProps = [
@@ -305,10 +305,10 @@ import readme from "./readme.md";
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function hideDialog() {
-          dialog.hideDialog();
+          dialog.open = false;
         }
         function confirm() {
           checkbox = document.querySelector("ic-checkbox");
@@ -342,6 +342,12 @@ import readme from "./readme.md";
         dismiss-label="Close"
         size="medium"
       >
+        <ic-alert
+          variant="info"
+          heading="Info"
+          message="This alert is for displaying information"
+          slot="alert"
+        ></ic-alert>
         <ic-typography>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -445,7 +451,7 @@ import readme from "./readme.md";
       <script>
         function showClosePreventedDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
       </script>
       <ic-button variant="primary" onclick="showClosePreventedDialog()"
@@ -473,7 +479,7 @@ import readme from "./readme.md";
       <script>
         function showScrollableDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         var select = document.querySelector("#scroll-sel");
         select.options = [
@@ -536,12 +542,12 @@ import readme from "./readme.md";
       <script>
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
-          dialog.showDialog();
+          dialog.open = true;
         }
         function dialogConfirmed() {
           dialog = document.querySelector("ic-dialog");
           alert("Dialog confirmed");
-          dialog.hideDialog();
+          dialog.open = false;
         }
         function dialogCancelled() {
           alert("Dialog cancelled");
