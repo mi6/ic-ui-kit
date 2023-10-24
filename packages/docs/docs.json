@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-21T15:01:39",
+  "timestamp": "2023-10-24T15:54:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -1591,6 +1591,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-card",
+        "ic-data-table",
         "ic-dialog",
         "ic-horizontal-scroll",
         "ic-menu",
@@ -1598,6 +1599,7 @@
         "ic-navigation-button",
         "ic-navigation-menu",
         "ic-pagination",
+        "ic-pagination-bar",
         "ic-search-bar",
         "ic-select",
         "ic-side-navigation",
@@ -1628,6 +1630,9 @@
         "ic-card": [
           "ic-button"
         ],
+        "ic-data-table": [
+          "ic-button"
+        ],
         "ic-dialog": [
           "ic-button"
         ],
@@ -1647,6 +1652,9 @@
           "ic-button"
         ],
         "ic-pagination": [
+          "ic-button"
+        ],
+        "ic-pagination-bar": [
           "ic-button"
         ],
         "ic-search-bar": [
@@ -3382,6 +3390,906 @@
       }
     },
     {
+      "filePath": "src/components/ic-data-table/ic-data-table.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-data-table",
+      "readme": "# ic-data-table\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "empty-state - Content is slotted below the table header when there is no data and the table is not loading."
+        },
+        {
+          "name": "slot",
+          "text": "{COLUMN_KEY}-{ROW_INDEX}[-icon] - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot."
+        },
+        {
+          "name": "slot",
+          "text": "{COLUMN_KEY}-column-icon - The icon slot for a column header."
+        },
+        {
+          "name": "slot",
+          "text": "title-bar - A custom ic-data-table-title-bar can be slotted above the column headers to display additional information about the table."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "caption",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "caption",
+          "reflectToAttr": false,
+          "docs": "The title for the table only visible to screen readers.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "IcDataTableColumnObject[]",
+          "complexType": {
+            "original": "IcDataTableColumnObject[]",
+            "resolved": "IcDataTableColumnObject[]",
+            "references": {
+              "IcDataTableColumnObject": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The column headers for the table.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "IcDataTableColumnObject[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "{ [key: string]: any; }[]",
+          "complexType": {
+            "original": "{ [key: string]: any }[]",
+            "resolved": "{ [key: string]: any; }[]",
+            "references": {}
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The row content for the table.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [key: string]: any; }[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"default\" | \"dense\" | \"spacious\"",
+          "complexType": {
+            "original": "IcDataTableDensityOptions",
+            "resolved": "\"default\" | \"dense\" | \"spacious\"",
+            "references": {
+              "IcDataTableDensityOptions": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDensityOptions"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "density",
+          "reflectToAttr": false,
+          "docs": "Set the density of the table including font and padding.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "dense",
+              "type": "string"
+            },
+            {
+              "value": "spacious",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "embedded",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "embedded",
+          "reflectToAttr": false,
+          "docs": "Applies a border to the table container.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "globalRowHeight",
+          "type": "\"auto\" | number",
+          "complexType": {
+            "original": "IcDataTableRowHeights",
+            "resolved": "\"auto\" | number",
+            "references": {
+              "IcDataTableRowHeights": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableRowHeights"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "global-row-height",
+          "reflectToAttr": false,
+          "docs": "Sets the row height on all rows in the table that aren't set using the variableRowHeight method.",
+          "docsTags": [],
+          "default": "40",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideColumnHeaders",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-column-headers",
+          "reflectToAttr": false,
+          "docs": "If `true`, column headers will not be visible.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "When set to `true`, the full table will show a loading state, featuring a radial indicator.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loadingOptions",
+          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }",
+          "complexType": {
+            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    label?: string;\n    labelDuration?: number;\n    max?: number;\n    min?: number;\n    progress?: number;\n    showBackground?: boolean;\n  }",
+            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }",
+            "references": {
+              "IcThemeForegroundNoDefault": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Sets the props for the circular loading indicator used in the loading state.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; label?: string; labelDuration?: number; max?: number; min?: number; progress?: number; showBackground?: boolean; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "minimumLoadingDisplayDuration",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "minimum-loading-display-duration",
+          "reflectToAttr": false,
+          "docs": "The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.",
+          "docsTags": [],
+          "default": "1000",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "paginationOptions",
+          "type": "{ itemsPerPage?: { label: string; value: string; }[]; type?: IcPaginationTypes; control?: IcPaginationControlTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+          "complexType": {
+            "original": "{\n    itemsPerPage?: { label: string; value: string }[];\n    type?: IcPaginationTypes;\n    control?: IcPaginationControlTypes;\n    itemsPerPageControl?: boolean;\n    goToPageControl?: boolean;\n    alignment?: IcPaginationAlignmentOptions;\n  }",
+            "resolved": "{ itemsPerPage?: { label: string; value: string; }[]; type?: IcPaginationTypes; control?: IcPaginationControlTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+            "references": {
+              "IcPaginationTypes": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes"
+              },
+              "IcPaginationControlTypes": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationControlTypes"
+              },
+              "IcPaginationAlignmentOptions": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Sets the props for the pagination bar.",
+          "docsTags": [],
+          "default": "{\n    itemsPerPage: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    type: \"page\",\n    control: \"simple\",\n    itemsPerPageControl: true,\n    goToPageControl: true,\n    alignment: \"right\",\n  }",
+          "values": [
+            {
+              "type": "{ itemsPerPage?: { label: string; value: string; }[]; type?: IcPaginationTypes; control?: IcPaginationControlTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "showPagination",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-pagination",
+          "reflectToAttr": false,
+          "docs": "If `true`, adds a pagination bar to the bottom of the table.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sortOptions",
+          "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+          "complexType": {
+            "original": "{\n    sortOrders: IcDataTableSortOrderOptions[];\n    defaultColumn?: string;\n  }",
+            "resolved": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }",
+            "references": {
+              "IcDataTableSortOrderOptions": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Sets the order columns will be sorted in and allows for 'default' sorts to be added.",
+          "docsTags": [],
+          "default": "{\n    sortOrders: [\"unsorted\", \"ascending\", \"descending\"],\n    defaultColumn: \"\",\n  }",
+          "values": [
+            {
+              "type": "{ sortOrders: IcDataTableSortOrderOptions[]; defaultColumn?: string; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sortable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sortable",
+          "reflectToAttr": false,
+          "docs": "If `true`, allows table columns to be sorted using applied sort buttons.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "stickyColumnHeaders",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sticky-column-headers",
+          "reflectToAttr": false,
+          "docs": "If `true`, column headers will remain at the top of the table when scrolling vertically.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "stickyRowHeaders",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "sticky-row-headers",
+          "reflectToAttr": false,
+          "docs": "If `true`, row headers will remain to the left when scrolling horizontally.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "truncationPattern",
+          "type": "\"showHide\" | \"tooltip\"",
+          "complexType": {
+            "original": "IcDataTableTruncationTypes",
+            "resolved": "\"showHide\" | \"tooltip\"",
+            "references": {
+              "IcDataTableTruncationTypes": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "truncation-pattern",
+          "reflectToAttr": false,
+          "docs": "For long text in cells that aren't set to textWrap, define how they should be truncated.\n`tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography \"See More\"/\"See Less\" buttons.",
+          "docsTags": [],
+          "default": "\"tooltip\"",
+          "values": [
+            {
+              "value": "showHide",
+              "type": "string"
+            },
+            {
+              "value": "tooltip",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "updating",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "updating",
+          "reflectToAttr": false,
+          "docs": "If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "updatingOptions",
+          "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
+          "complexType": {
+            "original": "{\n    appearance?: IcThemeForegroundNoDefault;\n    description?: string;\n    max?: number;\n    min?: number;\n    progress?: number;\n  }",
+            "resolved": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }",
+            "references": {
+              "IcThemeForegroundNoDefault": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Sets the props for the linear loading indicator used in the updating state.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ appearance?: IcThemeForegroundNoDefault; description?: string; max?: number; min?: number; progress?: number; }"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variableRowHeight",
+          "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+          "complexType": {
+            "original": "(params: {\n    [key: string]: any;\n    index: number;\n  }) => IcDataTableRowHeights | null",
+            "resolved": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights",
+            "references": {
+              "IcDataTableRowHeights": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableRowHeights"
+              }
+            }
+          },
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.\nIf the function returns `null`, that row's height will be set to the `globalRowHeight` property.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(params: { [key: string]: any; index: number; }) => IcDataTableRowHeights"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "resetRowHeights",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "resetRowHeights() => Promise<void>",
+          "parameters": [],
+          "docs": "Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "icRowHeightChange",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "icExpand",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icItemsPerPageChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icTableDensityUpdate",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "empty-state",
+          "docs": "Content is slotted below the table header when there is no data and the table is not loading."
+        },
+        {
+          "name": "title-bar",
+          "docs": "A custom ic-data-table-title-bar can be slotted above the column headers to display additional information about the table."
+        },
+        {
+          "name": "{COLUMN_KEY}-column-icon",
+          "docs": "The icon slot for a column header."
+        },
+        {
+          "name": "{COLUMN_KEY}-{ROW_INDEX}[-icon]",
+          "docs": "Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography",
+        "ic-link",
+        "ic-button",
+        "ic-tooltip",
+        "ic-empty-state",
+        "ic-pagination-bar"
+      ],
+      "dependencyGraph": {
+        "ic-data-table": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-link",
+          "ic-button",
+          "ic-tooltip",
+          "ic-empty-state",
+          "ic-pagination-bar"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-empty-state": [
+          "ic-typography"
+        ],
+        "ic-pagination-bar": [
+          "ic-typography",
+          "ic-select",
+          "ic-pagination",
+          "ic-tooltip",
+          "ic-text-field",
+          "ic-button"
+        ],
+        "ic-select": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-typography",
+          "ic-button",
+          "ic-menu",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-text-field": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-input-validation",
+          "ic-typography"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-data-table-title-bar",
+      "readme": "# ic-data-table-title-bar\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "primary-action - Render an interactive element that will perform a primary action. Renders to the right of the density select."
+        },
+        {
+          "name": "slot",
+          "text": "custom-actions - Render additional custom actions to the left of the density select."
+        },
+        {
+          "name": "slot",
+          "text": "heading - The heading to render on the data table title bar."
+        },
+        {
+          "name": "slot",
+          "text": "description - Render an alternative description in the description section."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "description",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "description",
+          "reflectToAttr": false,
+          "docs": "The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.",
+          "docsTags": [],
+          "default": "DEFAULT_TITLE_BAR_HEADING",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideDensitySelect",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-density-select",
+          "reflectToAttr": false,
+          "docs": "When `true`, the density select will not be rendered.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "metadata",
+          "reflectToAttr": false,
+          "docs": "The metadata displayed next to the `heading`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icTableDensityUpdate",
+          "detail": "IcDensityUpdateEventDetail",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcDensityUpdateEventDetail",
+            "resolved": "IcDensityUpdateEventDetail",
+            "references": {
+              "IcDensityUpdateEventDetail": {
+                "location": "import",
+                "path": "../ic-data-table/ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the table density select value is changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "custom-actions",
+          "docs": "Render additional custom actions to the left of the density select."
+        },
+        {
+          "name": "description",
+          "docs": "Render an alternative description in the description section."
+        },
+        {
+          "name": "heading",
+          "docs": "The heading to render on the data table title bar."
+        },
+        {
+          "name": "primary-action",
+          "docs": "Render an interactive element that will perform a primary action. Renders to the right of the density select."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography",
+        "ic-select"
+      ],
+      "dependencyGraph": {
+        "ic-data-table-title-bar": [
+          "ic-typography",
+          "ic-select"
+        ],
+        "ic-select": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-typography",
+          "ic-button",
+          "ic-menu",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
@@ -4101,13 +5009,18 @@
         }
       ],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "ic-data-table"
+      ],
       "dependencies": [
         "ic-typography"
       ],
       "dependencyGraph": {
         "ic-empty-state": [
           "ic-typography"
+        ],
+        "ic-data-table": [
+          "ic-empty-state"
         ]
       }
     },
@@ -6005,11 +6918,15 @@
       ],
       "parts": [],
       "dependents": [
-        "ic-breadcrumb"
+        "ic-breadcrumb",
+        "ic-data-table"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-data-table": [
           "ic-link"
         ]
       }
@@ -6297,6 +7214,7 @@
       "parts": [],
       "dependents": [
         "ic-button",
+        "ic-data-table",
         "ic-menu",
         "ic-step",
         "ic-toast"
@@ -6309,6 +7227,9 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-loading-indicator"
+        ],
+        "ic-data-table": [
           "ic-loading-indicator"
         ],
         "ic-menu": [
@@ -8477,13 +9398,13 @@
           "name": "type",
           "type": "\"complex\" | \"simple\"",
           "complexType": {
-            "original": "IcPaginationTypes",
+            "original": "IcPaginationControlTypes",
             "resolved": "\"complex\" | \"simple\"",
             "references": {
-              "IcPaginationTypes": {
+              "IcPaginationControlTypes": {
                 "location": "import",
                 "path": "./ic-pagination.types",
-                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes"
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationControlTypes"
               }
             }
           },
@@ -8568,7 +9489,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "ic-pagination-bar"
+      ],
       "dependencies": [
         "ic-button",
         "ic-pagination-item"
@@ -8590,6 +9513,420 @@
         ],
         "ic-pagination-item": [
           "ic-typography"
+        ],
+        "ic-pagination-bar": [
+          "ic-pagination"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-pagination-bar",
+      "readme": "# ic-pagination-bar\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "alignment",
+          "type": "\"left\" | \"right\" | \"space-between\"",
+          "complexType": {
+            "original": "IcPaginationAlignmentOptions",
+            "resolved": "\"left\" | \"right\" | \"space-between\"",
+            "references": {
+              "IcPaginationAlignmentOptions": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "alignment",
+          "reflectToAttr": false,
+          "docs": "Sets the alignment of the items in the pagination bar.",
+          "docsTags": [],
+          "default": "\"right\"",
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "space-between",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"light\"",
+            "references": {
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../interface",
+                "id": "src/interface.d.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "Sets the styling for the items in the pagination bar.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "itemLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "item-label",
+          "reflectToAttr": false,
+          "docs": "The label which will be used in place of 'items' if paginationType is data. Should be capitalised.",
+          "docsTags": [],
+          "default": "\"Item\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "itemsPerPageOptions",
+          "type": "{ label: string; value: string; }[]",
+          "complexType": {
+            "original": "{\n    label: string;\n    value: string;\n  }[]",
+            "resolved": "{ label: string; value: string; }[]",
+            "references": {}
+          },
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ label: string; value: string; }[]"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "pageLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "page-label",
+          "reflectToAttr": false,
+          "docs": "The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.",
+          "docsTags": [],
+          "default": "\"Page\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "paginationControl",
+          "type": "\"complex\" | \"simple\"",
+          "complexType": {
+            "original": "IcPaginationControlTypes",
+            "resolved": "\"complex\" | \"simple\"",
+            "references": {
+              "IcPaginationControlTypes": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationControlTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "pagination-control",
+          "reflectToAttr": false,
+          "docs": "Whether the displayed pagination is simple or complex.",
+          "docsTags": [],
+          "default": "\"simple\"",
+          "values": [
+            {
+              "value": "complex",
+              "type": "string"
+            },
+            {
+              "value": "simple",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "paginationType",
+          "type": "\"data\" | \"page\"",
+          "complexType": {
+            "original": "IcPaginationTypes",
+            "resolved": "\"data\" | \"page\"",
+            "references": {
+              "IcPaginationTypes": {
+                "location": "import",
+                "path": "../ic-pagination/ic-pagination.types",
+                "id": "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "pagination-type",
+          "reflectToAttr": false,
+          "docs": "Whether total number of items and current item range or total number of pages and current page is displayed.",
+          "docsTags": [],
+          "default": "\"page\"",
+          "values": [
+            {
+              "value": "data",
+              "type": "string"
+            },
+            {
+              "value": "page",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "showGoToPageControl",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-go-to-page-control",
+          "reflectToAttr": false,
+          "docs": "If `true`, the 'go to page' control should be displayed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "showItemsPerPage",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-items-per-page",
+          "reflectToAttr": false,
+          "docs": "If `true`, the number of total items and current item range or number of total pages and current page should be displayed.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "showItemsPerPageControl",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-items-per-page-control",
+          "reflectToAttr": false,
+          "docs": "If `true`, the select input to control 'items per page' should be displayed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "totalItems",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "total-items",
+          "reflectToAttr": false,
+          "docs": "Total number of items to be displayed across all pages.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icItemsPerPageChange",
+          "detail": "{ value: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: number }",
+            "resolved": "{ value: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the items per page option is changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icPageChange",
+          "detail": "{ value: number; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: number }",
+            "resolved": "{ value: number; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a page is navigated to via the 'go to' input.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "ic-data-table"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-select",
+        "ic-pagination",
+        "ic-tooltip",
+        "ic-text-field",
+        "ic-button"
+      ],
+      "dependencyGraph": {
+        "ic-pagination-bar": [
+          "ic-typography",
+          "ic-select",
+          "ic-pagination",
+          "ic-tooltip",
+          "ic-text-field",
+          "ic-button"
+        ],
+        "ic-select": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-typography",
+          "ic-button",
+          "ic-menu",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-text-field": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-input-validation",
+          "ic-typography"
+        ],
+        "ic-data-table": [
+          "ic-pagination-bar"
         ]
       }
     },
@@ -11710,7 +13047,10 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "ic-data-table-title-bar",
+        "ic-pagination-bar"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -11750,6 +13090,12 @@
         ],
         "ic-input-validation": [
           "ic-typography"
+        ],
+        "ic-data-table-title-bar": [
+          "ic-select"
+        ],
+        "ic-pagination-bar": [
+          "ic-select"
         ]
       }
     },
@@ -14398,6 +15744,7 @@
       ],
       "parts": [],
       "dependents": [
+        "ic-pagination-bar",
         "ic-search-bar"
       ],
       "dependencies": [
@@ -14420,6 +15767,9 @@
         ],
         "ic-input-validation": [
           "ic-typography"
+        ],
+        "ic-pagination-bar": [
+          "ic-text-field"
         ],
         "ic-search-bar": [
           "ic-text-field"
@@ -14862,6 +16212,28 @@
       "usage": {},
       "props": [
         {
+          "name": "disableClick",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disableHover",
           "type": "boolean",
           "complexType": {
@@ -15065,7 +16437,9 @@
       "dependents": [
         "ic-button",
         "ic-chip",
-        "ic-navigation-item"
+        "ic-data-table",
+        "ic-navigation-item",
+        "ic-pagination-bar"
       ],
       "dependencies": [
         "ic-typography"
@@ -15080,7 +16454,13 @@
         "ic-chip": [
           "ic-tooltip"
         ],
+        "ic-data-table": [
+          "ic-tooltip"
+        ],
         "ic-navigation-item": [
+          "ic-tooltip"
+        ],
+        "ic-pagination-bar": [
           "ic-tooltip"
         ]
       }
@@ -15598,8 +16978,67 @@
           "required": false
         }
       ],
-      "methods": [],
-      "events": [],
+      "methods": [
+        {
+          "name": "checkMaxLines",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(height: number) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "height"
+                  }
+                ],
+                "text": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "checkMaxLines(height: number) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "height"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "icExpand",
+          "detail": "{ el: HTMLIcTypographyElement; expanded: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcExpandEventDetail",
+            "resolved": "{ el: HTMLIcTypographyElement; expanded: boolean; }",
+            "references": {
+              "IcExpandEventDetail": {
+                "location": "import",
+                "path": "./ic-typography.types",
+                "id": "src/components/ic-typography/ic-typography.types.tsx::IcExpandEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],
@@ -15615,6 +17054,8 @@
         "ic-classification-banner",
         "ic-data-entity",
         "ic-data-row",
+        "ic-data-table",
+        "ic-data-table-title-bar",
         "ic-dialog",
         "ic-empty-state",
         "ic-footer",
@@ -15630,6 +17071,7 @@
         "ic-navigation-item",
         "ic-navigation-menu",
         "ic-page-header",
+        "ic-pagination-bar",
         "ic-pagination-item",
         "ic-popover-menu",
         "ic-radio-option",
@@ -15676,6 +17118,12 @@
         "ic-data-row": [
           "ic-typography"
         ],
+        "ic-data-table": [
+          "ic-typography"
+        ],
+        "ic-data-table-title-bar": [
+          "ic-typography"
+        ],
         "ic-dialog": [
           "ic-typography"
         ],
@@ -15719,6 +17167,9 @@
           "ic-typography"
         ],
         "ic-page-header": [
+          "ic-typography"
+        ],
+        "ic-pagination-bar": [
           "ic-typography"
         ],
         "ic-pagination-item": [
@@ -15859,15 +17310,85 @@
       "docstring": "",
       "path": "src/components/ic-chip/ic-chip.types.ts"
     },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableDensityOptions": {
+      "declaration": "export type IcDataTableDensityOptions = \"default\" | \"dense\" | \"spacious\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableRowHeights": {
+      "declaration": "export type IcDataTableRowHeights = number | \"auto\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/utils/types.ts::IcThemeForegroundNoDefault": {
+      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
+      "declaration": "export type IcPaginationTypes = \"data\" | \"page\";",
+      "docstring": "",
+      "path": "src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationControlTypes": {
+      "declaration": "export type IcPaginationControlTypes = \"simple\" | \"complex\";",
+      "docstring": "",
+      "path": "src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationAlignmentOptions": {
+      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
+      "docstring": "",
+      "path": "src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
+      "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\"",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
+      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
+      "docstring": "",
+      "path": "src/components/ic-pagination/ic-pagination.types.ts"
+    },
+    "src/interface.d.ts::IcThemeForeground": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/interface.d.ts"
+    },
+    "src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType": {
+      "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
+      "docstring": "",
+      "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
+    },
     "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
       "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
       "docstring": "",
       "path": "src/components/ic-empty-state/ic-empty-state.types.ts"
     },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
+      "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
     "src/utils/types.ts::IcTypographyVariants": {
       "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-typography/ic-typography.types.tsx::IcExpandEventDetail": {
+      "declaration": "{\n  el: HTMLIcTypographyElement;\n  expanded: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-typography/ic-typography.types.tsx"
     },
     "src/components/ic-hero/ic-hero.types.tsx::IcHeroContentAlignments": {
       "declaration": "export type IcHeroContentAlignments = \"left\" | \"center\";",
@@ -15878,11 +17399,6 @@
       "declaration": "export type IcAriaLiveModeVariants = \"polite\" | \"assertive\";",
       "docstring": "",
       "path": "src/components/ic-input-validation/ic-input-validation.types.tsx"
-    },
-    "src/utils/types.ts::IcThemeForegroundNoDefault": {
-      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-loading-indicator/ic-loading-indicator.types.tsx::IcLoadingSizes": {
       "declaration": "export type IcLoadingSizes = \"default\" | \"small\" | \"large\" | \"icon\";",
@@ -15929,20 +17445,15 @@
       "docstring": "",
       "path": "src/components/ic-menu-item/ic-menu-item.types.ts"
     },
-    "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
-      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
+    "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
+      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
       "docstring": "",
-      "path": "src/components/ic-pagination/ic-pagination.types.ts"
+      "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     },
-    "src/components/ic-pagination/ic-pagination.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  value: number;\n}",
+    "src/utils/types.ts::IcSearchMatchPositions": {
+      "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
       "docstring": "",
-      "path": "src/components/ic-pagination/ic-pagination.types.ts"
-    },
-    "src/components/ic-pagination-item/ic-pagination-item.types.ts::IcPaginationItemType": {
-      "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
-      "docstring": "",
-      "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
+      "path": "src/utils/types.ts"
     },
     "src/utils/types.ts::IcOrientation": {
       "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
@@ -15961,11 +17472,6 @@
     },
     "src/utils/types.ts::IcBlurEventDetail": {
       "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
-      "docstring": "",
-      "path": "src/utils/types.ts"
-    },
-    "src/utils/types.ts::IcSearchMatchPositions": {
-      "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
@@ -16023,11 +17529,6 @@
       "declaration": "{\n  mode: IcThemeForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
-    },
-    "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
-      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
-      "docstring": "",
-      "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     }
   }
 }

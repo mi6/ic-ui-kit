@@ -10,7 +10,7 @@ import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./com
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 import { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 import { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 import { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -31,12 +31,13 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+import { IcExpandEventDetail } from "./components/ic-typography/ic-typography.types";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
 export { IcChipAppearance } from "./components/ic-chip/ic-chip.types";
 export { IcProtectiveMarkings } from "./components/ic-classification-banner/ic-classification-banner.types";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcEmptyStateAlignment } from "./components/ic-empty-state/ic-empty-state.types";
 export { IcFooterBreakpoints } from "./components/ic-footer/ic-footer.types";
@@ -57,6 +58,7 @@ export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+export { IcExpandEventDetail } from "./components/ic-typography/ic-typography.types";
 export namespace Components {
     interface IcAccordion {
         "appearance"?: IcThemeForeground;
@@ -565,6 +567,10 @@ export namespace Components {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * For long text in cells that aren't set to textWrap, define how they should be truncated. `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
+         */
+        "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
          */
@@ -2167,6 +2173,11 @@ export namespace Components {
          */
         "bold"?: boolean;
         /**
+          * Truncate the text in ic-typography by adding a line-clamp css property.
+          * @param height Used to calculate whether the element has exceeded the maximum number of lines.
+         */
+        "checkMaxLines": (height: number) => Promise<void>;
+        /**
           * If `true`, the typography will have an italic font style.
          */
         "italic"?: boolean;
@@ -2303,6 +2314,10 @@ export interface IcToastCustomEvent<T> extends CustomEvent<T> {
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
+}
+export interface IcTypographyCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTypographyElement;
 }
 declare global {
     interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
@@ -3276,6 +3291,10 @@ declare namespace LocalJSX {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * For long text in cells that aren't set to textWrap, define how they should be truncated. `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
+         */
+        "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
          */
@@ -4994,6 +5013,10 @@ declare namespace LocalJSX {
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * Emitted when the See More/See Less button is clicked.
+         */
+        "onIcExpand"?: (event: IcTypographyCustomEvent<IcExpandEventDetail>) => void;
         /**
           * If `true`, the typography will have a line through it.
          */
