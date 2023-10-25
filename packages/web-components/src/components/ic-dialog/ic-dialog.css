@@ -70,6 +70,10 @@
   margin-bottom: var(--ic-space-xs);
 }
 
+.heading {
+  overflow-wrap: break-word;
+}
+
 .close-icon {
   margin-left: auto;
 }
@@ -99,6 +103,10 @@
 
 #dialog-content {
   margin-bottom: var(--ic-space-sm);
+}
+
+#dialog-content ::slotted(ic-typography) {
+  overflow-wrap: break-word;
 }
 
 .status-alert {
