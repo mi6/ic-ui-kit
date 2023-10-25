@@ -332,6 +332,7 @@ export class SearchBar {
       ev.preventDefault();
 
       this.preventSubmit = true;
+      this.setMenuChange(false);
     }
   };
 
@@ -349,11 +350,13 @@ export class SearchBar {
     ];
 
     if (this.options.length > 0) {
-      this.setMenuChange(true);
+      if (!this.open) {
+        this.setMenuChange(true);
+      }
 
       this.preLoad = false;
 
-      if (this.disableFilter === false) {
+      if (!this.disableFilter) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
           false,
@@ -458,6 +461,8 @@ export class SearchBar {
   componentWillLoad(): void {
     this.watchValueHandler(this.value);
 
+    this.filteredOptions = this.options;
+
     removeDisabledFalse(this.disabled, this.el);
 
     if (this.small) {
@@ -472,9 +477,6 @@ export class SearchBar {
 
     if (this.hasOptionsOrFilterDisabled()) {
       this.renderAssistiveHintEl();
-      if (this.disableFilter) {
-        this.filteredOptions = this.options;
-      }
     }
 
     onComponentRequiredPropUndefined(
@@ -637,8 +639,21 @@ export class SearchBar {
 
   private handleHostFocus = () => {
     if (this.options && this.value && !this.menuCloseFromMenuChangeEvent) {
+      if (!this.disableFilter) {
+        const rawFilteredOptions = getFilteredMenuOptions(
+          this.options,
+          false,
+          this.value,
+          "anywhere",
+          this.labelField
+        );
+
+        this.filteredOptions =
+          rawFilteredOptions.length > 0 && rawFilteredOptions;
+      }
       this.setMenuChange(true);
     }
+
     this.handleTruncateValue(false);
 
     this.icSearchBarFocus.emit();
@@ -820,7 +835,7 @@ export class SearchBar {
 
     const disabledText = disabledMode && !readonly;
     const hasSuggestedSearch = value && this.hasOptionsOrFilterDisabled();
-    const menuOpen = hasSuggestedSearch && open && filteredOptions.length > 0;
+    const menuOpen = hasSuggestedSearch && filteredOptions.length > 0;
     const menuRendered =
       menuOpen && value.length >= this.charactersUntilSuggestion;
     const isOrHasLoaded =
@@ -888,7 +903,7 @@ export class SearchBar {
           onFocus={this.onInputFocus}
           aria-label={hideLabel ? label : ""}
           aria-describedby={describedById}
-          aria-owns={menuRendered ? menuId : undefined}
+          aria-owns={menuRendered && open ? menuId : undefined}
           aria-haspopup={options.length > 0 ? "listbox" : undefined}
           ariaExpanded={expanded}
           ariaActiveDescendant={ariaActiveDescendant}

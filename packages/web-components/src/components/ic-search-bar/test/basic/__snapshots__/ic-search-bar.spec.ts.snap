@@ -39,7 +39,9 @@ exports[`ic-search-bar search should render aria-label when hidelLabel is set: r
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-2-menu" searchmode="navigation" value="" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-2" type="hidden" value="">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -88,7 +90,9 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-4-menu" searchmode="navigation" value="" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" disabled="" name="ic-search-bar-input-4" type="hidden" value="">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -137,7 +141,9 @@ exports[`ic-search-bar search should render readonly variant: renders-readonly 1
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-5-menu" searchmode="navigation" value="" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" disabled="" name="ic-search-bar-input-5" type="hidden" value="">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -186,7 +192,9 @@ exports[`ic-search-bar search should render required variant: renders-required 1
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-3-menu" searchmode="navigation" value="" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-3" type="hidden" value="">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -249,7 +257,9 @@ exports[`ic-search-bar search should render with helper-text: renders-with-helpe
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-7" type="hidden" value="Espresso">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -298,7 +308,9 @@ exports[`ic-search-bar search should render with options: renders-with-options 1
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-6" type="hidden" value="Espresso">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -347,7 +359,9 @@ exports[`ic-search-bar search should render with value: renders-with-value 1`] =
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-1-menu" searchmode="navigation" value="foo" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-1" type="hidden" value="foo">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
@@ -396,7 +410,9 @@ exports[`ic-search-bar search should render: renders 1`] = `
           svg
         </ic-button>
       </div>
-      <div class="menu-container" slot="menu"></div>
+      <div class="menu-container" slot="menu">
+        <ic-menu activationtype="manual" inputlabel="Test label" labelfield="label" menuid="ic-search-bar-input-0-menu" searchmode="navigation" value="" valuefield="value"></ic-menu>
+      </div>
       <input class="ic-input" name="ic-search-bar-input-0" type="hidden" value="">
     </ic-text-field>
     <div aria-live="polite" class="search-results-status" role="status"></div>
