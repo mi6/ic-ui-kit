@@ -35,7 +35,6 @@ import { IcSearchBarSearchModes } from "../ic-search-bar/ic-search-bar.types";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
-  private firstRender: boolean = true;
   private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
   private hasTimedOut: boolean = false;
@@ -51,10 +50,10 @@ export class Menu {
   @Element() el: HTMLIcMenuElement;
 
   @State() focusFromSearchKeypress: boolean = false;
-  @State() initialOptionsListRender: boolean = false;
   @State() keyboardNav: boolean = false;
   @State() optionHighlighted: string;
   @State() preventIncorrectTabOrder: boolean = false;
+  @State() menuOptions: IcMenuOption[];
 
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -132,6 +131,10 @@ export class Menu {
     this.isLoading = newOptions.some((opt) => opt.loading);
     this.ungroupedOptions = [];
     this.loadUngroupedOptions();
+
+    if (this.searchMode === "navigation" && this.isSearchBar) {
+      this.menuOptions = this.setMenuOptions();
+    }
   }
 
   /**
@@ -191,11 +194,6 @@ export class Menu {
 
   connectedCallback(): void {
     this.getParentEl(this.parentEl);
-
-    if (this.isSearchBar) {
-      if (this.searchMode === "navigation") this.setHighlightedOption(0);
-      this.initialOptionsListRender = true;
-    }
   }
 
   disconnectedCallback(): void {
@@ -277,57 +275,35 @@ export class Menu {
     }
   }
 
-  componentDidRender(): void {
-    if (this.firstRender && this.open) {
-      this.firstRender = false;
-      let adjust = false;
-
-      const dialogEl = this.parentEl.closest("ic-dialog");
-
-      const onDialog = dialogEl !== null;
-      if (onDialog) {
-        this.el.classList.add("on-dialog");
-        if (dialogEl.getAttribute("data-overflow") === "false") {
-          const menuTop = this.el.getBoundingClientRect().top;
-          const menuHeight = this.el.getBoundingClientRect().height;
-          const dialogHeight = dialogEl.getBoundingClientRect().bottom;
-          if (menuTop + menuHeight > dialogHeight) {
-            adjust = true;
-          }
-        }
-        if (adjust === false) {
-          this.el.classList.add("on-dialog-fix-translate");
-        }
-      }
-
-      if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "top",
-        });
-      } else {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "bottom",
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [0, 7],
-              },
+  @Watch("open")
+  watchOpenHandler(): void {
+    if (this.open) {
+      this.popperInstance = createPopper(this.anchorEl, this.el, {
+        placement: "bottom",
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 7],
             },
-            {
-              name: "flip",
-              options: {
-                fallbackPlacements: ["top"],
-                rootBoundary: "viewport",
-              },
+          },
+          {
+            name: "flip",
+            options: {
+              fallbackPlacements: ["top"],
+              rootBoundary: "viewport",
             },
-          ],
-        });
+          },
+        ],
+      });
+    } else {
+      if (this.popperInstance) {
+        this.popperInstance.destroy();
       }
-    } else if (this.open) {
-      this.popperInstance.update();
     }
+  }
 
+  componentDidRender(): void {
     if (this.open && !!this.options.length) {
       this.setMenuScrollbar();
     }
@@ -450,12 +426,12 @@ export class Menu {
     this.isSearchBar ? this.options : this.ungroupedOptions;
 
   private setHighlightedOption = (highlightedIndex: number): void => {
-    const menuOptions = this.setMenuOptions();
+    this.menuOptions = this.setMenuOptions();
 
-    menuOptions[highlightedIndex] &&
-      !menuOptions[highlightedIndex].timedOut &&
+    this.menuOptions[highlightedIndex] &&
+      !this.menuOptions[highlightedIndex].timedOut &&
       (this.optionHighlighted =
-        menuOptions[highlightedIndex][this.valueField] || undefined);
+        this.menuOptions[highlightedIndex][this.valueField] || undefined);
   };
 
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
@@ -486,11 +462,11 @@ export class Menu {
   };
 
   private manSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
-    const menuOptions = this.setMenuOptions();
+    this.menuOptions = this.setMenuOptions();
 
     this.keyboardNav = false;
 
-    const highlightedOptionIndex = menuOptions.findIndex(
+    const highlightedOptionIndex = this.menuOptions.findIndex(
       (option) => option[this.valueField] === this.optionHighlighted
     );
 
@@ -501,7 +477,7 @@ export class Menu {
       case "ArrowDown":
         this.keyboardNav = true;
         this.arrowBehaviour(event);
-        if (highlightedOptionIndex < menuOptions.length - 1) {
+        if (highlightedOptionIndex < this.menuOptions.length - 1) {
           this.setHighlightedOption(highlightedOptionIndex + 1);
           this.menuOptionId.emit({
             optionId: getOptionId(highlightedOptionIndex + 1),
@@ -520,11 +496,11 @@ export class Menu {
         this.arrowBehaviour(event);
         if (
           highlightedOptionIndex <= 0 ||
-          highlightedOptionIndex > menuOptions.length + 1
+          highlightedOptionIndex > this.menuOptions.length + 1
         ) {
-          this.setHighlightedOption(menuOptions.length - 1);
+          this.setHighlightedOption(this.menuOptions.length - 1);
           this.menuOptionId.emit({
-            optionId: getOptionId(menuOptions.length - 1),
+            optionId: getOptionId(this.menuOptions.length - 1),
           });
         } else {
           this.setHighlightedOption(highlightedOptionIndex - 1);
@@ -548,23 +524,24 @@ export class Menu {
         this.keyboardNav = true;
         event.preventDefault();
         this.arrowBehaviour(event);
-        this.setHighlightedOption(menuOptions.length - 1);
+        this.setHighlightedOption(this.menuOptions.length - 1);
         this.menuOptionId.emit({
-          optionId: getOptionId(menuOptions.length - 1),
+          optionId: getOptionId(this.menuOptions.length - 1),
         });
         break;
       case "Enter":
         event.preventDefault();
         if (highlightedOptionIndex >= 0) {
-          if (menuOptions[highlightedOptionIndex] !== undefined) {
+          if (this.menuOptions[highlightedOptionIndex] !== undefined) {
             if (
               this.isSearchBar &&
-              menuOptions[highlightedOptionIndex].disabled === true
+              this.menuOptions[highlightedOptionIndex].disabled === true
             ) {
               this.disabledOptionSelected = true;
             } else {
               this.setInputValue(highlightedOptionIndex);
-              this.value = menuOptions[highlightedOptionIndex][this.valueField];
+              this.value =
+                this.menuOptions[highlightedOptionIndex][this.valueField];
             }
           }
         } else {
@@ -609,11 +586,11 @@ export class Menu {
   };
 
   private setInputValue = (highlightedOptionIndex: number) => {
-    const menuOptions = this.setMenuOptions();
+    this.menuOptions = this.setMenuOptions();
 
-    if (menuOptions[highlightedOptionIndex] !== undefined) {
+    if (this.menuOptions[highlightedOptionIndex] !== undefined) {
       this.menuOptionSelect.emit({
-        value: menuOptions[highlightedOptionIndex][this.valueField],
+        value: this.menuOptions[highlightedOptionIndex][this.valueField],
       });
       this.optionHighlighted = undefined;
       this.menuOptionId.emit({ optionId: undefined });
@@ -885,7 +862,6 @@ export class Menu {
       value,
       keyboardNav,
       isManualMode,
-      initialOptionsListRender,
       optionHighlighted,
       options,
     } = this;
@@ -896,9 +872,8 @@ export class Menu {
         class={{
           option: true,
           "focused-option": isManualMode
-            ? (keyboardNav || initialOptionsListRender) &&
-              option[this.valueField] === optionHighlighted
-            : keyboardNav && option[this.valueField] === value,
+            ? option[this.valueField] === optionHighlighted
+            : option[this.valueField] === value,
           "last-recommended-option":
             option.recommended &&
             options[index + 1] &&

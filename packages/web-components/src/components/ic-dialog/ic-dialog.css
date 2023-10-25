@@ -109,6 +109,10 @@
   overflow-wrap: break-word;
 }
 
+#dialog-content ::slotted(*) {
+  position: relative;
+}
+
 .status-alert {
   margin-bottom: var(--ic-space-xs);
 }
