@@ -38,10 +38,6 @@
   inset: auto !important;
 }
 
-:host(.on-dialog-fix-translate) {
-  transform: translate(0, 80px) !important;
-}
-
 .menu {
   text-decoration: none;
   list-style-type: none;

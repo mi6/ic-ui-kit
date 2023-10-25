@@ -596,3 +596,314 @@ import readme from "./readme.md";
     `}
   </Story>
 </Canvas>
+
+### Popover
+
+<Canvas>
+  <Story name="Popover" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function dropdownItems() {
+          return Array.from(Array(10).keys()).map((i) => {
+            return {
+              label: "Item " + i,
+              value: "item-" + i,
+            };
+          });
+        }
+        document
+          .querySelector("#select-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#select-dialog").showDialog();
+          });
+        document
+          .querySelector("#search-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#search-dialog").showDialog();
+          });
+        document
+          .querySelector("#tooltip-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#tooltip-dialog").showDialog();
+          });
+        document.querySelector("#select-dropdown").options = dropdownItems();
+        document.querySelector("#search-dropdown").options = dropdownItems();
+        document.querySelector("#select-dropdown-2").options = dropdownItems();
+        document
+          .querySelector("#long-text-select-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#long-text-select-dialog").showDialog();
+          });
+        document
+          .querySelector("#popover-menu-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#popover-menu-dialog").showDialog();
+          });
+        document
+          .querySelector("#popover-menu-show-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#popover-menu").open = true;
+          });
+      </script>
+      <div>
+        <ic-button id="select-dialog-btn">Select Dialog</ic-button>
+        <ic-button id="search-dialog-btn">Search Dialog</ic-button>
+        <ic-button id="tooltip-dialog-btn">Tooltip Dialog</ic-button>
+        <ic-button id="popover-menu-dialog-btn">Popover Menu Dialog</ic-button>
+        <ic-button id="long-text-select-dialog-btn"
+          >Long Text with Select Dialog</ic-button
+        >
+      </div>
+      <ic-dialog heading="Select" id="select-dialog">
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-select
+          id="select-dropdown"
+          label="What is your favourite coffee?"
+        ></ic-select>
+      </ic-dialog>
+      <ic-dialog heading="Search" id="search-dialog">
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-search-bar
+          id="search-dropdown"
+          label="What is your favourite coffee?"
+        ></ic-search-bar>
+      </ic-dialog>
+      <ic-dialog heading="Tooltip" id="tooltip-dialog">
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-tooltip
+          label="This is a description of the button"
+          target="test-button-default"
+          ><button
+            id="test-button-default"
+            aria-describedby="ic-tooltip-test-button-default"
+          >
+            Default
+          </button></ic-tooltip
+        >
+        <ic-button
+          variant="icon"
+          size="small"
+          aria-label="refresh"
+          id="testbutton"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            /></svg
+        ></ic-button>
+        <ic-chip label="Small" dismissible="true" size="small">
+          <svg
+            slot="icon"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+            />
+          </svg>
+        </ic-chip>
+      </ic-dialog>
+      <ic-dialog heading="Popover Menu" id="popover-menu-dialog">
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-button id="popover-menu-show-btn">Show popover</ic-button>
+        <ic-popover-menu
+          id="popover-menu"
+          anchor="popover-menu-show-btn"
+          aria-label="popover"
+        >
+          <ic-menu-item label="Copy code" disabled="true"></ic-menu-item>
+          <ic-menu-group label="View">
+            <ic-menu-item
+              label="Zoom in"
+              keyboard-shortcut="Cmd+"
+            ></ic-menu-item>
+            <ic-menu-item
+              label="Zoom out"
+              keyboard-shortcut="Cmd-"
+            ></ic-menu-item>
+          </ic-menu-group>
+          <ic-menu-item
+            label="Actions"
+            submenu-trigger-for="abc"
+          ></ic-menu-item>
+          <ic-menu-item
+            label="Logout"
+            variant="destructive"
+            disabled="true"
+          ></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc">
+          <ic-menu-item label="Edit"></ic-menu-item>
+          <ic-menu-item
+            label="Find"
+            submenu-trigger-for="abc123"
+          ></ic-menu-item>
+          <ic-menu-item label="Delete" variant="destructive"></ic-menu-item>
+        </ic-popover-menu>
+        <ic-popover-menu submenu-id="abc123">
+          <ic-menu-item
+            disabled="true"
+            label="Search the web"
+            description="This will search the web to find the thing you are looking for."
+          ></ic-menu-item>
+          <ic-menu-item label="Find..."></ic-menu-item>
+          <ic-menu-item label="Find icons">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-menu-item>
+          <ic-menu-item
+            label="Show found results"
+            variant="toggle"
+          ></ic-menu-item>
+        </ic-popover-menu>
+      </ic-dialog>
+      <ic-dialog heading="Long Text Select" id="long-text-select-dialog">
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-select
+          id="select-dropdown-2"
+          label="What is your favourite coffee?"
+        ></ic-select>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
