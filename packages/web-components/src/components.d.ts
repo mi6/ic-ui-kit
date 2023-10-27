@@ -978,6 +978,7 @@ export namespace Components {
          */
         "handleKeyboardOpen": (event: KeyboardEvent) => Promise<void>;
         "handleSetFirstOption": () => Promise<void>;
+        "initPopperJs": (anchor: HTMLElement) => Promise<void>;
         /**
           * The reference to the input element.
          */
