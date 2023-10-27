@@ -592,6 +592,10 @@ export namespace Components {
          */
         "destructive"?: boolean;
         /**
+          * If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold. This prop also prevents popover elements from being cut off within the content area.
+         */
+        "disableHeightConstraint"?: boolean;
+        /**
           * Sets the dismiss label tooltip and aria label.
          */
         "dismissLabel"?: string;
@@ -3287,6 +3291,10 @@ declare namespace LocalJSX {
           * If default buttons are displayed, sets the 'primary' or rightmost button to the destructive variant. Stops initial focus being set on the 'primary' or rightmost default or slotted button.
          */
         "destructive"?: boolean;
+        /**
+          * If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold. This prop also prevents popover elements from being cut off within the content area.
+         */
+        "disableHeightConstraint"?: boolean;
         /**
           * Sets the dismiss label tooltip and aria label.
          */

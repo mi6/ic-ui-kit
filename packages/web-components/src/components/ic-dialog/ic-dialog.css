@@ -17,6 +17,21 @@
   transition: opacity var(--ic-easing-transition-slow);
 }
 
+:host(.disable-height-constraint) {
+  background: none;
+  justify-content: unset;
+  align-items: unset;
+}
+
+.dialog.disable-height-constraint {
+  max-height: none;
+  position: relative;
+}
+
+.dialog.disable-height-constraint .content-area {
+  overflow-y: visible;
+}
+
 :host(.fade-in) {
   opacity: 1;
   transition: opacity var(--ic-easing-transition-slow);
@@ -116,6 +131,19 @@
 
 .dialog-control-button {
   width: fit-content;
+}
+
+.backdrop {
+  overflow-y: auto;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 60%);
+  z-index: var(--ic-z-index-dialog);
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @media (min-width: 800px) {
