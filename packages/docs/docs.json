@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-24T15:54:36",
+  "timestamp": "2023-10-27T15:47:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -17351,7 +17351,12 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
-      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\"",
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcRowSelectedEventDetail": {
+      "declaration": "export interface IcRowSelectedEventDetail {\n  row: object;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
