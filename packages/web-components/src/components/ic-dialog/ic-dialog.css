@@ -83,18 +83,7 @@
   scrollbar-width: none;
   padding: 0 var(--ic-space-xs);
   margin: 0 calc(-1 * var(--ic-space-xs));
-}
-
-:host([data-overflow="false"]) .content-area {
-  overflow-y: visible;
-}
-
-:host([data-overflow="true"]) .content-area {
-  overflow-y: scroll;
-}
-
-:host([data-overflow="false"]) .dialog {
-  overflow: visible;
+  overflow-y: auto;
 }
 
 .content-area::-webkit-scrollbar {
