@@ -247,6 +247,79 @@ describe("ic-dialog", () => {
       height: 800,
     });
 
+<<<<<<< Updated upstream
+=======
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("Show");
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    focusedEl = await page.evaluate(() => {
+      const dialog = document.querySelector("ic-dialog");
+      const el = dialog.shadowRoot.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
+    });
+
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("Cancel");
+
+    const showBtn = await page.find(".show");
+    await showBtn.click();
+    await page.waitForChanges();
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    focusedEl = await page.evaluate(() => {
+      const el = document.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
+    });
+
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("foo");
+  });
+
+  it("should not tab to interactive button when hidden and tab to cancel button", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<script>
+      function showSmallDialog() {
+        dialog = document.querySelector("#small-dialog");
+        dialog.showDialog();
+      }
+      function hideNewBtn() {
+        var btn = document.querySelector("#hide-btn");
+        btn.remove();
+      }
+    </script>
+    <ic-button variant="primary" id='showBtn' onclick="showSmallDialog()">
+      Launch small dialog
+    </ic-button>
+    <ic-dialog
+      heading="This is a small dialog"
+      label="Small"
+      id="small-dialog"
+    >
+      <ic-typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </ic-typography>
+      <ic-button class="hide" onclick="hideNewBtn();">Hide</ic-button>
+      <ic-button id='hide-btn'>foo</ic-button>
+      <div id="base"></div>
+    </ic-dialog>
+    `);
+
+    const btn = await page.find("#showBtn");
+    await btn.click();
+
+>>>>>>> Stashed changes
     await page.waitForChanges();
     await page.waitForTimeout(DIALOG_DELAY_MS);
 
@@ -255,4 +328,49 @@ describe("ic-dialog", () => {
     overflow = dialog.getAttribute("data-overflow");
     expect(overflow).toBe("false");
   });
+
+  it("should focus on dismiss button initially if disableHeightContraint is set", async () => {
+    const page = await newE2EPage();
+    await page.setContent(`<script>
+      function showSmallDialog() {
+        dialog = document.querySelector("#small-dialog");
+        dialog.showDialog();
+      }
+    </script>
+    <ic-button variant="primary" id='showBtn' onclick="showSmallDialog()">
+      Launch small dialog
+    </ic-button>
+    <ic-dialog
+      heading="This is a small dialog"
+      label="Small"
+      id="small-dialog"
+      disable-height-constraint
+    >
+      <ic-typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </ic-typography>
+    </ic-dialog>
+    `);
+
+    const btn = await page.find("#showBtn");
+    await btn.click();
+
+    await page.waitForChanges()
+    await page.waitForSelector('ic-dialog');
+
+    const focussedEl = await page.evaluate(() => {
+      const el = document.querySelector('ic-dialog')
+      .shadowRoot.activeElement;
+
+      return ({
+        tagName: el.tagName,
+        label: el.shadowRoot.querySelector('button').ariaLabel
+      })
+    });
+
+    expect(focussedEl.tagName).toBe('IC-BUTTON');
+    expect(focussedEl.label).toBe('Dismiss');
+  });
+
 });
