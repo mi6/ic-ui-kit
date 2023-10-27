@@ -377,6 +377,10 @@ export class Select {
   }
 
   componentDidLoad(): void {
+    if (this.anchorEl && this.menu) {
+      this.menu.initPopperJs(this.anchorEl);
+    }
+
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Select"

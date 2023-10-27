@@ -47,13 +47,13 @@ export class Menu {
   private preventClickOpen: boolean = false;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() el: HTMLIcMenuElement;
+  @Element() host: HTMLIcMenuElement;
 
   @State() focusFromSearchKeypress: boolean = false;
+  @State() initialOptionsListRender: boolean = false;
   @State() keyboardNav: boolean = false;
   @State() optionHighlighted: string;
   @State() preventIncorrectTabOrder: boolean = false;
-  @State() menuOptions: IcMenuOption[];
 
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -100,6 +100,22 @@ export class Menu {
    */
   @Prop({ reflect: true }) open!: boolean;
 
+  @Watch("open")
+  watchOpenHandler(): void {
+    console.log(this.anchorEl);
+    if (this.open) {
+      if (!this.popperInstance) {
+        this.initPopperJs(this.anchorEl);
+      }
+      this.popperInstance.update();
+    } else {
+      if (this.popperInstance) {
+        this.popperInstance.destroy();
+        this.popperInstance = null;
+      }
+    }
+  }
+
   /**
    * @internal - The parent element if ic-menu is nested inside another component.
    */
@@ -131,10 +147,6 @@ export class Menu {
     this.isLoading = newOptions.some((opt) => opt.loading);
     this.ungroupedOptions = [];
     this.loadUngroupedOptions();
-
-    if (this.searchMode === "navigation" && this.isSearchBar) {
-      this.menuOptions = this.setMenuOptions();
-    }
   }
 
   /**
@@ -194,6 +206,11 @@ export class Menu {
 
   connectedCallback(): void {
     this.getParentEl(this.parentEl);
+
+    if (this.isSearchBar) {
+      if (this.searchMode === "navigation") this.setHighlightedOption(0);
+      this.initialOptionsListRender = true;
+    }
   }
 
   disconnectedCallback(): void {
@@ -216,6 +233,10 @@ export class Menu {
   }
 
   componentDidLoad(): void {
+    if (!this.popperInstance) {
+      this.initPopperJs(this.anchorEl);
+    }
+
     if (
       this.isSearchBar &&
       (this.parentEl as HTMLIcSearchBarElement).disableFilter
@@ -264,41 +285,13 @@ export class Menu {
         !this.focusFromSearchKeypress &&
         !this.preventIncorrectTabOrder
       ) {
-        const highlightedEl = this.el.querySelector(
+        const highlightedEl = this.host.querySelector(
           `li[data-value="${this.optionHighlighted}"]`
         ) as HTMLElement;
 
         if (highlightedEl) {
           highlightedEl.focus();
         }
-      }
-    }
-  }
-
-  @Watch("open")
-  watchOpenHandler(): void {
-    if (this.open) {
-      this.popperInstance = createPopper(this.anchorEl, this.el, {
-        placement: "bottom",
-        modifiers: [
-          {
-            name: "offset",
-            options: {
-              offset: [0, 7],
-            },
-          },
-          {
-            name: "flip",
-            options: {
-              fallbackPlacements: ["top"],
-              rootBoundary: "viewport",
-            },
-          },
-        ],
-      });
-    } else {
-      if (this.popperInstance) {
-        this.popperInstance.destroy();
       }
     }
   }
@@ -343,6 +336,31 @@ export class Menu {
   @Method()
   async handleSetFirstOption(): Promise<void> {
     this.setHighlightedOption(0);
+  }
+
+  /**
+   * @internal Used to initialize popperJS with an anchor element.
+   */
+  @Method()
+  async initPopperJs(anchor: HTMLElement) {
+    this.popperInstance = createPopper(anchor, this.host, {
+      placement: "bottom",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 7],
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements: ["top"],
+            rootBoundary: "viewport",
+          },
+        },
+      ],
+    });
   }
 
   private handleClearListener = (): void => {
@@ -426,12 +444,12 @@ export class Menu {
     this.isSearchBar ? this.options : this.ungroupedOptions;
 
   private setHighlightedOption = (highlightedIndex: number): void => {
-    this.menuOptions = this.setMenuOptions();
+    const menuOptions = this.setMenuOptions();
 
-    this.menuOptions[highlightedIndex] &&
-      !this.menuOptions[highlightedIndex].timedOut &&
+    menuOptions[highlightedIndex] &&
+      !menuOptions[highlightedIndex].timedOut &&
       (this.optionHighlighted =
-        this.menuOptions[highlightedIndex][this.valueField] || undefined);
+        menuOptions[highlightedIndex][this.valueField] || undefined);
   };
 
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
@@ -462,22 +480,22 @@ export class Menu {
   };
 
   private manSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
-    this.menuOptions = this.setMenuOptions();
+    const menuOptions = this.setMenuOptions();
 
     this.keyboardNav = false;
 
-    const highlightedOptionIndex = this.menuOptions.findIndex(
+    const highlightedOptionIndex = menuOptions.findIndex(
       (option) => option[this.valueField] === this.optionHighlighted
     );
 
     const getOptionId = (index: number): string =>
-      Array.from(this.el.querySelectorAll("li"))[index]?.id;
+      Array.from(this.host.querySelectorAll("li"))[index]?.id;
 
     switch (event.key) {
       case "ArrowDown":
         this.keyboardNav = true;
         this.arrowBehaviour(event);
-        if (highlightedOptionIndex < this.menuOptions.length - 1) {
+        if (highlightedOptionIndex < menuOptions.length - 1) {
           this.setHighlightedOption(highlightedOptionIndex + 1);
           this.menuOptionId.emit({
             optionId: getOptionId(highlightedOptionIndex + 1),
@@ -496,11 +514,11 @@ export class Menu {
         this.arrowBehaviour(event);
         if (
           highlightedOptionIndex <= 0 ||
-          highlightedOptionIndex > this.menuOptions.length + 1
+          highlightedOptionIndex > menuOptions.length + 1
         ) {
-          this.setHighlightedOption(this.menuOptions.length - 1);
+          this.setHighlightedOption(menuOptions.length - 1);
           this.menuOptionId.emit({
-            optionId: getOptionId(this.menuOptions.length - 1),
+            optionId: getOptionId(menuOptions.length - 1),
           });
         } else {
           this.setHighlightedOption(highlightedOptionIndex - 1);
@@ -524,24 +542,23 @@ export class Menu {
         this.keyboardNav = true;
         event.preventDefault();
         this.arrowBehaviour(event);
-        this.setHighlightedOption(this.menuOptions.length - 1);
+        this.setHighlightedOption(menuOptions.length - 1);
         this.menuOptionId.emit({
-          optionId: getOptionId(this.menuOptions.length - 1),
+          optionId: getOptionId(menuOptions.length - 1),
         });
         break;
       case "Enter":
         event.preventDefault();
         if (highlightedOptionIndex >= 0) {
-          if (this.menuOptions[highlightedOptionIndex] !== undefined) {
+          if (menuOptions[highlightedOptionIndex] !== undefined) {
             if (
               this.isSearchBar &&
-              this.menuOptions[highlightedOptionIndex].disabled === true
+              menuOptions[highlightedOptionIndex].disabled === true
             ) {
               this.disabledOptionSelected = true;
             } else {
               this.setInputValue(highlightedOptionIndex);
-              this.value =
-                this.menuOptions[highlightedOptionIndex][this.valueField];
+              this.value = menuOptions[highlightedOptionIndex][this.valueField];
             }
           }
         } else {
@@ -586,11 +603,11 @@ export class Menu {
   };
 
   private setInputValue = (highlightedOptionIndex: number) => {
-    this.menuOptions = this.setMenuOptions();
+    const menuOptions = this.setMenuOptions();
 
-    if (this.menuOptions[highlightedOptionIndex] !== undefined) {
+    if (menuOptions[highlightedOptionIndex] !== undefined) {
       this.menuOptionSelect.emit({
-        value: this.menuOptions[highlightedOptionIndex][this.valueField],
+        value: menuOptions[highlightedOptionIndex][this.valueField],
       });
       this.optionHighlighted = undefined;
       this.menuOptionId.emit({ optionId: undefined });
@@ -794,7 +811,7 @@ export class Menu {
 
   private setMenuScrollbar = () => {
     let optionsHeight = 0;
-    this.el
+    this.host
       .querySelectorAll(".option")
       .forEach((option) => (optionsHeight += option.clientHeight));
 
@@ -862,6 +879,7 @@ export class Menu {
       value,
       keyboardNav,
       isManualMode,
+      initialOptionsListRender,
       optionHighlighted,
       options,
     } = this;
@@ -872,8 +890,9 @@ export class Menu {
         class={{
           option: true,
           "focused-option": isManualMode
-            ? option[this.valueField] === optionHighlighted
-            : option[this.valueField] === value,
+            ? (keyboardNav || initialOptionsListRender) &&
+              option[this.valueField] === optionHighlighted
+            : keyboardNav && option[this.valueField] === value,
           "last-recommended-option":
             option.recommended &&
             options[index + 1] &&
