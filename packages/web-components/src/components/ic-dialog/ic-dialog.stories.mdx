@@ -844,7 +844,11 @@ import readme from "./readme.md";
           ></ic-menu-item>
         </ic-popover-menu>
       </ic-dialog>
-      <ic-dialog heading="Long Text Select" id="long-text-select-dialog">
+      <ic-dialog
+        heading="Long Text Select"
+        id="long-text-select-dialog"
+        disable-height-constraint="true"
+      >
         <ic-typography>
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
@@ -903,6 +907,299 @@ import readme from "./readme.md";
           id="select-dropdown-2"
           label="What is your favourite coffee?"
         ></ic-select>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Disable Height constraint
+
+<Canvas>
+  <Story name="Disable Height Constraint" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function dropdownItems() {
+          return Array.from(Array(10).keys()).map((i) => {
+            return {
+              label: "Item " + i,
+              value: "item-" + i,
+            };
+          });
+        }
+        document
+          .querySelector("#long-text-select-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#long-text-select-dialog").showDialog();
+          });
+        document
+          .querySelector("#short-text-select-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#short-text-select-dialog").showDialog();
+          });
+        document.querySelector("#select-dropdown-2").options = dropdownItems();
+        document.querySelector("#select-dropdown-3").options = dropdownItems();
+      </script>
+      <div>
+        <ic-button id="long-text-select-dialog-btn"
+          >Long Text with Select Dialog</ic-button
+        >
+        <ic-button id="short-text-select-dialog-btn"
+          >Short Text with Select Dialog</ic-button
+        >
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+      </div>
+      <ic-dialog
+        heading="Short Text Select"
+        label="test"
+        id="short-text-select-dialog"
+        disable-height-constraint="true"
+      >
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+        </ic-typography>
+        <ic-select
+          id="select-dropdown-3"
+          label="What is your favourite coffee?"
+        ></ic-select>
+      </ic-dialog>
+      <ic-dialog
+        heading="Long Text Select"
+        id="long-text-select-dialog"
+        disable-height-constraint="true"
+      >
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.<br /><br />
+          Why do we use it?<br /><br />
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like).
+        </ic-typography>
+        <ic-select
+          id="select-dropdown-2"
+          label="What is your favourite coffee?"
+        ></ic-select>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
+### Show/hide interactive elements
+
+<Canvas>
+  <Story
+    name="show/hide interactive elements"
+    parameters={{ loki: { skip: true } }}
+  >
+    {html`
+      <script>
+        function showSmallDialog() {
+          dialog = document.querySelector("#small-dialog");
+          dialog.showDialog();
+        }
+        const btnShow = document.querySelector(".show");
+        btnShow.addEventListener("click", () => {
+          const el = document.createElement("ic-button");
+          el.id = "toggleBtn";
+          el.innerText = "Hello World!";
+          const base = document.querySelector("#base");
+          base.after(el);
+        });
+        const btnHide = document.querySelector(".hide");
+        btnHide.addEventListener("click", () => {
+          if (document.querySelector("#toggleBtn")) {
+            const btn = document.querySelector("#toggleBtn");
+            btn.remove();
+          }
+        });
+      </script>
+      <ic-button variant="primary" onclick="showSmallDialog()"
+        >Launch small dialog</ic-button
+      >
+      <ic-dialog
+        heading="This is a small dialog"
+        label="Small"
+        id="small-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+        <ic-button class="show">Show</ic-button>
+        <ic-button class="hide">Hide</ic-button>
+        <div id="base"></div>
       </ic-dialog>
     `}
   </Story>
