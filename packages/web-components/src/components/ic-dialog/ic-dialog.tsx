@@ -30,10 +30,10 @@ import {
   shadow: true,
 })
 export class Dialog {
-  private DATA_OVERFLOW: string = "data-overflow";
   private DATA_GETS_FOCUS: string = "data-gets-focus";
   private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
   private DIALOG_CONTROLS: string = "dialog-controls";
+  private contentArea: HTMLSlotElement;
   private dialogEl: HTMLDialogElement;
   private dialogHeight: number = 0;
   private focusedElementIndex = 0;
@@ -185,13 +185,15 @@ export class Dialog {
    */
   @Event() icDialogOpened: EventEmitter<void>;
 
-  componentWillLoad(): void {
-    this.setButtonOnClick();
+  disconnectedCallback(): void {
+    this.removeSlotChangeListener();
   }
 
   componentDidLoad(): void {
     this.getInteractiveElements();
     this.setAlertVariant();
+
+    this.refreshInteractiveElementsOnSlotChange();
   }
 
   @Listen("keydown", { target: "document" })
@@ -260,11 +262,13 @@ export class Dialog {
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();
     }
+
+    this.removeSlotChangeListener();
+
     setTimeout(() => {
       this.dialogRendered = false;
       this.dialogEl.close();
       this.sourceElement?.focus();
-      this.el.removeAttribute(this.DATA_OVERFLOW);
       this.dialogHeight = 0;
       this.icDialogClosed.emit();
     }, 80);
@@ -287,14 +291,6 @@ export class Dialog {
     this.icDialogConfirmed.emit();
   }
 
-  private setContentOverflow = (): void => {
-    if (this.dialogEl.clientHeight < this.dialogEl.scrollHeight) {
-      this.el.setAttribute(this.DATA_OVERFLOW, "true");
-    } else {
-      this.el.setAttribute(this.DATA_OVERFLOW, "false");
-    }
-  };
-
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
       clearTimeout(this.resizeTimeout);
@@ -305,9 +301,24 @@ export class Dialog {
 
   private resizeObserverCallback = () => {
     if (this.dialogEl.clientHeight !== this.dialogHeight) {
-      this.el.setAttribute(this.DATA_OVERFLOW, "false");
-      this.setContentOverflow();
       this.dialogHeight = this.dialogEl.clientHeight;
+    }
+  };
+
+  private refreshInteractiveElementsOnSlotChange = () => {
+    this.contentArea = this.el.shadowRoot.querySelector("#dialog-content slot");
+
+    this.contentArea.addEventListener("slotchange", () => {
+      this.getInteractiveElements();
+    });
+  };
+
+  private removeSlotChangeListener = () => {
+    if (this.contentArea) {
+      this.contentArea.removeEventListener(
+        "slotchange",
+        this.refreshInteractiveElementsOnSlotChange
+      );
     }
   };
 
