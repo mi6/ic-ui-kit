@@ -387,6 +387,10 @@ export class DataTable {
   @Watch("globalRowHeight")
   @Watch("variableRowHeight")
   rowHeightChangeHandler(): void {
+    const deleteTextWrapKey = (array: any[]) => array.forEach((val) => val.textWrap && delete val.textWrap);
+    deleteTextWrapKey(this.data);
+    deleteTextWrapKey(this.columns);
+
     this.icRowHeightChange.emit();
   }
 
