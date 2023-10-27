@@ -19,7 +19,7 @@ import {
   IcTypography,
 } from "../components";
 import { SlottedSVG } from "../";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import readme from "../../../web-components/src/components/ic-dialog/readme.md";
 
 <Meta title="React Components/Dialog" component={IcDialog} />
@@ -55,6 +55,24 @@ export const showLargeDialog = () => {
   dialog.open = true;
 };
 
+export const DialogContent = () => {
+  const [show, setShow] = useState(false);
+  const handleShow = (show) => {
+    setShow(show);
+  };
+  return (
+    <>
+      <IcTypography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </IcTypography>
+      <IcButton onClick={() => handleShow(true)}>Show</IcButton>
+      <IcButton onClick={() => handleShow(false)}>Hide</IcButton>
+      {show && <IcButton>Tab Here</IcButton>}
+    </>
+  );
+};
+
 <Canvas>
   <Story name="Sizes">
     <IcButton variant="primary" onclick={showSmallDialog}>
@@ -78,10 +96,7 @@ export const showLargeDialog = () => {
       size="medium"
       id="medium-dialog"
     >
-      <IcTypography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </IcTypography>
+      <DialogContent />
     </IcDialog>
     <IcDialog
       heading="This is a large dialog"
