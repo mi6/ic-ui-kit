@@ -102,7 +102,6 @@ export class Menu {
 
   @Watch("open")
   watchOpenHandler(): void {
-    console.log(this.anchorEl);
     if (this.open) {
       if (!this.popperInstance) {
         this.initPopperJs(this.anchorEl);
@@ -214,7 +213,7 @@ export class Menu {
   }
 
   disconnectedCallback(): void {
-    if (this.popperInstance !== undefined) {
+    if (this.popperInstance) {
       this.popperInstance.destroy();
     }
     this.parentEl.removeEventListener("icClear", this.handleClearListener);

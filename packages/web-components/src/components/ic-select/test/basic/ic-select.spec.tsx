@@ -1421,7 +1421,7 @@ describe("ic-select searchable", () => {
 
   it("should test form reset event", async () => {
     const page = await newSpecPage({
-      components: [Select],
+      components: [Select, Menu],
       html: `<form>
         <ic-select label="IC Select Test" searchable="true"></ic-select>
         <button id="resetButton" type="reset">Reset</button>
@@ -1533,7 +1533,7 @@ describe("ic-select searchable", () => {
 
   it("should test adding and removing form reset listener on connect and disconnect", async () => {
     const page = await newSpecPage({
-      components: [Select],
+      components: [Select, Menu],
       html: `<form>
         <ic-select label="IC Select Test" searchable="true"></ic-select>
         <button id="resetButton" type="reset">Reset</button>
