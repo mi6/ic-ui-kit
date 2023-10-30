@@ -223,7 +223,7 @@ describe("ic-search-bar search", () => {
   it("should test keydown event - arrow down", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -231,6 +231,10 @@ describe("ic-search-bar search", () => {
     await page.waitForChanges();
     const eventSpy = jest.fn();
     page.win.addEventListener("menuOptionId", eventSpy);
+
+    const menu = page.root.shadowRoot.querySelector("ic-menu");
+    menu.autoFocusOnSelected = true;
+    await page.waitForChanges();
 
     await page.rootInstance.handleKeyDown({
       detail: { event: { key: "ArrowDown", preventDefault: (): void => null } },
@@ -243,7 +247,7 @@ describe("ic-search-bar search", () => {
     });
     await page.waitForChanges();
 
-    expect(page.rootInstance.value).toBe("espresso");
+    expect(page.rootInstance.value).toBe("doubleespresso");
   });
 
   it("should test searchMode = `query`", async () => {

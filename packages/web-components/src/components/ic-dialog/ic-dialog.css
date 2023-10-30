@@ -52,6 +52,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overflow-x: visible;
 }
 
 :host(.fade-in) .dialog {
@@ -83,6 +84,7 @@
 .heading-area {
   display: flex;
   margin-bottom: var(--ic-space-xs);
+  padding: 0 var(--ic-space-md);
 }
 
 .heading {
@@ -96,8 +98,8 @@
 .content-area {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  padding: 0 var(--ic-space-xs);
-  margin: 0 calc(-1 * var(--ic-space-xs));
+  padding: 0 var(--ic-space-md);
+  margin: 0;
   overflow-y: auto;
 }
 
@@ -123,7 +125,7 @@
 
 .dialog-controls {
   margin-top: auto;
-  padding-top: var(--ic-space-xs);
+  padding: var(--ic-space-xs) var(--ic-space-md) 0;
   display: flex;
   justify-content: flex-end;
   gap: var(--ic-space-md);

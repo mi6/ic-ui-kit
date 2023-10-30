@@ -16,6 +16,12 @@ const setupDialogMethods = (page: SpecPage) => {
     this.open = true;
   });
 
+  page.rootInstance.dialogEl.show = jest.fn(function mock(
+    this: HTMLDialogElement
+  ) {
+    this.open = true;
+  });
+
   page.rootInstance.dialogEl.close = jest.fn(function mock(
     this: HTMLDialogElement
   ) {
@@ -690,64 +696,6 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(true);
   });
 
-  it("should set appropriate data-overflow attribute", async () => {
-    const page = await newSpecPage({
-      components: [Dialog, TextField, Button],
-      html: `<ic-dialog heading="Dialog heading"></ic-dialog>`,
-    });
-
-    setupDialogMethods(page);
-    const dialog = document.querySelector("ic-dialog");
-
-    await dialog.showDialog();
-    dialog.open = true;
-
-    await page.waitForChanges();
-
-    //delay for setTimeout in code
-    await waitForTimeout(DIALOG_DELAY_MS);
-
-    page.rootInstance.dialogEl.clientHeight = 100;
-    page.rootInstance.dialogEl.scrollHeight = 100;
-
-    await page.waitForChanges();
-
-    //delay for setTimeout in code
-    await waitForTimeout(DIALOG_DELAY_MS);
-
-    page.rootInstance.resizeObserverCallback();
-
-    expect(page.rootInstance.el.getAttribute("data-overflow")).toBe("false");
-
-    await dialog.hideDialog();
-    dialog.open = false;
-
-    await page.waitForChanges();
-
-    //delay for setTimeout in code
-    await waitForTimeout(DIALOG_DELAY_MS);
-
-    await dialog.showDialog();
-    dialog.open = true;
-
-    await page.waitForChanges();
-
-    //delay for setTimeout in code
-    await waitForTimeout(DIALOG_DELAY_MS);
-
-    page.rootInstance.dialogEl.clientHeight = 50;
-    page.rootInstance.dialogEl.scrollHeight = 100;
-
-    await page.waitForChanges();
-
-    //delay for setTimeout in code
-    await waitForTimeout(DIALOG_DELAY_MS);
-
-    page.rootInstance.resizeObserverCallback();
-
-    expect(page.rootInstance.el.getAttribute("data-overflow")).toBe("true");
-  });
-
   it("should correctly pass onclick functions to two default buttons", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
@@ -905,4 +853,55 @@ describe("ic-dialog component", () => {
 
     expect(page.root).toMatchSnapshot();
   });
-});
+
+  it("should call this.getInteractiveElements() when slot content changes", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: '<ic-dialog heading="Dialog heading" disable-height-constraint="true"></ic-dialog>',
+    });
+
+    const contentAreaSlot = document
+      .querySelector("ic-dialog")
+      .shadowRoot.querySelector(".content-area slot");
+
+    jest
+      .spyOn(page.rootInstance, "getInteractiveElements")
+      .mockImplementation();
+
+    await page.rootInstance.refreshInteractiveElementsOnSlotChange();
+
+    contentAreaSlot.dispatchEvent(new Event("slotchange"));
+
+    expect(page.rootInstance.getInteractiveElements).toBeCalledTimes(2);
+  });
+
+  it("should call dialog.show() disableHeightConstraint is set and showDialog is called", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: '<ic-dialog heading="Dialog heading" disable-height-constraint="true"></ic-dialog>',
+    });
+
+    setupDialogMethods(page);
+
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog.buttonProps = [
+      { label: "Cancel", onclick: "this.hideDialog()" },
+      { label: "Options", onclick: "this.hideDialog()" },
+      { label: "Confirm", onclick: "this.hideDialog()" },
+    ];
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.dialogRendered).toBe(false);
+
+    await dialog.showDialog();
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.dialogEl.show).toBeCalled();
+  });
+})

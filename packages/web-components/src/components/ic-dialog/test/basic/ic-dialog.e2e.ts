@@ -186,50 +186,36 @@ describe("ic-dialog", () => {
     expect(dialogDisplay).toBe("flex");
   });
 
-  it("should test dialog content overflow", async () => {
+  it("should be able to tab to dynamically added interactive element", async () => {
     const page = await newE2EPage();
-    await page.setContent(
-      `
-      <script>
-        function showDialog() {
-          dialog = document.querySelector("ic-dialog");
-          dialog.open = true;
-        }
-      </script>
-      <ic-button id="showBtn" variant="primary" onclick="showDialog()"
-        >Launch dialog</ic-button
-      >
-      <ic-dialog
-        heading="This dialog has slotted interactive content"
-        label="slotted"
-        dismiss-label="Close"
-        size="medium"
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-        <ic-text-field id="text-field" label="What is your favourite coffee?">
-        </ic-text-field>
-        <ic-select
-        id="sel1"
-          label="What is your favourite coffee?"
-          placeholder="Placeholder goes here"
-        ></ic-select>
-        <ic-checkbox-group
-          style="margin: 8px 0"
-          hide-label
-          label="confirm"
-          name="confirm-checkbox"
-        >
-          <ic-checkbox label="Option" value="confirm" id="checkbox1"></ic-checkbox>
-        </ic-checkbox-group>
-       </ic-dialog>
-    `
-    );
-
-    await page.setViewport({
-      width: 800,
-      height: 480,
-    });
+    await page.setContent(`<script>
+      function showSmallDialog() {
+        dialog = document.querySelector("#small-dialog");
+        dialog.showDialog();
+      }
+      function showNewBtn() {
+        var el = document.createElement("ic-button");
+        el.innerText = "foo";
+        var base = document.querySelector("#base");
+        base.after(el);
+      }
+    </script>
+    <ic-button variant="primary" id='showBtn' onclick="showSmallDialog()">
+      Launch small dialog
+    </ic-button>
+    <ic-dialog
+      heading="This is a small dialog"
+      label="Small"
+      id="small-dialog"
+    >
+      <ic-typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </ic-typography>
+      <ic-button class="show" onclick="showNewBtn();">Show</ic-button>
+      <div id="base"></div>
+    </ic-dialog>
+    `);
 
     const btn = await page.find("#showBtn");
     btn.click();
@@ -237,18 +223,14 @@ describe("ic-dialog", () => {
     await page.waitForChanges();
     await page.waitForTimeout(DIALOG_DELAY_MS);
 
-    let dialog = await page.find("ic-dialog");
-
-    let overflow = dialog.getAttribute("data-overflow");
-    expect(overflow).toBe("true");
-
-    await page.setViewport({
-      width: 800,
-      height: 800,
+    let focusedEl = await page.evaluate(() => {
+      const el = document.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
     });
 
-<<<<<<< Updated upstream
-=======
     expect(focusedEl.tagName).toBe("IC-BUTTON");
     expect(focusedEl.textContent).toBe("Show");
 
@@ -319,14 +301,52 @@ describe("ic-dialog", () => {
     const btn = await page.find("#showBtn");
     await btn.click();
 
->>>>>>> Stashed changes
     await page.waitForChanges();
     await page.waitForTimeout(DIALOG_DELAY_MS);
 
-    dialog = await page.find("ic-dialog");
+    let focusedEl = await page.evaluate(() => {
+      const el = document.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
+    });
 
-    overflow = dialog.getAttribute("data-overflow");
-    expect(overflow).toBe("false");
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("Hide");
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    focusedEl = await page.evaluate(() => {
+      const el = document.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
+    });
+
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("foo");
+
+    const hideBtn = await page.find(".hide");
+    await hideBtn.click();
+    await page.waitForChanges();
+
+    await page.keyboard.press("Tab");
+    await page.waitForChanges();
+
+    focusedEl = await page.evaluate(() => {
+      const dialog = document.querySelector("ic-dialog");
+      const el = dialog.shadowRoot.activeElement;
+      return {
+        tagName: el.tagName,
+        textContent: el.textContent,
+      };
+    });
+
+    expect(focusedEl.tagName).toBe("IC-BUTTON");
+    expect(focusedEl.textContent).toBe("Cancel");
   });
 
   it("should focus on dismiss button initially if disableHeightContraint is set", async () => {
