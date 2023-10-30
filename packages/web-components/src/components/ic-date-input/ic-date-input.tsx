@@ -46,6 +46,7 @@ export class DateInput {
   private assistiveHintId: string;
   private calendarButtonEl: HTMLIcButtonElement;
   private dayInputEl: HTMLInputElement;
+  private defaultHelperText: string;
   private EVENT_OBJECT_STRING = "[object Event]";
   private FIT_TO_VALUE = "fit-to-value";
 
@@ -139,7 +140,7 @@ export class DateInput {
   @Prop() disableUntilNow?: boolean = false;
 
   /**
-   * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
+   * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
    */
   @Prop({ mutable: true }) helperText?: string;
 
@@ -248,8 +249,10 @@ export class DateInput {
   }
 
   componentWillLoad(): void {
+    this.defaultHelperText = `Use format ${this.dateFormat}`;
+
     if (isEmptyString(this.helperText)) {
-      this.helperText = this.dateFormat;
+      this.helperText = this.defaultHelperText;
     }
 
     this.watchMinHandler();
@@ -951,7 +954,7 @@ export class DateInput {
         this.screenReaderInfoId
       } ${getInputDescribedByText(
         this.inputId,
-        this.helperText !== "" && this.helperText !== this.dateFormat,
+        this.helperText !== "" && this.helperText !== this.defaultHelperText,
         hasValidation
       )} ${this.selectedDate ? this.selectedDateInfoId : ""} ${
         this.assistiveHintId
@@ -1523,7 +1526,7 @@ export class DateInput {
           ></ic-input-label>
           <span id={this.screenReaderInfoId} class="sr-only" aria-hidden="true">
             {this.getScreenReaderInfo(validationStatus)}
-            {`Date format: ${this.dateFormat}.`}
+            {`${this.defaultHelperText}.`}
           </span>
           <span id={this.assistiveHintId} class="sr-only" aria-hidden="true">
             {assistiveHint}
@@ -1573,6 +1576,7 @@ export class DateInput {
                     id="calendar-button"
                     ref={(el) => (this.calendarButtonEl = el)}
                     aria-label="Display calendar"
+                    aria-haspopup="dialog"
                     class="calendar-button"
                     disabled={this.disabled}
                     innerHTML={Calendar}

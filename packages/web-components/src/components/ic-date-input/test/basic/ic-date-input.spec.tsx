@@ -1632,17 +1632,19 @@ describe("ic-date-input component", () => {
   });
 
   describe("componentWillLoad", () => {
-    it("should set helperText as date format if not set", async () => {
+    it("should set helperText to default value if not set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
       componentInstance.helperText = "";
 
       componentInstance.componentWillLoad();
 
-      expect(componentInstance.helperText).toBe(componentInstance.dateFormat);
+      expect(componentInstance.helperText).toBe(
+        "Use format " + componentInstance.dateFormat
+      );
     });
 
-    it("should value is set, call setDate", async () => {
+    it("should call setDate when value is set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
       const spySetDate = jest.spyOn(componentInstance, "setDate");

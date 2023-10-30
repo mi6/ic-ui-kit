@@ -581,7 +581,7 @@ export namespace Components {
          */
         "getDate": () => Promise<Date>;
         /**
-          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
         /**
@@ -3297,7 +3297,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
         /**

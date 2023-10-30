@@ -12,12 +12,12 @@ exports[`ic-date-input component date format conversion should handle US format 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-12-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-12-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-12-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -63,12 +63,12 @@ exports[`ic-date-input component date format conversion should handle US format 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-13-helper-text">
-            MM/DD/YYYY
+            Use format MM/DD/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-13-screen-reader-info">
-        Date format: MM/DD/YYYY.
+        Use format MM/DD/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-13-assistive-hint">
         Type or use the up and down arrow keys to change the values for the month, day, and year.
@@ -114,12 +114,12 @@ exports[`ic-date-input component date format conversion should handle US format 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-14-helper-text">
-            YYYY/MM/DD
+            Use format YYYY/MM/DD
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-14-screen-reader-info">
-        Date format: YYYY/MM/DD.
+        Use format YYYY/MM/DD.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-14-assistive-hint">
         Type or use the up and down arrow keys to change the values for the year, month, and day.
@@ -165,12 +165,12 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-15-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-15-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-15-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -216,12 +216,12 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-16-helper-text">
-            MM/DD/YYYY
+            Use format MM/DD/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-16-screen-reader-info">
-        Date format: MM/DD/YYYY.
+        Use format MM/DD/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-16-assistive-hint">
         Type or use the up and down arrow keys to change the values for the month, day, and year.
@@ -267,12 +267,12 @@ exports[`ic-date-input component date format conversion should handle ambiguous 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-17-helper-text">
-            YYYY/MM/DD
+            Use format YYYY/MM/DD
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-17-screen-reader-info">
-        Date format: YYYY/MM/DD.
+        Use format YYYY/MM/DD.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-17-assistive-hint">
         Type or use the up and down arrow keys to change the values for the year, month, and day.
@@ -318,12 +318,12 @@ exports[`ic-date-input component date format conversion should handle single dig
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-11-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-11-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-11-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -369,12 +369,12 @@ exports[`ic-date-input component should render 1`] = `
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-0-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-0-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-0-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -418,12 +418,12 @@ exports[`ic-date-input component should render as disabled 1`] = `
         </ic-typography>
         <ic-typography class="helpertext" variant="caption">
           <span id="ic-date-input-2-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-2-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-2-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -470,12 +470,12 @@ exports[`ic-date-input component should render as required 1`] = `
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-1-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-1-screen-reader-info">
-        required, Date format: DD/MM/YYYY.
+        required, Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-1-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -519,12 +519,12 @@ exports[`ic-date-input component should render correctly with MM/DD/YYYY format 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-6-helper-text">
-            MM/DD/YYYY
+            Use format MM/DD/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-6-screen-reader-info">
-        Date format: MM/DD/YYYY.
+        Use format MM/DD/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-6-assistive-hint">
         Type or use the up and down arrow keys to change the values for the month, day, and year.
@@ -568,12 +568,12 @@ exports[`ic-date-input component should render correctly with YYYY/MM/DD format 
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-7-helper-text">
-            YYY/MM/DD
+            Use format YYY/MM/DD
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-7-screen-reader-info">
-        Date format: YYY/MM/DD.
+        Use format YYY/MM/DD.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-7-assistive-hint">
         Type or use the up and down arrow keys to change the values for the undefined.
@@ -617,12 +617,12 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
         </ic-typography>
         <ic-typography class="helpertext" variant="caption">
           <span id="ic-date-input-10-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-10-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-10-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -652,7 +652,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             <ic-button class="button-size-small button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
@@ -686,12 +686,12 @@ exports[`ic-date-input component should render large 1`] = `
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-4-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-4-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-4-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -710,7 +710,7 @@ exports[`ic-date-input component should render large 1`] = `
             <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="default" variant="icon">
               svg
             </ic-button>
-            <ic-button aria-label="Display calendar" class="calendar-button" id="calendar-button" size="default" variant="icon">
+            <ic-button aria-haspopup="dialog" aria-label="Display calendar" class="calendar-button" id="calendar-button" size="default" variant="icon">
               svg
             </ic-button>
           </div>
@@ -738,12 +738,12 @@ exports[`ic-date-input component should render small 1`] = `
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-3-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-3-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-3-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -762,7 +762,7 @@ exports[`ic-date-input component should render small 1`] = `
             <ic-button appearance="dark" aria-label="Clear input" class="clear-button hidden" id="clear-button" size="small" variant="icon">
               svg
             </ic-button>
-            <ic-button aria-label="Display calendar" class="calendar-button" id="calendar-button" size="small" variant="icon">
+            <ic-button aria-haspopup="dialog" aria-label="Display calendar" class="calendar-button" id="calendar-button" size="small" variant="icon">
               svg
             </ic-button>
           </div>
@@ -795,7 +795,7 @@ exports[`ic-date-input component should render with custom helper text 1`] = `
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-5-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-5-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -839,12 +839,12 @@ exports[`ic-date-input component should render with custom validation status and
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-8-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-8-screen-reader-info">
-        invalid data, Date format: DD/MM/YYYY.
+        invalid data, Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-8-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -889,12 +889,12 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
         </ic-typography>
         <ic-typography class="helpertext helpertext-normal" variant="caption">
           <span id="ic-date-input-9-helper-text">
-            DD/MM/YYYY
+            Use format DD/MM/YYYY
           </span>
         </ic-typography>
       </ic-input-label>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-9-screen-reader-info">
-        Date format: DD/MM/YYYY.
+        Use format DD/MM/YYYY.
       </span>
       <span aria-hidden="true" class="sr-only" id="ic-date-input-9-assistive-hint">
         Type or use the up and down arrow keys to change the values for the day, month, and year.
@@ -924,7 +924,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             <ic-button class="button-size-small button-variant-icon calendar-button" exportparts="button" id="calendar-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
-                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-label="Display calendar" class="button" part="button" type="button">
+                  <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
                     <slot></slot>
                   </button>
                 </ic-tooltip>
