@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-19T10:56:19",
+  "timestamp": "2023-10-30T17:20:51",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -4083,7 +4083,7 @@
           "mutable": true,
           "attr": "helper-text",
           "reflectToAttr": false,
-          "docs": "The helper text that will be displayed for additional field guidance. This will default to the `dateFormat` value.",
+          "docs": "The helper text that will be displayed for additional field guidance. This will default to the text \"Use format\" along with the `dateFormat` value.",
           "docsTags": [],
           "values": [
             {
