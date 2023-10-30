@@ -4216,6 +4216,28 @@
           "required": false
         },
         {
+          "name": "disableHeightConstraint",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-height-constraint",
+          "reflectToAttr": false,
+          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\nThis prop also prevents popover elements from being cut off within the content area.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dismissLabel",
           "type": "string",
           "complexType": {
