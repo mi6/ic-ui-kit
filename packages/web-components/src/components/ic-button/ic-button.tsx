@@ -8,6 +8,7 @@ import {
   Method,
   Prop,
   State,
+  forceUpdate,
   h,
 } from "@stencil/core";
 
@@ -51,14 +52,16 @@ export class Button {
   private hasTooltip: boolean = false;
   private id: string;
   private inheritedAttributes: { [k: string]: unknown } = {};
-  private tooltipEl: HTMLIcTooltipElement;
   private describedByEl: HTMLElement = null;
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcButtonElement;
 
+  @State() ariaLabel: string = null;
   @State() describedByContent: string = null;
+  @State() title: string = null;
 
   /**
    * The appearance of the button, e.g. dark, light, or the default.
@@ -189,6 +192,12 @@ export class Button {
     if (this.mutationObserver !== null && this.mutationObserver !== undefined) {
       this.mutationObserver.disconnect();
     }
+    if (
+      this.hostMutationObserver !== null &&
+      this.hostMutationObserver !== undefined
+    ) {
+      this.hostMutationObserver.disconnect();
+    }
   }
 
   componentWillUpdate(): void {
@@ -196,11 +205,20 @@ export class Button {
   }
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
+    const allInheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
-      "aria-expanded",
       "title",
     ]);
+
+    const {
+      title,
+      "aria-label": ariaLabel,
+      ...restInheritedAttributes
+    } = allInheritedAttributes;
+
+    this.title = title as string;
+    this.ariaLabel = ariaLabel as string;
+    this.inheritedAttributes = restInheritedAttributes;
 
     removeDisabledFalse(this.disabled, this.el);
 
@@ -208,7 +226,8 @@ export class Button {
 
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
-    this.hasTooltip = this.variant === "icon" && this.disableTooltip === false;
+    this.hasTooltip =
+      !this.disableTooltip && (!!this.title || this.variant === "icon");
 
     if (!this.hasTooltip) {
       const describedById = this.inheritedAttributes[
@@ -236,6 +255,11 @@ export class Button {
         subtree: true,
       });
     }
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   componentWillRender(): void {
@@ -262,19 +286,6 @@ export class Button {
   async setFocus(): Promise<void> {
     if (this.buttonEl) {
       this.buttonEl.focus();
-    }
-  }
-
-  /**
-   * @internal Updates tooltip/aria-label text - needed as can't watch an ARIA attribute change.
-   */
-  @Method()
-  async updateAriaLabel(newValue: string): Promise<void> {
-    if (this.hasTooltip) {
-      this.tooltipEl.label = newValue;
-      this.buttonEl.setAttribute("aria-label", null);
-    } else {
-      this.buttonEl.setAttribute("aria-label", newValue);
     }
   }
 
@@ -356,13 +367,31 @@ export class Button {
     this.describedByContent = this.describedByEl.innerText;
   };
 
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach((item) => {
+      if (item.attributeName === "title") {
+        this.title = this.el.getAttribute(item.attributeName);
+      }
+      if (item.attributeName === "aria-label") {
+        this.ariaLabel = this.el.getAttribute(item.attributeName);
+      }
+      if (IC_INHERITED_ARIA.includes(item.attributeName)) {
+        this.inheritedAttributes[item.attributeName] = this.el.getAttribute(
+          item.attributeName
+        );
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
+  };
+
   render() {
     const TagType = (this.href && "a") || "button";
-    const {
-      title,
-      "aria-label": ariaLabel,
-      ...restInheritedAttributes
-    } = this.inheritedAttributes;
+    const { title, ariaLabel, inheritedAttributes } = this;
     const buttonAttrs =
       TagType === "button"
         ? {
@@ -383,16 +412,6 @@ export class Button {
             referrerpolicy: this.referrerpolicy,
             hreflang: this.hreflang,
           };
-    const newTitle = title && (title as string);
-    const titleAttr = this.hasTooltip ? {} : { title: newTitle };
-    let tooltipText = "";
-    if (this.hasTooltip) {
-      if (newTitle !== undefined) {
-        tooltipText = newTitle;
-      } else if (ariaLabel !== null) {
-        tooltipText = ariaLabel as string;
-      }
-    }
 
     let describedBy: string = null;
     let buttonId: string = null;
@@ -413,13 +432,11 @@ export class Button {
           aria-disabled={this.loading || this.disabled ? "true" : null}
           aria-label={this.loading ? "Loading" : ariaLabel}
           {...buttonAttrs}
-          {...restInheritedAttributes}
-          {...titleAttr}
+          {...inheritedAttributes}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}
-          id={buttonId}
-          aria-describedby={this.hasTooltip && ariaLabel ? null : describedBy}
+          aria-describedby={describedBy}
           part="button"
         >
           {this.hasIconSlot() && !this.loading && (
@@ -476,9 +493,8 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            class={{ ["tooltip-disabled"]: this.disableTooltip }}
-            ref={(el) => (this.tooltipEl = el)}
-            label={tooltipText}
+            id={describedBy}
+            label={title ? (title as string) : (ariaLabel as string)}
             target={buttonId}
             placement={this.tooltipPlacement}
           >

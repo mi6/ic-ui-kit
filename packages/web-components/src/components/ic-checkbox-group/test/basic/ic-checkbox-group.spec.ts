@@ -37,6 +37,15 @@ describe("ic-checkbox-group", () => {
     expect(page.root).toMatchSnapshot("renders-with-helpertext");
   });
 
+  it("should test checkbox option as submit on form", async () => {
+    const page = await newSpecPage({
+      components: [Checkbox],
+      html: `<form id="new-form"></form><ic-checkbox id="ic-checkbox" label="IC Checkbox Test" value="test-value" form="new-form" selected></ic-checkbox>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render checked", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],

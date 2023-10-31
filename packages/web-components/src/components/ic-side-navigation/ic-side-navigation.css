@@ -510,6 +510,7 @@ slot[name="app-title"]::slotted(a) {
   align-items: flex-end;
   justify-content: flex-end;
   display: flex;
+  outline: none;
 }
 
 :host(.side-display) .bottom-side-nav .menu-expand-button {
@@ -539,10 +540,6 @@ slot[name="app-title"]::slotted(a) {
 
 :host(.side-display) .bottom-side-nav .menu-expand-button:hover {
   background-color: var(--ic-theme-hover);
-}
-
-:host(.side-display) .bottom-side-nav {
-  outline: none;
 }
 
 :host(.side-display) .bottom-side-nav .menu-expand-button:focus {

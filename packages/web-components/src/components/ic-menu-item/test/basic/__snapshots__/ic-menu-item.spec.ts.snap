@@ -4,7 +4,7 @@ exports[`menu item variants should render a menu item with a description 1`] = `
 <ic-menu-item description="This is the default variant of the menu item with a description" label="Default variant" variant="default">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-disabled="false" aria-label="Default variant, This is the default variant of the menu item with a description" fullwidth="" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
             <div class="menu-labels">
@@ -27,7 +27,7 @@ exports[`menu item variants should render the default variant 1`] = `
 <ic-menu-item label="Default variant" variant="default">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Default variant" disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-disabled="false" aria-label="Default variant" fullwidth="" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
             <div class="menu-labels">
@@ -47,7 +47,7 @@ exports[`menu item variants should render the destructive variant 1`] = `
 <ic-menu-item label="Destructive variant" variant="destuctive">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Destructive variant" disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-disabled="false" aria-label="Destructive variant" fullwidth="" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
             <div class="menu-labels">
@@ -95,7 +95,7 @@ exports[`menu item variants should render with keyboard shortcut 1`] = `
 <ic-menu-item keyboard-shortcut="Cmd+" label="Toggle variant" variant="default">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" disabletooltip="" fullwidth="" variant="tertiary">
+      <ic-button aria-disabled="false" aria-label="Toggle variant, Cmd+" fullwidth="" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
             <div class="menu-labels">

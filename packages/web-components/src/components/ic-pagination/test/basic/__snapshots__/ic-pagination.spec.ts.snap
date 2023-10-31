@@ -4,10 +4,10 @@ exports[`ic-pagination appearance tests should render as complex type in dark ap
 <ic-pagination appearance="dark" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="dark" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="dark" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="dark" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -17,10 +17,10 @@ exports[`ic-pagination appearance tests should render as complex type in dark ap
       <ic-pagination-item appearance="dark" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="dark" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="dark" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="dark" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="dark" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -32,10 +32,10 @@ exports[`ic-pagination appearance tests should render as complex type in light a
 <ic-pagination appearance="light" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="light" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="light" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="light" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -45,10 +45,10 @@ exports[`ic-pagination appearance tests should render as complex type in light a
       <ic-pagination-item appearance="light" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="light" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="light" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="light" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="light" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -60,17 +60,17 @@ exports[`ic-pagination appearance tests should render as simple type in dark app
 <ic-pagination appearance="dark" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="dark" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="dark" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="dark" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="dark" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="dark" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="dark" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -82,17 +82,17 @@ exports[`ic-pagination appearance tests should render as simple type in light ap
 <ic-pagination appearance="light" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="light" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="light" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="light" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="light" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="light" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="light" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -104,19 +104,19 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
 <ic-pagination adjacent-count="0" boundary-count="0" default-page="7" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="start-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-7" page="7" selected="" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -128,19 +128,19 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
 <ic-pagination adjacent-count="0" boundary-count="0" default-page="15" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="start-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-14" page="14" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" selected="" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabled="" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabled="" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabled="" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabled="" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -152,10 +152,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
 <ic-pagination adjacent-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -163,10 +163,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
       <ic-pagination-item appearance="default" id="pagination-item-3" page="3" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -178,10 +178,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
 <ic-pagination adjacent-count="0" boundary-count="1" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -189,10 +189,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
       <ic-pagination-item appearance="default" id="pagination-item-3" page="3" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -204,10 +204,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
 <ic-pagination adjacent-count="0" boundary-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -217,10 +217,10 @@ exports[`ic-pagination complex type should render as complex type with 0 adjacen
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-14" page="14" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -232,10 +232,10 @@ exports[`ic-pagination complex type should render as complex type with 1 adjacen
 <ic-pagination adjacent-count="1" boundary-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -247,10 +247,10 @@ exports[`ic-pagination complex type should render as complex type with 1 adjacen
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-14" page="14" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -262,10 +262,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
 <ic-pagination adjacent-count="2" boundary-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -275,10 +275,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
       <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-6" page="6" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -290,10 +290,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
 <ic-pagination adjacent-count="2" boundary-count="1" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -305,10 +305,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
       <ic-pagination-item appearance="default" id="pagination-item-7" page="7" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -320,10 +320,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
 <ic-pagination adjacent-count="2" boundary-count="2" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -337,10 +337,10 @@ exports[`ic-pagination complex type should render as complex type with 2 adjacen
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-14" page="14" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -352,10 +352,10 @@ exports[`ic-pagination complex type should render as complex type with 20 pages:
 <ic-pagination pages="20" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -365,10 +365,10 @@ exports[`ic-pagination complex type should render as complex type with 20 pages:
       <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-20" page="20" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -380,10 +380,10 @@ exports[`ic-pagination complex type should render as complex type without first 
 <ic-pagination hide-first-page-button="true" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -393,10 +393,10 @@ exports[`ic-pagination complex type should render as complex type without first 
       <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -408,10 +408,10 @@ exports[`ic-pagination complex type should render as complex type without last p
 <ic-pagination hide-last-page-button="true" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -421,10 +421,10 @@ exports[`ic-pagination complex type should render as complex type without last p
       <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -436,10 +436,10 @@ exports[`ic-pagination complex type should render as complex type: render comple
 <ic-pagination pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -449,10 +449,10 @@ exports[`ic-pagination complex type should render as complex type: render comple
       <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-15" page="15" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -464,10 +464,10 @@ exports[`ic-pagination complex type should render in complex type with 1 adjacen
 <ic-pagination adjacent-count="1" boundary-count="0" pages="15" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -475,10 +475,10 @@ exports[`ic-pagination complex type should render in complex type with 1 adjacen
       <ic-pagination-item appearance="default" id="pagination-item-3" page="3" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-4" page="4" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -490,10 +490,10 @@ exports[`ic-pagination simple appearance component should render all pages when 
 <ic-pagination adjacent-count="2" boundary-count="2" pages="11" type="complex">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
@@ -507,10 +507,10 @@ exports[`ic-pagination simple appearance component should render all pages when 
       <ic-pagination-item appearance="default" id="pagination-item-9" page="9" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-10" page="10" type="page"></ic-pagination-item>
       <ic-pagination-item appearance="default" id="pagination-item-11" page="11" type="page"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -522,17 +522,17 @@ exports[`ic-pagination simple appearance component should render with 10 pages: 
 <ic-pagination pages="10">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -544,17 +544,17 @@ exports[`ic-pagination simple appearance component should render with first and 
 <ic-pagination hide-first-page-button="true" hide-last-page-button="true" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -566,17 +566,17 @@ exports[`ic-pagination simple appearance component should render with interactio
 <ic-pagination loading="true" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -588,17 +588,17 @@ exports[`ic-pagination simple appearance component should render with the defaul
 <ic-pagination default-page="4" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" label="Page" page="4" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -610,17 +610,17 @@ exports[`ic-pagination simple appearance component should render without current
 <ic-pagination hide-current-page="true" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" class="hide-current-page" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>
@@ -632,17 +632,17 @@ exports[`ic-pagination simple appearance component should renderon the last page
 <ic-pagination default-page="15" pages="15">
   <mock:shadow-root>
     <nav aria-label="Pagination Navigation" role="navigation">
-      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabletooltip="" id="first-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" id="first-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabletooltip="" id="previous-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
       <ic-pagination-item appearance="default" label="Page" page="15" pages="15" type="simple-current"></ic-pagination-item>
-      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabled="" disabletooltip="" id="next-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabled="" id="next-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabled="" disabletooltip="" id="last-page-button" variant="icon">
+      <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabled="" id="last-page-button" variant="icon">
         svg
       </ic-button>
     </nav>

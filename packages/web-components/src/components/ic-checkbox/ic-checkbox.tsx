@@ -54,7 +54,38 @@ export class Checkbox {
   /**
    * The text to be displayed when dynamic.
    */
+
   @Prop() dynamicText: string = "This selection requires additional answers";
+
+  /**
+   * The <form> element to associate the checkbox with.
+   */
+  @Prop() form?: string;
+
+  /**
+   * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
+   */
+  @Prop() formaction?: string;
+
+  /**
+   * The way the submitted form data is encoded.
+   */
+  @Prop() formenctype?: string;
+
+  /**
+   * The HTTP method used to submit the form.
+   */
+  @Prop() formmethod?: string;
+
+  /**
+   * If `true`, the form will not be validated when submitted.
+   */
+  @Prop() formnovalidate?: boolean;
+
+  /**
+   * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
+   */
+  @Prop() formtarget?: string;
 
   /**
    * The group label for the checkbox.
@@ -232,6 +263,12 @@ export class Checkbox {
             checked={this.checked}
             indeterminate={this.indeterminate}
             onClick={this.handleClick}
+            form={this.form}
+            formaction={this.formaction}
+            formenctype={this.formenctype}
+            formmethod={this.formmethod}
+            formnovalidate={this.formnovalidate}
+            formtarget={this.formtarget}
           ></input>
           <ic-typography class="checkbox-label" variant="body">
             <label htmlFor={id}>{this.label}</label>

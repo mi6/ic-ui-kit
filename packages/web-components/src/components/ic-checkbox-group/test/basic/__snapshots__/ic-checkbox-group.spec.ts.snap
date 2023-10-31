@@ -516,3 +516,18 @@ exports[`ic-checkbox-group should render: renders 1`] = `
   </ic-checkbox>
 </ic-checkbox-group>
 `;
+
+exports[`ic-checkbox-group should test checkbox option as submit on form 1`] = `
+<ic-checkbox additional-field-display="static" class="undefined" form="new-form" id="ic-checkbox" label="IC Checkbox Test" selected="" value="test-value">
+  <mock:shadow-root>
+    <div class="container">
+      <input class="checkbox" form="new-form" id="ic-checkbox-IC-Checkbox-Test-undefined" role="checkbox" type="checkbox" value="test-value">
+      <ic-typography class="checkbox-label" variant="body">
+        <label htmlfor="ic-checkbox-IC-Checkbox-Test-undefined">
+          IC Checkbox Test
+        </label>
+      </ic-typography>
+    </div>
+  </mock:shadow-root>
+</ic-checkbox>
+`;

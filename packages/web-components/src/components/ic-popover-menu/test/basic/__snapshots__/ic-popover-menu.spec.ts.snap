@@ -9,7 +9,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
           <ic-menu-item class="ic-popover-submenu-back-button" id="ic-popover-submenu-back-button-1" variant="default">
             <mock:shadow-root>
               <li aria-disabled="false" role="menuitem">
-                <ic-button aria-disabled="false" aria-haspopup="menu" aria-label="Go back to parent menu" disabletooltip="" fullwidth="" variant="tertiary">
+                <ic-button aria-disabled="false" aria-haspopup="menu" aria-label="Go back to parent menu" fullwidth="" variant="tertiary">
                   <div class="focus-border">
                     <span class="icon">
                       <slot name="icon"></slot>
@@ -40,7 +40,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
   <ic-menu-item label="Button 1" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">
@@ -57,7 +57,7 @@ exports[`ic-popover-menu should render a back button when submenu-id is set: sho
   <ic-menu-item label="Button 2" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 2" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">
@@ -88,7 +88,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
   <ic-menu-item label="Button 1" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">
@@ -114,7 +114,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
     <ic-menu-item label="Group button 1" variant="destructive">
       <mock:shadow-root>
         <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Group button 1, destructive, Button group menu group" disabletooltip="" fullwidth="" variant="tertiary">
+          <ic-button aria-disabled="false" aria-label="Group button 1, destructive, Button group menu group" fullwidth="" variant="tertiary">
             <div class="focus-border">
               <div class="menu-item-info">
                 <div class="menu-labels">
@@ -131,7 +131,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
     <ic-menu-item label="Group button 2" variant="default">
       <mock:shadow-root>
         <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Group button 2, Button group menu group" disabletooltip="" fullwidth="" variant="tertiary">
+          <ic-button aria-disabled="false" aria-label="Group button 2, Button group menu group" fullwidth="" variant="tertiary">
             <div class="focus-border">
               <div class="menu-item-info">
                 <div class="menu-labels">
@@ -203,7 +203,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
     <ic-menu-item label="Button 1" variant="default">
       <mock:shadow-root>
         <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+          <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
             <div class="focus-border">
               <div class="menu-item-info">
                 <div class="menu-labels">
@@ -220,7 +220,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
     <ic-menu-item label="Button 2" variant="default">
       <mock:shadow-root>
         <li aria-disabled="false" role="menuitem">
-          <ic-button aria-disabled="false" aria-label="Button 2" disabletooltip="" fullwidth="" variant="tertiary">
+          <ic-button aria-disabled="false" aria-label="Button 2" fullwidth="" variant="tertiary">
             <div class="focus-border">
               <div class="menu-item-info">
                 <div class="menu-labels">
@@ -252,7 +252,7 @@ exports[`ic-popover-menu should render when anchor starts with #: should render 
   <ic-menu-item label="Button 1" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">
@@ -283,7 +283,7 @@ exports[`ic-popover-menu should render with anchor: should render with anchor 1`
   <ic-menu-item label="Button 1" variant="default">
     <mock:shadow-root>
       <li aria-disabled="false" role="menuitem">
-        <ic-button aria-disabled="false" aria-label="Button 1" disabletooltip="" fullwidth="" variant="tertiary">
+        <ic-button aria-disabled="false" aria-label="Button 1" fullwidth="" variant="tertiary">
           <div class="focus-border">
             <div class="menu-item-info">
               <div class="menu-labels">

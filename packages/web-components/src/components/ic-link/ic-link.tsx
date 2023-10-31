@@ -75,11 +75,7 @@ export class Link {
   @Prop() target?: string;
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "aria-expanded",
-    ]);
-
+    this.inheritedAttributes = inheritAttributes(this.el, IC_INHERITED_ARIA);
     this.updateTheme();
   }
 
