@@ -528,6 +528,35 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Hidden close button
+
+<Canvas>
+  <Story name="Hidden close button" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        function showHiddenCloseButtonDialog() {
+          dialog = document.querySelector("#hidden-close-button-dialog");
+          dialog.showDialog();
+        }
+      </script>
+      <ic-button variant="primary" onclick="showHiddenCloseButtonDialog()"
+        >Launch dialog with hidden close button</ic-button
+      >
+      <ic-dialog
+        id="hidden-close-button-dialog"
+        heading="This dialog does not have a close button"
+        label="Hidden Close Button Dialog"
+        hide-close-button
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
 ### Events example
 
 <Canvas>

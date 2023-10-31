@@ -83,6 +83,11 @@ export class Dialog {
   @Prop() dismissLabel?: string = "Dismiss";
 
   /**
+   * If `true`, the close button will not be displayed.
+   */
+  @Prop() hideCloseButton?: boolean = false;
+
+  /**
    * Sets the heading for the dialog.
    */
   @Prop() heading!: string;
@@ -431,6 +436,7 @@ export class Dialog {
       status,
       destructive,
       dismissLabel,
+      hideCloseButton
     } = this;
 
     return (
@@ -460,15 +466,17 @@ export class Dialog {
                 </slot>
               </div>
             </div>
-            <ic-button
-              class="close-icon"
-              variant="icon"
-              aria-label={dismissLabel}
-              onClick={this.closeIconClick}
-              data-gets-focus={destructive || !buttons ? "" : null}
-            >
-              <span class="close-icon-svg" innerHTML={closeIcon} />
-            </ic-button>
+            {!hideCloseButton && (
+              <ic-button
+                class="close-icon"
+                variant="icon"
+                aria-label={dismissLabel}
+                onClick={this.closeIconClick}
+                data-gets-focus={destructive || !buttons ? "" : null}
+              >
+                <span class="close-icon-svg" innerHTML={closeIcon} />
+              </ic-button>
+            )}
           </div>
           <div class="content-area">
             {status && (

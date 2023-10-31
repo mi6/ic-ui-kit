@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-19T10:56:19",
+  "timestamp": "2023-10-31T15:54:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -4056,6 +4056,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "hideCloseButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-close-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, the close button will not be displayed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
         },
         {
           "name": "label",

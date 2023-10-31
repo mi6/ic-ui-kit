@@ -196,6 +196,28 @@ describe("ic-dialog component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with the close button", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: '<ic-dialog heading="Dialog with close button test"></ic-dialog>',
+    });
+
+    setupDialogMethods(page);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render without the close button", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Button],
+      html: '<ic-dialog heading="Dialog hide close button test" hide-close-button="true"></ic-dialog>',
+    });
+
+    setupDialogMethods(page);
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should display with the showDialog method", async () => {
     const page = await newSpecPage({
       components: [Dialog, Button],
