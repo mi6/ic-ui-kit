@@ -113,7 +113,7 @@ const columnsWithIconsHideOnHeader: IcDataTableColumnObject[] = [
   { key: "age", title: "Age", dataType: "number" },
   { key: "department", title: "Department", dataType: "string" },
   { key: "employeeNumber", title: employeeNumber, dataType: "number" },
-]
+];
 
 const data = [
   { name: name1, age: 36, department: "Accounts", employeeNumber: 1 },

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-27T15:47:39",
+  "timestamp": "2023-10-31T16:46:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -3966,11 +3966,6 @@
         }
       ],
       "listeners": [
-        {
-          "event": "icExpand",
-          "capture": false,
-          "passive": false
-        },
         {
           "event": "icItemsPerPageChange",
           "capture": false,
@@ -16992,10 +16987,10 @@
                 "tags": [
                   {
                     "name": "param",
-                    "text": "height"
+                    "text": "height Used to calculate whether the element has exceeded the maximum number of lines."
                   }
                 ],
-                "text": ""
+                "text": "Used to calculate whether the element has exceeded the maximum number of lines."
               }
             ],
             "references": {
@@ -17008,11 +17003,11 @@
           },
           "signature": "checkMaxLines(height: number) => Promise<void>",
           "parameters": [],
-          "docs": "",
+          "docs": "Truncate the text in ic-typography by adding a line-clamp css property.",
           "docsTags": [
             {
               "name": "param",
-              "text": "height"
+              "text": "height Used to calculate whether the element has exceeded the maximum number of lines."
             }
           ]
         }
@@ -17035,7 +17030,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the See More/See Less button is clicked.",
           "docsTags": []
         }
       ],
@@ -17311,7 +17306,7 @@
       "path": "src/components/ic-chip/ic-chip.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -17352,11 +17347,6 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
       "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\";",
-      "docstring": "",
-      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
-    },
-    "src/components/ic-data-table/ic-data-table.types.tsx::IcRowSelectedEventDetail": {
-      "declaration": "export interface IcRowSelectedEventDetail {\n  row: object;\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
