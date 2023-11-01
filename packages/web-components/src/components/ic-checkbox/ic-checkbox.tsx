@@ -159,7 +159,7 @@ export class Checkbox {
       } else {
         textfield && textfield.removeAttribute("disabled");
       }
-    } else {
+    } else if (this.additionalFieldContainer) {
       if (!this.checked) {
         this.additionalFieldContainer.style.display = "none";
       } else {

@@ -699,25 +699,26 @@ export class SearchBar {
       ".search-results-status"
     ) as HTMLParagraphElement;
 
-    if (
-      !this.open ||
-      this.value === "" ||
-      this.value.length < this.charactersUntilSuggestion
-    ) {
-      searchResultsStatusEl.innerText = "";
-    } else if (
-      this.hasOptionsOrFilterDisabled() &&
-      this.filteredOptions.length > 0 &&
-      this.open &&
-      searchResultsStatusEl &&
-      !this.filteredOptions[0].loading
-    ) {
-      if (this.hadNoOptions()) {
-        searchResultsStatusEl.innerText = this.emptyOptionListText;
-      } else {
-        searchResultsStatusEl.innerText = `${
-          this.filteredOptions.length
-        } result${this.filteredOptions.length > 1 ? "s" : ""} available`;
+    if (searchResultsStatusEl) {
+      if (
+        !this.open ||
+        this.value === "" ||
+        this.value.length < this.charactersUntilSuggestion
+      ) {
+        searchResultsStatusEl.innerText = "";
+      } else if (
+        this.hasOptionsOrFilterDisabled() &&
+        this.filteredOptions.length > 0 &&
+        this.open &&
+        !this.filteredOptions[0].loading
+      ) {
+        if (this.hadNoOptions()) {
+          searchResultsStatusEl.innerText = this.emptyOptionListText;
+        } else {
+          searchResultsStatusEl.innerText = `${
+            this.filteredOptions.length
+          } result${this.filteredOptions.length > 1 ? "s" : ""} available`;
+        }
       }
     }
   };
