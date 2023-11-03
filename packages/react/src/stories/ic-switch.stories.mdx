@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Meta,
   Story,
@@ -5,7 +6,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcSwitch } from "../components";
+import { IcSwitch, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Meta title="React Components/Switch" component={IcSwitch} />
@@ -41,6 +42,35 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 <Canvas>
   <Story name="Checked">
     <IcSwitch checked showState label="Label" />
+  </Story>
+</Canvas>
+
+### Checked updated
+
+export const Controlled = () => {
+  const [checked, setChecked] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setChecked(false);
+  };
+  const differentButtonClickHandler = () => {
+    setChecked(true);
+  };
+  return (
+    <>
+      <IcSwitch checked={checked} label="Label" />
+      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
+        Unchecked
+      </IcButton>
+      <IcButton variant="primary" onClick={differentButtonClickHandler}>
+        Checked
+      </IcButton>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Checked updated">
+    <Controlled />
   </Story>
 </Canvas>
 
