@@ -8,7 +8,7 @@
   background-color: var(--ic-architectural-800);
   color: #ffff;
   text-align: center;
-  padding: var(--ic-space-xxxs) 0.625rem;
+  padding: var(--ic-space-xxxs) var(--ic-space-xs);
   border-radius: var(--ic-border-radius);
   border: var(--ic-space-1px) solid var(--ic-architectural-40);
   position: absolute;
@@ -121,6 +121,12 @@
     var(--tooltip-translate-x),
     var(--tooltip-translate-y)
   ) !important;
+}
+
+@media screen and (max-width: 576px) {
+  :host(.ic-tooltip) .ic-tooltip-container {
+    max-width: 18.875rem;
+  }
 }
 
 @media (forced-colors: active) {
