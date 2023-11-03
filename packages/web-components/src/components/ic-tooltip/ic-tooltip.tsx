@@ -31,6 +31,11 @@ export class Tooltip {
   @Prop() disableHover?: boolean = false;
 
   /**
+   * The number of lines to display before truncating the text.
+   */
+  @Prop() maxLines?: number;
+
+  /**
    * The position of the tool-tip in relation to the parent element.
    */
   @Prop({ mutable: true }) placement?: IcTooltipPlacements = "bottom";
@@ -67,6 +72,16 @@ export class Tooltip {
     );
   }
 
+  componentDidRender(): void {
+    const typographyEl = this.el.shadowRoot.querySelector(
+      ".ic-tooltip-container > ic-typography"
+    );
+    this.maxLines > 0 &&
+      typographyEl.setAttribute(
+        "style",
+        `--truncation-max-lines: ${this.maxLines}`
+      );
+  }
   /**
    * Method to programmatically show/hide the tooltip without needing to interact with an anchor element
    * @param show Whether to show or hide the tooltip
@@ -243,7 +258,9 @@ export class Tooltip {
           role="tooltip"
           class="ic-tooltip-container"
         >
-          <ic-typography variant="caption">{label}</ic-typography>
+          <ic-typography maxLines={this.maxLines} variant="caption">
+            {label}
+          </ic-typography>
           <div
             ref={(el) => (this.arrow = el as HTMLDivElement)}
             class="ic-tooltip-arrow"

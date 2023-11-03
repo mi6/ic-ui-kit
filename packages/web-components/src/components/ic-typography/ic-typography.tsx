@@ -76,7 +76,12 @@ export class Typography {
   }
 
   componentDidLoad(): void {
-    if (this.variant === "body" && this.maxLines > 0) {
+    if (
+      (this.variant === "body" ||
+        (this.el.getRootNode() as ShadowRoot)?.host?.tagName ===
+          "IC-TOOLTIP") &&
+      this.maxLines > 0
+    ) {
       const marker = document.createElement("span");
       marker.style.visibility = "hidden";
       this.el.appendChild(marker);
@@ -181,7 +186,10 @@ export class Typography {
           ["underline"]: underline,
         }}
       >
-        {variant === "body" && maxLines > 0 ? (
+        {(variant === "body" ||
+          (this.el.getRootNode() as ShadowRoot)?.host?.tagName ===
+            "IC-TOOLTIP") &&
+        maxLines > 0 ? (
           <div class="trunc-wrapper" ref={(el) => (this.truncWrapperEl = el)}>
             <slot />
           </div>
