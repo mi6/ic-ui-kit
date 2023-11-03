@@ -2055,6 +2055,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * The number of lines to display before truncating the text.
+         */
+        "maxLines"?: number;
+        /**
           * The position of the tool-tip in relation to the parent element.
          */
         "placement"?: IcTooltipPlacements;
@@ -4765,6 +4769,10 @@ declare namespace LocalJSX {
           * The text to display on the tooltip.
          */
         "label": string;
+        /**
+          * The number of lines to display before truncating the text.
+         */
+        "maxLines"?: number;
         /**
           * The position of the tool-tip in relation to the parent element.
          */
