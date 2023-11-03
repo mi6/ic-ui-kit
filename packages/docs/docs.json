@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-03T14:02:50",
+  "timestamp": "2023-11-03T19:52:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -15147,6 +15147,27 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "maxLines",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-lines",
+          "reflectToAttr": false,
+          "docs": "The number of lines to display before truncating the text.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
         },
         {
           "name": "placement",
