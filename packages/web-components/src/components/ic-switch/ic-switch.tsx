@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   Method,
+  Watch,
 } from "@stencil/core";
 import {
   getInputDescribedByText,
@@ -44,6 +45,11 @@ export class Switch {
    * If `true`, the switch will display as checked.
    */
   @Prop() checked?: boolean = false;
+
+  @Watch("checked")
+  checkedChangeHandler(): void {
+    this.checkedState = this.checked;
+  }
 
   /**
    * If `true`, the disabled state will be set.
