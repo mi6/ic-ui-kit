@@ -24,7 +24,6 @@ export class PopoverMenu {
   private ARIA_LABEL: string = "aria-label";
   private backButton: HTMLIcMenuItemElement;
   private currentFocus: number;
-  private firstRender: boolean = true;
   private popoverMenuEls: HTMLIcMenuItemElement[] = [];
   private popperInstance: PopperInstance;
 
@@ -76,6 +75,11 @@ export class PopoverMenu {
       this.currentFocus = isPropDefined(this.submenuId) ? 1 : 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
+    } else {
+      if (this.popperInstance) {
+        this.popperInstance.destroy();
+        this.popperInstance = null;
+      }
     }
   }
 
@@ -108,67 +112,8 @@ export class PopoverMenu {
   }
 
   componentDidRender(): void {
-    if (this.firstRender && this.open) {
-      this.firstRender = false;
-      let adjust = false;
-
-      const dialogEl = this.el.closest("ic-dialog");
-      const onDialog = dialogEl !== null;
-
-      if (onDialog) {
-        this.el.classList.add("on-dialog");
-        const menu = this.el.getBoundingClientRect();
-        const dialogBottom = dialogEl.getBoundingClientRect().bottom;
-        const anchorHeight = this.anchorEl.getBoundingClientRect().height;
-        let offset;
-        if (dialogEl.getAttribute("data-overflow") === "false") {
-          if (dialogBottom - menu.top < menu.height) {
-            adjust = true;
-            offset = menu.height + anchorHeight + 8;
-          }
-        } else {
-          adjust = true;
-          // 100 added here as that's the offset when data-overflow is true
-          offset = menu.height + anchorHeight + 8 + 100;
-        }
-        if (adjust === false) {
-          this.el.classList.add("on-dialog-fix-translate");
-        } else {
-          this.el.style.setProperty(
-            "--translate-y",
-            `${offset}px`,
-            "important"
-          );
-          this.el.classList.add("on-dialog-translate-y");
-        }
-      }
-
-      if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "top",
-        });
-      } else {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "bottom-start",
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [0, 4],
-              },
-            },
-            {
-              name: "flip",
-              options: {
-                fallbackPlacements: ["top-start", "top-end", "bottom-end"],
-                rootBoundary: "viewport",
-              },
-            },
-          ],
-        });
-      }
-    } else if (this.open) {
-      this.popperInstance.update();
+    if (this.open && !this.popperInstance) {
+      this.initPopperJS();
     }
   }
 
@@ -349,6 +294,27 @@ export class PopoverMenu {
   private handleBackButtonClick = (): void => {
     this.parentPopover.openFromChild();
     this.open = false;
+  };
+
+  private initPopperJS = () => {
+    this.popperInstance = createPopper(this.anchorEl, this.el, {
+      placement: "bottom-start",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 4],
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements: ["top-start", "top-end", "bottom-end"],
+            rootBoundary: "viewport",
+          },
+        },
+      ],
+    });
   };
 
   render() {
