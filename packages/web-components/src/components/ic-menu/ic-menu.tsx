@@ -102,16 +102,9 @@ export class Menu {
 
   @Watch("open")
   watchOpenHandler(): void {
-    if (this.open) {
-      if (!this.popperInstance) {
-        this.initPopperJs(this.anchorEl);
-      }
-      this.popperInstance.update();
-    } else {
-      if (this.popperInstance) {
-        this.popperInstance.destroy();
-        this.popperInstance = null;
-      }
+    if (!this.open && this.popperInstance) {
+      this.popperInstance.destroy();
+      this.popperInstance = null;
     }
   }
 
@@ -232,10 +225,6 @@ export class Menu {
   }
 
   componentDidLoad(): void {
-    if (!this.popperInstance) {
-      this.initPopperJs(this.anchorEl);
-    }
-
     if (
       this.isSearchBar &&
       (this.parentEl as HTMLIcSearchBarElement).disableFilter
@@ -296,6 +285,10 @@ export class Menu {
   }
 
   componentDidRender(): void {
+    if (this.open && !this.popperInstance && this.anchorEl) {
+      this.initPopperJs(this.anchorEl);
+    }
+
     if (this.open && !!this.options.length) {
       this.setMenuScrollbar();
     }
