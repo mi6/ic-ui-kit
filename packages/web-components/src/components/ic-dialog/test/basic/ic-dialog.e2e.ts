@@ -376,21 +376,19 @@ describe("ic-dialog", () => {
     const btn = await page.find("#showBtn");
     await btn.click();
 
-    await page.waitForChanges()
-    await page.waitForSelector('ic-dialog');
+    await page.waitForChanges();
+    await page.waitForSelector("ic-dialog");
 
     const focussedEl = await page.evaluate(() => {
-      const el = document.querySelector('ic-dialog')
-      .shadowRoot.activeElement;
+      const el = document.querySelector("ic-dialog").shadowRoot.activeElement;
 
-      return ({
+      return {
         tagName: el.tagName,
-        label: el.shadowRoot.querySelector('button').ariaLabel
-      })
+        label: el.shadowRoot.querySelector("button").ariaLabel,
+      };
     });
 
-    expect(focussedEl.tagName).toBe('IC-BUTTON');
-    expect(focussedEl.label).toBe('Dismiss');
+    expect(focussedEl.tagName).toBe("IC-BUTTON");
+    expect(focussedEl.label).toBe("Dismiss");
   });
-
 });
