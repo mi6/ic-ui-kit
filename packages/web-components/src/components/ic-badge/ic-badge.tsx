@@ -21,6 +21,9 @@ import {
   rgbaStrToObj,
 } from "../../utils/helpers";
 
+/**
+ * @slot badge-icon - Icon will be rendered inside the badge if type is set to icon.
+ */
 @Component({
   tag: "ic-badge",
   styleUrl: "ic-badge.css",
