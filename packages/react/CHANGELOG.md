@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/mi6/ic-ui-kit/compare/v2.5.1...v2.6.0) (2023-11-07)
+
+### Features
+
+- **react:** add badge slot to card, navigation item and navigation button ([d4e105a](https://github.com/mi6/ic-ui-kit/commit/d4e105a6f6aa33049d7f47c9fff81d30d5a9e056)), closes [#1167](https://github.com/mi6/ic-ui-kit/issues/1167)
+- **react:** add prop to side navigation to disable top bar behaviour ([8adf5fa](https://github.com/mi6/ic-ui-kit/commit/8adf5fab265125918dfb932162373a937ce96868))
+- **react:** add story for new maxLines prop in ic-tooltip ([b890693](https://github.com/mi6/ic-ui-kit/commit/b89069361f1df6e66ea36b8591d55579e1340a95)), closes [#1225](https://github.com/mi6/ic-ui-kit/issues/1225)
+
 # [2.5.0](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.5.0) (2023-10-10)
 
 ### Bug Fixes
