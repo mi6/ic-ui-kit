@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-06T14:24:06",
+  "timestamp": "2023-11-07T14:26:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -697,7 +697,12 @@
       "tag": "ic-badge",
       "readme": "# ic-badge\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "badge-icon - Icon will be rendered inside the badge if type is set to icon."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1045,7 +1050,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "badge-icon",
+          "docs": "Icon will be rendered inside the badge if type is set to icon."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
