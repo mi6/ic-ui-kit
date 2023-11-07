@@ -43,6 +43,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot           | Description                                                    |
+| -------------- | -------------------------------------------------------------- |
+| `"badge-icon"` | Icon will be rendered inside the badge if type is set to icon. |
+
+
 ## Dependencies
 
 ### Depends on
