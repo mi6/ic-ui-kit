@@ -16258,39 +16258,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "setVisible",
-          "returns": {
-            "type": "Promise<HTMLElement>",
-            "docs": "The element that previously had focus before the toast appeared"
-          },
-          "complexType": {
-            "signature": "() => Promise<HTMLElement>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
-              }
-            },
-            "return": "Promise<HTMLElement>"
-          },
-          "signature": "setVisible() => Promise<HTMLElement>",
-          "parameters": [],
-          "docs": "Used to display the individual toast",
-          "docsTags": [
-            {
-              "name": "returns",
-              "text": "The element that previously had focus before the toast appeared"
-            }
-          ]
-        }
-      ],
+      "methods": [],
       "events": [
         {
           "event": "icDismiss",
@@ -16380,7 +16348,33 @@
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [],
+      "props": [
+        {
+          "name": "openToast",
+          "type": "HTMLIcToastElement",
+          "complexType": {
+            "original": "HTMLIcToastElement",
+            "resolved": "HTMLIcToastElement",
+            "references": {
+              "HTMLIcToastElement": {
+                "location": "global",
+                "id": "global::HTMLIcToastElement"
+              }
+            }
+          },
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "The toast element to be displayed.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HTMLIcToastElement"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [
         {
           "name": "setVisible",
@@ -16392,13 +16386,8 @@
             "signature": "(toast: HTMLIcToastElement) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "toast The toast element being requested to display"
-                  }
-                ],
-                "text": "The toast element being requested to display"
+                "tags": [],
+                "text": ""
               }
             ],
             "references": {
@@ -16415,13 +16404,14 @@
           },
           "signature": "setVisible(toast: HTMLIcToastElement) => Promise<void>",
           "parameters": [],
-          "docs": "Handles setting the visibility of various toasts based on what is already visible",
+          "docs": "",
           "docsTags": [
             {
-              "name": "param",
-              "text": "toast The toast element being requested to display"
+              "name": "deprecated",
+              "text": "Use openToast prop to display toast instead."
             }
-          ]
+          ],
+          "deprecation": "Use openToast prop to display toast instead."
         }
       ],
       "events": [],
