@@ -18,9 +18,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Default">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
@@ -40,9 +39,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="With variant">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
@@ -67,9 +65,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Multiline message">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
@@ -93,14 +90,12 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Slotted action elements">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       function func2() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast2"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast2");
       }
       return (
         <>
@@ -140,9 +135,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Auto dismiss">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
@@ -169,9 +163,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Custom neutral icon">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
@@ -208,9 +201,8 @@ import readme from "../../../web-components/src/components/ic-toast/readme.md";
   <Story name="Example on page">
     {() => {
       function func() {
-        document
-          .querySelector("ic-toast-region")
-          .setVisible(document.getElementById("toast1"));
+        document.querySelector("ic-toast-region").openToast =
+          document.getElementById("toast1");
       }
       return (
         <>
