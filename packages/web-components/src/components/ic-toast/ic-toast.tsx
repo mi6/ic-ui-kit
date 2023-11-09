@@ -114,6 +114,9 @@ export class Toast {
     }
 
     if (this.isManual) {
+      const toastMessage: string = isPropDefined(this.message)
+        ? `. ${this.message}`
+        : "";
       this.el.setAttribute(
         "aria-label",
         this.variant
@@ -123,11 +126,7 @@ export class Toast {
       (this.variant || this.message) &&
         this.el.setAttribute(
           "aria-description",
-          this.variant
-            ? `${this.heading}${
-                isPropDefined(this.message) ? `. ${this.message}` : ""
-              }`
-            : this.message
+          this.variant ? `${this.heading}${toastMessage}` : this.message
         );
     }
   }
@@ -191,7 +190,7 @@ export class Toast {
   }
 
   /**
-   * Used to display the individual toast
+   * @internal Used to display the individual toast.
    * @returns The element that previously had focus before the toast appeared
    */
   @Method()
