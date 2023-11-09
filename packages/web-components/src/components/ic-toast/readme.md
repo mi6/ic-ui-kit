@@ -25,19 +25,6 @@
 | `icDismiss` | Is emitted when the user dismisses the toast | `CustomEvent<void>` |
 
 
-## Methods
-
-### `setVisible() => Promise<HTMLElement>`
-
-Used to display the individual toast
-
-#### Returns
-
-Type: `Promise<HTMLElement>`
-
-The element that previously had focus before the toast appeared
-
-
 ## Slots
 
 | Slot             | Description                                                                                                         |

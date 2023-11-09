@@ -1,4 +1,12 @@
-import { Component, Element, h, Listen, Method } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Listen,
+  Method,
+  Prop,
+  Watch,
+} from "@stencil/core";
 import { IcFocusableComponents } from "../../utils/types";
 
 @Component({ tag: "ic-toast-region" })
@@ -7,6 +15,18 @@ export class ToastRegion {
   private previouslyFocused: HTMLElement;
 
   @Element() el: HTMLIcToastRegionElement;
+
+  /**
+   * The toast element to be displayed.
+   */
+  @Prop({ mutable: true }) openToast: HTMLIcToastElement;
+  @Watch("openToast")
+  watchOpenToastHandler(newValue: HTMLIcToastElement): void {
+    if (this.openToast !== undefined) {
+      this.showToast(newValue);
+      this.openToast = undefined;
+    }
+  }
 
   @Listen("icDismiss", { capture: true })
   handleDismissedToast(): void {
@@ -22,12 +42,7 @@ export class ToastRegion {
     }
   }
 
-  /**
-   * Handles setting the visibility of various toasts based on what is already visible
-   * @param toast The toast element being requested to display
-   */
-  @Method()
-  async setVisible(toast: HTMLIcToastElement): Promise<void> {
+  private showToast = (toast: HTMLIcToastElement) => {
     const visibleToasts = Array.from(
       document.querySelectorAll("ic-toast")
     ).filter((el) => window.getComputedStyle(el).display !== "none");
@@ -35,6 +50,14 @@ export class ToastRegion {
       toast.setVisible().then((res) => (this.previouslyFocused = res));
     }
     if (visibleToasts.length > 0) this.pendingVisibility.push(toast);
+  };
+
+  /**
+   * @deprecated Use openToast prop to display toast instead.
+   */
+  @Method()
+  async setVisible(toast: HTMLIcToastElement): Promise<void> {
+    this.showToast(toast);
   }
 
   render() {
