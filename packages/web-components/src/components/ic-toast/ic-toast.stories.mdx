@@ -15,7 +15,7 @@ import readme from "./readme.md";
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {
           var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
+          toastRegion.openToast = x;
         }
       </script>
       <ic-toast-region>
@@ -33,7 +33,7 @@ import readme from "./readme.md";
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {
           var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
+          toastRegion.openToast = x;
         }
       </script>
       <ic-toast-region>
@@ -57,7 +57,7 @@ import readme from "./readme.md";
           var toastRegion = document.querySelector("ic-toast-region");
           function func() {
             var x = document.getElementById("toast1");
-            toastRegion.setVisible(x);
+            toastRegion.openToast = x;
           }
         </script>
         <ic-toast-region>
@@ -82,11 +82,11 @@ import readme from "./readme.md";
           var toastRegion = document.querySelector("ic-toast-region");
           function func() {
             var x = document.getElementById("toast1");
-            toastRegion.setVisible(x);
+            toastRegion.openToast = x;
           }
           function func2() {
             var x = document.getElementById("toast2");
-            toastRegion.setVisible(x);
+            toastRegion.openToast = x;
           }
         </script>
         <ic-toast-region>
@@ -117,24 +117,39 @@ import readme from "./readme.md";
 
 <Canvas>
   <Story name="Auto dismiss" parameters={{ loki: { skip: true } }}>
-    {(args) => html`<button onclick="func()">Display toast</button>
-      <script>
-        var toastRegion = document.querySelector("ic-toast-region");
-        function func() {
-          var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
-        }
-      </script>
-      <ic-toast-region>
-        <ic-toast
-          id="toast1"
-          variant="info"
-          heading="Your coffee is ready"
-          message="Please dismiss and collect"
-          dismiss-mode="automatic"
-          auto-dismiss-timeout="10000"
-        ></ic-toast>
-      </ic-toast-region>`}
+    {(args) =>
+      html`<button onclick="func()">Display toast 1</button>
+        <button onclick="func2()">Display toast 2</button>
+        <script>
+          var toastRegion = document.querySelector("ic-toast-region");
+          function func() {
+            var x = document.getElementById("toast1");
+            toastRegion.openToast = x;
+          }
+          function func2() {
+            var x = document.getElementById("toast2");
+            toastRegion.openToast = x;
+          }
+        </script>
+        <ic-toast-region>
+          <ic-toast
+            id="toast1"
+            variant="info"
+            heading="Your coffee is ready"
+            message="Please dismiss and collect"
+            dismiss-mode="automatic"
+            auto-dismiss-timeout="10000"
+          ></ic-toast>
+          <ic-toast
+            id="toast2"
+            heading="Your coffee was lost"
+            message="Please dismiss and try again"
+            variant="error"
+            dismiss-mode="automatic"
+            auto-dismiss-timeout="10000"
+          ></ic-toast>
+        </ic-toast-region>`
+    }
   </Story>
 </Canvas>
 
@@ -150,7 +165,7 @@ import readme from "./readme.md";
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {
           var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
+          toastRegion.openToast = x;
         }
       </script>
       <ic-toast-region>
@@ -186,7 +201,7 @@ import readme from "./readme.md";
         var toastRegion = document.querySelector("ic-toast-region");
         function func() {
           var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
+          toastRegion.openToast = x;
         }
       </script>
       <ic-toast-region>
@@ -306,5 +321,23 @@ import readme from "./readme.md";
       <br />
       <ic-typography variant="h3">The end</ic-typography>
       <br />`}
+  </Story>
+</Canvas>
+
+### Deprecated - setVisible
+
+<Canvas>
+  <Story name="Deprecated - setVisible" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<button onclick="func()">Display toast</button>
+      <script>
+        var toastRegion = document.querySelector("ic-toast-region");
+        function func() {
+          var x = document.getElementById("toast1");
+          toastRegion.setVisible(x);
+        }
+      </script>
+      <ic-toast-region>
+        <ic-toast id="toast1" heading="Your coffee is ready"></ic-toast>
+      </ic-toast-region>`}
   </Story>
 </Canvas>

@@ -5,11 +5,18 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property    | Attribute | Description                        | Type                 | Default     |
+| ----------- | --------- | ---------------------------------- | -------------------- | ----------- |
+| `openToast` | --        | The toast element to be displayed. | `HTMLIcToastElement` | `undefined` |
+
+
 ## Methods
 
 ### `setVisible(toast: HTMLIcToastElement) => Promise<void>`
 
-Handles setting the visibility of various toasts based on what is already visible
+<span style="color:red">**[DEPRECATED]**</span> Use openToast prop to display toast instead.<br/><br/>
 
 #### Returns
 

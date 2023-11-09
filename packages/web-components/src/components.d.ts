@@ -2100,7 +2100,6 @@ export namespace Components {
          */
         "neutralIconAriaLabel"?: string;
         /**
-          * Used to display the individual toast
           * @returns The element that previously had focus before the toast appeared
          */
         "setVisible": () => Promise<HTMLElement>;
@@ -2111,8 +2110,11 @@ export namespace Components {
     }
     interface IcToastRegion {
         /**
-          * Handles setting the visibility of various toasts based on what is already visible
-          * @param toast The toast element being requested to display
+          * The toast element to be displayed.
+         */
+        "openToast": HTMLIcToastElement;
+        /**
+          * @deprecated Use openToast prop to display toast instead.
          */
         "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
     }
@@ -4913,6 +4915,10 @@ declare namespace LocalJSX {
         "variant"?: IcStatusVariants;
     }
     interface IcToastRegion {
+        /**
+          * The toast element to be displayed.
+         */
+        "openToast"?: HTMLIcToastElement;
     }
     interface IcTooltip {
         /**
