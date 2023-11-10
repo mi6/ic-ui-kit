@@ -9,6 +9,7 @@ import { IcCheckboxGroup, IcCheckbox, IcTextField } from "../components";
 import checkboxReadme from "../../../web-components/src/components/ic-checkbox/readme.md";
 import checkboxGroupReadme from "../../../web-components/src/components/ic-checkbox-group/readme.md";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 <Meta title="React Components/Checkbox" component={IcCheckboxGroup} />
 
@@ -304,5 +305,40 @@ export const Form = () => {
         </IcCheckboxGroup>
       </IcCheckbox>
     </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
+### TextField value change
+
+export const TextField = () => {
+  const [textBoxValue, setTextBoxValue] = useState("");
+  const onChangeTextBox = (e) => {
+    setTextBoxValue(e.detail.value);
+  };
+  return (
+    <div>
+      <IcCheckboxGroup label="This is a label" name="1">
+        <IcCheckbox
+          additionalFieldDisplay="static"
+          value="valueName1"
+          label="option1"
+        >
+          <IcTextField
+            slot="additional-field"
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+            onIcChange={onChangeTextBox}
+          />
+        </IcCheckbox>
+      </IcCheckboxGroup>
+      <br />
+      <div>textbox value :{textBoxValue}</div>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="TextField value change">
+    <TextField />
   </Story>
 </Canvas>
