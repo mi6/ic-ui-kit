@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-07T14:26:48",
+  "timestamp": "2023-11-10T13:08:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -3292,6 +3292,11 @@
         }
       ],
       "listeners": [
+        {
+          "event": "icChange",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "icCheck",
           "capture": false,
