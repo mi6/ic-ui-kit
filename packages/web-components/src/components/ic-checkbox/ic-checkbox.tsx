@@ -140,9 +140,6 @@ export class Checkbox {
     removeDisabledFalse(this.disabled, this.el);
 
     addFormResetListener(this.el, this.handleFormReset);
-    this.el
-      .querySelector(this.IC_TEXT_FIELD)
-      ?.addEventListener("icChange", this.eventHandler);
   }
 
   componentDidLoad(): void {
@@ -174,9 +171,6 @@ export class Checkbox {
 
   disconnectedCallback(): void {
     removeFormResetListener(this.el, this.handleFormReset);
-    this.el
-      .querySelector(this.IC_TEXT_FIELD)
-      ?.removeEventListener("icChange", this.eventHandler);
   }
 
   /**
@@ -190,10 +184,6 @@ export class Checkbox {
       checkboxEl.focus();
     }
   }
-
-  private eventHandler = (event: CustomEvent) => {
-    event.stopImmediatePropagation();
-  };
 
   private handleClick = () => {
     this.checked = !this.checked;

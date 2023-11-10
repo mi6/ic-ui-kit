@@ -81,6 +81,15 @@ export class CheckboxGroup {
    */
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
+  @Listen("icChange")
+  handleChange(ev: CustomEvent): void {
+    //don't pass on the event if it has come from slotted text field
+    //otherwise any icChange handler bound to the checkbox group will also run
+    if ((ev.target as HTMLElement).tagName === "IC-TEXT-FIELD") {
+      ev.stopImmediatePropagation();
+    }
+  }
+
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
   }
