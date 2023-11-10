@@ -459,3 +459,42 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### TextField value change
+
+<Canvas>
+  <Story name="TextField value change" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <script>
+          var textOutputEl = document.querySelector("#value-text");
+          function handleIcChange(ev) {
+            textOutputEl.innerHTML = ev.target.value;
+          }
+          document
+            .querySelector("ic-text-field")
+            .addEventListener("icChange", handleIcChange);
+        </script>
+        <div>
+          <ic-checkbox-group label="This is a label" name="group1">
+            <ic-checkbox
+              value="valueName1"
+              label="Unselected / Default"
+              additional-field-display="static"
+            >
+              <ic-text-field
+                slot="additional-field"
+                placeholder="Placeholder"
+                label="What's your favourite type of coffee?"
+              ></ic-text-field>
+            </ic-checkbox>
+          </ic-checkbox-group>
+          <br />
+          <span>textfield value: </span>
+          <span id="value-text"></span>
+          <div></div>
+        </div>
+      `
+    }
+  </Story>
+</Canvas>
