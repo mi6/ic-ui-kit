@@ -30,13 +30,13 @@ import {
   shadow: true,
 })
 export class Dialog {
+  private backdropEl: HTMLDivElement;
   private contentArea: HTMLSlotElement;
   private DATA_GETS_FOCUS: string = "data-gets-focus";
   private DATA_GETS_FOCUS_SELECTOR: string = "[data-gets-focus]";
   private DIALOG_CONTROLS: string = "dialog-controls";
   private dialogEl: HTMLDialogElement;
   private dialogHeight: number = 0;
-  private dismissBtn: HTMLIcButtonElement;
   private focusedElementIndex = 0;
   private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
   private IC_ACCORDION: string = "IC-ACCORDION";
@@ -118,14 +118,33 @@ export class Dialog {
   watchOpenHandler(): void {
     if (this.open) {
       this.dialogRendered = true;
-      this.dialogEl.showModal();
+
+      if (this.disableHeightConstraint) {
+        this.dialogEl.show();
+      } else {
+        this.dialogEl.showModal();
+      }
+
       setTimeout(() => {
         this.fadeIn = true;
+
+        /**
+         * This is required to set scroll back to top if:
+         * - dialog content goes below the fold
+         * - is closed using cancel or confirm and reopened.
+         *
+         * Without this, the scroll bar will start from the dialog's last scroll-x coordinate.
+         */
+        if (this.disableHeightConstraint && this.backdropEl.scrollTop !== 0) {
+          this.backdropEl.scrollTop = 0;
+        }
       }, 10);
+
       setTimeout(() => {
         this.setInitialFocus();
         checkResizeObserver(this.runResizeObserver);
       }, 75);
+
       setTimeout(() => {
         this.getFocusedElementIndex();
         this.icDialogOpened.emit();
@@ -213,9 +232,9 @@ export class Dialog {
       getComputedStyle(this.el).display !== "none" &&
       this.disableHeightConstraint
     ) {
-      document.body.style.position = "fixed";
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.position = "relative";
+      document.body.style.overflow = "auto";
     }
   }
 
@@ -261,30 +280,7 @@ export class Dialog {
    */
   @Method()
   async showDialog(): Promise<void> {
-    this.dialogRendered = true;
-    if (this.disableHeightConstraint) {
-      this.dialogEl.show();
-    } else {
-      this.dialogEl.showModal();
-    }
-    setTimeout(() => {
-      this.fadeIn = true;
-    }, 10);
-    setTimeout(() => {
-      if (this.disableHeightConstraint) {
-        if (this.dismissBtn) {
-          this.dismissBtn.focus();
-        }
-      } else {
-        this.setInitialFocus();
-      }
-
-      checkResizeObserver(this.runResizeObserver);
-    }, 75);
-    setTimeout(() => {
-      this.getFocusedElementIndex();
-      this.icDialogOpened.emit();
-    }, 80);
+    this.open = true;
   }
 
   /**
@@ -292,20 +288,7 @@ export class Dialog {
    */
   @Method()
   async hideDialog(): Promise<void> {
-    this.fadeIn = false;
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
-
-    this.removeSlotChangeListener();
-
-    setTimeout(() => {
-      this.dialogRendered = false;
-      this.dialogEl.close();
-      this.sourceElement?.focus();
-      this.dialogHeight = 0;
-      this.icDialogClosed.emit();
-    }, 80);
+    this.open = false;
   }
 
   /**
@@ -342,16 +325,17 @@ export class Dialog {
   private refreshInteractiveElementsOnSlotChange = () => {
     this.contentArea = this.el.shadowRoot.querySelector("#dialog-content slot");
 
-    this.contentArea.addEventListener("slotchange", () => {
-      this.getInteractiveElements();
-    });
+    this.contentArea.addEventListener(
+      "slotchange",
+      this.getInteractiveElements
+    );
   };
 
   private removeSlotChangeListener = () => {
     if (this.contentArea) {
       this.contentArea.removeEventListener(
         "slotchange",
-        this.refreshInteractiveElementsOnSlotChange
+        this.getInteractiveElements
       );
     }
   };
@@ -375,7 +359,9 @@ export class Dialog {
     } else if (focusedElement.tagName === this.IC_ACCORDION) {
       (focusedElement as HTMLIcAccordionElement).setFocus();
     } else {
-      focusedElement.focus();
+      focusedElement.focus({
+        preventScroll: this.disableHeightConstraint ? true : false,
+      });
     }
   };
 
@@ -556,16 +542,16 @@ export class Dialog {
               </slot>
             </div>
           </div>
-          <ic-button
-            class="close-icon"
-            variant="icon"
-            aria-label={dismissLabel}
-            onClick={this.closeIconClick}
-            data-gets-focus={destructive || !buttons ? "" : null}
-            ref={(el) => (this.dismissBtn = el)}
-          >
-            <span class="close-icon-svg" innerHTML={closeIcon} />
-          </ic-button>
+          {!hideCloseButton && (
+            <ic-button
+              class="close-icon"
+              variant="icon"
+              innerHTML={closeIcon}
+              aria-label={dismissLabel}
+              onClick={this.closeIconClick}
+              data-gets-focus={destructive || !buttons ? "" : null}
+            ></ic-button>
+          )}
         </div>
         <div class="content-area">
           {isSlotUsed(this.el, "alert") ? (
@@ -631,7 +617,9 @@ export class Dialog {
         }}
       >
         {this.disableHeightConstraint ? (
-          <div class="backdrop">{this.renderDialog()}</div>
+          <div class="backdrop" ref={(el) => (this.backdropEl = el)}>
+            {this.renderDialog()}
+          </div>
         ) : (
           this.renderDialog()
         )}

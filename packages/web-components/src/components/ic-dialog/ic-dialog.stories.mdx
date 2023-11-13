@@ -251,8 +251,11 @@ import readme from "./readme.md";
         id="plain-dialog"
         buttons="false"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        <ic-typography
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna
+          aliqua.</ic-typography
+        >
       </ic-dialog>
       <ic-dialog
         heading="This dialog has a single button"
@@ -279,8 +282,11 @@ import readme from "./readme.md";
         label="Triple"
         id="triple-dialog"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        <ic-typography
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna
+          aliqua.</ic-typography
+        >
       </ic-dialog>
       <ic-dialog
         heading="This dialog has a default destructive button"
@@ -572,17 +578,21 @@ import readme from "./readme.md";
         function showDialog() {
           dialog = document.querySelector("ic-dialog");
           dialog.open = true;
+          document.addEventListener("icDialogConfirmed", dialogConfirmed);
+          document.addEventListener("icDialogCancelled", dialogCancelled);
         }
         function dialogConfirmed() {
           dialog = document.querySelector("ic-dialog");
           alert("Dialog confirmed");
           dialog.open = false;
+          document.removeEventListener("icDialogConfirmed", dialogConfirmed);
+          document.removeEventListener("icDialogCancelled", dialogCancelled);
         }
         function dialogCancelled() {
           alert("Dialog cancelled");
+          document.removeEventListener("icDialogConfirmed", dialogConfirmed);
+          document.removeEventListener("icDialogCancelled", dialogCancelled);
         }
-        document.addEventListener("icDialogConfirmed", dialogConfirmed);
-        document.addEventListener("icDialogCancelled", dialogCancelled);
       </script>
       <ic-button variant="primary" onclick="showDialog()"
         >Launch dialog</ic-button
@@ -614,17 +624,17 @@ import readme from "./readme.md";
         document
           .querySelector("#select-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#select-dialog").showDialog();
+            document.querySelector("#select-dialog").open = true;
           });
         document
           .querySelector("#search-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#search-dialog").showDialog();
+            document.querySelector("#search-dialog").open = true;
           });
         document
           .querySelector("#tooltip-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#tooltip-dialog").showDialog();
+            document.querySelector("#tooltip-dialog").open = true;
           });
         document.querySelector("#select-dropdown").options = dropdownItems();
         document.querySelector("#search-dropdown").options = dropdownItems();
@@ -632,12 +642,12 @@ import readme from "./readme.md";
         document
           .querySelector("#long-text-select-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#long-text-select-dialog").showDialog();
+            document.querySelector("#long-text-select-dialog").open = true;
           });
         document
           .querySelector("#popover-menu-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#popover-menu-dialog").showDialog();
+            document.querySelector("#popover-menu-dialog").open = true;
           });
         document
           .querySelector("#popover-menu-show-btn")
@@ -934,7 +944,7 @@ import readme from "./readme.md";
         document
           .querySelector("#short-text-select-dialog-btn")
           .addEventListener("click", () => {
-            document.querySelector("#short-text-select-dialog").showDialog();
+            document.querySelector("#short-text-select-dialog").open = true;
           });
         document.querySelector("#select-dropdown-2").options = dropdownItems();
         document.querySelector("#select-dropdown-3").options = dropdownItems();
@@ -1072,6 +1082,12 @@ import readme from "./readme.md";
           infancy. Various versions have evolved over the years, sometimes by
           accident, sometimes on purpose (injected humour and the like).
         </ic-typography>
+        <ic-button id="long-text-select-dialog-btn"
+          >Long Text with Select Dialog</ic-button
+        >
+        <ic-button id="short-text-select-dialog-btn"
+          >Short Text with Select Dialog</ic-button
+        >
       </div>
       <ic-dialog
         heading="Short Text Select"
@@ -1166,21 +1182,20 @@ import readme from "./readme.md";
     {html`
       <script>
         function showSmallDialog() {
-          dialog = document.querySelector("#small-dialog");
-          dialog.showDialog();
+          dialog = document.querySelector("#small-dialog").showDialog();
         }
-        const btnShow = document.querySelector(".show");
+        var btnShow = document.querySelector(".show");
         btnShow.addEventListener("click", () => {
-          const el = document.createElement("ic-button");
+          var el = document.createElement("ic-button");
           el.id = "toggleBtn";
           el.innerText = "Hello World!";
-          const base = document.querySelector("#base");
+          var base = document.querySelector("#base");
           base.after(el);
         });
-        const btnHide = document.querySelector(".hide");
+        var btnHide = document.querySelector(".hide");
         btnHide.addEventListener("click", () => {
           if (document.querySelector("#toggleBtn")) {
-            const btn = document.querySelector("#toggleBtn");
+            var btn = document.querySelector("#toggleBtn");
             btn.remove();
           }
         });
