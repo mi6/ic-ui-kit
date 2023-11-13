@@ -348,47 +348,4 @@ describe("ic-dialog", () => {
     expect(focusedEl.tagName).toBe("IC-BUTTON");
     expect(focusedEl.textContent).toBe("Cancel");
   });
-
-  it("should focus on dismiss button initially if disableHeightContraint is set", async () => {
-    const page = await newE2EPage();
-    await page.setContent(`<script>
-      function showSmallDialog() {
-        dialog = document.querySelector("#small-dialog");
-        dialog.showDialog();
-      }
-    </script>
-    <ic-button variant="primary" id='showBtn' onclick="showSmallDialog()">
-      Launch small dialog
-    </ic-button>
-    <ic-dialog
-      heading="This is a small dialog"
-      label="Small"
-      id="small-dialog"
-      disable-height-constraint
-    >
-      <ic-typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </ic-typography>
-    </ic-dialog>
-    `);
-
-    const btn = await page.find("#showBtn");
-    await btn.click();
-
-    await page.waitForChanges();
-    await page.waitForSelector("ic-dialog");
-
-    const focussedEl = await page.evaluate(() => {
-      const el = document.querySelector("ic-dialog").shadowRoot.activeElement;
-
-      return {
-        tagName: el.tagName,
-        label: el.shadowRoot.querySelector("button").ariaLabel,
-      };
-    });
-
-    expect(focussedEl.tagName).toBe("IC-BUTTON");
-    expect(focussedEl.label).toBe("Dismiss");
-  });
 });

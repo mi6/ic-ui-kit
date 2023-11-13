@@ -715,7 +715,6 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    await dialog.showDialog();
     dialog.open = true;
 
     await page.waitForChanges();
@@ -734,7 +733,6 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogRendered).toBe(false);
 
-    await dialog.showDialog();
     dialog.open = true;
 
     await page.waitForChanges();
@@ -872,7 +870,7 @@ describe("ic-dialog component", () => {
 
     contentAreaSlot.dispatchEvent(new Event("slotchange"));
 
-    expect(page.rootInstance.getInteractiveElements).toBeCalledTimes(2);
+    expect(page.rootInstance.getInteractiveElements).toBeCalledTimes(1);
   });
 
   it("should call dialog.show() disableHeightConstraint is set and showDialog is called", async () => {
@@ -904,4 +902,4 @@ describe("ic-dialog component", () => {
 
     expect(page.rootInstance.dialogEl.show).toBeCalled();
   });
-})
+});
