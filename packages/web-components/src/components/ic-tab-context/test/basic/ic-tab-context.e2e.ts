@@ -18,6 +18,34 @@ const testTabs = `
 </ic-tab-context>
 `;
 
+const testTabsResponsive = `
+<style>
+  #container{
+    width: 300px;
+  }
+</style>
+<div id="container">
+  <ic-tab-context>
+    <ic-tab-group label="Example tab group">
+      <ic-tab>One</ic-tab>
+      <ic-tab>Two</ic-tab>
+      <ic-tab id="tab3">Three</ic-tab>
+      <ic-tab>Four</ic-tab>
+      <ic-tab>Five</ic-tab>
+      <ic-tab>Six</ic-tab>
+      <ic-tab>Seven</ic-tab>
+    </ic-tab-group>
+    <ic-tab-panel>Tab One</ic-tab-panel>
+    <ic-tab-panel>Tab Two</ic-tab-panel>
+    <ic-tab-panel>Tab Three</ic-tab-panel>
+    <ic-tab-panel>Tab Four</ic-tab-panel>
+    <ic-tab-panel>Tab Five</ic-tab-panel>
+    <ic-tab-panel>Tab Six</ic-tab-panel>
+    <ic-tab-panel>Tab Seven</ic-tab-panel>
+  </ic-tab-context>
+</div>
+`;
+
 describe("ic-tab-context component", () => {
   it("should display a tab panel when its corresponding tab is clicked", async () => {
     const page = await newE2EPage({ html: testTabs });
@@ -383,5 +411,15 @@ describe("ic-tab-context component", () => {
     expect(nestedTabSelect).toHaveReceivedEventDetail({
       tabIndex: 1,
     });
+  });
+
+  it("should select tab and load content when clicked - responsive tabs", async () => {
+    const page = await newE2EPage({ html: testTabsResponsive });
+    await page.waitForChanges();
+
+    const tab3 = await page.find('ic-tab[tab-id="ic-tab--2-context-default"]');
+    await tab3.click();
+    await page.waitForChanges();
+    expect(tab3).toHaveClass("selected");
   });
 });

@@ -5,7 +5,7 @@ exports[`ic-tab-context component should render tab context with custom contextI
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="custom-context" label="Example tab group" role="tablist">
     <mock:shadow-root>
-      <ic-horizontal-scroll appearance="default">
+      <ic-horizontal-scroll appearance="default" focus-trigger="tabFocus">
         <div class="tabs-container">
           <slot></slot>
         </div>
@@ -74,7 +74,7 @@ exports[`ic-tab-context component should render tab context with tabs - light ap
   <!---->
   <ic-tab-group appearance="light" aria-label="Example tab group" class="light" context-id="default" label="Example tab group" role="tablist">
     <mock:shadow-root>
-      <ic-horizontal-scroll appearance="light">
+      <ic-horizontal-scroll appearance="light" focus-trigger="tabFocus">
         <div class="tabs-container">
           <slot></slot>
         </div>
@@ -143,7 +143,7 @@ exports[`ic-tab-context component should render tab context with tabs - manual a
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
     <mock:shadow-root>
-      <ic-horizontal-scroll appearance="default">
+      <ic-horizontal-scroll appearance="default" focus-trigger="tabFocus">
         <div class="tabs-container">
           <slot></slot>
         </div>
@@ -212,7 +212,7 @@ exports[`ic-tab-context component should render tab context with tabs - selected
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
     <mock:shadow-root>
-      <ic-horizontal-scroll appearance="default">
+      <ic-horizontal-scroll appearance="default" focus-trigger="tabFocus">
         <div class="tabs-container">
           <slot></slot>
         </div>
@@ -281,7 +281,7 @@ exports[`ic-tab-context component should render tab context with tabs 1`] = `
   <!---->
   <ic-tab-group aria-label="Example tab group" context-id="default" label="Example tab group" role="tablist">
     <mock:shadow-root>
-      <ic-horizontal-scroll appearance="default">
+      <ic-horizontal-scroll appearance="default" focus-trigger="tabFocus">
         <div class="tabs-container">
           <slot></slot>
         </div>

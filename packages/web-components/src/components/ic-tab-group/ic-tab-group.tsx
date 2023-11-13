@@ -60,6 +60,7 @@ export class TabGroup {
               ? IcThemeForegroundEnum.Default
               : appearance
           }
+          focus-trigger="tabFocus"
         >
           <div class="tabs-container">
             <slot></slot>
