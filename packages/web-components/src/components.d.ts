@@ -757,6 +757,7 @@ export namespace Components {
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
          */
         "appearance"?: IcThemeForeground;
+        "focusTrigger"?: string;
         "scrollItemIntoView": (itemPosition: number) => Promise<void>;
     }
     interface IcInputComponentContainer {
@@ -3454,6 +3455,7 @@ declare namespace LocalJSX {
           * The appearance of the horizontal scroll, e.g. dark, light or the default.
          */
         "appearance"?: IcThemeForeground;
+        "focusTrigger"?: string;
     }
     interface IcInputComponentContainer {
         /**
