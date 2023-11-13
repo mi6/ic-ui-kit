@@ -42,6 +42,11 @@ export class HorizontalScroll {
    */
   @Prop() appearance?: IcThemeForeground = "default";
 
+  /**
+   * @internal The name of the event that triggers focus handler logic.
+   */
+  @Prop() focusTrigger?: string = "focus";
+
   componentWillLoad(): void {
     this.itemsContainerEl = this.el.children[0] as HTMLElement;
     this.itemsContainerEl.addEventListener("scroll", this.scrollHandler);
@@ -50,7 +55,7 @@ export class HorizontalScroll {
       Array.from(this.itemsContainerEl.children)) as HTMLElement[];
     this.items.forEach((item) => {
       if (item.addEventListener) {
-        item.addEventListener("focus", this.focusHandler);
+        item.addEventListener(this.focusTrigger, this.focusHandler);
       }
     });
   }
@@ -93,7 +98,7 @@ export class HorizontalScroll {
 
     this.items.forEach((item) => {
       if (item.removeEventListener) {
-        item.removeEventListener("focus", this.focusHandler);
+        item.removeEventListener(this.focusTrigger, this.focusHandler);
       }
     });
 
