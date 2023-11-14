@@ -385,3 +385,22 @@ exports[`ic-badge should render with text slotted in a button: should render wit
   </ic-badge>
 </ic-button>
 `;
+
+exports[`ic-badge should render with visible false: should render with visible false 1`] = `
+<ic-button class="button-size-default button-variant-primary with-badge" exportparts="button">
+  <mock:shadow-root>
+    <slot name="badge"></slot>
+    <button class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+  <ic-badge class="default far foreground-light hide neutral text" id="badge" slot="badge" text-label="1" visible="false">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-button>
+`;

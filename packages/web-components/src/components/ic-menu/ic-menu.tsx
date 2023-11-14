@@ -16,6 +16,7 @@ import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 import {
   IcActivationTypes,
   IcMenuOption,
+  IcSizesNoLarge,
   IcValueEventDetail,
 } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
@@ -47,7 +48,7 @@ export class Menu {
   private preventClickOpen: boolean = false;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() host: HTMLIcMenuElement;
+  @Element() el: HTMLIcMenuElement;
 
   @State() focusFromSearchKeypress: boolean = false;
   @State() initialOptionsListRender: boolean = false;
@@ -111,9 +112,14 @@ export class Menu {
   @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
 
   /**
-   * If `true`, the small styling will be applied to the menu.
+   * The size of the menu component.
    */
-  @Prop({ reflect: true }) small?: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * The possible menu selection options.
@@ -260,7 +266,7 @@ export class Menu {
         !this.focusFromSearchKeypress &&
         !this.preventIncorrectTabOrder
       ) {
-        const highlightedEl = this.host.querySelector(
+        const highlightedEl = this.el.querySelector(
           `li[data-value="${this.optionHighlighted}"]`
         ) as HTMLElement;
 
@@ -280,26 +286,26 @@ export class Menu {
 
       const onDialog = dialogEl !== null;
       if (onDialog) {
-        this.host.classList.add("on-dialog");
+        this.el.classList.add("on-dialog");
         if (dialogEl.getAttribute("data-overflow") === "false") {
-          const menuTop = this.host.getBoundingClientRect().top;
-          const menuHeight = this.host.getBoundingClientRect().height;
+          const menuTop = this.el.getBoundingClientRect().top;
+          const menuHeight = this.el.getBoundingClientRect().height;
           const dialogHeight = dialogEl.getBoundingClientRect().bottom;
           if (menuTop + menuHeight > dialogHeight) {
             adjust = true;
           }
         }
         if (adjust === false) {
-          this.host.classList.add("on-dialog-fix-translate");
+          this.el.classList.add("on-dialog-fix-translate");
         }
       }
 
       if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "top",
         });
       } else {
-        this.popperInstance = createPopper(this.anchorEl, this.host, {
+        this.popperInstance = createPopper(this.anchorEl, this.el, {
           placement: "bottom",
           modifiers: [
             {
@@ -489,7 +495,7 @@ export class Menu {
     );
 
     const getOptionId = (index: number): string =>
-      Array.from(this.host.querySelectorAll("li"))[index]?.id;
+      Array.from(this.el.querySelectorAll("li"))[index]?.id;
 
     switch (event.key) {
       case "ArrowDown":
@@ -811,7 +817,7 @@ export class Menu {
 
   private setMenuScrollbar = () => {
     let optionsHeight = 0;
-    this.host
+    this.el
       .querySelectorAll(".option")
       .forEach((option) => (optionsHeight += option.clientHeight));
 
@@ -965,6 +971,7 @@ export class Menu {
       hasTimedOut,
       isLoading,
       small,
+      size,
       open,
       inputEl,
       keyboardNav,
@@ -975,7 +982,7 @@ export class Menu {
         class={{
           "full-width": fullWidth,
           "no-focus": inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
-          small: small,
+          small: small || size === "small",
           open: open,
         }}
       >

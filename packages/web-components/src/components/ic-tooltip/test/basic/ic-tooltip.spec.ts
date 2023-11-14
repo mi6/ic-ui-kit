@@ -1,6 +1,7 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { Tooltip } from "../../ic-tooltip";
+import { Typography } from "../../../ic-typography/ic-typography";
 
 beforeAll(() => {
   jest.spyOn(console, "error").mockImplementation(jest.fn());
@@ -374,5 +375,19 @@ describe("ic-tooltip component", () => {
       expect(page.root).toMatchSnapshot();
       expect(page.root.placement).toBe("right");
     });
+  });
+
+  it("should truncate text and pass the maxLines value to ic-typography if maxLines prop has been set", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip, Typography],
+      html: `<ic-tooltip target="test-button" label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the max-lines property. The number of lines in the text is clamped to the number passed through the max-lines property." max-lines="2"><button id="test-button">Click</button></ic-tooltip>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    const typographyEl = page.root.shadowRoot.querySelector(
+      "div > ic-typography"
+    ) as HTMLIcTypographyElement;
+    expect(typographyEl.maxLines).toEqual(2);
   });
 });

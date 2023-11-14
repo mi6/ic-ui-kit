@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   Method,
+  Watch,
 } from "@stencil/core";
 import {
   getInputDescribedByText,
@@ -18,6 +19,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcSwitchChangeEventDetail } from "./ic-switch.types";
+import { IcSizesNoLarge } from "../../utils/types";
 
 let inputIds = 0;
 
@@ -43,6 +45,11 @@ export class Switch {
    * If `true`, the switch will display as checked.
    */
   @Prop() checked?: boolean = false;
+
+  @Watch("checked")
+  checkedChangeHandler(): void {
+    this.checkedState = this.checked;
+  }
 
   /**
    * If `true`, the disabled state will be set.
@@ -75,7 +82,12 @@ export class Switch {
   @Prop() showState?: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the switch.
+   * The size of the switch component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -155,6 +167,7 @@ export class Switch {
       label,
       checkedState,
       small,
+      size,
       disabled,
       name,
       showState,
@@ -178,7 +191,7 @@ export class Switch {
           class={{
             ["ic-switch-container"]: true,
             ["ic-switch-disabled"]: disabled,
-            ["ic-switch-small"]: small,
+            ["ic-switch-small"]: small || size === "small",
           }}
           htmlFor={inputId}
         >
@@ -191,7 +204,7 @@ export class Switch {
               disabled={disabled}
               class={{
                 ["ic-switch-label"]: true,
-                ["ic-switch-label-small"]: small,
+                ["ic-switch-label-small"]: small || size === "small",
               }}
             ></ic-input-label>
           )}
@@ -222,9 +235,9 @@ export class Switch {
               <line
                 class="ic-switch-icon-line"
                 x1="9"
-                y1={small ? "2" : "1"}
+                y1={small || size === "small" ? "2" : "1"}
                 x2="9"
-                y2={small ? "8" : "9"}
+                y2={small || size === "small" ? "8" : "9"}
               />
             </svg>
             <svg
@@ -239,7 +252,7 @@ export class Switch {
                 fill="none"
                 cx="5"
                 cy="5"
-                r={small ? "3.335" : "4.445"}
+                r={small || size === "small" ? "3.335" : "4.445"}
               />
             </svg>
           </span>

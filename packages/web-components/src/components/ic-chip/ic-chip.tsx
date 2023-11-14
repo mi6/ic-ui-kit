@@ -15,7 +15,7 @@ import {
   removeDisabledFalse,
 } from "../../utils/helpers";
 import { IcChipAppearance } from "./ic-chip.types";
-import { IcSizes } from "../../utils/types";
+import { IcEmphasisType, IcSizes } from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
@@ -36,9 +36,9 @@ export class Chip {
   @State() visible: boolean = true;
 
   /**
-   * The emphasis of the chip.
+   * @deprecated This prop should not be used anymore. Use variant prop instead.
    */
-  @Prop() appearance?: IcChipAppearance = "filled";
+  @Prop() appearance?: IcChipAppearance;
 
   /**
    * If `true`, the chip will appear disabled.
@@ -61,6 +61,11 @@ export class Chip {
   @Prop() size?: IcSizes = "default";
 
   /**
+   * The emphasis of the chip.
+   */
+  @Prop() variant?: IcEmphasisType = "filled";
+
+  /**
    * @deprecated This event should not be used anymore. Use icDismiss instead.
    */
   @Event() dismiss: EventEmitter<void>;
@@ -72,6 +77,10 @@ export class Chip {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
+
+    if (this.appearance === "outline") {
+      this.variant = "outlined";
+    }
   }
 
   componentDidLoad(): void {
@@ -117,6 +126,7 @@ export class Chip {
     const {
       label,
       appearance,
+      variant,
       size,
       dismissible,
       visible,
@@ -129,7 +139,8 @@ export class Chip {
         <div
           class={{
             ["chip"]: true,
-            [`${appearance}`]: true,
+            [`${appearance}`]: appearance !== undefined,
+            [`${variant}`]: true,
             [`${size}`]: true,
             ["disabled"]: disabled,
             ["dismissible"]: dismissible,

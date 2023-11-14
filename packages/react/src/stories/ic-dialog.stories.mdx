@@ -12,6 +12,7 @@ import {
   IcDialog,
   IcTextField,
   IcSelect,
+  IcAlert,
 } from "../components";
 import { useRef } from "react";
 import readme from "../../../web-components/src/components/ic-dialog/readme.md";
@@ -36,17 +37,17 @@ export const options = [
 
 export const showSmallDialog = () => {
   const dialog = document.querySelector("#small-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showMediumDialog = () => {
   const dialog = document.querySelector("#medium-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showLargeDialog = () => {
   const dialog = document.querySelector("#large-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 <Canvas>
@@ -95,27 +96,27 @@ export const showLargeDialog = () => {
 
 export const showNeutralDialog = () => {
   const dialog = document.querySelector("#neutral-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showInfoDialog = () => {
   const dialog = document.querySelector("#info-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showWarningDialog = () => {
   const dialog = document.querySelector("#warning-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showErrorDialog = () => {
   const dialog = document.querySelector("#error-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showSuccessDialog = () => {
   const dialog = document.querySelector("#success-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 <Canvas>
@@ -207,27 +208,27 @@ export const showSuccessDialog = () => {
 
 export const showPlainDialog = () => {
   const dialog = document.querySelector("#plain-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showSingleDialog = () => {
   const dialog = document.querySelector("#single-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showDoubleDialog = () => {
   const dialog = document.querySelector("#double-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showTripleDialog = () => {
   const dialog = document.querySelector("#triple-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const showDestructiveDialog = () => {
   const dialog = document.querySelector("#destructive-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 <Canvas>
@@ -313,12 +314,12 @@ export const showDestructiveDialog = () => {
 
 export const showDialog = () => {
   const dialog = document.querySelector("ic-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 export const hideDialog = () => {
   const dialog = document.querySelector("ic-dialog");
-  dialog.hideDialog();
+  dialog.open = false;
 };
 
 export const confirm = () => {
@@ -335,6 +336,12 @@ export const confirm = () => {
       heading="This dialog has slotted interactive content"
       label="slotted"
     >
+      <IcAlert
+        variant="info"
+        heading="Info"
+        message="This alert is for displaying information"
+        slot="alert"
+      />
       <IcTypography>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
@@ -368,7 +375,7 @@ export const confirm = () => {
 
 export const showClosePreventedDialog = () => {
   const dialog = document.querySelector("ic-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 <Canvas>
@@ -393,7 +400,7 @@ export const showClosePreventedDialog = () => {
 
 export const showScrollableDialog = () => {
   const dialog = document.querySelector("ic-dialog");
-  dialog.showDialog();
+  dialog.open = true;
 };
 
 <Canvas>

@@ -130,10 +130,30 @@ export const ControlledReset = () => {
   </Story>
 </Canvas>
 
-### Small
+### Size small
 
 <Canvas>
-  <Story name="Small" parameters={{ layout: "fullscreen" }}>
+  <Story name="Size small" parameters={{ layout: "fullscreen" }}>
+    <IcHero
+      heading="Hero heading"
+      subheading="Hero description. This is a Hero component, it should be used as a page heading."
+      size="small"
+      aligned="center"
+    >
+      <IcButton variant="primary" slot="interaction">
+        Button
+      </IcButton>
+      <IcButton variant="secondary" slot="interaction">
+        Button
+      </IcButton>
+    </IcHero>
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small" parameters={{ layout: "fullscreen" }}>
     <IcHero
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."

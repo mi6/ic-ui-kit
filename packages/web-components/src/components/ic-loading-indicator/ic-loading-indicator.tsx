@@ -8,6 +8,7 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-loading-indicator",
@@ -21,7 +22,7 @@ export class LoadingIndicator {
   private labelList: string[];
   private outerElement?: HTMLDivElement;
 
-  @Element() host: HTMLIcLoadingIndicatorElement;
+  @Element() el: HTMLIcLoadingIndicatorElement;
 
   @State() circularDiameter: number;
   @State() circularLineWidth: number;
@@ -112,7 +113,7 @@ export class LoadingIndicator {
   componentDidLoad(): void {
     if (this.type === "circular") {
       this.setCircleLineWidth();
-      this.circularMeter = this.host.shadowRoot.querySelector(
+      this.circularMeter = this.el.shadowRoot.querySelector(
         ".ic-loading-circular-svg circle:nth-child(2)"
       );
       this.updateCircularProgressMeter();
@@ -176,12 +177,12 @@ export class LoadingIndicator {
   private setCircleLineWidth = () => {
     const { offsetWidth: width } = this.outerElement;
 
-    const compactStepCircularLineWidth = this.host.classList.contains(
+    const compactStepCircularLineWidth = this.el.classList.contains(
       "compact-step-progress-indicator"
     )
       ? 40
       : 0;
-    const toastDismissTimerCircularLineWidth = this.host.classList.contains(
+    const toastDismissTimerCircularLineWidth = this.el.classList.contains(
       "toast-dismiss-timer"
     )
       ? 20
@@ -232,7 +233,7 @@ export class LoadingIndicator {
   };
 
   private updateLabel = (): void => {
-    if (this.label !== undefined) {
+    if (isPropDefined(this.label)) {
       this.labelList = this.label.split("/");
       const labelIndex = 0;
       this.indicatorLabel = this.labelList[labelIndex];

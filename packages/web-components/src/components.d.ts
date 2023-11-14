@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+import { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 import { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 import { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 import { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -30,7 +30,7 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
-export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
+export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
 export { IcChangeEventDetail } from "./components/ic-checkbox-group/ic-checkbox-group.types";
@@ -147,7 +147,7 @@ export namespace Components {
          */
         "customColor"?: IcColor;
         /**
-          * Use to hide the badge.
+          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
          */
         "hideBadge": () => Promise<void>;
         /**
@@ -159,7 +159,7 @@ export namespace Components {
          */
         "position"?: IcBadgePositions;
         /**
-          * Use to show the badge.
+          * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
          */
         "showBadge": () => Promise<void>;
         /**
@@ -178,6 +178,10 @@ export namespace Components {
           * The variant of the badge to be displayed.
          */
         "variant"?: IcBadgeVariants;
+        /**
+          * If `true`, the badge will be displayed.
+         */
+        "visible": boolean;
     }
     interface IcBreadcrumb {
         /**
@@ -472,7 +476,7 @@ export namespace Components {
     }
     interface IcChip {
         /**
-          * The emphasis of the chip.
+          * @deprecated This prop should not be used anymore. Use variant prop instead.
          */
         "appearance"?: IcChipAppearance;
         /**
@@ -495,6 +499,10 @@ export namespace Components {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant"?: IcEmphasisType;
     }
     interface IcClassificationBanner {
         /**
@@ -524,9 +532,13 @@ export namespace Components {
          */
         "heading": string;
         /**
-          * If `true`, the small styling will be applied to the data heading and all child data rows.
+          * The size of the data entity component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
     }
     interface IcDataRow {
         /**
@@ -534,9 +546,13 @@ export namespace Components {
          */
         "label": string;
         /**
-          * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
+          * The size of the data row component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
         /**
           * The value of the middle (right if no end-component supplied) cell of the row.
          */
@@ -544,11 +560,11 @@ export namespace Components {
     }
     interface IcDialog {
         /**
-          * If a status is set, sets the heading for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
          */
         "alertHeading"?: string;
         /**
-          * If a status is set, sets the message for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
          */
         "alertMessage"?: string;
         /**
@@ -588,7 +604,7 @@ export namespace Components {
          */
         "hideCloseButton"?: boolean;
         /**
-          * Use to hide the dialog.
+          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
          */
         "hideDialog": () => Promise<void>;
         /**
@@ -596,7 +612,11 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * Use to show the dialog.
+          * If `true`, the dialog will be displayed.
+         */
+        "open": boolean;
+        /**
+          * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
          */
         "showDialog": () => Promise<void>;
         /**
@@ -604,7 +624,7 @@ export namespace Components {
          */
         "size"?: "small" | "medium" | "large";
         /**
-          * If set, displays an alert of the corresponding variant below the heading.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
@@ -626,7 +646,7 @@ export namespace Components {
         /**
           * The title rendered in the empty state container.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The size of the image or icon used in the image slot.
          */
@@ -724,9 +744,13 @@ export namespace Components {
          */
         "secondarySubheading"?: string;
         /**
-          * If `true`, the small styling will be applied to the hero.
+          * The size of the hero component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
         /**
           * The description for the hero.
          */
@@ -741,7 +765,11 @@ export namespace Components {
     }
     interface IcInputComponentContainer {
         /**
-          * If `true`, the dark variant of the input component container will be displayed.
+          * The appearance of the input component container.
+         */
+        "appearance"?: "dark" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
          */
         "dark"?: boolean;
         /**
@@ -761,9 +789,13 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
-          * If `true`, the small styling will be applied to the input component container.
+          * The size of the input component container component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
         /**
           * If `true`, the validation will display inline.
          */
@@ -785,7 +817,11 @@ export namespace Components {
     }
     interface IcInputLabel {
         /**
-          * If `true`, the dark variant of the input label will be displayed.
+          * The appearance of the input label.
+         */
+        "appearance"?: "dark" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
          */
         "dark"?: boolean;
         /**
@@ -971,7 +1007,11 @@ export namespace Components {
          */
         "searchMode"?: IcSearchBarSearchModes;
         /**
-          * If `true`, the small styling will be applied to the menu.
+          * The size of the menu component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -1152,7 +1192,11 @@ export namespace Components {
          */
         "reverseOrder"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the page header.
+          * The size of the page header component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -1301,9 +1345,13 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * If `true`, the small styling will be applied to the radio group.
+          * The size of the radio group component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'.
          */
@@ -1481,7 +1529,11 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If `true`, the small styling will be applied to the search bar.
+          * The size of the search bar component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -1629,7 +1681,11 @@ export namespace Components {
          */
         "showClearButton"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the select.
+          * The size of the select component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -1694,7 +1750,11 @@ export namespace Components {
     }
     interface IcSkeleton {
         /**
-          * If `true`, the skeleton will be set to the light variant.
+          * The appearance of the skeleton.
+         */
+        "appearance"?: "light" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
          */
         "light"?: boolean;
         /**
@@ -1708,7 +1768,7 @@ export namespace Components {
          */
         "announced"?: boolean;
         /**
-          * The emphasis of the status tag.
+          * @deprecated This prop should not be used anymore. Use variant prop instead.
          */
         "appearance"?: IcStatusTagAppearance;
         /**
@@ -1716,13 +1776,21 @@ export namespace Components {
          */
         "label": string;
         /**
-          * If `true`, the small styling will be applied to the status tag.
+          * The size of the status tag component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
           * The colour of the status tag.
          */
         "status"?: IcStatusTagStatuses;
+        /**
+          * The emphasis of the status tag.
+         */
+        "variant"?: IcEmphasisType;
     }
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
@@ -1802,7 +1870,11 @@ export namespace Components {
          */
         "showState"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the switch.
+          * The size of the switch component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -1965,9 +2037,13 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * If `true`, the small styling will be applied to the text field.
+          * The size of the text field component.
          */
-        "small": boolean;
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+         */
+        "small"?: boolean;
         /**
           * If `true`, the value of the text field will have its spelling and grammar checked.
          */
@@ -2058,6 +2134,10 @@ export namespace Components {
           * The text to display on the tooltip.
          */
         "label": string;
+        /**
+          * The number of lines to display before truncating the text.
+         */
+        "maxLines"?: number;
         /**
           * The position of the tool-tip in relation to the parent element.
          */
@@ -2790,6 +2870,10 @@ declare namespace LocalJSX {
           * The variant of the badge to be displayed.
          */
         "variant"?: IcBadgeVariants;
+        /**
+          * If `true`, the badge will be displayed.
+         */
+        "visible"?: boolean;
     }
     interface IcBreadcrumb {
         /**
@@ -3088,7 +3172,7 @@ declare namespace LocalJSX {
     }
     interface IcChip {
         /**
-          * The emphasis of the chip.
+          * @deprecated This prop should not be used anymore. Use variant prop instead.
          */
         "appearance"?: IcChipAppearance;
         /**
@@ -3115,6 +3199,10 @@ declare namespace LocalJSX {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * The emphasis of the chip.
+         */
+        "variant"?: IcEmphasisType;
     }
     interface IcClassificationBanner {
         /**
@@ -3144,7 +3232,11 @@ declare namespace LocalJSX {
          */
         "heading"?: string;
         /**
-          * If `true`, the small styling will be applied to the data heading and all child data rows.
+          * The size of the data entity component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
     }
@@ -3154,7 +3246,11 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.
+          * The size of the data row component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -3164,11 +3260,11 @@ declare namespace LocalJSX {
     }
     interface IcDialog {
         /**
-          * If a status is set, sets the heading for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
          */
         "alertHeading"?: string;
         /**
-          * If a status is set, sets the message for the displayed alert.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
          */
         "alertMessage"?: string;
         /**
@@ -3220,11 +3316,15 @@ declare namespace LocalJSX {
          */
         "onIcDialogOpened"?: (event: IcDialogCustomEvent<void>) => void;
         /**
+          * If `true`, the dialog will be displayed.
+         */
+        "open"?: boolean;
+        /**
           * Sets the maximum and minimum height and width for the dialog.
          */
         "size"?: "small" | "medium" | "large";
         /**
-          * If set, displays an alert of the corresponding variant below the heading.
+          * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
          */
         "status"?: "neutral" | "info" | "warning" | "error" | "success";
     }
@@ -3246,7 +3346,7 @@ declare namespace LocalJSX {
         /**
           * The title rendered in the empty state container.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The size of the image or icon used in the image slot.
          */
@@ -3345,7 +3445,11 @@ declare namespace LocalJSX {
          */
         "secondarySubheading"?: string;
         /**
-          * If `true`, the small styling will be applied to the hero.
+          * The size of the hero component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -3361,7 +3465,11 @@ declare namespace LocalJSX {
     }
     interface IcInputComponentContainer {
         /**
-          * If `true`, the dark variant of the input component container will be displayed.
+          * The appearance of the input component container.
+         */
+        "appearance"?: "dark" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
          */
         "dark"?: boolean;
         /**
@@ -3381,7 +3489,11 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the input component container.
+          * The size of the input component container component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -3405,7 +3517,11 @@ declare namespace LocalJSX {
     }
     interface IcInputLabel {
         /**
-          * If `true`, the dark variant of the input label will be displayed.
+          * The appearance of the input label.
+         */
+        "appearance"?: "dark" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
          */
         "dark"?: boolean;
         /**
@@ -3588,7 +3704,11 @@ declare namespace LocalJSX {
          */
         "searchMode"?: IcSearchBarSearchModes;
         /**
-          * If `true`, the small styling will be applied to the menu.
+          * The size of the menu component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -3766,7 +3886,11 @@ declare namespace LocalJSX {
          */
         "reverseOrder"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the page header.
+          * The size of the page header component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -3918,7 +4042,11 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the radio group.
+          * The size of the radio group component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -4148,7 +4276,11 @@ declare namespace LocalJSX {
          */
         "searchMode"?: IcSearchBarSearchModes;
         /**
-          * If `true`, the small styling will be applied to the search bar.
+          * The size of the search bar component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -4320,7 +4452,11 @@ declare namespace LocalJSX {
          */
         "showClearButton"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the select.
+          * The size of the select component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -4385,7 +4521,11 @@ declare namespace LocalJSX {
     }
     interface IcSkeleton {
         /**
-          * If `true`, the skeleton will be set to the light variant.
+          * The appearance of the skeleton.
+         */
+        "appearance"?: "light" | "default";
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `appearance` to "light" instead.
          */
         "light"?: boolean;
         /**
@@ -4399,7 +4539,7 @@ declare namespace LocalJSX {
          */
         "announced"?: boolean;
         /**
-          * The emphasis of the status tag.
+          * @deprecated This prop should not be used anymore. Use variant prop instead.
          */
         "appearance"?: IcStatusTagAppearance;
         /**
@@ -4407,13 +4547,21 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * If `true`, the small styling will be applied to the status tag.
+          * The size of the status tag component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
           * The colour of the status tag.
          */
         "status"?: IcStatusTagStatuses;
+        /**
+          * The emphasis of the status tag.
+         */
+        "variant"?: IcEmphasisType;
     }
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
@@ -4501,7 +4649,11 @@ declare namespace LocalJSX {
          */
         "showState"?: boolean;
         /**
-          * If `true`, the small styling will be applied to the switch.
+          * The size of the switch component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -4691,7 +4843,11 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         /**
-          * If `true`, the small styling will be applied to the text field.
+          * The size of the text field component.
+         */
+        "size"?: IcSizesNoLarge;
+        /**
+          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -4773,6 +4929,10 @@ declare namespace LocalJSX {
           * The text to display on the tooltip.
          */
         "label": string;
+        /**
+          * The number of lines to display before truncating the text.
+         */
+        "maxLines"?: number;
         /**
           * The position of the tool-tip in relation to the parent element.
          */

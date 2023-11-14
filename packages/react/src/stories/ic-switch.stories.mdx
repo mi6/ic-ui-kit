@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Meta,
   Story,
@@ -5,7 +6,7 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcSwitch } from "../components";
+import { IcSwitch, IcButton } from "../components";
 import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Meta title="React Components/Switch" component={IcSwitch} />
@@ -44,10 +45,47 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
   </Story>
 </Canvas>
 
-### Small
+### Checked updated
+
+export const Controlled = () => {
+  const [checked, setChecked] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setChecked(false);
+  };
+  const differentButtonClickHandler = () => {
+    setChecked(true);
+  };
+  return (
+    <>
+      <IcSwitch checked={checked} label="Label" />
+      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
+        Unchecked
+      </IcButton>
+      <IcButton variant="primary" onClick={differentButtonClickHandler}>
+        Checked
+      </IcButton>
+    </>
+  );
+};
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Checked updated">
+    <Controlled />
+  </Story>
+</Canvas>
+
+### Size small
+
+<Canvas>
+  <Story name="Size small">
+    <IcSwitch size="small" showState label="Label" />
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
     <IcSwitch small showState label="Label" />
   </Story>
 </Canvas>

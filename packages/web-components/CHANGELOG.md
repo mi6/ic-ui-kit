@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/mi6/ic-ui-kit/compare/v2.5.1...v2.6.0) (2023-11-07)
+
+### Bug Fixes
+
+- **web-components:** adds button pressed styling ([fa8c877](https://github.com/mi6/ic-ui-kit/commit/fa8c877524dcce1246d49a366bf3cff18b5b02ba))
+- **web-components:** fixes aria label not updating on button ([95e257d](https://github.com/mi6/ic-ui-kit/commit/95e257dc55c53fc0ee2aa074e5b5bfaf91ffcbf9))
+- **web-components:** fixes console errors ([d93e76f](https://github.com/mi6/ic-ui-kit/commit/d93e76f366a5e19aede724dd1c38fc69524c23ba))
+- **web-components:** fixes lint errors ([7195d25](https://github.com/mi6/ic-ui-kit/commit/7195d2508dc0837f46f53549562eade201e4b44f))
+- **web-components:** fixes readme & lint error ([4655d72](https://github.com/mi6/ic-ui-kit/commit/4655d723b77b6c40fbc81fee1ca6f875b072e53c))
+- **web-components:** improve ic-tooltip and ic-button for screenreaders ([abe6e75](https://github.com/mi6/ic-ui-kit/commit/abe6e7516c88108bb01982585bacb972635be659))
+- **web-components:** prevents disabled search options being selected ([f36e259](https://github.com/mi6/ic-ui-kit/commit/f36e25921e0f5e9125eda7217c1a6df8c2a0f528))
+- **web-components:** split out isPropDefined into a helper function ([1b2d3e5](https://github.com/mi6/ic-ui-kit/commit/1b2d3e5aaf556e115ee4bed796d5cdba2b1f7991)), closes [#1129](https://github.com/mi6/ic-ui-kit/issues/1129)
+
+### Features
+
+- **web-components:** add badge slot to card, navigation item, and navigation button ([d10888a](https://github.com/mi6/ic-ui-kit/commit/d10888a86aec6a4f25150ecc1ad22edce66b6b72)), closes [#1167](https://github.com/mi6/ic-ui-kit/issues/1167)
+- **web-components:** add maxLines prop to ic-tooltip so tooltip label can be truncated ([c753da2](https://github.com/mi6/ic-ui-kit/commit/c753da2299cf09489507b7930ffdc32a71c37b1d)), closes [#1225](https://github.com/mi6/ic-ui-kit/issues/1225)
+- **web-components:** add prop to side navigation to disable top bar behaviour ([c9b91cf](https://github.com/mi6/ic-ui-kit/commit/c9b91cf8ee2e4235ff382e7adea7acabfeb73b79)), closes [#892](https://github.com/mi6/ic-ui-kit/issues/892)
+- **web-components:** add slots to empty state and better slot docs for other components ([2bf2d09](https://github.com/mi6/ic-ui-kit/commit/2bf2d0981bfb3980ce65947efcedbe1ef53c031f)), closes [#1129](https://github.com/mi6/ic-ui-kit/issues/1129)
+- **web-components:** adds form and related props to select, radio and checkbox ([9ce7e69](https://github.com/mi6/ic-ui-kit/commit/9ce7e69aae158653eeccf0d8582b92ccccab9100))
+- **web-components:** deprecate appearance and small prop for components ([6e0627c](https://github.com/mi6/ic-ui-kit/commit/6e0627c60d9f6edcf591fdddd687641984e17d06)), closes [#1129](https://github.com/mi6/ic-ui-kit/issues/1129)
+- **web-components:** update badge and dialog to use prop to open ([a65eb07](https://github.com/mi6/ic-ui-kit/commit/a65eb079474f951ebec00254abfb6f80b7160b01)), closes [#1129](https://github.com/mi6/ic-ui-kit/issues/1129)
+
 # [2.5.0](https://github.com/mi6/ic-ui-kit/compare/v2.4.1...v2.5.0) (2023-10-10)
 
 ### Bug Fixes

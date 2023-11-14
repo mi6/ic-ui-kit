@@ -62,11 +62,17 @@ export class BreadcrumbGroup {
   }
 
   disconnectedCallback(): void {
-    this.breadcrumb.removeEventListener(
-      "transitionend",
-      this.transitionendHandler
-    );
-    this.collapsedBreadcrumbEl.removeEventListener("click", this.clickHandler);
+    this.breadcrumb &&
+      this.breadcrumb.removeEventListener(
+        "transitionend",
+        this.transitionendHandler
+      );
+
+    this.collapsedBreadcrumbEl &&
+      this.collapsedBreadcrumbEl.removeEventListener(
+        "click",
+        this.clickHandler
+      );
   }
 
   private setBackBreadcrumb = () => {

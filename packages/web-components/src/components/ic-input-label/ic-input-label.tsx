@@ -11,7 +11,12 @@ import {
 })
 export class InputLabel {
   /**
-   * If `true`, the dark variant of the input label will be displayed.
+   * The appearance of the input label.
+   */
+  @Prop() appearance?: "dark" | "default" = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
    */
   @Prop() dark?: boolean = false;
 
@@ -58,8 +63,16 @@ export class InputLabel {
   }
 
   render() {
-    const { disabled, readonly, label, required, helperText, error, dark } =
-      this;
+    const {
+      disabled,
+      readonly,
+      label,
+      required,
+      helperText,
+      error,
+      dark,
+      appearance,
+    } = this;
     const labelText = required ? label + " *" : label;
     const labelContent = readonly ? (
       `${labelText}`
@@ -82,7 +95,7 @@ export class InputLabel {
           class={{
             ["readonly-label"]: readonly,
             ["error-label"]: error && !(readonly || disabled),
-            ["dark"]: dark,
+            ["dark"]: dark || appearance === "dark",
           }}
         >
           {labelContent}

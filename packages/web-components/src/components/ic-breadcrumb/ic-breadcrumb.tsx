@@ -3,7 +3,7 @@ import { IcBreadcrumbDefault } from "./ic-breadcrumb.types";
 
 import chevronIcon from "../../assets/chevron-icon.svg";
 import backIcon from "../../assets/back-icon.svg";
-import { isSlotUsed } from "../../utils/helpers";
+import { isPropDefined, isSlotUsed } from "../../utils/helpers";
 
 /**
  * @slot icon - Content will be rendered to the left of the breadcrumb page title.
@@ -59,7 +59,7 @@ export class Breadcrumb {
     href: string
   ): IcBreadcrumbDefault => {
     const hasPageTitle =
-      pageTitle !== null && pageTitle !== undefined && pageTitle !== "";
+      pageTitle !== null && isPropDefined(pageTitle) && pageTitle !== "";
 
     if (current && hasPageTitle) {
       return (
@@ -110,8 +110,8 @@ export class Breadcrumb {
     }-describedby`;
 
     const hasPageTitle =
-      pageTitle !== null && pageTitle !== undefined && pageTitle !== "";
-    const hasHref = href !== null && href !== undefined && href !== "";
+      pageTitle !== null && isPropDefined(pageTitle) && pageTitle !== "";
+    const hasHref = href !== null && isPropDefined(href) && href !== "";
 
     return (
       <Host

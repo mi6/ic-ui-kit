@@ -7,10 +7,18 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                                               | Type      | Default     |
-| --------- | --------- | ----------------------------------------------------------------------------------------- | --------- | ----------- |
-| `heading` | `heading` | The title for the data entity.                                                            | `string`  | `undefined` |
-| `small`   | `small`   | If `true`, the small styling will be applied to the data heading and all child data rows. | `boolean` | `false`     |
+| Property  | Attribute | Description                                                                                                                         | Type                   | Default     |
+| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `heading` | `heading` | The title for the data entity.                                                                                                      | `string`               | `undefined` |
+| `size`    | `size`    | The size of the data entity component.                                                                                              | `"default" \| "small"` | `"default"` |
+| `small`   | `small`   | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/> | `boolean`              | `false`     |
+
+
+## Slots
+
+| Slot        | Description                                           |
+| ----------- | ----------------------------------------------------- |
+| `"heading"` | Content will be placed at the top of the data entity. |
 
 
 ## Dependencies

@@ -18,7 +18,12 @@ import {
   addFormResetListener,
   removeFormResetListener,
   removeDisabledFalse,
+  isPropDefined,
 } from "../../utils/helpers";
+
+/**
+ * @slot additional-field - Content to displayed alongside a radio option.
+ */
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",
@@ -32,7 +37,7 @@ export class RadioOption {
   private radioElement: HTMLInputElement;
   private skipFocus = false;
 
-  @Element() host: HTMLIcRadioOptionElement;
+  @Element() el: HTMLIcRadioOptionElement;
 
   /**
    * The style of additionalField that will be displayed if used.
@@ -127,15 +132,15 @@ export class RadioOption {
   @Event() icSelectedChange: EventEmitter<void>;
 
   disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
+    removeFormResetListener(this.el, this.handleFormReset);
   }
 
   componentWillLoad(): void {
-    const additonalFieldContent = getSlotContent(this.host, "additional-field");
+    const additionalFieldContent = getSlotContent(this.el, "additional-field");
 
-    if (additonalFieldContent !== null) {
+    if (additionalFieldContent !== null) {
       this.hasAdditionalField = true;
-      const Element = additonalFieldContent[0] as HTMLElement;
+      const Element = additionalFieldContent[0] as HTMLElement;
       if (Element.tagName === "IC-TEXT-FIELD") {
         const textField = Element as HTMLIcTextFieldElement;
         textField.hiddenInput = false;
@@ -144,9 +149,9 @@ export class RadioOption {
 
     this.defaultRadioValue = this.value;
 
-    addFormResetListener(this.host, this.handleFormReset);
+    addFormResetListener(this.el, this.handleFormReset);
 
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
@@ -158,7 +163,7 @@ export class RadioOption {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.host.querySelector("ic-text-field");
+      const textfield = this.el.querySelector("ic-text-field");
       if (!this.selected) {
         textfield && textfield.setAttribute("disabled", "");
       } else {
@@ -199,8 +204,8 @@ export class RadioOption {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.host.shadowRoot.querySelector("input")) {
-      this.host.shadowRoot.querySelector("input").focus();
+    if (this.el.shadowRoot.querySelector("input")) {
+      this.el.shadowRoot.querySelector("input").focus();
     }
   }
 
@@ -212,7 +217,7 @@ export class RadioOption {
       this.skipFocus = false;
 
       if (this.hasAdditionalField) {
-        const textfield = this.host.querySelector("ic-text-field");
+        const textfield = this.el.querySelector("ic-text-field");
         this.value =
           textfield.value !== "" ? textfield.value : this.defaultRadioValue;
       }
@@ -238,7 +243,7 @@ export class RadioOption {
 
   render() {
     const id = `ic-radio-option-${
-      this.label !== undefined ? this.label : this.value
+      isPropDefined(this.label) ? this.label : this.value
     }-${this.groupLabel}`;
 
     return (

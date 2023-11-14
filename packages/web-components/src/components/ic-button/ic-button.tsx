@@ -238,8 +238,10 @@ export class Button {
         const el = this.el.parentElement.querySelector(
           `#${describedById}`
         ) as HTMLElement;
-        this.describedByContent = el.innerText;
-        this.describedByEl = el;
+        if (el !== undefined && el !== null) {
+          this.describedByContent = el.innerText;
+          this.describedByEl = el;
+        }
       }
     }
   }
@@ -247,12 +249,21 @@ export class Button {
   componentDidLoad(): void {
     this.updateTheme();
 
-    if (this.describedById) {
-      this.mutationObserver = new MutationObserver(this.mutationCallback);
-      this.mutationObserver.observe(this.describedByEl, {
-        characterData: true,
-        childList: true,
-        subtree: true,
+    if (typeof MutationObserver !== "undefined") {
+      if (this.describedById) {
+        this.mutationObserver = new MutationObserver(this.mutationCallback);
+        this.mutationObserver.observe(this.describedByEl, {
+          characterData: true,
+          childList: true,
+          subtree: true,
+        });
+      }
+
+      this.hostMutationObserver = new MutationObserver(
+        this.hostMutationCallback
+      );
+      this.hostMutationObserver.observe(this.el, {
+        attributes: true,
       });
     }
 

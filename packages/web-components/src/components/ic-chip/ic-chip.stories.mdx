@@ -65,6 +65,55 @@ import readme from "./readme.md";
 
 <Canvas>
   <Story name="Outline">
+    {html`<ic-chip label="Small" size="small" variant="outlined">
+        <svg
+          slot="icon"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+          />
+        </svg>
+      </ic-chip>
+      <ic-chip label="Default" variant="outlined">
+        <svg
+          slot="icon"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+          />
+        </svg>
+      </ic-chip>
+      <ic-chip label="Large" size="large" variant="outlined">
+        <svg
+          slot="icon"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"
+          />
+        </svg>
+      </ic-chip>`}
+  </Story>
+</Canvas>
+
+## Deprecated - appearance
+
+<Canvas>
+  <Story name="Deprecated - appearance">
     {html`<ic-chip label="Small" size="small" appearance="outline">
         <svg
           slot="icon"
@@ -156,12 +205,7 @@ import readme from "./readme.md";
           />
         </svg>
       </ic-chip>
-      <ic-chip
-        label="Small"
-        dismissible="true"
-        size="small"
-        appearance="outline"
-      >
+      <ic-chip label="Small" dismissible="true" size="small" variant="outlined">
         <svg
           slot="icon"
           width="20"
@@ -175,7 +219,7 @@ import readme from "./readme.md";
           />
         </svg>
       </ic-chip>
-      <ic-chip label="Default" dismissible="true" appearance="outline">
+      <ic-chip label="Default" dismissible="true" variant="outlined">
         <svg
           slot="icon"
           width="20"
@@ -189,12 +233,7 @@ import readme from "./readme.md";
           />
         </svg>
       </ic-chip>
-      <ic-chip
-        label="Large"
-        dismissible="true"
-        size="large"
-        appearance="outline"
-      >
+      <ic-chip label="Large" dismissible="true" size="large" variant="outlined">
         <svg
           slot="icon"
           width="20"
@@ -266,7 +305,7 @@ import readme from "./readme.md";
         label="Small"
         dismissible="true"
         disabled="true"
-        appearance="outline"
+        variant="outlined"
         size="small"
       >
         <svg
@@ -286,7 +325,7 @@ import readme from "./readme.md";
         label="Default"
         dismissible="true"
         disabled="true"
-        appearance="outline"
+        variant="outlined"
       >
         <svg
           slot="icon"
@@ -305,7 +344,7 @@ import readme from "./readme.md";
         label="Large"
         dismissible="true"
         disabled="true"
-        appearance="outline"
+        variant="outlined"
         size="large"
       >
         <svg
@@ -330,9 +369,9 @@ import readme from "./readme.md";
   <Story name="Without icons">
     {html`
       <ic-chip label="Label"></ic-chip>
-      <ic-chip label="Label" appearance="outline"></ic-chip>
+      <ic-chip label="Label" variant="outlined"></ic-chip>
       <ic-chip label="Label" dismissible="true"></ic-chip>
-      <ic-chip label="Label" appearance="outline" dismissible="true"></ic-chip>
+      <ic-chip label="Label" variant="outlined" dismissible="true"></ic-chip>
     `}
   </Story>
 </Canvas>

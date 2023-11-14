@@ -350,10 +350,27 @@ export const playgroundOptions = [
   </Story>
 </Canvas>
 
-### Small
+### Size small
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Size small">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          size="small"
+          options={options}
+          onIcChange={(event) => console.log(event.detail.value)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
     {() => {
       return (
         <IcSelect
@@ -700,7 +717,7 @@ export const SearchableFormDefaultValue = () => {
           label="What is your favourite coffee?"
           options={searchableOptions}
           searchable
-          small
+          size="small"
           onIcChange={(event) => console.log(event.detail.value)}
         />
       );

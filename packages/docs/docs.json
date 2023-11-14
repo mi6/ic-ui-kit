@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-31T15:54:28",
+  "timestamp": "2023-11-14T13:37:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -697,7 +697,12 @@
       "tag": "ic-badge",
       "readme": "# ic-badge\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "badge-icon - Icon will be rendered inside the badge if type is set to icon."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -960,6 +965,28 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "visible",
+          "reflectToAttr": false,
+          "docs": "If `true`, the badge will be displayed.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [
@@ -982,8 +1009,14 @@
           },
           "signature": "hideBadge() => Promise<void>",
           "parameters": [],
-          "docs": "Use to hide the badge.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
         },
         {
           "name": "showBadge",
@@ -1004,14 +1037,25 @@
           },
           "signature": "showBadge() => Promise<void>",
           "parameters": [],
-          "docs": "Use to show the badge.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
         }
       ],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "badge-icon",
+          "docs": "Icon will be rendered inside the badge if type is set to icon."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -2470,7 +2514,12 @@
       "tag": "ic-checkbox",
       "readme": "# ic-checkbox\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "additional-field - Content to be displayed alongside a checkbox."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2935,7 +2984,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "additional-field",
+          "docs": "Content to be displayed alongside a checkbox."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -3300,9 +3354,14 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The emphasis of the chip.",
-          "docsTags": [],
-          "default": "\"filled\"",
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use variant prop instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
           "values": [
             {
               "value": "filled",
@@ -3412,6 +3471,39 @@
             },
             {
               "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\"",
+          "complexType": {
+            "original": "IcEmphasisType",
+            "resolved": "\"filled\" | \"outlined\"",
+            "references": {
+              "IcEmphasisType": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcEmphasisType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The emphasis of the chip.",
+          "docsTags": [],
+          "default": "\"filled\"",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
               "type": "string"
             }
           ],
@@ -3684,7 +3776,12 @@
       "tag": "ic-data-entity",
       "readme": "# ic-data-entity\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content will be placed at the top of the data entity."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -3709,6 +3806,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the data entity component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -3719,15 +3849,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the data heading and all child data rows.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -3735,7 +3871,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content will be placed at the top of the data entity."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -3791,6 +3932,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the data row component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -3801,15 +3975,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the row. This is automatically applied if small is set on the parent data heading.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3881,6 +4061,10 @@
         {
           "name": "slot",
           "text": "label - Content will be placed above the dialog heading."
+        },
+        {
+          "name": "slot",
+          "text": "alert - Content will be placed at the top of the content area of the dialog."
         }
       ],
       "usage": {},
@@ -3896,8 +4080,14 @@
           "mutable": false,
           "attr": "alert-heading",
           "reflectToAttr": false,
-          "docs": "If a status is set, sets the heading for the displayed alert.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.",
           "values": [
             {
               "type": "string"
@@ -3917,8 +4107,14 @@
           "mutable": false,
           "attr": "alert-message",
           "reflectToAttr": false,
-          "docs": "If a status is set, sets the message for the displayed alert.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.",
           "values": [
             {
               "type": "string"
@@ -4101,6 +4297,28 @@
           "required": false
         },
         {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "If `true`, the dialog will be displayed.",
+          "docsTags": [],
+          "default": "undefined",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
           "type": "\"large\" | \"medium\" | \"small\"",
           "complexType": {
@@ -4142,8 +4360,14 @@
           "mutable": false,
           "attr": "status",
           "reflectToAttr": false,
-          "docs": "If set, displays an alert of the corresponding variant below the heading.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.",
           "values": [
             {
               "value": "error",
@@ -4234,8 +4458,14 @@
           },
           "signature": "hideDialog() => Promise<void>",
           "parameters": [],
-          "docs": "Use to hide the dialog.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         },
         {
           "name": "showDialog",
@@ -4256,8 +4486,14 @@
           },
           "signature": "showDialog() => Promise<void>",
           "parameters": [],
-          "docs": "Use to show the dialog.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
+            }
+          ],
+          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         }
       ],
       "events": [
@@ -4339,6 +4575,10 @@
         }
       ],
       "slots": [
+        {
+          "name": "alert",
+          "docs": "Content will be placed at the top of the content area of the dialog."
+        },
         {
           "name": "dialog-controls",
           "docs": "Content will be place at the bottom of the dialog."
@@ -4427,6 +4667,18 @@
         {
           "name": "slot",
           "text": "actions - Content is placed at the bottom below all other content."
+        },
+        {
+          "name": "slot",
+          "text": "heading - Content will be rendered in place of the heading prop."
+        },
+        {
+          "name": "slot",
+          "text": "subheading - Content will be rendered in place of the subheading prop."
+        },
+        {
+          "name": "slot",
+          "text": "body - Content will be rendered in place of the body prop."
         }
       ],
       "usage": {},
@@ -4528,8 +4780,8 @@
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         },
         {
           "name": "imageSize",
@@ -4600,8 +4852,20 @@
           "docs": "Content is placed at the bottom below all other content."
         },
         {
+          "name": "body",
+          "docs": "Content will be rendered in place of the body prop."
+        },
+        {
+          "name": "heading",
+          "docs": "Content will be rendered in place of the heading prop."
+        },
+        {
           "name": "image",
           "docs": "Content is placed at the top above all other content."
+        },
+        {
+          "name": "subheading",
+          "docs": "Content will be rendered in place of the subheading prop."
         }
       ],
       "parts": [],
@@ -5318,6 +5582,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the hero component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -5328,15 +5625,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the hero.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5510,6 +5813,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\"",
+          "complexType": {
+            "original": "\"dark\" | \"default\"",
+            "resolved": "\"dark\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the input component container.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dark",
           "type": "boolean",
           "complexType": {
@@ -5520,9 +5850,15 @@
           "mutable": false,
           "attr": "dark",
           "reflectToAttr": false,
-          "docs": "If `true`, the dark variant of the input component container will be displayed.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -5620,6 +5956,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the input component container component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -5630,15 +5999,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the input component container.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5819,6 +6194,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\"",
+          "complexType": {
+            "original": "\"dark\" | \"default\"",
+            "resolved": "\"dark\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the input label.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "dark",
           "type": "boolean",
           "complexType": {
@@ -5829,9 +6231,15 @@
           "mutable": false,
           "attr": "dark",
           "reflectToAttr": false,
-          "docs": "If `true`, the dark variant of the input label will be displayed.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -7085,6 +7493,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the menu component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -7094,10 +7535,16 @@
           },
           "mutable": false,
           "attr": "small",
-          "reflectToAttr": true,
-          "docs": "If `true`, the small styling will be applied to the menu.",
-          "docsTags": [],
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -7565,7 +8012,7 @@
           "reflectToAttr": true,
           "docs": "The variant of the menu item.",
           "docsTags": [],
-          "default": "\"default\"",
+          "default": "'default'",
           "values": [
             {
               "value": "default",
@@ -8592,6 +9039,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the page header component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -8602,9 +9082,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the page header.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -9664,6 +10150,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the radio group component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -9674,15 +10193,21 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the radio group.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9810,7 +10335,12 @@
       "tag": "ic-radio-option",
       "readme": "# ic-radio-option\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "additional-field - Content to displayed alongside a radio option."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -10217,7 +10747,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "additional-field",
+          "docs": "Content to displayed alongside a radio option."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -11034,6 +11569,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the search bar component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -11044,9 +11612,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the search bar.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12194,6 +12768,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the select component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -12204,9 +12811,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the select.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12840,6 +13453,33 @@
       "usage": {},
       "props": [
         {
+          "name": "appearance",
+          "type": "\"default\" | \"light\"",
+          "complexType": {
+            "original": "\"light\" | \"default\"",
+            "resolved": "\"default\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the skeleton.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "light",
           "type": "boolean",
           "complexType": {
@@ -12850,9 +13490,15 @@
           "mutable": false,
           "attr": "light",
           "reflectToAttr": false,
-          "docs": "If `true`, the skeleton will be set to the light variant.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -12957,9 +13603,14 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The emphasis of the status tag.",
-          "docsTags": [],
-          "default": "\"filled\"",
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Use variant prop instead."
+            }
+          ],
+          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
           "values": [
             {
               "value": "filled",
@@ -12995,6 +13646,39 @@
           "required": true
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the status tag component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -13005,9 +13689,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the status tag.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -13051,6 +13741,39 @@
             },
             {
               "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\"",
+          "complexType": {
+            "original": "IcEmphasisType",
+            "resolved": "\"filled\" | \"outlined\"",
+            "references": {
+              "IcEmphasisType": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcEmphasisType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The emphasis of the status tag.",
+          "docsTags": [],
+          "default": "\"filled\"",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
               "type": "string"
             }
           ],
@@ -13518,6 +14241,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the switch component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -13528,9 +14284,15 @@
           "mutable": false,
           "attr": "small",
           "reflectToAttr": false,
-          "docs": "If `true`, the small styling will be applied to the switch.",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
@@ -14851,6 +15613,39 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"default\" | \"small\"",
+          "complexType": {
+            "original": "IcSizesNoLarge",
+            "resolved": "\"default\" | \"small\"",
+            "references": {
+              "IcSizesNoLarge": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizesNoLarge"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the text field component.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "small",
           "type": "boolean",
           "complexType": {
@@ -14860,16 +15655,22 @@
           },
           "mutable": false,
           "attr": "small",
-          "reflectToAttr": true,
-          "docs": "If `true`, the small styling will be applied to the text field.",
-          "docsTags": [],
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
+            }
+          ],
           "default": "false",
+          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
           "values": [
             {
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -15706,6 +16507,27 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "maxLines",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-lines",
+          "reflectToAttr": false,
+          "docs": "The number of lines to display before truncating the text.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
         },
         {
           "name": "placement",
@@ -16649,6 +17471,11 @@
       "docstring": "",
       "path": "src/components/ic-chip/ic-chip.types.ts"
     },
+    "src/utils/types.ts::IcEmphasisType": {
+      "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
     "src/utils/types.ts::IcThemeForegroundNoDefault": {
       "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
       "docstring": "",
@@ -16693,6 +17520,11 @@
       "declaration": "export type IcTextFieldInputModes =\n  | \"none\"\n  | \"text\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\";",
       "docstring": "",
       "path": "src/components/ic-text-field/ic-text-field.types.ts"
+    },
+    "src/utils/types.ts::IcSizesNoLarge": {
+      "declaration": "export type IcSizesNoLarge = \"default\" | \"small\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-text-field/ic-text-field.types.ts::IcTextFieldTypes": {
       "declaration": "export type IcTextFieldTypes =\n  | \"email\"\n  | \"password\"\n  | \"tel\"\n  | \"text\"\n  | \"url\"\n  | \"number\"\n  | \"search\";",

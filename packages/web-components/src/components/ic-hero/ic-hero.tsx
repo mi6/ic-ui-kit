@@ -9,6 +9,7 @@ import {
 } from "@stencil/core";
 import {
   IcAlignment,
+  IcSizesNoLarge,
   IcTheme,
   IcThemeForeground,
   IcThemeForegroundEnum,
@@ -17,6 +18,7 @@ import {
   slotHasContent,
   getThemeForegroundColor,
   onComponentRequiredPropUndefined,
+  isPropDefined,
 } from "../../utils/helpers";
 import { IcHeroContentAlignments } from "./ic-hero.types";
 
@@ -78,9 +80,14 @@ export class Hero {
   @Prop() secondarySubheading?: string;
 
   /**
-   * If `true`, the small styling will be applied to the hero.
+   * The size of the hero component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * The description for the hero.
@@ -124,6 +131,7 @@ export class Hero {
     const {
       aligned,
       small,
+      size,
       heading,
       subheading,
       secondaryHeading,
@@ -135,7 +143,7 @@ export class Hero {
 
     let style = {};
 
-    if (backgroundImage !== undefined) {
+    if (isPropDefined(backgroundImage)) {
       style = {
         "background-image": "url(" + backgroundImage + ")",
         "background-position": scrollFactor,
@@ -148,7 +156,7 @@ export class Hero {
           [IcThemeForegroundEnum.Dark]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
-          ["small"]: small,
+          ["small"]: small || size === "small",
           ["secondary-heading"]: !!secondaryHeading,
         }}
         style={style}
@@ -167,8 +175,10 @@ export class Hero {
             <div class="heading">
               <slot name="heading">
                 <ic-typography
-                  variant={small ? "h2" : "h1"}
-                  class={{ ["heading-bottom-spacing"]: !small }}
+                  variant={small || size === "small" ? "h2" : "h1"}
+                  class={{
+                    ["heading-bottom-spacing"]: !small && size !== "small",
+                  }}
                 >
                   {heading}
                 </ic-typography>
@@ -183,7 +193,7 @@ export class Hero {
               <slot name="interaction"></slot>
             </div>
           </div>
-          {(secondaryHeading !== undefined || this.rightContent) && (
+          {(isPropDefined(secondaryHeading) || this.rightContent) && (
             <div class="right-container">
               <slot name="secondary">
                 {secondaryHeading && (

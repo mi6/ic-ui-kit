@@ -32,6 +32,7 @@ import {
   IcMenuOption,
   IcSearchMatchPositions,
   IcValueEventDetail,
+  IcSizesNoLarge,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -68,7 +69,7 @@ export class Select {
   private timeoutTimer: number;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() host!: HTMLIcSelectElement;
+  @Element() el!: HTMLIcSelectElement;
 
   @State() ariaActiveDescendant: string;
   @State() clearButtonFocused: boolean = false;
@@ -207,7 +208,12 @@ export class Select {
   @Prop() showClearButton?: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the select.
+   * The size of the select component.
+   */
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -343,21 +349,21 @@ export class Select {
   @Event() icRetryLoad: EventEmitter<IcValueEventDetail>;
 
   disconnectedCallback(): void {
-    removeFormResetListener(this.host, this.handleFormReset);
+    removeFormResetListener(this.el, this.handleFormReset);
   }
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.host, [
+    this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
       "tabindex",
       "title",
     ]);
 
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
 
     this.setOptionsValuesFromLabels();
 
-    addFormResetListener(this.host, this.handleFormReset);
+    addFormResetListener(this.el, this.handleFormReset);
 
     if (!this.options.length) {
       this.initialOptionsEmpty = true;
@@ -585,8 +591,7 @@ export class Select {
   };
 
   private handleFocusIndicatorDisplay = () => {
-    const focusIndicator =
-      this.host.shadowRoot.querySelector(".focus-indicator");
+    const focusIndicator = this.el.shadowRoot.querySelector(".focus-indicator");
 
     if (this.open) {
       focusIndicator.classList.add("focus-indicator-enabled");
@@ -850,7 +855,7 @@ export class Select {
   };
 
   private updateSearchableSelectResultAriaLive = (): void => {
-    const searchableSelectResultsStatusEl = this.host.shadowRoot.querySelector(
+    const searchableSelectResultsStatusEl = this.el.shadowRoot.querySelector(
       ".searchable-select-results-status"
     ) as HTMLDivElement;
 
@@ -941,6 +946,7 @@ export class Select {
   render() {
     const {
       small,
+      size,
       disabled,
       fullWidth,
       helperText,
@@ -968,7 +974,7 @@ export class Select {
           this.noOptions[0].label === this.emptyOptionListText));
     const inputValue = this.searchable ? this.hiddenInputValue : currValue;
 
-    renderHiddenInput(true, this.host, name, inputValue, disabled);
+    renderHiddenInput(true, this.el, name, inputValue, disabled);
 
     const invalid =
       validationStatus === IcInformationStatus.Error ? "true" : "false";
@@ -984,7 +990,7 @@ export class Select {
         class={{
           disabled: disabled,
           searchable: searchable,
-          small: small,
+          small: small || size === "small",
           "full-width": fullWidth,
         }}
         onBlur={this.onBlur}
@@ -1003,7 +1009,7 @@ export class Select {
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
-            small={small}
+            small={small || size === "small"}
             fullWidth={fullWidth}
             disabled={disabled}
             readonly={readonly}
@@ -1107,7 +1113,7 @@ export class Select {
                         onClick={this.handleClear}
                         onFocus={this.handleClearButtonFocus}
                         onBlur={this.handleClearButtonBlur}
-                        size={small ? "small" : "default"}
+                        size={size}
                         variant="icon"
                         appearance={
                           this.clearButtonFocused
@@ -1194,7 +1200,7 @@ export class Select {
                     onClick={this.handleClear}
                     onFocus={this.handleClearButtonFocus}
                     onBlur={this.handleClearButtonBlur}
-                    size={small ? "small" : "default"}
+                    size={size}
                     variant="icon"
                     appearance={
                       this.clearButtonFocused
@@ -1219,7 +1225,7 @@ export class Select {
               }
               inputLabel={label}
               anchorEl={this.anchorEl}
-              small={small}
+              small={small || size === "small"}
               menuId={menuId}
               open={this.open}
               options={searchable ? this.filteredOptions : this.uniqueOptions}
@@ -1231,7 +1237,7 @@ export class Select {
               onMenuValueChange={this.handleMenuValueChange}
               onUngroupedOptionsSet={this.setUngroupedOptions}
               onRetryButtonClicked={this.handleRetry}
-              parentEl={this.host}
+              parentEl={this.el}
               onTimeoutBlur={this.onTimeoutBlur}
               activationType={this.searchable ? "manual" : "automatic"}
             ></ic-menu>

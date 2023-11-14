@@ -1,136 +1,130 @@
-import { newSpecPage } from "@stencil/core/testing";
-import { Badge } from "../../ic-badge";
-import { Button } from "../../../ic-button/ic-button";
-import { Chip } from "../../../ic-chip/ic-chip";
-import { Tab } from "../../../ic-tab/ic-tab";
-import { Card } from "../../../ic-card/ic-card";
-import { NavigationButton } from "../../../ic-navigation-button/ic-navigation-button";
-import { NavigationItem } from "../../../ic-navigation-item/ic-navigation-item";
+import { newSpecPage } from '@stencil/core/testing';
+import { Badge } from '../../ic-badge';
+import { Button } from '../../../ic-button/ic-button';
+import { Chip } from '../../../ic-chip/ic-chip';
+import { Tab } from '../../../ic-tab/ic-tab';
+import { Card } from '../../../ic-card/ic-card';
+import { NavigationButton } from '../../../ic-navigation-button/ic-navigation-button';
+import { NavigationItem } from '../../../ic-navigation-item/ic-navigation-item';
 
-describe("ic-badge", () => {
-  it("should render with text slotted in a button", async () => {
+describe('ic-badge', () => {
+  it('should render with text slotted in a button', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render with text slotted in a button"
-    );
+    expect(page.root).toMatchSnapshot('should render with text slotted in a button');
   });
 
-  it("should render light variant", async () => {
+  it('should render light variant', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="light" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render light variant");
+    expect(page.root).toMatchSnapshot('should render light variant');
   });
 
-  it("should render error variant", async () => {
+  it('should render error variant', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="error" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render error variant");
+    expect(page.root).toMatchSnapshot('should render error variant');
   });
 
-  it("should render success variant", async () => {
+  it('should render success variant', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="success" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render success variant");
+    expect(page.root).toMatchSnapshot('should render success variant');
   });
 
-  it("should render warning variant", async () => {
+  it('should render warning variant', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="warning" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render warning variant");
+    expect(page.root).toMatchSnapshot('should render warning variant');
   });
-  it("should render info variant", async () => {
+  it('should render info variant', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="info" text-label="1"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render info variant");
+    expect(page.root).toMatchSnapshot('should render info variant');
   });
 
-  it("should render custom variant with custom colour in hex", async () => {
+  it('should render custom variant with custom colour in hex', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" text-label="1" custom-color="#F8C8DC"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render custom variant with custom colour in hex"
-    );
+    expect(page.root).toMatchSnapshot('should render custom variant with custom colour in hex');
   });
 
-  it("should render custom variant with custom colour in rgb", async () => {
+  it('should render custom variant with custom colour in rgb', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" text-label="1" custom-color="rgb(248,200,220)"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render custom variant with custom colour in rgb"
-    );
+    expect(page.root).toMatchSnapshot('should render custom variant with custom colour in rgb');
   });
 
-  it("should render with max number prop set", async () => {
+  it('should render with max number prop set', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="100" max-number="9"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render with max number prop set");
+    expect(page.root).toMatchSnapshot('should render with max number prop set');
   });
 
-  it("should render with accessible label", async () => {
+  it('should render with accessible label', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="1" accessible-label="1 notification found"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render with accessible label");
+    expect(page.root).toMatchSnapshot('should render with accessible label');
   });
 
-  it("should render size small", async () => {
+  it('should render size small', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="100" size="small"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render size small");
+    expect(page.root).toMatchSnapshot('should render size small');
   });
 
-  it("should render size large", async () => {
+  it('should render size large', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="100" size="large"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render size large");
+    expect(page.root).toMatchSnapshot('should render size large');
   });
 
-  it("should render type dot", async () => {
+  it('should render type dot', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" type="dot"/></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render type dot");
+    expect(page.root).toMatchSnapshot('should render type dot');
   });
 
-  it("should render type icon", async () => {
+  it('should render type icon', async () => {
     const page = await newSpecPage({
       components: [Button, Badge],
       html: `<ic-button>Button<ic-badge slot="badge" type="icon">
@@ -141,37 +135,46 @@ describe("ic-badge", () => {
             </ic-badge></ic-button>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render type icon");
+    expect(page.root).toMatchSnapshot('should render type icon');
   });
 
-  it("should render slotted in a chip", async () => {
+  it('should render with visible false', async () => {
+    const page = await newSpecPage({
+      components: [Button, Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" visible="false" text-label="1"/></ic-button>`,
+    });
+
+    expect(page.root).toMatchSnapshot('should render with visible false');
+  });
+
+  it('should render slotted in a chip', async () => {
     const page = await newSpecPage({
       components: [Chip, Badge],
       html: `<ic-chip label="Badge"><ic-badge slot="badge" text-label="1" position="near"/></ic-chip>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render slotted in a chip");
+    expect(page.root).toMatchSnapshot('should render slotted in a chip');
   });
 
-  it("should render slotted in a tab", async () => {
+  it('should render slotted in a tab', async () => {
     const page = await newSpecPage({
       components: [Tab, Badge],
       html: `<ic-tab>Tab<ic-badge slot="badge" text-label="1" position="inline"/></ic-tab>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render slotted in a tab");
+    expect(page.root).toMatchSnapshot('should render slotted in a tab');
   });
 
-  it("should render slotted in a card", async () => {
+  it('should render slotted in a card', async () => {
     const page = await newSpecPage({
       components: [Card, Badge],
       html: `<ic-card heading="Badge"><ic-badge slot="badge" text-label="1" position="near"/></ic-card>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render slotted in a card");
+    expect(page.root).toMatchSnapshot('should render slotted in a card');
   });
 
-  it("should render slotted in a navigation button", async () => {
+  it('should render slotted in a navigation button', async () => {
     const page = await newSpecPage({
       components: [NavigationButton, Badge],
       html: `<ic-navigation-button
@@ -203,12 +206,10 @@ describe("ic-badge", () => {
     </ic-navigation-button>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render slotted in a navigation button"
-    );
+    expect(page.root).toMatchSnapshot('should render slotted in a navigation button');
   });
 
-  it("should render slotted in a navigation item", async () => {
+  it('should render slotted in a navigation item', async () => {
     const page = await newSpecPage({
       components: [NavigationItem, Badge],
       html: `<ic-navigation-item label="Navigation" href="/">
@@ -234,18 +235,38 @@ describe("ic-badge", () => {
     </ic-navigation-item>`,
     });
 
-    expect(page.root).toMatchSnapshot(
-      "should render slotted in a navigation item"
-    );
+    expect(page.root).toMatchSnapshot('should render slotted in a navigation item');
   });
 
-  it("should hide and show the badge using methods", async () => {
+  it('should hide and show the badge using visible prop', async () => {
     const page = await newSpecPage({
       components: [Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="1"/></ic-button>`,
     });
 
-    const badge = document.querySelector("ic-badge");
+    const badge = document.querySelector('ic-badge');
+
+    expect(page.rootInstance.visible).toBe(true);
+
+    badge.visible = false;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.visible).toBe(false);
+
+    badge.visible = true;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.visible).toBe(true);
+  });
+
+  //To be removed when we remove show and hide methods
+  it('should hide and show the badge using methods', async () => {
+    const page = await newSpecPage({
+      components: [Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" text-label="1"/></ic-button>`,
+    });
+
+    const badge = document.querySelector('ic-badge');
 
     expect(page.rootInstance.visible).toBe(true);
 
@@ -260,7 +281,7 @@ describe("ic-badge", () => {
     expect(page.rootInstance.visible).toBe(true);
   });
 
-  it("should set the correct badge colour", async () => {
+  it('should set the correct badge colour', async () => {
     const page = await newSpecPage({
       components: [Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" text-label="1" custom-color="#F8C8DC"/></ic-button>`,
@@ -276,7 +297,7 @@ describe("ic-badge", () => {
     });
   });
 
-  it("should set the correct foreground colour", async () => {
+  it('should set the correct foreground colour', async () => {
     const page = await newSpecPage({
       components: [Badge],
       html: `<ic-button>Button<ic-badge slot="badge" variant="custom" text-label="1" custom-color="#F8C8DC"/></ic-button>`,
@@ -284,15 +305,15 @@ describe("ic-badge", () => {
 
     await page.rootInstance.getBadgeForeground();
 
-    expect(page.rootInstance.foregroundColour).toBe("dark");
+    expect(page.rootInstance.foregroundColour).toBe('dark');
   });
 
-  it("should set the correct text label when max number is set", async () => {
+  it('should set the correct text label when max number is set', async () => {
     const page = await newSpecPage({
       components: [Badge],
       html: `<ic-button>Button<ic-badge slot="badge" text-label="100" max-number="9"/></ic-button>`,
     });
 
-    expect(page.rootInstance.getTextLabel()).toBe("9+");
+    expect(page.rootInstance.getTextLabel()).toBe('9+');
   });
 });

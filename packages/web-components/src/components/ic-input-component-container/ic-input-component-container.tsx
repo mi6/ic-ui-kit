@@ -3,6 +3,7 @@ import { Component, Element, Host, Prop, h } from "@stencil/core";
 import {
   IcInformationStatus,
   IcInformationStatusOrEmpty,
+  IcSizesNoLarge,
 } from "../../utils/types";
 import successIcon from "../../assets/success-icon.svg";
 import { isSlotUsed } from "../../utils/helpers";
@@ -15,10 +16,15 @@ import { isSlotUsed } from "../../utils/helpers";
   styleUrl: "ic-input-component-container.css",
 })
 export class InputComponentContainer {
-  @Element() host: HTMLIcInputComponentContainerElement;
+  @Element() el: HTMLIcInputComponentContainerElement;
 
   /**
-   *  If `true`, the dark variant of the input component container will be displayed.
+   * The appearance of the input component container.
+   */
+  @Prop() appearance?: "dark" | "default" = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
    */
   @Prop() dark?: boolean = false;
 
@@ -43,9 +49,14 @@ export class InputComponentContainer {
   @Prop() readonly: boolean = false;
 
   /**
-   *  If `true`, the small styling will be applied to the input component container.
+   * The size of the input component container component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    *  If `true`, the validation will display inline.
@@ -60,12 +71,14 @@ export class InputComponentContainer {
   render() {
     const {
       small,
+      size,
       validationStatus,
       disabled,
       readonly,
       multiLine,
       fullWidth,
       dark,
+      appearance,
       validationInline,
     } = this;
     const hasValidationStatus =
@@ -75,22 +88,22 @@ export class InputComponentContainer {
     return (
       <Host
         class={{
-          ["small"]: small,
+          ["small"]: small || size === "small",
           [validationStatus]: hasValidationStatus,
           ["disabled"]: disabled,
           ["readonly"]: readonly,
           ["multiline"]: multiLine,
           ["fullwidth"]: fullWidth,
-          ["dark"]: dark,
+          ["dark"]: dark || appearance === "dark",
         }}
       >
         <div
           class={{
             "focus-indicator": true,
-            dark: dark,
+            dark: dark || appearance === "dark",
           }}
         >
-          {isSlotUsed(this.host, "left-icon") && (
+          {isSlotUsed(this.el, "left-icon") && (
             <div
               class={{
                 ["icon-container"]: true,

@@ -1,31 +1,16 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  h,
-  State,
-  Event,
-  EventEmitter,
-  Listen,
-} from "@stencil/core";
-import {
-  getParentElement,
-  isSlotUsed,
-  onComponentRequiredPropUndefined,
-  removeDisabledFalse,
-} from "../../utils/helpers";
-import { IcMenuItemVariants } from "./ic-menu-item.types";
-import Check from "../../assets/check-icon.svg";
-import Chevron from "../../assets/chevron-icon.svg";
+import { Component, Element, Host, Prop, h, State, Event, EventEmitter, Listen } from '@stencil/core';
+import { getParentElement, isSlotUsed, onComponentRequiredPropUndefined, removeDisabledFalse, isPropDefined } from '../../utils/helpers';
+import { IcMenuItemVariants } from './ic-menu-item.types';
+import Check from '../../assets/check-icon.svg';
+import Chevron from '../../assets/chevron-icon.svg';
 
 /**
  * @slot icon - Content will be placed to the left of the menu item label.
  */
 
 @Component({
-  tag: "ic-menu-item",
-  styleUrl: "ic-menu-item.css",
+  tag: 'ic-menu-item',
+  styleUrl: 'ic-menu-item.css',
   shadow: {
     delegatesFocus: true,
   },
@@ -88,8 +73,7 @@ export class MenuItem {
   /**
    * The variant of the menu item.
    */
-  @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants =
-    "default";
+  @Prop({ mutable: true, reflect: true }) variant: IcMenuItemVariants = 'default';
 
   /**
    * @internal Emitted when item loses focus.
@@ -111,20 +95,17 @@ export class MenuItem {
 
   componentWillLoad(): void {
     // This ensures that trigger menu items are always set to the default variant
-    if (this.submenuTriggerFor !== undefined && this.variant !== "default") {
-      this.variant = "default";
+    if (isPropDefined(this.submenuTriggerFor) && this.variant !== 'default') {
+      this.variant = 'default';
     }
     removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.label, propName: "label" }],
-      "Menu Item"
-    );
+    onComponentRequiredPropUndefined([{ prop: this.label, propName: 'label' }], 'Menu Item');
   }
 
-  @Listen("click", { capture: true })
+  @Listen('click', { capture: true })
   handleHostClick(e: Event): void {
     if (this.disabled) {
       e.stopImmediatePropagation();
@@ -132,13 +113,11 @@ export class MenuItem {
   }
 
   private handleClick = (e: Event): void => {
-    if (this.submenuTriggerFor !== undefined) {
+    if (isPropDefined(this.submenuTriggerFor)) {
       this.triggerPopoverMenuInstance.emit();
-    } else if (this.variant === "toggle") {
+    } else if (this.variant === 'toggle') {
       e.preventDefault();
-      this.toggleChecked
-        ? (this.toggleChecked = false)
-        : (this.toggleChecked = true);
+      this.toggleChecked ? (this.toggleChecked = false) : (this.toggleChecked = true);
     }
     this.handleMenuItemClick.emit({
       label: this.label,
@@ -149,45 +128,35 @@ export class MenuItem {
   private getMenuItemAriaLabel = (): string => {
     let ariaLabel = this.label;
 
-    if (this.description !== undefined) {
+    if (isPropDefined(this.description)) {
       ariaLabel = `${ariaLabel}, ${this.description}`;
     }
 
-    if (this.keyboardShortcut !== undefined) {
+    if (isPropDefined(this.keyboardShortcut)) {
       ariaLabel = `${ariaLabel}, ${this.keyboardShortcut}`;
     }
 
-    if (this.variant === "destructive") {
+    if (this.variant === 'destructive') {
       ariaLabel = `${ariaLabel}, destructive`;
     }
 
-    if (this.submenuTriggerFor !== undefined) {
+    if (isPropDefined(this.submenuTriggerFor)) {
       ariaLabel = `${ariaLabel}, triggers submenu`;
     }
 
-    if (this.el.classList.contains("ic-popover-submenu-back-button")) {
-      ariaLabel = "Go back to parent menu";
+    if (this.el.classList.contains('ic-popover-submenu-back-button')) {
+      ariaLabel = 'Go back to parent menu';
     }
     const parentEl = getParentElement(this.el);
 
-    if (
-      parentEl.tagName === "IC-MENU-GROUP" &&
-      (parentEl as HTMLIcMenuGroupElement).label
-    ) {
-      return `${ariaLabel}, ${
-        (parentEl as HTMLIcMenuGroupElement).label
-      } menu group`;
+    if (parentEl.tagName === 'IC-MENU-GROUP' && (parentEl as HTMLIcMenuGroupElement).label) {
+      return `${ariaLabel}, ${(parentEl as HTMLIcMenuGroupElement).label} menu group`;
     } else {
       return ariaLabel;
     }
   };
 
   render() {
-    // A helper function that checks if a prop has been defined
-    const isPropDefined = (prop: string) => {
-      return prop !== undefined ? prop : null;
-    };
-
     // A sub-component to layout the menu information correctly in ic-button
     const MenuItemInformation = () => {
       return (
@@ -212,19 +181,13 @@ export class MenuItem {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
+          ['disabled']: this.disabled,
         }}
       >
         <li
-          role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
+          role={this.variant === 'toggle' ? 'menuitemcheckbox' : 'menuitem'}
           aria-disabled={`${this.disabled}`}
-          aria-checked={
-            this.variant === "toggle" && this.toggleChecked === true
-              ? true
-              : this.variant === "toggle" && this.toggleChecked === false
-              ? false
-              : undefined
-          }
+          aria-checked={this.variant === 'toggle' && this.toggleChecked === true ? true : this.variant === 'toggle' && this.toggleChecked === false ? false : undefined}
         >
           <ic-button
             fullWidth
@@ -234,52 +197,31 @@ export class MenuItem {
             hreflang={isPropDefined(this.hreflang)}
             target={isPropDefined(this.target)}
             rel={isPropDefined(this.rel)}
-            referrerpolicy={
-              this.referrerpolicy !== undefined ? this.referrerpolicy : null
-            }
+            referrerpolicy={this.referrerpolicy !== undefined ? this.referrerpolicy : null}
             aria-disabled={`${this.disabled}`}
             aria-label={this.getMenuItemAriaLabel()}
-            ariaControlsId={
-              this.submenuTriggerFor !== undefined
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
-                : false
-            }
-            aria-haspopup={
-              this.submenuTriggerFor !== undefined ||
-              this.el.classList.contains("ic-popover-submenu-back-button")
-                ? "menu"
-                : false
-            }
-            ariaOwnsId={
-              this.submenuTriggerFor !== undefined
-                ? `ic-popover-submenu-${this.submenuTriggerFor}`
-                : false
-            }
+            ariaControlsId={isPropDefined(this.submenuTriggerFor) ? `ic-popover-submenu-${this.submenuTriggerFor}` : false}
+            aria-haspopup={isPropDefined(this.submenuTriggerFor) || this.el.classList.contains('ic-popover-submenu-back-button') ? 'menu' : false}
+            ariaOwnsId={isPropDefined(this.submenuTriggerFor) ? `ic-popover-submenu-${this.submenuTriggerFor}` : false}
           >
             <div class="focus-border">
-              {isSlotUsed(this.el, "icon") && (
+              {isSlotUsed(this.el, 'icon') && (
                 <span class="icon">
                   <slot name="icon"></slot>
                 </span>
               )}
               <MenuItemInformation />
-              {this.variant === "toggle" && (
+              {this.variant === 'toggle' && (
                 <span
                   class={{
-                    ["check-icon"]: true,
-                    ["hide"]: !this.toggleChecked,
+                    ['check-icon']: true,
+                    ['hide']: !this.toggleChecked,
                   }}
                   aria-hidden="true"
                   innerHTML={Check}
                 />
               )}
-              {this.submenuTriggerFor !== undefined && (
-                <span
-                  class={{ ["submenu-icon"]: true }}
-                  aria-hidden="true"
-                  innerHTML={Chevron}
-                />
-              )}
+              {isPropDefined(this.submenuTriggerFor) && <span class={{ ['submenu-icon']: true }} aria-hidden="true" innerHTML={Chevron} />}
             </div>
           </ic-button>
         </li>

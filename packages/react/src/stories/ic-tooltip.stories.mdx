@@ -18,6 +18,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
   <Story name="Default">
     <IcTooltip
       label="This is a description of the button"
+      id="ic-tooltip-test-button-default"
       target="test-button-default"
     >
       <button
@@ -45,6 +46,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
           <button onClick={func}>Show tooltip</button>
           <IcTooltip
             label="This is a description of the button"
+            id="ic-tooltip-test-button-default"
             target="test-button-default"
           >
             <button
@@ -66,6 +68,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
   <Story name="Disabled Hover">
     <IcTooltip
       label="This shows 'Code' has been copied"
+      id="ic-tooltip-test-button-disable-hover"
       target="test-button-disable-hover"
       disableHover
     >
@@ -89,6 +92,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="top-start"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-top-start"
           target="test-button-top-start"
         >
           <button
@@ -101,6 +105,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="top"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-top"
           target="test-button-top"
         >
           <button
@@ -113,11 +118,12 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="top-end"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-top-end"
           target="test-button-top-end"
         >
           <button
             id="test-button-top-end"
-            aria-describedby="ic-tooltip-test-button"
+            aria-describedby="ic-tooltip-test-button-top-end"
           >
             Top end
           </button>
@@ -136,6 +142,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="bottom-start"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-bottom-start"
           target="test-button-bottom-start"
         >
           <button
@@ -148,6 +155,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="bottom"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-bottom"
           target="test-button-bottom"
         >
           <button
@@ -160,6 +168,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="bottom-end"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-bottom-end"
           target="test-button-bottom-end"
         >
           <button
@@ -183,6 +192,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="right-start"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-right-start"
           target="test-button-right-start"
         >
           <button
@@ -195,6 +205,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="right"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-right"
           target="test-button-right"
         >
           <button
@@ -207,6 +218,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="right-end"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-right-end"
           target="test-button-right-end"
         >
           <button
@@ -230,6 +242,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="left-start"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-left-start"
           target="test-button-left-start"
         >
           <button
@@ -242,6 +255,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="left"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-left"
           target="test-button-left"
         >
           <button
@@ -254,17 +268,38 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
         <IcTooltip
           placement="left-end"
           label="This is a description of the button"
+          id="ic-tooltip-test-button-left-end"
           target="test-button-left-end"
         >
           <button
             id="test-button-left-end"
-            aria-describedby="ic-tooltip-ic-tooltip-test-button"
+            aria-describedby="ic-tooltip-test-button-left-end"
           >
             Left end
           </button>
         </IcTooltip>
       </div>
     )}
+  </Story>
+</Canvas>
+
+### Truncation
+
+<Canvas>
+  <Story name="Truncation">
+    <IcTooltip
+      label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the maxLines prop. The number of lines in the text is clamped to the number passed through the maxLines prop."
+      maxLines={3}
+      id="ic-tooltip-test-button-truncation"
+      target="test-button-truncation"
+    >
+      <button
+        aria-describedby="ic-tooltip-test-button-truncation"
+        id="test-button-truncation"
+      >
+        Default
+      </button>
+    </IcTooltip>
   </Story>
 </Canvas>
 
@@ -275,6 +310,7 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
     <div style={{ backgroundColor: "#333333", height: "100px" }}>
       <IcTooltip
         label="This is a description of the button"
+        id="ic-tooltip-test-button-dark"
         target="test-button-dark"
       >
         <button

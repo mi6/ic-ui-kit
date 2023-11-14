@@ -271,6 +271,31 @@ export const defaultArgs = {
       html`<ic-select
           id="select-8"
           label="What is your favourite coffee?"
+          size="small"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-8");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    {(args) =>
+      html`<ic-select
+          id="select-8"
+          label="What is your favourite coffee?"
           small
         ></ic-select>
         <script>
@@ -913,7 +938,7 @@ export const defaultArgs = {
           id="select-26"
           label="What is your favourite coffee?"
           searchable
-          small
+          size="small"
         ></ic-select>
         <script>
           var select = document.querySelector("#select-26");

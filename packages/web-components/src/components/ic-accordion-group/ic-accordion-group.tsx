@@ -144,4 +144,3 @@ export class AccordionGroup {
     );
   }
 }
-// add single expansion without title

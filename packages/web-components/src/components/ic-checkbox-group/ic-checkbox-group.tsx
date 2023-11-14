@@ -24,7 +24,7 @@ import { IcChangeEventDetail } from "./ic-checkbox-group.types";
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class CheckboxGroup {
-  @Element() host: HTMLIcCheckboxGroupElement;
+  @Element() el: HTMLIcCheckboxGroupElement;
 
   /**
    * If `true`, the checkbox group will be set to the disabled state.
@@ -82,16 +82,14 @@ export class CheckboxGroup {
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
   }
 
   componentDidLoad(): void {
-    Array.from(this.host.querySelectorAll("ic-checkbox")).forEach(
-      (checkbox) => {
-        if (!checkbox.name) checkbox.name = this.name;
-        checkbox.groupLabel = this.label;
-      }
-    );
+    Array.from(this.el.querySelectorAll("ic-checkbox")).forEach((checkbox) => {
+      if (!checkbox.name) checkbox.name = this.name;
+      checkbox.groupLabel = this.label;
+    });
 
     onComponentRequiredPropUndefined(
       [
@@ -105,7 +103,7 @@ export class CheckboxGroup {
   @Listen("icCheck")
   selectHandler(ev: CustomEvent): void {
     const checkedOptions = Array.from(
-      this.host.querySelectorAll("ic-checkbox")
+      this.el.querySelectorAll("ic-checkbox")
     ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
     this.icChange.emit({
       value: checkedOptions.map((opt) => opt.value),

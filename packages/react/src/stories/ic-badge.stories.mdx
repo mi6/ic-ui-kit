@@ -772,9 +772,9 @@ import readme from "../../../web-components/src/components/ic-badge/readme.md";
 export const showHideBadge = () => {
   const badge = document.querySelector("ic-badge");
   if (badge.classList.contains("show")) {
-    badge.hideBadge();
+    badge.visible = false;
   } else {
-    badge.showBadge();
+    badge.visible = true;
   }
 };
 

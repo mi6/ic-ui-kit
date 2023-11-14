@@ -12,12 +12,17 @@ import {
   h,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
-import { isSlotUsed, checkResizeObserver } from "../../utils/helpers";
+import {
+  isSlotUsed,
+  checkResizeObserver,
+  isPropDefined,
+} from "../../utils/helpers";
 
 /**
  * @slot dialog-controls - Content will be place at the bottom of the dialog.
  * @slot heading - Content will be placed at the top of the dialog.
  * @slot label - Content will be placed above the dialog heading.
+ * @slot alert - Content will be placed at the top of the content area of the dialog.
  */
 @Component({
   tag: "ic-dialog",
@@ -53,12 +58,12 @@ export class Dialog {
   @State() fadeIn: boolean = false;
 
   /**
-   * If a status is set, sets the heading for the displayed alert.
+   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.
    */
   @Prop() alertHeading?: string;
 
   /**
-   * If a status is set, sets the message for the displayed alert.
+   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.
    */
   @Prop() alertMessage?: string;
 
@@ -98,12 +103,49 @@ export class Dialog {
   @Prop() label?: string;
 
   /**
+   * If `true`, the dialog will be displayed.
+   */
+  @Prop({ reflect: true, mutable: true }) open: boolean = undefined;
+
+  @Watch("open")
+  watchOpenHandler(): void {
+    if (this.open) {
+      this.dialogRendered = true;
+      this.dialogEl.showModal();
+      setTimeout(() => {
+        this.fadeIn = true;
+      }, 10);
+      setTimeout(() => {
+        this.setInitialFocus();
+        checkResizeObserver(this.runResizeObserver);
+      }, 75);
+      setTimeout(() => {
+        this.getFocusedElementIndex();
+        this.icDialogOpened.emit();
+      }, 80);
+    } else {
+      this.fadeIn = false;
+      if (this.resizeObserver !== null) {
+        this.resizeObserver.disconnect();
+      }
+      setTimeout(() => {
+        this.dialogRendered = false;
+        this.dialogEl.close();
+        this.sourceElement?.focus();
+        this.el.removeAttribute(this.DATA_OVERFLOW);
+        this.dialogHeight = 0;
+        this.icDialogClosed.emit();
+      }, 80);
+    }
+  }
+
+  /**
    * Sets the maximum and minimum height and width for the dialog.
    */
   @Prop() size?: "small" | "medium" | "large" = "small";
 
   /**
-   * If set, displays an alert of the corresponding variant below the heading.
+   * @deprecated This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.
    */
   @Prop() status?: "neutral" | "info" | "warning" | "error" | "success";
 
@@ -161,7 +203,9 @@ export class Dialog {
           this.focusNextInteractiveElement(ev.shiftKey);
           break;
         case "Escape":
-          !ev.repeat && this.hideDialog();
+          if (!ev.repeat) {
+            this.open = false;
+          }
           ev.stopImmediatePropagation();
           break;
       }
@@ -182,13 +226,13 @@ export class Dialog {
         rect.left <= ev.clientX &&
         ev.clientX <= rect.left + rect.width;
       if (!isInDialog) {
-        this.hideDialog();
+        this.open = false;
       }
     }
   }
 
   /**
-   * Use to show the dialog.
+   * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
    */
   @Method()
   async showDialog(): Promise<void> {
@@ -208,7 +252,7 @@ export class Dialog {
   }
 
   /**
-   * Use to hide the dialog.
+   * @deprecated This method should not be used anymore. Use open prop to set dialog visibility.
    */
   @Method()
   async hideDialog(): Promise<void> {
@@ -232,7 +276,7 @@ export class Dialog {
   @Method()
   async cancelDialog(): Promise<void> {
     this.icDialogCancelled.emit();
-    this.hideDialog();
+    this.open = false;
   }
 
   /**
@@ -302,14 +346,14 @@ export class Dialog {
   };
 
   private setAlertVariant = () => {
-    if (this.status !== undefined && this.status !== null) {
+    if (isPropDefined(this.status) && this.status !== null) {
       const alert = this.el.shadowRoot.querySelector("ic-alert");
       alert.setAttribute("variant", this.status);
     }
   };
 
   private closeIconClick = () => {
-    this.hideDialog();
+    this.open = false;
   };
 
   private getInteractiveElements = () => {
@@ -479,15 +523,19 @@ export class Dialog {
             )}
           </div>
           <div class="content-area">
-            {status && (
-              <ic-alert
-                variant={status}
-                heading={alertHeading}
-                message={alertMessage}
-                title-above
-                class="status-alert"
-                id="dialog-alert"
-              ></ic-alert>
+            {isSlotUsed(this.el, "alert") ? (
+              <slot name="alert"></slot>
+            ) : (
+              status && (
+                <ic-alert
+                  variant={status}
+                  heading={alertHeading}
+                  message={alertMessage}
+                  title-above
+                  class="status-alert"
+                  id="dialog-alert"
+                ></ic-alert>
+              )
             )}
             <div id="dialog-content">
               <slot></slot>

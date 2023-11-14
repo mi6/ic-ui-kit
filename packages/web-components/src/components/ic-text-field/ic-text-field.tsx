@@ -17,6 +17,7 @@ import {
   IcAutocorrectStates,
   IcInformationStatusOrEmpty,
   IcValueEventDetail,
+  IcSizesNoLarge,
 } from "../../utils/types";
 import {
   inheritAttributes,
@@ -200,9 +201,14 @@ export class TextField {
   @Prop() rows: number = 1;
 
   /**
-   * If `true`, the small styling will be applied to the text field.
+   * The size of the text field component.
    */
-  @Prop({ reflect: true }) small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
 
   /**
    * If `true`, the value of the text field will have its spelling and grammar checked.
@@ -418,7 +424,7 @@ export class TextField {
       name,
       label,
       required,
-      small,
+      size,
       placeholder,
       helperText,
       rows,
@@ -507,7 +513,7 @@ export class TextField {
           )}
 
           <ic-input-component-container
-            small={small}
+            size={size}
             validationStatus={currentStatus}
             multiLine={multiline}
             disabled={disabledMode}

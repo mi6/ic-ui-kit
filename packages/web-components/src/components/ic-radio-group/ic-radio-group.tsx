@@ -21,6 +21,7 @@ import {
 import {
   IcInformationStatusOrEmpty,
   IcOrientation,
+  IcSizesNoLarge,
   IcValueEventDetail,
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-radio-group.types";
@@ -35,7 +36,7 @@ export class RadioGroup {
   private radioOptions: HTMLIcRadioOptionElement[];
   private resizeObserver: ResizeObserver = null;
 
-  @Element() host: HTMLIcRadioGroupElement;
+  @Element() el: HTMLIcRadioGroupElement;
 
   @State() checkedValue: string = "";
   @State() currentOrientation: IcOrientation;
@@ -78,9 +79,15 @@ export class RadioGroup {
   @Prop() required: boolean = false;
 
   /**
-   * If `true`, the small styling will be applied to the radio group.
+   * The size of the radio group component.
    */
-  @Prop() small: boolean = false;
+  @Prop() size?: IcSizesNoLarge = "default";
+
+  /**
+   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   */
+  @Prop() small?: boolean = false;
+
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
@@ -107,16 +114,14 @@ export class RadioGroup {
   }
 
   componentWillLoad(): void {
-    removeDisabledFalse(this.disabled, this.host);
+    removeDisabledFalse(this.disabled, this.el);
 
     this.orientationChangeHandler();
     this.currentOrientation = this.initialOrientation;
   }
 
   componentDidLoad(): void {
-    this.radioOptions = Array.from(
-      this.host.querySelectorAll("ic-radio-option")
-    );
+    this.radioOptions = Array.from(this.el.querySelectorAll("ic-radio-option"));
 
     this.radioOptions.forEach((radioOption, index) => {
       if (!radioOption.selected) {
@@ -194,7 +199,7 @@ export class RadioGroup {
       this.checkOrientation();
     });
 
-    this.resizeObserver.observe(this.host);
+    this.resizeObserver.observe(this.el);
   };
 
   private checkOrientation() {
@@ -270,14 +275,17 @@ export class RadioGroup {
   render() {
     renderHiddenInput(
       true,
-      this.host,
+      this.el,
       this.name,
       this.checkedValue,
       this.disabled
     );
 
     return (
-      <Host onKeyDown={this.handleKeyDown} class={{ small: this.small }}>
+      <Host
+        onKeyDown={this.handleKeyDown}
+        class={{ small: this.small || this.size === "small" }}
+      >
         <div
           role="radiogroup"
           aria-label={`${this.label}${this.required ? ", required" : ""}`}

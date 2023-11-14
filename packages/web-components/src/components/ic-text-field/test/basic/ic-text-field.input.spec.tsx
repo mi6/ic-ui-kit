@@ -33,7 +33,7 @@ describe("ic-text-field", () => {
   it("should render with helperText, required and small", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" helper-text="helper text value" required=true small=true></ic-text-field>`,
+      html: `<ic-text-field label="Test label" helper-text="helper text value" required=true size="small"></ic-text-field>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-helpertext");

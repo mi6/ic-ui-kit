@@ -1,4 +1,4 @@
-@import "../../global/normalize.css";
+@import '../../global/normalize.css';
 
 /**
 * @prop --min-width: Minimum width of the button.
@@ -27,7 +27,7 @@
   border-radius: var(--ic-border-radius);
   min-width: var(--min-width, 6.25rem);
   display: inline-flex;
-  gap: var(--ic-space-xxs);
+  gap: var(--ic-space-xs);
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -104,9 +104,29 @@
   background-color: var(--button-default-hover);
 }
 
+:host(.button-variant-primary) .button:hover:focus {
+  background-color: var(--button-default-hover);
+  border-color: var(--button-default-hover);
+}
+
+:host(.button-variant-primary:not(.light)) .button:hover:focus {
+  color: var(--ic-architectural-white);
+}
+
 :host(.button-variant-primary) .button:active:not(:focus),
 :host(.button-variant-primary.loading) .button {
   background-color: var(--button-default-active);
+}
+:host(.button-variant-primary) .button:active:focus {
+  background-color: var(--button-default-active);
+}
+
+:host(.button-variant-primary) .button:active {
+  background-color: var(--button-default-active);
+}
+
+:host(.button-variant-primary:not(.light)) .button:active {
+  color: var(--ic-architectural-white);
 }
 
 :host(.button-variant-primary.disabled) .button {
@@ -119,20 +139,23 @@
   color: var(--ic-architectural-500);
 }
 
-/* Secondary */
+/* Secondary  */
 
 :host(.button-variant-secondary) .button {
   border: var(--ic-space-1px) solid var(--button-default);
   color: var(--button-default);
 }
 
-:host(.button-variant-secondary) .button:hover:not(:focus) {
+:host(.button-variant-secondary) .button:hover:not(:focus),
+:host(.button-variant-secondary) .button:hover:focus {
   background-color: var(--button-default-background-hover);
   border-color: var(--button-default-hover);
   color: var(--button-default-hover);
 }
 
-:host(.button-variant-secondary) .button:active:not(:focus) {
+:host(.button-variant-secondary) .button:active:not(:focus),
+:host(.button-variant-secondary) .button:active:focus,
+:host(.button-variant-secondary) .button:active {
   border-color: var(--button-default-active);
   background-color: var(--button-default-background-active);
   color: var(--button-default-active);
@@ -166,12 +189,15 @@
   color: var(--button-default);
 }
 
-:host(.button-variant-tertiary) .button:hover:not(:focus) {
+:host(.button-variant-tertiary) .button:hover:not(:focus),
+:host(.button-variant-tertiary) .button:hover:focus {
   background-color: var(--button-default-background-hover);
   color: var(--button-default-hover);
 }
 
 :host(.button-variant-tertiary) .button:active:not(:focus),
+:host(.button-variant-tertiary) .button:active:focus,
+:host(.button-variant-tertiary) .button:active,
 :host(.button-variant-tertiary.loading) .button {
   background-color: var(--button-default-background-active);
   color: var(--button-default-active);
@@ -233,11 +259,13 @@
   text-transform: uppercase;
 }
 
-:host(.button-variant-destructive) .button:hover:not(:focus) {
+:host(.button-variant-destructive) .button:hover:not(:focus),
+:host(.button-variant-destructive) .button:hover:focus {
   background-color: var(--ic-action-destructive-hover);
 }
 
 :host(.button-variant-destructive) .button:active:not(:focus),
+:host(.button-variant-destructive) .button:active:focus,
 :host(.button-variant-destructive.loading) .button {
   background-color: var(--ic-action-destructive-active);
 }
@@ -261,7 +289,6 @@
 
 :host(.button-size-large) .button {
   height: var(--height, var(--ic-space-xxl));
-  gap: var(--ic-space-xs);
   padding: var(--ic-space-sm) var(--ic-space-md);
 }
 
@@ -335,16 +362,11 @@ ic-loading-indicator {
 
 div.icon-container {
   box-sizing: border-box;
-  width: var(--ic-space-md);
-  height: var(--ic-space-md);
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-:host(.button-size-large) div.icon-container {
-  width: calc(var(--ic-space-md) + var(--ic-space-xxs));
-  height: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
 ::slotted(:not(ic-badge)) {

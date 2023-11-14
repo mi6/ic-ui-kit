@@ -60,17 +60,32 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
   </Story>
 </Canvas>
 
-### Small
+### Size small
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Size small">
     <IcPageHeader
       aligned="left"
       heading="Page header"
       subheading="This is a simple page header component and this is the text."
-      small={true}
+      size="small"
     >
-      <IcStatusTag slot="heading-adornment" label="Beta" small={true} />
+      <IcStatusTag slot="heading-adornment" label="Beta" size="small" />
+    </IcPageHeader>
+  </Story>
+</Canvas>
+
+### Deprecated - small
+
+<Canvas>
+  <Story name="Deprecated - small">
+    <IcPageHeader
+      aligned="left"
+      heading="Page header"
+      subheading="This is a simple page header component and this is the text."
+      small
+    >
+      <IcStatusTag slot="heading-adornment" label="Beta" size="small" />
     </IcPageHeader>
   </Story>
 </Canvas>

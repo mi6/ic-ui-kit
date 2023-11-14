@@ -11,6 +11,7 @@ import {
   IcThemeForegroundEnum,
   IcThemeForegroundNoDefault,
 } from "../../utils/types";
+import { isPropDefined } from "../../utils/helpers";
 
 @Component({
   tag: "ic-tab-panel",
@@ -18,7 +19,7 @@ import {
   shadow: true,
 })
 export class TabPanel {
-  @Element() host: HTMLIcTabPanelElement;
+  @Element() el: HTMLIcTabPanelElement;
 
   /**
    * @internal The appearance of the tabs, e.g dark, or light.
@@ -57,7 +58,7 @@ export class TabPanel {
   @Event() tabPanelRemoved: EventEmitter<void>;
 
   connectedCallback(): void {
-    this.tabPanelCreated.emit(this.host);
+    this.tabPanelCreated.emit(this.el);
   }
 
   disconnectedCallback(): void {
@@ -78,7 +79,7 @@ export class TabPanel {
         }}
         role="tabpanel"
         hidden={
-          panelId !== undefined && selectedTab !== undefined
+          isPropDefined(panelId) && isPropDefined(selectedTab)
             ? !(panelId === selectedTab)
             : true
         }

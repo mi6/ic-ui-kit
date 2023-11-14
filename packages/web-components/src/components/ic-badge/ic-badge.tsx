@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Method,
-  Prop,
-  State,
-  h,
-} from "@stencil/core";
+import { Component, Element, Host, Method, Prop, h } from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -24,9 +16,14 @@ import {
   getParentElement,
   getParentElementType,
   hexToRgba,
+  isPropDefined,
+  onComponentRequiredPropUndefined,
   rgbaStrToObj,
 } from "../../utils/helpers";
 
+/**
+ * @slot badge-icon - Icon will be rendered inside the badge if type is set to icon.
+ */
 @Component({
   tag: "ic-badge",
   styleUrl: "ic-badge.css",
@@ -39,8 +36,6 @@ export class Badge {
   private foregroundColour: IcThemeForeground;
 
   @Element() el: HTMLIcBadgeElement;
-
-  @State() visible: boolean = true;
 
   /**
    * The accessible label of the badge component to provide context for screen reader users.
@@ -84,6 +79,11 @@ export class Badge {
    */
   @Prop() variant?: IcBadgeVariants = "neutral";
 
+  /**
+   * If `true`, the badge will be displayed.
+   */
+  @Prop() visible: boolean = true;
+
   componentWillLoad(): void {
     this.variant === "custom" && this.setBadgeColour();
 
@@ -92,8 +92,16 @@ export class Badge {
     this.isAccessibleLabelDefined() && this.setAccessibleLabel();
   }
 
+  componentDidLoad(): void {
+    this.type === "text" &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.textLabel, propName: "text-label" }],
+        "Badge"
+      );
+  }
+
   /**
-   * Use to show the badge.
+   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
    */
   @Method()
   async showBadge(): Promise<void> {
@@ -101,7 +109,7 @@ export class Badge {
   }
 
   /**
-   * Use to hide the badge.
+   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
    */
   @Method()
   async hideBadge(): Promise<void> {
@@ -206,7 +214,7 @@ export class Badge {
   };
 
   private isAccessibleLabelDefined = () => {
-    return this.accessibleLabel !== undefined && this.accessibleLabel !== null;
+    return isPropDefined(this.accessibleLabel) && this.accessibleLabel !== null;
   };
 
   render() {

@@ -17,13 +17,14 @@
 | `textLabel`       | `text-label`       | The text displayed in the badge. This will only be displayed if type="text".                                                                                                            | `string`                                                                          | `undefined` |
 | `type`            | `type`             | The type of badge to be displayed.                                                                                                                                                      | `"dot" \| "icon" \| "text"`                                                       | `"text"`    |
 | `variant`         | `variant`          | The variant of the badge to be displayed.                                                                                                                                               | `"custom" \| "error" \| "info" \| "light" \| "neutral" \| "success" \| "warning"` | `"neutral"` |
+| `visible`         | `visible`          | If `true`, the badge will be displayed.                                                                                                                                                 | `boolean`                                                                         | `true`      |
 
 
 ## Methods
 
 ### `hideBadge() => Promise<void>`
 
-Use to hide the badge.
+<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use visible prop to set badge visibility.<br/><br/>
 
 #### Returns
 
@@ -33,13 +34,20 @@ Type: `Promise<void>`
 
 ### `showBadge() => Promise<void>`
 
-Use to show the badge.
+<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use visible prop to set badge visibility.<br/><br/>
 
 #### Returns
 
 Type: `Promise<void>`
 
 
+
+
+## Slots
+
+| Slot           | Description                                                    |
+| -------------- | -------------------------------------------------------------- |
+| `"badge-icon"` | Icon will be rendered inside the badge if type is set to icon. |
 
 
 ## Dependencies
