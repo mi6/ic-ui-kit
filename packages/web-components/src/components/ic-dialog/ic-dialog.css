@@ -30,7 +30,8 @@
   background-color: var(--ic-architectural-white);
   border: var(--ic-border-default);
   border-radius: var(--ic-border-radius);
-  padding: var(--ic-space-xs) var(--ic-space-md);
+  padding: var(--ic-space-xs) var(--ic-space-md) var(--ic-space-md)
+    var(--ic-space-md);
   transform: translateY(-3rem);
   transition: transform 1000s;
   display: flex;
