@@ -67,6 +67,7 @@ export class Dialog {
    */
   @Prop() alertMessage?: string;
 
+ 
   /**
    * If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.
    */
