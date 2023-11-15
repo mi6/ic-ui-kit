@@ -23,6 +23,8 @@ const name4 = "Jane Lock";
 const name5 = "Margaret Hale";
 const highlightedRowClass = "table-row-selected";
 const showBackgroundClass = "show-background";
+const customIcon =
+  '<svg aria-labelledby="error-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"><title id="error-title">Error</title><g id="close-octagon"><path id="Vector" d="M8.77 3L3.5 8.27V15.73L8.77 21H16.23L21.5 15.73V8.27L16.23 3M8.91 7L12.5 10.59L16.09 7L17.5 8.41L13.91 12L17.5 15.59L16.09 17L12.5 13.41L8.91 17L7.5 15.59L11.09 12L7.5 8.41" /></g></svg>';
 
 const columns: IcDataTableColumnObject[] = [
   { key: "name", title: "Name", dataType: "string" },
@@ -66,6 +68,50 @@ const columnsWithOverrides: IcDataTableColumnObject[] = [
     dataType: "number",
     emphasis: "low",
   },
+];
+
+const columnsWithIcons: IcDataTableColumnObject[] = [
+  {
+    key: "name",
+    title: "Name",
+    dataType: "string",
+    icon: {
+      icon: customIcon,
+    },
+  },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
+];
+
+const columnsWithIconsOnAllCells: IcDataTableColumnObject[] = [
+  {
+    key: "name",
+    title: "Name",
+    dataType: "string",
+    icon: {
+      icon: customIcon,
+      onAllCells: true,
+    },
+  },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
+];
+
+const columnsWithIconsHideOnHeader: IcDataTableColumnObject[] = [
+  {
+    key: "name",
+    title: "Name",
+    dataType: "string",
+    icon: {
+      icon: customIcon,
+      hideOnHeader: true,
+    },
+  },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: employeeNumber, dataType: "number" },
 ];
 
 const data = [
@@ -295,6 +341,33 @@ const longData = [
   },
 ];
 
+const dataWithIcons = [
+  {
+    name: {
+      data: name1,
+      icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
+    },
+    age: 36,
+    department: "Accounts",
+    employeeNumber: 1,
+  },
+  {
+    name: name2,
+    age: 32,
+    department: "Engineering",
+    employeeNumber: 2,
+  },
+  { name: "Tim Rayes", age: 41, department: "Sales", employeeNumber: 3 },
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering",
+    employeeNumber: 4,
+  },
+  { name: name4, age: 34, department: "Engineering", employeeNumber: 5 },
+  { name: name5, age: 45, department: "HR", employeeNumber: 6 },
+];
+
 describe(icDataTable, () => {
   it("should render", async () => {
     const page = await newSpecPage({
@@ -416,6 +489,71 @@ describe(icDataTable, () => {
           data={dataWithCellOverrides}
           show-pagination
         ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should correctly render a custom icon in the header when passed through the column prop", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithIcons}
+          data={data}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should not render custom icon in header when hideOnHeader is set", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithIconsHideOnHeader}
+          data={data}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render column icon on all column cells if onAllCells is true, except ones that already have a custom icon", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="Table"
+          columns={columnsWithIconsOnAllCells}
+          data={dataWithIcons}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render a slotted icon instead of an icon defined in data", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="Table" columns={columns} data={dataWithIcons}>
+          <svg
+            slot="name-0-icon"
+            focusable="false"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          >
+            <path d="M9 3 5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path>
+          </svg>
+        </ic-data-table>
       ),
     });
 
