@@ -4824,7 +4824,9 @@ exports[`ic-data-table should render with row headers 1`] = `
           <tbody>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                1
+                <div class="cell-container">
+                  1
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -4850,7 +4852,9 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                2
+                <div class="cell-container">
+                  2
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -4876,7 +4880,9 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                3
+                <div class="cell-container">
+                  3
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -4902,7 +4908,9 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                4
+                <div class="cell-container">
+                  4
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -4928,7 +4936,9 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                5
+                <div class="cell-container">
+                  5
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -4954,7 +4964,9 @@ exports[`ic-data-table should render with row headers 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                6
+                <div class="cell-container">
+                  6
+                </div>
               </th>
               <td class="data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5031,7 +5043,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
           <tbody>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                1
+                <div class="cell-container">
+                  1
+                </div>
               </th>
               <td class="cell-alignment-middle data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5057,7 +5071,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                2
+                <div class="cell-container">
+                  2
+                </div>
               </th>
               <td class="cell-alignment-top data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5083,7 +5099,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                3
+                <div class="cell-container">
+                  3
+                </div>
               </th>
               <td class="cell-alignment-bottom data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5109,7 +5127,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                4
+                <div class="cell-container">
+                  4
+                </div>
               </th>
               <td class="cell-alignment-middle data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5135,7 +5155,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                5
+                <div class="cell-container">
+                  5
+                </div>
               </th>
               <td class="cell-alignment-top data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -5161,7 +5183,9 @@ exports[`ic-data-table should render with row overrides 1`] = `
             </tr>
             <tr class="table-row" style="height: 40px;">
               <th class="row-header" scope="row">
-                6
+                <div class="cell-container">
+                  6
+                </div>
               </th>
               <td class="cell-alignment-bottom data-type-string table-cell">
                 <div class="cell-container data-type-string">
@@ -6237,13 +6261,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6516,13 +6535,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   </ic-typography>
                   <ic-button aria-label="Remove sort" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6795,13 +6809,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort ascending" class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-name" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-name" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-name">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-name" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
@@ -6817,13 +6826,8 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   </ic-typography>
                   <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
-<<<<<<< HEAD:packages/canary-web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                       <ic-tooltip label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="null" class="button" id="ic-button-with-tooltip-sort-button-age" part="button" type="button">
-=======
-                      <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-sort-button-age" label="Sort ascending" placement="bottom" target="ic-button-with-tooltip-sort-button-age">
-                        <button aria-describedby="ic-tooltip-ic-button-with-tooltip-sort-button-age" aria-label="Sort ascending" class="button" part="button" type="button">
->>>>>>> 8d976dad (fix(web-components): changed ic-menu aria-selected to be string value):packages/web-components/src/components/ic-data-table/test/basic/__snapshots__/ic-data-table.spec.tsx.snap
                           <slot></slot>
                         </button>
                       </ic-tooltip>
