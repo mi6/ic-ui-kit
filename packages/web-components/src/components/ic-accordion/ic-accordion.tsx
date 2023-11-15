@@ -29,6 +29,7 @@ export class Accordion {
   private accordionId = `ic-accordion-${accordionIds++}`;
   private expandedContentEl: HTMLDivElement;
   private accordionBtnHeading: HTMLButtonElement;
+  private CONTENT_VISIBILITY_PROPERTY = "--ic-expanded-content-visiblity"
 
   @Element() el: HTMLIcAccordionElement;
   /**
@@ -101,6 +102,10 @@ export class Accordion {
     // So accordion opens by default if expanded set to true
     if (this.expanded) {
       this.expandedContentEl.style.height = "auto";
+      this.expandedContentEl.style.setProperty(
+        this.CONTENT_VISIBILITY_PROPERTY,
+        "visible"
+      );
     }
   }
 
@@ -137,7 +142,7 @@ export class Accordion {
   ) => {
     if (ev.propertyName === "height" && expandedContent.clientHeight === 0) {
       expandedContent.style.setProperty(
-        "--ic-expanded-content-visiblity",
+        this.CONTENT_VISIBILITY_PROPERTY,
         "hidden"
       );
     }
@@ -147,7 +152,7 @@ export class Accordion {
     const elementHeight = this.expandedContentEl.scrollHeight;
     if (elementHeight > 0 && this.expanded) {
       this.expandedContentEl.style.setProperty(
-        "--ic-expanded-content-visiblity",
+        this.CONTENT_VISIBILITY_PROPERTY,
         "visible"
       );
       this.expandedContentEl.style.height = `${elementHeight}px`;
