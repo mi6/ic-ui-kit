@@ -1,0 +1,13 @@
+module.exports = {
+  configurations: {
+    'chrome.laptop': {
+      target: 'chrome.app',
+      width: 1366,
+      height: 768,
+    },
+    'chrome.iphone7': {
+      target: 'chrome.app',
+      preset: 'iPhone 7',
+    },
+  },
+};
