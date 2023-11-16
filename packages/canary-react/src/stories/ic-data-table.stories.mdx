@@ -1281,6 +1281,67 @@ const DataTable = () => (
 export default DataTable;
 ```
 
+### Truncating Cell data
+
+When a row is given a set height, content that no longer fits into the cell area, the content becomes truncated. There are two types of truncation:
+
+- `tooltip` [Default]: Adds a line-clamp to the cell and displays the message in a tooltip.
+- `showHide`: Adds a `See More/See Less` button underneath the cell text, allowing the user to display the full content should they wish.
+
+These values are set using the `truncationPattern` property.
+
+If there is a certain row or column that should be exempt from truncation, then a property can either be added to the row or the column object, named `textWrap`. Anything this is applied to will ignore a custom height and show the full content.
+
+<Canvas withSource="none">
+  <Story name="Truncating Cell Data">
+    <IcDataTable
+      caption="Truncating Cell Data"
+      columns={COLS}
+      data={DATA}
+      truncationPattern="showHide"
+    />
+  </Story>
+</Canvas>
+
+#### Truncating Cell Data code example
+
+```tsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => (
+  <IcDataTable
+    caption="Truncating Cell Data"
+    columns={columns}
+    data={data}
+    truncationPattern="showHide"
+  />
+)
+
+export default DataTable;
+```
+
 ### Custom Title Bar
 
 To add additonal information about the data held in your IcDataTable, you can use the `title-bar` slot to add an `IcDataTableTitleBar`, which will appear above the column headers.
