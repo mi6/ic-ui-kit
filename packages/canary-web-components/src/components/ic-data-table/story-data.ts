@@ -30,6 +30,7 @@ export const COLS: IcDataTableColumnObject[] = [
     key: "jobTitle",
     title: "Job title",
     dataType: "string",
+    textWrap: true,
   },
   {
     key: "address",
@@ -77,7 +78,7 @@ export const DATA = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -91,7 +92,49 @@ export const DATA = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
+    jobTitle: "Analyst",
+    address: "8 Side Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Luke",
+    lastName: "Ashford",
+    age: 18,
+    jobTitle: "Junior Developer",
+    address: "5 New Street, Town, Country, Postcode",
+  },
+];
+export const LONG_DATA_VALUES = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
     jobTitle: "Developer",
+    address: {
+      data: "1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode",
+      cellAlignment: { vertical: "middle" },
+    },
+    jobPay: 2000,
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Smith",
+    age: 28,
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    address: "2 Main Street, Town, Country, Postcode",
+  },
+  {
+    firstName: "Mark",
+    lastName: "Owens",
+    age: 45,
+    jobTitle: "Team Lead",
+    address: "12 Key Street, Town, Country, Postcode",
+    textWrap: true,
+  },
+  {
+    firstName: "Naomi",
+    lastName: "Thomas",
+    age: 32,
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -119,7 +162,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -133,7 +176,7 @@ export const DATA_CELL_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -165,7 +208,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -185,7 +228,7 @@ export const ROW_ALIGNMENT = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -290,7 +333,7 @@ export const ICON_DATA = [
       icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
     },
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -305,8 +348,8 @@ export const ICON_DATA = [
     lastName: "Thomas",
     age: 32,
     jobTitle: {
-      data: "Developer",
-      icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.70687 6L8.29688 7.41L12.8769 12L8.29688 16.59L9.70687 18L15.7069 12L9.70687 6Z" fill="currentColor"/></svg>',
+      data: "Analyst",
+      icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>',
     },
     address: "8 Side Street, Town, Country, Postcode",
   },
@@ -548,7 +591,7 @@ export const DATA_ELEMENTS = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -564,7 +607,7 @@ export const DATA_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
     actions: `<ic-button variant='destructive' onClick='this.closest("tr").remove()'>Delete</ic-button>`,
   },
@@ -593,7 +636,7 @@ export const DATA_REACT_ELEMENTS = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Analyst",
+    jobTitle: "Senior Software Developer, Site Reliability Engineering",
     address: "2 Main Street, Town, Country, Postcode",
   },
   {
@@ -607,7 +650,7 @@ export const DATA_REACT_ELEMENTS = [
     firstName: "Naomi",
     lastName: "Thomas",
     age: 32,
-    jobTitle: "Developer",
+    jobTitle: "Analyst",
     address: "8 Side Street, Town, Country, Postcode",
   },
   {
@@ -774,7 +817,12 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
   createDataTableElement("Custom icons", ICON_COLS, ICON_DATA);
 
 export const CustomRowHeights = (): HTMLElement => {
-  const dataTable = createDataTableElement("Custom Row Heights", COLS, DATA);
+  const dataTable = createDataTableElement(
+    "Custom Row Heights",
+    COLS,
+    LONG_DATA_VALUES
+  );
+  dataTable.setAttribute("truncation-pattern", "tooltip");
   dataTable.globalRowHeight = 80;
   dataTable.variableRowHeight = ({ firstName, lastName }) =>
     firstName === "Joe" || lastName === "Owens" ? 200 : null;
