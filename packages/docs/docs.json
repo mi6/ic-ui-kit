@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-10T13:08:19",
+  "timestamp": "2023-11-16T14:48:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -17214,8 +17214,67 @@
           "required": false
         }
       ],
-      "methods": [],
-      "events": [],
+      "methods": [
+        {
+          "name": "checkMaxLines",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(height: number) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "height Used to calculate whether the element has exceeded the maximum number of lines."
+                  }
+                ],
+                "text": "Used to calculate whether the element has exceeded the maximum number of lines."
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "checkMaxLines(height: number) => Promise<void>",
+          "parameters": [],
+          "docs": "Truncate the text in ic-typography by adding a line-clamp css property.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "height Used to calculate whether the element has exceeded the maximum number of lines."
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "icExpand",
+          "detail": "{ el: HTMLIcTypographyElement; expanded: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcExpandEventDetail",
+            "resolved": "{ el: HTMLIcTypographyElement; expanded: boolean; }",
+            "references": {
+              "IcExpandEventDetail": {
+                "location": "import",
+                "path": "./ic-typography.types",
+                "id": "src/components/ic-typography/ic-typography.types.tsx::IcExpandEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the See More/See Less button is clicked.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [],
@@ -17528,6 +17587,11 @@
       "declaration": "export type IcTypographyVariants =\n  | \"h1\"\n  | \"h2\"\n  | \"h3\"\n  | \"h4\"\n  | \"subtitle-large\"\n  | \"subtitle-small\"\n  | \"body\"\n  | \"label\"\n  | \"label-uppercase\"\n  | \"caption\"\n  | \"caption-uppercase\"\n  | \"code-large\"\n  | \"code-small\"\n  | \"code-extra-small\"\n  | \"badge\"\n  | \"badge-small\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-typography/ic-typography.types.tsx::IcExpandEventDetail": {
+      "declaration": "{\n  el: HTMLIcTypographyElement;\n  expanded: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/ic-typography/ic-typography.types.tsx"
     },
     "src/components/ic-hero/ic-hero.types.tsx::IcHeroContentAlignments": {
       "declaration": "export type IcHeroContentAlignments = \"left\" | \"center\";",
