@@ -1,7 +1,7 @@
 import * as helpers from "@ukic/web-components";
 
 //common setup to be used across all spec tests
-import { DEVICE_SIZES as device_sizes } from "@ukic/web-components/dist/types/utils";
+import { DEVICE_SIZES as device_sizes } from "@ukic/web-components/dist/types/utils/helpers";
 
 type TestKeyboardEvent = {
   key: string;
