@@ -30,6 +30,7 @@ import { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+import { IcExpandEventDetail } from "./components/ic-typography/ic-typography.types";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants, IcColor } from "./components/ic-badge/ic-badge.types";
 export { IcButtonTooltipPlacement, IcButtonTypes, IcButtonVariants } from "./components/ic-button/ic-button.types";
@@ -55,6 +56,7 @@ export { IcSwitchChangeEventDetail } from "./components/ic-switch/ic-switch.type
 export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-tab/ic-tab.types";
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+export { IcExpandEventDetail } from "./components/ic-typography/ic-typography.types";
 export namespace Components {
     interface IcAccordion {
         "appearance"?: IcThemeForeground;
@@ -2201,6 +2203,11 @@ export namespace Components {
          */
         "bold"?: boolean;
         /**
+          * Truncate the text in ic-typography by adding a line-clamp css property.
+          * @param height Used to calculate whether the element has exceeded the maximum number of lines.
+         */
+        "checkMaxLines": (height: number) => Promise<void>;
+        /**
           * If `true`, the typography will have an italic font style.
          */
         "italic"?: boolean;
@@ -2325,6 +2332,10 @@ export interface IcToastCustomEvent<T> extends CustomEvent<T> {
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
+}
+export interface IcTypographyCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTypographyElement;
 }
 declare global {
     interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
@@ -5020,6 +5031,10 @@ declare namespace LocalJSX {
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        /**
+          * Emitted when the See More/See Less button is clicked.
+         */
+        "onIcExpand"?: (event: IcTypographyCustomEvent<IcExpandEventDetail>) => void;
         /**
           * If `true`, the typography will have a line through it.
          */

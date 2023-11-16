@@ -1,7 +1,19 @@
-import { Component, Prop, h, Element, Host, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  Host,
+  State,
+  Watch,
+  Method,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 import { IcTypographyVariants } from "../../utils/types";
 import { checkResizeObserver } from "../../utils/helpers";
+import { IcExpandEventDetail } from "./ic-typography.types";
 
 @Component({
   styleUrl: "ic-typography.css",
@@ -61,6 +73,11 @@ export class Typography {
 
   @State() expanded: boolean = false;
 
+  /**
+   * Emitted when the See More/See Less button is clicked.
+   */
+  @Event() icExpand?: EventEmitter<IcExpandEventDetail>;
+
   @Watch("expanded")
   watchExpandedHandler(): void {
     this.el.setAttribute(
@@ -92,11 +109,12 @@ export class Typography {
     }
   }
 
-  private toggleExpanded = () => {
-    this.expanded = !this.expanded;
-  };
-
-  private checkMaxLines = (height: number) => {
+  /**
+   * Truncate the text in ic-typography by adding a line-clamp css property.
+   * @param height Used to calculate whether the element has exceeded the maximum number of lines.
+   */
+  @Method()
+  async checkMaxLines(height: number): Promise<void> {
     //24 is the height of a single line
     const numLines = Math.floor(height / 24);
     if (numLines > this.maxLines) {
@@ -104,6 +122,11 @@ export class Typography {
       this.truncatedHeight = this.el.clientHeight;
       this.truncated = true;
     }
+  }
+
+  private toggleExpanded = () => {
+    this.expanded = !this.expanded;
+    this.icExpand.emit({ el: this.el, expanded: this.expanded });
   };
 
   private checkMarkerPosition = (elTop: number, markerTop: number) => {
