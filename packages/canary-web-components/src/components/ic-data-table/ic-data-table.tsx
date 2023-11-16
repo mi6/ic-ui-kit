@@ -276,7 +276,7 @@ export class DataTable {
       const maxLines = Math.floor(parentHeight / 24);
 
       if (typographyEl.clientHeight > parentHeight) {
-        const hasVerticalAlignment = (el: HTMLElement): void => {
+        const removeVerticalAlignment = (el: HTMLElement): void => {
           const VERTICAL_CLASSES = [
             "cell-alignment-middle",
             "cell-alignment-bottom",
@@ -289,8 +289,8 @@ export class DataTable {
             el.classList.remove(...VERTICAL_CLASSES);
           }
         };
-        hasVerticalAlignment(parentDiv);
-        hasVerticalAlignment(parentDiv.parentElement);
+        removeVerticalAlignment(parentDiv);
+        removeVerticalAlignment(parentDiv.parentElement);
       }
 
       if (

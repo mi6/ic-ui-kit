@@ -838,10 +838,7 @@ export const CustomRowHeights = (): HTMLElement => {
     COLUMNS_NO_TEXT_WRAP,
     LONG_DATA_VALUES
   );
-  dataTable.setAttribute("truncation-pattern", "tooltip");
-  dataTable.globalRowHeight = 80;
-  dataTable.variableRowHeight = ({ firstName, lastName }) =>
-    firstName === "Joe" || lastName === "Owens" ? 200 : null;
+  dataTable.setAttribute("truncation-pattern", "showHide");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
