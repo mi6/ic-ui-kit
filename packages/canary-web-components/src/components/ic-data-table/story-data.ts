@@ -114,7 +114,7 @@ export const COLUMNS_NO_TEXT_WRAP: IcDataTableColumnObject[] = [
   { key: "age", title: "Age", dataType: "number" },
   { key: "department", title: "Department", dataType: "string" },
   { key: "employeeNumber", title: "Employee Number", dataType: "number" },
-  { key: "jobTitle", title: "Job Title", dataType: "string"},
+  { key: "jobTitle", title: "Job Title", dataType: "string" },
 ];
 export const LONG_DATA_VALUES = [
   {
@@ -139,6 +139,7 @@ export const LONG_DATA_VALUES = [
     employeeNumber: 3,
     jobTitle:
       "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    textWrap: true,
   },
   {
     name: name3,
@@ -160,7 +161,8 @@ export const LONG_DATA_VALUES = [
     department: "HR",
     employeeNumber: 6,
     jobTitle: "Junior Human Resource Information Specialist",
-  },];
+  },
+];
 
 export const DATA_CELL_ALIGNMENT = [
   {
@@ -838,7 +840,9 @@ export const CustomRowHeights = (): HTMLElement => {
     COLUMNS_NO_TEXT_WRAP,
     LONG_DATA_VALUES
   );
-  dataTable.setAttribute("truncation-pattern", "showHide");
+  dataTable.globalRowHeight = 80;
+  dataTable.variableRowHeight = ({ name, age }) =>
+    name === "John Smith" || age === 41 ? 200 : null;
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
@@ -847,8 +851,8 @@ export const CustomRowHeights = (): HTMLElement => {
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
-    dataTable.variableRowHeight = ({ firstName, lastName }) =>
-      firstName === "Joe" || lastName === "Owens" ? 200 : null;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
   });
   setButton.innerHTML = "Set";
 
@@ -899,6 +903,15 @@ export const CustomTitleBar = (): HTMLIcDataTableElement => {
   titleBar.append(primaryButton, customDescription);
   customButtons.forEach((button) => titleBar.append(button));
   dataTable.appendChild(titleBar);
+
+  return dataTable;
+};
+
+export const TruncationShowHide = (): HTMLIcDataTableElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "showHide");
 
   return dataTable;
 };

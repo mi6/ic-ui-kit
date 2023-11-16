@@ -32,7 +32,6 @@ import {
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 // Unable to import helper functions via @ukic/web-components
 import { getSlotContent, isSlotUsed } from "../../utils/helpers";
-import { IcExpandEventDetail } from "@ukic/web-components/dist/types/interface";
 
 /**
  * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
@@ -269,11 +268,12 @@ export class DataTable {
       const parentEl = typographyEl.parentElement;
       const parentIsTooltip = parentEl.tagName === "IC-TOOLTIP";
       const parentDiv = parentIsTooltip ? parentEl.parentElement : parentEl;
-
-      const parentHeight = Number(
-        (parentDiv.style["height"] as string).replace("px", "")
-      );
+      const parentHeight = Number(parentDiv.style["height"].replace("px", ""));
       const maxLines = Math.floor(parentHeight / 24);
+      const removeDivStyles = () => {
+        parentDiv.style["height"] = null;
+        parentDiv.style["overflowY"] = null;
+      };
 
       if (typographyEl.clientHeight > parentHeight) {
         const removeVerticalAlignment = (el: HTMLElement): void => {
@@ -291,18 +291,24 @@ export class DataTable {
         };
         removeVerticalAlignment(parentDiv);
         removeVerticalAlignment(parentDiv.parentElement);
+      } else {
+        typographyEl.maxLines = undefined;
       }
 
       if (
         parentDiv.parentElement.clientHeight >
         parentHeight + this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
       ) {
-        parentDiv.style["height"] = "";
-        parentDiv.style["overflowY"] = "";
+        removeDivStyles();
       }
+
       if (typographyEl.scrollHeight < parentHeight && parentIsTooltip) {
-        parentEl.replaceWith(...Array.from(parentEl.childNodes));
-      } else if (typographyEl.scrollHeight > typographyEl.clientHeight) {
+        parentEl.replaceWith(...Array.from(parentEl.childNodes)); // Removes tooltip
+      } else if (
+        (typographyEl.scrollHeight > typographyEl.clientHeight ||
+          (parentHeight && typographyEl.clientHeight > parentHeight)) &&
+        !parentDiv.classList.contains("data-type-element")
+      ) {
         if (this.truncationPattern === "tooltip") {
           typographyEl.style.webkitLineClamp = `${maxLines}`;
           if (!parentIsTooltip) {
@@ -312,20 +318,17 @@ export class DataTable {
             typographyEl.parentNode.replaceChild(tooltipEl, typographyEl);
             tooltipEl.appendChild(typographyEl);
           }
-        } else if (
-          this.truncationPattern === "showHide" &&
-          !typographyEl.maxLines
-        ) {
+        } else {
+          /**
+           * The manual height on the div can be removed since the line clamp applied to the ic-typography will perform that function.
+           * Adding 24 to checkMaxLines ensures an extra line is available for the `See More/See Less` button to move onto.
+           */
+          removeDivStyles();
           typographyEl.maxLines = maxLines - 1 || 1;
-          typographyEl.checkMaxLines(parentHeight);
+          typographyEl.checkMaxLines(parentHeight + 24);
         }
       }
     });
-  }
-
-  @Listen("icExpand")
-  expandHandler(ev: CustomEvent<IcExpandEventDetail>): void {
-    if (ev.detail.expanded) ev.detail.el.parentElement.style["height"] = null;
   }
 
   @Listen("icItemsPerPageChange")
@@ -381,16 +384,16 @@ export class DataTable {
           )
         : (this.loading = false);
     }
-    if (this.updating) this.updating = false;
+    this.updating &&= false;
   }
 
   @Watch("globalRowHeight")
   @Watch("variableRowHeight")
   rowHeightChangeHandler(): void {
-    const deleteTextWrapKey = (array: any[]) => array.forEach((val) => val.textWrap && delete val.textWrap);
+    const deleteTextWrapKey = (array: any[]) =>
+      array.forEach((val) => val.textWrap && delete val.textWrap);
     deleteTextWrapKey(this.data);
     deleteTextWrapKey(this.columns);
-
     this.icRowHeightChange.emit();
   }
 
@@ -483,6 +486,7 @@ export class DataTable {
         this.columns[index] || {};
       const cellSlotName = `${key}-${rowIndex}`;
       const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
+      const isNotElement = dataType !== "element";
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
       return (
@@ -523,7 +527,7 @@ export class DataTable {
                   : null
               }
               class={{
-                "cell-container": dataType !== "element",
+                "cell-container": isNotElement,
                 [`data-type-${dataType}`]: true,
                 [`cell-alignment-${
                   columnAlignment?.horizontal ||
@@ -542,7 +546,10 @@ export class DataTable {
               }}
               style={{
                 height:
-                  this.currentRowHeight && !rowTextWrap && !textWrap
+                  this.currentRowHeight &&
+                  !rowTextWrap &&
+                  !textWrap &&
+                  isNotElement
                     ? `${
                         this.currentRowHeight *
                           this.DENSITY_HEIGHT_MULTIPLIER[this.density] -
@@ -551,7 +558,8 @@ export class DataTable {
                     : null,
                 overflowY:
                   this.truncationPattern === "tooltip" &&
-                  (!rowTextWrap || !textWrap)
+                  !(rowTextWrap && textWrap) &&
+                  isNotElement
                     ? "hidden"
                     : null,
               }}
@@ -673,7 +681,7 @@ export class DataTable {
       !target.style.getPropertyValue("--truncation-max-lines")
     ) {
       this.selectedRow =
-        this.selectedRow !== row && !this.loading && !this.updating && row;
+        !(this.selectedRow === row && this.loading && this.updating) && row;
     }
   };
 
