@@ -1,6 +1,11 @@
 import { IcDataTableColumnObject } from "./ic-data-table.types";
 
 /* eslint-disable */
+const name1 = "John Smith";
+const name2 = "Sally Jones";
+const name3 = "Luke Fisher";
+const name4 = "Jane Lock";
+const name5 = "Margaret Hale";
 
 const ROW_HEADER_TITLES = [
   "Employee",
@@ -103,48 +108,59 @@ export const DATA = [
     address: "5 New Street, Town, Country, Postcode",
   },
 ];
+
+export const COLUMNS_NO_TEXT_WRAP: IcDataTableColumnObject[] = [
+  { key: "name", title: "Name", dataType: "string" },
+  { key: "age", title: "Age", dataType: "number" },
+  { key: "department", title: "Department", dataType: "string" },
+  { key: "employeeNumber", title: "Employee Number", dataType: "number" },
+  { key: "jobTitle", title: "Job Title", dataType: "string"},
+];
 export const LONG_DATA_VALUES = [
   {
-    firstName: "Joe",
-    lastName: "Bloggs",
-    age: 30,
-    jobTitle: "Developer",
-    address: {
-      data: "1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode 1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode1 Main Street, Town, County, Postcode",
-      cellAlignment: { vertical: "middle" },
-    },
-    jobPay: 2000,
+    name: name1,
+    age: 36,
+    department: "Accounts & Finance",
+    employeeNumber: 1,
+    jobTitle: "Senior Financial Operations and Reporting Analyst",
   },
   {
-    firstName: "Sarah",
-    lastName: "Smith",
-    age: 28,
-    jobTitle: "Senior Software Developer, Site Reliability Engineering",
-    address: "2 Main Street, Town, Country, Postcode",
-  },
-  {
-    firstName: "Mark",
-    lastName: "Owens",
-    age: 45,
-    jobTitle: "Team Lead",
-    address: "12 Key Street, Town, Country, Postcode",
-    textWrap: true,
-  },
-  {
-    firstName: "Naomi",
-    lastName: "Thomas",
+    name: name2,
     age: 32,
-    jobTitle: "Analyst",
-    address: "8 Side Street, Town, Country, Postcode",
+    department: "Engineering",
+    employeeNumber: 2,
+    jobTitle:
+      "Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)",
   },
   {
-    firstName: "Luke",
-    lastName: "Ashford",
-    age: 18,
-    jobTitle: "Junior Developer",
-    address: "5 New Street, Town, Country, Postcode",
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
   },
-];
+  {
+    name: name3,
+    age: "23",
+    department: "Engineering (Mobile App Development)",
+    employeeNumber: 4,
+    jobTitle: "Junior Tester",
+  },
+  {
+    name: name4,
+    age: 34,
+    department: "Engineering",
+    employeeNumber: 5,
+    jobTitle: "Junior Product Manager",
+  },
+  {
+    name: name5,
+    age: 45,
+    department: "HR",
+    employeeNumber: 6,
+    jobTitle: "Junior Human Resource Information Specialist",
+  },];
 
 export const DATA_CELL_ALIGNMENT = [
   {
@@ -819,7 +835,7 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
 export const CustomRowHeights = (): HTMLElement => {
   const dataTable = createDataTableElement(
     "Custom Row Heights",
-    COLS,
+    COLUMNS_NO_TEXT_WRAP,
     LONG_DATA_VALUES
   );
   dataTable.setAttribute("truncation-pattern", "tooltip");

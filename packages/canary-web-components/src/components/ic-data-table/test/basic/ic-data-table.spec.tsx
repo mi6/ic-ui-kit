@@ -430,6 +430,53 @@ const dataWithLongText = [
     employeeNumber: 6,
     jobTitle: "Junior Human Resource Information Specialist",
   },
+]
+  const dataWithRowTextWrap = [
+    {
+      name: name1,
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: "Senior Financial Operations and Reporting Analyst",
+    },
+    {
+      name: name2,
+      age: 32,
+      department: "Engineering",
+      employeeNumber: 2,
+      jobTitle:
+        "Senior Software Engineer, Site Reliability Engineering (Microsoft Azure)",
+    },
+    {
+      name: "Tim Rayes",
+      age: 41,
+      department: "Sales and Marketing",
+      employeeNumber: 3,
+      jobTitle:
+        "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+      textWrap: true
+    },
+    {
+      name: name3,
+      age: "23",
+      department: "Engineering (Mobile App Development)",
+      employeeNumber: 4,
+      jobTitle: "Junior Tester",
+    },
+    {
+      name: name4,
+      age: 34,
+      department: "Engineering",
+      employeeNumber: 5,
+      jobTitle: "Junior Product Manager",
+    },
+    {
+      name: name5,
+      age: 45,
+      department: "HR",
+      employeeNumber: 6,
+      jobTitle: "Junior Human Resource Information Specialist",
+    },
 ];
 
 describe(icDataTable, () => {
@@ -1312,8 +1359,30 @@ describe(icDataTable, () => {
 });
 
 describe("text wrap and truncation functionality in icDataTable", () => {
-  it("should automatically resize to fit all lines of text when 'text-wrap' is set on a cell", async () => {
-    // const page = await newSpecPage({
+  it.only("should automatically resize to fit all lines of text in a column's cells when 'text-wrap' is set on the column", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          id="test-table"
+          caption="test table"
+          columns={columnsWithNoTextWrap}
+          data={dataWithLongText}
+        ></ic-data-table>
+      ),
+    });
+    const truncatedCellSize = page.root.shadowRoot.querySelector("#jobTitle-2").parentElement.clientHeight;
+
+    console.log(truncatedCellSize);
+    window.innerWidth = 375;
+    window.innerHeight = 812;
+
+    page.waitForChanges()
+    console.log(truncatedCellSize);
+    const truncatedCellParent = page.root.shadowRoot.querySelector("#jobTitle-2").parentElement;
+    expect(truncatedCellParent.tagName).toBe("IC-TOOLTIP");
+    expect(truncatedCellParent.parentElement.style["height"]).toBe("24px");
+    //        const page = await newSpecPage({
     //   components: [DataTable],
     //   template: () => (
     //     <ic-data-table
@@ -1323,6 +1392,14 @@ describe("text wrap and truncation functionality in icDataTable", () => {
     //     ></ic-data-table>
     //   ),
     // });
+
+
+     expect(2).toBe(2);
+
+    // console.log(page)
+    // expect(page.root).toMatchSnapshot();
+    // the column width should not be altered
+
 
     /* 
     ARRANGE:
@@ -1342,44 +1419,7 @@ describe("text wrap and truncation functionality in icDataTable", () => {
     // the column width should not be altered
   });
 
-  it("should automatically resize to fit all lines of text in a column's cells when 'text-wrap' is set on the column", async () => {
-    const comparisonDataTablePage = await newSpecPage({
-      components: [DataTable],
-      template: () => (
-        <ic-data-table
-          caption="test table"
-          columns={columnsWithNoTextWrap}
-          data={dataWithLongText}
-        ></ic-data-table>
-      ),
-    });
-    debugger;
-    const columnHeightWithNoTextWrap = comparisonDataTablePage.root.shadowRoot.querySelector("#jobTitle-2");
-
-    
-    console.log(comparisonDataTablePage)
-    console.log(columnHeightWithNoTextWrap);
-
-  
-    // div > div > table > tbody > tr:nth-child(2) > td:nth-child(4) > div
-
-    // const page = await newSpecPage({
-    //   components: [DataTable],
-    //   template: () => (
-    //     <ic-data-table
-    //       caption="test table"
-    //       columns={columnsWithTextWrap}
-    //       data={dataWithLongText}
-    //     ></ic-data-table>
-    //   ),
-    // });
-
-    // console.log(page)
-    // expect(page.root).toMatchSnapshot();
-    // the column width should not be altered
-  });
-
-  it("should automatically resize all the cells in a row to fit all lines of text if 'text-wrap' has been set on the tallest cell in that row", async () => {
+  it("should automatically resize all the cells in a row to fit all lines of text in the tallest cell if 'text-wrap' has been set on that row", async () => {
     // const page = await newSpecPage({
     //   components: [DataTable],
     //   template: () => (
@@ -1395,26 +1435,50 @@ describe("text wrap and truncation functionality in icDataTable", () => {
     // the column width should not be altered
     // other cells should add whitespace to fill,
     // And the other cells should adhere to their alignment properties.
+    console.log(dataWithRowTextWrap);
+    console.log(columnsWithTextWrap);
   });
 
-  it("should have no effect on the cells in a row if 'text-wrap' has been set on a cell in that row that is not the tallest", async () => {
+  it("should have no effect on the cells in a row if 'text-wrap' has been set on a column where the cell in that row is not the tallest", async () => {
+    // the row should keep its height
+    // And the other cells should adhere to their alignment properties.
+  });
+
+  it("should follow the normal truncation pattern and disregard text wrapping if the height of a row is updated after initial render", async () => {
+    // other cells should add whitespace to fill,
+    // And the other cells should adhere to their alignment properties.
+
+    /*Given that a table cell is currently set to wrap
+When something else then occurs to adjust the row height,
+Then the wrapping property should be removed
+and the cell should follow normal truncation pattern.*/ 
+  });
+
+  it("should wrap the text in a cell onto multiple lines and truncate any remaining text if the contents of a cell is longer or larger than the what can be displayed in a cell", async () => {
+//     Given that a cell has a set height and width,
+// When its contents is larger than can be displayed in the cell,
+// Then it wrap onto multiple lines if space is available,
+// And the remaining text should be truncated with an ellipsis.
+    // other cells should add whitespace to fill,
+    // And the other cells should adhere to their alignment properties.
+  });
+
+  it("should resize to the text to fill the available size if the height of a row has changed and truncate if necessary", async () => {
+//     Given that a cell is truncated
+// When its size changes, either by column width changing, or row height changing
+// Then the text should resize to fill the available space
+  });
+
+  it("should wrap the text in a cell onto multiple lines and truncate any remaining text if the contents of a cell is longer or larger than the what can be displayed in a cell", async () => {
     // other cells should add whitespace to fill,
     // And the other cells should adhere to their alignment properties.
   });
 
   /*TODO: Text wrap
 
-Given that a table cell is currently set to wrap
-When something else then occurs to adjust the row height,
-Then the wrapping property should be removed
-and the cell should follow normal truncation pattern.
+
 
 Truncation
-
-Given that a cell has a set height and width,
-When its contents is larger than can be displayed in the cell,
-Then it wrap onto multiple lines if space is available,
-And the remaining text should be truncated with an ellipsis.
 
 Given that a cell is truncated
 When its size changes, either by column width changing, or row height changing
