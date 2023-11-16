@@ -18,6 +18,26 @@
 | `variant`              | `variant`                | The ICDS typography style to use.                                                                                                                                                     | `"badge" \| "badge-small" \| "body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
 
 
+## Events
+
+| Event      | Description                                           | Type                                                               |
+| ---------- | ----------------------------------------------------- | ------------------------------------------------------------------ |
+| `icExpand` | Emitted when the See More/See Less button is clicked. | `CustomEvent<{ el: HTMLIcTypographyElement; expanded: boolean; }>` |
+
+
+## Methods
+
+### `checkMaxLines(height: number) => Promise<void>`
+
+Truncate the text in ic-typography by adding a line-clamp css property.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

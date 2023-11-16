@@ -15,3 +15,4 @@ export * from "./components/ic-status-tag/ic-status-tag.types";
 export * from "./components/ic-step/ic-step.types";
 export * from "./components/ic-text-field/ic-text-field.types";
 export * from "./components/ic-tooltip/ic-tooltip.types";
+export * from "./components/ic-typography/ic-typography.types";
