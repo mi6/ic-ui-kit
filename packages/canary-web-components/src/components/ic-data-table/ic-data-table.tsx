@@ -21,6 +21,7 @@ import {
   IcDataTableDensityOptions,
   IcDataTableRowHeights,
   IcDataTableSortOrderOptions,
+  IcDataTableTruncationTypes,
   IcDensityUpdateEventDetail,
 } from "./ic-data-table.types";
 import {
@@ -31,6 +32,7 @@ import {
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 // Unable to import helper functions via @ukic/web-components
 import { getSlotContent, isSlotUsed } from "../../utils/helpers";
+import { IcExpandEventDetail } from "@ukic/web-components/dist/types/interface";
 
 /**
  * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
@@ -50,12 +52,19 @@ export class DataTable {
     spacious: 1.2,
   };
 
+  private DENSITY_PADDING_HEIGHT_DIFF = {
+    dense: 8,
+    default: 16,
+    spacious: 20,
+  };
+
   private SORT_ICONS = {
     unsorted: unsortedIcon,
     ascending: ascendingIcon,
     descending: descendingIcon,
   };
 
+  private currentRowHeight: number;
   private hasLoadedForOneSecond: boolean = true;
   private timerStarted: number;
 
@@ -193,6 +202,12 @@ export class DataTable {
   @Prop() stickyRowHeaders?: boolean = false;
 
   /**
+   * For long text in cells that aren't set to textWrap, define how they should be truncated.
+   * `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
+   */
+  @Prop() truncationPattern?: IcDataTableTruncationTypes = "tooltip";
+
+  /**
    * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
    */
   @Prop() updating?: boolean = false;
@@ -243,6 +258,74 @@ export class DataTable {
     ) {
       this.scrollable = true;
     }
+  }
+
+  componentDidRender(): void {
+    Array.from(
+      this.el.shadowRoot.querySelectorAll(
+        "ic-typography:not(.column-header-text)"
+      )
+    ).forEach((typographyEl: HTMLIcTypographyElement) => {
+      const parentEl = typographyEl.parentElement;
+      const parentIsTooltip = parentEl.tagName === "IC-TOOLTIP";
+      const parentDiv = parentIsTooltip ? parentEl.parentElement : parentEl;
+
+      const parentHeight = Number(
+        (parentDiv.style["height"] as string).replace("px", "")
+      );
+      const maxLines = Math.floor(parentHeight / 24);
+
+      if (typographyEl.clientHeight > parentHeight) {
+        const hasVerticalAlignment = (el: HTMLElement): void => {
+          const VERTICAL_CLASSES = [
+            "cell-alignment-middle",
+            "cell-alignment-bottom",
+          ];
+          if (
+            VERTICAL_CLASSES.some((className) =>
+              Array.from(el.classList).includes(className)
+            )
+          ) {
+            el.classList.remove(...VERTICAL_CLASSES);
+          }
+        };
+        hasVerticalAlignment(parentDiv);
+        hasVerticalAlignment(parentDiv.parentElement);
+      }
+
+      if (
+        parentDiv.parentElement.clientHeight >
+        parentHeight + this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
+      ) {
+        parentDiv.style["height"] = "";
+        parentDiv.style["overflowY"] = "";
+      }
+      if (typographyEl.scrollHeight < parentHeight && parentIsTooltip) {
+        parentEl.replaceWith(...Array.from(parentEl.childNodes));
+      } else if (typographyEl.scrollHeight > typographyEl.clientHeight) {
+        if (this.truncationPattern === "tooltip") {
+          typographyEl.style.webkitLineClamp = `${maxLines}`;
+          if (!parentIsTooltip) {
+            const tooltipEl = document.createElement("ic-tooltip");
+            tooltipEl.setAttribute("target", typographyEl.id);
+            tooltipEl.setAttribute("label", typographyEl.innerHTML);
+            typographyEl.parentNode.replaceChild(tooltipEl, typographyEl);
+            tooltipEl.appendChild(typographyEl);
+          }
+        } else if (
+          this.truncationPattern === "showHide" &&
+          !typographyEl.maxLines
+        ) {
+          typographyEl.maxLines = maxLines - 1 || 1;
+          typographyEl.checkMaxLines(parentHeight);
+        }
+      }
+    });
+  }
+
+  @Listen("icExpand")
+  expandHandler(ev: CustomEvent<IcExpandEventDetail>): void {
+    if (ev.detail.expanded) ev.detail.el.parentElement.style["height"] = null;
   }
 
   @Listen("icItemsPerPageChange")
@@ -379,6 +462,8 @@ export class DataTable {
   private createCells = (row: object, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
+    const rowTextWrapIndex = rowKeys.indexOf("textWrap");
+    const rowTextWrap = rowTextWrapIndex > -1 && rowValues[rowTextWrapIndex];
     let rowAlignment: string;
     let rowEmphasis: string;
     const headerIndex = rowKeys.indexOf("header");
@@ -390,102 +475,129 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const { columnAlignment, dataType, emphasis, icon, key } =
-        this.columns[index];
+      const { columnAlignment, dataType, emphasis, icon, key, textWrap } =
+        this.columns[index] || {};
       const cellSlotName = `${key}-${rowIndex}`;
       const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
-      return rowKeys[index] === "header" ? (
-        <th
-          scope="row"
-          colSpan={cellValue("colspan")}
-          class={{
-            ["row-header"]: true,
-            [`row-header-alignment-${cellValue("cellAlignment")}`]:
-              !!cellValue("cellAlignment"),
-            ["row-header-sticky"]: this.stickyRowHeaders,
-          }}
-        >
-          {cellValue("title")}
-        </th>
-      ) : (
-        <td
-          class={{
-            ["table-cell"]: true,
-            [`table-density-${this.density}`]: this.notDefaultDensity(),
-            [`data-type-${dataType}`]: true,
-            [`cell-alignment-${
-              columnAlignment?.vertical ||
-              rowAlignment ||
-              this.getCellAlignment(cell, "vertical")
-            }`]:
-              !!columnAlignment?.vertical ||
-              !!rowAlignment ||
-              !!this.getCellAlignment(cell, "vertical"),
-          }}
-        >
-          <div
-            innerHTML={
-              dataType === "element" && !isSlotUsed(this.el, cellSlotName)
-                ? (cell as string)
-                : null
-            }
+      return (
+        key &&
+        (rowKeys[index] === "header" ? (
+          <th
+            scope="row"
+            colSpan={cellValue("colspan")}
             class={{
-              "cell-container": dataType !== "element",
-              [`data-type-${dataType}`]: true,
-              [`cell-alignment-${
-                columnAlignment?.horizontal ||
-                this.getCellAlignment(cell, "horizontal")
-              }`]:
-                !!columnAlignment?.horizontal ||
-                !!this.getCellAlignment(cell, "horizontal"),
+              ["row-header"]: true,
+              [`row-header-alignment-${cellValue("cellAlignment")}`]:
+                !!cellValue("cellAlignment"),
+              ["row-header-sticky"]: this.stickyRowHeaders,
             }}
           >
-            {isSlotUsed(this.el, cellSlotName) ? (
-              <slot name={cellSlotName} />
-            ) : (
-              <Fragment>
-                {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
-                  <slot name={`${cellSlotName}-icon`} />
-                ) : (
-                  (hasIcon || icon?.onAllCells) && (
-                    <span
-                      class="icon"
-                      innerHTML={cellValue("icon") || icon.icon}
-                    ></span>
-                  )
-                )}
-                <ic-typography
-                  variant="body"
-                  class={{
-                    [`cell-emphasis-${
-                      (this.isObject(cell) && cellValue("emphasis")) ||
-                      emphasis ||
-                      rowEmphasis
-                    }`]:
-                      (this.isObject(cell) && !!cellValue("emphasis")) ||
-                      !!emphasis ||
-                      !!rowEmphasis,
-                    [`text-${this.density}`]: this.notDefaultDensity(),
-                  }}
-                >
-                  {this.isObject(cell) && dataType !== "date" ? (
-                    Object.keys(cell).includes("href") ? (
-                      <ic-link href={cellValue("href")}>
-                        {cellValue("data")}
-                      </ic-link>
-                    ) : (
-                      cellValue("data")
-                    )
+            {cellValue("title")}
+          </th>
+        ) : (
+          <td
+            class={{
+              ["table-cell"]: true,
+              [`table-density-${this.density}`]: this.notDefaultDensity(),
+              [`data-type-${dataType}-cell`]: true,
+              [`cell-alignment-${
+                columnAlignment?.vertical ||
+                rowAlignment ||
+                this.getCellAlignment(cell, "vertical")
+              }`]:
+                !!columnAlignment?.vertical ||
+                !!rowAlignment ||
+                !!this.getCellAlignment(cell, "vertical"),
+            }}
+          >
+            <div
+              innerHTML={
+                dataType === "element" && !isSlotUsed(this.el, cellSlotName)
+                  ? (cell as string)
+                  : null
+              }
+              class={{
+                "cell-container": dataType !== "element",
+                [`data-type-${dataType}`]: true,
+                [`cell-alignment-${
+                  columnAlignment?.horizontal ||
+                  this.getCellAlignment(cell, "horizontal")
+                }`]:
+                  !!columnAlignment?.horizontal ||
+                  !!this.getCellAlignment(cell, "horizontal"),
+                [`cell-alignment-${
+                  columnAlignment?.vertical ||
+                  rowAlignment ||
+                  this.getCellAlignment(cell, "vertical")
+                }`]:
+                  !!columnAlignment?.vertical ||
+                  !!rowAlignment ||
+                  !!this.getCellAlignment(cell, "vertical"),
+              }}
+              style={{
+                height:
+                  this.currentRowHeight && !rowTextWrap && !textWrap
+                    ? `${
+                        this.currentRowHeight *
+                          this.DENSITY_HEIGHT_MULTIPLIER[this.density] -
+                        this.DENSITY_PADDING_HEIGHT_DIFF[this.density]
+                      }px`
+                    : null,
+                overflowY:
+                  this.truncationPattern === "tooltip" &&
+                  (!rowTextWrap || !textWrap)
+                    ? "hidden"
+                    : null,
+              }}
+            >
+              {isSlotUsed(this.el, cellSlotName) ? (
+                <slot name={cellSlotName} />
+              ) : (
+                <Fragment>
+                  {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
+                    <slot name={`${cellSlotName}-icon`} />
                   ) : (
-                    this.getCellContent(cell, dataType)
+                    (hasIcon || icon?.onAllCells) && (
+                      <span
+                        class="icon"
+                        innerHTML={cellValue("icon") || icon.icon}
+                      ></span>
+                    )
                   )}
-                </ic-typography>
-              </Fragment>
-            )}
-          </div>
-        </td>
+                  <ic-typography
+                    id={cellSlotName}
+                    variant="body"
+                    class={{
+                      [`cell-emphasis-${
+                        (this.isObject(cell) && cellValue("emphasis")) ||
+                        emphasis ||
+                        rowEmphasis
+                      }`]:
+                        (this.isObject(cell) && !!cellValue("emphasis")) ||
+                        !!emphasis ||
+                        !!rowEmphasis,
+                      [`text-${this.density}`]: this.notDefaultDensity(),
+                    }}
+                  >
+                    {this.isObject(cell) && dataType !== "date" ? (
+                      Object.keys(cell).includes("href") ? (
+                        <ic-link href={cellValue("href")}>
+                          {cellValue("data")}
+                        </ic-link>
+                      ) : (
+                        cellValue("data")
+                      )
+                    ) : (
+                      this.getCellContent(cell, dataType)
+                    )}
+                  </ic-typography>
+                </Fragment>
+              )}
+            </div>
+          </td>
+        ))
       );
     });
   };
@@ -551,6 +663,16 @@ export class DataTable {
     ));
   };
 
+  private onRowClick = (target: HTMLElement, row: object) => {
+    if (
+      target.tagName !== "IC-TYPOGRAPHY" &&
+      !target.style.getPropertyValue("--truncation-max-lines")
+    ) {
+      this.selectedRow =
+        this.selectedRow !== row && !this.loading && !this.updating && row;
+    }
+  };
+
   private createRows = () => {
     const data = this.showPagination
       ? this.data.slice(this.fromRow, this.toRow)
@@ -576,29 +698,18 @@ export class DataTable {
           ...row,
           index,
         });
-        const findRowHeight = variableRowHeightVal
+        this.currentRowHeight = variableRowHeightVal
           ? variableRowHeightVal !== "auto" && variableRowHeightVal
           : this.globalRowHeight !== "auto" && this.globalRowHeight;
         return (
           <tr
             // eslint-disable-next-line react/jsx-no-bind
-            onClick={() =>
-              (this.selectedRow =
-                this.selectedRow !== row &&
-                !this.loading &&
-                !this.updating &&
-                row)
+            onClick={(event: MouseEvent) =>
+              this.onRowClick(event.target as HTMLElement, row)
             }
             class={{
               ["table-row"]: true,
               ["table-row-selected"]: this.selectedRow === row,
-            }}
-            style={{
-              height: findRowHeight
-                ? `${
-                    findRowHeight * this.DENSITY_HEIGHT_MULTIPLIER[this.density]
-                  }px`
-                : null,
             }}
           >
             {this.createCells(row, index)}
