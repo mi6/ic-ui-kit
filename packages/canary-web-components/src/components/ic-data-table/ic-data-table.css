@@ -175,6 +175,7 @@ ic-tooltip > ic-typography {
 .data-type-number,
 .data-type-date {
   justify-content: end;
+  text-align: end;
 }
 
 .cell-alignment-top {
