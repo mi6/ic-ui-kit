@@ -367,6 +367,9 @@ export class Select {
 
     if (!this.options.length) {
       this.initialOptionsEmpty = true;
+      this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
+      this.uniqueOptions = this.noOptions;
+      this.filteredOptions = this.noOptions;
     } else {
       this.setDefaultValue();
       this.uniqueOptions = this.deduplicateOptions(this.options);
@@ -616,6 +619,7 @@ export class Select {
       } else if (
         !this.hasTimedOut &&
         !this.loading &&
+        !this.noOptions?.length &&
         (!this.searchable || this.searchableMenuItemSelected)
       ) {
         this.noOptions = null;
@@ -772,9 +776,12 @@ export class Select {
       );
     }
 
-    if (!isGrouped) {
+    if (
+      !isGrouped &&
+      menuOptionsFiltered[0]?.label !== this.emptyOptionListText
+    ) {
       newFilteredOptions = menuOptionsFiltered;
-    } else {
+    } else if (isGrouped) {
       options.map((option) => {
         if (this.includeGroupTitlesInSearch) {
           if (menuOptionsFiltered.indexOf(option) !== -1) {
@@ -799,13 +806,11 @@ export class Select {
       });
     }
 
-    const noOptions = [{ label: this.emptyOptionListText, value: "" }];
-
     if (newFilteredOptions.length > 0 && !noChildOptionsWhenFiltered) {
       this.noOptions = null;
       this.filteredOptions = newFilteredOptions;
     } else {
-      this.noOptions = noOptions;
+      this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
       this.filteredOptions = this.noOptions;
     }
   };
@@ -965,16 +970,13 @@ export class Select {
       currValue,
     } = this;
 
-    const noOptionSelect =
-      searchable &&
-      (this.loading ||
-        this.hasTimedOut ||
-        (this.noOptions !== null &&
-          this.noOptions[0] &&
-          this.noOptions[0].label === this.emptyOptionListText));
-    const inputValue = this.searchable ? this.hiddenInputValue : currValue;
-
-    renderHiddenInput(true, this.el, name, inputValue, disabled);
+    renderHiddenInput(
+      true,
+      this.el,
+      name,
+      this.searchable ? this.hiddenInputValue : currValue,
+      disabled
+    );
 
     const invalid =
       validationStatus === IcInformationStatus.Error ? "true" : "false";
@@ -1215,7 +1217,12 @@ export class Select {
           {!isMobileOrTablet() && (
             <ic-menu
               class={{
-                "no-results": noOptionSelect,
+                "no-results":
+                  this.loading ||
+                  this.hasTimedOut ||
+                  (this.noOptions !== null &&
+                    this.noOptions[0] &&
+                    this.noOptions[0].label === this.emptyOptionListText),
               }}
               ref={(el) => (this.menu = el)}
               inputEl={
