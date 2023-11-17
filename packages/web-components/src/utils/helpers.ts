@@ -115,27 +115,22 @@ export const removeHiddenInput = (container: HTMLElement): void => {
   input?.remove();
 };
 
-export const hasShadowDom = (el: HTMLElement): boolean => {
-  return !!el.shadowRoot && !!el.attachShadow;
-};
+export const hasShadowDom = (el: HTMLElement): boolean =>
+  !!el.shadowRoot && !!el.attachShadow;
 
-export const getInputHelperTextID = (id: string): string => {
-  return id + "-helper-text";
-};
+export const getInputHelperTextID = (id: string): string => id + "-helper-text";
 
-export const getInputValidationTextID = (id: string): string => {
-  return id + "-validation-text";
-};
+export const getInputValidationTextID = (id: string): string =>
+  id + "-validation-text";
 
 export const getInputDescribedByText = (
   inputId: string,
   helperText: boolean,
   validationText: boolean
-): string => {
-  return `${helperText ? getInputHelperTextID(inputId) : ""} ${
+): string =>
+  `${helperText ? getInputHelperTextID(inputId) : ""} ${
     validationText ? getInputValidationTextID(inputId) : ""
   }`.trim();
-};
 
 /**
  * This method helps to understand the context in which a component exists,
@@ -183,13 +178,8 @@ export const getThemeFromContext = (
   return IcThemeForegroundEnum.Default;
 };
 
-export const isMobileOrTablet = (): boolean => {
-  let isMobileOrTablet = false;
-  if ("maxTouchPoints" in navigator) {
-    isMobileOrTablet = navigator.maxTouchPoints > 0;
-  }
-  return isMobileOrTablet;
-};
+export const isMobileOrTablet = (): boolean =>
+  "maxTouchPoints" in navigator ? navigator.maxTouchPoints > 0 : false;
 
 /**
  * Will create a button within the lightDOM which interacts with the parent form.
@@ -213,18 +203,12 @@ export const handleHiddenFormButtonClick = (
   hiddenFormButton.remove();
 };
 
-export const isEmptyString = (value: string): boolean => {
-  if (!value) {
-    return true;
-  }
-
-  return value.trim().length === 0;
-};
+export const isEmptyString = (value: string): boolean =>
+  value ? value.trim().length === 0 : true;
 
 // A helper function that checks if a prop has been defined
-export const isPropDefined = (prop: string) => {
-  return prop !== undefined ? prop : null;
-};
+export const isPropDefined = (prop: string): string | null =>
+  prop !== undefined ? prop : null;
 
 /**
  * Extracts the label using the value from an object. Requires the object to have a label and value property.
@@ -235,15 +219,9 @@ export const isPropDefined = (prop: string) => {
 export const getLabelFromValue = (
   value: string,
   options: IcMenuOption[],
-  valueField?: string,
-  labelField?: string
+  valueField = "value",
+  labelField = "label"
 ): string | undefined => {
-  if (valueField === undefined) {
-    valueField = "value";
-  }
-  if (labelField === undefined) {
-    labelField = "label";
-  }
   const ungroupedOptions: IcMenuOption[] = [];
   if (options.length > 0 && options.map) {
     options.map((option) => {
@@ -255,14 +233,10 @@ export const getLabelFromValue = (
         ungroupedOptions.push(option);
       }
     });
-    if (
-      ungroupedOptions.find((option) => option[valueField] === value) !==
-      undefined
-    ) {
-      return ungroupedOptions.find((option) => option[valueField] === value)[
-        labelField
-      ];
-    }
+    const matchingValue = ungroupedOptions.find(
+      (option) => option[valueField] === value
+    );
+    if (matchingValue !== undefined) return matchingValue[labelField];
   }
 
   return undefined;
@@ -281,50 +255,23 @@ export const getFilteredMenuOptions = (
   includeDescriptions: boolean,
   searchString: string,
   position: IcSearchMatchPositions,
-  labelField?: string
-): IcMenuOption[] => {
-  let rawFilteredOptions;
+  labelField = "label"
+): IcMenuOption[] =>
+  options.filter((option) => {
+    const label: string = option[labelField].toLowerCase();
+    const description = option.description?.toLowerCase();
+    const lowerSearchString = searchString.toLowerCase();
 
-  if (labelField === undefined) {
-    labelField = "label";
-  }
-
-  if (position === "anywhere") {
-    rawFilteredOptions = options.filter((option) => {
-      if (includeDescriptions) {
-        return (
-          option[labelField]
-            .toLowerCase()
-            .includes(searchString.toLowerCase()) ||
-          option.description?.toLowerCase().includes(searchString.toLowerCase())
-        );
-      } else {
-        return option[labelField]
-          .toLowerCase()
-          .includes(searchString.toLowerCase());
-      }
-    });
-  } else {
-    rawFilteredOptions = options.filter((option) => {
-      if (includeDescriptions) {
-        return (
-          option[labelField]
-            .toLowerCase()
-            .startsWith(searchString.toLowerCase()) ||
-          option.description
-            ?.toLowerCase()
-            .startsWith(searchString.toLowerCase())
-        );
-      } else {
-        return option[labelField]
-          .toLowerCase()
-          .startsWith(searchString.toLowerCase());
-      }
-    });
-  }
-
-  return rawFilteredOptions;
-};
+    return position === "anywhere"
+      ? includeDescriptions
+        ? label.includes(lowerSearchString) ||
+          description?.includes(lowerSearchString)
+        : label.includes(lowerSearchString)
+      : includeDescriptions
+      ? label.startsWith(lowerSearchString) ||
+        description?.startsWith(lowerSearchString)
+      : label.startsWith(lowerSearchString);
+  });
 
 export const deviceSizeMatches = (size: number): boolean =>
   window.matchMedia(`(max-width: ${size}px)`).matches;
@@ -346,9 +293,8 @@ export const getCurrentDeviceSize = (): number => {
   return DEVICE_SIZES.UNDEFINED;
 };
 
-export const getCssProperty = (cssVar: string): string => {
-  return getComputedStyle(document.documentElement).getPropertyValue(cssVar);
-};
+export const getCssProperty = (cssVar: string): string =>
+  getComputedStyle(document.documentElement).getPropertyValue(cssVar);
 
 /**
  * Returns the brightness of the theme colour, calculated by using the theme RGB CSS values by:
@@ -373,11 +319,10 @@ export const getThemeColorBrightness = (): number => {
  * Returns if dark or light foreground colors should be used for color contrast reasons
  * @returns "dark" or "light"
  */
-export const getThemeForegroundColor = (): IcThemeForeground => {
-  return getThemeColorBrightness() > DARK_MODE_THRESHOLD
+export const getThemeForegroundColor = (): IcThemeForeground =>
+  getThemeColorBrightness() > DARK_MODE_THRESHOLD
     ? IcThemeForegroundEnum.Dark
     : IcThemeForegroundEnum.Light;
-};
 
 export const getSlot = (element: HTMLElement, name: string): Element | null => {
   if (element && element.querySelector) {
@@ -454,11 +399,10 @@ export const hasValidationStatus = (
   return status !== "" && !disabled;
 };
 
-export const isSlotUsed = (element: HTMLElement, slotName: string): boolean => {
-  return Array.from(element.children).some(
+export const isSlotUsed = (element: HTMLElement, slotName: string): boolean =>
+  Array.from(element.children).some(
     (child) => child.getAttribute("slot") === slotName
   );
-};
 
 // added as a common method to allow detection of gatsby hydration issue, where (camelCase) props are initially undefined & then update
 // with a value. Allows a callback function to be executed when this is the case
@@ -562,9 +506,9 @@ export const rgbaStrToObj = (rgbaStr: string): IcColorRGBA => {
   return colorRGBA;
 };
 
-export const elementOverflowsX = (element: HTMLElement): boolean => {
-  return element.scrollWidth > element.clientWidth;
-};
+export const elementOverflowsX = (element: HTMLElement): boolean =>
+  element.scrollWidth > element.clientWidth;
+
 /**
  *
  * @param child - The child element
@@ -576,15 +520,10 @@ export const getParentElementType = (child: HTMLElement): string =>
 export const getParentElement = (child: HTMLElement): HTMLElement =>
   child.parentElement;
 
-export const hasClassificationBanner = (): boolean => {
-  return document.querySelector("ic-classification-banner:not([inline='true'])")
-    ? true
-    : false;
-};
+export const hasClassificationBanner = (): boolean =>
+  !!document.querySelector("ic-classification-banner:not([inline='true'])");
 
-export const getForm = (el: HTMLElement): HTMLFormElement | null => {
-  return el.closest("FORM");
-};
+export const getForm = (el: HTMLElement): HTMLFormElement => el.closest("FORM");
 
 export const addFormResetListener = (
   el: HTMLElement,
@@ -606,10 +545,8 @@ export const removeFormResetListener = (
   }
 };
 
-export const pxToRem = (px: string, base = 16): string => {
-  const tempPx = parseInt(px);
-  return `${(1 / base) * tempPx}rem`;
-};
+export const pxToRem = (px: string, base = 16): string =>
+  `${(1 / base) * parseInt(px)}rem`;
 
 export const removeDisabledFalse = (
   disabled: boolean,

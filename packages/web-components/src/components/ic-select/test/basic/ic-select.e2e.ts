@@ -1147,6 +1147,21 @@ describe("ic-select", () => {
         expect(icRetryLoad).toHaveReceivedEvent;
         expect(await getMenuVisibility(page)).toBe("visible");
       });
+
+      it("should render a No results message if no options are provided on render", async () => {
+        const page = await newE2EPage();
+        await page.setContent(getTestSelect(`[]`));
+        await page.waitForChanges();
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menuOptions = await menu.findAll("li");
+        expect(menuOptions).toHaveLength(1);
+        expect(menuOptions[0]).toEqualText("No results found");
+      });
     });
   });
 
@@ -2002,6 +2017,21 @@ describe("ic-select", () => {
           "ic-select >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toBeNull;
+      });
+
+      it("should render a No results message if no options are provided on render", async () => {
+        const page = await newE2EPage();
+        await page.setContent(getTestSearchableSelect(`[]`));
+        await page.waitForChanges();
+
+        const select = await page.find("ic-select >>> #ic-select-input-0");
+        await select.click();
+        await page.waitForChanges();
+
+        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menuOptions = await menu.findAll("li");
+        expect(menuOptions).toHaveLength(1);
+        expect(menuOptions[0]).toEqualText("No results found");
       });
     });
   });
