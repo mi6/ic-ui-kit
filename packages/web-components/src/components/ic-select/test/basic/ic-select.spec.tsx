@@ -1743,9 +1743,17 @@ describe("ic-select searchable", () => {
     ) as HTMLIcButtonElement;
     clearButton.click();
     await page.waitForChanges();
-    expect(page.rootInstance.filteredOptions).toHaveLength(0);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0]).toMatchObject({
+      label: noResults,
+      value: "",
+    });
     await waitForTimeout(1000);
-    expect(page.rootInstance.filteredOptions).toHaveLength(0);
+    expect(page.rootInstance.filteredOptions).toHaveLength(1);
+    expect(page.rootInstance.filteredOptions[0]).toMatchObject({
+      label: noResults,
+      value: "",
+    });
   });
 
   it("should clear the searchable input if the value is programatically set to undefined", async () => {
