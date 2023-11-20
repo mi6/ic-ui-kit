@@ -11,7 +11,7 @@ import {
   IcDataTableDensityOptions,
   IcDensityUpdateEventDetail,
 } from "../ic-data-table/ic-data-table.types";
-import { isSlotUsed } from "@ukic/web-components/src/utils/helpers";
+import { isSlotUsed } from "../../utils/helpers";
 
 const DEFAULT_TITLE_BAR_HEADING = "Title Bar";
 
