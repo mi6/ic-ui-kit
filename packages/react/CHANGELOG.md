@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
+
+### Bug Fixes
+
+- **react:** adds accordion expanded story ([3f3db49](https://github.com/mi6/ic-ui-kit/commit/3f3db49aee99db7b797df61ef195a4383c0b89de))
+- **react:** react story added for checkbox fix ([daf8ca8](https://github.com/mi6/ic-ui-kit/commit/daf8ca86fad66fae8f7c7785526ef28f01f51833))
+
+### Features
+
+- **react:** deprecate setVisible method on toast region and add openToast prop ([091bca2](https://github.com/mi6/ic-ui-kit/commit/091bca23ef6c7969d0ae6a9c655eccb98f1bc728)), closes [#1210](https://github.com/mi6/ic-ui-kit/issues/1210)
+
 # [2.6.0](https://github.com/mi6/ic-ui-kit/compare/v2.5.1...v2.6.0) (2023-11-07)
 
 ### Features

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
+
+### Bug Fixes
+
+- **web-components:** add a watch to checked prop ([3c2d6cb](https://github.com/mi6/ic-ui-kit/commit/3c2d6cbf0163912e97ea680110b75d2ab1abbd15)), closes [#1039](https://github.com/mi6/ic-ui-kit/issues/1039)
+- **web-components:** add expanded story and visual tests back for side nav ([b14aa66](https://github.com/mi6/ic-ui-kit/commit/b14aa6641255e43945351c97927dc8fe3bf09a08)), closes [#922](https://github.com/mi6/ic-ui-kit/issues/922)
+- **web-components:** added ability to hide the close button, equalised call to action button spacing ([d7601fe](https://github.com/mi6/ic-ui-kit/commit/d7601fed1dfcce12d7354e92fe93ea2c1f9c3bf3))
+- **web-components:** added display property to ic-select ([85dda77](https://github.com/mi6/ic-ui-kit/commit/85dda7701009dcd00dcd14ba56f9ae74595aaa4e))
+- **web-components:** fixes accordion expanded ([4ad9377](https://github.com/mi6/ic-ui-kit/commit/4ad9377c18b40825b0c84609df66adf0fa98204d))
+- **web-components:** fixes issues with icchange event ([579f8e0](https://github.com/mi6/ic-ui-kit/commit/579f8e08597e8ae2462ba87be9910f1026029d89))
+- **web-components:** fixes responsive tabs selection issue ([4e5d124](https://github.com/mi6/ic-ui-kit/commit/4e5d124ec472f7f2785cbb5e484da51941caca8a))
+- **web-components:** removes expandable from storybook ([9e40492](https://github.com/mi6/ic-ui-kit/commit/9e40492f6ea447b031b8fd79daa147d38c43d776))
+
+### Features
+
+- **web-components:** added default no results state to select ([b105369](https://github.com/mi6/ic-ui-kit/commit/b105369975b58bf5698d2087086262072ad1f32e))
+- **web-components:** deprecate setVisible method on toast region and add openToast prop ([7ec75d9](https://github.com/mi6/ic-ui-kit/commit/7ec75d96b4c14808f270f434db6f7976f1729f62)), closes [#1210](https://github.com/mi6/ic-ui-kit/issues/1210)
+
 # [2.6.0](https://github.com/mi6/ic-ui-kit/compare/v2.5.1...v2.6.0) (2023-11-07)
 
 ### Bug Fixes

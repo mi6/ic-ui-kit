@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
+
+### Bug Fixes
+
+- **web-components:** added ability to hide the close button, equalised call to action button spacing ([d7601fe](https://github.com/mi6/ic-ui-kit/commit/d7601fed1dfcce12d7354e92fe93ea2c1f9c3bf3))
+
 # [2.6.0](https://github.com/mi6/ic-ui-kit/compare/v2.5.1...v2.6.0) (2023-11-07)
 
 **Note:** Version bump only for package @ukic/docs
