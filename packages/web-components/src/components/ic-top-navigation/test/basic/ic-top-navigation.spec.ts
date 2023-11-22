@@ -298,6 +298,22 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-short-title");
   });
 
+  it("renders with slotted short-app-title", async () => {
+    const page = await newSpecPage({
+      components: [TopNavigation],
+      html: `<ic-top-navigation
+        status="alpha"
+        version="v0.0.7"
+      >
+      <a slot="app-title" href="/">App Title</a>
+      <a slot="short-app-title" href="/">Title</a>
+      </ic-top-navigation>`,
+    });
+    await page.rootInstance.resizeObserverCallback(DEVICE_SIZES.S);
+    await page.waitForChanges();
+    expect(page.root).toMatchSnapshot("renders-with-slotted-short-title");
+  });
+
   it("should test search value change", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],

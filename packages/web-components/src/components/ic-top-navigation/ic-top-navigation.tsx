@@ -34,6 +34,7 @@ import {
 /**
  * @slot app-icon - Content will be rendered to left of app title.
  * @slot app-title - Handle routing by nesting a route in the app title.
+ * @slot short-app-title - Handle routing by nesting a route in the short app title (to be displayed in place of app title on small screen sizes).
  * @slot search - Content will be rendered in search area to left of buttons.
  * @slot toggle-icon - Icon to be displayed on the button to toggle search slot content on smaller devices
  * @slot navigation - Content will be rendered in navigation panel.
@@ -314,6 +315,8 @@ export class TopNavigation {
       href: this.href,
     };
 
+    const shortAppTitleSlot = isSlotUsed(this.el, "short-app-title");
+
     return (
       <Host
         class={{
@@ -330,17 +333,28 @@ export class TopNavigation {
                   {(hasTitle || isSlotUsed(this.el, "app-title")) && (
                     <Component class="title-link" {...attrs}>
                       {this.hasAppIcon && (
-                        <div class="app-icon-container" aria-hidden="true">
+                        <div class="app-icon-container">
                           <slot name="app-icon" />
                         </div>
                       )}
                       {this.deviceSize <= DEVICE_SIZES.S &&
-                      !isEmptyString(this.shortAppTitle) ? (
+                      (!isEmptyString(this.shortAppTitle) ||
+                        shortAppTitleSlot) ? (
                         <ic-typography
                           variant="subtitle-small"
-                          aria-label={`${this.appTitle} (${this.shortAppTitle})`}
+                          aria-label={
+                            (!isSlotUsed(this.el, "app-title") ||
+                              !shortAppTitleSlot) &&
+                            `${this.appTitle} (${this.shortAppTitle})`
+                          }
                         >
-                          <h1>{this.shortAppTitle}</h1>
+                          <h1>
+                            {shortAppTitleSlot ? (
+                              <slot name="short-app-title"></slot>
+                            ) : (
+                              this.shortAppTitle
+                            )}
+                          </h1>
                         </ic-typography>
                       ) : (
                         <ic-typography variant={appTitleVariant}>

@@ -133,7 +133,7 @@
   max-width: fit-content;
 }
 
-slot[name="app-icon"]::slotted(svg) {
+slot[name="app-icon"]::slotted(*) {
   fill: var(--ic-theme-text);
   width: 2em;
   height: 2em;
@@ -264,7 +264,7 @@ slot[name="toggle-icon"] svg {
     margin-left: var(--ic-space-sm);
   }
 
-  slot[name="app-icon"]::slotted(svg) {
+  slot[name="app-icon"]::slotted(*) {
     width: 1.5em;
     height: 1.5em;
   }
@@ -285,7 +285,7 @@ slot[name="toggle-icon"] svg {
     border: var(--ic-hc-border);
   }
 
-  slot[name="app-icon"]::slotted(svg) {
+  slot[name="app-icon"]::slotted(*) {
     fill: currentcolor;
   }
 }
