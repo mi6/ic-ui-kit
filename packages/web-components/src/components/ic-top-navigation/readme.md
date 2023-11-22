@@ -20,14 +20,15 @@
 
 ## Slots
 
-| Slot            | Description                                                                         |
-| --------------- | ----------------------------------------------------------------------------------- |
-| `"app-icon"`    | Content will be rendered to left of app title.                                      |
-| `"app-title"`   | Handle routing by nesting a route in the app title.                                 |
-| `"buttons"`     | Content will be rendered to right of search bar.                                    |
-| `"navigation"`  | Content will be rendered in navigation panel.                                       |
-| `"search"`      | Content will be rendered in search area to left of buttons.                         |
-| `"toggle-icon"` | Icon to be displayed on the button to toggle search slot content on smaller devices |
+| Slot                | Description                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `"app-icon"`        | Content will be rendered to left of app title.                                                                          |
+| `"app-title"`       | Handle routing by nesting a route in the app title.                                                                     |
+| `"buttons"`         | Content will be rendered to right of search bar.                                                                        |
+| `"navigation"`      | Content will be rendered in navigation panel.                                                                           |
+| `"search"`          | Content will be rendered in search area to left of buttons.                                                             |
+| `"short-app-title"` | Handle routing by nesting a route in the short app title (to be displayed in place of app title on small screen sizes). |
+| `"toggle-icon"`     | Icon to be displayed on the button to toggle search slot content on smaller devices                                     |
 
 
 ## Dependencies

@@ -48,7 +48,7 @@ exports[`ic-top-navigation renders with app icon & title: renders-with-app-icon-
           <div class="top-panel-container">
             <div class="app-details-container">
               <a class="title-link" href="/">
-                <div aria-hidden="true" class="app-icon-container">
+                <div class="app-icon-container">
                   <slot name="app-icon"></slot>
                 </div>
                 <ic-typography variant="h3">
@@ -307,6 +307,64 @@ exports[`ic-top-navigation renders with slotted app-title content: renders-with-
   </mock:shadow-root>
   <a href="/" slot="app-title">
     App Title
+  </a>
+</ic-top-navigation>
+`;
+
+exports[`ic-top-navigation renders with slotted short-app-title: renders-with-slotted-short-title 1`] = `
+<ic-top-navigation status="alpha" version="v0.0.7">
+  <mock:shadow-root>
+    <div class="top-navigation">
+      <ic-section-container aligned="full-width" full-height="">
+        <header role="banner">
+          <div class="top-panel-container">
+            <div class="app-details-container">
+              <div class="title-link">
+                <ic-typography variant="subtitle-small">
+                  <h1>
+                    <slot name="short-app-title"></slot>
+                  </h1>
+                </ic-typography>
+              </div>
+              <div class="app-status">
+                <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                  alpha
+                </ic-typography>
+              </div>
+              <div class="app-version">
+                <ic-typography aria-label="app version" class="app-version-text" variant="label">
+                  v0.0.7
+                </ic-typography>
+              </div>
+            </div>
+            <div class="search-menu-container">
+              <div class="search-actions-container">
+                <div class="menu-button-container">
+                  <span aria-hidden="true" class="navigation-landmark-button-text" id="navigation-landmark-button-text">
+                    Main navigation button
+                  </span>
+                  <nav aria-hidden="false" aria-labelledby="navigation-landmark-button-text">
+                    <ic-button appearance="light" aria-expanded="false" aria-haspopup="true" aria-label="Open app menu" id="menu-button" size="small" variant="secondary">
+                      Menu
+                      <svg fill="#ffffff" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0V0z" fill="none"></path>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                      </svg>
+                    </ic-button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </ic-section-container>
+    </div>
+  </mock:shadow-root>
+  <a href="/" slot="app-title">
+    App Title
+  </a>
+  <a href="/" slot="short-app-title">
+    Title
   </a>
 </ic-top-navigation>
 `;
