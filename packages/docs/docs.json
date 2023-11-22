@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-17T09:08:20",
+  "timestamp": "2023-11-23T09:18:33",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -16722,6 +16722,10 @@
         },
         {
           "name": "slot",
+          "text": "short-app-title - Handle routing by nesting a route in the short app title (to be displayed in place of app title on small screen sizes)."
+        },
+        {
+          "name": "slot",
           "text": "search - Content will be rendered in search area to left of buttons."
         },
         {
@@ -16954,6 +16958,10 @@
         {
           "name": "search",
           "docs": "Content will be rendered in search area to left of buttons."
+        },
+        {
+          "name": "short-app-title",
+          "docs": "Handle routing by nesting a route in the short app title (to be displayed in place of app title on small screen sizes)."
         },
         {
           "name": "toggle-icon",
