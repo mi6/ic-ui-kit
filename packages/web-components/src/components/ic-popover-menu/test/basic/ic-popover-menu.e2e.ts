@@ -1,5 +1,9 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+beforeAll(() => {
+  jest.spyOn(console, "error").mockImplementation(jest.fn());
+});
+
 describe("ic-popover-menu component", () => {
   it("renders", async () => {
     const page = await newE2EPage();
