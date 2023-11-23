@@ -514,12 +514,11 @@ export class Dialog {
               <ic-button
                 class="close-icon"
                 variant="icon"
+                innerHTML={closeIcon}
                 aria-label={dismissLabel}
                 onClick={this.closeIconClick}
                 data-gets-focus={destructive || !buttons ? "" : null}
-              >
-                <span class="close-icon-svg" innerHTML={closeIcon} />
-              </ic-button>
+              ></ic-button>
             )}
           </div>
           <div class="content-area">
