@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-23T09:18:33",
+  "timestamp": "2023-11-23T12:33:42",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -974,7 +974,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "visible",
           "reflectToAttr": false,
           "docs": "If `true`, the badge will be displayed.",
