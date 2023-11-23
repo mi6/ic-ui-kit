@@ -157,6 +157,8 @@ jobs:
         run: |
           npm run build-storybook:web-components
           npm run build-storybook:react
+          npm run build-storybook:canary-web-components
+          npm run build-storybook:canary-react
 
       - name: Build canary web-components and canary react storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
