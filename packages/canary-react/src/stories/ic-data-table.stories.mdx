@@ -1,13 +1,7 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  Description,
-} from "@storybook/addon-docs";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { IcDataTable, IcDataTableTitleBar } from "../components";
-import { IcButton, IcEmptyState, IcTypography, IcLink} from '@ukic/react';
-import { useState, useRef } from "react";
+import { IcButton, IcEmptyState, IcTypography, IcLink } from "@ukic/react";
+import { useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-data-table/readme.md";
 import {
   COLS,
@@ -23,7 +17,7 @@ import {
   DATA_REACT_ELEMENTS,
   ICON_DATA,
   ICON_COLS,
-} from "../../../web-components/src/components/ic-data-table/story-data";
+} from "../../../canary-web-components/src/components/ic-data-table/story-data";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 import { mdiAccountGroup, mdiImage } from "@mdi/js";
