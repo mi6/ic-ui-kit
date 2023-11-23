@@ -11,6 +11,8 @@ beforeEach(() => {
     disconnect: jest.fn().mockReturnValue(null),
   });
   window.ResizeObserver = mockResizeObserver;
+  const matchMedia = jest.fn().mockReturnValue(true);
+  window.matchMedia = matchMedia;
 });
 
 describe("ic-top-navigation", () => {

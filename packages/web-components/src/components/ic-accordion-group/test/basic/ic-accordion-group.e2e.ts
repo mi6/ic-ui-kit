@@ -1,5 +1,9 @@
 import { newE2EPage } from "@stencil/core/testing";
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-accordion-group", () => {
   it("button text should change to 'See all' when expanded accordion clicked", async () => {
     const page = await newE2EPage();
