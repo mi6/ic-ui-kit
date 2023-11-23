@@ -4,6 +4,10 @@ import { Accordion } from "../../../ic-accordion/ic-accordion";
 
 const event = { detail: { id: "ic-accordion-0" } };
 
+beforeAll(() => {
+  jest.spyOn(console, "warn").mockImplementation(jest.fn());
+});
+
 describe("ic-accordion-group snapshots", () => {
   it("should match default snapshot", async () => {
     const page = await newSpecPage({

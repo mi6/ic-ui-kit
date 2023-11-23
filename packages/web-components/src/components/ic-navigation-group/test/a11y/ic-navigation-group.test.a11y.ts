@@ -4,6 +4,8 @@ import { checkShadowElementRendersCorrectly } from "../../../../utils/testa11y.h
 
 describe("ic-navigation-group", () => {
   it("passes accessibility", async () => {
+    const matchMedia = jest.fn().mockReturnValue(true);
+    window.matchMedia = matchMedia;
     const el = await fixture(
       `<ic-navigation-group label="Test label"></ic-navigation-group>`
     );

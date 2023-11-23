@@ -4,7 +4,7 @@ import { checkShadowElementRendersCorrectly } from "../../../../utils/testa11y.h
 
 describe("pagination component", () => {
   it("passes accessibility", async () => {
-    const el = await fixture("<ic-pagination />");
+    const el = await fixture(`<ic-pagination pages="3" />`);
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();
   });

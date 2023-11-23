@@ -82,7 +82,7 @@ export class Badge {
   /**
    * If `true`, the badge will be displayed.
    */
-  @Prop() visible: boolean = true;
+  @Prop({ mutable: true }) visible: boolean = true;
 
   componentWillLoad(): void {
     this.variant === "custom" && this.setBadgeColour();
