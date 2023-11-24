@@ -918,3 +918,21 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Logging icChange
+
+<Canvas>
+  <Story name="Logging icChange" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<script>
+          function handleIcChange(ev) {
+            console.log(ev.detail.value, "icChange");
+          }
+          document
+            .querySelector("ic-text-field")
+            .addEventListener("icChange", handleIcChange);
+        </script>
+        <ic-text-field label="What is your favourite coffee?"> </ic-text-field>`
+    }
+  </Story>
+</Canvas>
