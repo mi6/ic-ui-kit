@@ -266,28 +266,8 @@ export class TextField {
       this.inputEl.value = newValue;
     }
 
-    this.numChars = newValue.length;
+    this.getMaxLengthExceeded(newValue);
 
-    if (this.type === "number") {
-      if (newValue && Number(newValue) < Number(this.min)) {
-        this.minValueUnattained = true;
-      } else {
-        this.minValueUnattained = false;
-      }
-      if (Number(newValue) > Number(this.max)) {
-        this.maxValueExceeded = true;
-      } else {
-        this.maxValueExceeded = false;
-      }
-    }
-
-    if (this.maxLength > 0) {
-      if (newValue.length > this.maxLength) {
-        this.maxLengthExceeded = true;
-      } else {
-        this.maxLengthExceeded = false;
-      }
-    }
     this.icChange.emit({ value: newValue });
   }
 
@@ -330,7 +310,11 @@ export class TextField {
   }
 
   componentWillLoad(): void {
-    this.watchValueHandler(this.value);
+    if (this.value !== this.initialValue) {
+      this.watchValueHandler(this.value);
+    }
+
+    this.getMaxLengthExceeded(this.value);
 
     this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
@@ -373,6 +357,20 @@ export class TextField {
       this.inputEl.focus();
     }
   }
+
+  private getMaxLengthExceeded = (value: string) => {
+    this.numChars = value.length;
+
+    if (this.type === "number") {
+      this.minValueUnattained =
+        value && Number(value) < Number(this.min) ? true : false;
+      this.maxValueExceeded = Number(value) > Number(this.max) ? true : false;
+    }
+
+    if (this.maxLength > 0) {
+      this.maxLengthExceeded = value.length > this.maxLength ? true : false;
+    }
+  };
 
   private onInput = (ev: Event) => {
     this.value = (ev.target as HTMLInputElement).value;
