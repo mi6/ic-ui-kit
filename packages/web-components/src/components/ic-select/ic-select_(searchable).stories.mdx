@@ -1,0 +1,981 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Select/Searchable" component="ic-select" />
+
+<Description markdown={readme} />
+
+export const defaultArgs = {
+  disabled: false,
+  ["full-width"]: false,
+  ["helper-text"]: "Such as Arabica, Robusta or Liberica.",
+  ["hide-label"]: false,
+  loading: false,
+  loadingLabel: "Loading...",
+  label: "What is your favourite coffee?",
+  placeholder: "Select an option",
+  readonly: false,
+  required: false,
+  size: "default",
+  ["validation-status"]: "none",
+  ["validation-text"]: "",
+  ["include-descriptions-in-search"]: false,
+  ["include-group-titles-in-search"]: false,
+  ["search-match-position"]: "anywhere",
+};
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    {(args) =>
+      html`<ic-select
+          id="select-default"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-default");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icInput", function (event) {
+            console.log("icInput: " + event.detail.value);
+          });
+          select.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
+          select.addEventListener("icOptionSelect", function (event) {
+            console.log("icOptionSelect: " + event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Async default
+
+<Canvas>
+  <Story name="Async default" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-select
+          id="select-async"
+          label="What is your favourite coffee?"
+          searchable="true"
+          loading
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-async");
+          select.options = [];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+          setTimeout(() => {
+            select.options = [
+              { label: "Cappuccino", value: "Cap" },
+              { label: "Latte", value: "Lat" },
+              { label: "Americano", value: "Ame" },
+              { label: "Filter", value: "Fil" },
+              { label: "Flat white", value: "Fla" },
+              { label: "Mocha", value: "Moc" },
+              { label: "Macchiato", value: "Mac" },
+              { label: "Café au lait", value: "Caf" },
+              { label: "Espresso", value: "Esp" },
+              { label: "Cortado", value: "Cor" },
+              { label: "Ristretto", value: "Ris" },
+            ];
+          }, 5000);
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Default value
+
+<Canvas>
+  <Story name="Default value">
+    {(args) =>
+      html`<ic-select
+          id="select-default-value"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-default-value");
+          select.value = "Lat";
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Filter by start of options
+
+<Canvas>
+  <Story name="Filter by start of options">
+    {(args) =>
+      html`<ic-select
+          id="select-filter-start"
+          label="What is your favourite coffee?"
+          searchable="true"
+          search-match-position="start"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-filter-start");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### With descriptions
+
+<Canvas>
+  <Story name="With descriptions">
+    {(args) =>
+      html`<ic-select
+          id="select-descriptions"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-descriptions");
+          select.options = [
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Latte",
+              value: "Lat",
+              description: "A milkier coffee than a cappuccino",
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Filter",
+              value: "Fil",
+              description: "Coffee filtered using paper or a mesh",
+            },
+            {
+              label: "Flat white",
+              value: "Fla",
+              description:
+                "Coffee without froth made with espresso and hot steamed milk",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+            {
+              label: "Macchiato",
+              value: "Mac",
+              description: "Espresso coffee with a dash of frothy steamed milk",
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### With descriptions (included in search)
+
+<Canvas>
+  <Story name="With descriptions (included in search)">
+    {(args) =>
+      html`<ic-select
+          id="select-descriptions-included"
+          label="What is your favourite coffee?"
+          searchable="true"
+          include-descriptions-in-search
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-descriptions-included");
+          select.options = [
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Latte",
+              value: "Lat",
+              description: "A milkier coffee than a cappuccino",
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Filter",
+              value: "Fil",
+              description: "Coffee filtered using paper or a mesh",
+            },
+            {
+              label: "Flat white",
+              value: "Fla",
+              description:
+                "Coffee without froth made with espresso and hot steamed milk",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+            {
+              label: "Macchiato",
+              value: "Mac",
+              description: "Espresso coffee with a dash of frothy steamed milk",
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Helper text
+
+<Canvas>
+  <Story name="Helper text">
+    {(args) =>
+      html`<ic-select
+          id="select-helper"
+          label="What is your favourite coffee?"
+          searchable="true"
+          helper-text="Such as Arabica, Robusta or Liberica"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-helper");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {(args) =>
+      html`<div style="display: flex; flex-direction: column; gap: 16px;">
+        <ic-select
+          id="select-size-small"
+          label="What is your favourite coffee?"
+          searchable="true"
+          size="small"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-size-small");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>
+        <ic-select
+          id="select-size-default"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-size-default");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>
+        <ic-select
+          id="select-size-large"
+          label="What is your favourite coffee?"
+          searchable="true"
+          size="large"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-size-large");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>
+      </div>`
+    }
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    {(args) =>
+      html`<ic-select
+          id="select-disabled"
+          label="What is your favourite coffee?"
+          searchable="true"
+          disabled
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-disabled");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Disabled options
+
+<Canvas>
+  <Story name="Disabled options">
+    {(args) =>
+      html`<ic-select
+          id="select-disabled-options"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-disabled-options");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame", disabled: true },
+            { label: "Filter", value: "Fil", disabled: true },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac", disabled: true },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Hidden label
+
+<Canvas>
+  <Story name="Hidden label">
+    {(args) =>
+      html`<ic-select
+          id="select-hidden-label"
+          label="What is your favourite coffee?"
+          searchable="true"
+          hide-label
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-hidden-label");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Required
+
+<Canvas>
+  <Story name="Required">
+    {(args) =>
+      html`<ic-select
+          id="select-required"
+          label="What is your favourite coffee?"
+          searchable="true"
+          required
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-required");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Groups
+
+<Canvas>
+  <Story name="Groups">
+    {(args) =>
+      html`<ic-select
+          id="select-groups"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-groups");
+          select.options = [
+            {
+              label: "Fancy",
+              children: [
+                { label: "Cappuccino", value: "Cap" },
+                { label: "Flat white", value: "Fla" },
+              ],
+            },
+            {
+              label: "Boring",
+              children: [
+                { label: "Filter", value: "Fil" },
+                { label: "Latte", value: "Lat" },
+              ],
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Groups (group titles included in search)
+
+<Canvas>
+  <Story name="Groups (group titles included in search)">
+    {(args) =>
+      html`<ic-select
+          id="select-groups-included"
+          label="What is your favourite coffee?"
+          searchable="true"
+          include-group-titles-in-search
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-groups-included");
+          select.options = [
+            {
+              label: "Fancy",
+              children: [
+                { label: "Cappuccino", value: "Cap" },
+                { label: "Flat white", value: "Fla" },
+              ],
+            },
+            {
+              label: "Boring",
+              children: [
+                { label: "Filter", value: "Fil" },
+                { label: "Latte", value: "Lat" },
+              ],
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Recommended
+
+<Canvas>
+  <Story name="Recommended">
+    {(args) =>
+      html`<ic-select
+          id="select-recommended"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-recommended");
+          select.options = [
+            { label: "Cappuccino", value: "Cappuccino" },
+            { label: "Flat white", value: "Flat white", recommended: true },
+            { label: "Latte", value: "Latte" },
+            { label: "Americano", value: "Americano", recommended: true },
+            { label: "Filter", value: "Fil" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Validation
+
+<Canvas>
+  <Story name="Validation">
+    {(args) =>
+      html`<ic-select
+          id="select-success"
+          label="What is your favourite coffee?"
+          validation-status="success"
+          validation-text="Good choice!"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select1 = document.querySelector("#select-success");
+          var option1 = "Cappuccino";
+          select1.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select1.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>
+        <ic-select
+          id="select-warning"
+          label="What is your favourite coffee?"
+          validation-status="warning"
+          validation-text="We are running low on this type of coffee"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select2 = document.querySelector("#select-warning");
+          var option2 = "Cappuccino";
+          select2.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select2.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>
+        <ic-select
+          id="select-error"
+          label="What is your favourite coffee?"
+          validation-status="error"
+          validation-text="Now it has really gone to (coffee) pot"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select3 = document.querySelector("#select-error");
+          var option3 = "Cappuccino";
+          select3.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          select3.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Scroll behaviour
+
+<Canvas>
+  <Story name="Scroll behaviour">
+    {(args) =>
+      html`<ic-select
+          id="select-scroll"
+          label="What is your favourite coffee?"
+          searchable="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-scroll");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+            { label: "Café au lait", value: "Caf" },
+            { label: "Espresso", value: "Esp" },
+            { label: "Cortado", value: "Cor" },
+            { label: "Ristretto", value: "Ris" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### External filtering
+
+<Canvas>
+  <Story name="External filtering" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-select
+          label="What is your favourite coffee?"
+          searchable="true"
+          debounce="300"
+          disable-filter="true"
+          id="select-external-filtering"
+          timeout="1000"
+        ></ic-select>
+        <br />
+        <ic-typography>
+          Suggested search options: Espresso, Double Espresso, Flat White,
+          Filter, Cappuccino, Americano, Mocha, Macchiato.
+        </ic-typography>
+        <br />
+        <ic-typography>
+          The IcChange event will trigger 300ms after you finish typing. 1
+          second later, the options in the select menu will be updated.
+        </ic-typography>
+        <script>
+          var mockData = [
+            { label: "Espresso", value: "Esp" },
+            { label: "Double Espresso", value: "Dou" },
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
+          ];
+          function handleFilter(event) {
+            var option = event.detail.value;
+            console.log(option);
+            if (option !== selectedValue) {
+              if (option) {
+                select.loading = true;
+                mockAPI = (query) => {
+                  filteredResults = mockData.filter((m) =>
+                    m.label.toLowerCase().includes(query.toLowerCase())
+                  );
+                  return new Promise((resolve) =>
+                    setTimeout(
+                      () => resolve(filteredResults),
+                      event.type === "icChange" ? 2000 : 900
+                    )
+                  );
+                };
+                mockAPI(option).then((results) => (select.options = results));
+              } else {
+                select.options = [];
+              }
+            }
+          }
+          var select = document.querySelector("#select-external-filtering");
+          var selectedValue = "";
+          select.addEventListener("icClear", function (event) {
+            select.options = [];
+          });
+          select.addEventListener("icOptionSelect", function (event) {
+            selectedValue = event.detail.value;
+          });
+          select.addEventListener("icChange", handleFilter);
+          select.addEventListener("icRetryLoad", handleFilter);
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### In form
+
+This shows how the searchable select works within a form. The value will appear in the console on submit.
+
+<Canvas>
+  <Story name="In form" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <form>
+          <ic-select
+            id="select-form"
+            label="What is your favourite coffee?"
+            searchable="true"
+          ></ic-select>
+          <br />
+          <br />
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset" />
+        </form>
+        <script>
+          var select = document.querySelector("#select-form");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+          document.querySelector("form").addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            console.log(document.querySelector("input.ic-input").value);
+          });
+        </script>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Update input value from external request
+
+<Canvas>
+  <Story
+    name="Update input value from external request"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-section-container>
+          <ic-select
+            id="select-external-request"
+            searchable="true"
+            label="What is your favourite coffee? (searchable)"
+          ></ic-select>
+        </ic-section-container>
+        <script>
+          const searchSelect = document.getElementById(
+            "select-external-request"
+          );
+          let options = [];
+          options.push({ label: "unknown", value: "unknown" });
+          options.push({ label: "item 1", value: "item-1" });
+          options.push({ label: "item 2", value: "item-2" });
+          options.push({ label: "item 3", value: "item-3" });
+          searchSelect.options = options;
+          let searchoption = "";
+          searchSelect.addEventListener("icChange", function (event) {
+            console.log("icChange", event.detail.value);
+            searchoption = event.detail.value;
+            if (searchoption === "unknown") {
+              searchoption = "item-1";
+              searchSelect.value = "item-1";
+            } else {
+              searchSelect.value = searchoption;
+            }
+          });
+          searchSelect.addEventListener("icOptionSelect", function (event) {
+            console.log("icOptionSelect", event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+    args={defaultArgs}
+    argTypes={{
+      ["search-match-position"]: {
+        defaultValue: "anywhere",
+        options: ["anywhere", "start"],
+        control: { type: "inline-radio" },
+      },
+      ["validation-status"]: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) =>
+      html` <ic-select
+          id="select-playground"
+          disabled=${args.disabled}
+          full-width=${args["full-width"]}
+          helper-text=${args["helper-text"]}
+          hide-label=${args["hide-label"]}
+          include-descriptions-in-search=${args[
+            "include-descriptions-in-search"
+          ]}
+          include-group-titles-in-search=${args[
+            "include-group-titles-in-search"
+          ]}
+          loading=${args.loading}
+          loading-label=${args["loading-label"]}
+          label=${args.label}
+          placeholder=${args.placeholder}
+          readonly=${args.readonly}
+          required=${args.required}
+          search-match-position=${args["search-match-position"]}
+          searchable="true"
+          size=${args.size}
+          validation-status=${args["validation-status"]}
+          validation-text=${args["validation-text"]}
+        >
+        </ic-select>
+        <script>
+          var select = document.querySelector("#select-playground");
+          select.options = [
+            {
+              label: "Cappuccino",
+              value: "Cap",
+              description: "Coffee frothed up with pressurised steam",
+            },
+            {
+              label: "Boring",
+              children: [
+                {
+                  label: "Latte",
+                  value: "Lat",
+                  description: "A milkier coffee than a cappuccino",
+                },
+                {
+                  label: "Filter",
+                  value: "Fil",
+                  description: "Coffee filtered using paper or a mesh",
+                },
+              ],
+            },
+            {
+              label: "Fancy",
+              children: [
+                {
+                  label: "Flat white",
+                  value: "Fla",
+                  description:
+                    "Coffee without froth made with espresso and hot steamed milk",
+                },
+                {
+                  label: "Macchiato",
+                  value: "Mac",
+                  description:
+                    "Espresso coffee with a dash of frothy steamed milk",
+                },
+              ],
+            },
+            {
+              label: "Americano",
+              value: "Ame",
+              description: "Espresso coffee diluted with hot water",
+            },
+            {
+              label: "Mocha",
+              value: "Moc",
+              description: "A mixture of coffee and chocolate",
+            },
+          ];
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>

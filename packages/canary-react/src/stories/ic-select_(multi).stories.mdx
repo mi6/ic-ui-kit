@@ -1,0 +1,535 @@
+import { useState, useEffect } from "react";
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+
+import { IcSelect, IcButton, IcTypography } from "../../components";
+import readme from "../../../../web-components/src/components/ic-select/readme.md";
+
+<Meta title="React Components/Select/Multi" component={IcSelect} />
+
+export const defaultArgs = {
+  disabled: false,
+  fullWidth: false,
+  helperText: "Such as Arabica, Robusta or Liberica.",
+  hideLabel: false,
+  loading: false,
+  loadingLabel: "Loading...",
+  label: "What is your favourite coffee?",
+  placeholder: "Select an option",
+  readonly: false,
+  required: false,
+  size: "default",
+  validationStatus: "",
+  validationText: "",
+};
+
+export const options = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+export const optionsWithDescriptions = [
+  {
+    label: "Cappuccino",
+    value: "Cap",
+    description: "Coffee frothed up with pressurised steam",
+  },
+  {
+    label: "Latte",
+    value: "Lat",
+    description: "A milkier coffee than a cappuccino",
+  },
+  {
+    label: "Americano",
+    value: "Ame",
+    description: "Espresso coffee diluted with hot water",
+  },
+  {
+    label: "Filter",
+    value: "Fil",
+    description: "Coffee filtered using paper or a mesh",
+  },
+  {
+    label: "Flat white",
+    value: "Fla",
+    description: "Coffee without froth made with espresso and hot steamed milk",
+  },
+  {
+    label: "Mocha",
+    value: "Moc",
+    description: "A mixture of coffee and chocolate",
+  },
+  {
+    label: "Macchiato",
+    value: "Mac",
+    description: "Espresso coffee with a dash of frothy steamed milk",
+  },
+];
+
+export const optionsWithDisabled = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat", disabled: "true" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil", disabled: "true" },
+  { label: "Flat white", value: "Fla", disabled: "true" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+export const groupedOptions = [
+  {
+    label: "Fancy",
+    children: [
+      { label: "Cappuccino", value: "Cap" },
+      { label: "Flat white", value: "Flat" },
+    ],
+  },
+  {
+    label: "Boring",
+    children: [
+      { label: "Filter", value: "Fil" },
+      { label: "Latte", value: "Lat" },
+    ],
+  },
+];
+
+export const optionsWithRecommended = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame", recommended: true },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla", recommended: true },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+export const manyOptions = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+  { label: "Café au lait", value: "Caf" },
+  { label: "Espresso", value: "Esp" },
+  { label: "Cortado", value: "Cor" },
+  { label: "Ristretto", value: "Ris" },
+];
+
+export const playgroundOptions = [
+  {
+    label: "Cappuccino",
+    value: "Cap",
+    description: "Coffee frothed up with pressurised steam",
+  },
+  {
+    label: "Boring",
+    children: [
+      {
+        label: "Latte",
+        value: "Lat",
+        description: "A milkier coffee than a cappuccino",
+      },
+      {
+        label: "Filter",
+        value: "Fil",
+        description: "Coffee filtered using paper or a mesh",
+      },
+    ],
+  },
+  {
+    label: "Fancy",
+    children: [
+      {
+        label: "Flat white",
+        value: "Fla",
+        description:
+          "Coffee without froth made with espresso and hot steamed milk",
+      },
+      {
+        label: "Macchiato",
+        value: "Mac",
+        description: "Espresso coffee with a dash of frothy steamed milk",
+      },
+    ],
+  },
+  {
+    label: "Americano",
+    value: "Ame",
+    description: "Espresso coffee diluted with hot water",
+  },
+  {
+    label: "Mocha",
+    value: "Moc",
+    description: "A mixture of coffee and chocolate",
+  },
+];
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+          onIcOptionSelect={(event) =>
+            console.log(`icOptionSelect: ${event.detail.value}`)
+          }
+          onIcOptionDeselect={(event) =>
+            console.log(`icOptionDeselect: ${event.detail.value}`)
+          }
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Default value
+
+<Canvas>
+  <Story name="Default value">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          value={["Fil", "Moc", "Ame"]}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With clear button
+
+<Canvas>
+  <Story name="With clear button">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          showClearButton
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With descriptions
+
+<Canvas>
+  <Story name="With descriptions">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={optionsWithDescriptions}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Helper text
+
+<Canvas>
+  <Story name="Helper text">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          helperText="Such as Arabica, Robusta or Liberica"
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {() => {
+      return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            size="small"
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            size="large"
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          disabled
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Disabled options
+
+<Canvas>
+  <Story name="Disabled options">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={optionsWithDisabled}
+          multiple
+          disabled
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Hidden label
+
+<Canvas>
+  <Story name="Hidden label">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          hide-label
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Required
+
+<Canvas>
+  <Story name="Required">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          required
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Read-only
+
+<Canvas>
+  <Story name="Read-only">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          multiple
+          readonly
+          value={["Cap", "Fla", "Moc"]}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Groups
+
+<Canvas>
+  <Story name="Groups">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={groupedOptions}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Recommended
+
+<Canvas>
+  <Story name="Recommended">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={optionsWithRecommended}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Validation
+
+<Canvas>
+  <Story name="Validation">
+    {() => {
+      return (
+        <>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            validationStatus="success"
+            validationText="Good choice!"
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            validationStatus="warning"
+            validationText="We are running low on this type of coffee"
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={options}
+            multiple
+            validationStatus="error"
+            validationText="Now it has really gone to (coffee) pot"
+            onIcChange={(event) =>
+              console.log(`icChange: ${event.detail.value}`)
+            }
+          ></IcSelect>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Scroll behaviour
+
+<Canvas>
+  <Story name="Scroll behaviour">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={manyOptions}
+          multiple
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        ></IcSelect>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+    args={defaultArgs}
+    argTypes={{
+      ["validation-status"]: {
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) => (
+      <IcSelect
+        options={playgroundOptions}
+        disabled={args.disabled}
+        fullWidth={args.fullWidth}
+        helperText={args.helperText}
+        hideLabel={args.hideLabel}
+        loading={args.loading}
+        loadingLabel={args.loadingLabel}
+        label={args.label}
+        placeholder={args.placeholder}
+        readonly={args.readonly}
+        required={args.required}
+        showClearButton={args.showClearButton}
+        size={args.size}
+        validationStatus={args.validationStatus}
+        validationText={args.validationText}
+      />
+    )}
+  </Story>
+</Canvas>
