@@ -46,6 +46,7 @@ input {
 
 .ic-switch-checked-status {
   padding-left: var(--ic-space-xxs);
+  width: var(--ic-space-lg);
 }
 
 .ic-switch-toggle::before {
