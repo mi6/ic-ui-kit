@@ -6,11 +6,11 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { html } from "lit-html";
-import readme from "./readme.md";
+// import readme from "./readme.md";
 
-<Meta title="Web Components/Select/Searchable" component="ic-select-with-multi" />
+<Meta title="Web Components/Select/Multi" component="ic-select" />
 
-<Description markdown={readme} />
+{/* <Description markdown={readme} /> */}
 
 export const defaultArgs = {
   disabled: false,
@@ -26,9 +26,7 @@ export const defaultArgs = {
   size: "default",
   ["validation-status"]: "none",
   ["validation-text"]: "",
-  ["include-descriptions-in-search"]: false,
-  ["include-group-titles-in-search"]: false,
-  ["search-match-position"]: "anywhere",
+  ["show-clear-button"]: false,
 };
 
 ### Default
@@ -39,7 +37,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-default");
@@ -52,14 +50,14 @@ export const defaultArgs = {
             { label: "Mocha", value: "Moc" },
             { label: "Macchiato", value: "Mac" },
           ];
-          select.addEventListener("icInput", function (event) {
-            console.log("icInput: " + event.detail.value);
-          });
           select.addEventListener("icChange", function (event) {
             console.log("icChange: " + event.detail.value);
           });
           select.addEventListener("icOptionSelect", function (event) {
             console.log("icOptionSelect: " + event.detail.value);
+          });
+          select.addEventListener("icOptionDeselect", function (event) {
+            console.log("icOptionDeselect: " + event.detail.value);
           });
         </script>`
     }
@@ -74,8 +72,8 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-async"
           label="What is your favourite coffee?"
-          searchable="true"
           loading
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-async");
@@ -111,11 +109,11 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-default-value"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-default-value");
-          select.value = "Lat";
+          select.value = ["Ame", "Fil", "Moc"];
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -133,19 +131,19 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Filter by start of options
+### With clear button
 
 <Canvas>
-  <Story name="Filter by start of options">
+  <Story name="With clear button">
     {(args) =>
       html`<ic-select-with-multi
-          id="select-filter-start"
+          id="select-clear"
           label="What is your favourite coffee?"
-          searchable="true"
-          search-match-position="start"
+          multiple="true"
+          show-clear-button
         ></ic-select-with-multi>
         <script>
-          var select = document.querySelector("#select-filter-start");
+          var select = document.querySelector("#select-clear");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -171,69 +169,10 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-descriptions"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-descriptions");
-          select.options = [
-            {
-              label: "Cappuccino",
-              value: "Cap",
-              description: "Coffee frothed up with pressurised steam",
-            },
-            {
-              label: "Latte",
-              value: "Lat",
-              description: "A milkier coffee than a cappuccino",
-            },
-            {
-              label: "Americano",
-              value: "Ame",
-              description: "Espresso coffee diluted with hot water",
-            },
-            {
-              label: "Filter",
-              value: "Fil",
-              description: "Coffee filtered using paper or a mesh",
-            },
-            {
-              label: "Flat white",
-              value: "Fla",
-              description:
-                "Coffee without froth made with espresso and hot steamed milk",
-            },
-            {
-              label: "Mocha",
-              value: "Moc",
-              description: "A mixture of coffee and chocolate",
-            },
-            {
-              label: "Macchiato",
-              value: "Mac",
-              description: "Espresso coffee with a dash of frothy steamed milk",
-            },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
-### With descriptions (included in search)
-
-<Canvas>
-  <Story name="With descriptions (included in search)">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-descriptions-included"
-          label="What is your favourite coffee?"
-          searchable="true"
-          include-descriptions-in-search
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-descriptions-included");
           select.options = [
             {
               label: "Cappuccino",
@@ -288,8 +227,8 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-helper"
           label="What is your favourite coffee?"
-          searchable="true"
           helper-text="Such as Arabica, Robusta or Liberica"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-helper");
@@ -319,7 +258,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-small"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
           size="small"
         ></ic-select-with-multi>
         <script>
@@ -340,7 +279,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-size-default");
@@ -360,7 +299,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-large"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
           size="large"
         ></ic-select-with-multi>
         <script>
@@ -391,7 +330,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-disabled"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
           disabled
         ></ic-select-with-multi>
         <script>
@@ -421,18 +360,18 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-disabled-options"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-disabled-options");
           select.options = [
             { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame", disabled: true },
+            { label: "Latte", value: "Lat", disabled: true },
+            { label: "Americano", value: "Ame" },
             { label: "Filter", value: "Fil", disabled: true },
-            { label: "Flat white", value: "Fla" },
+            { label: "Flat white", value: "Fla", disabled: true },
             { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac", disabled: true },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
@@ -450,7 +389,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-hidden-label"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
           hide-label
         ></ic-select-with-multi>
         <script>
@@ -480,7 +419,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-required"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
           required
         ></ic-select-with-multi>
         <script>
@@ -502,34 +441,29 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Groups
+### Read-only
 
 <Canvas>
-  <Story name="Groups">
-    {(args) =>
+  <Story name="Read-only">
+    {() =>
       html`<ic-select-with-multi
-          id="select-groups"
+          id="select-read-only"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
+          readonly
         ></ic-select-with-multi>
         <script>
-          var select = document.querySelector("#select-groups");
+          var select = document.querySelector("#select-read-only");
           select.options = [
-            {
-              label: "Fancy",
-              children: [
-                { label: "Cappuccino", value: "Cap" },
-                { label: "Flat white", value: "Fla" },
-              ],
-            },
-            {
-              label: "Boring",
-              children: [
-                { label: "Filter", value: "Fil" },
-                { label: "Latte", value: "Lat" },
-              ],
-            },
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
+          select.value = ["Cap", "Fla", "Moc"];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
           });
@@ -538,25 +472,24 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### Groups (group titles included in search)
+### Groups
 
 <Canvas>
-  <Story name="Groups (group titles included in search)">
-    {(args) =>
+  <Story name="Groups">
+    {() =>
       html`<ic-select-with-multi
-          id="select-groups-included"
+          id="select-groups"
           label="What is your favourite coffee?"
-          searchable="true"
-          include-group-titles-in-search
+          multiple="true"
         ></ic-select-with-multi>
         <script>
-          var select = document.querySelector("#select-groups-included");
+          var select = document.querySelector("#select-groups");
           select.options = [
             {
               label: "Fancy",
               children: [
                 { label: "Cappuccino", value: "Cap" },
-                { label: "Flat white", value: "Fla" },
+                { label: "Flat white", value: "Flat" },
               ],
             },
             {
@@ -579,20 +512,20 @@ export const defaultArgs = {
 
 <Canvas>
   <Story name="Recommended">
-    {(args) =>
+    {() =>
       html`<ic-select-with-multi
           id="select-recommended"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-recommended");
           select.options = [
-            { label: "Cappuccino", value: "Cappuccino" },
-            { label: "Flat white", value: "Flat white", recommended: true },
-            { label: "Latte", value: "Latte" },
-            { label: "Americano", value: "Americano", recommended: true },
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame", recommended: true },
             { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla", recommended: true },
             { label: "Mocha", value: "Moc" },
             { label: "Macchiato", value: "Mac" },
           ];
@@ -614,11 +547,10 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="success"
           validation-text="Good choice!"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select1 = document.querySelector("#select-success");
-          var option1 = "Cappuccino";
           select1.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -637,11 +569,10 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="warning"
           validation-text="We are running low on this type of coffee"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select2 = document.querySelector("#select-warning");
-          var option2 = "Cappuccino";
           select2.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -660,11 +591,10 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="error"
           validation-text="Now it has really gone to (coffee) pot"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select3 = document.querySelector("#select-error");
-          var option3 = "Cappuccino";
           select3.options = [
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
@@ -690,7 +620,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-scroll"
           label="What is your favourite coffee?"
-          searchable="true"
+          multiple="true"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-scroll");
@@ -706,6 +636,7 @@ export const defaultArgs = {
             { label: "Espresso", value: "Esp" },
             { label: "Cortado", value: "Cor" },
             { label: "Ristretto", value: "Ris" },
+            { label: "Latte macchiato", value: "Lam" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
@@ -715,74 +646,26 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
-### External filtering
+### Loading with error
 
 <Canvas>
-  <Story name="External filtering" parameters={{ loki: { skip: true } }}>
+  <Story name="Loading with error">
     {(args) =>
       html`<ic-select-with-multi
+          id="select-loading"
           label="What is your favourite coffee?"
-          searchable="true"
-          debounce="300"
-          disable-filter="true"
-          id="select-external-filtering"
+          multiple="true"
+          loading="true"
           timeout="1000"
         ></ic-select-with-multi>
-        <br />
-        <ic-typography>
-          Suggested search options: Espresso, Double Espresso, Flat White,
-          Filter, Cappuccino, Americano, Mocha, Macchiato.
-        </ic-typography>
-        <br />
-        <ic-typography>
-          The IcChange event will trigger 300ms after you finish typing. 1
-          second later, the options in the select menu will be updated.
-        </ic-typography>
         <script>
-          var mockData = [
-            { label: "Espresso", value: "Esp" },
-            { label: "Double Espresso", value: "Dou" },
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          function handleFilter(event) {
-            var option = event.detail.value;
-            console.log(option);
-            if (option !== selectedValue) {
-              if (option) {
-                select.loading = true;
-                mockAPI = (query) => {
-                  filteredResults = mockData.filter((m) =>
-                    m.label.toLowerCase().includes(query.toLowerCase())
-                  );
-                  return new Promise((resolve) =>
-                    setTimeout(
-                      () => resolve(filteredResults),
-                      event.type === "icChange" ? 2000 : 900
-                    )
-                  );
-                };
-                mockAPI(option).then((results) => (select.options = results));
-              } else {
-                select.options = [];
-              }
-            }
-          }
-          var select = document.querySelector("#select-external-filtering");
-          var selectedValue = "";
-          select.addEventListener("icClear", function (event) {
-            select.options = [];
+          var select = document.querySelector("#select-loading");
+          select.addEventListener("icChange", function (event) {
+            console.log(event.detail.value);
           });
-          select.addEventListener("icOptionSelect", function (event) {
-            selectedValue = event.detail.value;
+          select.addEventListener("icRetryLoad", function (event) {
+            select.loading = "true";
           });
-          select.addEventListener("icChange", handleFilter);
-          select.addEventListener("icRetryLoad", handleFilter);
         </script>`
     }
   </Story>
@@ -790,7 +673,7 @@ export const defaultArgs = {
 
 ### In form
 
-This shows how the searchable select works within a form. The value will appear in the console on submit.
+This shows how the multi-select works within a form. The value will appear in the console on submit.
 
 <Canvas>
   <Story name="In form" parameters={{ loki: { skip: true } }}>
@@ -800,7 +683,7 @@ This shows how the searchable select works within a form. The value will appear 
           <ic-select-with-multi
             id="select-form"
             label="What is your favourite coffee?"
-            searchable="true"
+            multiple="true"
           ></ic-select-with-multi>
           <br />
           <br />
@@ -813,6 +696,10 @@ This shows how the searchable select works within a form. The value will appear 
             { label: "Cappuccino", value: "Cap" },
             { label: "Latte", value: "Lat" },
             { label: "Americano", value: "Ame" },
+            { label: "Filter", value: "Fil" },
+            { label: "Flat white", value: "Fla" },
+            { label: "Mocha", value: "Moc" },
+            { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
@@ -827,50 +714,6 @@ This shows how the searchable select works within a form. The value will appear 
   </Story>
 </Canvas>
 
-### Update input value from external request
-
-<Canvas>
-  <Story
-    name="Update input value from external request"
-    parameters={{ loki: { skip: true } }}
-  >
-    {(args) =>
-      html`<ic-section-container>
-          <ic-select-with-multi
-            id="select-external-request"
-            searchable="true"
-            label="What is your favourite coffee? (searchable)"
-          ></ic-select-with-multi>
-        </ic-section-container>
-        <script>
-          const searchSelect = document.getElementById(
-            "select-external-request"
-          );
-          let options = [];
-          options.push({ label: "unknown", value: "unknown" });
-          options.push({ label: "item 1", value: "item-1" });
-          options.push({ label: "item 2", value: "item-2" });
-          options.push({ label: "item 3", value: "item-3" });
-          searchSelect.options = options;
-          let searchoption = "";
-          searchSelect.addEventListener("icChange", function (event) {
-            console.log("icChange", event.detail.value);
-            searchoption = event.detail.value;
-            if (searchoption === "unknown") {
-              searchoption = "item-1";
-              searchSelect.value = "item-1";
-            } else {
-              searchSelect.value = searchoption;
-            }
-          });
-          searchSelect.addEventListener("icOptionSelect", function (event) {
-            console.log("icOptionSelect", event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
 ### Playground
 
 <Canvas>
@@ -879,13 +722,7 @@ This shows how the searchable select works within a form. The value will appear 
     parameters={{ loki: { skip: true } }}
     args={defaultArgs}
     argTypes={{
-      ["search-match-position"]: {
-        defaultValue: "anywhere",
-        options: ["anywhere", "start"],
-        control: { type: "inline-radio" },
-      },
       ["validation-status"]: {
-        defaultValue: "",
         options: ["none", "error", "success", "warning"],
         control: { type: "inline-radio" },
       },
@@ -898,24 +735,18 @@ This shows how the searchable select works within a form. The value will appear 
     {(args) =>
       html` <ic-select-with-multi
           id="select-playground"
+          multiple="true"
           disabled=${args.disabled}
           full-width=${args["full-width"]}
           helper-text=${args["helper-text"]}
           hide-label=${args["hide-label"]}
-          include-descriptions-in-search=${args[
-            "include-descriptions-in-search"
-          ]}
-          include-group-titles-in-search=${args[
-            "include-group-titles-in-search"
-          ]}
           loading=${args.loading}
           loading-label=${args["loading-label"]}
           label=${args.label}
           placeholder=${args.placeholder}
           readonly=${args.readonly}
           required=${args.required}
-          search-match-position=${args["search-match-position"]}
-          searchable="true"
+          show-clear-button=${args["show-clear-button"]}
           size=${args.size}
           validation-status=${args["validation-status"]}
           validation-text=${args["validation-text"]}

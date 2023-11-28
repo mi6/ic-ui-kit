@@ -556,3 +556,7 @@ export const removeDisabledFalse = (
     element.removeAttribute("disabled");
   }
 };
+
+export const isMacDevice = (): boolean => {
+  return window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
+};
