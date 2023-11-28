@@ -257,10 +257,14 @@ svg {
   left: 0;
   width: var(--ic-space-xs);
   height: 2.5rem;
-  margin-top: 0.25rem;
-  margin-right: 0.313rem;
   background-color: var(--ic-action-default);
   transition: left 0s;
+}
+
+:host(.navigation-item-top-nav-child-selected) .link::before,
+:host(.navigation-item-side-menu-selected) .link::before,
+:host(.navigation-item-side-menu-selected) .link:focus::before {
+  margin-top: 0.25rem;
 }
 
 :host(.navigation-item-top-nav-child-selected) .link:focus {
