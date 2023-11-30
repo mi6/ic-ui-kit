@@ -39,8 +39,11 @@
   "dependencies": {
     "@popperjs/core": "^2.11.2",
     "@stencil/core": "^4.1.0",
-    "@ukic/fonts": "^2.3.0",
     "@ukic/web-components": "^2.6.0"
+
+  },
+  "peerDependencies": {
+    "@ukic/fonts": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

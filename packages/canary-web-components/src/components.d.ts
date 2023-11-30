@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDataTableTruncationTypes, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
@@ -102,6 +102,10 @@ export namespace Components {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * For long text in cells that aren't set to textWrap, define how they should be truncated. `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
+         */
+        "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
          */
@@ -318,6 +322,10 @@ declare namespace LocalJSX {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * For long text in cells that aren't set to textWrap, define how they should be truncated. `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
+         */
+        "truncationPattern"?: IcDataTableTruncationTypes;
         /**
           * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
          */
