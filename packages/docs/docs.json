@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-16T14:48:01",
+  "timestamp": "2023-11-30T11:37:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -16448,6 +16448,28 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "disableClick",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-click",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "disableHover",
           "type": "boolean",
