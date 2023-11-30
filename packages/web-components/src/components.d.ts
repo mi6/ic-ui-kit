@@ -2137,6 +2137,10 @@ export namespace Components {
     interface IcTooltip {
         "disableClick"?: boolean;
         /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
+        "disableClick"?: boolean;
+        /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.
          */
         "disableHover"?: boolean;
@@ -4960,6 +4964,10 @@ declare namespace LocalJSX {
         "openToast"?: HTMLIcToastElement;
     }
     interface IcTooltip {
+        "disableClick"?: boolean;
+        /**
+          * If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+         */
         "disableClick"?: boolean;
         /**
           * If `true`, the tooltip will not be displayed on hover, it will require a click.

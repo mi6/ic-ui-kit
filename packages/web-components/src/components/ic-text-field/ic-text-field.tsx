@@ -230,7 +230,7 @@ export class TextField {
   @Prop() validationInline: boolean = false;
 
   /**
-   *  @internal If `true`, the validation will display inline.
+   * @internal If `true`, the validation will display inline.
    */
   @Prop() validationInlineInternal: boolean = false;
 
