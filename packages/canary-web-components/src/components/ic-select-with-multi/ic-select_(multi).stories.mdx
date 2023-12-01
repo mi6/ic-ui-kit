@@ -6,11 +6,34 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { html } from "lit-html";
-// import readme from "./readme.md";
+import { 
+  Default,
+  AsyncDefault,
+  DefaultValue,
+  WithClearButton,
+  WithDescriptions,
+  HelperText,
+  Sizes,
+  Disabled,
+  DisabledOptions,
+  HiddenLabel,
+  Required,
+  ReadOnly,
+  Groups,
+  Recommended,
+  Validation,
+} from "./story-data";
+import readme from "./readme.md";
 
-<Meta title="Web Components/Select/Multi" component="ic-select" />
-
-{/* <Description markdown={readme} /> */}
+<Meta
+  title="Web Components/Select/Multi"
+  component="ic-select-with-multi"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
 
 export const defaultArgs = {
   disabled: false,
@@ -19,7 +42,7 @@ export const defaultArgs = {
   ["hide-label"]: false,
   loading: false,
   loadingLabel: "Loading...",
-  label: "What is your favourite coffee?",
+  label: "What are your favourite types of coffee?",
   placeholder: "Select an option",
   readonly: false,
   required: false,
@@ -29,784 +52,636 @@ export const defaultArgs = {
   ["show-clear-button"]: false,
 };
 
+# [Canary]: Multi-select
+
+Use the multi-select component to allow users to select one or more values from a list of options.
+
+There is one required prop for the multi-select:
+
+- label: `string`
+
+Click the 'Component API' tab to view all the available props, events and slots for the multi-select.
+
+To use the multi-select component, import `@ukic/canary-web-components` into your application.
+
+The component tag name for the multi-select is `ic-select-with-multi`. 
+Even though it is a variant of the `ic-select` component (which includes the single and searchable selects), this different tag name is necessary because of the need to keep the multi-select functionality separate while it is experimental (in a canary release).
+Note that the `multiple` prop still needs to be applied in order to enable the multi-select functionality.
+
 ### Default
 
-<Canvas>
-  <Story name="Default">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-default"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-default");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log("icChange: " + event.detail.value);
-          });
-          select.addEventListener("icOptionSelect", function (event) {
-            console.log("icOptionSelect: " + event.detail.value);
-          });
-          select.addEventListener("icOptionDeselect", function (event) {
-            console.log("icOptionDeselect: " + event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+An example of a default multi-select (with no additional functionality).
+
+<Canvas withSource="none">
+  <Story name="Default">{Default()}</Story>
 </Canvas>
 
-### Async default
+#### Default code example
 
-<Canvas>
-  <Story name="Async default" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-async"
-          label="What is your favourite coffee?"
-          loading
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-async");
-          select.options = [];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-          setTimeout(() => {
-            select.options = [
-              { label: "Cappuccino", value: "Cap" },
-              { label: "Latte", value: "Lat" },
-              { label: "Americano", value: "Ame" },
-              { label: "Filter", value: "Fil" },
-              { label: "Flat white", value: "Fla" },
-              { label: "Mocha", value: "Moc" },
-              { label: "Macchiato", value: "Mac" },
-              { label: "Café au lait", value: "Caf" },
-              { label: "Espresso", value: "Esp" },
-              { label: "Cortado", value: "Cor" },
-              { label: "Ristretto", value: "Ris" },
-            ];
-          }, 5000);
-        </script>`
-    }
-  </Story>
+```html
+<ic-select-with-multi
+  id="select-default"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-default");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log("icChange: " + event.detail.value);
+  });
+  select.addEventListener("icOptionSelect", function (event) {
+    console.log("icOptionSelect: " + event.detail.value);
+  });
+  select.addEventListener("icOptionDeselect", function (event) {
+    console.log("icOptionDeselect: " + event.detail.value);
+  });
+</script>
+```
+
+### Async default 
+
+**(Will remove before the canary release for the multi-select as it doesn't always work in Storybook - you sometimes have to refresh the page.)**
+
+<Canvas withSource="none">
+  <Story name="Async Default">{AsyncDefault()}</Story>
 </Canvas>
 
 ### Default value
 
-<Canvas>
-  <Story name="Default value">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-default-value"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-default-value");
-          select.value = ["Ame", "Fil", "Moc"];
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
+
+<Canvas withSource="none">
+  <Story name="Default Value">{DefaultValue()}</Story>
 </Canvas>
+
+#### Default value code example
+
+```html
+<ic-select-with-multi
+  id="select-default-value"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-default-value");
+  select.value = ["Ame", "Fil", "Moc"];
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### With clear button
 
-<Canvas>
-  <Story name="With clear button">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-clear"
-          label="What is your favourite coffee?"
-          multiple="true"
-          show-clear-button
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-clear");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display a clear button by using the `show-clear-button` prop. 
+This will appear when the user has selected some options and allow them to easily clear their selection.
+
+<Canvas withSource="none">
+  <Story name="With Clear Button">{WithClearButton()}</Story>
 </Canvas>
+
+#### With clear button code example
+
+```html
+<ic-select-with-multi
+  id="select-clear"
+  label="What are your favourite types of coffee?"
+  multiple
+  show-clear-button
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-clear");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### With descriptions
 
-<Canvas>
-  <Story name="With descriptions">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-descriptions"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-descriptions");
-          select.options = [
-            {
-              label: "Cappuccino",
-              value: "Cap",
-              description: "Coffee frothed up with pressurised steam",
-            },
-            {
-              label: "Latte",
-              value: "Lat",
-              description: "A milkier coffee than a cappuccino",
-            },
-            {
-              label: "Americano",
-              value: "Ame",
-              description: "Espresso coffee diluted with hot water",
-            },
-            {
-              label: "Filter",
-              value: "Fil",
-              description: "Coffee filtered using paper or a mesh",
-            },
-            {
-              label: "Flat white",
-              value: "Fla",
-              description:
-                "Coffee without froth made with espresso and hot steamed milk",
-            },
-            {
-              label: "Mocha",
-              value: "Moc",
-              description: "A mixture of coffee and chocolate",
-            },
-            {
-              label: "Macchiato",
-              value: "Mac",
-              description: "Espresso coffee with a dash of frothy steamed milk",
-            },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display extra information about the options by providing a description using the `description` property for each option.
+
+<Canvas withSource="none">
+  <Story name="With Descriptions">{WithDescriptions()}</Story>
 </Canvas>
+
+#### With descriptions code example
+
+```html
+<ic-select-with-multi
+  id="select-descriptions"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-descriptions");
+  select.options = [
+    {
+      label: "Cappuccino",
+      value: "Cap",
+      description: "Coffee frothed up with pressurised steam",
+    },
+    {
+      label: "Latte",
+      value: "Lat",
+      description: "A milkier coffee than a cappuccino",
+    },
+    {
+      label: "Americano",
+      value: "Ame",
+      description: "Espresso coffee diluted with hot water",
+    },
+    {
+      label: "Filter",
+      value: "Fil",
+      description: "Coffee filtered using paper or a mesh",
+    },
+    {
+      label: "Flat white",
+      value: "Fla",
+      description:
+        "Coffee without froth made with espresso and hot steamed milk",
+    },
+    {
+      label: "Mocha",
+      value: "Moc",
+      description: "A mixture of coffee and chocolate",
+    },
+    {
+      label: "Macchiato",
+      value: "Mac",
+      description: "Espresso coffee with a dash of frothy steamed milk",
+    },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Helper text
 
-<Canvas>
-  <Story name="Helper text">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-helper"
-          label="What is your favourite coffee?"
-          helper-text="Such as Arabica, Robusta or Liberica"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-helper");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display helper text to provide additional information by using the `helper-text` prop. 
+
+<Canvas withSource="none">
+  <Story name="Helper Text">{HelperText()}</Story>
 </Canvas>
+
+#### Helper text code example
+
+```html
+<ic-select-with-multi
+  id="select-helper"
+  label="What are your favourite types of coffee?"
+  helper-text="Select some options from the list"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-helper");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Sizes
 
-<Canvas>
-  <Story name="Sizes">
-    {(args) =>
-      html`<div style="display: flex; flex-direction: column; gap: 16px;">
-        <ic-select-with-multi
-          id="select-size-small"
-          label="What is your favourite coffee?"
-          multiple="true"
-          size="small"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-size-small");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>
-        <ic-select-with-multi
-          id="select-size-default"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-size-default");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>
-        <ic-select-with-multi
-          id="select-size-large"
-          label="What is your favourite coffee?"
-          multiple="true"
-          size="large"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-size-large");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>
-      </div>`
-    }
-  </Story>
+Set the size of the multi-select by using the `size` prop. This prop takes the values `small`, `default` or `large`.
+Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component. 
+The `default` variant is seen in the first [default](#default) example.
+
+<Canvas withSource="none">
+  <Story name="Sizes">{Sizes()}</Story>
 </Canvas>
+
+#### Sizes code example
+
+```html
+<div style="display: flex; flex-direction: column; gap: 16px;">
+  <ic-select-with-multi
+    id="select-size-small"
+    label="What are your favourite types of coffee?"
+    multiple
+    size="small"
+  ></ic-select-with-multi>
+  <script>
+    var select1 = document.querySelector("#select-size-small");
+    select1.options = [
+      { label: "Cappuccino", value: "Cap" },
+      { label: "Latte", value: "Lat" },
+      { label: "Americano", value: "Ame" },
+      { label: "Filter", value: "Fil" },
+      { label: "Flat white", value: "Fla" },
+      { label: "Mocha", value: "Moc" },
+      { label: "Macchiato", value: "Mac" },
+    ];
+    select1.addEventListener("icChange", function (event) {
+      console.log(event.detail.value);
+    });
+  </script>
+  <ic-select-with-multi
+    id="select-size-default"
+    label="What are your favourite types of coffee?"
+    multiple
+  ></ic-select-with-multi>
+  <script>
+    var select2 = document.querySelector("#select-size-default");
+    select2.options = [
+      { label: "Cappuccino", value: "Cap" },
+      { label: "Latte", value: "Lat" },
+      { label: "Americano", value: "Ame" },
+      { label: "Filter", value: "Fil" },
+      { label: "Flat white", value: "Fla" },
+      { label: "Mocha", value: "Moc" },
+      { label: "Macchiato", value: "Mac" },
+    ];
+    select2.addEventListener("icChange", function (event) {
+      console.log(event.detail.value);
+    });
+  </script>
+  <ic-select-with-multi
+    id="select-size-large"
+    label="What are your favourite types of coffee?"
+    multiple
+    size="large"
+  ></ic-select-with-multi>
+  <script>
+    var select3 = document.querySelector("#select-size-large");
+    select3.options = [
+      { label: "Cappuccino", value: "Cap" },
+      { label: "Latte", value: "Lat" },
+      { label: "Americano", value: "Ame" },
+      { label: "Filter", value: "Fil" },
+      { label: "Flat white", value: "Fla" },
+      { label: "Mocha", value: "Moc" },
+      { label: "Macchiato", value: "Mac" },
+    ];
+    select3.addEventListener("icChange", function (event) {
+      console.log(event.detail.value);
+    });
+  </script>
+</div>
+```
 
 ### Disabled
 
-<Canvas>
-  <Story name="Disabled">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-disabled"
-          label="What is your favourite coffee?"
-          multiple="true"
-          disabled
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-disabled");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Disable the multi-select and prevent user interaction by using the `disabled` prop.
+
+<Canvas withSource="none">
+  <Story name="Disabled">{Disabled()}</Story>
 </Canvas>
+
+#### Disabled code example
+
+```html
+<ic-select-with-multi
+  id="select-disabled"
+  label="What are your favourite types of coffee?"
+  multiple
+  disabled
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-disabled");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Disabled options
 
-<Canvas>
-  <Story name="Disabled options">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-disabled-options"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-disabled-options");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat", disabled: true },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil", disabled: true },
-            { label: "Flat white", value: "Fla", disabled: true },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Disable certain options by setting the `disabled` property to `true` for each option.
+
+<Canvas withSource="none">
+  <Story name="Disabled Options">{DisabledOptions()}</Story>
 </Canvas>
+
+#### Disabled options code example
+
+```html
+<ic-select-with-multi
+  id="select-disabled-options"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-disabled-options");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat", disabled: true },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil", disabled: true },
+    { label: "Flat white", value: "Fla", disabled: true },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Hidden label
 
-<Canvas>
-  <Story name="Hidden label">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-hidden-label"
-          label="What is your favourite coffee?"
-          multiple="true"
-          hide-label
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-hidden-label");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Hide the visible label for the multi-select by using the `hide-label` prop. 
+
+<Canvas withSource="none">
+  <Story name="Hidden Label">{HiddenLabel()}</Story>
 </Canvas>
+
+#### Hidden label code example
+
+```html
+<ic-select-with-multi
+  id="select-hidden-label"
+  label="What are your favourite types of coffee?"
+  multiple
+  hide-label
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-hidden-label");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Required
 
-<Canvas>
-  <Story name="Required">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-required"
-          label="What is your favourite coffee?"
-          multiple="true"
-          required
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-required");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Inform the user that the multi-select is a required field by using the `required` prop. 
+This will display an asterisk next to the label and apply the `aria-required` attribute.
+
+<Canvas withSource="none">
+  <Story name="Required">{Required()}</Story>
 </Canvas>
+
+#### Required code example
+
+```html
+<ic-select-with-multi
+  id="select-required"
+  label="What are your favourite types of coffee?"
+  multiple
+  required
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-required");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Read-only
 
-<Canvas>
-  <Story name="Read-only">
-    {() =>
-      html`<ic-select-with-multi
-          id="select-read-only"
-          label="What is your favourite coffee?"
-          multiple="true"
-          readonly
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-read-only");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.value = ["Cap", "Fla", "Moc"];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Make the multi-select read-only by using the `readonly` prop.
+Use the `value` prop to set which options are selected and will be displayed when it is read-only.
+
+<Canvas withSource="none">
+  <Story name="Read-only">{ReadOnly()}</Story>
 </Canvas>
+
+#### Read-only code example
+
+```html
+<ic-select-with-multi
+  id="select-read-only"
+  label="What are your favourite types of coffee?"
+  multiple
+  readonly
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-read-only");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.value = ["Cap", "Fla", "Moc"];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Groups
 
-<Canvas>
-  <Story name="Groups">
-    {() =>
-      html`<ic-select-with-multi
-          id="select-groups"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-groups");
-          select.options = [
-            {
-              label: "Fancy",
-              children: [
-                { label: "Cappuccino", value: "Cap" },
-                { label: "Flat white", value: "Flat" },
-              ],
-            },
-            {
-              label: "Boring",
-              children: [
-                { label: "Filter", value: "Fil" },
-                { label: "Latte", value: "Lat" },
-              ],
-            },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display options in groups by passing an array of child options to the `children` property of a parent option.
+The parent option will be rendered as the title of the group.
+
+<Canvas withSource="none">
+  <Story name="Groups">{Groups()}</Story>
 </Canvas>
+
+#### Groups code example
+
+```html
+<ic-select-with-multi
+  id="select-groups"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-groups");
+  select.options = [
+    {
+      label: "Fancy",
+      children: [
+        { label: "Cappuccino", value: "Cap" },
+        { label: "Flat white", value: "Flat" },
+      ],
+    },
+    {
+      label: "Boring",
+      children: [
+        { label: "Filter", value: "Fil" },
+        { label: "Latte", value: "Lat" },
+      ],
+    },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Recommended
 
-<Canvas>
-  <Story name="Recommended">
-    {() =>
-      html`<ic-select-with-multi
-          id="select-recommended"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-recommended");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame", recommended: true },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla", recommended: true },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display certain options at the top of the option list by setting the `recommended` property to `true` on each option.
+This will allow for quick access to these options.
+
+<Canvas withSource="none">
+  <Story name="Recommended">{Recommended()}</Story>
 </Canvas>
+
+#### Recommended code example
+
+```html
+<ic-select-with-multi
+  id="select-recommended"
+  label="What are your favourite types of coffee?"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select = document.querySelector("#select-recommended");
+  select.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame", recommended: true },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla", recommended: true },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```
 
 ### Validation
 
-<Canvas>
-  <Story name="Validation">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-success"
-          label="What is your favourite coffee?"
-          validation-status="success"
-          validation-text="Good choice!"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select1 = document.querySelector("#select-success");
-          select1.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select1.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>
-        <ic-select-with-multi
-          id="select-warning"
-          label="What is your favourite coffee?"
-          validation-status="warning"
-          validation-text="We are running low on this type of coffee"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select2 = document.querySelector("#select-warning");
-          select2.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select2.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>
-        <ic-select-with-multi
-          id="select-error"
-          label="What is your favourite coffee?"
-          validation-status="error"
-          validation-text="Now it has really gone to (coffee) pot"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select3 = document.querySelector("#select-error");
-          select3.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select3.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
+Display a validation status and message by using the `validation-status` and `validation-message` props.
+The `validation-status` prop takes the values `success`, `warning` or `error`.
+
+<Canvas withSource="none">
+  <Story name="Validation">{Validation()}</Story>
 </Canvas>
 
-### Scroll behaviour
+#### Validation code example
 
-<Canvas>
-  <Story name="Scroll behaviour">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-scroll"
-          label="What is your favourite coffee?"
-          multiple="true"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-scroll");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-            { label: "Café au lait", value: "Caf" },
-            { label: "Espresso", value: "Esp" },
-            { label: "Cortado", value: "Cor" },
-            { label: "Ristretto", value: "Ris" },
-            { label: "Latte macchiato", value: "Lam" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
-### Loading with error
-
-<Canvas>
-  <Story name="Loading with error">
-    {(args) =>
-      html`<ic-select-with-multi
-          id="select-loading"
-          label="What is your favourite coffee?"
-          multiple="true"
-          loading="true"
-          timeout="1000"
-        ></ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-loading");
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-          select.addEventListener("icRetryLoad", function (event) {
-            select.loading = "true";
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
-
-### In form
-
-This shows how the multi-select works within a form. The value will appear in the console on submit.
-
-<Canvas>
-  <Story name="In form" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
-        <form>
-          <ic-select-with-multi
-            id="select-form"
-            label="What is your favourite coffee?"
-            multiple="true"
-          ></ic-select-with-multi>
-          <br />
-          <br />
-          <input type="submit" value="Submit" />
-          <input type="reset" value="Reset" />
-        </form>
-        <script>
-          var select = document.querySelector("#select-form");
-          select.options = [
-            { label: "Cappuccino", value: "Cap" },
-            { label: "Latte", value: "Lat" },
-            { label: "Americano", value: "Ame" },
-            { label: "Filter", value: "Fil" },
-            { label: "Flat white", value: "Fla" },
-            { label: "Mocha", value: "Moc" },
-            { label: "Macchiato", value: "Mac" },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-          document.querySelector("form").addEventListener("submit", (ev) => {
-            ev.preventDefault();
-            console.log(document.querySelector("input.ic-input").value);
-          });
-        </script>
-      `
-    }
-  </Story>
-</Canvas>
-
-### Playground
-
-<Canvas>
-  <Story
-    name="Playground"
-    parameters={{ loki: { skip: true } }}
-    args={defaultArgs}
-    argTypes={{
-      ["validation-status"]: {
-        options: ["none", "error", "success", "warning"],
-        control: { type: "inline-radio" },
-      },
-      size: {
-        options: ["small", "default", "large"],
-        control: { type: "inline-radio" },
-      },
-    }}
-  >
-    {(args) =>
-      html` <ic-select-with-multi
-          id="select-playground"
-          multiple="true"
-          disabled=${args.disabled}
-          full-width=${args["full-width"]}
-          helper-text=${args["helper-text"]}
-          hide-label=${args["hide-label"]}
-          loading=${args.loading}
-          loading-label=${args["loading-label"]}
-          label=${args.label}
-          placeholder=${args.placeholder}
-          readonly=${args.readonly}
-          required=${args.required}
-          show-clear-button=${args["show-clear-button"]}
-          size=${args.size}
-          validation-status=${args["validation-status"]}
-          validation-text=${args["validation-text"]}
-        >
-        </ic-select-with-multi>
-        <script>
-          var select = document.querySelector("#select-playground");
-          select.options = [
-            {
-              label: "Cappuccino",
-              value: "Cap",
-              description: "Coffee frothed up with pressurised steam",
-            },
-            {
-              label: "Boring",
-              children: [
-                {
-                  label: "Latte",
-                  value: "Lat",
-                  description: "A milkier coffee than a cappuccino",
-                },
-                {
-                  label: "Filter",
-                  value: "Fil",
-                  description: "Coffee filtered using paper or a mesh",
-                },
-              ],
-            },
-            {
-              label: "Fancy",
-              children: [
-                {
-                  label: "Flat white",
-                  value: "Fla",
-                  description:
-                    "Coffee without froth made with espresso and hot steamed milk",
-                },
-                {
-                  label: "Macchiato",
-                  value: "Mac",
-                  description:
-                    "Espresso coffee with a dash of frothy steamed milk",
-                },
-              ],
-            },
-            {
-              label: "Americano",
-              value: "Ame",
-              description: "Espresso coffee diluted with hot water",
-            },
-            {
-              label: "Mocha",
-              value: "Moc",
-              description: "A mixture of coffee and chocolate",
-            },
-          ];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
-        </script>`
-    }
-  </Story>
-</Canvas>
+```html
+<ic-select-with-multi
+  id="select-success"
+  label="What are your favourite types of coffee?"
+  validation-status="success"
+  validation-text="Good choice!"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select1 = document.querySelector("#select-success");
+  select1.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select1.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+<ic-select-with-multi
+  id="select-warning"
+  label="What are your favourite types of coffee?"
+  validation-status="warning"
+  validation-text="We are running low on this type of coffee"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select2 = document.querySelector("#select-warning");
+  select2.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select2.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+<ic-select-with-multi
+  id="select-error"
+  label="What are your favourite types of coffee?"
+  validation-status="error"
+  validation-text="Now it has really gone to (coffee) pot"
+  multiple
+></ic-select-with-multi>
+<script>
+  var select3 = document.querySelector("#select-error");
+  select3.options = [
+    { label: "Cappuccino", value: "Cap" },
+    { label: "Latte", value: "Lat" },
+    { label: "Americano", value: "Ame" },
+    { label: "Filter", value: "Fil" },
+    { label: "Flat white", value: "Fla" },
+    { label: "Mocha", value: "Moc" },
+    { label: "Macchiato", value: "Mac" },
+  ];
+  select3.addEventListener("icChange", function (event) {
+    console.log(event.detail.value);
+  });
+</script>
+```

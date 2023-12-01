@@ -268,7 +268,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * If `true`, the loading state will be triggered when fetching options asyncronously.
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
         "loading"?: boolean;
         /**
@@ -340,7 +340,7 @@ export namespace Components {
          */
         "validationText"?: string;
         /**
-          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of values.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
         "value"?: string | string[];
     }
@@ -655,7 +655,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * If `true`, the loading state will be triggered when fetching options asyncronously.
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
         "loading"?: boolean;
         /**
@@ -755,7 +755,7 @@ declare namespace LocalJSX {
          */
         "validationText"?: string;
         /**
-          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of values.
+          * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of option values.
          */
         "value"?: string | string[];
     }

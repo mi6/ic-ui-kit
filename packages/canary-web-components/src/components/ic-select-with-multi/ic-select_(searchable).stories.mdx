@@ -15,7 +15,7 @@ import { html } from "lit-html";
 export const defaultArgs = {
   disabled: false,
   ["full-width"]: false,
-  ["helper-text"]: "Such as Arabica, Robusta or Liberica.",
+  ["helper-text"]: "Select one option from the list",
   ["hide-label"]: false,
   loading: false,
   loadingLabel: "Loading...",
@@ -39,7 +39,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-default");
@@ -74,7 +74,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-async"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           loading
         ></ic-select-with-multi>
         <script>
@@ -111,7 +111,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-default-value"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-default-value");
@@ -141,7 +141,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-filter-start"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           search-match-position="start"
         ></ic-select-with-multi>
         <script>
@@ -171,7 +171,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-descriptions"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-descriptions");
@@ -229,7 +229,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-descriptions-included"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           include-descriptions-in-search
         ></ic-select-with-multi>
         <script>
@@ -288,8 +288,8 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-helper"
           label="What is your favourite coffee?"
-          searchable="true"
-          helper-text="Such as Arabica, Robusta or Liberica"
+          searchable
+          helper-text="Select one option from the list"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-helper");
@@ -319,7 +319,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-small"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           size="small"
         ></ic-select-with-multi>
         <script>
@@ -340,7 +340,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-size-default");
@@ -360,7 +360,7 @@ export const defaultArgs = {
         <ic-select-with-multi
           id="select-size-large"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           size="large"
         ></ic-select-with-multi>
         <script>
@@ -391,7 +391,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-disabled"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           disabled
         ></ic-select-with-multi>
         <script>
@@ -421,7 +421,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-disabled-options"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-disabled-options");
@@ -450,7 +450,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-hidden-label"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           hide-label
         ></ic-select-with-multi>
         <script>
@@ -480,7 +480,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-required"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           required
         ></ic-select-with-multi>
         <script>
@@ -510,7 +510,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-groups"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-groups");
@@ -546,7 +546,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-groups-included"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           include-group-titles-in-search
         ></ic-select-with-multi>
         <script>
@@ -583,7 +583,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-recommended"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-recommended");
@@ -614,7 +614,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="success"
           validation-text="Good choice!"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select1 = document.querySelector("#select-success");
@@ -637,7 +637,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="warning"
           validation-text="We are running low on this type of coffee"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select2 = document.querySelector("#select-warning");
@@ -660,7 +660,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="error"
           validation-text="Now it has really gone to (coffee) pot"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select3 = document.querySelector("#select-error");
@@ -690,7 +690,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-scroll"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-scroll");
@@ -722,9 +722,9 @@ export const defaultArgs = {
     {(args) =>
       html`<ic-select-with-multi
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           debounce="300"
-          disable-filter="true"
+          disable-filter
           id="select-external-filtering"
           timeout="1000"
         ></ic-select-with-multi>
@@ -800,7 +800,7 @@ This shows how the searchable select works within a form. The value will appear 
           <ic-select-with-multi
             id="select-form"
             label="What is your favourite coffee?"
-            searchable="true"
+            searchable
           ></ic-select-with-multi>
           <br />
           <br />
@@ -838,7 +838,7 @@ This shows how the searchable select works within a form. The value will appear 
       html`<ic-section-container>
           <ic-select-with-multi
             id="select-external-request"
-            searchable="true"
+            searchable
             label="What is your favourite coffee? (searchable)"
           ></ic-select-with-multi>
         </ic-section-container>
@@ -915,7 +915,7 @@ This shows how the searchable select works within a form. The value will appear 
           readonly=${args.readonly}
           required=${args.required}
           search-match-position=${args["search-match-position"]}
-          searchable="true"
+          searchable
           size=${args.size}
           validation-status=${args["validation-status"]}
           validation-text=${args["validation-text"]}

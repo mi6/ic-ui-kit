@@ -51,7 +51,7 @@ export class Menu {
   private selectAllButton: HTMLIcButtonElement;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() el: HTMLIcMenuElement;
+  @Element() el: HTMLIcMenuWithMultiElement;
 
   @State() focusFromSearchKeypress: boolean = false;
   @State() initialOptionsListRender: boolean = false;
@@ -443,7 +443,7 @@ export class Menu {
   private getParentEl = (parent: HTMLElement) => {
     if (parent.tagName === "IC-SEARCH-BAR") {
       this.isSearchBar = true;
-    } else if (parent.tagName === "IC-SELECT") {
+    } else if (parent.tagName === "IC-SELECT" || parent.tagName === "IC-SELECT-WITH-MULTI") {
       if (
         parent.getAttribute("searchable") !== null &&
         parent.getAttribute("searchable") !== undefined

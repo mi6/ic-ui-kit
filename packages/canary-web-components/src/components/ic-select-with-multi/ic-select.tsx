@@ -69,7 +69,7 @@ export class Select {
   private timeoutTimer: number;
   private ungroupedOptions: IcMenuOption[] = [];
 
-  @Element() el!: HTMLIcSelectElement;
+  @Element() el!: HTMLIcSelectWithMultiElement;
 
   @State() ariaActiveDescendant: string;
   @State() clearButtonFocused: boolean = false;
@@ -238,7 +238,7 @@ export class Select {
   @Prop() validationText?: string = "";
 
   /**
-   * If `true`, the loading state will be triggered when fetching options asyncronously.
+   * If `true`, the loading state will be triggered when fetching options asynchronously.
    */
   @Prop({ mutable: true }) loading?: boolean = false;
 
@@ -299,7 +299,9 @@ export class Select {
   }
 
   /**
-   * The value of the select, reflected by the value of the currently selected option. For the searchable variant, the value is also reflected by the user input. For the multi-select variant, the value must be an array of values.
+   * The value of the select, reflected by the value of the currently selected option.
+   * For the searchable variant, the value is also reflected by the user input.
+   * For the multi-select variant, the value must be an array of option values.
    */
   @Prop({ mutable: true }) value?: string | string[];
   @State() initialValue = this.value;

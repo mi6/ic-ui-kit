@@ -15,7 +15,7 @@ import { html } from "lit-html";
 export const defaultArgs = {
   disabled: false,
   ["full-width"]: false,
-  ["helper-text"]: "Such as Arabica, Robusta or Liberica.",
+  ["helper-text"]: "Select one option from the list",
   ["hide-label"]: false,
   loading: false,
   loadingLabel: "Loading...",
@@ -186,7 +186,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-helper"
           label="What is your favourite coffee?"
-          helper-text="Such as Arabica, Robusta or Liberica"
+          helper-text="Select one option from the list"
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-helper");
@@ -396,7 +396,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-full-width"
           label="What is your favourite coffee?"
-          full-width="true"
+          full-width
         ></ic-select-with-multi>
         <script>
           var select = document.querySelector("#select-full-width");
@@ -655,7 +655,7 @@ export const defaultArgs = {
       html`<ic-select-with-multi
           id="select-loading"
           label="What is your favourite coffee?"
-          loading="true"
+          loading
           timeout="1000"
         ></ic-select-with-multi>
         <script>
