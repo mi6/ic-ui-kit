@@ -19,6 +19,8 @@
     "test-visual:ci": "npm run build && npm run build-storybook:web-components && lerna run test-visual:ci --stream",
     "test-visual:update": "lerna run test-visual:update --stream",
     "test-visual:update-ci": "npm run build && lerna run test-visual:update --stream",
+    "test-cypress": "lerna run cypress --scope=@ukic/react --stream",
+    "test-cypress:ci": "npm run build && lerna run cypress:ci --scope=@ukic/react --stream",
     "audit": "npm run audit-expiry && audit-ci -m --config audit-ci.json && lerna run audit",
     "audit:bypass-expiry": "audit-ci -m --config audit-ci.json && lerna run audit",
     "audit-expiry": "node check-audit-expiry.js",
@@ -27,6 +29,7 @@
     "prettier:fix": "lerna run prettier:fix",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
+    "lint-cypress": "lerna run lint:cypress --scope=@ukic/react",
     "static-analysis": "npm run lint && npm run prettier && npm run audit",
     "audit:fix": "lerna-audit"
   },
