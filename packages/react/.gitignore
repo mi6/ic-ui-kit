@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+# cypress test report
+cypress-visual-report/
+
+# diff images
+cypress-visual-screenshots/diff/
+cypress-visual-screenshots/comparison/
+cypress/screenshots/
