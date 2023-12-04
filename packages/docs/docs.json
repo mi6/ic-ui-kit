@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-23T12:33:42",
+  "timestamp": "2023-12-04T12:40:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -12762,6 +12762,28 @@
           "attr": "searchable",
           "reflectToAttr": false,
           "docs": "If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "selectOnEnter",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "select-on-enter",
+          "reflectToAttr": false,
+          "docs": "If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.",
           "docsTags": [],
           "default": "false",
           "values": [
