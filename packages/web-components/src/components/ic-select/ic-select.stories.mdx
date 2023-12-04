@@ -656,6 +656,34 @@ export const defaultArgs = {
   </Story>
 </Canvas>
 
+### Emitting icOptionSelect on enter
+
+<Canvas>
+  <Story
+    name="Emitting icOptionSelect on enter"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-select
+          id="select-1"
+          label="What is your favourite coffee?"
+          select-on-enter="true"
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-1");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icOptionSelect", function (event) {
+            console.log(event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### Searchable default
 
 <Canvas>
@@ -1444,6 +1472,35 @@ export const defaultArgs = {
           });
           searchSelect.addEventListener("icOptionSelect", function (event) {
             console.log("icOptionSelect", event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Searchable emitting icOptionSelect on enter
+
+<Canvas>
+  <Story
+    name="Searchable emitting icOptionSelect on enter"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-select
+          id="select-1"
+          label="What is your favourite coffee?"
+          select-on-enter="true"
+          searchable
+        ></ic-select>
+        <script>
+          var select = document.querySelector("#select-1");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icOptionSelect", function (event) {
+            console.log(event.detail.value);
           });
         </script>`
     }

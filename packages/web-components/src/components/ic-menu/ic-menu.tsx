@@ -119,6 +119,11 @@ export class Menu {
   @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
 
   /**
+   * @internal If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+   */
+  @Prop() selectOnEnter?: boolean = false;
+
+  /**
    * The size of the menu component.
    */
   @Prop() size?: IcSizesNoLarge = "default";
@@ -281,6 +286,10 @@ export class Menu {
           highlightedEl.focus();
         }
       }
+    }
+
+    if (this.open && !this.value && this.selectOnEnter) {
+      this.scrollToSelected(this.menu);
     }
   }
 
@@ -483,6 +492,9 @@ export class Menu {
     const getOptionId = (index: number): string =>
       Array.from(this.host.querySelectorAll("li"))[index]?.id;
 
+    const isOpen: boolean =
+      this.isSearchBar || this.isSearchableSelect || this.open;
+
     switch (event.key) {
       case "ArrowDown":
         this.keyboardNav = true;
@@ -539,22 +551,36 @@ export class Menu {
           optionId: getOptionId(menuOptions.length - 1),
         });
         break;
+      case " ":
+        if (this.isSearchBar || this.isSearchableSelect) {
+          break;
+        } else {
+          if ((event.target as HTMLElement).id !== "clear-button") {
+            this.handleMenuChange(true);
+          }
+        }
+        break;
       case "Enter":
         event.preventDefault();
-        if (highlightedOptionIndex >= 0) {
-          if (menuOptions[highlightedOptionIndex] !== undefined) {
-            if (
-              this.isSearchBar &&
-              menuOptions[highlightedOptionIndex].disabled === true
-            ) {
-              this.disabledOptionSelected = true;
-            } else {
-              this.setInputValue(highlightedOptionIndex);
-              this.value = menuOptions[highlightedOptionIndex][this.valueField];
+        if (isOpen) {
+          if (highlightedOptionIndex >= 0) {
+            if (menuOptions[highlightedOptionIndex] !== undefined) {
+              if (
+                this.isSearchBar &&
+                menuOptions[highlightedOptionIndex].disabled === true
+              ) {
+                this.disabledOptionSelected = true;
+              } else {
+                this.setInputValue(highlightedOptionIndex);
+                this.value =
+                  menuOptions[highlightedOptionIndex][this.valueField];
+              }
             }
+          } else {
+            this.setInputValue(highlightedOptionIndex);
           }
         } else {
-          this.setInputValue(highlightedOptionIndex);
+          this.handleMenuChange(true);
         }
         break;
       case "Escape":
@@ -644,7 +670,7 @@ export class Menu {
   private handleMenuKeyDown = (event: KeyboardEvent) => {
     if (this.activationType === "automatic") {
       this.autoSetValueOnMenuKeyDown(event);
-    } else if (this.activationType === "manual" && this.isSearchableSelect) {
+    } else if (this.activationType === "manual" && !this.isSearchBar) {
       this.manSetInputValueKeyboardOpen(event);
     }
   };
@@ -769,9 +795,11 @@ export class Menu {
   private isManualMode = this.activationType === "manual";
 
   private scrollToSelected = (menu: HTMLUListElement) => {
-    const selectedOption = menu.querySelector(
-      ".option[aria-selected]"
-    ) as HTMLElement;
+    const selectedOption = this.selectOnEnter
+      ? (this.host.querySelector(
+          `li[data-value="${this.optionHighlighted}"]`
+        ) as HTMLElement)
+      : (menu.querySelector(".option[aria-selected]") as HTMLElement);
 
     if (selectedOption) {
       const elTop = selectedOption.offsetTop + selectedOption.offsetHeight;
