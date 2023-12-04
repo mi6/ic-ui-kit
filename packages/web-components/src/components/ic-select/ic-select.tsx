@@ -203,6 +203,11 @@ export class Select {
   @Prop() searchMatchPosition?: IcSearchMatchPositions = "anywhere";
 
   /**
+   * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+   */
+  @Prop() selectOnEnter?: boolean = false;
+
+  /**
    * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
    */
   @Prop() showClearButton?: boolean = false;
@@ -1238,6 +1243,7 @@ export class Select {
               options={searchable ? this.filteredOptions : this.uniqueOptions}
               value={currValue}
               fullWidth={fullWidth}
+              selectOnEnter={this.selectOnEnter}
               onMenuStateChange={this.handleMenuChange}
               onMenuOptionSelect={this.handleCustomSelectChange}
               onMenuKeyPress={this.handleMenuKeyPress}
@@ -1246,7 +1252,9 @@ export class Select {
               onRetryButtonClicked={this.handleRetry}
               parentEl={this.el}
               onTimeoutBlur={this.onTimeoutBlur}
-              activationType={this.searchable ? "manual" : "automatic"}
+              activationType={
+                this.searchable || this.selectOnEnter ? "manual" : "automatic"
+              }
             ></ic-menu>
           )}
           {hasValidationStatus(this.validationStatus, this.disabled) && (
