@@ -59,7 +59,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-md) var(--ic-space-md) var(--ic-space-xl);
+  padding: var(--ic-space-md) var(--ic-space-md) var(--ic-space-xl);
+}
+
+.status-version-no-buttons {
+  border-top: var(--ic-space-1px) solid var(--ic-architectural-200);
 }
 
 .menu-status {
