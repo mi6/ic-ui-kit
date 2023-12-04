@@ -681,6 +681,44 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.value).toBe(menuOptions[0].value);
   });
+  it("tests manSetInputValueKeyboardOpen function when select on enter", async () => {
+    const select = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+
+    select.selectOnEnter = true;
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={select}
+          value={menuOptions[0].value}
+          parentEl={select}
+        ></ic-menu>
+      ),
+    });
+
+    const eventSpy = jest.fn();
+    page.root.addEventListener("menuOptionSelect", eventSpy);
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("ArrowDown"));
+    await page.waitForChanges();
+
+    expect(eventSpy).not.toHaveBeenCalled();
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("Enter"));
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalled();
+  });
   it("tests setInputValue function when default parameter passed", async () => {
     const select = window.document.createElement(
       "IC-SELECT"

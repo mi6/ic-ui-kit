@@ -1012,6 +1012,7 @@ export namespace Components {
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode"?: IcSearchBarSearchModes;
+        "selectOnEnter"?: boolean;
         /**
           * The size of the menu component.
          */
@@ -1678,6 +1679,10 @@ export namespace Components {
           * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
          */
         "searchable"?: boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+         */
+        "selectOnEnter"?: boolean;
         /**
           * Sets focus on the input box.
          */
@@ -3716,6 +3721,7 @@ declare namespace LocalJSX {
           * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
          */
         "searchMode"?: IcSearchBarSearchModes;
+        "selectOnEnter"?: boolean;
         /**
           * The size of the menu component.
          */
@@ -4460,6 +4466,10 @@ declare namespace LocalJSX {
           * If `true`, a searchable variant of the select will be displayed which can be typed in to filter options.
          */
         "searchable"?: boolean;
+        /**
+          * If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+         */
+        "selectOnEnter"?: boolean;
         /**
           * If `true`, a button which clears the select input when clicked will be displayed. The button will always appear on the searchable select.
          */
