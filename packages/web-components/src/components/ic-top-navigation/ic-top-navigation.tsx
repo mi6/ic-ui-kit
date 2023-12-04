@@ -514,9 +514,11 @@ export class TopNavigation {
               ["inline"]: this.inline,
             }}
           >
-            <div class="menu-buttons-slot" slot="buttons">
-              <slot name="buttons"></slot>
-            </div>
+            {this.hasIconButtons && (
+              <div class="menu-buttons-slot" slot="buttons">
+                <slot name="buttons"></slot>
+              </div>
+            )}
             <ul slot="navigation">
               <slot name="navigation"></slot>
             </ul>

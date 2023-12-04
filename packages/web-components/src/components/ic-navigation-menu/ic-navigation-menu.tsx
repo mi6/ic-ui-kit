@@ -207,7 +207,12 @@ export class NavigationMenu {
             </div>
           )}
           {(this.status !== "" || this.version !== "") && (
-            <div class="menu-status-version-container">
+            <div
+              class={{
+                ["menu-status-version-container"]: true,
+                ["status-version-no-buttons"]: !this.hasButtons,
+              }}
+            >
               {this.status !== "" && (
                 <div class="menu-status">
                   <ic-typography

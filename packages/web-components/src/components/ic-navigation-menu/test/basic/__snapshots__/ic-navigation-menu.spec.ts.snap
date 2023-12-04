@@ -17,7 +17,7 @@ exports[`ic-navigation-menu should render with version and status: renders-with-
           </ic-button>
         </div>
       </nav>
-      <div class="menu-status-version-container">
+      <div class="menu-status-version-container status-version-no-buttons">
         <div class="menu-status">
           <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
             Beta
@@ -120,7 +120,7 @@ exports[`ic-navigation-menu should test slotted link: renders-with-slotted-link 
         </div>
         <slot name="navigation"></slot>
       </nav>
-      <div class="menu-status-version-container">
+      <div class="menu-status-version-container status-version-no-buttons">
         <div class="menu-status">
           <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
             Beta
@@ -237,7 +237,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
         </div>
         <slot name="navigation"></slot>
       </nav>
-      <div class="menu-status-version-container">
+      <div class="menu-status-version-container status-version-no-buttons">
         <div class="menu-status">
           <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
             Beta
@@ -284,7 +284,7 @@ exports[`ic-navigation-menu should test slotted navigation item: renders-with-sl
         </div>
         <slot name="navigation"></slot>
       </nav>
-      <div class="menu-status-version-container">
+      <div class="menu-status-version-container status-version-no-buttons">
         <div class="menu-status">
           <ic-typography aria-label="app tag" class="menu-status-text" variant="label-uppercase">
             Beta
