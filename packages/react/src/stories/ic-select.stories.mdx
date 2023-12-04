@@ -568,6 +568,23 @@ export const playgroundOptions = [
   </Story>
 </Canvas>
 
+### Emitting icOptionSelect on enter
+
+<Canvas>
+  <Story name="Emitting icOptionSelect on enter">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          selectOnEnter
+          onIcOptionSelect={(event) => console.log(event.detail.value)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Searchable default
 
 <Canvas>
@@ -982,6 +999,24 @@ export const ExternalFiltering = () => {
       The IcChange event will trigger 300ms after you finish typing. 1 second
       later, the options in the select menu will be updated.
     </IcTypography>
+  </Story>
+</Canvas>
+
+### Searchable emitting icOptionSelect on enter
+
+<Canvas>
+  <Story name="Searchable emitting icOptionSelect on enter">
+    {() => {
+      return (
+        <IcSelect
+          label="What is your favourite coffee?"
+          options={options}
+          selectOnEnter
+          searchable
+          onIcOptionSelect={(event) => console.log(event.detail.value)}
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
