@@ -35,7 +35,7 @@ input {
   position: relative;
   border-radius: 100vw;
   background-color: var(--ic-architectural-200);
-  border: var(--ic-space-1px) solid var(--ic-architectural-700);
+  border: var(--ic-border-width) solid var(--ic-architectural-700);
   box-sizing: border-box;
   transition: var(--ic-transition-duration-fast);
 }
@@ -149,7 +149,7 @@ input {
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle {
   background-color: var(--ic-status-info-light);
-  border: var(--ic-space-1px) dashed #98c9f5;
+  border: var(--ic-border-width) dashed #98c9f5;
 }
 
 .ic-switch-input:disabled:checked + .ic-switch-toggle::before {

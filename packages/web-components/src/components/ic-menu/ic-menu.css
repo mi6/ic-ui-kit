@@ -41,7 +41,7 @@
 .menu {
   text-decoration: none;
   list-style-type: none;
-  border: var(--ic-space-1px) solid var(--ic-architectural-400);
+  border: var(--ic-border-width) solid var(--ic-architectural-400);
   border-radius: var(--ic-border-radius);
   background-color: var(--ic-architectural-white);
   visibility: hidden;
