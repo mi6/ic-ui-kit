@@ -341,6 +341,8 @@ export class Menu {
 
   /**
    * @internal Used to initialize popperJS with an anchor element.
+   * 5/12/2023: Tested with Floating UI, however, discovered inconsistent
+   * boundary behaviour so sticking with PopperJS.
    */
   @Method()
   async initPopperJs(anchor: HTMLElement) {
