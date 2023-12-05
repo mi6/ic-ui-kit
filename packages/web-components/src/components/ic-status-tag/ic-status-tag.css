@@ -36,22 +36,22 @@
 
 .outlined-neutral {
   background-color: var(--ic-architectural-200);
-  border: var(--ic-space-1px) solid var(--ic-architectural-400);
+  border: var(--ic-border-width) solid var(--ic-architectural-400);
 }
 
 .outlined-success {
   background-color: var(--ic-status-success-light);
-  border: var(--ic-space-1px) solid var(--ic-status-success);
+  border: var(--ic-border-width) solid var(--ic-status-success);
 }
 
 .outlined-warning {
   background-color: var(--ic-status-warning-light);
-  border: var(--ic-space-1px) solid var(--ic-status-warning-dark);
+  border: var(--ic-border-width) solid var(--ic-status-warning-dark);
 }
 
 .outlined-danger {
   background-color: var(--ic-status-error-light);
-  border: var(--ic-space-1px) solid var(--ic-status-error);
+  border: var(--ic-border-width) solid var(--ic-status-error);
 }
 
 @media (forced-colors: active) {

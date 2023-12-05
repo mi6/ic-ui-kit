@@ -32,7 +32,7 @@ button {
 
 .dark.card,
 .dark.card.clickable {
-  border: var(--ic-space-1px) solid var(--ic-architectural-700);
+  border: var(--ic-border-width) solid var(--ic-architectural-700);
 }
 
 .card.clickable:hover {

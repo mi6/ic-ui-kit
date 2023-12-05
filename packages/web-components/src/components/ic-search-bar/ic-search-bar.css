@@ -82,7 +82,7 @@
 }
 
 .divider {
-  width: var(--ic-space-1px);
+  width: var(--ic-border-width);
   background-color: var(--ic-action-dark-active);
   height: var(--divider-height);
 }

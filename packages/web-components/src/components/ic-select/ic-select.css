@@ -187,7 +187,7 @@ select:not([disabled]) {
 }
 
 .divider {
-  width: var(--ic-space-1px);
+  width: var(--ic-border-width);
   background-color: var(--ic-architectural-400);
   margin: var(--ic-space-xxs) 0;
   border-radius: var(--ic-space-1px);

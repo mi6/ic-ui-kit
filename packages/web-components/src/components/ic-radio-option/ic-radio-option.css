@@ -76,13 +76,13 @@
 .container:hover input ~ .checkmark {
   background-color: var(--ic-action-default-bg-hover);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
-  border: var(--ic-space-1px) solid var(--ic-action-default);
+  border: var(--ic-border-width) solid var(--ic-action-default);
 }
 
 /* When pressed, adds the active colours */
 .container:active input ~ .checkmark {
   background-color: var(--ic-action-default-bg-active);
-  border: var(--ic-space-1px) solid var(--ic-action-default-active);
+  border: var(--ic-border-width) solid var(--ic-action-default-active);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
 
@@ -111,7 +111,7 @@
 
 /* When the radio button is disabled */
 .container input:disabled ~ .checkmark {
-  border: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  border: var(--ic-border-width) dashed var(--ic-architectural-200);
 }
 
 /* When the radio button is disabled */

@@ -61,7 +61,7 @@ ic-tooltip:focus-within {
 .outline,
 .outlined {
   color: var(--ic-architectural-900);
-  border: var(--ic-space-1px) solid var(--ic-architectural-900);
+  border: var(--ic-border-width) solid var(--ic-architectural-900);
   padding: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 

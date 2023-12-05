@@ -12,7 +12,7 @@
 }
 
 .light {
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-white);
+  border-bottom: var(--ic-border-width) solid var(--ic-architectural-white);
 }
 
 .tabs-container {

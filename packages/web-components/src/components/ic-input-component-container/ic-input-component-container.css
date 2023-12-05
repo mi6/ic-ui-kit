@@ -4,7 +4,7 @@ ic-input-component-container {
    */
 
   display: flex;
-  border: var(--ic-space-1px) solid
+  border: var(--ic-border-width) solid
     var(--border-color, var(--ic-architectural-400));
   border-radius: var(--ic-border-radius);
   transition: var(--ic-easing-transition-slow);
@@ -23,7 +23,7 @@ ic-input-component-container.fullwidth {
 
 ic-input-component-container.disabled,
 ic-input-component-container.disabled:hover {
-  border: var(--ic-space-1px) dashed var(--ic-architectural-200);
+  border: var(--ic-border-width) dashed var(--ic-architectural-200);
 }
 
 ic-input-component-container.readonly,
@@ -151,12 +151,12 @@ ic-input-component-container:focus {
   }
 
   ic-input-component-container:focus-within {
-    border: var(--ic-space-1px) solid Highlight;
+    border: var(--ic-border-width) solid Highlight;
     outline: 0.125rem solid Highlight;
   }
 
   ic-input-component-container.disabled,
   ic-input-component-container.disabled:hover {
-    border: var(--ic-space-1px) dashed GrayText;
+    border: var(--ic-border-width) dashed GrayText;
   }
 }

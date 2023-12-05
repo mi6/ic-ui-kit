@@ -46,7 +46,7 @@ slot[name="value"]::slotted(ic-text-field[readonly][hide-label][rows]) {
 
 .divider {
   margin-top: var(--ic-space-md);
-  height: var(--ic-space-1px);
+  height: var(--ic-border-width);
   background-color: var(--ic-architectural-300);
 }
 

@@ -20,6 +20,7 @@
   --ic-transition-duration-slow: 300ms;
 
   /* borders */
+  --ic-border-width: 0.0625rem;
   --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
   --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
   --ic-border-hover: var(--ic-space-1px) solid var(--ic-architectural-500);
