@@ -153,6 +153,7 @@
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
   transition: var(--ic-easing-transition-fast);
+  text-align: start;
 }
 
 .trunc-btn:hover,
