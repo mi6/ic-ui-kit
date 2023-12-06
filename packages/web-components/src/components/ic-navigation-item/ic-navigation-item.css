@@ -129,7 +129,7 @@ svg {
 
 :host(.navigation-item-side-menu) .link,
 :host(.navigation-item-side-menu) ::slotted(a) {
-  height: 2.5rem;
+  min-height: 2.5rem;
   width: 100%;
   box-sizing: border-box;
   color: var(--ic-color-primary-text);
@@ -137,6 +137,7 @@ svg {
   align-items: center;
   justify-content: flex-start;
   text-decoration: none;
+  text-wrap: wrap;
   transition: box-shadow var(--ic-transition-duration-fast),
     border-radius var(--ic-transition-duration-fast);
 }
@@ -163,7 +164,6 @@ svg {
 :host(.navigation-item-side-menu) .link:focus,
 :host(.navigation-item-side-menu) ::slotted(a:focus) {
   box-shadow: var(--ic-border-focus-inset) !important;
-  padding-right: var(--ic-space-lg);
   width: auto;
   border-radius: var(--ic-border-radius-inset) !important;
 }
@@ -256,7 +256,8 @@ svg {
   position: absolute;
   left: 0;
   width: var(--ic-space-xs);
-  height: 2.5rem;
+  height: inherit;
+  min-height: 2.5rem;
   background-color: var(--ic-action-default);
   transition: left 0s;
 }
