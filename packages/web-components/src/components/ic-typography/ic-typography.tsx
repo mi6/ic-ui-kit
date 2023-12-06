@@ -114,13 +114,26 @@ export class Typography {
    * @param height Used to calculate whether the element has exceeded the maximum number of lines.
    */
   @Method()
-  async checkMaxLines(height: number): Promise<void> {
+  async checkMaxLines(
+    height: number,
+    typographyHeight?: number,
+    isDataTables?: boolean
+  ): Promise<void> {
     //24 is the height of a single line
+    const typographyNumLines = Math.floor(typographyHeight / 24);
     const numLines = Math.floor(height / 24);
-    if (numLines > this.maxLines) {
+    if (
+      (!!typographyHeight && typographyNumLines > numLines) ||
+      numLines > this.maxLines
+    ) {
       this.el.setAttribute("style", `--truncation-max-lines: ${this.maxLines}`);
       this.truncatedHeight = this.el.clientHeight;
       this.truncated = true;
+      if (isDataTables) {
+        this.expanded = false;
+      } else {
+        this.expanded = true;
+      }
     }
   }
 

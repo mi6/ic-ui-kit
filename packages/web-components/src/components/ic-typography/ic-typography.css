@@ -142,7 +142,8 @@
   -webkit-box-orient: vertical;
   line-clamp: var(--truncation-max-lines, initial);
   -webkit-line-clamp: var(--truncation-max-lines, initial);
-  overflow: hidden;
+  /* overflow: hidden; */
+  clip-path: border-box;
 }
 
 .trunc-btn {

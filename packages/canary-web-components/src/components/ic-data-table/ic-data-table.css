@@ -282,8 +282,4 @@ ic-tooltip > ic-typography {
     display: flex;
     align-items: center;
   }
-
-  .cell-container {
-    display: flex;
-  }
 }

@@ -164,6 +164,40 @@ export const LONG_DATA_VALUES = [
   },
 ];
 
+export const LONG_DATA_VALUES_UPDATE = [
+  {
+    name: 'Michael Phelps',
+    age: 23,
+    department: "United States",
+    employeeNumber: 1,
+    jobTitle: "Swimmer",
+  },
+  {
+    name: 'Natalie Coughlin',
+    age: 25,
+    department: "United States",
+    employeeNumber: 2,
+    jobTitle:
+      "Swimmer",
+  },
+  {
+    name: "Debbie Flood",
+    age: 28,
+    department: "Great Britain",
+    employeeNumber: 3,
+    jobTitle:
+      "7 time Olympic and Commonwealth Champion for Rowing",
+  },
+  {
+    name: 'Gillian Charleton',
+    age: "22",
+    department: "Canada",
+    employeeNumber: 4,
+    jobTitle: "Cycling",
+  },
+];
+
+
 export const DATA_CELL_ALIGNMENT = [
   {
     firstName: {
@@ -869,13 +903,84 @@ export const CustomRowHeights = (): HTMLElement => {
   return wrapper;
 };
 
-export const TruncationShowHide = (): HTMLIcDataTableElement => {
+// export const TruncationShowHide = (): HTMLIcDataTableElement => {
+//   const dataTable = CustomRowHeights().querySelector("ic-data-table");
+//   dataTable.globalRowHeight = 40;
+//   dataTable.variableRowHeight = null;
+//   dataTable.setAttribute("truncation-pattern", "showHide");
+
+//   return dataTable;
+// };
+
+export const TruncationShowHide = (): HTMLElement => {
   const dataTable = CustomRowHeights().querySelector("ic-data-table");
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = null;
   dataTable.setAttribute("truncation-pattern", "showHide");
+ 
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+ 
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      (name === "John Smith" || age === 41) ? 200 : null;
+  });
+  setButton.innerHTML = "Set";
 
-  return dataTable;
+  const updateDataButton = document.createElement('ic-button');
+  updateDataButton.addEventListener('click', () => {
+    setTimeout(() => {
+      dataTable.data = LONG_DATA_VALUES_UPDATE;
+    }, 500)
+  });
+  updateDataButton.innerHTML = "Update data";
+ 
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+ 
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
+
+export const TruncationTooltip = (): HTMLElement => {
+  const dataTable = CustomRowHeights().querySelector("ic-data-table");
+  dataTable.globalRowHeight = 40;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "tooltip");
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 80;
+    dataTable.variableRowHeight = ({ name, age }) =>
+      name === "John Smith" || age === 41 ? 200 : null;
+  });
+  setButton.innerHTML = "Set";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
 };
 
 export const CustomTitleBar = (): HTMLIcDataTableElement => {

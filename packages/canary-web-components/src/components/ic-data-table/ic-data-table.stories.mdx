@@ -28,6 +28,7 @@ import {
   CustomIcons,
   CustomRowHeights,
   TruncationShowHide,
+  TruncationTooltip,
   CustomTitleBar,
 } from "./story-data";
 import readme from "./readme.md";
@@ -1033,6 +1034,12 @@ If there is a certain row or column that should be exempt from truncation, then 
 <Canvas withSource="none">
   <Story name="Truncating Cell Data with See More/Less Button">
     {TruncationShowHide()}
+  </Story>
+</Canvas>
+
+<Canvas withSource="none">
+  <Story name="Truncating Cell Data with Tooltip">
+    {TruncationTooltip()}
   </Story>
 </Canvas>
 

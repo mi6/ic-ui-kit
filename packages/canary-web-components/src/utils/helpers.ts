@@ -78,3 +78,9 @@ export const inheritAttributes = (
 
   return attributeObject;
 };
+
+
+export const pxToRem = (px: string, base = 16): string => {
+  const tempPx = parseInt(px);
+  return `${(1 / base) * tempPx}rem`;
+};
