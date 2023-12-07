@@ -117,6 +117,7 @@
 :host(.button-variant-primary.loading) .button {
   background-color: var(--button-default-active);
 }
+
 :host(.button-variant-primary) .button:active:focus {
   background-color: var(--button-default-active);
 }
@@ -422,6 +423,7 @@ div.icon-container {
 }
 
 :host(.popout-menu-button) .button {
+  height: var(--height);
   justify-content: left;
   border-radius: 0;
   white-space: pre-line;
