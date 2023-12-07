@@ -1432,6 +1432,9 @@ describe("ic-select", () => {
 
       const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
       const menuOptions = await menu.findAll("li");
+
+      await page.waitForChanges();
+
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Cappuccino");
       expect(menuOptions[1]).toEqualText("Americano");

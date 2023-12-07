@@ -202,11 +202,7 @@ describe("ic-side-navigation", () => {
 
       await page.waitForChanges();
 
-      const mobileMenuBtn = await page.find(
-        "ic-side-navigation >>> #menu-button"
-      );
-
-      await mobileMenuBtn.click();
+      (await page.find("ic-side-navigation >>> #menu-button")).click();
 
       await page.waitForChanges();
 

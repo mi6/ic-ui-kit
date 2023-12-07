@@ -1005,7 +1005,7 @@ describe("ic-search-bar", () => {
     expect(await searchBar.getProperty("value")).toBe("qux");
   });
 
-  it("should tab through search bar from input > clear > submit > ic-menu when options are available", async () => {
+  it("should tab through search bar from input > clear > submit > ic-menu (when options are available) > back to search bar", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
     const searchBar = await page.find("ic-search-bar");
@@ -1060,6 +1060,24 @@ describe("ic-search-bar", () => {
     });
 
     expect(focusedElement).toBe("ic-search-bar-input-0-menu-bar");
+
+    await page.waitForChanges();
+
+    await page.keyboard.down("Shift");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+
+    await page.waitForChanges();
+
+    focusedElement = await page.evaluate(() => {
+      const el = document
+        .querySelector("ic-search-bar")
+        .shadowRoot.querySelector("ic-text-field");
+      return el.shadowRoot.activeElement.id;
+    });
+
+    expect(focusedElement).toBe("ic-search-bar-input-0");
   });
 
   it("menu is still rendered when Shift is pressed while focus on input", async () => {
@@ -1079,48 +1097,6 @@ describe("ic-search-bar", () => {
     const menu = await page.find("ic-search-bar >>> ic-menu");
 
     expect(await menu.isVisible()).toBeTruthy();
-  });
-
-  it("focuses back onto search bar from menu", async () => {
-    const page = await newE2EPage();
-    await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
-    const searchBar = await page.find("ic-search-bar");
-    searchBar.setProperty("options", options);
-
-    await page.waitForChanges();
-
-    await focusAndTypeIntoInput("ba", page);
-
-    await page.waitForChanges();
-
-    await page.keyboard.press("Tab");
-    await page.keyboard.press("Tab");
-    await page.keyboard.press("Tab");
-
-    await page.waitForChanges();
-
-    let focusedElement = await page.evaluate(() => {
-      const el = document.querySelector("ic-search-bar").shadowRoot;
-      return el.activeElement.id;
-    });
-
-    expect(focusedElement).toBe("ic-search-bar-input-0-menu-bar");
-
-    await page.waitForChanges();
-
-    await page.keyboard.down("Shift");
-    await page.keyboard.press("Tab");
-    await page.keyboard.press("Tab");
-    await page.keyboard.press("Tab");
-
-    await page.waitForChanges();
-
-    focusedElement = await page.$eval("ic-search-bar", (el) => {
-      const textfield = el.shadowRoot.querySelector("ic-text-field");
-      return textfield.shadowRoot.activeElement.id;
-    });
-
-    expect(focusedElement).toBe("ic-search-bar-input-0");
   });
 
   it("displays tooltip on search buttons when enabled", async () => {
