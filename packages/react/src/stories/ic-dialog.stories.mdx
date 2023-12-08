@@ -739,3 +739,55 @@ export const dropdownItems = () => {
     </IcDialog>
   </Story>
 </Canvas>
+
+### Hidden close button
+
+export const showHiddenCloseButtonDialog = () => {
+  const dialog = document.querySelector("#hidden-close-button-dialog");
+  dialog.open = true;
+};
+
+<Canvas>
+  <Story name="Hidden close button" parameters={{ loki: { skip: true } }}>
+    <IcButton variant="primary" onClick={showHiddenCloseButtonDialog}>
+      Launch dialog with hidden close button
+    </IcButton>
+    <IcDialog
+      id="hidden-close-button-dialog"
+      heading="This dialog does not have a close button"
+      label="Hidden Close Button Dialog"
+      hideCloseButton
+    >
+      <IcTypography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </IcTypography>
+    </IcDialog>
+  </Story>
+</Canvas>
+
+### Auto opening
+
+export const showAutoOpenCloseButtonDialog = () => {
+  const dialog = document.querySelector("#auto-opening-dialog");
+  dialog.open = true;
+};
+
+<Canvas>
+  <Story name="Auto Opening" parameters={{ loki: { skip: true } }}>
+    <IcButton variant="primary" onClick={showAutoOpenCloseButtonDialog}>
+      Launch auto opening dialog
+    </IcButton>
+    <IcDialog
+      id="auto-opening-dialog"
+      heading="This dialog opens automatically using the open prop"
+      label="Auto opening dialog"
+      open
+    >
+      <IcTypography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </IcTypography>
+    </IcDialog>
+  </Story>
+</Canvas>
