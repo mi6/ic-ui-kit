@@ -138,6 +138,7 @@ svg {
   justify-content: flex-start;
   text-decoration: none;
   text-wrap: wrap;
+  white-space: normal;
   transition: box-shadow var(--ic-transition-duration-fast),
     border-radius var(--ic-transition-duration-fast);
 }
