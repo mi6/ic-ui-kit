@@ -117,38 +117,7 @@ export class Dialog {
   @Watch("open")
   watchOpenHandler(): void {
     if (this.open) {
-      this.dialogRendered = true;
-
-      if (this.disableHeightConstraint) {
-        this.dialogEl.show();
-      } else {
-        this.dialogEl.showModal();
-      }
-
-      setTimeout(() => {
-        this.fadeIn = true;
-
-        /**
-         * This is required to set scroll back to top if:
-         * - dialog content goes below the fold
-         * - is closed using cancel or confirm and reopened.
-         *
-         * Without this, the scroll bar will start from the dialog's last scroll-x coordinate.
-         */
-        if (this.disableHeightConstraint && this.backdropEl.scrollTop !== 0) {
-          this.backdropEl.scrollTop = 0;
-        }
-      }, 10);
-
-      setTimeout(() => {
-        this.setInitialFocus();
-        checkResizeObserver(this.runResizeObserver);
-      }, 75);
-
-      setTimeout(() => {
-        this.getFocusedElementIndex();
-        this.icDialogOpened.emit();
-      }, 80);
+      this.dialogOpened();
     } else {
       this.fadeIn = false;
       if (this.resizeObserver !== null) {
@@ -225,6 +194,10 @@ export class Dialog {
     this.setAlertVariant();
 
     this.refreshInteractiveElementsOnSlotChange();
+
+    if (this.open) {
+      this.dialogOpened();
+    }
   }
 
   componentDidRender(): void {
@@ -307,6 +280,41 @@ export class Dialog {
   async confirmDialog(): Promise<void> {
     this.icDialogConfirmed.emit();
   }
+
+  private dialogOpened = () => {
+    this.dialogRendered = true;
+
+    if (this.disableHeightConstraint) {
+      this.dialogEl.show();
+    } else {
+      this.dialogEl.showModal();
+    }
+
+    setTimeout(() => {
+      this.fadeIn = true;
+
+      /**
+       * This is required to set scroll back to top if:
+       * - dialog content goes below the fold
+       * - is closed using cancel or confirm and reopened.
+       *
+       * Without this, the scroll bar will start from the dialog's last scroll-x coordinate.
+       */
+      if (this.disableHeightConstraint && this.backdropEl.scrollTop !== 0) {
+        this.backdropEl.scrollTop = 0;
+      }
+    }, 10);
+
+    setTimeout(() => {
+      this.setInitialFocus();
+      checkResizeObserver(this.runResizeObserver);
+    }, 75);
+
+    setTimeout(() => {
+      this.getFocusedElementIndex();
+      this.icDialogOpened.emit();
+    }, 80);
+  };
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
