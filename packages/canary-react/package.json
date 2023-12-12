@@ -1,0 +1,76 @@
+{
+  "name": "@ukic/canary-react",
+  "sideEffects": [
+    "*.css"
+  ],
+  "version": "2.0.0-canary.3",
+  "description": "React-wrapped web components compiled using StencilJS",
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p .",
+    "rollup": "rollup -c",
+    "storybook": "start-storybook -p 6009 --no-manager-cache",
+    "build-storybook": "rimraf ./storybook-static && build-storybook",
+    "audit": "echo 'Audit for: @ukic/canary-react' && audit-ci -m --config ../../audit-ci.json",
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@ukic/canary-web-components": "^2.0.0-canary.3",
+    "@ukic/react": "^2.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@mdi/js": "^7.2.96",
+    "@stencil/react-output-target": "^0.5.3",
+    "@storybook/addon-a11y": "^6.4.8",
+    "@storybook/addon-actions": "^6.4.8",
+    "@storybook/addon-docs": "^6.4.8",
+    "@storybook/addon-essentials": "^6.4.8",
+    "@storybook/addon-links": "^6.4.8",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.14",
+    "@storybook/manager-webpack5": "^6.5.14",
+    "@storybook/react": "^6.5.15",
+    "@types/jest": "27.0.3",
+    "@types/node": "^16.11.11",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "github-markdown-css": "^5.2.0",
+    "jest": "^27.4.1",
+    "jest-dom": "^4.0.0",
+    "mkdirp": "^1.0.4",
+    "np": "^7.6.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-hook-form": "^7.38.0",
+    "react-markdown": "^8.0.7",
+    "react-router-dom": "^6.3.0",
+    "remark-gfm": "^3.0.1",
+    "typescript": "^4.5.2",
+    "webpack": "^5.76.0"
+  },
+  "peerDependencies": {
+    "@ukic/fonts": "^2.3.0",
+    "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  },
+  "license": "MIT"
+}
