@@ -35,7 +35,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/fonts": "^2.6.0",
     "@ukic/web-components": "^2.7.0"
   },
   "devDependencies": {
@@ -66,7 +65,8 @@
   },
   "peerDependencies": {
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "@ukic/fonts": "^2.6.0"
   },
   "license": "MIT"
 }
