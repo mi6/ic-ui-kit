@@ -18,12 +18,19 @@ export class Tooltip {
   private persistTooltip = false;
   private popperInstance: Instance;
   private onDialog: boolean = false;
-  private showEvents = this.disableHover
-    ? ["click"]
-    : ["mouseenter", "focusin"];
+  private showEvents = [
+    !this.disableHover && "mouseenter",
+    !this.disableHover && "focusin",
+    !this.disableClick && "click",
+  ];
   private toolTip: HTMLDivElement;
 
   @Element() el: HTMLIcTooltipElement;
+
+  /**
+   * @internal If `true`, the tooltip will not be displayed on click, it will require hover or using the display method.
+   */
+  @Prop() disableClick?: boolean = false;
 
   /**
    * If `true`, the tooltip will not be displayed on hover, it will require a click.
