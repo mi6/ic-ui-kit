@@ -1,0 +1,79 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Usage with Angular" />
+
+# Installing in an Angular project
+
+These instructions were used with Angular version 13.2.5.
+
+## Installing
+
+### Step one
+
+Install the packages with `npm` or `yarn`.
+
+```shell
+npm install @ukic/canary-web-components @ukic/fonts
+
+yarn add @ukic/canary-web-components @ukic/fonts
+```
+
+### Step two
+
+In the `app.modules.ts` file, import the `CUSTOM_ELEMENTS_SCHEMA` and include it in the `@NgModule` decorator object:
+
+```js
+// app.modules.ts
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+
+//...
+
+@NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule],
+    providers: [],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+});
+```
+
+### Step three
+
+Import `defineCustomElements` in your `main.js` file and call it at the bottom of the file:
+
+```js
+// main.ts
+import { defineCustomElements } from "@ukic/canary-web-components/loader";
+
+// ...
+
+defineCustomElements();
+```
+
+### Step four
+
+Import the ICDS CSS files into your app's top level CSS file:
+
+```css
+/* usually src/styles.css */
+/* Depending on your setup, a path to node_modules may be needed instead */
+@import "@ukic/fonts/dist/fonts.css";
+@import "@ukic/canary-web-components/dist/core/core.css";
+```
+
+The fonts package can also be imported inside an Angular HTML file by adding the import statement within the `<styles>` tag.
+
+Import the normalised styles that are used within the ICDS components if you would like to apply them to the rest of your project and any slotted elements:
+
+```css
+@import "@ukic/canary-web-components/dist/core/normalize.css";
+```
+
+### Step five
+
+Declare the component in your `app.component.html` file, e.g.:
+
+```html
+<!-- app.component.html -->
+<ic-data-table ...></ic-data-table>
+```
