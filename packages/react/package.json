@@ -21,7 +21,7 @@
     "tsc": "tsc -p .",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6007 --no-manager-cache",
-    "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
+    "build-storybook": "rimraf ./storybook-static && build-storybook",
     "audit": "echo 'Audit for: @ukic/react' && audit-ci -m --config ../../audit-ci.json",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
@@ -35,7 +35,6 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/fonts": "^2.6.0",
     "@ukic/web-components": "^2.7.0"
   },
   "devDependencies": {
@@ -66,7 +65,8 @@
   },
   "peerDependencies": {
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "@ukic/fonts": "^2.6.0"
   },
   "license": "MIT"
 }
