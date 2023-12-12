@@ -1,6 +1,6 @@
 {
   "packages": ["packages/*"],
-  "version": "2.7.0",
+  "version": "independent",
   "command": {
     "publish": {
       "registry": "https://registry.npmjs.org"
