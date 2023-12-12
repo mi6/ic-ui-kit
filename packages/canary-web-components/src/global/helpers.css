@@ -1,0 +1,10 @@
+html {
+  font-family: var(--ic-font-body-family);
+  color: var(--ic-color-primary-text);
+}
+
+a.ic-card-wrapper-link {
+  text-decoration: none;
+  outline: none;
+  color: currentcolor;
+}
