@@ -423,6 +423,7 @@ export class TextField {
       label,
       required,
       size,
+      small,
       placeholder,
       helperText,
       rows,
@@ -511,7 +512,7 @@ export class TextField {
           )}
 
           <ic-input-component-container
-            size={size}
+            size={small ? "small" : size}
             validationStatus={currentStatus}
             multiLine={multiline}
             disabled={disabledMode}
