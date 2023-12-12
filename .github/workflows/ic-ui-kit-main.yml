@@ -6,6 +6,22 @@ on:
       - main
 
 jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      canary: ${{ steps.filter.outputs.canary }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            canary:
+              - './packages/canary-web-components/**'
+              - './packages/canary-react/**'
+
   ic-ui-kit-static-analysis-tests:
     name: "Static Analysis Tests"
     runs-on: ubuntu-latest
@@ -19,7 +35,7 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build
+          npm run build:all
 
       - name: Lint commit messages
         run: |
@@ -102,7 +118,7 @@ jobs:
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
       - name: Build
-        run: npm run build
+        run: npm run build:all
 
       # Runs git checkout for docs.json file to revert timestamp changes
       - name: Publish
@@ -113,6 +129,39 @@ jobs:
           npx lerna publish --no-commit-hooks -y
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  ic-ui-kit-deploy-storybook-canary:
+    if: ${{ needs.check-updates.outputs.canary == 'true' }}
+    needs: [ic-ui-kit-publish]
+    name: "Deploy Canary Storybook"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Build components and web-components and react storybook
+        run: |
+          npm run build:all
+          npm run build-storybook:canary-web-components
+          npm run build-storybook:canary-react
+
+      - name: Deploy CANARY web components storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-web-components/storybook-static
+          target-folder: ./branches/main/canary-web-components
+
+      - name: Deploy CANARY react storybook
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-react/storybook-static
+          target-folder: ./branches/main/canary-react
 
   # Triggers a workflow in the design system repo
   ic-ui-kit-update-design-system:
