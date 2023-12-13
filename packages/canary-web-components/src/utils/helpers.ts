@@ -299,7 +299,6 @@ export const getSlotElements = (
   }
 };
 
-
 export const getSlotContent = (
   element: HTMLElement,
   name: string

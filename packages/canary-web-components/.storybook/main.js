@@ -4,6 +4,7 @@ module.exports = {
   },
 
   "stories": [
+    "../src/components/ic-data-table/ic-data-table.stories.mdx",
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],

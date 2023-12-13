@@ -243,6 +243,7 @@ export class DataTable {
     ) {
       this.scrollable = true;
     }
+    if (this.loading) this.startLoadingTimer();
   }
 
   @Listen("icItemsPerPageChange")
