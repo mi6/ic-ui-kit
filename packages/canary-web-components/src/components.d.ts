@@ -6,12 +6,14 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcActivationTypes, IcMenuOption } from "@ukic/web-components/dist/types/utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcActivationTypes, IcMenuOption } from "@ukic/web-components/dist/types/utils/types";
@@ -43,6 +45,22 @@ export namespace Components {
           * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
+        /**
+          * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+         */
+        "loading"?: boolean;
+        /**
+          * Sets the props for the circular loading indicator used in the loading state.
+         */
+        "loadingOptions"?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    label?: string;
+    labelDuration?: number;
+    max?: number;
+    min?: number;
+    progress?: number;
+  };
         /**
           * Sets the props for the pagination bar.
          */
@@ -77,6 +95,20 @@ export namespace Components {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+         */
+        "updating"?: boolean;
+        /**
+          * Sets the props for the linear loading indicator used in the updating state.
+         */
+        "updatingOptions"?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    max?: number;
+    min?: number;
+    progress?: number;
+  };
     }
     interface IcDateInput {
         /**
@@ -706,6 +738,22 @@ declare namespace LocalJSX {
          */
         "hideColumnHeaders"?: boolean;
         /**
+          * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+         */
+        "loading"?: boolean;
+        /**
+          * Sets the props for the circular loading indicator used in the loading state.
+         */
+        "loadingOptions"?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    label?: string;
+    labelDuration?: number;
+    max?: number;
+    min?: number;
+    progress?: number;
+  };
+        /**
           * Sets the props for the pagination bar.
          */
         "paginationOptions"?: {
@@ -739,6 +787,20 @@ declare namespace LocalJSX {
           * If `true`, row headers will remain to the left when scrolling horizontally.
          */
         "stickyRowHeaders"?: boolean;
+        /**
+          * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+         */
+        "updating"?: boolean;
+        /**
+          * Sets the props for the linear loading indicator used in the updating state.
+         */
+        "updatingOptions"?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    max?: number;
+    min?: number;
+    progress?: number;
+  };
     }
     interface IcDateInput {
         /**
