@@ -13,11 +13,12 @@
 .title-bar-wrapper {
   flex-direction: column;
   padding: var(--ic-space-sm) var(--ic-space-xs);
+  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-300);
 }
 
 .full-width {
-  background-color: var(--ic-architectural-300);
-  border-bottom: var(--ic-space-1px) solid var(--ic-architectural-300);
+  padding: var(--ic-space-sm) 0;
+  border-bottom: none;
 }
 
 .action-area {
@@ -29,18 +30,18 @@ ic-typography.ic-typography-subtitle-small {
 }
 
 ic-typography.ic-typography-h3,
-::slotted([slot='header']) {
+::slotted([slot="header"]) {
   max-width: 800px;
 }
 
 ic-typography.ic-typography-body,
-::slotted([slot='description']) {
+::slotted([slot="description"]) {
   color: var(--ic-color-secondary-text);
 }
 
 ic-typography.ic-typography-body,
 ic-typography.ic-typography-subtitle-small,
-::slotted([slot='description']) {
+::slotted([slot="description"]) {
   max-width: 640px;
 }
 
