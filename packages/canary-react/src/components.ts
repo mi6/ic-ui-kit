@@ -14,3 +14,4 @@ export const IcDatePicker = /*@__PURE__*/createReactComponent<JSX.IcDatePicker, 
 export const IcMenuWithMulti = /*@__PURE__*/createReactComponent<JSX.IcMenuWithMulti, HTMLIcMenuWithMultiElement>('ic-menu-with-multi');
 export const IcPaginationBar = /*@__PURE__*/createReactComponent<JSX.IcPaginationBar, HTMLIcPaginationBarElement>('ic-pagination-bar');
 export const IcSelectWithMulti = /*@__PURE__*/createReactComponent<JSX.IcSelectWithMulti, HTMLIcSelectWithMultiElement>('ic-select-with-multi');
+export const IcTitleBar = /*@__PURE__*/createReactComponent<JSX.IcTitleBar, HTMLIcTitleBarElement>('ic-title-bar');
