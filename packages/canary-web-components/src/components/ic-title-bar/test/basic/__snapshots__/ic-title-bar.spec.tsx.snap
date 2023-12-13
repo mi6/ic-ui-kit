@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-title-bar should not render the actions area if hideDensitySelect is true and there are no slotted elements 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            header
+          </ic-typography>
+        </slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-title-bar>
+`;
+
+exports[`ic-title-bar should render 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            header
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="description-actions">
+        <slot name="description"></slot>
+        <div class="action-area">
+          <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-title-bar>
+`;
+
+exports[`ic-title-bar should render the description area if the description is slotted and there is no action area 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            header
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="description-actions">
+        <slot name="description"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography slot="description">
+    slotted desc
+  </ic-typography>
+</ic-title-bar>
+`;
+
+exports[`ic-title-bar should render with description and metadata 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            header
+          </ic-typography>
+        </slot>
+        <ic-typography variant="subtitle-small">
+          metadata
+        </ic-typography>
+      </div>
+      <div class="description-actions">
+        <slot name="description">
+          <ic-typography variant="body">
+            desc
+          </ic-typography>
+        </slot>
+        <div class="action-area">
+          <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-title-bar>
+`;
+
+exports[`ic-title-bar should render with slotted actions 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            header
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="description-actions">
+        <slot name="description"></slot>
+        <div class="action-area">
+          <slot name="custom-actions"></slot>
+          <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+          <slot name="primary-action"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-button slot="primary-action">
+    1
+  </ic-button>
+  <ic-button slot="custom-actions">
+    2
+  </ic-button>
+  <ic-button slot="custom-actions">
+    3
+  </ic-button>
+</ic-title-bar>
+`;
+
+exports[`ic-title-bar should render with slotted header and description 1`] = `
+<ic-title-bar>
+  <mock:shadow-root>
+    <div class="full-width title-bar-wrapper">
+      <div class="header-container">
+        <slot name="header">
+          <ic-typography variant="h3">
+            Title Bar
+          </ic-typography>
+        </slot>
+      </div>
+      <div class="description-actions">
+        <slot name="description"></slot>
+        <div class="action-area">
+          <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography slot="header">
+    slotted header
+  </ic-typography>
+  <ic-typography slot="description">
+    slotted desc
+  </ic-typography>
+</ic-title-bar>
+`;

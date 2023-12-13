@@ -8,6 +8,7 @@ import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
+import { TitleBar } from "../../../ic-title-bar/ic-title-bar";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -441,6 +442,19 @@ describe(icDataTable, () => {
           data={longData}
           show-pagination
         ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should render with a slotted ic-title-bar", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="test table" columns={columns} data={data}>
+          <ic-title-bar slot="title-bar"></ic-title-bar>
+        </ic-data-table>
       ),
     });
 
@@ -982,6 +996,48 @@ describe(icDataTable, () => {
     sortButton[1].click();
 
     await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should change the density of the element when it receives the icTableDensityUpdate event", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table caption="Table" columns={columns} data={data}>
+          <ic-title-bar slot="title-bar"></ic-title-bar>
+        </ic-data-table>
+      ),
+    });
+
+    expect(page.rootInstance.density).toBe("default");
+
+    let icDensityUpdateEvent = new CustomEvent("icTableDensityUpdate", {
+      detail: { value: "dense" },
+    });
+    page.root.dispatchEvent(icDensityUpdateEvent);
+
+    await page.waitForChanges();
+    expect(page.rootInstance.density).toBe("dense");
+
+    icDensityUpdateEvent = new CustomEvent("icTableDensityUpdate", {
+      detail: { value: "spacious" },
+    });
+    page.root.dispatchEvent(icDensityUpdateEvent);
+
+    await page.waitForChanges();
+    expect(page.rootInstance.density).toBe("spacious");
+  });
+
+  it("should pass the caption down to any slotted ic-title-bar", async () => {
+    const page = await newSpecPage({
+      components: [DataTable, TitleBar],
+      template: () => (
+        <ic-data-table caption="Table" columns={columns} data={data}>
+          <ic-title-bar slot="title-bar"></ic-title-bar>
+        </ic-data-table>
+      ),
+    });
 
     expect(page.root).toMatchSnapshot();
   });

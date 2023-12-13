@@ -31,3 +31,7 @@ export type IcDataTableColumnObject = {
 };
 
 export type IcDataTableRowHeights = number | "auto";
+
+export interface IcDensityUpdateEventDetail {
+  value: IcDataTableDensityOptions;
+}
