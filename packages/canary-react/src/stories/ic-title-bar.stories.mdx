@@ -5,13 +5,18 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcTitleBar, IcLink, IcButton, IcTypography } from "@ukic/react/src/components";
+
+import IcDataTableTitleBar from '../components';
+import { IcLink, IcButton, IcTypography } from "@ukic/react/src/components";
 import readme from "../../../web-components/src/components/ic-title-bar/readme.md";
 import { SlottedSVG } from "@ukic/react/src/react-component-lib/slottedSVG";
 
-import { mdiImage } from '@mdi/js';
+import { mdiImage } from "@mdi/js";
 
-<Meta title="React Components/Title Bar" component={IcTitleBar} />
+<Meta
+  title="React Components/Data Table Title Bar"
+  component={IcDataTableTitleBar}
+/>
 
 <Description markdown={readme} />
 
@@ -19,7 +24,7 @@ import { mdiImage } from '@mdi/js';
 
 <Canvas>
   <Story name="Basic">
-    <IcTitleBar header="Title Bar" />
+    <IcDataTableTitleBar heading="Title Bar" />
   </Story>
 </Canvas>
 
@@ -27,8 +32,8 @@ import { mdiImage } from '@mdi/js';
 
 <Canvas>
   <Story name="With metadata and description">
-    <IcTitleBar
-      header="Title Bar"
+    <IcDataTableTitleBar
+      heading="Title Bar"
       metadata="128 items | 32gb | Updated: 01/02/03"
       description="Data table description that describes the purpose of the table."
     />
@@ -39,9 +44,9 @@ import { mdiImage } from '@mdi/js';
 
 <Canvas>
   <Story name="Hide density selector">
-    <IcTitleBar
+    <IcDataTableTitleBar
       hideDensitySelect
-      header="Title Bar"
+      heading="Title Bar"
       metadata="128 items | 32gb | Updated: 01/02/03"
       description="Data table description that describes the purpose of the table."
     />
@@ -52,12 +57,18 @@ import { mdiImage } from '@mdi/js';
 
 <Canvas>
   <Story name="Custom actions">
-    <IcTitleBar header="Title Bar" metadata="128 items | 32gb | Updated: 01/02/03" description="Data table description that describes the purpose of the table.">
-      <IcButton slot="primary-action" size="small">Primary</IcButton>
-      <IcButton slot="custom-actions" variant="icon" aria-label="Icon Button">
-        <SlottedSVG path={mdiImage} viewBox="0 0 24 24"/>
+    <IcDataTableTitleBar
+      heading="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    >
+      <IcButton slot="primary-action" size="small">
+        Primary
       </IcButton>
-    </IcTitleBar>
+      <IcButton slot="custom-actions" variant="icon" aria-label="Icon Button">
+        <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
+      </IcButton>
+    </IcDataTableTitleBar>
   </Story>
 </Canvas>
 
@@ -65,16 +76,21 @@ import { mdiImage } from '@mdi/js';
 
 <Canvas>
   <Story name="Slotted header and description">
-    <IcTitleBar hideDensitySelect>
-      <IcTypography slot="header" variant="h3">
-        <IcLink href="/" inline>Title Bar</IcLink>
+    <IcDataTableTitleBar hideDensitySelect>
+      <IcTypography slot="heading" variant="h3">
+        <IcLink href="/" inline>
+          Title Bar
+        </IcLink>
       </IcTypography>
       <IcTypography slot="description" variant="body">
         <p>
-          This is some text and <IcLink href="/" inline>this is an inline link</IcLink> within
-          the text.
+          This is some text and{" "}
+          <IcLink href="/" inline>
+            this is an inline link
+          </IcLink>{" "}
+          within the text.
         </p>
       </IcTypography>
-    </IcTitleBar>
+    </IcDataTableTitleBar>
   </Story>
 </Canvas>
