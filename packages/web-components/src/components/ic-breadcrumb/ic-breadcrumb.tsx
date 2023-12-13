@@ -4,6 +4,7 @@ import { IcBreadcrumbDefault } from "./ic-breadcrumb.types";
 import chevronIcon from "../../assets/chevron-icon.svg";
 import backIcon from "../../assets/back-icon.svg";
 import { isPropDefined, isSlotUsed } from "../../utils/helpers";
+import { IcThemeForeground } from "../../utils/types";
 
 /**
  * @slot icon - Content will be rendered to the left of the breadcrumb page title.
@@ -17,6 +18,11 @@ import { isPropDefined, isSlotUsed } from "../../utils/helpers";
 })
 export class Breadcrumb {
   @Element() el: HTMLIcBreadcrumbElement;
+
+  /**
+   * @internal The appearance of the breadcrumb.
+   */
+  @Prop() appearance: IcThemeForeground = "default";
 
   /**
    * If `true`, aria-current will be set on the breadcrumb.
@@ -66,6 +72,7 @@ export class Breadcrumb {
         <span
           class={{
             "current-page-container": current,
+            [this.appearance]: true,
           }}
         >
           {isSlotUsed(this.el, "icon") && <slot name="icon"></slot>}
@@ -76,6 +83,7 @@ export class Breadcrumb {
 
     return (
       <ic-link
+        appearance={this.appearance}
         href={href}
         class="breadcrumb-link"
         aria-describedby={this.showBackIcon && describedById && describedById}

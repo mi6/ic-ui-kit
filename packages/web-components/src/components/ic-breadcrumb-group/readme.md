@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property             | Attribute              | Description                                                                         | Type      | Default |
-| -------------------- | ---------------------- | ----------------------------------------------------------------------------------- | --------- | ------- |
-| `backBreadcrumbOnly` | `back-breadcrumb-only` | If `true`, display only a single breadcrumb for the parent page with a back icon.   | `boolean` | `false` |
-| `collapsed`          | `collapsed`            | If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed. | `boolean` | `false` |
+| Property             | Attribute              | Description                                                                         | Type                             | Default     |
+| -------------------- | ---------------------- | ----------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `appearance`         | `appearance`           | The appearance of the breadcrumb group.                                             | `"dark" \| "default" \| "light"` | `"default"` |
+| `backBreadcrumbOnly` | `back-breadcrumb-only` | If `true`, display only a single breadcrumb for the parent page with a back icon.   | `boolean`                        | `false`     |
+| `collapsed`          | `collapsed`            | If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed. | `boolean`                        | `false`     |
 
 
 ## Dependencies
