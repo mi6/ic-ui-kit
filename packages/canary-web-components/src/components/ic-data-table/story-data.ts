@@ -488,7 +488,6 @@ export const DATA_ELEMENTS = [
   },
 ];
 
-const REMOVE_BUTTON = `<IcButton variant='destructive' onClick={() => this.closest("tr").remove()}>Delete</IcButton>`;
 export const DATA_REACT_ELEMENTS = [
   {
     firstName: {
@@ -499,7 +498,6 @@ export const DATA_REACT_ELEMENTS = [
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
-    actions: REMOVE_BUTTON,
   },
   {
     firstName: "Sarah",
@@ -507,7 +505,6 @@ export const DATA_REACT_ELEMENTS = [
     age: 28,
     jobTitle: "Analyst",
     address: "2 Main Street, Town, Country, Postcode",
-    actions: REMOVE_BUTTON,
   },
   {
     firstName: "Mark",
@@ -515,7 +512,6 @@ export const DATA_REACT_ELEMENTS = [
     age: 45,
     jobTitle: "Team Lead",
     address: "12 Key Street, Town, Country, Postcode",
-    actions: REMOVE_BUTTON,
   },
   {
     firstName: "Naomi",
@@ -523,7 +519,6 @@ export const DATA_REACT_ELEMENTS = [
     age: 32,
     jobTitle: "Developer",
     address: "8 Side Street, Town, Country, Postcode",
-    actions: REMOVE_BUTTON,
   },
   {
     firstName: "Luke",
@@ -531,7 +526,6 @@ export const DATA_REACT_ELEMENTS = [
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
-    actions: REMOVE_BUTTON,
   },
 ];
 
@@ -651,17 +645,31 @@ export const LinksHTMLElements = (): HTMLIcDataTableElement =>
     DATA_ELEMENTS
   );
 
-export const EmptyLoading = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement(
-    "Empty and Loading State",
-    COLS,
-    null
-  );
+export const Empty = (): HTMLIcDataTableElement =>
+  createDataTableElement("Empty State", COLS, null);
 
-  setTimeout(() => {
-    dataTable.setAttribute("loading", "true");
-    setTimeout(() => (dataTable.data = DATA), 10);
-  }, 5000);
+export const EmptySlotted = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Empty State", COLS, null);
+
+  const emptyState = document.createElement("ic-empty-state");
+  emptyState.setAttribute("aligned", "left");
+  emptyState.setAttribute("heading", "Data source error");
+  emptyState.setAttribute("body", "Error loading new data");
+  emptyState.setAttribute("slot", "empty-state");
+
+  const button = document.createElement("ic-button");
+  button.innerHTML = "Retry";
+  button.setAttribute("slot", "actions");
+
+  emptyState.appendChild(button);
+  dataTable.appendChild(emptyState);
+  return dataTable;
+};
+
+export const Loading = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Loading State", COLS, DATA);
+
+  dataTable.setAttribute("loading", "true");
   return dataTable;
 };
 
