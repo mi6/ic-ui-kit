@@ -13,6 +13,8 @@ import {
 } from "../ic-data-table/ic-data-table.types";
 import { isSlotUsed } from "../../utils/helpers";
 
+const DEFAULT_TITLE_BAR_HEADER = "Title Bar";
+
 /**
  * @slot primary-action - Render an interactive element that will perform a primary action. Renders to the right of the density select.
  * @slot custom-actions - Render additional custom actions to the left of the density select.
@@ -25,7 +27,8 @@ import { isSlotUsed } from "../../utils/helpers";
   shadow: true,
 })
 export class TitleBar {
-  private initialDensitySelectOption: IcDataTableDensityOptions;
+  private initialDensitySelectOption: IcDataTableDensityOptions = "default";
+  private isEmbedded: boolean = false;
 
   @Element() el: HTMLIcTitleBarElement;
 
@@ -35,14 +38,9 @@ export class TitleBar {
   @Prop() description?: string;
 
   /**
-   * If `true`, will apply a background colour and a bottom border to the title bar.
-   */
-  @Prop() fullWidth?: boolean = true;
-
-  /**
    * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
    */
-  @Prop() header?: string;
+  @Prop() header?: string = DEFAULT_TITLE_BAR_HEADER;
 
   /**
    * When `true`, the density select will not be rendered.
@@ -61,16 +59,14 @@ export class TitleBar {
 
   componentWillLoad(): void {
     const parentEl = this.el.parentElement;
-    this.initialDensitySelectOption =
-      parentEl.tagName === "IC-DATA-TABLE"
-        ? (parentEl as HTMLIcDataTableElement).density
-        : "default";
-
-    if (!this.header)
-      this.header =
-        parentEl.tagName === "IC-DATA-TABLE"
-          ? (parentEl as HTMLIcDataTableElement).caption
-          : "Title Bar";
+    if (parentEl.tagName === "IC-DATA-TABLE") {
+      const dataTable = parentEl as HTMLIcDataTableElement;
+      this.initialDensitySelectOption = dataTable.density;
+      this.isEmbedded = dataTable.embedded;
+      if (this.header === DEFAULT_TITLE_BAR_HEADER) {
+        this.header = dataTable.caption;
+      }
+    }
   }
 
   private changeDensity = (
@@ -84,10 +80,10 @@ export class TitleBar {
       changeDensity,
       description,
       el,
-      fullWidth,
       header,
       hideDensitySelect,
       initialDensitySelectOption,
+      isEmbedded,
       metadata,
     } = this;
     const showActionArea =
@@ -100,7 +96,7 @@ export class TitleBar {
       <div
         class={{
           "title-bar-wrapper": true,
-          "full-width": fullWidth,
+          "full-width": isEmbedded,
         }}
       >
         <div class="header-container">

@@ -1935,8 +1935,8 @@ exports[`ic-data-table should pass the caption down to any slotted ic-title-bar 
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
+      <slot name="title-bar"></slot>
       <div class="table-row-container">
-        <slot name="title-bar"></slot>
         <table>
           <caption class="table-caption">
             Table
@@ -2162,7 +2162,7 @@ exports[`ic-data-table should pass the caption down to any slotted ic-title-bar 
   </mock:shadow-root>
   <ic-title-bar slot="title-bar">
     <mock:shadow-root>
-      <div class="full-width title-bar-wrapper">
+      <div class="title-bar-wrapper">
         <div class="header-container">
           <slot name="header">
             <ic-typography variant="h3">
@@ -3729,8 +3729,8 @@ exports[`ic-data-table should render with a slotted ic-title-bar 1`] = `
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
+      <slot name="title-bar"></slot>
       <div class="table-row-container">
-        <slot name="title-bar"></slot>
         <table>
           <caption class="table-caption">
             test table

@@ -3,7 +3,7 @@
 exports[`ic-title-bar should not render the actions area if hideDensitySelect is true and there are no slotted elements 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
@@ -19,7 +19,7 @@ exports[`ic-title-bar should not render the actions area if hideDensitySelect is
 exports[`ic-title-bar should render 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
@@ -41,7 +41,7 @@ exports[`ic-title-bar should render 1`] = `
 exports[`ic-title-bar should render the description area if the description is slotted and there is no action area 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
@@ -63,7 +63,7 @@ exports[`ic-title-bar should render the description area if the description is s
 exports[`ic-title-bar should render with description and metadata 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
@@ -92,7 +92,7 @@ exports[`ic-title-bar should render with description and metadata 1`] = `
 exports[`ic-title-bar should render with slotted actions 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
@@ -125,7 +125,7 @@ exports[`ic-title-bar should render with slotted actions 1`] = `
 exports[`ic-title-bar should render with slotted header and description 1`] = `
 <ic-title-bar>
   <mock:shadow-root>
-    <div class="full-width title-bar-wrapper">
+    <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="header">
           <ic-typography variant="h3">
