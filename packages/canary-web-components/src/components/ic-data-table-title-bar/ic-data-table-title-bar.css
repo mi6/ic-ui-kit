@@ -1,12 +1,14 @@
 .title-bar-wrapper,
 .header-container,
 .description-actions,
-.action-area {
+.action-area,
+.custom-actions-wrapper {
   display: flex;
 }
 
 .title-bar-wrapper,
-.action-area {
+.action-area,
+.custom-actions-wrapper {
   gap: var(--ic-space-xs);
 }
 
@@ -19,10 +21,6 @@
 .full-width {
   padding: var(--ic-space-sm) 0;
   border-bottom: none;
-}
-
-.action-area {
-  align-items: center;
 }
 
 ic-typography.ic-typography-subtitle-small {
@@ -73,5 +71,17 @@ ic-typography.ic-typography-subtitle-small,
     flex-direction: column;
     align-items: flex-start;
     gap: var(--ic-space-xs);
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .action-area {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .action-area {
+    flex-direction: column;
   }
 }
