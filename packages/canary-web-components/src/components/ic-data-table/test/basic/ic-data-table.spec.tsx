@@ -524,7 +524,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it.only("when loading is `true`, if data is set before 1 second of loading it will wait 1 second before rendering the data", async () => {
+  it("when loading is `true`, if data is set before 1 second of loading it will wait 1 second before rendering the data", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
