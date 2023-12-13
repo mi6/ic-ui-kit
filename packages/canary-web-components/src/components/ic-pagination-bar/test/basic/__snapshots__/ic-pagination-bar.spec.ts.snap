@@ -317,17 +317,17 @@ Object {
             <ic-pagination>
               <mock:shadow-root>
                 <nav aria-label="Pagination Navigation" role="navigation">
-                  <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" disabletooltip="" id="first-page-button" variant="icon">
+                  <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
                     svg
                   </ic-button>
-                  <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" disabletooltip="" id="previous-page-button" variant="icon">
+                  <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
                     svg
                   </ic-button>
                   <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
-                  <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabletooltip="" id="next-page-button" variant="icon">
+                  <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
                     svg
                   </ic-button>
-                  <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" disabletooltip="" id="last-page-button" variant="icon">
+                  <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
                     svg
                   </ic-button>
                 </nav>
