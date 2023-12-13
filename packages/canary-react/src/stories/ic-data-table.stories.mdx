@@ -23,7 +23,7 @@ import {
   DATA_REACT_ELEMENTS,
   ICON_DATA,
   ICON_COLS,
-} from "../../../web-components/src/components/ic-data-table/story-data";
+} from "../../../canary-web-components/src/components/ic-data-table/story-data";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 import { mdiAccountGroup, mdiImage } from "@mdi/js";
@@ -811,7 +811,7 @@ export default DataTable;
 
 ### Default Empty State
 
-When the table recieves no data (either null or an empty array) it will automatically show an ic-empty-state below the headers.
+When the table recieves no data (either null or an empty array) it will automatically show an `IcEmptyState` below the headers.
 
 <Canvas withSource="none">
   <Story name="Default Empty State">
@@ -847,7 +847,7 @@ export default DataTable;
 
 ### Slotted Empty State
 
-You can customise your own `ic-empty-state` component and slot it into the data table using the `empty-state` slot, to reflect different scenarios.
+You can customise your own `IcEmptyState` component and slot it into the data table using the `empty-state` slot, to reflect different scenarios.
 
 <Canvas withSource="none">
   <Story name="Slotted Empty State">
