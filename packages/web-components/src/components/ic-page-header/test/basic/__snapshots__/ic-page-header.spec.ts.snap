@@ -324,7 +324,7 @@ exports[`ic-page-header component renders additional functionality should render
           <span aria-hidden="true" class="chevron">
             svg
           </span>
-          <ic-link class="breadcrumb-link" href="/breadcrumb-1">
+          <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
             Breadcrumb 1
           </ic-link>
         </div>
@@ -336,7 +336,7 @@ exports[`ic-page-header component renders additional functionality should render
           <span aria-hidden="true" class="chevron">
             svg
           </span>
-          <span class="current-page-container">
+          <span class="current-page-container default">
             Breadcrumb 2
           </span>
         </div>

@@ -4,6 +4,7 @@ import {
   DEVICE_SIZES,
   getCurrentDeviceSize,
 } from "../../utils/helpers";
+import { IcThemeForeground } from "../../utils/types";
 
 @Component({
   tag: "ic-breadcrumb-group",
@@ -29,6 +30,11 @@ export class BreadcrumbGroup {
   @State() expandedBreadcrumbs: boolean = false;
 
   /**
+   * The appearance of the breadcrumb group.
+   */
+  @Prop() appearance: IcThemeForeground = "default";
+
+  /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
   @Prop() backBreadcrumbOnly: boolean = false;
@@ -41,6 +47,12 @@ export class BreadcrumbGroup {
     const allBreadcrumbs = Array.from(
       this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
+
+    if (this.appearance !== "default") {
+      allBreadcrumbs.forEach((breadcrumb) => {
+        breadcrumb.setAttribute("appearance", this.appearance);
+      });
+    }
 
     if (this.backBreadcrumbOnly) {
       this.setBackBreadcrumb();

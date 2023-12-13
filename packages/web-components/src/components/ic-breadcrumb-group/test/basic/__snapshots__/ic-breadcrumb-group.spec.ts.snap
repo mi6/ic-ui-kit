@@ -15,7 +15,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-1">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
           Breadcrumb 1
         </ic-link>
       </div>
@@ -27,7 +27,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
           Breadcrumb 2
         </ic-link>
       </div>
@@ -39,7 +39,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container">
+        <span class="current-page-container default">
           Breadcrumb 3
         </span>
       </div>
@@ -63,7 +63,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container">
+        <span class="current-page-container default">
           Breadcrumb 1
         </span>
       </div>
@@ -75,7 +75,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
           Breadcrumb 2
         </ic-link>
       </div>
@@ -87,7 +87,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-3">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-3">
           Breadcrumb 3
         </ic-link>
       </div>
@@ -102,7 +102,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         <span class="hide" id="breadcrumb-4-describedby">
           Back to Breadcrumb 4
         </span>
-        <ic-link aria-describedby="breadcrumb-4-describedby" class="breadcrumb-link" href="/breadcrumb-4">
+        <ic-link appearance="default" aria-describedby="breadcrumb-4-describedby" class="breadcrumb-link" href="/breadcrumb-4">
           <div class="back-icon">
             svg
           </div>
@@ -110,6 +110,50 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
         </ic-link>
       </div>
     </mock:shadow-root>
+  </ic-breadcrumb>
+</ic-breadcrumb-group>
+`;
+
+exports[`ic-breadcrumb-group should render current appearance styling: should render current appearance styling 1`] = `
+<ic-breadcrumb-group appearance="light">
+  <mock:shadow-root>
+    <nav aria-label="breadcrumbs">
+      <ol>
+        <slot></slot>
+      </ol>
+    </nav>
+  </mock:shadow-root>
+  <ic-breadcrumb appearance="light" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <ic-link appearance="light" class="breadcrumb-link" href="/breadcrumb-1">
+          <slot name="icon"></slot>
+          Breadcrumb 1
+        </ic-link>
+      </div>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+    </svg>
+  </ic-breadcrumb>
+  <ic-breadcrumb appearance="light" aria-current="page" current="true" href="/" page-title="Breadcrumb 2" role="listitem">
+    <mock:shadow-root>
+      <div class="breadcrumb">
+        <span aria-hidden="true" class="chevron">
+          svg
+        </span>
+        <span class="current-page-container light">
+          <slot name="icon"></slot>
+          Breadcrumb 2
+        </span>
+      </div>
+    </mock:shadow-root>
+    <svg fill="none" height="24" slot="icon" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z" fill="currentColor"></path>
+    </svg>
   </ic-breadcrumb>
 </ic-breadcrumb-group>
 `;
@@ -141,7 +185,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-1">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-1">
           Breadcrumb 1
         </ic-link>
       </div>
@@ -172,7 +216,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
           Breadcrumb 2
         </ic-link>
       </div>
@@ -184,7 +228,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container">
+        <span class="current-page-container default">
           Breadcrumb 3
         </span>
       </div>
@@ -242,7 +286,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <span class="current-page-container">
+        <span class="current-page-container default">
           Breadcrumb 1
         </span>
       </div>
@@ -273,7 +317,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-2">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-2">
           Breadcrumb 2
         </ic-link>
       </div>
@@ -285,7 +329,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-3">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-3">
           Breadcrumb 3
         </ic-link>
       </div>
@@ -297,7 +341,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
         <span aria-hidden="true" class="chevron">
           svg
         </span>
-        <ic-link class="breadcrumb-link" href="/breadcrumb-4">
+        <ic-link appearance="default" class="breadcrumb-link" href="/breadcrumb-4">
           Breadcrumb 4
         </ic-link>
       </div>
