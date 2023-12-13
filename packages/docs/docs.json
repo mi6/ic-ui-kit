@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-08T14:47:48",
+  "timestamp": "2023-12-14T10:33:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -1204,6 +1204,43 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"light\"",
+            "references": {
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the breadcrumb group.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "backBreadcrumbOnly",
           "type": "boolean",
