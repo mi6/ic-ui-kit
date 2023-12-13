@@ -184,6 +184,7 @@ export namespace Components {
         "visible": boolean;
     }
     interface IcBreadcrumb {
+        "appearance": IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -203,6 +204,10 @@ export namespace Components {
         "showBackIcon": boolean;
     }
     interface IcBreadcrumbGroup {
+        /**
+          * The appearance of the breadcrumb group.
+         */
+        "appearance": IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
@@ -2889,6 +2894,7 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IcBreadcrumb {
+        "appearance"?: IcThemeForeground;
         /**
           * If `true`, aria-current will be set on the breadcrumb.
          */
@@ -2904,6 +2910,10 @@ declare namespace LocalJSX {
         "showBackIcon"?: boolean;
     }
     interface IcBreadcrumbGroup {
+        /**
+          * The appearance of the breadcrumb group.
+         */
+        "appearance"?: IcThemeForeground;
         /**
           * If `true`, display only a single breadcrumb for the parent page with a back icon.
          */
