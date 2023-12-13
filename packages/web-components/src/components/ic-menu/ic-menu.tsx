@@ -933,7 +933,7 @@ export class Menu {
             : "-1"
         }
         aria-label={this.getOptionAriaLabel(option, parentOption)}
-        aria-selected={option[this.valueField] === value}
+        aria-selected={`${option[this.valueField] === value}`}
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}

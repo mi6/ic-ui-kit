@@ -419,9 +419,9 @@ describe("ic-select", () => {
 
         const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
         const firstOption = await menu.findAll("li");
-        expect(firstOption[0]).toHaveAttribute("aria-selected");
+        expect(firstOption[0].getAttribute("aria-selected")).toBeTruthy();
         expect(await firstOption[0].find(".check-icon")).not.toBeNull;
-        expect(firstOption[1]).not.toHaveAttribute("aria-selected");
+        expect(firstOption[1].getAttribute("aria-selected")).toBe("false");
         expect(await firstOption[1].find(".check-icon")).toBeNull;
       });
 
@@ -436,7 +436,7 @@ describe("ic-select", () => {
 
         const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
         const firstOption = await menu.findAll("li");
-        expect(firstOption[0]).toHaveAttribute("aria-selected");
+        expect(firstOption[0].getAttribute("aria-selected")).toBeTruthy();
         expect(await firstOption[0].find(".check-icon")).not.toBeNull;
       });
 
