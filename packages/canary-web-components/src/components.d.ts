@@ -392,6 +392,24 @@ export namespace Components {
          */
         "valueField": string;
     }
+    interface IcDataTableTitleBar {
+        /**
+          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "heading"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `heading`.
+         */
+        "metadata"?: string;
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -631,6 +649,10 @@ export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDataTableElement;
 }
+export interface IcDataTableTitleBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDataTableTitleBarElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
@@ -644,7 +666,18 @@ export interface IcTitleBarCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTitleBarElement;
 }
 declare global {
+    interface HTMLIcDataTableElementEventMap {
+        "icRowHeightChange": void;
+    }
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDataTableElementEventMap>(type: K, listener: (this: HTMLIcDataTableElement, ev: IcDataTableCustomEvent<HTMLIcDataTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDataTableElementEventMap>(type: K, listener: (this: HTMLIcDataTableElement, ev: IcDataTableCustomEvent<HTMLIcDataTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcDataTableElement: {
         prototype: HTMLIcDataTableElement;
@@ -703,6 +736,16 @@ declare global {
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
         removeEventListener<K extends keyof HTMLIcMenuWithMultiElementEventMap>(type: K, listener: (this: HTMLIcMenuWithMultiElement, ev: IcMenuWithMultiCustomEvent<HTMLIcMenuWithMultiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+    }
+    interface HTMLIcDataTableTitleBarElementEventMap {
+        "icTableDensityUpdate": IcDensityUpdateEventDetail;
+    }
+    interface HTMLIcDataTableTitleBarElement extends Components.IcDataTableTitleBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
@@ -710,6 +753,10 @@ declare global {
     var HTMLIcMenuWithMultiElement: {
         prototype: HTMLIcMenuWithMultiElement;
         new (): HTMLIcMenuWithMultiElement;
+    }
+    var HTMLIcDataTableTitleBarElement: {
+        prototype: HTMLIcDataTableTitleBarElement;
+        new (): HTMLIcDataTableTitleBarElement;
     };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": { value: number };
@@ -767,6 +814,11 @@ declare global {
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-select-with-multi": HTMLIcSelectWithMultiElement;
         "ic-title-bar": HTMLIcTitleBarElement;
+    }
+    interface HTMLElementTagNameMap {
+        "ic-data-table": HTMLIcDataTableElement;
+        "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
+        "ic-pagination-bar": HTMLIcPaginationBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -1151,6 +1203,28 @@ declare namespace LocalJSX {
          */
         "valueField"?: string;
     }
+    interface IcDataTableTitleBar {
+        /**
+          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "heading"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `heading`.
+         */
+        "metadata"?: string;
+        /**
+          * Emitted when the table density select value is changed.
+         */
+        "onIcTableDensityUpdate"?: (event: IcDataTableTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -1432,7 +1506,7 @@ declare module "@stencil/core" {
             "ic-menu-with-multi": LocalJSX.IcMenuWithMulti & JSXBase.HTMLAttributes<HTMLIcMenuWithMultiElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-select-with-multi": LocalJSX.IcSelectWithMulti & JSXBase.HTMLAttributes<HTMLIcSelectWithMultiElement>;
-            "ic-title-bar": LocalJSX.IcTitleBar & JSXBase.HTMLAttributes<HTMLIcTitleBarElement>;
+            "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
         }
     }
 }
