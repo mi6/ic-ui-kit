@@ -30,10 +30,11 @@
 
 ## Slots
 
-| Slot                         | Description                                                                                                                     |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `"empty-state"`              | Content is placed below the table header when there is no data and the table is not loading.                                    |
-| `"{COLUMN_TAG}-{ROW_INDEX}"` | Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. |
+| Slot                                | Description                                                                                                                                                                           |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"empty-state"`                     | Content is placed below the table header when there is no data and the table is not loading.                                                                                          |
+| `"{COLUMN_KEY}-column-icon"`        | The icon slot for a column header.                                                                                                                                                    |
+| `"{COLUMN_KEY}-{ROW_INDEX}[-icon]"` | Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot. |
 
 
 ## Dependencies
