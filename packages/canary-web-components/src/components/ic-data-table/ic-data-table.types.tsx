@@ -29,3 +29,5 @@ export type IcDataTableColumnObject = {
     hideOnHeader?: boolean;
   };
 };
+
+export type IcDataTableRowHeights = number | "auto";

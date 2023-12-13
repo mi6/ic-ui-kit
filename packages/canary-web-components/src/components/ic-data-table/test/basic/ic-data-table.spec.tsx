@@ -1028,6 +1028,148 @@ describe(icDataTable, () => {
     expect(rows[2]).not.toHaveClass(highlightedRowClass);
   });
 
+  it("should apply a specified row height to all rows when rowHeight is set", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          rowHeight={80}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should apply a specified row height to specific rows when getRowHeight is set, and any not included should use the default rowHeight", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          // eslint-disable-next-line react/jsx-no-bind
+          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should reset all rows to the default height when resetRowHeights is called", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          rowHeight={80}
+          // eslint-disable-next-line react/jsx-no-bind
+          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    await (page.root as HTMLIcDataTableElement).resetRowHeights();
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should emit icRowHeightChange when rowHeight or getRowHeight is changed", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          rowHeight={80}
+          // eslint-disable-next-line react/jsx-no-bind
+          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+        ></ic-data-table>
+      ),
+    });
+
+    const eventSpy = jest.fn();
+
+    page.root.addEventListener("icRowHeightChange", eventSpy);
+
+    const dataTable = page.root as HTMLIcDataTableElement;
+    dataTable.rowHeight = 50;
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(1);
+
+    dataTable.getRowHeight = ({ index }) => (index % 2 === 0 ? 100 : null);
+    await page.waitForChanges();
+
+    expect(eventSpy).toHaveBeenCalledTimes(2);
+  });
+
+  it("should apply the correct density scaler to rowHeights when not using the default density", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          rowHeight={80}
+          density="dense"
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    (page.root as HTMLIcDataTableElement).density = "spacious";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should not override the height of rows if `rowHeight` is set to auto", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          rowHeight="auto"
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  it("should not override the height of certain rows if `getRowHeight` returns auto", async () => {
+    const page = await newSpecPage({
+      components: [DataTable],
+      template: () => (
+        <ic-data-table
+          caption="test table"
+          columns={columns}
+          data={data}
+          // eslint-disable-next-line react/jsx-no-bind
+          getRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
+        ></ic-data-table>
+      ),
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should slot a custom element into a cell", async () => {
     const page = await newSpecPage({
       components: [DataTable],

@@ -772,3 +772,34 @@ export const Updating = (): HTMLIcDataTableElement => {
 
 export const CustomIcons = (): HTMLIcDataTableElement =>
   createDataTableElement("Custom icons", ICON_COLS, ICON_DATA);
+
+export const CustomRowHeights = (): HTMLElement => {
+  const dataTable = createDataTableElement("Custom Row Heights", COLS, DATA);
+  dataTable.rowHeight = 80;
+  dataTable.getRowHeight = ({ firstName, lastName }) =>
+    firstName === "Joe" || lastName === "Owens" ? 200 : null;
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.rowHeight = 80;
+    dataTable.getRowHeight = ({ firstName, lastName }) =>
+      firstName === "Joe" || lastName === "Owens" ? 200 : null;
+  });
+  setButton.innerHTML = "Set";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
