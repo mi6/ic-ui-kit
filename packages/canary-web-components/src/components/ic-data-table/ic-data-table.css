@@ -1,3 +1,7 @@
+/**
+  * @prop --height: height of the table row container
+  */
+
 :host {
   position: relative;
   display: block;
