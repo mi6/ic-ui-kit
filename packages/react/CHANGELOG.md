@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
+
+### Bug Fixes
+
+- **react:** open React IcDialog during initialisation using open prop ([34c8289](https://github.com/mi6/ic-ui-kit/commit/34c8289455af8e0c5aa9c10e2b06fb5f24674e19))
+
+### Features
+
+- **react:** add a new slot to top nav for routing using short app title ([76d5b33](https://github.com/mi6/ic-ui-kit/commit/76d5b33aaa4f2689cda1fdf10a6070fd6698f46b)), closes [#1248](https://github.com/mi6/ic-ui-kit/issues/1248)
+- **react:** add selectOnEnter prop to determine when icOptionSelect is emitted ([eddafe4](https://github.com/mi6/ic-ui-kit/commit/eddafe44c9c4d8ef3b14c27293d87b16865aceda)), closes [#1273](https://github.com/mi6/ic-ui-kit/issues/1273)
+
 # [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
 
 ### Bug Fixes

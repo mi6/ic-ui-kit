@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
+
+### Bug Fixes
+
+- **docs:** update docs following change to IcDialog ([2b9f2a0](https://github.com/mi6/ic-ui-kit/commit/2b9f2a04d7681c341329676dfecca5606b91b0e0))
+
 # [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
 
 ### Bug Fixes

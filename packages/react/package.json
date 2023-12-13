@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "author": "mi6",
   "bugs": {
@@ -36,7 +36,7 @@
   ],
   "dependencies": {
     "@ukic/fonts": "^2.6.0",
-    "@ukic/web-components": "^2.7.0"
+    "@ukic/web-components": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

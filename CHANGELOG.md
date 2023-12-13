@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
+
+### Bug Fixes
+
+- **docs:** update docs following change to IcDialog ([2b9f2a0](https://github.com/mi6/ic-ui-kit/commit/2b9f2a04d7681c341329676dfecca5606b91b0e0))
+- **react:** open React IcDialog during initialisation using open prop ([34c8289](https://github.com/mi6/ic-ui-kit/commit/34c8289455af8e0c5aa9c10e2b06fb5f24674e19))
+- **web-components:** add conditional check to navigation buttons in top navigation ([243e656](https://github.com/mi6/ic-ui-kit/commit/243e656fe75c4be7e876642c2bf475bdc402bfe2)), closes [#1299](https://github.com/mi6/ic-ui-kit/issues/1299)
+- **web-components:** add height to the popout-menu-button css class ([6454ec3](https://github.com/mi6/ic-ui-kit/commit/6454ec307bc0e0e1567aa6c122ba521867eccaef))
+- **web-components:** add white space normal so that text wrap works on safari ([ac9ea8a](https://github.com/mi6/ic-ui-kit/commit/ac9ea8a2056e4b7e50c28c7b82fffb33a115d7d5))
+- **web-components:** added word break to content and heading ([9d8b682](https://github.com/mi6/ic-ui-kit/commit/9d8b682e790def19da6bae8cdac28f70fbe03a4c))
+- **web-components:** created disableHeightConstraint prop ([c45f32b](https://github.com/mi6/ic-ui-kit/commit/c45f32bbc324ed33b057936eb1ab29dffc2f7bd3))
+- **web-components:** created initPopperJS func ([a0dd31d](https://github.com/mi6/ic-ui-kit/commit/a0dd31df3614c699878b741a7a16611c0510b53b))
+- **web-components:** fix switch state label width, remove wobble ([b3606e8](https://github.com/mi6/ic-ui-kit/commit/b3606e8b4ef0560744042eb99d921819d9d9ac96))
+- **web-components:** move close icon svg into button for dialog instead of its own span ([d088f1e](https://github.com/mi6/ic-ui-kit/commit/d088f1e2bca6e87af7c4ce82cb032e665281c9e4)), closes [#1242](https://github.com/mi6/ic-ui-kit/issues/1242)
+- **web-components:** open IcDialog upon initialisation using the open prop ([00b82db](https://github.com/mi6/ic-ui-kit/commit/00b82dba090fd50b1e3c304c3357e58b098b942e))
+- **web-components:** refreshed interactiveelements array ([c6c3b43](https://github.com/mi6/ic-ui-kit/commit/c6c3b436c99a20a6f21985b63b93c382124a8e9d))
+- **web-components:** removed overflow visible on content-area ([e3f3152](https://github.com/mi6/ic-ui-kit/commit/e3f315279f46c6877cb4a43538024ea499e241ce))
+- **web-components:** removed unnecessary margin from active indicator on ic-navigation-item ([5c11fe7](https://github.com/mi6/ic-ui-kit/commit/5c11fe7c09e3e678ce9af95fb791cb730434a0f3))
+- **web-components:** update height of navigation items to wrap text when in side menu ([003bc8e](https://github.com/mi6/ic-ui-kit/commit/003bc8e21680bf2439cea92a4da8501c3a24f941)), closes [#1292](https://github.com/mi6/ic-ui-kit/issues/1292)
+- **web-components:** update showDialog and hideDialog ([f19327f](https://github.com/mi6/ic-ui-kit/commit/f19327f14d595b8c3d3003396b1d000fdddeecbf))
+- **web-components:** update text field to not call watchValueHandler on first load ([c89addf](https://github.com/mi6/ic-ui-kit/commit/c89addf821f1c620fb5348be8c174c7a72359d6e)), closes [#1163](https://github.com/mi6/ic-ui-kit/issues/1163)
+- **web-components:** updated popperJS func ([c185d2c](https://github.com/mi6/ic-ui-kit/commit/c185d2c23c880fe0c08ed7bb553b805e5c42fb83))
+- **web-components:** updates to ic-menu and search bar ([df1afce](https://github.com/mi6/ic-ui-kit/commit/df1afcede5a8fee538710805e933b40eb10f4836))
+
+### Features
+
+- **react:** add a new slot to top nav for routing using short app title ([76d5b33](https://github.com/mi6/ic-ui-kit/commit/76d5b33aaa4f2689cda1fdf10a6070fd6698f46b)), closes [#1248](https://github.com/mi6/ic-ui-kit/issues/1248)
+- **react:** add selectOnEnter prop to determine when icOptionSelect is emitted ([eddafe4](https://github.com/mi6/ic-ui-kit/commit/eddafe44c9c4d8ef3b14c27293d87b16865aceda)), closes [#1273](https://github.com/mi6/ic-ui-kit/issues/1273)
+- **web-components:** add selectOnEnter prop to determine when icOptionSelect is emitted ([b819d20](https://github.com/mi6/ic-ui-kit/commit/b819d20c23d2aae1ab698d7a30ff0596a9cf7acf)), closes [#1273](https://github.com/mi6/ic-ui-kit/issues/1273)
+- **web-components:** add slot to top nav for routing with short app title ([ba43b84](https://github.com/mi6/ic-ui-kit/commit/ba43b843aca6063c6f8997f7a0a39d334e7b84e6)), closes [#1248](https://github.com/mi6/ic-ui-kit/issues/1248)
+
+### Performance Improvements
+
+- **web-components:** adds new style token for border width ([0e99a5c](https://github.com/mi6/ic-ui-kit/commit/0e99a5cccff5bd10a97ca20bcca7b4f145dc35f6))
+
 # [2.7.0](https://github.com/mi6/ic-ui-kit/compare/v2.6.0...v2.7.0) (2023-11-22)
 
 ### Bug Fixes
