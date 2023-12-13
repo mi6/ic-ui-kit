@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Component,
   Element,
@@ -7,6 +8,9 @@ import {
   Listen,
   Watch,
   Fragment,
+  Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
@@ -15,6 +19,7 @@ import {
   IcDataTableColumnDataTypes,
   IcDataTableColumnObject,
   IcDataTableDensityOptions,
+  IcDataTableRowHeights,
   IcDataTableSortOrderOptions,
 } from "./ic-data-table.types";
 import {
@@ -37,6 +42,12 @@ import { getSlotContent, isSlotUsed } from "../../utils/helpers";
   shadow: true,
 })
 export class DataTable {
+  private DENSITY_HEIGHT_MULTIPLIER = {
+    dense: 0.8,
+    default: 1,
+    spacious: 1.2,
+  };
+
   private SORT_ICONS = {
     unsorted: unsortedIcon,
     ascending: ascendingIcon,
@@ -92,6 +103,15 @@ export class DataTable {
   @Prop() embedded?: boolean = false;
 
   /**
+   * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.
+   * If the function returns `null`, that row's height will be set to the `rowHeight` property.
+   */
+  @Prop({ mutable: true }) getRowHeight?: (parmas: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
+
+  /**
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
@@ -144,6 +164,11 @@ export class DataTable {
   };
 
   /**
+   * Sets the row height on all rows in the table that aren't set using the getRowHeight method.
+   */
+  @Prop({ mutable: true }) rowHeight?: IcDataTableRowHeights = 40;
+
+  /**
    * If `true`, adds a pagination bar to the bottom of the table.
    */
   @Prop() showPagination?: boolean = false;
@@ -189,6 +214,11 @@ export class DataTable {
     min?: number;
     progress?: number;
   };
+
+  /**
+   * Emitted when the `rowHeight` or `getRowHeight` properties change in the data table.
+   */
+  @Event() icRowHeightChange: EventEmitter<void>;
 
   componentWillLoad(): void {
     this.rowsPerPage = Number(this.paginationOptions.itemsPerPage[0].value);
@@ -262,6 +292,21 @@ export class DataTable {
         : (this.loading = false);
     }
     if (this.updating) this.updating = false;
+  }
+
+  @Watch("rowHeight")
+  @Watch("getRowHeight")
+  rowHeightChangeHandler(): void {
+    this.icRowHeightChange.emit();
+  }
+
+  /**
+   * Resets the `rowHeight` prop to `40px` and sets the `getRowHeight` prop to `null`.
+   */
+  @Method()
+  async resetRowHeights(): Promise<void> {
+    this.rowHeight = 40;
+    this.getRowHeight = null;
   }
 
   private startLoadingTimer = (): void => {
@@ -519,23 +564,37 @@ export class DataTable {
 
     return data
       .sort(!this.sortable ? undefined : this.getSortFunction())
-      .map((row, index) => (
-        <tr
-          onClick={() =>
-            (this.selectedRow =
-              this.selectedRow !== row &&
-              !this.loading &&
-              !this.updating &&
-              row)
-          }
-          class={{
-            ["table-row"]: true,
-            ["table-row-selected"]: this.selectedRow === row,
-          }}
-        >
-          {this.createCells(row, index)}
-        </tr>
-      ));
+      .map((row, index) => {
+        const getRowHeightVal = this.getRowHeight?.({ ...row, index });
+        const findRowHeight = getRowHeightVal
+          ? getRowHeightVal !== "auto" && getRowHeightVal
+          : this.rowHeight !== "auto" && this.rowHeight;
+        return (
+          <tr
+            // eslint-disable-next-line react/jsx-no-bind
+            onClick={() =>
+              (this.selectedRow =
+                this.selectedRow !== row &&
+                !this.loading &&
+                !this.updating &&
+                row)
+            }
+            class={{
+              ["table-row"]: true,
+              ["table-row-selected"]: this.selectedRow === row,
+            }}
+            style={{
+              height: findRowHeight
+                ? `${
+                    findRowHeight * this.DENSITY_HEIGHT_MULTIPLIER[this.density]
+                  }px`
+                : null,
+            }}
+          >
+            {this.createCells(row, index)}
+          </tr>
+        );
+      });
   };
 
   private getObjectValue = (cell: object, key: string) => {
