@@ -802,12 +802,12 @@ export const CustomRowHeights = (): HTMLElement => {
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
-}
+};
 
 export const CustomTitleBar = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Custom Title Bar", COLS, DATA);
 
-  const titleBar = document.createElement("ic-title-bar");
+  const titleBar = document.createElement("ic-data-table-title-bar");
   titleBar.setAttribute(
     "description",
     "Data table description that describes the purpose of the table."

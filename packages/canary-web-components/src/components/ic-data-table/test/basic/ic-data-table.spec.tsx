@@ -8,7 +8,7 @@ import { h } from "@stencil/core";
 import { IcDataTableColumnObject } from "../../ic-data-table.types";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { IcEmptyState } from "@ukic/web-components/dist/components/ic-empty-state";
-import { TitleBar } from "../../../ic-title-bar/ic-title-bar";
+import { DataTableTitleBar } from "../../../ic-data-table-title-bar/ic-data-table-title-bar";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -448,12 +448,12 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render with a slotted ic-title-bar", async () => {
+  it("should render with a slotted ic-data-table-title-bar", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
         <ic-data-table caption="test table" columns={columns} data={data}>
-          <ic-title-bar slot="title-bar"></ic-title-bar>
+          <ic-data-table-title-bar slot="title-bar"></ic-data-table-title-bar>
         </ic-data-table>
       ),
     });
@@ -1005,7 +1005,7 @@ describe(icDataTable, () => {
       components: [DataTable],
       template: () => (
         <ic-data-table caption="Table" columns={columns} data={data}>
-          <ic-title-bar slot="title-bar"></ic-title-bar>
+          <ic-data-table-title-bar slot="title-bar"></ic-data-table-title-bar>
         </ic-data-table>
       ),
     });
@@ -1029,12 +1029,12 @@ describe(icDataTable, () => {
     expect(page.rootInstance.density).toBe("spacious");
   });
 
-  it("should pass the caption down to any slotted ic-title-bar", async () => {
+  it("should pass the caption down to any slotted ic-data-table-title-bar", async () => {
     const page = await newSpecPage({
-      components: [DataTable, TitleBar],
+      components: [DataTable, DataTableTitleBar],
       template: () => (
         <ic-data-table caption="Table" columns={columns} data={data}>
-          <ic-title-bar slot="title-bar"></ic-title-bar>
+          <ic-data-table-title-bar slot="title-bar"></ic-data-table-title-bar>
         </ic-data-table>
       ),
     });
