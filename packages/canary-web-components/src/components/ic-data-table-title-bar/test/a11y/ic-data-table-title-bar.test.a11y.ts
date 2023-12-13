@@ -1,11 +1,11 @@
 import { fixture } from "@open-wc/testing-helpers";
 import { axe } from "jest-axe";
-import { checkShadowElementRendersCorrectly } from "../../../../utils/testa11y.helpers";
+import { checkShadowElementRendersCorrectly } from "@ukic/web-components/src/utils/testa11y.helpers";
 
-describe("ic-title-bar", () => {
+describe("ic-data-table-title-bar", () => {
   it("passes accessibility", async () => {
     const el = await fixture(
-      `<ic-title-bar header="header" description="desc" metadata="meta"></ic-title-bar>`
+      `<ic-data-table-title-bar heading="header" description="desc" metadata="meta"></ic-data-table-title-bar>`
     );
     checkShadowElementRendersCorrectly(el);
     expect(await axe(el)).toHaveNoViolations();

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-title-bar should not render the actions area if hideDensitySelect is true and there are no slotted elements 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should not render the actions area if hideDensitySelect is true and there are no slotted elements 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             header
           </ic-typography>
@@ -13,15 +13,15 @@ exports[`ic-title-bar should not render the actions area if hideDensitySelect is
       </div>
     </div>
   </mock:shadow-root>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
 
-exports[`ic-title-bar should render 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should render 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             header
           </ic-typography>
@@ -35,15 +35,15 @@ exports[`ic-title-bar should render 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
 
-exports[`ic-title-bar should render the description area if the description is slotted and there is no action area 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should render the description area if the description is slotted and there is no action area 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             header
           </ic-typography>
@@ -57,15 +57,15 @@ exports[`ic-title-bar should render the description area if the description is s
   <ic-typography slot="description">
     slotted desc
   </ic-typography>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
 
-exports[`ic-title-bar should render with description and metadata 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should render with description and metadata 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             header
           </ic-typography>
@@ -86,15 +86,15 @@ exports[`ic-title-bar should render with description and metadata 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
 
-exports[`ic-title-bar should render with slotted actions 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should render with slotted actions 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             header
           </ic-typography>
@@ -103,7 +103,9 @@ exports[`ic-title-bar should render with slotted actions 1`] = `
       <div class="description-actions">
         <slot name="description"></slot>
         <div class="action-area">
-          <slot name="custom-actions"></slot>
+          <div class="custom-actions-wrapper">
+            <slot name="custom-actions"></slot>
+          </div>
           <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
           <slot name="primary-action"></slot>
         </div>
@@ -119,15 +121,15 @@ exports[`ic-title-bar should render with slotted actions 1`] = `
   <ic-button slot="custom-actions">
     3
   </ic-button>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
 
-exports[`ic-title-bar should render with slotted header and description 1`] = `
-<ic-title-bar>
+exports[`ic-data-table-title-bar should render with slotted header and description 1`] = `
+<ic-data-table-title-bar>
   <mock:shadow-root>
     <div class="title-bar-wrapper">
       <div class="header-container">
-        <slot name="header">
+        <slot name="heading">
           <ic-typography variant="h3">
             Title Bar
           </ic-typography>
@@ -141,11 +143,11 @@ exports[`ic-title-bar should render with slotted header and description 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-  <ic-typography slot="header">
+  <ic-typography slot="heading">
     slotted header
   </ic-typography>
   <ic-typography slot="description">
     slotted desc
   </ic-typography>
-</ic-title-bar>
+</ic-data-table-title-bar>
 `;
