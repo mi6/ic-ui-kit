@@ -1931,6 +1931,257 @@ exports[`ic-data-table should not render custom icon in header when hideOnHeader
 </ic-data-table>
 `;
 
+exports[`ic-data-table should pass the caption down to any slotted ic-title-bar 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <slot name="title-bar"></slot>
+        <table>
+          <caption class="table-caption">
+            Table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+  <ic-title-bar slot="title-bar">
+    <mock:shadow-root>
+      <div class="full-width title-bar-wrapper">
+        <div class="header-container">
+          <slot name="header">
+            <ic-typography variant="h3">
+              Table
+            </ic-typography>
+          </slot>
+        </div>
+        <div class="description-actions">
+          <slot name="description"></slot>
+          <div class="action-area">
+            <ic-select class="density-input" hidelabel="" label="Change density" small="" value="default"></ic-select>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </ic-title-bar>
+</ic-data-table>
+`;
+
 exports[`ic-data-table should pass through the loadingOptions to the loading indicator 1`] = `
 <ic-data-table>
   <mock:shadow-root>
@@ -3471,6 +3722,239 @@ exports[`ic-data-table should render the updating state when the \`updating\` pr
       <ic-loading-indicator class="loading" description="Loading table data" label="Loading..."></ic-loading-indicator>
     </div>
   </mock:shadow-root>
+</ic-data-table>
+`;
+
+exports[`ic-data-table should render with a slotted ic-title-bar 1`] = `
+<ic-data-table>
+  <mock:shadow-root>
+    <div class="table-container">
+      <div class="table-row-container">
+        <slot name="title-bar"></slot>
+        <table>
+          <caption class="table-caption">
+            test table
+          </caption>
+          <thead>
+            <tr>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Name
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Age
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Department
+                  </ic-typography>
+                </div>
+              </th>
+              <th class="column-header" scope="col">
+                <div class="column-header-inner-container">
+                  <ic-typography class="column-header-text" variant="body">
+                    Employee number
+                  </ic-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    John Smith
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    36
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Accounts
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    1
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sally Jones
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    32
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    2
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Tim Rayes
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    41
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Sales
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    3
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Luke Fisher
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    23
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    4
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Jane Lock
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    34
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Engineering
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    5
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    Margaret Hale
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    45
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-string table-cell">
+                <div class="cell-container data-type-string">
+                  <ic-typography variant="body">
+                    HR
+                  </ic-typography>
+                </div>
+              </td>
+              <td class="data-type-number table-cell">
+                <div class="cell-container data-type-number">
+                  <ic-typography variant="body">
+                    6
+                  </ic-typography>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ic-loading-indicator class="loading show-background" description="Loading table data" label="Loading..."></ic-loading-indicator>
+    </div>
+  </mock:shadow-root>
+  <ic-title-bar slot="title-bar"></ic-title-bar>
 </ic-data-table>
 `;
 

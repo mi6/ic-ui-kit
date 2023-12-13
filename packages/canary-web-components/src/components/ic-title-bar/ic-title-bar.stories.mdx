@@ -1,0 +1,98 @@
+import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Title Bar" component="ic-title-bar" />
+
+<Description markdown={readme} />
+
+### Basic
+
+<Canvas>
+  <Story name="Basic">{html`<ic-title-bar
+    header="Title Bar"
+  ></ic-title-bar>`}</Story>
+</Canvas>
+
+### With metadata and description
+
+<Canvas>
+  <Story name="With metadata and description">
+    {html`<ic-title-bar
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    ></ic-title-bar>`}
+  </Story>
+</Canvas>
+
+### Not full width
+
+<Canvas>
+  <Story name="Not full width">
+    {html`<ic-title-bar
+      full-width="false"
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    ></ic-title-bar>`}
+  </Story>
+</Canvas>
+
+### Hide density selector
+
+<Canvas>
+  <Story name="Hide density selector">
+    {html`<ic-title-bar
+      hide-density-select="true"
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    ></ic-title-bar>`}
+  </Story>
+</Canvas>
+
+### Custom actions
+
+<Canvas>
+  <Story name="Custom actions">
+    {html`<ic-title-bar
+      header="Title Bar"
+      metadata="128 items | 32gb | Updated: 01/02/03"
+      description="Data table description that describes the purpose of the table."
+    >
+      <ic-button slot="primary-action">Primary</ic-button>
+      <ic-button slot="custom-actions" variant="icon" aria-label="Icon Button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
+        >
+          <path
+            d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z"
+          />
+        </svg>
+      </ic-button>
+    </ic-title-bar>`}
+  </Story>
+</Canvas>
+
+### Slotted header and description
+
+<Canvas>
+  <Story name="Slotted header and description">
+    {html`<ic-title-bar hide-density-select="true">
+      <ic-typography slot="description" variant="body">
+        <p>
+          This is some text and
+          <ic-link href="/" inline="">this is an inline link</ic-link> within
+          the text.
+        </p>
+      </ic-typography>
+      <ic-typography slot="header" variant="h3">
+        <ic-link href="/" inline="">Title Bar</ic-link>
+      </ic-typography>
+    </ic-title-bar>`}
+  </Story>
+</Canvas>
