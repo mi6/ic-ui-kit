@@ -25,7 +25,7 @@
 }
 
 .back-icon svg {
-  color: var(--ic-hyperlink);
+  color: currentColor;
 }
 
 :host(.back) {
@@ -47,6 +47,14 @@ ic-link {
   display: flex;
   align-items: center;
   gap: var(--ic-space-xs);
+}
+
+:host([aria-current="page"]) .current-page-container.dark {
+  color: var(--ic-color-primary-text);
+}
+
+:host([aria-current="page"]) .current-page-container.light {
+  color: var(--ic-color-white-text);
 }
 
 :host(.collapsed-breadcrumb-wrapper) {

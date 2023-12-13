@@ -24,6 +24,48 @@ describe("ic-breadcrumb-group", () => {
     expect(page.root).toMatchSnapshot("should render styling from props");
   });
 
+  it("should render current appearance styling", async () => {
+    const page = await newSpecPage({
+      components: [BreadcrumbGroup, Breadcrumb],
+      html: `<ic-breadcrumb-group appearance="light">
+      <ic-breadcrumb page-title="Breadcrumb 1" href="/breadcrumb-1">
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </ic-breadcrumb>
+      <ic-breadcrumb page-title="Breadcrumb 2" current="true" href="/">
+        <svg
+          slot="icon"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </ic-breadcrumb>
+    </ic-breadcrumb-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot(
+      "should render current appearance styling"
+    );
+  });
+
   it("should render with ic-breadcrumb", async () => {
     const page = await newSpecPage({
       components: [BreadcrumbGroup, Breadcrumb],
