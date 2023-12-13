@@ -5,14 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcActivationTypes, IcMenuOption, IcSizes } from "@ukic/web-components/dist/types/utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcInformationStatusOrEmpty, IcSearchMatchPositions, IcValueEventDetail } from "./utils/types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
-export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
+export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcActivationTypes, IcMenuOption, IcSizes } from "@ukic/web-components/dist/types/utils/types";
@@ -41,6 +41,10 @@ export namespace Components {
           * Applies a border to the table container.
          */
         "embedded"?: boolean;
+        /**
+          * Sets the row height on all rows in the table that aren't set using the variableRowHeight method.
+         */
+        "globalRowHeight"?: IcDataTableRowHeights;
         /**
           * If `true`, column headers will not be visible.
          */
@@ -78,6 +82,10 @@ export namespace Components {
     alignment?: IcPaginationAlignmentOptions;
   };
         /**
+          * Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.
+         */
+        "resetRowHeights": () => Promise<void>;
+        /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */
         "showPagination"?: boolean;
@@ -114,6 +122,13 @@ export namespace Components {
     min?: number;
     progress?: number;
   };
+        /**
+          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+         */
+        "variableRowHeight"?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
     }
     interface IcMenuWithMulti {
         /**
@@ -392,6 +407,33 @@ export interface IcMenuWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuWithMultiElement;
 }
+    interface IcTitleBar {
+        /**
+          * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * If `true`, will apply a background colour and a bottom border to the title bar.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "header"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `header`.
+         */
+        "metadata"?: string;
+    }
+}
+export interface IcDataTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDataTableElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
@@ -399,6 +441,10 @@ export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
 export interface IcSelectWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSelectWithMultiElement;
+}
+export interface IcTitleBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTitleBarElement;
 }
 declare global {
     interface HTMLIcDataTableElement extends Components.IcDataTable, HTMLStencilElement {
@@ -472,12 +518,19 @@ declare global {
     var HTMLIcSelectWithMultiElement: {
         prototype: HTMLIcSelectWithMultiElement;
         new (): HTMLIcSelectWithMultiElement;
+    }
+    interface HTMLIcTitleBarElement extends Components.IcTitleBar, HTMLStencilElement {
+    }
+    var HTMLIcTitleBarElement: {
+        prototype: HTMLIcTitleBarElement;
+        new (): HTMLIcTitleBarElement;
     };
     interface HTMLElementTagNameMap {
         "ic-data-table": HTMLIcDataTableElement;
         "ic-menu-with-multi": HTMLIcMenuWithMultiElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-select-with-multi": HTMLIcSelectWithMultiElement;
+        "ic-title-bar": HTMLIcTitleBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -503,6 +556,10 @@ declare namespace LocalJSX {
          */
         "embedded"?: boolean;
         /**
+          * Sets the row height on all rows in the table that aren't set using the variableRowHeight method.
+         */
+        "globalRowHeight"?: IcDataTableRowHeights;
+        /**
           * If `true`, column headers will not be visible.
          */
         "hideColumnHeaders"?: boolean;
@@ -527,6 +584,10 @@ declare namespace LocalJSX {
           * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
          */
         "minimumLoadingDisplayDuration"?: number;
+        /**
+          * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
+         */
+        "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
           * Sets the props for the pagination bar.
          */
@@ -575,6 +636,13 @@ declare namespace LocalJSX {
     min?: number;
     progress?: number;
   };
+        /**
+          * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index. If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+         */
+        "variableRowHeight"?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
     }
     interface IcMenuWithMulti {
         /**
@@ -884,11 +952,38 @@ declare namespace LocalJSX {
          */
         "value"?: string | string[];
     }
+    interface IcTitleBar {
+        /**
+          * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * If `true`, will apply a background colour and a bottom border to the title bar.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "header"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `header`.
+         */
+        "metadata"?: string;
+        /**
+          * Emitted when the table density select value is changed.
+         */
+        "onIcTableDensityUpdate"?: (event: IcTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
+    }
     interface IntrinsicElements {
         "ic-data-table": IcDataTable;
         "ic-menu-with-multi": IcMenuWithMulti;
         "ic-pagination-bar": IcPaginationBar;
         "ic-select-with-multi": IcSelectWithMulti;
+        "ic-title-bar": IcTitleBar;
     }
 }
 export { LocalJSX as JSX };
@@ -899,6 +994,7 @@ declare module "@stencil/core" {
             "ic-menu-with-multi": LocalJSX.IcMenuWithMulti & JSXBase.HTMLAttributes<HTMLIcMenuWithMultiElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-select-with-multi": LocalJSX.IcSelectWithMulti & JSXBase.HTMLAttributes<HTMLIcSelectWithMultiElement>;
+            "ic-title-bar": LocalJSX.IcTitleBar & JSXBase.HTMLAttributes<HTMLIcTitleBarElement>;
         }
     }
 }

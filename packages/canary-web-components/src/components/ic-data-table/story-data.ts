@@ -802,4 +802,42 @@ export const CustomRowHeights = (): HTMLElement => {
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
+}
+
+export const CustomTitleBar = (): HTMLIcDataTableElement => {
+  const dataTable = createDataTableElement("Custom Title Bar", COLS, DATA);
+
+  const titleBar = document.createElement("ic-title-bar");
+  titleBar.setAttribute(
+    "description",
+    "Data table description that describes the purpose of the table."
+  );
+  titleBar.setAttribute("metadata", "128 items | 32gb | Updated: 01/02/03");
+  titleBar.setAttribute("slot", "title-bar");
+
+  const customDescription = document.createElement("ic-typography");
+  customDescription.setAttribute("variant", "body");
+  customDescription.setAttribute("slot", "description");
+  customDescription.innerHTML =
+    '<p>This is some text and <ic-link href="/" inline="">this is an inline link</ic-link> within the text.</p>';
+
+  const primaryButton = document.createElement("ic-button");
+  primaryButton.setAttribute("slot", "primary-action");
+  primaryButton.innerHTML = "Primary";
+
+  const customButtons = [1, 2, 3].map((x) => {
+    const customButton = document.createElement("ic-button");
+    customButton.setAttribute("slot", "custom-actions");
+    customButton.setAttribute("variant", "icon");
+    customButton.setAttribute("aria-label", `Icon ${x}`);
+    customButton.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm56-97h489L578-473 446-302l-93-127-117 152Zm-56 97v-600 600Z" /></svg>';
+    return customButton;
+  });
+
+  titleBar.append(primaryButton, customDescription);
+  customButtons.forEach((button) => titleBar.append(button));
+  dataTable.appendChild(titleBar);
+
+  return dataTable;
 };
