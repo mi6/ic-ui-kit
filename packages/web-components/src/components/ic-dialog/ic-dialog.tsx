@@ -521,11 +521,14 @@ export class Dialog {
           [`${size}`]: true,
           ["disable-height-constraint"]: this.disableHeightConstraint,
         }}
+        tabindex="-1"
         aria-labelledby="dialog-label dialog-heading"
         aria-describedby="dialog-alert dialog-content"
+        aria-modal="true"
+        role="dialog"
         ref={(el) => (this.dialogEl = el)}
       >
-        <div class="heading-area">
+        <div class="heading-area" role="document" aria-hidden="true">
           <div class="heading-content">
             <div class="label">
               <slot name="label">

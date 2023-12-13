@@ -152,8 +152,8 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 exports[`ic-popover-menu should render on a dialog 1`] = `
 <ic-dialog class="hidden">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">

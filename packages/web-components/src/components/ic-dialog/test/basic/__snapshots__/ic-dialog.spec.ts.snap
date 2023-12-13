@@ -3,8 +3,8 @@
 exports[`ic-dialog component should render 1`] = `
 <ic-dialog buttons="false" class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -43,8 +43,8 @@ exports[`ic-dialog component should render 1`] = `
 exports[`ic-dialog component should render as large size 1`] = `
 <ic-dialog buttons="false" class="hidden" heading="Dialog heading" size="large">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog large">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog large" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -83,8 +83,8 @@ exports[`ic-dialog component should render as large size 1`] = `
 exports[`ic-dialog component should render as medium size 1`] = `
 <ic-dialog buttons="false" class="hidden" heading="Dialog heading" size="medium">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog medium">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog medium" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -123,8 +123,8 @@ exports[`ic-dialog component should render as medium size 1`] = `
 exports[`ic-dialog component should render with a destructive default button 1`] = `
 <ic-dialog class="hidden" destructive="true" heading="Dialog heading test">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -175,8 +175,8 @@ exports[`ic-dialog component should render with a destructive default button 1`]
 exports[`ic-dialog component should render with a label 1`] = `
 <ic-dialog buttons="false" class="hidden" heading="Dialog heading" label="Dialog label">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -217,8 +217,8 @@ exports[`ic-dialog component should render with a label 1`] = `
 exports[`ic-dialog component should render with a single default button 1`] = `
 <ic-dialog class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -269,8 +269,8 @@ exports[`ic-dialog component should render with a single default button 1`] = `
 exports[`ic-dialog component should render with an alert 1`] = `
 <ic-dialog alert-heading="Alert heading" alert-message="Alert message" buttons="false" class="hidden" heading="Dialog heading" status="neutral">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -310,8 +310,8 @@ exports[`ic-dialog component should render with an alert 1`] = `
 exports[`ic-dialog component should render with no buttons 1`] = `
 <ic-dialog buttons="false" class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -344,8 +344,8 @@ exports[`ic-dialog component should render with no buttons 1`] = `
 exports[`ic-dialog component should render with no more than three default buttons 1`] = `
 <ic-dialog class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -412,8 +412,8 @@ exports[`ic-dialog component should render with no more than three default butto
 exports[`ic-dialog component should render with slotted content 1`] = `
 <ic-dialog class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -491,8 +491,8 @@ exports[`ic-dialog component should render with slotted content 1`] = `
 exports[`ic-dialog component should render with slotted controls 1`] = `
 <ic-dialog heading="Dialog heading" open="">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -542,8 +542,8 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
 exports[`ic-dialog component should render with the close button 1`] = `
 <ic-dialog class="hidden" heading="Dialog with close button test">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -602,8 +602,8 @@ exports[`ic-dialog component should render with the close button 1`] = `
 exports[`ic-dialog component should render with three default buttons 1`] = `
 <ic-dialog class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -670,8 +670,8 @@ exports[`ic-dialog component should render with three default buttons 1`] = `
 exports[`ic-dialog component should render with two default buttons 1`] = `
 <ic-dialog class="hidden" heading="Dialog heading">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
@@ -730,8 +730,8 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
 exports[`ic-dialog component should render without the close button 1`] = `
 <ic-dialog class="hidden" heading="Dialog hide close button test" hide-close-button="true">
   <mock:shadow-root>
-    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
-      <div class="heading-area">
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" aria-modal="true" class="dialog small" role="dialog" tabindex="-1">
+      <div aria-hidden="true" class="heading-area" role="document">
         <div class="heading-content">
           <div class="label">
             <slot name="label">
