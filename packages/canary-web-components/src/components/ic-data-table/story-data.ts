@@ -775,8 +775,8 @@ export const CustomIcons = (): HTMLIcDataTableElement =>
 
 export const CustomRowHeights = (): HTMLElement => {
   const dataTable = createDataTableElement("Custom Row Heights", COLS, DATA);
-  dataTable.rowHeight = 80;
-  dataTable.getRowHeight = ({ firstName, lastName }) =>
+  dataTable.globalRowHeight = 80;
+  dataTable.variableRowHeight = ({ firstName, lastName }) =>
     firstName === "Joe" || lastName === "Owens" ? 200 : null;
 
   const resetButton = document.createElement("ic-button");
@@ -785,8 +785,8 @@ export const CustomRowHeights = (): HTMLElement => {
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
-    dataTable.rowHeight = 80;
-    dataTable.getRowHeight = ({ firstName, lastName }) =>
+    dataTable.globalRowHeight = 80;
+    dataTable.variableRowHeight = ({ firstName, lastName }) =>
       firstName === "Joe" || lastName === "Owens" ? 200 : null;
   });
   setButton.innerHTML = "Set";

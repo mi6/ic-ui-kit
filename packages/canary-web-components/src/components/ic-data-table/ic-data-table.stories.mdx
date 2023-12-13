@@ -960,21 +960,21 @@ Both cells and headers can also have icons slotted in. Cells use the slot format
 
 ### Custom Row Heights
 
-A data table can have its rows use custom heights, to help display more data per row. This involves using the `rowHeight` prop, which applies this custom height to all rows.
+A data table can have its rows use custom heights, to help display more data per row. This involves using the `globalRowHeight` prop, which applies this custom height to all rows.
 
-For a more granular approach, `getRowHeight` exists. This is passed through the data object for each row of data, as well as that row's `index`. Using these properties, you can write a custom function that will return a number for that row's height based on your criteria.
-Returning `null` from this function means that the row will use the `rowHeight` property value.
+For a more granular approach, `variableRowHeight` exists. This is passed through the data object for each row of data, as well as that row's `index`. Using these properties, you can write a custom function that will return a number for that row's height based on your criteria.
+Returning `null` from this function means that the row will use the `globalRowHeight` property value.
 
 **_NOTE:_** If the data table uses the `density` prop, then your custom value will be scaled depending on the density, in order to keep content readable as the text size changes:
 
-- `Dense` = 80% of `rowHeight` or `getRowHeight`
-- `Spacious` = 120% of `rowHeight` or `getRowHeight`
+- `Dense` = 80% of `globalRowHeight` or `variableRowHeight`
+- `Spacious` = 120% of `globalRowHeight` or `variableRowHeight`
 
-E.G: If `rowHeight` = 100, a dense table will set the height to be **_80_**.
+E.G: If `globalRowHeight` = 100, a dense table will set the height to be **_80_**.
 
 To quickly reset all row heights to the default, you can run the `resetRowHeights` method.
 
-If you'd rather let the row calculate its own height based on its content, either set `rowHeight` to `auto`, or return `auto` from `getRowHeight`.
+If you'd rather let the row calculate its own height based on its content, either set `globalRowHeight` to `auto`, or return `auto` from `variableRowHeight`.
 
 <Canvas withSource="none">
   <Story name="Custom Row Heights">{CustomRowHeights()}</Story>
@@ -1008,7 +1008,7 @@ If you'd rather let the row calculate its own height based on its content, eithe
   ];
   dataTable.columns = columns;
   dataTable.data = data;
-  dataTable.rowHeight = 80;
-  dataTable.getRowHeight = ({ firstName, lastName }) => firstName === "Joe" || lastName === "Owens" ? 200 : null;
+  dataTable.globalRowHeight = 80;
+  dataTable.variableRowHeight = ({ firstName, lastName }) => firstName === "Joe" || lastName === "Owens" ? 200 : null;
 </script>
 ```

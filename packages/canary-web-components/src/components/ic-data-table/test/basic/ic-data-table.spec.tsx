@@ -1028,7 +1028,7 @@ describe(icDataTable, () => {
     expect(rows[2]).not.toHaveClass(highlightedRowClass);
   });
 
-  it("should apply a specified row height to all rows when rowHeight is set", async () => {
+  it("should apply a specified row height to all rows when globalRowHeight is set", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
@@ -1036,7 +1036,7 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          rowHeight={80}
+          globalRowHeight={80}
         ></ic-data-table>
       ),
     });
@@ -1044,7 +1044,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should apply a specified row height to specific rows when getRowHeight is set, and any not included should use the default rowHeight", async () => {
+  it("should apply a specified row height to specific rows when variableRowHeight is set, and any not included should use the default globalRowHeight", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
@@ -1053,7 +1053,7 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           // eslint-disable-next-line react/jsx-no-bind
-          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+          variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
     });
@@ -1069,9 +1069,9 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          rowHeight={80}
+          globalRowHeight={80}
           // eslint-disable-next-line react/jsx-no-bind
-          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+          variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
     });
@@ -1084,7 +1084,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should emit icRowHeightChange when rowHeight or getRowHeight is changed", async () => {
+  it("should emit icRowHeightChange when globalRowHeight or variableRowHeight is changed", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
@@ -1092,9 +1092,9 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          rowHeight={80}
+          globalRowHeight={80}
           // eslint-disable-next-line react/jsx-no-bind
-          getRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
+          variableRowHeight={({ index }) => (index % 2 === 0 ? 200 : null)}
         ></ic-data-table>
       ),
     });
@@ -1104,12 +1104,12 @@ describe(icDataTable, () => {
     page.root.addEventListener("icRowHeightChange", eventSpy);
 
     const dataTable = page.root as HTMLIcDataTableElement;
-    dataTable.rowHeight = 50;
+    dataTable.globalRowHeight = 50;
     await page.waitForChanges();
 
     expect(eventSpy).toHaveBeenCalledTimes(1);
 
-    dataTable.getRowHeight = ({ index }) => (index % 2 === 0 ? 100 : null);
+    dataTable.variableRowHeight = ({ index }) => (index % 2 === 0 ? 100 : null);
     await page.waitForChanges();
 
     expect(eventSpy).toHaveBeenCalledTimes(2);
@@ -1123,7 +1123,7 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          rowHeight={80}
+          globalRowHeight={80}
           density="dense"
         ></ic-data-table>
       ),
@@ -1137,7 +1137,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should not override the height of rows if `rowHeight` is set to auto", async () => {
+  it("should not override the height of rows if `globalRowHeight` is set to auto", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
@@ -1145,7 +1145,7 @@ describe(icDataTable, () => {
           caption="test table"
           columns={columns}
           data={data}
-          rowHeight="auto"
+          globalRowHeight="auto"
         ></ic-data-table>
       ),
     });
@@ -1153,7 +1153,7 @@ describe(icDataTable, () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should not override the height of certain rows if `getRowHeight` returns auto", async () => {
+  it("should not override the height of certain rows if `variableRowHeight` returns auto", async () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
@@ -1162,7 +1162,7 @@ describe(icDataTable, () => {
           columns={columns}
           data={data}
           // eslint-disable-next-line react/jsx-no-bind
-          getRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
+          variableRowHeight={({ index }) => (index % 2 === 0 ? "auto" : null)}
         ></ic-data-table>
       ),
     });

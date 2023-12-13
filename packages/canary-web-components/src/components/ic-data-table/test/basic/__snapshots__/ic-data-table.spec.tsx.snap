@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-data-table should apply a specified row height to all rows when rowHeight is set 1`] = `
+exports[`ic-data-table should apply a specified row height to all rows when globalRowHeight is set 1`] = `
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
@@ -231,7 +231,7 @@ exports[`ic-data-table should apply a specified row height to all rows when rowH
 </ic-data-table>
 `;
 
-exports[`ic-data-table should apply a specified row height to specific rows when getRowHeight is set, and any not included should use the default rowHeight 1`] = `
+exports[`ic-data-table should apply a specified row height to specific rows when variableRowHeight is set, and any not included should use the default globalRowHeight 1`] = `
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
@@ -1238,7 +1238,7 @@ exports[`ic-data-table should correctly render a custom icon in the header when 
 </ic-data-table>
 `;
 
-exports[`ic-data-table should not override the height of certain rows if \`getRowHeight\` returns auto 1`] = `
+exports[`ic-data-table should not override the height of certain rows if \`variableRowHeight\` returns auto 1`] = `
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
@@ -1469,7 +1469,7 @@ exports[`ic-data-table should not override the height of certain rows if \`getRo
 </ic-data-table>
 `;
 
-exports[`ic-data-table should not override the height of rows if \`rowHeight\` is set to auto 1`] = `
+exports[`ic-data-table should not override the height of rows if \`globalRowHeight\` is set to auto 1`] = `
 <ic-data-table>
   <mock:shadow-root>
     <div class="table-container">
