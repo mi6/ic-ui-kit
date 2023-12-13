@@ -48,6 +48,13 @@
         "notes": "axios - current version installed is 1.4 and doesn't update",
         "expiry": "30 December 2023"
       }
-    }    
+    },
+    {   
+      "GHSA-7fh5-64p2-3v2j": {
+        "active": true,
+        "notes": "requires upgrade to storybook v7",
+        "expiry": "31 October 2023"
+      }
+    }
   ]
 }
