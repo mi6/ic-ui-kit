@@ -42,7 +42,7 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build:all
+          npm run build
 
       - name: Install all dependencies
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
