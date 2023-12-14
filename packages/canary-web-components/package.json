@@ -31,7 +31,7 @@
     "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
     "lint:fix": "echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css --fix && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src --fix",
     "test-visual": "loki --requireReference --reactUri file:./storybook-static --chromeTolerance=1",
-    "test-visual:ci": "loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--no-sandbox --headless --hide-scrollbars --disable-gpu\" --chromeTolerance=1",
+    "test-visual:ci:canary": "loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--no-sandbox --headless --hide-scrollbars --disable-gpu\" --chromeTolerance=1",
     "test-visual:update": "npm run build-storybook && loki update --reactUri file:./storybook-static",
     "audit": "echo 'Audit for: @ukic/canary-web-components' && audit-ci -m --config ../../audit-ci.json"
   },
