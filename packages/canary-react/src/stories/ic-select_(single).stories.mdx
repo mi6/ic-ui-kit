@@ -1,21 +1,19 @@
-import { useState, useEffect } from "react";
 import {
   Meta,
   Story,
   Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
 
-import { IcSelect, IcButton, IcTypography } from "../../components";
-import readme from "../../../../web-components/src/components/ic-select/readme.md";
+import { IcSelectWithMulti } from "../components";
+import { IcButton, IcTypography } from "@ukic/react";
+import readme from "../../../web-components/src/components/ic-select/readme.md";
 
-<Meta title="React Components/Select/Single" component={IcSelect} />
+<Meta title="React Components/Select/Single" component={IcSelectWithMulti} />
 
 export const defaultArgs = {
   disabled: false,
   fullWidth: false,
-  helperText: "Select one option from the list.",
+  helperText: "Select one option from the list",
   hideLabel: false,
   loading: false,
   loadingLabel: "Loading...",
@@ -508,6 +506,29 @@ export const playgroundOptions = [
   </Story>
 </Canvas>
 
+### Loading with error
+
+export const LoadingWithError = () => {
+  const selectEl = useRef();
+  return (
+    <IcSelect
+      ref={selectEl}
+      label="What are your favourite types of coffee?"
+      options={options}
+      loading
+      timeout="1000"
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      onIcRetryLoad={(event) => selectEl.current.loading = true}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="Loading with error">
+    <LoadingWithError />
+  </Story>
+</Canvas>
+
 ### Playground
 
 <Canvas>
@@ -543,3 +564,4 @@ export const playgroundOptions = [
     )}
   </Story>
 </Canvas>
+

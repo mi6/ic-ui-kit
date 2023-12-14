@@ -20,8 +20,11 @@ import {
 } from "@ukic/web-components/dist/types/utils/types";
 import { IcValueEventDetail } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
-import { isMacDevice, onComponentRequiredPropUndefined } from "../../utils/helpers";
-import { 
+import {
+  isMacDevice,
+  onComponentRequiredPropUndefined,
+} from "../../utils/helpers";
+import {
   IcOptionSelectEventDetail,
   IcMenuChangeEventDetail,
   IcMenuOptionIdEventDetail,
@@ -397,6 +400,7 @@ export class Menu {
       // Reset optionHighlighted so previously highlighted option doesn't get reselected when Enter pressed
       if (this.isMultiSelect) {
         this.optionHighlighted = undefined;
+        this.multiOptionClicked = null;
       }
     }
   };
@@ -443,7 +447,10 @@ export class Menu {
   private getParentEl = (parent: HTMLElement) => {
     if (parent.tagName === "IC-SEARCH-BAR") {
       this.isSearchBar = true;
-    } else if (parent.tagName === "IC-SELECT" || parent.tagName === "IC-SELECT-WITH-MULTI") {
+    } else if (
+      parent.tagName === "IC-SELECT" ||
+      parent.tagName === "IC-SELECT-WITH-MULTI"
+    ) {
       if (
         parent.getAttribute("searchable") !== null &&
         parent.getAttribute("searchable") !== undefined

@@ -8,9 +8,9 @@ import {
 import { html } from "lit-html";
 // import readme from "./readme.md";
 
-<Meta title="Web Components/Select/Searchable" component="ic-select-with-multi" />
+    <Meta title="Web Components/Select/Searchable" component="ic-select-with-multi" />
 
-{/* <Description markdown={readme} /> */}
+    {/* <Description markdown={readme} /> */}
 
 export const defaultArgs = {
   disabled: false,
@@ -33,10 +33,10 @@ export const defaultArgs = {
 
 ### Default
 
-<Canvas>
-  <Story name="Default">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Default">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-default"
           label="What is your favourite coffee?"
           searchable
@@ -62,16 +62,16 @@ export const defaultArgs = {
             console.log("icOptionSelect: " + event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Async default
 
-<Canvas>
-  <Story name="Async default" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Async default" parameters={{ loki: { skip: true } }}>
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-async"
           label="What is your favourite coffee?"
           searchable
@@ -99,16 +99,16 @@ export const defaultArgs = {
             ];
           }, 5000);
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Default value
 
-<Canvas>
-  <Story name="Default value">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Default value">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-default-value"
           label="What is your favourite coffee?"
           searchable
@@ -129,16 +129,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Filter by start of options
 
-<Canvas>
-  <Story name="Filter by start of options">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Filter by start of options">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-filter-start"
           label="What is your favourite coffee?"
           searchable
@@ -159,16 +159,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### With descriptions
 
-<Canvas>
-  <Story name="With descriptions">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="With descriptions">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-descriptions"
           label="What is your favourite coffee?"
           searchable
@@ -217,16 +217,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### With descriptions (included in search)
 
-<Canvas>
-  <Story name="With descriptions (included in search)">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="With descriptions (included in search)">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-descriptions-included"
           label="What is your favourite coffee?"
           searchable
@@ -276,16 +276,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Helper text
 
-<Canvas>
-  <Story name="Helper text">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Helper text">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-helper"
           label="What is your favourite coffee?"
           searchable
@@ -306,16 +306,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Sizes
 
-<Canvas>
-  <Story name="Sizes">
-    {(args) =>
-      html`<div style="display: flex; flex-direction: column; gap: 16px;">
+    <Canvas>
+          <Story name="Sizes">
+              {(args) =>
+                  html`<div style="display: flex; flex-direction: column; gap: 16px;">
         <ic-select-with-multi
           id="select-size-small"
           label="What is your favourite coffee?"
@@ -379,16 +379,16 @@ export const defaultArgs = {
           });
         </script>
       </div>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Disabled
 
-<Canvas>
-  <Story name="Disabled">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Disabled">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-disabled"
           label="What is your favourite coffee?"
           searchable
@@ -409,16 +409,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Disabled options
 
-<Canvas>
-  <Story name="Disabled options">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Disabled options">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-disabled-options"
           label="What is your favourite coffee?"
           searchable
@@ -438,16 +438,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Hidden label
 
-<Canvas>
-  <Story name="Hidden label">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Hidden label">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-hidden-label"
           label="What is your favourite coffee?"
           searchable
@@ -468,16 +468,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Required
 
-<Canvas>
-  <Story name="Required">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Required">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-required"
           label="What is your favourite coffee?"
           searchable
@@ -498,16 +498,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Groups
 
-<Canvas>
-  <Story name="Groups">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Groups">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-groups"
           label="What is your favourite coffee?"
           searchable
@@ -534,16 +534,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Groups (group titles included in search)
 
-<Canvas>
-  <Story name="Groups (group titles included in search)">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Groups (group titles included in search)">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-groups-included"
           label="What is your favourite coffee?"
           searchable
@@ -571,16 +571,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Recommended
 
-<Canvas>
-  <Story name="Recommended">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Recommended">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-recommended"
           label="What is your favourite coffee?"
           searchable
@@ -600,20 +600,20 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Validation
 
-<Canvas>
-  <Story name="Validation">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Validation">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-success"
           label="What is your favourite coffee?"
           validation-status="success"
-          validation-text="Good choice!"
+          validation-text="Coffee available"
           searchable
         ></ic-select-with-multi>
         <script>
@@ -636,7 +636,7 @@ export const defaultArgs = {
           id="select-warning"
           label="What is your favourite coffee?"
           validation-status="warning"
-          validation-text="We are running low on this type of coffee"
+          validation-text="Only a few left"
           searchable
         ></ic-select-with-multi>
         <script>
@@ -659,7 +659,7 @@ export const defaultArgs = {
           id="select-error"
           label="What is your favourite coffee?"
           validation-status="error"
-          validation-text="Now it has really gone to (coffee) pot"
+          validation-text="Coffee unavailable"
           searchable
         ></ic-select-with-multi>
         <script>
@@ -678,16 +678,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Scroll behaviour
 
-<Canvas>
-  <Story name="Scroll behaviour">
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="Scroll behaviour">
+              {(args) =>
+                  html`<ic-select-with-multi
           id="select-scroll"
           label="What is your favourite coffee?"
           searchable
@@ -711,16 +711,16 @@ export const defaultArgs = {
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### External filtering
 
-<Canvas>
-  <Story name="External filtering" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`<ic-select-with-multi
+    <Canvas>
+          <Story name="External filtering" parameters={{ loki: { skip: true } }}>
+              {(args) =>
+                  html`<ic-select-with-multi
           label="What is your favourite coffee?"
           searchable
           debounce="300"
@@ -784,18 +784,18 @@ export const defaultArgs = {
           select.addEventListener("icChange", handleFilter);
           select.addEventListener("icRetryLoad", handleFilter);
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### In form
 
 This shows how the searchable select works within a form. The value will appear in the console on submit.
 
-<Canvas>
-  <Story name="In form" parameters={{ loki: { skip: true } }}>
-    {(args) =>
-      html`
+    <Canvas>
+          <Story name="In form" parameters={{ loki: { skip: true } }}>
+              {(args) =>
+                  html`
         <form>
           <ic-select-with-multi
             id="select-form"
@@ -823,19 +823,19 @@ This shows how the searchable select works within a form. The value will appear 
           });
         </script>
       `
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Update input value from external request
 
-<Canvas>
-  <Story
-    name="Update input value from external request"
-    parameters={{ loki: { skip: true } }}
-  >
-    {(args) =>
-      html`<ic-section-container>
+    <Canvas>
+          <Story
+              name="Update input value from external request"
+              parameters={{ loki: { skip: true } }}
+            >
+              {(args) =>
+                  html`<ic-section-container>
           <ic-select-with-multi
             id="select-external-request"
             searchable
@@ -867,58 +867,58 @@ This shows how the searchable select works within a form. The value will appear 
             console.log("icOptionSelect", event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>
 
 ### Playground
 
-<Canvas>
-  <Story
-    name="Playground"
-    parameters={{ loki: { skip: true } }}
-    args={defaultArgs}
-    argTypes={{
-      ["search-match-position"]: {
-        defaultValue: "anywhere",
-        options: ["anywhere", "start"],
-        control: { type: "inline-radio" },
-      },
-      ["validation-status"]: {
-        defaultValue: "",
-        options: ["none", "error", "success", "warning"],
-        control: { type: "inline-radio" },
-      },
-      size: {
-        options: ["small", "default", "large"],
-        control: { type: "inline-radio" },
-      },
-    }}
-  >
-    {(args) =>
-      html` <ic-select-with-multi
+    <Canvas>
+          <Story
+              name="Playground"
+              parameters={{ loki: { skip: true } }}
+              args={defaultArgs}
+              argTypes={{
+                ["search-match-position"]: {
+                  defaultValue: "anywhere",
+                  options: ["anywhere", "start"],
+                  control: { type: "inline-radio" },
+                },
+                ["validation-status"]: {
+                  defaultValue: "",
+                  options: ["none", "error", "success", "warning"],
+                  control: { type: "inline-radio" },
+                },
+                size: {
+                  options: ["small", "default", "large"],
+                  control: { type: "inline-radio" },
+                },
+              }}
+            >
+              {(args) =>
+                  html` <ic-select-with-multi
           id="select-playground"
           disabled=${args.disabled}
-          full-width=${args["full-width"]}
-          helper-text=${args["helper-text"]}
-          hide-label=${args["hide-label"]}
-          include-descriptions-in-search=${args[
-            "include-descriptions-in-search"
-          ]}
-          include-group-titles-in-search=${args[
-            "include-group-titles-in-search"
-          ]}
-          loading=${args.loading}
-          loading-label=${args["loading-label"]}
-          label=${args.label}
-          placeholder=${args.placeholder}
-          readonly=${args.readonly}
-          required=${args.required}
-          search-match-position=${args["search-match-position"]}
-          searchable
-          size=${args.size}
-          validation-status=${args["validation-status"]}
-          validation-text=${args["validation-text"]}
+                                  full-width=${args["full-width"]}
+                                  helper-text=${args["helper-text"]}
+                                  hide-label=${args["hide-label"]}
+                                  include-descriptions-in-search=${args[
+                    "include-descriptions-in-search"
+                    ]}
+                                  include-group-titles-in-search=${args[
+                    "include-group-titles-in-search"
+                    ]}
+                                  loading=${args.loading}
+                                  loading-label=${args["loading-label"]}
+                                  label=${args.label}
+                                  placeholder=${args.placeholder}
+                                  readonly=${args.readonly}
+                                  required=${args.required}
+                                  search-match-position=${args["search-match-position"]}
+                                  searchable
+                                  size=${args.size}
+                                  validation-status=${args["validation-status"]}
+                                  validation-text=${args["validation-text"]}
         >
         </ic-select-with-multi>
         <script>
@@ -976,6 +976,6 @@ This shows how the searchable select works within a form. The value will appear 
             console.log(event.detail.value);
           });
         </script>`
-    }
-  </Story>
-</Canvas>
+                }
+              </Story>
+          </Canvas>

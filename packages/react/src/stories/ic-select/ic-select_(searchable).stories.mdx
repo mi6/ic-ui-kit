@@ -15,7 +15,7 @@ import readme from "../../../../web-components/src/components/ic-select/readme.m
 export const defaultArgs = {
   disabled: false,
   fullWidth: false,
-  helperText: "Such as Arabica, Robusta or Liberica.",
+  helperText: "Select one option from the list.",
   hideLabel: false,
   loading: false,
   loadingLabel: "Loading...",
@@ -163,7 +163,7 @@ export const playgroundOptions = [
           onIcOptionSelect={(event) =>
             console.log(`icOptionSelect: ${event.detail.value}`)
           }
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -218,7 +218,7 @@ export const playgroundOptions = [
           options={optionsWithDescriptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -252,7 +252,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={options}
           searchable
-          helperText="Such as Arabica, Robusta or Liberica"
+          helperText="Select one option from the list"
           onIcChange={(event) => console.log(event.detail.value)}
         />
       );
@@ -273,20 +273,20 @@ export const playgroundOptions = [
             searchable
             size="small"
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             options={options}
             searchable
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             options={options}
             searchable
             size="large"
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
         </>
       );
     }}
@@ -375,7 +375,7 @@ export const playgroundOptions = [
           options={groupedOptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
-        ></IcSelect>
+        />
       );
     }}
   </Story>
@@ -426,27 +426,27 @@ export const playgroundOptions = [
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="success"
-            validationText="Good choice!"
+            validationText="Coffee available"
             options={options}
             searchable
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="warning"
-            validationText="We are running low on this type of coffee"
+            validationText="Only a few left"
             options={options}
             searchable
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
           <IcSelect
             label="What is your favourite coffee?"
             validationStatus="error"
-            validationText="Now it has really gone to (coffee) pot"
+            validationText="Coffee unavailable"
             options={options}
             searchable
             onIcChange={(event) => console.log(event.detail.value)}
-          ></IcSelect>
+          />
         </div>
       );
     }}

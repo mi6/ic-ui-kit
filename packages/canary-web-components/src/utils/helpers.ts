@@ -1,4 +1,10 @@
-import { IcCallbackFunctionNoReturn, IcInformationStatusOrEmpty, IcPropObject, IcSearchMatchPositions, IcMenuOption } from "@ukic/web-components";
+import {
+  IcCallbackFunctionNoReturn,
+  IcInformationStatusOrEmpty,
+  IcPropObject,
+  IcSearchMatchPositions,
+  IcMenuOption,
+} from "@ukic/web-components";
 
 // Build does not recognise these functions being passed via @ukic/web-components so they have been added locally
 

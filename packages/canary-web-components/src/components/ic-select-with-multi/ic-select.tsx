@@ -1237,7 +1237,9 @@ export class Select {
                     <div class="clear-button-container">
                       <ic-button
                         id="clear-button"
-                        ref={(el: HTMLIcButtonElement) => (this.clearButton = el)}
+                        ref={(el: HTMLIcButtonElement) =>
+                          (this.clearButton = el)
+                        }
                         aria-label={
                           this.searchableSelectInputValue && currValue === null
                             ? "Clear input"

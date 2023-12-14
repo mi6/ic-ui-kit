@@ -1,34 +1,79 @@
-import { useState, useEffect } from "react";
+
+
+
 import {
   Meta,
   Story,
   Canvas,
-  ArgsTable,
-  Description,
 } from "@storybook/addon-docs";
+import { IcSelectWithMulti } from "../components";
+import { useRef } from "react";
+import readme from "../../../canary-web-components/src/components/ic-select-with-multi/readme.md";
+import {
+  OPTIONS,
+  OPTIONS_WITH_DESCRIPTIONS,
+  OPTIONS_WITH_DISABLED,
+  GROUPED_OPTIONS,
+  OPTIONS_WITH_RECOMMENDED,
+  MANY_OPTIONS,
+} from "../../../canary-web-components/src/components/ic-select-with-multi/story-data";
 
-import { IcSelect, IcButton, IcTypography } from "../../components";
-import readme from "../../../../web-components/src/components/ic-select/readme.md";
+<Meta
+  title="React Components/Select/Multi"
+  component={IcSelectWithMulti}
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
 
-<Meta title="React Components/Select/Multi" component={IcSelect} />
+# [Canary]: Multi-select
 
-export const defaultArgs = {
-  disabled: false,
-  fullWidth: false,
-  helperText: "Such as Arabica, Robusta or Liberica.",
-  hideLabel: false,
-  loading: false,
-  loadingLabel: "Loading...",
-  label: "What is your favourite coffee?",
-  placeholder: "Select an option",
-  readonly: false,
-  required: false,
-  size: "default",
-  validationStatus: "",
-  validationText: "",
-};
+Use the multi-select component to allow users to select one or more values from a list of options.
 
-export const options = [
+There is one required prop for the multi-select:
+
+- label: `string`
+
+Click the 'Component API' tab to view all the available props, events and slots for the multi-select.
+
+To use the multi-select component, import `@ukic/canary-web-components` into your application.
+
+The component tag name for the multi-select is `IcSelectWithMulti`. 
+Even though it is a variant of the `IcSelect` component (which includes the single and searchable selects), this different tag name is necessary because of the need to keep the multi-select functionality separate while it is experimental (in a canary release).
+Note that the `multiple` prop still needs to be applied in order to enable the multi-select functionality.
+
+### Default
+
+An example of a default multi-select (with no additional functionality).
+
+<Canvas withSource="none">
+  <Story name="Default">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+        onIcOptionSelect={(event) =>
+          console.log(`icOptionSelect: ${event.detail.value}`)
+        }
+        onIcOptionDeselect={(event) =>
+          console.log(`icOptionDeselect: ${event.detail.value}`)
+        }
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Default code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
   { label: "Americano", value: "Ame" },
@@ -38,7 +83,143 @@ export const options = [
   { label: "Macchiato", value: "Mac" },
 ];
 
-export const optionsWithDescriptions = [
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+    onIcOptionSelect={(event) =>
+      console.log(`icOptionSelect: ${event.detail.value}`)
+    }
+    onIcOptionDeselect={(event) =>
+      console.log(`icOptionDeselect: ${event.detail.value}`)
+    }
+  />
+);
+
+export default MultiSelect;
+```
+
+### Default value
+
+Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
+
+<Canvas withSource="none">
+  <Story name="Default Value">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        value={["Ame", "Fil", "Moc"]}
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Default value code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    value={["Ame", "Fil", "Moc"]}
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### With clear button
+
+Display a clear button by using the `showClearButton` prop. 
+This will appear when the user has selected some options and allow them to easily clear their selection.
+
+<Canvas withSource="none">
+  <Story name="With Clear Button">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        showClearButton
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### With clear button code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    showClearButton
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### With descriptions
+
+Display extra information about the options by providing a description using the `description` property for each option.
+
+<Canvas withSource="none">
+  <Story name="With Descriptions">
+    <div style={{ height: "470px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS_WITH_DESCRIPTIONS}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### With descriptions code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   {
     label: "Cappuccino",
     value: "Cap",
@@ -62,7 +243,8 @@ export const optionsWithDescriptions = [
   {
     label: "Flat white",
     value: "Fla",
-    description: "Coffee without froth made with espresso and hot steamed milk",
+    description:
+      "Coffee without froth made with espresso and hot steamed milk",
   },
   {
     label: "Mocha",
@@ -76,17 +258,414 @@ export const optionsWithDescriptions = [
   },
 ];
 
-export const optionsWithDisabled = [
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+```
+
+### Helper text
+
+Display helper text to provide additional information by using the `helperText` prop.
+
+<Canvas withSource="none">
+  <Story name="Helper Text">
+    <div style={{ height: "450px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        helperText="Select some options from the list"
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Helper text code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   { label: "Cappuccino", value: "Cap" },
-  { label: "Latte", value: "Lat", disabled: "true" },
+  { label: "Latte", value: "Lat" },
   { label: "Americano", value: "Ame" },
-  { label: "Filter", value: "Fil", disabled: "true" },
-  { label: "Flat white", value: "Fla", disabled: "true" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
   { label: "Mocha", value: "Moc" },
   { label: "Macchiato", value: "Mac" },
 ];
 
-export const groupedOptions = [
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    helperText="Select some options from the list"
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Sizes
+
+Set the size of the multi-select by using the `size` prop. This prop takes the values `small`, `default` or `large`.
+Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component. 
+The `default` variant is seen in the first [default](#default) example.
+
+<Canvas withSource="none">
+  <Story name="Sizes">
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "650px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        size="small"
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        size="large"
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Sizes code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelects = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+    <IcSelectWithMulti
+      label="What are your favourite types of coffee?"
+      options={options}
+      multiple
+      size="small"
+      onIcChange={(event) =>
+        console.log(`icChange: ${event.detail.value}`)
+      }
+    />
+    <IcSelectWithMulti
+      label="What are your favourite types of coffee?"
+      options={options}
+      multiple
+      onIcChange={(event) =>
+        console.log(`icChange: ${event.detail.value}`)
+      }
+    />
+    <IcSelectWithMulti
+      label="What are your favourite types of coffee?"
+      options={options}
+      multiple
+      size="large"
+      onIcChange={(event) =>
+        console.log(`icChange: ${event.detail.value}`)
+      }
+    />
+  </div>
+);
+
+export default MultiSelects;
+```
+
+### Disabled
+
+Disable the multi-select and prevent user interaction by using the `disabled` prop.
+
+<Canvas withSource="none">
+  <Story name="Disabled">
+    <div style={{ height: "200px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        disabled
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Disabled code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    disabled
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Disabled options
+
+Disable certain options by setting the `disabled` property to `true` for each option.
+
+<Canvas withSource="none">
+  <Story name="Disabled Options">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS_WITH_DISABLED}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Disabled options code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat", disabled: true },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil", disabled: true },
+  { label: "Flat white", value: "Fla", disabled: true },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    disabled
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Hidden label
+
+Hide the visible label for the multi-select by using the `hideLabel` prop. 
+
+<Canvas withSource="none">
+  <Story name="Hidden label">
+    <div style={{ height: "400px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        hideLabel
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Hidden label code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    hideLabel
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Required
+
+Inform the user that the multi-select is a required field by using the `required` prop. 
+This will display an asterisk next to the label and apply the `aria-required` attribute.
+
+<Canvas withSource="none">
+  <Story name="Required">
+  
+    <IcSelectWithMulti
+      label="What are your favourite types of coffee?"
+      options={OPTIONS}
+      multiple
+      required
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+    />
+  </Story>
+</Canvas>
+
+#### Required code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    required
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Read-only
+
+Make the multi-select read-only by using the `readonly` prop.
+Use the `value` prop to set which options are selected and will be displayed when it is read-only.
+
+<Canvas withSource="none">
+  <Story name="Read-only">
+    <div style={{ height: "200px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        readonly
+        value={["Cap", "Fla", "Moc"]}
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Read-only code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+];
+
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    readonly
+    value={["Cap", "Fla", "Moc"]}
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Groups
+
+Display options in groups by passing an array of child options to the `children` property of a parent option.
+The parent option will be rendered as the title of the group.
+
+<Canvas withSource="none">
+  <Story name="Groups">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={GROUPED_OPTIONS}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Groups code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   {
     label: "Fancy",
     children: [
@@ -103,7 +682,43 @@ export const groupedOptions = [
   },
 ];
 
-export const optionsWithRecommended = [
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Recommended
+
+Display certain options at the top of the option list by setting the `recommended` property to `true` on each option.
+This will allow for quick access to these options.
+
+<Canvas withSource="none">
+  <Story name="Recommended">
+    <div style={{ height: "430px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS_WITH_RECOMMENDED}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Recommended code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
   { label: "Americano", value: "Ame", recommended: true },
@@ -113,7 +728,67 @@ export const optionsWithRecommended = [
   { label: "Macchiato", value: "Mac" },
 ];
 
-export const manyOptions = [
+const MultiSelect = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+  />
+);
+
+export default MultiSelect;
+```
+
+### Validation
+
+Display a validation status and message by using the `validationStatus` and `validationMessage` props.
+The `validationStatus` prop takes the values `success`, `warning` or `error`.
+
+<Canvas>
+  <Story name="Validation">
+    <div style={{ height: "640px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        validationStatus="success"
+        validationText="Coffee available"
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        validationStatus="warning"
+        validationText="Only a few left"
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={OPTIONS}
+        multiple
+        validationStatus="error"
+        validationText="Coffee unavailable"
+        onIcChange={(event) =>
+          console.log(`icChange: ${event.detail.value}`)
+        }
+      />
+    </div>
+  </Story>
+</Canvas>
+
+#### Validation code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },
   { label: "Americano", value: "Ame" },
@@ -121,415 +796,121 @@ export const manyOptions = [
   { label: "Flat white", value: "Fla" },
   { label: "Mocha", value: "Moc" },
   { label: "Macchiato", value: "Mac" },
-  { label: "Café au lait", value: "Caf" },
-  { label: "Espresso", value: "Esp" },
-  { label: "Cortado", value: "Cor" },
-  { label: "Ristretto", value: "Ris" },
 ];
 
-export const playgroundOptions = [
-  {
-    label: "Cappuccino",
-    value: "Cap",
-    description: "Coffee frothed up with pressurised steam",
-  },
-  {
-    label: "Boring",
-    children: [
-      {
-        label: "Latte",
-        value: "Lat",
-        description: "A milkier coffee than a cappuccino",
-      },
-      {
-        label: "Filter",
-        value: "Fil",
-        description: "Coffee filtered using paper or a mesh",
-      },
-    ],
-  },
-  {
-    label: "Fancy",
-    children: [
-      {
-        label: "Flat white",
-        value: "Fla",
-        description:
-          "Coffee without froth made with espresso and hot steamed milk",
-      },
-      {
-        label: "Macchiato",
-        value: "Mac",
-        description: "Espresso coffee with a dash of frothy steamed milk",
-      },
-    ],
-  },
-  {
-    label: "Americano",
-    value: "Ame",
-    description: "Espresso coffee diluted with hot water",
-  },
-  {
-    label: "Mocha",
-    value: "Moc",
-    description: "A mixture of coffee and chocolate",
-  },
+const MultiSelects = () => (
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    validationStatus="success"
+    validationText="Coffee available"
+    onIcChange={(event) =>
+      console.log(`icChange: ${event.detail.value}`)
+    }
+  />
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    validationStatus="warning"
+    validationText="Only a few left"
+    onIcChange={(event) =>
+      console.log(`icChange: ${event.detail.value}`)
+    }
+  />
+  <IcSelectWithMulti
+    label="What are your favourite types of coffee?"
+    options={options}
+    multiple
+    validationStatus="error"
+    validationText="Coffee unavailable"
+    onIcChange={(event) =>
+      console.log(`icChange: ${event.detail.value}`)
+    }
+  />
+);
+
+export default MultiSelects;
+```
+
+### Loading with error
+
+Display the loading state by using the `loading` prop. 
+The multi-select will show a loading error after the amount of time specified using the `timeout` prop has elapsed.
+
+export const LoadingWithError = () => {
+  const selectEl = useRef();
+  return (
+    <IcSelectWithMulti
+      ref={selectEl}
+      label="What are your favourite types of coffee?"
+      options={OPTIONS}
+      multiple
+      loading
+      timeout="1000"
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      onIcRetryLoad={(event) => selectEl.current.loading = true}
+    ></IcSelectWithMulti>
+  );
+};
+
+<Canvas withSource="none">
+  <Story name="Loading With Error">
+    <div style={{ height: "430px" }}>
+      <LoadingWithError />
+    </div>
+  </Story>
+</Canvas>
+
+#### Loading with error code example
+
+```jsx
+import * as React from "react";
+import { IcSelectWithMulti } from "@ukic/canary-react";
+
+const options: IcMenuOption[] = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
 ];
 
-### Default
+const MultiSelect = () => {
+  const selectEl = useRef();
 
-<Canvas>
-  <Story name="Default">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-          onIcOptionSelect={(event) =>
-            console.log(`icOptionSelect: ${event.detail.value}`)
-          }
-          onIcOptionDeselect={(event) =>
-            console.log(`icOptionDeselect: ${event.detail.value}`)
-          }
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
+  return (
+    <IcSelectWithMulti
+      ref={selectEl}
+      label="What are your favourite types of coffee?"
+      options={options}
+      loading
+      timeout="1000"
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      onIcRetryLoad={(event) => selectEl.current.loading = true}
+    ></IcSelectWithMulti>
+  );
+}
 
-### Default value
-
-<Canvas>
-  <Story name="Default value">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          value={["Fil", "Moc", "Ame"]}
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### With clear button
-
-<Canvas>
-  <Story name="With clear button">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          showClearButton
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### With descriptions
-
-<Canvas>
-  <Story name="With descriptions">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={optionsWithDescriptions}
-          multiple
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Helper text
-
-<Canvas>
-  <Story name="Helper text">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          helperText="Such as Arabica, Robusta or Liberica"
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Sizes
-
-<Canvas>
-  <Story name="Sizes">
-    {() => {
-      return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            size="small"
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            size="large"
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Disabled
-
-<Canvas>
-  <Story name="Disabled">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          disabled
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Disabled options
-
-<Canvas>
-  <Story name="Disabled options">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={optionsWithDisabled}
-          multiple
-          disabled
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Hidden label
-
-<Canvas>
-  <Story name="Hidden label">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          hide-label
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Required
-
-<Canvas>
-  <Story name="Required">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          required
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Read-only
-
-<Canvas>
-  <Story name="Read-only">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={options}
-          multiple
-          readonly
-          value={["Cap", "Fla", "Moc"]}
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Groups
-
-<Canvas>
-  <Story name="Groups">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={groupedOptions}
-          multiple
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Recommended
-
-<Canvas>
-  <Story name="Recommended">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={optionsWithRecommended}
-          multiple
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Validation
-
-<Canvas>
-  <Story name="Validation">
-    {() => {
-      return (
-        <>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            validationStatus="success"
-            validationText="Good choice!"
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            validationStatus="warning"
-            validationText="We are running low on this type of coffee"
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-          <IcSelect
-            label="What is your favourite coffee?"
-            options={options}
-            multiple
-            validationStatus="error"
-            validationText="Now it has really gone to (coffee) pot"
-            onIcChange={(event) =>
-              console.log(`icChange: ${event.detail.value}`)
-            }
-          ></IcSelect>
-        </>
-      );
-    }}
-  </Story>
-</Canvas>
+export default MultiSelect;
+```
 
 ### Scroll behaviour
 
-<Canvas>
-  <Story name="Scroll behaviour">
-    {() => {
-      return (
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={manyOptions}
-          multiple
-          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-        ></IcSelect>
-      );
-    }}
-  </Story>
-</Canvas>
+**Will remove before the canary release as it's mainly for review purposes i.e. doesn't demonstrate the behaviour of a prop.**
 
-### Playground
-
-<Canvas>
-  <Story
-    name="Playground"
-    parameters={{ loki: { skip: true } }}
-    args={defaultArgs}
-    argTypes={{
-      ["validation-status"]: {
-        options: ["none", "error", "success", "warning"],
-        control: { type: "inline-radio" },
-      },
-      size: {
-        options: ["small", "default", "large"],
-        control: { type: "inline-radio" },
-      },
-    }}
-  >
-    {(args) => (
-      <IcSelect
-        options={playgroundOptions}
-        disabled={args.disabled}
-        fullWidth={args.fullWidth}
-        helperText={args.helperText}
-        hideLabel={args.hideLabel}
-        loading={args.loading}
-        loadingLabel={args.loadingLabel}
-        label={args.label}
-        placeholder={args.placeholder}
-        readonly={args.readonly}
-        required={args.required}
-        showClearButton={args.showClearButton}
-        size={args.size}
-        validationStatus={args.validationStatus}
-        validationText={args.validationText}
-      />
-    )}
+<Canvas withSource="none">
+  <Story name="Scroll Behaviour">
+    <div style={{ height: "480px" }}>
+      <IcSelectWithMulti
+        label="What are your favourite types of coffee?"
+        options={MANY_OPTIONS}
+        multiple
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
+      ></IcSelectWithMulti>
+    </div>
   </Story>
 </Canvas>

@@ -11082,7 +11082,7 @@
           "mutable": true,
           "attr": "loading",
           "reflectToAttr": false,
-          "docs": "Trigger loading state when fetching options asyncronously",
+          "docs": "Trigger loading state when fetching options asynchronously",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12204,7 +12204,7 @@
           "mutable": true,
           "attr": "loading",
           "reflectToAttr": false,
-          "docs": "If `true`, the loading state will be triggered when fetching options asyncronously.",
+          "docs": "If `true`, the loading state will be triggered when fetching options asynchronously.",
           "docsTags": [],
           "default": "false",
           "values": [
