@@ -7,10 +7,12 @@ on:
 
 jobs:
   check-updates:
+    name: "Check package updates"
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
     outputs:
+      core: ${{ steps.filter.outputs.core }}
       canary: ${{ steps.filter.outputs.canary }}
     steps:
       - uses: actions/checkout@v3
@@ -18,12 +20,16 @@ jobs:
         id: filter
         with:
           filters: |
+            core:
+              - './packages/web-components/**'
+              - './packages/react/**'
             canary:
               - './packages/canary-web-components/**'
               - './packages/canary-react/**'
 
   ic-ui-kit-static-analysis-tests:
-    name: "Static Analysis Tests"
+    needs: [check-updates]
+    name: "Static analysis tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +37,15 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install core dependencies
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm run build
+
+      - name: Install all dependencies
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
@@ -58,7 +72,8 @@ jobs:
         run: npm run test:coverage-ci
 
   ic-ui-kit-e2e-tests:
-    name: "E2E Tests"
+    needs: [check-updates]
+    name: "E2E tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -71,11 +86,17 @@ jobs:
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: E2E tests
+      - name: E2E core tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
         run: npm run test-e2e
 
+      - name: E2E canary tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-e2e:canary
+
   ic-ui-kit-visual-tests:
-    name: "Visual Regression Tests"
+    needs: ["check-updates"]
+    name: "Visual regression tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -89,8 +110,13 @@ jobs:
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Visual Regression tests
+      - name: Core visual regression tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
         run: npm run test-visual:ci
+
+      - name: Canary visual regression tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-visual:ci:canary
 
   ic-ui-kit-publish:
     needs:
@@ -99,7 +125,7 @@ jobs:
         ic-ui-kit-e2e-tests,
         ic-ui-kit-visual-tests,
       ]
-    name: "Publish Production Packages"
+    name: "Publish production packages"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -131,9 +157,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   ic-ui-kit-deploy-storybook-canary:
+    needs: [ic-ui-kit-publish, check-updates]
     if: ${{ needs.check-updates.outputs.canary == 'true' }}
-    needs: [ic-ui-kit-publish]
-    name: "Deploy Canary Storybook"
+    name: "Deploy canary storybook"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -151,17 +177,17 @@ jobs:
           npm run build-storybook:canary-web-components
           npm run build-storybook:canary-react
 
-      - name: Deploy CANARY web components storybook
+      - name: Deploy canary web components storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/canary-web-components/storybook-static
-          target-folder: ./branches/main/canary-web-components
+          target-folder: ./branches/canary/main/web-components
 
-      - name: Deploy CANARY react storybook
+      - name: Deploy canary react storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./packages/canary-react/storybook-static
-          target-folder: ./branches/main/canary-react
+          target-folder: ./branches/canary/main/react
 
   # Triggers a workflow in the design system repo
   ic-ui-kit-update-design-system:
