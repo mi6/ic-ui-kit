@@ -2,15 +2,21 @@ dist/
 build/
 www/
 
-packages/web-components/docs.json
 packages/web-components/.loki/current
 packages/web-components/.loki/difference
 packages/web-components/docs.d.ts
 packages/react/css/
 packages/docs/docs.d.ts
 
+packages/canary-web-components/.loki/current
+packages/canary-web-components/.loki/difference
+packages/canary-react/css/
+
 packages/web-components/storybook-static
 packages/react/storybook-static
+
+packages/canary-web-components/storybook-static
+packages/canary-react/storybook-static
 
 *.log
 *.lock

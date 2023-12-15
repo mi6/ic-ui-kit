@@ -25,7 +25,7 @@
     "create-component": "stencil generate",
     "storybook": "npm-run-all --parallel build:watch start-storybook",
     "start-storybook": "start-storybook -p 6008 -s dist --no-manager-cache",
-    "build-storybook": "rimraf /storybook-static && build-storybook -s public",
+    "build-storybook": "rimraf /storybook-static && build-storybook",
     "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
     "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write",
     "lint": "remark src && echo '*** Linting CSS ***' && stylelint --config ../../.stylelintrc.json src/**/*.css && echo '*** Linting standard files ***' && eslint --config ../../.eslintrc.js src",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.2",
-    "@stencil/core": "^4.3.0",
+    "@stencil/core": "^4.9.0",
     "@ukic/web-components": "^2.6.0"
   },
   "peerDependencies": {
