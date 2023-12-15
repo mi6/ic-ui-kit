@@ -8,6 +8,6 @@
     "jsxFactory": "h",
     "allowJs": true
   },
-  "include": ["src"],
+  "include": ["src", "./node.d.ts"],
   "exclude": ["node_modules", "src/testa11y.setup.ts"]
 }
