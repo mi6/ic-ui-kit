@@ -1,6 +1,0 @@
-{
-  "name": "@ukic/canary-web-components/hydrate",
-  "description": "core component hydration app.",
-  "main": "index.js",
-  "types": "index.d.ts"
-}
