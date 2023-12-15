@@ -15,5 +15,5 @@ module.exports = {
     "@storybook/addon-docs",
     "./addon-tab/register"
   ],
-  "framework": "@storybook/web-components"
+"framework": "@storybook/web-components"
 }
