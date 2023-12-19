@@ -80,8 +80,31 @@ jobs:
       - name: Visual Regression tests
         run: npm run test-visual:ci
 
+  ic-ui-kit-cypress-tests:
+    name: "Cypress Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: browser-actions/setup-chrome@latest
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Cypress tests
+        run: npm run test-cypress:ci
+
   ic-ui-kit-deploy:
-    needs: [ic-ui-kit-static-analysis-tests, ic-ui-kit-e2e-tests, ic-ui-kit-visual-tests]
+    needs: [
+      ic-ui-kit-static-analysis-tests, 
+      ic-ui-kit-e2e-tests, 
+      ic-ui-kit-visual-tests,
+      ic-ui-kit-cypress-tests
+    ]
     name: 'Deploy QA Storybook'
     runs-on: ubuntu-latest
     steps:
