@@ -51,13 +51,25 @@ const INPUT_TYPE_HIDDEN = "input[type='hidden']";
 const NO_RESULTS_FOUND = "No results found";
 
 describe("IcSelect", () => {
-  it("should render when no options are provided", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it.only("should render when no options are provided", () => {
     mount(<IcSelect label="What is your favourite coffee?" />);
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect in idle state
+    cy.compareSnapshot("default");
+
     cy.get("ic-select").should("exist");
   });
 
-  it("should render options correctly", () => {
+  it.only("should render options correctly", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -67,6 +79,13 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
+
+    // Screenshot: IcSelect with IcMenu open
+    cy.compareSnapshot("default-open");
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
       .should(HAVE_LENGTH, "6")
       .each(($t1) => {
@@ -74,7 +93,7 @@ describe("IcSelect", () => {
       });
   });
 
-  it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", () => {
+  it.only("should open, set focus on menu and set aria-expanded to 'true' when input clicked", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -84,6 +103,10 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", "button").should(HAVE_ATTR, "aria-expanded");
+
+    // A11y: Check a11y for aria-expanded
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .should(BE_VISIBLE)
       .should(HAVE_FOCUS);
@@ -1855,616 +1878,616 @@ describe("IcSelect", () => {
   });
 });
 
-describe("IcSelect Visual Regression Testing", () => {
-  beforeEach(() => {
-    cy.injectAxe();
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("renders", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("default-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a default value", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default-value");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("default-value-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a clear button", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("clear-button");
-
-    cy.get("ic-select").shadow().find("ic-button#clear-button").click();
-    cy.compareSnapshot("clear-button-cleared");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("descriptions-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with helper text", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        helperText="Enter your favourite coffee"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("helper-text");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom placeholder", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        placeholder="Placeholder goes here"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("custom-placeholder");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom elements", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeCustomElements}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("custom-elements-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        size="small"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("small");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("small-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small - deprecated", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        small
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("small");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("small-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders disabled", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        disabled
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("disabled");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with disabled options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeDisabledOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("disabled-options-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders full width", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        fullWidth
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("full-width");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("full-width-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with hidden label", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        hideLabel
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("hidden-label");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders required", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        required
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("required");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders readonly", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        readonly
-        value="cappuccino"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("readonly");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("groups-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with recommendations", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={recommendedCoffeeOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("recommended-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders validation", () => {
-    mount(
-      <div>
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="success"
-          validationText="Success message!"
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="warning"
-          validationText="Warning message!"
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="error"
-          validationText="Error message!"
-        />
-      </div>
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("validation");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-});
-
-describe("IcSelect Searchable Visual Regression Testing", () => {
-  beforeEach(() => {
-    cy.injectAxe();
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("renders", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-default-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a default value", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-default-value");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-default-value-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with filtering at the start", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        searchable
-        searchMatchPosition="start"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-search-match-position-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-descriptions-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions included in filter", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-        searchable
-        includeDescriptionsInSearch
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
-    cy.compareSnapshot("searchable-descriptions-in-filter-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with helper text", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        helperText="Enter your favourite coffee"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-helper-text");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom placeholder", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        placeholder="Placeholder goes here"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-custom-placeholder");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom elements", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeCustomElements}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-custom-elements-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        size="small"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("searchable-small-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small - deprecated", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        small
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small");
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("searchable-small-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders disabled", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        disabled
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-disabled");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with disabled options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeDisabledOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-disabled-options-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders full width", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        fullWidth
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-full-width");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-full-width-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with hidden label", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        hideLabel
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-hidden-label");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders required", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        required
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-required");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-groups-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups included in search", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-        searchable
-        includeGroupTitlesInSearch
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
-    cy.compareSnapshot("searchable-groups-in-filter-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with recommendations", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={recommendedCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(SEARCHABLE_DEFAULT);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-recommended-open");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders validation", () => {
-    mount(
-      <div>
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="success"
-          validationText="Success message!"
-          searchable
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="warning"
-          validationText="Warning message!"
-          searchable
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="error"
-          validationText="Error message!"
-          searchable
-        />
-      </div>
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-validation");
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-});
+// describe("IcSelect Visual Regression Testing", () => {
+//   beforeEach(() => {
+//     cy.injectAxe();
+//   });
+
+//   afterEach(() => {
+//     cy.task("generateReport");
+//   });
+
+//   it("renders", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("default-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with a default value", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         value="cappuccino"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default-value");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("default-value-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with a clear button", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         value="cappuccino"
+//         showClearButton
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("clear-button");
+
+//     cy.get("ic-select").shadow().find("ic-button#clear-button").click();
+//     cy.compareSnapshot("clear-button-cleared");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with descriptions", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptionsDescriptions}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("descriptions-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with helper text", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         helperText="Enter your favourite coffee"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("helper-text");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with custom placeholder", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         placeholder="Placeholder goes here"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("custom-placeholder");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with custom elements", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeCustomElements}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("custom-elements-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders small", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         size="small"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("small");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("small-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders small - deprecated", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         small
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("small");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("small-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders disabled", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         disabled
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("disabled");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with disabled options", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeDisabledOption}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("disabled-options-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders full width", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         fullWidth
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("full-width");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("full-width-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with hidden label", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         hideLabel
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("hidden-label");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders required", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         required
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("required");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders readonly", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         readonly
+//         value="cappuccino"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("readonly");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with groups", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={groupCoffeeOption}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("groups-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with recommendations", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={recommendedCoffeeOption}
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("default");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("recommended-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders validation", () => {
+//     mount(
+//       <div>
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="success"
+//           validationText="Success message!"
+//         />
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="warning"
+//           validationText="Warning message!"
+//         />
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="error"
+//           validationText="Error message!"
+//         />
+//       </div>
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("validation");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+// });
+
+// describe("IcSelect Searchable Visual Regression Testing", () => {
+//   beforeEach(() => {
+//     cy.injectAxe();
+//   });
+
+//   afterEach(() => {
+//     cy.task("generateReport");
+//   });
+
+//   it("renders", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-default-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with a default value", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         value="cappuccino"
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-default-value");
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-default-value-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with filtering at the start", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         searchable
+//         searchMatchPosition="start"
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-search-match-position-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with descriptions", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptionsDescriptions}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-descriptions-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with descriptions included in filter", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptionsDescriptions}
+//         searchable
+//         includeDescriptionsInSearch
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
+//     cy.compareSnapshot("searchable-descriptions-in-filter-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with helper text", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         helperText="Enter your favourite coffee"
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-helper-text");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with custom placeholder", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         placeholder="Placeholder goes here"
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-custom-placeholder");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with custom elements", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeCustomElements}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-custom-elements-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders small", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         size="small"
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-small");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("searchable-small-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders small - deprecated", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         small
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-small");
+
+//     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+//     cy.compareSnapshot("searchable-small-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders disabled", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         disabled
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-disabled");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with disabled options", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeDisabledOption}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-disabled-options-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders full width", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         fullWidth
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-full-width");
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-full-width-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with hidden label", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         hideLabel
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-hidden-label");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders required", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={coffeeOptions}
+//         required
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-required");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with groups", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={groupCoffeeOption}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-groups-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with groups included in search", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={groupCoffeeOption}
+//         searchable
+//         includeGroupTitlesInSearch
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
+//     cy.compareSnapshot("searchable-groups-in-filter-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders with recommendations", () => {
+//     mount(
+//       <IcSelect
+//         label="What is your favourite coffee?"
+//         options={recommendedCoffeeOption}
+//         searchable
+//       />
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot(SEARCHABLE_DEFAULT);
+
+//     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+//     cy.compareSnapshot("searchable-recommended-open");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+
+//   it("renders validation", () => {
+//     mount(
+//       <div>
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="success"
+//           validationText="Success message!"
+//           searchable
+//         />
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="warning"
+//           validationText="Warning message!"
+//           searchable
+//         />
+//         <IcSelect
+//           label="What is your favourite coffee?"
+//           options={coffeeOptions}
+//           validationStatus="error"
+//           validationText="Error message!"
+//           searchable
+//         />
+//       </div>
+//     );
+//     cy.checkHydrated("ic-select");
+//     cy.compareSnapshot("searchable-validation");
+//     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+//   });
+// });
