@@ -5,6 +5,8 @@ bash "$(dirname "$0")/email-check.sh"
 
 npm run test-visual
 
+npm run test-cypress:headless
+
 pwd=$(pwd)
 
 cd packages/web-components
