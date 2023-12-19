@@ -126,6 +126,24 @@ jobs:
       - name: Canary visual regression tests
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: npm run test-visual:ci:canary
+        
+  ic-ui-kit-cypress-tests:
+    name: "Cypress Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: browser-actions/setup-chrome@latest
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Cypress tests
+        run: npm run test-cypress:ci
 
   ic-ui-kit-deploy:
     needs:
@@ -134,6 +152,7 @@ jobs:
         ic-ui-kit-e2e-tests,
         ic-ui-kit-visual-tests,
         check-updates,
+        ic-ui-kit-cypress-tests,
       ]
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'workflow_dispatch' }}
     name: "Deploy storybook"
