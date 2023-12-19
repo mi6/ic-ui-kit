@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import {
-  Meta,
-  Story,
-  Canvas,
-} from "@storybook/addon-docs";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
 import { IcSelectWithMulti } from "../components";
 import { IcButton, IcTypography } from '@ukic/react';
 import readme from "../../../canary-web-components/src/components/ic-select-with-multi/readme.md";
 
 <Meta title="React Components/Select/Searchable" component={IcSelectWithMulti} />
+
+<Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
@@ -179,7 +177,7 @@ export const playgroundOptions = [
           required
           value="Lat"
           options={options}
-          onIcChange={(event) => console.log(e.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           searchable
           showClearButton
         />
@@ -199,7 +197,7 @@ export const playgroundOptions = [
           options={options}
           searchable
           filterMatchPosition="start"
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -216,7 +214,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithDescriptions}
           searchable
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -234,7 +232,7 @@ export const playgroundOptions = [
           options={optionsWithDescriptions}
           searchable
           includeDescriptionsInSearch
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -252,7 +250,7 @@ export const playgroundOptions = [
           options={options}
           searchable
           helperText="Select one option from the list"
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -271,20 +269,20 @@ export const playgroundOptions = [
             options={options}
             searchable
             size="small"
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
           <IcSelectWithMulti
             label="What is your favourite coffee?"
             options={options}
             searchable
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
           <IcSelectWithMulti
             label="What is your favourite coffee?"
             options={options}
             searchable
             size="large"
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
         </>
       );
@@ -303,7 +301,7 @@ export const playgroundOptions = [
           options={options}
           searchable
           disabled
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -320,7 +318,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithDisabled}
           searchable
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -338,7 +336,7 @@ export const playgroundOptions = [
           options={options}
           searchable
           hideLabel
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -356,7 +354,7 @@ export const playgroundOptions = [
           options={options}
           searchable
           required
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -373,7 +371,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={groupedOptions}
           searchable
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -391,7 +389,7 @@ export const playgroundOptions = [
           options={groupedOptions}
           searchable
           includeGroupTitlesInSearch
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -408,7 +406,7 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={optionsWithRecommended}
           searchable
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -428,7 +426,7 @@ export const playgroundOptions = [
             validationText="Coffee available"
             options={options}
             searchable
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
           <IcSelectWithMulti
             label="What is your favourite coffee?"
@@ -436,7 +434,7 @@ export const playgroundOptions = [
             validationText="Only a few left"
             options={options}
             searchable
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
           <IcSelectWithMulti
             label="What is your favourite coffee?"
@@ -444,7 +442,7 @@ export const playgroundOptions = [
             validationText="Coffee unavailable"
             options={options}
             searchable
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
         </div>
       );
@@ -460,7 +458,7 @@ export const InForm = () => {
         required
         value="Cap"
         options={options}
-        onIcChange={(event) => console.log(e.detail.value)}
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         searchable
         showClearButton
       />
@@ -489,7 +487,7 @@ export const InForm = () => {
           label="What is your favourite coffee?"
           options={manyOptions}
           searchable
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}

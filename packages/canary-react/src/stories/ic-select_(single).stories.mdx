@@ -1,14 +1,13 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-} from "@storybook/addon-docs";
+import { useRef } from "react";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 
 import { IcSelectWithMulti } from "../components";
 import { IcButton, IcTypography } from "@ukic/react";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 <Meta title="React Components/Select/Single" component={IcSelectWithMulti} />
+
+<Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
@@ -172,7 +171,7 @@ export const playgroundOptions = [
   <Story name="Default">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={options}
           onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
@@ -191,11 +190,11 @@ export const playgroundOptions = [
   <Story name="Default value">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={options}
           value="Cap"
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -208,11 +207,11 @@ export const playgroundOptions = [
   <Story name="With clear button">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           showClearButton
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -225,10 +224,10 @@ export const playgroundOptions = [
   <Story name="With descriptions">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={optionsWithDescriptions}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -241,11 +240,11 @@ export const playgroundOptions = [
   <Story name="Helper text">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           helperText="Select one option from the list"
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -258,12 +257,12 @@ export const playgroundOptions = [
   <Story name="Custom placeholder">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           placeholder="Placeholder goes here"
           options={options}
           value={value}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -276,10 +275,10 @@ export const playgroundOptions = [
   <Story name="Custom elements">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={optionsWithCustomElements}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -293,7 +292,7 @@ export const playgroundOptions = [
     {() => {
       return (
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             options={options}
             size="small"
@@ -301,14 +300,14 @@ export const playgroundOptions = [
               console.log(`icChange: ${event.detail.value}`)
             }
           />
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             options={options}
             onIcChange={(event) =>
               console.log(`icChange: ${event.detail.value}`)
             }
           />
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             options={options}
             size="large"
@@ -328,11 +327,11 @@ export const playgroundOptions = [
   <Story name="Disabled">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           disabled
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -345,10 +344,10 @@ export const playgroundOptions = [
   <Story name="Disabled options">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={optionsWithDisabled}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -361,11 +360,11 @@ export const playgroundOptions = [
   <Story name="Full width">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           fullWidth
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -378,11 +377,11 @@ export const playgroundOptions = [
   <Story name="Hidden label">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           hideLabel
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -395,11 +394,11 @@ export const playgroundOptions = [
   <Story name="Required">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           required
           options={options}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -412,12 +411,12 @@ export const playgroundOptions = [
   <Story name="Read-only">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           readonly
           options={options}
           value="Cap"
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -430,10 +429,10 @@ export const playgroundOptions = [
   <Story name="Groups">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={groupedOptions}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -446,10 +445,10 @@ export const playgroundOptions = [
   <Story name="Recommended">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={optionsWithRecommended}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -463,26 +462,26 @@ export const playgroundOptions = [
     {() => {
       return (
         <div>
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             validationStatus="success"
             validationText="Coffee available"
             options={options}
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             validationStatus="warning"
             validationText="Only a few left"
             options={options}
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
-          <IcSelect
+          <IcSelectWithMulti
             label="What is your favourite coffee?"
             validationStatus="error"
             validationText="Coffee unavailable"
             options={options}
-            onIcChange={(event) => console.log(event.detail.value)}
+            onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
           />
         </div>
       );
@@ -496,10 +495,10 @@ export const playgroundOptions = [
   <Story name="Scroll behaviour">
     {() => {
       return (
-        <IcSelect
+        <IcSelectWithMulti
           label="What is your favourite coffee?"
           options={manyOptions}
-          onIcChange={(event) => console.log(event.detail.value)}
+          onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
         />
       );
     }}
@@ -511,7 +510,7 @@ export const playgroundOptions = [
 export const LoadingWithError = () => {
   const selectEl = useRef();
   return (
-    <IcSelect
+    <IcSelectWithMulti
       ref={selectEl}
       label="What are your favourite types of coffee?"
       options={options}
@@ -544,7 +543,7 @@ export const LoadingWithError = () => {
     }}
   >
     {(args) => (
-      <IcSelect
+      <IcSelectWithMulti
         options={playgroundOptions}
         disabled={args.disabled}
         fullWidth={args.fullWidth}

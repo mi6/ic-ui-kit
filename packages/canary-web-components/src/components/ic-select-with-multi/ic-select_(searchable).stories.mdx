@@ -6,11 +6,11 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { html } from "lit-html";
-// import readme from "./readme.md";
+import readme from "./readme.md";
 
     <Meta title="Web Components/Select/Searchable" component="ic-select-with-multi" />
 
-    {/* <Description markdown={readme} /> */}
+    <Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
@@ -80,9 +80,6 @@ export const defaultArgs = {
         <script>
           var select = document.querySelector("#select-async");
           select.options = [];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
           setTimeout(() => {
             select.options = [
               { label: "Cappuccino", value: "Cap" },
@@ -92,12 +89,11 @@ export const defaultArgs = {
               { label: "Flat white", value: "Fla" },
               { label: "Mocha", value: "Moc" },
               { label: "Macchiato", value: "Mac" },
-              { label: "Café au lait", value: "Caf" },
-              { label: "Espresso", value: "Esp" },
-              { label: "Cortado", value: "Cor" },
-              { label: "Ristretto", value: "Ris" },
             ];
           }, 5000);
+          select.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
         </script>`
                 }
               </Story>
@@ -126,7 +122,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -156,7 +152,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -214,7 +210,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -273,7 +269,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -303,7 +299,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -334,7 +330,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select-with-multi
@@ -354,7 +350,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select-with-multi
@@ -375,7 +371,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
       </div>`
@@ -406,7 +402,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -435,7 +431,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac", disabled: true },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -465,7 +461,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -495,7 +491,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -531,7 +527,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -568,7 +564,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -597,7 +593,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -629,7 +625,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select1.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select-with-multi
@@ -652,7 +648,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select2.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select-with-multi
@@ -675,7 +671,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select3.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -708,7 +704,7 @@ export const defaultArgs = {
             { label: "Ristretto", value: "Ris" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -815,7 +811,7 @@ This shows how the searchable select works within a form. The value will appear 
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
           document.querySelector("form").addEventListener("submit", (ev) => {
             ev.preventDefault();
@@ -973,7 +969,7 @@ This shows how the searchable select works within a form. The value will appear 
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }

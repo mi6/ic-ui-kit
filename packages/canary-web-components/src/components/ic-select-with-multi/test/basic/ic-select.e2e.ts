@@ -67,9 +67,9 @@ const optionsWithGroups = `[
 
 const getTestSelect = (
   options: string
-) => `<ic-select label="IC Select Test"></ic-select>
+) => `<ic-select-with-multi label="IC Select Test"></ic-select-with-multi>
   <script>
-    var select = document.querySelector('ic-select');
+    var select = document.querySelector('ic-select-with-multi');
     select.options = ${options};
     select.addEventListener('icChange', function (event) {
       option = event.detail.value;
@@ -79,9 +79,9 @@ const getTestSelect = (
 
 const getTestSelectFormReset = (
   options: string
-) => `<form><ic-select label="IC Select Test"></ic-select><button type="reset" id="resetButton">Reset</button></form>
+) => `<form><ic-select-with-multi label="IC Select Test"></ic-select-with-multi><button type="reset" id="resetButton">Reset</button></form>
     <script>
-      var select = document.querySelector('ic-select');
+      var select = document.querySelector('ic-select-with-multi');
       select.options = ${options};
       select.addEventListener('icChange', function (event) {
         option = event.detail.value;
@@ -91,9 +91,9 @@ const getTestSelectFormReset = (
 
 const getTestSelectSearchableFormReset = (
   options: string
-) => `<form><ic-select label="IC Select Test" searchable></ic-select><button type="reset" id="resetButton">Reset</button></form>
+) => `<form><ic-select-with-multi label="IC Select Test" searchable></ic-select-with-multi><button type="reset" id="resetButton">Reset</button></form>
     <script>
-      var select = document.querySelector('ic-select');
+      var select = document.querySelector('ic-select-with-multi');
       select.options = ${options};
       select.value = 'Test value 1';
       select.addEventListener('icChange', function (event) {
@@ -104,16 +104,16 @@ const getTestSelectSearchableFormReset = (
 
 const getTestSearchableSelect = (
   options: string
-) => `<ic-select label="IC Select Test" searchable></ic-select><button>Button</button>
+) => `<ic-select-with-multi label="IC Select Test" searchable></ic-select-with-multi><button>Button</button>
     <script>
-      var select = document.querySelector('ic-select');
+      var select = document.querySelector('ic-select-with-multi');
       select.options = ${options};
     </script>`;
 
 const getTestSearchableSelectAsync = () =>
-  `<ic-select label="IC Select Test" searchable disable-filter="true" value="Test value"></ic-select>
+  `<ic-select-with-multi label="IC Select Test" searchable disable-filter="true" value="Test value"></ic-select-with-multi>
     <script>
-      var select = document.querySelector('ic-select');
+      var select = document.querySelector('ic-select-with-multi');
       select.options = [];
       window.setTimeout(() => {
         select.options = []
@@ -121,9 +121,9 @@ const getTestSearchableSelectAsync = () =>
     </script>`;
 
 const getTestSelectAsync = (firstDataset: string, secondDataset: string) =>
-  `<ic-select label="IC Select Test" value="Test value"></ic-select>
+  `<ic-select-with-multi label="IC Select Test" value="Test value"></ic-select-with-multi>
       <script>
-        var select = document.querySelector('ic-select');
+        var select = document.querySelector('ic-select-with-multi');
         select.options = ${firstDataset};
         window.setTimeout(() => {
           select.options = ${secondDataset}
@@ -132,9 +132,9 @@ const getTestSelectAsync = (firstDataset: string, secondDataset: string) =>
 
 const getTestMultiSelect = (
   options: string
-) => `<ic-select label="IC Select Test" multiple="true"></ic-select>
+) => `<ic-select-with-multi label="IC Select Test" multiple="true"></ic-select-with-multi>
   <script>
-    var select = document.querySelector('ic-select');
+    var select = document.querySelector('ic-select-with-multi');
     select.options = ${options};
     select.addEventListener('icChange', function (event) {
       option = event.detail.value;
@@ -145,14 +145,14 @@ const getTestMultiSelect = (
 const getMenuVisibility = async (page: E2EPage) => {
   return await page.evaluate(() => {
     const menu = document
-      .querySelector("ic-select")
+      .querySelector("ic-select-with-multi")
       .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
     return window.getComputedStyle(menu).visibility;
   });
 };
 
 const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {
-  await page.$eval("ic-select", (el) => {
+  await page.$eval("ic-select-with-multi", (el) => {
     const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
     input.focus();
   });
@@ -162,24 +162,26 @@ const focusAndTypeIntoInput = async (value: string, page: E2EPage) => {
   });
 };
 
-describe("ic-select", () => {
+describe("ic-select-with-multi", () => {
   describe("custom", () => {
     it("should render", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
 
       expect(select).not.toBeNull();
     });
 
     it("should render when no options are provided", async () => {
       const page = await newE2EPage();
-      await page.setContent(`<ic-select label="IC Select Test"></ic-select>`);
+      await page.setContent(
+        `<ic-select-with-multi label="IC Select Test"></ic-select-with-multi>`
+      );
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
 
       expect(select).not.toBeNull();
     });
@@ -190,14 +192,16 @@ describe("ic-select", () => {
       await page.waitForChanges();
       expect(await getMenuVisibility(page)).toBe("hidden");
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
       expect(await getMenuVisibility(page)).toBe("visible");
       expect(select.getAttribute("aria-expanded")).toBeTruthy();
 
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0-menu");
@@ -208,11 +212,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(3);
       expect(menuOptions[0]).toEqualText("Test label 1");
@@ -225,11 +233,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDuplicate));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(4);
       expect(menuOptions[0]).toEqualText("Test label 1");
@@ -245,7 +257,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await select.press("Enter");
       await page.waitForChanges();
@@ -261,11 +275,15 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         expect(await getMenuVisibility(page)).toBe("visible");
 
         const firstOption = await menu.findAll("li");
@@ -278,7 +296,9 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press(" ");
         await page.waitForChanges();
 
@@ -290,7 +310,9 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("Enter");
         await page.waitForChanges();
 
@@ -303,11 +325,15 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         expect(await getMenuVisibility(page)).toBe("visible");
 
         const lastOption = await menu.findAll("li");
@@ -320,7 +346,9 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("Backspace");
         await page.waitForChanges();
         expect(await getMenuVisibility(page)).toBe("hidden");
@@ -345,12 +373,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const secondOption = await menu.findAll("li");
         expect(secondOption[1]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 2");
@@ -361,12 +393,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowUp");
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const firstOption = await menu.findAll("li");
         expect(firstOption[0]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 1");
@@ -377,12 +413,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowUp");
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const secondOption = await menu.findAll("li");
         expect(secondOption[1]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 2");
@@ -393,12 +433,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await select.press("ArrowUp");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const lastOption = await menu.findAll("li");
         expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
@@ -409,12 +453,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowUp");
         await page.keyboard.press("Home");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const firstOption = await menu.findAll("li");
         expect(firstOption[0]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 1");
@@ -425,12 +473,16 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await page.keyboard.press("End");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const lastOption = await menu.findAll("li");
         expect(lastOption[2]).toHaveClass("focused-option");
         expect(select).toEqualText("Test label 3");
@@ -441,11 +493,15 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const firstOption = await menu.findAll("li");
         expect(firstOption[0].getAttribute("aria-selected")).toBeTruthy;
         expect(await firstOption[0].find(".check-icon")).not.toBeNull;
@@ -458,11 +514,13 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(options));
         await page.waitForChanges();
 
-        const icSelect = await page.find("ic-select");
+        const icSelect = await page.find("ic-select-with-multi");
         icSelect.setAttribute("value", "Test value 1");
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const firstOption = await menu.findAll("li");
         expect(firstOption[0]).toHaveAttribute("aria-selected");
         expect(await firstOption[0].find(".check-icon")).not.toBeNull;
@@ -471,37 +529,45 @@ describe("ic-select", () => {
       it("should display clear button if the 'show-clear-button' prop is supplied and an option is selected", async () => {
         const page = await newE2EPage();
         await page.setContent(getTestSelect(options));
-        let clearButton = await page.find("ic-select >>> .clear-button");
+        let clearButton = await page.find(
+          "ic-select-with-multi >>> .clear-button"
+        );
         expect(clearButton).toBeNull();
 
-        const icSelect = await page.find("ic-select");
+        const icSelect = await page.find("ic-select-with-multi");
         icSelect.setAttribute("show-clear-button", true);
         await page.waitForChanges();
-        clearButton = await page.find("ic-select >>> .clear-button");
+        clearButton = await page.find("ic-select-with-multi >>> .clear-button");
         expect(clearButton).toBeNull();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await page.keyboard.press("Enter");
         await page.waitForChanges();
-        clearButton = await page.find("ic-select >>> .clear-button");
+        clearButton = await page.find("ic-select-with-multi >>> .clear-button");
         expect(clearButton).not.toBeNull();
       });
 
       it("should clear the input if the clear button is clicked", async () => {
         const page = await newE2EPage();
         await page.setContent(getTestSelect(options));
-        const icSelect = await page.find("ic-select");
+        const icSelect = await page.find("ic-select-with-multi");
         icSelect.setAttribute("show-clear-button", true);
         await page.waitForChanges();
 
         const icChange = await page.spyOnEvent("icChange");
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("ArrowDown");
         await page.keyboard.press("Enter");
         await page.waitForChanges();
 
-        let clearButton = await page.find("ic-select >>> .clear-button");
+        let clearButton = await page.find(
+          "ic-select-with-multi >>> .clear-button"
+        );
         await clearButton.click();
         await page.waitForChanges();
 
@@ -509,7 +575,7 @@ describe("ic-select", () => {
         expect(icChange).toHaveReceivedEventDetail({
           value: null,
         });
-        clearButton = await page.find("ic-select >>> .clear-button");
+        clearButton = await page.find("ic-select-with-multi >>> .clear-button");
         expect(clearButton).toBeNull;
       });
     });
@@ -519,7 +585,9 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
 
@@ -530,7 +598,7 @@ describe("ic-select", () => {
       expect(await getMenuVisibility(page)).toBe("hidden");
 
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -541,12 +609,16 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       await menu.click();
       await page.waitForChanges();
 
@@ -558,7 +630,7 @@ describe("ic-select", () => {
       expect(select).toEqualText("Test label 2");
 
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -569,7 +641,9 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -579,7 +653,7 @@ describe("ic-select", () => {
       await page.waitForTimeout(1000);
       expect(await getMenuVisibility(page)).toBe("hidden");
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -590,7 +664,9 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -600,7 +676,7 @@ describe("ic-select", () => {
       await page.waitForTimeout(1000);
       expect(await getMenuVisibility(page)).toBe("hidden");
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -611,7 +687,9 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -621,7 +699,7 @@ describe("ic-select", () => {
       await page.waitForTimeout(1000);
       expect(await getMenuVisibility(page)).toBe("hidden");
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -634,7 +712,9 @@ describe("ic-select", () => {
       );
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -653,7 +733,9 @@ describe("ic-select", () => {
       );
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -669,7 +751,9 @@ describe("ic-select", () => {
       await page.setContent(`${getTestSelect(options)}`);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
       await page.waitForTimeout(1000);
@@ -685,7 +769,7 @@ describe("ic-select", () => {
       expect(await getMenuVisibility(page)).toBe("hidden");
 
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0");
@@ -694,11 +778,13 @@ describe("ic-select", () => {
     it("should display the label of the value passed in using the 'value' prop as the selected option", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("value", "Test value 2");
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       expect(select).toEqualText("Test label 2");
     });
 
@@ -712,11 +798,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDescription));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const firstOptionDescription = await menu.find("li .option-description");
       expect(firstOptionDescription).toEqualText("Test description 1");
     });
@@ -724,22 +814,26 @@ describe("ic-select", () => {
     it("should render the placeholder", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("placeholder", "Test placeholder");
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       expect(select).toEqualText("Test placeholder");
     });
 
     it("should render as disabled correctly", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("disabled", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       expect(select).toHaveAttribute("disabled");
 
       await select.click();
@@ -752,11 +846,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDisabled));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       await menu.click();
       await page.waitForChanges();
 
@@ -773,11 +871,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithFirstDisabled));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions[0]).toHaveAttribute("aria-disabled");
       expect(menuOptions[1]).toHaveClass("focused-option");
@@ -786,14 +888,16 @@ describe("ic-select", () => {
     it("should render as required correctly", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("required", true);
       await page.waitForChanges();
 
-      const label = await page.find("ic-select >>> ic-input-label");
+      const label = await page.find("ic-select-with-multi >>> ic-input-label");
       expect(label).toEqualText("IC Select Test *");
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       expect(
         select.getAttribute("aria-label").includes("required")
       ).toBeTruthy();
@@ -802,16 +906,18 @@ describe("ic-select", () => {
     it("should render selected value as text when read-only", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("value", "Test value 1");
       icSelect.setAttribute("readonly", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       const typography = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("ic-typography"),
           (typography) => typography.innerText
         )
@@ -836,19 +942,21 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(groupedOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
       const optionGroupTitle = await page.find(
-        "ic-select >>> ic-menu >>> .option-group-title"
+        "ic-select-with-multi >>> ic-menu >>> .option-group-title"
       );
       expect(optionGroupTitle).not.toBeNull();
 
       const optionsText = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("ic-menu ic-typography"),
           (typography) => (typography as HTMLElement).innerText
         )
@@ -871,11 +979,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(groupedOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const childOptions = await menu.findAll("li");
       expect(childOptions).toHaveLength(3);
       expect(childOptions[0]).toEqualText("Test label 1");
@@ -894,11 +1006,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithRecommended));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const firstOption = await menu.findAll("li");
       expect(firstOption[0]).toEqualText("Test label 2");
     });
@@ -906,11 +1022,13 @@ describe("ic-select", () => {
     it("should set aria-invalid if validation status is 'error'", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("validation-status", "error");
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       expect(select).toHaveAttribute("aria-invalid");
     });
 
@@ -924,11 +1042,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDescription));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const firstOption = await menu.findAll("li");
       expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test description 1"
@@ -950,11 +1072,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDescription));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const firstOption = await menu.findAll("li");
       expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test group group"
@@ -976,11 +1102,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(optionsWithDescription));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const firstOption = await menu.findAll("li");
       expect(firstOption[0].getAttribute("aria-label")).toBe(
         "Test label 1, Test description 1, Test group group"
@@ -1022,7 +1152,7 @@ describe("ic-select", () => {
     describe("loading", () => {
       it("should display a loading message and then the options when fetching options externally", async () => {
         const page = await newE2EPage();
-        await page.setContent(`<ic-select label="IC Select Test" loading="true"></ic-select>
+        await page.setContent(`<ic-select-with-multi label="IC Select Test" loading="true"></ic-select-with-multi>
         <script>
           var select = document.querySelector('ic-select');
           select.options = [];
@@ -1041,43 +1171,45 @@ describe("ic-select", () => {
         await page.waitForChanges();
 
         let firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toEqualText("Loading...");
 
         await page.waitForTimeout(1500);
         firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toEqualText("Test label 1");
 
-        const icSelect = await page.find("ic-select");
+        const icSelect = await page.find("ic-select-with-multi");
         expect(icSelect.getAttribute("loading")).toBeFalsy;
       });
 
       it("should display a retry button and a custom loading error when it times out and should not update the options", async () => {
         const page = await newE2EPage();
         await page.setContent(
-          `<ic-select label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select>`
+          `<ic-select-with-multi label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select-with-multi>`
         );
         await page.waitForChanges();
 
         let firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toEqualText("Loading...");
         await page.waitForTimeout(560);
 
         firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li ic-typography"
         );
         expect(firstOption).toEqualText("Error");
-        const retryButton = await page.find("ic-select >>> #retry-button");
+        const retryButton = await page.find(
+          "ic-select-with-multi >>> #retry-button"
+        );
         expect(retryButton).not.toBeNull;
 
         await page.waitForTimeout(1500);
         firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li ic-typography"
         );
         expect(firstOption).toEqualText("Error");
       });
@@ -1085,12 +1217,14 @@ describe("ic-select", () => {
       it("should focus the retry button on tab and emit icBlur and close the menu when blurring", async () => {
         const page = await newE2EPage();
         await page.setContent(
-          `<ic-select label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select>`
+          `<ic-select-with-multi label="IC Select Test" loading="true" timeout="500" options="[]" loading-error-label="Error"></ic-select-with-multi>`
         );
         await page.waitForChanges();
         await page.waitForTimeout(560);
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
         await page.keyboard.press("Tab");
@@ -1098,7 +1232,7 @@ describe("ic-select", () => {
         const icBlur = await page.spyOnEvent("icBlur");
         expect(icBlur).not.toHaveReceivedEvent();
         const activeElId = await page.$eval(
-          "ic-select",
+          "ic-select-with-multi",
           (el) => el.shadowRoot.activeElement.id
         );
         expect(activeElId).toBe("retry-button");
@@ -1110,7 +1244,7 @@ describe("ic-select", () => {
 
       it("should retry loading and keep the menu open when retry button is clicked", async () => {
         const page = await newE2EPage();
-        await page.setContent(`<ic-select label="IC Select Test" loading="true" timeout="500"></ic-select>
+        await page.setContent(`<ic-select-with-multi label="IC Select Test" loading="true" timeout="500"></ic-select-with-multi>
         <script>
           var select = document.querySelector('ic-select');
           select.options = [];
@@ -1127,20 +1261,24 @@ describe("ic-select", () => {
 
         await page.waitForTimeout(560);
         let firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li ic-typography"
         );
         expect(firstOption).toEqualText("Loading Error");
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
 
-        const retryButton = await page.find("ic-select >>> #retry-button");
+        const retryButton = await page.find(
+          "ic-select-with-multi >>> #retry-button"
+        );
         await retryButton.click();
         await page.waitForChanges();
         expect(icRetryLoad).toHaveReceivedEvent;
         firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toEqualText("Loading...");
         expect(await getMenuVisibility(page)).toBe("visible");
@@ -1149,22 +1287,26 @@ describe("ic-select", () => {
       it("should retry loading and keep the menu open when retry button is pressed with Enter", async () => {
         const page = await newE2EPage();
         await page.setContent(
-          `<ic-select label="IC Select Test" loading="true" options="[]" timeout="500"></ic-select>`
+          `<ic-select-with-multi label="IC Select Test" loading="true" options="[]" timeout="500"></ic-select-with-multi>`
         );
         await page.waitForChanges();
         const icRetryLoad = await page.spyOnEvent("icRetryLoad");
 
         await page.waitForTimeout(560);
         const firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li ic-typography"
         );
         expect(firstOption).toEqualText("Loading Error");
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
 
-        const retryButton = await page.find("ic-select >>> #retry-button");
+        const retryButton = await page.find(
+          "ic-select-with-multi >>> #retry-button"
+        );
         await retryButton.press("Enter");
         await page.waitForChanges();
         expect(icRetryLoad).toHaveReceivedEvent;
@@ -1176,11 +1318,15 @@ describe("ic-select", () => {
         await page.setContent(getTestSelect(`[]`));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const menuOptions = await menu.findAll("li");
         expect(menuOptions).toHaveLength(1);
         expect(menuOptions[0]).toEqualText("No results found");
@@ -1194,13 +1340,17 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("c");
       await page.waitForChanges();
 
       expect(await getMenuVisibility(page)).toBe("visible");
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(4);
       expect(menuOptions[0]).toEqualText("Cappuccino");
@@ -1217,12 +1367,16 @@ describe("ic-select", () => {
       await focusAndTypeIntoInput("foo", page);
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       let menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("No results found");
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       select.click();
       await page.waitForChanges();
       expect(await getMenuVisibility(page)).toBe("hidden");
@@ -1240,11 +1394,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("z");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("No results found");
@@ -1255,13 +1413,17 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("f");
       await page.waitForChanges();
       await select.press("i");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       let menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
 
@@ -1277,15 +1439,19 @@ describe("ic-select", () => {
     it("should filter options when search match position is set to start", async () => {
       const page = await newE2EPage();
       await page.setContent(getTestSearchableSelect(searchableOptions));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("search-match-position", "start");
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("c");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("Cappuccino");
@@ -1303,17 +1469,21 @@ describe("ic-select", () => {
         { label: "Macchiato", value: "Mac" },
       ]`;
       await page.setContent(getTestSearchableSelect(optionsWithDescription));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("include-descriptions-in-search", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("m");
       await page.waitForChanges();
       await select.press("i");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0].textContent.substring(0, 5)).toEqualText("Latte");
@@ -1340,11 +1510,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(groupedOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("b");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(1);
       expect(menuOptions[0]).toEqualText("No results found");
@@ -1369,15 +1543,19 @@ describe("ic-select", () => {
         },
       ]`;
       await page.setContent(getTestSearchableSelect(groupedOptions));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("include-group-titles-in-search", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("b");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Filter");
@@ -1391,13 +1569,17 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
 
-      let clearButton = await page.find("ic-select >>> .clear-button");
+      let clearButton = await page.find(
+        "ic-select-with-multi >>> .clear-button"
+      );
       expect(clearButton).toBeNull();
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("a");
       await page.waitForChanges();
 
-      clearButton = await page.find("ic-select >>> .clear-button");
+      clearButton = await page.find("ic-select-with-multi >>> .clear-button");
       expect(clearButton).not.toBeNull();
 
       await clearButton.click();
@@ -1413,7 +1595,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
       await page.keyboard.press("Enter");
@@ -1423,7 +1607,9 @@ describe("ic-select", () => {
         value: "Cap",
       });
 
-      const clearButton = await page.find("ic-select >>> .clear-button");
+      const clearButton = await page.find(
+        "ic-select-with-multi >>> .clear-button"
+      );
       await clearButton.click();
       await page.waitForChanges();
 
@@ -1438,7 +1624,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
@@ -1454,7 +1642,9 @@ describe("ic-select", () => {
         await page.waitForChanges();
       }
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuOptions = await menu.findAll("li");
       expect(menuOptions).toHaveLength(2);
       expect(menuOptions[0]).toEqualText("Cappuccino");
@@ -1466,7 +1656,9 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.click();
       await page.waitForChanges();
 
@@ -1480,7 +1672,7 @@ describe("ic-select", () => {
     it("should emit icChange on delay", async () => {
       const page = await newE2EPage();
       await page.setContent(
-        `<ic-select label="IC Select Test" debounce="500" searchable></ic-select>`
+        `<ic-select-with-multi label="IC Select Test" debounce="500" searchable></ic-select-with-multi>`
       );
 
       await page.waitForChanges();
@@ -1537,7 +1729,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -1564,7 +1756,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -1592,7 +1784,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -1613,13 +1805,13 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
       select.setAttribute("value", "foo");
 
       await page.waitForChanges();
 
       const selectInput = await page.find(
-        'ic-select >>> input[role="combobox"]'
+        'ic-select-with-multi >>> input[role="combobox"]'
       );
 
       expect(await selectInput.getProperty("value")).toBe("foo");
@@ -1631,7 +1823,7 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
       const icChange = await select.spyOnEvent("icChange");
 
       await focusAndTypeIntoInput("f", page);
@@ -1662,10 +1854,10 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(searchableOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
       const icChange = await select.spyOnEvent("icChange");
 
-      await page.$eval("ic-select", (el) => {
+      await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         input.focus();
       });
@@ -1692,7 +1884,9 @@ describe("ic-select", () => {
       await focusAndTypeIntoInput("Cap", page);
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       expect(await getMenuVisibility(page)).toBe("visible");
 
       const firstOption = await menu.findAll("li");
@@ -1708,7 +1902,9 @@ describe("ic-select", () => {
       await focusAndTypeIntoInput("Lat", page);
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       expect(await getMenuVisibility(page)).toBe("visible");
 
       await page.keyboard.press("ArrowDown");
@@ -1717,7 +1913,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      const inputValue = await page.$eval("ic-select", (el) => {
+      const inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1745,7 +1941,9 @@ describe("ic-select", () => {
       await focusAndTypeIntoInput("Lat", page);
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       expect(await getMenuVisibility(page)).toBe("visible");
 
       await page.keyboard.press("ArrowDown");
@@ -1754,7 +1952,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      const inputValue = await page.$eval("ic-select", (el) => {
+      const inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1769,7 +1967,7 @@ describe("ic-select", () => {
 
       expect(await getMenuVisibility(page)).toBe("hidden");
 
-      const select = await page.find("ic-select");
+      const select = await page.find("ic-select-with-multi");
       await select.click();
 
       await page.keyboard.press("ArrowDown");
@@ -1787,7 +1985,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const hiddenInput = await page.find(
-        "ic-select > [name*='ic-select-input-0']"
+        "ic-select-with-multi > [name*='ic-select-input-0']"
       );
 
       expect(hiddenInput.getAttribute("value")).toBe("Test value 1");
@@ -1800,12 +1998,14 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const hiddenInput = await page.find(
-        "ic-select > [name*='ic-select-input-0']"
+        "ic-select-with-multi > [name*='ic-select-input-0']"
       );
 
       expect(hiddenInput.getAttribute("value")).toBe("Test value 1");
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("Backspace");
       await page.waitForChanges();
 
@@ -1844,7 +2044,7 @@ describe("ic-select", () => {
       await page.keyboard.press("ArrowDown");
       await page.waitForChanges();
 
-      let menuScrollTop = await page.$eval("ic-select", (el) => {
+      let menuScrollTop = await page.$eval("ic-select-with-multi", (el) => {
         const menu = el.shadowRoot.querySelector("ic-menu ul");
         return menu.scrollTop;
       });
@@ -1854,14 +2054,14 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      const inputValue = await page.$eval("ic-select", (el) => {
+      const inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
 
       expect(inputValue).toBe("Test label 1");
 
-      await page.$eval("ic-select", (el) => {
+      await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         input.focus();
       });
@@ -1871,7 +2071,7 @@ describe("ic-select", () => {
       await page.keyboard.press("ArrowUp");
       await page.waitForChanges();
 
-      menuScrollTop = await page.$eval("ic-select", (el) => {
+      menuScrollTop = await page.$eval("ic-select-with-multi", (el) => {
         const menu = el.shadowRoot.querySelector("ic-menu ul");
         return menu.scrollTop;
       });
@@ -1892,7 +2092,9 @@ describe("ic-select", () => {
       await page.keyboard.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuItems = await menu.findAll("li");
 
       expect(menuItems[0]).not.toHaveClass("focused-option");
@@ -1901,7 +2103,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      let inputValue = await page.$eval("ic-select", (el) => {
+      let inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1917,7 +2119,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      inputValue = await page.$eval("ic-select", (el) => {
+      inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1938,7 +2140,9 @@ describe("ic-select", () => {
       await page.keyboard.press("ArrowUp");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const menuItems = await menu.findAll("li");
 
       expect(menuItems[menuItems.length - 1]).toHaveClass("focused-option");
@@ -1947,7 +2151,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      let inputValue = await page.$eval("ic-select", (el) => {
+      let inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1963,7 +2167,7 @@ describe("ic-select", () => {
       await page.keyboard.press("Enter");
       await page.waitForChanges();
 
-      inputValue = await page.$eval("ic-select", (el) => {
+      inputValue = await page.$eval("ic-select-with-multi", (el) => {
         const input = el.shadowRoot.querySelector("input") as HTMLInputElement;
         return input.value;
       });
@@ -1975,22 +2179,26 @@ describe("ic-select", () => {
       it("should retry loading and keep the menu open when retry button is pressed with Spacebar", async () => {
         const page = await newE2EPage();
         await page.setContent(
-          `<ic-select label="IC Select Test" searchable="true" options="[]" loading="true" timeout="500"></ic-select>`
+          `<ic-select-with-multi label="IC Select Test" searchable="true" options="[]" loading="true" timeout="500"></ic-select-with-multi>`
         );
         await page.waitForChanges();
         const icRetryLoad = await page.spyOnEvent("icRetryLoad");
 
         await page.waitForTimeout(560);
         const firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li ic-typography"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li ic-typography"
         );
         expect(firstOption).toEqualText("Loading Error");
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
 
-        const retryButton = await page.find("ic-select >>> #retry-button");
+        const retryButton = await page.find(
+          "ic-select-with-multi >>> #retry-button"
+        );
         await retryButton.press(" ");
         await page.waitForChanges();
         expect(icRetryLoad).toHaveReceivedEvent;
@@ -1999,9 +2207,9 @@ describe("ic-select", () => {
 
       it("should cancel loading if the clear button is pressed mid-load", async () => {
         const page = await newE2EPage();
-        await page.setContent(`<ic-select label="IC Select Test" searchable="true" timeout="500"></ic-select>
+        await page.setContent(`<ic-select-with-multi label="IC Select Test" searchable="true" timeout="500"></ic-select-with-multi>
         <script>
-          var select = document.querySelector("ic-select");
+          var select = document.querySelector("ic-select-with-multi");
           select.options = [];
           select.addEventListener("icChange", function() {
             select.loading = "true";
@@ -2009,20 +2217,24 @@ describe("ic-select", () => {
         </script>`);
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.press("c");
         await page.waitForChanges();
         let firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toEqualText("Loading...");
 
-        const clearButton = await page.find("ic-select >>> .clear-button");
+        const clearButton = await page.find(
+          "ic-select-with-multi >>> .clear-button"
+        );
         await clearButton.click();
         await page.waitForChanges();
         await page.waitForTimeout(560);
         firstOption = await page.find(
-          "ic-select >>> #ic-select-input-0-menu li"
+          "ic-select-with-multi >>> #ic-select-input-0-menu li"
         );
         expect(firstOption).toBeNull;
       });
@@ -2032,11 +2244,15 @@ describe("ic-select", () => {
         await page.setContent(getTestSearchableSelect(`[]`));
         await page.waitForChanges();
 
-        const select = await page.find("ic-select >>> #ic-select-input-0");
+        const select = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0"
+        );
         await select.click();
         await page.waitForChanges();
 
-        const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+        const menu = await page.find(
+          "ic-select-with-multi >>> #ic-select-input-0-menu"
+        );
         const menuOptions = await menu.findAll("li");
         expect(menuOptions).toHaveLength(1);
         expect(menuOptions[0]).toEqualText("No results found");
@@ -2049,19 +2265,21 @@ describe("ic-select", () => {
     await page.setContent(getTestSelectFormReset(options));
     await page.waitForChanges();
 
-    let value = await page.$eval("ic-select", (el) => {
+    let value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
     expect(value).toBe(undefined);
-    const select = await page.find("ic-select >>> #ic-select-input-0");
+    const select = await page.find(
+      "ic-select-with-multi >>> #ic-select-input-0"
+    );
 
     await select.press("Enter");
     await page.waitForChanges();
     await select.press("ArrowDown");
     await page.waitForChanges();
 
-    value = await page.$eval("ic-select", (el) => {
+    value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
@@ -2073,7 +2291,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    value = await page.$eval("ic-select", (el) => {
+    value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
@@ -2094,13 +2312,15 @@ describe("ic-select", () => {
     await page.setContent(getTestSelectSearchableFormReset(options));
     await page.waitForChanges();
 
-    let value = await page.$eval("ic-select", (el) => {
+    let value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
     expect(value).toBe("Test value 1");
 
-    const select = await page.find("ic-select >>> #ic-select-input-0");
+    const select = await page.find(
+      "ic-select-with-multi >>> #ic-select-input-0"
+    );
 
     await select.press("ArrowDown");
     await page.waitForChanges();
@@ -2110,7 +2330,7 @@ describe("ic-select", () => {
     await page.keyboard.press("Enter");
     await page.waitForChanges();
 
-    value = await page.$eval("ic-select", (el) => {
+    value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
@@ -2122,7 +2342,7 @@ describe("ic-select", () => {
     });
     await page.waitForChanges();
 
-    value = await page.$eval("ic-select", (el) => {
+    value = await page.$eval("ic-select-with-multi", (el) => {
       const select = el as unknown as HTMLIcSelectElement;
       return select.value;
     });
@@ -2149,7 +2369,7 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
 
       expect(select).not.toBeNull();
     });
@@ -2158,16 +2378,18 @@ describe("ic-select", () => {
       await page.setContent(getTestSearchableSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
 
       expect(select).not.toBeNull();
     });
 
     it("should render when no options are provided", async () => {
-      await page.setContent(`<ic-select label="IC Select Test"></ic-select>`);
+      await page.setContent(
+        `<ic-select-with-multi label="IC Select Test"></ic-select-with-multi>`
+      );
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
 
       expect(select).not.toBeNull();
     });
@@ -2179,7 +2401,7 @@ describe("ic-select", () => {
       const optionsDisabled = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("option"),
           (option) => option.disabled
         )
@@ -2203,7 +2425,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const optGroup = await page.evaluate(() =>
-        document.querySelector("ic-select").shadowRoot.querySelector("optgroup")
+        document
+          .querySelector("ic-select-with-multi")
+          .shadowRoot.querySelector("optgroup")
       );
 
       expect(optGroup).toBeTruthy();
@@ -2211,49 +2435,49 @@ describe("ic-select", () => {
 
     it("should render a required <select> when required", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("required", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
 
       expect(select).toHaveAttribute("required");
     });
 
     it("should not render a label when the 'hide-label' prop is supplied", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("hide-label", true);
       await page.waitForChanges();
 
-      const label = await page.find("ic-select >>> ic-input-label");
+      const label = await page.find("ic-select-with-multi >>> ic-input-label");
 
       expect(label).toBeNull();
     });
 
     it("should render a disabled <select> when the 'disabled' prop is supplied", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("disabled", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
 
       expect(select).toHaveAttribute("disabled");
     });
 
     it("should render the selected value as text instead of rendering a <select> when read-only", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("value", "Test value 1");
       icSelect.setAttribute("readonly", true);
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
       const typography = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("ic-typography"),
           (typography) => typography.innerText
         )
@@ -2265,14 +2489,14 @@ describe("ic-select", () => {
 
     it("should render the correct placeholder", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("placeholder", "Test placeholder");
       await page.waitForChanges();
 
       const optionLabels = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("option"),
           (option) => option.innerText
         )
@@ -2283,24 +2507,24 @@ describe("ic-select", () => {
 
     it("should set aria-invalid if validation status is 'error'", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("validation-status", "error");
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
       expect(select).toHaveAttribute("aria-invalid");
     });
 
     it("should display the value passed in using the 'value' prop as the selected option", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("value", "Test value 1");
       await page.waitForChanges();
 
       const optionsSelected = await page.evaluate(() =>
         Array.from(
           document
-            .querySelector("ic-select")
+            .querySelector("ic-select-with-multi")
             .shadowRoot.querySelectorAll("option"),
           (option) => option.selected
         )
@@ -2311,7 +2535,7 @@ describe("ic-select", () => {
 
     it("should set the correct name on the hidden input", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("name", "Test name");
       await page.waitForChanges();
 
@@ -2327,7 +2551,7 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
       await select.press("ArrowDown");
       await select.press("Enter");
       await page.waitForChanges();
@@ -2368,8 +2592,9 @@ describe("ic-select", () => {
 
       const selectClassName = await page.evaluate(
         () =>
-          document.querySelector("ic-select").shadowRoot.querySelector("select")
-            .className
+          document
+            .querySelector("ic-select-with-multi")
+            .shadowRoot.querySelector("select").className
       );
 
       expect(selectClassName).toBe("placeholder");
@@ -2377,14 +2602,15 @@ describe("ic-select", () => {
 
     it("should set the text colour to the primary text colour if an option is selected", async () => {
       await page.setContent(getTestSelect(options));
-      const icSelect = await page.find("ic-select");
+      const icSelect = await page.find("ic-select-with-multi");
       icSelect.setAttribute("value", "Test value 1");
       await page.waitForChanges();
 
       const selectClassName = await page.evaluate(
         () =>
-          document.querySelector("ic-select").shadowRoot.querySelector("select")
-            .className
+          document
+            .querySelector("ic-select-with-multi")
+            .shadowRoot.querySelector("select").className
       );
 
       expect(selectClassName).toBe("select-option-selected");
@@ -2394,15 +2620,16 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> select");
+      const select = await page.find("ic-select-with-multi >>> select");
       await select.press("ArrowDown");
       await select.press("Enter");
       await page.waitForChanges();
 
       const selectClassName = await page.evaluate(
         () =>
-          document.querySelector("ic-select").shadowRoot.querySelector("select")
-            .className
+          document
+            .querySelector("ic-select-with-multi")
+            .shadowRoot.querySelector("select").className
       );
 
       expect(selectClassName).toBe("select-option-selected");
@@ -2413,13 +2640,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelect(largeOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> button.select-input");
+      const select = await page.find(
+        "ic-select-with-multi >>> button.select-input"
+      );
       await select.click();
       await page.waitForChanges();
 
       const menuClasses = await page.evaluate(() => {
         const menu = document
-          .querySelector("ic-select")
+          .querySelector("ic-select-with-multi")
           .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
@@ -2432,13 +2661,15 @@ describe("ic-select", () => {
       await page.setContent(getTestSelectAsync(options, largeOptions));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> button.select-input");
+      const select = await page.find(
+        "ic-select-with-multi >>> button.select-input"
+      );
       await select.click();
       await page.waitForChanges();
 
       let menuClasses = await page.evaluate(() => {
         const menu = document
-          .querySelector("ic-select")
+          .querySelector("ic-select-with-multi")
           .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
@@ -2449,7 +2680,7 @@ describe("ic-select", () => {
 
       menuClasses = await page.evaluate(() => {
         const menu = document
-          .querySelector("ic-select")
+          .querySelector("ic-select-with-multi")
           .shadowRoot.querySelector("ic-menu .menu");
         return menu.classList;
       });
@@ -2466,7 +2697,9 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
       const icOptionSelect = await page.spyOnEvent("icOptionSelect");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("ArrowDown");
       await page.waitForChanges();
@@ -2489,8 +2722,12 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
       const icOptionDeselect = await page.spyOnEvent("icOptionDeselect");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       const optionEls = await menu.findAll("li");
 
       await select.press("ArrowDown");
@@ -2520,13 +2757,15 @@ describe("ic-select", () => {
       await page.setContent(getTestMultiSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("Enter");
       await page.waitForChanges();
 
       let activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0-menu");
@@ -2535,7 +2774,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const activeElClass = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.className
       );
 
@@ -2549,7 +2788,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0-menu");
@@ -2560,13 +2799,15 @@ describe("ic-select", () => {
       await page.setContent(getTestMultiSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("ArrowDown");
       await page.waitForChanges();
 
       const activeElId = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.id
       );
       expect(activeElId).toBe("ic-select-input-0-menu-Test value 1");
@@ -2575,7 +2816,7 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const activeElClass = await page.$eval(
-        "ic-select",
+        "ic-select-with-multi",
         (el) => el.shadowRoot.activeElement.className
       );
 
@@ -2588,7 +2829,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("ArrowDown");
       await page.waitForChanges();
@@ -2621,7 +2864,9 @@ describe("ic-select", () => {
 
       const icChange = await page.spyOnEvent("icChange");
       const icOptionDeselect = await page.spyOnEvent("icOptionDeselect");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("ArrowDown");
       await page.waitForChanges();
@@ -2648,7 +2893,9 @@ describe("ic-select", () => {
       await page.setContent(getTestMultiSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("Enter");
       await page.waitForChanges();
@@ -2670,7 +2917,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("Enter");
       await page.waitForChanges();
@@ -2704,7 +2953,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("Enter");
       await page.waitForChanges();
@@ -2724,7 +2975,9 @@ describe("ic-select", () => {
       await page.waitForChanges();
 
       const icChange = await page.spyOnEvent("icChange");
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
 
       await select.press("Enter");
       await page.waitForChanges();
@@ -2743,11 +2996,15 @@ describe("ic-select", () => {
       await page.setContent(getTestMultiSelect(options));
       await page.waitForChanges();
 
-      const select = await page.find("ic-select >>> #ic-select-input-0");
+      const select = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0"
+      );
       await select.press("ArrowDown");
       await page.waitForChanges();
 
-      const menu = await page.find("ic-select >>> #ic-select-input-0-menu");
+      const menu = await page.find(
+        "ic-select-with-multi >>> #ic-select-input-0-menu"
+      );
       await menu.click();
       await page.waitForChanges();
 

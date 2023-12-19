@@ -15,7 +15,7 @@ import readme from "./readme.md";
 export const defaultArgs = {
   disabled: false,
   ["full-width"]: false,
-  ["helper-text"]: "Select one option from the list.",
+  ["helper-text"]: "Select one option from the list",
   ["hide-label"]: false,
   loading: false,
   loadingLabel: "Loading...",
@@ -69,9 +69,6 @@ export const defaultArgs = {
         <script>
           var select = document.querySelector("#select-async");
           select.options = [];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
           setTimeout(() => {
             select.options = [
               { label: "Cappuccino", value: "Cap" },
@@ -81,12 +78,11 @@ export const defaultArgs = {
               { label: "Flat white", value: "Fla" },
               { label: "Mocha", value: "Moc" },
               { label: "Macchiato", value: "Mac" },
-              { label: "Café au lait", value: "Caf" },
-              { label: "Espresso", value: "Esp" },
-              { label: "Cortado", value: "Cor" },
-              { label: "Ristretto", value: "Ris" },
             ];
           }, 5000);
+          select.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
         </script>`
                 }
               </Story>
@@ -110,7 +106,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -135,7 +131,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -171,7 +167,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -196,7 +192,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -221,7 +217,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -262,7 +258,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -292,7 +288,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -311,7 +307,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -331,7 +327,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
       </div>`
@@ -357,7 +353,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -381,7 +377,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -396,7 +392,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-full-width"
           label="What is your favourite coffee?"
-          full-width="true"
+          full-width
         ></ic-select>
         <script>
           var select = document.querySelector("#select-full-width");
@@ -406,7 +402,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -431,7 +427,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -456,7 +452,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -482,7 +478,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -518,7 +514,7 @@ export const defaultArgs = {
           ];
           select.value = "Lat";
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -544,7 +540,7 @@ export const defaultArgs = {
             { label: "Filter", value: "Fil" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -571,7 +567,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select1.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -589,7 +585,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select2.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -607,7 +603,7 @@ export const defaultArgs = {
             { label: "Americano", value: "Ame" },
           ];
           select3.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -640,7 +636,7 @@ export const defaultArgs = {
             { label: "Latte macchiato", value: "Lam" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -655,13 +651,13 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-loading"
           label="What is your favourite coffee?"
-          loading="true"
+          loading
           timeout="1000"
         ></ic-select>
         <script>
           var select = document.querySelector("#select-loading");
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
           select.addEventListener("icRetryLoad", function (event) {
             select.loading = "true";
@@ -697,7 +693,7 @@ This shows how the single select works within a form. The value will appear in t
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
           document.querySelector("form").addEventListener("submit", (ev) => {
             ev.preventDefault();
@@ -732,19 +728,19 @@ This shows how the single select works within a form. The value will appear in t
                   html` <ic-select
           id="select-playground"
           disabled=${args.disabled}
-                                                  full-width=${args["full-width"]}
-                                                  helper-text=${args["helper-text"]}
-                                                  hide-label=${args["hide-label"]}
-                                                  loading=${args.loading}
-                                                  loading-label=${args["loading-label"]}
-                                                  label=${args.label}
-                                                  placeholder=${args.placeholder}
-                                                  readonly=${args.readonly}
-                                                  required=${args.required}
-                                                  show-clear-button=${args["show-clear-button"]}
-                                                  size=${args.size}
-                                                  validation-status=${args["validation-status"]}
-                                                  validation-text=${args["validation-text"]}
+                                          full-width=${args["full-width"]}
+                                          helper-text=${args["helper-text"]}
+                                          hide-label=${args["hide-label"]}
+                                          loading=${args.loading}
+                                          loading-label=${args["loading-label"]}
+                                          label=${args.label}
+                                          placeholder=${args.placeholder}
+                                          readonly=${args.readonly}
+                                          required=${args.required}
+                                          show-clear-button=${args["show-clear-button"]}
+                                          size=${args.size}
+                                          validation-status=${args["validation-status"]}
+                                          validation-text=${args["validation-text"]}
         >
         </ic-select>
         <script>
@@ -799,7 +795,7 @@ This shows how the single select works within a form. The value will appear in t
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }

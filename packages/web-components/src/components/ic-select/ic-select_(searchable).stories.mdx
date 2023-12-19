@@ -39,7 +39,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-default");
@@ -74,15 +74,12 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-async"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           loading
         ></ic-select>
         <script>
           var select = document.querySelector("#select-async");
           select.options = [];
-          select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
-          });
           setTimeout(() => {
             select.options = [
               { label: "Cappuccino", value: "Cap" },
@@ -92,12 +89,11 @@ export const defaultArgs = {
               { label: "Flat white", value: "Fla" },
               { label: "Mocha", value: "Moc" },
               { label: "Macchiato", value: "Mac" },
-              { label: "Café au lait", value: "Caf" },
-              { label: "Espresso", value: "Esp" },
-              { label: "Cortado", value: "Cor" },
-              { label: "Ristretto", value: "Ris" },
             ];
           }, 5000);
+          select.addEventListener("icChange", function (event) {
+            console.log("icChange: " + event.detail.value);
+          });
         </script>`
                 }
               </Story>
@@ -111,7 +107,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-default-value"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-default-value");
@@ -126,7 +122,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -141,7 +137,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-filter-start"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           search-match-position="start"
         ></ic-select>
         <script>
@@ -156,7 +152,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -171,7 +167,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-descriptions"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-descriptions");
@@ -214,7 +210,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -229,7 +225,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-descriptions-included"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           include-descriptions-in-search
         ></ic-select>
         <script>
@@ -273,7 +269,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -288,7 +284,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-helper"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           helper-text="Select one option from the list"
         ></ic-select>
         <script>
@@ -303,7 +299,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -319,7 +315,7 @@ export const defaultArgs = {
         <ic-select
           id="select-size-small"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           size="small"
         ></ic-select>
         <script>
@@ -334,13 +330,13 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
           id="select-size-default"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-size-default");
@@ -354,13 +350,13 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
           id="select-size-large"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           size="large"
         ></ic-select>
         <script>
@@ -375,7 +371,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
       </div>`
@@ -391,7 +387,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-disabled"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           disabled
         ></ic-select>
         <script>
@@ -406,7 +402,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -421,7 +417,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-disabled-options"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-disabled-options");
@@ -435,7 +431,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac", disabled: true },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -450,7 +446,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-hidden-label"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           hide-label
         ></ic-select>
         <script>
@@ -465,7 +461,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -480,7 +476,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-required"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           required
         ></ic-select>
         <script>
@@ -495,7 +491,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -510,7 +506,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-groups"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-groups");
@@ -531,7 +527,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -546,7 +542,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-groups-included"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           include-group-titles-in-search
         ></ic-select>
         <script>
@@ -568,7 +564,7 @@ export const defaultArgs = {
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -583,7 +579,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-recommended"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-recommended");
@@ -597,7 +593,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -614,7 +610,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="success"
           validation-text="Coffee available"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select1 = document.querySelector("#select-success");
@@ -629,7 +625,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select1.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -637,7 +633,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="warning"
           validation-text="Only a few left"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select2 = document.querySelector("#select-warning");
@@ -652,7 +648,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select2.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>
         <ic-select
@@ -660,7 +656,7 @@ export const defaultArgs = {
           label="What is your favourite coffee?"
           validation-status="error"
           validation-text="Coffee unavailable"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select3 = document.querySelector("#select-error");
@@ -675,7 +671,7 @@ export const defaultArgs = {
             { label: "Macchiato", value: "Mac" },
           ];
           select3.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -690,7 +686,7 @@ export const defaultArgs = {
                   html`<ic-select
           id="select-scroll"
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
         ></ic-select>
         <script>
           var select = document.querySelector("#select-scroll");
@@ -708,7 +704,7 @@ export const defaultArgs = {
             { label: "Ristretto", value: "Ris" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
@@ -722,9 +718,9 @@ export const defaultArgs = {
               {(args) =>
                   html`<ic-select
           label="What is your favourite coffee?"
-          searchable="true"
+          searchable
           debounce="300"
-          disable-filter="true"
+          disable-filter
           id="select-external-filtering"
           timeout="1000"
         ></ic-select>
@@ -800,7 +796,7 @@ This shows how the searchable select works within a form. The value will appear 
           <ic-select
             id="select-form"
             label="What is your favourite coffee?"
-            searchable="true"
+            searchable
           ></ic-select>
           <br />
           <br />
@@ -815,7 +811,7 @@ This shows how the searchable select works within a form. The value will appear 
             { label: "Americano", value: "Ame" },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
           document.querySelector("form").addEventListener("submit", (ev) => {
             ev.preventDefault();
@@ -838,7 +834,7 @@ This shows how the searchable select works within a form. The value will appear 
                   html`<ic-section-container>
           <ic-select
             id="select-external-request"
-            searchable="true"
+            searchable
             label="What is your favourite coffee? (searchable)"
           ></ic-select>
         </ic-section-container>
@@ -864,7 +860,7 @@ This shows how the searchable select works within a form. The value will appear 
             }
           });
           searchSelect.addEventListener("icOptionSelect", function (event) {
-            console.log("icOptionSelect", event.detail.value);
+            console.log("icOptionSelect: " + event.detail.value);
           });
         </script>`
                 }
@@ -899,26 +895,26 @@ This shows how the searchable select works within a form. The value will appear 
                   html` <ic-select
           id="select-playground"
           disabled=${args.disabled}
-                                                  full-width=${args["full-width"]}
-                                                  helper-text=${args["helper-text"]}
-                                                  hide-label=${args["hide-label"]}
-                                                  include-descriptions-in-search=${args[
+                                          full-width=${args["full-width"]}
+                                          helper-text=${args["helper-text"]}
+                                          hide-label=${args["hide-label"]}
+                                          include-descriptions-in-search=${args[
                     "include-descriptions-in-search"
                     ]}
-                                                  include-group-titles-in-search=${args[
+                                          include-group-titles-in-search=${args[
                     "include-group-titles-in-search"
                     ]}
-                                                  loading=${args.loading}
-                                                  loading-label=${args["loading-label"]}
-                                                  label=${args.label}
-                                                  placeholder=${args.placeholder}
-                                                  readonly=${args.readonly}
-                                                  required=${args.required}
-                                                  search-match-position=${args["search-match-position"]}
-                                                  searchable="true"
-                                                  size=${args.size}
-                                                  validation-status=${args["validation-status"]}
-                                                  validation-text=${args["validation-text"]}
+                                          loading=${args.loading}
+                                          loading-label=${args["loading-label"]}
+                                          label=${args.label}
+                                          placeholder=${args.placeholder}
+                                          readonly=${args.readonly}
+                                          required=${args.required}
+                                          search-match-position=${args["search-match-position"]}
+                                          searchable
+                                          size=${args.size}
+                                          validation-status=${args["validation-status"]}
+                                          validation-text=${args["validation-text"]}
         >
         </ic-select>
         <script>
@@ -973,7 +969,7 @@ This shows how the searchable select works within a form. The value will appear 
             },
           ];
           select.addEventListener("icChange", function (event) {
-            console.log(event.detail.value);
+            console.log("icChange: " + event.detail.value);
           });
         </script>`
                 }
