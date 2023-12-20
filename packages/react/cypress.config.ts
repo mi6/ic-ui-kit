@@ -15,9 +15,11 @@ export default defineConfig({
         if (browser.name === 'electron') {
           launchActions.preferences.width = 1600;
           launchActions.preferences.height = 1080;
-   
-          return launchActions;
         }
+        if (browser.name === 'chrome') {
+          launchActions.args.push('--window-size=1600,1080')
+        }
+        return launchActions;
       })
     },
     supportFile: "./cypress/support/index.ts",
