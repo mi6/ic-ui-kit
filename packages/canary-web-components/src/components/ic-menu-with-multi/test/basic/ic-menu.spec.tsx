@@ -5,6 +5,11 @@ import { testKeyboardEvent as keyboardEvent } from "@ukic/web-components/dist/ty
 import { h } from "@stencil/core";
 import * as helpers from "@ukic/web-components/dist/types/utils/helpers";
 
+// These tests still use 'ic-select' and not 'ic-select-with-multi'
+// It does not matter as unit tests in the canary branch do not run anyway
+// And it saves converting them back when the multi-select is merged into the main branch
+// (Check the original multi-select branch, i.e. where the changes were added straight to the web-components folder, to see the tests working)
+
 const menuOptions = [
   { label: "Espresso", value: "espresso" },
   { label: "Double Espresso", value: "doubleespresso" },
@@ -815,6 +820,39 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.menu.tabIndex).toBe(-1);
     expect(page.rootInstance.preventClickOpen).toBe(true);
     expect(page.rootInstance.optionHighlighted).toBe(undefined);
+  });
+  it("tests manualSetInputValueKeyboardOpen function when select on enter", async () => {
+    const select = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+    select.selectOnEnter = true;
+    const page = await newSpecPage({
+      components: [Menu, IcInputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={select}
+          value={menuOptions[0].value}
+          parentEl={select}
+        ></ic-menu>
+      ),
+    });
+    const eventSpy = jest.fn();
+    page.root.addEventListener("menuOptionSelect", eventSpy);
+    page.rootInstance.manualSetInputValueKeyboardOpen(
+      keyboardEvent("ArrowDown")
+    );
+    await page.waitForChanges();
+    expect(eventSpy).not.toHaveBeenCalled();
+    page.rootInstance.manualSetInputValueKeyboardOpen(keyboardEvent("Enter"));
+    await page.waitForChanges();
+    expect(eventSpy).toHaveBeenCalled();
   });
   it("tests setInputValue function when default parameter passed", async () => {
     const select = window.document.createElement(

@@ -38,7 +38,7 @@ import { IcSearchBarSearchModes } from "@ukic/web-components/dist/types/componen
 })
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Menu {
-  private firstRender: boolean = true;
+  private clearButtonId = "clear-button"; // Prevent duplicate literal string lint error
   private disabledOptionSelected: boolean = false;
   private hasPreviouslyBlurred: boolean = false;
   private hasTimedOut: boolean = false;
@@ -61,6 +61,7 @@ export class Menu {
   @State() keyboardNav: boolean = false;
   @State() optionHighlighted: string;
   @State() preventIncorrectTabOrder: boolean = false;
+  @State() menuOptions: IcMenuOption[];
 
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -112,6 +113,21 @@ export class Menu {
    */
   @Prop({ reflect: true }) open!: boolean;
 
+  @Watch("open")
+  watchOpenHandler(): void {
+    if (this.open) {
+      if (!this.popperInstance) {
+        this.initPopperJs(this.anchorEl);
+      }
+      this.popperInstance.update();
+    } else {
+      if (this.popperInstance) {
+        this.popperInstance.destroy();
+        this.popperInstance = null;
+      }
+    }
+  }
+
   /**
    * @internal - The parent element if ic-menu is nested inside another component.
    */
@@ -121,6 +137,11 @@ export class Menu {
    * Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches.
    */
   @Prop() searchMode?: IcSearchBarSearchModes = "navigation";
+
+  /**
+   * @internal If `true`, the icOptionSelect event will be fired on enter instead of ArrowUp and ArrowDown.
+   */
+  @Prop() selectOnEnter?: boolean = false;
 
   /**
    * The size of the menu.
@@ -205,7 +226,7 @@ export class Menu {
   }
 
   disconnectedCallback(): void {
-    if (this.popperInstance !== undefined) {
+    if (this.popperInstance) {
       this.popperInstance.destroy();
     }
     this.parentEl.removeEventListener("icClear", this.handleClearListener);
@@ -224,6 +245,10 @@ export class Menu {
   }
 
   componentDidLoad(): void {
+    if (!this.popperInstance) {
+      this.initPopperJs(this.anchorEl);
+    }
+
     if (
       this.isSearchBar &&
       (this.parentEl as HTMLIcSearchBarElement).disableFilter
@@ -281,63 +306,44 @@ export class Menu {
         this.menu.focus();
       }
     }
+
+    if (this.open && !this.value && this.selectOnEnter) {
+      this.scrollToSelected(this.menu);
+    }
+
     this.preventMenuFocus = false;
   }
 
   componentDidRender(): void {
-    if (this.firstRender && this.open) {
-      this.firstRender = false;
-      let adjust = false;
-
-      const dialogEl = this.parentEl.closest("ic-dialog");
-
-      const onDialog = dialogEl !== null;
-      if (onDialog) {
-        this.el.classList.add("on-dialog");
-        if (dialogEl.getAttribute("data-overflow") === "false") {
-          const menuTop = this.el.getBoundingClientRect().top;
-          const menuHeight = this.el.getBoundingClientRect().height;
-          const dialogHeight = dialogEl.getBoundingClientRect().bottom;
-          if (menuTop + menuHeight > dialogHeight) {
-            adjust = true;
-          }
-        }
-        if (adjust === false) {
-          this.el.classList.add("on-dialog-fix-translate");
-        }
-      }
-
-      if (adjust) {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "top-start",
-        });
-      } else {
-        this.popperInstance = createPopper(this.anchorEl, this.el, {
-          placement: "bottom-start",
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [0, 7],
-              },
-            },
-            {
-              name: "flip",
-              options: {
-                fallbackPlacements: ["top"],
-                rootBoundary: "viewport",
-              },
-            },
-          ],
-        });
-      }
-    } else if (this.open) {
-      this.popperInstance.update();
-    }
-
     if (this.open && !!this.options.length) {
       this.setMenuScrollbar();
     }
+  }
+
+  /**
+   * @internal Used to initialize popperJS with an anchor element.
+   */
+  @Method()
+  async initPopperJs(anchor: HTMLElement): Promise<void> {
+    // Placements set to "-start" to accommodate for custom menu width - menu should always be aligned to the left
+    this.popperInstance = createPopper(anchor, this.el, {
+      placement: "bottom-start",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 7],
+          },
+        },
+        {
+          name: "flip",
+          options: {
+            fallbackPlacements: ["top-start"],
+            rootBoundary: "viewport",
+          },
+        },
+      ],
+    });
   }
 
   /**
@@ -508,7 +514,7 @@ export class Menu {
         break;
       case " ":
       case "Enter":
-        if ((event.target as HTMLElement).id !== "clear-button") {
+        if ((event.target as HTMLElement).id !== this.clearButtonId) {
           this.handleMenuChange(true);
         }
         break;
@@ -522,7 +528,10 @@ export class Menu {
   ) => {
     this.keyboardNav = true;
 
-    if (this.open) {
+    const isOpen: boolean =
+      this.isSearchBar || this.isSearchableSelect || this.open;
+
+    if (isOpen) {
       if (highlightedOptionIndex >= 0) {
         if (options[highlightedOptionIndex] !== undefined) {
           if (
@@ -539,7 +548,7 @@ export class Menu {
         this.setInputValue(highlightedOptionIndex);
       }
     } else if (
-      (target as HTMLElement).id !== "clear-button" &&
+      (target as HTMLElement).id !== this.clearButtonId &&
       this.isMultiSelect
     ) {
       this.handleMenuChange(true);
@@ -636,6 +645,15 @@ export class Menu {
           this.menuOptionId.emit({
             optionId: getOptionId(menuOptions.length - 1),
           });
+          break;
+        case " ":
+          if (this.isSearchBar || this.isSearchableSelect) {
+            break;
+          } else {
+            if ((event.target as HTMLElement).id !== this.clearButtonId) {
+              this.handleMenuChange(true);
+            }
+          }
           break;
         case "Enter":
           event.preventDefault();
@@ -935,9 +953,11 @@ export class Menu {
   private isManualMode = this.activationType === "manual";
 
   private scrollToSelected = (menu: HTMLUListElement) => {
-    const selectedOption = menu.querySelector(
-      ".option[aria-selected]"
-    ) as HTMLElement;
+    const selectedOption = this.selectOnEnter
+      ? (this.el.querySelector(
+          `li[data-value="${this.optionHighlighted}"]`
+        ) as HTMLElement)
+      : (menu.querySelector(".option[aria-selected='true']") as HTMLElement);
 
     if (selectedOption) {
       const elTop = selectedOption.offsetTop + selectedOption.offsetHeight;

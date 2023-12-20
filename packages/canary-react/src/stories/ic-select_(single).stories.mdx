@@ -528,6 +528,23 @@ export const LoadingWithError = () => {
   </Story>
 </Canvas>
 
+### Emitting icOptionSelect on enter
+
+<Canvas>
+  <Story name="Emitting icOptionSelect on enter">
+    {() => {
+      return (
+        <IcSelectWithMulti
+          label="What is your favourite coffee?"
+          options={options}
+          selectOnEnter
+          onIcOptionSelect={(event) => console.log(`icOptionSelect: ${event.detail.value}`)}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Playground
 
 <Canvas>

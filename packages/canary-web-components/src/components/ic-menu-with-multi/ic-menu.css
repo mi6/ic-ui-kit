@@ -44,10 +44,6 @@
   inset: auto !important;
 }
 
-:host(.on-dialog-fix-translate) {
-  transform: translate(0, 80px) !important;
-}
-
 .menu {
   text-decoration: none;
   list-style-type: none;
@@ -74,7 +70,7 @@
   max-height: none;
   display: flex;
   flex-direction: column-reverse;
-  border: var(--ic-space-1px) solid var(--ic-architectural-400);
+  border: var(--ic-border-width) solid var(--ic-architectural-400);
   transition: box-shadow var(--ic-easing-transition-fast);
 }
 

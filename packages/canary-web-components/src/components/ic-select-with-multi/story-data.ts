@@ -1,5 +1,7 @@
 import { IcMenuOption } from "@ukic/web-components";
 
+/* eslint-disable */
+
 export const OPTIONS: IcMenuOption[] = [
   { label: "Cappuccino", value: "Cap" },
   { label: "Latte", value: "Lat" },

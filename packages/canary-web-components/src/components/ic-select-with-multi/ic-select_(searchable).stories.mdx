@@ -867,6 +867,35 @@ This shows how the searchable select works within a form. The value will appear 
               </Story>
           </Canvas>
 
+### Emitting icOptionSelect on enter
+
+<Canvas>
+  <Story
+    name="Emitting icOptionSelect on enter"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-select-with-multi
+          id="select-icoptionselect"
+          label="What is your favourite coffee?"
+          select-on-enter
+          searchable
+        ></ic-select-with-multi>
+        <script>
+          var select = document.querySelector("#select-icoptionselect");
+          select.options = [
+            { label: "Cappuccino", value: "Cap" },
+            { label: "Latte", value: "Lat" },
+            { label: "Americano", value: "Ame" },
+          ];
+          select.addEventListener("icOptionSelect", function (event) {
+            console.log("icOptionSelect: " + event.detail.value);
+          });
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### Playground
 
     <Canvas>
