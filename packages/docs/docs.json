@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-14T10:33:21",
+  "timestamp": "2023-12-20T11:44:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -3757,6 +3757,28 @@
           "attr": "inline",
           "reflectToAttr": false,
           "docs": "If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "top",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "top",
+          "reflectToAttr": false,
+          "docs": "If `true`, classification banner will be displayed at the top of the page.",
           "docsTags": [],
           "default": "false",
           "values": [

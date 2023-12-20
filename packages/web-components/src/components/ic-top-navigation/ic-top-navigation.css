@@ -12,6 +12,10 @@
   height: max-content;
 }
 
+:host(.classification-offset) .top-navigation {
+  margin-top: var(--ic-space-lg);
+}
+
 :host(.fullwidth-searchbar) slot[name="search"]::slotted(form) {
   width: 100%;
 }

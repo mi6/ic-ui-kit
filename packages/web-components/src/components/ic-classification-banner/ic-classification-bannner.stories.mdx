@@ -77,6 +77,32 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Top of page
+
+<Canvas>
+  <Story name="Top of page">
+    {html`<ic-classification-banner
+      classification="official"
+      top
+    ></ic-classification-banner>`}
+  </Story>
+</Canvas>
+
+### Top and bottom of page
+
+<Canvas>
+  <Story name="Top and bottom of page">
+    {html`<ic-classification-banner
+        classification="official"
+        top="true"
+      ></ic-classification-banner>
+      <ic-classification-banner
+        classification="official"
+        top="false"
+      ></ic-classification-banner>`}
+  </Story>
+</Canvas>
+
 ### Country
 
 <Canvas>

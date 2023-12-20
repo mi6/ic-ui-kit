@@ -527,6 +527,10 @@ export namespace Components {
          */
         "inline"?: boolean;
         /**
+          * If `true`, classification banner will be displayed at the top of the page.
+         */
+        "top"?: boolean;
+        /**
           * If `true`, "Up to" will be displayed before the classification and country.
          */
         "upTo"?: boolean;
@@ -3244,6 +3248,10 @@ declare namespace LocalJSX {
           * If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page.
          */
         "inline"?: boolean;
+        /**
+          * If `true`, classification banner will be displayed at the top of the page.
+         */
+        "top"?: boolean;
         /**
           * If `true`, "Up to" will be displayed before the classification and country.
          */

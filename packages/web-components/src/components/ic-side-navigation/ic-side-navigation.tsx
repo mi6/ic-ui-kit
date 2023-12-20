@@ -1,27 +1,27 @@
 import {
   Component,
+  Element,
   Host,
-  h,
+  Listen,
   Prop,
   State,
-  Element,
-  Listen,
+  h,
 } from "@stencil/core";
 
-import menuIcon from "../../assets/hamburger-menu-icon.svg";
-import closeIcon from "../../assets/close-icon.svg";
 import chevronIcon from "../../assets/chevron-icon.svg";
+import closeIcon from "../../assets/close-icon.svg";
+import menuIcon from "../../assets/hamburger-menu-icon.svg";
 import {
-  getCurrentDeviceSize,
   DEVICE_SIZES,
   checkResizeObserver,
-  isSlotUsed,
-  getThemeForegroundColor,
   getCssProperty,
-  hasClassificationBanner,
-  onComponentRequiredPropUndefined,
+  getCurrentDeviceSize,
+  getThemeForegroundColor,
+  hasClassificationBannerType,
   isEmptyString,
   isPropDefined,
+  isSlotUsed,
+  onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -637,6 +637,7 @@ export class SideNavigation {
         class={{
           "top-bar": true,
           [this.foregroundColor]: true,
+          ["classification-spacing-top"]: hasClassificationBannerType("top"),
         }}
       >
         {isSDevice && (
@@ -741,7 +742,14 @@ export class SideNavigation {
         }}
       >
         {isSDevice && this.renderTopBar({ ...topBarProps })}
-        <div class="side-navigation" id="side-navigation">
+        <div
+          class={{
+            ["side-navigation"]: true,
+            ["classification-spacing-top"]:
+              isSDevice && hasClassificationBannerType("top"),
+          }}
+          id="side-navigation"
+        >
           {!isSDevice && this.renderTopBar({ ...topBarProps })}
           <div class="side-navigation-inner">
             {isSlotUsed(this.el, "primary-navigation") && (
@@ -765,7 +773,8 @@ export class SideNavigation {
           <div
             class={{
               ["bottom-wrapper"]: true,
-              ["classification-spacing"]: hasClassificationBanner(),
+              ["classification-spacing-bottom"]:
+                hasClassificationBannerType("bottom"),
             }}
           >
             {isSlotUsed(this.el, "secondary-navigation") && (

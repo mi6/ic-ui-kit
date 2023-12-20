@@ -29,6 +29,7 @@ import {
   isSlotUsed,
   isEmptyString,
   isPropDefined,
+  hasClassificationBannerType,
 } from "../../utils/helpers";
 
 /**
@@ -65,6 +66,7 @@ export class TopNavigation {
   @State() navMenuVisible: boolean = false;
   @State() searchButtonClick: boolean = false;
   @State() searchValue: string = "";
+  @State() bannerOffset: boolean = false;
 
   /**
    * The alignment of the top navigation content.
@@ -321,6 +323,7 @@ export class TopNavigation {
       <Host
         class={{
           ["fullwidth-searchbar"]: this.hasFullWidthSearchBar,
+          ["classification-offset"]: hasClassificationBannerType("top"),
           [IcThemeForegroundEnum.Dark]:
             this.foregroundColor === IcThemeForegroundEnum.Dark,
         }}

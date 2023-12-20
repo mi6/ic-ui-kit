@@ -3,18 +3,18 @@ import {
   Element,
   Event,
   EventEmitter,
+  Host,
+  Listen,
   Prop,
   State,
   h,
-  Host,
-  Listen,
 } from "@stencil/core";
 import { IC_DEVICE_SIZES } from "../../utils/constants";
 import {
+  checkResizeObserver,
   getCurrentDeviceSize,
   getThemeForegroundColor,
-  checkResizeObserver,
-  hasClassificationBanner,
+  hasClassificationBannerType,
   isSlotUsed,
 } from "../../utils/helpers";
 import {
@@ -214,7 +214,8 @@ export class Footer {
                   <div
                     class={{
                       ["footer-copyright"]: true,
-                      ["classification-spacing"]: hasClassificationBanner(),
+                      ["classification-spacing"]:
+                        hasClassificationBannerType("bottom"),
                     }}
                   >
                     <ic-typography

@@ -46,8 +46,12 @@
   right: calc(var(--side-navigation-width) * -1);
 }
 
-.classification-spacing {
+.classification-spacing-bottom {
   margin-bottom: var(--ic-space-lg);
+}
+
+.classification-spacing-top {
+  margin-top: var(--ic-space-lg);
 }
 
 .navigation-list {

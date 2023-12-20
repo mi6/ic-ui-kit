@@ -19,6 +19,10 @@
   bottom: auto;
 }
 
+:host(.top) {
+  top: 0;
+}
+
 .classification-banner {
   display: flex;
   flex-direction: row;

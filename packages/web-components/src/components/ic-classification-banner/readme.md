@@ -13,6 +13,7 @@
 | `classification`      | `classification`       | The classification level to be displayed - also determines the banner and text colour.                 | `"default" \| "official" \| "official-sensitive" \| "secret" \| "top-secret"` | `"default"` |
 | `country`             | `country`              | The optional text that will be displayed before classification to specify relevant country/countries.  | `string`                                                                      | `"uk"`      |
 | `inline`              | `inline`               | If `true`, the banner will appear inline with the page, instead of sticking to the bottom of the page. | `boolean`                                                                     | `false`     |
+| `top`                 | `top`                  | If `true`, classification banner will be displayed at the top of the page.                             | `boolean`                                                                     | `false`     |
 | `upTo`                | `up-to`                | If `true`, "Up to" will be displayed before the classification and country.                            | `boolean`                                                                     | `false`     |
 
 

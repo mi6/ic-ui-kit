@@ -520,8 +520,24 @@ export const getParentElementType = (child: HTMLElement): string =>
 export const getParentElement = (child: HTMLElement): HTMLElement =>
   child.parentElement;
 
-export const hasClassificationBanner = (): boolean =>
-  !!document.querySelector("ic-classification-banner:not([inline='true'])");
+export const hasClassificationBannerType = (
+  type: "top" | "bottom" | "notInline"
+): boolean => {
+  if (type === "top") {
+    return !!document.querySelector("ic-classification-banner[top]");
+  }
+  if (type === "bottom") {
+    return !!document.querySelector(
+      "ic-classification-banner:not([inline='true']):not([top='true'])"
+    );
+  }
+  if (type === "notInline") {
+    return !!document.querySelector(
+      "ic-classification-banner:not([inline='true'])"
+    );
+  }
+  return false;
+};
 
 export const getForm = (el: HTMLElement): HTMLFormElement => el.closest("FORM");
 

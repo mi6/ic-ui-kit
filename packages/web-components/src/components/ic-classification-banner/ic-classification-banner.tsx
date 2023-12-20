@@ -36,11 +36,22 @@ export class ClassificationBanner {
    */
   @Prop() upTo?: boolean = false;
 
+  /**
+   * If `true`, classification banner will be displayed at the top of the page.
+   */
+  @Prop() top?: boolean = false;
+
   render() {
-    const { classification, inline, country, upTo, additionalSelectors } = this;
+    const { classification, inline, country, upTo, additionalSelectors, top } =
+      this;
 
     return (
-      <Host class={{ ["inline"]: inline }}>
+      <Host
+        class={{
+          ["inline"]: inline,
+          ["top"]: top,
+        }}
+      >
         <banner
           aria-label="Protective marking"
           class={{
