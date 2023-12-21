@@ -8,9 +8,9 @@ import {
 import { html } from "lit-html";
 import readme from "./readme.md";
 
-    <Meta title="Web Components/Select/Single" component="ic-select" />
+<Meta title="Web Components/Select/Single" component="ic-select-with-multi" />
 
-    <Description markdown={readme} />
+<Description markdown={readme} />
 
 export const defaultArgs = {
   disabled: false,
@@ -31,10 +31,10 @@ export const defaultArgs = {
 
 ### Default
 
-    <Canvas>
-          <Story name="Default">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Default">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-default"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -52,16 +52,16 @@ export const defaultArgs = {
             console.log("icOptionSelect: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Async default
 
-    <Canvas>
-          <Story name="Async default" parameters={{ loki: { skip: true } }}>
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Async default" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-select-with-multi
           label="What is your favourite coffee?"
           loading
           id="select-async"
@@ -84,16 +84,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Default value
 
-    <Canvas>
-          <Story name="Default value">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Default value">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-default-value"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -109,16 +109,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### With clear button
 
-    <Canvas>
-          <Story name="With clear button">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="With clear button">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-clear"
           label="What is your favourite coffee?"
           show-clear-button
@@ -134,16 +134,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### With descriptions
 
-    <Canvas>
-          <Story name="With descriptions">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="With descriptions">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-descriptions"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -170,16 +170,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Helper text
 
-    <Canvas>
-          <Story name="Helper text">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Helper text">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-helper"
           label="What is your favourite coffee?"
           helper-text="Select one option from the list"
@@ -195,16 +195,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Custom placeholder
 
-    <Canvas>
-          <Story name="Custom placeholder">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Custom placeholder">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-7"
           label="What is your favourite coffee?"
           placeholder="Placeholder goes here"
@@ -220,16 +220,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Custom components
 
-    <Canvas>
-          <Story name="Custom components">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Custom components">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-1"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -261,16 +261,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Sizes
 
-    <Canvas>
-          <Story name="Sizes">
-              {(args) =>
-                  html`<div style="display: flex; flex-direction: column; gap: 16px;">
+<Canvas>
+  <Story name="Sizes">
+    {(args) =>
+      html`<div style="display: flex; flex-direction: column; gap: 16px;">
         <ic-select-with-multi
           id="select-size-small"
           label="What is your favourite coffee?"
@@ -331,16 +331,16 @@ export const defaultArgs = {
           });
         </script>
       </div>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Disabled
 
-    <Canvas>
-          <Story name="Disabled">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Disabled">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-disabled"
           label="What is your favourite coffee?"
           disabled
@@ -356,16 +356,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Disabled options
 
-    <Canvas>
-          <Story name="Disabled options">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Disabled options">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-disabled-options"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -380,16 +380,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Full width
 
-    <Canvas>
-          <Story name="Full width">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Full width">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-full-width"
           label="What is your favourite coffee?"
           full-width
@@ -405,16 +405,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Hidden label
 
-    <Canvas>
-          <Story name="Hidden label">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Hidden label">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-hidden-label"
           label="What is your favourite coffee?"
           hide-label
@@ -430,16 +430,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Required
 
-    <Canvas>
-          <Story name="Required">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Required">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-required"
           label="What is your favourite coffee?"
           required
@@ -455,16 +455,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Read-only
 
-    <Canvas>
-          <Story name="Read-only">
-              {() =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Read-only">
+    {() =>
+      html`<ic-select-with-multi
           id="select-read-only"
           label="What is your favourite coffee?"
           readonly
@@ -481,16 +481,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Groups
 
-    <Canvas>
-          <Story name="Groups">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Groups">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-groups"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -517,16 +517,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Recommended
 
-    <Canvas>
-          <Story name="Recommended">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Recommended">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-recommended"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -543,16 +543,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Validation
 
-    <Canvas>
-          <Story name="Validation">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Validation">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-success"
           label="What is your favourite coffee?"
           validation-status="success"
@@ -606,16 +606,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Scroll behaviour
 
-    <Canvas>
-          <Story name="Scroll behaviour">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Scroll behaviour">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-scroll"
           label="What is your favourite coffee?"
         ></ic-select-with-multi>
@@ -639,16 +639,16 @@ export const defaultArgs = {
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Loading with error
 
-    <Canvas>
-          <Story name="Loading with error">
-              {(args) =>
-                  html`<ic-select-with-multi
+<Canvas>
+  <Story name="Loading with error">
+    {(args) =>
+      html`<ic-select-with-multi
           id="select-loading"
           label="What is your favourite coffee?"
           loading
@@ -663,18 +663,18 @@ export const defaultArgs = {
             select.loading = "true";
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### In form
 
 This shows how the single select works within a form. The value will appear in the console on submit.
 
-    <Canvas>
-          <Story name="In form" parameters={{ loki: { skip: true } }}>
-              {(args) =>
-                  html`
+<Canvas>
+  <Story name="In form" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
         <form>
           <ic-select-with-multi
             id="select-form"
@@ -701,9 +701,9 @@ This shows how the single select works within a form. The value will appear in t
           });
         </script>
       `
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>
 
 ### Emitting icOptionSelect on enter
 
@@ -735,40 +735,40 @@ This shows how the single select works within a form. The value will appear in t
 
 ### Playground
 
-    <Canvas>
-          <Story
-              name="Playground"
-              parameters={{ loki: { skip: true } }}
-              args={defaultArgs}
-              argTypes={{
-                ["validation-status"]: {
-                  defaultValue: "",
-                  options: ["none", "error", "success", "warning"],
-                  control: { type: "inline-radio" },
-                },
-                size: {
-                  options: ["small", "default", "large"],
-                  control: { type: "inline-radio" },
-                },
-              }}
-            >
-              {(args) =>
-                  html` <ic-select-with-multi
+<Canvas>
+  <Story
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+    args={defaultArgs}
+    argTypes={{
+      ["validation-status"]: {
+        defaultValue: "",
+        options: ["none", "error", "success", "warning"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) =>
+      html` <ic-select-with-multi
           id="select-playground"
           disabled=${args.disabled}
-                                          full-width=${args["full-width"]}
-                                          helper-text=${args["helper-text"]}
-                                          hide-label=${args["hide-label"]}
-                                          loading=${args.loading}
-                                          loading-label=${args["loading-label"]}
-                                          label=${args.label}
-                                          placeholder=${args.placeholder}
-                                          readonly=${args.readonly}
-                                          required=${args.required}
-                                          show-clear-button=${args["show-clear-button"]}
-                                          size=${args.size}
-                                          validation-status=${args["validation-status"]}
-                                          validation-text=${args["validation-text"]}
+          full-width=${args["full-width"]}
+          helper-text=${args["helper-text"]}
+          hide-label=${args["hide-label"]}
+          loading=${args.loading}
+          loading-label=${args["loading-label"]}
+          label=${args.label}
+          placeholder=${args.placeholder}
+          readonly=${args.readonly}
+          required=${args.required}
+          show-clear-button=${args["show-clear-button"]}
+          size=${args.size}
+          validation-status=${args["validation-status"]}
+          validation-text=${args["validation-text"]}
         >
         </ic-select-with-multi>
         <script>
@@ -826,6 +826,6 @@ This shows how the single select works within a form. The value will appear in t
             console.log("icChange: " + event.detail.value);
           });
         </script>`
-                }
-              </Story>
-          </Canvas>
+    }
+  </Story>
+</Canvas>

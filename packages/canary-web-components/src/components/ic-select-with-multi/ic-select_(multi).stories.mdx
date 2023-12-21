@@ -28,15 +28,15 @@ import {
 } from "./story-data";
 import readme from "./readme.md";
 
-    <Meta
-          title="Web Components/Select/Multi"
-          component="ic-select-with-multi"
-          parameters={{
-            componentAPI: {
-              data: readme,
-            },
-          }}
-        />
+<Meta
+  title="Web Components/Select/Multi"
+  component="ic-select-with-multi"
+  parameters={{
+    componentAPI: {
+      data: readme,
+    },
+  }}
+/>
 
 export const defaultArgs = {
   disabled: false,
@@ -75,9 +75,9 @@ Note that the `multiple` prop still needs to be applied in order to enable the m
 
 An example of a default multi-select (with no additional functionality).
 
-    <Canvas withSource="none">
-          <Story name="Default">{Default()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Default">{Default()}</Story>
+</Canvas>
 
 #### Default code example
 
@@ -114,9 +114,9 @@ An example of a default multi-select (with no additional functionality).
 
 Show options as pre-selected by setting the `value` prop to an array containing the values of these options.
 
-    <Canvas withSource="none">
-          <Story name="Default Value">{DefaultValue()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Default Value">{DefaultValue()}</Story>
+</Canvas>
 
 #### Default value code example
 
@@ -149,9 +149,9 @@ Show options as pre-selected by setting the `value` prop to an array containing 
 Display a clear button by using the `show-clear-button` prop.
 This will appear when the user has selected some options and allow them to easily clear their selection.
 
-    <Canvas withSource="none">
-          <Story name="With Clear Button">{WithClearButton()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="With Clear Button">{WithClearButton()}</Story>
+</Canvas>
 
 #### With clear button code example
 
@@ -183,9 +183,9 @@ This will appear when the user has selected some options and allow them to easil
 
 Display extra information about the options by providing a description using the `description` property for each option.
 
-    <Canvas withSource="none">
-          <Story name="With Descriptions">{WithDescriptions()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="With Descriptions">{WithDescriptions()}</Story>
+</Canvas>
 
 #### With descriptions code example
 
@@ -245,9 +245,9 @@ Display extra information about the options by providing a description using the
 
 Display helper text to provide additional information by using the `helper-text` prop.
 
-    <Canvas withSource="none">
-          <Story name="Helper Text">{HelperText()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Helper Text">{HelperText()}</Story>
+</Canvas>
 
 #### Helper text code example
 
@@ -281,9 +281,9 @@ Set the size of the multi-select by using the `size` prop. This prop takes the v
 Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component.
 The `default` variant is seen in the first [default](#default) example.
 
-    <Canvas withSource="none">
-          <Story name="Sizes">{Sizes()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Sizes">{Sizes()}</Story>
+</Canvas>
 
 #### Sizes code example
 
@@ -358,9 +358,9 @@ The `default` variant is seen in the first [default](#default) example.
 
 Disable the multi-select and prevent user interaction by using the `disabled` prop.
 
-    <Canvas withSource="none">
-          <Story name="Disabled">{Disabled()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Disabled">{Disabled()}</Story>
+</Canvas>
 
 #### Disabled code example
 
@@ -392,9 +392,9 @@ Disable the multi-select and prevent user interaction by using the `disabled` pr
 
 Disable certain options by setting the `disabled` property to `true` for each option.
 
-    <Canvas withSource="none">
-          <Story name="Disabled Options">{DisabledOptions()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Disabled Options">{DisabledOptions()}</Story>
+</Canvas>
 
 #### Disabled options code example
 
@@ -425,9 +425,9 @@ Disable certain options by setting the `disabled` property to `true` for each op
 
 Hide the visible label for the multi-select by using the `hide-label` prop.
 
-    <Canvas withSource="none">
-          <Story name="Hidden Label">{HiddenLabel()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Hidden Label">{HiddenLabel()}</Story>
+</Canvas>
 
 #### Hidden label code example
 
@@ -460,9 +460,9 @@ Hide the visible label for the multi-select by using the `hide-label` prop.
 Inform the user that the multi-select is a required field by using the `required` prop.
 This will display an asterisk next to the label and apply the `aria-required` attribute.
 
-    <Canvas withSource="none">
-          <Story name="Required">{Required()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Required">{Required()}</Story>
+</Canvas>
 
 #### Required code example
 
@@ -495,9 +495,9 @@ This will display an asterisk next to the label and apply the `aria-required` at
 Make the multi-select read-only by using the `readonly` prop.
 Use the `value` prop to set which options are selected and will be displayed when it is read-only.
 
-    <Canvas withSource="none">
-          <Story name="Read-only">{ReadOnly()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Read-only">{ReadOnly()}</Story>
+</Canvas>
 
 #### Read-only code example
 
@@ -531,9 +531,9 @@ Use the `value` prop to set which options are selected and will be displayed whe
 Display options in groups by passing an array of child options to the `children` property of a parent option.
 The parent option will be rendered as the title of the group.
 
-    <Canvas withSource="none">
-          <Story name="Groups">{Groups()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Groups">{Groups()}</Story>
+</Canvas>
 
 #### Groups code example
 
@@ -572,9 +572,9 @@ The parent option will be rendered as the title of the group.
 Display certain options at the top of the option list by setting the `recommended` property to `true` on each option.
 This will allow for quick access to these options.
 
-    <Canvas withSource="none">
-          <Story name="Recommended">{Recommended()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Recommended">{Recommended()}</Story>
+</Canvas>
 
 #### Recommended code example
 
@@ -606,9 +606,9 @@ This will allow for quick access to these options.
 Display a validation status and message by using the `validation-status` and `validation-message` props.
 The `validation-status` prop takes the values `success`, `warning` or `error`.
 
-    <Canvas withSource="none">
-          <Story name="Validation">{Validation()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Validation">{Validation()}</Story>
+</Canvas>
 
 #### Validation code example
 
@@ -686,9 +686,9 @@ The `validation-status` prop takes the values `success`, `warning` or `error`.
 Display the loading state by using the `loading` prop.
 The multi-select will show a loading error after the amount of time specified using the `timeout` prop has elapsed.
 
-    <Canvas withSource="none">
-          <Story name="Loading With Error">{LoadingWithError()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Loading With Error">{LoadingWithError()}</Story>
+</Canvas>
 
 #### Loading with error code example
 
@@ -724,9 +724,9 @@ The multi-select will show a loading error after the amount of time specified us
 
 An example of the multi-select working in a form. The value will appear in the console on submit.
 
-    <Canvas withSource="none">
-          <Story name="In Form">{InForm()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="In Form">{InForm()}</Story>
+</Canvas>
 
 #### In form code example
 
@@ -767,14 +767,14 @@ An example of the multi-select working in a form. The value will appear in the c
 
 **Will remove before the canary release as it doesn't always work - you sometimes have to refresh the page (seems to be a Storybook issue). More likely to work in the "Live example" tab.**
 
-    <Canvas withSource="none">
-          <Story name="Async Default">{AsyncDefault()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Async Default">{AsyncDefault()}</Story>
+</Canvas>
 
 ### Scroll behaviour
 
 **Will remove before the canary release as it's mainly for review purposes i.e. doesn't demonstrate the behaviour of a prop.**
 
-    <Canvas withSource="none">
-          <Story name="Scroll Behaviour">{ScrollBehaviour()}</Story>
-          </Canvas>
+<Canvas withSource="none">
+  <Story name="Scroll Behaviour">{ScrollBehaviour()}</Story>
+</Canvas>
