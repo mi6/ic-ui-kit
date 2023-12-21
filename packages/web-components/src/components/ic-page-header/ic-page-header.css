@@ -56,8 +56,8 @@ header.tabs {
   align-items: center;
   width: 100%;
   flex-wrap: wrap;
-  row-gap: var(--ic-space-xs);
   column-gap: var(--ic-space-md);
+  margin-bottom: var(--ic-space-xs);
 }
 
 .heading {
