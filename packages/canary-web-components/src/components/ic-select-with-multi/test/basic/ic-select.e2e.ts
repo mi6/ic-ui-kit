@@ -146,7 +146,7 @@ const getMenuVisibility = async (page: E2EPage) => {
   return await page.evaluate(() => {
     const menu = document
       .querySelector("ic-select-with-multi")
-      .shadowRoot.querySelector("ic-menu #ic-select-input-0-menu");
+      .shadowRoot.querySelector("ic-menu-with-multi #ic-select-input-0-menu");
     return window.getComputedStyle(menu).visibility;
   });
 };
@@ -949,7 +949,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       const optionGroupTitle = await page.find(
-        "ic-select-with-multi >>> ic-menu >>> .option-group-title"
+        "ic-select-with-multi >>> ic-menu-with-multi >>> .option-group-title"
       );
       expect(optionGroupTitle).not.toBeNull();
 
@@ -957,7 +957,7 @@ describe("ic-select-with-multi", () => {
         Array.from(
           document
             .querySelector("ic-select-with-multi")
-            .shadowRoot.querySelectorAll("ic-menu ic-typography"),
+            .shadowRoot.querySelectorAll("ic-menu-with-multi ic-typography"),
           (typography) => (typography as HTMLElement).innerText
         )
       );
@@ -1729,7 +1729,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select-with-multi >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu-with-multi > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -1756,7 +1756,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select-with-multi >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu-with-multi > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -1784,7 +1784,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       const menuListItems = await page.findAll(
-        "ic-select-with-multi >>> ic-menu > ul > li"
+        "ic-select-with-multi >>> ic-menu-with-multi > ul > li"
       );
 
       expect(menuListItems[0]).toHaveClass("focused-option");
@@ -2045,7 +2045,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       let menuScrollTop = await page.$eval("ic-select-with-multi", (el) => {
-        const menu = el.shadowRoot.querySelector("ic-menu ul");
+        const menu = el.shadowRoot.querySelector("ic-menu-with-multi ul");
         return menu.scrollTop;
       });
 
@@ -2072,7 +2072,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       menuScrollTop = await page.$eval("ic-select-with-multi", (el) => {
-        const menu = el.shadowRoot.querySelector("ic-menu ul");
+        const menu = el.shadowRoot.querySelector("ic-menu-with-multi ul");
         return menu.scrollTop;
       });
 
@@ -2649,7 +2649,7 @@ describe("ic-select-with-multi", () => {
       const menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select-with-multi")
-          .shadowRoot.querySelector("ic-menu .menu");
+          .shadowRoot.querySelector("ic-menu-with-multi .menu");
         return menu.classList;
       });
 
@@ -2670,7 +2670,7 @@ describe("ic-select-with-multi", () => {
       let menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select-with-multi")
-          .shadowRoot.querySelector("ic-menu .menu");
+          .shadowRoot.querySelector("ic-menu-with-multi .menu");
         return menu.classList;
       });
 
@@ -2681,7 +2681,7 @@ describe("ic-select-with-multi", () => {
       menuClasses = await page.evaluate(() => {
         const menu = document
           .querySelector("ic-select-with-multi")
-          .shadowRoot.querySelector("ic-menu .menu");
+          .shadowRoot.querySelector("ic-menu-with-multi .menu");
         return menu.classList;
       });
 
