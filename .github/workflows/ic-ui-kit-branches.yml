@@ -89,6 +89,11 @@ jobs:
         with:
           node-version: 18
       - uses: browser-actions/setup-chrome@latest
+
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -96,7 +101,15 @@ jobs:
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
       - name: Cypress tests
+        id: cypress_tests
         run: npm run test-cypress:ci
+
+      - name: Upload diff screenshots
+        if: always() && steps.cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/cypress-visual-screenshots/diff
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-screenshots
 
   ic-ui-kit-deploy:
     needs:
