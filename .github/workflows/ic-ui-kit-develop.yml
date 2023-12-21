@@ -1,17 +1,17 @@
 name: Develop
 
-on: 
+on:
   push:
     branches:
       - develop
 
-concurrency:  
+concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   ic-ui-kit-static-analysis-tests:
-    name: 'Static Analysis Tests'
+    name: "Static Analysis Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,7 +46,7 @@ jobs:
         run: npm run test:coverage-ci
 
   ic-ui-kit-e2e-tests:
-    name: 'E2E Tests'
+    name: "E2E Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -58,12 +58,12 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-  
+
       - name: E2E tests
         run: npm run test-e2e
 
   ic-ui-kit-visual-tests:
-    name: 'Visual Regression Tests'
+    name: "Visual Regression Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -96,16 +96,25 @@ jobs:
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
       - name: Cypress tests
+        id: cypress_tests
         run: npm run test-cypress:ci
 
+      - name: Upload diff screenshots
+        if: always() && steps.cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/cypress-visual-screenshots/diff
+          target-folder: ./branches/develop/cypress-screenshots
+
   ic-ui-kit-deploy:
-    needs: [
-      ic-ui-kit-static-analysis-tests, 
-      ic-ui-kit-e2e-tests, 
-      ic-ui-kit-visual-tests,
-      ic-ui-kit-cypress-tests
-    ]
-    name: 'Deploy QA Storybook'
+    needs:
+      [
+        ic-ui-kit-static-analysis-tests,
+        ic-ui-kit-e2e-tests,
+        ic-ui-kit-visual-tests,
+        ic-ui-kit-cypress-tests,
+      ]
+    name: "Deploy QA Storybook"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
