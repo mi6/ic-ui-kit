@@ -22,6 +22,13 @@
 
 Method to programmatically show/hide the tooltip without needing to interact with an anchor element
 
+#### Parameters
+
+| Name             | Type      | Description                                                                                                                          |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `show`           | `boolean` | Whether to show or hide the tooltip                                                                                                  |
+| `persistTooltip` | `boolean` | Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover |
+
 #### Returns
 
 Type: `Promise<void>`

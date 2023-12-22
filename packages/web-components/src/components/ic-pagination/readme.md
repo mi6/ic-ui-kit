@@ -35,6 +35,12 @@
 
 Sets the currently displayed page.
 
+#### Parameters
+
+| Name   | Type     | Description                                |
+| ------ | -------- | ------------------------------------------ |
+| `page` | `number` | The page number to set as the current page |
+
 #### Returns
 
 Type: `Promise<void>`

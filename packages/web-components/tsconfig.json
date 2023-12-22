@@ -7,6 +7,6 @@
     "target": "es2017",
     "jsxFactory": "h"
   },
-  "include": ["src"],
+  "include": ["src", "./node.d.ts"],
   "exclude": ["node_modules", "src/testa11y.setup.ts"]
 }

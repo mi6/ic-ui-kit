@@ -229,6 +229,7 @@ export class Pagination {
 
   /**
    * Sets the currently displayed page.
+   * @param {number} page The page number to set as the current page
    */
   @Method()
   async setCurrentPage(page: number): Promise<void> {
