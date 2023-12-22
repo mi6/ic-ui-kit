@@ -25,7 +25,7 @@
 }
 
 .back-icon svg {
-  color: currentColor;
+  color: currentcolor;
 }
 
 :host(.back) {

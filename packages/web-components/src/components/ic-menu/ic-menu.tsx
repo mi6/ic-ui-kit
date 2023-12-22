@@ -318,7 +318,7 @@ export class Menu {
   /**
    * Used alongside activationType
    * If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
-   * @param {KeyboardEvent} event - keyboard event
+   * @param {KeyboardEvent} event The keyboard event which is available when handleKeyboardOpen is invoked.
    */
   @Method()
   async handleKeyboardOpen(event: KeyboardEvent): Promise<void> {
