@@ -54,6 +54,7 @@ export class ToastRegion {
 
   /**
    * @deprecated Use openToast prop to display toast instead.
+   * @param {HTMLIcToastElement} toast The toast component to display
    */
   @Method()
   async setVisible(toast: HTMLIcToastElement): Promise<void> {

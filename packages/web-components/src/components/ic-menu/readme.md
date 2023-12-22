@@ -32,6 +32,12 @@
 Used alongside activationType
 If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
 
+#### Parameters
+
+| Name    | Type            | Description                                                               |
+| ------- | --------------- | ------------------------------------------------------------------------- |
+| `event` | `KeyboardEvent` | The keyboard event which is available when handleKeyboardOpen is invoked. |
+
 #### Returns
 
 Type: `Promise<void>`
