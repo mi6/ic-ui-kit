@@ -983,7 +983,7 @@ export namespace Components {
         "handleClickOpen": () => Promise<void>;
         /**
           * Used alongside activationType If menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.
-          * @param event - keyboard event
+          * @param event The keyboard event which is available when handleKeyboardOpen is invoked.
          */
         "handleKeyboardOpen": (event: KeyboardEvent) => Promise<void>;
         "handleSetFirstOption": () => Promise<void>;
@@ -1267,6 +1267,7 @@ export namespace Components {
         "pages": number;
         /**
           * Sets the currently displayed page.
+          * @param page The page number to set as the current page
          */
         "setCurrentPage": (page: number) => Promise<void>;
         /**
@@ -2134,6 +2135,7 @@ export namespace Components {
         "openToast": HTMLIcToastElement;
         /**
           * @deprecated Use openToast prop to display toast instead.
+          * @param toast The toast component to display
          */
         "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
     }
@@ -2331,7 +2333,18 @@ export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcTopNavigationElement;
 }
 declare global {
+    interface HTMLIcAccordionElementEventMap {
+        "accordionClicked": { id: string };
+    }
     interface HTMLIcAccordionElement extends Components.IcAccordion, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcAccordionElementEventMap>(type: K, listener: (this: HTMLIcAccordionElement, ev: IcAccordionCustomEvent<HTMLIcAccordionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcAccordionElementEventMap>(type: K, listener: (this: HTMLIcAccordionElement, ev: IcAccordionCustomEvent<HTMLIcAccordionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcAccordionElement: {
         prototype: HTMLIcAccordionElement;
@@ -2343,7 +2356,19 @@ declare global {
         prototype: HTMLIcAccordionGroupElement;
         new (): HTMLIcAccordionGroupElement;
     };
+    interface HTMLIcAlertElementEventMap {
+        "dismiss": void;
+        "icDismiss": void;
+    }
     interface HTMLIcAlertElement extends Components.IcAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcAlertElementEventMap>(type: K, listener: (this: HTMLIcAlertElement, ev: IcAlertCustomEvent<HTMLIcAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcAlertElementEventMap>(type: K, listener: (this: HTMLIcAlertElement, ev: IcAlertCustomEvent<HTMLIcAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcAlertElement: {
         prototype: HTMLIcAlertElement;
@@ -2373,7 +2398,19 @@ declare global {
         prototype: HTMLIcBreadcrumbGroupElement;
         new (): HTMLIcBreadcrumbGroupElement;
     };
+    interface HTMLIcButtonElementEventMap {
+        "icBlur": void;
+        "icFocus": void;
+    }
     interface HTMLIcButtonElement extends Components.IcButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcButtonElementEventMap>(type: K, listener: (this: HTMLIcButtonElement, ev: IcButtonCustomEvent<HTMLIcButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcButtonElementEventMap>(type: K, listener: (this: HTMLIcButtonElement, ev: IcButtonCustomEvent<HTMLIcButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcButtonElement: {
         prototype: HTMLIcButtonElement;
@@ -2385,19 +2422,54 @@ declare global {
         prototype: HTMLIcCardElement;
         new (): HTMLIcCardElement;
     };
+    interface HTMLIcCheckboxElementEventMap {
+        "checkboxChecked": void;
+        "icCheck": void;
+    }
     interface HTMLIcCheckboxElement extends Components.IcCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcCheckboxElementEventMap>(type: K, listener: (this: HTMLIcCheckboxElement, ev: IcCheckboxCustomEvent<HTMLIcCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcCheckboxElementEventMap>(type: K, listener: (this: HTMLIcCheckboxElement, ev: IcCheckboxCustomEvent<HTMLIcCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcCheckboxElement: {
         prototype: HTMLIcCheckboxElement;
         new (): HTMLIcCheckboxElement;
     };
+    interface HTMLIcCheckboxGroupElementEventMap {
+        "icChange": IcChangeEventDetail;
+    }
     interface HTMLIcCheckboxGroupElement extends Components.IcCheckboxGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLIcCheckboxGroupElement, ev: IcCheckboxGroupCustomEvent<HTMLIcCheckboxGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLIcCheckboxGroupElement, ev: IcCheckboxGroupCustomEvent<HTMLIcCheckboxGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcCheckboxGroupElement: {
         prototype: HTMLIcCheckboxGroupElement;
         new (): HTMLIcCheckboxGroupElement;
     };
+    interface HTMLIcChipElementEventMap {
+        "dismiss": void;
+        "icDismiss": void;
+    }
     interface HTMLIcChipElement extends Components.IcChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcChipElementEventMap>(type: K, listener: (this: HTMLIcChipElement, ev: IcChipCustomEvent<HTMLIcChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcChipElementEventMap>(type: K, listener: (this: HTMLIcChipElement, ev: IcChipCustomEvent<HTMLIcChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcChipElement: {
         prototype: HTMLIcChipElement;
@@ -2421,7 +2493,21 @@ declare global {
         prototype: HTMLIcDataRowElement;
         new (): HTMLIcDataRowElement;
     };
+    interface HTMLIcDialogElementEventMap {
+        "icDialogCancelled": void;
+        "icDialogClosed": void;
+        "icDialogConfirmed": void;
+        "icDialogOpened": void;
+    }
     interface HTMLIcDialogElement extends Components.IcDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDialogElementEventMap>(type: K, listener: (this: HTMLIcDialogElement, ev: IcDialogCustomEvent<HTMLIcDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDialogElementEventMap>(type: K, listener: (this: HTMLIcDialogElement, ev: IcDialogCustomEvent<HTMLIcDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcDialogElement: {
         prototype: HTMLIcDialogElement;
@@ -2439,7 +2525,18 @@ declare global {
         prototype: HTMLIcEmptyStateElement;
         new (): HTMLIcEmptyStateElement;
     };
+    interface HTMLIcFooterElementEventMap {
+        "footerResized": void;
+    }
     interface HTMLIcFooterElement extends Components.IcFooter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcFooterElementEventMap>(type: K, listener: (this: HTMLIcFooterElement, ev: IcFooterCustomEvent<HTMLIcFooterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcFooterElementEventMap>(type: K, listener: (this: HTMLIcFooterElement, ev: IcFooterCustomEvent<HTMLIcFooterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcFooterElement: {
         prototype: HTMLIcFooterElement;
@@ -2505,7 +2602,25 @@ declare global {
         prototype: HTMLIcLoadingIndicatorElement;
         new (): HTMLIcLoadingIndicatorElement;
     };
+    interface HTMLIcMenuElementEventMap {
+        "menuKeyPress": { isNavKey: boolean; key: string };
+        "menuOptionId": IcMenuOptionIdEventDetail;
+        "menuOptionSelect": IcOptionSelectEventDetail;
+        "menuStateChange": IcMenuChangeEventDetail;
+        "menuValueChange": IcValueEventDetail;
+        "retryButtonClicked": IcValueEventDetail;
+        "timeoutBlur": { ev: FocusEvent };
+        "ungroupedOptionsSet": { options: IcMenuOption[] };
+    }
     interface HTMLIcMenuElement extends Components.IcMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcMenuElementEventMap>(type: K, listener: (this: HTMLIcMenuElement, ev: IcMenuCustomEvent<HTMLIcMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcMenuElementEventMap>(type: K, listener: (this: HTMLIcMenuElement, ev: IcMenuCustomEvent<HTMLIcMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcMenuElement: {
         prototype: HTMLIcMenuElement;
@@ -2517,7 +2632,23 @@ declare global {
         prototype: HTMLIcMenuGroupElement;
         new (): HTMLIcMenuGroupElement;
     };
+    interface HTMLIcMenuItemElementEventMap {
+        "childBlur": void;
+        "handleMenuItemClick": {
+    label: string;
+    hasSubMenu: boolean;
+  };
+        "triggerPopoverMenuInstance": void;
+    }
     interface HTMLIcMenuItemElement extends Components.IcMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcMenuItemElementEventMap>(type: K, listener: (this: HTMLIcMenuItemElement, ev: IcMenuItemCustomEvent<HTMLIcMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcMenuItemElementEventMap>(type: K, listener: (this: HTMLIcMenuItemElement, ev: IcMenuItemCustomEvent<HTMLIcMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcMenuItemElement: {
         prototype: HTMLIcMenuItemElement;
@@ -2535,13 +2666,36 @@ declare global {
         prototype: HTMLIcNavigationGroupElement;
         new (): HTMLIcNavigationGroupElement;
     };
+    interface HTMLIcNavigationItemElementEventMap {
+        "childBlur": void;
+        "navItemClicked": void;
+    }
     interface HTMLIcNavigationItemElement extends Components.IcNavigationItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcNavigationItemElementEventMap>(type: K, listener: (this: HTMLIcNavigationItemElement, ev: IcNavigationItemCustomEvent<HTMLIcNavigationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcNavigationItemElementEventMap>(type: K, listener: (this: HTMLIcNavigationItemElement, ev: IcNavigationItemCustomEvent<HTMLIcNavigationItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcNavigationItemElement: {
         prototype: HTMLIcNavigationItemElement;
         new (): HTMLIcNavigationItemElement;
     };
+    interface HTMLIcNavigationMenuElementEventMap {
+        "icNavigationMenuClose": void;
+    }
     interface HTMLIcNavigationMenuElement extends Components.IcNavigationMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcNavigationMenuElementEventMap>(type: K, listener: (this: HTMLIcNavigationMenuElement, ev: IcNavigationMenuCustomEvent<HTMLIcNavigationMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcNavigationMenuElementEventMap>(type: K, listener: (this: HTMLIcNavigationMenuElement, ev: IcNavigationMenuCustomEvent<HTMLIcNavigationMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcNavigationMenuElement: {
         prototype: HTMLIcNavigationMenuElement;
@@ -2553,13 +2707,35 @@ declare global {
         prototype: HTMLIcPageHeaderElement;
         new (): HTMLIcPageHeaderElement;
     };
+    interface HTMLIcPaginationElementEventMap {
+        "icPageChange": IcChangeEventDetail1;
+    }
     interface HTMLIcPaginationElement extends Components.IcPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcPaginationElementEventMap>(type: K, listener: (this: HTMLIcPaginationElement, ev: IcPaginationCustomEvent<HTMLIcPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcPaginationElementEventMap>(type: K, listener: (this: HTMLIcPaginationElement, ev: IcPaginationCustomEvent<HTMLIcPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcPaginationElement: {
         prototype: HTMLIcPaginationElement;
         new (): HTMLIcPaginationElement;
     };
+    interface HTMLIcPaginationItemElementEventMap {
+        "paginationItemClick": { page: number };
+    }
     interface HTMLIcPaginationItemElement extends Components.IcPaginationItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcPaginationItemElementEventMap>(type: K, listener: (this: HTMLIcPaginationItemElement, ev: IcPaginationItemCustomEvent<HTMLIcPaginationItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcPaginationItemElementEventMap>(type: K, listener: (this: HTMLIcPaginationItemElement, ev: IcPaginationItemCustomEvent<HTMLIcPaginationItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcPaginationItemElement: {
         prototype: HTMLIcPaginationItemElement;
@@ -2571,19 +2747,66 @@ declare global {
         prototype: HTMLIcPopoverMenuElement;
         new (): HTMLIcPopoverMenuElement;
     };
+    interface HTMLIcRadioGroupElementEventMap {
+        "icChange": IcChangeEventDetail2;
+    }
     interface HTMLIcRadioGroupElement extends Components.IcRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcRadioGroupElementEventMap>(type: K, listener: (this: HTMLIcRadioGroupElement, ev: IcRadioGroupCustomEvent<HTMLIcRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcRadioGroupElementEventMap>(type: K, listener: (this: HTMLIcRadioGroupElement, ev: IcRadioGroupCustomEvent<HTMLIcRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcRadioGroupElement: {
         prototype: HTMLIcRadioGroupElement;
         new (): HTMLIcRadioGroupElement;
     };
+    interface HTMLIcRadioOptionElementEventMap {
+        "icCheck": IcValueEventDetail;
+        "radioOptionSelect": IcValueEventDetail;
+        "icSelectedChange": void;
+    }
     interface HTMLIcRadioOptionElement extends Components.IcRadioOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcRadioOptionElementEventMap>(type: K, listener: (this: HTMLIcRadioOptionElement, ev: IcRadioOptionCustomEvent<HTMLIcRadioOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcRadioOptionElementEventMap>(type: K, listener: (this: HTMLIcRadioOptionElement, ev: IcRadioOptionCustomEvent<HTMLIcRadioOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcRadioOptionElement: {
         prototype: HTMLIcRadioOptionElement;
         new (): HTMLIcRadioOptionElement;
     };
+    interface HTMLIcSearchBarElementEventMap {
+        "icChange": IcValueEventDetail;
+        "icClear": void;
+        "icInput": IcValueEventDetail;
+        "icInputBlur": IcSearchBarBlurEventDetail;
+        "icInputFocus": IcValueEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail;
+        "icMenuChange": IcMenuChangeEventDetail;
+        "icClearBlur": IcBlurEventDetail;
+        "icRetryLoad": IcValueEventDetail;
+        "icSubmitSearch": IcValueEventDetail;
+        "icSubmitSearchBlur": IcBlurEventDetail;
+        "icSearchBarBlur": IcSearchBarBlurEventDetail;
+        "icSearchBarFocus": void;
+    }
     interface HTMLIcSearchBarElement extends Components.IcSearchBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSearchBarElementEventMap>(type: K, listener: (this: HTMLIcSearchBarElement, ev: IcSearchBarCustomEvent<HTMLIcSearchBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcSearchBarElement: {
         prototype: HTMLIcSearchBarElement;
@@ -2595,7 +2818,24 @@ declare global {
         prototype: HTMLIcSectionContainerElement;
         new (): HTMLIcSectionContainerElement;
     };
+    interface HTMLIcSelectElementEventMap {
+        "icBlur": void;
+        "icChange": IcValueEventDetail;
+        "icClear": void;
+        "icFocus": void;
+        "icInput": IcValueEventDetail;
+        "icOptionSelect": IcOptionSelectEventDetail;
+        "icRetryLoad": IcValueEventDetail;
+    }
     interface HTMLIcSelectElement extends Components.IcSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSelectElementEventMap>(type: K, listener: (this: HTMLIcSelectElement, ev: IcSelectCustomEvent<HTMLIcSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSelectElementEventMap>(type: K, listener: (this: HTMLIcSelectElement, ev: IcSelectCustomEvent<HTMLIcSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcSelectElement: {
         prototype: HTMLIcSelectElement;
@@ -2631,19 +2871,59 @@ declare global {
         prototype: HTMLIcStepperElement;
         new (): HTMLIcStepperElement;
     };
+    interface HTMLIcSwitchElementEventMap {
+        "icBlur": void;
+        "icChange": IcSwitchChangeEventDetail;
+        "icFocus": void;
+    }
     interface HTMLIcSwitchElement extends Components.IcSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSwitchElementEventMap>(type: K, listener: (this: HTMLIcSwitchElement, ev: IcSwitchCustomEvent<HTMLIcSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSwitchElementEventMap>(type: K, listener: (this: HTMLIcSwitchElement, ev: IcSwitchCustomEvent<HTMLIcSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcSwitchElement: {
         prototype: HTMLIcSwitchElement;
         new (): HTMLIcSwitchElement;
     };
+    interface HTMLIcTabElementEventMap {
+        "tabClick": IcTabClickEventDetail;
+        "tabCreated": HTMLIcTabElement;
+        "tabEnabled": void;
+        "tabFocus": IcTabClickEventDetail;
+        "tabRemoved": void;
+    }
     interface HTMLIcTabElement extends Components.IcTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabElementEventMap>(type: K, listener: (this: HTMLIcTabElement, ev: IcTabCustomEvent<HTMLIcTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabElementEventMap>(type: K, listener: (this: HTMLIcTabElement, ev: IcTabCustomEvent<HTMLIcTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTabElement: {
         prototype: HTMLIcTabElement;
         new (): HTMLIcTabElement;
     };
+    interface HTMLIcTabContextElementEventMap {
+        "icTabSelect": IcTabSelectEventDetail;
+        "tabSelect": IcTabSelectEventDetail;
+    }
     interface HTMLIcTabContextElement extends Components.IcTabContext, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabContextElementEventMap>(type: K, listener: (this: HTMLIcTabContextElement, ev: IcTabContextCustomEvent<HTMLIcTabContextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabContextElementEventMap>(type: K, listener: (this: HTMLIcTabContextElement, ev: IcTabContextCustomEvent<HTMLIcTabContextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTabContextElement: {
         prototype: HTMLIcTabContextElement;
@@ -2655,25 +2935,75 @@ declare global {
         prototype: HTMLIcTabGroupElement;
         new (): HTMLIcTabGroupElement;
     };
+    interface HTMLIcTabPanelElementEventMap {
+        "tabPanelCreated": HTMLIcTabPanelElement;
+        "tabPanelRemoved": void;
+    }
     interface HTMLIcTabPanelElement extends Components.IcTabPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTabPanelElementEventMap>(type: K, listener: (this: HTMLIcTabPanelElement, ev: IcTabPanelCustomEvent<HTMLIcTabPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTabPanelElementEventMap>(type: K, listener: (this: HTMLIcTabPanelElement, ev: IcTabPanelCustomEvent<HTMLIcTabPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTabPanelElement: {
         prototype: HTMLIcTabPanelElement;
         new (): HTMLIcTabPanelElement;
     };
+    interface HTMLIcTextFieldElementEventMap {
+        "getValidationText": IcValueEventDetail;
+        "icBlur": IcValueEventDetail;
+        "icChange": IcValueEventDetail;
+        "icFocus": IcValueEventDetail;
+        "icInput": IcValueEventDetail;
+        "icKeydown": { event: KeyboardEvent };
+    }
     interface HTMLIcTextFieldElement extends Components.IcTextField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTextFieldElementEventMap>(type: K, listener: (this: HTMLIcTextFieldElement, ev: IcTextFieldCustomEvent<HTMLIcTextFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTextFieldElementEventMap>(type: K, listener: (this: HTMLIcTextFieldElement, ev: IcTextFieldCustomEvent<HTMLIcTextFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTextFieldElement: {
         prototype: HTMLIcTextFieldElement;
         new (): HTMLIcTextFieldElement;
     };
+    interface HTMLIcThemeElementEventMap {
+        "themeChange": IcTheme;
+    }
     interface HTMLIcThemeElement extends Components.IcTheme, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcThemeElementEventMap>(type: K, listener: (this: HTMLIcThemeElement, ev: IcThemeCustomEvent<HTMLIcThemeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcThemeElementEventMap>(type: K, listener: (this: HTMLIcThemeElement, ev: IcThemeCustomEvent<HTMLIcThemeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcThemeElement: {
         prototype: HTMLIcThemeElement;
         new (): HTMLIcThemeElement;
     };
+    interface HTMLIcToastElementEventMap {
+        "icDismiss": void;
+    }
     interface HTMLIcToastElement extends Components.IcToast, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcToastElementEventMap>(type: K, listener: (this: HTMLIcToastElement, ev: IcToastCustomEvent<HTMLIcToastElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcToastElementEventMap>(type: K, listener: (this: HTMLIcToastElement, ev: IcToastCustomEvent<HTMLIcToastElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcToastElement: {
         prototype: HTMLIcToastElement;
@@ -2691,7 +3021,19 @@ declare global {
         prototype: HTMLIcTooltipElement;
         new (): HTMLIcTooltipElement;
     };
+    interface HTMLIcTopNavigationElementEventMap {
+        "icNavigationMenuClosed": void;
+        "icNavigationMenuOpened": void;
+    }
     interface HTMLIcTopNavigationElement extends Components.IcTopNavigation, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTopNavigationElementEventMap>(type: K, listener: (this: HTMLIcTopNavigationElement, ev: IcTopNavigationCustomEvent<HTMLIcTopNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTopNavigationElementEventMap>(type: K, listener: (this: HTMLIcTopNavigationElement, ev: IcTopNavigationCustomEvent<HTMLIcTopNavigationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTopNavigationElement: {
         prototype: HTMLIcTopNavigationElement;

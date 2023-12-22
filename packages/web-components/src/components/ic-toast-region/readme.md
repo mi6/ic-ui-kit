@@ -18,6 +18,12 @@
 
 <span style="color:red">**[DEPRECATED]**</span> Use openToast prop to display toast instead.<br/><br/>
 
+#### Parameters
+
+| Name    | Type                 | Description                    |
+| ------- | -------------------- | ------------------------------ |
+| `toast` | `HTMLIcToastElement` | The toast component to display |
+
 #### Returns
 
 Type: `Promise<void>`
