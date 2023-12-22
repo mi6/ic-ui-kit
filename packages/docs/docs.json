@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-12-14T10:33:21",
+  "timestamp": "2023-12-22T11:45:54",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.3.0",
-    "typescriptVersion": "5.1.6"
+    "version": "4.9.0",
+    "typescriptVersion": "5.2.2"
   },
   "components": [
     {
@@ -7672,13 +7672,9 @@
             "signature": "(event: KeyboardEvent) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "event - keyboard event"
-                  }
-                ],
-                "text": "- keyboard event"
+                "name": "event",
+                "type": "KeyboardEvent",
+                "docs": "The keyboard event which is available when handleKeyboardOpen is invoked."
               }
             ],
             "references": {
@@ -7694,12 +7690,18 @@
             "return": "Promise<void>"
           },
           "signature": "handleKeyboardOpen(event: KeyboardEvent) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "event",
+              "type": "KeyboardEvent",
+              "docs": "The keyboard event which is available when handleKeyboardOpen is invoked."
+            }
+          ],
           "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
           "docsTags": [
             {
               "name": "param",
-              "text": "event - keyboard event"
+              "text": "event The keyboard event which is available when handleKeyboardOpen is invoked."
             }
           ]
         }
@@ -9589,8 +9591,9 @@
             "signature": "(page: number) => Promise<void>",
             "parameters": [
               {
-                "tags": [],
-                "text": ""
+                "name": "page",
+                "type": "number",
+                "docs": "The page number to set as the current page"
               }
             ],
             "references": {
@@ -9602,9 +9605,20 @@
             "return": "Promise<void>"
           },
           "signature": "setCurrentPage(page: number) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "page",
+              "type": "number",
+              "docs": "The page number to set as the current page"
+            }
+          ],
           "docs": "Sets the currently displayed page.",
-          "docsTags": []
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "page The page number to set as the current page"
+            }
+          ]
         }
       ],
       "events": [
@@ -16489,8 +16503,9 @@
             "signature": "(toast: HTMLIcToastElement) => Promise<void>",
             "parameters": [
               {
-                "tags": [],
-                "text": ""
+                "name": "toast",
+                "type": "HTMLIcToastElement",
+                "docs": "The toast component to display"
               }
             ],
             "references": {
@@ -16506,12 +16521,22 @@
             "return": "Promise<void>"
           },
           "signature": "setVisible(toast: HTMLIcToastElement) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "toast",
+              "type": "HTMLIcToastElement",
+              "docs": "The toast component to display"
+            }
+          ],
           "docs": "",
           "docsTags": [
             {
               "name": "deprecated",
               "text": "Use openToast prop to display toast instead."
+            },
+            {
+              "name": "param",
+              "text": "toast The toast component to display"
             }
           ],
           "deprecation": "Use openToast prop to display toast instead."
@@ -16711,22 +16736,14 @@
             "signature": "(show: boolean, persistTooltip?: boolean) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "show Whether to show or hide the tooltip"
-                  }
-                ],
-                "text": "Whether to show or hide the tooltip"
+                "name": "show",
+                "type": "boolean",
+                "docs": "Whether to show or hide the tooltip"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover"
-                  }
-                ],
-                "text": "Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover"
+                "name": "persistTooltip",
+                "type": "boolean",
+                "docs": "Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover"
               }
             ],
             "references": {
@@ -16738,7 +16755,18 @@
             "return": "Promise<void>"
           },
           "signature": "displayTooltip(show: boolean, persistTooltip?: boolean) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "show",
+              "type": "boolean",
+              "docs": "Whether to show or hide the tooltip"
+            },
+            {
+              "name": "persistTooltip",
+              "type": "boolean",
+              "docs": "Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover"
+            }
+          ],
           "docs": "Method to programmatically show/hide the tooltip without needing to interact with an anchor element",
           "docsTags": [
             {
