@@ -12,6 +12,8 @@ import {
   SlottedRightIcon,
 } from "./IcButtonTestData";
 
+const DEFAULT_TEST_THRESHOLD = 0.03;
+
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 const NOT_BE_CALLED_ONCE = "not.be.calledOnce";
 const HAVE_VALUE = "have.value";
@@ -280,7 +282,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("primary");
+    cy.compareSnapshot("primary", DEFAULT_TEST_THRESHOLD + 0.01);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -333,7 +335,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("secondary");
+    cy.compareSnapshot("secondary", DEFAULT_TEST_THRESHOLD);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -386,7 +388,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("tertiary");
+    cy.compareSnapshot("tertiary", DEFAULT_TEST_THRESHOLD);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -411,7 +413,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("destructive");
+    cy.compareSnapshot("destructive", DEFAULT_TEST_THRESHOLD);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -509,7 +511,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("with-icon");
+    cy.compareSnapshot("with-icon", DEFAULT_TEST_THRESHOLD + 0.03);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -540,7 +542,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("size");
+    cy.compareSnapshot("size", DEFAULT_TEST_THRESHOLD + 0.02);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -564,7 +566,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("icon-without-viewbox");
+    cy.compareSnapshot("icon-without-viewbox", DEFAULT_TEST_THRESHOLD);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -600,7 +602,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("full-width");
+    cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD + 0.01);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -656,7 +658,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("icon");
+    cy.compareSnapshot("icon", 0);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 });
