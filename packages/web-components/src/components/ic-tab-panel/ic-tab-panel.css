@@ -1,4 +1,6 @@
-:host {
+@import "../../global/normalize.css";
+
+:host:not[hidden] {
   display: block;
 }
 
