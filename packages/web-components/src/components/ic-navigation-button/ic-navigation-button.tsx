@@ -137,6 +137,7 @@ export class NavigationButton {
       this.initialAppearance;
     let size: "default" | "large" = "large";
     let fullWidth = false;
+    let disableTooltip = false;
 
     if (this.mode === "menu") {
       label = this.label;
@@ -145,6 +146,7 @@ export class NavigationButton {
       size = "default";
       fullWidth = true;
       className = "popout-menu-button";
+      disableTooltip = true;
     }
 
     const buttonProps = {
@@ -157,6 +159,7 @@ export class NavigationButton {
       download,
       referrerpolicy,
       fullWidth,
+      disableTooltip,
     };
 
     return (
