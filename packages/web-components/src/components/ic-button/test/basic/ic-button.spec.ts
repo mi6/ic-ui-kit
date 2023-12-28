@@ -344,6 +344,24 @@ describe("button component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should test tooltip visibility changes when disable tooltip prop changes", async () => {
+    const page = await newSpecPage({
+      components: [Button],
+      html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
+    });
+    expect(page.root).toMatchSnapshot();
+
+    page.root.disableTooltip = true;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.disableTooltip = false;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should test blur handler", async () => {
     const page = await newSpecPage({
       components: [Button],

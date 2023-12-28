@@ -202,6 +202,7 @@ export class Button {
 
   componentWillUpdate(): void {
     this.loadingWidth();
+    this.setHasTooltip();
   }
 
   componentWillLoad(): void {
@@ -226,8 +227,7 @@ export class Button {
 
     const id = this.el.id;
     this.id = id !== undefined ? id : null;
-    this.hasTooltip =
-      !this.disableTooltip && (!!this.title || this.variant === "icon");
+    this.setHasTooltip();
 
     if (!this.hasTooltip) {
       const describedById = this.inheritedAttributes[
@@ -393,6 +393,11 @@ export class Button {
     if (forceComponentUpdate) {
       forceUpdate(this);
     }
+  };
+
+  private setHasTooltip = (): void => {
+    this.hasTooltip =
+      !this.disableTooltip && (!!this.title || this.variant === "icon");
   };
 
   render() {
