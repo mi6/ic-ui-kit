@@ -278,6 +278,43 @@ exports[`button component should test button as submit button on form 1`] = `
 </ic-button>
 `;
 
+exports[`button component should test tooltip visibility changes when disable tooltip prop changes 1`] = `
+<ic-button class="button-size-default button-variant-icon light" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should test tooltip visibility changes when disable tooltip prop changes 2`] = `
+<ic-button class="button-size-default button-variant-icon light" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <button aria-label="Tooltip text" class="button" part="button" type="button">
+      <slot></slot>
+    </button>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
+exports[`button component should test tooltip visibility changes when disable tooltip prop changes 3`] = `
+<ic-button class="button-size-default button-variant-icon light" exportparts="button" id="test-button" variant="icon">
+  <mock:shadow-root>
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
+      <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" aria-label="Tooltip text" class="button" part="button" type="button">
+        <slot></slot>
+      </button>
+    </ic-tooltip>
+  </mock:shadow-root>
+  Button
+</ic-button>
+`;
+
 exports[`button component should update aria-expanded when attribute changed 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
