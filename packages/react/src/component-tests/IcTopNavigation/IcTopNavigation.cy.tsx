@@ -19,6 +19,7 @@ import {
   IcTheme,
 } from "../../components";
 import { SlottedSVG } from "../..";
+import { HAVE_CSS } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const DEFAULT_TEST_THRESHOLD_MOBILE = 0.04;
@@ -58,17 +59,17 @@ describe("IcTopNavigation", () => {
     it("should toggle search bar when clicking on button", () => {
       mount(<TopNavWithSearch />);
       cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should("have.css", "height", "40px");
+      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "40px");
       cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should("have.css", "height", "0px");
+      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "0px");
     });
 
     it("should hide search bar when loses focus", () => {
       mount(<TopNavWithSearch />);
       cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should("have.css", "height", "40px");
+      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "40px");
       cy.get(SEARCH_BAR_LABEL).should("be.visible").should("have.focus").blur();
-      cy.get(SEARCH_BAR_LABEL).should("have.css", "height", "0px");
+      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "0px");
     });
 
     /// Need to check if the following two tests are still required- is tabbing functionality required for mobile test?

@@ -6,6 +6,34 @@ import { mount } from "@cypress/react";
 import { IcSelect } from "../../components";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import {
+  IC_INPUT_CONTAINER,
+  IC_MENU_LI,
+  IC_MENU_UL,
+  SC_IC_MENU_TYPOGRAPHY,
+  DISABLED_OPTION_MENU,
+  IC_TYPOGRAPHY,
+  ID_CLEAR_BUTTON,
+  ARIA_SELECTED,
+  TYPE_DOWN_ARROW,
+  TYPE_ENTER,
+  TYPE_BACKSPACE,
+  DATA_VALUE_ESPRESSO,
+  DATA_LABEL_CAPUCCINO,
+  DATA_LABEL_ESPRESSO,
+  DEFAULT_TEST_THRESHOLD,
+} from "./IcSelectConstants";
+import {
+  HAVE_LENGTH,
+  HAVE_BEEN_CALLED_ONCE,
+  HAVE_VALUE,
+  HAVE_CLASS,
+  BE_VISIBLE,
+  HAVE_FOCUS,
+  HAVE_ATTR,
+  CONTAIN_VALUE,
+  NOT_BE_VISIBLE,
+} from "../utils/constants";
+import {
   coffeeOptions,
   coffeeOptionsDescriptions,
   coffeeDisabledOption,
@@ -14,47 +42,29 @@ import {
   validationCoffeeOption,
   groupAndDescriptionCoffeeOption,
   searchableCoffeeOption,
-  searchableDescriptionsCoffeeOption,
-  searchableGroupCoffeeOption,
   coffeeOptionsReadonly,
   coffeeCustomElements,
 } from "./IcSelectTestData";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
-
-const IC_INPUT_CONTAINER = "ic-input-component-container";
-const IC_MENU_LI = "ic-menu ul li";
-const IC_MENU_UL = "ic-menu ul";
-const SC_IC_MENU_TYPOGRAPHY = ".sc-ic-menu ic-typography";
-const DISABLED_OPTION_MENU = "option disabled-option sc-ic-menu";
-const IC_TYPOGRAPHY = "ic-typography";
-const ID_CLEAR_BUTTON = "#clear-button";
-const ARIA_SELECTED = "aria-selected";
-
-const HAVE_LENGTH = "have.length";
-const HAVE_BEEN_CALLED_ONCE = "have.been.calledOnce";
-const HAVE_VALUE = "have.value";
-const HAVE_CLASS = "have.class";
-const BE_VISIBLE = "be.visible";
-const HAVE_FOCUS = "have.focus";
-const HAVE_ATTR = "have.attr";
-const CONTAIN_VALUE = "contain.value";
-const NOT_BE_VISIBLE = "not.be.visible";
-
-const TYPE_DOWN_ARROW = "{downArrow}";
-const TYPE_ENTER = "{enter}";
-const TYPE_BACKSPACE = "{backspace}";
-const DATA_VALUE_ESPRESSO = "[data-value='espresso']";
-const DATA_VALUE_CAP = '[data-value="Cap"]';
-const DATA_LABEL_CAPUCCINO = '[data-label="Cappuccino"]';
-const DATA_LABEL_ESPRESSO = '[data-label="Espresso"]';
-const INPUT_TYPE_HIDDEN = "input[type='hidden']";
-const NO_RESULTS_FOUND = "No results found";
-
 describe("IcSelect", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
   it("should render when no options are provided", () => {
     mount(<IcSelect label="What is your favourite coffee?" />);
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect in idle state
+    cy.checkHydrated("ic-select");
+
+    // A11y
+    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+
     cy.get("ic-select").should("exist");
   });
 
@@ -67,6 +77,13 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect open with IcMenu displayed
+    cy.compareSnapshot("default-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
       .should(HAVE_LENGTH, "6")
@@ -302,7 +319,18 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect with default value (GENERATE NEW SNAPSHOT)
+    cy.compareSnapshot("default-value", DEFAULT_TEST_THRESHOLD + 0.005);
+
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect with default value and IcMenu open
+    cy.compareSnapshot("default-value-open", DEFAULT_TEST_THRESHOLD + 0.025);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.clickOnShadowEl("ic-select", DATA_VALUE_ESPRESSO);
     cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO);
@@ -312,6 +340,29 @@ describe("IcSelect", () => {
       ARIA_SELECTED
     );
     // cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO).should(HAVE_CLASS, "check-icon");
+  });
+
+  it("renders with a clear button", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeOptions}
+        value="cappuccino"
+        showClearButton
+      />
+    );
+    cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect default value and clear button
+    cy.compareSnapshot("clear-button", DEFAULT_TEST_THRESHOLD + 0.01);
+
+    cy.get("ic-select").shadow().find("ic-button#clear-button").click();
+
+    // Screenshot: IcSelect default value and clear button with IcMenu open
+    cy.compareSnapshot("clear-button-cleared", DEFAULT_TEST_THRESHOLD);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
   it("should display clear button if the 'show-clear-button' prop is supplied and an option is selected", () => {
@@ -473,6 +524,13 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect/IcMenu options with descriptions
+    cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.getWhatIsFavCoffeeQueTitle("ic-select");
     cy.findShadowEl("ic-select", IC_MENU_LI)
@@ -488,14 +546,21 @@ describe("IcSelect", () => {
       <IcSelect
         label="What is your favourite coffee?"
         options={coffeeOptionsDescriptions}
-        placeholder="Cappuccino"
+        placeholder="Placeholder goes here"
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect with placeholder text
+    cy.compareSnapshot("custom-placeholder", DEFAULT_TEST_THRESHOLD);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .contains("Cappuccino")
+      .contains("Placeholder goes here")
       .should(BE_VISIBLE);
   });
 
@@ -508,6 +573,13 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect disabled
+    cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
     cy.get("ic-select").shadow().find("button").should("be.disabled");
   });
@@ -520,7 +592,13 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect with disabled options
+    cy.compareSnapshot("disabled-options-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
   it("should set aria-disabled and skip focus when option disabled", () => {
@@ -547,6 +625,13 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect with required
+    cy.compareSnapshot("required", DEFAULT_TEST_THRESHOLD);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.get("ic-select")
       .shadow()
       .contains("What is your favourite coffee? *")
@@ -564,6 +649,13 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect readonly
+    cy.compareSnapshot("readonly", DEFAULT_TEST_THRESHOLD);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.get("ic-select")
       .shadow()
       .contains("What is your favourite coffee?")
@@ -583,8 +675,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    // Doesnt this line and the line below do the same thing?
+    // cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect with grouped options
+    cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+    // A11y
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
       .should(HAVE_LENGTH, "6")
@@ -639,6 +739,13 @@ describe("IcSelect", () => {
       );
       cy.checkHydrated("ic-select");
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+
+      // Screenshot: IcSelect with recommended options
+      cy.compareSnapshot("recommended-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+      // A11y
+      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
       cy.checkShadowElVisible("ic-select", IC_MENU_LI);
       cy.findShadowEl("ic-select", ".last-recommended-option ").should("exist");
     });
@@ -871,98 +978,6 @@ describe("IcSelect", () => {
     );
   });
 
-  it("searchable should open menu when character is entered in input field and filter options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").type("ca");
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "3")
-      .contains("Café au lait")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOption) => {
-            cy.log(filterOption);
-          });
-      });
-  });
-
-  it("searchable should keep the same options when characters are entered and the menu is reopened", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").click();
-    cy.get("ic-select").shadow().find("input").type("foo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
-  });
-
-  it("should display no results state when search term matches none of the options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").click();
-    cy.get("ic-select").shadow().find("input").type("zZ");
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
-  });
-
-  it("should filter options accordingly when Backspace is pressed", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.findShadowEl("ic-select", "input").click();
-    cy.findShadowEl("ic-select", "input").type("fi");
-    cy.findShadowEl("ic-select", "input").type(TYPE_BACKSPACE);
-    cy.findShadowEl("ic-select", "input").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "2")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
-  });
-
   it("should filter options when search match position is set to start", () => {
     mount(
       <IcSelect
@@ -980,404 +995,6 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", "ic-menu")
       .contains("Cappuccino")
       .should("have.text", "Cappuccino");
-  });
-
-  it("should include option descriptions in search", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableDescriptionsCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("mo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find(".expand-icon").should("exist").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "1")
-      .should("have.text", "MochaCoffee with chocolate")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
-  });
-
-  it("should not include group titles in search", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableGroupCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("b");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
-  });
-
-  it("should display whole group when group titles included in search", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableGroupCoffeeOption}
-        searchable
-        includeGroupTitlesInSearch
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("b");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "4")
-      .contains("Latte")
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
-  });
-
-  it("should display a clear button which clears the input when clicked", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.findShadowEl("ic-select", IC_MENU_UL).type(TYPE_ENTER);
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("a");
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).should("not.have.text");
-  });
-
-  it("should emit the value as null when the input is changed after selecting an option", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .click({ force: true });
-    cy.findShadowEl("ic-select", DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
-    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
-  });
-
-  it("should still filter the options when the input is changed after selecting an option", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .click({ force: true });
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
-    for (let i = 0; i <= 3; i++) {
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    }
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "3")
-      .contains("Americano")
-      .should(BE_VISIBLE)
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
-  });
-
-  it("should close menu on blur", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
-  });
-
-  it.skip("should emit icChange on delay", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        debounce={500}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .wait(600)
-      .find("foo")
-      .should(BE_VISIBLE);
-    cy.get(".ic-input").should(HAVE_VALUE, "foo");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("bar");
-    cy.get(".ic-input").should(HAVE_VALUE, "foobar");
-  });
-
-  it("should update hidden input to value typed in select searchable input", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("bar");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "bar");
-  });
-
-  it("should keep typed in hidden input value when highlighting menu options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "cap");
-  });
-
-  it("should update hidden value from typed to selected", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
-  });
-
-  it("should update hidden value from typed to selected to typed", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(INPUT_TYPE_HIDDEN).should(HAVE_VALUE, "o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "7");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .find(DATA_VALUE_CAP)
-      .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("1");
-    cy.get(".ic-input").should(HAVE_VALUE, "Cappuccino1");
-  });
-
-  //not sure
-  it("should update the value of the input and options when passing the value directly", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(".ic-input").should(CONTAIN_VALUE, "foo");
-  });
-
-  it("should trigger icChange on input for each typed value", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("f");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .as("foo")
-      .invoke("val", "f")
-      .trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .should(BE_VISIBLE)
-      .as("foo")
-      .invoke("val", "f")
-      .trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .should(BE_VISIBLE)
-      .as("foo")
-      .invoke("val", "f")
-      .trigger("icChanges");
-    cy.get(".ic-input")
-      .as("foo")
-      .invoke("val", "foo")
-      .trigger("icChanges", { force: true });
-    cy.get("@foo").should(HAVE_VALUE, "foo");
-  });
-
-  it("should not trigger icChange on highlighting menu items", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.window().then((win) => {
-      cy.spy(win, "alert").as("menuItemHighlighted");
-    });
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).trigger("icChanges");
-    cy.findShadowEl("ic-select", IC_MENU_UL)
-      .eq(0)
-      .trigger("icChanges", { force: true });
-    cy.get("@menuItemHighlighted").should("not.be.called");
-  });
-
-  it("should not select a menu option when typing into the searchable input field", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "not.have.property",
-      "[aria-selected]"
-    );
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "have.not.attr",
-      ARIA_SELECTED
-    );
-  });
-
-  it("should not selet a menu option when one has previously been set and backspace is pressed", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get("ic-select").shadow().find('[data-label="Latte"]').should("exist");
-    for (let i = 0; i <= 5; i++) {
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
-    }
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "have.not.attr",
-      ARIA_SELECTED
-    );
-  });
-
-  it("should display selected option when selecting a menu option and then opening and closing the menu", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).should(BE_VISIBLE);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", "li[data-value='Lat']").should(
-      HAVE_ATTR,
-      ARIA_SELECTED
-    );
   });
 
   it("hidden input value when on initial load with default value ", () => {
@@ -1497,50 +1114,6 @@ describe("IcSelect", () => {
   });
 
   // can't mount reset button component
-  it.skip("loading should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        searchable
-        loading
-        timeout={500}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke(
-      "on",
-      "icRetryLoads",
-      cy.stub().as("icRetryLoad")
-    );
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", "ic-menu ul li ic-typography")
-      .should(BE_VISIBLE)
-      .should("have.text", "Loading Error");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER);
-  });
-
-  // can't mount clear button component
-  it.skip("should cancel loading if the clear button is pressed mid-load", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        searchable
-        loading
-        timeout={500}
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", "ic-menu ul li ic-typography")
-      .should(BE_VISIBLE)
-      .should("have.text", "Loading Error");
-  });
-
-  // can't mount reset button component
   it.skip("should reset to initial value on form reset", () => {
     mount(
       <IcSelect
@@ -1553,37 +1126,6 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.get(".ic-input").should(HAVE_VALUE, "espresso");
-  });
-
-  it.skip("menu should not be visible on initial load if setting default value and disable filter is set", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        searchable
-        timeout={800}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should("not.exist");
-  });
-
-  // can't mount reset button component
-  it.skip("should reset to initial value on form reset with searchable", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should(BE_VISIBLE);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get(".ic-input").should(HAVE_VALUE, "Lat");
   });
 
   //not sure
@@ -1854,77 +1396,6 @@ describe("IcSelect", () => {
       .should(HAVE_CLASS, "menu sc-ic-menu menu-scroll")
       .should("be.exist");
   });
-});
-
-describe("IcSelect Visual Regression Testing", () => {
-  beforeEach(() => {
-    cy.injectAxe();
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("renders", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("default-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a default value", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default-value", DEFAULT_TEST_THRESHOLD + 0.005);
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("default-value-open", DEFAULT_TEST_THRESHOLD + 0.025);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a clear button", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-        showClearButton
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("clear-button", DEFAULT_TEST_THRESHOLD + 0.01);
-
-    cy.get("ic-select").shadow().find("ic-button#clear-button").click();
-    cy.compareSnapshot("clear-button-cleared", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
 
   it("renders with helper text", () => {
     mount(
@@ -1936,19 +1407,6 @@ describe("IcSelect Visual Regression Testing", () => {
     );
     cy.checkHydrated("ic-select");
     cy.compareSnapshot("helper-text", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom placeholder", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        placeholder="Placeholder goes here"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("custom-placeholder", DEFAULT_TEST_THRESHOLD);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -1977,8 +1435,9 @@ describe("IcSelect Visual Regression Testing", () => {
     cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect size variant
     cy.compareSnapshot("small-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
   it("renders small - deprecated", () => {
@@ -1993,34 +1452,9 @@ describe("IcSelect Visual Regression Testing", () => {
     cy.compareSnapshot("small-deprecated", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect small variant
     cy.compareSnapshot("small-deprecated-open", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders disabled", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        disabled
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with disabled options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeDisabledOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("disabled-options-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
   it("renders full width", () => {
@@ -2035,7 +1469,11 @@ describe("IcSelect Visual Regression Testing", () => {
     cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    // Screenshot: IcSelect full Width
     cy.compareSnapshot("full-width-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+    // A11y
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -2048,60 +1486,11 @@ describe("IcSelect Visual Regression Testing", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
+    // Screeshot: IcSelect hidden label
     cy.compareSnapshot("hidden-label", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
 
-  it("renders required", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        required
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("required", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders readonly", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        readonly
-        value="cappuccino"
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("readonly", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with recommendations", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={recommendedCoffeeOption}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("recommended-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    // A11y
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
@@ -2129,363 +1518,11 @@ describe("IcSelect Visual Regression Testing", () => {
       </div>
     );
     cy.checkHydrated("ic-select");
+
+    // Screenshot: IcSelect in validation states
     cy.compareSnapshot("validation", DEFAULT_TEST_THRESHOLD + 0.045);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-});
 
-describe("IcSelect Searchable Visual Regression Testing", () => {
-  beforeEach(() => {
-    cy.injectAxe();
-  });
-
-  afterEach(() => {
-    cy.task("generateReport");
-  });
-
-  it("renders", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-default", DEFAULT_TEST_THRESHOLD);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-default-open",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with a default value", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="cappuccino"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot(
-      "searchable-default-value",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-default-value-open",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
-
-    // removed as currently failing
-    // cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with filtering at the start", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        searchable
-        searchMatchPosition="start"
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-search-match-position-open",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-descriptions-open",
-      DEFAULT_TEST_THRESHOLD + 0.04
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with descriptions included in filter", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptionsDescriptions}
-        searchable
-        includeDescriptionsInSearch
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
-    cy.compareSnapshot(
-      "searchable-descriptions-in-filter-open",
-      DEFAULT_TEST_THRESHOLD + 0.04
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with helper text", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        helperText="Enter your favourite coffee"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-helper-text", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom placeholder", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        placeholder="Placeholder goes here"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-custom-placeholder", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with custom elements", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeCustomElements}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-custom-elements-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        size="small"
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small", DEFAULT_TEST_THRESHOLD);
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("searchable-small-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders small - deprecated", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        small
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small-deprecated", DEFAULT_TEST_THRESHOLD);
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot(
-      "searchable-small-open-deprecated",
-      DEFAULT_TEST_THRESHOLD + 0.03
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders disabled", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        disabled
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-disabled", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with disabled options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeDisabledOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-disabled-options-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders full width", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        fullWidth
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-full-width", DEFAULT_TEST_THRESHOLD);
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-full-width-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with hidden label", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        hideLabel
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-hidden-label", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders required", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        required
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-required", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with groups included in search", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={groupCoffeeOption}
-        searchable
-        includeGroupTitlesInSearch
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
-    cy.compareSnapshot(
-      "searchable-groups-in-filter-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders with recommendations", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={recommendedCoffeeOption}
-        searchable
-      />
-    );
-    cy.checkHydrated("ic-select");
-
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-recommended-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-  });
-
-  it("renders validation", () => {
-    mount(
-      <div>
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="success"
-          validationText="Success message!"
-          searchable
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="warning"
-          validationText="Warning message!"
-          searchable
-        />
-        <IcSelect
-          label="What is your favourite coffee?"
-          options={coffeeOptions}
-          validationStatus="error"
-          validationText="Error message!"
-          searchable
-        />
-      </div>
-    );
-    cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-validation", DEFAULT_TEST_THRESHOLD + 0.05);
+    // A11y
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 });

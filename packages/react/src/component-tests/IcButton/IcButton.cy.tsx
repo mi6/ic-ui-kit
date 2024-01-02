@@ -11,12 +11,11 @@ import {
   SlottedIconNoViewBox,
   SlottedRightIcon,
 } from "./IcButtonTestData";
+import { NOT_BE_CALLED_ONCE, HAVE_VALUE } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
-const NOT_BE_CALLED_ONCE = "not.be.calledOnce";
-const HAVE_VALUE = "have.value";
 
 const ID_NAME = "#name";
 const TEXT_INPUT = "@textInput";
