@@ -580,7 +580,45 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests manSetInputValueKeyboardOpen function when searchable select", async () => {
+
+  it("tests setFocus is called when backSpace is pressed while menu option is highlighted", async () => {
+    const searchableSelect = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+
+    searchableSelect.setFocus = jest.fn();
+    searchableSelect.searchable = true;
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={searchableSelect}
+          value={menuOptions[0].value}
+          parentEl={searchableSelect}
+        ></ic-menu>
+      ),
+    });
+
+    page.rootInstance.isSearchableSelect = true;
+
+    await page.rootInstance.handleSetFirstOption();
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("Backspace"));
+
+    await page.waitForChanges();
+
+    expect(searchableSelect.setFocus).toHaveBeenCalled();
+  });
+
+  it("tests setFocus is not called when backSpace is pressed and no menu option is highlighted", async () => {
     const searchableSelect = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -612,9 +650,82 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
+    expect(searchableSelect.setFocus).not.toHaveBeenCalled();
+  });
+
+  it("tests setFocus on input is called when menu option is highlighted and character is pressed", async () => {
+    const searchableSelect = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+
+    searchableSelect.setFocus = jest.fn();
+    searchableSelect.searchable = true;
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={searchableSelect}
+          value={menuOptions[0].value}
+          parentEl={searchableSelect}
+        ></ic-menu>
+      ),
+    });
+
+    page.rootInstance.isSearchableSelect = true;
+
+    await page.rootInstance.handleSetFirstOption();
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("f"));
+
+    await page.waitForChanges();
+
     expect(searchableSelect.setFocus).toHaveBeenCalled();
   });
-  it("tests manSetInputValueKeyboardOpen function when searchbar", async () => {
+
+  it("tests setFocus is not called when no menu option is highlighted and character is pressed", async () => {
+    const searchableSelect = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+
+    searchableSelect.setFocus = jest.fn();
+    searchableSelect.searchable = true;
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={searchableSelect}
+          value={menuOptions[0].value}
+          parentEl={searchableSelect}
+        ></ic-menu>
+      ),
+    });
+
+    page.rootInstance.isSearchableSelect = true;
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("f"));
+
+    await page.waitForChanges();
+
+    expect(searchableSelect.setFocus).not.toHaveBeenCalled();
+  });
+
+  it("tests manSetInputValueKeyboardOpen: setFocus is not triggered if backspace is pressed and focus is not on menu", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -645,8 +756,45 @@ describe("ic-menu in isolation", () => {
 
     await page.waitForChanges();
 
+    expect(select.setFocus).not.toHaveBeenCalled();
+  });
+
+  it("tests manSetInputValueKeyboardOpen: setFocus is triggered if menu is focused and backspace is pressed", async () => {
+    const select = window.document.createElement(
+      "IC-SELECT"
+    ) as HTMLIcSelectElement;
+    const input = window.document.createElement("input");
+
+    select.setFocus = jest.fn();
+
+    const page = await newSpecPage({
+      components: [Menu, InputComponentContainer],
+      template: () => (
+        <ic-menu
+          open
+          activationType="automatic"
+          options={menuOptions}
+          menuId="menu-id"
+          inputLabel="input-label"
+          inputEl={input}
+          anchorEl={select}
+          value={menuOptions[0].value}
+          parentEl={select}
+        ></ic-menu>
+      ),
+    });
+
+    page.rootInstance.isSearchBar = true;
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("ArrowDown"));
+
+    page.rootInstance.manSetInputValueKeyboardOpen(keyboardEvent("Backspace"));
+
+    await page.waitForChanges();
+
     expect(select.setFocus).toHaveBeenCalled();
   });
+
   it("tests manSetInputValueKeyboardOpen function when default parameter passed", async () => {
     const select = window.document.createElement(
       "IC-SELECT"

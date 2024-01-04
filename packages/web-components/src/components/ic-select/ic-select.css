@@ -180,6 +180,7 @@ select:not([disabled]) {
   display: flex;
   gap: var(--ic-space-xxs);
   padding-left: 2.375rem;
+  align-items: center;
 }
 
 :host(.small) .clear-button-container {
