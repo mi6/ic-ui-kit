@@ -18,6 +18,13 @@
 | `version`        | `version`         | The version info to be displayed.                                                               | `string`                             | `""`           |
 
 
+## Events
+
+| Event           | Description                                 | Type                             |
+| --------------- | ------------------------------------------- | -------------------------------- |
+| `topNavResized` | Emitted when the top navigation is resized. | `CustomEvent<{ size: number; }>` |
+
+
 ## Slots
 
 | Slot                | Description                                                                                                             |

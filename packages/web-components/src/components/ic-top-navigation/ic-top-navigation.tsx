@@ -120,6 +120,11 @@ export class TopNavigation {
    */
   @Event() icNavigationMenuOpened: EventEmitter<void>;
 
+  /**
+   * Emitted when the top navigation is resized.
+   */
+  @Event() topNavResized: EventEmitter<{ size: number }>;
+
   disconnectedCallback(): void {
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();
@@ -218,11 +223,6 @@ export class TopNavigation {
     }
   }
 
-  private emitTopNavResized = (size: number): void => {
-    const event = new CustomEvent("topNavResized", { detail: { size: size } });
-    this.el.dispatchEvent(event);
-  };
-
   private menuButtonClick = () => {
     this.showNavMenu(true);
   };
@@ -258,7 +258,9 @@ export class TopNavigation {
           this.toggleSearchBar();
         }
       }
-      this.emitTopNavResized(currSize);
+      this.topNavResized.emit({
+        size: currSize,
+      });
       if (
         document.activeElement !== null &&
         document.activeElement !== undefined &&

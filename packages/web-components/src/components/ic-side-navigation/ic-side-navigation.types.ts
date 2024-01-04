@@ -8,3 +8,8 @@ export interface IcTopBar {
   isAppNameSubtitleVariant: boolean;
   appTitle: string;
 }
+
+export interface IcExpandedDetail {
+  sideNavExpanded: boolean;
+  sideNavMobile: boolean;
+}
