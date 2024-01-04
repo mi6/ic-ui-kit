@@ -599,25 +599,8 @@ export class Menu {
         }
         this.preventIncorrectTabOrder = true;
         break;
-      case "Backspace":
-        if (this.isSearchBar) {
-          (this.parentEl as HTMLIcSearchBarElement).setFocus();
-          if (this.searchMode === "navigation") this.setHighlightedOption(0);
-        } else if (this.isSearchableSelect) {
-          (this.parentEl as HTMLIcSelectElement).setFocus();
-        }
-        this.focusFromSearchKeypress = true;
-        break;
       default:
-        if (event.key !== "Tab") {
-          if (this.isSearchBar) {
-            (this.parentEl as HTMLIcSearchBarElement).setFocus();
-            if (this.searchMode === "navigation") this.setHighlightedOption(0);
-          } else if (this.isSearchableSelect) {
-            (this.parentEl as HTMLIcSelectElement).setFocus();
-          }
-          this.focusFromSearchKeypress = true;
-        }
+        this.focusOnSearchOrSelectInput(menuOptions, highlightedOptionIndex);
         break;
     }
   };
@@ -845,6 +828,24 @@ export class Menu {
   private handleTimeoutBlur = (ev: FocusEvent) => {
     this.timeoutBlur.emit({ ev });
   };
+
+  private focusOnSearchOrSelectInput(
+    menuOptions: IcMenuOption[],
+    highlightedOptionIndex: number
+  ) {
+    if (!menuOptions[highlightedOptionIndex]) return;
+
+    if (this.isSearchBar) {
+      (this.parentEl as HTMLIcSearchBarElement).setFocus();
+      if (this.searchMode === "navigation") this.setHighlightedOption(0);
+    }
+
+    if (this.isSearchableSelect) {
+      (this.parentEl as HTMLIcSelectElement).setFocus();
+    }
+
+    this.focusFromSearchKeypress = true;
+  }
 
   private optionContent = (option: IcMenuOption) => {
     return (
