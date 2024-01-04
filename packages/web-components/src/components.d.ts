@@ -22,6 +22,7 @@ import { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types
 import { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 import { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
+import { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 import { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 import { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 import { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
@@ -47,6 +48,7 @@ export { IcMenuItemVariants } from "./components/ic-menu-item/ic-menu-item.types
 export { IcChangeEventDetail as IcChangeEventDetail1, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcPaginationItemType } from "./components/ic-pagination-item/ic-pagination-item.types";
 export { IcChangeEventDetail as IcChangeEventDetail2 } from "./components/ic-radio-group/ic-radio-group.types";
+export { IcExpandedDetail } from "./components/ic-side-navigation/ic-side-navigation.types";
 export { IcSkeletonVariants } from "./components/ic-skeleton/ic-skeleton.types";
 export { IcStatusTagAppearance, IcStatusTagStatuses } from "./components/ic-status-tag/ic-status-tag.types";
 export { IcStepStatuses, IcStepTypes, IcStepVariants } from "./components/ic-step/ic-step.types";
@@ -2300,6 +2302,10 @@ export interface IcSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSelectElement;
 }
+export interface IcSideNavigationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcSideNavigationElement;
+}
 export interface IcSwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSwitchElement;
@@ -2841,7 +2847,18 @@ declare global {
         prototype: HTMLIcSelectElement;
         new (): HTMLIcSelectElement;
     };
+    interface HTMLIcSideNavigationElementEventMap {
+        "sideNavExpanded": IcExpandedDetail;
+    }
     interface HTMLIcSideNavigationElement extends Components.IcSideNavigation, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcSideNavigationElement: {
         prototype: HTMLIcSideNavigationElement;
@@ -3024,6 +3041,7 @@ declare global {
     interface HTMLIcTopNavigationElementEventMap {
         "icNavigationMenuClosed": void;
         "icNavigationMenuOpened": void;
+        "topNavResized": { size: number };
     }
     interface HTMLIcTopNavigationElement extends Components.IcTopNavigation, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTopNavigationElementEventMap>(type: K, listener: (this: HTMLIcTopNavigationElement, ev: IcTopNavigationCustomEvent<HTMLIcTopNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4878,6 +4896,10 @@ declare namespace LocalJSX {
         "href"?: string;
         "inline"?: boolean;
         /**
+          * Emitted when the side navigation is collapsed and expanded.
+         */
+        "onSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
+        /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
         "shortAppTitle"?: string;
@@ -5340,6 +5362,10 @@ declare namespace LocalJSX {
         "inline"?: boolean;
         "onIcNavigationMenuClosed"?: (event: IcTopNavigationCustomEvent<void>) => void;
         "onIcNavigationMenuOpened"?: (event: IcTopNavigationCustomEvent<void>) => void;
+        /**
+          * Emitted when the top navigation is resized.
+         */
+        "onTopNavResized"?: (event: IcTopNavigationCustomEvent<{ size: number }>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */

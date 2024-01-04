@@ -21,6 +21,13 @@
 | `version`                  | `version`                     | The version of the app to be displayed.                                                                             | `string`  | `undefined` |
 
 
+## Events
+
+| Event             | Description                                                 | Type                            |
+| ----------------- | ----------------------------------------------------------- | ------------------------------- |
+| `sideNavExpanded` | Emitted when the side navigation is collapsed and expanded. | `CustomEvent<IcExpandedDetail>` |
+
+
 ## Slots
 
 | Slot                     | Description                                                                                |

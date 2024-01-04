@@ -6,6 +6,8 @@ import {
   State,
   Element,
   Listen,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 
 import menuIcon from "../../assets/hamburger-menu-icon.svg";
@@ -28,7 +30,7 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
 } from "../../utils/types";
-import { IcTopBar } from "./ic-side-navigation.types";
+import { IcTopBar, IcExpandedDetail } from "./ic-side-navigation.types";
 
 /**
  * @slot app-icon - Content will be rendered adjacent to the app title at the very top of the side navigation.
@@ -115,6 +117,11 @@ export class SideNavigation {
    */
   @Prop() version: string;
 
+  /**
+   * Emitted when the side navigation is collapsed and expanded.
+   */
+  @Event() sideNavExpanded: EventEmitter<IcExpandedDetail>;
+
   componentWillLoad(): void {
     if (this.expanded) {
       this.setMenuExpanded(true);
@@ -168,13 +175,10 @@ export class SideNavigation {
     sideNavExpanded: boolean;
     sideNavMobile?: boolean;
   }): void => {
-    const event = new CustomEvent("sideNavExpanded", {
-      detail: {
-        sideNavExpanded: objDetails.sideNavExpanded,
-        sideNavMobile: objDetails.sideNavMobile,
-      },
+    this.sideNavExpanded.emit({
+      sideNavExpanded: objDetails.sideNavExpanded,
+      sideNavMobile: objDetails.sideNavMobile,
     });
-    this.el.dispatchEvent(event);
   };
 
   private toggleMenu = (): void => {
