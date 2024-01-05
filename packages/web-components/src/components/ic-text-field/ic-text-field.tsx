@@ -272,7 +272,7 @@ export class TextField {
   }
 
   /**
-   * @internal Emitted when the validationInlineInternal is `true`
+   * Emitted when the validationInlineInternal is `true`
    */
   @Event() getValidationText: EventEmitter<IcValueEventDetail>;
 

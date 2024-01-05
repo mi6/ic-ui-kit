@@ -16,6 +16,13 @@
 | `size`     | `size`     | The size of the accordion.                    | `"default" \| "large" \| "small"` | `"default"` |
 
 
+## Events
+
+| Event              | Description                        | Type                           |
+| ------------------ | ---------------------------------- | ------------------------------ |
+| `accordionClicked` | Emitted when accordion is clicked. | `CustomEvent<{ id: string; }>` |
+
+
 ## Methods
 
 ### `setFocus() => Promise<void>`

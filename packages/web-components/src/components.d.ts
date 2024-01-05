@@ -3129,6 +3129,9 @@ declare namespace LocalJSX {
           * The main body message of the accordion.
          */
         "message"?: string;
+        /**
+          * Emitted when accordion is clicked.
+         */
         "onAccordionClicked"?: (event: IcAccordionCustomEvent<{ id: string }>) => void;
         /**
           * The size of the accordion.
@@ -3750,6 +3753,9 @@ declare namespace LocalJSX {
           * If `true`, the footer will be set up to handle link groups instead of standalone links.
          */
         "groupLinks"?: boolean;
+        /**
+          * Triggers on page resize and triggers style changes in footer links and link groups
+         */
         "onFooterResized"?: (event: IcFooterCustomEvent<void>) => void;
     }
     interface IcFooterLink {
@@ -4052,13 +4058,37 @@ declare namespace LocalJSX {
           * The ID of the menu.
          */
         "menuId": string;
+        /**
+          * Emitted when key is pressed while menu is open
+         */
         "onMenuKeyPress"?: (event: IcMenuCustomEvent<{ isNavKey: boolean; key: string }>) => void;
+        /**
+          * Emitted when an option has been highlighted
+         */
         "onMenuOptionId"?: (event: IcMenuCustomEvent<IcMenuOptionIdEventDetail>) => void;
+        /**
+          * Emitted when an option is selected.
+         */
         "onMenuOptionSelect"?: (event: IcMenuCustomEvent<IcOptionSelectEventDetail>) => void;
+        /**
+          * Emitted when state of menu changes (i.e. open or close).
+         */
         "onMenuStateChange"?: (event: IcMenuCustomEvent<IcMenuChangeEventDetail>) => void;
+        /**
+          * Emitted when menu value changes.
+         */
         "onMenuValueChange"?: (event: IcMenuCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the retry button is clicked
+         */
         "onRetryButtonClicked"?: (event: IcMenuCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the timeout menu loses focus
+         */
         "onTimeoutBlur"?: (event: IcMenuCustomEvent<{ ev: FocusEvent }>) => void;
+        /**
+          * Emitted when the ungrouped options have been set.
+         */
         "onUngroupedOptionsSet"?: (event: IcMenuCustomEvent<{ options: IcMenuOption[] }>) => void;
         /**
           * If `true`, the menu will be displayed open.
@@ -4122,11 +4152,20 @@ declare namespace LocalJSX {
           * The label to display in the menu item.
          */
         "label": string;
+        /**
+          * Emitted when item loses focus.
+         */
         "onChildBlur"?: (event: IcMenuItemCustomEvent<void>) => void;
+        /**
+          * Emitted when the user clicks a menu item.
+         */
         "onHandleMenuItemClick"?: (event: IcMenuItemCustomEvent<{
     label: string;
     hasSubMenu: boolean;
   }>) => void;
+        /**
+          * Emitted when the user clicks a menu item that triggers a popover menu instance.
+         */
         "onTriggerPopoverMenuInstance"?: (event: IcMenuItemCustomEvent<void>) => void;
         /**
           * How much of the referrer to send when following the link.
@@ -4209,7 +4248,13 @@ declare namespace LocalJSX {
           * The label of the navigation item.
          */
         "label"?: string;
+        /**
+          * Emitted when item loses focus.
+         */
         "onChildBlur"?: (event: IcNavigationItemCustomEvent<void>) => void;
+        /**
+          * Emitted when navigation item clicked.
+         */
         "onNavItemClicked"?: (event: IcNavigationItemCustomEvent<void>) => void;
         /**
           * How much of the referrer to send when following the link.
@@ -4344,6 +4389,9 @@ declare namespace LocalJSX {
           * The label for the pagination item (applicable when simple pagination is being used).
          */
         "label"?: string;
+        /**
+          * Emitted when a pagination item is clicked.
+         */
         "onPaginationItemClick"?: (event: IcPaginationItemCustomEvent<{ page: number }>) => void;
         /**
           * The current page number.
@@ -4588,6 +4636,9 @@ declare namespace LocalJSX {
           * Emitted when value is cleared with clear button
          */
         "onIcClear"?: (event: IcSearchBarCustomEvent<void>) => void;
+        /**
+          * Emitted when blur is invoked from clear button
+         */
         "onIcClearBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
         /**
           * Emitted when a keyboard input occurred.
@@ -4625,6 +4676,9 @@ declare namespace LocalJSX {
           * Emitted when the search value has been submitted
          */
         "onIcSubmitSearch"?: (event: IcSearchBarCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when blur is invoked from search submit button
+         */
         "onIcSubmitSearchBlur"?: (event: IcSearchBarCustomEvent<IcBlurEventDetail>) => void;
         /**
           * The suggested search options.
@@ -5043,10 +5097,25 @@ declare namespace LocalJSX {
           * If `true`, the disabled state will be set.
          */
         "disabled"?: boolean;
+        /**
+          * Emitted when a tab is selected.
+         */
         "onTabClick"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        /**
+          * Emitted when a tab is dynamically created.
+         */
         "onTabCreated"?: (event: IcTabCustomEvent<HTMLIcTabElement>) => void;
+        /**
+          * Emitted when a tab's disabled prop changes
+         */
         "onTabEnabled"?: (event: IcTabCustomEvent<void>) => void;
+        /**
+          * Emitted when a tab is focussed.
+         */
         "onTabFocus"?: (event: IcTabCustomEvent<IcTabClickEventDetail>) => void;
+        /**
+          * Emitted when a tab is unmounted.
+         */
         "onTabRemoved"?: (event: IcTabCustomEvent<void>) => void;
         "selected"?: boolean;
         "tabId"?: string;
@@ -5099,7 +5168,13 @@ declare namespace LocalJSX {
           * @deprecated This is no longer required. The context id is passed down from `ic-tab-context`
          */
         "contextId"?: string;
+        /**
+          * Emitted when a tab panel is dynamically created.
+         */
         "onTabPanelCreated"?: (event: IcTabPanelCustomEvent<HTMLIcTabPanelElement>) => void;
+        /**
+          * Emitted when a tab panel is unmounted.
+         */
         "onTabPanelRemoved"?: (event: IcTabPanelCustomEvent<void>) => void;
         "panelId"?: string;
         "selectedTab"?: string;
@@ -5175,6 +5250,9 @@ declare namespace LocalJSX {
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
+        /**
+          * Emitted when the validationInlineInternal is `true`
+         */
         "onGetValidationText"?: (event: IcTextFieldCustomEvent<IcValueEventDetail>) => void;
         /**
           * Emitted when input loses focus.
@@ -5257,6 +5335,9 @@ declare namespace LocalJSX {
           * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
          */
         "color"?: string;
+        /**
+          * Emitted when the theme is changed.
+         */
         "onThemeChange"?: (event: IcThemeCustomEvent<IcTheme>) => void;
     }
     interface IcToast {
@@ -5338,7 +5419,13 @@ declare namespace LocalJSX {
           * If `true`, the flyout navigation menu on small devices will be contained by the parent element.
          */
         "inline"?: boolean;
+        /**
+          * Emitted when the menu is closed.
+         */
         "onIcNavigationMenuClosed"?: (event: IcTopNavigationCustomEvent<void>) => void;
+        /**
+          * Emitted when the menu is opened.
+         */
         "onIcNavigationMenuOpened"?: (event: IcTopNavigationCustomEvent<void>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.

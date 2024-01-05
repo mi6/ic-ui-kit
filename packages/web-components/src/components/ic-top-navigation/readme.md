@@ -18,6 +18,14 @@
 | `version`        | `version`         | The version info to be displayed.                                                               | `string`                             | `""`           |
 
 
+## Events
+
+| Event                    | Description                      | Type                |
+| ------------------------ | -------------------------------- | ------------------- |
+| `icNavigationMenuClosed` | Emitted when the menu is closed. | `CustomEvent<void>` |
+| `icNavigationMenuOpened` | Emitted when the menu is opened. | `CustomEvent<void>` |
+
+
 ## Slots
 
 | Slot                | Description                                                                                                             |

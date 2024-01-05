@@ -59,7 +59,7 @@ export class PaginationItem {
   @Prop() type: IcPaginationItemType;
 
   /**
-   * @internal - Emitted when a pagination item is clicked.
+   * Emitted when a pagination item is clicked.
    */
   @Event() paginationItemClick: EventEmitter<{ page: number }>;
 

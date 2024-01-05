@@ -162,42 +162,42 @@ export class Menu {
   @Prop() valueField: string = "value";
 
   /**
-   * @internal Emitted when key is pressed while menu is open
+   * Emitted when key is pressed while menu is open
    */
   @Event() menuKeyPress: EventEmitter<{ isNavKey: boolean; key: string }>;
 
   /**
-   * @internal Emitted when an option has been highlighted
+   * Emitted when an option has been highlighted
    */
   @Event() menuOptionId: EventEmitter<IcMenuOptionIdEventDetail>;
 
   /**
-   * @internal Emitted when an option is selected.
+   * Emitted when an option is selected.
    */
   @Event() menuOptionSelect!: EventEmitter<IcOptionSelectEventDetail>;
 
   /**
-   * @internal Emitted when state of menu changes (i.e. open or close).
+   * Emitted when state of menu changes (i.e. open or close).
    */
   @Event() menuStateChange!: EventEmitter<IcMenuChangeEventDetail>;
 
   /**
-   * @internal Emitted when menu value changes.
+   * Emitted when menu value changes.
    */
   @Event() menuValueChange: EventEmitter<IcValueEventDetail>;
 
   /**
-   * @internal Emitted when the retry button is clicked
+   * Emitted when the retry button is clicked
    */
   @Event() retryButtonClicked: EventEmitter<IcValueEventDetail>;
 
   /**
-   * @internal Emitted when the timeout menu loses focus
+   * Emitted when the timeout menu loses focus
    */
   @Event() timeoutBlur: EventEmitter<{ ev: FocusEvent }>;
 
   /**
-   * @internal Emitted when the ungrouped options have been set.
+   * Emitted when the ungrouped options have been set.
    */
   @Event() ungroupedOptionsSet: EventEmitter<{ options: IcMenuOption[] }>;
 

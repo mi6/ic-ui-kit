@@ -19,6 +19,13 @@
 | `type`         | `type`          | The type of pagination item - 'page' or 'ellipsis'.                                                       | `"ellipsis" \| "page" \| "simple-current"` | `undefined` |
 
 
+## Events
+
+| Event                 | Description                                | Type                             |
+| --------------------- | ------------------------------------------ | -------------------------------- |
+| `paginationItemClick` | Emitted when a pagination item is clicked. | `CustomEvent<{ page: number; }>` |
+
+
 ## Dependencies
 
 ### Used by

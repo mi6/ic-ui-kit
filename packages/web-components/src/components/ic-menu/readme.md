@@ -25,6 +25,20 @@
 | `valueField`              | `value-field`     | The custom name for the value field for IcMenuOption.                                                                                           | `string`                  | `"value"`      |
 
 
+## Events
+
+| Event                 | Description                                              | Type                                               |
+| --------------------- | -------------------------------------------------------- | -------------------------------------------------- |
+| `menuKeyPress`        | Emitted when key is pressed while menu is open           | `CustomEvent<{ isNavKey: boolean; key: string; }>` |
+| `menuOptionId`        | Emitted when an option has been highlighted              | `CustomEvent<IcMenuOptionIdEventDetail>`           |
+| `menuOptionSelect`    | Emitted when an option is selected.                      | `CustomEvent<IcOptionSelectEventDetail>`           |
+| `menuStateChange`     | Emitted when state of menu changes (i.e. open or close). | `CustomEvent<IcMenuChangeEventDetail>`             |
+| `menuValueChange`     | Emitted when menu value changes.                         | `CustomEvent<IcValueEventDetail>`                  |
+| `retryButtonClicked`  | Emitted when the retry button is clicked                 | `CustomEvent<IcValueEventDetail>`                  |
+| `timeoutBlur`         | Emitted when the timeout menu loses focus                | `CustomEvent<{ ev: FocusEvent; }>`                 |
+| `ungroupedOptionsSet` | Emitted when the ungrouped options have been set.        | `CustomEvent<{ options: IcMenuOption[]; }>`        |
+
+
 ## Methods
 
 ### `handleKeyboardOpen(event: KeyboardEvent) => Promise<void>`

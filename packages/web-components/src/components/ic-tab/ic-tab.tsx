@@ -59,27 +59,27 @@ export class Tab {
   }
 
   /**
-   * @internal Emitted when a tab is selected.
+   * Emitted when a tab is selected.
    */
   @Event() tabClick: EventEmitter<IcTabClickEventDetail>;
 
   /**
-   * @internal Emitted when a tab is dynamically created.
+   * Emitted when a tab is dynamically created.
    */
   @Event() tabCreated: EventEmitter<HTMLIcTabElement>;
 
   /**
-   * @internal Emitted when a tab's disabled prop changes
+   * Emitted when a tab's disabled prop changes
    */
   @Event() tabEnabled: EventEmitter<void>;
 
   /**
-   * @internal Emitted when a tab is focussed.
+   * Emitted when a tab is focussed.
    */
   @Event() tabFocus: EventEmitter<IcTabClickEventDetail>;
 
   /**
-   * @internal Emitted when a tab is unmounted.
+   * Emitted when a tab is unmounted.
    */
   @Event() tabRemoved: EventEmitter<void>;
 

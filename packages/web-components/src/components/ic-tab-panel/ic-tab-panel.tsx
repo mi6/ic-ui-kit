@@ -48,12 +48,12 @@ export class TabPanel {
   @Prop({ reflect: true }) tabPosition?: number;
 
   /**
-   * @internal Emitted when a tab panel is dynamically created.
+   * Emitted when a tab panel is dynamically created.
    */
   @Event() tabPanelCreated: EventEmitter<HTMLIcTabPanelElement>;
 
   /**
-   * @internal Emitted when a tab panel is unmounted.
+   * Emitted when a tab panel is unmounted.
    */
   @Event() tabPanelRemoved: EventEmitter<void>;
 

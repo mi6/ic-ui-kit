@@ -77,7 +77,7 @@ export class Footer {
   @Prop() groupLinks?: boolean = false;
 
   /**
-   *  @internal Triggers on page resize and triggers style changes in footer links and link groups
+   * Triggers on page resize and triggers style changes in footer links and link groups
    */
   @Event() footerResized: EventEmitter<void>;
 
