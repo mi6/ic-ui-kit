@@ -44,19 +44,21 @@
 
 ## Events
 
-| Event              | Description                                                                                                                    | Type                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| `icChange`         | Emitted when the value has changed.                                                                                            | `CustomEvent<IcValueEventDetail>`         |
-| `icClear`          | Emitted when value is cleared with clear button                                                                                | `CustomEvent<void>`                       |
-| `icInput`          | Emitted when a keyboard input occurred.                                                                                        | `CustomEvent<IcValueEventDetail>`         |
-| `icInputBlur`      | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icSearchBarBlur instead.<br/><br/>  | `CustomEvent<IcSearchBarBlurEventDetail>` |
-| `icInputFocus`     | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icSearchBarFocus instead.<br/><br/> | `CustomEvent<IcValueEventDetail>`         |
-| `icMenuChange`     | Emitted when the state of the menu changes (i.e. open or close)                                                                | `CustomEvent<IcMenuChangeEventDetail>`    |
-| `icOptionSelect`   | Emitted when option is highlighted within the menu                                                                             | `CustomEvent<IcOptionSelectEventDetail>`  |
-| `icRetryLoad`      | Emitted when the 'retry loading' button is clicked                                                                             | `CustomEvent<IcValueEventDetail>`         |
-| `icSearchBarBlur`  | Emitted when blur is invoked from ic-search-bar                                                                                | `CustomEvent<IcSearchBarBlurEventDetail>` |
-| `icSearchBarFocus` | Emitted when focus is invoked from ic-search-bar                                                                               | `CustomEvent<void>`                       |
-| `icSubmitSearch`   | Emitted when the search value has been submitted                                                                               | `CustomEvent<IcValueEventDetail>`         |
+| Event                | Description                                                                                                                    | Type                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| `icChange`           | Emitted when the value has changed.                                                                                            | `CustomEvent<IcValueEventDetail>`         |
+| `icClear`            | Emitted when value is cleared with clear button                                                                                | `CustomEvent<void>`                       |
+| `icClearBlur`        | Emitted when blur is invoked from clear button                                                                                 | `CustomEvent<IcBlurEventDetail>`          |
+| `icInput`            | Emitted when a keyboard input occurred.                                                                                        | `CustomEvent<IcValueEventDetail>`         |
+| `icInputBlur`        | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icSearchBarBlur instead.<br/><br/>  | `CustomEvent<IcSearchBarBlurEventDetail>` |
+| `icInputFocus`       | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icSearchBarFocus instead.<br/><br/> | `CustomEvent<IcValueEventDetail>`         |
+| `icMenuChange`       | Emitted when the state of the menu changes (i.e. open or close)                                                                | `CustomEvent<IcMenuChangeEventDetail>`    |
+| `icOptionSelect`     | Emitted when option is highlighted within the menu                                                                             | `CustomEvent<IcOptionSelectEventDetail>`  |
+| `icRetryLoad`        | Emitted when the 'retry loading' button is clicked                                                                             | `CustomEvent<IcValueEventDetail>`         |
+| `icSearchBarBlur`    | Emitted when blur is invoked from ic-search-bar                                                                                | `CustomEvent<IcSearchBarBlurEventDetail>` |
+| `icSearchBarFocus`   | Emitted when focus is invoked from ic-search-bar                                                                               | `CustomEvent<void>`                       |
+| `icSubmitSearch`     | Emitted when the search value has been submitted                                                                               | `CustomEvent<IcValueEventDetail>`         |
+| `icSubmitSearchBlur` | Emitted when blur is invoked from search submit button                                                                         | `CustomEvent<IcBlurEventDetail>`          |
 
 
 ## Methods

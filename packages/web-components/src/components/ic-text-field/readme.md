@@ -42,13 +42,14 @@
 
 ## Events
 
-| Event       | Description                             | Type                                     |
-| ----------- | --------------------------------------- | ---------------------------------------- |
-| `icBlur`    | Emitted when input loses focus.         | `CustomEvent<IcValueEventDetail>`        |
-| `icChange`  | Emitted when the value has changed.     | `CustomEvent<IcValueEventDetail>`        |
-| `icFocus`   | Emitted when input gains focus.         | `CustomEvent<IcValueEventDetail>`        |
-| `icInput`   | Emitted when a keyboard input occurred. | `CustomEvent<IcValueEventDetail>`        |
-| `icKeydown` | Emitted when a keydown event occurred.  | `CustomEvent<{ event: KeyboardEvent; }>` |
+| Event               | Description                                         | Type                                     |
+| ------------------- | --------------------------------------------------- | ---------------------------------------- |
+| `getValidationText` | Emitted when the validationInlineInternal is `true` | `CustomEvent<IcValueEventDetail>`        |
+| `icBlur`            | Emitted when input loses focus.                     | `CustomEvent<IcValueEventDetail>`        |
+| `icChange`          | Emitted when the value has changed.                 | `CustomEvent<IcValueEventDetail>`        |
+| `icFocus`           | Emitted when input gains focus.                     | `CustomEvent<IcValueEventDetail>`        |
+| `icInput`           | Emitted when a keyboard input occurred.             | `CustomEvent<IcValueEventDetail>`        |
+| `icKeydown`         | Emitted when a keydown event occurred.              | `CustomEvent<{ event: KeyboardEvent; }>` |
 
 
 ## Methods

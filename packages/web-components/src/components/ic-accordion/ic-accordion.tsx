@@ -63,7 +63,7 @@ export class Accordion {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * @internal Emitted when accordion is clicked.
+   * Emitted when accordion is clicked.
    */
   @Event() accordionClicked: EventEmitter<{ id: string }>;
 

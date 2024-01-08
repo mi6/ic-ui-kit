@@ -111,12 +111,12 @@ export class TopNavigation {
   }
 
   /**
-   * @internal - Emitted when the menu is closed.
+   * Emitted when the menu is closed.
    */
   @Event() icNavigationMenuClosed: EventEmitter<void>;
 
   /**
-   * @internal - Emitted when the menu is opened.
+   * Emitted when the menu is opened.
    */
   @Event() icNavigationMenuOpened: EventEmitter<void>;
 

@@ -36,7 +36,7 @@ export class Theme {
   }
 
   /**
-   * @internal Emitted when the theme is changed.
+   * Emitted when the theme is changed.
    */
   @Event() themeChange: EventEmitter<IcTheme>;
 

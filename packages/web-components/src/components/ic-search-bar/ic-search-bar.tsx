@@ -406,7 +406,7 @@ export class SearchBar {
    */
   @Event() icMenuChange: EventEmitter<IcMenuChangeEventDetail>;
   /**
-   * @internal - Emitted when blur is invoked from clear button
+   * Emitted when blur is invoked from clear button
    */
   @Event() icClearBlur: EventEmitter<IcBlurEventDetail>;
   private handleClearBlur = (ev: Event) => {
@@ -428,7 +428,7 @@ export class SearchBar {
   @Event() icSubmitSearch: EventEmitter<IcValueEventDetail>;
 
   /**
-   * @internal - Emitted when blur is invoked from search submit button
+   * Emitted when blur is invoked from search submit button
    */
   @Event() icSubmitSearchBlur: EventEmitter<IcBlurEventDetail>;
   private handleSubmitSearchBlur = (ev: Event) => {

@@ -19,6 +19,14 @@
 | `target`         | `target`         | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe). | `string`                                                                                                                                                                                 | `undefined` |
 
 
+## Events
+
+| Event            | Description                           | Type                |
+| ---------------- | ------------------------------------- | ------------------- |
+| `childBlur`      | Emitted when item loses focus.        | `CustomEvent<void>` |
+| `navItemClicked` | Emitted when navigation item clicked. | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `setFocus() => Promise<void>`

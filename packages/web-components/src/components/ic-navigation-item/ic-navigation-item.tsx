@@ -109,12 +109,12 @@ export class NavigationItem {
   @Prop() target?: string;
 
   /**
-   * @internal - Emitted when item loses focus.
+   * Emitted when item loses focus.
    */
   @Event() childBlur: EventEmitter<void>;
 
   /**
-   * @internal - Emitted when navigation item clicked.
+   * Emitted when navigation item clicked.
    */
   @Event() navItemClicked: EventEmitter<void>;
 

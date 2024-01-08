@@ -20,9 +20,11 @@
 
 ## Events
 
-| Event           | Description                                 | Type                             |
-| --------------- | ------------------------------------------- | -------------------------------- |
-| `topNavResized` | Emitted when the top navigation is resized. | `CustomEvent<{ size: number; }>` |
+| Event                    | Description                                 | Type                             |
+| ------------------------ | ------------------------------------------- | -------------------------------- |
+| `icNavigationMenuClosed` | Emitted when the menu is closed.            | `CustomEvent<void>`              |
+| `icNavigationMenuOpened` | Emitted when the menu is opened.            | `CustomEvent<void>`              |
+| `topNavResized`          | Emitted when the top navigation is resized. | `CustomEvent<{ size: number; }>` |
 
 
 ## Slots
