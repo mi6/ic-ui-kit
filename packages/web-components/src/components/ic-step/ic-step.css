@@ -52,6 +52,11 @@
   margin: var(--ic-space-xs) 0 0;
 }
 
+:host ic-loading-indicator::part(ic-loading-container) {
+  border-radius: 50%;
+  background-color: var(--ic-architectural-white);
+}
+
 :host(.compact) .step-title-area {
   display: flex;
   flex-direction: column;
@@ -110,6 +115,7 @@
 
 :host(.default) .step-icon {
   border-radius: 50%;
+  background-color: var(--ic-architectural-white);
 }
 
 .step-icon-inner {

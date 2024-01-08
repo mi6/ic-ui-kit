@@ -60,7 +60,7 @@
   left: 0;
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
-  background-color: transparent;
+  background-color: var(--ic-architectural-white);
   border: var(--ic-border-default);
   border-radius: 50%;
   transition: var(--ic-easing-transition-fast);
@@ -74,14 +74,14 @@
 
 /* On mouse-over, add a light blue background color */
 .container:hover input ~ .checkmark {
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-action-default-bg-hover-no-alpha);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
   border: var(--ic-border-width) solid var(--ic-action-default);
 }
 
 /* When pressed, adds the active colours */
 .container:active input ~ .checkmark {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-action-default-bg-active-no-alpha);
   border: var(--ic-border-width) solid var(--ic-action-default-active);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
 }
@@ -105,7 +105,7 @@
 
 /* When the radio button is checked and disabled */
 .container input:checked:disabled ~ .checkmark {
-  background-color: transparent;
+  background-color: var(--ic-architectural-white);
   border: 0.125rem solid var(--ic-architectural-200);
 }
 
@@ -121,7 +121,7 @@
 
 /* On mouse-over inactive */
 .container:hover input:disabled ~ .checkmark {
-  background-color: transparent;
+  background-color: var(--ic-architectural-white);
   box-shadow: none;
   border: 0.125rem solid none;
 }

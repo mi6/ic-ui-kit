@@ -169,6 +169,11 @@ export class Button {
   @Prop() tooltipPlacement?: IcButtonTooltipPlacement = "bottom";
 
   /**
+   * If `true`, the secondary variant of button will have a transparent background rather than white.
+   */
+  @Prop() transparentBackground?: boolean = true;
+
+  /**
    * The type of the button.
    */
   @Prop() type?: IcButtonTypes = "button";
@@ -497,6 +502,10 @@ export class Button {
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
+          ["white-background"]:
+            this.variant === "secondary" &&
+            !this.transparentBackground &&
+            this.appearance !== "light",
         }}
         onClick={this.handleClick}
         aria-owns={this.ariaOwnsId}

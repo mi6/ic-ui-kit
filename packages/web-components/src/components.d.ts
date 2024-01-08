@@ -303,6 +303,10 @@ export namespace Components {
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
+          * If `true`, the secondary variant of button will have a transparent background rather than white.
+         */
+        "transparentBackground"?: boolean;
+        /**
           * The type of the button.
          */
         "type"?: IcButtonTypes;
@@ -506,6 +510,10 @@ export namespace Components {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+         */
+        "transparentBackground"?: boolean;
         /**
           * The emphasis of the chip.
          */
@@ -3371,6 +3379,10 @@ declare namespace LocalJSX {
          */
         "tooltipPlacement"?: IcButtonTooltipPlacement;
         /**
+          * If `true`, the secondary variant of button will have a transparent background rather than white.
+         */
+        "transparentBackground"?: boolean;
+        /**
           * The type of the button.
          */
         "type"?: IcButtonTypes;
@@ -3582,6 +3594,10 @@ declare namespace LocalJSX {
           * The size of the chip.
          */
         "size"?: IcSizes;
+        /**
+          * If `true`, the outlined variant of chip will have a transparent background rather than white.
+         */
+        "transparentBackground"?: boolean;
         /**
           * The emphasis of the chip.
          */
