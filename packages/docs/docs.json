@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-04T14:22:30",
+  "timestamp": "2024-01-08T12:00:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -1772,6 +1772,28 @@
           "required": false
         },
         {
+          "name": "transparentBackground",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "transparent-background",
+          "reflectToAttr": false,
+          "docs": "If `true`, the secondary variant of button will have a transparent background rather than white.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "type",
           "type": "\"button\" | \"reset\" | \"submit\"",
           "complexType": {
@@ -3391,6 +3413,28 @@
             {
               "value": "small",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "transparentBackground",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "transparent-background",
+          "reflectToAttr": false,
+          "docs": "If `true`, the outlined variant of chip will have a transparent background rather than white.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -7018,7 +7062,12 @@
         }
       ],
       "slots": [],
-      "parts": [],
+      "parts": [
+        {
+          "name": "ic-loading-container",
+          "docs": ""
+        }
+      ],
       "dependents": ["ic-button", "ic-menu", "ic-step", "ic-toast"],
       "dependencies": ["ic-typography"],
       "dependencyGraph": {
