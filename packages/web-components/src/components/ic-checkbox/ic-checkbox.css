@@ -27,7 +27,7 @@
   left: 0;
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
-  background-color: transparent;
+  background-color: var(--ic-architectural-white);
   border: var(--ic-border-width) solid var(--ic-architectural-300);
   border-radius: var(--ic-border-radius);
   outline: none;
@@ -60,7 +60,7 @@
 
 .checkbox:indeterminate,
 .checkbox.indeterminate:checked {
-  background-color: transparent;
+  background-color: var(--ic-architectural-white);
   border: 0.125rem solid var(--ic-action-default);
 }
 
@@ -70,7 +70,7 @@
 
 .checkbox:indeterminate:hover,
 .checkbox.indeterminate:checked:hover {
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-action-default-bg-hover-no-alpha);
   border: 0.125rem solid var(--ic-action-default-hover);
 }
 
@@ -80,18 +80,18 @@
 
 .checkbox:indeterminate:active,
 .checkbox.indeterminate:checked:active {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-action-default-bg-active-no-alpha);
   border: 0.125rem solid var(--ic-action-default-active);
 }
 
 .checkbox:hover {
-  background-color: var(--ic-action-default-bg-hover);
+  background-color: var(--ic-action-default-bg-hover-no-alpha);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-hover);
   border: var(--ic-border-width) solid var(--ic-action-default-hover);
 }
 
 .checkbox:active {
-  background-color: var(--ic-action-default-bg-active);
+  background-color: var(--ic-action-default-bg-active-no-alpha);
   box-shadow: 0 0 0 0.25rem var(--ic-action-default-bg-active);
   border: var(--ic-border-width) solid var(--ic-action-default-active);
 }

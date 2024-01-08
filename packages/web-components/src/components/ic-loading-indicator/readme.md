@@ -21,6 +21,13 @@
 | `type`          | `type`           | The type of indicator, either linear or circular.                                                                                       | `"circular" \| "linear"`                    | `"circular"` |
 
 
+## Shadow Parts
+
+| Part                     | Description |
+| ------------------------ | ----------- |
+| `"ic-loading-container"` |             |
+
+
 ## CSS Custom Properties
 
 | Name                  | Description                        |
