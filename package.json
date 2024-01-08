@@ -33,6 +33,8 @@
     "test-visual:ci:canary": "npm run build:all && npm run build-storybook:canary-web-components && lerna run test-visual:ci:canary --stream",
     "test-visual:update": "lerna run test-visual:update --scope=@ukic/web-components --stream",
     "test-visual:update-ci": "npm run build && lerna run test-visual:update --scope=@ukic/web-components --stream",
+    "test-visual:update:canary": "lerna run test-visual:update --scope @ukic/canary-web-components --stream",
+    "test-visual:update-ci:canary": "npm run build:all && lerna run test-visual:update:canary --stream",
     "test-cypress": "lerna run cypress --scope=@ukic/react --stream",
     "test-cypress:headless": "lerna run cypress:ci --scope=@ukic/react --stream",
     "test-cypress:ci": "npm run build && npm run test-cypress:headless",
