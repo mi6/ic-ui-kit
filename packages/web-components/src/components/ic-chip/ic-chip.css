@@ -121,6 +121,14 @@ ic-tooltip {
   fill: var(--ic-architectural-200);
 }
 
+.chip.white-background {
+  background-color: var(--ic-architectural-white);
+}
+
+.chip.white-background.hovered:not(:focus-within) {
+  background-color: var(--ic-action-dark-bg-hover-no-alpha) !important;
+}
+
 @media (forced-colors: active) {
   .chip {
     border: var(--ic-hc-border);

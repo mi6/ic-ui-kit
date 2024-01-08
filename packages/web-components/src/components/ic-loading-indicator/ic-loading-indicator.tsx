@@ -108,6 +108,7 @@ export class LoadingIndicator {
   componentWillLoad(): void {
     this.indeterminate = this.progress === undefined;
     this.updateLabel();
+    this.el.setAttribute("exportparts", "ic-loading-container");
   }
 
   componentDidLoad(): void {
@@ -294,7 +295,7 @@ export class LoadingIndicator {
           ["inner-label"]: !!innerLabel,
         }}
       >
-        <div class="ic-loading-container">
+        <div class="ic-loading-container" part="ic-loading-container">
           <div
             ref={(el) => (this.outerElement = el as HTMLDivElement)}
             class={this.calcOuterClass()}

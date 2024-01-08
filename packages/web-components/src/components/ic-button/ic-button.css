@@ -72,6 +72,20 @@
   --button-default-background-active: var(--ic-action-light-bg-active);
 }
 
+:host(.white-background) .button {
+  --button-default-background-hover: var(--ic-action-default-bg-hover-no-alpha);
+  --button-default-background-active: var(
+    --ic-action-default-bg-active-no-alpha
+  );
+
+  background-color: var(--ic-architectural-white);
+}
+
+:host(.white-background.dark) .button {
+  --button-default-background-hover: var(--ic-action-dark-bg-hover-no-alpha);
+  --button-default-background-active: var(--ic-action-dark-bg-active-no-alpha);
+}
+
 :host(.button-variant-primary.light) .button {
   color: var(--ic-color-primary-text);
 
