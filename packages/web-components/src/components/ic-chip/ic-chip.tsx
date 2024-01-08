@@ -61,6 +61,11 @@ export class Chip {
   @Prop() size?: IcSizes = "default";
 
   /**
+   * If `true`, the outlined variant of chip will have a transparent background rather than white.
+   */
+  @Prop() transparentBackground?: boolean = true;
+
+  /**
    * The emphasis of the chip.
    */
   @Prop() variant?: IcEmphasisType = "filled";
@@ -145,6 +150,8 @@ export class Chip {
             ["disabled"]: disabled,
             ["dismissible"]: dismissible,
             ["hovered"]: isHovered,
+            ["white-background"]:
+              this.variant === "outlined" && !this.transparentBackground,
           }}
         >
           {isSlotUsed(this.el, "icon") && (

@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property             | Attribute     | Description                                                                                                               | Type                              | Default     |
-| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
-| `appearance`         | `appearance`  | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use variant prop instead.<br/><br/> | `"filled" \| "outline"`           | `undefined` |
-| `disabled`           | `disabled`    | If `true`, the chip will appear disabled.                                                                                 | `boolean`                         | `false`     |
-| `dismissible`        | `dismissible` | If `true`, the chip will have a close button at the end to dismiss it.                                                    | `boolean`                         | `false`     |
-| `label` _(required)_ | `label`       | The text rendered within the chip.                                                                                        | `string`                          | `undefined` |
-| `size`               | `size`        | The size of the chip.                                                                                                     | `"default" \| "large" \| "small"` | `"default"` |
-| `variant`            | `variant`     | The emphasis of the chip.                                                                                                 | `"filled" \| "outlined"`          | `"filled"`  |
+| Property                | Attribute                | Description                                                                                                               | Type                              | Default     |
+| ----------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
+| `appearance`            | `appearance`             | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use variant prop instead.<br/><br/> | `"filled" \| "outline"`           | `undefined` |
+| `disabled`              | `disabled`               | If `true`, the chip will appear disabled.                                                                                 | `boolean`                         | `false`     |
+| `dismissible`           | `dismissible`            | If `true`, the chip will have a close button at the end to dismiss it.                                                    | `boolean`                         | `false`     |
+| `label` _(required)_    | `label`                  | The text rendered within the chip.                                                                                        | `string`                          | `undefined` |
+| `size`                  | `size`                   | The size of the chip.                                                                                                     | `"default" \| "large" \| "small"` | `"default"` |
+| `transparentBackground` | `transparent-background` | If `true`, the outlined variant of chip will have a transparent background rather than white.                             | `boolean`                         | `true`      |
+| `variant`               | `variant`                | The emphasis of the chip.                                                                                                 | `"filled" \| "outlined"`          | `"filled"`  |
 
 
 ## Events

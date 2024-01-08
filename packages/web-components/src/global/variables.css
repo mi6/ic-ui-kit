@@ -256,6 +256,8 @@
   --ic-action-dark-active: #41464d;
   --ic-action-dark-bg-hover: rgb(65 70 77 / 10%);
   --ic-action-dark-bg-active: rgb(65 70 77 / 20%);
+  --ic-action-dark-bg-hover-no-alpha: #ececed;
+  --ic-action-dark-bg-active-no-alpha: #d9dadb;
 
   /* classification official */
   --ic-classification-official: #2b71c7;
