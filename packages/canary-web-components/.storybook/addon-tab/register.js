@@ -1,10 +1,10 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { useParameter } from '@storybook/api';
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 
-import 'github-markdown-css/github-markdown.css';
+import './github-markdown.css';
 
 const PARAM_KEY = 'componentAPI';
 
