@@ -38,6 +38,10 @@ export const config: Config = {
       file: "../docs/docs.json",
     },
     {
+      type: "docs-vscode",
+      file: "vscode-data.json",
+    },
+    {
       type: "www",
       serviceWorker: null,
     },
