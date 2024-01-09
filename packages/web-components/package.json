@@ -22,7 +22,8 @@
   "files": [
     "dist/",
     "loader/",
-    "hydrate/"
+    "hydrate/",
+    "vscode-data.json"
   ],
   "scripts": {
     "build": "stencil build",
