@@ -2,6 +2,7 @@ dist/
 www/
 loader/
 hydrate/
+vscode-data.json
 
 *~
 *.sw[mnpcod]
