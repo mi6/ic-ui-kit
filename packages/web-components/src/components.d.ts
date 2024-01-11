@@ -2169,9 +2169,10 @@ export namespace Components {
          */
         "maxLines"?: number;
         /**
-          * The position of the tool-tip in relation to the parent element.
+          * The position of the tooltip in relation to the parent element.
          */
         "placement"?: IcTooltipPlacements;
+        "silent"?: boolean;
         /**
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */
@@ -5351,9 +5352,10 @@ declare namespace LocalJSX {
          */
         "maxLines"?: number;
         /**
-          * The position of the tool-tip in relation to the parent element.
+          * The position of the tooltip in relation to the parent element.
          */
         "placement"?: IcTooltipPlacements;
+        "silent"?: boolean;
         /**
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
          */
