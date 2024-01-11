@@ -381,17 +381,13 @@ export class Button {
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
-    mutationList.forEach((item) => {
-      if (item.attributeName === "title") {
-        this.title = this.el.getAttribute(item.attributeName);
-      }
-      if (item.attributeName === "aria-label") {
-        this.ariaLabel = this.el.getAttribute(item.attributeName);
-      }
-      if (IC_INHERITED_ARIA.includes(item.attributeName)) {
-        this.inheritedAttributes[item.attributeName] = this.el.getAttribute(
-          item.attributeName
-        );
+    mutationList.forEach(({ attributeName }) => {
+      const attribute = this.el.getAttribute(attributeName);
+      if (attributeName === "title") this.title = attribute;
+      else if (attributeName === "aria-label") this.ariaLabel = attribute;
+
+      if (IC_INHERITED_ARIA.includes(attributeName)) {
+        this.inheritedAttributes[attributeName] = attribute;
         forceComponentUpdate = true;
       }
     });
@@ -514,9 +510,10 @@ export class Button {
         {this.hasTooltip && (
           <ic-tooltip
             id={describedBy}
-            label={title ? (title as string) : (ariaLabel as string)}
+            label={title || ariaLabel}
             target={buttonId}
             placement={this.tooltipPlacement}
+            silent={this.variant === "icon" && !!title}
           >
             <ButtonContent />
           </ic-tooltip>
