@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-08T12:00:31",
+  "timestamp": "2024-01-09T11:31:51",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -16180,7 +16180,7 @@
           "mutable": true,
           "attr": "placement",
           "reflectToAttr": false,
-          "docs": "The position of the tool-tip in relation to the parent element.",
+          "docs": "The position of the tooltip in relation to the parent element.",
           "docsTags": [],
           "default": "\"bottom\"",
           "values": [
