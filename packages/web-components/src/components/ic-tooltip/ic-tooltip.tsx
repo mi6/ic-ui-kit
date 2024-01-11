@@ -36,9 +36,14 @@ export class Tooltip {
   @Prop() maxLines?: number;
 
   /**
-   * The position of the tool-tip in relation to the parent element.
+   * The position of the tooltip in relation to the parent element.
    */
   @Prop({ mutable: true }) placement?: IcTooltipPlacements = "bottom";
+
+  /**
+   * @internal Sets the tooltip to aria-hidden, when used as part of components that are already announced.
+   */
+  @Prop() silent?: boolean = false;
 
   /**
    * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
@@ -250,15 +255,16 @@ export class Tooltip {
   };
 
   render() {
-    const { label } = this;
+    const { label, maxLines, silent } = this;
     return (
       <Host class={{ "ic-tooltip": true }}>
         <div
           ref={(el) => (this.toolTip = el as HTMLDivElement)}
           role="tooltip"
           class="ic-tooltip-container"
+          aria-hidden={silent}
         >
-          <ic-typography maxLines={this.maxLines} variant="caption">
+          <ic-typography maxLines={maxLines} variant="caption">
             {label}
           </ic-typography>
           <div
