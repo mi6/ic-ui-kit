@@ -1,6 +1,6 @@
 import { fixture } from "@open-wc/testing-helpers";
 import { axe } from "jest-axe";
-import { checkShadowElementRendersCorrectly } from "@ukic/web-components/dist/types/utils/testa11y.helpers";
+import { checkShadowElementRendersCorrectly } from "../../../../utils/testa11y.helpers";
 
 describe("ic-select", () => {
   it("passes accessibility (single)", async () => {
