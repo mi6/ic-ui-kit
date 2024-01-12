@@ -12,6 +12,18 @@ import readme from "./readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  progress: 30,
+  min: 0,
+  max: 100,
+};
+
+export const defaultArgTypes = {
+  progress: { type: { name: "number", min: 1, max: 100 } },
+  min: { type: { name: "number", min: 1, max: 100 } },
+  max: { type: { name: "number", min: 1, max: 100 } },
+};
+
 ### Circular (indeterminate)
 
 <Canvas>
@@ -27,11 +39,8 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Circular (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
@@ -67,11 +76,8 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Circular variants (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
@@ -127,11 +133,8 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Linear (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
@@ -185,11 +188,8 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Linear variants (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
@@ -281,11 +281,8 @@ import readme from "./readme.md";
   <Story
     name="Linear light"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
@@ -343,11 +340,8 @@ import readme from "./readme.md";
   <Story
     name="No label"
     parameters={{ loki: { skip: true } }}
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
@@ -392,14 +386,10 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Progress indicator for compact step"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
-    >
     {(args) =>
       html`<ic-loading-indicator
         size="small"

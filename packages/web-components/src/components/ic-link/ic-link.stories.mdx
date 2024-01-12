@@ -15,34 +15,35 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default">{html`<ic-link href="/"
-    >This is a link</ic-link
-  >`}</Story>
+  <Story name="Default">
+    {html`<ic-link href="/">This is a link</ic-link>`}
+  </Story>
 </Canvas>
 
 ### With icon
 
 <Canvas>
-  <Story name="With icon">{html`<ic-link href="/" show-icon
-    >This is a link</ic-link
-  >`}</Story>
+  <Story name="With icon">
+    {html`<ic-link href="/" show-icon>This is a link</ic-link>`}
+  </Story>
 </Canvas>
 
 ### Dark
 
 <Canvas>
-  <Story name="Dark">{html`<ic-link href="/" appearance="dark" target="_blank"
-    >This is a link</ic-link
-  >`}</Story>
+  <Story name="Dark">
+    {html`<ic-link href="/" appearance="dark" target="_blank"
+      >This is a link</ic-link
+    >`}
+  </Story>
 </Canvas>
 
 ### Light
 
 <Canvas>
-  <Story
-    name="Light"
-    parameters={{ backgrounds: { default: "dark" } }}
-  >{html` <ic-link href="/" appearance="light" show-icon
-    >This is a link</ic-link
-  >`}</Story>
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
+    {html` <ic-link href="/" appearance="light" show-icon
+      >This is a link</ic-link
+    >`}
+  </Story>
 </Canvas>
