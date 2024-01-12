@@ -14,6 +14,18 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  progress: 30,
+  min: 0,
+  max: 100,
+};
+
+export const defaultArgTypes = {
+  progress: { type: { name: "number", min: 1, max: 100 } },
+  min: { type: { name: "number", min: 1, max: 100 } },
+  max: { type: { name: "number", min: 1, max: 100 } },
+};
+
 ### Circular (determinate)
 
 <Canvas>
@@ -25,11 +37,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story
     name="Circular (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) => (
       <IcLoadingIndicator
@@ -59,11 +68,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story
     name="Circular variants (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) => (
       <div style={{ display: "grid", gap: "50px" }}>
@@ -113,11 +119,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story
     name="Linear (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) => (
       <IcLoadingIndicator
@@ -154,11 +157,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story
     name="Linear variants (determinate)"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
   >
     {(args) => (
       <div style={{ display: "grid", gap: "50px" }}>
@@ -266,11 +266,8 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Canvas>
   <Story
     name="Progress indicator for compact step"
-    argTypes={{
-      progress: { type: { name: "number" }, defaultValue: 30 },
-      min: { type: { name: "number" }, defaultValue: 0 },
-      max: { type: { name: "number" }, defaultValue: 100 },
-    }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) => (
