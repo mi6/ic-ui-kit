@@ -1028,7 +1028,6 @@ export const ExternalFiltering = () => {
     args={{ ...defaultArgs, showClearButton: false }}
     argTypes={{
       validationStatus: {
-        defaultValue: "",
         options: ["none", "error", "success", "warning"],
         control: { type: "inline-radio" },
       },
@@ -1070,12 +1069,10 @@ export const ExternalFiltering = () => {
     }}
     argTypes={{
       searchMatchPosition: {
-        defaultValue: "anywhere",
         options: ["anywhere", "start"],
         control: { type: "inline-radio" },
       },
       validationStatus: {
-        defaultValue: "",
         options: ["none", "error", "success", "warning"],
         control: { type: "inline-radio" },
       },
