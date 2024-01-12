@@ -22,8 +22,15 @@ export const defaultArgs = {
   readonly: false,
   required: false,
   small: false,
-  ["validation-status"]: "",
+  ["validation-status"]: "none",
   ["validation-text"]: "",
+};
+
+export const validationArgType = {
+  ["validation-status"]: {
+    options: ["none", "error", "success", "warning"],
+    control: { type: "inline-radio" },
+  },
 };
 
 ### Default
@@ -1515,11 +1522,7 @@ export const defaultArgs = {
     parameters={{ loki: { skip: true } }}
     args={{ ...defaultArgs, ["show-clear-button"]: false }}
     argTypes={{
-      ["validation-status"]: {
-        defaultValue: "",
-        options: ["none", "error", "success", "warning"],
-        control: { type: "inline-radio" },
-      },
+      ...validationArgType,
     }}
   >
     {(args) =>
@@ -1613,14 +1616,9 @@ export const defaultArgs = {
       ["search-match-position"]: "anywhere",
     }}
     argTypes={{
+      ...validationArgType,
       ["search-match-position"]: {
-        defaultValue: "anywhere",
         options: ["anywhere", "start"],
-        control: { type: "inline-radio" },
-      },
-      ["validation-status"]: {
-        defaultValue: "",
-        options: ["none", "error", "success", "warning"],
         control: { type: "inline-radio" },
       },
     }}
