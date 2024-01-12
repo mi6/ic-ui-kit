@@ -1154,7 +1154,7 @@ describe("ic-select-with-multi", () => {
         const page = await newE2EPage();
         await page.setContent(`<ic-select-with-multi label="IC Select Test" loading="true"></ic-select-with-multi>
         <script>
-          var select = document.querySelector('ic-select');
+          var select = document.querySelector('ic-select-with-multi');
           select.options = [];
           select.addEventListener('icChange', function (event) {
             option = event.detail.value;
@@ -1246,7 +1246,7 @@ describe("ic-select-with-multi", () => {
         const page = await newE2EPage();
         await page.setContent(`<ic-select-with-multi label="IC Select Test" loading="true" timeout="500"></ic-select-with-multi>
         <script>
-          var select = document.querySelector('ic-select');
+          var select = document.querySelector('ic-select-with-multi');
           select.options = [];
           select.addEventListener('icChange', function (event) {
             option = event.detail.value;
