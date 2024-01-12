@@ -249,10 +249,6 @@ slot[name="toggle-icon"] svg {
     min-height: 2.5rem;
   }
 
-  .searchbox-inline {
-    display: none;
-  }
-
   .search-bar-container {
     margin-top: 0;
     height: 3.5rem;
