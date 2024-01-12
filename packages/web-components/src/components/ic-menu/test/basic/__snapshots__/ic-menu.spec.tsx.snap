@@ -154,6 +154,7 @@ Object {
     "disconnectedCallback": true,
     "element": true,
     "event": true,
+    "experimentalScopedSlotChanges": false,
     "experimentalSlotFixes": false,
     "formAssociated": true,
     "hasRenderFn": true,

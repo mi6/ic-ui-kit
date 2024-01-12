@@ -17,6 +17,8 @@ export const defaultArgs = {
   disabled: false,
   loading: false,
   appearance: "default",
+  size: "default",
+  variant: "secondary",
 };
 
 ### Primary
@@ -1157,17 +1159,14 @@ export const defaultArgs = {
     args={defaultArgs}
     argTypes={{
       variant: {
-        defaultValue: "secondary",
         options: ["primary", "secondary", "tertiary", "destructive"],
         control: { type: "select" },
       },
       size: {
-        defaultValue: "default",
         options: ["default", "large", "small"],
         control: { type: "inline-radio" },
       },
       appearance: {
-        defaultValue: "default",
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
@@ -1194,17 +1193,14 @@ export const defaultArgs = {
     args={{ ...defaultArgs }}
     argTypes={{
       variant: {
-        defaultValue: "secondary",
         options: ["primary", "secondary", "tertiary", "destructive"],
         control: { type: "select" },
       },
       size: {
-        defaultValue: "default",
         options: ["default", "large", "small"],
         control: { type: "inline-radio" },
       },
       appearance: {
-        defaultValue: "default",
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
