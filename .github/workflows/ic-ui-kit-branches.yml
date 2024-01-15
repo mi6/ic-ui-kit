@@ -25,11 +25,11 @@ jobs:
         with:
           filters: |
             core:
-              - './packages/web-components/**'
-              - './packages/react/**'
+              - 'packages/web-components/**'
+              - 'packages/react/**'
             canary:
-              - './packages/canary-web-components/**'
-              - './packages/canary-react/**'
+              - 'packages/canary-web-components/**'
+              - 'packages/canary-react/**'
 
   ic-ui-kit-static-analysis-tests:
     needs: ["check-updates"]
@@ -69,8 +69,13 @@ jobs:
       - name: Audit
         run: npm run audit
 
-      - name: A11y tests
+      - name: A11y core tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
         run: npm run test-a11y:ci
+
+      - name: A11y canary tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-a11y:ci:canary
 
       - name: Unit Component tests
         run: npm run test:coverage-ci
