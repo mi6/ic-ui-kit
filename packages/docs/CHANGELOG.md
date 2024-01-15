@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/mi6/ic-ui-kit/compare/v2.8.0...v2.9.0) (2024-01-15)
+
+### Features
+
+- **web-components:** added silent prop to tooltip ([f7e4a62](https://github.com/mi6/ic-ui-kit/commit/f7e4a62410118f2171954adabef463f9768a9242))
+
 # [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
 
 ### Bug Fixes

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/mi6/ic-ui-kit/compare/v2.8.0...v2.9.0) (2024-01-15)
+
+### Bug Fixes
+
+- **web-components:** fixes tabs display when normalize.css not imported ([480e534](https://github.com/mi6/ic-ui-kit/commit/480e534d57ab3d2bd4118c6b967e808244b00cc0))
+- **web-components:** hides tooltips for navigation buttons on menu ([c267b24](https://github.com/mi6/ic-ui-kit/commit/c267b24190ff673ce8335cb4fe55a35c6c1737e5))
+- **web-components:** removes unused css ([2494103](https://github.com/mi6/ic-ui-kit/commit/24941033762f4fc1ca3930864870e3b34c3742ad))
+- **web-components:** update sideNavExpanded and topNavResized to use event decorator ([555b972](https://github.com/mi6/ic-ui-kit/commit/555b972f35a43f4777b15963a58e6b9852fb3577)), closes [#1348](https://github.com/mi6/ic-ui-kit/issues/1348)
+
+### Features
+
+- **web-components:** add appearance prop to ic-breadcrumb & ic-breadcrumb-group ([ecd7b97](https://github.com/mi6/ic-ui-kit/commit/ecd7b973ea1a825533296aceb53c2f3555361855)), closes [#1259](https://github.com/mi6/ic-ui-kit/issues/1259)
+- **web-components:** add white background to button and chip (optional), checkbox, radio, stepper ([b0bac0c](https://github.com/mi6/ic-ui-kit/commit/b0bac0cd700396c9d61337ef515f44ac5c11d1ab)), closes [#1322](https://github.com/mi6/ic-ui-kit/issues/1322)
+- **web-components:** added silent prop to tooltip ([f7e4a62](https://github.com/mi6/ic-ui-kit/commit/f7e4a62410118f2171954adabef463f9768a9242))
+- **web-components:** updated stencil package ([d73b248](https://github.com/mi6/ic-ui-kit/commit/d73b248f9d7227211a9e29cc70f04ac8772ebf05)), closes [#1316](https://github.com/mi6/ic-ui-kit/issues/1316)
+
 # [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
 
 ### Bug Fixes

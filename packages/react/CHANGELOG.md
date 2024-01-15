@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/mi6/ic-ui-kit/compare/v2.8.0...v2.9.0) (2024-01-15)
+
+### Bug Fixes
+
+- **react:** update sideNavExpanded and topNavResized to work as other events ([cc30b7b](https://github.com/mi6/ic-ui-kit/commit/cc30b7bd68b8d598551a33f4335216117726d02a))
+
+### Features
+
+- **react:** add appearance story for ic-breadcrumb-group ([f5a2eb0](https://github.com/mi6/ic-ui-kit/commit/f5a2eb0936955193718e14445cf88e093bf18582)), closes [#1259](https://github.com/mi6/ic-ui-kit/issues/1259)
+- **react:** add optional white background to button and chip components ([7dd50e8](https://github.com/mi6/ic-ui-kit/commit/7dd50e8f5c65a71caa95a83b585809e305cfb84b)), closes [#1322](https://github.com/mi6/ic-ui-kit/issues/1322)
+
 # [2.8.0](https://github.com/mi6/ic-ui-kit/compare/v2.7.0...v2.8.0) (2023-12-13)
 
 ### Bug Fixes
