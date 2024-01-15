@@ -164,7 +164,7 @@ export class SearchBar {
   @Prop() labelField?: string = "label";
 
   /**
-   * Trigger loading state when fetching options asyncronously
+   * Trigger loading state when fetching options asynchronously
    */
   @Prop({ mutable: true }) loading?: boolean = false;
 
