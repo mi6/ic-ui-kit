@@ -238,7 +238,7 @@ export class Select {
   @Prop() validationText?: string = "";
 
   /**
-   * If `true`, the loading state will be triggered when fetching options asyncronously.
+   * If `true`, the loading state will be triggered when fetching options asynchronously.
    */
   @Prop({ mutable: true }) loading?: boolean = false;
 
