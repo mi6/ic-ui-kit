@@ -847,7 +847,7 @@ export namespace Components {
         /**
           * The size of the input component container component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -1548,7 +1548,7 @@ export namespace Components {
          */
         "labelField"?: string;
         /**
-          * Trigger loading state when fetching options asyncronously
+          * Trigger loading state when fetching options asynchronously
          */
         "loading"?: boolean;
         /**
@@ -1692,7 +1692,7 @@ export namespace Components {
          */
         "label": string;
         /**
-          * If `true`, the loading state will be triggered when fetching options asyncronously.
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
         "loading"?: boolean;
         /**
@@ -4065,7 +4065,7 @@ declare namespace LocalJSX {
         /**
           * The size of the input component container component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -4773,7 +4773,7 @@ declare namespace LocalJSX {
          */
         "labelField"?: string;
         /**
-          * Trigger loading state when fetching options asyncronously
+          * Trigger loading state when fetching options asynchronously
          */
         "loading"?: boolean;
         /**
@@ -4959,7 +4959,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * If `true`, the loading state will be triggered when fetching options asyncronously.
+          * If `true`, the loading state will be triggered when fetching options asynchronously.
          */
         "loading"?: boolean;
         /**

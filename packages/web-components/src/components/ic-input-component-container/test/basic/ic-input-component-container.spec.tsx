@@ -9,7 +9,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container>
+    <ic-input-component-container class="default">
       <div class="focus-indicator">
         content
       </div>
@@ -24,7 +24,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container validation-status="success" class="success">
+    <ic-input-component-container validation-status="success" class="default success">
       <div class="focus-indicator">
         content
       </div>
@@ -39,7 +39,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="success" validation-inline="true" validation-status="success">
+    <ic-input-component-container class="default success" validation-inline="true" validation-status="success">
       <div class="focus-indicator">
         content
         <span class="inline-success">
@@ -57,7 +57,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="error" validation-inline="true" validation-status="error">
+    <ic-input-component-container class="default error" validation-inline="true" validation-status="error">
       <div class="focus-indicator">
         content
       </div>
@@ -72,7 +72,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="small fullwidth multiline" size="small" full-width="true" multi-line="true">
+    <ic-input-component-container class="small fullwidth multiline" full-width="true" multi-line="true" size="small">
       <div class="focus-indicator">
         content
       </div>
@@ -87,7 +87,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container validation-status="success" class="disabled" disabled="true">
+    <ic-input-component-container validation-status="success" class="default disabled" disabled="true">
       <div class="focus-indicator">
         content
       </div>
@@ -102,7 +102,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-input-component-container class="readonly" readonly="true" validation-status="success">
+      <ic-input-component-container class="default readonly" readonly="true" validation-status="success">
         <div class="focus-indicator">
           content
         </div>
@@ -117,7 +117,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="disabled" disabled="true" validation-status="success">
+    <ic-input-component-container class="default disabled" disabled="true" validation-status="success">
       <div class="focus-indicator">
         <div class="icon-container">
           <span slot="left-icon">
