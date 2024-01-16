@@ -10,3 +10,4 @@ export const CONTAIN_VALUE = "contain.value";
 export const NOT_HAVE_CLASS = "not.have.class";
 export const NOT_BE_VISIBLE = "not.be.visible";
 export const NOT_BE_CALLED_ONCE = "not.be.calledOnce";
+export const CONTAIN_TEXT = "contain.text";
