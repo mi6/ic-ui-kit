@@ -2189,6 +2189,7 @@ export namespace Components {
           * If `true`, the typography will have a bold font weight. Note: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).
          */
         "bold"?: boolean;
+        "checkCellTextMaxLines": (height: number, typographyHeight?: number) => Promise<void>;
         /**
           * Truncate the text in ic-typography by adding a line-clamp css property.
           * @param height Used to calculate whether the element has exceeded the maximum number of lines.

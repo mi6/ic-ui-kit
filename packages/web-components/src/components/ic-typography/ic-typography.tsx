@@ -112,14 +112,30 @@ export class Typography {
   /**
    * Truncate the text in ic-typography by adding a line-clamp css property.
    * @param height Used to calculate whether the element has exceeded the maximum number of lines.
+   *
    */
   @Method()
-  async checkMaxLines(
+  async checkMaxLines(height: number): Promise<void> {
+    // 24 is the height of a single line
+    const numLines = Math.floor(height / 24);
+    if (numLines > this.maxLines) {
+      this.el.setAttribute("style", `--truncation-max-lines: ${this.maxLines}`);
+      this.truncatedHeight = this.el.clientHeight;
+      this.truncated = true;
+    }
+  }
+
+  /**
+   * @internal Truncate the text in ic-typography by adding a line-clamp css property. This method is specific to ic-data-table.
+   * height - used to calculate whether the element has exceeded the maximum number of lines.
+   * typographyHeight - the scroll height of the typography element. Used as another way to calculate whether the element has exceeded the maximum number of lines.
+   */
+  @Method()
+  async checkCellTextMaxLines(
     height: number,
-    typographyHeight?: number,
-    isDataTables?: boolean
+    typographyHeight?: number
   ): Promise<void> {
-    //24 is the height of a single line
+    // 24 is the height of a single line
     const typographyNumLines = Math.floor(typographyHeight / 24);
     const numLines = Math.floor(height / 24);
     if (
@@ -129,11 +145,7 @@ export class Typography {
       this.el.setAttribute("style", `--truncation-max-lines: ${this.maxLines}`);
       this.truncatedHeight = this.el.clientHeight;
       this.truncated = true;
-      if (isDataTables) {
-        this.expanded = false;
-      } else {
-        this.expanded = true;
-      }
+      this.expanded = false;
     }
   }
 

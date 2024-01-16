@@ -272,6 +272,37 @@ describe("ic-typography component", () => {
     expect(page.rootInstance.expanded).toBe(false);
   });
 
+  it("should test toggle of see more/less for truncated text in data tables", async () => {
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography max-lines="3">
+        Body of text that is truncated to three lines. Click the 'See more' link to
+        expand the text, then click 'See less' to truncate the text once more!
+        Dripper caramelization java saucer grounds galão, mocha, and robusta
+        kopi-luwak, percolator, instant, qui saucer latte in brewed café au
+        lait. Con panna, cup, cream, body americano affogato cup espresso, rich
+        milk seasonal saucer grinder spoon that cultivar strong redeye
+        frappuccino barista extraction redeye mazagran.
+      </ic-typography>`,
+    });
+
+    page.rootInstance.checkCellTextMaxLines(96, 120);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.truncated).toBe(true);
+    expect(page.rootInstance.expanded).toBe(false);
+
+    const button = page.root.shadowRoot.querySelector("button");
+
+    button.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.expanded).toBe(true);
+
+    button.click();
+    await page.waitForChanges();
+    expect(page.rootInstance.expanded).toBe(false);
+  });
+
   it("should test truncation applied when number of lines exceeds max", async () => {
     const page = await newSpecPage({
       components: [Typography],
