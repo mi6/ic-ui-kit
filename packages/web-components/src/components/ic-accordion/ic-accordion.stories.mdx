@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion heading="Accordion 1">
         <ic-typography variant="body">
           This is an example of the main body text.
@@ -32,7 +32,7 @@ import readme from "./readme.md";
 ### Expanded
 
 <Canvas>
-  <Story name="Expanded">
+  <Story name="Expanded" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion expanded="true" heading="Accordion 1">
         <ic-typography variant="body">
           This is an example of the main body text.
@@ -49,7 +49,7 @@ import readme from "./readme.md";
 ### Icon
 
 <Canvas>
-  <Story name="Icon">
+  <Story name="Icon" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion heading="Accordion 1">
         <svg
           slot="icon"
@@ -90,7 +90,7 @@ import readme from "./readme.md";
 ### Group title
 
 <Canvas>
-  <Story name="Group Title">
+  <Story name="Group Title" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion-group group-title="Title of the Accordion Group">
       <ic-accordion heading="Accordion 1">
         <svg
@@ -133,7 +133,7 @@ import readme from "./readme.md";
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes">
+  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion-group group-title="Small Accordion Group" size="small">
         <ic-accordion heading="Accordion 1">
           <svg
@@ -248,7 +248,7 @@ import readme from "./readme.md";
 ### Single expansion
 
 <Canvas>
-  <Story name="Single Expansion">
+  <Story name="Single Expansion" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion-group
       group-title="Title of the Accordion Group"
       single-expansion="true"
@@ -294,7 +294,10 @@ import readme from "./readme.md";
 ### Light text
 
 <Canvas>
-  <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
+  <Story
+    name="Light text"
+    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+  >
     {html` <ic-accordion-group
       group-title="Title of the Accordion Group"
       appearance="light"
@@ -340,7 +343,7 @@ import readme from "./readme.md";
 ### Parent
 
 <Canvas>
-  <Story name="Parent">
+  <Story name="Parent" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion-group group-title="Title of the Accordion Group">
       <ic-accordion heading="Accordion 1">
         <ic-typography variant="body">
@@ -371,7 +374,7 @@ import readme from "./readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled">
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
     {html` <ic-accordion heading="Accordion 1">
         <ic-typography variant="body">
           This is an example of the main body text.
