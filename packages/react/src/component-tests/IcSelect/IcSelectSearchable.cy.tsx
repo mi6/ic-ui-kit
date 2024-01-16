@@ -95,19 +95,23 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.get("ic-select").shadow().find("input").click();
     cy.get("ic-select").shadow().find("input").type("foo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+      "have.text",
+      "No results found"
+    );
+
+    cy.get("ic-select").shadow().find("input").click();
+    cy.findShadowEl("ic-select", IC_MENU_LI).should("not.be.visible");
+
+    cy.get("ic-select").shadow().find("input").click();
+    cy.findShadowEl("ic-select", IC_MENU_LI).should(BE_VISIBLE);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+      "have.text",
+      "No results found"
+    );
   });
 
   it("should display no results state when search term matches none of the options", () => {
@@ -189,12 +193,13 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("b");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_MENU_LI)
-      .contains(NO_RESULTS_FOUND)
-      .should(BE_VISIBLE);
+    cy.get("ic-select").shadow().find("input").type("b");
+
+    cy.findShadowEl("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
+      "have.text",
+      "No results found"
+    );
   });
 
   it("should display whole group when group titles included in search", () => {
@@ -280,25 +285,18 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .contains("Cappuccino")
       .should("have.text", "Cappuccino");
-    for (let i = 0; i <= 3; i++) {
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    for (let i = 0; i <= 7; i++) {
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-      cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
-      cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     }
+
+    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, "3");
     cy.findShadowEl("ic-select", IC_MENU_LI)
-      .should(HAVE_LENGTH, "3")
-      .contains("Americano")
-      .should(BE_VISIBLE)
-      .each(($e1) => {
-        cy.wrap($e1)
-          .invoke("text")
-          .then((filterOp) => {
-            cy.log(filterOp);
-          });
-      });
+      .eq(0)
+      .should("to.contain", "Cappuccino");
+    cy.findShadowEl("ic-select", IC_MENU_LI)
+      .eq(1)
+      .should("to.contain", "Americano");
   });
 
   it("should close menu on blur", () => {
