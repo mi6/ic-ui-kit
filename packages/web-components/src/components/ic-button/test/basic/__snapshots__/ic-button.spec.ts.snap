@@ -165,7 +165,7 @@ exports[`button component should render correct HTML with right icon 1`] = `
   <mock:shadow-root>
     <button class="button" part="button" type="button">
       <slot></slot>
-      <div class="icon-container">
+      <div class="icon-container right-icon">
         <slot name="right-icon"></slot>
       </div>
     </button>

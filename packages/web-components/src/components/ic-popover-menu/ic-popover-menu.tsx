@@ -8,6 +8,8 @@ import {
   Watch,
   State,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import { getSlotElements, isPropDefined } from "../../utils/helpers";
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
@@ -82,6 +84,11 @@ export class PopoverMenu {
       }
     }
   }
+
+  /**
+   * Emitted when the popover menu is closed.
+   */
+  @Event() icPopoverClosed: EventEmitter<void>;
 
   disconnectedCallback(): void {
     if (this.popperInstance !== undefined) {
@@ -243,6 +250,7 @@ export class PopoverMenu {
   private closeMenu = () => {
     this.open = false;
     this.anchorEl?.focus();
+    this.icPopoverClosed.emit();
   };
 
   private getNextItemToSelect = (

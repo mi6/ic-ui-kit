@@ -27,7 +27,6 @@
   border-radius: var(--ic-border-radius);
   min-width: var(--min-width, 6.25rem);
   display: inline-flex;
-  gap: var(--ic-space-xs);
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -382,6 +381,12 @@ div.icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: var(--ic-space-xs);
+}
+
+div.right-icon {
+  margin-right: auto;
+  margin-left: var(--ic-space-xs);
 }
 
 ::slotted(:not(ic-badge)) {
@@ -459,6 +464,20 @@ div.icon-container {
 
 :host .ic-tooltip {
   display: block;
+}
+
+/** Dropdown **/
+:host .arrow-dropdown {
+  margin-top: auto;
+}
+
+:host .dropdown-expanded {
+  transform: rotate(180deg);
+  margin-bottom: var(--ic-space-xxxs);
+}
+
+:host(.dropdown-no-icon) .button {
+  padding-right: var(--ic-space-xs);
 }
 
 /** High Contrast **/

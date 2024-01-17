@@ -239,6 +239,14 @@ export namespace Components {
          */
         "download"?: string | boolean;
         /**
+          * If `true`, the button will show a dropdown icon.
+         */
+        "dropdown"?: boolean;
+        /**
+          * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
+         */
+        "dropdownExpanded"?: boolean;
+        /**
           * The <form> element to associate the button with.
          */
         "form"?: string;
@@ -2296,6 +2304,10 @@ export interface IcPaginationItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationItemElement;
 }
+export interface IcPopoverMenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcPopoverMenuElement;
+}
 export interface IcRadioGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcRadioGroupElement;
@@ -2757,7 +2769,18 @@ declare global {
         prototype: HTMLIcPaginationItemElement;
         new (): HTMLIcPaginationItemElement;
     };
+    interface HTMLIcPopoverMenuElementEventMap {
+        "icPopoverClosed": void;
+    }
     interface HTMLIcPopoverMenuElement extends Components.IcPopoverMenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcPopoverMenuElementEventMap>(type: K, listener: (this: HTMLIcPopoverMenuElement, ev: IcPopoverMenuCustomEvent<HTMLIcPopoverMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcPopoverMenuElement: {
         prototype: HTMLIcPopoverMenuElement;
@@ -3312,6 +3335,14 @@ declare namespace LocalJSX {
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
+        /**
+          * If `true`, the button will show a dropdown icon.
+         */
+        "dropdown"?: boolean;
+        /**
+          * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
+         */
+        "dropdownExpanded"?: boolean;
         /**
           * The <form> element to associate the button with.
          */
@@ -4403,6 +4434,10 @@ declare namespace LocalJSX {
           * The ID of the element the popover menu will anchor itself to. This is required unless the popover is a submenu.
          */
         "anchor"?: string;
+        /**
+          * Emitted when the popover menu is closed.
+         */
+        "onIcPopoverClosed"?: (event: IcPopoverMenuCustomEvent<void>) => void;
         /**
           * If `true`, the popover menu will be displayed.
          */
