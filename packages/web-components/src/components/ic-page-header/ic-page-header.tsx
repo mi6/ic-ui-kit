@@ -170,6 +170,10 @@ export class PageHeader {
       stickyDesktopOnly,
     } = this;
 
+    const navAriaLabel = heading
+      ? `${heading} page sections`
+      : "navigation-landmark-page-header";
+
     return (
       <Host
         class={{
@@ -239,7 +243,7 @@ export class PageHeader {
                 {isSlotUsed(this.el, "stepper") &&
                   !isSlotUsed(this.el, "tabs") && <slot name="stepper" />}
                 {isSlotUsed(this.el, "tabs") && (
-                  <nav aria-label="navigation-landmark-page-header">
+                  <nav aria-label={navAriaLabel}>
                     <ic-horizontal-scroll>
                       <ul class="tabs-slot">
                         <slot name="tabs" />

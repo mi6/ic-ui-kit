@@ -491,7 +491,7 @@ export class TopNavigation {
                     class="navigation-landmark-text"
                     aria-hidden="true"
                   >
-                    Main navigation
+                    Main pages
                   </span>
                   <nav
                     aria-labelledby="navigation-landmark-text"
