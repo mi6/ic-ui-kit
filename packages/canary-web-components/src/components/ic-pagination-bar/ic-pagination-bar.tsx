@@ -487,6 +487,7 @@ export class PaginationBar {
                 target={`#${PAGE_INPUT_FIELD_ID}`}
                 disableHover
                 disableClick
+                placement="top"
               >
                 <ic-text-field
                   type="number"

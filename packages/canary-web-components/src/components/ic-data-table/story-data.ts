@@ -166,37 +166,34 @@ export const LONG_DATA_VALUES = [
 
 export const LONG_DATA_VALUES_UPDATE = [
   {
-    name: 'Michael Phelps',
+    name: "Michael Phelps",
     age: 23,
     department: "United States",
     employeeNumber: 1,
     jobTitle: "Swimmer",
   },
   {
-    name: 'Natalie Coughlin',
+    name: "Natalie Coughlin",
     age: 25,
     department: "United States",
     employeeNumber: 2,
-    jobTitle:
-      "Swimmer",
+    jobTitle: "Swimmer",
   },
   {
     name: "Debbie Flood",
     age: 28,
     department: "Great Britain",
     employeeNumber: 3,
-    jobTitle:
-      "7 time Olympic and Commonwealth Champion for Rowing",
+    jobTitle: "7 time Olympic and Commonwealth Champion for Rowing",
   },
   {
-    name: 'Gillian Charleton',
+    name: "Gillian Charleton",
     age: "22",
     department: "Canada",
     employeeNumber: 4,
     jobTitle: "Cycling",
   },
 ];
-
 
 export const DATA_CELL_ALIGNMENT = [
   {
@@ -445,7 +442,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 5,
-    name: "Luke Ashford",
+    name: "Bartholomew Christoper Augustine Zacchaeus Ashford",
     age: 18,
     jobTitle: "Junior Developer",
     address: "5 New Street, Town, Country, Postcode",
@@ -487,7 +484,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 11,
-    name: "Pete Norton",
+    name: "Chrysanthemum Finnleigh Carrington Savannah Norton",
     age: 32,
     jobTitle: "Analyst",
     address: "6 Key Street, Town, County, Postcode",
@@ -515,7 +512,7 @@ export const LONG_DATA = [
   },
   {
     employeeNumber: 15,
-    name: "Mary Lincoln",
+    name: "Bernadette Mariah Genevieve Maddison Lincoln",
     age: 23,
     jobTitle: "Developer",
     address: "10 Main Street, Town, Country, Postcode",
@@ -802,6 +799,7 @@ export const SortOptions = (): HTMLIcDataTableElement => {
 export const Pagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Pagination", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("show-pagination", "true");
+  dataTable.setAttribute("truncation-pattern", "tooltip");
   dataTable.paginationOptions = {
     itemsPerPage: [
       { label: "5", value: "5" },
@@ -917,27 +915,27 @@ export const TruncationShowHide = (): HTMLElement => {
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = null;
   dataTable.setAttribute("truncation-pattern", "showHide");
- 
+
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
   resetButton.innerHTML = "Reset";
- 
+
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
     dataTable.globalRowHeight = 80;
     dataTable.variableRowHeight = ({ name, age }) =>
-      (name === "John Smith" || age === 41) ? 200 : null;
+      name === "John Smith" || age === 41 ? 200 : null;
   });
   setButton.innerHTML = "Set";
 
-  const updateDataButton = document.createElement('ic-button');
-  updateDataButton.addEventListener('click', () => {
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
     setTimeout(() => {
       dataTable.data = LONG_DATA_VALUES_UPDATE;
-    }, 500)
+    }, 500);
   });
   updateDataButton.innerHTML = "Update data";
- 
+
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
   buttonWrapper.style["paddingTop"] = "10px";
@@ -945,7 +943,7 @@ export const TruncationShowHide = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("afterbegin", setButton);
   buttonWrapper.insertAdjacentElement("beforeend", resetButton);
   buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
- 
+
   const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("afterbegin", dataTable);
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);

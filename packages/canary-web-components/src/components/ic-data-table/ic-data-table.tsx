@@ -263,7 +263,6 @@ export class DataTable {
   }
 
   componentDidUpdate(): void {
-    console.log("HERE");
     this.updateTruncation = true;
     this.dataTruncation();
   }
@@ -289,15 +288,13 @@ export class DataTable {
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
   ) => {
-    // console.log(cellContainer.clientHeight);
     typographyEl.maxLines = Math.max(
       Math.floor(cellContainer.clientHeight / 24) - 1,
       1
     ); // Math.floor
-    typographyEl.checkMaxLines(
+    typographyEl.checkCellTextMaxLines(
       cellContainer.clientHeight,
-      typographyEl.scrollHeight,
-      true
+      typographyEl.scrollHeight
     );
 
     this.removeDivStyles(cellContainer);
@@ -323,14 +320,8 @@ export class DataTable {
 
       if (this.updateTruncation) {
         this.resetMaxLines(typographyEl);
-      }
-
-      if (typographyEl.id === "jobTitle-0") {
-        console.log({
-          typographyEl: typographyEl,
-          cellContainer: cellContainer?.clientHeight,
-          scrollHeight: typographyEl.scrollHeight,
-        });
+        cellContainer.appendChild(typographyEl);
+        tooltip?.remove();
       }
 
       if (
@@ -354,11 +345,33 @@ export class DataTable {
           typographyEl.style.webkitLineClamp = `${Math.floor(
             cellContainer.clientHeight / 24
           )}`;
+          if (tooltip) {
+            cellContainer.appendChild(typographyEl);
+            tooltip.remove();
+          }
           if (!tooltip) {
             // if truncation pattern is tooltip and the tooltip does not exist, dynamically create one and add the content inside
             const tooltipEl = document.createElement("ic-tooltip");
+            const rowIndex = Number(typographyEl.id.match(/-(\d+)$/)[1]);
             tooltipEl.setAttribute("target", typographyEl.id);
             tooltipEl.setAttribute("label", typographyEl.innerHTML);
+
+            // Checks if the truncated text is in the first row of the displayed page
+            rowIndex === 0 && tooltipEl.setAttribute("placement", "bottom");
+            // Checks if the truncated text is in the last row of the displayed page
+            if (
+              rowIndex === this.data.length - 1 ||
+              rowIndex === this.rowsPerPage - 1
+            ) {
+              tooltipEl.setAttribute("placement", "top");
+            }
+            // Checks if the truncated text is in the first column
+            typographyEl.id.includes(this.columns[0].key) &&
+              tooltipEl.setAttribute("placement", "right");
+            // Checks if the truncated text is in the last column
+            typographyEl.id.includes(
+              this.columns[this.columns.length - 1].key
+            ) && tooltipEl.setAttribute("placement", "left");
             typographyEl.parentNode.replaceChild(tooltipEl, typographyEl);
             tooltipEl.appendChild(typographyEl);
           }
@@ -386,6 +399,7 @@ export class DataTable {
   handleItemsPerPageChange(ev: CustomEvent): void {
     this.previousRowsPerPage = this.rowsPerPage;
     this.rowsPerPage = ev.detail.value;
+    this.dataTruncation();
   }
 
   @Listen("icPageChange")
@@ -403,6 +417,7 @@ export class DataTable {
     } else {
       this.previousRowsPerPage = this.rowsPerPage;
     }
+    this.dataTruncation();
   }
 
   @Listen("icTableDensityUpdate")
@@ -769,7 +784,6 @@ export class DataTable {
           ...row,
           index,
         });
-
         this.currentRowHeight = variableRowHeightVal
           ? variableRowHeightVal !== "auto" && variableRowHeightVal
           : this.globalRowHeight !== "auto" && this.globalRowHeight;
