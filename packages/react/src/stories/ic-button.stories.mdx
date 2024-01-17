@@ -5,7 +5,8 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcButton } from "../components";
+import { useRef } from "react";
+import { IcButton, IcPopoverMenu, IcMenuItem } from "../components";
 import readme from "../../../web-components/src/components/ic-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
@@ -451,6 +452,219 @@ export const defaultArgs = {
         </IcButton>
       </div>
     </div>
+  </Story>
+</Canvas>
+
+### Dropdown
+
+<Canvas>
+  <Story name="Dropdown">
+    <div>
+      <div style={{ padding: "6px" }}>
+        <IcButton dropdown="true" variant="primary">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" variant="secondary">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" variant="tertiary">
+          Button
+        </IcButton>
+      </div>
+      <div style={{ padding: "6px" }}>
+        <IcButton dropdown="true" disabled="true" variant="primary">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" disabled="true" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" disabled="true" variant="secondary">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" disabled="true" variant="tertiary">
+          Button
+        </IcButton>
+      </div>
+      <div style={{ padding: "6px" }}>
+        <IcButton dropdown="true" variant="primary" appearance="dark">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" appearance="dark" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" variant="secondary" appearance="dark">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" variant="tertiary" appearance="dark">
+          Button
+        </IcButton>
+      </div>
+      <div
+        style={{
+          backgroundColor: "#2c2f34",
+          padding: "6px 10px",
+          width: "fit-content",
+        }}
+      >
+        <IcButton dropdown="true" variant="primary" appearance="light">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" appearance="light" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" variant="secondary" appearance="light">
+          Button
+        </IcButton>
+        <IcButton
+          dropdown="true"
+          variant="tertiary"
+          appearance="light"
+          id="mybuttonid"
+          onclick="alert('test')"
+        >
+          Button
+        </IcButton>
+      </div>
+      <div style={{ padding: "6px" }}>
+        <IcButton dropdown="true" variant="primary" size="small">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" size="small" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" variant="secondary" size="small">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" variant="tertiary" size="small">
+          Button
+        </IcButton>
+      </div>
+      <div style={{ padding: "6px" }}>
+        <IcButton dropdown="true" variant="primary" size="large">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" size="large" variant="primary">
+          Button
+          <svg
+            slot="left-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </svg>
+        </IcButton>
+        <IcButton dropdown="true" variant="secondary" size="large">
+          Button
+        </IcButton>
+        <IcButton dropdown="true" variant="tertiary" size="large">
+          Button
+        </IcButton>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+### Dropdown example
+
+export const PopoverDropdown = () => {
+  const buttonEl = useRef();
+  const popoverEl = useRef();
+  const handleClick = () => {
+    popoverEl.current.open = buttonEl.current.dropdownExpanded;
+  };
+  const handleClose = () => {
+    buttonEl.current.dropdownExpanded = popoverEl.current.open;
+  };
+  return (
+    <div>
+      <IcButton
+        id="popover-button"
+        dropdown
+        variant="primary"
+        onClick={() => handleClick()}
+        ref={buttonEl}
+      >
+        Button
+      </IcButton>
+      <IcPopoverMenu
+        anchor="popover-button"
+        ariaLabel="popover"
+        onIcPopoverClosed={() => handleClose()}
+        ref={popoverEl}
+      >
+        <IcMenuItem label="Copy code"></IcMenuItem>
+        <IcMenuItem label="Paste code"></IcMenuItem>
+        <IcMenuItem label="Actions"></IcMenuItem>
+      </IcPopoverMenu>
+    </div>
+  );
+};
+
+<Canvas>
+  <Story name="Dropdown example">
+    <PopoverDropdown />
   </Story>
 </Canvas>
 
