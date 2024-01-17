@@ -7,11 +7,13 @@ import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
 import {
   DARK_BG_STYLE,
+  PopoverDropdown,
   SlottedIcon,
   SlottedIconNoViewBox,
   SlottedRightIcon,
 } from "./IcButtonTestData";
 import { NOT_BE_CALLED_ONCE, HAVE_VALUE } from "../utils/constants";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -220,6 +222,18 @@ describe("IcButton", () => {
     cy.get("ic-button").should("have.focus");
     cy.get("ic-button").blur();
     cy.get("@icBlur").should("have.been.calledOnce");
+  });
+
+  it("should change to have dropdownExpanded on click of dropdown button", () => {
+    mount(
+      <IcButton dropdown variant="primary">
+        Button
+      </IcButton>
+    );
+    cy.checkHydrated("ic-button");
+
+    cy.clickOnButton("ic-button");
+    cy.get("ic-button").should("have.prop", "dropdownExpanded");
   });
 });
 
@@ -659,5 +673,183 @@ describe("IcButton Visual Regression Testing", () => {
 
     cy.compareSnapshot("icon", 0);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+  });
+
+  it("renders dropdown buttons", () => {
+    mount(
+      <div>
+        <div style={{ padding: "6px" }}>
+          <IcButton dropdown variant="primary">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown variant="secondary">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="tertiary">
+            Button
+          </IcButton>
+        </div>
+        <div style={{ padding: "6px" }}>
+          <IcButton dropdown disabled variant="primary">
+            Button
+          </IcButton>
+          <IcButton dropdown disabled variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown disabled variant="secondary">
+            Button
+          </IcButton>
+          <IcButton dropdown disabled variant="tertiary">
+            Button
+          </IcButton>
+        </div>
+        <div style={{ padding: "6px" }}>
+          <IcButton dropdown variant="primary" appearance="dark">
+            Button
+          </IcButton>
+          <IcButton dropdown appearance="dark" variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown variant="secondary" appearance="dark">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="tertiary" appearance="dark">
+            Button
+          </IcButton>
+        </div>
+        <div
+          style={{
+            backgroundColor: "#2c2f34",
+            padding: "6px 10px",
+            width: "fit-content",
+          }}
+        >
+          <IcButton dropdown variant="primary" appearance="light">
+            Button
+          </IcButton>
+          <IcButton dropdown appearance="light" variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown variant="secondary" appearance="light">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="tertiary" appearance="light">
+            Button
+          </IcButton>
+        </div>
+        <div style={{ padding: "6px" }}>
+          <IcButton dropdown variant="primary" size="small">
+            Button
+          </IcButton>
+          <IcButton dropdown size="small" variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown variant="secondary" size="small">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="tertiary" size="small">
+            Button
+          </IcButton>
+        </div>
+        <div style={{ padding: "6px" }}>
+          <IcButton dropdown variant="primary" size="large">
+            Button
+          </IcButton>
+          <IcButton dropdown size="large" variant="primary">
+            Button
+            <SlottedSVG
+              slot="left-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+            </SlottedSVG>
+          </IcButton>
+          <IcButton dropdown variant="secondary" size="large">
+            Button
+          </IcButton>
+          <IcButton dropdown variant="tertiary" size="large">
+            Button
+          </IcButton>
+        </div>
+      </div>
+    );
+
+    cy.compareSnapshot("dropdown", DEFAULT_TEST_THRESHOLD + 0.06);
+    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+  });
+
+  it("renders dropdown with popover", () => {
+    mount(<PopoverDropdown />);
+
+    cy.get("ic-button").click();
+
+    cy.wait(100).compareSnapshot(
+      "dropdown-popover",
+      DEFAULT_TEST_THRESHOLD + 0.06
+    );
+    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 });
