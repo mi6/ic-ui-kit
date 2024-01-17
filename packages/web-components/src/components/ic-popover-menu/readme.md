@@ -14,6 +14,13 @@ This is a wrapper component to be placed around one or more ic-menu-item compone
 | `submenuId` | `submenu-id` | The unique identifier for a popover submenu.                                                                    | `string`  | `undefined` |
 
 
+## Events
+
+| Event             | Description                              | Type                |
+| ----------------- | ---------------------------------------- | ------------------- |
+| `icPopoverClosed` | Emitted when the popover menu is closed. | `CustomEvent<void>` |
+
+
 ## CSS Custom Properties
 
 | Name                   | Description                         |

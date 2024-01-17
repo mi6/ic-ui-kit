@@ -30,6 +30,7 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
 } from "../../utils/types";
+import arrowDropdown from "../../assets/arrow-dropdown.svg";
 
 let buttonIds = 0;
 
@@ -92,6 +93,16 @@ export class Button {
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
+
+  /**
+   * If `true`, the button will show a dropdown icon.
+   */
+  @Prop() dropdown?: boolean = false;
+
+  /**
+   * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
+   */
+  @Prop({ mutable: true, reflect: true }) dropdownExpanded?: boolean = false;
 
   /**
    * The <form> element to associate the button with.
@@ -281,6 +292,9 @@ export class Button {
   handleHostClick(event: Event): void {
     if (this.disabled || this.loading) {
       event.stopImmediatePropagation();
+    }
+    if (this.dropdown) {
+      this.dropdownExpanded = !this.dropdownExpanded;
     }
   }
 
@@ -478,11 +492,23 @@ export class Button {
           ) : (
             <slot />
           )}
-          {this.hasRightIconSlot() && !this.loading && (
-            <div class="icon-container">
+          {this.hasRightIconSlot() && !this.loading && !this.dropdown && (
+            <div class={{ "icon-container": true, "right-icon": true }}>
               <slot name="right-icon" />
             </div>
           )}
+          {this.dropdown &&
+            !this.loading &&
+            this.variant !== "icon" &&
+            this.variant !== "destructive" && (
+              <span
+                class={{
+                  ["arrow-dropdown"]: !this.dropdownExpanded,
+                  ["dropdown-expanded"]: this.dropdownExpanded,
+                }}
+                innerHTML={arrowDropdown}
+              />
+            )}
         </TagType>
       );
     };
@@ -498,6 +524,10 @@ export class Button {
           ["light"]: this.appearance === IcThemeForegroundEnum.Light,
           ["full-width"]: this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
+          ["dropdown-no-icon"]:
+            this.dropdown &&
+            !isSlotUsed(this.el, "icon") &&
+            !isSlotUsed(this.el, "left-icon"),
           ["white-background"]:
             this.variant === "secondary" &&
             !this.transparentBackground &&
@@ -506,6 +536,7 @@ export class Button {
         onClick={this.handleClick}
         aria-owns={this.ariaOwnsId}
         aria-controls={this.ariaControlsId}
+        aria-expanded={this.dropdown && `${this.dropdownExpanded}`}
       >
         {this.hasTooltip && (
           <ic-tooltip
