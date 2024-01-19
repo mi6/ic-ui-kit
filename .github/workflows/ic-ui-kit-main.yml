@@ -122,9 +122,10 @@ jobs:
       - name: Canary visual regression tests
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: npm run test-visual:ci:canary
-        
+
   ic-ui-kit-cypress-tests:
-    name: "Cypress Tests"
+    needs: [check-updates]
+    name: "Cypress tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
