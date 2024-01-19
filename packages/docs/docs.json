@@ -2218,6 +2218,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-card",
+        "ic-date-input",
         "ic-dialog",
         "ic-horizontal-scroll",
         "ic-menu",
@@ -2254,6 +2255,9 @@
           "ic-button"
         ],
         "ic-card": [
+          "ic-button"
+        ],
+        "ic-date-input": [
           "ic-button"
         ],
         "ic-dialog": [
@@ -4318,6 +4322,661 @@
       }
     },
     {
+      "filePath": "src/components/ic-date-input/ic-date-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-date-input",
+      "readme": "# ic-date-input\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "dateFormat",
+          "type": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+          "complexType": {
+            "original": "IcDateFormat",
+            "resolved": "\"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\"",
+            "references": {
+              "IcDateFormat": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDateFormat"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "date-format",
+          "reflectToAttr": false,
+          "docs": "The format in which the date will be displayed.",
+          "docsTags": [],
+          "default": "\"DD/MM/YYYY\"",
+          "values": [
+            {
+              "value": "DD/MM/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "MM/DD/YYYY",
+              "type": "string"
+            },
+            {
+              "value": "YYYY/MM/DD",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disableDays",
+          "type": "IcWeekDays[]",
+          "complexType": {
+            "original": "IcWeekDays[]",
+            "resolved": "IcWeekDays[]",
+            "references": {
+              "IcWeekDays": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcWeekDays"
+              }
+            }
+          },
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "The days of the week to disable.",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "IcWeekDays[]"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disableDaysMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-days-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when `disableDays` is set and a disabled date is entered.",
+          "docsTags": [],
+          "default": "\"The date you have selected is on a day of the week that is not allowed. Please select another date.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disableFuture",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-future",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disableFutureMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-future-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when `disableFuture` is true and a date in the future is entered.",
+          "docsTags": [],
+          "default": "\"Dates in the future are not allowed. Please select a date in the past.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disablePast",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-past",
+          "reflectToAttr": false,
+          "docs": "If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disablePastMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-past-message",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message when `disablePast` is true and a date in the past is entered.",
+          "docsTags": [],
+          "default": "\"Dates in the past are not allowed. Please select a date in the future.\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the disabled state will be set.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "The helper text that will be displayed for additional field guidance. This will default to the text \"Use format\" along with the `dateFormat` value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "inputId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "input-id",
+          "reflectToAttr": false,
+          "docs": "The ID for the input.",
+          "docsTags": [],
+          "default": "`ic-date-input-${inputIds++}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the date input.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "max",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "this.inputId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the input will require a value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-clear-button",
+          "reflectToAttr": false,
+          "docs": "If `true`, a button which clears the date input when clicked will be displayed.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the date input to be displayed.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "validationStatus",
+          "type": "\"\" | \"error\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "IcInformationStatusOrEmpty",
+            "resolved": "\"\" | \"error\" | \"success\" | \"warning\"",
+            "references": {
+              "IcInformationStatusOrEmpty": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcInformationStatusOrEmpty"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "validation-status",
+          "reflectToAttr": false,
+          "docs": "The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "validationText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "validation-text",
+          "reflectToAttr": false,
+          "docs": "The text to display as the validation message. This will override the built-in date validation.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "Date | string",
+          "complexType": {
+            "original": "string | Date",
+            "resolved": "Date | string",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the date input. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "Date"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getDate",
+          "returns": {
+            "type": "Promise<Date>",
+            "docs": "Date"
+          },
+          "complexType": {
+            "signature": "() => Promise<Date>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            },
+            "return": "Promise<Date>"
+          },
+          "signature": "getDate() => Promise<Date>",
+          "parameters": [],
+          "docs": "Returns the value as a Date object",
+          "docsTags": [
+            {
+              "name": "returns",
+              "text": "Date"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "icBlur",
+          "detail": "{ value: Date; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date }",
+            "resolved": "{ value: Date; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "icChange",
+          "detail": "{ value: Date; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date }",
+            "resolved": "{ value: Date; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "icFocus",
+          "detail": "{ value: Date; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: Date }",
+            "resolved": "{ value: Date; }",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input gains focus.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-input-container",
+        "ic-input-label",
+        "ic-input-component-container",
+        "ic-button",
+        "ic-input-validation"
+      ],
+      "dependencyGraph": {
+        "ic-date-input": [
+          "ic-input-container",
+          "ic-input-label",
+          "ic-input-component-container",
+          "ic-button",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
@@ -6275,15 +6934,15 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"default\" | \"large\" | \"small\"",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizesNoLarge"
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -6296,6 +6955,10 @@
           "values": [
             {
               "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
               "type": "string"
             },
             {
@@ -6415,11 +7078,15 @@
       ],
       "parts": [],
       "dependents": [
+        "ic-date-input",
         "ic-select",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-date-input": [
+          "ic-input-component-container"
+        ],
         "ic-select": [
           "ic-input-component-container"
         ],
@@ -6489,11 +7156,15 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "ic-date-input",
         "ic-select",
         "ic-text-field"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ic-date-input": [
+          "ic-input-container"
+        ],
         "ic-select": [
           "ic-input-container"
         ],
@@ -6727,6 +7398,7 @@
       "parts": [],
       "dependents": [
         "ic-checkbox-group",
+        "ic-date-input",
         "ic-radio-group",
         "ic-select",
         "ic-switch",
@@ -6740,6 +7412,9 @@
           "ic-typography"
         ],
         "ic-checkbox-group": [
+          "ic-input-label"
+        ],
+        "ic-date-input": [
           "ic-input-label"
         ],
         "ic-radio-group": [
@@ -6921,6 +7596,7 @@
       "parts": [],
       "dependents": [
         "ic-checkbox-group",
+        "ic-date-input",
         "ic-radio-group",
         "ic-select",
         "ic-text-field"
@@ -6933,6 +7609,9 @@
           "ic-typography"
         ],
         "ic-checkbox-group": [
+          "ic-input-validation"
+        ],
+        "ic-date-input": [
           "ic-input-validation"
         ],
         "ic-radio-group": [
@@ -18335,6 +19014,16 @@
     },
     "src/utils/types.ts::IcValueEventDetail": {
       "declaration": "export interface IcValueEventDetail {\n  value: string;\n  keyPressed?: string;\n}",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcDateFormat": {
+      "declaration": "export type IcDateFormat = \"DD/MM/YYYY\" | \"MM/DD/YYYY\" | \"YYYY/MM/DD\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcWeekDays": {
+      "declaration": "export enum IcWeekDays {\n  Sunday = 0,\n  Monday = 1,\n  Tuesday = 2,\n  Wednesday = 3,\n  Thursday = 4,\n  Friday = 5,\n  Saturday = 6,\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
     },
