@@ -28,3 +28,4 @@ Tell us the issue number. If suggesting an improvement or component, please disc
 - [ ] Logical heading structure is maintained, and the HTML elements used for headings can be changed to fit within the wider page structure. 
 - [ ] All prop combinations work without issue. 
 - [ ] Changes to docs package checked and committed.
+- [ ] Tested for FOUC (Flash of Unstyled Content) in both SSR (Server-Side Rendering) and SSG (Static Site Generation) settings.
