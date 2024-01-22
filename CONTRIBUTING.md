@@ -222,7 +222,7 @@ For functionality that a developer would want to control within a component, som
 Testing should always include accessibility testing. A combination of automated and manual accessibility testing is needed. 
 Automated accessibility testing tools are available to fix initial low level issues. The following tools are used:
 - [Storybook a11y addon](https://storybook.js.org/addons/@storybook/addon-a11y)
-- [Jest AXE](https://github.com/nickcolley/jest-axe)
+- [cypress-axe](https://github.com/component-driven/cypress-axe)
 
 All changes must meet the criteria for [WCAG 2.1 AA](https://design.sis.gov.uk/accessibility/requirement/wcag). Find out more about the importance of [accessibility](https://design.sis.gov.uk/accessibility) and how to [test for accessibility](https://design.sis.gov.uk/accessibility/testing).
 
@@ -351,36 +351,59 @@ Read more about [Stencil Unit testing](https://stenciljs.com/docs/unit-testing).
 
 ### End-to-end / integration tests
 
-Stencil provides utility functions from [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/) to create end-to-end / integration tests. End-to-end / integraton testing makes it easier to test multiple components within a real browser. Each component includes a `<component>.e2e.ts` file.
+[Cypress](https://www.cypress.io/) is the testing framework used to run end-to-end / integration tests. Within the `react/src/component-tests` directory is a folder for each component that includes a `<component>.cy.tsx` file along with any helper data such as `componentConstants.tsx` to store values for testing against, and `componentTestData.tsx` for storing code snippets that improve test readability.
 
-Below is an example of an integration test
+Below is an example of an integration test.
 
 ```tsx
-  it("should have the correct text", async () => {
-    const page = await newE2EPage();
-    await page.setContent(`
-        <ic-component label="foo"></ic-component>
-        <ic-typograhy>bar</ic-typograhy>`);
-    await page.waitForChanges();
+it("should have the correct text after the button is clicked", () => {
+    mount(
+        <div>
+            <IcComponent label="foo"></IcComponent>
+            <IcTypography>bar</IcTypography>
+        </div>
+    );
 
-    const button = await page.find("ic-component");
+    // Check the component has hydrated to avoid basic errors
+    cy.checkHydrated("ic-button");
 
     // Clicking the button updates the typography text
-    await button.click();
+    cy.clickOnButton("ic-button");
 
     /*
-    * It is possible to select components one level deep into a shadowDOM by using '>>>'
-    * Example - await page.find("ic-typography >>> span")
+    * It is possible to select components one level deep into a shadowDOM by using .shadow()
+    * Example - cy.get("ic-button").shadow().find("ic-typography")
+    * Alternatively - cy.findShadowEl("ic-button", "ic-typography")
     */
-    const typography = await page.find("ic-typography")
-    const text = typography.innerText;
-    expect(text).toBe("baz");
+    cy.get("ic-typogrpahy").should("have.text", "baz")
   });
 ```
 
 ### Visual regression tests
 
-[Loki](https://loki.js.org/) runs visual regression tests by building Storybook and taking snapshots of each story. As updates are made to components, the reference images are compared to the latest Storybook build to generate a pixel-to-pixel comparison and flag any differences. All reference images are stored within `.loki` directory. Loki uses Google Chrome to render the components.
+[Cypress](https://www.cypress.io/) itself does not have built-in support for visual regression testing. However the third-party plugin `cypress-image-diff-js` adds this functionality. The tool works by taking screenshots of the components at specific points during tests and then comparing them to the baseline images to detect any visual differences. All reference images are stored within the `react/cypress-visual-screenshots` directory once the test suite is ran. Cypress uses a headless Electron browser for running tests and rendering components.
+
+Below is an example of a visual regression test within an integration test.
+```tsx
+  it("should create a snapshot for the default component", () => {
+    mount( 
+        <IcComponent label="foo"></IcComponent>
+    );
+
+    // Check the component has hydrated to avoid basic errors
+    cy.checkHydrated("ic-button");
+
+    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+  });
+```
+
+### Testing best practice
+
+- Ensure all props are tested.
+- Visual tests should include sufficient padding to allow for focus indicators (and there should be screenshots for showing items when focused).
+- Snapshots should be added for any props that affect the visual display of the component.
+- A11y tests should be included.
+- Ensure all tests are passing consistently, both locally and in CI.
 
 ### Useful links
 
