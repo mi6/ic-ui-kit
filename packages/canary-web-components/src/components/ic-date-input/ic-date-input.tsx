@@ -1402,6 +1402,9 @@ export class DateInput {
       .querySelector("ic-tooltip")
       .displayTooltip(false);
     this.calendarButtonClicked.emit({ value: this.selectedDate });
+    this.calendarButtonEl.shadowRoot
+      .querySelector("ic-tooltip")
+      .displayTooltip(false);
     this.isDateSetFromKeyboardEvent = false;
   };
 

@@ -10,4 +10,5 @@ import { defineCustomElements } from '@ukic/canary-web-components/loader';
 defineCustomElements();
 export const IcDataTable = /*@__PURE__*/createReactComponent<JSX.IcDataTable, HTMLIcDataTableElement>('ic-data-table');
 export const IcDateInput = /*@__PURE__*/createReactComponent<JSX.IcDateInput, HTMLIcDateInputElement>('ic-date-input');
+export const IcDatePicker = /*@__PURE__*/createReactComponent<JSX.IcDatePicker, HTMLIcDatePickerElement>('ic-date-picker');
 export const IcPaginationBar = /*@__PURE__*/createReactComponent<JSX.IcPaginationBar, HTMLIcPaginationBarElement>('ic-pagination-bar');

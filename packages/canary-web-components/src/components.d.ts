@@ -164,6 +164,104 @@ export namespace Components {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDatePicker {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is `true` and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.
+         */
+        "disableFutureMessage"?: string;
+        /**
+          * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+         */
+        "disablePast"?: boolean;
+        /**
+          * The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.
+         */
+        "disablePastMessage"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
+         */
+        "helperText"?: string;
+        /**
+          * The ID for the input field. The default will be an automatically generated value.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate": string | Date;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * Determines whether days outside the current month are rendered.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * Determines whether the `Clear` button on the date picker is visible.
+         */
+        "showPickerClearButton"?: boolean;
+        /**
+          * Determines whether the `Go to today` button on the date picker is visible.
+         */
+        "showPickerTodayButton"?: boolean;
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: IcWeekDays;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -218,6 +316,10 @@ export interface IcDateInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDateInputElement;
 }
+export interface IcDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDatePickerElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
@@ -249,6 +351,23 @@ declare global {
         prototype: HTMLIcDateInputElement;
         new (): HTMLIcDateInputElement;
     };
+    interface HTMLIcDatePickerElementEventMap {
+        "icChange": { value: Date };
+    }
+    interface HTMLIcDatePickerElement extends Components.IcDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDatePickerElementEventMap>(type: K, listener: (this: HTMLIcDatePickerElement, ev: IcDatePickerCustomEvent<HTMLIcDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDatePickerElementEventMap>(type: K, listener: (this: HTMLIcDatePickerElement, ev: IcDatePickerCustomEvent<HTMLIcDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcDatePickerElement: {
+        prototype: HTMLIcDatePickerElement;
+        new (): HTMLIcDatePickerElement;
+    };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": { value: number };
         "icItemsPerPageChange": { value: number };
@@ -270,6 +389,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "ic-data-table": HTMLIcDataTableElement;
         "ic-date-input": HTMLIcDateInputElement;
+        "ic-date-picker": HTMLIcDatePickerElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
     }
 }
@@ -430,6 +550,108 @@ declare namespace LocalJSX {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDatePicker {
+        /**
+          * The format in which the date will be displayed.
+         */
+        "dateFormat"?: IcDateFormat;
+        /**
+          * The days of the week to disable.
+         */
+        "disableDays"?: IcWeekDays[];
+        /**
+          * The text to display as the validation message when `disableDays` is `true` and a disabled date is entered.
+         */
+        "disableDaysMessage"?: string;
+        /**
+          * If `true`, dates in the future are not allowed. A validation message will appear if a date in the future is entered.
+         */
+        "disableFuture"?: boolean;
+        /**
+          * The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.
+         */
+        "disableFutureMessage"?: string;
+        /**
+          * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
+         */
+        "disablePast"?: boolean;
+        /**
+          * The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.
+         */
+        "disablePastMessage"?: string;
+        /**
+          * If `true`, the disabled state will be set.
+         */
+        "disabled"?: boolean;
+        /**
+          * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
+         */
+        "helperText"?: string;
+        /**
+          * The ID for the input field. The default will be an automatically generated value.
+         */
+        "inputId"?: string;
+        /**
+          * The label for the date input.
+         */
+        "label": string;
+        /**
+          * The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disableFuture` is set to `true`.
+         */
+        "max"?: string | Date;
+        /**
+          * The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object. The value of this prop is ignored if `disablePast` is set to `true`.
+         */
+        "min"?: string | Date;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onIcChange"?: (event: IcDatePickerCustomEvent<{ value: Date }>) => void;
+        /**
+          * The date visible when the calendar opens. Used if no date is currently selected. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "openAtDate"?: string | Date;
+        /**
+          * If `true`, the input will require a value.
+         */
+        "required"?: boolean;
+        /**
+          * Determines whether days outside the current month are rendered.
+         */
+        "showDaysOutsideMonth"?: boolean;
+        /**
+          * Determines whether the `Clear` button on the date picker is visible.
+         */
+        "showPickerClearButton"?: boolean;
+        /**
+          * Determines whether the `Go to today` button on the date picker is visible.
+         */
+        "showPickerTodayButton"?: boolean;
+        /**
+          * The size of the date picker to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * The first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "startOfWeek"?: IcWeekDays;
+        /**
+          * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
+         */
+        "validationStatus"?: IcInformationStatusOrEmpty;
+        /**
+          * The text to display as the validation message. This will override the built-in date validation.
+         */
+        "validationText"?: string;
+        /**
+          * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
+         */
+        "value"?: string | Date;
+    }
     interface IcPaginationBar {
         /**
           * Sets the alignment of the items in the pagination bar.
@@ -490,6 +712,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ic-data-table": IcDataTable;
         "ic-date-input": IcDateInput;
+        "ic-date-picker": IcDatePicker;
         "ic-pagination-bar": IcPaginationBar;
     }
 }
@@ -499,6 +722,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
+            "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
         }
     }
