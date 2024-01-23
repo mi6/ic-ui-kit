@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-toggle-button component should render 1`] = `
+<ic-toggle-button class="default" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+    </ic-button>
+  </mock:shadow-root>
+</ic-toggle-button>
+`;
+
+exports[`ic-toggle-button component should render icon variant 1`] = `
+<ic-toggle-button accessible-label="Refresh the page" class="default icon" variant="icon">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Refresh the page, unticked" role="checkbox" size="default" title="Refresh the page" variant="icon">
+      <slot></slot>
+    </ic-button>
+  </mock:shadow-root>
+  <svg fill="#000000" height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+  </svg>
+</ic-toggle-button>
+`;
+
+exports[`ic-toggle-button component should render slotted badge 1`] = `
+<ic-toggle-button class="default" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+      <slot name="badge" slot="badge"></slot>
+    </ic-button>
+  </mock:shadow-root>
+  <ic-badge slot="badge" text-label="1" variant="success"></ic-badge>
+</ic-toggle-button>
+`;
+
+exports[`ic-toggle-button component should render slotted icon 1`] = `
+<ic-toggle-button class="default" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+      <slot name="icon" slot="icon"></slot>
+    </ic-button>
+  </mock:shadow-root>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+  </svg>
+</ic-toggle-button>
+`;
+
+exports[`ic-toggle-button component should render slotted icon with icon placement 1`] = `
+<ic-toggle-button class="default" icon-placement="right" label="Toggle" variant="default">
+  <mock:shadow-root>
+    <ic-button appearance="default" aria-checked="false" aria-disabled="false" aria-label="Toggle, unticked" role="checkbox" size="default" variant="secondary">
+      Toggle
+      <slot></slot>
+      <slot name="icon" slot="right-icon"></slot>
+    </ic-button>
+  </mock:shadow-root>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+  </svg>
+</ic-toggle-button>
+`;

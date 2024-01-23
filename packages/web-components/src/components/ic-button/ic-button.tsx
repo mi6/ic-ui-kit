@@ -38,6 +38,7 @@ let buttonIds = 0;
  * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
  * @slot left-icon - Content will be placed to the left of the button label.
  * @slot right-icon - Content will be placed to the right of the button label.
+ * @slot top-icon - Content will be placed above the button label.
  * @slot badge - Badge component overlaying the top right of the button.
  */
 @Component({
@@ -324,6 +325,11 @@ export class Button {
     return iconEl !== null;
   }
 
+  private hasTopIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="top-icon"]`);
+    return iconEl !== null;
+  }
+
   private hasRightIconSlot(): boolean {
     const iconEl = this.el.querySelector(`[slot="right-icon"]`);
     return iconEl !== null;
@@ -475,6 +481,14 @@ export class Button {
               <slot name="left-icon" />
             </div>
           )}
+          {this.hasTopIconSlot() &&
+            !this.hasLeftIconSlot() &&
+            !this.hasRightIconSlot() &&
+            !this.loading && (
+              <div class="icon-container">
+                <slot name="top-icon" />
+              </div>
+            )}
           {this.loading ? (
             <div class="loading-container">
               <ic-loading-indicator
@@ -528,6 +542,7 @@ export class Button {
             this.dropdown &&
             !isSlotUsed(this.el, "icon") &&
             !isSlotUsed(this.el, "left-icon"),
+          ["top-icon"]: isSlotUsed(this.el, "top-icon"),
           ["white-background"]:
             this.variant === "secondary" &&
             !this.transparentBackground &&
