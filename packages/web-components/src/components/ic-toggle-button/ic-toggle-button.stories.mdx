@@ -1,0 +1,497 @@
+import { Story, Canvas, Meta, Description } from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Toggle button" component="ic-toggle-button" />
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button label="Toggle"></ic-toggle-button>
+      <script>
+        var toggle = document.querySelector("ic-toggle-button");
+        toggle.addEventListener("icToggleChecked", function (event) {
+          console.log(event.detail.checked);
+        });
+      </script>`}
+  </Story>
+</Canvas>
+
+### Checked
+
+<Canvas>
+  <Story name="Checked" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-toggle-button
+        label="Toggle"
+        toggle-checked="true"
+      ></ic-toggle-button>`
+    }
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button
+        label="Toggle"
+        disabled="true"
+      ></ic-toggle-button>
+      <ic-toggle-button
+        label="Toggle"
+        disabled="true"
+        toggle-checked="true"
+      ></ic-toggle-button>`}
+  </Story>
+</Canvas>
+
+### With icon
+
+<Canvas>
+  <Story name="With icon" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button label="Toggle">
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-toggle-button>`}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<div style="padding: 6px">
+        <ic-toggle-button label="Toggle" size="small"></ic-toggle-button>
+      </div>
+      <div style="padding: 6px">
+        <ic-toggle-button label="Toggle"></ic-toggle-button>
+      </div>
+      <div style="padding: 6px">
+        <ic-toggle-button label="Toggle" size="large"></ic-toggle-button>
+      </div>`}
+  </Story>
+</Canvas>
+
+### With badge
+
+<Canvas>
+  <Story name="With badge" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button label="Toggle">
+      <ic-badge text-label="1" slot="badge" variant="success"></ic-badge>
+    </ic-toggle-button>`}
+  </Story>
+</Canvas>
+
+### Appearance dark
+
+<Canvas>
+  <Story name="Appearance dark" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-toggle-button
+        label="Toggle"
+        appearance="dark"
+      ></ic-toggle-button>`
+    }
+  </Story>
+</Canvas>
+
+### Appearance light
+
+<Canvas>
+  <Story name="Appearance light" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<div
+      style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+    >
+      <ic-toggle-button label="Toggle" appearance="light"></ic-toggle-button>
+    </div>`}
+  </Story>
+</Canvas>
+
+### Full width
+
+<Canvas>
+  <Story name="Full width" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-toggle-button
+        label="Toggle"
+        full-width="true"
+      ></ic-toggle-button>`
+    }
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story name="Loading" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<div style="padding: 6px">
+          <ic-toggle-button label="Toggle" loading="true"></ic-toggle-button>
+          <ic-toggle-button
+            label="Toggle"
+            loading="true"
+            toggle-checked="true"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            accessible-label="Refresh the page"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            toggle-checked="true"
+            accessible-label="Refresh the page"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </div>
+        <div
+          style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        >
+          <ic-toggle-button
+            label="Toggle"
+            loading="true"
+            appearance="light"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Toggle"
+            loading="true"
+            toggle-checked="true"
+            appearance="light"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            accessible-label="Refresh the page"
+            appearance="light"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            toggle-checked="true"
+            accessible-label="Refresh the page"
+            appearance="light"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </div>
+        <div style="padding:6px 10px; width:fit-content">
+          <ic-toggle-button
+            label="Toggle"
+            loading="true"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Toggle"
+            loading="true"
+            toggle-checked="true"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            accessible-label="Refresh the page"
+            appearance="dark"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button
+            variant="icon"
+            loading="true"
+            toggle-checked="true"
+            accessible-label="Refresh the page"
+            appearance="dark"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </div>`
+    }
+  </Story>
+</Canvas>
+
+### Icon only
+
+<Canvas>
+  <Story name="Icon only" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<div style="padding:6px 10px; width:fit-content">
+        <ic-toggle-button
+          variant="icon"
+          size="small"
+          accessible-label="Refresh the page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button variant="icon" accessible-label="Refresh the page">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button
+          variant="icon"
+          size="large"
+          accessible-label="Refresh the page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button
+          variant="icon"
+          disabled="true"
+          accessible-label="Refresh the page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </div>
+      <div
+        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+      >
+        <ic-toggle-button
+          variant="icon"
+          accessible-label="Refresh the page"
+          appearance="light"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button
+          variant="icon"
+          disabled="true"
+          accessible-label="Refresh the page"
+          appearance="light"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </div>
+      <div style="padding:6px 10px; width:fit-content">
+        <ic-toggle-button
+          variant="icon"
+          accessible-label="Refresh the page"
+          appearance="dark"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button
+          variant="icon"
+          disabled="true"
+          accessible-label="Refresh the page"
+          appearance="dark"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+      </div>`}
+  </Story>
+</Canvas>
+
+### Icon right
+
+<Canvas>
+  <Story name="Icon right" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button label="Toggle" icon-placement="right">
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-toggle-button>`}
+  </Story>
+</Canvas>
+
+### Icon top
+
+<Canvas>
+  <Story name="Icon top" parameters={{ loki: { skip: true } }}>
+    {(args) => html`<ic-toggle-button label="Toggle" icon-placement="top">
+      <svg
+        slot="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+        />
+      </svg>
+    </ic-toggle-button>`}
+  </Story>
+</Canvas>

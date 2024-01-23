@@ -2157,6 +2157,48 @@ export namespace Components {
          */
         "setVisible": (toast: HTMLIcToastElement) => Promise<void>;
     }
+    interface IcToggleButton {
+        /**
+          * The accessible label that will be applied to the toggle button. This is required for the icon variant of toggle buttons.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The appearance of the toggle button.
+         */
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the toggle button will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the toggle button will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The placement of the icon in relation to the toggle button label.
+         */
+        "iconPlacement"?: "left" | "right" | "top";
+        /**
+          * The label to display in the toggle button. This is required for the default variant of toggle buttons.
+         */
+        "label"?: string;
+        /**
+          * If `true`, the toggle button will be in loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * The size of the toggle button to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "toggleChecked": boolean;
+        /**
+          * The variant of the toggle button.
+         */
+        "variant": "default" | "icon";
+    }
     interface IcTooltip {
         "disableClick"?: boolean;
         /**
@@ -2355,6 +2397,10 @@ export interface IcThemeCustomEvent<T> extends CustomEvent<T> {
 export interface IcToastCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcToastElement;
+}
+export interface IcToggleButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcToggleButtonElement;
 }
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -3065,6 +3111,25 @@ declare global {
         prototype: HTMLIcToastRegionElement;
         new (): HTMLIcToastRegionElement;
     };
+    interface HTMLIcToggleButtonElementEventMap {
+        "icToggleChecked": {
+    checked: boolean;
+  };
+    }
+    interface HTMLIcToggleButtonElement extends Components.IcToggleButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcToggleButtonElementEventMap>(type: K, listener: (this: HTMLIcToggleButtonElement, ev: IcToggleButtonCustomEvent<HTMLIcToggleButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcToggleButtonElementEventMap>(type: K, listener: (this: HTMLIcToggleButtonElement, ev: IcToggleButtonCustomEvent<HTMLIcToggleButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcToggleButtonElement: {
+        prototype: HTMLIcToggleButtonElement;
+        new (): HTMLIcToggleButtonElement;
+    };
     interface HTMLIcTooltipElement extends Components.IcTooltip, HTMLStencilElement {
     }
     var HTMLIcTooltipElement: {
@@ -3156,6 +3221,7 @@ declare global {
         "ic-theme": HTMLIcThemeElement;
         "ic-toast": HTMLIcToastElement;
         "ic-toast-region": HTMLIcToastRegionElement;
+        "ic-toggle-button": HTMLIcToggleButtonElement;
         "ic-tooltip": HTMLIcTooltipElement;
         "ic-top-navigation": HTMLIcTopNavigationElement;
         "ic-typography": HTMLIcTypographyElement;
@@ -5374,6 +5440,54 @@ declare namespace LocalJSX {
          */
         "openToast"?: HTMLIcToastElement;
     }
+    interface IcToggleButton {
+        /**
+          * The accessible label that will be applied to the toggle button. This is required for the icon variant of toggle buttons.
+         */
+        "accessibleLabel"?: string;
+        /**
+          * The appearance of the toggle button.
+         */
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the toggle button will be in disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the toggle button will fill the width of the container.
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The placement of the icon in relation to the toggle button label.
+         */
+        "iconPlacement"?: "left" | "right" | "top";
+        /**
+          * The label to display in the toggle button. This is required for the default variant of toggle buttons.
+         */
+        "label"?: string;
+        /**
+          * If `true`, the toggle button will be in loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Emitted when the user clicks a toggle button.
+         */
+        "onIcToggleChecked"?: (event: IcToggleButtonCustomEvent<{
+    checked: boolean;
+  }>) => void;
+        /**
+          * The size of the toggle button to be displayed.
+         */
+        "size"?: IcSizes;
+        /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "toggleChecked"?: boolean;
+        /**
+          * The variant of the toggle button.
+         */
+        "variant"?: "default" | "icon";
+    }
     interface IcTooltip {
         "disableClick"?: boolean;
         /**
@@ -5524,6 +5638,7 @@ declare namespace LocalJSX {
         "ic-theme": IcTheme;
         "ic-toast": IcToast;
         "ic-toast-region": IcToastRegion;
+        "ic-toggle-button": IcToggleButton;
         "ic-tooltip": IcTooltip;
         "ic-top-navigation": IcTopNavigation;
         "ic-typography": IcTypography;
@@ -5592,6 +5707,7 @@ declare module "@stencil/core" {
             "ic-theme": LocalJSX.IcTheme & JSXBase.HTMLAttributes<HTMLIcThemeElement>;
             "ic-toast": LocalJSX.IcToast & JSXBase.HTMLAttributes<HTMLIcToastElement>;
             "ic-toast-region": LocalJSX.IcToastRegion & JSXBase.HTMLAttributes<HTMLIcToastRegionElement>;
+            "ic-toggle-button": LocalJSX.IcToggleButton & JSXBase.HTMLAttributes<HTMLIcToggleButtonElement>;
             "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
             "ic-top-navigation": LocalJSX.IcTopNavigation & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
             "ic-typography": LocalJSX.IcTypography & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;

@@ -62,6 +62,7 @@ Type: `Promise<void>`
 | `"icon"`       | Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead. |
 | `"left-icon"`  | Content will be placed to the left of the button label.                                     |
 | `"right-icon"` | Content will be placed to the right of the button label.                                    |
+| `"top-icon"`   | Content will be placed above the button label.                                              |
 
 
 ## CSS Custom Properties
@@ -90,6 +91,7 @@ Type: `Promise<void>`
  - [ic-select](../ic-select)
  - [ic-side-navigation](../ic-side-navigation)
  - [ic-toast](../ic-toast)
+ - [ic-toggle-button](../ic-toggle-button)
  - [ic-top-navigation](../ic-top-navigation)
 
 ### Depends on
@@ -118,6 +120,7 @@ graph TD;
   ic-select --> ic-button
   ic-side-navigation --> ic-button
   ic-toast --> ic-button
+  ic-toggle-button --> ic-button
   ic-top-navigation --> ic-button
   style ic-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
