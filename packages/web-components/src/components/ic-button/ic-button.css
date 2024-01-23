@@ -104,6 +104,15 @@
   pointer-events: none;
 }
 
+:host(.top-icon) .button {
+  flex-direction: column;
+  --height: fit-content;
+}
+
+:host(.top-icon) .button .icon-container {
+  margin-right: 0;
+}
+
 /* Variants */
 
 /* Primary */
