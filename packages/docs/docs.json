@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-22T11:57:10",
+  "timestamp": "2024-01-23T14:46:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -1326,6 +1326,10 @@
         },
         {
           "name": "slot",
+          "text": "top-icon - Content will be placed above the button label."
+        },
+        {
+          "name": "slot",
           "text": "badge - Badge component overlaying the top right of the button."
         }
       ],
@@ -2071,6 +2075,10 @@
         {
           "name": "right-icon",
           "docs": "Content will be placed to the right of the button label."
+        },
+        {
+          "name": "top-icon",
+          "docs": "Content will be placed above the button label."
         }
       ],
       "parts": [],
@@ -2089,6 +2097,7 @@
         "ic-select",
         "ic-side-navigation",
         "ic-toast",
+        "ic-toggle-button",
         "ic-top-navigation"
       ],
       "dependencies": [
@@ -2146,6 +2155,9 @@
           "ic-button"
         ],
         "ic-toast": [
+          "ic-button"
+        ],
+        "ic-toggle-button": [
           "ic-button"
         ],
         "ic-top-navigation": [
@@ -16685,6 +16697,342 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-toggle-button",
+      "readme": "# ic-toggle-button\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon - Content will be displayed alongside the toggle button label."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the toggle button."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "accessibleLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessible-label",
+          "reflectToAttr": false,
+          "docs": "The accessible label that will be applied to the toggle button. This is required for the icon variant of toggle buttons.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"light\"",
+            "references": {
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the toggle button.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button will be in disabled state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button will fill the width of the container.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "iconPlacement",
+          "type": "\"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "\"left\" | \"right\" | \"top\"",
+            "resolved": "\"left\" | \"right\" | \"top\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-placement",
+          "reflectToAttr": false,
+          "docs": "The placement of the icon in relation to the toggle button label.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label to display in the toggle button. This is required for the default variant of toggle buttons.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button will be in loading state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the toggle button to be displayed.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "toggleChecked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "toggle-checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the toggle button will be in a checked state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"icon\"",
+          "complexType": {
+            "original": "\"default\" | \"icon\"",
+            "resolved": "\"default\" | \"icon\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "The variant of the toggle button.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icToggleChecked",
+          "detail": "{ checked: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{\n    checked: boolean;\n  }",
+            "resolved": "{ checked: boolean; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the user clicks a toggle button.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": true,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the toggle button."
+        },
+        {
+          "name": "icon",
+          "docs": "Content will be displayed alongside the toggle button label."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-button"
+      ],
+      "dependencyGraph": {
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
     },
     {
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
