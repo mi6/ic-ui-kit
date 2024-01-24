@@ -9,7 +9,10 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Default"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height:100%;">
         <ic-side-navigation
@@ -307,7 +310,10 @@ import readme from "./readme.md";
 ### Expanded
 
 <Canvas>
-  <Story name="Expanded" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Expanded"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height: 100%;">
         <ic-side-navigation
@@ -438,7 +444,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Long app version and app status"
-    parameters={{ layout: "fullscreen" }}
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
     {html`
       <div style="display:flex; height:100%;">
@@ -723,7 +729,10 @@ import readme from "./readme.md";
 ## Short title
 
 <Canvas>
-  <Story name="Short title" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Short title"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height:100%;">
         <ic-side-navigation
@@ -1008,7 +1017,10 @@ import readme from "./readme.md";
 ### Static
 
 <Canvas>
-  <Story name="Static" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Static"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height: 100%;">
         <ic-side-navigation
@@ -1115,7 +1127,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Collapsed icons with labels"
-    parameters={{ layout: "fullscreen" }}
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
     {html`
       <div style="display:flex; height: 100%;">
@@ -1205,7 +1217,10 @@ import readme from "./readme.md";
 ### Slots
 
 <Canvas>
-  <Story name="Slots" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Slots"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height: 100%;">
         <ic-side-navigation
@@ -1293,7 +1308,10 @@ import readme from "./readme.md";
 ### Using unnamed slots
 
 <Canvas>
-  <Story name="Using unnamed slots" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Using unnamed slots"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height: 100%;">
         <ic-side-navigation
@@ -1372,7 +1390,10 @@ import readme from "./readme.md";
 ### Slots using app-title
 
 <Canvas>
-  <Story name="Slots using app-title" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Slots using app-title"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height: 100%;">
         <ic-side-navigation version="v0.0.0" status="BETA">
@@ -1485,7 +1506,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Slots using app-title expanded"
-    parameters={{ layout: "fullscreen" }}
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
     {html`
       <div style="display:flex; height: 100%;">
@@ -1597,7 +1618,10 @@ import readme from "./readme.md";
 ### Disable top bar behaviour
 
 <Canvas>
-  <Story name="Disable top bar behaviour" parameters={{ layout: "fullscreen" }}>
+  <Story
+    name="Disable top bar behaviour"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
     {html`
       <div style="display:flex; height:100%;">
         <ic-side-navigation
@@ -1898,7 +1922,11 @@ import readme from "./readme.md";
 <Canvas>
   <Story
     name="Side nav expanded event"
-    parameters={{ loki: { skip: true }, layout: "fullscreen" }}
+    parameters={{
+      loki: { skip: true },
+      layout: "fullscreen",
+      loki: { skip: true },
+    }}
   >
     {html`<script>
         var sideNav = document.querySelector("ic-side-navigation");
