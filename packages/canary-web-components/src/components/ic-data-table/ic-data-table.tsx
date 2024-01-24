@@ -64,7 +64,9 @@ export class DataTable {
   };
 
   private currentRowHeight: number;
+  private dataIsSorted: boolean = false;
   private hasLoadedForOneSecond: boolean = true;
+  private itemsPerPageChanged: boolean = false;
   private timerStarted: number;
   private updateTruncation: boolean = false;
 
@@ -263,8 +265,12 @@ export class DataTable {
   }
 
   componentDidUpdate(): void {
-    this.updateTruncation = true;
+    if (!this.itemsPerPageChanged) {
+      this.updateTruncation = true;
+    }
     this.dataTruncation();
+    this.itemsPerPageChanged = false;
+    this.dataIsSorted = false;
   }
 
   private removeDivStyles = (parentDiv: HTMLElement) => {
@@ -318,7 +324,7 @@ export class DataTable {
 
       if (cellContainer?.classList.contains("data-type-element")) return;
 
-      if (this.updateTruncation) {
+      if (this.updateTruncation && !this.dataIsSorted) {
         this.resetMaxLines(typographyEl);
         cellContainer.appendChild(typographyEl);
         tooltip?.remove();
@@ -345,16 +351,21 @@ export class DataTable {
           typographyEl.style.webkitLineClamp = `${Math.floor(
             cellContainer.clientHeight / 24
           )}`;
-          if (tooltip) {
+          // Items that already have a tooltip before a change to the items per change, keep their tooltip
+          if (tooltip && !this.itemsPerPageChanged && !this.dataIsSorted) {
             cellContainer.appendChild(typographyEl);
             tooltip.remove();
+          }
+          if (tooltip && this.dataIsSorted) {
+            tooltip.setAttribute("target", typographyEl.id);
+            tooltip.setAttribute("label", typographyEl.textContent);
           }
           if (!tooltip) {
             // if truncation pattern is tooltip and the tooltip does not exist, dynamically create one and add the content inside
             const tooltipEl = document.createElement("ic-tooltip");
             const rowIndex = Number(typographyEl.id.match(/-(\d+)$/)[1]);
             tooltipEl.setAttribute("target", typographyEl.id);
-            tooltipEl.setAttribute("label", typographyEl.innerHTML);
+            tooltipEl.setAttribute("label", typographyEl.textContent);
 
             // Checks if the truncated text is in the first row of the displayed page
             rowIndex === 0 && tooltipEl.setAttribute("placement", "bottom");
@@ -391,14 +402,11 @@ export class DataTable {
     }
   };
 
-  componentDidRender(): void {
-    // this.dataTruncation();
-  }
-
   @Listen("icItemsPerPageChange")
   handleItemsPerPageChange(ev: CustomEvent): void {
     this.previousRowsPerPage = this.rowsPerPage;
     this.rowsPerPage = ev.detail.value;
+    this.itemsPerPageChanged = true;
     this.dataTruncation();
   }
 
@@ -417,6 +425,7 @@ export class DataTable {
     } else {
       this.previousRowsPerPage = this.rowsPerPage;
     }
+
     this.dataTruncation();
   }
 
@@ -545,6 +554,7 @@ export class DataTable {
   };
 
   private createCells = (row: object, rowIndex: number) => {
+    // Get the name of the row??
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
     const rowTextWrapIndex = rowKeys.indexOf("textWrap");
@@ -863,7 +873,7 @@ export class DataTable {
     const sortButton = this.el.shadowRoot.querySelector(
       `#sort-button-${column}`
     ) as HTMLIcButtonElement;
-
+    this.dataIsSorted = true;
     const sortOrders = this.sortOptions.sortOrders;
 
     if (column !== this.sortedColumn) {
