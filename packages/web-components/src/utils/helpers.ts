@@ -20,6 +20,8 @@ import {
 } from "./constants";
 
 const DARK_MODE_THRESHOLD = 133.3505;
+const icInput = "ic-input";
+const linkIcInput = "input.ic-input";
 
 /**
  * Used to inherit global attributes set on the host. Called in componentWillLoad and assigned
@@ -90,7 +92,7 @@ export const renderHiddenInput = (
   disabled: boolean
 ): void => {
   if (name !== undefined && (always || hasShadowDom(container))) {
-    const inputs = container.querySelectorAll("input.ic-input");
+    const inputs = container.querySelectorAll(linkIcInput);
     const inputEls = Array.from(inputs);
     const filtered = inputEls.filter((el) => container === el.parentElement);
 
@@ -98,12 +100,60 @@ export const renderHiddenInput = (
     if (input === null || input === undefined) {
       input = container.ownerDocument.createElement("input");
       input.type = "hidden";
-      input.classList.add("ic-input");
+      input.classList.add(icInput);
       container.appendChild(input);
     }
     input.disabled = disabled;
     input.name = name;
     input.value = value || "";
+  }
+};
+
+/**
+ * This method is used to add a hidden file input to a host element that contains
+ * a Shadow DOM. It does not add the input inside of the Shadow root which
+ * allows it to be picked up inside of forms. It should contain the same
+ * values as the host element.
+ *
+ * @param event: The event that is emitted once a file is selected.
+ * @param container The element where the input will be added
+ * @param multiple If true, multiple files can be selected
+ * @param name The name of the input
+ * @param value The value of the input
+ * @param disabled If true, the input is disabled
+ * @param accept A string of the accepted files
+ */
+export const renderFileHiddenInput = (
+  event: EventEmitter,
+  container: HTMLElement,
+  multiple: boolean,
+  name: string,
+  value: FileList | undefined | null,
+  disabled: boolean,
+  accept: string
+): void => {
+  if (name !== undefined && hasShadowDom(container)) {
+    const inputs = container.querySelectorAll(linkIcInput);
+    const inputEls = Array.from(inputs);
+    const filtered = inputEls.filter((el) => container === el.parentElement);
+
+    let input = filtered[0] as HTMLInputElement;
+    if (input === null || input === undefined) {
+      input = container.ownerDocument.createElement("input");
+      input.classList.add(icInput);
+      container.appendChild(input);
+    }
+    input.type = "file";
+    input.hidden = true;
+    input.multiple = multiple;
+    input.name = name;
+    input.files = value;
+    input.disabled = disabled;
+    input.accept = accept;
+    input.onchange = () => {
+      event.emit(input.files);
+    };
+    input.click();
   }
 };
 
