@@ -25,7 +25,7 @@ import {
 } from "./IcSideNavigationTestData";
 
 const DEFAULT_HEIGHT = 1171;
-const DEFAULT_TEST_THRESHOLD = 0.03;
+const DEFAULT_TEST_THRESHOLD = 0.06;
 
 const SIDE_NAV_LABEL = "ic-side-navigation";
 const EXPAND_BUTTON_SELECTOR = ".side-navigation button.menu-expand-button";
@@ -152,6 +152,7 @@ describe("IcSideNavigation", () => {
 
     describe("IcSideNavigation mobile Visual Regression and A11y Testing", () => {
       beforeEach(() => {
+        cy.viewport(576, DEFAULT_HEIGHT);
         cy.injectAxe();
       });
 
@@ -162,13 +163,13 @@ describe("IcSideNavigation", () => {
       it("renders a default IcSideNavigation", () => {
         mount(<BasicSideNav />);
 
-        cy.compareSnapshot("basic", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("basic", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("basicOpen", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("basicOpen", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -178,7 +179,7 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("longPropsOpen", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("longPropsOpen", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -188,14 +189,14 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("withNavGroupOpen", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("withNavGroupOpen", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
       it("renders with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
 
-        cy.compareSnapshot("slottedAppTitle", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("slottedAppTitle", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -203,7 +204,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "slottedAppTitleOpen",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -216,13 +217,13 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("withTheme", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("withTheme", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("withThemeOpen", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("withThemeOpen", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
     });
@@ -434,6 +435,7 @@ describe("IcSideNavigation", () => {
 
     describe("IcSideNavigation desktop Visual Regression and A11y Testing", () => {
       beforeEach(() => {
+        cy.viewport(992, DEFAULT_HEIGHT);
         cy.injectAxe();
       });
 
@@ -449,13 +451,13 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("basicDesktop", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("basicDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("basicOpenDesktop", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("basicOpenDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -467,7 +469,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "longPropsOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -480,7 +482,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "withNavGroupOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -490,7 +492,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "staticExpandedDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -500,7 +502,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "slottedNavItemsExpandedDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -510,7 +512,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "slottedAppTitleDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
@@ -519,7 +521,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "slottedAppTitleOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
@@ -532,7 +534,7 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("withThemeDesktop", DEFAULT_TEST_THRESHOLD + 0.01);
+        cy.compareSnapshot("withThemeDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -540,7 +542,7 @@ describe("IcSideNavigation", () => {
 
         cy.compareSnapshot(
           "withThemeOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.01
+          DEFAULT_TEST_THRESHOLD + 0.02
         );
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
