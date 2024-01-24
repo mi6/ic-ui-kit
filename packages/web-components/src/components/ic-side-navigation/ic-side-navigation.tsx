@@ -55,7 +55,7 @@ export class SideNavigation {
 
   @Element() el: HTMLIcSideNavigationElement;
 
-  @State() deviceSize: number = DEVICE_SIZES.XL;
+  @State() deviceSize: number = getCurrentDeviceSize();
   @State() deviceSizeAppTitle = DEVICE_SIZES.S;
   @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
   @State() hasSecondaryNavigation: boolean = false;
@@ -123,11 +123,7 @@ export class SideNavigation {
   @Event() sideNavExpanded: EventEmitter<IcExpandedDetail>;
 
   componentWillLoad(): void {
-    if (this.expanded) {
-      this.setMenuExpanded(true);
-    } else {
-      this.setMenuExpanded(false);
-    }
+    this.setMenuExpanded(this.expanded);
 
     if (this.collapsedIconLabels) {
       this.setCollapsedIconLabels();
@@ -166,9 +162,8 @@ export class SideNavigation {
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
+  themeChangeHandler({ detail }: CustomEvent): void {
+    this.foregroundColor = (detail as IcTheme).mode;
   }
 
   private emitSideNavigationExpanded = (objDetails: {
@@ -221,13 +216,11 @@ export class SideNavigation {
 
   private setMobileMenuAriaAttributes = (menuOpen: boolean) => {
     if (this.menuButton !== null) {
-      if (menuOpen) {
-        this.menuButton.setAttribute("aria-expanded", "true");
-        this.menuButton.setAttribute("aria-label", "Close navigation menu");
-      } else {
-        this.menuButton.setAttribute("aria-expanded", "false");
-        this.menuButton.setAttribute("aria-label", "Open navigation menu");
-      }
+      this.menuButton.setAttribute("aria-expanded", `${menuOpen}`);
+      this.menuButton.setAttribute(
+        "aria-label",
+        `${menuOpen ? "Close" : "Open"} navigation menu`
+      );
     }
   };
 
@@ -520,64 +513,53 @@ export class SideNavigation {
   private resizeObserverCallback = (currSize: number) => {
     this.deviceSize = currSize;
 
-    if (currSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour) {
-      if (!this.disableAutoParentStyling) {
-        const topBarHeight =
-          this.el.shadowRoot.querySelector(".top-bar").scrollHeight;
-        this.setParentPaddingTop(`${topBarHeight}px`);
-        this.setParentPaddingLeft("0");
+    const isSmallAndDisableTopBar =
+      currSize === DEVICE_SIZES.S && !this.disableTopBarBehaviour;
 
-        if (this.inline) {
-          this.el.parentElement.style.setProperty(
-            "height",
-            `calc(100% - ${topBarHeight}px)`
-          );
-        }
-      }
-      this.emitSideNavigationExpanded({
-        sideNavExpanded: this.menuExpanded,
-        sideNavMobile: true,
-      });
-    } else {
-      if (!this.disableAutoParentStyling) {
-        this.setParentPaddingTop("0");
+    if (!this.disableAutoParentStyling) {
+      const topBarHeight =
+        this.el.shadowRoot.querySelector(".top-bar")?.scrollHeight;
+      this.setParentPaddingTop(
+        isSmallAndDisableTopBar ? `${topBarHeight}px` : "0"
+      );
+      if (isSmallAndDisableTopBar) this.setParentPaddingLeft("0");
+      if (isSmallAndDisableTopBar && this.inline) {
+        this.el.parentElement.style.setProperty(
+          "height",
+          `calc(100% - ${topBarHeight}px)`
+        );
+      } else if (!isSmallAndDisableTopBar) {
         this.el.parentElement.style.setProperty("height", "100%");
       }
-      this.emitSideNavigationExpanded({
-        sideNavExpanded: this.menuExpanded,
-        sideNavMobile: false,
-      });
     }
+    this.emitSideNavigationExpanded({
+      sideNavExpanded: this.menuExpanded,
+      sideNavMobile: isSmallAndDisableTopBar,
+    });
 
-    let paddingLeft;
+    if (!this.disableAutoParentStyling) {
+      const paddingLeft = `calc(var(--ic-space-xxl) ${
+        this.collapsedIconLabels ? "* 2" : "+ var(--ic-space-xs)"
+      })`;
 
-    if (this.collapsedIconLabels) {
-      paddingLeft = "calc(var(--ic-space-xxl) * 2)";
-    } else {
-      paddingLeft = "calc(var(--ic-space-xxl) + var(--ic-space-xs))";
-    }
-
-    if (currSize > DEVICE_SIZES.L) {
-      if (!this.disableAutoParentStyling) {
+      if (currSize > DEVICE_SIZES.L) {
         this.setParentPaddingTop("0");
         this.setParentPaddingLeft("0");
-      }
-    } else if (
-      (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
-      currSize <= DEVICE_SIZES.M &&
-      this.static &&
-      !this.disableAutoParentStyling
-    ) {
-      this.setParentPaddingLeft(paddingLeft);
-    } else if (
-      (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
-      currSize <= DEVICE_SIZES.L &&
-      !this.disableAutoParentStyling
-    ) {
-      if (this.static && this.menuExpanded) {
-        this.setParentPaddingLeft("calc(var(--ic-space-xl) * 10)");
-      } else {
+      } else if (
+        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
+        currSize <= DEVICE_SIZES.M &&
+        this.static
+      ) {
         this.setParentPaddingLeft(paddingLeft);
+      } else if (
+        (currSize > DEVICE_SIZES.S || this.disableTopBarBehaviour) &&
+        currSize <= DEVICE_SIZES.L
+      ) {
+        this.setParentPaddingLeft(
+          this.static && this.menuExpanded
+            ? "calc(var(--ic-space-xl) * 10)"
+            : paddingLeft
+        );
       }
     }
   };
