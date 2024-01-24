@@ -221,6 +221,10 @@ export namespace Components {
     }
     interface IcButton {
         /**
+          * If `fileUpload` is set to `true`, this is the accepted list of file types.
+         */
+        "accept"?: string;
+        /**
           * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
@@ -246,6 +250,14 @@ export namespace Components {
           * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
          */
         "dropdownExpanded"?: boolean;
+        /**
+          * The name of the control for the file input, which is submitted with the form data.
+         */
+        "fileInputName": string;
+        /**
+          * If `true`, when the button is clicked the native file explorer will be launched.
+         */
+        "fileUpload"?: boolean;
         /**
           * The <form> element to associate the button with.
          */
@@ -287,6 +299,10 @@ export namespace Components {
          */
         "loading"?: boolean;
         /**
+          * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
+         */
+        "multiple"?: boolean;
+        /**
           * How much of the referrer to send when following the link.
          */
         "referrerpolicy"?: ReferrerPolicy;
@@ -294,6 +310,10 @@ export namespace Components {
           * The relationship of the linked URL as space-separated link types.
          */
         "rel"?: string;
+        /**
+          * The list of the files that have been selected by a user.
+         */
+        "selectedFiles": FileList;
         /**
           * Sets focus on the native `button`.
          */
@@ -2486,6 +2506,7 @@ declare global {
     };
     interface HTMLIcButtonElementEventMap {
         "icBlur": void;
+        "icFileSelection": FileList;
         "icFocus": void;
     }
     interface HTMLIcButtonElement extends Components.IcButton, HTMLStencilElement {
@@ -3396,6 +3417,10 @@ declare namespace LocalJSX {
     }
     interface IcButton {
         /**
+          * If `fileUpload` is set to `true`, this is the accepted list of file types.
+         */
+        "accept"?: string;
+        /**
           * The appearance of the button, e.g. dark, light, or the default.
          */
         "appearance"?: IcThemeForeground;
@@ -3421,6 +3446,14 @@ declare namespace LocalJSX {
           * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
          */
         "dropdownExpanded"?: boolean;
+        /**
+          * The name of the control for the file input, which is submitted with the form data.
+         */
+        "fileInputName"?: string;
+        /**
+          * If `true`, when the button is clicked the native file explorer will be launched.
+         */
+        "fileUpload"?: boolean;
         /**
           * The <form> element to associate the button with.
          */
@@ -3462,9 +3495,17 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
+         */
+        "multiple"?: boolean;
+        /**
           * Emitted when button has blur
          */
         "onIcBlur"?: (event: IcButtonCustomEvent<void>) => void;
+        /**
+          * If `fileUpload` is set to `true`, this will be emitted when a file is selected in the native explorer.
+         */
+        "onIcFileSelection"?: (event: IcButtonCustomEvent<FileList>) => void;
         /**
           * Emitted when button has focus
          */
@@ -3477,6 +3518,10 @@ declare namespace LocalJSX {
           * The relationship of the linked URL as space-separated link types.
          */
         "rel"?: string;
+        /**
+          * The list of the files that have been selected by a user.
+         */
+        "selectedFiles"?: FileList;
         /**
           * The size of the button to be displayed.
          */

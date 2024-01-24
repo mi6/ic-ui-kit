@@ -17,6 +17,7 @@ import {
   inheritAttributes,
   isSlotUsed,
   removeDisabledFalse,
+  renderFileHiddenInput,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -66,6 +67,11 @@ export class Button {
   @State() title: string = null;
 
   /**
+   * If `fileUpload` is set to `true`, this is the accepted list of file types.
+   */
+  @Prop() accept?: string = "*";
+
+  /**
    * The appearance of the button, e.g. dark, light, or the default.
    */
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
@@ -104,6 +110,16 @@ export class Button {
    * If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.
    */
   @Prop({ mutable: true, reflect: true }) dropdownExpanded?: boolean = false;
+
+  /**
+   * If `true`, when the button is clicked the native file explorer will be launched.
+   */
+  @Prop() fileUpload?: boolean = false;
+
+  /**
+   * The name of the control for the file input, which is submitted with the form data.
+   */
+  @Prop() fileInputName: string = `ic-button-file-upload-input-${buttonIds++}`;
 
   /**
    * The <form> element to associate the button with.
@@ -156,6 +172,11 @@ export class Button {
   @Prop() loading?: boolean = false;
 
   /**
+   * If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.
+   */
+  @Prop() multiple?: boolean = false;
+
+  /**
    * How much of the referrer to send when following the link.
    */
   @Prop() referrerpolicy?: ReferrerPolicy;
@@ -164,6 +185,11 @@ export class Button {
    * The relationship of the linked URL as space-separated link types.
    */
   @Prop() rel?: string;
+
+  /**
+   * The list of the files that have been selected by a user.
+   */
+  @Prop() selectedFiles: FileList;
 
   /**
    * The size of the button to be displayed.
@@ -199,6 +225,11 @@ export class Button {
    * Emitted when button has blur
    */
   @Event() icBlur!: EventEmitter<void>;
+
+  /**
+   * If `fileUpload` is set to `true`, this will be emitted when a file is selected in the native explorer.
+   */
+  @Event() icFileSelection!: EventEmitter<FileList>;
 
   /**
    * Emitted when button has focus
@@ -291,6 +322,9 @@ export class Button {
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
+    if (this.fileUpload) {
+      this.openFileExplorer();
+    }
     if (this.disabled || this.loading) {
       event.stopImmediatePropagation();
     }
@@ -419,6 +453,19 @@ export class Button {
   private setHasTooltip = (): void => {
     this.hasTooltip =
       !this.disableTooltip && (!!this.title || this.variant === "icon");
+  };
+
+  // file explorer is only opened if the property fileUpload is set to 'true'
+  private openFileExplorer = () => {
+    renderFileHiddenInput(
+      this.icFileSelection,
+      this.el,
+      this.multiple,
+      this.fileInputName,
+      this.selectedFiles,
+      this.disabled,
+      this.accept
+    );
   };
 
   private isTooltipSilent = (): boolean => {
