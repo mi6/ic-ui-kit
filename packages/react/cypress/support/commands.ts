@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 /// <reference types="cypress" />
 
+import { BE_VISIBLE, HAVE_CLASS } from "../../src/component-tests/utils/constants";
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const compareSnapshotCommand = require("cypress-image-diff-js/dist/command");
 compareSnapshotCommand();
 
@@ -50,32 +54,32 @@ declare global {
   }
 }
 
-const checkHydrated = (element: string) => {
-  cy.get(`${element}`).should('have.class', 'hydrated')
+const checkHydrated = (element: string): void => {
+  cy.get(`${element}`).should(HAVE_CLASS, 'hydrated');
 }
 
-const clickOnShadowEl = (element: string, selector: string) => {
+const clickOnShadowEl = (element: string, selector: string): void => {
   cy.get(element).shadow().find(selector).click();
 }
 
-const checkShadowElVisible = (element: string, selector: string): Cypress.Chainable<JQuery<HTMLElement>> => {
-  return cy.get(`${element}`).shadow().find(`${selector}`).should("be.visible")
-};
+const checkShadowElVisible = (element: string, selector: string): Cypress.Chainable<JQuery<HTMLElement>> => (
+  cy.get(`${element}`).shadow().find(`${selector}`).should(BE_VISIBLE)
+);
 
-const findShadowEl = (element: string, selector: string): Cypress.Chainable<JQuery<HTMLElement>> => {
-  return cy.get(`${element}`).shadow().find(`${selector}`);
-};
+const findShadowEl = (element: string, selector: string): Cypress.Chainable<JQuery<HTMLElement>> => (
+  cy.get(`${element}`).shadow().find(`${selector}`)
+);
 
-const getWhatIsFavCoffeeQueTitle = (element: string) => {
+const getWhatIsFavCoffeeQueTitle = (element: string): void => {
   cy
     .get(`${element}`)
     .shadow()
     .contains("What is your favourite coffee?")
-    .should("be.visible")
+    .should(BE_VISIBLE);
 };
 
-const clickOnButton = (element: string) => {
-  cy.get(`${element}`).click({ force: true })
+const clickOnButton = (element: string): void => {
+  cy.get(`${element}`).click({ force: true });
 };
 
 const Commands = {
