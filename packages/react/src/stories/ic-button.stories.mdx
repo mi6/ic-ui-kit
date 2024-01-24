@@ -1075,3 +1075,38 @@ export const PopoverDropdown = () => {
     )}
   </Story>
 </Canvas>
+
+### File Upload
+
+export const FileUpload = () => {
+  function updateFileList(fileArray) {
+    const fileList = [];
+    Array.from(fileArray).forEach((file) => {
+      fileList.push(file.name);
+    });
+    return fileList.join(", ");
+  }
+
+return (
+
+<div>
+  <IcButton
+    variant="primary"
+    fileUpload="true"
+    accept=".doc, text/plain, .json"
+    onClick={(event) =>
+      document.addEventListener("icFileSelection", (event) =>
+        alert(`Files Selected: ${updateFileList(event.detail)}`)
+      )
+    }
+  >
+    Upload File
+  </IcButton>
+</div>
+); };
+
+<Canvas>
+  <Story name="File Upload">
+    <FileUpload />
+  </Story>
+</Canvas>
