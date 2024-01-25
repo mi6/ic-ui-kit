@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "author": "mi6",
   "bugs": {
@@ -40,7 +40,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/web-components": "^2.9.0"
+    "@ukic/web-components": "^2.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -79,9 +79,9 @@
     "webpack": "^5.89.0"
   },
   "peerDependencies": {
+    "@ukic/fonts": "^2.6.0",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
-    "@ukic/fonts": "^2.6.0"
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
   },
   "license": "MIT"
 }
