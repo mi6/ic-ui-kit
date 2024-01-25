@@ -27,7 +27,7 @@
     "test-visual": "npm run build && npm run build-storybook:web-components && lerna run test-visual --scope @ukic/web-components --stream",
     "test-visual:canary": "npm run build:canary && npm run build-storybook:canary-web-components && lerna run test-visual --scope  @ukic/canary-web-components --stream",
     "test-visual:ci": "npm run build && npm run build-storybook:web-components && lerna run test-visual:ci --stream",
-    "test-visual:ci:canary": "npm run build:canary && npm run build-storybook:canary-web-components && lerna run test-visual:ci:canary --stream",
+    "test-visual:ci:canary": "npm run build:all && npm run build-storybook:canary-web-components && lerna run test-visual:ci:canary --stream",
     "test-visual:update": "lerna run test-visual:update --scope=@ukic/web-components --stream",
     "test-visual:update-ci": "npm run build && lerna run test-visual:update --scope=@ukic/web-components --stream",
     "test-cypress": "lerna run cypress --scope=@ukic/react --stream",
