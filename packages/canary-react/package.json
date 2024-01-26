@@ -7,6 +7,10 @@
   "description": "React-wrapped web components compiled using StencilJS",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "cypress": "cypress run --component --headed",
+    "cypress:open": "cypress open",
+    "cypress:component": "cypress run --component --headless",
+    "cypress:ci": "npm run cypress:component",
     "clean": "rimraf dist",
     "compile": "npm run tsc",
     "tsc": "tsc -p .",
@@ -29,6 +33,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.23.2",
+    "@cypress/react": "^8.0.0",
+    "@cypress/webpack-preprocessor": "^6.0.0",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "^6.4.8",
@@ -45,6 +52,10 @@
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
+    "cypress": "^13.3.1",
+    "cypress-axe": "^1.5.0",
+    "cypress-image-diff-js": "^1.32.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "github-markdown-css": "^5.5.0",
     "jest": "^27.4.1",
     "jest-dom": "^4.0.0",
@@ -56,11 +67,13 @@
     "react-markdown": "^8.0.7",
     "react-router-dom": "^6.3.0",
     "remark-gfm": "^3.0.1",
+    "ts-loader": "^9.5.0",
     "typescript": "^4.5.2",
+    "url-loader": "^4.1.1",
     "webpack": "^5.76.0"
   },
   "peerDependencies": {
-    "@ukic/fonts": "^2.3.0",
+    "@ukic/fonts": "^2.6.0",
     "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
     "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
   },
