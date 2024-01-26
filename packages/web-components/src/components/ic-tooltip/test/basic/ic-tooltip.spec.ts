@@ -136,6 +136,22 @@ describe("ic-tooltip component", () => {
     expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
   });
 
+  it("should log warning to console and not render if label hasn't been set", async () => {
+    const page = await newSpecPage({
+      components: [Tooltip],
+      html: `<ic-tooltip target="test-button"><button id="test-button"></button></ic-tooltip>`,
+    });
+    jest.spyOn(console, "warn").mockImplementation();
+
+    await page.rootInstance.displayTooltip(true, true);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.toolTip.getAttribute("data-show")).toBeNull;
+    expect(console.warn).toBeCalledWith(
+      "Tooltip can't display without prop 'label' set"
+    );
+  });
+
   it("should watch for label updates", async () => {
     const page = await newSpecPage({
       components: [Tooltip],
