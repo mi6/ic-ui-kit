@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from "cypress";
 
-export default defineConfig({
+export const config = {
   component: {
     devServer: {
       framework: "react",
@@ -22,4 +22,6 @@ export default defineConfig({
     supportFile: "./cypress/support/index.ts",
     retries: 3,
   },
-});
+}
+
+export default defineConfig(config as Cypress.ConfigOptions);
