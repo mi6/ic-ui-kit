@@ -172,38 +172,42 @@ export class Tooltip {
   };
 
   private show = () => {
-    this.toolTip.setAttribute("data-show", "");
+    if (this.label) {
+      this.toolTip.setAttribute("data-show", "");
 
-    if (this.onDialog) {
-      this.el.classList.add("on-dialog");
-      const dialogEl = this.icDialogEl.shadowRoot
-        .querySelector("dialog")
-        .getBoundingClientRect();
+      if (this.onDialog) {
+        this.el.classList.add("on-dialog");
+        const dialogEl = this.icDialogEl.shadowRoot
+          .querySelector("dialog")
+          .getBoundingClientRect();
 
-      this.getTooltipTranslate(dialogEl);
+        this.getTooltipTranslate(dialogEl);
+      }
+
+      this.popperInstance = createPopper(this.el, this.toolTip, {
+        placement: this.placement,
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 10],
+            },
+          },
+          {
+            name: "arrow",
+            options: {
+              element: this.arrow,
+            },
+          },
+          {
+            name: "eventListeners",
+            options: { scroll: false, resize: false },
+          },
+        ],
+      });
+    } else {
+      console.warn(`Tooltip can't display without prop 'label' set`);
     }
-
-    this.popperInstance = createPopper(this.el, this.toolTip, {
-      placement: this.placement,
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 10],
-          },
-        },
-        {
-          name: "arrow",
-          options: {
-            element: this.arrow,
-          },
-        },
-        {
-          name: "eventListeners",
-          options: { scroll: false, resize: false },
-        },
-      ],
-    });
   };
 
   private hide = () => {
