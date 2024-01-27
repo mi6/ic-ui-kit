@@ -18,7 +18,10 @@ addons.register(PARAM_KEY, () => {
   addons.add(PARAM_KEY, {
     type: types.TAB,
     title: 'Component API',
-    route: ({ storyId, refId }) => (refId ? `/component-api/${refId}_${storyId}` : `/component-api/${storyId}`),
+    route: ({storyId}) => {
+      const storyIdParts=storyId.split("--");
+      return (`/component-api/${storyIdParts[0]}--docs`);
+    },
     match: ({ viewMode }) => viewMode === 'component-api',
     render: ({ active }) => (
       <>
