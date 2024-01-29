@@ -164,7 +164,7 @@ describe("IcBreadcrumb", () => {
       .find("ic-link")
       .shadow()
       .find("a")
-      .each(($el, index, list) => {
+      .each(($el) => {
         cy.wrap($el).focus().should("have.focus");
       });
     cy.compareSnapshot("focusBreadcrumb", DEFAULT_TEST_THRESHOLD + 0.3);

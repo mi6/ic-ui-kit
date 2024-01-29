@@ -12,3 +12,6 @@ export const NOT_BE_VISIBLE = "not.be.visible";
 export const NOT_BE_CALLED_ONCE = "not.be.calledOnce";
 export const CONTAIN_TEXT = "contain.text";
 export const NOT_EXIST = "not.exist";
+export const BE_DISABLED = "be.disabled";
+export const HAVE_BEEN_CALLED_WITH = "have.been.calledWith";
+export const HAVE_PROP = "have.prop";
