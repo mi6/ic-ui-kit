@@ -11,7 +11,6 @@ import {
   IcTabPanel,
 } from "../../components";
 import { HAVE_CLASS } from "../utils/constants";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
 import { ShowHideBadge, badgeTypes } from "./IcBadgeTestData";
 
@@ -61,49 +60,49 @@ describe("IcBadge", () => {
     mount(badgeTypes("success"));
 
     cy.compareSnapshot("success", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders error", () => {
     mount(badgeTypes("error"));
 
     cy.compareSnapshot("error", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders warning", () => {
     mount(badgeTypes("warning"));
 
     cy.compareSnapshot("warning", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders neutral", () => {
     mount(badgeTypes("neutral"));
 
     cy.compareSnapshot("neutral", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders light", () => {
     mount(badgeTypes("light"));
 
     cy.compareSnapshot("light", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders info", () => {
     mount(badgeTypes("info"));
 
     cy.compareSnapshot("info", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders custom", () => {
     mount(badgeTypes("custom", "#F8C8DC"));
 
     cy.compareSnapshot("custom", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders max number", () => {
@@ -175,7 +174,7 @@ describe("IcBadge", () => {
     );
 
     cy.compareSnapshot("max-number", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders position near", () => {
@@ -207,7 +206,7 @@ describe("IcBadge", () => {
     );
 
     cy.compareSnapshot("position-near", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders position inline", () => {
@@ -267,6 +266,6 @@ describe("IcBadge", () => {
     );
 
     cy.wait(100).compareSnapshot("position-inline", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

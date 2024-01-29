@@ -4,7 +4,6 @@
 import React from "react";
 import { mount } from "@cypress/react";
 import { IcSelect } from "../../components";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import {
   IC_INPUT_CONTAINER,
   IC_MENU_LI,
@@ -82,7 +81,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("default-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
@@ -329,7 +328,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("default-value-open", DEFAULT_TEST_THRESHOLD + 0.025);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.clickOnShadowEl("ic-select", DATA_VALUE_ESPRESSO);
@@ -362,7 +361,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("clear-button-cleared", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("should display clear button if the 'show-clear-button' prop is supplied and an option is selected", () => {
@@ -529,7 +528,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.getWhatIsFavCoffeeQueTitle("ic-select");
@@ -555,7 +554,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("custom-placeholder", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -578,7 +577,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
     cy.get("ic-select").shadow().find("button").should("be.disabled");
@@ -598,7 +597,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("disabled-options-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("should set aria-disabled and skip focus when option disabled", () => {
@@ -630,7 +629,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("required", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.get("ic-select")
       .shadow()
@@ -654,7 +653,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("readonly", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.get("ic-select")
       .shadow()
@@ -683,7 +682,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
@@ -744,7 +743,7 @@ describe("IcSelect", () => {
       cy.compareSnapshot("recommended-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
       // A11y
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
 
       cy.checkShadowElVisible("ic-select", IC_MENU_LI);
       cy.findShadowEl("ic-select", ".last-recommended-option ").should("exist");
@@ -1407,7 +1406,7 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.compareSnapshot("helper-text", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with custom elements", () => {
@@ -1420,7 +1419,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.compareSnapshot("custom-elements-open", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders small", () => {
@@ -1474,7 +1473,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("full-width-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with hidden label", () => {
@@ -1491,7 +1490,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("hidden-label", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders validation", () => {
@@ -1523,6 +1522,6 @@ describe("IcSelect", () => {
     cy.compareSnapshot("validation", DEFAULT_TEST_THRESHOLD + 0.045);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

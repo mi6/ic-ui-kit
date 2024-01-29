@@ -2,7 +2,6 @@
 import { mount } from "@cypress/react";
 import React from "react";
 import { IcAlert, IcButton, IcLink } from "../../components";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { NOT_BE_VISIBLE } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
@@ -33,7 +32,7 @@ describe("IcAlert", () => {
       .contains("This alert is for displaying miscellaneous messages.")
       .should("be.visible");
     cy.compareSnapshot("neutral", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
   it("Info Alert with Message and Icon", () => {
     mount(
@@ -54,7 +53,7 @@ describe("IcAlert", () => {
       .contains("This alert is for displaying information.")
       .should("be.visible");
     cy.compareSnapshot("info", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("Error Alert with Message and Icon", () => {
@@ -76,7 +75,7 @@ describe("IcAlert", () => {
       .contains("This alert is for displaying errors.")
       .should("be.visible");
     cy.compareSnapshot("error", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("Warning Alert with Message and Icon", () => {
@@ -98,7 +97,7 @@ describe("IcAlert", () => {
       .contains("This alert is for displaying warnings.")
       .should("be.visible");
     cy.compareSnapshot("warning", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("Success Alert with Message and Icon", () => {
@@ -120,7 +119,7 @@ describe("IcAlert", () => {
       .contains("This alert is for displaying success messages.")
       .should("be.visible");
     cy.compareSnapshot("success", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("Dismissable alert should close when dismiss button is pressed", () => {
@@ -136,7 +135,7 @@ describe("IcAlert", () => {
     cy.compareSnapshot("dismissable", DEFAULT_TEST_THRESHOLD);
     cy.findShadowEl("ic-alert", "ic-button").should("be.visible").click();
     cy.get("ic-alert").should(NOT_BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
   it("Should display title above message responsively", () => {
     mount(
@@ -160,7 +159,7 @@ describe("IcAlert", () => {
       )
       .should("be.visible");
     cy.compareSnapshot("responsive", DEFAULT_TEST_THRESHOLD + 0.06);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("Should display title above message when title-above is true", () => {
@@ -186,7 +185,7 @@ describe("IcAlert", () => {
       )
       .should("be.visible");
     cy.compareSnapshot("title-above-set", DEFAULT_TEST_THRESHOLD + 0.05);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
   it("With custom message slot and link", () => {
     mount(
@@ -205,7 +204,7 @@ describe("IcAlert", () => {
       .should("be.visible");
     cy.get("ic-link").click();
     cy.compareSnapshot("custom-message", DEFAULT_TEST_THRESHOLD + 0.04);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("With action in button slot", () => {
@@ -232,6 +231,6 @@ describe("IcAlert", () => {
       .should("be.visible");
     cy.get("ic-button").should("be.visible").click();
     cy.compareSnapshot("with-action", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });
