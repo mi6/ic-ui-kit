@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 /// <reference types="cypress" />
 
+import { CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING } from "../utils/a11y";
+
 import { BE_VISIBLE, HAVE_CLASS } from "../../src/component-tests/utils/constants";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -50,6 +52,12 @@ declare global {
        * @param {string} element identifier of the element to check
        */
       clickOnButton :typeof Commands.clickOnButton;
+      /**
+       * Run a11y test after buffer wait time
+       * @param {string} element identifier of the element to check, optional with undefined as default
+       * @param {number} wait time to wait before a11y check, optional with 200 as default
+       */
+      checkA11yWithWait :typeof Commands.checkA11yWithWait;
     }
   }
 }
@@ -82,6 +90,13 @@ const clickOnButton = (element: string): void => {
   cy.get(`${element}`).click({ force: true });
 };
 
+const checkA11yWithWait = (element?: string, wait?: number) => {
+  const waitTime = wait ? wait : 200
+  cy.wait(waitTime)
+  const el = element ? element : undefined
+  cy.checkA11y(el, CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING)
+}
+
 const Commands = {
   checkHydrated,
   clickOnShadowEl,
@@ -89,6 +104,7 @@ const Commands = {
   findShadowEl,
   getWhatIsFavCoffeeQueTitle,
   clickOnButton,
+  checkA11yWithWait,
 };
 
 export default Commands;

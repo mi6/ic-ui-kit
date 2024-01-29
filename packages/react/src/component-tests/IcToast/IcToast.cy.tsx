@@ -16,7 +16,6 @@ import {
   SlottedIconToast,
   SlottedLinkToast,
 } from "./IcToastTestData";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
@@ -95,7 +94,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.get("ic-button").click();
 
     cy.wait(100).compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders message and variant", () => {
@@ -106,7 +105,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
       "message-variant",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders multiline message", () => {
@@ -114,7 +113,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.get("ic-button").click();
 
     cy.wait(100).compareSnapshot("multiline", DEFAULT_TEST_THRESHOLD + 0.07);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders slotted button", () => {
@@ -125,7 +124,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
       "slotted-button",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-    cy.wait(150).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders slotted link", () => {
@@ -133,7 +132,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.get("ic-button").click();
 
     cy.wait(100).compareSnapshot("slotted-link", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders auto dismiss", () => {
@@ -141,7 +140,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.get("ic-button").click();
 
     cy.wait(100).compareSnapshot("auto-dismiss", DEFAULT_TEST_THRESHOLD);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders custom neutral icon", () => {
@@ -149,7 +148,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.get("ic-button").click();
 
     cy.wait(100).compareSnapshot("custom-icon", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders custom dismiss button aria label", () => {
@@ -160,6 +159,6 @@ describe("IcToast Visual Regression and A11y Testing", () => {
       "custom-aria-label",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

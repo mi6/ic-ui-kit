@@ -13,3 +13,4 @@ Cypress.Commands.add(
   Commands.getWhatIsFavCoffeeQueTitle
 );
 Cypress.Commands.add("clickOnButton", Commands.clickOnButton);
+Cypress.Commands.add("checkA11yWithWait", Commands.checkA11yWithWait);

@@ -3,7 +3,6 @@
 
 import React from "react";
 import { IcButton } from "../../components";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
 import {
   DARK_BG_STYLE,
@@ -296,7 +295,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("primary", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders text based secondary buttons", () => {
@@ -349,7 +348,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("secondary", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders text based tertiary buttons", () => {
@@ -402,7 +401,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("tertiary", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders text based destructive buttons", () => {
@@ -427,7 +426,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("destructive", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with-icon based buttons", () => {
@@ -525,7 +524,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("with-icon", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders different sized buttons", () => {
@@ -556,7 +555,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("size", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with icon buttons without viewbox", () => {
@@ -580,7 +579,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("icon-without-viewbox", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders full width buttons", () => {
@@ -616,7 +615,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD + 0.01);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders icon buttons", () => {
@@ -672,7 +671,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("icon", 0);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders dropdown buttons", () => {
@@ -838,7 +837,7 @@ describe("IcButton Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("dropdown", DEFAULT_TEST_THRESHOLD + 0.06);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders dropdown with popover", () => {
@@ -850,6 +849,6 @@ describe("IcButton Visual Regression Testing", () => {
       "dropdown-popover",
       DEFAULT_TEST_THRESHOLD + 0.06
     );
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

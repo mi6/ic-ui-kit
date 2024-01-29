@@ -46,7 +46,7 @@ describe("IcBackToTop", () => {
       .wait(500)
       .should(BE_VISIBLE);
     cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("should appear when the page is scrolled", () => {
