@@ -3,7 +3,6 @@
 
 import React from "react";
 import { IcClassificationBanner } from "../../components";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
@@ -21,7 +20,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     mount(<IcClassificationBanner></IcClassificationBanner>);
 
     cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests official classification banner", () => {
@@ -30,7 +29,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("official", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests official-sensitive classification banner", () => {
@@ -39,7 +38,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("official-sensitive", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests secret classification banner", () => {
@@ -48,7 +47,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("secret", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests top-secret classification banner", () => {
@@ -57,7 +56,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("top-secret", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests classification banner with country prop", () => {
@@ -69,7 +68,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("country official", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests classification banner with up-to prop", () => {
@@ -81,7 +80,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     );
 
     cy.compareSnapshot("up to official", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("tests classification banner with inline prop", () => {
@@ -108,6 +107,6 @@ describe("IcClassificationButton visual and a11y testing", () => {
       "inline official",
       DEFAULT_TEST_THRESHOLD + 0.03
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

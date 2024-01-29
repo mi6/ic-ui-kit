@@ -4,7 +4,6 @@
 import React from "react";
 import { mount } from "@cypress/react";
 import { IcSelect } from "../../components";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import {
   IC_INPUT_CONTAINER,
   IC_MENU_LI,
@@ -72,7 +71,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-select", IC_MENU_LI)
       .should(HAVE_LENGTH, "3")
@@ -647,7 +646,7 @@ describe("IcSelect searchable", () => {
       DEFAULT_TEST_THRESHOLD + 0.07
     );
 
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with filtering at the start", () => {
@@ -670,7 +669,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with descriptions", () => {
@@ -692,7 +691,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with descriptions included in filter", () => {
@@ -714,7 +713,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with custom placeholder", () => {
@@ -732,7 +731,7 @@ describe("IcSelect searchable", () => {
     cy.compareSnapshot("searchable-custom-placeholder", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with custom elements", () => {
@@ -754,7 +753,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders small", () => {
@@ -777,7 +776,7 @@ describe("IcSelect searchable", () => {
     cy.compareSnapshot("searchable-small-open", DEFAULT_TEST_THRESHOLD + 0.05);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders small - deprecated", () => {
@@ -801,7 +800,7 @@ describe("IcSelect searchable", () => {
       "searchable-small-open-deprecated",
       DEFAULT_TEST_THRESHOLD + 0.03
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders disabled", () => {
@@ -819,7 +818,7 @@ describe("IcSelect searchable", () => {
     cy.compareSnapshot("searchable-disabled", DEFAULT_TEST_THRESHOLD);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with disabled options", () => {
@@ -841,7 +840,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders full width", () => {
@@ -867,7 +866,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with groups", () => {
@@ -886,7 +885,7 @@ describe("IcSelect searchable", () => {
     cy.compareSnapshot("searchable-groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with groups included in search", () => {
@@ -909,7 +908,7 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with recommendations", () => {
@@ -931,6 +930,6 @@ describe("IcSelect searchable", () => {
     );
 
     // A11y
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });

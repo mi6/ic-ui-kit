@@ -13,7 +13,6 @@ import {
 } from "./IcAccordionTestData";
 import { IcAccordion, IcAccordionGroup } from "../../components";
 import { BE_VISIBLE, CONTAIN_TEXT } from "../utils/constants";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
@@ -207,14 +206,14 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       mount(<SimpleAccordion />);
 
       cy.compareSnapshot("headingBody", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
       cy.compareSnapshot("expanded", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders an accordion with an icon", () => {
@@ -235,14 +234,14 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("withIcon", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders when disabled", () => {
       mount(<AccordionsWithDisabled />);
 
       cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders with children", () => {
@@ -255,7 +254,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("withChildren", DEFAULT_TEST_THRESHOLD + 0.03);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders accordions at different sizes", () => {
@@ -272,7 +271,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("individualSizes", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
   });
 
@@ -285,7 +284,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("groupTitle", DEFAULT_TEST_THRESHOLD + 0.04);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders a single expansion accordion-group", () => {
@@ -296,7 +295,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("singleExpansion", DEFAULT_TEST_THRESHOLD + 0.01);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders accordion groups at different sizes", () => {
@@ -315,7 +314,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("groupSizes", DEFAULT_TEST_THRESHOLD + 0.06);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
 
     it("renders accordion-groups with a light theme", () => {
@@ -328,7 +327,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       );
 
       cy.compareSnapshot("lightGroupTheme", DEFAULT_TEST_THRESHOLD + 0.03);
-      cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      cy.checkA11yWithWait();
     });
   });
 });

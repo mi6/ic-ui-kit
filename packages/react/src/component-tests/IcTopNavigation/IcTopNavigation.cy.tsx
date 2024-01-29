@@ -7,7 +7,6 @@ import {
   TopNavWithNavItems,
   TopNavWithSearch,
 } from "./IcTopNavigationTestData";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
 import {
   IcTopNavigation,
@@ -131,21 +130,21 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("app-icon-title", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders status and version", () => {
     mount(<SimpleTopNav />);
 
     cy.compareSnapshot("status-version", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders search", () => {
     mount(<TopNavWithSearch />);
 
     cy.compareSnapshot("search", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders icon buttons", () => {
@@ -211,7 +210,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("icon-buttons", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with long text values", () => {
@@ -250,7 +249,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("long-text", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with long single-word app title", () => {
@@ -293,7 +292,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
       "long-single-word-app-title",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with navigation items", () => {
@@ -340,7 +339,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("navigation-items", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with slotted navigation items", () => {
@@ -391,7 +390,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
       "slotted-navigation-items",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with navigation group", () => {
@@ -434,7 +433,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("navigation-group", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with content centre aligned", () => {
@@ -482,7 +481,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("content-centre", DEFAULT_TEST_THRESHOLD + 0.03);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with content left aligned", () => {
@@ -530,7 +529,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("content-left", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with different theme colour", () => {
@@ -580,7 +579,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("theme", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });
 
@@ -614,21 +613,21 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("mobile-app-icon-title", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders status and version", () => {
     mount(<SimpleTopNav />);
 
     cy.compareSnapshot("mobile-status-version", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders search", () => {
     mount(<TopNavWithSearch />);
 
     cy.compareSnapshot("mobile-search", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders icon buttons", () => {
@@ -694,7 +693,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("mobile-icon-buttons", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with long text values", () => {
@@ -736,7 +735,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       "mobile-long-text",
       DEFAULT_TEST_THRESHOLD_MOBILE + 0.01
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with long single-word app title", () => {
@@ -779,7 +778,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       "mobile-long-single-word-app-title",
       DEFAULT_TEST_THRESHOLD_MOBILE
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with navigation items", () => {
@@ -829,7 +828,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       "mobile-navigation-items",
       DEFAULT_TEST_THRESHOLD_MOBILE
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with slotted navigation items", () => {
@@ -880,7 +879,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       "mobile-slotted-navigation-items",
       DEFAULT_TEST_THRESHOLD_MOBILE
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with navigation group", () => {
@@ -926,7 +925,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       "mobile-navigation-group",
       DEFAULT_TEST_THRESHOLD_MOBILE
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with menu open", () => {
@@ -975,7 +974,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     // removed for now - fails due to aria-expanded being an invalid attribute in navigation group
-    // cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    // cy.checkA11yWithWait()
   });
 
   it("renders with content centre aligned", () => {
@@ -1023,7 +1022,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("mobile-content-centre", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with content left aligned", () => {
@@ -1071,7 +1070,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("mobile-content-left", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 
   it("renders with different theme colour", () => {
@@ -1121,6 +1120,6 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     );
 
     cy.compareSnapshot("mobile-theme", DEFAULT_TEST_THRESHOLD_MOBILE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
   });
 });
