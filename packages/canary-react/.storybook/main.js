@@ -1,18 +1,24 @@
 module.exports = {
   "core": {
-    builder: "webpack5",
-    disableTelemetry: true,
+    disableTelemetry: true
   },
+
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
+
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-postcss",
     "@storybook/addon-a11y",
+    "@storybook/addon-mdx-gfm",
     "./addon-tab/register"
   ],
-  "framework": "@storybook/react"
+
+  "framework": {
+    name: "@storybook/react-webpack5",
+    options: {}
+  }
 }
