@@ -98,6 +98,10 @@ export const config: Config = {
       type: "www",
       serviceWorker: null,
     },
+    {
+      type: 'docs-readme',
+      footer: "",
+    },
   ],
   testing: {
     browserArgs: ["--no-sandbox", "--disable-setuid-sandbox"],
