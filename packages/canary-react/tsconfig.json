@@ -9,7 +9,8 @@
     "noImplicitAny": true,
     "jsx": "react",
     "allowJs": true,
-    "types": ["cypress", "node", "cypress-axe"]  
+    "types": ["cypress", "node", "cypress-axe"],
+    "skipLibCheck": true 
   },
   "include": [
     "src/**/*.ts",
