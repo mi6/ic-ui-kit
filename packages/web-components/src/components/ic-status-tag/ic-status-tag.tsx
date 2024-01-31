@@ -69,6 +69,7 @@ export class StatusTag {
             ["tag"]: true,
             [`${appearance}-${status}`]: appearance !== undefined,
             [`${variant}-${status}`]: true,
+            ["outlined"]: variant === "outlined",
             ["small"]: small || size === "small",
           }}
         >
