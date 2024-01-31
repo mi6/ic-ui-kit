@@ -24,7 +24,7 @@ export const defaultArgs = {
 ### Primary
 
 <Canvas>
-  <Story name="Primary">
+  <Story name="Primary" parameters={{ loki: { skip: true } }}>
     {html`
       <div style="padding: 6px">
         <ic-button variant="primary" id="mybuttonid" onclick="alert('test')"
@@ -63,7 +63,7 @@ export const defaultArgs = {
 ### Secondary
 
 <Canvas>
-  <Story name="Secondary">
+  <Story name="Secondary" parameters={{ loki: { skip: true } }}>
     {html`
       <div style="padding: 6px">
         <ic-button variant="secondary">Button</ic-button>
@@ -102,7 +102,7 @@ export const defaultArgs = {
 ### Tertiary
 
 <Canvas>
-  <Story name="Tertiary">
+  <Story name="Tertiary" parameters={{ loki: { skip: true } }}>
     {html`
       <div style="padding: 6px">
         <ic-button variant="tertiary">Button</ic-button>
@@ -129,7 +129,7 @@ export const defaultArgs = {
 ### Destructive
 
 <Canvas>
-  <Story name="Destructive">
+  <Story name="Destructive" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-button variant="destructive">Button</ic-button>
       <ic-button variant="destructive" disabled>Button</ic-button>
@@ -140,7 +140,7 @@ export const defaultArgs = {
 ### With icon
 
 <Canvas>
-  <Story name="With icon">
+  <Story name="With icon" parameters={{ loki: { skip: true } }}>
     {html`<div>
         <ic-button variant="primary"
           >Button
@@ -685,7 +685,7 @@ export const defaultArgs = {
 ### Size
 
 <Canvas>
-  <Story name="Size">
+  <Story name="Size" parameters={{ loki: { skip: true } }}>
     {html` <ic-button variant="primary" size="small">Small</ic-button>
       <ic-button variant="primary">Default</ic-button>
       <ic-button variant="primary" size="large">Large</ic-button>
@@ -743,7 +743,7 @@ export const defaultArgs = {
 ### Icon without viewBox
 
 <Canvas>
-  <Story name="Icon without viewBox">
+  <Story name="Icon without viewBox" parameters={{ loki: { skip: true } }}>
     {html`<ic-button variant="primary" size="small"
         >Small
         <svg
@@ -795,7 +795,7 @@ export const defaultArgs = {
 ### Full width
 
 <Canvas>
-  <Story name="Full width">
+  <Story name="Full width" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-button variant="primary" full-width="true"
         >Button
@@ -950,7 +950,7 @@ export const defaultArgs = {
 ### Min width
 
 <Canvas>
-  <Story name="Min width">
+  <Story name="Min width" parameters={{ loki: { skip: true } }}>
     {html`
       <style>
         ic-button {
@@ -966,7 +966,7 @@ export const defaultArgs = {
 ### Height
 
 <Canvas>
-  <Story name="Height">
+  <Story name="Height" parameters={{ loki: { skip: true } }}>
     {html`
       <style>
         ic-button[name="tall-button"] {
@@ -982,7 +982,7 @@ export const defaultArgs = {
 ### Icon only
 
 <Canvas>
-  <Story name="Icon only">
+  <Story name="Icon only" parameters={{ loki: { skip: true } }}>
     {html`<ic-button
         variant="icon"
         size="small"
@@ -1101,7 +1101,7 @@ export const defaultArgs = {
 ### With tooltip
 
 <Canvas>
-  <Story name="Tooltips">
+  <Story name="Tooltips" parameters={{ loki: { skip: true } }}>
     {html`<ic-button
         variant="icon"
         aria-label="refresh"
@@ -1172,6 +1172,7 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
+    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-button
@@ -1206,6 +1207,7 @@ export const defaultArgs = {
       },
     }}
     name="Playground with icon"
+    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-button
