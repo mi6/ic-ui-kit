@@ -1,9 +1,9 @@
 {
-  "timestamp": "2024-01-22T11:57:10",
+  "timestamp": "2024-02-07T17:06:20",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.9.0",
-    "typescriptVersion": "5.2.2"
+    "version": "4.10.0",
+    "typescriptVersion": "5.3.3"
   },
   "components": [
     {
@@ -6109,15 +6109,15 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"default\" | \"large\" | \"small\"",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizesNoLarge"
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -6130,6 +6130,10 @@
           "values": [
             {
               "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
               "type": "string"
             },
             {
@@ -11551,7 +11555,7 @@
           "mutable": true,
           "attr": "loading",
           "reflectToAttr": false,
-          "docs": "Trigger loading state when fetching options asyncronously",
+          "docs": "Trigger loading state when fetching options asynchronously",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12706,7 +12710,7 @@
           "mutable": true,
           "attr": "loading",
           "reflectToAttr": false,
-          "docs": "If `true`, the loading state will be triggered when fetching options asyncronously.",
+          "docs": "If `true`, the loading state will be triggered when fetching options asynchronously.",
           "docsTags": [],
           "default": "false",
           "values": [
