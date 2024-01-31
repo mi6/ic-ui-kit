@@ -4,49 +4,49 @@
       "GHSA-7p7h-4mm5-852v": {
         "active": true,
         "notes": "Requires upgrade to storybook v7",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-ww39-953v-wcq6": {
         "active": true,
         "notes": "requires upgrade to storybook v7",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-pfrx-2q88-qq97": {
         "active": true,
         "notes": "requires upgrade to np@8.0.4, which is a breaking change",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-w5p7-h5w8-2hfq": {
         "active": true,
         "notes": "requires upgrade to storybook v7",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-c2qf-rxjj-qqgw": {
         "active": true,
         "notes": "requires lerna v7, which is a breaking change",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
         "notes": "requires upgrade to storybook v7",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     },
     {
       "GHSA-wf5p-g6vw-rhxx": {
         "active": true,
         "notes": "axios - current version installed is 1.4 and doesn't update",
-        "expiry": "31 January 2024"
+        "expiry": "02 March 2024"
       }
     }    
   ]
