@@ -69,7 +69,7 @@ git remote add upstream git@github.com:mi6/ic-ui-kit.git
 ```
 npm install
 npm run bootstrap
-npm run build
+npm run build:all
 ```
 
 **Yarn**
@@ -77,7 +77,7 @@ npm run build
 rm package-lock.json
 yarn install
 yarn run bootstrap
-yarn run build
+yarn run build:all
 ```
 
 6. To run Storybook, with instances running web and React components, run:
