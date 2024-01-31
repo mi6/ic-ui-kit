@@ -34,6 +34,15 @@
   color: var(--ic-architectural-white);
 }
 
+.outlined {
+  padding: calc(var(--ic-space-xxxs) + var(--ic-space-1px))
+    calc(var(--ic-space-sm) - var(--ic-space-1px));
+}
+
+.outlined.small {
+  padding: var(--ic-space-1px) calc(var(--ic-space-sm) - var(--ic-space-1px));
+}
+
 .outlined-neutral {
   background-color: var(--ic-architectural-200);
   border: var(--ic-border-width) solid var(--ic-architectural-400);
