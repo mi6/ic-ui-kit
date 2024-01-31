@@ -5,7 +5,7 @@ li {
   padding: 0;
 }
 
-:host::part(button) {
+:host ::part(button) {
   color: var(--ic-color-primary-text);
   padding: calc(var(--ic-space-xxxs) / 2);
   display: flex;
@@ -28,7 +28,7 @@ li {
   --icon-height: auto;
 }
 
-:host(.disabled)::part(button) {
+:host(.disabled) ::part(button) {
   color: var(--ic-architectural-200) !important;
   pointer-events: none;
 }
@@ -39,28 +39,28 @@ li {
   color: var(--ic-architectural-200) !important;
 }
 
-:host([variant="destructive"])::part(button) {
+:host([variant="destructive"]) ::part(button) {
   color: var(--ic-action-destructive);
 }
 
-:host::part(button):hover {
+:host ::part(button):hover {
   background-color: var(--ic-action-dark-bg-hover);
 }
 
-:host::part(button):focus-visible,
-:host::part(button):focus {
+:host ::part(button):focus-visible,
+:host ::part(button):focus {
   color: var(--ic-color-white-text);
   background-color: var(--ic-focus-blue);
   box-shadow: none;
 }
 
-:host(.disabled)::part(button):focus-visible,
-:host(.disabled)::part(button):focus {
+:host(.disabled) ::part(button):focus-visible,
+:host(.disabled) ::part(button):focus {
   color: var(--ic-theme-lighten-40) !important;
 }
 
-:host([variant="destructive"])::part(button):focus-visible,
-:host([variant="destructive"])::part(button):focus {
+:host([variant="destructive"]) ::part(button):focus-visible,
+:host([variant="destructive"]) ::part(button):focus {
   background-color: var(--ic-action-destructive);
 }
 
@@ -80,12 +80,12 @@ ic-button:focus-within .menu-item-description {
   color: var(--ic-theme-lighten-40) !important;
 }
 
-:host::part(button):active {
+:host ::part(button):active {
   background-color: var(--ic-action-dark-bg-active);
   color: var(--ic-color-primary-text) !important;
 }
 
-:host([variant="destructive"])::part(button):active {
+:host([variant="destructive"]) ::part(button):active {
   background-color: var(--ic-action-dark-bg-active);
   color: var(--ic-action-destructive) !important;
 }
@@ -153,11 +153,11 @@ ic-button:active .shortcut {
 
 /** High Contrast **/
 @media (forced-colors: active) {
-  :host::part(button) {
+  :host ::part(button) {
     border: canvas;
   }
 
-  :host::part(button):focus-visible {
+  :host ::part(button):focus-visible {
     outline: var(--ic-space-xxxs) solid transparent;
   }
 
@@ -180,8 +180,8 @@ ic-button:active .shortcut {
     color: GrayText !important;
   }
 
-  :host(.disabled)::part(button):focus-visible,
-  :host(.disabled)::part(button):focus {
+  :host(.disabled) ::part(button):focus-visible,
+  :host(.disabled) ::part(button):focus {
     outline-color: GrayText !important;
   }
 }
