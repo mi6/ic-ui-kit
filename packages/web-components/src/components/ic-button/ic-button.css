@@ -256,7 +256,8 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon) .button:hover:not(:focus) {
+:host(.button-variant-icon) .button:hover:not(:focus),
+:host(.button-variant-icon) .button:hover:focus {
   background-color: var(--button-default-background-hover);
   color: var(--button-default-hover);
 }
