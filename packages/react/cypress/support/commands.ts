@@ -43,11 +43,6 @@ declare global {
        */
       findShadowEl: typeof Commands.findShadowEl;
       /**
-       * Used by the IcSelect tests. Checks that the 'what is your favourite coffee' question is visible on provided element
-       * @param {string} element identifier of the element to check
-       */
-      getWhatIsFavCoffeeQueTitle: typeof Commands.getWhatIsFavCoffeeQueTitle;
-      /**
        * Force-click the provided element
        * @param {string} element identifier of the element to check
        */
@@ -78,23 +73,13 @@ const findShadowEl = (element: string, selector: string): Cypress.Chainable<JQue
   cy.get(`${element}`).shadow().find(`${selector}`)
 );
 
-const getWhatIsFavCoffeeQueTitle = (element: string): void => {
-  cy
-    .get(`${element}`)
-    .shadow()
-    .contains("What is your favourite coffee?")
-    .should(BE_VISIBLE);
-};
-
 const clickOnButton = (element: string): void => {
   cy.get(`${element}`).click({ force: true });
 };
 
-const checkA11yWithWait = (element?: string, wait?: number) => {
-  const waitTime = wait ? wait : 200
-  cy.wait(waitTime)
-  const el = element ? element : undefined
-  cy.checkA11y(el, CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING)
+const checkA11yWithWait = (element: string | undefined = undefined, wait = 200): void => {
+  cy.wait(wait);
+  cy.checkA11y(element, CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING);
 }
 
 const Commands = {
@@ -102,7 +87,6 @@ const Commands = {
   clickOnShadowEl,
   checkShadowElVisible,
   findShadowEl,
-  getWhatIsFavCoffeeQueTitle,
   clickOnButton,
   checkA11yWithWait,
 };

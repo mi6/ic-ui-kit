@@ -1,12 +1,14 @@
 /// <reference types="Cypress" />
 
-import React from "react";
-import { IcBreadcrumb, IcBreadcrumbGroup } from "../../components";
-import { HAVE_CLASS } from "../utils/constants";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
+import React from "react";
+import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
+import { IcBreadcrumb, IcBreadcrumbGroup } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { BE_VISIBLE, HAVE_FOCUS } from "../utils/constants";
 const DEFAULT_TEST_THRESHOLD = 0.03;
+
+const IC_BREADCRUMB_LABEL = "ic-breadcrumb";
 
 describe("IcBreadcrumb", () => {
   beforeEach(() => {
@@ -25,9 +27,9 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb pageTitle="Coffee" href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.get("ic-breadcrumb-group").should("be.visible");
-    cy.findShadowEl("ic-breadcrumb", ".chevron").should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("ic-breadcrumb-group").should(BE_VISIBLE);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot("rabderBreadcrumb", DEFAULT_TEST_THRESHOLD + 0.03);
   });
@@ -40,8 +42,8 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb pageTitle="Coffee" href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.findShadowEl("ic-breadcrumb", ".chevron").should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot("randerPageTitle", DEFAULT_TEST_THRESHOLD + 0.03);
   });
@@ -54,8 +56,8 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb current pageTitle="Coffee" href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.findShadowEl("ic-breadcrumb", ".chevron").should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot("pageTitleWithCurrent", DEFAULT_TEST_THRESHOLD + 0.03);
   });
@@ -68,9 +70,9 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb current pageTitle="Coffee" href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.findShadowEl("ic-breadcrumb", "svg").should("be.visible");
-    cy.get('[page-title="Beverages"]').should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, "svg").should(BE_VISIBLE);
+    cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot("backBreadcrumb", DEFAULT_TEST_THRESHOLD + 0.03);
   });
@@ -125,9 +127,9 @@ describe("IcBreadcrumb", () => {
         </IcBreadcrumb>
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.findShadowEl("ic-breadcrumb", ".chevron").should("be.visible");
-    cy.findShadowEl("ic-breadcrumb", "svg").should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, "svg").should(BE_VISIBLE);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot("breadcrumWithIcon", DEFAULT_TEST_THRESHOLD + 0.03);
   });
@@ -140,10 +142,8 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb pageTitle="Coffee" href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.findShadowEl("ic-breadcrumb", ".hydrated")
-      .should("exist")
-      .should(HAVE_CLASS, "hydrated");
-    cy.findShadowEl("ic-breadcrumb", ".chevron").should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.compareSnapshot(
       "currentPageClassBreadcrumb",
       DEFAULT_TEST_THRESHOLD + 0.03
@@ -159,13 +159,13 @@ describe("IcBreadcrumb", () => {
       </IcBreadcrumbGroup>
     );
     cy.wait(500)
-      .get("ic-breadcrumb")
+      .get(IC_BREADCRUMB_LABEL)
       .shadow()
       .find("ic-link")
       .shadow()
       .find("a")
       .each(($el) => {
-        cy.wrap($el).focus().should("have.focus");
+        cy.wrap($el).focus().should(HAVE_FOCUS);
       });
     cy.compareSnapshot("focusBreadcrumb", DEFAULT_TEST_THRESHOLD + 0.3);
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
@@ -179,9 +179,9 @@ describe("IcBreadcrumb", () => {
         <IcBreadcrumb pageTitle="Coffee" current href="#" />
       </IcBreadcrumbGroup>
     );
-    cy.checkHydrated("ic-breadcrumb");
-    cy.get("#collapsed-ellipsis").should("be.visible").click();
-    cy.get('[page-title="Beverages"]').should("be.visible");
+    cy.checkHydrated(IC_BREADCRUMB_LABEL);
+    cy.get("#collapsed-ellipsis").should(BE_VISIBLE).click();
+    cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
     cy.checkA11y(undefined, { includedImpacts: ["critical"] });
     cy.compareSnapshot("collapsedBreadcrumb", DEFAULT_TEST_THRESHOLD + 0.03);
   });
