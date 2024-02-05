@@ -51,6 +51,7 @@ declare global {
        * Run a11y test after buffer wait time
        * @param {string} element identifier of the element to check, optional with undefined as default
        * @param {number} wait time to wait before a11y check, optional with 200 as default
+       * @param {any} optionObject object to replace the default axe ruleset, optional with CYPRESS_AXE_OPTIONS as default
        */
       checkA11yWithWait :typeof Commands.checkA11yWithWait;
     }
@@ -77,9 +78,9 @@ const clickOnButton = (element: string): void => {
   cy.get(`${element}`).click({ force: true });
 };
 
-const checkA11yWithWait = (element: string | undefined = undefined, wait = 200): void => {
+const checkA11yWithWait = (element: string | undefined = undefined, wait = 200, optionObject = CYPRESS_AXE_OPTIONS): void => {
   cy.wait(wait);
-  cy.checkA11y(element, CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING);
+  cy.checkA11y(element, optionObject, CYPRESS_AXE_REPORTING);
 }
 
 const Commands = {

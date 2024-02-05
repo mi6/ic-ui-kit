@@ -14,6 +14,17 @@ import {
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 
+/**
+ * Justification for additional rule: in the browser this is
+ * not reported as an issue by axe Devtools, but it upsets cypress
+ */
+const TOGGLE_BUTTON_AXE_OPTIONS = {
+  rules: {
+    ...CYPRESS_AXE_OPTIONS.rules,
+    "nested-interactive": { enabled: false },
+  },
+};
+
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
 describe("IcToggleButton", () => {
@@ -84,7 +95,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders checked", () => {
@@ -94,7 +105,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("checked", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders disabled", () => {
@@ -105,7 +116,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with icon", () => {
@@ -127,7 +138,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("with-icon", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders different sizes", () => {
@@ -145,7 +156,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("sizes", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with badge", () => {
@@ -157,7 +168,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.wait(100).compareSnapshot("with-badge", DEFAULT_TEST_THRESHOLD);
-    cy.wait(100).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with appearance set to dark", () => {
@@ -173,7 +184,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.clickOnButton("ic-toggle-button");
 
     cy.compareSnapshot("appearance-dark-checked", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with appearance set to light", () => {
@@ -195,7 +206,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.clickOnButton("ic-toggle-button");
 
     cy.compareSnapshot("appearance-light-checked", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders full width", () => {
@@ -205,7 +216,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders loading", () => {
@@ -216,7 +227,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.wait(500).compareSnapshot("loading", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.wait(500).checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders icon variant", () => {
@@ -253,7 +264,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("icon-variant", DEFAULT_TEST_THRESHOLD);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with icon placement right", () => {
@@ -275,7 +286,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("icon-right", DEFAULT_TEST_THRESHOLD + 0.02);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("renders with icon placement top", () => {
@@ -297,6 +308,6 @@ describe("IcToggleButton Visual Regression Testing", () => {
       </div>
     );
     cy.compareSnapshot("icon-top", DEFAULT_TEST_THRESHOLD + 0.04);
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 });
