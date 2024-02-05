@@ -239,27 +239,28 @@ export class Toast {
   private findNextInteractiveElement(
     isBackwards: boolean
   ): ActionAreaElementTypes {
-    const first = this.interactiveElements[0];
-    const last = this.interactiveElements[this.interactiveElements.length - 1];
+    const firstEl = this.interactiveElements[0];
+    const lastEl =
+      this.interactiveElements[this.interactiveElements.length - 1];
 
-    const source = isBackwards ? first : last;
-    const target = isBackwards ? last : first;
-    if (this.isActive(source)) return target;
+    if (this.isActive(isBackwards ? firstEl : lastEl))
+      return isBackwards ? lastEl : firstEl;
 
     let currentIndex: number;
-    const found = this.interactiveElements.some((el, index) => {
+
+    return this.interactiveElements.some((el, index) => {
       if (!this.isActive(el)) return false;
       currentIndex = index;
       return true;
-    });
-
-    if (!found) return first;
-    return this.interactiveElements[currentIndex + (isBackwards ? -1 : 1)];
+    })
+      ? this.interactiveElements[currentIndex + (isBackwards ? -1 : 1)]
+      : firstEl;
   }
 
   private isActive(targetEl: HTMLElement): boolean {
-    if (targetEl === this.el) return !!this.el.shadowRoot.activeElement;
-    return document.activeElement === targetEl;
+    return targetEl === this.el
+      ? !!this.el.shadowRoot.activeElement
+      : document.activeElement === targetEl;
   }
 
   render() {
