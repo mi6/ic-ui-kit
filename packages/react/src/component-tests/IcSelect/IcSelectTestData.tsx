@@ -1,5 +1,8 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
+import React, { ReactElement } from "react";
+import { IcButton, IcSelect } from "../../components";
+
 export const coffeeOptions = [
   { label: "Espresso", value: "espresso" },
   { label: "Double Espresso", value: "doubleespresso" },
@@ -7,6 +10,21 @@ export const coffeeOptions = [
   { label: "Cappuccino", value: "cappuccino" },
   { label: "Americano", value: "americano" },
   { label: "Mocha", value: "mocha" },
+];
+
+export const manyOptions = [
+  { label: "Cappuccino", value: "Cap" },
+  { label: "Latte", value: "Lat" },
+  { label: "Americano", value: "Ame" },
+  { label: "Filter", value: "Fil" },
+  { label: "Flat white", value: "Fla" },
+  { label: "Mocha", value: "Moc" },
+  { label: "Macchiato", value: "Mac" },
+  { label: "Café au lait", value: "Caf" },
+  { label: "Espresso", value: "Esp" },
+  { label: "Cortado", value: "Cor" },
+  { label: "Ristretto", value: "Ris" },
+  { label: "Latte macchiato", value: "Lam" },
 ];
 
 export const coffeeOptionsDescriptions = [
@@ -195,3 +213,54 @@ export const coffeeOptionsReadonly = [
   { label: "Americano", value: "americano", readonly: true },
   { label: "Mocha", value: "mocha", readonly: true },
 ];
+
+const setLoading = () => {
+  const select = document.querySelector("ic-select");
+  if (select) select.loading = true;
+};
+
+export const LoadingSelect = (): ReactElement => (
+  <>
+    <IcButton onClick={setLoading}>Load</IcButton>
+    <IcSelect
+      label="What is your favourite coffee?"
+      timeout={500}
+      loadingErrorLabel="Loading Error"
+      options={[]}
+      onIcRetryLoad={setLoading}
+    />
+  </>
+);
+
+export const LoadingSelectNoTimeout = (): ReactElement => (
+  <>
+    <IcButton onClick={setLoading}>Load</IcButton>
+    <IcSelect label="What is your favourite coffee?" options={[]} />
+  </>
+);
+
+export const LoadingSelectSearchable = (): ReactElement => (
+  <>
+    <IcButton onClick={setLoading}>Load</IcButton>
+    <IcSelect
+      label="What is your favourite coffee?"
+      timeout={500}
+      loadingErrorLabel="Loading Error"
+      options={[]}
+      onIcRetryLoad={setLoading}
+      searchable
+    />
+  </>
+);
+
+export const LoadingSelectSearchableNoTimeout = (): ReactElement => (
+  <>
+    <IcButton onClick={setLoading}>Load</IcButton>
+    <IcSelect
+      label="What is your favourite coffee?"
+      options={[]}
+      searchable
+      showClearButton
+    />
+  </>
+);

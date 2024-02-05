@@ -1,41 +1,49 @@
 /// <reference types="Cypress" />
-/* eslint-disable cypress/no-unnecessary-waiting */
 
-import React from "react";
 import { mount } from "@cypress/react";
+import React from "react";
 import { IcSelect } from "../../components";
 import {
+  BE_VISIBLE,
+  CONTAIN_TEXT,
+  HAVE_ATTR,
+  HAVE_BEEN_CALLED,
+  HAVE_LENGTH,
+  HAVE_TEXT,
+  HAVE_VALUE,
+  NOT_BE_VISIBLE,
+  NOT_HAVE_ATTR,
+  NOT_HAVE_BEEN_CALLED,
+} from "../utils/constants";
+import {
+  ARIA_SELECTED,
+  DATA_VALUE_CAP,
+  DEFAULT_TEST_THRESHOLD,
   IC_INPUT_CONTAINER,
   IC_MENU_LI,
   IC_MENU_UL,
+  IC_TYPOGRAPHY,
   ID_CLEAR_BUTTON,
-  ARIA_SELECTED,
+  INPUT_TYPE_HIDDEN,
+  LOADING_MESSAGE,
+  NO_RESULTS_FOUND,
+  RETRY_BUTTON,
+  TYPE_BACKSPACE,
   TYPE_DOWN_ARROW,
   TYPE_ENTER,
-  TYPE_BACKSPACE,
-  DATA_VALUE_CAP,
-  NO_RESULTS_FOUND,
-  INPUT_TYPE_HIDDEN,
-  DEFAULT_TEST_THRESHOLD,
 } from "./IcSelectConstants";
 import {
-  HAVE_LENGTH,
-  HAVE_VALUE,
-  BE_VISIBLE,
-  HAVE_ATTR,
-  CONTAIN_VALUE,
-  NOT_BE_VISIBLE,
-} from "../utils/constants";
-import {
+  LoadingSelectSearchable,
+  LoadingSelectSearchableNoTimeout,
+  coffeeCustomElements,
+  coffeeDisabledOption,
   coffeeOptions,
   coffeeOptionsDescriptions,
-  coffeeDisabledOption,
   groupCoffeeOption,
   recommendedCoffeeOption,
   searchableCoffeeOption,
   searchableDescriptionsCoffeeOption,
   searchableGroupCoffeeOption,
-  coffeeCustomElements,
 } from "./IcSelectTestData";
 
 describe("IcSelect searchable", () => {
@@ -56,21 +64,15 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable in idle state
     cy.compareSnapshot("searchable-default", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.get("ic-select").shadow().find("input").type("ca");
-
-    // Screenshot: IcSelect searchable with filtered options
     cy.compareSnapshot(
       "searchable-default-open",
       DEFAULT_TEST_THRESHOLD + 0.01
     );
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-select", IC_MENU_LI)
@@ -95,21 +97,21 @@ describe("IcSelect searchable", () => {
     );
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find("input").type("foo");
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
-      "have.text",
-      "No results found"
+      HAVE_TEXT,
+      NO_RESULTS_FOUND
     );
 
     cy.get("ic-select").shadow().find("input").click();
-    cy.findShadowEl("ic-select", IC_MENU_LI).should("not.be.visible");
+    cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
 
     cy.get("ic-select").shadow().find("input").click();
     cy.findShadowEl("ic-select", IC_MENU_LI).should(BE_VISIBLE);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
-      "have.text",
-      "No results found"
+      HAVE_TEXT,
+      NO_RESULTS_FOUND
     );
   });
 
@@ -173,7 +175,7 @@ describe("IcSelect searchable", () => {
     cy.get("ic-select").shadow().find(".expand-icon").should("exist").click();
     cy.findShadowEl("ic-select", IC_MENU_LI)
       .should(HAVE_LENGTH, "1")
-      .should("have.text", "MochaCoffee with chocolate")
+      .should(HAVE_TEXT, "MochaCoffee with chocolate")
       .each(($e1) => {
         cy.wrap($e1)
           .invoke("text")
@@ -194,10 +196,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find("input").type("b");
 
-    cy.findShadowEl("ic-select", IC_MENU_LI).should("have.length", 1);
+    cy.findShadowEl("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(
-      "have.text",
-      "No results found"
+      HAVE_TEXT,
+      NO_RESULTS_FOUND
     );
   });
 
@@ -263,7 +265,7 @@ describe("IcSelect searchable", () => {
       .click({ force: true });
     cy.findShadowEl("ic-select", DATA_VALUE_CAP)
       .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
+      .should(HAVE_TEXT, "Cappuccino");
     cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
   });
 
@@ -283,7 +285,7 @@ describe("IcSelect searchable", () => {
       .click({ force: true });
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
+      .should(HAVE_TEXT, "Cappuccino");
 
     for (let i = 0; i <= 7; i++) {
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
@@ -313,7 +315,7 @@ describe("IcSelect searchable", () => {
     cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
 
-  it.skip("should emit icChange on delay", () => {
+  it("should emit icChange on delay", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -323,15 +325,12 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
+    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChange"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER)
-      .wait(600)
-      .find("foo")
-      .should(BE_VISIBLE);
+    cy.get("@icChange").should(NOT_HAVE_BEEN_CALLED);
+    cy.wait(600);
+    cy.get("@icChange").should(HAVE_BEEN_CALLED);
     cy.get(".ic-input").should(HAVE_VALUE, "foo");
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("bar");
-    cy.get(".ic-input").should(HAVE_VALUE, "foobar");
   });
 
   it("should update hidden input to value typed in select searchable input", () => {
@@ -385,7 +384,7 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
+      .should(HAVE_TEXT, "Cappuccino");
   });
 
   it("should update hidden value from typed to selected to typed", () => {
@@ -407,12 +406,11 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .find(DATA_VALUE_CAP)
       .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
+      .should(HAVE_TEXT, "Cappuccino");
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("1");
     cy.get(".ic-input").should(HAVE_VALUE, "Cappuccino1");
   });
 
-  //not sure
   it("should update the value of the input and options when passing the value directly", () => {
     mount(
       <IcSelect
@@ -423,9 +421,13 @@ describe("IcSelect searchable", () => {
     );
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get(".ic-input").should(CONTAIN_VALUE, "foo");
+    cy.findShadowEl("ic-select", 'input[role="combobox"]')
+      .invoke("prop", "value")
+      .should("eq", "");
+    cy.get("ic-select").invoke("attr", "value", "foo");
+    cy.findShadowEl("ic-select", 'input[role="combobox"]')
+      .invoke("prop", "value")
+      .should("eq", "foo");
   });
 
   it("should trigger icChange on input for each typed value", () => {
@@ -479,7 +481,7 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .eq(0)
       .trigger("icChanges", { force: true });
-    cy.get("@menuItemHighlighted").should("not.be.called");
+    cy.get("@menuItemHighlighted").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should not select a menu option when typing into the searchable input field", () => {
@@ -499,12 +501,12 @@ describe("IcSelect searchable", () => {
       "[aria-selected]"
     );
     cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "have.not.attr",
+      NOT_HAVE_ATTR,
       ARIA_SELECTED
     );
   });
 
-  it("should not selet a menu option when one has previously been set and backspace is pressed", () => {
+  it("should not select a menu option when one has previously been set and backspace is pressed", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -523,7 +525,7 @@ describe("IcSelect searchable", () => {
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
     }
     cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "have.not.attr",
+      NOT_HAVE_ATTR,
       ARIA_SELECTED
     );
   });
@@ -549,79 +551,89 @@ describe("IcSelect searchable", () => {
     );
   });
 
-  // can't mount reset button component
-  it.skip("loading should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        searchable
-        loading
-        timeout={500}
-      />
-    );
+  it("loading should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
+    mount(<LoadingSelectSearchable />);
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke(
       "on",
-      "icRetryLoads",
+      "icRetryLoad",
       cy.stub().as("icRetryLoad")
     );
+
+    cy.get("ic-button").click();
+    cy.wait(600);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible("ic-select", IC_MENU_UL);
     cy.findShadowEl("ic-select", "ic-menu ul li ic-typography")
       .should(BE_VISIBLE)
-      .should("have.text", "Loading Error");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER);
+      .should(HAVE_TEXT, "Loading Error");
+
+    cy.findShadowEl("ic-select", RETRY_BUTTON)
+      .shadow()
+      .find("button")
+      .focus()
+      .type(" ");
+    cy.get("@icRetryLoad").should(HAVE_BEEN_CALLED);
+    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      LOADING_MESSAGE
+    );
   });
 
-  // can't mount clear button component
-  it.skip("should cancel loading if the clear button is pressed mid-load", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        searchable
-        loading
-        timeout={500}
-        showClearButton
-      />
-    );
+  it("should cancel loading if the clear button is pressed mid-load", () => {
+    mount(<LoadingSelectSearchableNoTimeout />);
     cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
+    cy.get("ic-button").click();
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.findShadowEl("ic-select", "ic-menu ul li ic-typography")
-      .should(BE_VISIBLE)
-      .should("have.text", "Loading Error");
+    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      LOADING_MESSAGE
+    );
+
+    cy.clickOnShadowEl("ic-select", ID_CLEAR_BUTTON);
+    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      NO_RESULTS_FOUND
+    );
   });
 
-  it.skip("menu should not be visible on initial load if setting default value and disable filter is set", () => {
+  it("menu should not be visible on initial load if setting default value and disable filter is set", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
-        options={[]}
         searchable
-        timeout={800}
+        disableFilter
+        value="Test Value"
       />
     );
     cy.checkHydrated("ic-select");
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should("not.exist");
+    cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
 
-  // can't mount reset button component
-  it.skip("should reset to initial value on form reset with searchable", () => {
+  it("should reset to initial value on form reset with searchable", () => {
     mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={searchableCoffeeOption}
-        searchable
-      />
+      <>
+        <form>
+          <button type="reset" id="resetButton">
+            Reset
+          </button>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={searchableCoffeeOption}
+            searchable
+          />
+        </form>
+      </>
     );
     cy.checkHydrated("ic-select");
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find(IC_MENU_LI).should(BE_VISIBLE);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
-    cy.get(".ic-input").should(HAVE_VALUE, "Lat");
+    cy.get(".ic-input").should(HAVE_VALUE, "");
+
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
+    cy.get(".ic-input").should(HAVE_VALUE, "foo");
+
+    cy.get("#resetButton").click();
+    cy.get(".ic-input").should(HAVE_VALUE, "");
   });
 
   it("renders with a default value", () => {
@@ -661,14 +673,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with match position
     cy.compareSnapshot(
       "searchable-search-match-position-open",
       DEFAULT_TEST_THRESHOLD + 0.01
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -683,14 +691,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable / IcMenu options with descriptions
     cy.compareSnapshot(
       "searchable-descriptions-open",
       DEFAULT_TEST_THRESHOLD + 0.04
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -705,14 +709,10 @@ describe("IcSelect searchable", () => {
     );
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
-
-    // Screenshot: IcSelect searchable with descriptions included in filter
     cy.compareSnapshot(
       "searchable-descriptions-in-filter-open",
       DEFAULT_TEST_THRESHOLD + 0.05
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -726,11 +726,7 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable with custom placeholder
     cy.compareSnapshot("searchable-custom-placeholder", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -745,14 +741,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with custom elements
     cy.compareSnapshot(
       "searchable-custom-elements-open",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -766,16 +758,10 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable with small variant
     cy.compareSnapshot("searchable-small", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect searchable small variant with small IcMenu
     cy.compareSnapshot("searchable-small-open", DEFAULT_TEST_THRESHOLD + 0.05);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -789,13 +775,9 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable with small variant
     cy.compareSnapshot("searchable-small-deprecated", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect searchable small variant with small IcMenu
     cy.compareSnapshot(
       "searchable-small-open-deprecated",
       DEFAULT_TEST_THRESHOLD + 0.03
@@ -813,11 +795,7 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable with disable state
     cy.compareSnapshot("searchable-disabled", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -832,14 +810,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with filtered disabled options
     cy.compareSnapshot(
       "searchable-disabled-options-open",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -853,19 +827,13 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect searchable with full width
     cy.compareSnapshot("searchable-full-width", DEFAULT_TEST_THRESHOLD);
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with IcMenu open at full width
     cy.compareSnapshot(
       "searchable-full-width-open",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -880,11 +848,7 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with grouped options
     cy.compareSnapshot("searchable-groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -900,14 +864,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
-
-    // Screenshot: IcSelect searchable with filtered grouped options
     cy.compareSnapshot(
       "searchable-groups-in-filter-open",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -922,14 +882,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-
-    // Screenshot: IcSelect searchable with recommended suggestions
     cy.compareSnapshot(
       "searchable-recommended-open",
       DEFAULT_TEST_THRESHOLD + 0.02
     );
-
-    // A11y
     cy.checkA11yWithWait();
   });
 });

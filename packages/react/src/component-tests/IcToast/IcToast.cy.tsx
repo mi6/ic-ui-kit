@@ -1,10 +1,14 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
-/* eslint-disable cypress/no-unnecessary-waiting */
 
 import React from "react";
 import { mount } from "cypress/react";
-import { HAVE_CLASS, NOT_HAVE_CLASS, HAVE_FOCUS } from "../utils/constants";
+import {
+  HAVE_CLASS,
+  NOT_HAVE_CLASS,
+  HAVE_FOCUS,
+  NOT_EXIST,
+} from "../utils/constants";
 import {
   DismissAriaLabelToast,
   HeadingOnlyToast,
@@ -19,6 +23,9 @@ import {
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
+const DISMISS_BUTTON_SELECTOR = "#dismiss-button";
+const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
+
 describe("IcToast", () => {
   it("renders", () => {
     mount(<SimpleToast />);
@@ -29,26 +36,26 @@ describe("IcToast", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
     cy.get("ic-toast").should(NOT_HAVE_CLASS, "hidden");
-    cy.clickOnShadowEl("ic-toast", "#dismiss-button");
+    cy.clickOnShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR);
     cy.get("ic-toast").should(HAVE_CLASS, "hidden");
   });
 
   it("should focus on dismiss button when no action is provided", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", "#dismiss-button").should(HAVE_FOCUS);
+    cy.findShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR).should(HAVE_FOCUS);
   });
 
   it("should focus on slotted action when provided", () => {
     mount(<SlottedActionToast />);
-    cy.get("ic-button#open-toast-btn").click();
+    cy.get(OPEN_BUTTON_SELECTOR).click();
     cy.get("ic-button#test-button").should(HAVE_FOCUS);
   });
 
   it("should set the dismissMode to manual if the action slot is used on an autoDismiss toast", () => {
     mount(<SlottedActionAutoDismissToast />);
-    cy.get("ic-button#open-toast-btn").click();
-    cy.findShadowEl("ic-toast", "#dismiss-button").should("exist");
+    cy.get(OPEN_BUTTON_SELECTOR).click();
+    cy.findShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR).should("exist");
   });
 
   it("should set the dismissMode to automatic if no action slot is specified", () => {
@@ -66,7 +73,7 @@ describe("IcToast", () => {
   it("should not render an icon if the variant is neutral and the neutral-icon slot is not used", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
-    cy.findShadowEl("ic-toast", "span.toast-icon").should("not.exist");
+    cy.findShadowEl("ic-toast", "span.toast-icon").should(NOT_EXIST);
   });
 
   it("should set the autoDismissTimeout to 5000ms if the prop provided is below", () => {
@@ -118,7 +125,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
 
   it("renders slotted button", () => {
     mount(<SlottedActionToast />);
-    cy.get("ic-button#open-toast-btn").click();
+    cy.get(OPEN_BUTTON_SELECTOR).click();
 
     cy.wait(100).compareSnapshot(
       "slotted-button",

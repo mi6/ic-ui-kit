@@ -1,3 +1,5 @@
+import { Result } from "axe-core";
+
 /**
  * Configuration for cypress-axe
  *
@@ -13,19 +15,20 @@ export const CYPRESS_AXE_OPTIONS = {
   },
 };
 
-export const CYPRESS_AXE_REPORTING = (axeResults) => {
+export const CYPRESS_AXE_REPORTING = (axeResults: Result[]): void => {
   if (axeResults.length > 0) {
     console.log('AXE VIOLATION REPORTING:', axeResults);
     
-    axeResults.violations.forEach(violation => {
-      console.log('Violation:', violation.id);
-      console.log('Impact:', violation.impact);
-      console.log('Nodes affected:', violation.node.length);
+    axeResults.forEach(({ id, impact, nodes }) => {
+      console.log('Violation:', id);
+      console.log('Impact:', impact);
+      console.log('Nodes affected:', nodes.length);
       
-      violation.nodes.forEach((node) => {
-        console.log('Node HTML:', node.html);
-        console.log('Node Impact:', node.impact);
-        console.log('Node Target:', node.target);
-      })
-    });}
+      nodes.forEach(({ html, impact, target }) => {
+        console.log('Node HTML:', html);
+        console.log('Node Impact:', impact);
+        console.log('Node Target:', target);
+      });
+    });
+  }
 }
