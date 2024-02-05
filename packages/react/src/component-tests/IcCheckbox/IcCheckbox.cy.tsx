@@ -15,6 +15,10 @@ import {
 
 const DEFAULT_TEST_THRESHOLD = 0.2;
 
+const CHECKBOX_SELECTOR = "ic-checkbox";
+const CONTAINER_SELECTOR = ".container";
+const TEXT_FIELD_SELECTOR = "ic-text-field";
+
 describe("IcCheckbox", () => {
   it("renders", () => {
     mount(<Checkbox />);
@@ -25,55 +29,59 @@ describe("IcCheckbox", () => {
   it("Should not be interactable when disabled", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").eq(2).should(BE_VISIBLE);
-    cy.get("ic-checkbox").eq(2).should(HAVE_CLASS, "disabled");
-    cy.get("ic-checkbox")
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(BE_VISIBLE);
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_CLASS, "disabled");
+    cy.get(CHECKBOX_SELECTOR)
       .eq(2)
       .shadow()
       .find(".checkbox")
       .should(BE_DISABLED)
       .click({ force: true });
-    cy.get("ic-checkbox").eq(2).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_PROP, "checked", false);
   });
 
   it("Should set checkbox to checked when clicked", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").eq(0).should(HAVE_PROP, "checked", false);
-    cy.get("ic-checkbox").eq(0).shadow().find(".container").click();
-    cy.get("ic-checkbox").eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
   });
 
   it("Should enable statictextfield when associated checkbox is checked", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-text-field").should(HAVE_PROP, "disabled", true);
-    cy.get("ic-checkbox").eq(3).should(HAVE_PROP, "checked", false);
-    cy.get("ic-checkbox").eq(3).shadow().find(".container").click();
-    cy.get("ic-checkbox").eq(3).should(HAVE_PROP, "checked", true);
-    cy.get("ic-text-field").should(BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
+    cy.get(CHECKBOX_SELECTOR).eq(3).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(3).shadow().find(CONTAINER_SELECTOR).click();
+    cy.get(CHECKBOX_SELECTOR).eq(3).should(HAVE_PROP, "checked", true);
+    cy.get(TEXT_FIELD_SELECTOR).should(BE_VISIBLE);
   });
 
   it("Should display dynamic textfield when associated checkbox is checked", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-text-field").should(HAVE_PROP, "disabled", true);
-    cy.get("ic-checkbox").eq(4).should(HAVE_PROP, "checked", false);
-    cy.get("ic-checkbox").eq(4).shadow().find(".container").click();
-    cy.get("ic-checkbox").eq(4).should(HAVE_PROP, "checked", true);
-    cy.get("ic-text-field").should(BE_VISIBLE);
+    cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
+    cy.get(CHECKBOX_SELECTOR).eq(4).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(4).shadow().find(CONTAINER_SELECTOR).click();
+    cy.get(CHECKBOX_SELECTOR).eq(4).should(HAVE_PROP, "checked", true);
+    cy.get(TEXT_FIELD_SELECTOR).should(BE_VISIBLE);
   });
 
   it("Should emit icChange event when checkbox is checked", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").invoke("on", "icCheck", cy.stub().as("icChecked"));
+    cy.get(CHECKBOX_SELECTOR).invoke(
+      "on",
+      "icCheck",
+      cy.stub().as("icChecked")
+    );
     cy.get("ic-checkbox-group").invoke(
       "on",
       "icChange",
       cy.stub().as("icChanges")
     );
-    cy.get("ic-checkbox").eq(0).shadow().find(".container").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
     cy.get("@icChecked").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("@icChanges").should(HAVE_BEEN_CALLED_ONCE);
   });
@@ -81,8 +89,12 @@ describe("IcCheckbox", () => {
   it("Should set checkbox to checked when space is pressed", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").invoke("on", "icCheck", cy.stub().as("icChecked"));
-    cy.get("ic-checkbox").eq(0).shadow().find(".container").type(" ");
+    cy.get(CHECKBOX_SELECTOR).invoke(
+      "on",
+      "icCheck",
+      cy.stub().as("icChecked")
+    );
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).type(" ");
     cy.get("@icChecked").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -90,7 +102,7 @@ describe("IcCheckbox", () => {
     mount(<CheckboxForm />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get("ic-checkbox").eq(0).shadow().find(".container").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
     cy.get('input[type="submit"]').click();
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "extra");
   });
@@ -98,17 +110,17 @@ describe("IcCheckbox", () => {
   it("Passes the value of checkboxes correctly when already selected", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").eq(1).should(HAVE_PROP, "checked", true);
-    cy.get("ic-checkbox").eq(1).should(HAVE_PROP, "value", "Soya milk");
+    cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "value", "Soya milk");
   });
 
   it("resets checked state on form reset", () => {
     mount(<CheckboxForm />);
 
-    cy.get("ic-checkbox").eq(0).shadow().find(".container").click();
-    cy.get("ic-checkbox").eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
     cy.get('button[type="reset"]').click();
-    cy.get("ic-checkbox").eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
   });
 });
 
@@ -287,7 +299,7 @@ describe("A11y and visual regression tests", () => {
   it("renders with focus", () => {
     mount(<Checkbox />);
 
-    cy.get("ic-checkbox").eq(0).shadow().find("input").eq(0).focus();
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").eq(0).focus();
     cy.compareSnapshot("focus", DEFAULT_TEST_THRESHOLD);
     cy.checkA11yWithWait();
   });

@@ -2,9 +2,11 @@
 import { mount } from "@cypress/react";
 import React from "react";
 import { IcAlert, IcButton, IcLink } from "../../components";
-import { NOT_BE_VISIBLE } from "../utils/constants";
+import { BE_VISIBLE, NOT_BE_VISIBLE } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
+
+const TYPOGRAPHY_SELECTOR = "ic-typography";
 
 describe("IcAlert", () => {
   beforeEach(() => {
@@ -22,15 +24,15 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Neutral"]').should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Neutral"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Neutral");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying miscellaneous messages.")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("neutral", DEFAULT_TEST_THRESHOLD + 0.03);
     cy.checkA11yWithWait();
   });
@@ -43,15 +45,15 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Info"]').should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Info"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Info");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying information.")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("info", DEFAULT_TEST_THRESHOLD + 0.02);
     cy.checkA11yWithWait();
   });
@@ -65,15 +67,15 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Error"]').should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Error"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Error");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying errors.")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("error", DEFAULT_TEST_THRESHOLD + 0.02);
     cy.checkA11yWithWait();
   });
@@ -87,15 +89,15 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Warning"]').should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Warning"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Warning");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying warnings.")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("warning", DEFAULT_TEST_THRESHOLD + 0.03);
     cy.checkA11yWithWait();
   });
@@ -109,15 +111,15 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Success"]').should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Success"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Success");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying success messages.")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("success", DEFAULT_TEST_THRESHOLD + 0.03);
     cy.checkA11yWithWait();
   });
@@ -133,7 +135,7 @@ describe("IcAlert", () => {
     cy.checkHydrated("ic-alert");
     cy.get("ic-alert").should("exist");
     cy.compareSnapshot("dismissable", DEFAULT_TEST_THRESHOLD);
-    cy.findShadowEl("ic-alert", "ic-button").should("be.visible").click();
+    cy.findShadowEl("ic-alert", "ic-button").should(BE_VISIBLE).click();
     cy.get("ic-alert").should(NOT_BE_VISIBLE);
     cy.checkA11yWithWait();
   });
@@ -145,19 +147,19 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains(
         "This title is very long so should force the alert to add 'title-above"
       )
-      .should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+      .should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains(
         "This alert does not have 'title-above' added as a prop but it's forced to add it due to the length of the title."
       )
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("responsive", DEFAULT_TEST_THRESHOLD + 0.06);
     cy.checkA11yWithWait();
   });
@@ -171,19 +173,17 @@ describe("IcAlert", () => {
       />
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.get('[heading="Title displayed above the message"]').should(
-      "be.visible"
-    );
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.get('[heading="Title displayed above the message"]').should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
-      .should("be.visible")
+      .should(BE_VISIBLE)
       .contains("Title displayed above the message");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains(
         "This alert has the title at the top of the alert and the message below it."
       )
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.compareSnapshot("title-above-set", DEFAULT_TEST_THRESHOLD + 0.05);
     cy.checkA11yWithWait();
   });
@@ -197,11 +197,11 @@ describe("IcAlert", () => {
       </IcAlert>
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
       .contains("This alert uses a custom message slot")
-      .should("be.visible");
+      .should(BE_VISIBLE);
     cy.get("ic-link").click();
     cy.compareSnapshot("custom-message", DEFAULT_TEST_THRESHOLD + 0.04);
     cy.checkA11yWithWait();
@@ -221,15 +221,15 @@ describe("IcAlert", () => {
       </IcAlert>
     );
     cy.checkHydrated("ic-alert");
-    cy.findShadowEl("ic-alert", "svg").should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+    cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .find("p")
       .contains("With action")
-      .should("be.visible");
-    cy.findShadowEl("ic-alert", "ic-typography")
+      .should(BE_VISIBLE);
+    cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert has an action.")
-      .should("be.visible");
-    cy.get("ic-button").should("be.visible").click();
+      .should(BE_VISIBLE);
+    cy.get("ic-button").should(BE_VISIBLE).click();
     cy.compareSnapshot("with-action", DEFAULT_TEST_THRESHOLD + 0.02);
     cy.checkA11yWithWait();
   });

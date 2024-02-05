@@ -1,8 +1,16 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
-import React from "react";
 import { mount } from "cypress/react";
+import React from "react";
+import { IcAccordion, IcAccordionGroup } from "../../components";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import {
+  BE_VISIBLE,
+  CONTAIN_TEXT,
+  HAVE_ATTR,
+  HAVE_BEEN_CALLED_ONCE,
+} from "../utils/constants";
 import {
   AccordionsWithDisabled,
   GroupWithOneExpanded,
@@ -11,9 +19,6 @@ import {
   TwoAccordions,
   TwoAccordionsWithOneExpanded,
 } from "./IcAccordionTestData";
-import { IcAccordion, IcAccordionGroup } from "../../components";
-import { BE_VISIBLE, CONTAIN_TEXT } from "../utils/constants";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -38,7 +43,7 @@ describe("IcAccordion", () => {
     );
 
     cy.get(IC_ACCORDION).click();
-    cy.get("@isClicked").should("have.been.calledOnce");
+    cy.get("@isClicked").should(HAVE_BEEN_CALLED_ONCE);
     cy.findShadowEl(IC_ACCORDION, "button")
       .invoke("attr", "aria-expanded")
       .should("eq", "true");
@@ -56,17 +61,17 @@ describe("IcAccordion", () => {
     mount(<AccordionsWithDisabled />);
 
     cy.findShadowEl('ic-accordion[heading="accordion1"]', "button").should(
-      "have.attr",
+      HAVE_ATTR,
       "tabindex",
       0
     );
     cy.findShadowEl('ic-accordion[heading="accordion2"]', "button").should(
-      "have.attr",
+      HAVE_ATTR,
       "tabindex",
       -1
     );
     cy.findShadowEl('ic-accordion[heading="accordion3"]', "button").should(
-      "have.attr",
+      HAVE_ATTR,
       "tabindex",
       0
     );

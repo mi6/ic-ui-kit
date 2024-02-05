@@ -1,10 +1,13 @@
-import { IcTopNavigation, IcNavigationGroup, IcNavigationItem } from "../..";
-import { SlottedSVG } from "../..";
-import React from "react";
-import { IcSearchBar } from "../..";
+import React, { ReactElement } from "react";
+import {
+  IcNavigationGroup,
+  IcNavigationItem,
+  IcSearchBar,
+  IcTopNavigation,
+  SlottedSVG,
+} from "../..";
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const TopNavWithNavItems = () => {
+export const TopNavWithNavItems = (): ReactElement => {
   return (
     <IcTopNavigation appTitle="ICDS" status="alpha" version="v0.0.7">
       <SlottedSVG
@@ -25,7 +28,7 @@ export const TopNavWithNavItems = () => {
   );
 };
 
-export const SimpleTopNav = () => {
+export const SimpleTopNav = (): ReactElement => {
   return (
     <IcTopNavigation
       app-title="ApplicationName"
@@ -36,7 +39,7 @@ export const SimpleTopNav = () => {
   );
 };
 
-export const TopNavWithSearch = () => {
+export const TopNavWithSearch = (): ReactElement => {
   return (
     <IcTopNavigation
       app-title="ApplicationName"

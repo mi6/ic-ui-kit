@@ -1,30 +1,38 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types='Cypress' />
 
+import { mount } from "cypress/react";
 import React from "react";
+import {
+  IcBadge,
+  IcNavigationButton,
+  IcNavigationGroup,
+  IcNavigationItem,
+  IcSearchBar,
+  IcTheme,
+  IcTopNavigation,
+} from "../../components";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import {
+  BE_VISIBLE,
+  HAVE_CSS,
+  HAVE_FOCUS,
+  NOT_BE_VISIBLE,
+  NOT_EXIST,
+} from "../utils/constants";
 import {
   SimpleTopNav,
   TopNavWithNavItems,
   TopNavWithSearch,
 } from "./IcTopNavigationTestData";
-import { mount } from "cypress/react";
-import {
-  IcTopNavigation,
-  IcSearchBar,
-  IcNavigationButton,
-  IcBadge,
-  IcNavigationItem,
-  IcNavigationGroup,
-  IcTheme,
-} from "../../components";
-import { SlottedSVG } from "../..";
-import { HAVE_CSS } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const DEFAULT_TEST_THRESHOLD_MOBILE = 0.04;
 
-const TOP_NAV_LABEL = "ic-top-navigation";
-const SEARCH_BAR_LABEL = "ic-search-bar";
+const TOP_NAV_SELECTOR = "ic-top-navigation";
+const SEARCH_BAR_SELECTOR = "ic-search-bar";
+const NAV_MENU_SELECTOR = "ic-navigation-menu";
+const NAV_ITEM_SELECTOR = "ic-navigation-item";
 
 describe("IcTopNavigation", () => {
   describe("mobile", () => {
@@ -34,47 +42,35 @@ describe("IcTopNavigation", () => {
 
     it("renders", () => {
       mount(<SimpleTopNav />);
-      cy.get(TOP_NAV_LABEL).shadow().contains("AppName");
+      cy.get(TOP_NAV_SELECTOR).shadow().contains("AppName");
     });
 
     it("should open and close menu", () => {
       mount(<SimpleTopNav />);
-      cy.clickOnShadowEl(TOP_NAV_LABEL, "ic-button");
-      cy.findShadowEl(TOP_NAV_LABEL, "ic-navigation-menu")
+      cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button");
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
         .shadow()
         .find("ic-button")
         .click();
-    });
 
-    it("should close menu when nav item clicked", () => {
-      mount(<SimpleTopNav />);
-      cy.clickOnShadowEl(TOP_NAV_LABEL, "ic-button");
-      cy.findShadowEl(TOP_NAV_LABEL, "ic-navigation-menu")
-        .shadow()
-        .find("ic-button")
-        .click();
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR).should(NOT_EXIST);
     });
 
     it("should toggle search bar when clicking on button", () => {
       mount(<TopNavWithSearch />);
-      cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "40px");
-      cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "0px");
+      cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
+      cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "40px");
+      cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
+      cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "0px");
     });
 
     it("should hide search bar when loses focus", () => {
       mount(<TopNavWithSearch />);
-      cy.findShadowEl(TOP_NAV_LABEL, "ic-button").first().click();
-      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "40px");
-      cy.get(SEARCH_BAR_LABEL).should("be.visible").should("have.focus").blur();
-      cy.get(SEARCH_BAR_LABEL).should(HAVE_CSS, "height", "0px");
+      cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
+      cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "40px");
+      cy.get(SEARCH_BAR_SELECTOR).should(BE_VISIBLE).should(HAVE_FOCUS).blur();
+      cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "0px");
     });
-
-    /// Need to check if the following two tests are still required- is tabbing functionality required for mobile test?
-
-    // 'should keep tab focus in menu - button as last el'
-    // "should keep tab focus in menu - nav item as last el"
   });
 });
 describe("desktop", () => {
@@ -84,21 +80,24 @@ describe("desktop", () => {
 
   it("renders", () => {
     mount(<SimpleTopNav />);
-    cy.get(TOP_NAV_LABEL).shadow().contains("ApplicationName");
+    cy.get(TOP_NAV_SELECTOR).shadow().contains("ApplicationName");
   });
 
-  it.skip("should hide dropdown menu when nav item clicked", () => {
+  it("should hide dropdown menu when nav item clicked", () => {
     mount(<TopNavWithNavItems />);
     cy.checkHydrated("ic-navigation-group");
-    cy.clickOnShadowEl(TOP_NAV_LABEL, "ic-navigation-group");
+    cy.get(TOP_NAV_SELECTOR).find("ic-navigation-group").trigger("mouseenter");
+    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(BE_VISIBLE);
+    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).click();
+    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(NOT_BE_VISIBLE);
   });
 
   it("should toggle to short title at small screen sizes", () => {
     mount(<SimpleTopNav />);
     cy.viewport(1024, 750);
-    cy.findShadowEl(TOP_NAV_LABEL, "h1").contains("ApplicationName");
+    cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("ApplicationName");
     cy.viewport("iphone-6");
-    cy.findShadowEl(TOP_NAV_LABEL, "h1").contains("AppName");
+    cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("AppName");
   });
 });
 
@@ -967,14 +966,12 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
       </IcTopNavigation>
     );
 
-    cy.clickOnShadowEl(TOP_NAV_LABEL, "ic-button#menu-button");
+    cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button");
     cy.compareSnapshot(
       "mobile-open-menu",
       DEFAULT_TEST_THRESHOLD_MOBILE + 0.02
     );
-
-    // removed for now - fails due to aria-expanded being an invalid attribute in navigation group
-    // cy.checkA11yWithWait()
+    cy.checkA11yWithWait();
   });
 
   it("renders with content centre aligned", () => {

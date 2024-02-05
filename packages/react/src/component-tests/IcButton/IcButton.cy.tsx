@@ -1,9 +1,20 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
+import { mount } from "cypress/react";
 import React from "react";
 import { IcButton } from "../../components";
-import { mount } from "cypress/react";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import {
+  BE_VISIBLE,
+  CONTAIN_TEXT,
+  HAVE_ATTR,
+  HAVE_BEEN_CALLED_ONCE,
+  HAVE_FOCUS,
+  HAVE_PROP,
+  HAVE_VALUE,
+  NOT_BE_CALLED_ONCE,
+} from "../utils/constants";
 import {
   DARK_BG_STYLE,
   PopoverDropdown,
@@ -11,8 +22,6 @@ import {
   SlottedIconNoViewBox,
   SlottedRightIcon,
 } from "./IcButtonTestData";
-import { NOT_BE_CALLED_ONCE, HAVE_VALUE } from "../utils/constants";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -30,7 +39,7 @@ describe("IcButton", () => {
   it("renders", () => {
     mount(<IcButton>Test</IcButton>);
 
-    cy.get("ic-button").contains("Test").should("be.visible");
+    cy.get("ic-button").contains("Test").should(BE_VISIBLE);
   });
 
   it("should pass onclick method", () => {
@@ -45,6 +54,7 @@ describe("IcButton", () => {
     );
     cy.checkHydrated("ic-button");
     cy.clickOnButton("ic-button");
+    cy.get("ic-button").should(CONTAIN_TEXT, "clicked");
   });
 
   it("should not be clickable when disabled", () => {
@@ -84,13 +94,13 @@ describe("IcButton", () => {
     cy.checkHydrated("ic-button");
 
     cy.findShadowEl("ic-button", "button").should(
-      "have.attr",
+      HAVE_ATTR,
       "aria-describedby"
     );
     cy.clickOnButton("ic-button");
     cy.findShadowEl("ic-button", "#button-description")
       .should("exist")
-      .should("have.text", "See, I told you it was amazing!");
+      .should(CONTAIN_TEXT, "See, I told you it was amazing!");
   });
 
   it("should have loading bar when loading", () => {
@@ -165,7 +175,7 @@ describe("IcButton", () => {
 
     cy.checkHydrated("ic-button");
     cy.clickOnButton("ic-button");
-    cy.get(WIN_CONSOLE_SPY).should("be.calledOnce");
+    cy.get(WIN_CONSOLE_SPY).should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should not submit form on button click if submit button outside form tag", () => {
@@ -194,7 +204,6 @@ describe("IcButton", () => {
   });
 
   it("should emit icFocus on focus event", () => {
-    // Listen to icFocus being emitted by IcButton
     mount(
       <IcButton id="ic-button" onClick={() => console.log("Hello World")}>
         Primary
@@ -207,20 +216,19 @@ describe("IcButton", () => {
 
     cy.get("ic-button").shadow().find("button").focus();
 
-    cy.get("ic-button").should("have.focus");
-    cy.get("@icFocus").should("have.been.calledOnce");
+    cy.get("ic-button").should(HAVE_FOCUS);
+    cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should emit icBlur on blur event", () => {
-    // Listen to icBlur being emitted by IcButton
     mount(<IcButton id="ic-button">Primary</IcButton>);
     cy.checkHydrated("ic-button");
 
     cy.get("ic-button").invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.get("ic-button").shadow().find("button").focus();
-    cy.get("ic-button").should("have.focus");
+    cy.get("ic-button").should(HAVE_FOCUS);
     cy.get("ic-button").blur();
-    cy.get("@icBlur").should("have.been.calledOnce");
+    cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should change to have dropdownExpanded on click of dropdown button", () => {
@@ -232,7 +240,7 @@ describe("IcButton", () => {
     cy.checkHydrated("ic-button");
 
     cy.clickOnButton("ic-button");
-    cy.get("ic-button").should("have.prop", "dropdownExpanded");
+    cy.get("ic-button").should(HAVE_PROP, "dropdownExpanded");
   });
 });
 

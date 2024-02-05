@@ -1,48 +1,57 @@
 /// <reference types="Cypress" />
-/* eslint-disable cypress/no-unnecessary-waiting */
 
-import React from "react";
 import { mount } from "@cypress/react";
+import React from "react";
 import { IcSelect } from "../../components";
 import {
-  IC_INPUT_CONTAINER,
-  IC_MENU_LI,
-  IC_MENU_UL,
-  SC_IC_MENU_TYPOGRAPHY,
-  DISABLED_OPTION_MENU,
-  IC_TYPOGRAPHY,
-  ID_CLEAR_BUTTON,
-  ARIA_SELECTED,
-  TYPE_DOWN_ARROW,
-  TYPE_ENTER,
-  TYPE_BACKSPACE,
-  DATA_VALUE_ESPRESSO,
-  DATA_LABEL_CAPUCCINO,
-  DATA_LABEL_ESPRESSO,
-  DEFAULT_TEST_THRESHOLD,
-} from "./IcSelectConstants";
-import {
-  HAVE_LENGTH,
-  HAVE_BEEN_CALLED_ONCE,
-  HAVE_VALUE,
-  HAVE_CLASS,
+  BE_DISABLED,
   BE_VISIBLE,
-  HAVE_FOCUS,
-  HAVE_ATTR,
+  CONTAIN_TEXT,
   CONTAIN_VALUE,
+  HAVE_ATTR,
+  HAVE_BEEN_CALLED,
+  HAVE_BEEN_CALLED_ONCE,
+  HAVE_CLASS,
+  HAVE_FOCUS,
+  HAVE_LENGTH,
+  HAVE_TEXT,
+  HAVE_VALUE,
+  NOT_BE_FOCUSED,
   NOT_BE_VISIBLE,
 } from "../utils/constants";
 import {
+  ARIA_SELECTED,
+  DATA_LABEL_CAPUCCINO,
+  DATA_LABEL_ESPRESSO,
+  DATA_VALUE_ESPRESSO,
+  DEFAULT_TEST_THRESHOLD,
+  DISABLED_OPTION_MENU,
+  IC_INPUT_CONTAINER,
+  IC_MENU_LI,
+  IC_MENU_UL,
+  IC_TYPOGRAPHY,
+  ID_CLEAR_BUTTON,
+  LOADING_MESSAGE,
+  RETRY_BUTTON,
+  SC_IC_MENU_TYPOGRAPHY,
+  TYPE_BACKSPACE,
+  TYPE_DOWN_ARROW,
+  TYPE_ENTER,
+} from "./IcSelectConstants";
+import {
+  LoadingSelect,
+  LoadingSelectNoTimeout,
+  coffeeCustomElements,
+  coffeeDisabledOption,
   coffeeOptions,
   coffeeOptionsDescriptions,
-  coffeeDisabledOption,
-  groupCoffeeOption,
-  recommendedCoffeeOption,
-  validationCoffeeOption,
-  groupAndDescriptionCoffeeOption,
-  searchableCoffeeOption,
   coffeeOptionsReadonly,
-  coffeeCustomElements,
+  groupAndDescriptionCoffeeOption,
+  groupCoffeeOption,
+  manyOptions,
+  recommendedCoffeeOption,
+  searchableCoffeeOption,
+  validationCoffeeOption,
 } from "./IcSelectTestData";
 
 describe("IcSelect", () => {
@@ -58,10 +67,6 @@ describe("IcSelect", () => {
     mount(<IcSelect label="What is your favourite coffee?" />);
     cy.checkHydrated("ic-select");
 
-    // Screenshot: IcSelect in idle state
-    cy.checkHydrated("ic-select");
-
-    // A11y
     cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
 
     cy.get("ic-select").should("exist");
@@ -77,10 +82,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
-    // Screenshot: IcSelect open with IcMenu displayed
     cy.compareSnapshot("default-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -130,7 +132,7 @@ describe("IcSelect", () => {
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO)
       .contains("Espresso")
-      .should("have.text", "Espresso");
+      .should(HAVE_TEXT, "Espresso");
     cy.findShadowEl("ic-select", ".expand-icon")
       .should("exist")
       .should(HAVE_CLASS, "expand-icon expand-icon-open");
@@ -318,16 +320,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect with default value (GENERATE NEW SNAPSHOT)
     cy.compareSnapshot("default-value", DEFAULT_TEST_THRESHOLD + 0.005);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect with default value and IcMenu open
     cy.compareSnapshot("default-value-open", DEFAULT_TEST_THRESHOLD + 0.025);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -338,7 +334,10 @@ describe("IcSelect", () => {
       HAVE_ATTR,
       ARIA_SELECTED
     );
-    // cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO).should(HAVE_CLASS, "check-icon");
+    cy.findShadowEl("ic-select", `${DATA_VALUE_ESPRESSO} span`).should(
+      HAVE_CLASS,
+      "check-icon"
+    );
   });
 
   it("renders with a clear button", () => {
@@ -351,16 +350,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect default value and clear button
     cy.compareSnapshot("clear-button", DEFAULT_TEST_THRESHOLD + 0.01);
 
-    cy.get("ic-select").shadow().find("ic-button#clear-button").click();
-
-    // Screenshot: IcSelect default value and clear button with IcMenu open
+    cy.clickOnShadowEl("ic-select", "ic-button#clear-button");
     cy.compareSnapshot("clear-button-cleared", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -415,8 +408,7 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
 
-  // not sure
-  it.skip("should close menu when an option is clicked, set as value and move focus onto the input", () => {
+  it("should close menu when an option is clicked, set as value and move focus onto the input", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -523,21 +515,20 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect/IcMenu options with descriptions
-    cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
-
-    // A11y
-    cy.checkA11yWithWait();
-
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    cy.getWhatIsFavCoffeeQueTitle("ic-select");
+    cy.get("ic-select")
+      .shadow()
+      .contains("What is your favourite coffee?")
+      .should(BE_VISIBLE);
     cy.findShadowEl("ic-select", IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "3")
       .each(($t1) => {
         cy.log($t1.text());
       });
+
+    cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
+    cy.checkA11yWithWait();
   });
 
   it("should render the placeholder", () => {
@@ -549,11 +540,7 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect with placeholder text
     cy.compareSnapshot("custom-placeholder", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -572,15 +559,11 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect disabled
     cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
-    cy.get("ic-select").shadow().find("button").should("be.disabled");
+    cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
   });
 
   it("should prevent click on disabled options", () => {
@@ -593,10 +576,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
-    // Screenshot: IcSelect with disabled options
     cy.compareSnapshot("disabled-options-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -611,7 +591,7 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", "[aria-disabled='true']").should(
-      "not.be.focused"
+      NOT_BE_FOCUSED
     );
   });
 
@@ -624,11 +604,7 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect with required
     cy.compareSnapshot("required", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.get("ic-select")
@@ -648,11 +624,7 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect readonly
     cy.compareSnapshot("readonly", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
 
     cy.get("ic-select")
@@ -674,16 +646,7 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    // Doesnt this line and the line below do the same thing?
-    // cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect with grouped options
-    cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-    // A11y
-    cy.checkA11yWithWait();
-
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
       .should(HAVE_LENGTH, "6")
@@ -694,6 +657,9 @@ describe("IcSelect", () => {
             cy.log(group);
           });
       });
+
+    cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.checkA11yWithWait();
   });
 
   it("should render and focus child options correctly", () => {
@@ -739,10 +705,7 @@ describe("IcSelect", () => {
       cy.checkHydrated("ic-select");
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
 
-      // Screenshot: IcSelect with recommended options
       cy.compareSnapshot("recommended-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-      // A11y
       cy.checkA11yWithWait();
 
       cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -842,13 +805,13 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
-    cy.get("ic-select").shadow().find(IC_MENU_UL).should("have.not.be.focus");
+    cy.get("ic-select").shadow().find(IC_MENU_UL).should(NOT_BE_FOCUSED);
     cy.findShadowEl("ic-select", "button").focus();
     cy.findShadowEl("ic-select", "button").last().should(HAVE_FOCUS);
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
   });
-  // flakey- passes when run with .only()
-  it.skip("should call icBlur when it loses focus", () => {
+
+  it("should call icBlur when it loses focus", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -856,124 +819,96 @@ describe("IcSelect", () => {
       />
     );
     cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
-    cy.findShadowEl("ic-select", "button").as("btn");
-    cy.findShadowEl("ic-select", "button").as("btn").should(HAVE_FOCUS);
+    cy.findShadowEl("ic-select", "button").focus();
+    cy.findShadowEl("ic-select", "button").should(HAVE_FOCUS);
     cy.get("ic-select").blur();
-    cy.get("@icBlur").should("have.been.called");
+    cy.get("@icBlur").should(HAVE_BEEN_CALLED);
   });
 
-  it.skip("Loading should display a loading message and then the options when fetching options externally", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={[]}
-        loading
-        timeout={5000}
-      />
-    );
+  it("Loading should display a loading message and then the options when fetching options externally", () => {
+    mount(<LoadingSelectNoTimeout />);
     cy.checkHydrated("ic-select");
+    cy.get("ic-button").click();
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find("ic-loading-indicator").should("exist");
-    cy.document().invoke(
-      "addEventListener",
-      "icChange",
-      cy.stub().as("icChange")
-    );
-    cy.get("@icChange").should(HAVE_BEEN_CALLED_ONCE);
-    // //cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW).type(TYPE_ENTER);
-    // cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    // cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    // cy.get("ic-select").shadow().find("ic-loading-indicator").should("exist");
-    // cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChange"));
+    cy.findShadowEl("ic-select", "ic-loading-indicator").should("exist");
+    cy.get("ic-select").invoke("prop", "options", coffeeOptions);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO).should(BE_VISIBLE);
   });
 
-  // only  pass when run as .only() but in group run it fails
-  it.skip("should display a retry button and a custom loading error when it times out and should not update the options", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        loading
-        timeout={500}
-        loadingErrorLabel="Loading Error"
-        options={[]}
-      />
-    );
+  it("should display a retry button and a custom loading error when it times out and should not update the options", () => {
+    mount(<LoadingSelect />);
 
     cy.checkHydrated("ic-select");
+    cy.get("ic-button").click();
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find(IC_TYPOGRAPHY).contains("Loading...");
+    cy.get("ic-select").shadow().find(IC_TYPOGRAPHY).contains(LOADING_MESSAGE);
+    cy.wait(600);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.get("ic-select").shadow().find("#retry-button").should(BE_VISIBLE);
-    cy.get("ic-select").shadow().find(IC_TYPOGRAPHY).contains("Error");
-    cy.get("ic-select").shadow().find(IC_TYPOGRAPHY).contains("Error");
+    cy.get("ic-select").shadow().find(RETRY_BUTTON).should(BE_VISIBLE);
+    cy.get("ic-select").shadow().find(IC_TYPOGRAPHY).contains("Loading Error");
   });
 
-  // not sure
-  it.skip("should focus the retry button on tab and emit icBlur and close the menu when blurring", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        loading
-        timeout={5000}
-        loading-error-label="Loading Error"
-        options={[]}
-      />
-    );
-    // cy.get("ic-select")
-    //   .shadow()
-    //   .find(IC_INPUT_CONTAINER)
-    //   .should("exist");
-    //   .click()
-    //   .should(BE_VISIBLE);
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.checkShadowElVisible("ic-select", IC_MENU_LI);
-    //cy.get('ic-select').shadow().find('ic-loading-indicator').should('exist')
+  it("should focus the retry button on tab and emit icBlur and close the menu when blurring", () => {
+    mount(<LoadingSelect />);
+    cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
 
-    // cy.get("ic-select")
-    //   .shadow()
-    //   .find("button")
-    //   .focus()
-    //   .last()
-    //   .should(HAVE_FOCUS);
-    // cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
-    // cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
-    // //cy.get("ic-select").shadow().find("button").as('btn').focus().should('have.focus')
-    // cy.get("ic-select").blur();
-    // cy.get("@icBlur").should("have.been.called");
+    cy.get("ic-button").click();
+    cy.wait(600);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", RETRY_BUTTON).shadow().find("button").focus();
+    cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
+    cy.checkShadowElVisible("ic-select", IC_MENU_UL);
+
+    cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
+    cy.get("ic-select").blur();
+    cy.get("@icBlur").should(HAVE_BEEN_CALLED);
+    cy.findShadowEl("ic-select", IC_MENU_UL).should(NOT_BE_VISIBLE);
   });
 
-  // retry button not working
-  it.skip("should retry loading and keep the menu open when retry button is clicked", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        loading
-        timeout={5000}
-        loading-error-label="Loading Error"
-      />
-    );
+  it("should retry loading and keep the menu open when retry button is clicked", () => {
+    mount(<LoadingSelect />);
     cy.get("ic-select").invoke(
       "on",
-      "icRetryLoads",
+      "icRetryLoad",
       cy.stub().as("icRetryLoad")
+    );
+
+    cy.get("ic-button").click();
+    cy.wait(600);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible("ic-select", IC_MENU_UL);
+
+    cy.findShadowEl("ic-select", RETRY_BUTTON).click();
+    cy.get("@icRetryLoad").should(HAVE_BEEN_CALLED);
+    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      LOADING_MESSAGE
     );
   });
 
-  it.skip("should retry loading and keep the menu open when retry button is pressed with Enter", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        loading
-        timeout={5000}
-        loading-error-label="Loading Error"
-      />
-    );
+  it("should retry loading and keep the menu open when retry button is pressed with Enter", () => {
+    mount(<LoadingSelect />);
     cy.get("ic-select").invoke(
       "on",
-      "icRetryLoads",
+      "icRetryLoad",
       cy.stub().as("icRetryLoad")
+    );
+
+    cy.get("ic-button").click();
+    cy.wait(600);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.checkShadowElVisible("ic-select", IC_MENU_UL);
+
+    cy.findShadowEl("ic-select", RETRY_BUTTON)
+      .shadow()
+      .find("button")
+      .focus()
+      .type(TYPE_ENTER);
+    cy.get("@icRetryLoad").should(HAVE_BEEN_CALLED);
+    cy.findShadowEl("ic-select", IC_TYPOGRAPHY).should(
+      CONTAIN_TEXT,
+      LOADING_MESSAGE
     );
   });
 
@@ -993,7 +928,7 @@ describe("IcSelect", () => {
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", "ic-menu")
       .contains("Cappuccino")
-      .should("have.text", "Cappuccino");
+      .should(HAVE_TEXT, "Cappuccino");
   });
 
   it("hidden input value when on initial load with default value ", () => {
@@ -1006,7 +941,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO).should(
-      "have.text",
+      HAVE_TEXT,
       "Espresso"
     );
   });
@@ -1022,7 +957,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO).should(
-      "have.text",
+      HAVE_TEXT,
       "Espresso"
     );
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
@@ -1037,7 +972,7 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", ID_CLEAR_BUTTON).should(BE_VISIBLE);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO)
-      .should("have.text", "Espresso")
+      .should(HAVE_TEXT, "Espresso")
       .should("exist");
   });
 
@@ -1112,22 +1047,31 @@ describe("IcSelect", () => {
     cy.get(".ic-input").should(HAVE_VALUE, "cappuccino");
   });
 
-  // can't mount reset button component
-  it.skip("should reset to initial value on form reset", () => {
+  it("should reset to initial value on form reset", () => {
     mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-      />
+      <>
+        <form>
+          <button type="reset" id="resetButton">
+            Reset
+          </button>
+          <IcSelect
+            label="What is your favourite coffee?"
+            options={coffeeOptions}
+          />
+        </form>
+      </>
     );
     cy.checkHydrated("ic-select");
-    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER);
+    cy.get(".ic-input").should(HAVE_VALUE, "");
+
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.get(".ic-input").should(HAVE_VALUE, "espresso");
+
+    cy.get("#resetButton").click();
+    cy.get(".ic-input").should(HAVE_VALUE, "");
   });
 
-  //not sure
   it("should render", () => {
     mount(
       <IcSelect
@@ -1190,7 +1134,6 @@ describe("IcSelect", () => {
       });
   });
 
-  //select tag not working
   it("should render a required <select> when required", () => {
     mount(
       <IcSelect
@@ -1227,7 +1170,7 @@ describe("IcSelect", () => {
       />
     );
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
-    cy.findShadowEl("ic-select", "button").should("be.disabled");
+    cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
   });
 
   it("should render the selected value as text instead of rendering a <select> when read-only", () => {
@@ -1254,7 +1197,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", "button ic-typography").should(
-      "have.text",
+      HAVE_TEXT,
       "Test placeholder"
     );
   });
@@ -1272,7 +1215,6 @@ describe("IcSelect", () => {
     cy.get("input").should(HAVE_VALUE, "espresso");
   });
 
-  //not sure how to set Attribute
   it("should set the correct name on the hidden input", () => {
     mount(
       <IcSelect
@@ -1280,6 +1222,10 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
+    cy.checkHydrated("ic-select");
+    cy.get("ic-select").invoke("attr", "name", "test-input-name");
+    cy.get("input").invoke("prop", "name").should("eq", "test-input-name");
   });
 
   it("should call icChange when the selected option is changed", () => {
@@ -1296,7 +1242,7 @@ describe("IcSelect", () => {
     cy.get(".ic-input").should(HAVE_VALUE, "espresso");
   });
 
-  it("should call icFocus when focuseicFocus", () => {
+  it("should call icFocus when focusing the select and icBlur when it loses focus", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1305,27 +1251,11 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
+    cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
-  });
-
-  //not working
-  it.skip("should call icBlur when it loses focus", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-      />
-    );
-    cy.checkHydrated("ic-select");
-    cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
-    cy.findShadowEl("ic-select", "button").focus();
-    cy.findShadowEl("ic-select", "button").should(HAVE_FOCUS).type(TYPE_ENTER);
-    cy.findShadowEl("ic-select", "button").focus();
-    cy.findShadowEl("ic-select", "button").should(HAVE_FOCUS).type(TYPE_ENTER);
-    cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("ic-select").blur();
-    cy.get("@icBlur").should("have.been.called");
+    cy.get("@icBlur").should(HAVE_BEEN_CALLED);
   });
 
   it("should set the 'placeholder' class name if no option is selected", () => {
@@ -1342,41 +1272,17 @@ describe("IcSelect", () => {
     );
   });
 
-  // not sure
-  it.skip("should set the text colour to the primary text colour if an option is selected", () => {
+  it("should add .menu-scroll to menu components when options height is over 320", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
-        options={coffeeOptions}
+        options={manyOptions}
         value="espresso"
       />
     );
-    // cy.checkHydrated("ic-select");
-    // cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).click()
-    // cy.get("ic-select").shadow().find(IC_MENU_LI).should('be.visible');
-    // .should("have.attr2, ARIA_SELECTED);
-  });
 
-  // not sure
-  it.skip("should change the text colour to the primary text colour when an option is selected", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="espresso"
-      />
-    );
-  });
-
-  // not sure
-  it.skip("should add .menu-scroll to menu components when options height is over 320", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        value="espresso"
-      />
-    );
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", IC_MENU_UL).should(HAVE_CLASS, "menu-scroll");
   });
 
   it("should add .menu-scroll to menu components when options are initially set and then populated with large data set", () => {
@@ -1393,7 +1299,7 @@ describe("IcSelect", () => {
     cy.get("ic-select").shadow().find("ic-menu").should(BE_VISIBLE);
     cy.findShadowEl("ic-select", IC_MENU_UL)
       .should(HAVE_CLASS, "menu sc-ic-menu menu-scroll")
-      .should("be.exist");
+      .should("exist");
   });
 
   it("renders with helper text", () => {
@@ -1434,8 +1340,6 @@ describe("IcSelect", () => {
     cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect size variant
     cy.compareSnapshot("small-open", DEFAULT_TEST_THRESHOLD + 0.02);
   });
 
@@ -1451,8 +1355,6 @@ describe("IcSelect", () => {
     cy.compareSnapshot("small-deprecated", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect small variant
     cy.compareSnapshot("small-deprecated-open", DEFAULT_TEST_THRESHOLD + 0.03);
   });
 
@@ -1468,11 +1370,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-
-    // Screenshot: IcSelect full Width
     cy.compareSnapshot("full-width-open", DEFAULT_TEST_THRESHOLD + 0.02);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -1485,11 +1383,7 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-
-    // Screeshot: IcSelect hidden label
     cy.compareSnapshot("hidden-label", DEFAULT_TEST_THRESHOLD);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 
@@ -1517,11 +1411,7 @@ describe("IcSelect", () => {
       </div>
     );
     cy.checkHydrated("ic-select");
-
-    // Screenshot: IcSelect in validation states
     cy.compareSnapshot("validation", DEFAULT_TEST_THRESHOLD + 0.045);
-
-    // A11y
     cy.checkA11yWithWait();
   });
 });
