@@ -345,7 +345,7 @@ export class Menu {
    * boundary behaviour so sticking with PopperJS.
    */
   @Method()
-  async initPopperJs(anchor: HTMLElement) {
+  async initPopperJs(anchor: HTMLElement): Promise<void> {
     this.popperInstance = createPopper(anchor, this.host, {
       placement: "bottom",
       modifiers: [

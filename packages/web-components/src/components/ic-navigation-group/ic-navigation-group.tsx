@@ -296,7 +296,7 @@ export class NavigationGroup {
       relTarget !== this.dropdown &&
       document.activeElement !== this.el &&
       !this.el.contains(document.activeElement) &&
-      relTarget.nodeName === this.nodeName &&
+      relTarget?.nodeName === this.nodeName &&
       this.dropdownOpen === true
     ) {
       this.mouseGate = true;
@@ -317,7 +317,7 @@ export class NavigationGroup {
     const relTarget = ev.relatedTarget as HTMLElement;
     document.addEventListener("keydown", this.handleKeydown);
 
-    if (relTarget.nodeName === this.nodeName && this.mouseGate === true) {
+    if (relTarget?.nodeName === this.nodeName && this.mouseGate === true) {
       this.showDropdown();
     } else if (
       this.dropdownOpen === false &&
@@ -424,8 +424,7 @@ export class NavigationGroup {
 
   render() {
     const { label, dropdownOpen, inTopNavSideMenu, expandable } = this;
-    const NavigationGroupElement =
-      !inTopNavSideMenu || expandable ? "button" : "div";
+
     return (
       <Host
         class={{
@@ -436,7 +435,7 @@ export class NavigationGroup {
         }}
         role="listitem"
       >
-        <NavigationGroupElement
+        <button
           onMouseEnter={
             !inTopNavSideMenu &&
             this.navigationType === "top" &&
@@ -458,12 +457,10 @@ export class NavigationGroup {
             ["selected"]: dropdownOpen && !inTopNavSideMenu,
           }}
           ref={(el) => (this.groupEl = el)}
-          aria-expanded={dropdownOpen || this.expanded ? "true" : "false"}
-          aria-haspopup={
+          aria-expanded={`${dropdownOpen || this.expanded}`}
+          aria-haspopup={`${
             !inTopNavSideMenu && this.navigationType === "top"
-              ? "true"
-              : "false"
-          }
+          }`}
         >
           <ic-typography
             variant={this.navigationType === "side" ? "caption" : "label"}
@@ -479,7 +476,7 @@ export class NavigationGroup {
               innerHTML={chevronIcon}
             ></div>
           )}
-        </NavigationGroupElement>
+        </button>
         {this.renderNavigationItems()}
       </Host>
     );

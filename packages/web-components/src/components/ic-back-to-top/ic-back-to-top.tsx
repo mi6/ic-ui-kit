@@ -74,11 +74,8 @@ export class BackToTop {
 
   private setFooterVisible = (visible: boolean) => {
     this.checkForClassificationBanner();
-    if (typeof window !== "undefined" && window.scrollY === 0) {
-      this.footerVisible = false;
-    } else {
-      this.footerVisible = visible;
-    }
+    this.footerVisible =
+      typeof window !== "undefined" && window.scrollY === 0 ? false : visible;
   };
 
   private targetElObserverCallback = (entries: IntersectionObserverEntry[]) => {
@@ -97,7 +94,7 @@ export class BackToTop {
       );
     } else {
       targetElement = document.querySelector(
-        target.indexOf("#") === 0 ? target : "#" + target
+        `${target.startsWith("#") ? "" : "#"}${target}`
       );
       if (targetElement === null) {
         console.log(

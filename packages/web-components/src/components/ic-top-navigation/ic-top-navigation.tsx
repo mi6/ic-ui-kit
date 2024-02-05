@@ -427,11 +427,12 @@ export class TopNavigation {
                           </ic-button>
                         )}
 
-                      {this.hasIconButtons && this.deviceSize > DEVICE_SIZES.L && (
-                        <div class="icon-buttons-container">
-                          <slot name="buttons"></slot>
-                        </div>
-                      )}
+                      {this.hasIconButtons &&
+                        this.deviceSize > DEVICE_SIZES.L && (
+                          <div class="icon-buttons-container">
+                            <slot name="buttons"></slot>
+                          </div>
+                        )}
                       {hasMenuContent && this.deviceSize <= DEVICE_SIZES.L && (
                         <div class="menu-button-container">
                           <span
