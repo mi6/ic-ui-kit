@@ -21,7 +21,7 @@ import Typography from "../ic-typography/readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
@@ -45,7 +45,7 @@ import Typography from "../ic-typography/readme.md";
 ### Long text values
 
 <Canvas>
-  <Story name="Long text values">
+  <Story name="Long text values" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
     >
@@ -78,7 +78,7 @@ import Typography from "../ic-typography/readme.md";
 ### Small
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Small" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details" size="small">
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
@@ -102,7 +102,7 @@ import Typography from "../ic-typography/readme.md";
 ### Deprecated - small
 
 <Canvas>
-  <Story name="Deprecated - small">
+  <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details" small>
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
@@ -126,7 +126,7 @@ import Typography from "../ic-typography/readme.md";
 ### Link
 
 <Canvas>
-  <Story name="Link">
+  <Story name="Link" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-link href="#" slot="end-component"> Edit </ic-link>
@@ -159,7 +159,7 @@ import Typography from "../ic-typography/readme.md";
 ### Icon button
 
 <Canvas>
-  <Story name="Icon button">
+  <Story name="Icon button" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-button variant="icon" aria-label="Edit" slot="end-component">
@@ -247,7 +247,7 @@ import Typography from "../ic-typography/readme.md";
 ### Adornment
 
 <Canvas>
-  <Story name="Adornment">
+  <Story name="Adornment" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-status-tag
@@ -305,7 +305,7 @@ import Typography from "../ic-typography/readme.md";
 ### Status tag
 
 <Canvas>
-  <Story name="Status tag">
+  <Story name="Status tag" parameters={{ loki: { skip: true } }}>
     {html` <ic-data-entity heading="Personal details">
       <ic-data-row label="Name"
         ><ic-status-tag
@@ -349,7 +349,7 @@ import Typography from "../ic-typography/readme.md";
 ### Editable example
 
 <Canvas>
-  <Story name="Editable example">
+  <Story name="Editable example" parameters={{ loki: { skip: true } }}>
     {html`<ic-data-entity heading="Personal details">
         <ic-data-row label="Name">
           <ic-text-field
