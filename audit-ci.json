@@ -1,30 +1,9 @@
 {
   "allowlist": [
     {
-      "GHSA-7p7h-4mm5-852v": {
-        "active": true,
-        "notes": "Requires upgrade to storybook v7",
-        "expiry": "01 March 2024"
-      }
-    },
-    {
-      "GHSA-ww39-953v-wcq6": {
-        "active": true,
-        "notes": "requires upgrade to storybook v7",
-        "expiry": "01 March 2024"
-      }
-    },
-    {
       "GHSA-pfrx-2q88-qq97": {
         "active": true,
         "notes": "requires upgrade to np@8.0.4, which is a breaking change",
-        "expiry": "01 March 2024"
-      }
-    },
-    {
-      "GHSA-w5p7-h5w8-2hfq": {
-        "active": true,
-        "notes": "requires upgrade to storybook v7",
         "expiry": "01 March 2024"
       }
     },
@@ -38,7 +17,7 @@
     {
       "GHSA-7fh5-64p2-3v2j": {
         "active": true,
-        "notes": "requires upgrade to storybook v7",
+        "notes": "requires upgrade to postcss v8.4.31, which doesn't align with the version used by @storybook/addon-postcss",
         "expiry": "01 March 2024"
       }
     },
