@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.11.0 (2024-02-07)
+
+### Bug Fixes
+
+- **web-components:** add hover:focus to icon only button ([921a483](https://github.com/mi6/ic-ui-kit/commit/921a483613b7ff7b0024a65d5dfcabfc68e09297))
+- **web-components:** fix tooltip display when no label provided ([1b2713c](https://github.com/mi6/ic-ui-kit/commit/1b2713c0587a7f4fc2186c9a3e8cdbfbb784ad17))
+- **web-components:** fixed a11y error about incorrect attributes in ic-navigation-group ([b6c4448](https://github.com/mi6/ic-ui-kit/commit/b6c444822a85536184656290aabb4711b4ffad2a))
+- **web-components:** fixed flicker on ic-side-navigation initial render ([598deeb](https://github.com/mi6/ic-ui-kit/commit/598deeb633be46e6b70b6c6e6fe799716dc7d84d))
+- **web-components:** ic-page-header fix ([2b9579f](https://github.com/mi6/ic-ui-kit/commit/2b9579fa09b477e53b66d1201fcc7fdc8dfc75a1)), closes [#1320](https://github.com/mi6/ic-ui-kit/issues/1320)
+- **web-components:** update css for menu item so that css parts works in safari ([071e1b6](https://github.com/mi6/ic-ui-kit/commit/071e1b6f57fc5bc0a60e57b4340299723edf20bf))
+- **web-components:** update status tag so that outlined is the same height as filled ([90cb559](https://github.com/mi6/ic-ui-kit/commit/90cb5590531e67432f0167c7315734f390723c82)), closes [#1433](https://github.com/mi6/ic-ui-kit/issues/1433)
+- **web-components:** updated accessible label for nav sections in page-header and top-nav ([eb74238](https://github.com/mi6/ic-ui-kit/commit/eb74238da159f0f3b4a09bb63cf4aef8a0855d4c))
+- **web-components:** updated manualInputKeyboardOpen function ([92c2f89](https://github.com/mi6/ic-ui-kit/commit/92c2f89ea1e7ba33d19bab54c21b4ce6de56bbf5))
+
+### Features
+
+- **web-components:** add dropdown option to buttons ([6660857](https://github.com/mi6/ic-ui-kit/commit/6660857cf788fd832bb05ae1aadf2f8903bb5b6b)), closes [#1321](https://github.com/mi6/ic-ui-kit/issues/1321)
+- **web-components:** add toggle button component ([14acb43](https://github.com/mi6/ic-ui-kit/commit/14acb437523e81525fa28c558d3b1f38d1ff4fea)), closes [#264](https://github.com/mi6/ic-ui-kit/issues/264)
+- **web-components:** update web-components storybook to v7.6.7 ([bb53370](https://github.com/mi6/ic-ui-kit/commit/bb533704a4f7066fc5047738775e985b0c9b8aeb)), closes [#977](https://github.com/mi6/ic-ui-kit/issues/977)
+- **web-components:** updated web-components to include props required for canary components ([a957b05](https://github.com/mi6/ic-ui-kit/commit/a957b056335e3d0cd3129fa24c91e30ec9ca0780))
+
+# 2.9.0 (2024-01-15)
+
 # 2.10.0 (2024-01-25)
 
 ### Bug Fixes

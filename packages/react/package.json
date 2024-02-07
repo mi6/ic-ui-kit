@@ -3,7 +3,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "React-wrapped web components compiled using StencilJS",
   "author": "mi6",
   "bugs": {
@@ -40,7 +40,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@ukic/web-components": "^2.10.0"
+    "@ukic/web-components": "^2.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -74,8 +74,8 @@
     "react-dom": "^16.14.0",
     "react-hook-form": "^7.38.0",
     "react-router-dom": "^6.3.0",
-    "ts-loader": "^9.5.0",
     "storybook": "^7.6.7",
+    "ts-loader": "^9.5.0",
     "typescript": "^4.9.5",
     "webpack": "^5.89.0"
   },

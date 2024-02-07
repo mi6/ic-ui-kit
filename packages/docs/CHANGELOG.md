@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.9.2 (2024-02-07)
+
+# 2.9.0 (2024-01-15)
+
+**Note:** Version bump only for package @ukic/docs
+
 # 2.9.1 (2024-01-26)
 
 **Note:** Version bump only for package @ukic/docs
