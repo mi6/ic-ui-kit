@@ -1,9 +1,9 @@
 {
-  "timestamp": "2024-01-23T14:46:28",
+  "timestamp": "2024-02-07T13:07:33",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.9.0",
-    "typescriptVersion": "5.2.2"
+    "version": "4.10.0",
+    "typescriptVersion": "5.3.3"
   },
   "components": [
     {
@@ -15675,6 +15675,28 @@
           "required": false
         },
         {
+          "name": "maxCharacters",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-characters",
+          "reflectToAttr": false,
+          "docs": "The maximum number of characters that can be entered in the field.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "maxLength",
           "type": "number",
           "complexType": {
@@ -15685,7 +15707,7 @@
           "mutable": false,
           "attr": "max-length",
           "reflectToAttr": false,
-          "docs": "The maximum number of characters that can be entered in the field.",
+          "docs": "The label for maximum number of characters that can be entered in the field.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -15716,6 +15738,28 @@
             },
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "minCharacters",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "min-characters",
+          "reflectToAttr": false,
+          "docs": "The minimum number of characters that can be entered in the field.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": false,
