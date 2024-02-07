@@ -9,7 +9,7 @@
     "noImplicitAny": true,
     "jsx": "react",
     "allowJs": true,
-    "types": ["cypress", "node", "cypress-axe"]
+    "types": ["cypress", "node", "cypress-axe", "cypress-file-upload"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/__tests__/**", "cypress/**", "src/component-tests/**/*"],
