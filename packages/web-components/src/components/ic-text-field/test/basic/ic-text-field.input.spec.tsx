@@ -287,3 +287,27 @@ it("should render with min/max and min validation", async () => {
 
   expect(page.root).toMatchSnapshot("renders-with-min");
 });
+
+it("should test maxCharacters method", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" rows=1 max-characters=5></ic-text-field>`,
+  });
+
+  page.rootInstance.watchValueHandler("test");
+  expect(page.rootInstance.maxCharactersReached).toBe(false);
+  page.rootInstance.watchValueHandler("testing");
+  expect(page.rootInstance.maxCharactersReached).toBe(true);
+});
+
+it("should test minCharacters method", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" rows=1 min-characters=5></ic-text-field>`,
+  });
+
+  page.rootInstance.getMinCharactersUnattained("test");
+  expect(page.rootInstance.minCharactersUnattained).toBe(true);
+  page.rootInstance.getMinCharactersUnattained("testing");
+  expect(page.rootInstance.minCharactersUnattained).toBe(false);
+});

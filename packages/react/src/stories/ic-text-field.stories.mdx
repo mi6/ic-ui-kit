@@ -450,17 +450,15 @@ export const ControlledExample = () => {
     name="Maximum and minimum characters"
     parameters={{ loki: { skip: true } }}
   >
-   <IcTextField
-          max-characters={2}
-          label="What is your favourite coffee?"
-          helper-text="Short answers only."
-        >
-    </IcTextField>
     <IcTextField
-          min-characters={3}
-          label="What is your favourite coffee?"
-          helper-text="Long answer please."
-        >
-    </IcTextField>
+      max-characters={2}
+      label="What is your favourite coffee?"
+      helper-text="Short answers only."
+    ></IcTextField>
+    <IcTextField
+      min-characters={3}
+      label="What is your favourite coffee?"
+      helper-text="Long answer please."
+    ></IcTextField>
   </Story>
 </Canvas>
