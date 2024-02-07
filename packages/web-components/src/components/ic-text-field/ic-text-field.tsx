@@ -56,6 +56,9 @@ export class TextField {
   @Element() el: HTMLIcTextFieldElement;
 
   @State() numChars: number = 0;
+  @State() maxCharactersReached: boolean = false;
+  @State() maxCharactersError: boolean = false;
+  @State() minCharactersUnattained: boolean = false;
   @State() maxLengthExceeded: boolean = false;
   @State() maxValueExceeded: boolean = false;
   @State() minValueUnattained: boolean = false;
@@ -158,12 +161,22 @@ export class TextField {
   /**
    * The maximum number of characters that can be entered in the field.
    */
+  @Prop() maxCharacters: number = 0;
+
+  /**
+   * The label for maximum number of characters that can be entered in the field.
+   */
   @Prop() maxLength: number = 0;
 
   /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
    */
   @Prop() min: string | number = undefined;
+
+  /**
+   * The minimum number of characters that can be entered in the field.
+   */
+  @Prop() minCharacters: number = 0;
 
   /**
    * The name of the control, which is submitted with the form data.
@@ -268,6 +281,8 @@ export class TextField {
 
     this.getMaxLengthExceeded(newValue);
 
+    this.getMaxCharactersReached(newValue);
+
     this.icChange.emit({ value: newValue });
   }
 
@@ -316,6 +331,8 @@ export class TextField {
 
     this.getMaxLengthExceeded(this.value);
 
+    this.getMaxCharactersReached(this.value);
+
     this.inheritedAttributes = inheritAttributes(this.el, [
       ...IC_INHERITED_ARIA,
       "title",
@@ -345,6 +362,7 @@ export class TextField {
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
     this.icKeydown.emit({ event: ev });
+    this.maxCharactersError = this.maxCharactersReached;
   }
 
   /**
@@ -372,6 +390,25 @@ export class TextField {
     }
   };
 
+  private getMaxCharactersReached = (value: string) => {
+    this.numChars = value.length;
+
+    if (this.maxCharacters > 0) {
+      this.maxCharactersReached = this.numChars >= this.maxCharacters;
+      if (this.maxCharactersError && !this.maxCharactersReached) {
+        this.maxCharactersError = false;
+      }
+    }
+  };
+
+  private getMinCharactersUnattained = (value: string) => {
+    this.numChars = value.length;
+
+    if (this.minCharacters > 0) {
+      this.minCharactersUnattained = this.numChars < this.minCharacters;
+    }
+  };
+
   private onInput = (ev: Event) => {
     this.value = (ev.target as HTMLInputElement).value;
     this.icInput.emit({ value: this.value });
@@ -379,6 +416,7 @@ export class TextField {
 
   private onBlur = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
+    this.getMinCharactersUnattained(value);
     this.icBlur.emit({ value: value });
   };
 
@@ -436,6 +474,11 @@ export class TextField {
       numChars,
       readonly,
       maxLengthExceeded,
+      maxCharacters,
+      maxCharactersError,
+      maxCharactersReached,
+      minCharacters,
+      minCharactersUnattained,
       minValueUnattained,
       maxValueExceeded,
       validationStatus,
@@ -454,22 +497,33 @@ export class TextField {
     const placeholderText = disabled ? "" : placeholder;
 
     const currentStatus =
-      maxLengthExceeded || maxValueExceeded || minValueUnattained
-        ? IcInformationStatus.Error
+      maxLengthExceeded ||
+      maxValueExceeded ||
+      minValueUnattained ||
+      minCharactersUnattained ||
+      maxCharactersError
+        ? maxCharactersError
+          ? IcInformationStatus.Warning
+          : IcInformationStatus.Error
         : validationStatus;
 
     const currentValidationText = maxLengthExceeded
       ? "Maximum length exceeded"
+      : maxCharactersError
+      ? `Maximum input is ${maxCharacters} characters`
       : maxValueExceeded
       ? `Maximum value of ${max} exceeded`
       : minValueUnattained
       ? `Minimum value of ${min} not met`
+      : minCharactersUnattained
+      ? `Minimum input is ${minCharacters} characters`
       : validationText;
 
     const maxNumChars = readonly ? 0 : maxLength;
 
     const messageAriaLive =
       maxLengthExceeded ||
+      maxCharactersError ||
       maxValueExceeded ||
       minValueUnattained ||
       (maxLength === 0 && currentStatus === IcInformationStatus.Error)
@@ -565,6 +619,8 @@ export class TextField {
                 spellcheck={spellcheck}
                 inputmode={inputmode}
                 role={this.role}
+                maxlength={maxCharactersReached ? maxCharacters : null}
+                minlength={minCharactersUnattained ? minCharacters : null}
                 {...this.inheritedAttributes}
               ></input>
             )}
@@ -594,6 +650,8 @@ export class TextField {
                 autoFocus={this.autoFocus}
                 spellcheck={spellcheck}
                 inputmode={inputmode}
+                maxlength={maxCharactersReached ? maxCharacters : null}
+                minlength={minCharactersUnattained ? minCharacters : null}
                 {...this.inheritedAttributes}
               ></textarea>
             )}
@@ -609,6 +667,8 @@ export class TextField {
             !isEmptyString(validationText) ||
             maxNumChars > 0 ||
             maxValueExceeded ||
+            maxCharactersError ||
+            minCharactersUnattained ||
             minValueUnattained) &&
             !validationInlineInternal && (
               <ic-input-validation
