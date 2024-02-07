@@ -73,6 +73,7 @@ export const config: Config = {
         'ic-theme',
         'ic-toast',
         'ic-toast-region',
+        'ic-toggle-button',
         'ic-tooltip',
         'ic-top-navigation',
         'ic-typography',
