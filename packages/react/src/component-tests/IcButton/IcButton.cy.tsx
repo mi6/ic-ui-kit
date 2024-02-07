@@ -242,6 +242,43 @@ describe("IcButton", () => {
     cy.clickOnButton("ic-button");
     cy.get("ic-button").should(HAVE_PROP, "dropdownExpanded");
   });
+
+  it("should upload files from fixtures", () => {
+    mount(
+      <>
+        <span id="selected-file">No File Selected</span>
+        <IcButton
+          fileUpload={true}
+          accept=".doc, text/plain, .json"
+          aria-describedby="selected-file"
+        >
+          Test
+        </IcButton>
+      </>
+    );
+    cy.checkHydrated("ic-button");
+    cy.findShadowEl("ic-button", "button").should(
+      HAVE_ATTR,
+      "aria-describedby"
+    );
+    cy.clickOnButton("ic-button");
+    cy.get('input[type="file"]').attachFile(
+      "IcButton/fixtures/ICDSFileUpload.json"
+    );
+    cy.get('input[type="file"]')
+      .invoke("val")
+      .then((value) => {
+        const descEl = document.querySelector(
+          "#selected-file"
+        ) as HTMLSpanElement;
+        if (descEl) {
+          descEl.innerText = value;
+        }
+      });
+    cy.findShadowEl("ic-button", "#selected-file")
+      .should("exist")
+      .should(CONTAIN_TEXT, "C:\\fakepath\\ICDSFileUpload.json");
+  });
 });
 
 describe("IcButton Visual Regression Testing", () => {
