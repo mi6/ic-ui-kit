@@ -2037,11 +2037,19 @@ export namespace Components {
         /**
           * The maximum number of characters that can be entered in the field.
          */
+        "maxCharacters": number;
+        /**
+          * The label for maximum number of characters that can be entered in the field.
+         */
         "maxLength": number;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min": string | number;
+        /**
+          * The minimum number of characters that can be entered in the field.
+         */
+        "minCharacters": number;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -5307,11 +5315,19 @@ declare namespace LocalJSX {
         /**
           * The maximum number of characters that can be entered in the field.
          */
+        "maxCharacters"?: number;
+        /**
+          * The label for maximum number of characters that can be entered in the field.
+         */
         "maxLength"?: number;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
         "min"?: string | number;
+        /**
+          * The minimum number of characters that can be entered in the field.
+         */
+        "minCharacters"?: number;
         /**
           * The name of the control, which is submitted with the form data.
          */

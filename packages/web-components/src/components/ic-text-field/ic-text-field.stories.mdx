@@ -936,3 +936,27 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Maximum and minimum characters
+
+<Canvas>
+  <Story
+    name="Maximum and minimum characters"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-text-field
+          max-characters="2"
+          label="What is your favourite coffee?"
+          helper-text="Short answers only."
+        >
+        </ic-text-field>
+        <ic-text-field
+          min-characters="3"
+          label="What is your favourite coffee?"
+          helper-text="Long answer please."
+        >
+        </ic-text-field> `
+    }
+  </Story>
+</Canvas>
