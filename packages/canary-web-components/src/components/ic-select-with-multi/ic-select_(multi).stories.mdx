@@ -21,15 +21,13 @@ import {
   Groups,
   Recommended,
   Validation,
-  AsyncDefault,
-  ScrollBehaviour,
   LoadingWithError,
   InForm,
 } from "./story-data";
 import readme from "./readme.md";
 
 <Meta
-  title="Web Components/Select/Multi"
+  title="Web Components/Multi-Select"
   component="ic-select-with-multi"
   parameters={{
     componentAPI: {
@@ -55,7 +53,7 @@ export const defaultArgs = {
   ["show-clear-button"]: false,
 };
 
-# [Canary]: Multi-select
+# [Canary]: Multi-Select
 
 Use the multi-select component to allow users to select one or more values from a list of options.
 
@@ -762,19 +760,3 @@ An example of the multi-select working in a form. The value will appear in the c
   });
 </script>
 ```
-
-### Async default
-
-**Will remove before the canary release as it doesn't always work - you sometimes have to refresh the page (seems to be a Storybook issue). More likely to work in the "Live example" tab.**
-
-<Canvas withSource="none">
-  <Story name="Async Default">{AsyncDefault()}</Story>
-</Canvas>
-
-### Scroll behaviour
-
-**Will remove before the canary release as it's mainly for review purposes i.e. doesn't demonstrate the behaviour of a prop.**
-
-<Canvas withSource="none">
-  <Story name="Scroll Behaviour">{ScrollBehaviour()}</Story>
-</Canvas>

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-select multi should not render a native select on a mobile / tablet screen 1`] = `
-<ic-select class="default" label="IC Select Test" multiple="true">
+<ic-select label="IC Select Test" multiple="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-67" helpertext="" label="IC Select Test"></ic-input-label>
@@ -69,7 +69,7 @@ exports[`ic-select multi should not render a native select on a mobile / tablet 
 `;
 
 exports[`ic-select multi should test keydown on menu - arrow down, up, and enter 1`] = `
-<ic-select class="default" label="IC Select Test" multiple="true">
+<ic-select label="IC Select Test" multiple="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-70" helpertext="" label="IC Select Test"></ic-input-label>
@@ -93,7 +93,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
         </div>
       </ic-input-component-container>
       <ic-menu class="default multiple no-focus no-results open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
+        <ul aria-activedescendant="ic-select-input-70-menu-Test value 1" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="focused-option option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-70-menu-Test value 1" role="option" tabindex="0">
             <div class="option-text-container">
               <div class="option-label">
@@ -142,7 +142,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 `;
 
 exports[`ic-select multi should test keydown on menu - arrow down, up, and enter 2`] = `
-<ic-select class="default" label="IC Select Test" multiple="true">
+<ic-select label="IC Select Test" multiple="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-70" helpertext="" label="IC Select Test"></ic-input-label>
@@ -166,7 +166,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
         </div>
       </ic-input-component-container>
       <ic-menu class="default multiple no-focus no-results open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
-        <ul aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
+        <ul aria-activedescendant="ic-select-input-70-menu-Test value 2" aria-label="IC Select Test pop-up" aria-multiselectable="true" class="menu" id="ic-select-input-70-menu" role="listbox" tabindex="-1">
           <li aria-disabled="false" aria-label="Test label 1" aria-selected="true" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-70-menu-Test value 1" role="option" tabindex="0">
             <div class="option-text-container">
               <div class="option-label">
@@ -218,7 +218,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 `;
 
 exports[`ic-select searchable should render as required: required-searchable 1`] = `
-<ic-select class="default searchable" label="IC Select Test" required="true" searchable="true">
+<ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-26" helpertext="" label="IC Select Test" required=""></ic-input-label>
@@ -256,7 +256,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 `;
 
 exports[`ic-select single native should test native select with groups: native-select-with-groups 1`] = `
-<ic-select class="default" label="IC Select Test">
+<ic-select label="IC Select Test">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-24" helpertext="" label="New label"></ic-input-label>
@@ -290,7 +290,7 @@ exports[`ic-select single native should test native select with groups: native-s
 `;
 
 exports[`ic-select single native should test native select: native-select 1`] = `
-<ic-select class="default" label="IC Select Test">
+<ic-select label="IC Select Test">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-23" helpertext="" label="New label"></ic-input-label>
@@ -317,7 +317,7 @@ exports[`ic-select single native should test native select: native-select 1`] = 
 `;
 
 exports[`ic-select single should have correct validation status: with-validation-status-error 1`] = `
-<ic-select class="default" label="IC Select Test" validation-status="error">
+<ic-select label="IC Select Test" validation-status="error">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-3" helpertext="" label="IC Select Test"></ic-input-label>
@@ -363,7 +363,7 @@ exports[`ic-select single should have correct validation status: with-validation
 `;
 
 exports[`ic-select single should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
-<ic-select class="default disabled" disabled="" label="IC Select Test" validation-status="error">
+<ic-select class="disabled" disabled="" label="IC Select Test" validation-status="error">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-4" helpertext="" label="IC Select Test"></ic-input-label>
@@ -408,7 +408,7 @@ exports[`ic-select single should not have a validation status if disabled: no-va
 `;
 
 exports[`ic-select single should not render a label when the 'hide-label' prop is supplied: hide-label-set 1`] = `
-<ic-select class="default" hide-label="" label="IC Select Test">
+<ic-select hide-label="" label="IC Select Test">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-component-container class="default">
@@ -452,7 +452,7 @@ exports[`ic-select single should not render a label when the 'hide-label' prop i
 `;
 
 exports[`ic-select single should not render validation text if no validation status has been supplied: no-validation-text-if-no-status 1`] = `
-<ic-select class="default" label="IC Select Test" validation-text="Test validation text">
+<ic-select label="IC Select Test" validation-text="Test validation text">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-6" helpertext="" label="IC Select Test"></ic-input-label>
@@ -497,7 +497,7 @@ exports[`ic-select single should not render validation text if no validation sta
 `;
 
 exports[`ic-select single should render correct validation text: with-validation-text 1`] = `
-<ic-select class="default" label="IC Select Test" validation-status="error" validation-text="Test validation text">
+<ic-select label="IC Select Test" validation-status="error" validation-text="Test validation text">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-5" helpertext="" label="IC Select Test"></ic-input-label>
@@ -543,7 +543,7 @@ exports[`ic-select single should render correct validation text: with-validation
 `;
 
 exports[`ic-select single should render readonly: readonly 1`] = `
-<ic-select class="default" label="IC Select Test" readonly="true">
+<ic-select label="IC Select Test" readonly="true">
   <mock:shadow-root>
     <ic-input-container readonly="">
       <ic-input-label for="ic-select-input-2" helpertext="" label="IC Select Test" readonly=""></ic-input-label>
@@ -577,7 +577,7 @@ exports[`ic-select single should render readonly: readonly 1`] = `
 `;
 
 exports[`ic-select single should test select as submit on form 1`] = `
-<ic-select class="default" form="new-form" id="ic-select" label="IC Select Test" value="test-value">
+<ic-select form="new-form" id="ic-select" label="IC Select Test" value="test-value">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-1" helpertext="" label="IC Select Test"></ic-input-label>
@@ -622,7 +622,7 @@ exports[`ic-select single should test select as submit on form 1`] = `
 `;
 
 exports[`ic-select single should test with clear button: with-clear-button 1`] = `
-<ic-select class="default" label="IC Select Test" show-clear-button="true" value="test-value">
+<ic-select label="IC Select Test" show-clear-button="true" value="test-value">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-7" helpertext="" label="IC Select Test"></ic-input-label>

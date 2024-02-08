@@ -1,4 +1,4 @@
-@import "../../global/normalize.css";
+@import "../../../dist/core/normalize.css";
 
 /**
  * @prop --input-width: Width of the input field
