@@ -1758,7 +1758,7 @@ export namespace Components {
          */
         "disableTopBarBehaviour": boolean;
         /**
-          * If `true`, the side navigation will load in an expanded state.
+          * If `true`, the side navigation will display in an expanded state.
          */
         "expanded": boolean;
         /**
@@ -5014,7 +5014,7 @@ declare namespace LocalJSX {
          */
         "disableTopBarBehaviour"?: boolean;
         /**
-          * If `true`, the side navigation will load in an expanded state.
+          * If `true`, the side navigation will display in an expanded state.
          */
         "expanded"?: boolean;
         /**
