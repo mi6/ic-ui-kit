@@ -87,21 +87,6 @@ export const OPTIONS_WITH_RECOMMENDED = [
   { label: "Macchiato", value: "Mac" },
 ];
 
-export const MANY_OPTIONS = [
-  { label: "Cappuccino", value: "Cap" },
-  { label: "Latte", value: "Lat" },
-  { label: "Americano", value: "Ame" },
-  { label: "Filter", value: "Fil" },
-  { label: "Flat white", value: "Fla" },
-  { label: "Mocha", value: "Moc" },
-  { label: "Macchiato", value: "Mac" },
-  { label: "Café au lait", value: "Caf" },
-  { label: "Espresso", value: "Esp" },
-  { label: "Cortado", value: "Cor" },
-  { label: "Ristretto", value: "Ris" },
-  { label: "Latte macchiato", value: "Lam" },
-];
-
 export const createMultiSelectElement = (
   options: IcMenuOption[] = OPTIONS
 ): HTMLIcSelectWithMultiElement => {
@@ -288,20 +273,4 @@ export const InForm = (): HTMLDivElement => {
   });
 
   return createContainer([form]);
-};
-
-export const AsyncDefault = (): HTMLDivElement => {
-  const multiSelect = createMultiSelectElement([]);
-  multiSelect.setAttribute("loading", "true");
-
-  setTimeout(() => {
-    multiSelect.options = OPTIONS;
-  }, 5000);
-
-  return createContainer([multiSelect]);
-};
-
-export const ScrollBehaviour = (): HTMLDivElement => {
-  const multiSelect = createMultiSelectElement(MANY_OPTIONS);
-  return createContainer([multiSelect], "480px");
 };

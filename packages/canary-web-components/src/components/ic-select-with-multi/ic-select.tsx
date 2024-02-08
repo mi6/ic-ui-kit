@@ -10,6 +10,11 @@ import {
   State,
   Watch,
 } from "@stencil/core";
+import { IcOptionSelectEventDetail } from "@ukic/web-components/dist/types/components";
+import {
+  IcMenuOption,
+  IcSizes,
+} from "@ukic/web-components/dist/types/utils/types";
 
 import {
   getInputDescribedByText,
@@ -29,15 +34,12 @@ import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
   IcInformationStatus,
   IcInformationStatusOrEmpty,
-  IcThemeForegroundEnum,
-  IcMenuOption,
   IcSearchMatchPositions,
-  IcSizes,
+  IcThemeForegroundEnum,
   IcValueEventDetail,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
-import { IcOptionSelectEventDetail } from "@ukic/web-components/dist/types/components";
 
 let inputIds = 0;
 
@@ -82,7 +84,7 @@ export class Select {
   @State() searchableSelectInputValue: string = null;
 
   /**
-   * @deprecated This prop should not be used anymore.
+   * **[DEPRECATED]** This prop should not be used anymore.
    */
   @Prop() charactersUntilSuggestions?: number = 0;
 
@@ -224,7 +226,7 @@ export class Select {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+   * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
    */
   @Prop() small?: boolean = false;
 
@@ -319,6 +321,7 @@ export class Select {
     if (this.value !== this.currValue) {
       if (this.value && this.multiple) {
         this.currValue = this.getValueSortedByOptions(this.value as string[]);
+        this.updateMultiSelectedCountAriaLive();
       } else {
         this.currValue = this.value;
       }
@@ -447,10 +450,10 @@ export class Select {
     }
   }
 
-  private emitIcChange = (value: string | string[]) => {
+  private emitIcChange = (value: string | string[] | null) => {
     if (!this.searchable) {
       // If "Select all" button clicked, replace value with new value (array of all option values)
-      if (this.multiple && !Array.isArray(value)) {
+      if (this.multiple && !Array.isArray(value) && value !== null) {
         this.handleMultipleSelectChange(value as string);
       } else {
         this.value = value;
@@ -653,7 +656,7 @@ export class Select {
         valueArray = this.getValueSortedByOptions(valueArray);
       }
 
-      this.value = valueArray;
+      this.value = valueArray.length === 0 ? null : valueArray;
     } else {
       const valueArray = [];
       valueArray.push(value);
@@ -688,7 +691,7 @@ export class Select {
       (this.value as string[]).forEach((value) =>
         this.icOptionDeselect.emit({ value })
       );
-      newValue = [];
+      newValue = null;
     }
 
     this.emitIcChange(newValue);
@@ -1002,6 +1005,23 @@ export class Select {
     }, 800);
   }
 
+  private updateMultiSelectedCountAriaLive = (): void => {
+    const multiSelectSelectedCountEl = this.el.shadowRoot.querySelector(
+      ".multi-select-selected-count"
+    ) as HTMLDivElement;
+
+    const selectedCount = `${
+      this.currValue?.length
+    } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
+
+    if (
+      multiSelectSelectedCountEl &&
+      multiSelectSelectedCountEl.innerText !== selectedCount
+    ) {
+      multiSelectSelectedCountEl.innerText = selectedCount;
+    }
+  };
+
   private getDefaultValue = (value: string): string | null =>
     this.getLabelFromValue(value) || value || null;
 
@@ -1125,7 +1145,7 @@ export class Select {
           disabled: disabled,
           searchable: searchable,
           small: small,
-          [size]: true,
+          [size]: size !== "default",
           "full-width": fullWidth,
         }}
         onBlur={this.onBlur}
@@ -1409,9 +1429,7 @@ export class Select {
               aria-live="polite"
               role="status"
               class="multi-select-selected-count"
-            >
-              {currValue && optionsSelectedCount}
-            </div>
+            ></div>
           )}
           {hasValidationStatus(this.validationStatus, this.disabled) && (
             <ic-input-validation

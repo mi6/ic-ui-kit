@@ -576,7 +576,7 @@ describe("ic-select-with-multi", () => {
           value: null,
         });
         clearButton = await page.find("ic-select-with-multi >>> .clear-button");
-        expect(clearButton).toBeNull;
+        expect(clearButton).toBe(null);
       });
     });
 
@@ -2743,7 +2743,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       expect(icChange).toHaveReceivedEventDetail({
-        value: [],
+        value: null,
       });
       expect(icOptionDeselect).toHaveReceivedEventDetail({
         value: "Test value 1",
@@ -2883,7 +2883,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       expect(icChange).toHaveReceivedEventDetail({
-        value: [],
+        value: null,
       });
       expect(icOptionDeselect).toHaveReceivedEventTimes(3);
     });
@@ -2943,7 +2943,7 @@ describe("ic-select-with-multi", () => {
       await page.waitForChanges();
 
       expect(icChange).toHaveReceivedEventDetail({
-        value: [],
+        value: null,
       });
     });
 
