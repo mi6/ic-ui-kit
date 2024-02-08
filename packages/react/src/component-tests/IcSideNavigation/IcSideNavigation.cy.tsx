@@ -15,6 +15,7 @@ import {
 } from "../utils/constants";
 import {
   BasicSideNav,
+  DynamicExpandedSideNav,
   ExpandedSideNav,
   GroupedSideNav,
   LongPropsSideNav,
@@ -260,6 +261,16 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(true);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
+      cy.checkSideNavSize(false);
+    });
+
+    it("renders collapsed and expanded when expanded state is externally controlled", () => {
+      mount(<DynamicExpandedSideNav />);
+
+      cy.get("#expand-btn").click();
+      cy.checkSideNavSize(true);
+
+      cy.get("#collapse-btn").click();
       cy.checkSideNavSize(false);
     });
 
