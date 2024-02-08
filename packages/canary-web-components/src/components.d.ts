@@ -9,13 +9,13 @@ import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrde
 import { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcActivationTypes, IcMenuOption, IcSizes } from "@ukic/web-components/dist/types/utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
-import { IcInformationStatusOrEmpty, IcMenuOption as IcMenuOption1, IcSearchMatchPositions, IcSizes as IcSizes1, IcValueEventDetail } from "./utils/types";
+import { IcInformationStatusOrEmpty, IcSearchMatchPositions, IcValueEventDetail } from "./utils/types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableSortOrderOptions } from "./components/ic-data-table/ic-data-table.types";
 export { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 export { IcActivationTypes, IcMenuOption, IcSizes } from "@ukic/web-components/dist/types/utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
-export { IcInformationStatusOrEmpty, IcMenuOption as IcMenuOption1, IcSearchMatchPositions, IcSizes as IcSizes1, IcValueEventDetail } from "./utils/types";
+export { IcInformationStatusOrEmpty, IcSearchMatchPositions, IcValueEventDetail } from "./utils/types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export namespace Components {
     interface IcDataTable {
@@ -202,7 +202,7 @@ export namespace Components {
     }
     interface IcSelectWithMulti {
         /**
-          * @deprecated This prop should not be used anymore.
+          * **[DEPRECATED]** This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**
@@ -292,7 +292,7 @@ export namespace Components {
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption1[];
+        "options"?: IcMenuOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -328,9 +328,9 @@ export namespace Components {
         /**
           * The size of the select.
          */
-        "size"?: IcSizes1;
+        "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
@@ -636,7 +636,7 @@ declare namespace LocalJSX {
     }
     interface IcSelectWithMulti {
         /**
-          * @deprecated This prop should not be used anymore.
+          * **[DEPRECATED]** This prop should not be used anymore.
          */
         "charactersUntilSuggestions"?: number;
         /**
@@ -758,7 +758,7 @@ declare namespace LocalJSX {
         /**
           * The possible selection options.
          */
-        "options"?: IcMenuOption1[];
+        "options"?: IcMenuOption[];
         /**
           * The placeholder value to be displayed.
          */
@@ -790,9 +790,9 @@ declare namespace LocalJSX {
         /**
           * The size of the select.
          */
-        "size"?: IcSizes1;
+        "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
+          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
          */
         "small"?: boolean;
         /**
