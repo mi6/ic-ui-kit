@@ -8,6 +8,7 @@ import {
   Listen,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 
 import menuIcon from "../../assets/hamburger-menu-icon.svg";
@@ -83,9 +84,14 @@ export class SideNavigation {
   @Prop() disableTopBarBehaviour: boolean = false;
 
   /**
-   * If `true`, the side navigation will load in an expanded state.
+   * If `true`, the side navigation will display in an expanded state.
    */
   @Prop() expanded: boolean = false;
+
+  @Watch("expanded")
+  watchExpandedHandler(): void {
+    this.setMenuExpanded(this.expanded);
+  }
 
   /**
    * The URL that the app title link points to.

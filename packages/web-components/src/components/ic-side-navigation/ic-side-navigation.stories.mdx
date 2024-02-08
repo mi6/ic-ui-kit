@@ -431,10 +431,22 @@ import readme from "./readme.md";
           class="content-wrapper"
           style="display:flex; flex-direction: column;"
         >
-          <main>This is the content</main>
+          <main>
+            <ic-button onclick="expandedClickHandler()">Expand</ic-button>
+            <ic-button onclick="collapsedClickHandler()">Collapse</ic-button>
+          </main>
           <footer>Footer</footer>
         </div>
       </div>
+      <script>
+        var icSideNav = document.querySelector("ic-side-navigation");
+        function expandedClickHandler() {
+          icSideNav.expanded = true;
+        }
+        function collapsedClickHandler() {
+          icSideNav.expanded = false;
+        }
+      </script>
     `}
   </Story>
 </Canvas>
