@@ -777,6 +777,23 @@ describe("IcSelect searchable", () => {
     cy.checkA11yWithWait();
   });
 
+  it("renders large", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeOptions}
+        size="large"
+        searchable
+      />
+    );
+    cy.checkHydrated("ic-select");
+    cy.compareSnapshot("searchable-large", DEFAULT_TEST_THRESHOLD);
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.compareSnapshot("searchable-large-open", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.checkA11yWithWait();
+  });
+
   it("renders small - deprecated", () => {
     mount(
       <IcSelect

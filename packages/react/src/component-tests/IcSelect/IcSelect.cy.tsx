@@ -1397,6 +1397,21 @@ describe("IcSelect", () => {
     });
   });
 
+  it("renders large", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeOptions}
+        size="large"
+      />
+    );
+    cy.checkHydrated("ic-select");
+    cy.compareSnapshot("large", DEFAULT_TEST_THRESHOLD);
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.compareSnapshot("large-open", DEFAULT_TEST_THRESHOLD + 0.02);
+  });
+
   it("renders small - deprecated", () => {
     mount(
       <IcSelect
