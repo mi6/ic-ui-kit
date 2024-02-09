@@ -7840,15 +7840,15 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"default\" | \"large\" | \"small\"",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizesNoLarge"
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -7861,6 +7861,10 @@
           "values": [
             {
               "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
               "type": "string"
             },
             {
@@ -13166,15 +13170,15 @@
         },
         {
           "name": "size",
-          "type": "\"default\" | \"small\"",
+          "type": "\"default\" | \"large\" | \"small\"",
           "complexType": {
-            "original": "IcSizesNoLarge",
-            "resolved": "\"default\" | \"small\"",
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
             "references": {
-              "IcSizesNoLarge": {
+              "IcSizes": {
                 "location": "import",
                 "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcSizesNoLarge"
+                "id": "src/utils/types.ts::IcSizes"
               }
             }
           },
@@ -13187,6 +13191,10 @@
           "values": [
             {
               "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
               "type": "string"
             },
             {
