@@ -16,7 +16,7 @@ import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 import {
   IcActivationTypes,
   IcMenuOption,
-  IcSizesNoLarge,
+  IcSizes,
   IcValueEventDetail,
 } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
@@ -126,7 +126,7 @@ export class Menu {
   /**
    * The size of the menu component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
@@ -991,8 +991,8 @@ export class Menu {
       fullWidth,
       hasTimedOut,
       isLoading,
-      small,
       size,
+      small,
       open,
       inputEl,
       keyboardNav,
@@ -1003,7 +1003,8 @@ export class Menu {
         class={{
           "full-width": fullWidth,
           "no-focus": inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
-          small: small || size === "small",
+          small: small,
+          [size]: true,
           open: open,
         }}
       >
