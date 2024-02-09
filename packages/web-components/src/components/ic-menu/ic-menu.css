@@ -64,7 +64,7 @@
 
 :host(.open) .menu {
   visibility: visible;
-  max-height: 20.125rem;
+  max-height: calc(var(--ic-space-xl) * 10 + var(--ic-space-xxxs));
 }
 
 :host(.full-width) {
@@ -72,7 +72,7 @@
 }
 
 .option {
-  padding: 0.5rem 0.438rem;
+  padding: var(--ic-space-xs) calc(var(--ic-space-xs) - var(--ic-space-1px));
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -83,7 +83,11 @@
 }
 
 :host(.small) .option {
-  padding: 0.25rem 0.438rem;
+  padding: var(--ic-space-xxs) calc(var(--ic-space-xs) - var(--ic-space-1px));
+}
+
+:host(.large) .option {
+  padding: var(--ic-space-sm) calc(var(--ic-space-xs) - var(--ic-space-1px));
 }
 
 .option:last-child {
@@ -132,7 +136,7 @@
 }
 
 .option.loading-option .option-text-container {
-  margin-left: 0.625rem;
+  margin-left: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
   color: var(--ic-color-secondary-text);
 }
 
@@ -152,7 +156,7 @@
 .check-icon {
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
-  margin-left: 0.5rem;
+  margin-left: var(--ic-space-xs);
   pointer-events: none;
 }
 
@@ -161,12 +165,14 @@
 }
 
 .option-group-title {
-  padding: 1.5rem 0.438rem 0.5rem;
+  padding: var(--ic-space-lg) calc(var(--ic-space-xs) - var(--ic-space-1px))
+    var(--ic-space-xs);
   color: var(--ic-color-tertiary-text);
 }
 
 :host(.small) .option-group-title {
-  padding: 0.75rem 0.438rem 0.25rem;
+  padding: var(--ic-space-sm) calc(var(--ic-space-xs) - var(--ic-space-1px))
+    var(--ic-space-xxs);
 }
 
 .last-recommended-option {

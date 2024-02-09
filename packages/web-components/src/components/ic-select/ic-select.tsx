@@ -32,7 +32,7 @@ import {
   IcMenuOption,
   IcSearchMatchPositions,
   IcValueEventDetail,
-  IcSizesNoLarge,
+  IcSizes,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
@@ -215,7 +215,7 @@ export class Select {
   /**
    * The size of the select component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
@@ -1012,7 +1012,8 @@ export class Select {
         class={{
           disabled: disabled,
           searchable: searchable,
-          small: small || size === "small",
+          small: small,
+          [size]: size !== "default",
           "full-width": fullWidth,
         }}
         onBlur={this.onBlur}
@@ -1031,7 +1032,8 @@ export class Select {
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
-            small={small || size === "small"}
+            small={small}
+            size={size}
             fullWidth={fullWidth}
             disabled={disabled}
             readonly={readonly}
@@ -1252,7 +1254,8 @@ export class Select {
               }
               inputLabel={label}
               anchorEl={this.anchorEl}
-              small={small || size === "small"}
+              small={small}
+              size={size}
               menuId={menuId}
               open={this.open}
               options={searchable ? this.filteredOptions : this.uniqueOptions}
