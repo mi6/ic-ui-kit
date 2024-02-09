@@ -27,7 +27,8 @@ import menuGroupReadme from "../../../web-components/src/components/ic-menu-grou
   <Story name="Default">
     {() => {
       function buttonClick() {
-        document.querySelector("ic-popover-menu").open = true;
+        document.querySelector("ic-popover-menu").open =
+          !document.querySelector("ic-popover-menu").open;
       }
       return (
         <>
@@ -79,7 +80,8 @@ import menuGroupReadme from "../../../web-components/src/components/ic-menu-grou
   <Story name="Left placement">
     {() => {
       function buttonClick() {
-        document.querySelector("ic-popover-menu").open = true;
+        document.querySelector("ic-popover-menu").open =
+          !document.querySelector("ic-popover-menu").open;
       }
       return (
         <>
@@ -133,7 +135,8 @@ import menuGroupReadme from "../../../web-components/src/components/ic-menu-grou
   <Story name="Top placement">
     {() => {
       function buttonClick() {
-        document.querySelector("ic-popover-menu").open = true;
+        document.querySelector("ic-popover-menu").open =
+          !document.querySelector("ic-popover-menu").open;
       }
       return (
         <>
