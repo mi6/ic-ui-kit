@@ -338,6 +338,7 @@ describe("ic-popover-menu", () => {
     });
     await page.waitForChanges();
     expect(page.rootInstance.closeMenu).toHaveBeenCalled();
+    //TODO: When we move to cypress, make sure the AnchorEl is focused (backing out of menu should return focus to button)
   });
 
   it("should set close menu on Tab", async () => {
@@ -362,6 +363,7 @@ describe("ic-popover-menu", () => {
     });
     await page.waitForChanges();
     expect(page.rootInstance.closeMenu).toHaveBeenCalled();
+    //TODO: When we move to cypress, make sure that an element after the AnchorEl is focused (tabbing out of menu onto next element)
   });
 
   it("should set the current popover's open prop to false when submenu is triggered", async () => {
@@ -453,6 +455,7 @@ describe("ic-popover-menu", () => {
     await page.rootInstance.handleClick(event);
     await page.waitForChanges();
     expect(page.rootInstance.closeMenu).toHaveBeenCalled();
+    //TODO: When we move to cypress, make sure the AnchorEl is not focused (clicking off popover should focus whatever has been clicked instead)
   });
 
   it("should set current popover's open prop to false when back button is clicked", async () => {
