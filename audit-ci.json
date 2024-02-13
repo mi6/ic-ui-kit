@@ -27,6 +27,13 @@
         "notes": "axios - current version installed is 1.4 and doesn't update",
         "expiry": "01 March 2024"
       }
-    }    
+    },
+    {
+      "GHSA-78xj-cgh5-2h22": {
+        "active": true,
+        "notes": "ip package version ^2.0.0 is a dependency of storybook 7.6.10",
+        "expiry": "01 March 2024"
+      }
+    }  
   ]
 }
