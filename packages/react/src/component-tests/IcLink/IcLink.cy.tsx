@@ -1,0 +1,126 @@
+/* eslint-disable react/jsx-no-bind */
+/// <reference types="Cypress" />
+
+import React from "react";
+import { IcLink } from "../../components";
+import { mount } from "cypress/react";
+
+const DEFAULT_TEST_THRESHOLD = 0.05;
+
+describe("IcLink e2e, A11y and visual regression tests", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("IcLink", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/components/link/code">About our coffees</IcLink>
+      </div>
+    );
+    cy.checkHydrated("ic-link");
+    cy.compareSnapshot({
+      name: "defaultLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.get("ic-link").shadow().find("a").focus();
+    cy.compareSnapshot({
+      name: "defaultFocusLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("render iclink dark ", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink appearance={"dark"} href="/components/link/code">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+    cy.compareSnapshot({
+      name: "darkLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.get("ic-link").shadow().find("a").focus();
+    cy.compareSnapshot({
+      name: "darkFocusLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("render light links", () => {
+    mount(
+      <div
+        style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
+      >
+        <IcLink href="/" appearance="light">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+    cy.compareSnapshot({
+      name: "lightLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.get("ic-link").shadow().find("a").focus();
+    cy.compareSnapshot({
+      name: "lightFocusLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("verify download link should exsit on DOM", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink download href="/components/link/code">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+    cy.get('[download="true"]').should("exist");
+    cy.checkA11yWithWait();
+  });
+
+  it("render link with Icon", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/" target="_blank">
+          About our coffees
+        </IcLink>
+      </div>
+    );
+    cy.compareSnapshot({
+      name: "linkWithIcon",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("render light links with light and dark ", () => {
+    mount(
+      <div style={{ margin: "25px" }}>
+        <IcLink href="/" appearance="dark" target="_blank">
+          About our coffees
+        </IcLink>
+        <div style={{ backgroundColor: "black" }}>
+          <IcLink href="/" appearance="light" target="_blank">
+            About our coffees
+          </IcLink>
+        </div>
+      </div>
+    );
+    cy.compareSnapshot({
+      name: "lightAndDarkLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
+  });
+});
