@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default"  parameters={{ layout: "fullscreen", loki: { skip: true } }}>
     {html`<ic-link href="/">This is a link</ic-link>`}
   </Story>
 </Canvas>
@@ -23,7 +23,7 @@ import readme from "./readme.md";
 ### With icon
 
 <Canvas>
-  <Story name="With icon">
+  <Story name="With icon"  parameters={{ layout: "fullscreen", loki: { skip: true } }}>
     {html`<ic-link href="/" show-icon>This is a link</ic-link>`}
   </Story>
 </Canvas>
@@ -31,7 +31,7 @@ import readme from "./readme.md";
 ### Dark
 
 <Canvas>
-  <Story name="Dark">
+  <Story name="Dark"  parameters={{ layout: "fullscreen", loki: { skip: true } }}>
     {html`<ic-link href="/" appearance="dark" target="_blank"
       >This is a link</ic-link
     >`}
@@ -41,7 +41,7 @@ import readme from "./readme.md";
 ### Light
 
 <Canvas>
-  <Story name="Light" parameters={{ backgrounds: { default: "dark" } }}>
+  <Story name="Light" parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}>
     {html` <ic-link href="/" appearance="light" show-icon
       >This is a link</ic-link
     >`}
