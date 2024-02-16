@@ -393,7 +393,10 @@ Below is an example of a visual regression test within an integration test.
     // Check the component has hydrated to avoid basic errors
     cy.checkHydrated("ic-button");
 
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+        name: "default", 
+        testThreshold: DEFAULT_TEST_THRESHOLD
+    });
   });
 ```
 
