@@ -24,7 +24,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("static", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "static",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -35,7 +38,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("outlined", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "outlined",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -57,7 +63,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("with-icon", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "with-icon",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -70,7 +79,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("sizes", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "sizes",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -83,12 +95,18 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("dismissible", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "dismissible",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-chip#small-chip", "button").focus();
 
-    cy.compareSnapshot("dismissible-focus", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "dismissible-focus",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -100,7 +118,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "disabled",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("renders with long label", () => {
@@ -124,7 +145,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("long-label", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "long-label",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -145,7 +169,10 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("white-background", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "white-background",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 });

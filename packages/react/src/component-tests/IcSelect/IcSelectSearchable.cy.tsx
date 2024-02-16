@@ -64,15 +64,18 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-default",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.get("ic-select").shadow().find("input").type("ca");
-    cy.compareSnapshot(
-      "searchable-default-open",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
+    cy.compareSnapshot({
+      name: "searchable-default-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-select", IC_MENU_LI)
@@ -646,17 +649,17 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot(
-      "searchable-default-value",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
+    cy.compareSnapshot({
+      name: "searchable-default-value",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).click();
 
-    cy.compareSnapshot(
-      "searchable-default-value-open",
-      DEFAULT_TEST_THRESHOLD + 0.07
-    );
+    cy.compareSnapshot({
+      name: "searchable-default-value-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.07,
+    });
 
     cy.checkA11yWithWait();
   });
@@ -673,10 +676,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-search-match-position-open",
-      DEFAULT_TEST_THRESHOLD + 0.01
-    );
+    cy.compareSnapshot({
+      name: "searchable-search-match-position-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -691,10 +694,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-descriptions-open",
-      DEFAULT_TEST_THRESHOLD + 0.04
-    );
+    cy.compareSnapshot({
+      name: "searchable-descriptions-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -709,10 +712,10 @@ describe("IcSelect searchable", () => {
     );
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
-    cy.compareSnapshot(
-      "searchable-descriptions-in-filter-open",
-      DEFAULT_TEST_THRESHOLD + 0.05
-    );
+    cy.compareSnapshot({
+      name: "searchable-descriptions-in-filter-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -726,7 +729,10 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-custom-placeholder", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-custom-placeholder",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -741,10 +747,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-custom-elements-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.compareSnapshot({
+      name: "searchable-custom-elements-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -758,10 +764,16 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-small",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("searchable-small-open", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "searchable-small-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -775,13 +787,16 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-small-deprecated", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-small-deprecated",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot(
-      "searchable-small-open-deprecated",
-      DEFAULT_TEST_THRESHOLD + 0.03
-    );
+    cy.compareSnapshot({
+      name: "searchable-small-open-deprecated",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -795,7 +810,10 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-disabled", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-disabled",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -810,10 +828,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-disabled-options-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.compareSnapshot({
+      name: "searchable-disabled-options-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -827,13 +845,16 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("searchable-full-width", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "searchable-full-width",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-full-width-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.compareSnapshot({
+      name: "searchable-full-width-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -848,7 +869,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot("searchable-groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "searchable-groups-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -864,10 +888,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
-    cy.compareSnapshot(
-      "searchable-groups-in-filter-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.compareSnapshot({
+      name: "searchable-groups-in-filter-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -882,10 +906,10 @@ describe("IcSelect searchable", () => {
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
-    cy.compareSnapshot(
-      "searchable-recommended-open",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.compareSnapshot({
+      name: "searchable-recommended-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 });

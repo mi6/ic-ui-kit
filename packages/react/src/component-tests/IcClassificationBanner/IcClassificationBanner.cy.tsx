@@ -19,7 +19,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
   it("tests default banner", () => {
     mount(<IcClassificationBanner></IcClassificationBanner>);
 
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -28,7 +31,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       <IcClassificationBanner classification="official"></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("official", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "official",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -37,7 +43,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       <IcClassificationBanner classification="official-sensitive"></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("official-sensitive", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "official-sensitive",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -46,7 +55,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       <IcClassificationBanner classification="secret"></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("secret", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "secret",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -55,7 +67,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       <IcClassificationBanner classification="top-secret"></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("top-secret", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "top-secret",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -67,7 +82,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       ></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("country official", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "country official",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -79,7 +97,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       ></IcClassificationBanner>
     );
 
-    cy.compareSnapshot("up to official", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "up to official",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -103,10 +124,10 @@ describe("IcClassificationButton visual and a11y testing", () => {
       </div>
     );
 
-    cy.wait(500).compareSnapshot(
-      "inline official",
-      DEFAULT_TEST_THRESHOLD + 0.03
-    );
+    cy.wait(500).compareSnapshot({
+      name: "inline official",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
 });

@@ -33,7 +33,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
       </IcHero>
     );
     cy.checkHydrated("ic-hero");
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -52,7 +55,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot("centerHero", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "centerHero",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -71,7 +77,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot("centerContentHero", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "centerContentHero",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -90,7 +99,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "small",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -105,10 +117,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
       </IcHero>
     );
-    cy.wait(500).compareSnapshot(
-      "secondaryHeading_Serch",
-      DEFAULT_TEST_THRESHOLD + 0.05
-    );
+    cy.wait(500).compareSnapshot({
+      name: "secondaryHeading_Serch",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -137,7 +149,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         />
       </IcHero>
     );
-    cy.compareSnapshot("cardContent", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "cardContent",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -178,7 +193,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         </SlottedSVG>
       </IcHero>
     );
-    cy.compareSnapshot("imageRight", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "imageRight",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -197,7 +215,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot("backgroundImage", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "backgroundImage",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -210,7 +231,10 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
         <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
       </IcHero>
     );
-    cy.wait(500).compareSnapshot("searchbar", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.wait(500).compareSnapshot({
+      name: "searchbar",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 });

@@ -9,7 +9,7 @@ export const config = {
     },
     fixturesFolder: "./src/component-tests",
     setupNodeEvents(on, config) {
-      const getCompareSnapshotsPlugin = require("cypress-image-diff-js/dist/plugin");
+      const getCompareSnapshotsPlugin = require("cypress-image-diff-js/plugin");
       getCompareSnapshotsPlugin(on, config);
       on('before:browser:launch', (_browser, launchActions) => {
         launchActions.preferences.width = 1600;

@@ -6,7 +6,7 @@ import { CYPRESS_AXE_OPTIONS, CYPRESS_AXE_REPORTING } from "../utils/a11y";
 import { BE_VISIBLE, HAVE_CLASS } from "../../src/component-tests/utils/constants";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const compareSnapshotCommand = require("cypress-image-diff-js/dist/command");
+const compareSnapshotCommand = require("cypress-image-diff-js/command");
 compareSnapshotCommand();
 
 // Create the typing for the compareSnapshot command

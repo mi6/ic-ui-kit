@@ -61,9 +61,9 @@ typings/
 .next
 
 # cypress test report
-cypress-visual-report/
+cypress-image-diff-html-report/
 
 # diff images
-cypress-visual-screenshots/diff/
-cypress-visual-screenshots/comparison/
+cypress-image-diff-screenshots/diff/
+cypress-image-diff-screenshots/comparison/
 cypress/screenshots/
