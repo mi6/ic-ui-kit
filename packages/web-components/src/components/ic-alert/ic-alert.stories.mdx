@@ -136,3 +136,21 @@ import Button from "../ic-button/readme.md";
     </ic-alert>`}
   </Story>
 </Canvas>
+
+### Custom message and title above
+
+<Canvas>
+  <Story
+    name="Custom message and title above"
+    parameters={{ loki: { skip: true } }}
+  >
+    {html`<ic-alert
+      heading="Want to know more about our coffee?"
+      title-above="true"
+    >
+      <span slot="message" style="font:var(--ic-font-body)">
+        Go to our <ic-link href="/">coffee page</ic-link> to learn more.
+      </ic-typography>
+    </ic-alert>`}
+  </Story>
+</Canvas>
