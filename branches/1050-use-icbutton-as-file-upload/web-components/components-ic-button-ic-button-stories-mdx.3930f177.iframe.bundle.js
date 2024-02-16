@@ -1115,16 +1115,16 @@
       </div>
     `})}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"file-upload---will-show-how-file-upload-can-be-used-in-a-form",children:"File Upload - will show how file upload can be used in a form"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"File upload in a form",parameters:{loki:{skip:!0}},children:args=>lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
         <form>
-          <span id="selected-file">No File Selected</span>
           <div style="padding: 6px">
             <ic-button
               variant="primary"
               id="file-button"
               file-upload="true"
               accept=".doc, text/plain, .json"
-              >Upload File true</ic-button
+              >Select file to upload</ic-button
             >
           </div>
+          <span id="selected-file">No File Selected</span>
           <br />
           <br />
           <input type="submit" value="Submit" />
@@ -2263,16 +2263,16 @@
       </div>
     `;ariaDescribedby.storyName="Aria-describedby",ariaDescribedby.parameters={storySource:{source:'html`\n      <script>\n        function btnClick() {\n          var descEl = document.querySelector("#button-description");\n          descEl.innerText = "See, I told you it was amazing!";\n        }\n      <\/script>\n      <div style="padding: 6px">\n        <span id="button-description">This button does something amazing</span>\n        <br />\n        <ic-button\n          variant="primary"\n          onclick="btnClick()"\n          aria-describedby="button-description"\n          >Button</ic-button\n        >\n      </div>\n    `'},loki:{skip:!0}};const fileUploadInAForm=args=>lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
         <form>
-          <span id="selected-file">No File Selected</span>
           <div style="padding: 6px">
             <ic-button
               variant="primary"
               id="file-button"
               file-upload="true"
               accept=".doc, text/plain, .json"
-              >Upload File true</ic-button
+              >Select file to upload</ic-button
             >
           </div>
+          <span id="selected-file">No File Selected</span>
           <br />
           <br />
           <input type="submit" value="Submit" />
@@ -2294,5 +2294,5 @@
             window.alert(file.detail[0].name + " uploaded");
           });
         </script>
-      `;fileUploadInAForm.storyName="File upload in a form",fileUploadInAForm.parameters={storySource:{source:'args => html`\n        <form>\n          <span id="selected-file">No File Selected</span>\n          <div style="padding: 6px">\n            <ic-button\n              variant="primary"\n              id="file-button"\n              file-upload="true"\n              accept=".doc, text/plain, .json"\n              >Upload File true</ic-button\n            >\n          </div>\n          <br />\n          <br />\n          <input type="submit" value="Submit" />\n          <input type="reset" value="Reset" />\n        </form>\n        <script>\n          var descEl = document.querySelector("#selected-file");\n          var file;\n          onclick = document\n            .querySelector("#file-button")\n            .addEventListener("icFileSelection", (ev) => {\n              descEl.innerText = "File Selected: " + ev.detail[0].name;\n              file = ev;\n            });\n          document.querySelector("form").addEventListener("submit", (ev) => {\n            ev.preventDefault();\n            if (file == undefined) return;\n            console.log(file.detail[0]);\n            window.alert(file.detail[0].name + " uploaded");\n          });\n        <\/script>\n      `'},loki:{skip:!0}};const componentMeta={title:"Web Components/Button",tags:["stories-mdx"],includeStories:["primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm"]};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:function MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return MDXLayout?(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MDXLayout,{...props,children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_createMdxContent,{...props})}):_createMdxContent(props)}};const __WEBPACK_DEFAULT_EXPORT__=componentMeta,__namedExportsOrder=["defaultArgs","primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm"]}}]);
-//# sourceMappingURL=components-ic-button-ic-button-stories-mdx.f831d42d.iframe.bundle.js.map
+      `;fileUploadInAForm.storyName="File upload in a form",fileUploadInAForm.parameters={storySource:{source:'args => html`\n        <form>\n          <div style="padding: 6px">\n            <ic-button\n              variant="primary"\n              id="file-button"\n              file-upload="true"\n              accept=".doc, text/plain, .json"\n              >Select file to upload</ic-button\n            >\n          </div>\n          <span id="selected-file">No File Selected</span>\n          <br />\n          <br />\n          <input type="submit" value="Submit" />\n          <input type="reset" value="Reset" />\n        </form>\n        <script>\n          var descEl = document.querySelector("#selected-file");\n          var file;\n          onclick = document\n            .querySelector("#file-button")\n            .addEventListener("icFileSelection", (ev) => {\n              descEl.innerText = "File Selected: " + ev.detail[0].name;\n              file = ev;\n            });\n          document.querySelector("form").addEventListener("submit", (ev) => {\n            ev.preventDefault();\n            if (file == undefined) return;\n            console.log(file.detail[0]);\n            window.alert(file.detail[0].name + " uploaded");\n          });\n        <\/script>\n      `'},loki:{skip:!0}};const componentMeta={title:"Web Components/Button",tags:["stories-mdx"],includeStories:["primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm"]};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:function MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return MDXLayout?(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MDXLayout,{...props,children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_createMdxContent,{...props})}):_createMdxContent(props)}};const __WEBPACK_DEFAULT_EXPORT__=componentMeta,__namedExportsOrder=["defaultArgs","primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm"]}}]);
+//# sourceMappingURL=components-ic-button-ic-button-stories-mdx.3930f177.iframe.bundle.js.map
