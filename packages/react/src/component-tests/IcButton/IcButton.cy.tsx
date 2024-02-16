@@ -302,7 +302,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("primary", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "primary",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -355,7 +358,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("secondary", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "secondary",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -408,7 +414,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("tertiary", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "tertiary",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -433,7 +442,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("destructive", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "destructive",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -531,7 +543,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("with-icon", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "with-icon",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -562,7 +577,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("size", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "size",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -586,7 +604,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("icon-without-viewbox", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "icon-without-viewbox",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -622,7 +643,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "full-width",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -678,7 +702,7 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("icon", 0);
+    cy.compareSnapshot({ name: "icon", testThreshold: 0 });
     cy.checkA11yWithWait();
   });
 
@@ -844,7 +868,10 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot("dropdown", DEFAULT_TEST_THRESHOLD + 0.06);
+    cy.compareSnapshot({
+      name: "dropdown",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
+    });
     cy.checkA11yWithWait();
   });
 

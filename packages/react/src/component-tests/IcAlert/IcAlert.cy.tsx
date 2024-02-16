@@ -33,7 +33,10 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying miscellaneous messages.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("neutral", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "neutral",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
   it("Info Alert with Message and Icon", () => {
@@ -54,7 +57,10 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying information.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("info", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "info",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -76,7 +82,10 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying errors.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("error", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "error",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -98,7 +107,10 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying warnings.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("warning", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "warning",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -120,7 +132,10 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying success messages.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("success", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "success",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -134,7 +149,10 @@ describe("IcAlert", () => {
     );
     cy.checkHydrated("ic-alert");
     cy.get("ic-alert").should("exist");
-    cy.compareSnapshot("dismissable", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "dismissable",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.findShadowEl("ic-alert", "ic-button").should(BE_VISIBLE).click();
     cy.get("ic-alert").should(NOT_BE_VISIBLE);
     cy.checkA11yWithWait();
@@ -160,7 +178,10 @@ describe("IcAlert", () => {
         "This alert does not have 'title-above' added as a prop but it's forced to add it due to the length of the title."
       )
       .should(BE_VISIBLE);
-    cy.compareSnapshot("responsive", DEFAULT_TEST_THRESHOLD + 0.06);
+    cy.compareSnapshot({
+      name: "responsive",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -184,7 +205,10 @@ describe("IcAlert", () => {
         "This alert has the title at the top of the alert and the message below it."
       )
       .should(BE_VISIBLE);
-    cy.compareSnapshot("title-above-set", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "title-above-set",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
   it("With custom message slot and link", () => {
@@ -203,7 +227,10 @@ describe("IcAlert", () => {
       .contains("This alert uses a custom message slot")
       .should(BE_VISIBLE);
     cy.get("ic-link").click();
-    cy.compareSnapshot("custom-message", DEFAULT_TEST_THRESHOLD + 0.04);
+    cy.compareSnapshot({
+      name: "custom-message",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -230,7 +257,10 @@ describe("IcAlert", () => {
       .contains("This alert has an action.")
       .should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).click();
-    cy.compareSnapshot("with-action", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "with-action",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 });

@@ -59,49 +59,67 @@ describe("IcBadge", () => {
   it("renders success", () => {
     mount(badgeTypes("success"));
 
-    cy.compareSnapshot("success", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "success",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
   it("renders error", () => {
     mount(badgeTypes("error"));
 
-    cy.compareSnapshot("error", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "error",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
   it("renders warning", () => {
     mount(badgeTypes("warning"));
 
-    cy.compareSnapshot("warning", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "warning",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
   it("renders neutral", () => {
     mount(badgeTypes("neutral"));
 
-    cy.compareSnapshot("neutral", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "neutral",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
   it("renders light", () => {
     mount(badgeTypes("light"));
 
-    cy.compareSnapshot("light", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "light",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
   it("renders info", () => {
     mount(badgeTypes("info"));
 
-    cy.compareSnapshot("info", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({ name: "info", testThreshold: DEFAULT_TEST_THRESHOLD });
     cy.checkA11yWithWait();
   });
 
   it("renders custom", () => {
     mount(badgeTypes("custom", "#F8C8DC"));
 
-    cy.compareSnapshot("custom", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "custom",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -173,7 +191,10 @@ describe("IcBadge", () => {
       </div>
     );
 
-    cy.compareSnapshot("max-number", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "max-number",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -205,7 +226,10 @@ describe("IcBadge", () => {
       </div>
     );
 
-    cy.compareSnapshot("position-near", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "position-near",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -265,7 +289,10 @@ describe("IcBadge", () => {
       </IcTabContext>
     );
 
-    cy.wait(100).compareSnapshot("position-inline", DEFAULT_TEST_THRESHOLD);
+    cy.wait(100).compareSnapshot({
+      name: "position-inline",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 });

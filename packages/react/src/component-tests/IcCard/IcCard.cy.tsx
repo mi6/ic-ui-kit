@@ -11,7 +11,6 @@ import {
 import {
   BE_VISIBLE,
   HAVE_CLASS,
-  HAVE_CSS,
   HAVE_FOCUS,
   HAVE_LENGTH,
   NOT_HAVE_CLASS,
@@ -89,11 +88,17 @@ describe("IcCard", () => {
     cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
     cy.get("a").focus();
     cy.get("ic-card").shadow().find(".card").should(HAVE_CLASS, "focussed");
-    cy.compareSnapshot("cardFocus", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "cardFocus",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
     cy.get("a").blur();
     cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
-    cy.compareSnapshot("cardBlur", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "cardBlur",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("verify text should be match", () => {
@@ -106,7 +111,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "ic-typography")
       .contains("This is a static card")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("cardTextVerify", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "cardTextVerify",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -185,7 +193,10 @@ describe("IcCard", () => {
     cy.get('[slot="image-mid"]').should(BE_VISIBLE);
     cy.get("ic-status-tag").should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
-    cy.compareSnapshot("renderThreeCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "renderThreeCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -206,7 +217,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get("svg").should(BE_VISIBLE);
-    cy.compareSnapshot("withIcon", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "withIcon",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -216,7 +230,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "ic-typography")
       .contains("Americano order")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("headingOnly", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "headingOnly",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -242,7 +259,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "ic-typography")
       .contains("Extras: Double espresso shot and oat milk.")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("message", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "message",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -269,7 +289,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "ic-typography")
       .contains("Name: Michael")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("subHeadingCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "subHeadingCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -313,7 +336,10 @@ describe("IcCard", () => {
     cy.checkHydrated("ic-card");
     cy.get("ic-button").should(BE_VISIBLE);
     cy.get("ic-button").shadow().find("button").focus();
-    cy.compareSnapshot("interaction", DEFAULT_TEST_THRESHOLD + 0.07);
+    cy.compareSnapshot({
+      name: "interaction",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.07,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -346,7 +372,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "div")
       .find(".adornment")
       .should(HAVE_CLASS, "adornment");
-    cy.compareSnapshot("adornmentCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "adornmentCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -416,7 +445,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", ".card").find(".image-top").should("exist");
-    cy.compareSnapshot("topImageCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "topImageCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -490,7 +522,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", ".card").find(".image-mid").should("exist");
-    cy.compareSnapshot("midImageCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "midImageCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -526,7 +561,10 @@ describe("IcCard", () => {
       .find(".interaction-area")
       .should("exist");
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
-    cy.compareSnapshot("interaction-controls", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "interaction-controls",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -553,7 +591,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get('[href="#"]').should(BE_VISIBLE);
-    cy.compareSnapshot("clickableLink", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "clickableLink",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -582,7 +623,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get("ic-card").click();
-    cy.compareSnapshot("clickableButtonCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "clickableButtonCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -612,7 +656,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get("ic-badge").should(BE_VISIBLE);
-    cy.compareSnapshot("badgeCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "badgeCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -639,7 +686,10 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get('[disabled="true"]').should("exist");
-    cy.compareSnapshot("disabledCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "disabledCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -668,7 +718,10 @@ describe("IcCard", () => {
     cy.findShadowEl("ic-card", "ic-typography")
       .contains("This is a full width card")
       .should(BE_VISIBLE);
-    cy.compareSnapshot("widthCard", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "widthCard",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -686,7 +739,10 @@ describe("IcCard", () => {
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", "ic-button").shadow().find("button").click();
     cy.get("ic-typography").contains("Expanded").should(BE_VISIBLE);
-    cy.compareSnapshot("expandedCliked", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "expandedCliked",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("should render as expandable", () => {
@@ -724,6 +780,9 @@ describe("IcCard", () => {
       .shadow()
       .find("button")
       .click();
-    cy.compareSnapshot("expandable", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "expandable",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 });

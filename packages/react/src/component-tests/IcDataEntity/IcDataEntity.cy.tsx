@@ -79,7 +79,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       </div>
     );
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-    cy.compareSnapshot("alldata", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "alldata",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("should display only one data row e2e and visual testing", () => {
@@ -99,7 +102,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
     cy.get('[label="Order name"]').should(BE_VISIBLE);
     cy.get("ic-data-row").should(HAVE_VALUE, "Michael");
     cy.get("ic-link").should(BE_VISIBLE).should(HAVE_TEXT, "Edit");
-    cy.compareSnapshot("oneDataRow", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "oneDataRow",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("display last data row e2e and visual testing", () => {
@@ -128,7 +134,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       .shadow()
       .find('[aria-label="Download"]')
       .should(BE_VISIBLE);
-    cy.compareSnapshot("downloadReceipt", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "downloadReceipt",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("render data entity with status tags visual and a11y testing", () => {
@@ -160,7 +169,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       </div>
     );
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-    cy.compareSnapshot("statusTag", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "statusTag",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("should display in Progress status tag data row e2e and visual testing", () => {
@@ -186,7 +198,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       HAVE_TEXT,
       "In Progress"
     );
-    cy.compareSnapshot("inProgresssTag", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "inProgresssTag",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("render size small Data a11y and visual testing", () => {
@@ -212,7 +227,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       </div>
     );
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-    cy.compareSnapshot("sizeToSmall", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "sizeToSmall",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("should display size small data row with not confirm status tag e2e and visual testing", () => {
@@ -253,7 +271,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       HAVE_TEXT,
       "not confirmed"
     );
-    cy.compareSnapshot("smallSizeLastRow", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "smallSizeLastRow",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("render editable data entity visual and a11y testing", () => {
@@ -337,7 +358,10 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       </div>
     );
     cy.checkA11yWithWait();
-    cy.compareSnapshot("editableData", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "editableData",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("should display editable first row data e2e and visual testing", () => {
@@ -395,6 +419,9 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       .type("Matt")
       .should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
-    cy.compareSnapshot("editableNameData", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "editableNameData",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 });

@@ -100,7 +100,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<HeadingOnlyToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.wait(100).compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -108,10 +111,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot(
-      "message-variant",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.wait(100).compareSnapshot({
+      name: "message-variant",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -119,7 +122,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<MultilineMessageToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot("multiline", DEFAULT_TEST_THRESHOLD + 0.07);
+    cy.wait(100).compareSnapshot({
+      name: "multiline",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.07,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -127,10 +133,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<SlottedActionToast />);
     cy.get(OPEN_BUTTON_SELECTOR).click();
 
-    cy.wait(100).compareSnapshot(
-      "slotted-button",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.wait(100).compareSnapshot({
+      name: "slotted-button",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -138,7 +144,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<SlottedLinkToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot("slotted-link", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.wait(100).compareSnapshot({
+      name: "slotted-link",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -146,7 +155,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<SimpleAutoDismissToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot("auto-dismiss", DEFAULT_TEST_THRESHOLD);
+    cy.wait(100).compareSnapshot({
+      name: "auto-dismiss",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -154,7 +166,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<SlottedIconToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot("custom-icon", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.wait(100).compareSnapshot({
+      name: "custom-icon",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -162,10 +177,10 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<DismissAriaLabelToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot(
-      "custom-aria-label",
-      DEFAULT_TEST_THRESHOLD + 0.02
-    );
+    cy.wait(100).compareSnapshot({
+      name: "custom-aria-label",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 });

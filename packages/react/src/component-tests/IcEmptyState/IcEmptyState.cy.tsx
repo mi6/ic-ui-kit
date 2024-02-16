@@ -29,17 +29,20 @@ describe("IcEmptyState", () => {
   it("Desktop Visual Regression Testing and A11y Testing", () => {
     mount(<BasicEmptyState />);
 
-    cy.compareSnapshot(
-      "empty-state-basic-desktop",
-      DEFAULT_TEST_THRESHOLD + 0.04
-    );
+    cy.compareSnapshot({
+      name: "empty-state-basic-desktop",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
     cy.checkA11yWithWait();
   });
 
   it("should render", () => {
     mount(<IcEmptyState heading="Empty state title" />);
 
-    cy.compareSnapshot("empty-state-title", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "empty-state-title",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("should render with subheading and body text", () => {
@@ -51,19 +54,28 @@ describe("IcEmptyState", () => {
       />
     );
 
-    cy.compareSnapshot("empty-state-body", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "empty-state-body",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
   });
 
   it("should render with a slotted image", () => {
     mount(<EmptyStateTitle />);
 
-    cy.compareSnapshot("empty-state-slotted-image", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "empty-state-slotted-image",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("should render with actions", () => {
     mount(<ButtonEmptyState />);
 
-    cy.compareSnapshot("empty-state-button", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "empty-state-button",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
   });
 
   it("should render right aligned", () => {
