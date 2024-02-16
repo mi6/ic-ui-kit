@@ -124,6 +124,8 @@ import readme from "../../../web-components/src/components/ic-alert/readme.md";
   </Story>
 </Canvas>
 
+### Custom message
+
 <Canvas>
   <Story name="Custom message">
     <IcAlert heading="This alert uses a custom message slot">
@@ -134,6 +136,18 @@ import readme from "../../../web-components/src/components/ic-alert/readme.md";
         </IcLink>
         within the text.
       </p>
+    </IcAlert>
+  </Story>
+</Canvas>
+
+### Custom message and title above
+
+<Canvas>
+  <Story name="Custom message and title above">
+    <IcAlert heading="Want to know more about our coffee?" titleAbove>
+      <span slot="message" style={{ font: "var(--ic-font-body)" }}>
+        Go to our <IcLink href="/">coffee page</IcLink> to learn more.
+      </span>
     </IcAlert>
   </Story>
 </Canvas>
