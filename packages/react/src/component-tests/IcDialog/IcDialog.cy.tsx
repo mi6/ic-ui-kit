@@ -44,7 +44,10 @@ describe("IcDialog", () => {
     cy.get("ic-dialog").should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.get("body").click(0, 0);
 
@@ -58,11 +61,17 @@ describe("IcDialog", () => {
 
     cy.checkHydrated("ic-dialog");
     cy.checkA11yWithWait();
-    cy.compareSnapshot("slotted-content", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "slotted-content",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
 
     cy.get("ic-select").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("slotted-content-clicked", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "slotted-content-clicked",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("focuses slotted content with height constraint disabled", () => {
@@ -72,7 +81,10 @@ describe("IcDialog", () => {
 
     cy.get("ic-select").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("disable-height-constraint", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "disable-height-constraint",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("should not hide when background click is disabled", () => {
@@ -85,56 +97,80 @@ describe("IcDialog", () => {
     cy.get("ic-dialog").should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("background-click-disabled", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "background-click-disabled",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("renders neutral alert dialog", () => {
     mount(alertDialog("neutral"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("neutral-alert", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "neutral-alert",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
   });
 
   it("renders info alert dialog", () => {
     mount(alertDialog("info"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("info-alert", DEFAULT_TEST_THRESHOLD + 0.04);
+    cy.compareSnapshot({
+      name: "info-alert",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+    });
   });
 
   it("renders warning alert dialog", () => {
     mount(alertDialog("warning"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("warning-alert", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "warning-alert",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
   });
 
   it("renders error alert dialog", () => {
     mount(alertDialog("error"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("error-alert", DEFAULT_TEST_THRESHOLD + 0.04);
+    cy.compareSnapshot({
+      name: "error-alert",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+    });
   });
 
   it("renders success alert dialog", () => {
     mount(alertDialog("success"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("success-alert", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "success-alert",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
   });
 
   it("renders small dialog", () => {
     mount(sizeDialog("small"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "small",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
   });
 
   it("renders large dialog", () => {
     mount(sizeDialog("large"));
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("large", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "large",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
   });
 
   it("renders no dialog controls", () => {
@@ -142,7 +178,10 @@ describe("IcDialog", () => {
 
     cy.get("ic-button").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("no-dialog-controls", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "no-dialog-controls",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("renders destructive dialog controls", () => {
@@ -150,7 +189,10 @@ describe("IcDialog", () => {
 
     cy.get("ic-button").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("destructive-dialog-controls", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "destructive-dialog-controls",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("renders custom dialog controls", () => {
@@ -158,7 +200,10 @@ describe("IcDialog", () => {
 
     cy.get("ic-button#custom-dialog-btn").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("custom-dialog-controls", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "custom-dialog-controls",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
   });
 
   it("renders with hidden close button", () => {
@@ -166,7 +211,10 @@ describe("IcDialog", () => {
 
     cy.get("ic-button").click();
     cy.checkA11yWithWait();
-    cy.compareSnapshot("hide-close-button", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "hide-close-button",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 
   it("scrolls within the dialog", () => {
@@ -175,12 +223,18 @@ describe("IcDialog", () => {
     cy.get("ic-button").click();
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("scroll-before", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "scroll-before",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
 
     cy.findShadowEl("ic-dialog", ".content-area").scrollTo("bottom");
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("scroll-after", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "scroll-after",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
   });
 
   it("focuses dynamically added element when shown and skips when hidden", () => {
@@ -197,7 +251,10 @@ describe("IcDialog", () => {
     cy.findShadowEl("ic-button#tab-btn", "button").should(HAVE_FOCUS);
 
     cy.checkA11yWithWait();
-    cy.compareSnapshot("tab-dynamic-content", DEFAULT_TEST_THRESHOLD + 0.05);
+    cy.compareSnapshot({
+      name: "tab-dynamic-content",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
 
     cy.get("ic-button#hide-btn").click();
 

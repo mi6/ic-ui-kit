@@ -51,7 +51,10 @@ describe("IcBackToTop", () => {
       .find("button")
       .wait(500)
       .should(BE_VISIBLE);
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -81,6 +84,9 @@ describe("IcBackToTop", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.wait(500).get(BACK_TO_TOP_SELECTOR).shadow().find("button").focus();
     cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(HAVE_FOCUS);
-    cy.compareSnapshot("focussed", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "focussed",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
   });
 });

@@ -164,13 +164,19 @@ describe("IcSideNavigation", () => {
       it("renders a default IcSideNavigation", () => {
         mount(<BasicSideNav />);
 
-        cy.compareSnapshot("basic", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "basic",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("basicOpen", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "basicOpen",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -180,7 +186,10 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("longPropsOpen", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "longPropsOpen",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -190,23 +199,29 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("withNavGroupOpen", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "withNavGroupOpen",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
       it("renders with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
 
-        cy.compareSnapshot("slottedAppTitle", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "slottedAppTitle",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot(
-          "slottedAppTitleOpen",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "slottedAppTitleOpen",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -218,13 +233,19 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("withTheme", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "withTheme",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("withThemeOpen", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "withThemeOpen",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
     });
@@ -462,13 +483,19 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("basicDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "basicDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot("basicOpenDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "basicOpenDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -478,10 +505,10 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot(
-          "longPropsOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "longPropsOpenDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -491,49 +518,49 @@ describe("IcSideNavigation", () => {
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot(
-          "withNavGroupOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "withNavGroupOpenDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
       it("renders static", () => {
         mount(<StaticSideNav />);
 
-        cy.compareSnapshot(
-          "staticExpandedDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "staticExpandedDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
       it("renders with slotted nav items", () => {
         mount(<SlottedItemsExpandedSideNav />);
 
-        cy.compareSnapshot(
-          "slottedNavItemsExpandedDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "slottedNavItemsExpandedDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
       it("renders with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
 
-        cy.compareSnapshot(
-          "slottedAppTitleDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "slottedAppTitleDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot(
-          "slottedAppTitleOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "slottedAppTitleOpenDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
@@ -545,16 +572,19 @@ describe("IcSideNavigation", () => {
           </>
         );
 
-        cy.compareSnapshot("withThemeDesktop", DEFAULT_TEST_THRESHOLD + 0.02);
+        cy.compareSnapshot({
+          name: "withThemeDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
         cy.wait(300);
 
-        cy.compareSnapshot(
-          "withThemeOpenDesktop",
-          DEFAULT_TEST_THRESHOLD + 0.02
-        );
+        cy.compareSnapshot({
+          name: "withThemeOpenDesktop",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
     });

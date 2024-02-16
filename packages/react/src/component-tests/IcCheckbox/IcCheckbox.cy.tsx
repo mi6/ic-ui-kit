@@ -135,7 +135,10 @@ describe("A11y and visual regression tests", () => {
   it("renders default", () => {
     mount(<Checkbox />);
 
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -147,7 +150,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.compareSnapshot("hideLabel", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "hideLabel",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait(undefined, 1000);
   });
 
@@ -163,7 +169,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.compareSnapshot("helper", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "helper",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -185,7 +194,10 @@ describe("A11y and visual regression tests", () => {
       </div>
     );
 
-    cy.compareSnapshot("sizes", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "sizes",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -198,7 +210,10 @@ describe("A11y and visual regression tests", () => {
       </div>
     );
 
-    cy.compareSnapshot("checkboxSizes", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "checkboxSizes",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -219,7 +234,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.wait(500).compareSnapshot("conditional", DEFAULT_TEST_THRESHOLD);
+    cy.wait(500).compareSnapshot({
+      name: "conditional",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -242,7 +260,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.compareSnapshot("dynamic", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "dynamic",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -259,7 +280,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.compareSnapshot("validation", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "validation",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -292,7 +316,10 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.compareSnapshot("indeterminate", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "indeterminate",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -300,7 +327,10 @@ describe("A11y and visual regression tests", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").eq(0).focus();
-    cy.compareSnapshot("focus", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "focus",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 });

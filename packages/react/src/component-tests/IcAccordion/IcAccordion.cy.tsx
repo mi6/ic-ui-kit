@@ -210,14 +210,20 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
     it("renders an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
-      cy.compareSnapshot("headingBody", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "headingBody",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
 
     it("renders an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
-      cy.compareSnapshot("expanded", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "expanded",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -238,14 +244,20 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordion>
       );
 
-      cy.compareSnapshot("withIcon", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "withIcon",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
 
     it("renders when disabled", () => {
       mount(<AccordionsWithDisabled />);
 
-      cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "disabled",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -258,7 +270,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordion>
       );
 
-      cy.compareSnapshot("withChildren", DEFAULT_TEST_THRESHOLD + 0.03);
+      cy.compareSnapshot({
+        name: "withChildren",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -275,7 +290,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </>
       );
 
-      cy.compareSnapshot("individualSizes", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "individualSizes",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
   });
@@ -288,7 +306,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordionGroup>
       );
 
-      cy.compareSnapshot("groupTitle", DEFAULT_TEST_THRESHOLD + 0.04);
+      cy.compareSnapshot({
+        name: "groupTitle",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -299,7 +320,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordionGroup>
       );
 
-      cy.compareSnapshot("singleExpansion", DEFAULT_TEST_THRESHOLD + 0.01);
+      cy.compareSnapshot({
+        name: "singleExpansion",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -318,7 +342,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </>
       );
 
-      cy.compareSnapshot("groupSizes", DEFAULT_TEST_THRESHOLD + 0.06);
+      cy.compareSnapshot({
+        name: "groupSizes",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
+      });
       cy.checkA11yWithWait();
     });
 
@@ -331,7 +358,10 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </div>
       );
 
-      cy.compareSnapshot("lightGroupTheme", DEFAULT_TEST_THRESHOLD + 0.03);
+      cy.compareSnapshot({
+        name: "lightGroupTheme",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      });
       cy.checkA11yWithWait();
     });
   });

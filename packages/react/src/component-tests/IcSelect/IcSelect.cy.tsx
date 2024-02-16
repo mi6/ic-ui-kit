@@ -67,7 +67,10 @@ describe("IcSelect", () => {
     mount(<IcSelect label="What is your favourite coffee?" />);
     cy.checkHydrated("ic-select");
 
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "default",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.get("ic-select").should("exist");
   });
@@ -82,7 +85,10 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
-    cy.compareSnapshot("default-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "default-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -320,10 +326,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("default-value", DEFAULT_TEST_THRESHOLD + 0.005);
+    cy.compareSnapshot({
+      name: "default-value",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.005,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("default-value-open", DEFAULT_TEST_THRESHOLD + 0.025);
+    cy.compareSnapshot({
+      name: "default-value-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+    });
     cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -350,10 +362,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("clear-button", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "clear-button",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
 
     cy.clickOnShadowEl("ic-select", "ic-button#clear-button");
-    cy.compareSnapshot("clear-button-cleared", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "clear-button-cleared",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -527,7 +545,10 @@ describe("IcSelect", () => {
         cy.log($t1.text());
       });
 
-    cy.compareSnapshot("descriptions-open", DEFAULT_TEST_THRESHOLD + 0.04);
+    cy.compareSnapshot({
+      name: "descriptions-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -540,7 +561,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("custom-placeholder", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "custom-placeholder",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -559,7 +583,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "disabled",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
 
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
@@ -576,7 +603,10 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
-    cy.compareSnapshot("disabled-options-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "disabled-options-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -604,7 +634,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("required", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "required",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
 
     cy.get("ic-select")
@@ -624,7 +657,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("readonly", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "readonly",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
 
     cy.get("ic-select")
@@ -658,7 +694,10 @@ describe("IcSelect", () => {
           });
       });
 
-    cy.compareSnapshot("groups-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "groups-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -705,7 +744,10 @@ describe("IcSelect", () => {
       cy.checkHydrated("ic-select");
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
 
-      cy.compareSnapshot("recommended-open", DEFAULT_TEST_THRESHOLD + 0.02);
+      cy.compareSnapshot({
+        name: "recommended-open",
+        testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      });
       cy.checkA11yWithWait();
 
       cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -1311,7 +1353,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("helper-text", DEFAULT_TEST_THRESHOLD + 0.01);
+    cy.compareSnapshot({
+      name: "helper-text",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1324,7 +1369,10 @@ describe("IcSelect", () => {
     );
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("custom-elements-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "custom-elements-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1337,10 +1385,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "small",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("small-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "small-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
   });
 
   it("renders small - deprecated", () => {
@@ -1352,10 +1406,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("small-deprecated", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "small-deprecated",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("small-deprecated-open", DEFAULT_TEST_THRESHOLD + 0.03);
+    cy.compareSnapshot({
+      name: "small-deprecated-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+    });
   });
 
   it("renders full width", () => {
@@ -1367,10 +1427,16 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "full-width",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("full-width-open", DEFAULT_TEST_THRESHOLD + 0.02);
+    cy.compareSnapshot({
+      name: "full-width-open",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1383,7 +1449,10 @@ describe("IcSelect", () => {
       />
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("hidden-label", DEFAULT_TEST_THRESHOLD);
+    cy.compareSnapshot({
+      name: "hidden-label",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1411,7 +1480,10 @@ describe("IcSelect", () => {
       </div>
     );
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("validation", DEFAULT_TEST_THRESHOLD + 0.045);
+    cy.compareSnapshot({
+      name: "validation",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.045,
+    });
     cy.checkA11yWithWait();
   });
 });
