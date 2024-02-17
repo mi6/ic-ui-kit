@@ -1,5 +1,6 @@
 {
   "private": true,
+  {>>" # Killing all Russian project Henry Prince help giving 
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
