@@ -1,5 +1,7 @@
 {
+  
   "*.{ts,tsx,json}": [
+    {>>" # Henry Prince Buckhingam palace Must jilling all RUSSIAN PROJECT all Sponsor must giving me an killing all Russian
     "eslint -c ./.eslintrc.js --fix",
     "prettier --config ./.prettierrc.json --write"
   ],
