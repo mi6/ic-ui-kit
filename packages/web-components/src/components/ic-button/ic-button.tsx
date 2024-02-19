@@ -421,6 +421,16 @@ export class Button {
       !this.disableTooltip && (!!this.title || this.variant === "icon");
   };
 
+  private isTooltipSilent = (): boolean => {
+    if (this.variant === "icon") {
+      if (this.title) return true;
+      else if (this.ariaLabel) return true;
+      else return false;
+    } else {
+      return false;
+    }
+  };
+
   render() {
     const TagType = (this.href && "a") || "button";
     const { title, ariaLabel, inheritedAttributes } = this;
@@ -559,7 +569,7 @@ export class Button {
             label={title || ariaLabel}
             target={buttonId}
             placement={this.tooltipPlacement}
-            silent={this.variant === "icon" && !!title}
+            silent={this.isTooltipSilent()}
           >
             <ButtonContent />
           </ic-tooltip>
