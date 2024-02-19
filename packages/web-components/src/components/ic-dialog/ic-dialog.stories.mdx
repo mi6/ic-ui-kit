@@ -1143,6 +1143,41 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Disable Width constraint
+
+<Canvas>
+  <Story name="Disable Width Constraint" parameters={{ loki: { skip: true } }}>
+    {html`
+      <script>
+        document
+          .querySelector("#full-width-dialog-btn")
+          .addEventListener("click", () => {
+            document.querySelector("#full-width-dialog").showDialog();
+          });
+      </script>
+      <div>
+        <ic-button id="full-width-dialog-btn">Full Width Text Dialog</ic-button>
+      </div>
+      <ic-dialog
+        heading="Full Width Text"
+        label="test"
+        id="full-width-dialog"
+        size="large"
+        disable-width-constraint="true"
+      >
+        <ic-typography>
+          It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.
+        </ic-typography>
+      </ic-dialog>
+    `}
+  </Story>
+</Canvas>
+
 ### Show/hide interactive elements
 
 <Canvas>

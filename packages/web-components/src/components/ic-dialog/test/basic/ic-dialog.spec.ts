@@ -903,3 +903,14 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogEl.show).toBeCalled();
   });
 });
+
+it("should render as large size and disableWidthConstraint is set", async () => {
+  const page = await newSpecPage({
+    components: [Dialog, Button],
+    html: `<ic-dialog heading="Dialog heading" size="large" disable-width-constraint="true" buttons="false"></ic-dialog>`,
+  });
+
+  setupDialogMethods(page);
+
+  expect(page.root).toMatchSnapshot();
+});
