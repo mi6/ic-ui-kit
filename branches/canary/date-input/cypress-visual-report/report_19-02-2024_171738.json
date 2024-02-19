@@ -66,7 +66,7 @@
         {
           "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage",
-          "percentage": 0.13192422067232384,
+          "percentage": 0.07592101158440923,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
@@ -154,9 +154,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-19T16:53:20.938Z",
-  "endedAt": "2024-02-19T16:55:52.518Z",
-  "duration": 149008,
+  "startedAt": "2024-02-19T17:17:38.790Z",
+  "endedAt": "2024-02-19T17:20:09.682Z",
+  "duration": 148402,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
