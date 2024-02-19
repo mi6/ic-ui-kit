@@ -4,15 +4,6 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
 <ic-footer breakpoint="extra large" class="footer footer-light footer-small footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -59,15 +50,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -104,15 +86,6 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
   <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
     <mock:shadow-root>
       <footer>
-        <div class="footer-description">
-          <ic-section-container aligned="left" fullheight="">
-            <div class="footer-description-inner">
-              <ic-typography variant="body">
-                <slot name="description"></slot>
-              </ic-typography>
-            </div>
-          </ic-section-container>
-        </div>
         <div class="footer-compliance">
           <ic-section-container aligned="left" fullheight="">
             <div class="footer-compliance-inner">

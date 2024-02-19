@@ -4,15 +4,6 @@ exports[`ic-footer should render 1`] = `
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -110,18 +101,6 @@ exports[`ic-footer should render with a description via the description slot 1`]
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography class="ic-typography-body">
-              <mock:shadow-root>
-                <slot></slot>
-              </mock:shadow-root>
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -151,15 +130,6 @@ exports[`ic-footer should render with classification banner: footer-classificati
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -284,15 +254,6 @@ exports[`ic-footer should render with the correct small breakpoint at extra larg
 <ic-footer breakpoint="extra large" caption="caption" class="footer footer-light footer-small footer-ungrouped light" id="ic-footer">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -320,15 +281,6 @@ exports[`ic-footer should render with the correct small breakpoint at extra smal
 <ic-footer breakpoint="extra small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -356,15 +308,6 @@ exports[`ic-footer should render with the correct small breakpoint at large devi
 <ic-footer breakpoint="large" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -392,15 +335,6 @@ exports[`ic-footer should render with the correct small breakpoint at medium dev
 <ic-footer breakpoint="medium" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
@@ -428,15 +362,6 @@ exports[`ic-footer should render with the correct small breakpoint at small devi
 <ic-footer breakpoint="small" caption="caption" class="footer footer-light footer-sparse footer-ungrouped light" id="ic-footer">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
