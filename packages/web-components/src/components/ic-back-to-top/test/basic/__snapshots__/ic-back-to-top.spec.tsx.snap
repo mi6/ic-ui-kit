@@ -21,15 +21,6 @@ exports[`ic-back-to-top should render with footer: should render with footer 1`]
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
-      <div class="footer-description">
-        <ic-section-container aligned="left" fullheight="">
-          <div class="footer-description-inner">
-            <ic-typography variant="body">
-              <slot name="description"></slot>
-            </ic-typography>
-          </div>
-        </ic-section-container>
-      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
