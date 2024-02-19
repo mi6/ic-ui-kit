@@ -154,3 +154,34 @@ import Button from "../ic-button/readme.md";
     </ic-alert>`}
   </Story>
 </Canvas>
+
+### Announced
+
+<Canvas>
+  <Story name="Announced" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-alert
+        id="alert"
+        heading="Neutral"
+        message="This alert is for displaying miscellaneous messages"
+        announced="false"
+      ></ic-alert>
+      <br />
+      <br />
+      <ic-button variant="primary" size="small" onClick="onClick()" id="btn"
+        >Toggle announced prop</ic-button
+      >
+      <script>
+        const alert = document.getElementById("alert");
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", onClick);
+        function onClick(e) {
+          e.preventDefault();
+          alert.announced
+            ? (alert.announced = "false")
+            : (alert.announced = "true");
+        }
+      </script>
+    `}
+  </Story>
+</Canvas>
