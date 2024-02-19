@@ -21,8 +21,8 @@ exports[`ic-dialog component should render 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -61,8 +61,8 @@ exports[`ic-dialog component should render as large size 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -101,8 +101,8 @@ exports[`ic-dialog component should render as medium size 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -141,8 +141,8 @@ exports[`ic-dialog component should render with a destructive default button 1`]
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -195,8 +195,8 @@ exports[`ic-dialog component should render with a label 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -235,8 +235,8 @@ exports[`ic-dialog component should render with a single default button 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -287,8 +287,8 @@ exports[`ic-dialog component should render with an alert 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -362,8 +362,8 @@ exports[`ic-dialog component should render with no more than three default butto
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -430,8 +430,8 @@ exports[`ic-dialog component should render with slotted content 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -509,8 +509,8 @@ exports[`ic-dialog component should render with slotted controls 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -560,8 +560,8 @@ exports[`ic-dialog component should render with the close button 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -620,8 +620,8 @@ exports[`ic-dialog component should render with three default buttons 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
@@ -688,8 +688,8 @@ exports[`ic-dialog component should render with two default buttons 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
