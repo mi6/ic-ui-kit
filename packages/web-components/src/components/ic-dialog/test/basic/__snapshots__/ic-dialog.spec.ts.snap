@@ -776,3 +776,43 @@ exports[`ic-dialog component should render without the close button 1`] = `
   </mock:shadow-root>
 </ic-dialog>
 `;
+
+exports[`should render as large size and disableWidthConstraint is set 1`] = `
+<ic-dialog buttons="false" class="hidden" disable-width-constraint="true" heading="Dialog heading" size="large">
+  <mock:shadow-root>
+    <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog disable-width-constraint large">
+      <div class="heading-area">
+        <div class="heading-content">
+          <div class="label">
+            <slot name="label">
+              <ic-typography id="dialog-label" variant="label"></ic-typography>
+            </slot>
+          </div>
+          <div class="heading">
+            <slot name="heading">
+              <ic-typography id="dialog-heading" variant="h4">
+                Dialog heading
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
+          <mock:shadow-root>
+            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
+              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+                <slot></slot>
+              </button>
+            </ic-tooltip>
+          </mock:shadow-root>
+          svg
+        </ic-button>
+      </div>
+      <div class="content-area">
+        <div id="dialog-content">
+          <slot></slot>
+        </div>
+      </div>
+    </dialog>
+  </mock:shadow-root>
+</ic-dialog>
+`;

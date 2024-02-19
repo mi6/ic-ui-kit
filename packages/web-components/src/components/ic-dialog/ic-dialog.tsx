@@ -95,6 +95,11 @@ export class Dialog {
   @Prop() disableHeightConstraint?: boolean = false;
 
   /**
+   * If set to `true`, the content area width property is removed, allowing content to take the full width of the dialog when using the large variant.
+   */
+  @Prop() disableWidthConstraint?: boolean = false;
+
+  /**
    * If `true`, the close button will not be displayed.
    */
   @Prop() hideCloseButton?: boolean = false;
@@ -528,6 +533,7 @@ export class Dialog {
           ["dialog"]: true,
           [`${size}`]: true,
           ["disable-height-constraint"]: this.disableHeightConstraint,
+          ["disable-width-constraint"]: this.disableWidthConstraint,
         }}
         aria-labelledby="dialog-label dialog-heading"
         aria-describedby="dialog-alert dialog-content"

@@ -619,6 +619,10 @@ export namespace Components {
          */
         "disableHeightConstraint"?: boolean;
         /**
+          * If set to `true`, the content area width property is removed, allowing content to take the full width of the dialog when using the large variant.
+         */
+        "disableWidthConstraint"?: boolean;
+        /**
           * Sets the dismiss label tooltip and aria label.
          */
         "dismissLabel"?: string;
@@ -3793,6 +3797,10 @@ declare namespace LocalJSX {
           * If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold. This prop also prevents popover elements from being cut off within the content area.
          */
         "disableHeightConstraint"?: boolean;
+        /**
+          * If set to `true`, the content area width property is removed, allowing content to take the full width of the dialog when using the large variant.
+         */
+        "disableWidthConstraint"?: boolean;
         /**
           * Sets the dismiss label tooltip and aria label.
          */
