@@ -103,7 +103,7 @@ export class Alert {
     return (
       visible && (
         <Host
-          role={announced && "alert"}
+          role={announced ? "alert" : null}
           class={{
             [IcThemeForegroundEnum.Dark]: true,
           }}
