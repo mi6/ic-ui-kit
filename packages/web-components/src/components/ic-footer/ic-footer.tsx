@@ -160,15 +160,17 @@ export class Footer {
       >
         <footer ref={(footerEl) => (this.footerEl = footerEl)}>
           {/* Description */}
-          <div class="footer-description">
-            <ic-section-container aligned={aligned} fullHeight={true}>
-              <div class="footer-description-inner">
-                <ic-typography variant="body">
-                  <slot name="description">{description}</slot>
-                </ic-typography>
-              </div>
-            </ic-section-container>
-          </div>
+          {description && (
+            <div class="footer-description">
+              <ic-section-container aligned={aligned} fullHeight={true}>
+                <div class="footer-description-inner">
+                  <ic-typography variant="body">
+                    <slot name="description">{description}</slot>
+                  </ic-typography>
+                </div>
+              </ic-section-container>
+            </div>
+          )}
 
           {/* Links */}
           {isSlotUsed(this.el, "link") && (
