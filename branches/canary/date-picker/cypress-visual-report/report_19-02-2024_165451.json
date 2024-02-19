@@ -11,7 +11,7 @@
         {
           "status": "fail",
           "name": "IcDatePicker.cy.tsx-default",
-          "percentage": 0.08410877311128558,
+          "percentage": 0.0669114553506562,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -22,7 +22,7 @@
         {
           "status": "fail",
           "name": "IcDatePicker.cy.tsx-small",
-          "percentage": 0.06471917357763021,
+          "percentage": 0.06515914583321582,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -33,7 +33,7 @@
         {
           "status": "fail",
           "name": "IcDatePicker.cy.tsx-large",
-          "percentage": 0.06870225614927067,
+          "percentage": 0.06807558824046778,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -154,9 +154,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-19T16:32:08.187Z",
-  "endedAt": "2024-02-19T16:34:40.098Z",
-  "duration": 146257,
+  "startedAt": "2024-02-19T16:54:51.771Z",
+  "endedAt": "2024-02-19T16:57:13.331Z",
+  "duration": 136012,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
