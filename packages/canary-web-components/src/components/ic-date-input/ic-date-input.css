@@ -1,0 +1,101 @@
+@import "../../global/normalize.css";
+
+input {
+  border: 0;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  background: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+ic-input-component-container {
+  cursor: text;
+}
+
+ic-input-component-container,
+ic-input-component-container:hover {
+  color: var(--ic-color-tertiary-text);
+}
+
+.focus-indicator {
+  padding: var(--ic-space-xxxs) var(--ic-space-xs);
+  align-items: center;
+}
+
+.day-input {
+  width: 1.438rem;
+}
+
+.month-input {
+  width: 1.813rem;
+}
+
+.year-input,
+.year-input.fit-to-value {
+  width: 2.313rem;
+}
+
+.fit-to-value {
+  width: 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.clear-button,
+.calendar-button {
+  border-radius: var(--ic-border-radius);
+  transition: box-shadow var(--ic-easing-transition),
+    border-radius var(--ic-easing-transition);
+  margin: 0;
+}
+
+.clear-button.hidden {
+  display: none;
+}
+
+.clear-button:focus,
+.calendar-button:focus {
+  background-color: var(--ic-focus-blue);
+  box-shadow: inset 0 0 0 0.125rem var(--ic-focus-glow);
+  border-radius: 0.25rem;
+}
+
+.clear-button:focus *,
+.calendar-button:focus * {
+  fill: var(--ic-architectural-white);
+}
+
+.divider {
+  margin: 0 var(--ic-space-xs);
+  width: var(--ic-space-1px);
+  background-color: var(--ic-architectural-400);
+  border-radius: var(--ic-space-1px);
+  height: var(--ic-space-md);
+}
+
+.large-divider {
+  margin: 0 var(--ic-space-xxs);
+}

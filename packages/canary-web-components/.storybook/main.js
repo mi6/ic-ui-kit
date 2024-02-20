@@ -4,6 +4,7 @@ module.exports = {
   },
 
   "stories": [
+    "../src/getting-started.stories.mdx",
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
@@ -21,6 +22,5 @@ module.exports = {
   "framework": {
     name: "@storybook/web-components-webpack5",
     options: {}
-  },
-  
+  },  
 }
