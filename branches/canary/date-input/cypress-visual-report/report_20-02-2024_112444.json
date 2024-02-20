@@ -1,7 +1,7 @@
 {
   "total": 13,
-  "totalPassed": 10,
-  "totalFailed": 3,
+  "totalPassed": 9,
+  "totalFailed": 4,
   "totalSuites": 1,
   "suites": [
     {
@@ -31,25 +31,25 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithValues.png"
         },
         {
-          "status": "pass",
-          "name": "IcDateInput.cy.tsx-dateInputWithMinValidation",
-          "percentage": 0.06575712889109439,
-          "failureThreshold": 0.066,
-          "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
-          "specFilename": "IcDateInput.cy.tsx",
-          "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithMinValidation.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithMinValidation.png"
-        },
-        {
           "status": "fail",
-          "name": "IcDateInput.cy.tsx-dateInputWithMaxValidation",
+          "name": "IcDateInput.cy.tsx-dateInputWithMinValidation",
           "percentage": 0.1253953747153379,
           "failureThreshold": 0.066,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
+          "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithMinValidation.png",
+          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithMinValidation.png",
+          "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithMinValidation.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDateInput.cy.tsx-dateInputWithMaxValidation",
+          "percentage": 0.06493073232299171,
+          "failureThreshold": 0.066,
+          "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
+          "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithMaxValidation.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithMaxValidation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithMaxValidation.png"
         },
         {
@@ -66,7 +66,7 @@
         {
           "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage",
-          "percentage": 0.13192422067232384,
+          "percentage": 0.07649836599562111,
           "failureThreshold": 0.076,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
@@ -108,14 +108,14 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage",
-          "percentage": 0.076,
+          "percentage": 0.132015150645674,
           "failureThreshold": 0.076,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png",
-          "diffPath": "",
+          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png"
         },
         {
@@ -154,9 +154,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-20T11:12:15.794Z",
-  "endedAt": "2024-02-20T11:13:34.560Z",
-  "duration": 76279,
+  "startedAt": "2024-02-20T11:24:44.401Z",
+  "endedAt": "2024-02-20T11:25:57.904Z",
+  "duration": 70774,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
