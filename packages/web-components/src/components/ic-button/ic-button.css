@@ -427,7 +427,8 @@ div.right-icon {
   margin: 0 var(--ic-space-xxs);
 }
 
-:host(.clear-button) .button:focus {
+:host(.clear-button) .button:focus,
+:host(.calendar-button) .button:focus {
   box-shadow: none;
 }
 
