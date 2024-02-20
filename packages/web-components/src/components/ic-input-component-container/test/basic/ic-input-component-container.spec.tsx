@@ -65,7 +65,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with small, multiline & fullwidth props set", async () => {
+  it("renders with size small, multiline & fullwidth props set", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container size="small" multi-line=true full-width=true>content</ic-input-component-container>`,
@@ -80,6 +80,21 @@ describe("ic-input-component-container", () => {
     `);
   });
 
+  it("renders with size large", async () => {
+    const page = await newSpecPage({
+      components: [InputComponentContainer],
+      html: `<ic-input-component-container size=large>content</ic-input-component-container>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-input-component-container class="large" size="large">
+      <div class="focus-indicator">
+        content
+      </div>
+    </ic-input-component-container>
+    `);
+  });
+
   it("renders disabled", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
@@ -87,7 +102,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container validation-status="success" class="default disabled" disabled="true">
+    <ic-input-component-container validation-status="success" class="default disabled" aria-disabled="true" disabled="true">
       <div class="focus-indicator">
         content
       </div>
@@ -117,7 +132,7 @@ describe("ic-input-component-container", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-component-container class="default disabled" disabled="true" validation-status="success">
+    <ic-input-component-container class="default disabled" aria-disabled="true" disabled="true" validation-status="success">
       <div class="focus-indicator">
         <div class="icon-container">
           <span slot="left-icon">

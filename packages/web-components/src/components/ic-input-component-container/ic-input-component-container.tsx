@@ -85,6 +85,7 @@ export class InputComponentContainer {
       this.validationStatus !== "" && !this.disabled && !this.readonly
         ? true
         : false;
+
     return (
       <Host
         class={{
@@ -97,6 +98,7 @@ export class InputComponentContainer {
           ["fullwidth"]: fullWidth,
           ["dark"]: dark || appearance === "dark",
         }}
+        aria-disabled={disabled && `${disabled}`}
       >
         <div
           class={{
