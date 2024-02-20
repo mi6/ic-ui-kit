@@ -1,7 +1,7 @@
 {
   "total": 13,
-  "totalPassed": 7,
-  "totalFailed": 6,
+  "totalPassed": 10,
+  "totalFailed": 3,
   "totalSuites": 1,
   "suites": [
     {
@@ -20,14 +20,14 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputRender.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithValues",
           "percentage": 0.0494368283772331,
-          "failureThreshold": 0.049,
+          "failureThreshold": 0.05,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithValues.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithValues.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithValues.png"
         },
         {
@@ -42,69 +42,69 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithMinValidation.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithMaxValidation",
-          "percentage": 0.06584831053261732,
+          "percentage": 0.1253953747153379,
           "failureThreshold": 0.066,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithMaxValidation.png",
-          "diffPath": "",
+          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithMaxValidation.png",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithMaxValidation.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithCustomDisableDaysMessage",
           "percentage": 0.056356011214421485,
-          "failureThreshold": 0.056,
+          "failureThreshold": 0.057,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithCustomDisableDaysMessage.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithCustomDisableDaysMessage.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithCustomDisableDaysMessage.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage",
-          "percentage": 0.07592101158440923,
+          "percentage": 0.13192422067232384,
           "failureThreshold": 0.076,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage.png",
-          "diffPath": "",
+          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage.png",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithLongCustomDisableDaysMessage.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithCustomDisableFutureMessage",
           "percentage": 0.05642694391866354,
-          "failureThreshold": 0.056,
+          "failureThreshold": 0.057,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithCustomDisableFutureMessage.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithCustomDisableFutureMessage.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithCustomDisableFutureMessage.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisableFutureMessage",
-          "percentage": 0.07597367965289031,
+          "percentage": 0.13192422067232384,
           "failureThreshold": 0.076,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithLongCustomDisableFutureMessage.png",
-          "diffPath": "",
+          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithLongCustomDisableFutureMessage.png",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithLongCustomDisableFutureMessage.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage",
           "percentage": 0.05639148871948674,
-          "failureThreshold": 0.056,
+          "failureThreshold": 0.057,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage.png"
         },
         {
@@ -130,33 +130,33 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithErrorValidation.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithWarningValidation",
           "percentage": 0.050318982501636494,
-          "failureThreshold": 0.05,
+          "failureThreshold": 0.051000000000000004,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithWarningValidation.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithWarningValidation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithWarningValidation.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithSuccessValidation",
           "percentage": 0.04808326112068523,
-          "failureThreshold": 0.048,
+          "failureThreshold": 0.049,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithSuccessValidation.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithSuccessValidation.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithSuccessValidation.png"
         }
       ]
     }
   ],
-  "startedAt": "2024-02-20T10:58:37.337Z",
-  "endedAt": "2024-02-20T11:00:23.393Z",
-  "duration": 103458,
+  "startedAt": "2024-02-20T11:12:15.794Z",
+  "endedAt": "2024-02-20T11:13:34.560Z",
+  "duration": 76279,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
