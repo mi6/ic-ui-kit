@@ -60,6 +60,13 @@ Type: `Promise<void>`
 | `"{COLUMN_KEY}-{ROW_INDEX}[-icon]"` | Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot. |
 
 
+## CSS Custom Properties
+
+| Name       | Description                       |
+| ---------- | --------------------------------- |
+| `--height` | height of the table row container |
+
+
 ## Dependencies
 
 ### Depends on
