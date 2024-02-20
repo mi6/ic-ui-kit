@@ -1,7 +1,7 @@
 {
   "total": 13,
-  "totalPassed": 9,
-  "totalFailed": 4,
+  "totalPassed": 10,
+  "totalFailed": 3,
   "totalSuites": 1,
   "suites": [
     {
@@ -108,14 +108,14 @@
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithCustomDisablePastMessage.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage",
-          "percentage": 0.132015150645674,
+          "percentage": 0.076,
           "failureThreshold": 0.076,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
           "baselinePath": "cypress-visual-screenshots/baseline/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png",
-          "diffPath": "cypress-visual-screenshots/diff/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png",
+          "diffPath": "",
           "comparisonPath": "cypress-visual-screenshots/comparison/IcDateInput.cy.tsx-dateInputWithLongCustomDisablePastMessage.png"
         },
         {
@@ -154,9 +154,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-20T11:24:44.401Z",
-  "endedAt": "2024-02-20T11:25:57.904Z",
-  "duration": 70774,
+  "startedAt": "2024-02-20T12:23:48.015Z",
+  "endedAt": "2024-02-20T12:25:05.811Z",
+  "duration": 75321,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
