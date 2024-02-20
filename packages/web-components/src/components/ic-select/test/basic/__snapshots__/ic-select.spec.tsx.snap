@@ -150,7 +150,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-4" helpertext="" label="IC Select Test"></ic-input-label>
-      <ic-input-component-container class="disabled">
+      <ic-input-component-container aria-disabled="true" class="disabled">
         <!---->
         <div class="focus-indicator">
           <div class="select-container">
