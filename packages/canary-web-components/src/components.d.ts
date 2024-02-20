@@ -355,6 +355,10 @@ export interface IcMenuWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcMenuWithMultiElement;
 }
+export interface IcDateInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcDateInputElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
