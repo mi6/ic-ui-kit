@@ -40,6 +40,22 @@ export const stringEnumToArray = (
 };
 
 /**
+ * converts an enum of strings into an array of strings
+ */
+export const stringEnumToArray = (
+  theEnum: Record<string, string | number>
+): string[] => {
+  const arr: string[] = [];
+  Object.values(theEnum).forEach((val) => {
+    if (isNaN(Number(val))) {
+      const str = val as string;
+      arr.push(str);
+    }
+  });
+  return arr;
+};
+
+/**
  * Used to inherit global attributes set on the host. Called in componentWillLoad and assigned
  * to a variable that is later used in the render function.
  *
