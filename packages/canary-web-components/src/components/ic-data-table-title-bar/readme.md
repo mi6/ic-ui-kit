@@ -36,8 +36,8 @@
 
 ### Depends on
 
-- [ic-typography](../ic-typography)
-- [ic-select](../ic-select)
+- ic-typography
+- ic-select
 
 ### Graph
 ```mermaid
