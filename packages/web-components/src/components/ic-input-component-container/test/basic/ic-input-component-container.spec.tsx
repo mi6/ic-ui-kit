@@ -95,6 +95,21 @@ describe("ic-input-component-container", () => {
     `);
   });
 
+  it("renders with size large", async () => {
+    const page = await newSpecPage({
+      components: [InputComponentContainer],
+      html: `<ic-input-component-container size=large>content</ic-input-component-container>`,
+    });
+
+    expect(page.root).toEqualHtml(`
+    <ic-input-component-container class="large" size="large">
+      <div class="focus-indicator">
+        content
+      </div>
+    </ic-input-component-container>
+    `);
+  });
+
   it("renders disabled", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
