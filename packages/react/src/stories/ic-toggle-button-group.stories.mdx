@@ -1,0 +1,313 @@
+import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
+import { IcToggleButton, IcToggleButtonGroup } from "../components";
+import readme from "../../../web-components/src/components/ic-toggle-button/readme.md";
+import { SlottedSVG } from "../react-component-lib/slottedSVG";
+
+<Meta
+  title="React Components/Toggle button group"
+  component={IcToggleButtonGroup}
+/>
+
+<Description markdown={readme} />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <>
+      <span>Single and manual</span>
+      <IcToggleButtonGroup selectType="single" name="tog-group">
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Single and auto</span>
+      <IcToggleButtonGroup
+        selectType="single"
+        selectMethod="auto"
+        name="tog-group"
+      >
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Multi and manual</span>
+      <IcToggleButtonGroup selectType="multi" name="tog-group">
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+    </>
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    <>
+      <span>Default</span>
+      <IcToggleButtonGroup name="tog-group">
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Small</span>
+      <IcToggleButtonGroup size="small">
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Large</span>
+      <IcToggleButtonGroup size="large">
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Full width</span>
+      <IcToggleButtonGroup fullWidth>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Custom width</span>
+      <IcToggleButtonGroup style={{ width: "50%" }}>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Large label</span>
+      <IcToggleButtonGroup style={{ width: "50%" }}>
+        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="a very very very long toggle button label"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+    </>
+  </Story>
+</Canvas>
+
+### Theme
+
+<Canvas>
+  <Story name="Theme">
+    <>
+      <span>Light</span>
+      <div
+        style={{
+          backgroundColor: "#2c2f34",
+          padding: "6px 10px",
+          width: "fit-content",
+        }}
+      >
+        <IcToggleButtonGroup appearance="light">
+          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+        </IcToggleButtonGroup>
+      </div>
+      <br />
+      <span>Dark</span>
+      <IcToggleButtonGroup appearance="dark">
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+    </>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    <>
+      <span>Disabled</span>
+      <IcToggleButtonGroup disabled>
+        <IcToggleButton label="toggle" disabled></IcToggleButton>
+        <IcToggleButton label="toggle" disabled></IcToggleButton>
+        <IcToggleButton label="toggle" disabled></IcToggleButton>
+      </IcToggleButtonGroup>
+    </>
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story name="Loading">
+    <>
+      <span>Loading</span>
+      <IcToggleButtonGroup loading>
+        <IcToggleButton label="toggle" loading></IcToggleButton>
+        <IcToggleButton label="toggle" loading></IcToggleButton>
+        <IcToggleButton label="toggle" loading></IcToggleButton>
+      </IcToggleButtonGroup>
+    </>
+  </Story>
+</Canvas>
+
+### A11y
+
+<Canvas>
+  <Story name="A11y">
+    <>
+      <span>A11y</span>
+      <IcToggleButtonGroup
+        label="Label for the toggle button group"
+        name="Name of the toggle button group"
+        accessibleLabel="accessible label for the toggle button group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
+      </IcToggleButtonGroup>
+    </>
+  </Story>
+</Canvas>
+
+### With icons
+
+<Canvas>
+  <Story name="With icons">
+    <>
+      <span>Icon only</span>
+      <IcToggleButtonGroup
+        label="Label for the toggle button group"
+        variant="icon"
+      >
+        <IcToggleButton variant="icon" accessibleLabel="First Refresh">
+          <SlottedSVG
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+        <IcToggleButton variant="icon" accessibleLabel="Second Refresh">
+          <SlottedSVG
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Icon right</span>
+      <IcToggleButtonGroup
+        label="Label for the toggle button group"
+        iconPlacement="right"
+      >
+        <IcToggleButton label="First toggle" iconPlacement="right">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+        <IcToggleButton label="Second toggle" iconPlacement="right">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Icon left</span>
+      <IcToggleButtonGroup
+        label="Label for the toggle button group"
+        iconPlacement="left"
+      >
+        <IcToggleButton label="First toggle" iconPlacement="left">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+        <IcToggleButton label="Second toggle" iconPlacement="left">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+      </IcToggleButtonGroup>
+      <br />
+      <span>Icon top</span>
+      <IcToggleButtonGroup
+        label="Label for the toggle button group"
+        iconPlacement="top"
+      >
+        <IcToggleButton label="First toggle" iconPlacement="top">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+        <IcToggleButton label="Second toggle" iconPlacement="top">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcToggleButton>
+      </IcToggleButtonGroup>
+    </>
+  </Story>
+</Canvas>
