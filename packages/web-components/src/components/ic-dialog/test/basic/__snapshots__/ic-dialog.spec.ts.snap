@@ -798,8 +798,8 @@ exports[`should render as large size and disableWidthConstraint is set 1`] = `
         </div>
         <ic-button class="button-size-default button-variant-icon close-icon" data-gets-focus exportparts="button">
           <mock:shadow-root>
-            <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-" label="Dismiss" placement="bottom" target="ic-button-with-tooltip-">
-              <button aria-describedby="ic-tooltip-ic-button-with-tooltip-" aria-label="Dismiss" class="button" part="button" type="button">
+            <ic-tooltip label="Dismiss" placement="bottom" silent="" target="ic-button-with-tooltip-">
+              <button aria-label="Dismiss" class="button" part="button" type="button">
                 <slot></slot>
               </button>
             </ic-tooltip>
