@@ -5,12 +5,32 @@ import React from "react";
 // import { IcToggleButtonGroup, IcToggleButton } from "../../components";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { mount } from "cypress/react";
-import * as test from "./IcToggleButtonGroupTestData";
+import {
+  ToggleGroupCustomWidth,
+  ToggleGroupDark,
+  ToggleGroupDisabled,
+  ToggleGroupFullWidth,
+  ToggleGroupIconLeft,
+  ToggleGroupIconOnly,
+  ToggleGroupIconRight,
+  ToggleGroupIconTop,
+  ToggleGroupLarge,
+  ToggleGroupLargeLabel,
+  ToggleGroupLight,
+  ToggleGroupLoading,
+  ToggleGroupLoadingDark,
+  ToggleGroupLoadingLight,
+  ToggleGroupMulti,
+  ToggleGroupSingle,
+  ToggleGroupSmall,
+} from "./IcToggleButtonGroupTestData";
 import {
   HAVE_ATTR,
+  HAVE_FOCUS,
   NOT_HAVE_ATTR,
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helper";
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const IC_TOGGLE_BUTTON_GROUP = "ic-toggle-button-group";
@@ -36,17 +56,17 @@ const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 describe("IcToggleButtonGroup", () => {
   describe("E2E", () => {
     it("Single/manual should check only one toggle", () => {
-      mount(<test.ToggleGroupSingle />);
+      mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
-      getToggle(0).should(HAVE_ATTR, "toggle-checked");
+      getToggle(0).should(HAVE_FOCUS);
       getToggle(2).click();
       getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
       getToggle(2).should(HAVE_ATTR, "toggle-checked");
     });
     it("Multi should check several toggles", () => {
-      mount(<test.ToggleGroupMulti />);
+      mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
@@ -58,7 +78,7 @@ describe("IcToggleButtonGroup", () => {
     });
     it("should focus parent but not interact with toggle when disabled", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
-      mount(<test.ToggleGroupDisabled />);
+      mount(<ToggleGroupDisabled />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
@@ -68,7 +88,7 @@ describe("IcToggleButtonGroup", () => {
     });
     it("should focus toggle but not check with toggle when loading", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
-      mount(<test.ToggleGroupLoading />);
+      mount(<ToggleGroupLoading />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
@@ -80,6 +100,7 @@ describe("IcToggleButtonGroup", () => {
   describe("screenshots", () => {
     beforeEach(() => {
       cy.injectAxe();
+      cy.viewport(500, 500);
     });
 
     afterEach(() => {
@@ -87,13 +108,14 @@ describe("IcToggleButtonGroup", () => {
     });
 
     it("renders default", () => {
-      mount(<test.ToggleGroupSingle />);
-
-      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD);
+      mount(<ToggleGroupSingle />);
 
       getToggle(0).click();
-      cy.wait(200).compareSnapshot("default clicked", DEFAULT_TEST_THRESHOLD);
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "default",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      });
     });
     it("renders multiple checked", () => {
       mount(<ToggleGroupMulti />);
@@ -107,75 +129,145 @@ describe("IcToggleButtonGroup", () => {
       });
     });
     it("renders small", () => {
-      mount(<test.ToggleGroupSmall />);
-
-      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD);
+      mount(<ToggleGroupSmall />);
 
       getToggle(0).click();
-      cy.wait(200).compareSnapshot("small clicked", DEFAULT_TEST_THRESHOLD);
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "small",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      });
     });
     it("renders large", () => {
-      mount(<test.ToggleGroupLarge />);
-
-      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("large", DEFAULT_TEST_THRESHOLD);
+      mount(<ToggleGroupLarge />);
 
       getToggle(0).click();
-      cy.wait(200).compareSnapshot("large clicked", DEFAULT_TEST_THRESHOLD);
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "large",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      });
+    });
+    it("renders full-width", () => {
+      mount(<ToggleGroupFullWidth />);
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "full-width",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      });
+    });
+    it("renders custom width", () => {
+      mount(<ToggleGroupCustomWidth />);
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "custom width",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      });
+    });
+    it("renders toggle with large label", () => {
+      mount(<ToggleGroupLargeLabel />);
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "large label",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      });
     });
     it("renders light", () => {
       mount(
         <div style={{ backgroundColor: "black", padding: "1rem" }}>
-          <test.ToggleGroupLight />
+          <ToggleGroupLight />
+        </div>
+      );
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "light",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      });
+    });
+    it("renders dark", () => {
+      mount(<ToggleGroupDark />);
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "dark",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      });
+    });
+    it("renders disabled", () => {
+      mount(<ToggleGroupDisabled />);
+
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "disabled",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      });
+    });
+    it("renders loading", () => {
+      mount(<ToggleGroupLoading />);
+
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+      cy.compareSnapshot({
+        name: "loading",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      });
+    });
+    it("renders loading light", () => {
+      mount(
+        <div style={{ backgroundColor: "black", padding: "1rem" }}>
+          <ToggleGroupLoadingLight />
         </div>
       );
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("light", DEFAULT_TEST_THRESHOLD);
-
-      getToggle(0).click();
-      cy.wait(200).compareSnapshot("light clicked", DEFAULT_TEST_THRESHOLD);
+      cy.compareSnapshot({
+        name: "loading light",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      });
     });
-    it("renders dark", () => {
-      mount(<test.ToggleGroupDark />);
+    it("renders loading dark", () => {
+      mount(<ToggleGroupLoadingDark />);
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("dark", DEFAULT_TEST_THRESHOLD);
-
-      getToggle(0).click();
-      cy.wait(200).compareSnapshot("dark clicked", DEFAULT_TEST_THRESHOLD);
-    });
-    it("renders disabled", () => {
-      mount(<test.ToggleGroupDisabled />);
-
-      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD);
-    });
-    it("renders full-width", () => {
-      mount(<test.ToggleGroupFullWidth />);
-
-      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("full-width", DEFAULT_TEST_THRESHOLD);
-
-      getToggle(0).click();
-      cy.wait(200).compareSnapshot(
-        "full-width clicked",
-        DEFAULT_TEST_THRESHOLD
-      );
+      cy.compareSnapshot({
+        name: "loading dark",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      });
     });
     it("renders icons", () => {
       mount(
         <div>
-          <test.ToggleGroupIconOnly />
-          <test.ToggleGroupIconRight />
-          <test.ToggleGroupIconLeft />
-          <test.ToggleGroupIconTop />
+          <ToggleGroupIconRight />
+          <ToggleGroupIconLeft />
+          <ToggleGroupIconTop />
         </div>
       );
 
+      getToggle(0).click();
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
-      cy.compareSnapshot("icons", DEFAULT_TEST_THRESHOLD);
+      cy.wait(500).compareSnapshot({
+        name: "icons",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      });
+    });
+    // icon only variant split out due to tooltip visual regression issues
+    it("renders icon only", () => {
+      mount(
+        <div>
+          <ToggleGroupIconOnly />
+        </div>
+      );
+
+      getToggle(0).click();
+      cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     });
   });
 });

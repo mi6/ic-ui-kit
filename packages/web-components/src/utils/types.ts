@@ -196,3 +196,7 @@ export interface IcValueEventDetail {
 export interface IcBlurEventDetail {
   relatedTarget: IcRelatedTarget;
 }
+
+export type IcSelectTypes = "single" | "multi";
+
+export type IcSelectMethodTypes = "auto" | "manual";

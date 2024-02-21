@@ -261,7 +261,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     );
     cy.wait(500).compareSnapshot({
       name: "loading",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
     });
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });

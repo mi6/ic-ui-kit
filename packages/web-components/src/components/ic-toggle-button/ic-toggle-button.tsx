@@ -112,6 +112,10 @@ export class ToggleButton {
     }
   }
 
+  private handleFocus = (ev: FocusEvent) => {
+    ev.stopImmediatePropagation();
+  };
+
   private handleClick = (): void => {
     !this.loading &&
       !this.disabled &&
@@ -131,6 +135,7 @@ export class ToggleButton {
           [`${this.size}`]: true,
           ["loading"]: this.loading,
         }}
+        onFocus={this.handleFocus}
       >
         <ic-button
           aria-pressed={this.toggleChecked.toString()}

@@ -1,0 +1,423 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta
+  title="Web Components/Toggle Button Group"
+  component="Toggle Button Group"
+/>
+
+<Description markdown={readme} />
+
+### Select type
+
+<Canvas>
+  <Story name="Select type" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <span>Single and manual</span>
+        <ic-toggle-button-group
+          select-type="single"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Single and auto</span>
+        <ic-toggle-button-group
+          select-method="auto"
+          accessible-label="Single and auto select toggle group"
+        >
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Multi and manual</span>
+        <ic-toggle-button-group
+          select-type="multi"
+          accessible-label="Multi and manual select toggle group"
+        >
+          <ic-toggle-button label="First toggle"></ic-toggle-button>
+          <ic-toggle-button label="Second toggle"></ic-toggle-button>
+          <ic-toggle-button label="Third toggle"></ic-toggle-button>
+        </ic-toggle-button-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <span>Default</span>
+        <ic-toggle-button-group label="Label for single and manual" accessible-label="Single and manual select toggle group">
+        <ic-toggle-button label="First toggle"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Small</span>
+        <ic-toggle-button-group size="small" accessible-label="Single and manual select toggle group"
+        >
+        <ic-toggle-button label="First toggle" size="small"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle" size="small"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle" size="small"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Large</span>
+        <ic-toggle-button-group size="large" accessible-label="Single and manual select toggle group"
+        >
+        <ic-toggle-button label="First toggle" size="large"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle" size="large"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle" size="large"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Full width</span>
+        <ic-toggle-button-group
+          full-width="true" accessible-label="Single and manual select toggle group"
+        >
+        <ic-toggle-button label="First toggle" full-width="true"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle" full-width="true"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle" full-width="true"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Custom width</span>
+        <ic-toggle-button-group
+         style="width: 75%;" label="Label for single and manual" accessible-label="Single and manual select toggle group"
+        >
+        <ic-toggle-button label="First toggle" class="expand-toggle-group-child"></ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Large label</span>
+        <ic-toggle-button-group style="width: 40%;" accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button label="Toggle"></ic-toggle-button>
+          <ic-toggle-button label="Toggle with a very very long label"></ic-toggle-button>
+        </ic-toggle-button-group>
+      `
+    }
+
+  </Story>
+</Canvas>
+
+### Appearance
+
+<Canvas>
+  <Story name="Appearance" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<span>Light</span>
+        <div
+          style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        >
+          <ic-toggle-button-group
+            appearance="light"
+            accessible-label="Single and manual select toggle group"
+          >
+            <ic-toggle-button
+              label="First toggle"
+              appearance="light"
+            ></ic-toggle-button>
+            <ic-toggle-button
+              label="Second toggle"
+              appearance="light"
+            ></ic-toggle-button>
+            <ic-toggle-button
+              label="Third toggle"
+              appearance="light"
+            ></ic-toggle-button>
+          </ic-toggle-button-group>
+        </div>
+        <br />
+        <span>Dark</span>
+        <ic-toggle-button-group
+          appearance="dark"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button
+            label="First toggle"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Second toggle"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Third toggle"
+            appearance="dark"
+          ></ic-toggle-button>
+        </ic-toggle-button-group> `
+    }
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<span>Disabled</span>
+        <ic-toggle-button-group
+          disabled="true"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button
+            label="First toggle"
+            disabled="true"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Second toggle"
+            disabled="true"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Third toggle"
+            disabled="true"
+          ></ic-toggle-button>
+        </ic-toggle-button-group>`
+    }
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story name="Loading" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<span>Loading default</span>
+        <ic-toggle-button-group
+          loading="true"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button
+            label="First toggle"
+            loading="true"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Second toggle"
+            loading="true"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Third toggle"
+            loading="true"
+          ></ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Loading light</span>
+        <div
+          style="background-color:#2c2f34; padding:6px 10px; width:fit-content"
+        >
+          <ic-toggle-button-group
+            loading="true"
+            appearance="light"
+            accessible-label="Single and manual select toggle group"
+          >
+            <ic-toggle-button
+              label="First toggle"
+              loading="true"
+              appearance="light"
+            ></ic-toggle-button>
+            <ic-toggle-button
+              label="Second toggle"
+              loading="true"
+              appearance="light"
+            ></ic-toggle-button>
+            <ic-toggle-button
+              label="Third toggle"
+              loading="true"
+              appearance="light"
+            ></ic-toggle-button>
+          </ic-toggle-button-group>
+        </div>
+        <br />
+        <span>Loading dark</span>
+        <ic-toggle-button-group
+          loading="true"
+          appearance="dark"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button
+            label="First toggle"
+            loading="true"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Second toggle"
+            loading="true"
+            appearance="dark"
+          ></ic-toggle-button>
+          <ic-toggle-button
+            label="Third toggle"
+            loading="true"
+            appearance="dark"
+          ></ic-toggle-button>
+        </ic-toggle-button-group> `
+    }
+  </Story>
+</Canvas>
+
+### With icons
+
+<Canvas>
+  <Story name="With icons" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<span>Icon only</span>
+        <ic-toggle-button-group
+          variant="icon"
+          accessible-label="A group of buttons"
+        >
+          <ic-toggle-button variant="icon" accessible-label="refresh">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button variant="icon" accessible-label="refresh">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Icon right</span>
+        <ic-toggle-button-group
+          icon-placement="right"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button label="Toggle" icon-placement="right">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button label="Toggle" icon-placement="right">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Icon top</span>
+        <ic-toggle-button-group
+          icon-placement="top"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button label="Toggle" icon-placement="top">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button label="Toggle" icon-placement="top">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </ic-toggle-button-group>
+        <br />
+        <span>Icon left</span>
+        <ic-toggle-button-group
+          icon-placement="left"
+          accessible-label="Single and manual select toggle group"
+        >
+          <ic-toggle-button label="Toggle" icon-placement="left">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+          <ic-toggle-button label="Toggle" icon-placement="left">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+              />
+            </svg>
+          </ic-toggle-button>
+        </ic-toggle-button-group> `
+    }
+  </Story>
+</Canvas>

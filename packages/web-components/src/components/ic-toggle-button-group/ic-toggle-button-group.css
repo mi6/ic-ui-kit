@@ -1,0 +1,71 @@
+@import "../../global/normalize.css";
+
+/* PARENT HOST */
+
+:root {
+  display: block;
+}
+
+:host {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  min-width: min-content;
+  border: var(--ic-border-width) solid var(--ic-action-default);
+  border-radius: var(--ic-border-radius);
+}
+
+:host(.full-width) {
+  width: 100%;
+  max-width: 100%;
+}
+
+:host(.loading) {
+  min-width: max-content;
+}
+
+:host(:focus) {
+  box-shadow: var(--ic-border-focus);
+  border-radius: var(--ic-border-radius);
+  transition: var(--ic-transition-duration-fast);
+  outline: none;
+}
+
+/* CHILDREN SLOTTED */
+
+::slotted(ic-toggle-button) {
+  flex-grow: 1;
+  --toggle-button-border: none;
+  width: min-content;
+}
+
+::slotted(ic-toggle-button:not(:last-of-type)) {
+  border-right: var(--ic-border-width) solid var(--ic-action-default);
+}
+
+/* DISABLED */
+:host(.disabled) {
+  border: var(--ic-border-disabled);
+  pointer-events: none;
+}
+:host(.disabled) ::slotted(ic-toggle-button:not(:last-of-type)) {
+  border-right: var(--ic-border-disabled);
+}
+
+/* DARK */
+:host(.dark) {
+  border: var(--ic-border-width) solid var(--ic-action-dark);
+}
+
+:host(.dark) ::slotted(ic-toggle-button:not(:last-of-type)) {
+  border-right: var(--ic-border-width) solid var(--ic-action-dark);
+}
+
+/* LIGHT */
+:host(.light) ::slotted(ic-toggle-button:not(:last-of-type)) {
+  border-right: var(--ic-border-width) solid var(--ic-action-light);
+}
+
+:host(.light) {
+  border: var(--ic-border-width) solid var(--ic-action-light);
+}
