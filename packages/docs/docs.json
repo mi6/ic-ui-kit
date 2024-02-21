@@ -17291,6 +17291,337 @@
       }
     },
     {
+      "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-toggle-button-group",
+      "readme": "# ic-toggle-button-group\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "accessibleLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessible-label",
+          "reflectToAttr": false,
+          "docs": "The accessible label of the toggle button group component to provide context for screen reader users.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForeground",
+            "resolved": "\"dark\" | \"default\" | \"light\"",
+            "references": {
+              "IcThemeForeground": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForeground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the accordion group, e.g dark, or light.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button group will be set to the disabled state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "full-width",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button group will fill the width of the container.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "iconPlacement",
+          "type": "\"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "\"left\" | \"right\" | \"top\"",
+            "resolved": "\"left\" | \"right\" | \"top\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-placement",
+          "reflectToAttr": false,
+          "docs": "The placement of the icons in relation to the toggle button labels.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "If `true`, the toggle button group will be in loading state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "selectMethod",
+          "type": "\"auto\" | \"manual\"",
+          "complexType": {
+            "original": "IcSelectMethodTypes",
+            "resolved": "\"auto\" | \"manual\"",
+            "references": {
+              "IcSelectMethodTypes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSelectMethodTypes"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "select-method",
+          "reflectToAttr": false,
+          "docs": "If auto, controls are toggled as navigated to. If manual, controls must be actioned to change their toggled state. No effect if selectType is multi.",
+          "docsTags": [],
+          "default": "\"manual\"",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "manual",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "selectType",
+          "type": "\"multi\" | \"single\"",
+          "complexType": {
+            "original": "IcSelectTypes",
+            "resolved": "\"multi\" | \"single\"",
+            "references": {
+              "IcSelectTypes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSelectTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "select-type",
+          "reflectToAttr": false,
+          "docs": "sets whether a single option can be toggled at a time, or whether multiple options can be toggled. If multi, then select method is always manual.",
+          "docsTags": [],
+          "default": "\"single\"",
+          "values": [
+            {
+              "value": "multi",
+              "type": "string"
+            },
+            {
+              "value": "single",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the toggle buttons to be displayed. This does not affect the font size of the accessible label.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"icon\"",
+          "complexType": {
+            "original": "\"default\" | \"icon\"",
+            "resolved": "\"default\" | \"icon\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "The variant of the toggle button.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "icChange",
+          "detail": "IcChangeEventDetail",
+          "bubbles": true,
+          "complexType": {
+            "original": "IcChangeEventDetail",
+            "resolved": "IcChangeEventDetail",
+            "references": {
+              "IcChangeEventDetail": {
+                "location": "import",
+                "path": "./ic-toggle-button-group.types",
+                "id": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a toggle-button is selected.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "icToggleChecked",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
@@ -18564,6 +18895,26 @@
       "declaration": "{\n  mode: IcThemeForeground;\n  color: IcColorRGB;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcSelectMethodTypes": {
+      "declaration": "export type IcSelectMethodTypes = \"auto\" | \"manual\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcSelectTypes": {
+      "declaration": "export type IcSelectTypes = \"single\" | \"multi\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail": {
+      "declaration": "export interface IcChangeEventDetail {\n  toggleChecked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
+      "docstring": "",
+      "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
+    },
+    "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
+      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
+      "docstring": "",
+      "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     }
   }
 }
