@@ -60,6 +60,7 @@ export const excludeComps = [
   'ic-toast',
   'ic-toast-region',
   'ic-toggle-button',
+  'ic-toggle-button-group',
   'ic-tooltip',
   'ic-top-navigation',
   'ic-typography',
