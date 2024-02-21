@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.11.0...@ukic/web-components@2.12.0) (2024-02-21)
+
+### Bug Fixes
+
+- **web-components:** conditionally render description block for footer ([ff58462](https://github.com/mi6/ic-ui-kit/commit/ff58462ba72df2b052b11cecc1f30008282b8363)), closes [#1491](https://github.com/mi6/ic-ui-kit/issues/1491)
+- **web-components:** fix the footer link active state, match the ic link active state ([97c7a02](https://github.com/mi6/ic-ui-kit/commit/97c7a02e0f90152b8a145681fc77793805d2e703))
+- **web-components:** fix the web-components ic-popover stories for the open and closed state ([ae1dfe5](https://github.com/mi6/ic-ui-kit/commit/ae1dfe592f9f657445fd7163b4f37c8c440e0554))
+- **web-components:** improve icPopoverMenu focus on close ([2ee5a3b](https://github.com/mi6/ic-ui-kit/commit/2ee5a3bf8a843efc7b69098d2ac8ea2325cfb012))
+- **web-components:** update button to apply silent prop to tooltip if aria label is provided ([4835662](https://github.com/mi6/ic-ui-kit/commit/4835662284bd8c85bf410a7b4a621d7d108994cd)), closes [#1503](https://github.com/mi6/ic-ui-kit/issues/1503)
+- **web-components:** update expanded on side nav to allow state to be set programmatically ([32f1ade](https://github.com/mi6/ic-ui-kit/commit/32f1adef2526a42adb62deb7a85b5d7004b0580c)), closes [#1474](https://github.com/mi6/ic-ui-kit/issues/1474)
+
+### Features
+
+- **web-components:** native maxlength and minlength added to textfield ([2ec3fd7](https://github.com/mi6/ic-ui-kit/commit/2ec3fd708608f4e6f00d00d1a4a8390464e1d13b))
+
 # 2.11.0 (2024-02-07)
 
 ### Bug Fixes

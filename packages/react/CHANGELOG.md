@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.11.0...@ukic/react@2.12.0) (2024-02-21)
+
+### Bug Fixes
+
+- **react:** fix the react IcPopover stories for the open and closed state ([95eab1a](https://github.com/mi6/ic-ui-kit/commit/95eab1ad70dcb67367e357d920007b817e8d5392))
+- **react:** update expanded on side nav to allow state to be set programmatically ([820762f](https://github.com/mi6/ic-ui-kit/commit/820762f63870b092914e03eb56a76c8ac26ee0b6)), closes [#1474](https://github.com/mi6/ic-ui-kit/issues/1474)
+
+### Features
+
+- **web-components:** native maxlength and minlength added to textfield ([2ec3fd7](https://github.com/mi6/ic-ui-kit/commit/2ec3fd708608f4e6f00d00d1a4a8390464e1d13b))
+
 # 2.11.0 (2024-02-07)
 
 ### Bug Fixes
