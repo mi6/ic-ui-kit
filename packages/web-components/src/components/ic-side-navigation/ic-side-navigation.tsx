@@ -538,10 +538,6 @@ export class SideNavigation {
         this.el.parentElement.style.setProperty("height", "100%");
       }
     }
-    this.emitSideNavigationExpanded({
-      sideNavExpanded: this.menuExpanded,
-      sideNavMobile: isSmallAndDisableTopBar,
-    });
 
     if (!this.disableAutoParentStyling) {
       const paddingLeft = `calc(var(--ic-space-xxl) ${
