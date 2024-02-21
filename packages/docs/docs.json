@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-13T17:10:36",
+  "timestamp": "2024-03-18T10:40:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -17312,6 +17312,7 @@
           "reflectToAttr": false,
           "docs": "The accessible label of the toggle button group component to provide context for screen reader users.",
           "docsTags": [],
+          "default": "\"Toggle button group\"",
           "values": [
             {
               "type": "string"
@@ -17337,7 +17338,7 @@
           "mutable": false,
           "attr": "appearance",
           "reflectToAttr": false,
-          "docs": "The appearance of the accordion group, e.g dark, or light.",
+          "docs": "The appearance of the toggle button group, e.g dark, or light.",
           "docsTags": [],
           "default": "\"default\"",
           "values": [
@@ -17470,7 +17471,7 @@
           "mutable": true,
           "attr": "select-method",
           "reflectToAttr": false,
-          "docs": "If auto, controls are toggled as navigated to. If manual, controls must be actioned to change their toggled state. No effect if selectType is multi.",
+          "docs": "If `auto`, controls are toggled automatically when navigated to. If `manual`, the controls must be actioned to change their toggled state. The value of this prop is ignored if `selectType` is set to`multi`.",
           "docsTags": [],
           "default": "\"manual\"",
           "values": [
@@ -17503,7 +17504,7 @@
           "mutable": false,
           "attr": "select-type",
           "reflectToAttr": false,
-          "docs": "sets whether a single option can be toggled at a time, or whether multiple options can be toggled. If multi, then select method is always manual.",
+          "docs": "Sets whether single or multiple options can be toggled. If `multi`, then the `selectMethod` is always `manual`.",
           "docsTags": [],
           "default": "\"single\"",
           "values": [
@@ -17603,7 +17604,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a toggle-button is selected.",
+          "docs": "Emitted when a toggle button is selected.",
           "docsTags": []
         }
       ],
@@ -18910,11 +18911,6 @@
       "declaration": "export interface IcChangeEventDetail {\n  toggleChecked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
       "docstring": "",
       "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
-    },
-    "src/components/ic-tooltip/ic-tooltip.types.ts::IcTooltipPlacements": {
-      "declaration": "export type IcTooltipPlacements =\n  | \"top-start\"\n  | \"top\"\n  | \"top-end\"\n  | \"right-start\"\n  | \"right\"\n  | \"right-end\"\n  | \"bottom-end\"\n  | \"bottom\"\n  | \"bottom-start\"\n  | \"left-end\"\n  | \"left\"\n  | \"left-start\";",
-      "docstring": "",
-      "path": "src/components/ic-tooltip/ic-tooltip.types.ts"
     }
   }
 }

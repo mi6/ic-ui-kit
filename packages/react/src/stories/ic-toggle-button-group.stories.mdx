@@ -3,10 +3,7 @@ import { IcToggleButton, IcToggleButtonGroup } from "../components";
 import readme from "../../../web-components/src/components/ic-toggle-button/readme.md";
 import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
-<Meta
-  title="React Components/Toggle button group"
-  component={IcToggleButtonGroup}
-/>
+<Meta title="Toggle button group" component={IcToggleButtonGroup} />
 
 <Description markdown={readme} />
 
@@ -16,28 +13,34 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   <Story name="Default">
     <>
       <span>Single and manual</span>
-      <IcToggleButtonGroup selectType="single" name="tog-group">
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        selectType="single"
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Single and auto</span>
       <IcToggleButtonGroup
         selectType="single"
         selectMethod="auto"
-        name="tog-group"
+        accessibleLabel="Single and auto select toggle group"
       >
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Multi and manual</span>
-      <IcToggleButtonGroup selectType="multi" name="tog-group">
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        selectType="multi"
+        accessibleLabel="Multi and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
     </>
@@ -50,42 +53,57 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   <Story name="Sizes">
     <>
       <span>Default</span>
-      <IcToggleButtonGroup name="tog-group">
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup accessibleLabel="Single and manual select toggle group">
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Small</span>
-      <IcToggleButtonGroup size="small">
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        size="small"
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Large</span>
-      <IcToggleButtonGroup size="large">
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        size="large"
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Full width</span>
-      <IcToggleButtonGroup fullWidth>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        fullWidth
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Custom width</span>
-      <IcToggleButtonGroup style={{ width: "50%" }}>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
-        <IcToggleButton label="toggle"></IcToggleButton>
+      <IcToggleButtonGroup
+        style={{ width: "50%" }}
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle"></IcToggleButton>
+        <IcToggleButton label="Second toggle"></IcToggleButton>
+        <IcToggleButton label="Third toggle"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
       <span>Large label</span>
-      <IcToggleButtonGroup style={{ width: "50%" }}>
+      <IcToggleButtonGroup
+        style={{ width: "50%" }}
+        accessibleLabel="Single and manual select toggle group"
+      >
         <IcToggleButton label="toggle"></IcToggleButton>
         <IcToggleButton label="a very very very long toggle button label"></IcToggleButton>
       </IcToggleButtonGroup>
@@ -94,10 +112,10 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   </Story>
 </Canvas>
 
-### Theme
+### Appearance
 
 <Canvas>
-  <Story name="Theme">
+  <Story name="Appearance">
     <>
       <span>Light</span>
       <div
@@ -107,18 +125,36 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
           width: "fit-content",
         }}
       >
-        <IcToggleButtonGroup appearance="light">
-          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
-          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
-          <IcToggleButton label="toggle" appearance="light"></IcToggleButton>
+        <IcToggleButtonGroup
+          appearance="light"
+          accessibleLabel="Single and manual select toggle group"
+        >
+          <IcToggleButton
+            label="First toggle"
+            appearance="light"
+          ></IcToggleButton>
+          <IcToggleButton
+            label="Second toggle"
+            appearance="light"
+          ></IcToggleButton>
+          <IcToggleButton
+            label="Third toggle"
+            appearance="light"
+          ></IcToggleButton>
         </IcToggleButtonGroup>
       </div>
       <br />
       <span>Dark</span>
-      <IcToggleButtonGroup appearance="dark">
-        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
-        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
-        <IcToggleButton label="toggle" appearance="dark"></IcToggleButton>
+      <IcToggleButtonGroup
+        appearance="dark"
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle" appearance="dark"></IcToggleButton>
+        <IcToggleButton
+          label="Second toggle"
+          appearance="dark"
+        ></IcToggleButton>
+        <IcToggleButton label="Third toggle" appearance="dark"></IcToggleButton>
       </IcToggleButtonGroup>
       <br />
     </>
@@ -131,10 +167,13 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   <Story name="Disabled">
     <>
       <span>Disabled</span>
-      <IcToggleButtonGroup disabled>
-        <IcToggleButton label="toggle" disabled></IcToggleButton>
-        <IcToggleButton label="toggle" disabled></IcToggleButton>
-        <IcToggleButton label="toggle" disabled></IcToggleButton>
+      <IcToggleButtonGroup
+        disabled
+        accessibleLabel="Single and manual select toggle group"
+      >
+        <IcToggleButton label="First toggle" disabled></IcToggleButton>
+        <IcToggleButton label="Second toggle" disabled></IcToggleButton>
+        <IcToggleButton label="Third toggle" disabled></IcToggleButton>
       </IcToggleButtonGroup>
     </>
   </Story>
@@ -146,29 +185,13 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
   <Story name="Loading">
     <>
       <span>Loading</span>
-      <IcToggleButtonGroup loading>
-        <IcToggleButton label="toggle" loading></IcToggleButton>
-        <IcToggleButton label="toggle" loading></IcToggleButton>
-        <IcToggleButton label="toggle" loading></IcToggleButton>
-      </IcToggleButtonGroup>
-    </>
-  </Story>
-</Canvas>
-
-### A11y
-
-<Canvas>
-  <Story name="A11y">
-    <>
-      <span>A11y</span>
       <IcToggleButtonGroup
-        label="Label for the toggle button group"
-        name="Name of the toggle button group"
-        accessibleLabel="accessible label for the toggle button group"
+        loading
+        accessibleLabel="Single and manual select toggle group"
       >
-        <IcToggleButton label="First toggle"></IcToggleButton>
-        <IcToggleButton label="Second toggle"></IcToggleButton>
-        <IcToggleButton label="Third toggle"></IcToggleButton>
+        <IcToggleButton label="First toggle" loading></IcToggleButton>
+        <IcToggleButton label="Second toggle" loading></IcToggleButton>
+        <IcToggleButton label="Third toggle" loading></IcToggleButton>
       </IcToggleButtonGroup>
     </>
   </Story>
@@ -181,8 +204,8 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
     <>
       <span>Icon only</span>
       <IcToggleButtonGroup
-        label="Label for the toggle button group"
         variant="icon"
+        accessibleLabel="Single and manual select toggle group"
       >
         <IcToggleButton variant="icon" accessibleLabel="First Refresh">
           <SlottedSVG
@@ -212,8 +235,8 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
       <br />
       <span>Icon right</span>
       <IcToggleButtonGroup
-        label="Label for the toggle button group"
         iconPlacement="right"
+        accessibleLabel="Single and manual select toggle group"
       >
         <IcToggleButton label="First toggle" iconPlacement="right">
           <SlottedSVG
@@ -245,8 +268,8 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
       <br />
       <span>Icon left</span>
       <IcToggleButtonGroup
-        label="Label for the toggle button group"
         iconPlacement="left"
+        accessibleLabel="Single and manual select toggle group"
       >
         <IcToggleButton label="First toggle" iconPlacement="left">
           <SlottedSVG
@@ -278,8 +301,8 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
       <br />
       <span>Icon top</span>
       <IcToggleButtonGroup
-        label="Label for the toggle button group"
         iconPlacement="top"
+        accessibleLabel="Single and manual select toggle group"
       >
         <IcToggleButton label="First toggle" iconPlacement="top">
           <SlottedSVG
