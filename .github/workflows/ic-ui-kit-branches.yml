@@ -156,7 +156,7 @@ jobs:
         if: always() && steps.cypress_tests.outcome == 'failure'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./packages/react/cypress-visual-screenshots/diff
+          folder: ./packages/react/cypress-image-diff-screenshots/diff
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-screenshots
 
   ic-ui-kit-deploy:
