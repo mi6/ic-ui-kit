@@ -68,6 +68,7 @@ export const IcTheme = /*@__PURE__*/createReactComponent<JSX.IcTheme, HTMLIcThem
 export const IcToast = /*@__PURE__*/createReactComponent<JSX.IcToast, HTMLIcToastElement>('ic-toast');
 export const IcToastRegion = /*@__PURE__*/createReactComponent<JSX.IcToastRegion, HTMLIcToastRegionElement>('ic-toast-region');
 export const IcToggleButton = /*@__PURE__*/createReactComponent<JSX.IcToggleButton, HTMLIcToggleButtonElement>('ic-toggle-button');
+export const IcToggleButtonGroup = /*@__PURE__*/createReactComponent<JSX.IcToggleButtonGroup, HTMLIcToggleButtonGroupElement>('ic-toggle-button-group');
 export const IcTooltip = /*@__PURE__*/createReactComponent<JSX.IcTooltip, HTMLIcTooltipElement>('ic-tooltip');
 export const IcTopNavigation = /*@__PURE__*/createReactComponent<JSX.IcTopNavigation, HTMLIcTopNavigationElement>('ic-top-navigation');
 export const IcTypography = /*@__PURE__*/createReactComponent<JSX.IcTypography, HTMLIcTypographyElement>('ic-typography');
