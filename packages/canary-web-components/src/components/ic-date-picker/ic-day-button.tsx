@@ -1,9 +1,8 @@
 import { h, FunctionalComponent } from "@stencil/core";
 import { stringEnumToArray } from "../../utils/helpers";
-import { IcSizes, IcDayNames, IcDateInputMonths } from "../../utils/types";
+import { IcDayNames, IcDateInputMonths } from "../../utils/types";
 
 export type DayButtonProps = {
-  size: IcSizes;
   focussed: boolean;
   today: boolean;
   day: Date;
@@ -19,7 +18,6 @@ export type DayButtonProps = {
 };
 
 export const DayButton: FunctionalComponent<DayButtonProps> = ({
-  size,
   focussed,
   today,
   day,
@@ -47,12 +45,6 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
 
   const dayNames = stringEnumToArray(IcDayNames);
   const months = stringEnumToArray(IcDateInputMonths);
-  const typography =
-    size === "large"
-      ? "subtitle-large"
-      : size === "default"
-      ? "subtitle-small"
-      : "caption";
   const outsideRange = !inRange || disableDay;
   const outsideMonth = monthInView !== day.getMonth();
   const disabled = outsideRange || (outsideMonth && !showDaysOutsideMonth);
@@ -92,7 +84,7 @@ export const DayButton: FunctionalComponent<DayButtonProps> = ({
     >
       {(!outsideMonth || (outsideMonth && showDaysOutsideMonth)) && (
         <ic-typography
-          variant={typography}
+          variant="subtitle-small"
           italic={outsideMonth}
           strikethrough={disabled}
         >
