@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-19T07:55:24",
+  "timestamp": "2024-02-23T14:34:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -1336,6 +1336,28 @@
       "usage": {},
       "props": [
         {
+          "name": "accept",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accept",
+          "reflectToAttr": false,
+          "docs": "If `fileUpload` is set to `true`, this is the accepted list of file types.",
+          "docsTags": [],
+          "default": "\"*\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "appearance",
           "type": "\"dark\" | \"default\" | \"light\"",
           "complexType": {
@@ -1475,6 +1497,50 @@
           "attr": "dropdown-expanded",
           "reflectToAttr": true,
           "docs": "If `true`, the aria-expanded value will be set to true. This is only applied if the dropdown prop is also true.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "fileInputName",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "file-input-name",
+          "reflectToAttr": false,
+          "docs": "The name of the control for the file input, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "`ic-button-file-upload-input-${buttonIds++}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "fileUpload",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "file-upload",
+          "reflectToAttr": false,
+          "docs": "If `true`, when the button is clicked the native file explorer will be launched.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1698,6 +1764,28 @@
           "required": false
         },
         {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If `fileUpload` is set to `true`, this boolean determines whether multiple files are accepted.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "referrerpolicy",
           "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
           "complexType": {
@@ -1774,6 +1862,31 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "selectedFiles",
+          "type": "FileList",
+          "complexType": {
+            "original": "FileList",
+            "resolved": "FileList",
+            "references": {
+              "FileList": {
+                "location": "global",
+                "id": "global::FileList"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "The list of the files that have been selected by a user.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "FileList"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -2017,6 +2130,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when button has blur",
+          "docsTags": []
+        },
+        {
+          "event": "icFileSelection",
+          "detail": "FileList",
+          "bubbles": true,
+          "complexType": {
+            "original": "FileList",
+            "resolved": "FileList",
+            "references": {
+              "FileList": {
+                "location": "global",
+                "id": "global::FileList"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "If `fileUpload` is set to `true`, this will be emitted when a file is selected in the native explorer.",
           "docsTags": []
         },
         {
