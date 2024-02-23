@@ -148,16 +148,43 @@ jobs:
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Cypress tests
-        id: cypress_tests
+      - name: Core Cypress tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_tests
         run: npm run test-cypress:ci
 
-      - name: Upload diff screenshots
-        if: always() && steps.cypress_tests.outcome == 'failure'
+      - name: Upload core visual regression screenshots
+        if: failure() && steps.core_cypress_tests.outcome == 'failure'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./packages/react/cypress-image-diff-screenshots/diff
-          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-screenshots
+          folder: ./packages/react/cypress-image-diff-screenshots
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+
+      - name: Upload core visual regression report
+        if: always() && steps.core_cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/cypress-image-diff-html-report
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+
+      - name: Canary Cypress tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        id: canary_cypress_tests
+        run: npm run test-cypress:ci:canary
+
+      - name: Upload canary visual regression diff screenshots
+        if: failure() && steps.canary_cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-react/cypress-image-diff-screenshots
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+
+      - name: Upload canary visual regression report
+        if: always() && steps.canary_cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-react/cypress-image-diff-html-report
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
 
   ic-ui-kit-deploy:
     needs:

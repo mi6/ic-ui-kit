@@ -139,16 +139,15 @@ jobs:
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
-      - name: Cypress tests
-        id: cypress_tests
+      - name: Core Cypress tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_tests
         run: npm run test-cypress:ci
 
-      - name: Upload diff screenshots
-        if: always() && steps.cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ./packages/react/cypress-image-diff-screenshots/diff
-          target-folder: ./branches/main/cypress-screenshots
+      - name: Canary Cypress tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        id: canary_cypress_tests
+        run: npm run test-cypress:ci:canary
 
   ic-ui-kit-publish:
     needs:
