@@ -11,7 +11,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-default",
-          "percentage": 0.07731198391674383,
+          "percentage": 0.07812078560061428,
           "failureThreshold": 0.09,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -22,7 +22,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-default-month-view",
-          "percentage": 0.017728105208558366,
+          "percentage": 0,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -44,7 +44,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-small",
-          "percentage": 0.07030545599636732,
+          "percentage": 0.06983654385164588,
           "failureThreshold": 0.083,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -110,7 +110,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-goto-today-hidden",
-          "percentage": 0.06306459273746923,
+          "percentage": 0.06260990336999411,
           "failureThreshold": 0.07500000000000001,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -121,7 +121,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-clear-hidden",
-          "percentage": 0.06344851681256455,
+          "percentage": 0.06378535434228949,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -143,7 +143,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-open-at-date",
-          "percentage": 0.06555259611291422,
+          "percentage": 0.06502746672423453,
           "failureThreshold": 0.079,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -187,7 +187,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-disable-weekends",
-          "percentage": 0.06667618979601553,
+          "percentage": 0.0681175454637056,
           "failureThreshold": 0.083,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -198,7 +198,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-days-outside-month-hidden",
-          "percentage": 0.062243760444607735,
+          "percentage": 0.06171362433508041,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -209,7 +209,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-min-max",
-          "percentage": 0.044497190922573975,
+          "percentage": 0.06909620622209091,
           "failureThreshold": 0.082,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -220,7 +220,7 @@
         {
           "status": "pass",
           "name": "IcDatePicker.cy.tsx-min-max-month-view",
-          "percentage": 0.0161245154965971,
+          "percentage": 0,
           "failureThreshold": 0.065,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
@@ -242,9 +242,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-23T14:13:38.498Z",
-  "endedAt": "2024-02-23T14:14:44.422Z",
-  "duration": 60540,
+  "startedAt": "2024-02-23T14:26:21.152Z",
+  "endedAt": "2024-02-23T14:27:19.239Z",
+  "duration": 52845,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
