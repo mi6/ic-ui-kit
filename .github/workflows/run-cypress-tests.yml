@@ -1,0 +1,86 @@
+name: Run Cypress tests
+
+on: workflow_dispatch
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-updates:
+    name: "Check package updates"
+    runs-on: ubuntu-latest
+    outputs:
+      core: ${{ steps.filter.outputs.core }}
+      canary: ${{ steps.filter.outputs.canary }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            core:
+              - 'packages/web-components/**'
+              - 'packages/react/**'
+            canary:
+              - 'packages/canary-web-components/**'
+              - 'packages/canary-react/**'
+
+  ic-ui-kit-cypress-tests:
+    needs: [check-updates]
+    name: "Cypress tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: browser-actions/setup-chrome@latest
+
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Core Cypress tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_tests
+        run: npm run test-cypress:ci
+
+      - name: Upload core visual regression screenshots
+        if: failure() && steps.core_cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/cypress-image-diff-screenshots
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+
+      - name: Upload core visual regression report
+        if: always() && needs.check-updates.outputs.core == 'true'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/react/cypress-image-diff-html-report
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+
+      - name: Canary Cypress tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        id: canary_cypress_tests
+        run: npm run test-cypress:ci:canary
+
+      - name: Upload canary visual regression diff screenshots
+        if: failure() && steps.canary_cypress_tests.outcome == 'failure'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-react/cypress-image-diff-screenshots
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
+
+      - name: Upload canary visual regression report
+        if: always() && needs.check-updates.outputs.canary == 'true'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./packages/canary-react/cypress-image-diff-html-report
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report

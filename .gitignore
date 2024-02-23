@@ -18,6 +18,18 @@ packages/react/storybook-static
 packages/canary-web-components/storybook-static
 packages/canary-react/storybook-static
 
+packages/canary-react/cypress-visual-report
+packages/react/cypress-visual-report
+
+packages/canary-react/cypress-image-diff-html-report
+packages/react/cypress-image-diff-html-report
+
+packages/canary-react/cypress-image-diff-screenshots/comparison
+packages/react/cypress-image-diff-screenshots/comparison
+
+packages/canary-react/cypress-image-diff-screenshots/diff
+packages/react/cypress-image-diff-screenshots/diff
+
 *.log
 *.lock
 *.tmp
