@@ -231,7 +231,7 @@ export class Badge {
           ["show"]: visible,
           ["hide"]: !visible,
         }}
-        id="badge"
+        id={this.el.id || null}
         aria-label={
           this.isAccessibleLabelDefined() &&
           `badge displaying ${this.accessibleLabel}`

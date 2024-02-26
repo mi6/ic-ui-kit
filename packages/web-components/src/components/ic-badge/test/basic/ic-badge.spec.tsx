@@ -326,4 +326,13 @@ describe("ic-badge", () => {
 
     expect(page.rootInstance.getTextLabel()).toBe("9+");
   });
+
+  it("should render with id set", async () => {
+    const page = await newSpecPage({
+      components: [Button, Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" id="badge-1" text-label="1"/></ic-button>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with id");
+  });
 });
