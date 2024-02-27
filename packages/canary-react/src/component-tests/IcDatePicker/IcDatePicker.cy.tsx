@@ -4,6 +4,7 @@ import './IcDatePicker.css'
 import React from "react";
 import { mount } from "cypress/react";
 import { IcDatePicker } from "../../components";
+import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
 
 import { BE_DISABLED, HAVE_CLASS, HAVE_TEXT, HAVE_ATTR, BE_VISIBLE, CONTAIN_TEXT} from "../../../../react/src/component-tests/utils/constants";
 
@@ -45,6 +46,7 @@ const PAGE_UP_KEY = "{PageUp}";
 const PAGE_DOWN_KEY = "{PageDown}";
 
 const DEFAULT_TEST_THRESHOLD = 0.035;
+const SCREENSHOT_DELAY = 500;
 
 const checkDateInputValue = (date: Date | null) => {
   const currDay = date && date.getDate() || 0;
@@ -88,7 +90,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     
-    cy.compareSnapshot("default", DEFAULT_TEST_THRESHOLD + 0.055);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -100,7 +105,10 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("default-month-view", DEFAULT_TEST_THRESHOLD + 0.035);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "default-month-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -112,7 +120,10 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("default-year-view", DEFAULT_TEST_THRESHOLD + 0.026);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "default-year-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -123,7 +134,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     
-    cy.compareSnapshot("small", DEFAULT_TEST_THRESHOLD + 0.048);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -136,7 +150,10 @@ describe("IcDatePickers", () => {
     
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("small-month-view", DEFAULT_TEST_THRESHOLD + 0.035);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "small-month-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -149,7 +166,10 @@ describe("IcDatePickers", () => {
     
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("small-year-view", DEFAULT_TEST_THRESHOLD + 0.026);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "small-year-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -160,7 +180,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     
-    cy.compareSnapshot("large", DEFAULT_TEST_THRESHOLD + 0.065);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -173,7 +196,10 @@ describe("IcDatePickers", () => {
     
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("large-month-view", DEFAULT_TEST_THRESHOLD + 0.035);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "large-month-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
     cy.checkA11yWithWait();
 
   });
@@ -187,7 +213,10 @@ describe("IcDatePickers", () => {
     
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
     
-    cy.compareSnapshot("large-year-view", DEFAULT_TEST_THRESHOLD + 0.026);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "large-year-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
     cy.checkA11yWithWait();   
   });
 
@@ -198,7 +227,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
 
-    cy.compareSnapshot("goto-today-hidden", DEFAULT_TEST_THRESHOLD + 0.04);   
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "goto-today-hidden",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
   });
 
   it("should hide clear button", () => {
@@ -208,7 +240,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
 
-    cy.compareSnapshot("clear-hidden", DEFAULT_TEST_THRESHOLD + 0.045);   
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "clear-hidden",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
   });
 
   it("should navigate to today when button pressed", () => {
@@ -470,7 +505,11 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ESCAPE_KEY);
-    cy.compareSnapshot("escape-to-close", DEFAULT_TEST_THRESHOLD + 0.005);  
+    
+    cy.compareSnapshot({
+      name: "escape-to-close",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
   });
 
   it("should close on document click", () => {
@@ -480,7 +519,11 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.get("body").click();
-    cy.compareSnapshot("escape-to-close", DEFAULT_TEST_THRESHOLD + 0.005);  
+    
+    cy.compareSnapshot({
+      name: "escape-to-close",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
   });
 
   it("should select the focussed date when Enter pressed", () => {
@@ -997,7 +1040,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
 
-    cy.compareSnapshot("open-at-date", DEFAULT_TEST_THRESHOLD + 0.044);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "open-at-date",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
 
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
     cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should("not.exist");
@@ -1013,7 +1059,10 @@ describe("IcDatePickers", () => {
 
     checkDateInputValue(new Date(2023,11,15));
 
-    cy.compareSnapshot("month-first-format", DEFAULT_TEST_THRESHOLD + 0.005);    
+    cy.compareSnapshot({
+      name: "month-first-format",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });    
   });
 
   it("should test year first date format prop", () => {
@@ -1026,8 +1075,10 @@ describe("IcDatePickers", () => {
 
     checkDateInputValue(new Date(2023,11,15));
 
-    cy.compareSnapshot("year-first-format", DEFAULT_TEST_THRESHOLD + 0.005);
-    
+    cy.compareSnapshot({
+      name: "year-first-format",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    }); 
   });
 
   it("should test disabled variant", () => {
@@ -1037,7 +1088,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).shadow().find(BUTTON).should("be.disabled");
     
-    cy.compareSnapshot("disabled", DEFAULT_TEST_THRESHOLD + 0.005);
+    cy.compareSnapshot({
+      name: "disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    }); 
   });
 
   it("should test 'disableDays' prop", () => {
@@ -1047,7 +1101,10 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     
-    cy.compareSnapshot("disable-weekends", DEFAULT_TEST_THRESHOLD + 0.048);
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "disable-weekends",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
   });
 
   it("should test 'disableDaysMessage' prop", () => {
@@ -1103,7 +1160,11 @@ describe("IcDatePickers", () => {
     cy.checkHydrated(DATE_PICKER);
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.compareSnapshot("days-outside-month-hidden", DEFAULT_TEST_THRESHOLD + 0.045);
+    
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "days-outside-month-hidden",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
   });
 
   it("should test 'min' and 'max' props", () => {
@@ -1112,7 +1173,11 @@ describe("IcDatePickers", () => {
     cy.checkHydrated(DATE_PICKER);
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.compareSnapshot("min-max", DEFAULT_TEST_THRESHOLD + 0.047);
+    
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "min-max",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1123,7 +1188,11 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();    
-    cy.compareSnapshot("min-max-month-view", DEFAULT_TEST_THRESHOLD + 0.03);
+    
+    cy.compareSnapshot({
+      name: "min-max-month-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1134,7 +1203,11 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();    
-    cy.compareSnapshot("min-max-year-view", DEFAULT_TEST_THRESHOLD + 0.011);
+    
+    cy.compareSnapshot({
+      name: "min-max-year-view",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+    });
     cy.checkA11yWithWait();
   });
 
@@ -1146,6 +1219,19 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-validation").should(CONTAIN_TEXT, msg);
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-component-container").should(HAVE_CLASS, "warning");    
+  });
+
+  it("should test picker opens above input when not enough room below", () => {
+    mount(<div style= {{overflow: "none", height: "700px"}}><IcDatePicker style={{position: "absolute", bottom: "60px"}} label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} showDaysOutsideMonth={false} startOfWeek={0} /></div>);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    
+    cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+      name: "posistion-above",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+    });
   });
 
 });

@@ -230,15 +230,15 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Determines whether days outside the current month are rendered.
+          * If `true`, days outside the current month are visible in the date picker.
          */
         "showDaysOutsideMonth"?: boolean;
         /**
-          * Determines whether the `Clear` button on the date picker is visible.
+          * If `true`, the `Clear` button on the date picker is visible.
          */
         "showPickerClearButton"?: boolean;
         /**
-          * Determines whether the `Go to today` button on the date picker is visible.
+          * If `true`, the `Go to today` button on the date picker is visible.
          */
         "showPickerTodayButton"?: boolean;
         /**
@@ -260,7 +260,7 @@ export namespace Components {
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date;
+        "value"?: string | Date | null | undefined;
     }
     interface IcPaginationBar {
         /**
@@ -620,15 +620,15 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Determines whether days outside the current month are rendered.
+          * If `true`, days outside the current month are visible in the date picker.
          */
         "showDaysOutsideMonth"?: boolean;
         /**
-          * Determines whether the `Clear` button on the date picker is visible.
+          * If `true`, the `Clear` button on the date picker is visible.
          */
         "showPickerClearButton"?: boolean;
         /**
-          * Determines whether the `Go to today` button on the date picker is visible.
+          * If `true`, the `Go to today` button on the date picker is visible.
          */
         "showPickerTodayButton"?: boolean;
         /**
@@ -650,7 +650,7 @@ declare namespace LocalJSX {
         /**
           * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
          */
-        "value"?: string | Date;
+        "value"?: string | Date | null | undefined;
     }
     interface IcPaginationBar {
         /**

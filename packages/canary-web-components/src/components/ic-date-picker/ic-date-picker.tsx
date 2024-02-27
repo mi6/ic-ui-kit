@@ -46,7 +46,7 @@ const DEFAULT_DISABLE_DATES_UNTIL_NOW_MSG =
 const DEFAULT_DISABLE_DAYS_MSG =
   "The date you have selected is on a weekday that is not allowed. Please select another date.";
 const FOCUS_TIMER = 100;
-const PICKER_HEIGHT_SMALL = 340;
+const PICKER_HEIGHT_SMALL = 360;
 const PICKER_HEIGHT_DEFAULT = 400;
 const PICKER_HEIGHT_LARGE = 440;
 
@@ -230,17 +230,17 @@ export class DatePicker {
   @Prop() required?: boolean = false;
 
   /**
-   * Determines whether days outside the current month are rendered.
+   * If `true`, days outside the current month are visible in the date picker.
    */
   @Prop() showDaysOutsideMonth?: boolean = true;
 
   /**
-   * Determines whether the `Clear` button on the date picker is visible.
+   * If `true`, the `Clear` button on the date picker is visible.
    */
   @Prop() showPickerClearButton?: boolean = true;
 
   /**
-   * Determines whether the `Go to today` button on the date picker is visible.
+   * If `true`, the `Go to today` button on the date picker is visible.
    */
   @Prop() showPickerTodayButton?: boolean = true;
 
@@ -268,7 +268,7 @@ export class DatePicker {
   /**
    * The value of the date picker. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.
    */
-  @Prop({ mutable: true }) value?: string | Date = "";
+  @Prop({ mutable: true }) value?: string | Date | null | undefined = "";
 
   @Watch("calendarOpen")
   watchOpenHandler(): void {
@@ -598,7 +598,7 @@ export class DatePicker {
     flip: boolean,
     disabled: boolean
   ): void => {
-    const buttonSize = this.size === "large" ? "default" : "small";
+    const buttonSize = this.size;
     return (
       <div aria-hidden="true">
         <ic-button
@@ -770,17 +770,11 @@ export class DatePicker {
     let handled = true;
     switch (ev.key) {
       case "ArrowUp":
-        this.updateFocussedMonth(-1);
-        break;
-
-      case "ArrowDown":
-        this.updateFocussedMonth(1);
-        break;
-
       case "ArrowLeft":
         this.updateFocussedMonth(-1);
         break;
 
+      case "ArrowDown":
       case "ArrowRight":
         this.updateFocussedMonth(1);
         break;
@@ -816,17 +810,11 @@ export class DatePicker {
     let handled = true;
     switch (ev.key) {
       case "ArrowUp":
-        this.updateFocussedYear(-1);
-        break;
-
-      case "ArrowDown":
-        this.updateFocussedYear(1);
-        break;
-
       case "ArrowLeft":
         this.updateFocussedYear(-1);
         break;
 
+      case "ArrowDown":
       case "ArrowRight":
         this.updateFocussedYear(1);
         break;
@@ -1421,7 +1409,6 @@ export class DatePicker {
                   <div class="calendar-days-container">
                     {this.currMonthView.map((day) => (
                       <DayButton
-                        size={size}
                         day={day}
                         disableDay={this.disableDays.includes(
                           Number(day.getDay())
