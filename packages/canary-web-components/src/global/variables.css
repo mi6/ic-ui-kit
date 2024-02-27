@@ -20,6 +20,7 @@
   --ic-transition-duration-slow: 300ms;
 
   /* borders */
+  --ic-border-width: 0.0625rem;
   --ic-border-disabled: var(--ic-space-1px) dashed var(--ic-architectural-200);
   --ic-border-light: var(--ic-space-1px) solid var(--ic-architectural-200);
   --ic-border-default: var(--ic-space-1px) solid var(--ic-architectural-400);
@@ -63,6 +64,7 @@
   --ic-font-size-regular: 1rem;
   --ic-font-size-label: 0.875rem;
   --ic-font-size-caption: 0.75rem;
+  --ic-font-size-badge-small: 0.563rem;
 
   /* line height */
   --ic-font-line-height-h1: 3.5rem;
@@ -74,6 +76,8 @@
   --ic-font-line-height-body: 1.5rem;
   --ic-font-line-height-caption: 1.25rem;
   --ic-font-line-height-code: 1.5rem;
+  --ic-font-line-height-badge: 0.875rem;
+  --ic-font-line-height-badge-small: 0.75rem;
 
   /* letter spacing */
   --ic-font-letter-spacing-0pt025: 0.025rem;
@@ -110,6 +114,11 @@
   --ic-font-code-extra-small: var(--ic-font-weight-regular)
     var(--ic-font-size-caption) / var(--ic-font-line-height-code)
     var(--ic-font-code-family);
+  --ic-font-badge: var(--ic-font-weight-semibold) var(--ic-font-size-caption) /
+    var(--ic-font-line-height-badge) var(--ic-font-body-family);
+  --ic-font-badge-small: var(--ic-font-weight-semibold)
+    var(--ic-font-size-badge-small) / var(--ic-font-line-height-badge-small)
+    var(--ic-font-body-family);
 
   /* colours */
 
@@ -248,6 +257,8 @@
   --ic-action-dark-active: #41464d;
   --ic-action-dark-bg-hover: rgb(65 70 77 / 10%);
   --ic-action-dark-bg-active: rgb(65 70 77 / 20%);
+  --ic-action-dark-bg-hover-no-alpha: #ececed;
+  --ic-action-dark-bg-active-no-alpha: #d9dadb;
 
   /* classification official */
   --ic-classification-official: #2b71c7;
@@ -367,9 +378,6 @@
   --ic-focus-glow: #80a1e8;
   --ic-hc-focus-outline: 3px solid transparent;
 
-  /* data tables */
-  --ic-table-row-selected: #c7d7ef;
-
   /* breakpoints */
 
   /* Note: ensure to update in ic-section-container media queries */
@@ -394,12 +402,13 @@
   --ic-z-index-base-value: 0;
   --ic-z-index-page-header: calc(var(--ic-z-index-base-value) + 10);
   --ic-z-index-back-to-top: calc(var(--ic-z-index-base-value) + 20);
-  --ic-z-index-menu: calc(var(--ic-z-index-base-value) + 70);
+  --ic-z-index-date-picker: calc(var(--ic-z-index-base-value) + 50);
   --ic-z-index-popover: calc(var(--ic-z-index-base-value) + 50);
-  --ic-z-index-navigation-item: calc(var(--ic-z-index-base-value) + 50);
-  --ic-z-index-navigation-menu: calc(var(--ic-z-index-base-value) + 60);
   --ic-z-index-sticky-page-header: calc(var(--ic-z-index-base-value) + 60);
-  --ic-z-index-side-navigation: calc(var(--ic-z-index-base-value) + 60);
+  --ic-z-index-navigation-item: calc(var(--ic-z-index-base-value) + 70);
+  --ic-z-index-navigation-menu: calc(var(--ic-z-index-base-value) + 70);
+  --ic-z-index-menu: calc(var(--ic-z-index-base-value) + 70);
+  --ic-z-index-side-navigation: calc(var(--ic-z-index-base-value) + 70);
   --ic-z-index-dialog: calc(var(--ic-z-index-base-value) + 100);
   --ic-z-index-toast: calc(var(--ic-z-index-base-value) + 110);
   --ic-z-index-tooltip: calc(var(--ic-z-index-base-value) + 110);
