@@ -28,6 +28,8 @@ import {
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const DEFAULT_TEST_THRESHOLD_MOBILE = 0.04;
+const MOBILE_CLIP = { x: 0, y: 0, width: 375, height: 200 };
+const DESKTOP_CLIP = { x: 0, y: 0, width: 1444, height: 200 };
 
 const TOP_NAV_SELECTOR = "ic-top-navigation";
 const SEARCH_BAR_SELECTOR = "ic-search-bar";
@@ -131,6 +133,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "app-icon-title",
       testThreshold: DEFAULT_TEST_THRESHOLD,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -141,6 +146,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "status-version",
       testThreshold: DEFAULT_TEST_THRESHOLD,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -151,6 +159,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "search",
       testThreshold: DEFAULT_TEST_THRESHOLD,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -220,6 +231,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "icon-buttons",
       testThreshold: DEFAULT_TEST_THRESHOLD,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -262,6 +276,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "long-text",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -305,6 +322,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "long-single-word-app-title",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: DESKTOP_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -355,6 +375,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "navigation-items",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -406,6 +429,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "slotted-navigation-items",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -452,6 +478,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "navigation-group",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -503,6 +532,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "content-centre",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -554,6 +586,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "content-left",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -607,6 +642,9 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "theme",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 1444, height: 300 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -644,6 +682,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-app-icon-title",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -654,6 +695,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-status-version",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -664,6 +708,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-search",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -733,6 +780,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-icon-buttons",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -775,6 +825,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-long-text",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE + 0.01,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -818,6 +871,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-long-single-word-app-title",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -868,6 +924,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-navigation-items",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -919,6 +978,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-slotted-navigation-items",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -965,6 +1027,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-navigation-group",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -1012,6 +1077,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-open-menu",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE + 0.02,
+      cypressScreenshotOptions: {
+        clip: { x: 0, y: 0, width: 375, height: 500 },
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -1063,6 +1131,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-content-centre",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -1114,6 +1185,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-content-left",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
@@ -1167,6 +1241,9 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "mobile-theme",
       testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
+      cypressScreenshotOptions: {
+        clip: MOBILE_CLIP,
+      },
     });
     cy.checkA11yWithWait();
   });
