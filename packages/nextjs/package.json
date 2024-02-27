@@ -1,0 +1,63 @@
+{
+  "name": "@ukic/nextjs",
+  "sideEffects": [
+    "*.css"
+  ],
+  "version": "0.1.0",
+  "description": "React-wrapped web components served on a nextjs storybook",
+  "author": "mi6",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run copy:core-css && npm run copy:normalize-css",
+    "storybook": "storybook dev -p 6010",
+    "build-storybook": "rimraf ./storybook-static && storybook build -s public",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p .",
+    "rollup": "rollup -c",
+    "copy:core-css": "echo 'Copy core.css from: @ukic/web-components' && mkdirp -p ./dist/core && ncp ../web-components/dist/core/core.css ./dist/core/core.css",
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/web-components' && ncp ../web-components/dist/core/normalize.css ./dist/core/normalize.css"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@storybook/addon-a11y": "^7.6.17",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@ukic/web-components": "^2.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/nextjs": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@types/node": "^20.11.20",
+    "@types/webpack": "^5.28.5",
+    "babel-loader": "^8.3.0",
+    "css-loader": "^6.8.1",
+    "mkdirp": "^1.0.4",
+    "next": "14.1.0",
+    "np": "^7.6.0",
+    "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "storybook": "^7.6.17",
+    "ts-loader": "^9.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.89.0"
+  },
+  "peerDependencies": {
+    "@ukic/fonts": "^2.6.0",
+    "react": "^16.7.0 || ^17.0.2 || ^18.2.0",
+    "react-dom": "^16.7.0 || ^17.0.2 || ^18.2.0"
+  },
+  "license": "MIT"
+}
