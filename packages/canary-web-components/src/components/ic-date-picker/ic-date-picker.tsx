@@ -46,7 +46,7 @@ const DEFAULT_DISABLE_DATES_UNTIL_NOW_MSG =
 const DEFAULT_DISABLE_DAYS_MSG =
   "The date you have selected is on a weekday that is not allowed. Please select another date.";
 const FOCUS_TIMER = 100;
-const PICKER_HEIGHT_SMALL = 340;
+const PICKER_HEIGHT_SMALL = 360;
 const PICKER_HEIGHT_DEFAULT = 400;
 const PICKER_HEIGHT_LARGE = 440;
 
@@ -598,7 +598,7 @@ export class DatePicker {
     flip: boolean,
     disabled: boolean
   ): void => {
-    const buttonSize = this.size === "large" ? "default" : "small";
+    const buttonSize = this.size;
     return (
       <div aria-hidden="true">
         <ic-button
@@ -1421,7 +1421,6 @@ export class DatePicker {
                   <div class="calendar-days-container">
                     {this.currMonthView.map((day) => (
                       <DayButton
-                        size={size}
                         day={day}
                         disableDay={this.disableDays.includes(
                           Number(day.getDay())
