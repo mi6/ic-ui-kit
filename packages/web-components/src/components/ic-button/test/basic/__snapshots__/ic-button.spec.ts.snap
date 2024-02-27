@@ -181,7 +181,14 @@ exports[`button component should render correct HTML with right icon 1`] = `
 exports[`button component should render icon variant with a tooltip 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" placement="bottom" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
+      <mock:shadow-root>
+        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
+          <ic-typography variant="caption"></ic-typography>
+          <div class="ic-tooltip-arrow"></div>
+        </div>
+        <slot></slot>
+      </mock:shadow-root>
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
         <slot></slot>
       </button>
@@ -194,7 +201,16 @@ exports[`button component should render icon variant with a tooltip 1`] = `
 exports[`button component should render icon variant with a tooltip based on aria-label 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" tooltip-placement="top" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="top" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+      <mock:shadow-root>
+        <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
+          <ic-typography variant="caption">
+            Tooltip text
+          </ic-typography>
+          <div class="ic-tooltip-arrow"></div>
+        </div>
+        <slot></slot>
+      </mock:shadow-root>
       <button aria-label="Tooltip text" class="button" part="button" type="button">
         <slot></slot>
       </button>
@@ -207,7 +223,16 @@ exports[`button component should render icon variant with a tooltip based on ari
 exports[`button component should render icon variant with a tooltip based on title 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
+      <mock:shadow-root>
+        <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
+          <ic-typography variant="caption">
+            Tooltip text
+          </ic-typography>
+          <div class="ic-tooltip-arrow"></div>
+        </div>
+        <slot></slot>
+      </mock:shadow-root>
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
         <slot></slot>
       </button>
@@ -344,7 +369,16 @@ exports[`button component should update aria-expanded when attribute changed 2`]
 exports[`button component should update aria-label when attribute changed 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+      <mock:shadow-root>
+        <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
+          <ic-typography variant="caption">
+            Tooltip text
+          </ic-typography>
+          <div class="ic-tooltip-arrow"></div>
+        </div>
+        <slot></slot>
+      </mock:shadow-root>
       <button aria-label="Tooltip text" class="button" part="button" type="button">
         <slot></slot>
       </button>
@@ -357,7 +391,16 @@ exports[`button component should update aria-label when attribute changed 1`] = 
 exports[`button component should update aria-label when attribute changed 2`] = `
 <ic-button aria-label="New tooltip text" class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip label="New tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip class="ic-tooltip" target="ic-button-with-tooltip-test-button">
+      <mock:shadow-root>
+        <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
+          <ic-typography variant="caption">
+            New tooltip text
+          </ic-typography>
+          <div class="ic-tooltip-arrow"></div>
+        </div>
+        <slot></slot>
+      </mock:shadow-root>
       <button aria-label="New tooltip text" class="button" part="button" type="button">
         <slot></slot>
       </button>

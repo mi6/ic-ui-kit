@@ -1,6 +1,7 @@
 import { Button } from "../../ic-button";
 import { newSpecPage } from "@stencil/core/testing";
 import * as helpers from "../../../../utils/helpers";
+import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -174,7 +175,7 @@ describe("button component", () => {
 
   it("should render icon variant with a tooltip", async () => {
     const page = await newSpecPage({
-      components: [Button],
+      components: [Button, Tooltip],
       html: "<ic-button variant='icon' id='test-button'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
@@ -182,7 +183,7 @@ describe("button component", () => {
 
   it("should render icon variant with a tooltip based on title", async () => {
     const page = await newSpecPage({
-      components: [Button],
+      components: [Button, Tooltip],
       html: "<ic-button variant='icon' id='test-button' title='Tooltip text'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
@@ -190,7 +191,7 @@ describe("button component", () => {
 
   it("should render icon variant with a tooltip based on aria-label", async () => {
     const page = await newSpecPage({
-      components: [Button],
+      components: [Button, Tooltip],
       html: "<ic-button variant='icon' id='test-button' aria-label='Tooltip text' tooltip-placement='top'>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
@@ -198,7 +199,7 @@ describe("button component", () => {
 
   it("should disable tooltip when prop set", async () => {
     const page = await newSpecPage({
-      components: [Button],
+      components: [Button, Tooltip],
       html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button' disable-tooltip>Button</ic-button>",
     });
     expect(page.root).toMatchSnapshot();
@@ -206,7 +207,7 @@ describe("button component", () => {
 
   it("should update aria-label when attribute changed", async () => {
     const page = await newSpecPage({
-      components: [Button],
+      components: [Button, Tooltip],
       html: "<ic-button variant='icon' aria-label='Tooltip text' id='test-button'>Button</ic-button>",
     });
 

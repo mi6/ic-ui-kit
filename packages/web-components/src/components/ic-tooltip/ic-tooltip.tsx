@@ -273,7 +273,7 @@ export class Tooltip {
           ref={(el) => (this.toolTip = el as HTMLDivElement)}
           role="tooltip"
           class="ic-tooltip-container"
-          aria-hidden={silent}
+          aria-hidden={`${silent}`}
         >
           <ic-typography maxLines={maxLines} variant="caption">
             {label}
