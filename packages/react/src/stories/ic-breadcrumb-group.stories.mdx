@@ -11,13 +11,14 @@ import {
   IcLink,
   IcButton,
   IcTypography,
+  IcSectionContainer,
 } from "../components";
 import readme from "../../../web-components/src/components/ic-breadcrumb-group/readme.md";
 import IcBreadcrumbReadme from "../../../web-components/src/components/ic-breadcrumb/readme.md";
 
 <Description markdown={readme + IcBreadcrumbReadme} />
 
-<Meta title="React Components/Breadcrumb" component={IcBreadcrumbGroup} />
+<Meta title="Breadcrumb" component={IcBreadcrumbGroup} />
 
 import {
   NavLink,
@@ -370,7 +371,7 @@ export const Breadcrumbs = () => {
     ]}
   >
     <div>
-      <BreadcrumbGroup />
+      <IcBreadcrumbGroup />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/daily-tippers" element={<DailyTippers />} />
