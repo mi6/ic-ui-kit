@@ -71,6 +71,15 @@ export const DailyTippers = () => (
   </IcSectionContainer>
 );
 
+export const ButtonStyle = () => (
+  <IcSectionContainer>
+    <IcTypography variant="h1">Button style</IcTypography>
+    <IcTypography>
+      This example shows how the button style prop works.
+    </IcTypography>
+  </IcSectionContainer>
+);
+
 <Canvas>
   <Story
     name="With React Router"
@@ -92,9 +101,17 @@ export const DailyTippers = () => (
         Daily Tippers
       </NavLink>
     </IcLink>
+    <div style={{ paddingTop: "var(--ic-space-md)" }}>
+      <IcLink buttonStyle>
+        <NavLink to="/button-style" slot="router-item">
+          Button style
+        </NavLink>
+      </IcLink>
+    </div>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/daily-tippers" element={<DailyTippers />} />
+      <Route path="/button-style" element={<ButtonStyle />} />
     </Routes>
   </Story>
 </Canvas>

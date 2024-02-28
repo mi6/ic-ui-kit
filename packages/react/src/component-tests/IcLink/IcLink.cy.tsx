@@ -123,4 +123,25 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     });
     cy.checkA11yWithWait();
   });
+
+  it("renders links with button style", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcLink href="/components/link/code" buttonStyle>
+          About our coffees
+        </IcLink>
+      </div>
+    );
+    cy.checkHydrated("ic-link");
+    cy.compareSnapshot({
+      name: "buttonStyle",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+    cy.get("ic-link").shadow().find("a").focus();
+    cy.compareSnapshot({
+      name: "buttonStyleFocus",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+    cy.checkA11yWithWait();
+  });
 });
