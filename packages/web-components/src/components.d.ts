@@ -361,9 +361,9 @@ export namespace Components {
          */
         "fullWidth"?: boolean;
         /**
-          * The heading for the card.
+          * The heading for the card. This is required, unless a slotted heading is used.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
@@ -3565,9 +3565,9 @@ declare namespace LocalJSX {
          */
         "fullWidth"?: boolean;
         /**
-          * The heading for the card.
+          * The heading for the card. This is required, unless a slotted heading is used.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
          */
