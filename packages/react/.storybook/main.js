@@ -3,9 +3,12 @@ module.exports = {
     disableTelemetry: true
   },
 
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    {
+      directory: '../src/stories',
+      files: '*.stories.*',
+      titlePrefix: 'React Components',
+    },
   ],
 
   "addons": [
