@@ -40,6 +40,11 @@ export class Link {
   @Prop({ mutable: true }) appearance?: IcThemeForeground = "default";
 
   /**
+   * If `true`, the link will be styled to look like a button.
+   */
+  @Prop() buttonStyle: boolean = false;
+
+  /**
    * If `true`, the user can save the linked URL instead of navigating to it.
    */
   @Prop() download?: string | boolean = false;
@@ -129,7 +134,13 @@ export class Link {
     } = this;
 
     return (
-      <Host class={{ ["link"]: true, [`${appearance}`]: true }}>
+      <Host
+        class={{
+          ["link"]: !this.buttonStyle,
+          [`${appearance}`]: true,
+          ["button-style"]: this.buttonStyle,
+        }}
+      >
         {this.hasRouterSlot() ? (
           <slot name="router-item"></slot>
         ) : (

@@ -23,6 +23,21 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Button
+
+<Canvas>
+  <Story
+    name="Button"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
+    {html`<div style="padding: 8px">
+      <ic-link button-style="true" appearance="dark">
+        <a slot="router-item" href="/">Slotted link</a>
+      </ic-link>
+    </div>`}
+  </Story>
+</Canvas>
+
 ### With icon
 
 <Canvas>

@@ -115,3 +115,68 @@
 :host(.breadcrumb-link.current-page) .ic-link:visited {
   color: var(--ic-color-primary-text);
 }
+
+/* Button styling */
+
+:host(.button-style) .ic-link,
+:host(.button-style) ::slotted(a) {
+  font-family: var(--ic-font-body-family);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem !important;
+  border-radius: var(--ic-border-radius);
+  min-width: var(6.25rem);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none !important;
+  box-sizing: border-box;
+  white-space: nowrap;
+  vertical-align: middle !important;
+  color: var(--ic-architectural-white);
+
+  --button-default: var(--ic-action-default);
+  --button-default-hover: var(--ic-action-default-hover);
+  --button-default-active: var(--ic-action-default-active);
+
+  background-color: var(--button-default) !important;
+  height: 2.5rem;
+  padding: var(--ic-space-xs) var(--ic-space-md) !important;
+}
+
+:host(.dark.button-style) .ic-link,
+:host(.dark.button-style) ::slotted(a) {
+  --button-default: var(--ic-action-dark);
+  --button-default-hover: var(--ic-action-dark-hover);
+  --button-default-active: var(--ic-action-dark-active);
+}
+
+:host(.light.button-style) .ic-link,
+:host(.light.button-style) ::slotted(a) {
+  --button-default: var(--ic-action-light);
+  --button-default-hover: var(--ic-action-light-hover);
+  --button-default-active: var(--ic-action-light-active);
+
+  color: var(--ic-architectural-black);
+}
+
+:host(.button-style) .ic-link:focus,
+:host(.button-style) ::slotted(a:focus) {
+  box-shadow: var(--ic-border-focus);
+}
+
+:host(.button-style) .ic-link:focus-visible,
+:host(.button-style) ::slotted(a:focus-visible) {
+  outline: var(--ic-hc-focus-outline);
+}
+
+:host(.button-style) .ic-link:hover,
+:host(.button-style) ::slotted(a:hover) {
+  background-color: var(--button-default-hover) !important;
+}
+
+:host(.button-style) .ic-link:active,
+:host(.button-style) ::slotted(a:active) {
+  background-color: var(--button-default-active) !important;
+}

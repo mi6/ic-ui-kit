@@ -933,6 +933,10 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * If `true`, the link will be styled to look like a button.
+         */
+        "buttonStyle": boolean;
+        /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
         "download"?: string | boolean;
@@ -4144,6 +4148,10 @@ declare namespace LocalJSX {
           * The appearance of the link, e.g. dark, light, or default.
          */
         "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the link will be styled to look like a button.
+         */
+        "buttonStyle"?: boolean;
         /**
           * If `true`, the user can save the linked URL instead of navigating to it.
          */
