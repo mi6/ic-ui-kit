@@ -243,7 +243,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-default",
-          "percentage": 0.06380962472215478,
+          "percentage": 0.06409400511139136,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11344480479162418,
+          "percentage": 0.11346366354078473,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -619,7 +619,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardBlur",
-          "percentage": 0.05429548784199291,
+          "percentage": 0.0543323108288245,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -696,7 +696,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.07263607918933951,
+          "percentage": 0.07848566748139434,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -933,7 +933,7 @@
         {
           "status": "pass",
           "name": "IcCheckbox.cy.tsx-focus",
-          "percentage": 0.13294894598603638,
+          "percentage": 0.13253502779501777,
           "failureThreshold": 0.2,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
@@ -1005,7 +1005,7 @@
         {
           "status": "pass",
           "name": "IcChip.cy.tsx-dismissible-focus",
-          "percentage": 0.03682390527904394,
+          "percentage": 0.03704051835490427,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
@@ -1469,7 +1469,7 @@
         {
           "status": "pass",
           "name": "IcEmptyState.cy.tsx-empty-state-basic-desktop",
-          "percentage": 0.07762758315616085,
+          "percentage": 0.06377858836108975,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcEmptyState/IcEmptyState.cy.tsx",
           "specFilename": "IcEmptyState.cy.tsx",
@@ -1889,7 +1889,7 @@
         {
           "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateCircular",
-          "percentage": 0.026608269391300142,
+          "percentage": 0.03006659275674582,
           "failureThreshold": 0.09,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -1933,7 +1933,7 @@
         {
           "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateCircularWithIcon",
-          "percentage": 0.0116619037896906,
+          "percentage": 0.01216552506059644,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -1944,7 +1944,7 @@
         {
           "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateLinear",
-          "percentage": 0.04171330722922842,
+          "percentage": 0.02424871130596428,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -2021,7 +2021,7 @@
         {
           "status": "fail",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateCircularWithDescNoLabel",
-          "percentage": 0.13706932552544351,
+          "percentage": 0.10347946656221224,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -2032,7 +2032,7 @@
         {
           "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateCircularWithChangingLabelFirstLabel",
-          "percentage": 0.021540659228538015,
+          "percentage": 0.02424871130596428,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -2043,7 +2043,7 @@
         {
           "status": "pass",
           "name": "IcLoadingIndicator.cy.tsx-indeterminateCircularWithChangingLabelSecondLabel",
-          "percentage": 0.044631827208842796,
+          "percentage": 0.03878143885933063,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcLoadingIndicator/IcLoadingIndicator.cy.tsx",
           "specFilename": "IcLoadingIndicator.cy.tsx",
@@ -2622,7 +2622,7 @@
         {
           "status": "pass",
           "name": "IcSideNavigation.cy.tsx-withTheme",
-          "percentage": 0.01175780101777805,
+          "percentage": 0.01168924182680796,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
@@ -3058,7 +3058,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-icon-buttons",
-          "percentage": 0.009846466807299845,
+          "percentage": 0,
           "failureThreshold": 0.02,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -3300,9 +3300,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-27T17:47:36.608Z",
-  "endedAt": "2024-02-27T17:55:03.512Z",
-  "duration": 401952,
+  "startedAt": "2024-02-28T09:06:12.707Z",
+  "endedAt": "2024-02-28T09:13:34.241Z",
+  "duration": 396246,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
