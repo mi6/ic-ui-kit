@@ -68,9 +68,9 @@ export class Card {
   @Prop() fullWidth?: boolean = false;
 
   /**
-   * The heading for the card.
+   * The heading for the card. This is required, unless a slotted heading is used.
    */
-  @Prop() heading!: string;
+  @Prop() heading?: string;
 
   /**
    * The URL that the clickable card link points to. If set, the clickable card will render as an "a" tag, otherwise it will render as a button.
@@ -128,10 +128,11 @@ export class Card {
   }
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.heading, propName: "heading" }],
-      "Card"
-    );
+    !isSlotUsed(this.el, "heading") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.heading, propName: "heading" }],
+        "Card"
+      );
     this.updateTheme();
   }
 
