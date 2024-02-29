@@ -1,7 +1,7 @@
 {
   "total": 34,
-  "totalPassed": 33,
-  "totalFailed": 1,
+  "totalPassed": 32,
+  "totalFailed": 2,
   "totalSuites": 2,
   "suites": [
     {
@@ -290,14 +290,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-escape-to-close.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDatePicker.cy.tsx-open-at-date",
-          "percentage": 0.0469041575982343,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx-open-at-date.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx-open-at-date.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-open-at-date.png"
         },
         {
@@ -334,14 +334,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-disabled.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDatePicker.cy.tsx-disable-weekends",
-          "percentage": 0,
+          "percentage": 0.06498351439293772,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx-disable-weekends.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx-disable-weekends.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-disable-weekends.png"
         },
         {
@@ -356,14 +356,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-days-outside-month-hidden.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDatePicker.cy.tsx-min-max",
-          "percentage": 0,
+          "percentage": 0.044497190922573975,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx-min-max.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx-min-max.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-min-max.png"
         },
         {
@@ -391,9 +391,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-28T13:51:59.734Z",
-  "endedAt": "2024-02-28T13:53:45.034Z",
-  "duration": 99914,
+  "startedAt": "2024-02-29T10:09:53.355Z",
+  "endedAt": "2024-02-29T10:11:42.981Z",
+  "duration": 104290,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
