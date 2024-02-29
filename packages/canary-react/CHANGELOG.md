@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.6...@ukic/canary-react@2.0.0-canary.7) (2024-02-29)
+
+### Features
+
+- **canary-react:** added cross-env package for setting Cypress env ([d2dae78](https://github.com/mi6/ic-ui-kit/commit/d2dae78ddb0a1444616943388221c3cf9ee9d319))
+
 # [2.0.0-canary.6](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.5...@ukic/canary-react@2.0.0-canary.6) (2024-02-21)
 
 **Note:** Version bump only for package @ukic/canary-react

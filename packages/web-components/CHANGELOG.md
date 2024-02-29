@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.12.0...@ukic/web-components@2.13.0) (2024-02-29)
+
+### Bug Fixes
+
+- **web-components:** fixes aria-hidden a11y issue ([62cd143](https://github.com/mi6/ic-ui-kit/commit/62cd1430ec7ec7bbda08efe4d6f9b7fe871d20d4))
+- **web-components:** remove role on ic-alert when "announced" prop is false ([183a035](https://github.com/mi6/ic-ui-kit/commit/183a035377a86fcfee5b8d22211a7ffa31b88d85))
+- **web-components:** remove side-nav-expanded emit on resize ([4a59bdb](https://github.com/mi6/ic-ui-kit/commit/4a59bdbe6042832ce50ca03b1834784134c33fa7)), closes [#1515](https://github.com/mi6/ic-ui-kit/issues/1515)
+- **web-components:** stop console error with card heading prop if slot is used instead ([7deaa95](https://github.com/mi6/ic-ui-kit/commit/7deaa95c5524015e450c76a6d22066142baaac28))
+- **web-components:** update badge to only set an id if it's set by the developer ([e36dbe0](https://github.com/mi6/ic-ui-kit/commit/e36dbe0400de06a1fa918dc2f3977ce7a8de4788)), closes [#1390](https://github.com/mi6/ic-ui-kit/issues/1390)
+
+### Features
+
+- **web-components:** add disableWidthConstraint prop to ic-dialog ([2d55d0f](https://github.com/mi6/ic-ui-kit/commit/2d55d0f4fe89c8f2028717c0ef464b6925efb167)), closes [#1429](https://github.com/mi6/ic-ui-kit/issues/1429)
+- **web-components:** ic-button feature to open the native file explorer, file selected outputted ([aa361a7](https://github.com/mi6/ic-ui-kit/commit/aa361a73a6c6540654551805ca4d5739b8c58f5f))
+
 # [2.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.11.0...@ukic/web-components@2.12.0) (2024-02-21)
 
 ### Bug Fixes

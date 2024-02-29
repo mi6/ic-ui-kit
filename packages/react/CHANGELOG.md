@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.12.0...@ukic/react@2.13.0) (2024-02-29)
+
+### Features
+
+- **react:** add file upload button feature into react storybook ([2ea0def](https://github.com/mi6/ic-ui-kit/commit/2ea0defb59a853e9424d57f777f747fadab7ee37))
+- **react:** added threshold function for cypress tests ([b5c73b9](https://github.com/mi6/ic-ui-kit/commit/b5c73b902687f5cfb199cafa1a9bbf7c87fcb613))
+
 # [2.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.11.0...@ukic/react@2.12.0) (2024-02-21)
 
 ### Bug Fixes
