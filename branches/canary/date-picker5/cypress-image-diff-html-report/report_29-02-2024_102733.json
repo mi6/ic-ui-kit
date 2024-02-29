@@ -290,14 +290,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-escape-to-close.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDatePicker.cy.tsx-open-at-date",
-          "percentage": 0,
+          "percentage": 0.058675865079751,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx-open-at-date.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx-open-at-date.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-open-at-date.png"
         },
         {
@@ -334,14 +334,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-disabled.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDatePicker.cy.tsx-disable-weekends",
-          "percentage": 0.06498351439293772,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDatePicker/IcDatePicker.cy.tsx",
           "specFilename": "IcDatePicker.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDatePicker.cy.tsx-disable-weekends.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDatePicker.cy.tsx-disable-weekends.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDatePicker.cy.tsx-disable-weekends.png"
         },
         {
@@ -391,9 +391,9 @@
       ]
     }
   ],
-  "startedAt": "2024-02-29T10:09:53.355Z",
-  "endedAt": "2024-02-29T10:11:42.981Z",
-  "duration": 104290,
+  "startedAt": "2024-02-29T10:27:33.713Z",
+  "endedAt": "2024-02-29T10:29:20.099Z",
+  "duration": 101442,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
