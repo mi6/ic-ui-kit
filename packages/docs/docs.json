@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-28T15:28:24",
+  "timestamp": "2024-03-01T12:08:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -1331,6 +1331,10 @@
         {
           "name": "slot",
           "text": "badge - Badge component overlaying the top right of the button."
+        },
+        {
+          "name": "slot",
+          "text": "router-item - Handle routing by nesting your routes in this slot. Setting loading to true will have no impact on this slot."
         }
       ],
       "usage": {},
@@ -2207,6 +2211,10 @@
         {
           "name": "right-icon",
           "docs": "Content will be placed to the right of the button label."
+        },
+        {
+          "name": "router-item",
+          "docs": "Handle routing by nesting your routes in this slot. Setting loading to true will have no impact on this slot."
         },
         {
           "name": "top-icon",
