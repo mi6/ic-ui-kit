@@ -22,6 +22,7 @@ import {
   SlottedIconNoViewBox,
   SlottedRightIcon,
 } from "./IcButtonTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -935,7 +936,7 @@ describe("IcButton Visual Regression Testing", () => {
 
     cy.compareSnapshot({
       name: "router-slot",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
