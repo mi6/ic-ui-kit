@@ -41,6 +41,7 @@ let buttonIds = 0;
  * @slot right-icon - Content will be placed to the right of the button label.
  * @slot top-icon - Content will be placed above the button label.
  * @slot badge - Badge component overlaying the top right of the button.
+ * @slot router-item - Handle routing by nesting your routes in this slot. Setting loading to true will have no impact on this slot.
  */
 @Component({
   tag: "ic-button",
@@ -59,6 +60,7 @@ export class Button {
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
   private hostMutationObserver: MutationObserver = null;
+  private routerSlot: HTMLElement;
 
   @Element() el: HTMLIcButtonElement;
 
@@ -322,14 +324,16 @@ export class Button {
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
-    if (this.fileUpload) {
-      this.openFileExplorer();
-    }
-    if (this.disabled || this.loading) {
-      event.stopImmediatePropagation();
-    }
-    if (this.dropdown) {
-      this.dropdownExpanded = !this.dropdownExpanded;
+    if (!this.hasRouterSlot()) {
+      if (this.fileUpload) {
+        this.openFileExplorer();
+      }
+      if (this.disabled || this.loading) {
+        event.stopImmediatePropagation();
+      }
+      if (this.dropdown) {
+        this.dropdownExpanded = !this.dropdownExpanded;
+      }
     }
   }
 
@@ -369,6 +373,14 @@ export class Button {
     return iconEl !== null;
   }
 
+  private hasRouterSlot(): boolean {
+    this.routerSlot = this.el.querySelector('[slot="router-item"]');
+    if (this.routerSlot) {
+      this.routerSlot.ariaLabel = this.routerSlot.textContent;
+    }
+    return !!this.routerSlot;
+  }
+
   private setViewBox = () => {
     let iconEl;
     if (this.hasLeftIconSlot()) {
@@ -396,6 +408,7 @@ export class Button {
   private handleClick = (): void => {
     if (
       (this.el.type === "submit" || this.el.type === "reset") &&
+      !this.hasRouterSlot() &&
       !!this.el.closest("FORM")
     ) {
       this.handleHiddenFormButtonClick(this.el.closest("FORM"));
@@ -621,11 +634,20 @@ export class Button {
             placement={this.tooltipPlacement}
             silent={this.isTooltipSilent()}
           >
-            <ButtonContent />
+            {this.hasRouterSlot() ? (
+              <slot name="router-item"></slot>
+            ) : (
+              <ButtonContent />
+            )}
           </ic-tooltip>
         )}
         {isSlotUsed(this.el, "badge") && <slot name="badge"></slot>}
-        {!this.hasTooltip && <ButtonContent />}
+        {!this.hasTooltip &&
+          (this.hasRouterSlot() ? (
+            <slot name="router-item"></slot>
+          ) : (
+            <ButtonContent />
+          ))}
         {this.describedByContent && (
           <span id={describedBy} class="ic-button-describedby">
             {this.describedByContent}
