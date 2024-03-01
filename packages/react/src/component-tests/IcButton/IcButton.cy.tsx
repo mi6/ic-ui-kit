@@ -923,4 +923,20 @@ describe("IcButton Visual Regression Testing", () => {
     );
     cy.checkA11yWithWait();
   });
+
+  it("renders with slotted router item", () => {
+    mount(
+      <IcButton>
+        <a slot="router-item" href="/">
+          Slotted link
+        </a>
+      </IcButton>
+    );
+
+    cy.compareSnapshot({
+      name: "router-slot",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+    cy.checkA11yWithWait();
+  });
 });
