@@ -233,9 +233,11 @@ export class Badge {
         }}
         id={this.el.id || null}
         aria-label={
-          this.isAccessibleLabelDefined() &&
-          `badge displaying ${this.accessibleLabel}`
+          this.isAccessibleLabelDefined()
+            ? `badge displaying ${this.accessibleLabel}`
+            : "badge being displayed"
         }
+        role="status"
       >
         {type === "icon" && <slot name="badge-icon"></slot>}
         {type === "text" && (
