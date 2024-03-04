@@ -9,7 +9,7 @@ exports[`ic-accordion-group snapshots should match default snapshot: renders as 
           Test heading
         </h3>
       </ic-typography>
-      <ic-button appearance="default" variant="tertiary">
+      <ic-button appearance="default" aria-label="Hide all accordions" variant="tertiary">
         Hide all
       </ic-button>
     </div>
@@ -27,7 +27,7 @@ exports[`ic-accordion-group snapshots should match light snapshot: renders as li
           Test heading
         </h3>
       </ic-typography>
-      <ic-button appearance="light" variant="tertiary">
+      <ic-button appearance="light" aria-label="Hide all accordions" variant="tertiary">
         Hide all
       </ic-button>
     </div>
