@@ -48,9 +48,7 @@ export class DataRow {
   @Prop() value: string;
 
   disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
+    this.resizeObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -61,9 +59,7 @@ export class DataRow {
 
   componentDidLoad(): void {
     checkResizeObserver(this.runResizeObserver);
-    if (this.hasEndComponent) {
-      this.labelEndComponent();
-    }
+    if (this.hasEndComponent) this.labelEndComponent();
   }
 
   private runResizeObserver = () => {
@@ -75,81 +71,73 @@ export class DataRow {
   };
 
   private checkLabelAbove() {
-    const rowSize = this.el.shadowRoot.querySelector(".data")?.clientWidth;
+    const rowSize = this.el.shadowRoot.querySelector(".data")?.clientWidth + 46;
     if (rowSize) {
-      if (rowSize + 46 < DEVICE_SIZES.S) {
-        this.entitySize = "xs";
-      } else if (rowSize + 46 < DEVICE_SIZES.M) {
-        this.entitySize = "m";
-      } else {
-        this.entitySize = "xl";
-      }
+      this.entitySize =
+        rowSize < DEVICE_SIZES.S ? "xs" : rowSize < DEVICE_SIZES.M ? "m" : "xl";
     }
   }
 
-  /**
-   * Renders the label either as a ic-typography or slot. Slotted content takes precedence.
-   * @param label string - label of value
-   * @returns HTMLDivElement - returns label as slot or ic-typography with label as textContent
-   */
-  private renderLabel = (label: string) => {
-    if (isSlotUsed(this.el, "label")) {
-      return (
-        <div class="label">
-          <slot name="label"></slot>
-        </div>
-      );
-    } else if (label) {
-      return (
-        <div class="label">
+  private renderCellContent = (cell: "label" | "value") => {
+    const isValue = cell === "value";
+    return (
+      <div class={cell}>
+        {isSlotUsed(this.el, cell) ? (
+          <slot name={cell}></slot>
+        ) : (
           <ic-typography
-            variant={this.entitySize === "xs" ? "label" : "subtitle-large"}
+            variant={
+              isValue
+                ? "body"
+                : this.entitySize === "xs"
+                ? "label"
+                : "subtitle-large"
+            }
           >
-            {label}
+            {isValue ? this.value : this.label}
           </ic-typography>
-        </div>
-      );
-    }
-
-    return null;
+        )}
+      </div>
+    );
   };
 
   private labelEndComponent(): void {
-    const component = this.el.shadowRoot.querySelectorAll(
-      "slot[name=end-component]"
-    );
-
-    component.forEach((child: HTMLElement) =>
-      child.setAttribute("aria-label", "for " + this.label + " row")
-    );
+    this.el.shadowRoot
+      .querySelectorAll("slot[name=end-component]")
+      .forEach((child) =>
+        child.setAttribute("aria-label", `for ${this.label} row`)
+      );
   }
 
   render() {
-    const { label, value, small, size } = this;
+    const {
+      el,
+      entitySize,
+      hasEndComponent,
+      label,
+      renderCellContent,
+      size,
+      small,
+      value,
+    } = this;
 
     return (
       <Host
         class={{
           ["small"]: small || size === "small",
-          ["breakpoint-medium"]: this.entitySize === "m",
-          ["breakpoint-xs"]: this.entitySize === "xs",
+          ["breakpoint-medium"]: entitySize === "m",
+          ["breakpoint-xs"]: entitySize === "xs",
         }}
         role="listitem"
       >
         <div class="data">
           <div class="text-cells">
-            {this.renderLabel(label)}
-            <div class="value">
-              <slot name="value">
-                <ic-typography variant="body">{value}</ic-typography>
-              </slot>
-            </div>
+            {(isSlotUsed(el, "label") || label) && renderCellContent("label")}
+            {(isSlotUsed(el, "value") || value) && renderCellContent("value")}
           </div>
-          {this.hasEndComponent && (
+          {hasEndComponent && (
             <div class="end-component">
-              <div role="cell">
-                <slot name="end-component"></slot>
-              </div>
+              <slot name="end-component"></slot>
             </div>
           )}
         </div>
