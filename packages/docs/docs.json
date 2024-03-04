@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-01T12:08:26",
+  "timestamp": "2024-03-05T07:06:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -207,6 +207,28 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "accessibleButtonLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "accessible-button-label",
+          "reflectToAttr": false,
+          "docs": "The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.",
+          "docsTags": [],
+          "default": "\"accordions\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "appearance",
           "type": "\"dark\" | \"default\" | \"light\"",
