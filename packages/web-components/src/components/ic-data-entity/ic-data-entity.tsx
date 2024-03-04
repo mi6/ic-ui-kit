@@ -28,18 +28,16 @@ export class DataEntity {
   @Prop() small?: boolean = false;
 
   render() {
-    const { heading, small, size } = this;
-
-    const children = this.el.children;
+    const { el, heading, small, size } = this;
 
     if (small || size === "small") {
-      for (let i = 0; i < children.length; i++) {
-        children[i].setAttribute("size", "small");
-      }
+      Array.from(el.children).forEach((child) =>
+        child.setAttribute("size", "small")
+      );
     }
 
     return (
-      <Host class={{ ["small"]: small || size === "small" }}>
+      <Host class={{ small: small || size === "small" }}>
         <div class="heading" id="data-entity-heading">
           <slot name="heading">
             <ic-typography variant="h3">{heading}</ic-typography>
