@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunk_ukic_web_components=self.webpackChunk_ukic_web_components||[]).push([[5273],{"./src/components/ic-button/ic-button.stories.mdx":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,{__namedExportsOrder:()=>__namedExportsOrder,ariaDescribedby:()=>ariaDescribedby,default:()=>__WEBPACK_DEFAULT_EXPORT__,defaultArgs:()=>defaultArgs,destructive:()=>destructive,dropdown:()=>dropdown,dropdownExample:()=>dropdownExample,fileUpload:()=>fileUpload,fileUploadInAForm:()=>fileUploadInAForm,fullWidth:()=>fullWidth,height:()=>height,iconOnly:()=>iconOnly,iconWithoutViewBox:()=>iconWithoutViewBox,loading:()=>loading,minWidth:()=>minWidth,playground:()=>playground,playgroundWithIcon:()=>playgroundWithIcon,primary:()=>primary,secondary:()=>secondary,size:()=>size,tertiary:()=>tertiary,tooltips:()=>tooltips,withIcon:()=>withIcon});__webpack_require__("./node_modules/react/index.js");var _home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__("./node_modules/@storybook/addon-docs/node_modules/@mdx-js/react/lib/index.js"),_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__("./node_modules/@storybook/addon-docs/dist/index.mjs"),lit_html__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__("./node_modules/lit-html/lit-html.js"),_readme_md__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__("./src/components/ic-button/readme.md"),react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__("./node_modules/react/jsx-runtime.js");const defaultArgs={message:"Custom Button",disabled:!1,loading:!1,appearance:"default",size:"default",variant:"secondary"};function _createMdxContent(props){const _components=Object.assign({h3:"h3"},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment,{children:[(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.h_,{title:"Web Components/Button",component:"ic-button"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.dk,{markdown:_readme_md__WEBPACK_IMPORTED_MODULE_3__}),"\n","\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"primary",children:"Primary"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"Primary",parameters:{loki:{skip:!0}},children:lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
+"use strict";(self.webpackChunk_ukic_web_components=self.webpackChunk_ukic_web_components||[]).push([[5273],{"./src/components/ic-button/ic-button.stories.mdx":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,{__namedExportsOrder:()=>__namedExportsOrder,ariaDescribedby:()=>ariaDescribedby,default:()=>__WEBPACK_DEFAULT_EXPORT__,defaultArgs:()=>defaultArgs,destructive:()=>destructive,dropdown:()=>dropdown,dropdownExample:()=>dropdownExample,fileUpload:()=>fileUpload,fileUploadInAForm:()=>fileUploadInAForm,fullWidth:()=>fullWidth,height:()=>height,iconOnly:()=>iconOnly,iconWithoutViewBox:()=>iconWithoutViewBox,loading:()=>loading,minWidth:()=>minWidth,playground:()=>playground,playgroundWithIcon:()=>playgroundWithIcon,primary:()=>primary,routerLink:()=>routerLink,secondary:()=>secondary,size:()=>size,tertiary:()=>tertiary,tooltips:()=>tooltips,withIcon:()=>withIcon});__webpack_require__("./node_modules/react/index.js");var _home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__("./node_modules/@storybook/addon-docs/node_modules/@mdx-js/react/lib/index.js"),_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__("./node_modules/@storybook/addon-docs/dist/index.mjs"),lit_html__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__("./node_modules/lit-html/lit-html.js"),_readme_md__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__("./src/components/ic-button/readme.md"),react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__("./node_modules/react/jsx-runtime.js");const defaultArgs={message:"Custom Button",disabled:!1,loading:!1,appearance:"default",size:"default",variant:"secondary"};function _createMdxContent(props){const _components=Object.assign({h3:"h3"},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment,{children:[(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.h_,{title:"Web Components/Button",component:"ic-button"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.dk,{markdown:_readme_md__WEBPACK_IMPORTED_MODULE_3__}),"\n","\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"primary",children:"Primary"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"Primary",parameters:{loki:{skip:!0}},children:lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
       <div style="padding: 6px">
         <ic-button variant="primary" id="mybuttonid" onclick="alert('test')"
           >Button</ic-button
@@ -29,7 +29,55 @@
           >Button</ic-button
         >
       </div>
-    `})}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"secondary",children:"Secondary"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"Secondary",parameters:{loki:{skip:!0}},children:lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
+    `})}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"router-link",children:"Router link"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"Router link",parameters:{layout:"fullscreen",loki:{skip:!0}},children:lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`<div style="padding: 8px">
+        <ic-button size="small">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button>
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button size="large">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+      </div>
+      <div style="padding: 8px">
+        <ic-button disabled="true">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="secondary">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="tertiary">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="destructive">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="icon">
+          <a slot="router-item" href="/">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </ic-button>
+      </div>
+      <div style="padding: 8px">
+        <ic-button appearance="light">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button appearance="dark">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+      </div>`})}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components.h3,{id:"secondary",children:"Secondary"}),"\n",(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.Xz,{children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_storybook_addon_docs__WEBPACK_IMPORTED_MODULE_1__.oG,{name:"Secondary",parameters:{loki:{skip:!0}},children:lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
       <div style="padding: 6px">
         <ic-button variant="secondary">Button</ic-button>
         <ic-button variant="secondary" disabled>Button</ic-button>
@@ -1201,7 +1249,55 @@
           >Button</ic-button
         >
       </div>
-    `;primary.storyName="Primary",primary.parameters={storySource:{source:'html`\n      <div style="padding: 6px">\n        <ic-button variant="primary" id="mybuttonid" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button variant="primary" disabled onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n      </div>\n      <div style="padding: 6px">\n        <ic-button variant="primary" appearance="dark" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button\n          variant="primary"\n          disabled\n          appearance="dark"\n          onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n      </div>\n      <div\n        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"\n      >\n        <ic-button variant="primary" appearance="light" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button variant="primary" disabled appearance="light"\n          >Button</ic-button\n        >\n      </div>\n    `'},loki:{skip:!0}};const secondary=()=>lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
+    `;primary.storyName="Primary",primary.parameters={storySource:{source:'html`\n      <div style="padding: 6px">\n        <ic-button variant="primary" id="mybuttonid" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button variant="primary" disabled onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n      </div>\n      <div style="padding: 6px">\n        <ic-button variant="primary" appearance="dark" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button\n          variant="primary"\n          disabled\n          appearance="dark"\n          onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n      </div>\n      <div\n        style="background-color:#2c2f34; padding:6px 10px; width:fit-content"\n      >\n        <ic-button variant="primary" appearance="light" onclick="alert(\'test\')"\n          >Button</ic-button\n        >\n        <ic-button variant="primary" disabled appearance="light"\n          >Button</ic-button\n        >\n      </div>\n    `'},loki:{skip:!0}};const routerLink=()=>lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`<div style="padding: 8px">
+        <ic-button size="small">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button>
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button size="large">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+      </div>
+      <div style="padding: 8px">
+        <ic-button disabled="true">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="secondary">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="tertiary">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="destructive">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button variant="icon">
+          <a slot="router-item" href="/">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </ic-button>
+      </div>
+      <div style="padding: 8px">
+        <ic-button appearance="light">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+        <ic-button appearance="dark">
+          <a slot="router-item" href="/">Slotted link</a>
+        </ic-button>
+      </div>`;routerLink.storyName="Router link",routerLink.parameters={storySource:{source:'html`<div style="padding: 8px">\n        <ic-button size="small">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button>\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button size="large">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n      </div>\n      <div style="padding: 8px">\n        <ic-button disabled="true">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button variant="secondary">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button variant="tertiary">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button variant="destructive">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button variant="icon">\n          <a slot="router-item" href="/">\n            <svg\n              width="24"\n              height="24"\n              viewBox="0 0 24 24"\n              fill="none"\n              xmlns="http://www.w3.org/2000/svg"\n            >\n              <path\n                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"\n                fill="currentColor"\n              />\n            </svg>\n          </a>\n        </ic-button>\n      </div>\n      <div style="padding: 8px">\n        <ic-button appearance="light">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n        <ic-button appearance="dark">\n          <a slot="router-item" href="/">Slotted link</a>\n        </ic-button>\n      </div>`'},layout:"fullscreen",loki:{skip:!0}};const secondary=()=>lit_html__WEBPACK_IMPORTED_MODULE_2__.dy`
       <div style="padding: 6px">
         <ic-button variant="secondary">Button</ic-button>
         <ic-button variant="secondary" disabled>Button</ic-button>
@@ -2342,5 +2438,5 @@
               descEl.innerText = "Files Selected: " + fileList.join(", ");
             });
         </script>
-      `;fileUpload.storyName="File upload",fileUpload.parameters={storySource:{source:'args => html`\n        <span id="selected-file">No File Selected</span>\n        <div style="padding: 6px">\n          <ic-button\n            variant="primary"\n            id="file-button"\n            file-upload="true"\n            accept=".doc, text/plain, .json"\n            >Upload File true</ic-button\n          >\n        </div>\n        <script>\n          var descEl = document.querySelector("#selected-file");\n          var file;\n          onclick = document\n            .querySelector("#file-button")\n            .addEventListener("icFileSelection", (ev) => {\n              const fileArray = ev.detail;\n              const fileList = [];\n              Array.from(fileArray).forEach((file) => {\n                fileList.push(file.name);\n              });\n              descEl.innerText = "Files Selected: " + fileList.join(", ");\n            });\n        <\/script>\n      `'},loki:{skip:!0}};const componentMeta={title:"Web Components/Button",tags:["stories-mdx"],includeStories:["primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm","fileUpload"]};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:function MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return MDXLayout?(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MDXLayout,{...props,children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_createMdxContent,{...props})}):_createMdxContent(props)}};const __WEBPACK_DEFAULT_EXPORT__=componentMeta,__namedExportsOrder=["defaultArgs","primary","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm","fileUpload"]}}]);
-//# sourceMappingURL=components-ic-button-ic-button-stories-mdx.66811932.iframe.bundle.js.map
+      `;fileUpload.storyName="File upload",fileUpload.parameters={storySource:{source:'args => html`\n        <span id="selected-file">No File Selected</span>\n        <div style="padding: 6px">\n          <ic-button\n            variant="primary"\n            id="file-button"\n            file-upload="true"\n            accept=".doc, text/plain, .json"\n            >Upload File true</ic-button\n          >\n        </div>\n        <script>\n          var descEl = document.querySelector("#selected-file");\n          var file;\n          onclick = document\n            .querySelector("#file-button")\n            .addEventListener("icFileSelection", (ev) => {\n              const fileArray = ev.detail;\n              const fileList = [];\n              Array.from(fileArray).forEach((file) => {\n                fileList.push(file.name);\n              });\n              descEl.innerText = "Files Selected: " + fileList.join(", ");\n            });\n        <\/script>\n      `'},loki:{skip:!0}};const componentMeta={title:"Web Components/Button",tags:["stories-mdx"],includeStories:["primary","routerLink","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm","fileUpload"]};componentMeta.parameters=componentMeta.parameters||{},componentMeta.parameters.docs={...componentMeta.parameters.docs||{},page:function MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,_home_runner_work_ic_ui_kit_ic_ui_kit_packages_web_components_node_modules_storybook_addon_docs_dist_shims_mdx_react_shim__WEBPACK_IMPORTED_MODULE_5__.ah)(),props.components);return MDXLayout?(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MDXLayout,{...props,children:(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_createMdxContent,{...props})}):_createMdxContent(props)}};const __WEBPACK_DEFAULT_EXPORT__=componentMeta,__namedExportsOrder=["defaultArgs","primary","routerLink","secondary","tertiary","destructive","withIcon","dropdown","dropdownExample","size","iconWithoutViewBox","fullWidth","minWidth","height","iconOnly","tooltips","playground","playgroundWithIcon","loading","ariaDescribedby","fileUploadInAForm","fileUpload"]}}]);
+//# sourceMappingURL=components-ic-button-ic-button-stories-mdx.f5f458c1.iframe.bundle.js.map
