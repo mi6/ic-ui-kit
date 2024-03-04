@@ -25,6 +25,12 @@ export class AccordionGroup {
   @State() accordions: HTMLIcAccordionElement[];
 
   @State() areAllAccordionsOpen: boolean;
+
+  /**
+   * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
+   */
+  @Prop() accessibleButtonLabel: string = "accordions";
+
   /**
    * The appearance of the accordion group, e.g dark, or light.
    */
@@ -114,8 +120,18 @@ export class AccordionGroup {
     );
   };
 
+  private accordionOpenBtnText = () => {
+    return !this.areAllAccordionsOpen ? "See all" : "Hide all";
+  };
+
   render() {
-    const { appearance, size, groupTitle, singleExpansion } = this;
+    const {
+      appearance,
+      size,
+      groupTitle,
+      singleExpansion,
+      accessibleButtonLabel,
+    } = this;
     return (
       <Host
         context-id={this.accordionGroupId}
@@ -134,8 +150,9 @@ export class AccordionGroup {
               appearance={appearance === "light" ? "light" : "default"}
               onClick={this.handleExpanded}
               variant="tertiary"
+              aria-label={`${this.accordionOpenBtnText()} ${accessibleButtonLabel}`}
             >
-              {!this.areAllAccordionsOpen ? "See all" : "Hide all"}
+              {this.accordionOpenBtnText()}
             </ic-button>
           )}
         </div>

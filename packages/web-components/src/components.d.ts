@@ -87,6 +87,10 @@ export namespace Components {
     }
     interface IcAccordionGroup {
         /**
+          * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
+         */
+        "accessibleButtonLabel": string;
+        /**
           * The appearance of the accordion group, e.g dark, or light.
          */
         "appearance": IcThemeForeground;
@@ -3286,6 +3290,10 @@ declare namespace LocalJSX {
         "size"?: IcSizes;
     }
     interface IcAccordionGroup {
+        /**
+          * The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users.
+         */
+        "accessibleButtonLabel"?: string;
         /**
           * The appearance of the accordion group, e.g dark, or light.
          */
