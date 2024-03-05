@@ -23,6 +23,13 @@ import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
+const DATA_ENTITY_SELECTOR = "ic-data-entity";
+const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
+const DATA_ROW_SELECTOR = "ic-data-row";
+const TYPOGRAPHY_SELECTOR = "ic-typography";
+const TEXT_FIELD_SELECTOR = "ic-text-field";
+const LARGE_SPACING_CSS = "var(--ic-space-lg)";
+
 describe("IcDataEntity E2E ,visual and a11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -97,11 +104,12 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         </IcDataEntity>
       </div>
     );
-    cy.checkHydrated("ic-data-entity");
-    cy.get('[heading="Order details"]').should(BE_VISIBLE);
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
-    cy.get("ic-data-row").should(HAVE_VALUE, "Michael");
+    cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "Michael");
     cy.get("ic-link").should(BE_VISIBLE).should(HAVE_TEXT, "Edit");
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "oneDataRow",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
@@ -125,15 +133,16 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         </IcDataEntity>
       </div>
     );
-    cy.checkHydrated("ic-data-entity");
-    cy.get('[heading="Order details"]').should(BE_VISIBLE);
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Download receipt"]').should(BE_VISIBLE);
-    cy.get("ic-data-row").should(HAVE_VALUE, "CoffeeOrder_X46w32.pdf");
+    cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "CoffeeOrder_X46w32.pdf");
     cy.get("ic-button").should(BE_VISIBLE);
     cy.get("ic-button")
       .shadow()
       .find('[aria-label="Download"]')
       .should(BE_VISIBLE);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "downloadReceipt",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
@@ -190,14 +199,15 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         </IcDataEntity>
       </div>
     );
-    cy.checkHydrated("ic-data-entity");
-    cy.get('[heading="Order details"]').should(BE_VISIBLE);
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Drink"]').should(BE_VISIBLE);
-    cy.get("ic-data-row").should(HAVE_VALUE, "Americano");
-    cy.findShadowEl("ic-status-tag", "ic-typography").should(
+    cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "Americano");
+    cy.findShadowEl("ic-status-tag", TYPOGRAPHY_SELECTOR).should(
       HAVE_TEXT,
       "In Progress"
     );
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "inProgresssTag",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
@@ -226,7 +236,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         </IcDataEntity>
       </div>
     );
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizeToSmall",
       testThreshold: DEFAULT_TEST_THRESHOLD,
@@ -257,20 +267,21 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         </IcDataEntity>
       </div>
     );
-    cy.checkHydrated("ic-data-entity");
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
     cy.get('[heading="Personal details"]').should(BE_VISIBLE);
     cy.get('[label="Address"]').should(BE_VISIBLE);
-    cy.get("ic-typography").each(($el) => {
+    cy.get(TYPOGRAPHY_SELECTOR).each(($el) => {
       cy.wrap($el)
         .invoke("text")
         .then((address) => {
           cy.log(address);
         });
     });
-    cy.findShadowEl("ic-status-tag", "ic-typography").should(
+    cy.findShadowEl("ic-status-tag", TYPOGRAPHY_SELECTOR).should(
       HAVE_TEXT,
       "not confirmed"
     );
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "smallSizeLastRow",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
@@ -330,27 +341,27 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
           </IcDataEntity>
           <IcButton
             onClick={() => {
-              const textFields = document.querySelectorAll("ic-text-field");
+              const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
               textFields.forEach((textField) => {
                 textField.setAttribute("readonly", "");
               });
             }}
             style={{
               marginRight: "var(--ic-space-md)",
-              marginTop: "var(--ic-space-lg)",
+              marginTop: LARGE_SPACING_CSS,
             }}
           >
             Confirm
           </IcButton>
           <IcButton
             onClick={() => {
-              const textFields = document.querySelectorAll("ic-text-field");
+              const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
               textFields.forEach((textField) => {
                 textField.removeAttribute("readonly");
               });
             }}
             variant="secondary"
-            style={{ marginTop: "var(--ic-space-lg)" }}
+            style={{ marginTop: LARGE_SPACING_CSS }}
           >
             Edit
           </IcButton>
@@ -381,44 +392,45 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
           </IcDataEntity>
           <IcButton
             onClick={() => {
-              const textFields = document.querySelectorAll("ic-text-field");
+              const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
               textFields.forEach((textField) => {
                 textField.setAttribute("readonly", "");
               });
             }}
             style={{
               marginRight: "var(--ic-space-md)",
-              marginTop: "var(--ic-space-lg)",
+              marginTop: LARGE_SPACING_CSS,
             }}
           >
             Confirm
           </IcButton>
           <IcButton
             onClick={() => {
-              const textFields = document.querySelectorAll("ic-text-field");
+              const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
               textFields.forEach((textField) => {
                 textField.removeAttribute("readonly");
               });
             }}
             variant="secondary"
-            style={{ marginTop: "var(--ic-space-lg)" }}
+            style={{ marginTop: LARGE_SPACING_CSS }}
           >
             Edit
           </IcButton>
         </>
       </div>
     );
-    cy.checkHydrated("ic-data-entity");
-    cy.get('[heading="Order details"]').should(BE_VISIBLE);
+    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
     cy.get("input").should(HAVE_VALUE, "Michael");
     cy.get("ic-button").should(HAVE_LENGTH, "2");
     cy.get("ic-button").contains("Edit").click();
-    cy.findShadowEl("ic-text-field", "input")
+    cy.findShadowEl(TEXT_FIELD_SELECTOR, "input")
       .clear()
       .type("Matt")
       .should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "editableNameData",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
