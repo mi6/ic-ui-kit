@@ -1,3 +1,19 @@
 :root {
     color-scheme: light dark;
 }
+
+@media (prefers-color-scheme: dark) {
+    #storybook-root * {
+        color: white;
+        /* The only issue this creates is that text inside ic-input is white on white
+        This should be addressed as a separate ticket to add dark mode to ic-inputs */
+    }
+
+    .docs-story {
+        background-color: #121212;
+    }
+
+    .docs-story * {
+        color: white;
+    }
+}
