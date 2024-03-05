@@ -536,6 +536,7 @@ export class Button {
           class="button"
           aria-disabled={this.loading || this.disabled ? "true" : null}
           aria-label={this.loading ? "Loading" : ariaLabel}
+          aria-expanded={this.dropdown && `${this.dropdownExpanded}`}
           {...buttonAttrs}
           {...inheritedAttributes}
           onFocus={this.onFocus}
