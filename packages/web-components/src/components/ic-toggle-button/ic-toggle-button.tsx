@@ -133,8 +133,7 @@ export class ToggleButton {
         }}
       >
         <ic-button
-          role="checkbox"
-          aria-checked={this.toggleChecked ? "true" : "false"}
+          aria-pressed={this.toggleChecked.toString()}
           variant={this.variant === "icon" ? "icon" : "secondary"}
           onClick={this.handleClick}
           title={this.accessibleLabel}
