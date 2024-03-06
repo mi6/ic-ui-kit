@@ -176,4 +176,13 @@ describe("ic-loading-indicator component", () => {
     const x = circle.getAttribute("cx");
     expect(x).toBe("50");
   });
+
+  it("should have a default label duration of 8 seconds, if no value given", async () => {
+    page = await newSpecPage({
+      components: [LoadingIndicator, Typography],
+      html: `<ic-loading-indicator label="Waiting/Still waiting"></ic-loading-indicator>`,
+    });
+
+    expect(page.rootInstance.labelDuration).toBe(8000);
+  });
 });
