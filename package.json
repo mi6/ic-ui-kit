@@ -23,6 +23,8 @@
     "build-storybook:canary-web-components": "lerna run build-storybook --scope @ukic/canary-web-components",
     "build-storybook:canary-react": "lerna run build-storybook --scope @ukic/canary-react",
     "build-storybook:nextjs": "lerna run build-storybook --scope @ukic/nextjs",
+    "cypress:install:react": "./packages/react/node_modules/cypress/bin/cypress install",
+    "cypress:install:canary-react": "./packages/canary-react/node_modules/cypress/bin/cypress install",
     "test-visual:all": "npm run test-visual && npm run test-visual:canary",
     "test-visual:ci:all": "npm run test-visual:ci && npm run test-visual:ci:canary",
     "test-visual": "npm run build && npm run build-storybook:web-components && lerna run test-visual --scope @ukic/web-components --stream",
