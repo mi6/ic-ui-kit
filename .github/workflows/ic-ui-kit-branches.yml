@@ -37,23 +37,35 @@ jobs:
     name: "Static analysis tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install core dependencies
-        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+
+      - name: Install dependencies
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build
 
-      - name: Install all dependencies
+      - name: Build core components
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: npm run build
+
+      - name: Build all components
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
           npm run build:all
 
       - name: Lint commit messages
@@ -86,10 +98,22 @@ jobs:
     name: "E2E tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
 
       - name: Install dependencies
         run: |
@@ -109,11 +133,23 @@ jobs:
     name: "Visual regression tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -133,21 +169,45 @@ jobs:
     name: "Cypress tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
 
       - name: Extract branch name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
 
       - name: Install dependencies
         run: |
           google-chrome --version
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Cache Cypress Binary
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Core Cypress
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        run: npm run cypress:install:react
 
       - name: Core Cypress tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -167,6 +227,10 @@ jobs:
         with:
           folder: ./packages/react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+
+      - name: Install Canary Cypress
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run cypress:install:canary-react
 
       - name: Canary Cypress tests
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
@@ -210,10 +274,22 @@ jobs:
     name: "Deploy storybook"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
 
       - name: Extract branch name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
