@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11346366354078473,
+          "percentage": 0.11345423455805013,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -630,7 +630,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardBlur",
-          "percentage": 0.05429548784199291,
+          "percentage": 0.0543323108288245,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -707,7 +707,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.0723325652801005,
+          "percentage": 0.07263607918933951,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -1016,7 +1016,7 @@
         {
           "status": "pass",
           "name": "IcChip.cy.tsx-dismissible-focus",
-          "percentage": 0.03682390527904394,
+          "percentage": 0.03704051835490427,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
@@ -2286,7 +2286,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-default-value-open",
-          "percentage": 0.11594826432508595,
+          "percentage": 0.1159655121145938,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2694,7 +2694,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-message-variant",
-          "percentage": 0.05329165037789691,
+          "percentage": 0.061806148561449774,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2705,7 +2705,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.09793875637356235,
+          "percentage": 0.10831435731240803,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2760,7 +2760,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-custom-aria-label",
-          "percentage": 0.06381222453417527,
+          "percentage": 0.05488169093604897,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3196,7 +3196,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-content-centre",
-          "percentage": 0,
+          "percentage": 0.015642591666778078,
           "failureThreshold": 0.05,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -3372,9 +3372,9 @@
       ]
     }
   ],
-  "startedAt": "2024-03-07T17:27:31.879Z",
-  "endedAt": "2024-03-07T17:33:42.453Z",
-  "duration": 323996,
+  "startedAt": "2024-03-07T17:48:37.018Z",
+  "endedAt": "2024-03-07T17:54:52.940Z",
+  "duration": 328936,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
