@@ -289,20 +289,25 @@ export class Card {
               <slot name="interaction-controls"></slot>
             </div>
             {expandable && (
-              <ic-button
-                class={{
-                  ["toggle-button"]: true,
-                  ["toggle-button-closed"]: !this.areaExpanded,
-                  ["toggle-button-expanded"]: this.areaExpanded,
-                }}
-                variant="icon"
-                size="large"
-                aria-label="Toggle expandable area"
-                aria-expanded={this.areaExpanded}
-                aria-controls="expanded-content-area"
-                onClick={this.toggleExpanded}
-                innerHTML={chevronIcon}
-              ></ic-button>
+              <ic-tooltip
+                id="ic-tooltip-expand-button"
+                label="Toggle expandable area"
+                silent
+              >
+                <button
+                  class={{
+                    ["toggle-button"]: true,
+                    [`toggle-button-${
+                      this.areaExpanded ? "expanded" : "closed"
+                    }`]: true,
+                  }}
+                  aria-label="Toggle expandable area"
+                  aria-expanded={this.areaExpanded}
+                  aria-controls={this.areaExpanded ? "expanded-content-area" : null}
+                  onClick={this.toggleExpanded}
+                  innerHTML={chevronIcon}
+                ></button>
+              </ic-tooltip>
             )}
           </div>
         )}
