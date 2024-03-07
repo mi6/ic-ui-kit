@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-05T07:06:36",
+  "timestamp": "2024-03-07T13:35:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -13411,6 +13411,20 @@
           "docsTags": []
         },
         {
+          "event": "icClose",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the select options menu is closed.",
+          "docsTags": []
+        },
+        {
           "event": "icFocus",
           "detail": "void",
           "bubbles": true,
@@ -13442,6 +13456,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        },
+        {
+          "event": "icOpen",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the select options menu is opened.",
           "docsTags": []
         },
         {
