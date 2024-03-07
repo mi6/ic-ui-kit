@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
 import React from "react";
@@ -19,6 +20,8 @@ import { mount } from "cypress/react";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
+
+const TYPOGRAPHY_SELECTOR = "ic-typography";
 
 describe("IcCard", () => {
   beforeEach(() => {
@@ -108,7 +111,7 @@ describe("IcCard", () => {
       </a>
     );
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("This is a static card")
       .should(BE_VISIBLE);
     cy.compareSnapshot({
@@ -136,18 +139,6 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-        <SlottedSVG
-          slot="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-three-dots-vertical"
-          viewBox="0 0 16 16"
-        >
-          <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-        </SlottedSVG>
-
         <IcStatusTag slot="adornment" label="In Progress" small />
         <SlottedSVG
           slot="image-mid"
@@ -187,7 +178,7 @@ describe("IcCard", () => {
     );
     cy.checkHydrated("ic-card");
     cy.get("svg").should(BE_VISIBLE);
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Americano order")
       .should(BE_VISIBLE);
     cy.get('[slot="image-mid"]').should(BE_VISIBLE);
@@ -227,7 +218,7 @@ describe("IcCard", () => {
   it("should render with Heading only ", () => {
     mount(<IcCard heading="Americano order"></IcCard>);
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Americano order")
       .should(BE_VISIBLE);
     cy.compareSnapshot({
@@ -256,7 +247,7 @@ describe("IcCard", () => {
       </IcCard>
     );
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Extras: Double espresso shot and oat milk.")
       .should(BE_VISIBLE);
     cy.compareSnapshot({
@@ -286,7 +277,7 @@ describe("IcCard", () => {
       </IcCard>
     );
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Name: Michael")
       .should(BE_VISIBLE);
     cy.compareSnapshot({
@@ -325,7 +316,7 @@ describe("IcCard", () => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-three-dots-vertical"
+            className="bi bi-three-dots-vertical"
             viewBox="0 0 16 16"
           >
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -429,7 +420,7 @@ describe("IcCard", () => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-three-dots-vertical"
+            className="bi bi-three-dots-vertical"
             viewBox="0 0 16 16"
           >
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -482,7 +473,7 @@ describe("IcCard", () => {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-three-dots-vertical"
+            className="bi bi-three-dots-vertical"
             viewBox="0 0 16 16"
           >
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -715,7 +706,7 @@ describe("IcCard", () => {
       </IcCard>
     );
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-typography")
+    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("This is a full width card")
       .should(BE_VISIBLE);
     cy.compareSnapshot({
@@ -725,33 +716,13 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should toggle expanded content when expansion toggle is clicked", () => {
-    mount(
-      <IcCard
-        id="test-card"
-        heading="Card"
-        message="This is a clickable card"
-        expandable
-      >
-        <IcTypography slot="expanded-content">Expanded</IcTypography>
-      </IcCard>
-    );
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "ic-button").shadow().find("button").click();
-    cy.get("ic-typography").contains("Expanded").should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "expandedCliked",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
-  });
-
-  it("should render as expandable", () => {
+  it("should render expandable and toggle expanded content when expansion toggle is clicked", () => {
     mount(
       <IcCard
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
-        expandable={true}
+        expandable
       >
         <SlottedSVG
           slot="icon"
@@ -770,19 +741,22 @@ describe("IcCard", () => {
           <IcButton variant="primary">Accept</IcButton>
           <IcButton variant="secondary">Cancel</IcButton>
         </div>
-        <IcTypography slot="expanded-content" variant="body">
-          To cancel your order click cancel.
-        </IcTypography>
+        <IcTypography slot="expanded-content">Expanded</IcTypography>
       </IcCard>
     );
     cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", ".toggle-button")
-      .shadow()
-      .find("button")
-      .click();
     cy.compareSnapshot({
       name: "expandable",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
     });
+    cy.checkA11yWithWait();
+
+    cy.findShadowEl("ic-card", "button").click({ force: true });
+    cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
+    cy.compareSnapshot({
+      name: "expandedClicked",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    });
+    cy.checkA11yWithWait();
   });
 });

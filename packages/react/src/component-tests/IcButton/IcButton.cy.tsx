@@ -273,7 +273,7 @@ describe("IcButton", () => {
           "#selected-file"
         ) as HTMLSpanElement;
         if (descEl) {
-          descEl.innerText = value;
+          descEl.innerText = value as string;
         }
       });
     cy.findShadowEl("ic-button", "#selected-file")
