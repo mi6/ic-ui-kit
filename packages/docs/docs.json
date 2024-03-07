@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-07T13:35:39",
+  "timestamp": "2024-03-07T15:12:33",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -2247,7 +2247,6 @@
       "dependents": [
         "ic-accordion-group",
         "ic-alert",
-        "ic-card",
         "ic-dialog",
         "ic-horizontal-scroll",
         "ic-menu",
@@ -2281,9 +2280,6 @@
           "ic-button"
         ],
         "ic-alert": [
-          "ic-button"
-        ],
-        "ic-card": [
           "ic-button"
         ],
         "ic-dialog": [
@@ -2766,19 +2762,12 @@
       "dependents": [],
       "dependencies": [
         "ic-typography",
-        "ic-button"
+        "ic-tooltip"
       ],
       "dependencyGraph": {
         "ic-card": [
           "ic-typography",
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
           "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
         ],
         "ic-tooltip": [
           "ic-typography"
@@ -17526,6 +17515,7 @@
       "parts": [],
       "dependents": [
         "ic-button",
+        "ic-card",
         "ic-chip",
         "ic-navigation-item"
       ],
@@ -17537,6 +17527,9 @@
           "ic-typography"
         ],
         "ic-button": [
+          "ic-tooltip"
+        ],
+        "ic-card": [
           "ic-tooltip"
         ],
         "ic-chip": [

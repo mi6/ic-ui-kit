@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
 
+import { mount } from "cypress/react";
 import React from "react";
 import {
   IcBadge,
@@ -9,6 +10,7 @@ import {
   IcStatusTag,
   IcTypography,
 } from "../../components";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_VISIBLE,
   HAVE_CLASS,
@@ -16,8 +18,7 @@ import {
   HAVE_LENGTH,
   NOT_HAVE_CLASS,
 } from "../utils/constants";
-import { mount } from "cypress/react";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
@@ -747,7 +748,7 @@ describe("IcCard", () => {
     cy.checkHydrated("ic-card");
     cy.compareSnapshot({
       name: "expandable",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(0.07),
     });
     cy.checkA11yWithWait();
 
@@ -755,7 +756,7 @@ describe("IcCard", () => {
     cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
     cy.compareSnapshot({
       name: "expandedClicked",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(0.08),
     });
     cy.checkA11yWithWait();
   });
