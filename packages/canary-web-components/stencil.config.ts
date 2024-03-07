@@ -7,7 +7,7 @@ import { excludeComps} from "../web-components/comps-list";
 
 export const config: Config = {
   namespace: "core",
-  globalStyle: "src/global/icds.css",
+  globalStyle: "../web-components/src/global/icds.css",
   outputTargets: [
     reactOutputTarget({
       componentCorePackage: "@ukic/canary-web-components",
@@ -23,7 +23,7 @@ export const config: Config = {
       esmLoaderPath: "../loader",
       copy: [
         {
-          src: "global/normalize.css",
+          src: "../../web-components/src/global/normalize.css",
           dest: "normalize.css",
         }
       ]
