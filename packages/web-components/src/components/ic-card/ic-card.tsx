@@ -302,8 +302,10 @@ export class Card {
                     }`]: true,
                   }}
                   aria-label="Toggle expandable area"
-                  aria-expanded={this.areaExpanded}
-                  aria-controls={this.areaExpanded ? "expanded-content-area" : null}
+                  aria-expanded={`${this.areaExpanded}`}
+                  aria-controls={
+                    this.areaExpanded ? "expanded-content-area" : null
+                  }
                   onClick={this.toggleExpanded}
                   innerHTML={chevronIcon}
                 ></button>
