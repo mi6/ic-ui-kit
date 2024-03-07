@@ -4,9 +4,5 @@
  * @param threshold threshold value to pass visual tests locally
  * @returns {number} the threshold value depending on environment set by CYPRESS_CI
  */
-export const setThresholdBasedOnEnv = (threshold: number) => {
-  if (!!Cypress.env('CI')) return 0;
-
-  return threshold;
-};
+export const setThresholdBasedOnEnv = (threshold: number): number => Cypress.env("CI") ? 0 : threshold;
     
