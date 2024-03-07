@@ -107,7 +107,7 @@ exports[`ic-card should render as expandable 1`] = `
           <slot name="interaction-controls"></slot>
         </div>
         <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
-          <button aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
+          <button aria-expanded="false" aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
             svg
           </button>
         </ic-tooltip>
@@ -149,7 +149,7 @@ exports[`ic-card should render content in expanded area 1`] = `
           <slot name="interaction-controls"></slot>
         </div>
         <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
-          <button aria-controls="expanded-content-area" aria-expanded="" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
+          <button aria-controls="expanded-content-area" aria-expanded="true" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
             svg
           </button>
         </ic-tooltip>
@@ -426,7 +426,7 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
           <slot name="interaction-controls"></slot>
         </div>
         <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
-          <button aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
+          <button aria-expanded="false" aria-label="Toggle expandable area" class="toggle-button toggle-button-closed">
             svg
           </button>
         </ic-tooltip>
@@ -464,7 +464,7 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
           <slot name="interaction-controls"></slot>
         </div>
         <ic-tooltip id="ic-tooltip-expand-button" label="Toggle expandable area" silent="">
-          <button aria-controls="expanded-content-area" aria-expanded="" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
+          <button aria-controls="expanded-content-area" aria-expanded="true" aria-label="Toggle expandable area" class="toggle-button toggle-button-expanded">
             svg
           </button>
         </ic-tooltip>
