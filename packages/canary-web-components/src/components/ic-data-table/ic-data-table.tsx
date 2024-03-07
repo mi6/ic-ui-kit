@@ -57,6 +57,7 @@ export class DataTable {
   };
 
   private hasLoadedForOneSecond: boolean = true;
+  private loadingIndicator: HTMLIcLoadingIndicatorElement;
   private timerStarted: number;
 
   @Element() el: HTMLIcDataTableElement;
@@ -243,7 +244,10 @@ export class DataTable {
     ) {
       this.scrollable = true;
     }
-    if (this.loading) this.startLoadingTimer();
+    if (this.loading) {
+      this.startLoadingTimer();
+      this.showLoadingIndicator();
+    }
   }
 
   @Listen("icItemsPerPageChange")
@@ -282,6 +286,12 @@ export class DataTable {
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
     if (newValue) this.startLoadingTimer();
+
+    if (this.loading) {
+      setTimeout(() => {
+        this.showLoadingIndicator();
+      }, 500);
+    }
   }
 
   @Watch("data")
@@ -315,6 +325,10 @@ export class DataTable {
   async resetRowHeights(): Promise<void> {
     this.globalRowHeight = 40;
     this.variableRowHeight = null;
+  }
+
+  private showLoadingIndicator() {
+    this.loadingIndicator.classList.add("show");
   }
 
   private startLoadingTimer = (): void => {
@@ -767,21 +781,25 @@ export class DataTable {
               ></ic-empty-state>
             ))}
         </div>
-        <ic-loading-indicator
-          appearance={loadingOptions?.appearance}
-          class={{
-            "loading-empty": loading,
-            loading: true,
-            show: loading,
-            "show-background": loadingOptions.showBackground,
-          }}
-          description={loadingOptions.description || "Loading table data"}
-          label={loadingOptions.label || "Loading..."}
-          labelDuration={loadingOptions?.labelDuration}
-          max={loadingOptions?.max}
-          min={loadingOptions?.min}
-          progress={loadingOptions?.progress}
-        ></ic-loading-indicator>
+        {loading && (
+          <ic-loading-indicator
+            appearance={loadingOptions?.appearance}
+            class={{
+              "loading-empty": loading,
+              loading: true,
+              "show-background": loadingOptions.showBackground,
+            }}
+            description={loadingOptions.description || "Loading table data"}
+            label={loadingOptions.label || "Loading..."}
+            labelDuration={loadingOptions?.labelDuration}
+            max={loadingOptions?.max}
+            min={loadingOptions?.min}
+            progress={loadingOptions?.progress}
+            ref={(el: HTMLIcLoadingIndicatorElement) =>
+              (this.loadingIndicator = el)
+            }
+          ></ic-loading-indicator>
+        )}
         {showPagination && (
           <div class="pagination-container">
             <ic-pagination-bar
