@@ -317,30 +317,45 @@ export class Select {
     }
   }
 
+  @Watch("open")
+  openChangedHandler(): void {
+    this.open ? this.icOpen.emit() : this.icClose.emit();
+  }
+
   /**
    * Emitted when the select loses focus.
    */
-  @Event() icBlur!: EventEmitter<void>;
+  @Event() icBlur: EventEmitter<void>;
 
   /**
    * Emitted when the value changes.
    */
-  @Event() icChange!: EventEmitter<IcValueEventDetail>;
+  @Event() icChange: EventEmitter<IcValueEventDetail>;
 
   /**
    * Emitted when the clear button is clicked.
    */
-  @Event() icClear!: EventEmitter<void>;
+  @Event() icClear: EventEmitter<void>;
+
+  /**
+   * Emitted when the select options menu is closed.
+   */
+  @Event() icClose: EventEmitter<void>;
 
   /**
    * Emitted when the select gains focus.
    */
-  @Event() icFocus!: EventEmitter<void>;
+  @Event() icFocus: EventEmitter<void>;
 
   /**
    * Emitted when a keyboard input occurred.
    */
   @Event() icInput: EventEmitter<IcValueEventDetail>;
+
+  /**
+   * Emitted when the select options menu is opened.
+   */
+  @Event() icOpen: EventEmitter<void>;
 
   /**
    * Emitted when an option is highlighted within the menu.

@@ -2944,8 +2944,10 @@ declare global {
         "icBlur": void;
         "icChange": IcValueEventDetail;
         "icClear": void;
+        "icClose": void;
         "icFocus": void;
         "icInput": IcValueEventDetail;
+        "icOpen": void;
         "icOptionSelect": IcOptionSelectEventDetail;
         "icRetryLoad": IcValueEventDetail;
     }
@@ -4985,6 +4987,10 @@ declare namespace LocalJSX {
          */
         "onIcClear"?: (event: IcSelectCustomEvent<void>) => void;
         /**
+          * Emitted when the select options menu is closed.
+         */
+        "onIcClose"?: (event: IcSelectCustomEvent<void>) => void;
+        /**
           * Emitted when the select gains focus.
          */
         "onIcFocus"?: (event: IcSelectCustomEvent<void>) => void;
@@ -4992,6 +4998,10 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onIcInput"?: (event: IcSelectCustomEvent<IcValueEventDetail>) => void;
+        /**
+          * Emitted when the select options menu is opened.
+         */
+        "onIcOpen"?: (event: IcSelectCustomEvent<void>) => void;
         /**
           * Emitted when an option is highlighted within the menu. Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.
          */
