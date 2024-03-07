@@ -165,7 +165,51 @@ button {
 }
 
 .toggle-button {
+  color: var(--ic-action-default);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: var(--ic-space-xs);
+  margin: var(--ic-space-1px) 0;
+  min-width: 0;
+  cursor: pointer;
+  transition: var(--ic-easing-transition-fast);
+  border-radius: var(--ic-border-radius);
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#ic-tooltip-expand-button {
   margin-left: auto;
+  position: relative;
+}
+
+.toggle-button:hover,
+.toggle-button:hover:focus {
+  background-color: var(--ic-action-default-bg-hover);
+  color: var(--ic-action-default-hover);
+}
+
+.toggle-button:focus {
+  box-shadow: var(--ic-border-focus);
+}
+
+.toggle-button:active:not(:focus) {
+  background-color: var(--ic-action-default-bg-active);
+  color: var(--ic-action-default-active);
+}
+
+.toggle-button svg {
+  pointer-events: none;
+  width: 100% !important;
+  height: 100% !important;
+  fill: currentcolor !important;
 }
 
 .toggle-button-closed svg {
