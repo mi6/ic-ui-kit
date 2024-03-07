@@ -247,6 +247,8 @@ export const playgroundOptions = [
           label="What is your favourite coffee?"
           options={options}
           onIcChange={(event) => console.log(event.detail.value)}
+          onIcOpen={() => console.log("select dropdown opened")}
+          onIcClose={() => console.log("select dropdown closed")}
         />
       );
     }}
@@ -598,6 +600,8 @@ export const playgroundOptions = [
           options={searchableOptions}
           searchable
           onIcChange={(event) => console.log(event.detail.value)}
+          onIcOpen={() => console.log("select dropdown opened")}
+          onIcClose={() => console.log("select dropdown closed")}
         />
       );
     }}
