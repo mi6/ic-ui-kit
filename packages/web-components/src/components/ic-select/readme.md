@@ -53,8 +53,10 @@
 | `icBlur`         | Emitted when the select loses focus.                                                                                                                       | `CustomEvent<void>`                      |
 | `icChange`       | Emitted when the value changes.                                                                                                                            | `CustomEvent<IcValueEventDetail>`        |
 | `icClear`        | Emitted when the clear button is clicked.                                                                                                                  | `CustomEvent<void>`                      |
+| `icClose`        | Emitted when the select options menu is closed.                                                                                                            | `CustomEvent<void>`                      |
 | `icFocus`        | Emitted when the select gains focus.                                                                                                                       | `CustomEvent<void>`                      |
 | `icInput`        | Emitted when a keyboard input occurred.                                                                                                                    | `CustomEvent<IcValueEventDetail>`        |
+| `icOpen`         | Emitted when the select options menu is opened.                                                                                                            | `CustomEvent<void>`                      |
 | `icOptionSelect` | Emitted when an option is highlighted within the menu. Highlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated. | `CustomEvent<IcOptionSelectEventDetail>` |
 | `icRetryLoad`    | Emitted when the 'retry loading' button is clicked for a searchable variant.                                                                               | `CustomEvent<IcValueEventDetail>`        |
 

@@ -488,6 +488,9 @@ describe("ic-select", () => {
     page.root.options = menuOptionsWithDescriptions;
     await page.waitForChanges();
 
+    const eventSpy = jest.fn();
+    page.win.addEventListener("icOpen", eventSpy);
+
     await page.rootInstance.handleKeyDown({
       key: "A",
       preventDefault: (): void => null,
@@ -500,6 +503,7 @@ describe("ic-select", () => {
 
     expect(page.rootInstance.pressedCharacters).toBe("A ");
     expect(page.rootInstance.open).toBe(false);
+    expect(eventSpy).not.toHaveBeenCalled();
   });
 
   it("should not close the menu when space key is used as a character key", async () => {
@@ -514,7 +518,7 @@ describe("ic-select", () => {
 
     const eventSpy = jest.fn();
 
-    page.win.addEventListener("icChange", eventSpy);
+    page.win.addEventListener("icClose", eventSpy);
 
     const list = page.root.shadowRoot.querySelector(menuUl);
 
@@ -538,6 +542,7 @@ describe("ic-select", () => {
 
     expect(page.rootInstance.pressedCharacters).toBe("C ");
     expect(page.rootInstance.open).toBe(true);
+    expect(eventSpy).not.toHaveBeenCalled();
   });
 
   it("should test loading state and timeout for custom select", async () => {
@@ -627,6 +632,31 @@ describe("ic-select", () => {
         ],
       },
     ]);
+  });
+
+  it("should test open and close events emitted", async () => {
+    const page = await newSpecPage({
+      components: [Select, Menu, InputComponentContainer],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+
+    page.root.options = menuOptionsWithDescriptions;
+    await page.waitForChanges();
+
+    const openEventSpy = jest.fn();
+    page.win.addEventListener("icOpen", openEventSpy);
+
+    const closeEventSpy = jest.fn();
+    page.win.addEventListener("icClose", closeEventSpy);
+
+    page.rootInstance.open = true;
+    await page.waitForChanges();
+
+    expect(openEventSpy).toHaveBeenCalled();
+
+    page.rootInstance.open = false;
+    await page.waitForChanges();
+    expect(closeEventSpy).toHaveBeenCalled();
   });
 });
 

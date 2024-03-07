@@ -52,6 +52,12 @@ export const validationArgType = {
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
           });
+          select.addEventListener("icOpen", function () {
+            console.log("select dropdown opened");
+          });
+          select.addEventListener("icClose", function () {
+            console.log("select dropdown closed");
+          });
         </script>`
     }
   </Story>
@@ -714,6 +720,12 @@ export const validationArgType = {
           ];
           select.addEventListener("icChange", function (event) {
             console.log(event.detail.value);
+          });
+          select.addEventListener("icOpen", function () {
+            console.log("select dropdown opened");
+          });
+          select.addEventListener("icClose", function () {
+            console.log("select dropdown closed");
           });
         </script>`
     }
