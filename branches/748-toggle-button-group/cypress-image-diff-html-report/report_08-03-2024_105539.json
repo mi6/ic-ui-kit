@@ -1,6 +1,6 @@
 {
-  "total": 293,
-  "totalPassed": 292,
+  "total": 291,
+  "totalPassed": 290,
   "totalFailed": 1,
   "totalSuites": 24,
   "suites": [
@@ -243,7 +243,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-default",
-          "percentage": 0.06414405900821284,
+          "percentage": 0.06377608483824904,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11345423455805013,
+          "percentage": 0.11348251915596115,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -619,7 +619,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardFocus",
-          "percentage": 0.09068627239003707,
+          "percentage": 0.052038447325030754,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -630,7 +630,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardBlur",
-          "percentage": 0.0543323108288245,
+          "percentage": 0.05429548784199291,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -707,7 +707,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.07848566748139434,
+          "percentage": 0.07263607918933951,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -944,7 +944,7 @@
         {
           "status": "pass",
           "name": "IcCheckbox.cy.tsx-focus",
-          "percentage": 0.13294894598603638,
+          "percentage": 0.13253502779501777,
           "failureThreshold": 0.2,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
@@ -1440,28 +1440,6 @@
         },
         {
           "status": "pass",
-          "name": "IcDialog.cy.tsx-scroll-before",
-          "percentage": 0.09402736746997298,
-          "failureThreshold": 0.12000000000000001,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-before.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-before.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDialog.cy.tsx-scroll-after",
-          "percentage": 0.10128085949477324,
-          "failureThreshold": 0.12000000000000001,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-after.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-after.png"
-        },
-        {
-          "status": "pass",
           "name": "IcDialog.cy.tsx-tab-dynamic-content",
           "percentage": 0,
           "failureThreshold": 0.12000000000000001,
@@ -1480,7 +1458,7 @@
         {
           "status": "pass",
           "name": "IcEmptyState.cy.tsx-empty-state-basic-desktop",
-          "percentage": 0.06377858836108975,
+          "percentage": 0.07762758315616085,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcEmptyState/IcEmptyState.cy.tsx",
           "specFilename": "IcEmptyState.cy.tsx",
@@ -2286,7 +2264,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-default-value-open",
-          "percentage": 0.0746458304260861,
+          "percentage": 0.11594826432508595,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2705,7 +2683,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.11382442620105757,
+          "percentage": 0.10831435731240803,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2727,7 +2705,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-link",
-          "percentage": 0.05059644256269407,
+          "percentage": 0.05692099788303083,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3372,9 +3350,9 @@
       ]
     }
   ],
-  "startedAt": "2024-03-08T10:28:18.452Z",
-  "endedAt": "2024-03-08T10:34:33.469Z",
-  "duration": 330859,
+  "startedAt": "2024-03-08T10:55:39.473Z",
+  "endedAt": "2024-03-08T11:02:02.723Z",
+  "duration": 335941,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
