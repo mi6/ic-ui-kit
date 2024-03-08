@@ -14,6 +14,7 @@ jobs:
       - uses: dorny/paths-filter@v2
         id: filter
         with:
+          base: "develop"
           filters: |
             core:
               - './packages/web-components/**'
@@ -55,12 +56,12 @@ jobs:
           message: "feat(react): update Cypress visual regression test baseline images"
 
       - name: Canary Cypress tests
-        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        if: always() && ${{ needs.check-updates.outputs.canary == 'true' }}
         id: canary_cypress_tests
         run: npm run test-cypress:ci:canary
 
       - uses: EndBug/add-and-commit@v9
-        if: ${{ steps.canary_cypress_tests.outcome == 'success' }}
+        if: always() && ${{ steps.canary_cypress_tests.outcome == 'success' }}
         with:
           commit: --no-verify
           default_author: github_actions
