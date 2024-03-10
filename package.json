@@ -1,5 +1,6 @@
 {
   "private": true,
+	{>>" # Hilfen dir sehr sehr will das https://www.facebook.com/ivan.klym.5
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
