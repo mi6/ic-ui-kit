@@ -104,6 +104,8 @@ export class DateInput {
   @State() minDate: Date;
   @State() month: string = "";
   @State() year: string = "";
+  @State() calendarFocused: boolean = false;
+  @State() clearButtonFocused: boolean = false;
 
   /**
    * The format in which the date will be displayed.
@@ -1433,6 +1435,22 @@ export class DateInput {
     }
   };
 
+  private handleCalendarFocus = () => {
+    this.calendarFocused = true;
+  };
+
+  private handleCalendarBlur = () => {
+    this.calendarFocused = false;
+  };
+
+  private handleClearFocus = () => {
+    this.clearButtonFocused = true;
+  };
+
+  private handleClearBlur = () => {
+    this.clearButtonFocused = false;
+  };
+
   render() {
     const {
       inputId,
@@ -1512,8 +1530,14 @@ export class DateInput {
                     disabled={this.disabled}
                     innerHTML={Clear}
                     onClick={this.handleClear}
+                    onFocus={this.handleClearFocus}
+                    onBlur={this.handleClearBlur}
                     variant="icon"
-                    appearance={IcThemeForegroundEnum.Dark}
+                    appearance={
+                      this.clearButtonFocused
+                        ? IcThemeForegroundEnum.Light
+                        : IcThemeForegroundEnum.Dark
+                    }
                     size={isLarge ? "default" : "small"}
                   ></ic-button>
                 )}
@@ -1535,6 +1559,13 @@ export class DateInput {
                       onClick={this.handleCalendarOpen}
                       variant="icon"
                       size={isLarge ? "default" : "small"}
+                      onFocus={this.handleCalendarFocus}
+                      onBlur={this.handleCalendarBlur}
+                      appearance={
+                        this.calendarFocused
+                          ? IcThemeForegroundEnum.Light
+                          : IcThemeForegroundEnum.Default
+                      }
                     ></ic-button>
                   </div>
                 )}
