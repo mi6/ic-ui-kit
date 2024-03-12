@@ -920,8 +920,8 @@ export class Select {
     const target = event.relatedTarget as HTMLElement;
     if (
       target !== null &&
-      target.tagName === "UL" &&
-      target.className.includes("menu")
+      ((target.tagName === "UL" && target.className.includes("menu")) ||
+        (target.tagName === "LI" && target.className.includes("option")))
     ) {
       return;
     }
