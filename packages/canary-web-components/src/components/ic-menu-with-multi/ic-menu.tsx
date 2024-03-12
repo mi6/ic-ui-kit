@@ -15,7 +15,6 @@ import { createPopper, Instance as PopperInstance } from "@popperjs/core";
 import {
   IcActivationTypes,
   IcMenuOption,
-  IcSizes,
 } from "@ukic/web-components/dist/types/utils/types";
 import {
   IcOptionSelectEventDetail,
@@ -24,7 +23,7 @@ import {
   IcSearchBarSearchModes,
 } from "@ukic/web-components/dist/types/components";
 
-import { IcValueEventDetail } from "../../utils/types";
+import { IcValueEventDetail, IcSizes } from "../../utils/types";
 import Check from "../../assets/check-icon.svg";
 import {
   getOptionsWithoutGroupTitlesCount,

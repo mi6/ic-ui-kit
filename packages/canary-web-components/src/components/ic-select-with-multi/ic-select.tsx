@@ -11,10 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import { IcOptionSelectEventDetail } from "@ukic/web-components/dist/types/components";
-import {
-  IcMenuOption,
-  IcSizes,
-} from "@ukic/web-components/dist/types/utils/types";
+import { IcMenuOption } from "@ukic/web-components/dist/types/utils/types";
 
 import {
   getInputDescribedByText,
@@ -37,6 +34,7 @@ import {
   IcSearchMatchPositions,
   IcThemeForegroundEnum,
   IcValueEventDetail,
+  IcSizes,
 } from "../../utils/types";
 import Expand from "./assets/Expand.svg";
 import Clear from "./assets/Clear.svg";
