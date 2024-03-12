@@ -140,7 +140,6 @@ export const removeHiddenInput = (container: HTMLElement): void => {
   input?.remove();
 };
 
-
 /**
  * This method helps to understand the context in which a component exists,
  * to assist with choosing appropriate foreground colours to use. For example,
