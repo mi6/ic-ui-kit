@@ -18,6 +18,7 @@ import {
   HAVE_VALUE,
   NOT_BE_FOCUSED,
   NOT_BE_VISIBLE,
+  NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
@@ -1298,6 +1299,18 @@ describe("IcSelect", () => {
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
     cy.get("ic-select").blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED);
+  });
+
+  it("should not call icBlur when menu is focused", () => {
+    mount(
+      <IcSelect
+        label="What is your favourite coffee?"
+        options={coffeeOptions}
+      />
+    );
+    cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.get("@icBlur").should(NOT_HAVE_BEEN_CALLED);
   });
 
   it("should set the 'placeholder' class name if no option is selected", () => {
