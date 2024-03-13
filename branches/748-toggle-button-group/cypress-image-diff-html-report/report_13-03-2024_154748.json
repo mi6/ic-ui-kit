@@ -1,6 +1,6 @@
 {
-  "total": 291,
-  "totalPassed": 290,
+  "total": 297,
+  "totalPassed": 296,
   "totalFailed": 1,
   "totalSuites": 24,
   "suites": [
@@ -243,7 +243,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-default",
-          "percentage": 0.06377608483824904,
+          "percentage": 0.06411069408579512,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11348251915596115,
+          "percentage": 0.11345423455805013,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -652,7 +652,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-renderThreeCard",
-          "percentage": 0.06910861017268398,
+          "percentage": 0.08793179174792244,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -816,25 +816,25 @@
         },
         {
           "status": "pass",
-          "name": "IcCard.cy.tsx-expandedCliked",
-          "percentage": 0.056249444441700935,
-          "failureThreshold": 0.1,
-          "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
-          "specFilename": "IcCard.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-expandedCliked.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-expandedCliked.png"
-        },
-        {
-          "status": "pass",
           "name": "IcCard.cy.tsx-expandable",
-          "percentage": 0.084,
-          "failureThreshold": 0.1,
+          "percentage": 0,
+          "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-expandable.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-expandable.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcCard.cy.tsx-expandedClicked",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
+          "specFilename": "IcCard.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-expandedClicked.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-expandedClicked.png"
         }
       ]
     },
@@ -1287,7 +1287,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-slotted-content-clicked",
-          "percentage": 0,
+          "percentage": 0.004269562819149833,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1298,7 +1298,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-disable-height-constraint",
-          "percentage": 0,
+          "percentage": 0.005352180241110471,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1364,7 +1364,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-success-alert",
-          "percentage": 0.058072332769859805,
+          "percentage": 0.07216878364870322,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1375,7 +1375,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-small",
-          "percentage": 0.050543916547889325,
+          "percentage": 0.07019318580413154,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1386,7 +1386,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-large",
-          "percentage": 0.04959471157962981,
+          "percentage": 0.06951281356699641,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1437,6 +1437,28 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-hide-close-button.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-hide-close-button.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDialog.cy.tsx-scroll-before",
+          "percentage": 0.09402736746997298,
+          "failureThreshold": 0.12000000000000001,
+          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
+          "specFilename": "IcDialog.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-before.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-before.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcDialog.cy.tsx-scroll-after",
+          "percentage": 0.10128085949477324,
+          "failureThreshold": 0.12000000000000001,
+          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
+          "specFilename": "IcDialog.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-after.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-after.png"
         },
         {
           "status": "pass",
@@ -1983,7 +2005,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-default-open",
-          "percentage": 0.06945502141674136,
+          "percentage": 0.06959885056522126,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2005,7 +2027,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-default-value-open",
-          "percentage": 0.07315736463268753,
+          "percentage": 0.07332121111929345,
           "failureThreshold": 0.07500000000000001,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2038,7 +2060,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-descriptions-open",
-          "percentage": 0.08128960573160629,
+          "percentage": 0.08178019320104349,
           "failureThreshold": 0.09,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2071,7 +2093,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-disabled-options-open",
-          "percentage": 0.05102940328869229,
+          "percentage": 0.05106858133921482,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2104,7 +2126,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-groups-open",
-          "percentage": 0.060431779718952514,
+          "percentage": 0.0608276253029822,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2126,7 +2148,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-custom-elements-open",
-          "percentage": 0.0594306318324145,
+          "percentage": 0.0596992462263972,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2148,13 +2170,35 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-small-open",
-          "percentage": 0.06945502141674136,
+          "percentage": 0.06959885056522126,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-small-open.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-small-open.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSelect.cy.tsx-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
+          "specFilename": "IcSelect.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-large.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSelect.cy.tsx-large-open",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
+          "specFilename": "IcSelect.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelect.cy.tsx-large-open.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelect.cy.tsx-large-open.png"
         },
         {
           "status": "pass",
@@ -2170,7 +2214,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-small-deprecated-open",
-          "percentage": 0.07224956747275377,
+          "percentage": 0.07241546796092668,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2192,7 +2236,7 @@
         {
           "status": "pass",
           "name": "IcSelect.cy.tsx-full-width-open",
-          "percentage": 0.06945502141674136,
+          "percentage": 0.06959885056522126,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelect.cy.tsx",
           "specFilename": "IcSelect.cy.tsx",
@@ -2242,7 +2286,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-default-open",
-          "percentage": 0.05793099343184096,
+          "percentage": 0.058343808583259285,
           "failureThreshold": 0.060000000000000005,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2264,7 +2308,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-default-value-open",
-          "percentage": 0.11594826432508595,
+          "percentage": 0.11605171261123207,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2275,7 +2319,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-search-match-position-open",
-          "percentage": 0.047497368348151665,
+          "percentage": 0.04753945729601885,
           "failureThreshold": 0.060000000000000005,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2286,7 +2330,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-descriptions-open",
-          "percentage": 0.08258329128825032,
+          "percentage": 0.08323460818673925,
           "failureThreshold": 0.09,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2297,7 +2341,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-descriptions-in-filter-open",
-          "percentage": 0.0916078599247903,
+          "percentage": 0.09219544457292887,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2319,7 +2363,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-custom-elements-open",
-          "percentage": 0.053216538782600284,
+          "percentage": 0.05340411969127475,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2341,13 +2385,35 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-small-open",
-          "percentage": 0.0723325652801005,
+          "percentage": 0.07249827584156743,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx-searchable-small-open.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx-searchable-small-open.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcSelectSearchable.cy.tsx-searchable-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
+          "specFilename": "IcSelectSearchable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx-searchable-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx-searchable-large.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcSelectSearchable.cy.tsx-searchable-large-open",
+          "percentage": 0.05043808085167397,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
+          "specFilename": "IcSelectSearchable.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcSelectSearchable.cy.tsx-searchable-large-open.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSelectSearchable.cy.tsx-searchable-large-open.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSelectSearchable.cy.tsx-searchable-large-open.png"
         },
         {
           "status": "pass",
@@ -2363,7 +2429,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-small-open-deprecated",
-          "percentage": 0.0723325652801005,
+          "percentage": 0.07249827584156743,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2385,7 +2451,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-disabled-options-open",
-          "percentage": 0.04758150901348128,
+          "percentage": 0.047916594202843756,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2407,7 +2473,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-full-width-open",
-          "percentage": 0.053216538782600284,
+          "percentage": 0.05340411969127475,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2418,7 +2484,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-groups-open",
-          "percentage": 0.04857983120596447,
+          "percentage": 0.04898979485566356,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2429,7 +2495,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-groups-in-filter-open",
-          "percentage": 0.051303021353522646,
+          "percentage": 0.051575187832910506,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2440,7 +2506,7 @@
         {
           "status": "pass",
           "name": "IcSelectSearchable.cy.tsx-searchable-recommended-open",
-          "percentage": 0.053216538782600284,
+          "percentage": 0.05340411969127475,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcSelect/IcSelectSearchable.cy.tsx",
           "specFilename": "IcSelectSearchable.cy.tsx",
@@ -2672,7 +2738,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-message-variant",
-          "percentage": 0.05329165037789691,
+          "percentage": 0.061806148561449774,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2683,7 +2749,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.10831435731240803,
+          "percentage": 0.09793875637356235,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2694,7 +2760,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-button",
-          "percentage": 0.060630025564896474,
+          "percentage": 0.05003998401278722,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2705,7 +2771,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-link",
-          "percentage": 0.05692099788303083,
+          "percentage": 0.05059644256269407,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -2854,7 +2920,7 @@
         {
           "status": "pass",
           "name": "IcToggleButton.cy.tsx-appearance-light-checked",
-          "percentage": 0.01131370849898476,
+          "percentage": 0.011135528725660045,
           "failureThreshold": 0.02,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -3056,14 +3122,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-loading dark.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcToggleButtonGroup.cy.tsx-icons",
-          "percentage": 0.09127978965795222,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcToggleButtonGroup/IcToggleButtonGroup.cy.tsx",
           "specFilename": "IcToggleButtonGroup.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcToggleButtonGroup.cy.tsx-icons.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcToggleButtonGroup.cy.tsx-icons.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcToggleButtonGroup.cy.tsx-icons.png"
         }
       ]
@@ -3196,7 +3262,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-theme",
-          "percentage": 0,
+          "percentage": 0.01384187178777149,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -3350,9 +3416,9 @@
       ]
     }
   ],
-  "startedAt": "2024-03-08T10:55:39.473Z",
-  "endedAt": "2024-03-08T11:02:02.723Z",
-  "duration": 335941,
+  "startedAt": "2024-03-13T15:47:48.723Z",
+  "endedAt": "2024-03-13T15:54:10.554Z",
+  "duration": 335739,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
