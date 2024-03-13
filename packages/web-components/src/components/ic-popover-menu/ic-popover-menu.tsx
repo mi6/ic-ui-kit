@@ -161,7 +161,7 @@ export class PopoverMenu {
   }
 
   // Manages the keyboard navigation in the popover menu
-  @Listen("keydown", { target: "document" })
+  @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
     switch (ev.key) {
       case "ArrowDown":
