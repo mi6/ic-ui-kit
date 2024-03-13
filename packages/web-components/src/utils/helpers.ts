@@ -33,14 +33,14 @@ const linkIcInput = "input.ic-input";
 export const inheritAttributes = (
   element: HTMLElement,
   attributes: string[] = []
-): { [key: string]: unknown } => {
-  const attributeObject: { [key: string]: unknown } = {};
+): { [key: string]: string } => {
+  const attributeObject: { [key: string]: string } = {};
 
   attributes.forEach((attr) => {
     if (element.hasAttribute(attr)) {
       const value = element.getAttribute(attr);
       if (value !== null) {
-        attributeObject[attr] = element.getAttribute(attr);
+        attributeObject[attr] = value;
       }
       element.removeAttribute(attr);
     }
