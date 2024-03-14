@@ -48,8 +48,10 @@ By default, the density selector appears within the Data Table Title Bar. The th
 
 It is also possible to pass custom elements into the area which contains the title bar heading and description. This flexibility allows the heading tag to be updated if the heading prop is not semantically corrected based on your content structure.
 
+{/* To be moved over to Cypress */}
+
 <Canvas withSource="none">
-  <Story name="Slots" height="220px">
+  <Story name="Slots" height="220px" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-data-table-title-bar>
         <ic-typography slot="heading" variant="h1"
