@@ -612,7 +612,7 @@ export const removeDisabledFalse = (
 
 export const isMacDevice = (): boolean => {
   return window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
-}
+};
 export const isSlotUsed = (element: HTMLElement, slotName: string): boolean => {
   return Array.from(element.children).some(
     (child) => child.getAttribute("slot") === slotName

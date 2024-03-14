@@ -6,17 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
-import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
+import { IcActivationTypes, IcMenuOption, IcSizes, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcActivationTypes, IcMenuOption } from "@ukic/web-components/dist/types/utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
-export { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
+export { IcActivationTypes, IcMenuOption, IcSizes, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcPaginationAlignmentOptions, IcPaginationControlTypes, IcPaginationTypes } from "./components/ic-pagination/ic-pagination.types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
-export { IcActivationTypes, IcMenuOption } from "@ukic/web-components/dist/types/utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export namespace Components {
@@ -318,6 +316,24 @@ export namespace Components {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDataTableTitleBar {
+        /**
+          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "heading"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `heading`.
+         */
+        "metadata"?: string;
+    }
     interface IcMenuWithMulti {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -390,24 +406,6 @@ export namespace Components {
           * The custom name for the value field for IcMenuOption.
          */
         "valueField": string;
-    }
-    interface IcDataTableTitleBar {
-        /**
-          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
-         */
-        "description"?: string;
-        /**
-          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
-         */
-        "heading"?: string;
-        /**
-          * When `true`, the density select will not be rendered.
-         */
-        "hideDensitySelect"?: boolean;
-        /**
-          * The metadata displayed next to the `heading`.
-         */
-        "metadata"?: string;
     }
     interface IcPaginationBar {
         /**
@@ -652,6 +650,10 @@ export interface IcDataTableTitleBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcDataTableTitleBarElement;
 }
+export interface IcMenuWithMultiCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcMenuWithMultiElement;
+}
 export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcPaginationBarElement;
@@ -659,10 +661,6 @@ export interface IcPaginationBarCustomEvent<T> extends CustomEvent<T> {
 export interface IcSelectWithMultiCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcSelectWithMultiElement;
-}
-export interface IcTitleBarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLIcTitleBarElement;
 }
 declare global {
     interface HTMLIcDataTableElementEventMap {
@@ -694,6 +692,16 @@ declare global {
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
         removeEventListener<K extends keyof HTMLIcDateInputElementEventMap>(type: K, listener: (this: HTMLIcDateInputElement, ev: IcDateInputCustomEvent<HTMLIcDateInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+    }
+    interface HTMLIcDataTableTitleBarElementEventMap {
+        "icTableDensityUpdate": IcDensityUpdateEventDetail;
+    }
+    interface HTMLIcDataTableTitleBarElement extends Components.IcDataTableTitleBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
@@ -718,6 +726,10 @@ declare global {
     var HTMLIcDatePickerElement: {
         prototype: HTMLIcDatePickerElement;
         new (): HTMLIcDatePickerElement;
+    }
+    var HTMLIcDataTableTitleBarElement: {
+        prototype: HTMLIcDataTableTitleBarElement;
+        new (): HTMLIcDataTableTitleBarElement;
     };
     interface HTMLIcMenuWithMultiElementEventMap {
         "menuKeyPress": { isNavKey: boolean; key: string };
@@ -735,16 +747,6 @@ declare global {
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
         removeEventListener<K extends keyof HTMLIcMenuWithMultiElementEventMap>(type: K, listener: (this: HTMLIcMenuWithMultiElement, ev: IcMenuWithMultiCustomEvent<HTMLIcMenuWithMultiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-    }
-    interface HTMLIcDataTableTitleBarElementEventMap {
-        "icTableDensityUpdate": IcDensityUpdateEventDetail;
-    }
-    interface HTMLIcDataTableTitleBarElement extends Components.IcDataTableTitleBar, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLIcDataTableTitleBarElementEventMap>(type: K, listener: (this: HTMLIcDataTableTitleBarElement, ev: IcDataTableTitleBarCustomEvent<HTMLIcDataTableTitleBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
@@ -752,10 +754,6 @@ declare global {
     var HTMLIcMenuWithMultiElement: {
         prototype: HTMLIcMenuWithMultiElement;
         new (): HTMLIcMenuWithMultiElement;
-    }
-    var HTMLIcDataTableTitleBarElement: {
-        prototype: HTMLIcDataTableTitleBarElement;
-        new (): HTMLIcDataTableTitleBarElement;
     };
     interface HTMLIcPaginationBarElementEventMap {
         "icPageChange": { value: number };
@@ -798,26 +796,15 @@ declare global {
     var HTMLIcSelectWithMultiElement: {
         prototype: HTMLIcSelectWithMultiElement;
         new (): HTMLIcSelectWithMultiElement;
-    }
-    interface HTMLIcTitleBarElement extends Components.IcTitleBar, HTMLStencilElement {
-    }
-    var HTMLIcTitleBarElement: {
-        prototype: HTMLIcTitleBarElement;
-        new (): HTMLIcTitleBarElement;
     };
     interface HTMLElementTagNameMap {
         "ic-data-table": HTMLIcDataTableElement;
         "ic-date-input": HTMLIcDateInputElement;
         "ic-date-picker": HTMLIcDatePickerElement;
+        "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
         "ic-menu-with-multi": HTMLIcMenuWithMultiElement;
         "ic-pagination-bar": HTMLIcPaginationBarElement;
         "ic-select-with-multi": HTMLIcSelectWithMultiElement;
-        "ic-title-bar": HTMLIcTitleBarElement;
-    }
-    interface HTMLElementTagNameMap {
-        "ic-data-table": HTMLIcDataTableElement;
-        "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
-        "ic-pagination-bar": HTMLIcPaginationBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -1129,6 +1116,28 @@ declare namespace LocalJSX {
          */
         "value"?: string | Date | null | undefined;
     }
+    interface IcDataTableTitleBar {
+        /**
+          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
+         */
+        "description"?: string;
+        /**
+          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
+         */
+        "heading"?: string;
+        /**
+          * When `true`, the density select will not be rendered.
+         */
+        "hideDensitySelect"?: boolean;
+        /**
+          * The metadata displayed next to the `heading`.
+         */
+        "metadata"?: string;
+        /**
+          * Emitted when the table density select value is changed.
+         */
+        "onIcTableDensityUpdate"?: (event: IcDataTableTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
+    }
     interface IcMenuWithMulti {
         /**
           * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
@@ -1201,28 +1210,6 @@ declare namespace LocalJSX {
           * The custom name for the value field for IcMenuOption.
          */
         "valueField"?: string;
-    }
-    interface IcDataTableTitleBar {
-        /**
-          * The description that is displayed below the `heading` and `metadata`. Can be overridden with the `description` slot.
-         */
-        "description"?: string;
-        /**
-          * The heading of the title bar. Can be overridden with the `heading` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
-         */
-        "heading"?: string;
-        /**
-          * When `true`, the density select will not be rendered.
-         */
-        "hideDensitySelect"?: boolean;
-        /**
-          * The metadata displayed next to the `heading`.
-         */
-        "metadata"?: string;
-        /**
-          * Emitted when the table density select value is changed.
-         */
-        "onIcTableDensityUpdate"?: (event: IcDataTableTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
     }
     interface IcPaginationBar {
         /**
@@ -1459,40 +1446,14 @@ declare namespace LocalJSX {
          */
         "value"?: string | string[];
     }
-    interface IcTitleBar {
-        /**
-          * The description that is displayed below the `header` and `metadata`. Can be overridden with the `description` slot.
-         */
-        "description"?: string;
-        /**
-          * If `true`, will apply a background colour and a bottom border to the title bar.
-         */
-        "fullWidth"?: boolean;
-        /**
-          * The header of the title bar. Can be overridden with the `header` slot. If used with an ic-data-table it will default to the table's `caption` unless overridden.
-         */
-        "header"?: string;
-        /**
-          * When `true`, the density select will not be rendered.
-         */
-        "hideDensitySelect"?: boolean;
-        /**
-          * The metadata displayed next to the `header`.
-         */
-        "metadata"?: string;
-        /**
-          * Emitted when the table density select value is changed.
-         */
-        "onIcTableDensityUpdate"?: (event: IcTitleBarCustomEvent<IcDensityUpdateEventDetail>) => void;
-    }
     interface IntrinsicElements {
         "ic-data-table": IcDataTable;
         "ic-date-input": IcDateInput;
         "ic-date-picker": IcDatePicker;
+        "ic-data-table-title-bar": IcDataTableTitleBar;
         "ic-menu-with-multi": IcMenuWithMulti;
         "ic-pagination-bar": IcPaginationBar;
         "ic-select-with-multi": IcSelectWithMulti;
-        "ic-title-bar": IcTitleBar;
     }
 }
 export { LocalJSX as JSX };
@@ -1502,10 +1463,10 @@ declare module "@stencil/core" {
             "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
             "ic-date-picker": LocalJSX.IcDatePicker & JSXBase.HTMLAttributes<HTMLIcDatePickerElement>;
+            "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
             "ic-menu-with-multi": LocalJSX.IcMenuWithMulti & JSXBase.HTMLAttributes<HTMLIcMenuWithMultiElement>;
             "ic-pagination-bar": LocalJSX.IcPaginationBar & JSXBase.HTMLAttributes<HTMLIcPaginationBarElement>;
             "ic-select-with-multi": LocalJSX.IcSelectWithMulti & JSXBase.HTMLAttributes<HTMLIcSelectWithMultiElement>;
-            "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
         }
     }
 }
