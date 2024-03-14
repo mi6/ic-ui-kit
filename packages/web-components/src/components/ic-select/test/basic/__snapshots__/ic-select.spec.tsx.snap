@@ -80,7 +80,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-27-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-27-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-27-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">

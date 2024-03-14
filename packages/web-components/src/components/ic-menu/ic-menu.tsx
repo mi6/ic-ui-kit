@@ -784,7 +784,7 @@ export class Menu {
       ? (this.host.querySelector(
           `li[data-value="${this.optionHighlighted}"]`
         ) as HTMLElement)
-      : (menu.querySelector(".option[aria-selected]") as HTMLElement);
+      : (menu.querySelector(".option[aria-selected='true']") as HTMLElement);
 
     if (selectedOption) {
       const elTop = selectedOption.offsetTop + selectedOption.offsetHeight;
