@@ -120,6 +120,8 @@ All pull requests will be reviewed by:
 
 Pull requests must have the approval of 2 reviewers before they can be merged into the `develop` branch.
 
+Pull requests must also ensure they tick off everything on the checklist. For more information on some of the checklist points, please read the available [checklist guide](CHECKLIST.md).
+
 ### React
 
 Stencil provides [plugins](https://stenciljs.com/docs/overview), which outputs wrapped framework agnostic components. During the build stage, React components are dynamically generated and are accessible from the React package.
@@ -168,6 +170,8 @@ Follow these steps when making a commit:
     - `root` if your commit contains changes to the root of the project.
     - `web-components` for changes to the core web components package.
     - `react` for changes specific to the React package.
+    - `canary-web-components` for changes to the canary web components package.
+    - `canary-react` for changes to the canary React package.
 
 5. Provide a short description of the change.
 
@@ -209,6 +213,8 @@ When utilising ICDS components within another ICDS component, some suggestions a
 For functionality that a developer would want to control within a component, some suggestions are:
 - In most cases, use a prop (e.g. open/visible) that can then be controlled any way a developer would like.
 - For setting focus, use a method.
+
+For prop/slot naming standards, please check the [glossary of most common terms](GLOSSARY.md).
 
 ### Styling
 
