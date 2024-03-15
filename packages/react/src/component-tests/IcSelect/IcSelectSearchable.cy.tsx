@@ -12,7 +12,6 @@ import {
   HAVE_TEXT,
   HAVE_VALUE,
   NOT_BE_VISIBLE,
-  NOT_HAVE_ATTR,
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
 import {
@@ -501,12 +500,9 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      "not.have.property",
-      "[aria-selected]"
-    );
-    cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      NOT_HAVE_ATTR,
-      ARIA_SELECTED
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "false"
     );
   });
 
@@ -529,8 +525,9 @@ describe("IcSelect searchable", () => {
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
     }
     cy.findShadowEl("ic-select", IC_MENU_LI).should(
-      NOT_HAVE_ATTR,
-      ARIA_SELECTED
+      HAVE_ATTR,
+      ARIA_SELECTED,
+      "false"
     );
   });
 
@@ -551,7 +548,8 @@ describe("IcSelect searchable", () => {
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl("ic-select", "li[data-value='Lat']").should(
       HAVE_ATTR,
-      ARIA_SELECTED
+      ARIA_SELECTED,
+      "true"
     );
   });
 
