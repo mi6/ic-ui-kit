@@ -69,7 +69,6 @@ export class DateInput {
   private isBeforeMin: boolean = false;
   private isDateSetFromKeyboardEvent: boolean = false;
   private isDisabledDate: boolean = false;
-  private isLarge = this.size === "large";
   private isPasteValidationDisplayed: boolean;
   private isValidDay: boolean = true;
   private isValidMonth: boolean = true;
@@ -106,6 +105,7 @@ export class DateInput {
   @State() year: string = "";
   @State() calendarFocused: boolean = false;
   @State() clearButtonFocused: boolean = false;
+  @State() removeLabelledBy: boolean = false;
 
   /**
    * The format in which the date will be displayed.
@@ -339,6 +339,11 @@ export class DateInput {
   }
 
   componentDidRender(): void {
+    if (this.removeLabelledBy) {
+      this.removeAriaLabelledBy();
+      return;
+    }
+
     this.setAriaLabelledBy();
   }
 
@@ -876,7 +881,7 @@ export class DateInput {
         this.inputCompContainerEl?.getAttribute(this.ARIA_LABELLED_BY)
       )
     ) {
-      this.inputCompContainerEl.removeAttribute(this.ARIA_LABELLED_BY);
+      this.removeAriaLabelledBy();
       return;
     }
 
@@ -928,6 +933,7 @@ export class DateInput {
     const dayInput = (
       <input
         class="day-input"
+        id="day-input"
         ref={(el) => (this.dayInputEl = el)}
         aria-label="day"
         placeholder="DD"
@@ -941,6 +947,7 @@ export class DateInput {
 
     const monthInput = (
       <input
+        id="month-input"
         class="month-input"
         ref={(el) => (this.monthInputEl = el)}
         aria-label="month"
@@ -955,6 +962,7 @@ export class DateInput {
 
     const yearInput = (
       <input
+        id="year-input"
         class="year-input"
         ref={(el) => (this.yearInputEl = el)}
         aria-label="year"
@@ -1174,10 +1182,16 @@ export class DateInput {
   };
 
   private handleHostBlur = () => {
+    this.removeLabelledBy = false;
     this.icBlur.emit({ value: this.selectedDate });
   };
 
   private handleHostFocus = () => {
+    if (this.el.shadowRoot.activeElement.id.match(/(day|month|year)-input$/)) {
+      this.removeLabelledBy = false;
+    } else {
+      this.removeLabelledBy = true;
+    }
     this.icFocus.emit({ value: this.selectedDate });
   };
 
@@ -1214,6 +1228,10 @@ export class DateInput {
       liveRegion.textContent = announcement;
     }
   };
+
+  private removeAriaLabelledBy() {
+    this.inputCompContainerEl.removeAttribute(this.ARIA_LABELLED_BY);
+  }
 
   private setPastedValueAndValidation(
     isValidDate: boolean,
@@ -1444,11 +1462,18 @@ export class DateInput {
   };
 
   private handleClearFocus = () => {
+    this.removeLabelledBy = true;
     this.clearButtonFocused = true;
   };
 
-  private handleClearBlur = () => {
+  private handleClearBlur = (ev: FocusEvent) => {
     this.clearButtonFocused = false;
+    if ((ev.relatedTarget as HTMLElement).id.match(/(day|year)-input$/)) {
+      this.removeLabelledBy = false;
+      return;
+    }
+
+    this.removeLabelledBy = true;
   };
 
   render() {
@@ -1460,7 +1485,6 @@ export class DateInput {
       showClearButton,
       showCalendarButton,
       size,
-      isLarge,
     } = this;
 
     const hasCustomValidation =
@@ -1538,14 +1562,12 @@ export class DateInput {
                         ? IcThemeForegroundEnum.Light
                         : IcThemeForegroundEnum.Dark
                     }
-                    size={isLarge ? "default" : "small"}
+                    size={size}
                   ></ic-button>
                 )}
                 {showCalendarButton && (
                   <div class="show-calendar-button-wrapper">
-                    <div
-                      class={{ divider: true, "large-divider": isLarge }}
-                    ></div>
+                    <div class={{ divider: true, [size]: true }}></div>
                     <ic-button
                       id="calendar-button"
                       ref={(el: HTMLIcButtonElement) =>
@@ -1558,7 +1580,7 @@ export class DateInput {
                       innerHTML={Calendar}
                       onClick={this.handleCalendarOpen}
                       variant="icon"
-                      size={isLarge ? "default" : "small"}
+                      size={size}
                       onFocus={this.handleCalendarFocus}
                       onBlur={this.handleCalendarBlur}
                       appearance={
