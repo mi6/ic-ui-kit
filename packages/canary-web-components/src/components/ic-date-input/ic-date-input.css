@@ -99,13 +99,20 @@ ic-input-component-container:hover {
 }
 
 .divider {
-  margin: 0 var(--ic-space-xs);
+  margin: 0 var(--ic-space-xxs);
   width: var(--ic-space-1px);
   background-color: var(--ic-architectural-400);
   border-radius: var(--ic-space-1px);
+}
+
+.divider.small {
   height: var(--ic-space-md);
 }
 
-.large-divider {
-  margin: 0 var(--ic-space-xxs);
+.divider.default {
+  height: calc(var(--ic-space-sm) + var(--ic-space-xs));
+}
+
+.divider.large {
+  height: var(--ic-space-lg);
 }
