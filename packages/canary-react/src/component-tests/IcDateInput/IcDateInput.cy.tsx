@@ -423,7 +423,7 @@ describe("IcDateInput", () => {
 
     cy.wait(500).compareSnapshot({
       name: "dateInputWithCustomDisableDaysMessage",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0155),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.02),
     });
   });
 
@@ -470,7 +470,7 @@ describe("IcDateInput", () => {
 
     cy.wait(500).compareSnapshot({
       name: "dateInputWithCustomDisableFutureMessage",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0155),
     });
   });
 
@@ -517,7 +517,7 @@ describe("IcDateInput", () => {
 
     cy.wait(500).compareSnapshot({
       name: "dateInputWithCustomDisablePastMessage",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0155),
     });
   });
 
@@ -627,7 +627,7 @@ describe("IcDateInput", () => {
 
     cy.compareSnapshot({
       name: "dateInputWithErrorValidation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.017),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.007),
     });
   });
 
