@@ -242,7 +242,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-updating",
-          "percentage": 0.0885889383614004,
+          "percentage": 0.0976933979345585,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -253,7 +253,7 @@
         {
           "status": "fail",
           "name": "IcDataTable.cy.tsx-loading-options",
-          "percentage": 0.06846897107449476,
+          "percentage": 0.06852736679604725,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataTable/IcDataTable.cy.tsx",
           "specFilename": "IcDataTable.cy.tsx",
@@ -297,9 +297,9 @@
       ]
     }
   ],
-  "startedAt": "2024-03-19T15:33:29.833Z",
-  "endedAt": "2024-03-19T15:37:45.436Z",
-  "duration": 255603,
+  "startedAt": "2024-03-19T16:02:04.725Z",
+  "endedAt": "2024-03-19T16:06:20.512Z",
+  "duration": 255787,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
