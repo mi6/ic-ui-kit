@@ -1,8 +1,4 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-} from "@storybook/addon-docs";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import { IcSelectWithMulti } from "../components";
 import { useRef } from "react";
 import readme from "../../../canary-web-components/src/components/ic-select-with-multi/readme.md";
@@ -36,7 +32,7 @@ Click the 'Component API' tab to view all the available props, events and slots 
 
 To use the multi-select component, import `@ukic/canary-react` into your application.
 
-The component tag name for the multi-select is `IcSelectWithMulti`. 
+The component tag name for the multi-select is `IcSelectWithMulti`.
 Even though it is a variant of the `IcSelect` component (which includes the single and searchable selects), this different tag name is necessary because of the need to keep the multi-select functionality separate while it is experimental (in a canary release).
 Note that the `multiple` prop still needs to be applied in order to enable the multi-select functionality.
 
@@ -148,7 +144,7 @@ export default MultiSelect;
 
 ### With clear button
 
-Display a clear button by using the `showClearButton` prop. 
+Display a clear button by using the `showClearButton` prop.
 This will appear when the user has selected some options and allow them to easily clear their selection.
 
 <Canvas withSource="none">
@@ -243,8 +239,7 @@ const options: IcMenuOption[] = [
   {
     label: "Flat white",
     value: "Fla",
-    description:
-      "Coffee without froth made with espresso and hot steamed milk",
+    description: "Coffee without froth made with espresso and hot steamed milk",
   },
   {
     label: "Mocha",
@@ -319,37 +314,38 @@ export default MultiSelect;
 ### Sizes
 
 Set the size of the multi-select by using the `size` prop. This prop takes the values `small`, `default` or `large`.
-Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component. 
+Depending on the chosen size, the prop will apply styling to increase or decrease the amount of spacing within the component.
 The `default` variant is seen in the first [default](#default) example.
 
 <Canvas withSource="none">
   <Story name="Sizes">
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "650px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        height: "650px",
+      }}
+    >
       <IcSelectWithMulti
         label="What are your favourite types of coffee?"
         options={OPTIONS}
         multiple
         size="small"
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
       <IcSelectWithMulti
         label="What are your favourite types of coffee?"
         options={OPTIONS}
         multiple
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
       <IcSelectWithMulti
         label="What are your favourite types of coffee?"
         options={OPTIONS}
         multiple
         size="large"
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
     </div>
   </Story>
@@ -379,26 +375,20 @@ const MultiSelects = () => (
       options={options}
       multiple
       size="small"
-      onIcChange={(event) =>
-        console.log(`icChange: ${event.detail.value}`)
-      }
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
     />
     <IcSelectWithMulti
       label="What are your favourite types of coffee?"
       options={options}
       multiple
-      onIcChange={(event) =>
-        console.log(`icChange: ${event.detail.value}`)
-      }
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
     />
     <IcSelectWithMulti
       label="What are your favourite types of coffee?"
       options={options}
       multiple
       size="large"
-      onIcChange={(event) =>
-        console.log(`icChange: ${event.detail.value}`)
-      }
+      onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
     />
   </div>
 );
@@ -502,7 +492,7 @@ export default MultiSelect;
 
 ### Hidden label
 
-Hide the visible label for the multi-select by using the `hideLabel` prop. 
+Hide the visible label for the multi-select by using the `hideLabel` prop.
 
 <Canvas withSource="none">
   <Story name="Hidden label">
@@ -550,7 +540,7 @@ export default MultiSelect;
 
 ### Required
 
-Inform the user that the multi-select is a required field by using the `required` prop. 
+Inform the user that the multi-select is a required field by using the `required` prop.
 This will display an asterisk next to the label and apply the `aria-required` attribute.
 
 <Canvas withSource="none">
@@ -763,9 +753,7 @@ The `validationStatus` prop takes the values `success`, `warning` or `error`.
         multiple
         validationStatus="success"
         validationText="Coffee available"
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
       <IcSelectWithMulti
         label="What are your favourite types of coffee?"
@@ -773,9 +761,7 @@ The `validationStatus` prop takes the values `success`, `warning` or `error`.
         multiple
         validationStatus="warning"
         validationText="Only a few left"
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
       <IcSelectWithMulti
         label="What are your favourite types of coffee?"
@@ -783,9 +769,7 @@ The `validationStatus` prop takes the values `success`, `warning` or `error`.
         multiple
         validationStatus="error"
         validationText="Coffee unavailable"
-        onIcChange={(event) =>
-          console.log(`icChange: ${event.detail.value}`)
-        }
+        onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
       />
     </div>
   </Story>
@@ -846,7 +830,7 @@ export default MultiSelects;
 
 ### Loading with error
 
-Display the loading state by using the `loading` prop. 
+Display the loading state by using the `loading` prop.
 The multi-select will show a loading error after the amount of time specified using the `timeout` prop has elapsed.
 
 export const LoadingWithError = () => {
@@ -860,7 +844,7 @@ export const LoadingWithError = () => {
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      onIcRetryLoad={(event) => selectEl.current.loading = true}
+      onIcRetryLoad={(event) => (selectEl.current.loading = true)}
     />
   );
 };
@@ -901,10 +885,10 @@ const MultiSelect = () => {
       loading
       timeout="1000"
       onIcChange={(event) => console.log(`icChange: ${event.detail.value}`)}
-      onIcRetryLoad={(event) => selectEl.current.loading = true}
+      onIcRetryLoad={(event) => (selectEl.current.loading = true)}
     />
   );
-}
+};
 
 export default MultiSelect;
 ```

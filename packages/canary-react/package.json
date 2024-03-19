@@ -19,7 +19,9 @@
     "build-storybook": "rimraf ./storybook-static && storybook build",
     "audit": "echo 'Audit for: @ukic/canary-react' && audit-ci -m --config ../../audit-ci.json",
     "copy:core-css": "echo 'Copy core.css from: @ukic/canary-web-components' && mkdirp -p ./dist/core && ncp ../canary-web-components/dist/core/core.css ./dist/core/core.css",
-    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/canary-web-components' && ncp ../canary-web-components/dist/core/normalize.css ./dist/core/normalize.css"
+    "copy:normalize-css": "echo 'Copy normalize.css from: @ukic/canary-web-components' && ncp ../canary-web-components/dist/core/normalize.css ./dist/core/normalize.css",
+    "prettier": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --check",
+    "prettier:fix": "prettier --config ../../.prettierrc.json --ignore-path ../../.prettierignore src --write"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
