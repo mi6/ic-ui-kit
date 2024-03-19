@@ -53,7 +53,7 @@ To help explain usage, each prop has the most common type options and a descript
 | Slot name | Expected content | Description | 
 | --------- | ----------- | ----------- |
 | action(s) | buttons/links | Additional interactive elements to the component | 
-| additional-field | inputs | DESCRIPTION INCOMING |
+| additional-field | inputs | Additional input field for checkbox/radio components |
 | app-title | typography/links | The title text for the component |
 | badge | badge | A badge component appears alongside the component |
 | buttons | buttons | Additional buttons for the component |
