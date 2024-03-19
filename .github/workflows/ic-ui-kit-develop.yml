@@ -97,7 +97,12 @@ jobs:
 
       - name: E2E core tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_e2e_tests
         run: npm run test-e2e
+
+      - name: Build core components
+        if: ${{ steps.core_e2e_tests.outcome == 'skipped' && needs.check-updates.outputs.canary == 'true' }}
+        run: npm run build
 
       - name: E2E canary tests
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
