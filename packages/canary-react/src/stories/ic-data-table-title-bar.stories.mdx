@@ -6,7 +6,7 @@ import {
   Description,
 } from "@storybook/addon-docs";
 
-import { IcDataTableTitleBar } from '../components';
+import { IcDataTableTitleBar } from "../components";
 import { IcLink, IcButton, IcTypography, IcChip } from "@ukic/react";
 import readme from "../../../canary-web-components/src/components/ic-data-table-title-bar/readme.md";
 import { SlottedSVG } from "@ukic/react/src/react-component-lib/slottedSVG";
@@ -25,7 +25,7 @@ import { mdiImage } from "@mdi/js";
 
 # [Canary]: Data Table Title Bar
 
-Use the Data Table Title Bar component to provide titling, description, metadata and also global table functionality. 
+Use the Data Table Title Bar component to provide titling, description, metadata and also global table functionality.
 
 ### Basic
 
@@ -49,24 +49,22 @@ By default, the density selector appears within the Data Table Title Bar. The th
 import * as React from "react";
 import { IcDataTableTitleBar } from "@ukic/canary-react";
 
-const DataTableTitleBar = () => (
-  <IcDataTableTitleBar heading="Title Bar" />
-)
+const DataTableTitleBar = () => <IcDataTableTitleBar heading="Title Bar" />;
 
 export default DataTableTitleBar;
 ```
 
-It is also possible to pass custom elements into the area which contains the title bar heading and description. This flexibility allows the heading tag to be updated if the heading prop is not semantically corrected based on your content structure. 
+It is also possible to pass custom elements into the area which contains the title bar heading and description. This flexibility allows the heading tag to be updated if the heading prop is not semantically corrected based on your content structure.
 
 <Canvas>
   <Story name="Slots">
     <IcDataTableTitleBar>
-      <IcTypography slot='heading' variant='h1'>
+      <IcTypography slot="heading" variant="h1">
         <h3>Title Bar</h3>
       </IcTypography>
-      <div slot='description'>
-        <IcChip label='Chip' />
-        <IcChip label='Chip' />
+      <div slot="description">
+        <IcChip label="Chip" />
+        <IcChip label="Chip" />
       </div>
     </IcDataTableTitleBar>
   </Story>
@@ -79,15 +77,15 @@ import { IcTypography, IcChip } from "@ukic/react";
 
 const DataTableTitleBar = () => (
   <IcDataTableTitleBar>
-    <IcTypography slot='heading' variant='h1'>
+    <IcTypography slot="heading" variant="h1">
       <h3>Title Bar</h3>
     </IcTypography>
-    <div slot='description'>
-      <IcChip label='Chip' />
-      <IcChip label='Chip' />
+    <div slot="description">
+      <IcChip label="Chip" />
+      <IcChip label="Chip" />
     </div>
   </IcDataTableTitleBar>
-)
+);
 
 export default DataTableTitleBar;
 ```
@@ -118,7 +116,7 @@ const DataTableTitleBar = () => (
     metadata="128 items | 32gb | Updated: 01/02/03"
     description="Data table description that describes the purpose of the table."
   />
-)
+);
 
 export default DataTableTitleBar;
 ```
@@ -149,20 +147,19 @@ const DataTableTitleBar = () => (
     metadata="128 items | 32gb | Updated: 01/02/03"
     description="Data table description that describes the purpose of the table."
   />
-)
+);
 
 export default DataTableTitleBar;
 ```
 
 ### Custom actions
 
-Custom actions can be added to the Data Table Title Bar via slots. 
+Custom actions can be added to the Data Table Title Bar via slots.
 
 There are two slots available:
 
-- `primary-action` is suitable for an primary button. The custom element will appear to the right of the Data Table Title Bar. 
+- `primary-action` is suitable for an primary button. The custom element will appear to the right of the Data Table Title Bar.
 - `custom-actions` can be used for secondary actions. The custom element will appear to the left of the density selector if displayed.
-
 
 <Canvas>
   <Story name="Custom actions">
@@ -200,7 +197,7 @@ const DataTableTitleBar = () => (
       <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
     </IcButton>
   </IcDataTableTitleBar>
-)
+);
 
 export default DataTableTitleBar;
 ```
