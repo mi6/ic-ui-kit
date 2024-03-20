@@ -43,40 +43,31 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
 
+      - name: Build core components
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: |
+          npm run build
+
+      - name: Build all components
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: |
+          npm run build:all
+
       - name: Core Cypress tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         id: core_cypress_tests
         run: |
-          npm run test-cypress:ci
-          git checkout ./packages/docs/docs.json
-
-      - name: Core Cypress tests
-        if: ${{ needs.check-updates.outputs.core == 'true' }}
-        id: core_cypress_tests_canary
-        run: |
-          npm run test-cypress:ci
-          git checkout ./packages/canary-docs/docs.json
-
-      - uses: EndBug/add-and-commit@v9.1.4
-        if: ${{ steps.core_cypress_tests.outcome == 'success' }}
-        with:
-          commit: --no-verify
-          default_author: github_actions
-          message: "feat(react): update Cypress visual regression test baseline images"
+          npm run test-cypress:headless
 
       - name: Canary Cypress tests
         if: always() && ${{ needs.check-updates.outputs.canary == 'true' }}
         id: canary_cypress_tests
         run: |
-          npm run test-cypress:ci:canary
-          git checkout ./packages/docs/docs.json
+          npm run test-cypress:canary:headless
 
-      - name: Canary Cypress tests
-        if: always() && ${{ needs.check-updates.outputs.canary == 'true' }}
-        id: canary_cypress_tests_canary
-        run: |
-          npm run test-cypress:ci:canary
-          git checkout ./packages/canary-docs/docs.json
+      - name: Checkout docs.json
+        if: always()
+        run: git checkout ./packages/docs/docs.json ./packages/canary-docs/docs.json
 
       - uses: EndBug/add-and-commit@v9.1.4
         if: always() && ${{ steps.canary_cypress_tests.outcome == 'success' }}
