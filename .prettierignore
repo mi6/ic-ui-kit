@@ -1,5 +1,9 @@
 node_modules
 components.d.ts
 **/readme.md
+
 packages/react/src/react-component-lib
 packages/react/src/components.ts
+
+packages/canary-react/src/react-component-lib
+packages/canary-react/src/components.ts
