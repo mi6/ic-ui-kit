@@ -10,7 +10,7 @@ import {
   IcTabGroup,
   IcTabPanel,
 } from "../../components";
-import { HAVE_CLASS } from "../utils/constants";
+import { HAVE_ATTR, HAVE_CLASS } from "../utils/constants";
 import { mount } from "cypress/react";
 import { ShowHideBadge, badgeTypes } from "./IcBadgeTestData";
 
@@ -51,8 +51,10 @@ describe("IcBadge", () => {
       </IcButton>
     );
 
-    cy.get(`[aria-label="badge displaying 1 notification found"]`).should(
-      "exist"
+    cy.get("ic-button").should(
+      HAVE_ATTR,
+      "aria-label",
+      " 1 notification found"
     );
   });
 
