@@ -98,6 +98,12 @@ import readme from "./readme.md";
             expandable="true"
           >
             <ic-navigation-item label="Different navigation" href="/">
+              <ic-badge
+                text-label="1"
+                slot="badge"
+                variant="light"
+                position="far"
+              ></ic-badge>
               <svg
                 slot="icon"
                 width="24"
@@ -114,10 +120,10 @@ import readme from "./readme.md";
             </ic-navigation-item>
             <ic-navigation-item label="Navigation" href="/">
               <ic-badge
-                text-label="1"
                 slot="badge"
                 variant="light"
                 position="far"
+                type="dot"
               ></ic-badge>
               <svg
                 slot="icon"
