@@ -162,7 +162,7 @@ describe("ic-badge", () => {
     expect(page.root).toMatchSnapshot("should render slotted in a chip");
   });
 
-  it("should render slotted in a tab", async () => {
+  it("should render slotted in a tab with aria-label set on badge", async () => {
     const page = await newSpecPage({
       components: [Tab, Badge],
       html: `<ic-tab>Tab<ic-badge slot="badge" text-label="1" position="inline"/></ic-tab>`,
@@ -171,7 +171,7 @@ describe("ic-badge", () => {
     expect(page.root).toMatchSnapshot("should render slotted in a tab");
   });
 
-  it("should render slotted in a card", async () => {
+  it("should render slotted in a card with aria-label set on badge", async () => {
     const page = await newSpecPage({
       components: [Card, Badge],
       html: `<ic-card heading="Badge"><ic-badge slot="badge" text-label="1" position="near"/></ic-card>`,
