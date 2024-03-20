@@ -98,8 +98,20 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="With badge">
-    <IcCard heading="This is the card heading">
+    <IcCard
+      heading="This is the card heading"
+      clickable="true"
+      href="https://www.google.com"
+      style={{ marginBottom: "8px" }}
+    >
       <IcBadge text-label="1" slot="badge" />
+    </IcCard>
+    <IcCard
+      heading="This is the card heading"
+      clickable="true"
+      href="https://www.google.com"
+    >
+      <IcBadge slot="badge" type="dot" />
     </IcCard>
   </Story>
 </Canvas>
