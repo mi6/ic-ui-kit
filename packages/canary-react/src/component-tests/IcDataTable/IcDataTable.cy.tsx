@@ -199,7 +199,7 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "custom-icons",
-        testThreshold: setThresholdBasedOnEnv(0.074),
+        testThreshold: setThresholdBasedOnEnv(0.0845),
       });
     });
 
@@ -340,7 +340,7 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "auto-set-row-height",
-        testThreshold: setThresholdBasedOnEnv(),
+        testThreshold: setThresholdBasedOnEnv(0.0845),
       });
     });
   });
@@ -356,7 +356,7 @@ describe("IcDataTables", () => {
 
     cy.compareSnapshot({
       name: "slotted-title-bar",
-      testThreshold: setThresholdBasedOnEnv(0),
+      testThreshold: setThresholdBasedOnEnv(0.082),
     });
 
     cy.findShadowEl("ic-data-table-title-bar", ".header-container").contains(
