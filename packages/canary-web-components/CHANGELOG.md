@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.7...@ukic/canary-web-components@2.0.0-canary.8) (2024-03-20)
+
+### Bug Fixes
+
+- **canary-web-components:** improve screen reader behaviour for multi-select ([4b6db0c](https://github.com/mi6/ic-ui-kit/commit/4b6db0c65b77da316b4339a1b95208352dd10cae)), closes [.#257](https://github.com/./issues/257)
+
+### Features
+
+- **canary-web-components:** add multi-select variant to the ic-select ([66bf9d9](https://github.com/mi6/ic-ui-kit/commit/66bf9d95776d877c278c9f12c98b644e93175d6e)), closes [.#257](https://github.com/./issues/257)
+- **canary-web-components:** referencing styling from core web-components package ([9d835e3](https://github.com/mi6/ic-ui-kit/commit/9d835e3a8417900ae635044057cc5c9f5d86140e))
+- **canary-web-components:** renamed getting started page and added to top of stories list ([fccf365](https://github.com/mi6/ic-ui-kit/commit/fccf3654901bedca2f06a7207788ef2daaa062d1))
+
 # [2.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.6...@ukic/canary-web-components@2.0.0-canary.7) (2024-02-29)
 
 **Note:** Version bump only for package @ukic/canary-web-components

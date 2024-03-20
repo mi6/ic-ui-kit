@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.13.0...@ukic/react@2.14.0) (2024-03-20)
+
+### Bug Fixes
+
+- **react:** fix filename casing on footer screenshot ([5c610f1](https://github.com/mi6/ic-ui-kit/commit/5c610f162a51010579e600bb484b91d81aa9566c))
+- **react:** updating packages ([c92d76e](https://github.com/mi6/ic-ui-kit/commit/c92d76ebe6ba20c094aae3fadb50a90fd823526a))
+
+### Features
+
+- **react:** add router item slot for buttons ([1d3b09e](https://github.com/mi6/ic-ui-kit/commit/1d3b09e8e662f735465a6d23af56f9292190ddc4)), closes [#1500](https://github.com/mi6/ic-ui-kit/issues/1500)
+- **react:** ic-toggle-button-group ([ee879b0](https://github.com/mi6/ic-ui-kit/commit/ee879b0d3d1a6a80e9f55fcacf3eca49c4f9b446))
+- **react:** split single and searchable select stories out into separate files ([b62052f](https://github.com/mi6/ic-ui-kit/commit/b62052f9b831ce2b089b52052e3be2c93953dd84)), closes [.#257](https://github.com/./issues/257)
+- **react:** update Cypress visual regression test baseline images ([de15548](https://github.com/mi6/ic-ui-kit/commit/de1554857d14f0723c3d44300921ca85ddedaf54))
+- **react:** update how react storybook displays stories title ([ec525df](https://github.com/mi6/ic-ui-kit/commit/ec525df0f280302c156eaca5d3bbad5c32201517))
+- **react:** updates stories for icOpen and icClose events ([104c3fb](https://github.com/mi6/ic-ui-kit/commit/104c3fb686e1cc8337c3d5f53421fc364a2d4589))
+- **web-components:** ic-toggle-button-group ([20f3319](https://github.com/mi6/ic-ui-kit/commit/20f33192a2e44d088433b77e1453446f16c77341))
+
+### Reverts
+
+- **react:** removed dark color-scheme from react storybook ([e53d63a](https://github.com/mi6/ic-ui-kit/commit/e53d63a70914e8fcc2eb64da74a6e9802f3a9517))
+
 # [2.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.12.0...@ukic/react@2.13.0) (2024-02-29)
 
 ### Features

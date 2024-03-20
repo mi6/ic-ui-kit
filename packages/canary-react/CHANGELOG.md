@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.7...@ukic/canary-react@2.0.0-canary.8) (2024-03-20)
+
+### Features
+
+- **canary-react:** add multi-select stories. Separate single and searchable select stories ([40e5538](https://github.com/mi6/ic-ui-kit/commit/40e5538cabeaf6fb2384db0d87217dc6684f00b7)), closes [.#257](https://github.com/./issues/257)
+- **canary-react:** updated npm script to copy styling from canary-web-components ([5d93ba5](https://github.com/mi6/ic-ui-kit/commit/5d93ba57f488e961f7b9ffb532ae41ef23c73612))
+- **canary-react:** updated storybook default page on initial load ([c65061f](https://github.com/mi6/ic-ui-kit/commit/c65061fedce46be932dcabe971007fde1aea4908))
+
 # [2.0.0-canary.7](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.6...@ukic/canary-react@2.0.0-canary.7) (2024-02-29)
 
 ### Features

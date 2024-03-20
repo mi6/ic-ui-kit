@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.13.0...@ukic/web-components@2.14.0) (2024-03-20)
+
+### Bug Fixes
+
+- **web-components:** changed card expand button to be a native button ([50b7bda](https://github.com/mi6/ic-ui-kit/commit/50b7bdad127fc1ff41ed0af27af07c74449758ad))
+- **web-components:** changed ic-select icBlur to confirm menu exists before using querySelector ([c7f0ddf](https://github.com/mi6/ic-ui-kit/commit/c7f0ddf3f2fe47f33f19274fe0ed02ccf4dcd90e))
+- **web-components:** ic-toggle-button a11y fix ([43deca1](https://github.com/mi6/ic-ui-kit/commit/43deca13cfe54fcc3dfd37d88d4a154f2d1ef7ca))
+- **web-components:** improve select onBlur to not blur if focusing on a menu option ([fa886d3](https://github.com/mi6/ic-ui-kit/commit/fa886d38c9a3ec50d1e87ab63fe89d2626cab0b9)), closes [#1349](https://github.com/mi6/ic-ui-kit/issues/1349)
+- **web-components:** prevent ic-popover-menu from capturing document keydown events ([c272ebc](https://github.com/mi6/ic-ui-kit/commit/c272ebc74818aef56922115f8bacaae94125a4b6))
+- **web-components:** removed role of cell on the end-adornment in ic-data-entity ([cc1982b](https://github.com/mi6/ic-ui-kit/commit/cc1982b1c1f044cd72cb696986f02ca68e461f0a))
+- **web-components:** update badge to have default aria-label and add aria labels for icons in badges ([a77459e](https://github.com/mi6/ic-ui-kit/commit/a77459eefb9d147beec889b72fb15dc8cae61296)), closes [#1518](https://github.com/mi6/ic-ui-kit/issues/1518)
+- **web-components:** update button to add aria-expanded on initial render ([982e768](https://github.com/mi6/ic-ui-kit/commit/982e768618ad0aa9c8d408b8d6c1dfa6bce6081f))
+
+### Features
+
+- **web-components:** add accessible title prop to accordion group to improve accessibility ([6857755](https://github.com/mi6/ic-ui-kit/commit/6857755a3e5858200f8cbd74825026be2e0f3f61)), closes [#1488](https://github.com/mi6/ic-ui-kit/issues/1488)
+- **web-components:** add code to get large ic-select variant working ([befb115](https://github.com/mi6/ic-ui-kit/commit/befb11534959c3efb28b655337a7f572cecc9ed8)), closes [.#257](https://github.com/./issues/257)
+- **web-components:** add router item slot for buttons ([261d419](https://github.com/mi6/ic-ui-kit/commit/261d419b63b72ff36b60642c591e3faaf412255d)), closes [#1500](https://github.com/mi6/ic-ui-kit/issues/1500)
+- **web-components:** added table-row-selected design token ([e1acfc4](https://github.com/mi6/ic-ui-kit/commit/e1acfc47ac7162ffc408ce047066ea5e1eaa9acd))
+- **web-components:** adds icOpen and icClose events to icSelect ([fdcc844](https://github.com/mi6/ic-ui-kit/commit/fdcc844a140c4fce55f4444387c4526bb5dfeb7d))
+- **web-components:** ic-toggle-button-group ([20f3319](https://github.com/mi6/ic-ui-kit/commit/20f33192a2e44d088433b77e1453446f16c77341))
+- **web-components:** make web-components changes to prepare for multi-select ([d6d51bb](https://github.com/mi6/ic-ui-kit/commit/d6d51bb3dedc533b77f95a294f895ca3d590404e)), closes [.#257](https://github.com/./issues/257)
+
+### Reverts
+
+- **web-components:** removed storybook dark color-scheme ([942207d](https://github.com/mi6/ic-ui-kit/commit/942207d21e8ed7de249814b088ccb225bc544204))
+
 # [2.13.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.12.0...@ukic/web-components@2.13.0) (2024-02-29)
 
 ### Bug Fixes

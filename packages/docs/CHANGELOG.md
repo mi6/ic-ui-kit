@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.9.4...@ukic/docs@2.10.0) (2024-03-20)
+
+### Bug Fixes
+
+- **web-components:** prevent ic-popover-menu from capturing document keydown events ([c272ebc](https://github.com/mi6/ic-ui-kit/commit/c272ebc74818aef56922115f8bacaae94125a4b6))
+
+### Features
+
+- **docs:** adds docs for icOpen and icClose events ([b3cf836](https://github.com/mi6/ic-ui-kit/commit/b3cf836079937f1628adfc7883a47d80a32a2077))
+- **docs:** docs ([3dadaaf](https://github.com/mi6/ic-ui-kit/commit/3dadaaf0c3e7e43e1fe1c39b46859e8456abdb34))
+- **web-components:** ic-toggle-button-group ([20f3319](https://github.com/mi6/ic-ui-kit/commit/20f33192a2e44d088433b77e1453446f16c77341))
+
 ## [2.9.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.9.3...@ukic/docs@2.9.4) (2024-02-29)
 
 **Note:** Version bump only for package @ukic/docs
