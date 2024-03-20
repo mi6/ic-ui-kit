@@ -17,6 +17,7 @@ export const CONTAIN_VALUE = "contain.value";
 
 //Not
 export const NOT_BE_CALLED_ONCE = "not.be.calledOnce";
+export const NOT_BE_DISABLED = "not.be.disabled";
 export const NOT_BE_FOCUSED = "not.be.focused";
 export const NOT_BE_VISIBLE = "not.be.visible";
 export const NOT_EXIST = "not.exist";
