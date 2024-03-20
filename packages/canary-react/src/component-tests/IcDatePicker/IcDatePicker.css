@@ -1,0 +1,7 @@
+ic-date-picker {
+  padding-left:10px;
+}
+
+ic-date-picker.max-width {
+  --input-width: 440px;
+}
