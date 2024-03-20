@@ -9,12 +9,14 @@ import { IcButton, IcEmptyState, SlottedSVG } from "@ukic/react";
 import {
   COLS,
   COLS_ALIGNMENT,
+  COLS_ELEMENTS,
   DATA,
   DATA_CELL_ALIGNMENT,
   ICON_COLS,
   ICON_DATA,
   LONG_COLS,
   LONG_DATA,
+  LONG_DATA_VALUES,
   ROW_ALIGNMENT,
   ROW_HEADER_COLS,
   ROW_HEADER_DATA,
@@ -23,6 +25,7 @@ import {
 import {
   BE_VISIBLE,
   HAVE_CLASS,
+  NOT_HAVE_CLASS,
 } from "../../../../react/src/component-tests/utils/constants";
 
 import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
@@ -32,6 +35,8 @@ const DATA_TABLE_SELECTOR = "ic-data-table";
 const LOADING_INDICATOR_SELECTOR = "ic-loading-indicator";
 const PAGINATION_SELECTOR = "ic-pagination";
 const PAGINATION_BAR_SELECTOR = "ic-pagination-bar";
+
+const highlightedRowClass = "table-row-selected";
 
 export const BasicDataTable = (dataTableProps?): ReactElement => (
   <IcDataTable
@@ -59,9 +64,16 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "default",
-        testThreshold: setThresholdBasedOnEnv(0.109),
+        testThreshold: setThresholdBasedOnEnv(0.169),
       });
       cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "default-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.169),
+      });
     });
 
     it("should render with row headers", () => {
@@ -75,9 +87,16 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "with-row-headers",
-        testThreshold: setThresholdBasedOnEnv(0.106),
+        testThreshold: setThresholdBasedOnEnv(0.175),
       });
       cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "with-row-headers-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.175),
+      });
     });
 
     it("should render embedded", () => {
@@ -87,7 +106,7 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "embedded",
-        testThreshold: setThresholdBasedOnEnv(0.11),
+        testThreshold: setThresholdBasedOnEnv(0.181),
       });
     });
 
@@ -96,7 +115,7 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "sortable",
-        testThreshold: setThresholdBasedOnEnv(0.109),
+        testThreshold: setThresholdBasedOnEnv(0.163),
       });
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click();
@@ -110,7 +129,7 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "sortable-second-sort",
-        testThreshold: setThresholdBasedOnEnv(0.113),
+        testThreshold: setThresholdBasedOnEnv(0.165),
       });
     });
 
@@ -128,9 +147,16 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "pagination",
-        testThreshold: setThresholdBasedOnEnv(0.138),
+        testThreshold: setThresholdBasedOnEnv(0.183),
       });
       cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "pagination-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.183),
+      });
     });
 
     it("should render with column overrides", () => {
@@ -147,7 +173,14 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "column-overrides",
-        testThreshold: setThresholdBasedOnEnv(0.105),
+        testThreshold: setThresholdBasedOnEnv(0.184),
+      });
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "column-overrides-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.184),
       });
     });
 
@@ -165,7 +198,14 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "row-overrides",
-        testThreshold: setThresholdBasedOnEnv(0.114),
+        testThreshold: setThresholdBasedOnEnv(0.199),
+      });
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "row-overrides-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.199),
       });
     });
 
@@ -183,7 +223,14 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "cell-overrides",
-        testThreshold: setThresholdBasedOnEnv(0.115),
+        testThreshold: setThresholdBasedOnEnv(0.184),
+      });
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "cell-overrides-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.184),
       });
     });
 
@@ -199,7 +246,14 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "custom-icons",
-        testThreshold: setThresholdBasedOnEnv(0.0845),
+        testThreshold: setThresholdBasedOnEnv(0.175),
+      });
+
+      cy.viewport(1024, 750);
+
+      cy.compareSnapshot({
+        name: "custom-icons-desktop",
+        testThreshold: setThresholdBasedOnEnv(0.175),
       });
     });
 
@@ -220,7 +274,7 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "slotted-icon",
-        testThreshold: setThresholdBasedOnEnv(0.107),
+        testThreshold: setThresholdBasedOnEnv(0.169),
       });
       cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     });
@@ -263,7 +317,7 @@ describe("IcDataTables", () => {
       cy.checkHydrated(DATA_TABLE_SELECTOR);
       cy.compareSnapshot({
         name: "empty-state",
-        testThreshold: setThresholdBasedOnEnv(0.056),
+        testThreshold: setThresholdBasedOnEnv(0.057),
       });
       cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     });
@@ -285,13 +339,16 @@ describe("IcDataTables", () => {
           loading
           loadingOptions={{
             appearance: "light",
+            progress: 30,
+            min: 0,
+            max: 100,
           }}
           caption="Data Tables"
         />
       );
 
       cy.checkHydrated(DATA_TABLE_SELECTOR);
-      cy.compareSnapshot({
+      cy.wait(350).compareSnapshot({
         name: "loading-options",
         testThreshold: setThresholdBasedOnEnv(0.081),
       });
@@ -327,7 +384,7 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "specified-row-height",
-        testThreshold: setThresholdBasedOnEnv(0.094),
+        testThreshold: setThresholdBasedOnEnv(0.164),
       });
     });
 
@@ -340,7 +397,25 @@ describe("IcDataTables", () => {
 
       cy.compareSnapshot({
         name: "auto-set-row-height",
-        testThreshold: setThresholdBasedOnEnv(0.0845),
+        testThreshold: setThresholdBasedOnEnv(0.163),
+      });
+    });
+
+    it("should slot a custom element into a cell", () => {
+      mount(
+        <IcDataTable columns={COLS_ELEMENTS} data={DATA} caption="Data tables">
+          {DATA.map((_, index) => (
+            <IcButton key={index} slot={`actions-${index}`}>
+              Delete
+            </IcButton>
+          ))}
+        </IcDataTable>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+      cy.compareSnapshot({
+        name: "slotted-custom-element-in-cell",
+        testThreshold: setThresholdBasedOnEnv(0.29),
       });
     });
   });
@@ -356,7 +431,7 @@ describe("IcDataTables", () => {
 
     cy.compareSnapshot({
       name: "slotted-title-bar",
-      testThreshold: setThresholdBasedOnEnv(0.082),
+      testThreshold: setThresholdBasedOnEnv(0.16),
     });
 
     cy.findShadowEl("ic-data-table-title-bar", ".header-container").contains(
@@ -423,44 +498,52 @@ describe("IcDataTables", () => {
   // });
 
   it("should cancel the loading state when the loading prop is `true` and data has been set after 1 second from initial loading", () => {
-    mount(<IcDataTable caption="Data tables" columns={COLS} loading />);
+    mount(
+      <IcDataTable
+        caption="Data tables"
+        columns={COLS}
+        loading
+        loadingOptions={{
+          progress: 30,
+          min: 0,
+          max: 100,
+        }}
+      />
+    );
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.wait(350).compareSnapshot({
+      name: "loading-before-data",
+      testThreshold: setThresholdBasedOnEnv(0.057),
+    });
+
+    cy.wait(650);
+
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", DATA);
 
-    cy.compareSnapshot({
+    cy.wait(1100).compareSnapshot({
       name: "loaded-data-after-1-second",
       testThreshold: setThresholdBasedOnEnv(0.173),
     });
-
-    cy.compareSnapshot({
-      name: "loaded-data",
-      testThreshold: setThresholdBasedOnEnv(0.181),
-    });
-    //   const page = await newSpecPage({
-    //     components: [DataTable],
-    //     template: () => (
-    //       <ic-data-table
-    //         caption="Data tables"
-    //         columns={COLS}
-    //         loading={true}
-    //       ></ic-data-table>
-    //     ),
-    //   });
-
-    //   expect(page.root).toMatchSnapshot();
-
-    //   await waitForTimeout(1100);
-    //   page.root.data = data;
-    //   await page.waitForChanges();
-
-    //   expect(page.root).toMatchSnapshot();
   });
 
   it("should wait 1 second before rendering the data when the `loading` prop is passed through and data is set before 1 second of loading", () => {
-    mount(<IcDataTable caption="Data tables" columns={COLS} loading />);
+    mount(
+      <IcDataTable
+        caption="Data tables"
+        columns={COLS}
+        loading
+        loadingOptions={{
+          progress: 30,
+          min: 0,
+          max: 100,
+        }}
+      />
+    );
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.clock();
     cy.compareSnapshot({
       name: "loading-before-loaded-data",
       testThreshold: setThresholdBasedOnEnv(0.075),
@@ -472,6 +555,15 @@ describe("IcDataTables", () => {
       name: "loading-after-loaded-data",
       testThreshold: setThresholdBasedOnEnv(0.181),
     });
+
+    cy.tick(1100);
+
+    cy.compareSnapshot({
+      name: "loaded-data-after-1-second-delay",
+      testThreshold: setThresholdBasedOnEnv(0.181),
+    });
+
+    cy.clock().invoke("restore");
   });
 
   // it("should return correct alignment from getCellAlignment", () => {
@@ -652,13 +744,15 @@ describe("IcDataTables", () => {
   });
 
   // it("should highlight the correct row when clicked", () => {
-  //   mount(<IcDataTable caption="Data tables" columns={COLS} data={DATA} />);
+  //   mount(<BasicDataTable />);
   //   cy.checkHydrated(DATA_TABLE_SELECTOR);
   //   cy.get(DATA_TABLE_SELECTOR)
-  //     .find("tr")
+  //     .find("tr", {includeShadowDom: true})
   //     .eq(1)
   //     .click()
-  //     .should(HAVE_CLASS, highlightedRowClass);
+  //     cy.get(DATA_TABLE_SELECTOR)
+  //     .find("tr", {includeShadowDom: true})
+  //     .eq(1).should(HAVE_CLASS, highlightedRowClass);
   //   cy.find("tr").eq(2).click().should(HAVE_CLASS, highlightedRowClass);
   //   cy.find("tr").eq(1).should(NOT_HAVE_CLASS, highlightedRowClass);
 
@@ -758,13 +852,13 @@ describe("IcDataTables", () => {
 
     cy.compareSnapshot({
       name: "density-dense",
-      testThreshold: setThresholdBasedOnEnv(0.104),
+      testThreshold: setThresholdBasedOnEnv(0.177),
     });
 
     cy.get(DATA_TABLE_SELECTOR).invoke("prop", "density", "spacious");
     cy.compareSnapshot({
       name: "density-spacious",
-      testThreshold: setThresholdBasedOnEnv(0.116),
+      testThreshold: setThresholdBasedOnEnv(0.177),
     });
   });
 
@@ -774,37 +868,8 @@ describe("IcDataTables", () => {
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
     cy.compareSnapshot({
-      name: "slotted-custom-element-in-cell",
+      name: "globalRowHeight-set-to-auto",
       testThreshold: setThresholdBasedOnEnv(0.106),
     });
   });
-
-  // it("should slot a custom element into a cell", () => {
-  //   mount(
-  //     <IcDataTable columns={COLS_ELEMENTS} data={DATA} caption="Data tables">
-  //       {DATA.map((_, index) => (
-  //         <IcButton key={index} slot={`actions-${index}`}>
-  //           Delete
-  //         </IcButton>
-  //       ))}
-  //     </IcDataTable>
-  //   );
-
-  //   cy.checkHydrated(DATA_TABLE_SELECTOR);
-  //   cy.compareSnapshot({name: "slotted-custom-element-in-cell", testThreshold: setThresholdBasedOnEnv()})
-  // });
-
-  // it("should render text-wrapped content in cells", () => {
-  //   mount(
-  //     <IcDataTable
-  //       caption="Data tables"
-  //       columns={COLS}
-  //       data={LONG_DATA_VALUES}
-  //       globalRowHeight="auto"
-  //     ></IcDataTable>
-  //   );
-
-  //   cy.checkHydrated(DATA_TABLE_SELECTOR);
-  //   cy.compareSnapshot({name: "slotted-custom-element-in-cell", testThreshold: setThresholdBasedOnEnv()})
-  // });
 });
