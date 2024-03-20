@@ -9,7 +9,6 @@ import { IcDatePicker } from "../components";
 import { useState } from "react";
 import readme from "../../../canary-web-components/src/components/ic-date-picker/readme.md";
 
-
 <Meta
   title="React Components/Date Picker"
   component={IcDatePicker}
@@ -61,10 +60,23 @@ Set the size of the date picker by using the `size` prop. This prop takes the va
 
 <Canvas withSource="none">
   <Story name="Sizes">
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "790px" }}>
-      <IcDatePicker label="When would you like to collect your coffee?" size="small" />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        height: "790px",
+      }}
+    >
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        size="small"
+      />
       <IcDatePicker label="When would you like to collect your coffee?" />
-      <IcDatePicker label="When would you like to collect your coffee?" size="large" />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        size="large"
+      />
     </div>
   </Story>
 </Canvas>
@@ -77,9 +89,15 @@ import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePickers = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-    <IcDatePicker label="When would you like to collect your coffee?" size="small" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      size="small"
+    />
     <IcDatePicker label="When would you like to collect your coffee?" />
-    <IcDatePicker label="When would you like to collect your coffee?" size="large" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      size="large"
+    />
   </div>
 );
 
@@ -92,10 +110,28 @@ Set the size of the input field by using the `--input-width` CSS custom property
 
 <Canvas withSource="none">
   <Story name="Max width">
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "790px" }}>
-      <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" size="small" />
-      <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" />
-      <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" size="large" />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        height: "790px",
+      }}
+    >
+      <IcDatePicker
+        style={{ "--input-width": "500px" }}
+        label="When would you like to collect your coffee?"
+        size="small"
+      />
+      <IcDatePicker
+        style={{ "--input-width": "500px" }}
+        label="When would you like to collect your coffee?"
+      />
+      <IcDatePicker
+        style={{ "--input-width": "500px" }}
+        label="When would you like to collect your coffee?"
+        size="large"
+      />
     </div>
   </Story>
 </Canvas>
@@ -108,9 +144,20 @@ import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePickers = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-    <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" size="small" />
-    <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" />
-    <IcDatePicker style={{ "--input-width": "500px" }} label="When would you like to collect your coffee?" size="large" />
+    <IcDatePicker
+      style={{ "--input-width": "500px" }}
+      label="When would you like to collect your coffee?"
+      size="small"
+    />
+    <IcDatePicker
+      style={{ "--input-width": "500px" }}
+      label="When would you like to collect your coffee?"
+    />
+    <IcDatePicker
+      style={{ "--input-width": "500px" }}
+      label="When would you like to collect your coffee?"
+      size="large"
+    />
   </div>
 );
 
@@ -123,7 +170,10 @@ Disable the date picker and prevent user interaction by using the `disabled` pro
 
 <Canvas withSource="none">
   <Story name="Disabled" height="100px">
-    <IcDatePicker label="When would you like to collect your coffee?" disabled />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      disabled
+    />
   </Story>
 </Canvas>
 
@@ -149,8 +199,14 @@ The default format is `DD/MM/YYYY`.
   <Story name="Date formats" height="760px">
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <IcDatePicker label="When would you like to collect your coffee?" />
-      <IcDatePicker label="When would you like to collect your coffee?" dateFormat="MM/DD/YYYY" />
-      <IcDatePicker label="When would you like to collect your coffee?" dateFormat="YYYY/MM/DD" />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        dateFormat="MM/DD/YYYY"
+      />
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
+        dateFormat="YYYY/MM/DD"
+      />
     </div>
   </Story>
 </Canvas>
@@ -164,8 +220,14 @@ import { IcDatePicker } from "@ukic/canary-react";
 const DatePickers = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
     <IcDatePicker label="When would you like to collect your coffee?" />
-    <IcDatePicker label="When would you like to collect your coffee?" dateFormat="MM/DD/YYYY" />
-    <IcDatePicker label="When would you like to collect your coffee?" dateFormat="YYYY/MM/DD" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      dateFormat="MM/DD/YYYY"
+    />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      dateFormat="YYYY/MM/DD"
+    />
   </div>
 );
 
@@ -178,7 +240,10 @@ The `value` prop sets the date in the input field. The value can be in any forma
 
 <Canvas withSource="none">
   <Story name="Value" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" value="01/01/2024" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      value="01/01/2024"
+    />
   </Story>
 </Canvas>
 
@@ -189,7 +254,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" value="01/01/2024" />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    value="01/01/2024"
+  />
 );
 
 export default DatePicker;
@@ -203,7 +271,11 @@ The supported formats are the same as for the `value` prop.
 
 <Canvas withSource="none">
   <Story name="Open at date" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" helperText="The calendar will open showing 25th December 2024, if no date selected" openAtDate="2024-12-25" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      helperText="The calendar will open showing 25th December 2024, if no date selected"
+      openAtDate="2024-12-25"
+    />
   </Story>
 </Canvas>
 
@@ -214,10 +286,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker 
+  <IcDatePicker
     label="When would you like to collect your coffee?"
-    helperText="The calendar will open showing 25th December 2024, if no date selected" 
-    openAtDate="2024-12-25" 
+    helperText="The calendar will open showing 25th December 2024, if no date selected"
+    openAtDate="2024-12-25"
   />
 );
 
@@ -230,7 +302,10 @@ The first day of the week can be changed by setting the `startOfWeek` prop. This
 
 <Canvas withSource="none">
   <Story name="Start of week" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" startOfWeek="0" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      startOfWeek="0"
+    />
   </Story>
 </Canvas>
 
@@ -241,7 +316,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" startOfWeek="0" />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    startOfWeek="0"
+  />
 );
 
 export default DatePicker;
@@ -251,11 +329,14 @@ export default DatePicker;
 
 Specific days of the week can be disabled from selection by setting the `disableDays` prop. The value can be set as an array of numeric values where where 0 = Sunday, 1 = Monday, etc up to 6 = Saturday.
 
-export const disabledDaysOfWeek = [0, 6]
+export const disabledDaysOfWeek = [0, 6];
 
 <Canvas withSource="none">
   <Story name="Disable days of week" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" disableDays={disabledDaysOfWeek} />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      disableDays={disabledDaysOfWeek}
+    />
   </Story>
 </Canvas>
 
@@ -265,10 +346,13 @@ export const disabledDaysOfWeek = [0, 6]
 import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
-const disabledDaysOfWeek = [0, 6]
+const disabledDaysOfWeek = [0, 6];
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" disableDays={disabledDaysOfWeek} />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    disableDays={disabledDaysOfWeek}
+  />
 );
 
 export default DatePicker;
@@ -280,8 +364,8 @@ The `max` and `min` props can be used to limit the range of dates available for 
 
 <Canvas withSource="none">
   <Story name="Max & Min" height="500px">
-    <IcDatePicker 
-      label="When would you like to collect your coffee?" 
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
       helperText="Choose a date between the 1st and 31st of July"
       min="2024-07-01"
       max="2024-07-31"
@@ -297,8 +381,8 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker 
-    label="When would you like to collect your coffee?" 
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
     helperText="Choose a date between the 1st and 31st of July"
     min="2024-07-01"
     max="2024-07-31"
@@ -315,7 +399,10 @@ Dates before today can be disabled with the `disablePast` prop.
 
 <Canvas withSource="none">
   <Story name="Disable dates in past" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" disablePast />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      disablePast
+    />
   </Story>
 </Canvas>
 
@@ -326,7 +413,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" disablePast />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    disablePast
+  />
 );
 
 export default DatePicker;
@@ -338,7 +428,10 @@ Dates after today can be disabled with the `disableFuture` prop.
 
 <Canvas withSource="none">
   <Story name="Disable dates in future" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" disableFuture />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      disableFuture
+    />
   </Story>
 </Canvas>
 
@@ -349,7 +442,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" disableFuture />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    disableFuture
+  />
 );
 
 export default DatePicker;
@@ -361,7 +457,10 @@ Days outside of the current month in view can be hidden by setting the `showDays
 
 <Canvas withSource="none">
   <Story name="Days outside month hidden" height="540px">
-    <IcDatePicker label="When would you like to collect your coffee?" showDaysOutsideMonth="false" />
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
+      showDaysOutsideMonth="false"
+    />
   </Story>
 </Canvas>
 
@@ -372,7 +471,10 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker label="When would you like to collect your coffee?" showDaysOutsideMonth="false" />
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
+    showDaysOutsideMonth="false"
+  />
 );
 
 export default DatePicker;
@@ -384,8 +486,8 @@ The "Go to today" and "Clear" buttons can be hidden from the calendar view by se
 
 <Canvas withSource="none">
   <Story name="Today & clear buttons hidden" height="480px">
-    <IcDatePicker 
-      label="When would you like to collect your coffee?" 
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
       showPickerTodayButton="false"
       showPickerClearButton="false"
     />
@@ -399,8 +501,8 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker 
-    label="When would you like to collect your coffee?" 
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
     showPickerTodayButton="false"
     showPickerClearButton="false"
   />
@@ -409,15 +511,14 @@ const DatePicker = () => (
 export default DatePicker;
 ```
 
-
 ### JavaScript dates
 
 Any prop that accepts a date value can be set to a Javascript Date object. The following example sets the `value`, `max` and `min` props.
 
 <Canvas withSource="none">
   <Story name="JavaScript dates" height="500px">
-    <IcDatePicker 
-      label="When would you like to collect your coffee?" 
+    <IcDatePicker
+      label="When would you like to collect your coffee?"
       min={new Date(2024, 6, 1)}
       max={new Date(2024, 6, 31)}
       value={new Date(2024, 6, 15)}
@@ -434,8 +535,8 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePicker = () => (
-  <IcDatePicker 
-    label="When would you like to collect your coffee?" 
+  <IcDatePicker
+    label="When would you like to collect your coffee?"
     min={new Date(2024, 6, 1)}
     max={new Date(2024, 6, 31)}
     value={new Date(2024, 6, 15)}
@@ -455,13 +556,11 @@ export const DatePickerWithIcChange = () => {
   const [selectedDate, setSelectedDate] = useState();
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
-      <IcDatePicker 
-        label="When would you like to collect your coffee?" 
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
         onIcChange={(event) => setSelectedDate(event.detail.value)}
-      /> 
-      <span>
-        {`Selected date: ${selectedDate}`}
-      </span>  
+      />
+      <span>{`Selected date: ${selectedDate}`}</span>
     </div>
   );
 };
@@ -482,13 +581,11 @@ const DatePickerWithIcChange = () => {
   const [selectedDate, setSelectedDate] = React.useState("Selected date: ");
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
-      <IcDatePicker 
-        label="When would you like to collect your coffee?" 
+      <IcDatePicker
+        label="When would you like to collect your coffee?"
         onIcChange={(event) => setSelectedDate(event.detail.value)}
-      /> 
-      <span>
-        {`Selected date: ${selectedDate}`}
-      </span>  
+      />
+      <span>{`Selected date: ${selectedDate}`}</span>
     </div>
   );
 };
