@@ -162,6 +162,8 @@ describe("IcAccordionGroup", () => {
         <TwoAccordionsWithOneExpanded />
       </IcAccordionGroup>
     );
+    cy.checkHydrated(IC_ACCORDION_GROUP);
+
     cy.get(getAccordionSelector(1))
       .invoke("prop", "expanded")
       .should("eq", false);
@@ -169,13 +171,23 @@ describe("IcAccordionGroup", () => {
       .invoke("prop", "expanded")
       .should("eq", true);
 
-    cy.get(getAccordionSelector(1)).click();
+    cy.findShadowEl(getAccordionSelector(1), "button")
+      .focus()
+      .realPress("Space");
     cy.get(getAccordionSelector(1))
       .invoke("prop", "expanded")
       .should("eq", true);
     cy.get(getAccordionSelector(2))
       .invoke("prop", "expanded")
       .should("eq", false);
+
+    cy.realPress("Tab").realPress("Space");
+    cy.get(getAccordionSelector(1))
+      .invoke("prop", "expanded")
+      .should("eq", false);
+    cy.get(getAccordionSelector(2))
+      .invoke("prop", "expanded")
+      .should("eq", true);
   });
 
   it("both accordions should open when single expansion is false", () => {
