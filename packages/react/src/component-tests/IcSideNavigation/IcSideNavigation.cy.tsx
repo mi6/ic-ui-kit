@@ -24,6 +24,7 @@ import {
   StaticSideNav,
   checkSideNavSize,
 } from "./IcSideNavigationTestData";
+import _ from "cypress/types/lodash";
 
 const DEFAULT_HEIGHT = 1171;
 const DEFAULT_TEST_THRESHOLD = 0.06;
@@ -279,6 +280,18 @@ describe("IcSideNavigation", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
+      cy.checkSideNavSize(true);
+
+      cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
+      cy.checkSideNavSize(false);
+    });
+
+    it("expands when expand button is tabbed to and pressed", () => {
+      mount(<BasicSideNav />);
+      cy.checkHydrated(SIDE_NAV_LABEL);
+      cy.findShadowEl("ic-side-navigation", ".title-link").focus();
+      Cypress._.times(4, () => cy.realPress("Tab"));
+      cy.realPress("Enter");
       cy.checkSideNavSize(true);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
