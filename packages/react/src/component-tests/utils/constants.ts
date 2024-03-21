@@ -24,6 +24,7 @@ export const NOT_EXIST = "not.exist";
 export const NOT_HAVE_ATTR = "not.have.attr";
 export const NOT_HAVE_BEEN_CALLED = "not.have.been.called";
 export const NOT_HAVE_CLASS = "not.have.class";
+export const NOT_CONTAIN = "not.contain";
 
 //Be
 export const BE_DISABLED = "be.disabled";

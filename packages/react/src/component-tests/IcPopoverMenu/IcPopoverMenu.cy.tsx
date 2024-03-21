@@ -12,8 +12,6 @@ import {
   PopoverWithMenuGroups,
 } from "./IcPopoverMenuData";
 
-const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
-
 describe("IcPopoverMenu", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -51,18 +49,23 @@ describe("IcPopoverMenu", () => {
   });
 
   it("should not be clickable when disabled", () => {
-    cy.spy(window.console, "log").as("spyWinConsoleLog");
-    mount(<DisabledPopoverMenu onClick={() => console.log()} />);
+    mount(<DisabledPopoverMenu />);
 
     cy.checkA11yWithWait();
     cy.checkHydrated("ic-popover-menu");
+
+    cy.get("ic-popover-menu").invoke(
+      "on",
+      "triggerPopoverMenuInstance",
+      cy.stub().as("triggerPopoverMenuInstance")
+    );
 
     cy.get("ic-button").click();
     cy.get("ic-menu-item").eq(0).click({ force: true });
     cy.get("ic-menu-item").eq(1).click({ force: true });
     cy.get("ic-menu-item").eq(2).click({ force: true });
 
-    cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
+    cy.get("@triggerPopoverMenuInstance").should(NOT_BE_CALLED_ONCE);
 
     cy.compareSnapshot({
       name: "disabled_dropdown",
