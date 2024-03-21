@@ -25,31 +25,6 @@ exports[`ic-pagination-bar should only allow a maximum of 4 custom items per pag
 </ic-pagination-bar>
 `;
 
-exports[`ic-pagination-bar should remove items per page options larger than the maximum number of items 1`] = `
-<ic-pagination-bar show-items-per-page-control="true" total-items="100">
-  <mock:shadow-root>
-    <div class="pagination-bar pagination-bar-right">
-      <div class="item-controls">
-        <div class="items-per-page-holder">
-          <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
-            Items per page
-          </ic-typography>
-          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
-        </div>
-        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
-          Page 1 of 10
-        </ic-typography>
-      </div>
-      <div class="pagination-controls">
-        <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
-        </div>
-      </div>
-    </div>
-  </mock:shadow-root>
-</ic-pagination-bar>
-`;
-
 exports[`ic-pagination-bar should render 1`] = `
 <ic-pagination-bar total-items="100">
   <mock:shadow-root>
@@ -135,15 +110,15 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
           <ic-typography class="items-per-page-control-label pagination-text-default" variant="label">
             Items per page
           </ic-typography>
-          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="10"></ic-select>
+          <ic-select class="items-per-page-input" hidelabel="" label="items-per-page-input" small="" value="15"></ic-select>
         </div>
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
-          Page 1 of 10
+          Page 1 of 7
         </ic-typography>
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" pages="7" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -207,7 +182,7 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
             Go to page
           </ic-typography>
           <ic-tooltip disableclick="" disablehover="" label="Please enter a valid page" target="#go-to-page-input">
-            <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" small="" type="number" validationinlineinternal=""></ic-text-field>
+            <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" size="small" type="number" validationinlineinternal=""></ic-text-field>
           </ic-tooltip>
           <ic-button appearance="default" class="go-to-page-button" size="small" variant="secondary">
             Go
@@ -301,6 +276,63 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
 </ic-pagination-bar>
 `;
 
+exports[`ic-pagination-bar should update pagination when number of item changes 1`] = `
+<ic-pagination-bar total-items="0">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 1
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="1" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should update pagination when number of item changes 2`] = `
+<ic-pagination-bar total-items="0">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 10
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should update pagination when number of item changes 3`] = `
+<ic-pagination-bar total-items="0">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
+      <div class="item-controls">
+        <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
+          Page 1 of 5
+        </ic-typography>
+      </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="5" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
 exports[`ic-pagination-bar should wrap pagination when the device size is small 1`] = `
 Object {
   "body": <body>
@@ -339,7 +371,7 @@ Object {
               Go to page
             </ic-typography>
             <ic-tooltip disableclick="" disablehover="" label="Please enter a valid page" target="#go-to-page-input">
-              <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" small="" type="number" validationinlineinternal=""></ic-text-field>
+              <ic-text-field class="go-to-page-input" hidelabel="" id="go-to-page-input" label="go-to-page-input" max="10" min="1" size="small" type="number" validationinlineinternal=""></ic-text-field>
             </ic-tooltip>
             <ic-button appearance="default" class="go-to-page-button" size="small" variant="secondary">
               Go
@@ -372,6 +404,9 @@ Object {
     "disconnectedCallback": true,
     "element": true,
     "event": true,
+    "experimentalScopedSlotChanges": false,
+    "experimentalSlotFixes": false,
+    "formAssociated": true,
     "hasRenderFn": true,
     "hostListener": true,
     "hostListenerTarget": true,
@@ -396,7 +431,6 @@ Object {
     "method": true,
     "mode": true,
     "observeAttribute": true,
-    "patchPseudoShadowDom": false,
     "profile": true,
     "prop": true,
     "propBoolean": true,
