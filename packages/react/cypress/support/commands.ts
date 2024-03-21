@@ -14,6 +14,13 @@ import "cypress-file-upload";
 const compareSnapshotCommand = require("cypress-image-diff-js/command");
 compareSnapshotCommand();
 
+// Create the typing for the getCall command
+declare global {
+  interface JQuery {
+    getCall(arg: number): any;
+  }
+}
+
 // Create the typing for the compareSnapshot command
 declare global {
   namespace Cypress {
