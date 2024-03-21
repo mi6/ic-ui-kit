@@ -96,6 +96,13 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
+    it("should tab through toggles and check focus and selection state", () => {
+      mount(<ToggleGroupSingle />);
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
+
+      getToggle(2).focus().realPress(["Shift", "Tab"]);
+      cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_FOCUS);
+    });
   });
   describe("screenshots", () => {
     beforeEach(() => {
