@@ -839,4 +839,66 @@ describe("IcDataTables", () => {
       },
     });
   });
+
+  it("should update table density via dropdown", () => {
+    cy.viewport(1024, 750);
+
+    mount(
+      <IcDataTable caption="Custom Title Bar" columns={COLS} data={DATA}>
+        <IcDataTableTitleBar
+          slot="title-bar"
+          description="Data table description that describes the purpose of the table."
+          metadata="128 items | 32gb | Updated: 01/02/03"
+        />
+      </IcDataTable>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "density-default",
+    });
+
+    cy.get("ic-data-table-title-bar").shadow().find("ic-select").click();
+
+    cy.get("ic-data-table-title-bar")
+      .shadow()
+      .find("ic-select")
+      .shadow()
+      .find("li[role=option]")
+      .eq(1)
+      .click();
+
+    cy.get("ic-data-table-title-bar")
+      .shadow()
+      .find("ic-select")
+      .shadow()
+      .find("li[role=option]")
+      .should("have.length", 3);
+
+    cy.compareSnapshot({
+      name: "density-dense",
+    });
+  });
+
+  it.skip("should reset globalRowHeight", () => {
+    cy.viewport(1024, 750);
+
+    mount(<BasicDataTable globalRowHeight={150} density="dense" />);
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .should("have.css", "height", "150px"); // Should this be 120px;
+
+    cy.document().then((doc) => {
+      const dataTable = doc.querySelector("ic-data-table");
+      dataTable?.resetRowHeights();
+    });
+
+    cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
+      .eq(1)
+      .should("have.css", "height", "40px");
+  });
 });
