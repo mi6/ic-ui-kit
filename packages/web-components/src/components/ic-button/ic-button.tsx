@@ -10,6 +10,7 @@ import {
   State,
   forceUpdate,
   h,
+  Watch,
 } from "@stencil/core";
 
 import {
@@ -92,6 +93,10 @@ export class Button {
    * If `true`, the button will be in disabled state.
    */
   @Prop() disabled?: boolean = false;
+  @Watch("disabled")
+  watchDisabledHandler(): void {
+    removeDisabledFalse(this.disabled, this.el);
+  }
 
   /**
    * If `true`, the ic-tooltip which is shown for icon variant will be disabled. Title or aria-label must be set if this prop is not applied.
