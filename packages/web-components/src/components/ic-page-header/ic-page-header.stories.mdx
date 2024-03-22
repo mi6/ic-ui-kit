@@ -415,7 +415,10 @@ import readme from "./readme.md";
 ### With breadcrumbs, input, actions and tabs
 
 <Canvas>
-  <Story name="With breadcrumbs, input, actions and tabs" parameters={{ loki: { skip: true } }}>
+  <Story
+    name="With breadcrumbs, input, actions and tabs"
+    parameters={{ loki: { skip: true } }}
+  >
     {html`
       <ic-page-header
         heading="Coffee recipes"
@@ -533,7 +536,7 @@ If a slot is provided, instead an attribute, the slot will supersede for the fol
 - subheading
 
 <Canvas>
-  <Story name="Component overrides">
+  <Story name="Component overrides" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-page-header>
         <ic-typography slot="heading" variant="h4">
