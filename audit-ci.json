@@ -20,6 +20,6 @@
         "notes": "requires upgrade to postcss v8.4.31, which doesn't align with the version used by @storybook/addon-postcss",
         "expiry": "15 April 2024"
       }
-    }  
+    }
   ]
 }
