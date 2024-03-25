@@ -17,6 +17,8 @@ import {
   IcThemeForeground,
   IcThemeForegroundEnum,
   IcTheme,
+  IcDeviceSizes,
+  IcValueEventDetail,
 } from "../../utils/types";
 import {
   checkResizeObserver,
@@ -30,6 +32,7 @@ import {
   isEmptyString,
   isPropDefined,
 } from "../../utils/helpers";
+import { IcSearchBarBlurEventDetail } from "../ic-search-bar/ic-search-bar.types";
 
 /**
  * @slot app-icon - Content will be rendered to left of app title.
@@ -59,7 +62,6 @@ export class TopNavigation {
   @State() deviceSize: number = DEVICE_SIZES.XL;
   @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
   @State() hasFullWidthSearchBar: boolean = false;
-  @State() menuOpen: boolean = false;
   @State() mobileSearchBarVisible: boolean = false;
   @State() mobileSearchHiddenOnBlur: boolean = false;
   @State() navMenuVisible: boolean = false;
@@ -70,6 +72,11 @@ export class TopNavigation {
    * The alignment of the top navigation content.
    */
   @Prop() contentAligned: IcAlignment = "full-width";
+  /**
+   * Can set a custom breakpoint for the top navigation to switch to mobile mode.
+   * Must be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.
+   */
+  @Prop() customMobileBreakpoint: IcDeviceSizes = DEVICE_SIZES.L;
   /**
    *  The URL to navigate to when the app title is clicked.
    */
@@ -99,6 +106,7 @@ export class TopNavigation {
    * The app title to be displayed. This is required, unless a slotted app title link is used.
    */
   @Prop() appTitle: string;
+
   @Watch("appTitle")
   watchPropHandler(newValue: string, oldValue: string): void {
     //added for gatsby rehydration issue where prop is initially undefined but then changes to actual value
@@ -159,43 +167,39 @@ export class TopNavigation {
   @Listen("icNavigationMenuClose", {})
   navBarMenuCloseHandler(): void {
     this.showNavMenu(false);
-    const menuBtn = this.el.shadowRoot.querySelector(
-      "#menu-button"
-    ) as HTMLElement;
-    menuBtn.focus();
+    this.el.shadowRoot.querySelector<HTMLElement>("#menu-button").focus();
   }
 
   @Listen("icSearchBarBlur", {})
-  searchInputBlurHandler(ev: CustomEvent): void {
-    if (ev.detail !== null) {
+  searchInputBlurHandler({
+    detail,
+  }: CustomEvent<IcSearchBarBlurEventDetail>): void {
+    if (detail !== null) {
       if (this.mobileSearchBarVisible && !this.searchButtonClick) {
         //don't hide if blur was triggered by click on search button - let the click handler toggle the state
         this.toggleSearchBar();
       }
-      this.searchValue = ev.detail.value;
+      this.searchValue = detail.value;
     }
   }
 
   @Listen("icChange", {})
-  searchValueChangeHandler(ev: CustomEvent): void {
-    this.searchValue = ev.detail.value;
+  searchValueChangeHandler({ detail }: CustomEvent<IcValueEventDetail>): void {
+    this.searchValue = detail.value;
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.foregroundColor = theme.mode;
+  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+    this.foregroundColor = detail.mode;
   }
 
   private initialiseSearchBar = () => {
     if (this.hasSearchSlotContent) {
       const slot = getSlot(this.el, "search");
-      if (slot && slot.tagName === "IC-SEARCH-BAR") {
+      if (slot?.tagName === "IC-SEARCH-BAR") {
         this.searchBar = slot as HTMLIcSearchBarElement;
-      } else if (slot && slot.tagName === "FORM") {
-        this.searchBar = slot.querySelector(
-          "ic-search-bar"
-        ) as HTMLIcSearchBarElement;
+      } else if (slot?.tagName === "FORM") {
+        this.searchBar = slot.querySelector("ic-search-bar");
       }
 
       if (this.searchBar !== null) {
@@ -208,17 +212,16 @@ export class TopNavigation {
     this.mobileSearchBarVisible = !this.mobileSearchBarVisible;
 
     if (this.searchBar !== null) {
+      this.mobileSearchButtonEl.setAttribute(
+        "aria-label",
+        `${this.mobileSearchBarVisible ? "Hide" : "Show"} search`
+      );
+      this.hasFullWidthSearchBar = this.mobileSearchBarVisible;
+      this.searchBar.fullWidth = this.mobileSearchBarVisible;
       if (this.mobileSearchBarVisible) {
-        this.mobileSearchButtonEl.setAttribute("aria-label", "Hide search");
-        this.hasFullWidthSearchBar = true;
-        this.searchBar.fullWidth = true;
         setTimeout(() => {
           this.searchBar.focus();
         }, 100);
-      } else {
-        this.mobileSearchButtonEl.setAttribute("aria-label", "Show search");
-        this.hasFullWidthSearchBar = false;
-        this.searchBar.fullWidth = false;
       }
     }
   }
@@ -252,7 +255,7 @@ export class TopNavigation {
   private resizeObserverCallback = (currSize: number) => {
     if (currSize !== this.deviceSize) {
       this.deviceSize = currSize;
-      if (currSize > DEVICE_SIZES.L) {
+      if (currSize > this.customMobileBreakpoint) {
         this.showNavMenu(false);
         if (this.mobileSearchBarVisible) {
           this.toggleSearchBar();
@@ -261,11 +264,7 @@ export class TopNavigation {
       this.topNavResized.emit({
         size: currSize,
       });
-      if (
-        document.activeElement !== null &&
-        document.activeElement !== undefined &&
-        document.activeElement.tagName === "IC-SEARCH-BAR"
-      ) {
+      if (document.activeElement?.tagName === "IC-SEARCH-BAR") {
         this.searchBar.setAttribute("hidden", "true");
         //remove attribute again as this trigger a redraw & applies css
         this.searchBar.removeAttribute("hidden");
@@ -278,162 +277,174 @@ export class TopNavigation {
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
-      const currSize = getCurrentDeviceSize();
-      this.resizeObserverCallback(currSize);
+      this.resizeObserverCallback(getCurrentDeviceSize());
     });
 
     this.resizeObserver.observe(this.el);
   };
 
   render() {
+    const {
+      appTitle,
+      contentAligned,
+      customMobileBreakpoint,
+      deviceSize,
+      el,
+      foregroundColor,
+      hasAppIcon,
+      hasFullWidthSearchBar,
+      hasIconButtons,
+      hasNavigation,
+      hasSearchSlotContent,
+      href,
+      inline,
+      menuButtonClick,
+      mobileSearchBarVisible,
+      navMenuVisible,
+      searchButtonClickHandler,
+      searchButtonMouseDownHandler,
+      shortAppTitle,
+      status,
+      version,
+    } = this;
+
+    const hasStatus = status !== "";
+    const hasVersion = version !== "";
     const hasMenuContent =
-      this.hasNavigation ||
-      this.hasIconButtons ||
-      this.status !== "" ||
-      this.version !== "";
+      hasNavigation || hasIconButtons || hasStatus || hasVersion;
 
-    const searchButtonSize =
-      this.deviceSize <= DEVICE_SIZES.S ? "default" : "large";
+    const searchButtonSize = deviceSize <= DEVICE_SIZES.S ? "default" : "large";
+    const hasTitle = appTitle !== "" && isPropDefined(appTitle);
+    const overMobileBreakpoint = deviceSize <= customMobileBreakpoint;
 
-    let appTitleVariant: IcTypographyVariants = "h3";
+    const appTitleVariant: IcTypographyVariants = overMobileBreakpoint
+      ? deviceSize <= DEVICE_SIZES.S
+        ? "subtitle-small"
+        : "h4"
+      : "h3";
 
-    const hasTitle = this.appTitle !== "" && isPropDefined(this.appTitle);
+    const mobileSearchButtonTitle = `${
+      mobileSearchBarVisible ? "Hide" : "Show"
+    } search`;
+    const menuSize = deviceSize <= DEVICE_SIZES.S ? "small" : "default";
 
-    if (this.deviceSize <= DEVICE_SIZES.L) {
-      appTitleVariant = "h4";
-      if (this.deviceSize <= DEVICE_SIZES.S) {
-        appTitleVariant = "subtitle-small";
-      }
-    }
-
-    const mobileSearchButtonTitle = this.mobileSearchBarVisible
-      ? "Hide search"
-      : "Show search";
-    const menuSize = this.deviceSize <= DEVICE_SIZES.S ? "small" : "default";
-
-    const Component = isSlotUsed(this.el, "app-title") ? "div" : "a";
-
+    const shortAppTitleSlot = isSlotUsed(el, "short-app-title");
+    const hasAppTitleSlot = isSlotUsed(el, "app-title");
+    const Component = hasAppTitleSlot ? "div" : "a";
     const attrs = Component == "a" && {
-      href: this.href,
+      href: href,
     };
-
-    const shortAppTitleSlot = isSlotUsed(this.el, "short-app-title");
 
     return (
       <Host
         class={{
-          ["fullwidth-searchbar"]: this.hasFullWidthSearchBar,
+          "fullwidth-searchbar": hasFullWidthSearchBar,
+          "mobile-mode": overMobileBreakpoint,
           [IcThemeForegroundEnum.Dark]:
-            this.foregroundColor === IcThemeForegroundEnum.Dark,
+            foregroundColor === IcThemeForegroundEnum.Dark,
         }}
       >
         <div class="top-navigation">
-          <ic-section-container aligned={this.contentAligned} full-height>
+          <ic-section-container aligned={contentAligned} full-height>
             <header role="banner">
               <div class="top-panel-container">
                 <div class="app-details-container">
-                  {(hasTitle || isSlotUsed(this.el, "app-title")) && (
+                  {(hasTitle || hasAppTitleSlot) && (
                     <Component class="title-link" {...attrs}>
-                      {this.hasAppIcon && (
+                      {hasAppIcon && (
                         <div class="app-icon-container">
                           <slot name="app-icon" />
                         </div>
                       )}
-                      {this.deviceSize <= DEVICE_SIZES.S &&
-                      (!isEmptyString(this.shortAppTitle) ||
-                        shortAppTitleSlot) ? (
+                      {deviceSize <= DEVICE_SIZES.S &&
+                      (!isEmptyString(shortAppTitle) || shortAppTitleSlot) ? (
                         <ic-typography
                           variant="subtitle-small"
                           aria-label={
-                            (!isSlotUsed(this.el, "app-title") ||
-                              !shortAppTitleSlot) &&
-                            `${this.appTitle} (${this.shortAppTitle})`
+                            (!hasAppTitleSlot || !shortAppTitleSlot) &&
+                            `${appTitle} (${shortAppTitle})`
                           }
                         >
                           <h1>
                             {shortAppTitleSlot ? (
                               <slot name="short-app-title"></slot>
                             ) : (
-                              this.shortAppTitle
+                              shortAppTitle
                             )}
                           </h1>
                         </ic-typography>
                       ) : (
                         <ic-typography variant={appTitleVariant}>
                           <h1 class="title-wrap">
-                            {isSlotUsed(this.el, "app-title") ? (
+                            {hasAppTitleSlot ? (
                               <slot name="app-title"></slot>
                             ) : (
-                              this.appTitle
+                              appTitle
                             )}
                           </h1>
                         </ic-typography>
                       )}
                     </Component>
                   )}
-                  {this.status !== "" && (
+                  {hasStatus && (
                     <div class="app-status">
                       <ic-typography
                         aria-label="app tag"
                         variant="label-uppercase"
                         class="app-status-text"
                       >
-                        {this.status}
+                        {status}
                       </ic-typography>
                     </div>
                   )}
-                  {this.version !== "" && (
+                  {hasVersion && (
                     <div class="app-version">
                       <ic-typography
                         variant="label"
                         class="app-version-text"
                         aria-label="app version"
                       >
-                        {this.version}
+                        {version}
                       </ic-typography>
                     </div>
                   )}
                 </div>
 
-                {(this.hasSearchSlotContent || hasMenuContent) && (
+                {(hasSearchSlotContent || hasMenuContent) && (
                   <div class="search-menu-container">
                     <div class="search-actions-container">
-                      {this.deviceSize > DEVICE_SIZES.L && (
-                        <slot name="search"></slot>
+                      {!overMobileBreakpoint && <slot name="search"></slot>}
+
+                      {hasSearchSlotContent && overMobileBreakpoint && (
+                        <ic-button
+                          id="search-toggle-button"
+                          ref={(el) => (this.mobileSearchButtonEl = el)}
+                          onMouseDown={searchButtonMouseDownHandler}
+                          variant="icon"
+                          size={searchButtonSize}
+                          aria-label={mobileSearchButtonTitle}
+                          appearance={foregroundColor}
+                          onClick={searchButtonClickHandler}
+                        >
+                          <slot name="toggle-icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="#ffffff"
+                            >
+                              <path d="M0 0h24v24H0V0z" fill="none" />
+                              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                            </svg>
+                          </slot>
+                        </ic-button>
                       )}
 
-                      {this.hasSearchSlotContent &&
-                        this.deviceSize <= DEVICE_SIZES.L && (
-                          <ic-button
-                            id="search-toggle-button"
-                            ref={(el) => (this.mobileSearchButtonEl = el)}
-                            onMouseDown={this.searchButtonMouseDownHandler}
-                            variant="icon"
-                            size={searchButtonSize}
-                            aria-label={mobileSearchButtonTitle}
-                            appearance={this.foregroundColor}
-                            onClick={this.searchButtonClickHandler}
-                          >
-                            <slot name="toggle-icon">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="#ffffff"
-                              >
-                                <path d="M0 0h24v24H0V0z" fill="none" />
-                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-                              </svg>
-                            </slot>
-                          </ic-button>
-                        )}
-
-                      {this.hasIconButtons &&
-                        this.deviceSize > DEVICE_SIZES.L && (
-                          <div class="icon-buttons-container">
-                            <slot name="buttons"></slot>
-                          </div>
-                        )}
-                      {hasMenuContent && this.deviceSize <= DEVICE_SIZES.L && (
+                      {hasIconButtons && !overMobileBreakpoint && (
+                        <div class="icon-buttons-container">
+                          <slot name="buttons"></slot>
+                        </div>
+                      )}
+                      {hasMenuContent && overMobileBreakpoint && (
                         <div class="menu-button-container">
                           <span
                             id="navigation-landmark-button-text"
@@ -444,19 +455,19 @@ export class TopNavigation {
                           </span>
                           <nav
                             aria-labelledby="navigation-landmark-button-text"
-                            aria-hidden={this.navMenuVisible ? "true" : "false"}
+                            aria-hidden={`${navMenuVisible}`}
                           >
                             <ic-button
                               id="menu-button"
-                              appearance={this.foregroundColor}
+                              appearance={foregroundColor}
                               variant="secondary"
-                              aria-expanded={this.menuOpen ? "true" : "false"}
+                              aria-expanded="false"
                               aria-haspopup="true"
                               aria-label={`Open ${
-                                this.hasNavigation ? "navigation" : "app"
+                                hasNavigation ? "navigation" : "app"
                               } menu`}
                               size={menuSize}
-                              onClick={this.menuButtonClick}
+                              onClick={menuButtonClick}
                             >
                               Menu
                               <svg
@@ -479,13 +490,13 @@ export class TopNavigation {
                 )}
               </div>
 
-              {this.mobileSearchBarVisible && (
+              {mobileSearchBarVisible && (
                 <div class="search-bar-container">
                   <slot name="search"></slot>
                 </div>
               )}
 
-              {this.hasNavigation && this.deviceSize > DEVICE_SIZES.L && (
+              {hasNavigation && !overMobileBreakpoint && (
                 <div class="navigation-tabs">
                   <span
                     id="navigation-landmark-text"
@@ -498,7 +509,7 @@ export class TopNavigation {
                     aria-labelledby="navigation-landmark-text"
                     class="nav-panel-container"
                   >
-                    <ic-horizontal-scroll appearance={this.foregroundColor}>
+                    <ic-horizontal-scroll appearance={foregroundColor}>
                       <ul class="navigation-item-list" tabindex="-1">
                         <slot name="navigation"></slot>
                       </ul>
@@ -509,15 +520,15 @@ export class TopNavigation {
             </header>
           </ic-section-container>
         </div>
-        {this.navMenuVisible && (
+        {navMenuVisible && (
           <ic-navigation-menu
-            version={this.version}
-            status={this.status}
+            version={version}
+            status={status}
             class={{
-              ["inline"]: this.inline,
+              ["inline"]: inline,
             }}
           >
-            {this.hasIconButtons && (
+            {hasIconButtons && (
               <div class="menu-buttons-slot" slot="buttons">
                 <slot name="buttons"></slot>
               </div>

@@ -49,7 +49,7 @@ let inputIds = 0;
   shadow: true,
 })
 export class TextField {
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
   private showLeftIcon: boolean = this.hasLeftIconSlot();
 

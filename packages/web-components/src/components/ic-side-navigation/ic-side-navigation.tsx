@@ -57,7 +57,7 @@ export class SideNavigation {
   @Element() el: HTMLIcSideNavigationElement;
 
   @State() deviceSize: number = getCurrentDeviceSize();
-  @State() deviceSizeAppTitle = DEVICE_SIZES.S;
+  @State() deviceSizeAppTitle: number = DEVICE_SIZES.S;
   @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
   @State() hasSecondaryNavigation: boolean = false;
   @State() menuExpanded: boolean = false;

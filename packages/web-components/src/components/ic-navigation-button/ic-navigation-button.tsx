@@ -37,7 +37,7 @@ import { IcNavButtonModes } from "./ic-navigation-button.types";
 })
 export class NavigationButton {
   private buttonEl: HTMLIcButtonElement;
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  private inheritedAttributes: { [k: string]: string } = {};
 
   @Element() el: HTMLIcNavigationButtonElement;
 

@@ -6,6 +6,7 @@ import {
   IcPropObject,
   IcSearchMatchPositions,
   IcColorRGBA,
+  IcDeviceSizes,
 } from "./types";
 
 import {
@@ -455,11 +456,21 @@ export const getNavItemParentDetails = (
 };
 
 export const DEVICE_SIZES = {
-  XS: Number(getCssProperty("--ic-breakpoint-xs").replace("px", "")), // 0
-  S: Number(getCssProperty("--ic-breakpoint-sm").replace("px", "")), // 576
-  M: Number(getCssProperty("--ic-breakpoint-md").replace("px", "")), // 768
-  L: Number(getCssProperty("--ic-breakpoint-lg").replace("px", "")), // 992
-  XL: Number(getCssProperty("--ic-breakpoint-xl").replace("px", "")), // 1200
+  XS: Number(
+    getCssProperty("--ic-breakpoint-xs").replace("px", "")
+  ) as IcDeviceSizes, // 0
+  S: Number(
+    getCssProperty("--ic-breakpoint-sm").replace("px", "")
+  ) as IcDeviceSizes, // 576
+  M: Number(
+    getCssProperty("--ic-breakpoint-md").replace("px", "")
+  ) as IcDeviceSizes, // 768
+  L: Number(
+    getCssProperty("--ic-breakpoint-lg").replace("px", "")
+  ) as IcDeviceSizes, // 992
+  XL: Number(
+    getCssProperty("--ic-breakpoint-xl").replace("px", "")
+  ) as IcDeviceSizes, // 1200
   UNDEFINED: 1200,
 };
 
@@ -632,6 +643,6 @@ export const isMacDevice = (): boolean => {
   return window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
 };
 
-export const isNumeric = (value: string) => {
+export const isNumeric = (value: string): boolean => {
   return /^-?\d+$/.test(value);
 };

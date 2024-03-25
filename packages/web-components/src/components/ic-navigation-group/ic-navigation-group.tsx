@@ -74,12 +74,9 @@ export class NavigationGroup {
 
   componentWillLoad(): void {
     this.deviceSize = getCurrentDeviceSize();
-    const navParentDetails = getNavItemParentDetails(this.el);
-    this.navigationType = navParentDetails.navType;
-    this.parentEl = navParentDetails.parent;
-    if (this.deviceSize <= DEVICE_SIZES.L && this.navigationType === "top") {
-      this.inTopNavSideMenu = true;
-    }
+    const { navType, parent } = getNavItemParentDetails(this.el);
+    this.navigationType = navType;
+    this.parentEl = parent;
 
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
@@ -91,6 +88,11 @@ export class NavigationGroup {
         "topNavResized",
         this.topNavResizedHandler
       );
+      if (
+        this.deviceSize <=
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+      )
+        this.inTopNavSideMenu = true;
     }
   }
 
@@ -182,7 +184,9 @@ export class NavigationGroup {
     const newSize = ev.detail.size;
     if (newSize !== this.deviceSize) {
       this.deviceSize = newSize;
-      this.inTopNavSideMenu = newSize <= DEVICE_SIZES.L;
+      this.inTopNavSideMenu =
+        newSize <=
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint;
     }
   };
 
