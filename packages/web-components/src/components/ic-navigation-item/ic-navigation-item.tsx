@@ -15,7 +15,6 @@ import {
   DEVICE_SIZES,
   getCurrentDeviceSize,
   getThemeForegroundColor,
-  getParentElementType,
   getNavItemParentDetails,
   isSlotUsed,
 } from "../../utils/helpers";
@@ -24,6 +23,7 @@ import { IcNavType, IcTheme } from "../../utils/types";
 import chevronIcon from "../../assets/chevron-icon.svg";
 
 import OpenInNew from "../../assets/OpenInNew.svg";
+import { IcExpandedDetail } from "../ic-side-navigation/ic-side-navigation.types";
 
 /**
  * @part link - The `<a>` within ic-navigation-item
@@ -133,9 +133,10 @@ export class NavigationItem {
   }
 
   componentWillLoad(): void {
-    const navParentDetails = getNavItemParentDetails(this.el);
-    this.navigationType = navParentDetails.navType;
-    this.parentEl = navParentDetails.parent;
+    const { navType, parent } = getNavItemParentDetails(this.el);
+    this.navigationType = navType;
+    this.parentEl = parent;
+    this.deviceSize = getCurrentDeviceSize();
 
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
@@ -147,18 +148,13 @@ export class NavigationItem {
         "topNavResized",
         this.topNavResizedHandler
       );
-    }
-
-    if (
-      getParentElementType(this.el) === "IC-NAVIGATION-GROUP" &&
-      this.navigationType === "top"
-    ) {
-      this.isTopNavChild = true;
-    }
-
-    this.deviceSize = getCurrentDeviceSize();
-    if (this.deviceSize <= DEVICE_SIZES.L && this.navigationType === "top") {
-      this.inTopNavSideMenu = true;
+      if (this.el.parentElement.tagName === "IC-NAVIGATION-GROUP")
+        this.isTopNavChild = true;
+      if (
+        this.deviceSize <=
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint
+      )
+        this.inTopNavSideMenu = true;
     }
 
     this.navigationSlot = this.el.querySelector('[slot="navigation-item"]');
@@ -172,9 +168,8 @@ export class NavigationItem {
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.focusStyle = theme.mode;
+  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+    this.focusStyle = detail.mode;
   }
 
   /**
@@ -182,9 +177,7 @@ export class NavigationItem {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.itemEl) {
-      this.itemEl.focus();
-    }
+    this.itemEl?.focus();
   }
 
   private displayDefaultNavigationItem = (
@@ -241,28 +234,33 @@ export class NavigationItem {
     );
   };
 
-  private topNavResizedHandler = (ev: CustomEvent): void => {
-    const newSize = ev.detail.size;
+  private topNavResizedHandler = ({
+    detail,
+  }: CustomEvent<{ size: number }>): void => {
+    const newSize = detail.size;
     if (newSize !== this.deviceSize) {
       this.deviceSize = newSize;
-      this.inTopNavSideMenu = newSize <= DEVICE_SIZES.L;
+      this.inTopNavSideMenu =
+        newSize <=
+        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint;
     }
   };
 
-  private sideNavExpandHandler = (ev: CustomEvent): void => {
-    const { sideNavExpanded, sideNavMobile } = ev.detail;
+  private sideNavExpandHandler = ({
+    detail,
+  }: CustomEvent<IcExpandedDetail>): void => {
+    const { sideNavExpanded, sideNavMobile } = detail;
     this.sideNavExpanded = sideNavExpanded;
     this.isSideNavMobile = sideNavMobile;
   };
 
-  private handleBlur = (ev: FocusEvent) => {
-    if (ev.relatedTarget !== null) {
-      const target = ev.relatedTarget as HTMLElement;
-      if (target.tagName === "IC-NAVIGATION-ITEM") {
-        return;
-      }
+  private handleBlur = ({ relatedTarget }: FocusEvent) => {
+    if (
+      relatedTarget === null ||
+      (relatedTarget as HTMLElement).tagName !== "IC-NAVIGATION-ITEM"
+    ) {
+      this.childBlur.emit();
     }
-    this.childBlur.emit();
   };
 
   private handleClick = () => {

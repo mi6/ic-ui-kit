@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type IcFocusableComponents =
   | HTMLIcBreadcrumbElement
   | HTMLIcButtonElement
@@ -200,3 +201,5 @@ export interface IcBlurEventDetail {
 export type IcSelectTypes = "single" | "multi";
 
 export type IcSelectMethodTypes = "auto" | "manual";
+
+export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;
