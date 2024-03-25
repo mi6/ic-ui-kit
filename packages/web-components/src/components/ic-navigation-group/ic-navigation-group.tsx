@@ -180,13 +180,16 @@ export class NavigationGroup {
     }
   };
 
-  private topNavResizedHandler = (ev: CustomEvent): void => {
-    const newSize = ev.detail.size;
-    if (newSize !== this.deviceSize) {
-      this.deviceSize = newSize;
+  private topNavResizedHandler = ({
+    detail,
+  }: CustomEvent<{ size: number }>): void => {
+    const { size } = detail;
+    if (size !== this.deviceSize) {
+      this.deviceSize = size;
       this.inTopNavSideMenu =
-        newSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint;
+        size <=
+        ((this.parentEl as HTMLIcTopNavigationElement)
+          ?.customMobileBreakpoint || DEVICE_SIZES.L);
     }
   };
 

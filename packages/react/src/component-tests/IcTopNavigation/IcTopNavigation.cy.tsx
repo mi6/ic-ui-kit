@@ -15,10 +15,12 @@ import {
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_VISIBLE,
+  HAVE_CLASS,
   HAVE_CSS,
   HAVE_FOCUS,
   NOT_BE_VISIBLE,
   NOT_EXIST,
+  NOT_HAVE_CLASS,
 } from "../utils/constants";
 import {
   SimpleTopNav,
@@ -35,6 +37,7 @@ const TOP_NAV_SELECTOR = "ic-top-navigation";
 const SEARCH_BAR_SELECTOR = "ic-search-bar";
 const NAV_MENU_SELECTOR = "ic-navigation-menu";
 const NAV_ITEM_SELECTOR = "ic-navigation-item";
+const MOBILE_CSS_CLASS = "mobile-mode";
 
 describe("IcTopNavigation", () => {
   describe("mobile", () => {
@@ -100,6 +103,25 @@ describe("desktop", () => {
     cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("ApplicationName");
     cy.viewport("iphone-6");
     cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("AppName");
+  });
+
+  it("should switch to mobile mode at a different breakpoint when customMobileBreakpoint is set", () => {
+    mount(
+      <IcTopNavigation
+        app-title="ApplicationName"
+        status="alpha"
+        version="v0.0.7"
+        shortAppTitle="AppName"
+        customMobileBreakpoint={768} // Medium
+      >
+        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+      </IcTopNavigation>
+    );
+    cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
+    cy.viewport(992, 750);
+    cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
+    cy.viewport(768, 750);
+    cy.get(TOP_NAV_SELECTOR).should(HAVE_CLASS, MOBILE_CSS_CLASS);
   });
 });
 
