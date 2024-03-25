@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-18T10:40:36",
+  "timestamp": "2024-03-25T11:50:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -17980,6 +17980,51 @@
           "required": false
         },
         {
+          "name": "customMobileBreakpoint",
+          "type": "0 | 1200 | 576 | 768 | 992",
+          "complexType": {
+            "original": "IcDeviceSizes",
+            "resolved": "0 | 1200 | 576 | 768 | 992",
+            "references": {
+              "IcDeviceSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcDeviceSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "custom-mobile-breakpoint",
+          "reflectToAttr": false,
+          "docs": "Can set a custom breakpoint for the top navigation to switch to mobile mode.\nMust be one of our specified breakpoints in px: `0`, `576`, `768`, `992`, `1200`.",
+          "docsTags": [],
+          "default": "DEVICE_SIZES.L",
+          "values": [
+            {
+              "value": "0",
+              "type": "number"
+            },
+            {
+              "value": "1200",
+              "type": "number"
+            },
+            {
+              "value": "576",
+              "type": "number"
+            },
+            {
+              "value": "768",
+              "type": "number"
+            },
+            {
+              "value": "992",
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "href",
           "type": "string",
           "complexType": {
@@ -18806,6 +18851,11 @@
       "declaration": "export interface IcExpandedDetail {\n  sideNavExpanded: boolean;\n  sideNavMobile: boolean;\n}",
       "docstring": "",
       "path": "src/components/ic-side-navigation/ic-side-navigation.types.ts"
+    },
+    "src/utils/types.ts::IcDeviceSizes": {
+      "declaration": "export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;",
+      "docstring": "",
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-pagination/ic-pagination.types.ts::IcPaginationTypes": {
       "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
