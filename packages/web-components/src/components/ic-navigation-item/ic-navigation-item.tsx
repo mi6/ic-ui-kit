@@ -237,12 +237,13 @@ export class NavigationItem {
   private topNavResizedHandler = ({
     detail,
   }: CustomEvent<{ size: number }>): void => {
-    const newSize = detail.size;
-    if (newSize !== this.deviceSize) {
-      this.deviceSize = newSize;
+    const { size } = detail;
+    if (size !== this.deviceSize) {
+      this.deviceSize = size;
       this.inTopNavSideMenu =
-        newSize <=
-        (this.parentEl as HTMLIcTopNavigationElement).customMobileBreakpoint;
+        size <=
+        ((this.parentEl as HTMLIcTopNavigationElement)
+          ?.customMobileBreakpoint || DEVICE_SIZES.L);
     }
   };
 
