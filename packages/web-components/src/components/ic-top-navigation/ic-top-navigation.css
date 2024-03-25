@@ -208,33 +208,30 @@ slot[name="toggle-icon"] svg {
   }
 }
 
-/* medium */
-@media screen and (max-width: 992px) {
-  :host .nav-panel-container,
-  :host .app-status,
-  :host .app-version {
-    display: none;
-  }
+/** Mobile styling **/
+:host(.mobile-mode) .app-status,
+:host(.mobile-mode) .app-version {
+  display: none;
+}
 
-  :host .title-link {
-    margin-right: var(--ic-space-xs);
-  }
+:host(.mobile-mode) .title-link {
+  margin-right: var(--ic-space-xs);
+}
 
-  .search-menu-container {
-    max-width: 10rem;
-  }
+:host(.mobile-mode) .search-menu-container {
+  max-width: 10rem;
+}
 
-  .search-bar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: var(--ic-keyline-darken);
-    height: 4rem;
-    padding-left: var(--ic-space-md);
-    padding-right: var(--ic-space-md);
-    margin-left: calc(-1 * var(--section-container-margin));
-    margin-right: calc(-1 * var(--section-container-margin));
-  }
+:host(.mobile-mode) .search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: var(--ic-keyline-darken);
+  height: 4rem;
+  padding-left: var(--ic-space-md);
+  padding-right: var(--ic-space-md);
+  margin-left: calc(-1 * var(--section-container-margin));
+  margin-right: calc(-1 * var(--section-container-margin));
 }
 
 /* x small */

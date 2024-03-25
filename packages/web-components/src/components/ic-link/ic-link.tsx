@@ -29,7 +29,7 @@ import {
   },
 })
 export class Link {
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  private inheritedAttributes: { [k: string]: string } = {};
   private routerSlot: HTMLElement;
 
   @Element() el: HTMLIcLinkElement;
