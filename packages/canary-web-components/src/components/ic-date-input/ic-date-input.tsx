@@ -1468,7 +1468,7 @@ export class DateInput {
 
   private handleClearBlur = (ev: FocusEvent) => {
     this.clearButtonFocused = false;
-    if ((ev.relatedTarget as HTMLElement).id.match(/(day|year)-input$/)) {
+    if ((ev.relatedTarget as HTMLElement)?.id.match(/(day|year)-input$/)) {
       this.removeLabelledBy = false;
       return;
     }
