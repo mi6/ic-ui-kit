@@ -23,6 +23,7 @@ import {
 import {
   convertToDoubleDigits,
   createDate,
+  dateMatches,
   extractDateFromZuluDateTime,
   isDateOrEpoch,
   splitStringDate,
@@ -663,7 +664,7 @@ export class DateInput {
   private handleDateChange = (force: boolean) => {
     // Prevent icChange being emitted when each individual input is changed
     // This method is used within componentWillUpdate instead of using @Watch('value');
-    if (force || this.selectedDate !== this.previousSelectedDate) {
+    if (force || !dateMatches(this.selectedDate, this.previousSelectedDate)) {
       if (this.value) {
         this.inputsInOrder.forEach((input) => {
           input.classList.add(this.FIT_TO_VALUE);
@@ -672,7 +673,9 @@ export class DateInput {
       if (this.day && this.month && this.year && this.invalidDateText === "") {
         this.setValueAndEmitChange(this.selectedDate);
         this.notifyScreenReaderSelectedDate();
-      } else {
+      } else if (
+        !(this.selectedDate === null && this.previousSelectedDate === null)
+      ) {
         this.setValueAndEmitChange(null);
         this.selectedDateInfoEl.textContent = "";
       }
@@ -1427,7 +1430,6 @@ export class DateInput {
       this.setPreventInput(input, false);
     });
     this.isDateSetFromKeyboardEvent = false;
-    this.setValueAndEmitChange(null);
     this.setValidationMessage();
     this.handleDateChange(true);
 
@@ -1447,7 +1449,7 @@ export class DateInput {
   };
 
   private setValueAndEmitChange = (value: Date) => {
-    if (this.value !== value) {
+    if (!dateMatches(new Date(this.value), value)) {
       this.icChange.emit({ value: value });
       this.value = value;
     }
