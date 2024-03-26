@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.14.0...@ukic/react@2.15.0) (2024-03-26)
+
+### Bug Fixes
+
+- **react:** add Description import to select mdx files, adjust storybook folder structure ([fe6505d](https://github.com/mi6/ic-ui-kit/commit/fe6505dc384a5298e5fbf8dcbfbf71bb60f3002e))
+
+### Features
+
+- **react:** added tabbing and other interactions into cypress tests suite ([69b914a](https://github.com/mi6/ic-ui-kit/commit/69b914a6be314e007a5fa73966c51727347e3c6b))
+- **react:** adds new constant for datepicker tests ([b57223d](https://github.com/mi6/ic-ui-kit/commit/b57223d6aafaf79a6d1ae8e487c2c7c0d08564ca))
+
 # [2.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.13.0...@ukic/react@2.14.0) (2024-03-20)
 
 ### Bug Fixes

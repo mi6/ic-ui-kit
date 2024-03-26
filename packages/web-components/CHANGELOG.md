@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.14.0...@ukic/web-components@2.15.0) (2024-03-26)
+
+### Bug Fixes
+
+- **web-components:** add a watch to button disabled prop to remove it when disabled=false ([14276a8](https://github.com/mi6/ic-ui-kit/commit/14276a88b101b270a401f2e99805dbc0116b53e0))
+
+### Features
+
+- **web-components:** adds z-index token for datepicker ([358db4e](https://github.com/mi6/ic-ui-kit/commit/358db4e1df823914885f85f0808facddf789e40f))
+- **web-components:** updated core components for date input implementation ([a0fdff2](https://github.com/mi6/ic-ui-kit/commit/a0fdff2deee2a85b650379a8f509c46c5b07bede))
+
 # [2.14.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.13.0...@ukic/web-components@2.14.0) (2024-03-20)
 
 ### Bug Fixes

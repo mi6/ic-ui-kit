@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.8...@ukic/canary-react@2.0.0-canary.9) (2024-03-26)
+
+### Bug Fixes
+
+- **canary-react:** regenerated screenshots due to button size updates ([dab54f8](https://github.com/mi6/ic-ui-kit/commit/dab54f8327b45cdfdea0c88e614ab69af7fa1576))
+- **canary-react:** updated date picker stories ([f4a5b34](https://github.com/mi6/ic-ui-kit/commit/f4a5b34309ff34f4a2ca7452106f02e3e1626cb7))
+- **canary-react:** updated max width story ([c3aa750](https://github.com/mi6/ic-ui-kit/commit/c3aa7500b04e44796f187cbfc3239d9b3be02f7b))
+
+### Features
+
+- **canary-react:** adds react storybook docs for datepicker ([90caa11](https://github.com/mi6/ic-ui-kit/commit/90caa11836d07d46b5c4c22022cfda8490f8960c))
+- **react:** helper function for setting threshold based on env ([041084e](https://github.com/mi6/ic-ui-kit/commit/041084e59b11ca85b37f9eba3f6b8df007c48841))
+
 # [2.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.7...@ukic/canary-react@2.0.0-canary.8) (2024-03-20)
 
 ### Features

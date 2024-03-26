@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.9](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.8...@ukic/canary-web-components@2.0.0-canary.9) (2024-03-26)
+
+### Bug Fixes
+
+- **canary-web-components:** update date input calendar and clear to update appearance ([7b93a51](https://github.com/mi6/ic-ui-kit/commit/7b93a519a1c4dfdbaca7d08ba5c6e287000529bc))
+- **canary-web-components:** updated date input action buttons ([e8e8a96](https://github.com/mi6/ic-ui-kit/commit/e8e8a96607198ad073262f825823214d5999974c))
+
+### Features
+
+- **canary-web-components:** adds canary datepicker component ([bf4bf5f](https://github.com/mi6/ic-ui-kit/commit/bf4bf5f9dee0e66cdc3cf231644e6a25ee6d4e0d))
+- **canary-web-components:** date input implementation ([3803830](https://github.com/mi6/ic-ui-kit/commit/38038303dbb00da11cc3036394e6cdfe25f19b43)), closes [#1364](https://github.com/mi6/ic-ui-kit/issues/1364)
+- **web-components:** updated core components for date input implementation ([a0fdff2](https://github.com/mi6/ic-ui-kit/commit/a0fdff2deee2a85b650379a8f509c46c5b07bede))
+
 # [2.0.0-canary.8](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.7...@ukic/canary-web-components@2.0.0-canary.8) (2024-03-20)
 
 ### Bug Fixes
