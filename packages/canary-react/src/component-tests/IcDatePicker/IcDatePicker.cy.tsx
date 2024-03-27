@@ -1343,11 +1343,12 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();    
     
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+
     cy.compareSnapshot({
       name: "min-max-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
-    });
-    cy.checkA11yWithWait();
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+    });    
   });
 
   it("should test 'min' and 'max' props - year view", () => {
@@ -1358,11 +1359,12 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();    
     
+    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+
     cy.compareSnapshot({
       name: "min-max-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should test validation props", () => {
