@@ -389,7 +389,7 @@ export class DatePicker {
   localCalendarButtonClickHandler(ev: CustomEvent): void {
     this.myCalendarButtonClicked = true;
     if (!this.calendarOpen) {
-      this.setSelectedDate(ev.detail.value);
+      this.setSelectedDate(ev.detail.value, false);
     }
 
     this.calendarOpen = !this.calendarOpen;
@@ -416,9 +416,14 @@ export class DatePicker {
     this.decadeEnd = decadeArr[10];
   };
 
-  private setSelectedDate = (d: Date): void => {
-    this.selectedDate = d;
-    this.value = d === null ? "" : d;
+  private setSelectedDate = (d: Date, emit = true): void => {
+    if (d === null || !dateMatches(d, this.selectedDate)) {
+      this.selectedDate = d;
+      this.value = d;
+      if (emit) {
+        this.icChange.emit({ value: d });
+      }
+    }
   };
 
   private handleCalendarMouseDown = (event: MouseEvent): void => {
@@ -514,7 +519,7 @@ export class DatePicker {
   };
 
   private clearButtonClickHandler = () => {
-    this.setSelectedDate(null);
+    this.setSelectedDate(null, false);
     let text = "Selected date cleared.";
     if (!this.monthPickerVisible && !this.yearPickerVisible) {
       text += ` ${this.getMonthInViewText()}`;
@@ -1496,7 +1501,11 @@ export class DatePicker {
                     size={size}
                     onClick={this.clearButtonClickHandler}
                     onKeyDown={this.clearButtonKeyDownHandler}
-                    disabled={this.value === ""}
+                    disabled={
+                      this.value === "" ||
+                      this.value === null ||
+                      this.value === undefined
+                    }
                   >
                     Clear
                   </ic-button>
