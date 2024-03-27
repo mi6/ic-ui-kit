@@ -154,7 +154,11 @@ export const JSDates = (): HTMLIcDatePickerElement => {
 
 const updateSelectedDate = (ev: CustomEvent): void => {
   const el = document.querySelector("#selected-date");
-  el.innerHTML = "Selected date: " + ev.detail.value;
+  let text = "Selected date: ";
+  if (ev.detail.value) {
+    text += ev.detail.value;
+  }
+  el.innerHTML = text;
 };
 
 export const IcChangeDate = (): HTMLElement => {

@@ -678,7 +678,7 @@ describe("ic-date-picker", () => {
     await page.waitForChanges();
     await waitForTimeout(DELAY_MS);
 
-    expect(page.root.value).toBe("");
+    expect(page.root.value).toBeNull();
     expect(page.rootInstance.yearPickerVisible).toBe(true);
     expect(page.rootInstance.focussedYearEl.setFocus).toHaveBeenCalled();
     expect(page.rootInstance.liveRegionEl.textContent).toBe(
