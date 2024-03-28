@@ -32,6 +32,7 @@ import {
   },
 })
 export class Badge {
+  private ariaLabel: string = null;
   private customColorRGBA: IcColorRGBA;
   private foregroundColour: IcThemeForeground;
 
@@ -89,7 +90,7 @@ export class Badge {
 
     this.getBadgeForeground();
 
-    this.isAccessibleLabelDefined() && this.setAccessibleLabel();
+    this.setAccessibleLabel();
   }
 
   componentDidLoad(): void {
@@ -201,14 +202,26 @@ export class Badge {
     return label;
   };
 
+  // Set aria-label on badge and / or parent element
+  // Aria-describedby seems to not work, probably due to shadow DOM
   private setAccessibleLabel = () => {
+    const parentElType = getParentElementType(this.el);
+    const parentElAriaLabel = getParentElement(this.el).ariaLabel;
+    const defaultAriaLabel = this.isAccessibleLabelDefined()
+      ? this.accessibleLabel
+      : this.textLabel || "with badge being displayed";
+
     if (getParentElement(this.el) !== null) {
-      if (getParentElementType(this.el) === "IC-TAB") {
-        getParentElement(this.el).setAttribute("aria-describedby", "badge");
+      if (
+        parentElType !== "IC-CARD" &&
+        (parentElType !== "IC-TAB" ||
+          (parentElType === "IC-TAB" && parentElAriaLabel))
+      ) {
+        getParentElement(this.el).ariaLabel = `${
+          parentElAriaLabel ? `${parentElAriaLabel} ,` : ""
+        } ${defaultAriaLabel}`;
       } else {
-        getParentElement(
-          this.el
-        ).ariaLabel = `badge displaying ${this.accessibleLabel}`;
+        this.ariaLabel = `, ${defaultAriaLabel}`;
       }
     }
   };
@@ -232,11 +245,7 @@ export class Badge {
           ["hide"]: !visible,
         }}
         id={this.el.id || null}
-        aria-label={
-          this.isAccessibleLabelDefined()
-            ? `badge displaying ${this.accessibleLabel}`
-            : "badge being displayed"
-        }
+        aria-label={this.ariaLabel}
         role="status"
       >
         {type === "icon" && <slot name="badge-icon"></slot>}

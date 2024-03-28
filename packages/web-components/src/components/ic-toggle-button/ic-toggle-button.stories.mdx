@@ -92,8 +92,11 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With badge" parameters={{ loki: { skip: true } }}>
     {(args) => html`<ic-toggle-button label="Toggle">
-      <ic-badge text-label="1" slot="badge" variant="success"></ic-badge>
-    </ic-toggle-button>`}
+        <ic-badge text-label="1" slot="badge" variant="success"></ic-badge>
+      </ic-toggle-button>
+      <ic-toggle-button label="Toggle">
+        <ic-badge slot="badge" variant="success" type="dot"></ic-badge>
+      </ic-toggle-button>`}
   </Story>
 </Canvas>
 

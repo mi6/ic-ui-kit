@@ -98,9 +98,21 @@ import Button from "../ic-button/readme.md";
 
 <Canvas>
   <Story name="With badge" parameters={{ loki: { skip: true } }}>
-    {html`<ic-card heading="This is the card heading">
-      <ic-badge text-label="1" slot="badge" position="near"></ic-badge>
-    </ic-card>`}
+    {html`<ic-card
+        heading="This is the card heading"
+        clickable="true"
+        href="https://www.google.com"
+        style="margin-bottom: 8px"
+      >
+        <ic-badge text-label="1" slot="badge"></ic-badge>
+      </ic-card>
+      <ic-card
+        heading="This is the card heading"
+        clickable="true"
+        href="https://www.google.com"
+      >
+        <ic-badge slot="badge" type="dot"></ic-badge>
+      </ic-card>`}
   </Story>
 </Canvas>
 
