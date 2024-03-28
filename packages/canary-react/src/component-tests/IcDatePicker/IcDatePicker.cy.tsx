@@ -2395,7 +2395,7 @@ describe("IcDatePickers", () => {
     cy.compareSnapshot({
       name: "min-max-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
-    });    
+    });
   });
 
   it("should test 'min' and 'max' props - year view", () => {
@@ -2404,7 +2404,7 @@ describe("IcDatePickers", () => {
     );
 
     cy.checkHydrated(DATE_PICKER);
-    
+
     cy.findShadowEl(DATE_PICKER, DATE_INPUT)
       .shadow()
       .find(CALENDAR_BUTTON_ID)
