@@ -87,6 +87,7 @@ export class DateInput {
   private preventYearInput: boolean;
 
   private previousInvalidDateTest: string;
+  private previousEmittedDate: Date = undefined;
   private previousSelectedDate: Date = null;
 
   private selectedDate: Date = null;
@@ -273,6 +274,9 @@ export class DateInput {
 
     if (this.value) {
       this.setDate(this.value);
+      this.previousEmittedDate = new Date(this.value);
+    } else {
+      this.previousEmittedDate = null;
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -373,6 +377,14 @@ export class DateInput {
   @Method()
   async setDisableDays(days: IcWeekDays[]): Promise<void> {
     this.disableDays = days;
+  }
+
+  /**
+   * @internal Used to enable other components to invoke an IcChange event from the input.
+   */
+  @Method()
+  async triggerIcChange(d: Date): Promise<void> {
+    this.emitIcChange(d);
   }
 
   private setInputPasteValue = (input: EventTarget, pastedValue: string) => {
@@ -1450,7 +1462,7 @@ export class DateInput {
 
   private setValueAndEmitChange = (value: Date) => {
     if (!dateMatches(new Date(this.value), value)) {
-      this.icChange.emit({ value: value });
+      this.emitIcChange(value);
       this.value = value;
     }
   };
@@ -1476,6 +1488,18 @@ export class DateInput {
     }
 
     this.removeLabelledBy = true;
+  };
+
+  private emitIcChange = (d: Date) => {
+    console.log("in emitIcChange", d, this.previousEmittedDate);
+    if (
+      !(d === null && this.previousEmittedDate === null) &&
+      !dateMatches(d, this.previousEmittedDate)
+    ) {
+      this.previousEmittedDate = d;
+      console.log("will emit", d);
+      this.icChange.emit({ value: d });
+    }
   };
 
   render() {

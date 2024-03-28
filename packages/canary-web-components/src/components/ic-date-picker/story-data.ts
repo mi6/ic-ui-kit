@@ -159,11 +159,13 @@ const updateSelectedDate = (ev: CustomEvent): void => {
     text += ev.detail.value;
   }
   el.innerHTML = text;
+  console.log("ic-change", ev.detail.value);
 };
 
 export const IcChangeDate = (): HTMLElement => {
   const datePicker = createDatePickerElement();
   datePicker.addEventListener("icChange", updateSelectedDate);
+  datePicker.value = "2024-07-15";
   const container = document.createElement("div");
 
   const selDate = document.createElement("span");

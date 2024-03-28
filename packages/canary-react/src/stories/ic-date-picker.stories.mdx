@@ -452,12 +452,18 @@ export default DatePicker;
 The `IcChange` event is emitted by the date picker when the selected date changes.
 
 export const DatePickerWithIcChange = () => {
+  const setDate = (date) => {
+    console.log("icChange event fired with value:", date)
+    setSelectedDate(date);
+  }
+  
   const [selectedDate, setSelectedDate] = useState();
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
       <IcDatePicker 
         label="When would you like to collect your coffee?" 
-        onIcChange={(event) => setSelectedDate(event.detail.value)}
+        onIcChange={(event) => setDate(event.detail.value)}
+        value={"2024-07-15"}
       /> 
       <span>
         {`Selected date: ${selectedDate}`}
