@@ -126,6 +126,13 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
+    expect(page.rootInstance.displayedItemsPerPageOptions).toEqual([
+      { label: "15", value: "15" },
+      { label: "30", value: "30" },
+      { label: "60", value: "60" },
+      { label: "All", value: "100" },
+    ]);
+
     expect(page.root).toMatchSnapshot();
   });
 
@@ -149,6 +156,13 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
+    expect(page.rootInstance.displayedItemsPerPageOptions).toEqual([
+      { label: "25", value: "25" },
+      { label: "50", value: "50" },
+      { label: "75", value: "75" },
+      { label: "All", value: "150" },
+    ]);
+
     expect(page.root).toMatchSnapshot();
   });
 
@@ -169,7 +183,11 @@ describe("ic-pagination-bar", () => {
 
     await page.waitForChanges();
 
-    expect(page.root).toMatchSnapshot();
+    expect(page.rootInstance.displayedItemsPerPageOptions).toEqual([
+      { label: "25", value: "25" },
+      { label: "50", value: "50" },
+      { label: "All", value: "100" },
+    ]);
   });
 
   it("should wrap pagination when the device size is small", async () => {
@@ -321,7 +339,7 @@ describe("ic-pagination-bar", () => {
 
   it("should error immediately when an invalid page is entered before it is submitted", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, IcPagination, IcTooltip, IcTextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -329,7 +347,7 @@ describe("ic-pagination-bar", () => {
 
     const input = paginationBar.shadowRoot.querySelector("ic-text-field");
 
-    expect(input.validationStatus).toBeUndefined();
+    expect(input.validationStatus).toBe("");
 
     input.value = "15";
 
@@ -344,7 +362,7 @@ describe("ic-pagination-bar", () => {
 
   it("should remain in error state if enter is pressed while in error state", async () => {
     const page = await newSpecPage({
-      components: [PaginationBar, IcPagination, IcTooltip],
+      components: [PaginationBar, IcPagination, IcTooltip, IcTextField],
       html: `<ic-pagination-bar total-items="100" show-go-to-page-control="true"></ic-pagination-bar>`,
     });
 
@@ -354,7 +372,7 @@ describe("ic-pagination-bar", () => {
 
     const event = new KeyboardEvent("keydown", { key: "Enter" });
 
-    expect(input.validationStatus).toBeUndefined();
+    expect(input.validationStatus).toBe("");
 
     input.value = "15";
 
@@ -649,5 +667,26 @@ describe("ic-pagination-bar", () => {
     await page.waitForChanges();
 
     expect(event).toHaveBeenCalled();
+  });
+
+  it("should update pagination when number of item changes", async () => {
+    const page = await newSpecPage({
+      components: [PaginationBar],
+      html: `<ic-pagination-bar total-items="0"></ic-pagination-bar>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.totalItems = "100";
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.totalItems = "50";
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 });
