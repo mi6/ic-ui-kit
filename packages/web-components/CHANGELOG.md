@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.15.0...@ukic/web-components@2.16.0) (2024-03-28)
+
+### Bug Fixes
+
+- **web-components:** added css to ic-navigation-group to prevent its label text wrapping ([b046240](https://github.com/mi6/ic-ui-kit/commit/b04624026c8bbaa56707b7089b6e4595606be423))
+
+### Features
+
+- **web-components:** added a new prop to set a custom breakpoint to switch to mobile version ([f8cec16](https://github.com/mi6/ic-ui-kit/commit/f8cec1669c93c2b937ae4b5a32c48f4af04c8eba))
+
 # [2.15.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.14.0...@ukic/web-components@2.15.0) (2024-03-26)
 
 ### Bug Fixes
