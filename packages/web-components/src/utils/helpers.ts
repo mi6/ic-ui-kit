@@ -646,3 +646,23 @@ export const isMacDevice = (): boolean => {
 export const isNumeric = (value: string): boolean => {
   return /^-?\d+$/.test(value);
 };
+
+export const waitForHydration = (wait = 100): Promise<boolean> => {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+      const elements = document.getElementsByTagName("*");
+
+      for (let i = 0; i < elements.length; i++) {
+        if (elements[i].tagName.startsWith("IC-")) {
+          if (elements[i].classList.contains("hydrated")) {
+            clearInterval(interval);
+            resolve(true);
+          } else {
+            clearInterval(interval);
+            resolve(false);
+          }
+        }
+      }
+    }, wait);
+  });
+};
