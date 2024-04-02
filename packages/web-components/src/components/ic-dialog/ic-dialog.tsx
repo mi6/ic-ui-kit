@@ -292,7 +292,7 @@ export class Dialog {
     if (this.disableHeightConstraint) {
       this.dialogEl.show();
     } else {
-      this.dialogEl.showModal();
+      this.dialogEl?.showModal();
     }
 
     setTimeout(() => {
