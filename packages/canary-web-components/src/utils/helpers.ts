@@ -613,3 +613,19 @@ export const removeDisabledFalse = (
 export const isMacDevice = (): boolean => {
   return window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
 };
+
+export async function waitForHydration(): Promise<boolean> {
+  const elements = document.getElementsByTagName("*");
+
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i].tagName.startsWith("IC-")) {
+      if (elements[i].classList.contains("hydrated")) {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  return false;
+}
