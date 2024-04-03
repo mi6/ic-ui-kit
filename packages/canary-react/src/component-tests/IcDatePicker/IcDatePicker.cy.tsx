@@ -1,18 +1,27 @@
 /* eslint-disable react/jsx-no-bind */
 /// <reference types="Cypress" />
-import './IcDatePicker.css'
+import "./IcDatePicker.css";
 import React from "react";
 import { mount } from "cypress/react";
 import { IcDatePicker } from "../../components";
 import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
 
-import { BE_DISABLED, NOT_BE_DISABLED, NOT_EXIST, HAVE_CLASS, HAVE_TEXT, HAVE_ATTR, BE_VISIBLE, CONTAIN_TEXT} from "../../../../react/src/component-tests/utils/constants";
+import {
+  BE_DISABLED,
+  NOT_BE_DISABLED,
+  NOT_EXIST,
+  HAVE_CLASS,
+  HAVE_TEXT,
+  HAVE_ATTR,
+  BE_VISIBLE,
+  CONTAIN_TEXT,
+} from "../../../../react/src/component-tests/utils/constants";
 
 const DATE_PICKER = "ic-date-picker";
 const DATE_INPUT = "ic-date-input";
 const INPUT_VALIDATION = "ic-input-validation";
 const BUTTON = "button";
-const DEFAULT_LABEL = "Test label"
+const DEFAULT_LABEL = "Test label";
 const DEFAULT_VALUE = "15/12/2023";
 const CALENDAR_BUTTON_ID = "#calendar-button";
 const MONTH_PICKER_BTN_CLASS = ".month-picker-button";
@@ -33,7 +42,6 @@ const NEXT_YEAR_BUTTON_ID = "#next-year-button";
 const PREV_DECADE_BUTTON_ID = "#prev-decade-button";
 const NEXT_DECADE_BUTTON_ID = "#next-decade-button";
 
-
 const ATTR_ARIA_LABEL = "aria-label";
 
 const ARROW_UP_KEY = "{upArrow}";
@@ -51,31 +59,45 @@ const DEFAULT_TEST_THRESHOLD = 0.035;
 const SCREENSHOT_DELAY = 500;
 
 const checkDateInputValue = (date: Date | null) => {
-  const currDay = date && date.getDate() || 0;
-  const currMon = date && date.getMonth() + 1 || 0;
-  const currYear = date && date.getFullYear() || 0;
+  const currDay = (date && date.getDate()) || 0;
+  const currMon = (date && date.getMonth() + 1) || 0;
+  const currYear = (date && date.getFullYear()) || 0;
   let dayVal: number;
   let monthVal: number;
   let yearVal: number;
-  cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(".day-input").invoke("val").then((val: string) => {
-    dayVal = Number(val);
-  }).then(() => {
-    expect(dayVal).to.eq(currDay)
-  });
-  cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(".month-input").invoke("val").then((val: string) => {
-    monthVal = Number(val);
-  }).then(() => {
-    expect(monthVal).to.eq(currMon)
-  });
-  cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(".year-input").invoke("val").then((val: string) => {
-    yearVal = Number(val);
-  }).then(() => {
-    expect(yearVal).to.eq(currYear)
-  });
-}
+  cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+    .shadow()
+    .find(".day-input")
+    .invoke("val")
+    .then((val: string) => {
+      dayVal = Number(val);
+    })
+    .then(() => {
+      expect(dayVal).to.eq(currDay);
+    });
+  cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+    .shadow()
+    .find(".month-input")
+    .invoke("val")
+    .then((val: string) => {
+      monthVal = Number(val);
+    })
+    .then(() => {
+      expect(monthVal).to.eq(currMon);
+    });
+  cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+    .shadow()
+    .find(".year-input")
+    .invoke("val")
+    .then((val: string) => {
+      yearVal = Number(val);
+    })
+    .then(() => {
+      expect(yearVal).to.eq(currYear);
+    });
+};
 
 describe("IcDatePickers", () => {
-
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(500, 700);
@@ -90,8 +112,11 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -101,12 +126,21 @@ describe("IcDatePickers", () => {
   });
 
   it("should render default variant at max width", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -120,9 +154,12 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -132,13 +169,22 @@ describe("IcDatePickers", () => {
   });
 
   it("should render default variant at max width - month view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -152,9 +198,12 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-year-view",
@@ -163,13 +212,22 @@ describe("IcDatePickers", () => {
   });
 
   it("should render default variant at max width - year view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-max-width-year-view",
@@ -178,12 +236,17 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -193,12 +256,22 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant at max width", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="small"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -208,12 +281,17 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant - month view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
@@ -225,12 +303,22 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant at max width - month view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="small"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
 
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
@@ -242,14 +330,19 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant - year view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -259,14 +352,24 @@ describe("IcDatePickers", () => {
   });
 
   it("should render small variant at max width - year view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="small"/>);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="small"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -276,12 +379,17 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -291,12 +399,22 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant at max width", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="large"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -306,16 +424,21 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant - month view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
-    
+
     cy.compareSnapshot({
       name: "large-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
@@ -323,16 +446,26 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant at max width - month view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="large"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
-    
+
     cy.compareSnapshot({
       name: "large-max-width-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
@@ -340,14 +473,19 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant - year view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -357,14 +495,24 @@ describe("IcDatePickers", () => {
   });
 
   it("should render large variant at max width - year view", () => {
-    mount(<IcDatePicker class="max-width" label={DEFAULT_LABEL} value={DEFAULT_VALUE} size="large" />);
+    mount(
+      <IcDatePicker
+        class="max-width"
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        size="large"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -374,11 +522,20 @@ describe("IcDatePickers", () => {
   });
 
   it("should hide go to today button", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} showPickerTodayButton={false} />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate={DEFAULT_VALUE}
+        showPickerTodayButton={false}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "goto-today-hidden",
@@ -387,11 +544,20 @@ describe("IcDatePickers", () => {
   });
 
   it("should hide clear button", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} showPickerClearButton={false} />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate={DEFAULT_VALUE}
+        showPickerClearButton={false}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "clear-hidden",
@@ -404,15 +570,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID).click();
 
-    cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID).should(HAVE_CLASS, "disabled");
-    cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID).shadow().find(BUTTON).should(BE_DISABLED);   
+    cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID).should(
+      HAVE_CLASS,
+      "disabled"
+    );
+    cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .should(BE_DISABLED);
 
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).click();
-    
-    checkDateInputValue(new Date());    
+
+    checkDateInputValue(new Date());
   });
 
   it("should clear date when button pressed", () => {
@@ -420,14 +595,25 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID).click();
 
-    cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID).should(HAVE_CLASS, "disabled");
-    cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID).shadow().find(BUTTON).should(BE_DISABLED);   
-    
-    checkDateInputValue(null);   
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID).should(
+      HAVE_CLASS,
+      "disabled"
+    );
+    cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .should(BE_DISABLED);
+
+    checkDateInputValue(null);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
   });
 
   it("should navigate to previous month when button pressed - day view", () => {
@@ -435,9 +621,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, PREV_MONTH_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should navigate to next month when button pressed - day view", () => {
@@ -445,10 +637,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, NEXT_MONTH_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should navigate to previous year when button pressed - day view", () => {
@@ -456,9 +657,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, PREV_YEAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2022");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should navigate to next year when button pressed - day view", () => {
@@ -466,9 +673,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, NEXT_YEAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should navigate to previous month when left arrow key pressed - day view", () => {
@@ -476,9 +689,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should navigate to previous month whenup arrow key pressed - day view", () => {
@@ -486,9 +709,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_UP_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should navigate to next month when right arrow key pressed - day view", () => {
@@ -496,9 +729,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should navigate to next month when down arrow key pressed - day view", () => {
@@ -506,9 +749,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_DOWN_KEY);
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should navigate to previous year when left arrow key pressed - day view", () => {
@@ -516,9 +769,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2022");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should navigate to previous year when up arrow key pressed - day view", () => {
@@ -526,9 +789,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_UP_KEY);
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2022");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should navigate to next year when right arrow key pressed - day view", () => {
@@ -536,9 +809,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should navigate to next year when down arrow key pressed - day view", () => {
@@ -546,9 +829,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_DOWN_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should test keyboard interaction in day view - rightArrow", () => {
@@ -556,9 +849,16 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ARROW_RIGHT_KEY);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "1").and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 1 January 2024");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(HAVE_TEXT, "1")
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 1 January 2024");
   });
 
   it("should test keyboard interaction in day view - leftArrow", () => {
@@ -566,9 +866,16 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ARROW_LEFT_KEY);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "30").and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Thursday, 30 November 2023");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(HAVE_TEXT, "30")
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Thursday, 30 November 2023");
   });
 
   it("should test keyboard interaction in day view - upArrow", () => {
@@ -576,8 +883,13 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ARROW_UP_KEY);
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "8");
   });
 
@@ -586,17 +898,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ARROW_DOWN_KEY);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "22");
-  });  
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(
+      HAVE_TEXT,
+      "22"
+    );
+  });
 
   it("should test keyboard interaction in day view - Home", () => {
     mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(HOME_KEY);
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "1");
   });
@@ -606,9 +929,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(END_KEY);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(HAVE_TEXT, "31");
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(
+      HAVE_TEXT,
+      "31"
+    );
   });
 
   it("should test keyboard interaction in day view - PageUp", () => {
@@ -616,9 +945,17 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(PAGE_UP_KEY);
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(PAGE_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should test keyboard interaction in day view - PageDown", () => {
@@ -626,9 +963,17 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(PAGE_DOWN_KEY);
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(PAGE_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should test keyboard interaction in day view - Shift + PageUp", () => {
@@ -636,9 +981,17 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type("{shift}{PageUp}");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2022");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type("{shift}{PageUp}");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should test keyboard interaction in day view - Shift + PageDown", () => {
@@ -646,9 +999,17 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type("{shift}{PageDown}");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type("{shift}{PageDown}");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should close picker when Escape pressed", () => {
@@ -656,9 +1017,14 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ESCAPE_KEY);
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ESCAPE_KEY);
+
     cy.compareSnapshot({
       name: "escape-to-close",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
@@ -670,9 +1036,12 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.get("body").click();
-    
+
     cy.compareSnapshot({
       name: "escape-to-close",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
@@ -684,8 +1053,13 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).focus().type(ENTER_KEY);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .focus()
+      .type(ENTER_KEY);
 
     checkDateInputValue(new Date());
   });
@@ -697,11 +1071,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should navigate to next month when arrow down key pressed - month view", () => {
@@ -709,11 +1096,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_DOWN_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should navigate to previous month when arrow left key pressed - month view", () => {
@@ -721,11 +1121,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should navigate to previous month when arrow up key pressed - month view", () => {
@@ -733,11 +1146,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_UP_KEY);       
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "November");
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(HAVE_TEXT, "November");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "November"
+    );
   });
 
   it("should focus and select January button when Home key pressed - month view", () => {
@@ -745,12 +1171,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(HOME_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(HOME_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should focus & select December button when End key pressed - month view", () => {
@@ -758,12 +1200,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(END_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "December");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "December");
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(END_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
   });
 
   it("should return to day view when escape pressed - month view", () => {
@@ -771,10 +1229,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ESCAPE_KEY);  
-    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ESCAPE_KEY);
+    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
   });
 
   it("should return to day view when month picker button clicked - month view", () => {
@@ -782,10 +1249,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
   });
 
   it("should select month when enter pressed - month view", () => {
@@ -793,10 +1265,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY+ENTER_KEY);   
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 15 January 2024" );
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY + ENTER_KEY);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Monday, 15 January 2024");
   });
 
   it("should select month when a month clicked - month view", () => {
@@ -804,10 +1285,18 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, "ic-button[data-month='0']").shadow().find(BUTTON).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Sunday, 15 January 2023" );
+    cy.findShadowEl(DATE_PICKER, "ic-button[data-month='0']")
+      .shadow()
+      .find(BUTTON)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Sunday, 15 January 2023");
   });
 
   it("should update year when moving from December - month view", () => {
@@ -815,11 +1304,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024"); 
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should update year when moving from January - month view", () => {
@@ -827,11 +1329,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "December");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
   });
 
   it("should not update year when moving from December - month view", () => {
@@ -839,12 +1354,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "December");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should not update year when moving from January - month view", () => {
@@ -852,12 +1383,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "January");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2024");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "December");
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
   });
 
   it("should focus January button when Home key pressed - month view", () => {
@@ -865,12 +1412,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).shadow().find(BUTTON).focus().type(HOME_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "December");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "January");
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(HOME_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "January"
+    );
   });
 
   it("should focus December button when End key pressed - month view", () => {
@@ -878,12 +1441,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS).shadow().find(BUTTON).focus().type(END_KEY);   
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(HAVE_TEXT, "December");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(HAVE_TEXT, "December");
+    cy.findShadowEl(DATE_PICKER, SELECTED_MONTH_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(END_KEY);
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_MONTH_BTN_CLASS).should(
+      HAVE_TEXT,
+      "December"
+    );
   });
 
   // Year view tests
@@ -893,13 +1472,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2030");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2030");
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2040s");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2030"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2030"
+    );
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2040s"
+    );
   });
 
   it("should navigate to next year when arrow down key pressed - year view", () => {
@@ -907,13 +1505,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_DOWN_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2030");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2030");
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2040s");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2030"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2030"
+    );
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2040s"
+    );
   });
 
   it("should navigate to previous year when arrow left key pressed - year view", () => {
@@ -921,13 +1538,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2019");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2019");
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2000s");
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2019"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2019"
+    );
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2000s"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
   });
 
   it("should navigate to previous year when arrow up key pressed - year view", () => {
@@ -935,13 +1571,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_UP_KEY);       
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2019");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2019");
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2000s");
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2019"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2019"
+    );
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2000s"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
   });
 
   it("should focus & select 2020 button when Home key pressed - year view", () => {
@@ -949,12 +1604,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(HOME_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2020");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2020");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2020");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(HOME_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2020"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2020"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2020"
+    );
   });
 
   it("should focus & select 2029 button when End key pressed - year view", () => {
@@ -962,12 +1633,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(END_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2029");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2029");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2029");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(END_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2029"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2029"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2029"
+    );
   });
 
   it("should focus & select 2013 button when PageUp key pressed - year view", () => {
@@ -975,12 +1662,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(PAGE_UP_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2013");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2013");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2013");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(PAGE_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2013"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2013"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2013"
+    );
   });
 
   it("should focus & select 2013 button when PageDown key pressed - year view", () => {
@@ -988,12 +1691,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(PAGE_DOWN_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2033");
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2033");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2033");
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(PAGE_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2033"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2033"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2033"
+    );
   });
 
   it("should return to day view when escape pressed - year view", () => {
@@ -1001,10 +1720,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ESCAPE_KEY);  
-    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ESCAPE_KEY);
+    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
   });
 
   it("should return to day view when year picker button clicked - year view", () => {
@@ -1012,10 +1740,15 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
   });
 
   it("should select year when enter pressed - year view", () => {
@@ -1023,10 +1756,19 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY+ENTER_KEY);   
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Sunday, 15 December 2024" );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY + ENTER_KEY);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Sunday, 15 December 2024");
   });
 
   it("should select year when a year clicked - year view", () => {
@@ -1034,10 +1776,18 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, "ic-button[data-year='2027']").shadow().find(BUTTON).click();
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Wednesday, 15 December 2027" );
+    cy.findShadowEl(DATE_PICKER, "ic-button[data-year='2027']")
+      .shadow()
+      .find(BUTTON)
+      .click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Wednesday, 15 December 2027");
   });
 
   it("should move decades when buttons clicked - year view", () => {
@@ -1045,13 +1795,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).shadow().find(BUTTON).click();
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2000s");
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .click();
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2000s"
+    );
 
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).shadow().find(BUTTON).click();
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2030s");
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .click();
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2030s"
+    );
   });
 
   it("should update focussed year, but not selected year when arrow right key pressed - year view", () => {
@@ -1059,12 +1824,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2024");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should update focussed year, but not selected year when arrow down key pressed - year view", () => {
@@ -1072,12 +1853,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_DOWN_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2024");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2024"
+    );
   });
 
   it("should update focussed year, but not selected year when arrow left key pressed - year view", () => {
@@ -1085,12 +1882,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2022");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should update focussed year, but not selected year when arrow up key pressed - year view", () => {
@@ -1098,12 +1911,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_UP_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2022");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2022"
+    );
   });
 
   it("should update focussed year, but not selected year when Home key pressed - year view", () => {
@@ -1111,12 +1940,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(HOME_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2020");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(HOME_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2020"
+    );
   });
 
   it("should update focussed year, but not selected year when End key pressed - year view", () => {
@@ -1124,12 +1969,28 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(END_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2023");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2029");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(END_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2029"
+    );
   });
 
   it("should go back a decade and but not select year when moving back from first year in view", () => {
@@ -1137,13 +1998,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_LEFT_KEY);
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2000s");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2020");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2019"); 
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_LEFT_KEY);
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2000s"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2020"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2019"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
   });
 
   it("should go forward a decade and but not select year when moving forward from last year in view", () => {
@@ -1151,13 +2031,32 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(ARROW_RIGHT_KEY);
-    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(HAVE_TEXT, "2020s");
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2029");
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2030"); 
-    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(HAVE_TEXT, "2040s");
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(ARROW_RIGHT_KEY);
+    cy.findShadowEl(DATE_PICKER, PREV_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2020s"
+    );
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2029"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2030"
+    );
+    cy.findShadowEl(DATE_PICKER, NEXT_DECADE_BUTTON_ID).should(
+      HAVE_TEXT,
+      "2040s"
+    );
   });
 
   it("should move back a decade and update focussed year when PageUp key pressed - year view", () => {
@@ -1165,11 +2064,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(PAGE_UP_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2013");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(PAGE_UP_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2013"
+    );
   });
 
   it("should move forward a decade and update focussed year when PageDown key pressed - year view", () => {
@@ -1177,11 +2089,24 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
-    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS).shadow().find(BUTTON).focus().type(PAGE_DOWN_KEY);   
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(HAVE_TEXT, "2023"); 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(HAVE_TEXT, "2033");  
+    cy.findShadowEl(DATE_PICKER, SELECTED_YEAR_BTN_CLASS)
+      .shadow()
+      .find(BUTTON)
+      .focus()
+      .type(PAGE_DOWN_KEY);
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2023"
+    );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_YEAR_BTN_CLASS).should(
+      HAVE_TEXT,
+      "2033"
+    );
   });
 
   // testing props
@@ -1191,47 +2116,70 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "open-at-date",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).should(BE_VISIBLE).and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023" );
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .should(BE_VISIBLE)
+      .and(HAVE_ATTR, ATTR_ARIA_LABEL, "Choose Friday, 15 December 2023");
     cy.findShadowEl(DATE_PICKER, SELECTED_DAY_BTN_CLASS).should(NOT_EXIST);
   });
 
   it("should test month first date format prop", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} dateFormat='MM/DD/YYYY' />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate={DEFAULT_VALUE}
+        dateFormat="MM/DD/YYYY"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).click();
 
-    checkDateInputValue(new Date(2023,11,15));
+    checkDateInputValue(new Date(2023, 11, 15));
 
     cy.compareSnapshot({
       name: "month-first-format",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    });    
+    });
   });
 
   it("should test year first date format prop", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} dateFormat='YYYY/MM/DD' />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate={DEFAULT_VALUE}
+        dateFormat="YYYY/MM/DD"
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).click();
 
-    checkDateInputValue(new Date(2023,11,15));
+    checkDateInputValue(new Date(2023, 11, 15));
 
     cy.compareSnapshot({
       name: "year-first-format",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    }); 
+    });
   });
 
   it("should test disabled variant", () => {
@@ -1239,21 +2187,35 @@ describe("IcDatePickers", () => {
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).shadow().find(BUTTON).should("be.disabled");
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .should("be.disabled");
+
     cy.compareSnapshot({
       name: "disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    }); 
+    });
   });
 
   it("should test 'disableDays' prop", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate="02/12/2023" disableDays={[0,6]} />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate="02/12/2023"
+        disableDays={[0, 6]}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "disable-weekends",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
@@ -1261,59 +2223,134 @@ describe("IcDatePickers", () => {
   });
 
   it("should test 'disableDaysMessage' prop", () => {
-    const msg="Days in the future are not allowed."
-    mount(<IcDatePicker label={DEFAULT_LABEL} value="02/12/2023" disableDays={[0,6]} disableDaysMessage={msg} />);
+    const msg = "Days in the future are not allowed.";
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        value="02/12/2023"
+        disableDays={[0, 6]}
+        disableDaysMessage={msg}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(INPUT_VALIDATION)
+      .should(CONTAIN_TEXT, msg);
   });
 
   it("should test 'disableFuture' and 'disableFutureMessage' props", () => {
-    const msg="Days in the future are not allowed."
-    mount(<IcDatePicker label={DEFAULT_LABEL} value="02/12/2223" disableFuture disableFutureMessage={msg} />);
+    const msg = "Days in the future are not allowed.";
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        value="02/12/2223"
+        disableFuture
+        disableFutureMessage={msg}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(INPUT_VALIDATION)
+      .should(CONTAIN_TEXT, msg);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).should(BE_DISABLED);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).should(NOT_BE_DISABLED);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .parent()
+      .next()
+      .find(DAY_BTN_CLASS)
+      .should(BE_DISABLED);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .parent()
+      .prev()
+      .find(DAY_BTN_CLASS)
+      .should(NOT_BE_DISABLED);
   });
 
   it("should test 'disablePast' and 'disablePastMessage' props", () => {
-    const msg="Days in the past are not allowed."
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} disablePast disablePastMessage={msg} />);
+    const msg = "Days in the past are not allowed.";
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        disablePast
+        disablePastMessage={msg}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(INPUT_VALIDATION)
+      .should(CONTAIN_TEXT, msg);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).should(BE_DISABLED);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).should(NOT_BE_DISABLED);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .parent()
+      .prev()
+      .find(DAY_BTN_CLASS)
+      .should(BE_DISABLED);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
+      .parent()
+      .next()
+      .find(DAY_BTN_CLASS)
+      .should(NOT_BE_DISABLED);
   });
 
   it("should test 'helperText' and 'required' props", () => {
-    const text="This is some custom helper text."
-    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} helperText={text} required />);
+    const text = "This is some custom helper text.";
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        value={DEFAULT_VALUE}
+        helperText={text}
+        required
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, text);
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, DEFAULT_LABEL+" *");
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find("ic-input-label")
+      .should(CONTAIN_TEXT, text);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find("ic-input-label")
+      .should(CONTAIN_TEXT, DEFAULT_LABEL + " *");
   });
 
   it("should test 'showDaysOutsideMonth' and 'startOfWeek' props", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} showDaysOutsideMonth={false} startOfWeek={0} />);
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        openAtDate={DEFAULT_VALUE}
+        showDaysOutsideMonth={false}
+        startOfWeek={0}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "days-outside-month-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
@@ -1321,12 +2358,17 @@ describe("IcDatePickers", () => {
   });
 
   it("should test 'min' and 'max' props", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -1336,29 +2378,39 @@ describe("IcDatePickers", () => {
   });
 
   it("should test 'min' and 'max' props - month view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();    
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, MONTH_PICKER_BTN_CLASS).click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
       name: "min-max-month-view",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
-    });    
+    });
   });
 
   it("should test 'min' and 'max' props - year view", () => {
-    mount(<IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />);
+    mount(
+      <IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();    
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+    cy.findShadowEl(DATE_PICKER, YEAR_PICKER_BTN_CLASS).click();
+
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
 
     cy.compareSnapshot({
@@ -1368,28 +2420,52 @@ describe("IcDatePickers", () => {
   });
 
   it("should test validation props", () => {
-    const msg="warning text";
-    mount(<IcDatePicker label={DEFAULT_LABEL} min="2023-07-01" max="2023-07-31" validationStatus="warning" validationText={msg} />);
+    const msg = "warning text";
+    mount(
+      <IcDatePicker
+        label={DEFAULT_LABEL}
+        min="2023-07-01"
+        max="2023-07-31"
+        validationStatus="warning"
+        validationText={msg}
+      />
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-component-container").should(HAVE_CLASS, "warning");    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(INPUT_VALIDATION)
+      .should(CONTAIN_TEXT, msg);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find("ic-input-component-container")
+      .should(HAVE_CLASS, "warning");
   });
 
   it("should test picker opens above input when not enough room below", () => {
-    mount(<div style= {{overflow: "none", height: "700px"}}><IcDatePicker style={{position: "absolute", bottom: "60px"}} label={DEFAULT_LABEL} openAtDate={DEFAULT_VALUE} showDaysOutsideMonth={false} startOfWeek={0} /></div>);
+    mount(
+      <div style={{ overflow: "none", height: "700px" }}>
+        <IcDatePicker
+          style={{ position: "absolute", bottom: "60px" }}
+          label={DEFAULT_LABEL}
+          openAtDate={DEFAULT_VALUE}
+          showDaysOutsideMonth={false}
+          startOfWeek={0}
+        />
+      </div>
+    );
 
     cy.checkHydrated(DATE_PICKER);
 
-    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
-    
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .click();
+
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "position-above",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
-
 });
-
-
