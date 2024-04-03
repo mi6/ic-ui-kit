@@ -405,9 +405,8 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const { columnAlignment, dataType, emphasis, icon, key } =
-        this.columns[index];
-      const cellSlotName = `${key}-${rowIndex}`;
+      const columnProps = this.columns[index];
+      const cellSlotName = `${columnProps?.key}-${rowIndex}`;
       const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
@@ -429,31 +428,32 @@ export class DataTable {
           class={{
             ["table-cell"]: true,
             [`table-density-${this.density}`]: this.notDefaultDensity(),
-            [`data-type-${dataType}`]: true,
+            [`data-type-${columnProps?.dataType}`]: true,
             [`cell-alignment-${
-              columnAlignment?.vertical ||
+              columnProps?.columnAlignment?.vertical ||
               rowAlignment ||
               this.getCellAlignment(cell, "vertical")
             }`]:
-              !!columnAlignment?.vertical ||
+              !!columnProps?.columnAlignment?.vertical ||
               !!rowAlignment ||
               !!this.getCellAlignment(cell, "vertical"),
           }}
         >
           <div
             innerHTML={
-              dataType === "element" && !isSlotUsed(this.el, cellSlotName)
+              columnProps?.dataType === "element" &&
+              !isSlotUsed(this.el, cellSlotName)
                 ? (cell as string)
                 : null
             }
             class={{
-              "cell-container": dataType !== "element",
-              [`data-type-${dataType}`]: true,
+              "cell-container": columnProps?.dataType !== "element",
+              [`data-type-${columnProps?.dataType}`]: true,
               [`cell-alignment-${
-                columnAlignment?.horizontal ||
+                columnProps?.columnAlignment?.horizontal ||
                 this.getCellAlignment(cell, "horizontal")
               }`]:
-                !!columnAlignment?.horizontal ||
+                !!columnProps?.columnAlignment?.horizontal ||
                 !!this.getCellAlignment(cell, "horizontal"),
             }}
           >
@@ -464,10 +464,10 @@ export class DataTable {
                 {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
                   <slot name={`${cellSlotName}-icon`} />
                 ) : (
-                  (hasIcon || icon?.onAllCells) && (
+                  (hasIcon || columnProps?.icon?.onAllCells) && (
                     <span
                       class="icon"
-                      innerHTML={cellValue("icon") || icon.icon}
+                      innerHTML={cellValue("icon") || columnProps?.icon.icon}
                     ></span>
                   )
                 )}
@@ -476,16 +476,16 @@ export class DataTable {
                   class={{
                     [`cell-emphasis-${
                       (this.isObject(cell) && cellValue("emphasis")) ||
-                      emphasis ||
+                      columnProps?.emphasis ||
                       rowEmphasis
                     }`]:
                       (this.isObject(cell) && !!cellValue("emphasis")) ||
-                      !!emphasis ||
+                      !!columnProps?.emphasis ||
                       !!rowEmphasis,
                     [`text-${this.density}`]: this.notDefaultDensity(),
                   }}
                 >
-                  {this.isObject(cell) && dataType !== "date" ? (
+                  {this.isObject(cell) && columnProps?.dataType !== "date" ? (
                     Object.keys(cell).includes("href") ? (
                       <ic-link href={cellValue("href")}>
                         {cellValue("data")}
@@ -494,7 +494,7 @@ export class DataTable {
                       cellValue("data")
                     )
                   ) : (
-                    this.getCellContent(cell, dataType)
+                    this.getCellContent(cell, columnProps?.dataType)
                   )}
                 </ic-typography>
               </Fragment>
@@ -767,7 +767,7 @@ export class DataTable {
               ) : (
                 createUpdatingIndicator()
               ))}
-            {data?.length > 0 && !loading && <tbody>{createRows()}</tbody>}
+            {data?.length > 0 && <tbody>{createRows()}</tbody>}
           </table>
           {!data?.length &&
             !loading &&
