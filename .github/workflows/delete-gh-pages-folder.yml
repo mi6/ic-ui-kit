@@ -1,4 +1,5 @@
 name: Delete build folder on branch deletion
+permissions: read-all
 
 on: delete
 
@@ -14,13 +15,13 @@ jobs:
         id: extract_branch
 
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           repository: mi6/ic-ui-kit
           ref: gh-pages
 
       - name: Remove and commit
-        uses: EndBug/add-and-commit@v9.1.4
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 #v9.1.4
         if: steps.extract_branch.outputs.branch != ''
         with:
           add: ""
