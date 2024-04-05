@@ -670,4 +670,33 @@ describe("IcDateInput", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0085),
     });
   });
+
+  it("should clear input when clear button pressed", () => {
+    mount(
+      <IcDateInput
+        label="Test Label"
+        value="20/01/2000"
+        showClearButton
+      />
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.get(DATE_INPUT).invoke(
+      "on",
+      "icChange",
+      cy.stub().as("icDateChanged")
+    );
+
+    cy.findShadowEl(DATE_INPUT, "#clear-button").shadow().find("button").focus().click()
+    
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
+      "have.value",
+      ""
+    ); 
+
+    cy.get("@icDateChanged").should((stub) => {
+      expect(stub.getCall(0).args[0].detail.value).to.equal(null);
+    });
+  });
 });
