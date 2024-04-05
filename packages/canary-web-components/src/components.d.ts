@@ -155,6 +155,7 @@ export namespace Components {
           * The size of the date input to be displayed.
          */
         "size"?: IcSizes;
+        "triggerIcChange": (d: Date) => Promise<void>;
         /**
           * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
          */
