@@ -87,6 +87,7 @@ export class DateInput {
   private preventYearInput: boolean;
 
   private previousInvalidDateTest: string;
+  private previousEmittedDate: Date = undefined;
   private previousSelectedDate: Date = null;
 
   private selectedDate: Date = null;
@@ -273,6 +274,9 @@ export class DateInput {
 
     if (this.value) {
       this.setDate(this.value);
+      this.previousEmittedDate = this.selectedDate;
+    } else {
+      this.previousEmittedDate = null;
     }
 
     this.screenReaderInfoId = `${this.inputId}-screen-reader-info`;
@@ -373,6 +377,14 @@ export class DateInput {
   @Method()
   async setDisableDays(days: IcWeekDays[]): Promise<void> {
     this.disableDays = days;
+  }
+
+  /**
+   * @internal Used to enable other components to invoke an IcChange event from the input.
+   */
+  @Method()
+  async triggerIcChange(d: Date): Promise<void> {
+    this.emitIcChange(d);
   }
 
   private setInputPasteValue = (input: EventTarget, pastedValue: string) => {
@@ -1190,7 +1202,7 @@ export class DateInput {
   };
 
   private handleHostFocus = () => {
-    if (this.el.shadowRoot.activeElement.id.match(/(day|month|year)-input$/)) {
+    if (this.el.shadowRoot.activeElement?.id.match(/(day|month|year)-input$/)) {
       this.removeLabelledBy = false;
     } else {
       this.removeLabelledBy = true;
@@ -1438,11 +1450,11 @@ export class DateInput {
 
   private handleCalendarOpen = (ev: MouseEvent) => {
     ev.stopImmediatePropagation();
-    this.calendarButtonEl.shadowRoot
+    this.calendarButtonEl?.shadowRoot
       .querySelector("ic-tooltip")
       .displayTooltip(false);
     this.calendarButtonClicked.emit({ value: this.selectedDate });
-    this.calendarButtonEl.shadowRoot
+    this.calendarButtonEl?.shadowRoot
       .querySelector("ic-tooltip")
       .displayTooltip(false);
     this.isDateSetFromKeyboardEvent = false;
@@ -1450,7 +1462,7 @@ export class DateInput {
 
   private setValueAndEmitChange = (value: Date) => {
     if (!dateMatches(new Date(this.value), value)) {
-      this.icChange.emit({ value: value });
+      this.emitIcChange(value);
       this.value = value;
     }
   };
@@ -1476,6 +1488,16 @@ export class DateInput {
     }
 
     this.removeLabelledBy = true;
+  };
+
+  private emitIcChange = (d: Date) => {
+    if (
+      !(d === null && this.previousEmittedDate === null) &&
+      !dateMatches(d, this.previousEmittedDate)
+    ) {
+      this.previousEmittedDate = d;
+      this.icChange.emit({ value: d });
+    }
   };
 
   render() {

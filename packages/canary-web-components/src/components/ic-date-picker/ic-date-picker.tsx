@@ -421,7 +421,7 @@ export class DatePicker {
       this.selectedDate = d;
       this.value = d;
       if (emit) {
-        this.icChange.emit({ value: d });
+        this.inputEl.triggerIcChange(d);
       }
     }
   };
@@ -519,7 +519,7 @@ export class DatePicker {
   };
 
   private clearButtonClickHandler = () => {
-    this.setSelectedDate(null, false);
+    this.setSelectedDate(null);
     let text = "Selected date cleared.";
     if (!this.monthPickerVisible && !this.yearPickerVisible) {
       text += ` ${this.getMonthInViewText()}`;
@@ -559,7 +559,7 @@ export class DatePicker {
   };
 
   private setAriaLiveRegionText = (text: string) => {
-    this.liveRegionEl.innerText = text;
+    this.liveRegionEl && (this.liveRegionEl.innerText = text);
   };
 
   private clearDialogDescription = () => {

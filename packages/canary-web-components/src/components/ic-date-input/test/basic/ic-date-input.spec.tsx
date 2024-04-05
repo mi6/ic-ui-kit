@@ -735,36 +735,6 @@ describe("ic-date-input component", () => {
         "Selected date: Saturday, 1 January 2000"
       );
     });
-    it("should emit icChange with null if day, month or year is not set", async () => {
-      const { component, componentInstance } = await createDateInputEnv();
-
-      const eventSpy = jest.fn();
-
-      componentInstance.day = "";
-      componentInstance.month = "";
-      componentInstance.year = "2000";
-      componentInstance.invalidDateText = "";
-
-      const date = new Date(
-        +componentInstance.year,
-        +componentInstance.month - 1,
-        +componentInstance.day
-      );
-
-      componentInstance.selectedDate = date;
-
-      component?.addEventListener("icChange", eventSpy);
-
-      componentInstance.handleDateChange();
-
-      expect(eventSpy).toBeCalledWith(
-        expect.objectContaining({
-          detail: expect.objectContaining({
-            value: null,
-          }),
-        })
-      );
-    });
     it("should set value to null if day, month or year is not set", async () => {
       const { componentInstance } = await createDateInputEnv();
 
