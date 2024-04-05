@@ -1,4 +1,5 @@
 name: Main
+permissions: read-all
 
 on:
   push:
@@ -15,8 +16,8 @@ jobs:
       core: ${{ steps.filter.outputs.core }}
       canary: ${{ steps.filter.outputs.canary }}
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: dorny/paths-filter@v3.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
         id: filter
         with:
           filters: |
@@ -32,8 +33,8 @@ jobs:
     name: "Static analysis tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
 
@@ -81,8 +82,8 @@ jobs:
     name: "E2E tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
 
@@ -108,11 +109,11 @@ jobs:
     name: "Visual regression tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
-      - uses: browser-actions/setup-chrome@v1.5.0
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -132,11 +133,11 @@ jobs:
     name: "Cypress tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
-      - uses: browser-actions/setup-chrome@v1.5.0
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -164,12 +165,12 @@ jobs:
     name: "Publish production packages"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           fetch-depth: "0"
           TOKEN: ${{ secrets.PUBLISH_PAT }}
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
@@ -198,8 +199,8 @@ jobs:
     name: "Deploy canary storybook"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
       - name: Install dependencies
@@ -214,13 +215,13 @@ jobs:
           npm run build-storybook:canary-react
 
       - name: Deploy canary web components storybook
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/canary-web-components/storybook-static
           target-folder: ./branches/canary/main/web-components
 
       - name: Deploy canary react storybook
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/canary-react/storybook-static
           target-folder: ./branches/canary/main/react
@@ -232,7 +233,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v3.0.0
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 #v3.0.0
         with:
           token: ${{ secrets.PUBLISH_PAT }}
           repository: mi6/ic-design-system
