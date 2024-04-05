@@ -1,4 +1,5 @@
 name: Prevent PRs with tasks not completed
+permissions: read-all
 
 on:
   pull_request:

@@ -1,4 +1,5 @@
 name: Release
+permissions: read-all
 
 on: workflow_dispatch
 
@@ -9,14 +10,14 @@ jobs:
     name: "Release develop -> main"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
         with:
           fetch-depth: "0"
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
-      - uses: browser-actions/setup-chrome@v1.5.0
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
       - name: Run release check
         run: |
           RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)
