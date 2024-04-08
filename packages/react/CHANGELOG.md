@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.15.1...@ukic/react@2.16.0) (2024-04-08)
+
+
+### Features
+
+* **react:** add examples of components with type="dot" badge ([0215a0d](https://github.com/mi6/ic-ui-kit/commit/0215a0d15d72b6ef0f27443a44ff144edd5802fe)), closes [.#1391](https://github.com/./issues/1391)
+
+
+
+
+
 ## [2.15.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.15.0...@ukic/react@2.15.1) (2024-03-28)
 
 **Note:** Version bump only for package @ukic/react
