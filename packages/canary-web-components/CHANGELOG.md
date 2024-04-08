@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.10...@ukic/canary-web-components@2.0.0-canary.11) (2024-04-08)
+
+### Bug Fixes
+
+- **canary-web-components:** improves emitting of icchange event ([73f6c44](https://github.com/mi6/ic-ui-kit/commit/73f6c44b0c4fa10a6524cad73a96f0bbe6c7eb9e))
+
+### Features
+
+- **canary-web-components:** add helper function for testing that waits for component hydration ([e4afb84](https://github.com/mi6/ic-ui-kit/commit/e4afb84f1117e79ea1b8930bed193c74b80c679b)), closes [#293](https://github.com/mi6/ic-ui-kit/issues/293)
+
 # [2.0.0-canary.10](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.9...@ukic/canary-web-components@2.0.0-canary.10) (2024-03-28)
 
 ### Bug Fixes

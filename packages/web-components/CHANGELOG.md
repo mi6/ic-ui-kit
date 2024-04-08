@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.16.0...@ukic/web-components@2.17.0) (2024-04-08)
+
+### Bug Fixes
+
+- **web-components:** adjust badge screen reader behaviour ([784a8aa](https://github.com/mi6/ic-ui-kit/commit/784a8aa24af45b91606679a524428780ed526612)), closes [.#1391](https://github.com/./issues/1391)
+- **web-components:** ic-dialog ([e108710](https://github.com/mi6/ic-ui-kit/commit/e1087102c8e79eccbb562088f1f8b651eace4395))
+
+### Features
+
+- **web-components:** add helper function for testing that waits for components to be hydrated ([580b285](https://github.com/mi6/ic-ui-kit/commit/580b28523c42508490ad2225f211051793f45cb0)), closes [#293](https://github.com/mi6/ic-ui-kit/issues/293)
+
 # [2.16.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.15.0...@ukic/web-components@2.16.0) (2024-03-28)
 
 ### Bug Fixes
