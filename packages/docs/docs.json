@@ -780,8 +780,8 @@
             "references": {
               "IcColor": {
                 "location": "import",
-                "path": "./ic-badge.types",
-                "id": "src/components/ic-badge/ic-badge.types.ts::IcColor"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcColor"
               }
             }
           },
@@ -3664,6 +3664,40 @@
             {
               "value": "outline",
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "customColor",
+          "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
+          "complexType": {
+            "original": "IcColor",
+            "resolved": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
+            "references": {
+              "IcColor": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcColor"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "custom-color",
+          "reflectToAttr": false,
+          "docs": "The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`.\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "`#${string}`"
+            },
+            {
+              "type": "`rgb(${string})`"
+            },
+            {
+              "type": "`rgba(${string})`"
             }
           ],
           "optional": true,
@@ -18695,10 +18729,10 @@
       "docstring": "",
       "path": "src/components/ic-footer/ic-footer.types.tsx"
     },
-    "src/components/ic-badge/ic-badge.types.ts::IcColor": {
+    "src/utils/types.ts::IcColor": {
       "declaration": "export type IcColor = RGB | RGBA | HEX;",
       "docstring": "",
-      "path": "src/components/ic-badge/ic-badge.types.ts"
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-badge/ic-badge.types.ts::IcBadgePositions": {
       "declaration": "export type IcBadgePositions = \"far\" | \"near\" | \"inline\";",
