@@ -5,6 +5,9 @@ import React from "react";
 import { IcChip } from "../../components";
 import { mount } from "cypress/react";
 import { SlottedSVG } from "../../";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+import { SwitchColour } from "./IcChipTestData";
+import { HAVE_PROP } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -174,5 +177,29 @@ describe("IcChip visual and a11y testing", () => {
       testThreshold: DEFAULT_TEST_THRESHOLD,
     });
     cy.checkA11yWithWait();
+  });
+
+  it("renders with a custom colour", () => {
+    mount(
+      <div style={{ padding: "8px", gap: "8px" }}>
+        <IcChip label="Default" customColor="#F8C8DC" />
+        <IcChip label="Default" customColor="#F8C8DC" variant="outlined" />
+        <IcChip label="Default" customColor="#00008B" />
+      </div>
+    );
+
+    cy.compareSnapshot({
+      name: "custom-colour",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("switches custom colour after initial render", () => {
+    mount(<SwitchColour />);
+
+    cy.get("ic-button").click();
+
+    cy.get("ic-chip").should(HAVE_PROP, "customColor", "#00008B");
   });
 });
