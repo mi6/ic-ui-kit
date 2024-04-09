@@ -673,30 +673,80 @@ describe("IcDateInput", () => {
 
   it("should clear input when clear button pressed", () => {
     mount(
-      <IcDateInput
-        label="Test Label"
-        value="20/01/2000"
-        showClearButton
-      />
+      <IcDateInput label="Test Label" value="20/01/2000" showClearButton />
     );
 
     cy.checkHydrated(DATE_INPUT);
 
-    cy.get(DATE_INPUT).invoke(
-      "on",
-      "icChange",
-      cy.stub().as("icDateChanged")
-    );
+    cy.get(DATE_INPUT).invoke("on", "icChange", cy.stub().as("icDateChanged"));
 
-    cy.findShadowEl(DATE_INPUT, "#clear-button").shadow().find("button").focus().click()
-    
+    cy.findShadowEl(DATE_INPUT, "#clear-button")
+      .shadow()
+      .find("button")
+      .focus()
+      .click();
+
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
       "have.value",
       ""
-    ); 
+    );
 
     cy.get("@icDateChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
     });
+  });
+
+  it("should display validation styling and svg with empty validation message when validation message set to empty string for disable past", () => {
+    mount(
+      <IcDateInput label="Test Label" disablePast disablePastMessage={""} />
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(
+      "have.class",
+      "error"
+    );
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation svg").should(
+      "have.attr",
+      "aria-labelledby",
+      "error-title"
+    );
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
+      "not.have.text"
+    );
+  });
+
+  it("should display validation styling and svg with empty validation message when validation message set to empty string for disable future", () => {
+    mount(
+      <IcDateInput label="Test Label" disableFuture disableFutureMessage={""} />
+    );
+
+    cy.checkHydrated(DATE_INPUT);
+
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
+    cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("4000");
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation").should(
+      "have.class",
+      "error"
+    );
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation svg").should(
+      "have.attr",
+      "aria-labelledby",
+      "error-title"
+    );
+
+    cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
+      "not.have.text"
+    );
   });
 });
