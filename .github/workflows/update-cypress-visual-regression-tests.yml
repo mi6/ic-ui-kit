@@ -50,6 +50,13 @@ jobs:
           npm run test-cypress:ci
           git checkout ./packages/docs/docs.json
 
+      - name: Core Cypress tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_tests_canary
+        run: |
+          npm run test-cypress:ci
+          git checkout ./packages/canary-docs/docs.json
+
       - uses: EndBug/add-and-commit@v9
         if: ${{ steps.core_cypress_tests.outcome == 'success' }}
         with:
@@ -63,6 +70,13 @@ jobs:
         run: |
           npm run test-cypress:ci:canary
           git checkout ./packages/docs/docs.json
+
+      - name: Canary Cypress tests
+        if: always() && ${{ needs.check-updates.outputs.canary == 'true' }}
+        id: canary_cypress_tests_canary
+        run: |
+          npm run test-cypress:ci:canary
+          git checkout ./packages/canary-docs/docs.json
 
       - uses: EndBug/add-and-commit@v9
         if: always() && ${{ steps.canary_cypress_tests.outcome == 'success' }}

@@ -53,7 +53,7 @@ module.exports = {
     },
     "overrides": [
         {
-            "files": ["*.e2e.ts", "*.spec.ts", "package-lock.json", "packages/docs/docs.json"],
+            "files": ["*.e2e.ts", "*.spec.ts", "package-lock.json", "packages/docs/docs.json", "packages/canary-docs/docs.json"],
             "rules": {
                 "sonarjs/no-duplicate-string": "off"
             }
