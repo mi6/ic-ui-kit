@@ -3,22 +3,22 @@ import {
   IcBadgePositions,
   IcBadgeTypes,
   IcBadgeVariants,
-  IcColor,
 } from "./ic-badge.types";
 import {
   IcColorRGBA,
   IcSizes,
   IcThemeForeground,
   IcThemeForegroundEnum,
+  IcColor,
 } from "../../utils/types";
 import {
+  convertToRGBA,
   getCssProperty,
   getParentElement,
   getParentElementType,
   hexToRgba,
   isPropDefined,
   onComponentRequiredPropUndefined,
-  rgbaStrToObj,
 } from "../../utils/helpers";
 
 /**
@@ -118,14 +118,8 @@ export class Badge {
   }
 
   private setBadgeColour = () => {
-    let colorRGBA = null;
-    if (this.customColor !== null) {
-      const firstChar = this.customColor.slice(0, 1);
-      if (firstChar === "#") {
-        colorRGBA = hexToRgba(this.customColor);
-      } else if (firstChar.toLowerCase() === "r") {
-        colorRGBA = rgbaStrToObj(this.customColor);
-      }
+    if (this.customColor !== null && convertToRGBA(this.customColor) !== null) {
+      const colorRGBA = convertToRGBA(this.customColor);
       this.customColorRGBA = colorRGBA;
       this.el.style.backgroundColor = `rgba(${colorRGBA.r.toString()}, ${colorRGBA.g.toString()}, ${colorRGBA.b.toString()}, ${colorRGBA.a.toString()})`;
     }

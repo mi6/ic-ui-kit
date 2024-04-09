@@ -49,8 +49,8 @@ ic-tooltip:focus-within {
 }
 
 .filled {
-  background-color: var(--ic-architectural-200);
-  color: black;
+  background-color: var(--chip-custom-color, var(--ic-architectural-200));
+  color: var(--chip-custom-foreground-color, black);
   border: none;
 }
 
@@ -61,7 +61,8 @@ ic-tooltip:focus-within {
 .outline,
 .outlined {
   color: var(--ic-architectural-900);
-  border: var(--ic-border-width) solid var(--ic-architectural-900);
+  border: var(--ic-border-width) solid
+    var(--chip-custom-color, var(--ic-architectural-900));
   padding: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 
