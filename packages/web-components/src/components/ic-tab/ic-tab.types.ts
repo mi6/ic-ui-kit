@@ -6,4 +6,5 @@ export interface IcTabClickEventDetail {
 
 export interface IcTabSelectEventDetail {
   tabIndex: number;
+  tabLabel: string;
 }
