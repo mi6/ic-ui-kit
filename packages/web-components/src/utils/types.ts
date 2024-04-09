@@ -203,3 +203,9 @@ export type IcSelectTypes = "single" | "multi";
 export type IcSelectMethodTypes = "auto" | "manual";
 
 export type IcDeviceSizes = 0 | 576 | 768 | 992 | 1200;
+
+type RGB = `rgb(${string})`;
+type RGBA = `rgba(${string})`;
+type HEX = `#${string}`;
+
+export type IcColor = RGB | RGBA | HEX;

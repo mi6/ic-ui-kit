@@ -9,11 +9,7 @@ import {
 } from "@stencil/core";
 
 import { IcColorRGBA, IcTheme } from "../../utils/types";
-import {
-  getThemeForegroundColor,
-  hexToRgba,
-  rgbaStrToObj,
-} from "../../utils/helpers";
+import { convertToRGBA, getThemeForegroundColor } from "../../utils/helpers";
 import { getThemeColorBrightness } from "../../utils/helpers";
 import {
   BLACK_MIN_COLOR_BRIGHTNESS,
@@ -56,14 +52,8 @@ export class Theme {
   };
 
   private setThemeColor = () => {
-    if (this.color !== null) {
-      let colorRGBA = null;
-      const firstChar = this.color.slice(0, 1);
-      if (firstChar === "#") {
-        colorRGBA = hexToRgba(this.color);
-      } else if (firstChar.toLowerCase() === "r") {
-        colorRGBA = rgbaStrToObj(this.color);
-      }
+    if (this.color !== null && convertToRGBA(this.color) !== null) {
+      const colorRGBA = convertToRGBA(this.color);
       this.setThemeRGBA(colorRGBA);
     }
   };

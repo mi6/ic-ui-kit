@@ -8,14 +8,16 @@ import {
   EventEmitter,
   Element,
   Method,
+  Watch,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
   removeDisabledFalse,
+  convertToRGBA,
 } from "../../utils/helpers";
 import { IcChipAppearance } from "./ic-chip.types";
-import { IcEmphasisType, IcSizes } from "../../utils/types";
+import { IcColor, IcEmphasisType, IcSizes } from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
 /**
@@ -39,6 +41,19 @@ export class Chip {
    * @deprecated This prop should not be used anymore. Use variant prop instead.
    */
   @Prop() appearance?: IcChipAppearance;
+
+  /**
+   * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`.
+   * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
+   */
+  @Prop() customColor?: IcColor = null;
+
+  @Watch("customColor")
+  customColorHandler(): void {
+    if (!this.dismissible && this.customColor !== null) {
+      this.setChipColour();
+    }
+  }
 
   /**
    * If `true`, the chip will appear disabled.
@@ -83,6 +98,10 @@ export class Chip {
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
 
+    if (!this.dismissible && this.customColor !== null) {
+      this.setChipColour();
+    }
+
     if (this.appearance === "outline") {
       this.variant = "outlined";
     }
@@ -125,6 +144,25 @@ export class Chip {
 
   private mouseLeaveHandler = (): void => {
     this.isHovered = false;
+  };
+
+  private setChipColour = () => {
+    if (convertToRGBA(this.customColor) !== null) {
+      const colorRGBA = convertToRGBA(this.customColor);
+      const rgbaValue = `rgba(${colorRGBA.r.toString()}, ${colorRGBA.g.toString()}, ${colorRGBA.b.toString()}, ${colorRGBA.a.toString()})`;
+
+      const brightness =
+        (colorRGBA.r * 299 + colorRGBA.g * 587 + colorRGBA.b * 114) / 1000;
+      const foregroundColour =
+        brightness > 133.3505
+          ? "var(--ic-architectural-black)"
+          : "var(--ic-architectural-white)";
+
+      this.el.setAttribute(
+        "style",
+        `--chip-custom-color: ${rgbaValue}; --chip-custom-foreground-color: ${foregroundColour};`
+      );
+    }
   };
 
   render() {

@@ -7,6 +7,7 @@ import {
   IcSearchMatchPositions,
   IcColorRGBA,
   IcDeviceSizes,
+  IcColor,
 } from "./types";
 
 import {
@@ -671,3 +672,16 @@ export async function waitForHydration(): Promise<boolean> {
 
   return false;
 }
+
+export const convertToRGBA = (color: IcColor | string) => {
+  let colorRGBA = null;
+
+  const firstChar = color.slice(0, 1);
+  if (firstChar === "#") {
+    colorRGBA = hexToRgba(color);
+  } else if (firstChar.toLowerCase() === "r") {
+    colorRGBA = rgbaStrToObj(color);
+  }
+
+  return colorRGBA;
+};
