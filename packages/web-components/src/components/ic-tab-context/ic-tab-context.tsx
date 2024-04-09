@@ -98,12 +98,20 @@ export class TabContext {
     ) {
       this.selectedTab = event.detail.position;
     }
+    /* eslint-disable no-unexpected-multiline */
     this.icTabSelect.emit({
       tabIndex: event.detail.position,
+      tabLabel: this.el
+        .querySelectorAll("ic-tab")
+        [event.detail.position].textContent.trim(),
     });
     this.tabSelect.emit({
       tabIndex: event.detail.position,
+      tabLabel: this.el
+        .querySelectorAll("ic-tab")
+        [event.detail.position].textContent.trim(),
     });
+    /* eslint-enable no-unexpected-multiline */
     event.stopImmediatePropagation();
   }
 
@@ -255,9 +263,21 @@ export class TabContext {
     if (!this.controlledMode) {
       this.selectedTab = newIndex;
     } else {
-      this.icTabSelect.emit({ tabIndex: newIndex });
-      this.tabSelect.emit({ tabIndex: newIndex });
+      /* eslint-disable no-unexpected-multiline */
+      this.icTabSelect.emit({
+        tabIndex: newIndex,
+        tabLabel: this.el
+          .querySelectorAll("ic-tab")
+          [newIndex].textContent.trim(),
+      });
+      this.tabSelect.emit({
+        tabIndex: newIndex,
+        tabLabel: this.el
+          .querySelectorAll("ic-tab")
+          [newIndex].textContent.trim(),
+      });
     }
+    /* eslint-enable no-unexpected-multiline */
   };
 
   // Sets focus on tab without selecting it (for manual activation)

@@ -261,6 +261,7 @@ describe("ic-tab-context component", () => {
     await page.waitForChanges();
     expect(tabSelect).toHaveReceivedEventDetail({
       tabIndex: 1,
+      tabLabel: "Tab 2",
     });
   });
 
@@ -410,6 +411,7 @@ describe("ic-tab-context component", () => {
     expect(parentTabSelect).not.toHaveReceivedEvent();
     expect(nestedTabSelect).toHaveReceivedEventDetail({
       tabIndex: 1,
+      tabLabel: "Two",
     });
   });
 
