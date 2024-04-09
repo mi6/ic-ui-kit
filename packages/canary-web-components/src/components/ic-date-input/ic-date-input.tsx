@@ -877,7 +877,7 @@ export class DateInput {
         }
       }
     } else {
-      this.invalidDateText = "";
+      this.invalidDateText = undefined;
     }
   };
 
@@ -1343,7 +1343,7 @@ export class DateInput {
 
   private setPasteInvalidText() {
     if (this.isPasteValidationDisplayed) {
-      this.invalidDateText = this.previousInvalidDateTest ?? "";
+      this.invalidDateText = this.previousInvalidDateTest ?? undefined;
       this.isPasteValidationDisplayed = false;
 
       // This is to prevent setDate from triggering within componentWillUpdate
@@ -1517,7 +1517,7 @@ export class DateInput {
 
     const validationStatus = hasCustomValidation
       ? this.validationStatus
-      : !isEmptyString(this.invalidDateText)
+      : this.invalidDateText !== undefined
       ? IcInformationStatus.Error
       : "";
 
@@ -1624,7 +1624,7 @@ export class DateInput {
               role="status"
             ></span>
           </span>
-          {(hasCustomValidation || !isEmptyString(this.invalidDateText)) && (
+          {(hasCustomValidation || this.invalidDateText !== undefined) && (
             <ic-input-validation
               status={validationStatus}
               message={
