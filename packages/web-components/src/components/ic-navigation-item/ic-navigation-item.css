@@ -141,6 +141,7 @@ svg {
 :host(.navigation-item-side-menu) .link,
 :host(.navigation-item-side-menu) ::slotted(a) {
   min-height: 2.5rem;
+  height: auto;
   width: 100%;
   box-sizing: border-box;
   color: var(--ic-color-primary-text);

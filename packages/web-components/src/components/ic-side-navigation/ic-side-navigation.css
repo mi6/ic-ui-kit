@@ -326,7 +326,7 @@ slot[name="app-title"]::slotted(a) {
 ::slotted(ic-navigation-group) {
   --navigation-item-justify-content: flex-start;
   --navigation-item-min-height: 56px;
-  --navigation-item-height: 100%;
+  --navigation-item-height: auto;
 }
 
 /* Toggle Chevron */
@@ -588,7 +588,7 @@ slot[name="app-title"]::slotted(a) {
 :host(.sm-expanded.side-display) ::slotted(ic-navigation-item),
 :host(.sm-expanded.side-display) ::slotted(ic-navigation-group) {
   --navigation-item-label-opacity: 1;
-  --navigation-item-height: 100%;
+  --navigation-item-height: auto;
   --navigation-item-min-height: 56px;
   --navigation-item-width: 320px;
   --navigation-item-side-nav-right: var(--ic-space-xl);
