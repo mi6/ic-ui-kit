@@ -28,6 +28,7 @@ import {
   CustomIcons,
   CustomRowHeights,
   CustomTitleBar,
+  UpdatingData,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -1110,5 +1111,85 @@ Full documentation for this component can be found in the code examples located 
   ];
   dataTable.columns = columns;
   dataTable.data = data;
+</script>
+```
+
+### Updating data
+
+<Canvas withSource="none">
+  <Story name="Updating data" parameters={{ loki: { skip: true } }}>
+    {UpdatingData()}
+  </Story>
+</Canvas>
+
+#### Updating data code example
+
+```html
+<ic-data-table id="data-table" caption="Updating Data"></ic-data-table>
+<div style="display:flex; gap:8px; margin-top:8px;">
+  <ic-button onClick="updateData()">Add data</ic-button>
+  <ic-button onClick="updatePageOptions()">Update page lengths</ic-button>
+  <ic-button onClick="clearData()">Reset data</ic-button>
+  <ic-button onClick="resetPageOptions()">Reset page lengths</ic-button>
+</div>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  const defaultPageOptions = [{ label: '5', value: '5' }];
+
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+
+  const updateData = () => {
+    dataTable.data = [...dataTable.data, ...data];
+  }
+
+  const clearData = () => {
+    dataTable.data = [];
+  }
+
+  const updatePageOptions = () => {
+    dataTable.paginationOptions = {
+      ...dataTable.paginationOptions,
+      itemsPerPage: [
+        { label: '10', value: '10' },
+        { label: '20', value: '20' },
+        { label: '50', value: '50' }
+      ]
+    };
+  }
+
+  const resetPageOptions = () => {
+    dataTable.paginationOptions = {
+      ...dataTable.paginationOptions,
+      itemsPerPage: defaultPageOptions
+    };
+  }
+
+  dataTable.columns = columns;
+  dataTable.data = data;
+  dataTable.showPagination = true;
+  dataTable.paginationOptions = {
+    itemsPerPage: defaultPagOptions,
+    itemsPerPageControl: true,
+    goToPageControl: true,
+    type: "page"
+  }
 </script>
 ```
