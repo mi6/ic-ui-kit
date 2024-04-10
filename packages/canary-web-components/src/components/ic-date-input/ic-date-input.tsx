@@ -136,6 +136,11 @@ export class DateInput {
    */
   @Prop() disableFuture?: boolean = false;
 
+  @Watch("disableFuture")
+  watchDisableFutureHandler(): void {
+    this.watchMaxHandler();
+  }
+
   /**
    * The text to display as the validation message when `disableFuture` is true and a date in the future is entered.
    */
@@ -146,6 +151,11 @@ export class DateInput {
    * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
    */
   @Prop() disablePast?: boolean = false;
+
+  @Watch("disablePast")
+  watchDisablePastHandler(): void {
+    this.watchMinHandler();
+  }
 
   /**
    * The text to display as the validation message when `disablePast` is true and a date in the past is entered.

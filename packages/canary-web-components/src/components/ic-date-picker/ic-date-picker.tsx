@@ -84,6 +84,7 @@ interface IcDateInputProps {
 export class DatePicker {
   private inputEl: HTMLIcDateInputElement;
   private clearButtonEl: HTMLIcButtonElement = null;
+  private dateInputProps: IcDateInputProps;
   private daysOfWeek: string[] = [];
   private dayButtonFocussed: boolean = false;
   private dayPickerKeyboardNav: boolean = false;
@@ -108,7 +109,6 @@ export class DatePicker {
   @State() calendarOpen: boolean = false;
   @State() currMonthView: Date[] = [];
   @State() currYearPickerView: number[] = [];
-  @State() dateInputProps: IcDateInputProps = { label: "" };
   @State() decadeView: number[] = [];
   @State() focussedDate: Date = null;
   @State() focussedDay: number;
@@ -151,6 +151,11 @@ export class DatePicker {
    */
   @Prop() disableFuture?: boolean = false;
 
+  @Watch("disableFuture")
+  watchDisableFutureHandler(): void {
+    this.watchMaxHandler();
+  }
+
   /**
    * The text to display as the validation message when `disableFuture` is `true` and a date in the future is entered.
    */
@@ -161,6 +166,11 @@ export class DatePicker {
    * If `true`, dates in the past are not allowed. A validation message will appear if a date in the past is entered.
    */
   @Prop() disablePast?: boolean = false;
+
+  @Watch("disablePast")
+  watchDisablePastHandler(): void {
+    this.watchMinHandler();
+  }
 
   /**
    * The text to display as the validation message when `disablePast` is `true` and a date in the past is entered.
@@ -383,6 +393,14 @@ export class DatePicker {
 
     this.watchMaxHandler();
     this.watchMinHandler();
+  }
+
+  componentWillRender(): void {
+    this.dateInputProps = this.setDateInputProps();
+  }
+
+  componentWillUpdate(): void {
+    this.dateInputProps = this.setDateInputProps();
   }
 
   @Listen("calendarButtonClicked")
@@ -1179,78 +1197,66 @@ export class DatePicker {
     }
   };
 
-  private setDateInputProps = (): void => {
-    const untilNowMsg =
-      !this.disablePast ||
-      this.disablePastMessage === DEFAULT_DISABLE_DATES_UNTIL_NOW_MSG
-        ? ""
-        : this.disablePastMessage;
-    const fromNowMsg =
-      !this.disableFuture ||
-      this.disableFutureMessage === DEFAULT_DISABLE_DATES_FROM_NOW_MSG
-        ? ""
-        : this.disableFutureMessage;
-    const disableDaysMsg =
-      !this.disableDays.length ||
-      this.disableDaysMessage === DEFAULT_DISABLE_DAYS_MSG
-        ? ""
-        : this.disableDaysMessage;
+  private setDateInputProps = (): IcDateInputProps => {
+    const inputProps: IcDateInputProps = {
+      label: this.label,
+      showClearButton: true,
+      showCalendarButton: true,
+      value: this.value,
+    };
 
     if (this.dateFormat !== DEFAULT_DATE_FORMAT) {
-      this.dateInputProps.dateFormat = this.dateFormat;
+      inputProps.dateFormat = this.dateFormat;
     }
     if (this.disableFuture) {
-      this.dateInputProps.disableFuture = this.disableFuture;
-      if (fromNowMsg !== "") {
-        this.dateInputProps.disableFutureMessage = fromNowMsg;
+      inputProps.disableFuture = this.disableFuture;
+      if (this.disableFutureMessage !== DEFAULT_DISABLE_DATES_FROM_NOW_MSG) {
+        inputProps.disableFutureMessage = this.disableFutureMessage;
       }
     }
     if (this.disablePast) {
-      this.dateInputProps.disablePast = this.disablePast;
-      if (untilNowMsg !== "") {
-        this.dateInputProps.disablePastMessage = untilNowMsg;
+      inputProps.disablePast = this.disablePast;
+      if (this.disablePastMessage !== DEFAULT_DISABLE_DATES_UNTIL_NOW_MSG) {
+        inputProps.disablePastMessage = this.disablePastMessage;
       }
     }
     if (this.disableDays.length > 0) {
-      this.dateInputProps.disableDays = this.disableDays;
-      if (disableDaysMsg !== "") {
-        this.dateInputProps.disableDaysMessage = disableDaysMsg;
+      inputProps.disableDays = this.disableDays;
+      if (this.disableDaysMessage !== DEFAULT_DISABLE_DAYS_MSG) {
+        inputProps.disableDaysMessage = this.disableDaysMessage;
       }
     }
-    this.dateInputProps.label = this.label;
     if (this.max !== null && this.max !== "") {
-      this.dateInputProps.max = this.maxDate;
+      inputProps.max = this.maxDate;
     }
     if (this.min !== null && this.min !== "") {
-      this.dateInputProps.min = this.minDate;
+      inputProps.min = this.minDate;
     }
     if (this.helperText !== undefined) {
-      this.dateInputProps.helperText = this.helperText;
+      inputProps.helperText = this.helperText;
     }
     if (this.inputId !== undefined) {
-      this.dateInputProps.inputId = this.inputId;
+      inputProps.inputId = this.inputId;
     }
     if (this.name !== undefined) {
-      this.dateInputProps.name = this.name;
+      inputProps.name = this.name;
     }
-    this.dateInputProps.showClearButton = true;
-    this.dateInputProps.showCalendarButton = true;
     if (this.disabled) {
-      this.dateInputProps.disabled = this.disabled;
+      inputProps.disabled = this.disabled;
     }
     if (this.required) {
-      this.dateInputProps.required = this.required;
+      inputProps.required = this.required;
     }
     if (this.size !== "default") {
-      this.dateInputProps.size = this.size;
+      inputProps.size = this.size;
     }
     if (this.validationStatus !== "") {
-      this.dateInputProps.validationStatus = this.validationStatus;
+      inputProps.validationStatus = this.validationStatus;
     }
     if (this.validationText !== "") {
-      this.dateInputProps.validationText = this.validationText;
+      inputProps.validationText = this.validationText;
     }
-    this.dateInputProps.value = this.value;
+    return inputProps;
   };
 
   render() {
@@ -1287,8 +1293,6 @@ export class DatePicker {
     } else {
       yearButtonText = `Press Enter or Space to open year picker view or use the arrow keys to change the selected year.`;
     }
-
-    this.setDateInputProps();
 
     const dialogLabel = "choose date";
 
