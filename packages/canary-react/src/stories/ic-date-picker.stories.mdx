@@ -453,11 +453,17 @@ The `IcChange` event is emitted by the date picker when the selected date change
 
 export const DatePickerWithIcChange = () => {
   const [selectedDate, setSelectedDate] = useState();
+  const [value, setValue] = useState();
+  const dateChangedHandler = (event) => {
+    setValue(event.detail.value);
+    setSelectedDate(event.detail.value);
+  }
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
       <IcDatePicker 
         label="When would you like to collect your coffee?" 
-        onIcChange={(event) => setSelectedDate(event.detail.value)}
+        onIcChange={dateChangedHandler}
+        value={value}
       /> 
       <span>
         {`Selected date: ${selectedDate}`}
@@ -479,12 +485,18 @@ import * as React from "react";
 import { IcDatePicker } from "@ukic/canary-react";
 
 const DatePickerWithIcChange = () => {
-  const [selectedDate, setSelectedDate] = React.useState("Selected date: ");
+  const [selectedDate, setSelectedDate] = React.useState();
+  const [value, setValue] = useState();
+  const dateChangedHandler = (event) => {
+    setValue(event.detail.value);
+    setSelectedDate(event.detail.value);
+  }
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
       <IcDatePicker 
         label="When would you like to collect your coffee?" 
-        onIcChange={(event) => setSelectedDate(event.detail.value)}
+        onIcChange={dateChangedHandler}
+        value={value}
       /> 
       <span>
         {`Selected date: ${selectedDate}`}
