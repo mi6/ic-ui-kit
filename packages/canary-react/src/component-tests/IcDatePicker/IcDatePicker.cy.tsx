@@ -1268,6 +1268,11 @@ describe("IcDatePickers", () => {
       name: "disabled",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     }); 
+
+    // check input becomes enabled when prop changed
+    cy.get(DATE_PICKER).invoke("prop", "disabled", false).then(() => {
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).shadow().find(BUTTON).should("not.be.disabled");
+    });
   });
 
   it("should test 'disableDays' prop", () => {
@@ -1283,13 +1288,23 @@ describe("IcDatePickers", () => {
     });
   });
 
-  it("should test 'disableDaysMessage' prop", () => {
-    const msg="Days in the future are not allowed."
+  it("should test 'disableDays' and 'disableDaysMessage' props", () => {
+    const msg="Saturdays and Sundays are not allowed."
     mount(<IcDatePicker label={DEFAULT_LABEL} value="02/12/2023" disableDays={[0,6]} disableDaysMessage={msg} />);
 
     cy.checkHydrated(DATE_PICKER);
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
+
+    // change props to not allow mondays and change message text
+    const newMsg="Mondays are not allowed."
+    cy.get(DATE_PICKER).invoke("prop", "value", "04/12/2023").then(() => {
+      cy.get(DATE_PICKER).invoke("prop", "disableDays", [1]).then(() => {
+        cy.get(DATE_PICKER).invoke("prop", "disableDaysMessage", newMsg).then(() => {
+          cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, newMsg);
+        });
+      });
+    });
   });
 
   it("should test 'disableFuture' and 'disableFutureMessage' props", () => {
@@ -1304,6 +1319,20 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).should(BE_DISABLED);
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).should(NOT_BE_DISABLED);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+
+    // change prop to allow future dates
+    cy.get(DATE_PICKER).invoke("prop", "disableFuture", false).then(() => {
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+      cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).click();
+
+      const day = new Date();
+      day.setDate(day.getDate()+1);
+      checkDateInputValue(day);
+
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(NOT_EXIST);
+    });
   });
 
   it("should test 'disablePast' and 'disablePastMessage' props", () => {
@@ -1313,11 +1342,23 @@ describe("IcDatePickers", () => {
     cy.checkHydrated(DATE_PICKER);
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(CONTAIN_TEXT, msg);
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).should(BE_DISABLED);
+    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).should(NOT_BE_DISABLED);
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
 
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).should(BE_DISABLED);
-    cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().next().find(DAY_BTN_CLASS).should(NOT_BE_DISABLED);
+    // change prop to allow past dates
+    cy.get(DATE_PICKER).invoke("prop", "disablePast", false).then(() => {
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
+      cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).parent().prev().find(DAY_BTN_CLASS).click();
+
+      const day = new Date();
+      day.setDate(day.getDate()-1);
+      checkDateInputValue(day);
+
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(INPUT_VALIDATION).should(NOT_EXIST);
+    });
   });
 
   it("should test 'helperText' and 'required' props", () => {
@@ -1328,6 +1369,12 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, text);
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, DEFAULT_LABEL+" *");
+
+    // does not currently work as ic-date-input does not respond to prop changing
+    // change prop to allow future dates
+    // cy.get(DATE_PICKER).invoke("prop", "required", false).then(() => {
+    //   cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should("not."+CONTAIN_TEXT, "*");
+    // });
   });
 
   it("should test 'showDaysOutsideMonth' and 'startOfWeek' props", () => {
