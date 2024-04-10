@@ -429,32 +429,70 @@ describe("ic-date-picker", () => {
     expect(page.rootInstance.yearInView).toBe(2030);
   });
 
-  it("should set maxDate when dates in future disabled", async () => {
+  it("should test disableFuture and disableFutureMessage props", async () => {
     const page = await newSpecPage({
       components: [DatePicker, DateInput, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" disable-future="true" disable-future-message="Days in the future not allowed"></ic-date-picker>`,
     });
     await page.waitForChanges();
 
+    page.rootInstance.setSelectedDate(new Date(2222, 11, 25));
+    page.rootInstance.calendarOpen = true;
+    await page.waitForChanges();
+    await waitForTimeout(DELAY_MS);
+
     expect(dateIsToday(page.rootInstance.maxDate)).toBe(true);
+    expect(dateMatches(page.rootInstance.focussedDate, new Date())).toBe(true);
     expect(page.rootInstance.dateInputProps.disableFutureMessage).toEqual(
       "Days in the future not allowed"
     );
+
+    page.rootInstance.inputEl.value = "25/12/2222";
+    await page.waitForChanges();
+
+    //check dates in future allowed when prop is changed
+    page.rootInstance.disableFuture = false;
+    page.rootInstance.setSelectedDate(new Date(2222, 11, 25));
+    page.rootInstance.calendarOpen = true;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.maxDate.toString()).toBe("Invalid Date");
+    expect(dateMatches(page.rootInstance.focussedDate, new Date())).toBe(true);
+    await waitForTimeout(DELAY_MS);
   });
 
-  it("should set minDate when dates in past disabled", async () => {
+  it("should test disablePast and disablePastMessage props", async () => {
     const page = await newSpecPage({
       components: [DatePicker, DateInput, Button, Tooltip],
       html: `<ic-date-picker label="Date picker label" disable-past="true" disable-past-message="Days in the past not allowed"></ic-date-picker>`,
     });
     await page.waitForChanges();
 
-    const dateMatch = dateMatches(page.rootInstance.minDate, new Date());
+    page.rootInstance.setSelectedDate(new Date(2022, 11, 25));
+    page.rootInstance.calendarOpen = true;
+    await page.waitForChanges();
+    await waitForTimeout(DELAY_MS);
 
-    expect(dateMatch).toBe(true);
+    expect(dateMatches(page.rootInstance.minDate, new Date())).toBe(true);
+    expect(dateMatches(page.rootInstance.focussedDate, new Date())).toBe(true);
     expect(page.rootInstance.dateInputProps.disablePastMessage).toEqual(
       "Days in the past not allowed"
     );
+
+    page.rootInstance.calendarOpen = false;
+    await page.waitForChanges();
+
+    //check dates in past allowed when prop is changed
+    page.rootInstance.disablePast = false;
+    page.rootInstance.setSelectedDate(new Date(2022, 11, 25));
+    page.rootInstance.calendarOpen = true;
+    await page.waitForChanges();
+    await waitForTimeout(DELAY_MS);
+
+    expect(page.rootInstance.minDate.toString()).toBe("Invalid Date");
+    expect(
+      dateMatches(page.rootInstance.focussedDate, new Date(2022, 11, 25))
+    ).toBe(true);
   });
 
   it("should close picker when another element clicked", async () => {
