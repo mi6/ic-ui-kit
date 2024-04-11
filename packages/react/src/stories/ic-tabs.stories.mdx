@@ -50,7 +50,7 @@ export const ControlledTabsExample = () => {
 
 <Canvas>
   <Story name="Default">
-    <IcTabContext>
+    <IcTabContext onIcTabSelect={(ev) => console.log(ev.detail)}>
       <IcTabGroup label="Example tab group">
         <IcTab>One</IcTab>
         <IcTab>Two</IcTab>
