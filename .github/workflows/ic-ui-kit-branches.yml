@@ -19,8 +19,8 @@ jobs:
       core: ${{ steps.filter.outputs.core }}
       canary: ${{ steps.filter.outputs.canary }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@v4.1.1
+      - uses: dorny/paths-filter@v3.0.2
         id: filter
         with:
           base: "develop"
@@ -38,15 +38,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: |
             packages/*/node_modules
@@ -99,15 +99,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: |
             packages/*/node_modules
@@ -139,15 +139,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: |
             packages/*/node_modules
@@ -175,22 +175,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
+        uses: browser-actions/setup-chrome@v1.5.0
 
       - name: Extract branch name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: |
             packages/*/node_modules
@@ -205,7 +205,7 @@ jobs:
           npm run bootstrap -- -- --ci --legacy-peer-deps
 
       - name: Cache Cypress Binary
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: ~/.cache/Cypress
           key: cypress-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -221,14 +221,14 @@ jobs:
 
       - name: Upload core visual regression screenshots
         if: failure() && steps.core_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/cypress-image-diff-screenshots
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
       - name: Upload core visual regression report
         if: always() && steps.core_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
@@ -244,21 +244,21 @@ jobs:
 
       - name: Upload canary visual regression diff screenshots
         if: failure() && steps.canary_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/cypress-image-diff-screenshots
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
       - name: Upload canary visual regression report
         if: always() && steps.canary_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
 
       - name: Add PR comment with diff screenshots
         if: always() && (steps.core_cypress_tests.outcome == 'failure' || steps.canary_cypress_tests.outcome == 'failure')
-        uses: mshick/add-pr-comment@v2
+        uses: mshick/add-pr-comment@v2.8.2
         with:
           message: |
             Cypress visual tests failed.
@@ -280,15 +280,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v4.0.2
         with:
           path: |
             packages/*/node_modules
@@ -330,35 +330,35 @@ jobs:
 
       - name: Deploy core web components storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/web-components/storybook-static
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/web-components
 
       - name: Deploy core react storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/react
 
       - name: Deploy core nextjs storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/nextjs/storybook-static
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/nextjs
 
       - name: Deploy canary web components storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-web-components/storybook-static
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/canary-web-components
 
       - name: Deploy canary react storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/storybook-static
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/canary-react

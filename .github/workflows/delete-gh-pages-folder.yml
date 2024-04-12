@@ -14,13 +14,13 @@ jobs:
         id: extract_branch
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           repository: mi6/ic-ui-kit
           ref: gh-pages
 
       - name: Remove and commit
-        uses: EndBug/add-and-commit@v9.1.1
+        uses: EndBug/add-and-commit@v9.1.4
         if: steps.extract_branch.outputs.branch != ''
         with:
           add: ""
