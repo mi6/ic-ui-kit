@@ -19,8 +19,8 @@ jobs:
       core: ${{ steps.filter.outputs.core }}
       canary: ${{ steps.filter.outputs.canary }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@v4.1.1
+      - uses: dorny/paths-filter@v3.0.2
         id: filter
         with:
           filters: |
@@ -36,10 +36,10 @@ jobs:
     name: "Static analysis tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install core dependencies
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
@@ -85,10 +85,10 @@ jobs:
     name: "E2E tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         run: |
@@ -113,11 +113,11 @@ jobs:
     name: "Visual regression tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+          node-version: 20
+      - uses: browser-actions/setup-chrome@v1.5.0
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -137,11 +137,11 @@ jobs:
     name: "Cypress tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+          node-version: 20
+      - uses: browser-actions/setup-chrome@v1.5.0
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -170,10 +170,10 @@ jobs:
     name: "Deploy QA Storybook"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
+          node-version: 20
       - name: Install dependencies
         run: |
           npm ci --legacy-peer-deps
@@ -204,35 +204,35 @@ jobs:
 
       - name: Deploy web components storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/web-components/storybook-static
           target-folder: ./branches/develop/web-components
 
       - name: Deploy react storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/storybook-static
           target-folder: ./branches/develop/react
 
       - name: Deploy nextjs storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/nextjs/storybook-static
           target-folder: ./branches/develop/nextjs
 
       - name: Deploy canary web components storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-web-components/storybook-static
           target-folder: ./branches/canary/develop/web-components
 
       - name: Deploy canary react storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/storybook-static
           target-folder: ./branches/canary/develop/react

@@ -14,8 +14,8 @@ jobs:
       core: ${{ steps.filter.outputs.core }}
       canary: ${{ steps.filter.outputs.canary }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
+      - uses: actions/checkout@v4.1.1
+      - uses: dorny/paths-filter@v3.0.2
         id: filter
         with:
           filters: |
@@ -31,11 +31,11 @@ jobs:
     name: "Cypress tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+          node-version: 20
+      - uses: browser-actions/setup-chrome@v1.5.0
 
       - name: Extract branch name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
@@ -54,14 +54,14 @@ jobs:
 
       - name: Upload core visual regression screenshots
         if: failure() && steps.core_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/cypress-image-diff-screenshots
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
       - name: Upload core visual regression report
         if: always() && needs.check-updates.outputs.core == 'true'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
@@ -73,14 +73,14 @@ jobs:
 
       - name: Upload canary visual regression diff screenshots
         if: failure() && steps.canary_cypress_tests.outcome == 'failure'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/cypress-image-diff-screenshots
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
 
       - name: Upload canary visual regression report
         if: always() && needs.check-updates.outputs.canary == 'true'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           folder: ./packages/canary-react/cypress-image-diff-html-report
           target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report

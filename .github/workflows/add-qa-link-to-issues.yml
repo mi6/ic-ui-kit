@@ -16,7 +16,7 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF#refs/heads/}" >> $GITHUB_OUTPUT
         id: extract_branch
 
-      - uses: mshick/add-pr-comment@v2
+      - uses: mshick/add-pr-comment@v2.8.2
         with:
           message: |
             View your branch deployment here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/web-components
