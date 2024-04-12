@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-25T11:50:00",
+  "timestamp": "2024-04-15T11:49:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -370,7 +370,30 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\nOtherwise, the first accordion will be focused.",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [
         {
@@ -18938,7 +18961,7 @@
       "path": "src/components/ic-switch/ic-switch.types.ts"
     },
     "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail": {
-      "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n}",
+      "declaration": "export interface IcTabSelectEventDetail {\n  tabIndex: number;\n  tabLabel: string;\n}",
       "docstring": "",
       "path": "src/components/ic-tab/ic-tab.types.ts"
     },
