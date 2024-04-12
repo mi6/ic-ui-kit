@@ -9,14 +9,14 @@ jobs:
     name: "Release develop -> main"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: "0"
       - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+          node-version: 20
+      - uses: browser-actions/setup-chrome@v1.5.0
       - name: Run release check
         run: |
           RELEASE_CHECK=$((echo y; sleep 0.5; echo $'\n';) | npm run release-check)

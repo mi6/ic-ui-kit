@@ -7,11 +7,11 @@ jobs:
     name: 'Update Visual Regression Test References'
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
         with:
-          node-version: 18
-      - uses: browser-actions/setup-chrome@latest
+          node-version: 20
+      - uses: browser-actions/setup-chrome@v1.5.0
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -20,7 +20,7 @@ jobs:
       - name: Update Visual Regression Test References
         run: |
           npm run test-visual:update-ci
-      - uses: EndBug/add-and-commit@v9
+      - uses: EndBug/add-and-commit@v9.1.4
         with: 
           commit: --no-verify
           default_author: github_actions
