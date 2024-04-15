@@ -773,6 +773,24 @@ describe("ic-select native", () => {
 
     expect(page.rootInstance.open).toBeFalsy;
   });
+
+  it("should update any attributes that are inherited from the root element", async () => {
+    const page = await newSpecPage({
+      components: [Select],
+      html: `<ic-select label="IC Select Test"></ic-select>`,
+    });
+    expect(
+      page.root.shadowRoot.querySelector("select").getAttribute("title")
+    ).toBeNull();
+
+    page.root.setAttribute("title", "new-label");
+    page.rootInstance.hostMutationCallback([{ attributeName: "title" }]);
+    await page.waitForChanges();
+
+    expect(
+      page.root.shadowRoot.querySelector("select").getAttribute("title")
+    ).toBe("new-label");
+  });
 });
 
 describe("ic-select searchable", () => {

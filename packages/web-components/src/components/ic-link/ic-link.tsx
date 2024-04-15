@@ -6,6 +6,7 @@ import {
   Host,
   Listen,
   Method,
+  forceUpdate,
 } from "@stencil/core";
 
 import OpenInNew from "../../assets/OpenInNew.svg";
@@ -31,6 +32,7 @@ import {
 export class Link {
   private inheritedAttributes: { [k: string]: string } = {};
   private routerSlot: HTMLElement;
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcLinkElement;
 
@@ -79,10 +81,20 @@ export class Link {
     this.updateTheme();
   }
 
+  componentDidLoad(): void {
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
+  }
+
+  disconnectedCallback(): void {
+    this.hostMutationObserver?.disconnect();
+  }
+
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.updateTheme(theme.mode);
+  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+    this.updateTheme(detail.mode);
   }
 
   /**
@@ -90,21 +102,14 @@ export class Link {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("a")) {
-      this.el.shadowRoot.querySelector("a").focus();
-    }
+    this.el.shadowRoot.querySelector("a")?.focus();
   }
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
-    const theme = getThemeFromContext(this.el, newTheme || null);
+    const theme = getThemeFromContext(this.el, newTheme);
 
-    switch (theme) {
-      case IcThemeForegroundEnum.Light:
-        this.appearance = IcThemeForegroundEnum.Light;
-        break;
-      case IcThemeForegroundEnum.Dark:
-        this.appearance = IcThemeForegroundEnum.Dark;
-        break;
+    if (theme !== IcThemeForegroundEnum.Default) {
+      this.appearance = theme;
     }
   }
 
@@ -115,6 +120,21 @@ export class Link {
     }
     return !!this.routerSlot;
   }
+
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach(({ attributeName }) => {
+      if (IC_INHERITED_ARIA.includes(attributeName)) {
+        this.inheritedAttributes[attributeName] =
+          this.el.getAttribute(attributeName);
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
+  };
 
   render() {
     const {

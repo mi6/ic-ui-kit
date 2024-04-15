@@ -82,7 +82,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
     <mock:shadow-root>
       <ic-button class="button-size-large button-variant-icon light" exportparts="button">
         <mock:shadow-root>
-          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-">
+          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-label="button1" class="button" part="button" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>
@@ -187,7 +187,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
     <mock:shadow-root>
       <ic-button class="button-size-large button-variant-icon light" exportparts="button">
         <mock:shadow-root>
-          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-">
+          <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-label="button1" class="button" part="button" type="button">
               <div class="icon-container">
                 <slot name="left-icon"></slot>

@@ -311,3 +311,21 @@ it("should test minCharacters method", async () => {
   page.rootInstance.getMinCharactersUnattained("testing");
   expect(page.rootInstance.minCharactersUnattained).toBe(false);
 });
+
+it("should update any attributes that are inherited from the root element", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label"></ic-text-field>`,
+  });
+  expect(
+    page.root.shadowRoot.querySelector("input").getAttribute("title")
+  ).toBeNull();
+
+  page.root.setAttribute("title", "new-label");
+  page.rootInstance.hostMutationCallback([{ attributeName: "title" }]);
+  await page.waitForChanges();
+
+  expect(
+    page.root.shadowRoot.querySelector("input").getAttribute("title")
+  ).toBe("new-label");
+});

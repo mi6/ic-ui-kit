@@ -9,6 +9,7 @@ import {
   h,
   State,
   Watch,
+  forceUpdate,
 } from "@stencil/core";
 
 import {
@@ -39,6 +40,7 @@ import Clear from "./assets/Clear.svg";
 import { IcOptionSelectEventDetail } from "../ic-menu/ic-menu.types";
 
 let inputIds = 0;
+const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
 
 @Component({
   tag: "ic-select",
@@ -67,6 +69,7 @@ export class Select {
   private searchableSelectElement: HTMLInputElement;
   private timeoutTimer: number;
   private ungroupedOptions: IcMenuOption[] = [];
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el!: HTMLIcSelectElement;
 
@@ -369,14 +372,11 @@ export class Select {
 
   disconnectedCallback(): void {
     removeFormResetListener(this.el, this.handleFormReset);
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "tabindex",
-      "title",
-    ]);
+    this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
 
     removeDisabledFalse(this.disabled, this.el);
 
@@ -405,6 +405,11 @@ export class Select {
       this.triggerLoading();
     }
     this.hiddenInputValue = this.searchable && this.currValue;
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   componentDidRender(): void {
@@ -426,6 +431,21 @@ export class Select {
       this.searchableSelectElement.focus();
     }
   }
+
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach(({ attributeName }) => {
+      if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
+        this.inheritedAttributes[attributeName] =
+          this.el.getAttribute(attributeName);
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
+  };
 
   private handleRetry = (ev: CustomEvent<IcValueEventDetail>) => {
     if (ev.detail.keyPressed) this.searchableSelectElement?.focus();

@@ -65,12 +65,12 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
 <ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
   <mock:shadow-root>
     <ic-input-container>
-      <ic-input-label for="ic-select-input-27" helpertext="" label="IC Select Test" required=""></ic-input-label>
+      <ic-input-label for="ic-select-input-28" helpertext="" label="IC Select Test" required=""></ic-input-label>
       <ic-input-component-container class="default">
         <!---->
         <div class="focus-indicator">
           <div class="searchable-select-container">
-            <input aria-autocomplete="list" aria-controls="ic-select-input-27-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-27" placeholder="Select an option" role="combobox">
+            <input aria-autocomplete="list" aria-controls="ic-select-input-28-menu" aria-describedby="" aria-expanded="false" aria-invalid="false" aria-label="IC Select Test" aria-required="true" autocomplete="off" class="select-input" id="ic-select-input-28" placeholder="Select an option" role="combobox">
             <span aria-hidden="true" class="expand-icon">
               svg
             </span>
@@ -79,8 +79,8 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
         </div>
       </ic-input-component-container>
       <ic-menu class="default no-results">
-        <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-27-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-27-menu-" role="option" tabindex="-1">
+        <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-28-menu" role="listbox" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-28-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -95,7 +95,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
       </ic-menu>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="ic-select-input-27" type="hidden" value="">
+  <input class="ic-input" name="ic-select-input-28" type="hidden" value="">
 </ic-select>
 `;
 
