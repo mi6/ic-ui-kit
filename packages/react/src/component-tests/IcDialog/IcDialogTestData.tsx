@@ -9,6 +9,8 @@ import {
   IcCheckboxGroup,
   IcSelect,
   IcAlert,
+  IcAccordion,
+  IcAccordionGroup,
 } from "../..";
 import { IcStatusVariants } from "@ukic/web-components";
 
@@ -71,6 +73,82 @@ export const SlottedContentDialog = () => {
           </IcCheckboxGroup>
           <IcButton>Test button</IcButton>
         </>
+      </IcDialog>
+    </>
+  );
+};
+
+export const SlottedContentDialogAccordian = () => {
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="slotted-dialog-btn" onClick={handleClick}>
+        Display dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+        <IcAccordion heading="Accordion 1">Text</IcAccordion>
+        <IcTextField label="What is your favourite coffee?" />
+      </IcDialog>
+    </>
+  );
+};
+
+export const SlottedContentDialogAccordianGroup = () => {
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="slotted-dialog-btn" onClick={handleClick}>
+        Display dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <IcAccordionGroup groupTitle="Title">
+          <IcAccordion heading="Accordion 1">Text</IcAccordion>
+          <IcAccordion heading="Accordion 2">Text 2</IcAccordion>
+          <IcAccordion heading="Accordion 3">Text 3</IcAccordion>
+        </IcAccordionGroup>
+      </IcDialog>
+    </>
+  );
+};
+
+export const SlottedContentDialogAccordianGroupSingleExpansion = () => {
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="slotted-dialog-btn" onClick={handleClick}>
+        Display dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="This is a default dialog"
+        label="Dialog"
+      >
+        <IcAccordionGroup groupTitle="Title" singleExpansion>
+          <IcAccordion heading="Accordion 1">Text</IcAccordion>
+          <IcAccordion heading="Accordion 2">Text 2</IcAccordion>
+          <IcAccordion heading="Accordion 3">Text 3</IcAccordion>
+        </IcAccordionGroup>
       </IcDialog>
     </>
   );

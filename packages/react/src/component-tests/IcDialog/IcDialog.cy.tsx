@@ -8,6 +8,9 @@ import {
   SimpleDialog,
   SlottedContentDialog,
   NoHeightConstraintDialog,
+  SlottedContentDialogAccordian,
+  SlottedContentDialogAccordianGroup,
+  SlottedContentDialogAccordianGroupSingleExpansion,
   alertDialog,
   sizeDialog,
   NoButtonDialog,
@@ -83,6 +86,45 @@ describe("IcDialog", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disable-height-constraint",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+  });
+
+  it("focuses slotted content - accordian", () => {
+    mount(<SlottedContentDialogAccordian />);
+    cy.get("ic-dialog").should("exist");
+    cy.get("ic-button#slotted-dialog-btn").click();
+
+    cy.checkHydrated("ic-dialog");
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slotted-content-accordian",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+  });
+
+  it("focuses slotted content - accordian group", () => {
+    mount(<SlottedContentDialogAccordianGroup />);
+    cy.get("ic-dialog").should("exist");
+    cy.get("ic-button#slotted-dialog-btn").click();
+
+    cy.checkHydrated("ic-dialog");
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slotted-content-accordian-group",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+  });
+
+  it("focuses slotted content - accordian group with singleExpansion", () => {
+    mount(<SlottedContentDialogAccordianGroupSingleExpansion />);
+    cy.get("ic-dialog").should("exist");
+    cy.get("ic-button#slotted-dialog-btn").click();
+
+    cy.checkHydrated("ic-dialog");
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slotted-content-accordian-group-single-expansion",
       testThreshold: DEFAULT_TEST_THRESHOLD,
     });
   });
