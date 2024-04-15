@@ -6,6 +6,7 @@ import * as helpers from "../../../../utils/helpers";
 import { Button } from "../../../ic-button/ic-button";
 import { waitForTimeout } from "../../../../testspec.setup";
 import { InputComponentContainer } from "../../../ic-input-component-container/ic-input-component-container";
+import { isMobileOrTablet } from "../../../../utils/helpers";
 
 beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
@@ -657,6 +658,34 @@ describe("ic-select", () => {
     page.rootInstance.open = false;
     await page.waitForChanges();
     expect(closeEventSpy).toHaveBeenCalled();
+  });
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+  it("should return true when running on a mobile or tablet device", async () => {
+    // Mock the navigator object
+    Object.defineProperty(window, "navigator", {
+      value: {
+        maxTouchPoints: 255,
+        userAgent: "iPhone",
+      },
+      writable: true,
+    });
+
+    expect(isMobileOrTablet()).toBe(true);
+  });
+
+  it("should return false when running on a desktop device", async () => {
+    // Mock the navigator object
+    Object.defineProperty(window, "navigator", {
+      value: {
+        maxTouchPoints: 0,
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      },
+      writable: true,
+    });
+
+    expect(isMobileOrTablet()).toBe(false);
   });
 });
 
