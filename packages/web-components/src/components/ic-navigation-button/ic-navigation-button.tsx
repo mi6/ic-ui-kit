@@ -7,6 +7,7 @@ import {
   h,
   Listen,
   Method,
+  forceUpdate,
 } from "@stencil/core";
 
 import {
@@ -23,6 +24,8 @@ import {
 } from "../../utils/types";
 import { IcNavButtonModes } from "./ic-navigation-button.types";
 
+const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
+
 /**
  * @slot icon - Content will be placed to the left of the button label.
  * @slot badge - Badge component overlaying the top right of the button.
@@ -38,6 +41,7 @@ import { IcNavButtonModes } from "./ic-navigation-button.types";
 export class NavigationButton {
   private buttonEl: HTMLIcButtonElement;
   private inheritedAttributes: { [k: string]: string } = {};
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcNavigationButtonElement;
 
@@ -83,10 +87,7 @@ export class NavigationButton {
   @Prop() target?: string;
 
   componentWillLoad(): void {
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "title",
-    ]);
+    this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
   }
 
   componentDidLoad(): void {
@@ -94,11 +95,20 @@ export class NavigationButton {
       [{ prop: this.label, propName: "label" }],
       "Navigation Button"
     );
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   componentWillRender(): void {
     const iconEl = this.el.querySelector(`[slot="icon"]`);
     iconEl !== null && iconEl.setAttribute("viewBox", "0 0 24 24");
+  }
+
+  disconnectedCallback(): void {
+    this.hostMutationObserver?.disconnect();
   }
 
   @Listen("icNavigationMenuOpened", { target: "document" })
@@ -126,6 +136,21 @@ export class NavigationButton {
       this.buttonEl.focus();
     }
   }
+
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach(({ attributeName }) => {
+      if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
+        this.inheritedAttributes[attributeName] =
+          this.el.getAttribute(attributeName);
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
+  };
 
   render() {
     const { href, target, rel, download, referrerpolicy } = this;

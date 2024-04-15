@@ -10,6 +10,7 @@ import {
   Watch,
   Method,
   h,
+  forceUpdate,
 } from "@stencil/core";
 import {
   IcInformationStatus,
@@ -39,6 +40,7 @@ import {
 } from "./ic-text-field.types";
 
 let inputIds = 0;
+const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
 
 /**
  * @slot icon - Content will be placed to the left of the text input.
@@ -52,6 +54,7 @@ export class TextField {
   private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
   private showLeftIcon: boolean = this.hasLeftIconSlot();
+  private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcTextFieldElement;
 
@@ -322,6 +325,7 @@ export class TextField {
 
   disconnectedCallback(): void {
     removeFormResetListener(this.el, this.handleFormReset);
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -333,10 +337,7 @@ export class TextField {
 
     this.getMaxCharactersReached(this.value);
 
-    this.inheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "title",
-    ]);
+    this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
 
     if (this.readonly) {
       this.maxLengthExceeded = false;
@@ -357,6 +358,11 @@ export class TextField {
     if (this.validationInlineInternal) {
       this.getInlineValidationText();
     }
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      attributes: true,
+    });
   }
 
   @Listen("keydown", {})
@@ -452,6 +458,21 @@ export class TextField {
 
   private handleFormReset = (): void => {
     this.value = this.initialValue;
+  };
+
+  // triggered when attributes of host element change
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    let forceComponentUpdate = false;
+    mutationList.forEach(({ attributeName }) => {
+      if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
+        this.inheritedAttributes[attributeName] =
+          this.el.getAttribute(attributeName);
+        forceComponentUpdate = true;
+      }
+    });
+    if (forceComponentUpdate) {
+      forceUpdate(this);
+    }
   };
 
   render() {
@@ -586,7 +607,7 @@ export class TextField {
               </span>
             )}
 
-            {!multiline && (
+            {!multiline ? (
               <input
                 id={inputId}
                 name={name}
@@ -623,8 +644,7 @@ export class TextField {
                 minlength={minCharactersUnattained ? minCharacters : null}
                 {...this.inheritedAttributes}
               ></input>
-            )}
-            {multiline && (
+            ) : (
               <textarea
                 id={inputId}
                 class={{

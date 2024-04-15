@@ -151,4 +151,20 @@ describe("ic-text-field", () => {
     value = await input.getProperty("value");
     expect(value).toBe("");
   });
+
+  it("should update any attributes inherited from the root element when they are mutated", async () => {
+    const page = await newE2EPage();
+    await page.setContent('<ic-text-field label="Test label">');
+    await page.waitForChanges();
+
+    let input = await page.find("ic-text-field >>> input");
+    expect(input.getAttribute("title")).toBeNull();
+
+    const textField = await page.find("ic-text-field");
+    textField.setAttribute("title", "new-input-title");
+    await page.waitForChanges();
+
+    input = await page.find("ic-text-field >>> input");
+    expect(input.getAttribute("title")).toBe("new-input-title");
+  });
 });

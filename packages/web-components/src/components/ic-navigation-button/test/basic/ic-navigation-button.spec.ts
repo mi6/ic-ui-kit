@@ -94,4 +94,22 @@ describe("ic-navigation-button", () => {
 
     await page.rootInstance.setFocus();
   });
+
+  it("should update any attributes that are inherited from the root element", async () => {
+    const page = await newSpecPage({
+      components: [NavigationButton, Button],
+      html: `<ic-navigation-button label="button1"></ic-navigation-button>`,
+    });
+    expect(
+      page.root.shadowRoot.querySelector("ic-button").getAttribute("aria-label")
+    ).toBeNull();
+
+    page.root.setAttribute("aria-label", "new-label");
+    page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
+    await page.waitForChanges();
+
+    expect(
+      page.root.shadowRoot.querySelector("ic-button").getAttribute("aria-label")
+    ).toBe("new-label");
+  });
 });

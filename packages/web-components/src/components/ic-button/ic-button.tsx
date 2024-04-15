@@ -56,7 +56,7 @@ export class Button {
   private buttonIdNum = buttonIds++;
   private hasTooltip: boolean = false;
   private id: string;
-  private inheritedAttributes: { [k: string]: unknown } = {};
+  private inheritedAttributes: { [k: string]: string } = {};
   private describedByEl: HTMLElement = null;
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
@@ -256,44 +256,41 @@ export class Button {
   }
 
   componentWillUpdate(): void {
-    this.loadingWidth();
+    if (this.loading) {
+      this.el.style.setProperty(
+        "--min-width",
+        `${this.el.getBoundingClientRect().width}px`
+      );
+    }
     this.setHasTooltip();
   }
 
   componentWillLoad(): void {
-    const allInheritedAttributes = inheritAttributes(this.el, [
-      ...IC_INHERITED_ARIA,
-      "title",
-    ]);
-
     const {
       title,
       "aria-label": ariaLabel,
       ...restInheritedAttributes
-    } = allInheritedAttributes;
+    } = inheritAttributes(this.el, [...IC_INHERITED_ARIA, "title"]);
 
-    this.title = title as string;
-    this.ariaLabel = ariaLabel as string;
+    this.title = title;
+    this.ariaLabel = ariaLabel;
     this.inheritedAttributes = restInheritedAttributes;
 
     removeDisabledFalse(this.disabled, this.el);
 
     this.el.setAttribute("exportparts", "button");
 
-    const id = this.el.id;
-    this.id = id !== undefined ? id : null;
+    this.id = this.el.id || null;
     this.setHasTooltip();
 
     if (!this.hasTooltip) {
-      const describedById = this.inheritedAttributes[
-        "aria-describedby"
-      ] as string;
+      const describedById = this.inheritedAttributes["aria-describedby"];
       if (describedById !== undefined) {
         this.describedById = describedById;
-        const el = this.el.parentElement.querySelector(
+        const el = this.el.parentElement.querySelector<HTMLElement>(
           `#${describedById}`
-        ) as HTMLElement;
-        if (el !== undefined && el !== null) {
+        );
+        if (el) {
           this.describedByContent = el.innerText;
           this.describedByEl = el;
         }
@@ -324,14 +321,27 @@ export class Button {
   }
 
   componentWillRender(): void {
-    this.setViewBox()?.setAttribute("viewBox", "0 0 24 24");
+    const iconEl = this.hasIconSlot("left")
+      ? this.el.querySelector(`[slot="left-icon"]`)
+      : this.hasIconSlot("right")
+      ? this.el.querySelector(`[slot="right-icon"]`)
+      : null;
+    iconEl?.setAttribute("viewBox", "0 0 24 24");
   }
 
   @Listen("click", { capture: true })
   handleHostClick(event: Event): void {
     if (!this.hasRouterSlot()) {
       if (this.fileUpload) {
-        this.openFileExplorer();
+        renderFileHiddenInput(
+          this.icFileSelection,
+          this.el,
+          this.multiple,
+          this.fileInputName,
+          this.selectedFiles,
+          this.disabled,
+          this.accept
+        );
       }
       if (this.disabled || this.loading) {
         event.stopImmediatePropagation();
@@ -343,9 +353,8 @@ export class Button {
   }
 
   @Listen("themeChange", { target: "document" })
-  themeChangeHandler(ev: CustomEvent): void {
-    const theme: IcTheme = ev.detail;
-    this.updateTheme(theme.mode);
+  themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
+    this.updateTheme(detail.mode);
   }
 
   /**
@@ -353,29 +362,12 @@ export class Button {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.buttonEl) {
-      this.buttonEl.focus();
-    }
+    this.buttonEl?.focus();
   }
 
-  private hasIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="icon"]`);
-    return iconEl !== null;
-  }
-
-  private hasLeftIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="left-icon"]`);
-    return iconEl !== null;
-  }
-
-  private hasTopIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="top-icon"]`);
-    return iconEl !== null;
-  }
-
-  private hasRightIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="right-icon"]`);
-    return iconEl !== null;
+  private hasIconSlot(position?: "left" | "right" | "top"): boolean {
+    const selectorPrefix = position ? `${position}-` : "";
+    return this.el.querySelector(`[slot="${selectorPrefix}icon"]`) !== null;
   }
 
   private hasRouterSlot(): boolean {
@@ -386,37 +378,21 @@ export class Button {
     return !!this.routerSlot;
   }
 
-  private setViewBox = () => {
-    let iconEl;
-    if (this.hasLeftIconSlot()) {
-      iconEl = this.el.querySelector(`[slot="left-icon"]`);
-    } else if (this.hasRightIconSlot()) {
-      iconEl = this.el.querySelector(`[slot="right-icon"]`);
-    } else {
-      iconEl = null;
-    }
-    return iconEl;
-  };
-
-  private handleHiddenFormButtonClick(form: HTMLFormElement): void {
-    const hiddenFormButton = document.createElement("button");
-
-    hiddenFormButton.setAttribute("type", this.el.type);
-    hiddenFormButton.style.display = "none";
-
-    form.appendChild(hiddenFormButton);
-
-    hiddenFormButton.click();
-    hiddenFormButton.remove();
-  }
-
   private handleClick = (): void => {
     if (
       (this.el.type === "submit" || this.el.type === "reset") &&
       !this.hasRouterSlot() &&
       !!this.el.closest("FORM")
     ) {
-      this.handleHiddenFormButtonClick(this.el.closest("FORM"));
+      const hiddenFormButton = document.createElement("button");
+
+      hiddenFormButton.setAttribute("type", this.el.type);
+      hiddenFormButton.style.display = "none";
+
+      this.el.closest("FORM").appendChild(hiddenFormButton);
+
+      hiddenFormButton.click();
+      hiddenFormButton.remove();
     }
   };
 
@@ -429,21 +405,12 @@ export class Button {
   };
 
   private updateTheme(newTheme: IcThemeForeground = null): void {
-    const foregroundColor = getThemeFromContext(this.el, newTheme || null);
+    const foregroundColor = getThemeFromContext(this.el, newTheme);
 
     if (foregroundColor !== IcThemeForegroundEnum.Default) {
       this.appearance = foregroundColor;
     }
   }
-
-  private loadingWidth = () => {
-    if (this.loading) {
-      this.el.style.setProperty(
-        "--min-width",
-        `${this.el.getBoundingClientRect().width}px`
-      );
-    }
-  };
 
   // triggered when text content of sibling element in light DOM changes
   private mutationCallback = (): void => {
@@ -471,29 +438,6 @@ export class Button {
   private setHasTooltip = (): void => {
     this.hasTooltip =
       !this.disableTooltip && (!!this.title || this.variant === "icon");
-  };
-
-  // file explorer is only opened if the property fileUpload is set to 'true'
-  private openFileExplorer = () => {
-    renderFileHiddenInput(
-      this.icFileSelection,
-      this.el,
-      this.multiple,
-      this.fileInputName,
-      this.selectedFiles,
-      this.disabled,
-      this.accept
-    );
-  };
-
-  private isTooltipSilent = (): boolean => {
-    if (this.variant === "icon") {
-      if (this.title) return true;
-      else if (this.ariaLabel) return true;
-      else return false;
-    } else {
-      return false;
-    }
   };
 
   render() {
@@ -555,14 +499,14 @@ export class Button {
               <slot name="icon" />
             </div>
           )}
-          {this.hasLeftIconSlot() && !this.loading && (
+          {this.hasIconSlot("left") && !this.loading && (
             <div class="icon-container">
               <slot name="left-icon" />
             </div>
           )}
-          {this.hasTopIconSlot() &&
-            !this.hasLeftIconSlot() &&
-            !this.hasRightIconSlot() &&
+          {this.hasIconSlot("top") &&
+            !this.hasIconSlot("left") &&
+            !this.hasIconSlot("right") &&
             !this.loading && (
               <div class="icon-container">
                 <slot name="top-icon" />
@@ -585,7 +529,7 @@ export class Button {
           ) : (
             <slot />
           )}
-          {this.hasRightIconSlot() && !this.loading && !this.dropdown && (
+          {this.hasIconSlot("right") && !this.loading && !this.dropdown && (
             <div class={{ "icon-container": true, "right-icon": true }}>
               <slot name="right-icon" />
             </div>
@@ -638,7 +582,7 @@ export class Button {
             label={title || ariaLabel}
             target={buttonId}
             placement={this.tooltipPlacement}
-            silent={this.isTooltipSilent()}
+            silent={this.variant === "icon" && (!!title || !!ariaLabel)}
           >
             {this.hasRouterSlot() ? (
               <slot name="router-item"></slot>
