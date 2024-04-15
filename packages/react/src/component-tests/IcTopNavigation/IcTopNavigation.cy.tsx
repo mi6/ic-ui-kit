@@ -16,11 +16,13 @@ import {
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_VISIBLE,
+  HAVE_ATTR,
   HAVE_CLASS,
   HAVE_CSS,
   HAVE_FOCUS,
   NOT_BE_VISIBLE,
   NOT_EXIST,
+  NOT_HAVE_ATTR,
   NOT_HAVE_CLASS,
 } from "../utils/constants";
 import {
@@ -78,51 +80,92 @@ describe("IcTopNavigation", () => {
       cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "0px");
     });
   });
+
+  describe("desktop", () => {
+    beforeEach(() => {
+      cy.viewport(1024, 750);
+    });
+
+    it("renders", () => {
+      mount(<SimpleTopNav />);
+      cy.get(TOP_NAV_SELECTOR).shadow().contains("ApplicationName");
+    });
+
+    it("should hide dropdown menu when nav item clicked", () => {
+      mount(<TopNavWithNavItems />);
+      cy.checkHydrated("ic-navigation-group");
+      cy.get(TOP_NAV_SELECTOR)
+        .find("ic-navigation-group")
+        .trigger("mouseenter");
+      cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(BE_VISIBLE);
+      cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).click();
+      cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(NOT_BE_VISIBLE);
+    });
+
+    it("should toggle to short title at small screen sizes", () => {
+      mount(<SimpleTopNav />);
+      cy.viewport(1024, 750);
+      cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("ApplicationName");
+      cy.viewport("iphone-6");
+      cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("AppName");
+    });
+
+    it("should switch to mobile mode at a different breakpoint when customMobileBreakpoint is set", () => {
+      mount(
+        <IcTopNavigation
+          app-title="ApplicationName"
+          status="alpha"
+          version="v0.0.7"
+          shortAppTitle="AppName"
+          customMobileBreakpoint={768} // Medium
+        >
+          <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        </IcTopNavigation>
+      );
+      cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
+      cy.viewport(992, 750);
+      cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
+      cy.viewport(768, 750);
+      cy.get(TOP_NAV_SELECTOR).should(HAVE_CLASS, MOBILE_CSS_CLASS);
+    });
+  });
 });
-describe("desktop", () => {
-  beforeEach(() => {
-    cy.viewport(1024, 750);
-  });
 
-  it("renders", () => {
-    mount(<SimpleTopNav />);
-    cy.get(TOP_NAV_SELECTOR).shadow().contains("ApplicationName");
-  });
-
-  it("should hide dropdown menu when nav item clicked", () => {
-    mount(<TopNavWithNavItems />);
-    cy.checkHydrated("ic-navigation-group");
-    cy.get(TOP_NAV_SELECTOR).find("ic-navigation-group").trigger("mouseenter");
-    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(BE_VISIBLE);
-    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).click();
-    cy.get(TOP_NAV_SELECTOR).find(NAV_ITEM_SELECTOR).should(NOT_BE_VISIBLE);
-  });
-
-  it("should toggle to short title at small screen sizes", () => {
-    mount(<SimpleTopNav />);
-    cy.viewport(1024, 750);
-    cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("ApplicationName");
-    cy.viewport("iphone-6");
-    cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("AppName");
-  });
-
-  it("should switch to mobile mode at a different breakpoint when customMobileBreakpoint is set", () => {
+describe("IcNavigationButton", () => {
+  it("should update any attributes inherited from the root element when they are mutated", () => {
+    const NAV_BUTTON_SELECTOR = "ic-navigation-button";
     mount(
       <IcTopNavigation
-        app-title="ApplicationName"
+        appTitle="ApplicationName"
         status="alpha"
         version="v0.0.7"
-        shortAppTitle="AppName"
-        customMobileBreakpoint={768} // Medium
       >
-        <IcSearchBar slot="search" label="Search" placeholder="Search" />
+        <IcNavigationButton label="Button One" slot="buttons">
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"></path>
+          </SlottedSVG>
+        </IcNavigationButton>
       </IcTopNavigation>
     );
-    cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
-    cy.viewport(992, 750);
-    cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
-    cy.viewport(768, 750);
-    cy.get(TOP_NAV_SELECTOR).should(HAVE_CLASS, MOBILE_CSS_CLASS);
+    cy.findShadowEl(NAV_BUTTON_SELECTOR, "ic-button").should(
+      NOT_HAVE_ATTR,
+      "title"
+    );
+
+    cy.get(NAV_BUTTON_SELECTOR).invoke("attr", "title", "new-title");
+    cy.findShadowEl(NAV_BUTTON_SELECTOR, "ic-button").should(
+      HAVE_ATTR,
+      "title",
+      "new-title"
+    );
   });
 });
 

@@ -4,6 +4,7 @@
 import React from "react";
 import { IcLink } from "../../components";
 import { mount } from "cypress/react";
+import { HAVE_ATTR } from "../utils/constants";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
@@ -122,5 +123,26 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
     });
     cy.checkA11yWithWait();
+  });
+
+  it("should update any attributes that are inherited from the root element", () => {
+    const ARIA_LABEL_ATTR = "aria-label";
+    mount(
+      <IcLink href="/components/link/code" aria-label="first-label">
+        About our coffees
+      </IcLink>
+    );
+    cy.findShadowEl("ic-link", "a").should(
+      HAVE_ATTR,
+      ARIA_LABEL_ATTR,
+      "first-label"
+    );
+
+    cy.get("ic-link").invoke("attr", ARIA_LABEL_ATTR, "second-label");
+    cy.findShadowEl("ic-link", "a").should(
+      HAVE_ATTR,
+      ARIA_LABEL_ATTR,
+      "second-label"
+    );
   });
 });
