@@ -628,4 +628,4 @@ export async function waitForHydration(): Promise<boolean> {
   }
 
   return false;
-};
+}
