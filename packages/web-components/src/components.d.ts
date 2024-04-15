@@ -105,6 +105,10 @@ export namespace Components {
          */
         "groupTitle": string;
         /**
+          * Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused. Otherwise, the first accordion will be focused.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * If `true`, only one accordion will open at a time.
          */
         "singleExpansion": boolean;

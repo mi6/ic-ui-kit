@@ -17,6 +17,20 @@
 | `size`                  | `size`                    | The size of the accordion.                                                                                    | `"default" \| "large" \| "small"` | `"default"`    |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused.
+Otherwise, the first accordion will be focused.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
