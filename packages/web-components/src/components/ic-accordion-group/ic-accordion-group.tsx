@@ -6,6 +6,7 @@ import {
   Listen,
   Prop,
   State,
+  Method,
 } from "@stencil/core";
 import { IcThemeForeground, IcSizes } from "../../utils/types";
 
@@ -13,12 +14,11 @@ let accordionGroupIds = 0;
 @Component({
   tag: "ic-accordion-group",
   styleUrl: "ic-accordion-group.css",
-  shadow: {
-    delegatesFocus: true,
-  },
+  shadow: true,
 })
 export class AccordionGroup {
   private accordionGroupId = `ic-accordion-group-${accordionGroupIds++}`;
+  private allButtonEl: HTMLIcButtonElement;
 
   @Element() el: HTMLIcAccordionGroupElement;
 
@@ -93,6 +93,18 @@ export class AccordionGroup {
     }
   }
 
+  /**
+   * Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused.
+   * Otherwise, the first accordion will be focused.
+   */
+  @Method()
+  async setFocus(): Promise<void> {
+    const focusEl = this.singleExpansion
+      ? this.accordions[0]
+      : this.allButtonEl;
+    focusEl.setFocus();
+  }
+
   private handleExpanded = () => {
     if (this.areAllAccordionsOpen) {
       this.expanded = false;
@@ -147,6 +159,7 @@ export class AccordionGroup {
           </ic-typography>
           {!singleExpansion && (
             <ic-button
+              ref={(el) => (this.allButtonEl = el)}
               appearance={appearance === "light" ? "light" : "default"}
               onClick={this.handleExpanded}
               variant="tertiary"
