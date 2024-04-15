@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from "cypress";
 
-export const config = {
+export const config: Cypress.ConfigOptions = {
   component: {
     devServer: {
       framework: "react",
@@ -24,4 +24,4 @@ export const config = {
   },
 }
 
-export default defineConfig(config as Cypress.ConfigOptions);
+export default defineConfig(config);
