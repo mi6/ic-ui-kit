@@ -250,8 +250,17 @@ export const getThemeFromContext = (
   return IcThemeForegroundEnum.Default;
 };
 
+/**
+ * Checks if the current device is a mobile or tablet device.
+ * @returns {boolean} Returns true if the device is a mobile or tablet device, otherwise returns false.
+ */
 export const isMobileOrTablet = (): boolean =>
-  "maxTouchPoints" in navigator ? navigator.maxTouchPoints > 0 : false;
+  "maxTouchPoints" in navigator && "userAgent" in navigator
+    ? navigator.maxTouchPoints > 0 &&
+      /iPad|iPhone|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    : false;
 
 /**
  * Will create a button within the lightDOM which interacts with the parent form.
