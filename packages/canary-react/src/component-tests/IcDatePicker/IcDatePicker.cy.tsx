@@ -1362,11 +1362,10 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, text);
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(CONTAIN_TEXT, DEFAULT_LABEL+" *");
 
-    // does not currently work as ic-date-input does not respond to prop changing
-    // change prop to allow future dates
-    // cy.get(DATE_PICKER).invoke("prop", "required", false).then(() => {
-    //   cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should("not."+CONTAIN_TEXT, "*");
-    // });
+    // change prop to not be required
+    cy.get(DATE_PICKER).invoke("prop", "required", false).then(() => {
+      cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find("ic-input-label").should(`not.${CONTAIN_TEXT}`, "*");
+    });
   });
 
   it("should test 'showDaysOutsideMonth' and 'startOfWeek' props", () => {
