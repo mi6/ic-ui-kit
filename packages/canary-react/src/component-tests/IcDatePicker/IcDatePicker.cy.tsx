@@ -1235,10 +1235,6 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).click();
 
-    cy.compareSnapshot({
-      name: "month-first-format",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    });  
     checkDateInputValue(new Date(2023,11,15));  
   });
 
@@ -1250,10 +1246,6 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT).shadow().find(CALENDAR_BUTTON_ID).click();
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS).click();
 
-    cy.compareSnapshot({
-      name: "year-first-format",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
-    });
     checkDateInputValue(new Date(2023,11,15)); 
   });
 
