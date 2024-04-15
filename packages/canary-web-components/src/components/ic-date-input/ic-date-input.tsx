@@ -218,6 +218,25 @@ export class DateInput {
    */
   @Prop() required?: boolean = false;
 
+  @Watch("required")
+  watchRequiredHandler(): void {
+    // Prevent asterisk being read out after the label by screen reader (by applying aria-hidden)
+    // Needed because label is included in 'aria-labelledby' instead of using 'aria-label'
+    const labelEl = this.el.shadowRoot.querySelector("label");
+    if (this.required) {
+      const asteriskSpan = document.createElement("span");
+      asteriskSpan.setAttribute("id", "asterisk-span");
+      asteriskSpan.setAttribute("aria-hidden", "true");
+      asteriskSpan.textContent = " *";
+      labelEl?.appendChild(asteriskSpan);
+    } else {
+      const asteriskSpan = this.el.shadowRoot.querySelector("#asterisk-span");
+      if (asteriskSpan) {
+        asteriskSpan.remove();
+      }
+    }
+  }
+
   /**
    * @internal If `true`, a button which displays the calendar view when clicked will be displayed.
    */
@@ -328,15 +347,7 @@ export class DateInput {
       input.addEventListener("blur", this.handleBlur);
     });
 
-    // Prevent asterisk being read out after the label by screen reader (by applying aria-hidden)
-    // Needed because label is included in 'aria-labelledby' instead of using 'aria-label'
-    const labelEl = this.el.shadowRoot.querySelector("label");
-    if (this.required) {
-      const asteriskSpan = document.createElement("span");
-      asteriskSpan.setAttribute("aria-hidden", "true");
-      asteriskSpan.textContent = " *";
-      labelEl?.appendChild(asteriskSpan);
-    }
+    this.watchRequiredHandler();
   }
 
   componentWillUpdate(): void {
