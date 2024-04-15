@@ -228,4 +228,23 @@ describe("ic-link component", () => {
     //Can't expect anything in this test - this is to increase code coverage only
     await page.rootInstance.setFocus().toHaveBeenCalled;
   });
+
+  it("should update any attributes that are inherited from the root element", async () => {
+    const page = await newSpecPage({
+      components: [Link],
+      html: `<ic-link>IC Link Test</ic-link>`,
+    });
+    expect(
+      page.root.shadowRoot.querySelector("a").getAttribute("aria-label")
+    ).toBeNull();
+
+    page.root.setAttribute("aria-label", "new-label");
+    page.rootInstance.hostMutationCallback([{ attributeName: "aria-label" }]);
+    await page.waitForChanges();
+
+    expect(
+      page.root.shadowRoot.querySelector("a").getAttribute("aria-label")
+    ).toBe("new-label");
+    page.rootInstance.disconnectedCallback();
+  });
 });
