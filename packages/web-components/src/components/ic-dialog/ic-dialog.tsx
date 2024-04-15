@@ -40,6 +40,7 @@ export class Dialog {
   private focusedElementIndex = 0;
   private IC_TEXT_FIELD: string = "IC-TEXT-FIELD";
   private IC_ACCORDION: string = "IC-ACCORDION";
+  private IC_ACCORDION_GROUP: string = "IC-ACCORDION-GROUP";
   private interactiveElementList: HTMLElement[];
   private resizeObserver: ResizeObserver = null;
   private resizeTimeout: number;
@@ -369,6 +370,8 @@ export class Dialog {
     }
     if (focusedElement.tagName === this.IC_TEXT_FIELD) {
       (focusedElement as HTMLIcTextFieldElement).setFocus();
+    } else if (focusedElement.tagName === this.IC_ACCORDION_GROUP) {
+      (focusedElement as HTMLIcAccordionGroupElement).setFocus();
     } else if (focusedElement.tagName === this.IC_ACCORDION) {
       (focusedElement as HTMLIcAccordionElement).setFocus();
     } else {
@@ -440,7 +443,10 @@ export class Dialog {
 
     let nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
 
-    const isHidden = getComputedStyle(nextFocusEl).visibility === "hidden";
+    const isHidden =
+      getComputedStyle(nextFocusEl).visibility === "hidden" ||
+      (nextFocusEl.tagName === this.IC_ACCORDION_GROUP &&
+        nextFocusEl.hasAttribute("single-expansion"));
 
     if (nextFocusEl.tagName === this.IC_TEXT_FIELD) {
       (nextFocusEl as HTMLIcTextFieldElement).setFocus();
@@ -451,7 +457,9 @@ export class Dialog {
 
         nextFocusEl = this.getNextFocusEl(this.focusedElementIndex);
       }
-      if (nextFocusEl.tagName === this.IC_ACCORDION) {
+      if (nextFocusEl.tagName === this.IC_ACCORDION_GROUP) {
+        (nextFocusEl as HTMLIcAccordionGroupElement).setFocus();
+      } else if (nextFocusEl.tagName === this.IC_ACCORDION) {
         (nextFocusEl as HTMLIcAccordionElement).setFocus();
       } else {
         (nextFocusEl as HTMLElement).focus();

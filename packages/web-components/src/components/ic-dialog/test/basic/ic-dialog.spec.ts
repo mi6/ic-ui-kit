@@ -6,6 +6,8 @@ import {
 } from "../../../../testspec.setup";
 import { Button } from "../../../ic-button/ic-button";
 import { TextField } from "../../../ic-text-field/ic-text-field";
+import { AccordionGroup } from "../../../ic-accordion-group/ic-accordion-group";
+import { Accordion } from "../../../ic-accordion/ic-accordion";
 
 const DIALOG_DELAY_MS = 100;
 
@@ -694,6 +696,78 @@ describe("ic-dialog component", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.dialogRendered).toBe(true);
+  });
+
+  it("should render with an accordian group as first focussable element", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, AccordionGroup, Accordion, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-accordion-group group-title="Test heading">
+          <ic-accordion>
+            <ic-typography variant="body" >
+              This is an example of the main body text.
+            </ic-typography>
+          </ic-accordion>
+        </ic-accordion-group>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog.open = true;
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
+      "IC-ACCORDION-GROUP"
+    );
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.focusedElementIndex).toBe(1);
+  });
+
+  it("should render with an accordian as first focussable element", async () => {
+    const page = await newSpecPage({
+      components: [Dialog, Accordion, Button],
+      html: `<ic-dialog heading="Dialog heading">
+        <ic-accordion>
+          <ic-typography variant="body" >
+            This is an example of the main body text.
+          </ic-typography>
+        </ic-accordion>
+        <ic-button>Click Me</ic-button>
+      </ic-dialog>`,
+    });
+
+    setupDialogMethods(page);
+    const dialog = document.querySelector("ic-dialog");
+
+    dialog.open = true;
+
+    await page.waitForChanges();
+
+    //delay for setTimeout in code
+    await waitForTimeout(DIALOG_DELAY_MS);
+
+    expect(page.rootInstance.interactiveElementList[1].nodeName).toBe(
+      "IC-ACCORDION"
+    );
+
+    page.win.document.dispatchEvent(
+      new KeyboardEvent("keydown", keyboardEvent("Tab"))
+    );
+    await page.waitForChanges();
+
+    expect(page.rootInstance.focusedElementIndex).toBe(1);
   });
 
   it("should correctly pass onclick functions to two default buttons", async () => {
