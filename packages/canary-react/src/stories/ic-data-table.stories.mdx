@@ -1378,3 +1378,137 @@ const DataTable = () => (
 
 export default DataTable;
 ```
+
+### Updating data
+
+export const UpdatingData = () => {
+  const [data, setData] = useState([]);
+  const [pageOptions, setPageOptions] = useState([{ label: '5', value: '5' }]);
+  
+  const addData = () => {
+    setData([...data, ...LONG_DATA]);
+  }
+
+  const clearData = () => {
+    setData([]);
+  }
+
+  const updatePageOptions = () => {
+    setPageOptions([
+      { label: '10', value: '10' },
+      { label: '20', value: '20' },
+      { label: '50', value: '50' }
+    ]);
+  }
+
+  const resetPageOptions = () => {
+    setPageOptions([{ label: '5', value: '5' }]);
+  }
+
+  return (
+    <>
+      <IcDataTable
+        caption="Updating Data"
+        columns={COLS}
+        data={data}
+        showPagination
+        paginationOptions={{
+          itemsPerPage: pageOptions,
+          itemsPerPageControl: true,
+          goToPageControl: true,
+          type: "page",
+        }}
+      />
+      <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+        <IcButton onClick={addData}>Add data</IcButton>
+        <IcButton onClick={updatePageOptions}>Update page lengths</IcButton>
+        <IcButton onClick={clearData}>Reset data</IcButton>
+        <IcButton onClick={resetPageOptions}>Reset page lengths</IcButton>
+      </div>
+    </>
+  );
+};
+
+<Canvas withSource="none">
+  <Story name="Updating data example">
+    <UpdatingData />
+  </Story>
+</Canvas>
+
+#### Updating data code example
+
+```jsx
+import * as React from "react";
+import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  const [data, setData] = useState([]);
+  const [pageOptions, setPageOptions] = useState([{ label: '5', value: '5' }]);
+
+  const addData = () => {
+    setData([...data, ...LONG_DATA]);
+  }
+
+  const clearData = () => {
+    setData([]);
+  }
+
+  const updatePageOptions = () => {
+    setPageOptions([
+      { label: '10', value: '10' },
+      { label: '20', value: '20' },
+      { label: '50', value: '50' }
+    ]);
+  }
+
+  const resetPageOptions = () => {
+    setPageOptions([{ label: '5', value: '5' }]);
+  }
+
+ return (
+    <>
+      <IcDataTable
+        caption="Updating Data"
+        columns={COLS}
+        data={data}
+        showPagination
+        paginationOptions={{
+          itemsPerPage: pageOptions,
+          itemsPerPageControl: true,
+          goToPageControl: true,
+          type: "page"
+        }}
+      />
+      <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
+        <IcButton onClick={addData}>Add data</IcButton>
+        <IcButton onClick={updatePageOptions}>Update page lengths</IcButton>
+        <IcButton onClick={clearData}>Clear data</IcButton>
+        <IcButton onClick={resetPageOptions}>Reset page lengths</IcButton>
+      </div>
+    </>
+  );
+};
+
+export default DataTable;
+```
