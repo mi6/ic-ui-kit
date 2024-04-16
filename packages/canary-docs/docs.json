@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-09T09:35:30",
+  "timestamp": "2024-04-16T14:21:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -2386,7 +2386,7 @@
             "resolved": "{ label: string; value: string; }[]",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "reflectToAttr": false,
           "docs": "The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.",
           "docsTags": [],
