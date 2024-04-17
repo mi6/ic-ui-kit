@@ -842,3 +842,64 @@ export const CustomTitleBar = (): HTMLIcDataTableElement => {
 
   return dataTable;
 };
+
+export const UpdatingData = (): HTMLElement => {
+  const dataTable = createDataTableElement("Updating Data", COLS, []);
+  const pageOptions = [{ label: "5", value: "5" }];
+
+  dataTable.showPagination = true;
+  dataTable.paginationOptions = {
+    itemsPerPage: pageOptions,
+    itemsPerPageControl: true,
+    goToPageControl: true,
+    type: "page",
+  };
+
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
+    dataTable.data = [...dataTable.data, ...LONG_DATA];
+  });
+  updateDataButton.innerHTML = "Update data";
+
+  const clearDataButton = document.createElement("ic-button");
+  clearDataButton.addEventListener("click", () => {
+    dataTable.data = [];
+  });
+  clearDataButton.innerHTML = "Clear data";
+
+  const updatePaginationButton = document.createElement("ic-button");
+  updatePaginationButton.addEventListener("click", () => {
+    dataTable.paginationOptions = {
+      ...dataTable.paginationOptions,
+      itemsPerPage: [
+        { label: "10", value: "10" },
+        { label: "20", value: "20" },
+        { label: "50", value: "50" },
+      ],
+    };
+  });
+  updatePaginationButton.innerHTML = "Update page lengths";
+
+  const resetPaginationButton = document.createElement("ic-button");
+  resetPaginationButton.addEventListener("click", () => {
+    dataTable.paginationOptions = {
+      ...dataTable.paginationOptions,
+      itemsPerPage: pageOptions,
+    };
+  });
+  resetPaginationButton.innerHTML = "Reset page lengths";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", updateDataButton);
+  buttonWrapper.insertAdjacentElement("beforeend", clearDataButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updatePaginationButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetPaginationButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
+};
