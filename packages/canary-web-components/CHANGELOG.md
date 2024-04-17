@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.11...@ukic/canary-web-components@2.0.0-canary.12) (2024-04-17)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes props not updating ([b71566b](https://github.com/mi6/ic-ui-kit/commit/b71566b8651354e58df03c9e991f7b436387d9a5))
+- **canary-web-components:** fixes required prop change not updating label ([510f2fa](https://github.com/mi6/ic-ui-kit/commit/510f2fadb00a8a6ac8b863864f8747838705e49b))
+
 # [2.0.0-canary.11](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.10...@ukic/canary-web-components@2.0.0-canary.11) (2024-04-08)
 
 ### Bug Fixes

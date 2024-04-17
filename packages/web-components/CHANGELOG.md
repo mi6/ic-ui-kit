@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.17.0...@ukic/web-components@2.18.0) (2024-04-17)
+
+### Bug Fixes
+
+- **web-components:** add auto height for navigation item when it's in the side menu ([636e10b](https://github.com/mi6/ic-ui-kit/commit/636e10b6173e54892a08577757bc30215a52ce0b))
+- **web-components:** fixes text select not working on accordion ([e97e5fe](https://github.com/mi6/ic-ui-kit/commit/e97e5fe911b9eb0c69d109bde9cc809f09ab7822))
+- **web-components:** strengthen helper function ([8cbd13e](https://github.com/mi6/ic-ui-kit/commit/8cbd13ea548e1e18c95589adcec2bbc147c8e221))
+
+### Features
+
+- **web-components:** add tab label to the detail emitted after the icTabSelect event ([b5f8402](https://github.com/mi6/ic-ui-kit/commit/b5f840271a1ff84562407e4c020cf1fe7fdbfb30)), closes [#1746](https://github.com/mi6/ic-ui-kit/issues/1746)
+
 # [2.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.16.0...@ukic/web-components@2.17.0) (2024-04-08)
 
 ### Bug Fixes

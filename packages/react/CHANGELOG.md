@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.17.0...@ukic/react@2.18.0) (2024-04-17)
+
+### Features
+
+- **react:** updates tests for dialogs with accordions ([81305f6](https://github.com/mi6/ic-ui-kit/commit/81305f61bb4a5ed549316de23547ff030b514997))
+
 # [2.17.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.15.1...@ukic/react@2.17.0) (2024-04-08)
 
 ### Bug Fixes
