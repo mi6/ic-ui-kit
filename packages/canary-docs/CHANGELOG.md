@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-docs@2.0.0-canary.1...@ukic/canary-docs@2.0.0-canary.13) (2024-04-17)
+
+### Bug Fixes
+
+- **canary-docs:** updated version number to sync with canary packages ([bf4831c](https://github.com/mi6/ic-ui-kit/commit/bf4831cf04ad296d20064ad0049a22307d994d43))
+
 # 2.0.0-canary.1 (2024-04-17)
 
 **Note:** Version bump only for package @ukic/canary-docs

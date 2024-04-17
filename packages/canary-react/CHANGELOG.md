@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.12...@ukic/canary-react@2.0.0-canary.13) (2024-04-17)
+
+### Bug Fixes
+
+- **canary-react:** version bump ([49360aa](https://github.com/mi6/ic-ui-kit/commit/49360aafc402ace52ca425f4e9c46c74411a3ee5))
+
 # [2.0.0-canary.12](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.11...@ukic/canary-react@2.0.0-canary.12) (2024-04-17)
 
 ### Bug Fixes

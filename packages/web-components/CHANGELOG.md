@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.18.0...@ukic/web-components@2.18.1) (2024-04-17)
+
+### Bug Fixes
+
+- **web-components:** version bump ([27b77b5](https://github.com/mi6/ic-ui-kit/commit/27b77b5948bfdaaa7202a574206d6d23bb9fa8c1))
+
 # [2.18.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.17.0...@ukic/web-components@2.18.0) (2024-04-17)
 
 ### Bug Fixes
