@@ -56,11 +56,18 @@ By default, the helper text displays the date format.
 </Canvas>
 
 ```jsx
-<IcDateInput label="When would you like to collect your coffee?" />
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
 
-<IcDateInput label="When would you like to collect your coffee?" dateFormat="MM/DD/YYYY" />
+const DateInput = () => (
+  <>
+    <IcDateInput label="When would you like to collect your coffee?" />
+    <IcDateInput label="When would you like to collect your coffee?" dateFormat="MM/DD/YYYY" />
+    <IcDateInput label="When would you like to collect your coffee?" dateFormat="YYYY/MM/DD" />
+  </>
+);
 
-<IcDateInput label="When would you like to collect your coffee?" dateFormat="YYYY/MM/DD" />
+export default DateInput;
 ```
 
 Retrieving the date input value via `onIcChange` returns the date as a Date object.
@@ -77,10 +84,17 @@ The event returns the Date object when day, month and year have been entered.
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  onIcChange={(ev) => console.log(event.detail.value)}
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    onIcChange={(ev) => console.log(event.detail.value)}
+  />
+);
+
+export default DateInput;
 ```
 ### With value
 
@@ -97,10 +111,17 @@ To set a value to the date input, pass the date value in the relevant date forma
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  value="21/01/2001"
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    value="21/01/2001"
+  />
+);
+
+export default DateInput;
 ```
 
 The date input also accepts a number of different date formats within the value prop.
@@ -122,10 +143,17 @@ The date input also accepts a number of different date formats within the value 
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  value={new Date("28 November 2021")}
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    value={new Date("28 November 2021")}
+  />
+);
+
+export default DateInput;
 ```
 
 #### Zulu datetime
@@ -140,10 +168,17 @@ The date input also accepts a number of different date formats within the value 
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  value={new Date("28 November 2021").toISOString()}
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    value={new Date("28 November 2021").toISOString()}
+  />
+);
+
+export default DateInput;
 ```
 
 #### With hyphens
@@ -158,10 +193,17 @@ The date input also accepts a number of different date formats within the value 
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  value="25-05-2005"
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    value="25-05-2005"
+  />
+);
+
+export default DateInput;
 ```
 
 #### Epoch time
@@ -176,10 +218,17 @@ The date input also accepts a number of different date formats within the value 
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  value={Date.now()}
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    value={Date.now()}
+  />
+);
+
+export default DateInput;
 ```
 
 ### Required
@@ -193,7 +242,14 @@ To set the date input as a required field, add the `required` prop. This will ad
 </Canvas>
 
 ```jsx
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
   <IcDateInput label="When would you like to collect your coffee?" required />
+);
+
+export default DateInput;
 ```
 
 ### Disabled
@@ -207,7 +263,14 @@ Set the `disabled`, to prevent interaction with the date input.
 </Canvas>
 
 ```jsx
-<IcDateInput label="When would you like to collect your coffee?" disabled />
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput label="When would you like to collect your coffee?" disabled />
+);
+
+export default DateInput;
 ```
 
 ### Sizes
@@ -234,11 +297,18 @@ The date input is available in three different sizes:
 </Canvas>
 
 ```jsx
-<IcDateInput label="When would you like to collect your coffee?" size="small" />
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
 
-<IcDateInput label="When would you like to collect your coffee?" />
+const DateInput = () => (
+  <>
+    <IcDateInput label="When would you like to collect your coffee?" size="small" />
+    <IcDateInput label="When would you like to collect your coffee?" />
+    <IcDateInput label="When would you like to collect your coffee?" size="large" />
+  </>
+);
 
-<IcDateInput label="When would you like to collect your coffee?" size="large" />
+export default DateInput;
 ```
 
 ### Custom helper text
@@ -275,10 +345,17 @@ export const UpdatingHelperText = () => {
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  helperText="We will have your order ready for you on this date"
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    helperText="We will have your order ready for you on this date"
+  />
+);
+
+export default DateInput;
 ```
 
 ### Custom validation
@@ -316,23 +393,30 @@ Validation on date input is set via `validationStatus` and `validationText`.
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  validationStatus="error"
-  validationText="There is a coffee shortage forecast for that day. Please choose a different date."
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
 
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  validationStatus="warning"
-  validationText="Please be aware that there may be a coffee shortage on that day."
-/>
+const DateInput = () => (
+  <>
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      validationStatus="error"
+      validationText="There is a coffee shortage forecast for that day. Please choose a different date."
+    />
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      validationStatus="warning"
+      validationText="Please be aware that there may be a coffee shortage on that day."
+    />
+    <IcDateInput
+      label="When would you like to collect your coffee?"
+      validationStatus="success"
+      validationText="Your coffee will be available for you to collect on this day."
+    />
+  </>
+);
 
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  validationStatus="success"
-  validationText="Your coffee will be available for you to collect on this day."
-/>
+export default DateInput;
 ```
 
 ### Disabled past dates
@@ -351,10 +435,17 @@ Enter a date in the past to view the validation message.
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  disablePast
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    disablePast
+  />
+);
+
+export default DateInput;
 ```
 
 ### Disabled future dates
@@ -373,10 +464,17 @@ Enter a date in the future to view the validation message.
 </Canvas>
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  disableFuture
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    disableFuture
+  />
+);
+
+export default DateInput;
 ```
 
 ### Min and max
@@ -405,11 +503,18 @@ Enter a date after 2nd Jan 2023 and before 20th July to view the validation mess
 In this code snippet, the min and max have been set using two different date formats to demonstrate its flexibility.
 
 ```jsx
-<IcDateInput
-  label="When would you like to collect your coffee?"
-  min="02-01-2023"
-  max="20/07/2023"
-/>
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    min="02-01-2023"
+    max="20/07/2023"
+  />
+);
+
+export default DateInput;
 ```
 
 ### Form
@@ -436,18 +541,27 @@ export const Form = () => {
 };
 
 ```jsx
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const Form = () => {
   const formSubmit = (e) => {
     console.log(e);
   };
 
-  <form onSubmit={formSubmit}>
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      value={new Date("13 March 1951")}
-    />
-    <IcButton type="submit">Submit</IcButton>
-    <IcButton type="reset">Reset</IcButton>
-  </form>
+  return (
+    <form onSubmit={formSubmit}>
+      <IcDateInput
+        label="When would you like to collect your coffee?"
+        value={new Date("13 March 1951")}
+      />
+      <IcButton type="submit">Submit</IcButton>
+      <IcButton type="reset">Reset</IcButton>
+    </form>
+  );
+};
+
+export default Form;
 ```
 
 <Canvas withSource='none'>
