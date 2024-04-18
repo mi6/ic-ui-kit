@@ -7,14 +7,15 @@ import {
   State,
   Listen,
   h,
+  Watch,
 } from "@stencil/core";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 import { checkResizeObserver } from "../../utils/helpers";
 import {
   IcPaginationAlignmentOptions,
-  IcPaginationControlTypes,
+  IcPaginationLabelTypes,
   IcPaginationTypes,
-} from "../ic-pagination/ic-pagination.types";
+} from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 
 @Component({
   tag: "ic-pagination-bar",
@@ -22,24 +23,30 @@ import {
   shadow: true,
 })
 export class PaginationBar {
-  private PAGINATION = "ic-pagination";
-  private TEXT_FIELD = "ic-text-field";
-  private TOOLTIP = "ic-tooltip";
   private PAGE_INPUT_FIELD_ID = "go-to-page-input";
 
   private INVALID_PAGE_ERROR = "Please enter a valid page";
   private NAN_ERROR = "Please enter a number";
 
   private resizeObserver: ResizeObserver = null;
+  private pageDropdownEl: HTMLIcSelectElement;
+  private pageInputEl: HTMLIcTextFieldElement;
+  private pageInputTooltipEl: HTMLIcTooltipElement;
   private paginationBarEl: HTMLElement;
+  private paginationEl: HTMLIcPaginationElement;
 
   @Element() el: HTMLIcPaginationBarElement;
 
   @State() currentPage: number = 1;
 
+  @State() displayedItemsPerPageOptions?: {
+    label: string;
+    value: string;
+  }[];
+
   @State() inputError: string = "Please enter a valid page";
 
-  @State() itemsPerPage: string;
+  @State() itemsPerPage: number = 0;
 
   @State() lowerBound: number = 1;
 
@@ -62,27 +69,32 @@ export class PaginationBar {
   @Prop() appearance?: IcThemeForeground = "default";
 
   /**
-   * The label which will be used in place of 'items' if paginationType is data. Should be capitalised.
+   * The label which will be used in place of 'items' if type is data. Should be capitalised.
    */
   @Prop() itemLabel?: string = "Item";
 
   /**
    * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
    */
-  @Prop({ mutable: true }) itemsPerPageOptions?: {
+  @Prop() itemsPerPageOptions?: {
     label: string;
     value: string;
   }[];
 
+  @Watch("itemsPerPageOptions")
+  watchItemsPerPageOptionsHandler(): void {
+    this.setPaginationBarContent();
+  }
+
   /**
    * Whether the displayed pagination is simple or complex.
    */
-  @Prop() paginationControl?: IcPaginationControlTypes = "simple";
+  @Prop() type?: IcPaginationTypes = "simple";
 
   /**
    * Whether total number of items and current item range or total number of pages and current page is displayed.
    */
-  @Prop() paginationType?: IcPaginationTypes = "page";
+  @Prop() labelType?: IcPaginationLabelTypes = "page";
 
   /**
    * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
@@ -95,9 +107,9 @@ export class PaginationBar {
   @Prop() showGoToPageControl?: boolean = false;
 
   /**
-   * If `true`, the number of total items and current item range or number of total pages and current page should be displayed.
+   * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
    */
-  @Prop() showItemsPerPage?: boolean = true;
+  @Prop() hideItemsPerPageLabel?: boolean = false;
 
   /**
    * If `true`, the select input to control 'items per page' should be displayed.
@@ -108,6 +120,11 @@ export class PaginationBar {
    * Total number of items to be displayed across all pages.
    */
   @Prop() totalItems!: number;
+
+  @Watch("totalItems")
+  watchTotalItemsHandler(): void {
+    this.setPaginationBarContent();
+  }
 
   /**
    * Emitted when a page is navigated to via the 'go to' input.
@@ -126,16 +143,7 @@ export class PaginationBar {
   }
 
   componentWillLoad(): void {
-    if (
-      this.itemsPerPageOptions === undefined ||
-      this.itemsPerPageOptions === null
-    ) {
-      this.setDefaultItemsPerPageOptions();
-    }
-    this.trimItemsPerPageOptions();
-    this.setDefaultItemsPerPage();
-    this.setNumberPages();
-    this.setUpperBound();
+    this.setPaginationBarContent();
   }
 
   componentDidLoad(): void {
@@ -152,60 +160,33 @@ export class PaginationBar {
   }
 
   private changeItemsPerPage = () => {
-    const select = this.el.shadowRoot.querySelector("ic-select");
-    const value = select.value;
-    this.itemsPerPage = value;
-    this.setNumberPages();
-    this.setUpperBound();
-    const pagination = this.el.shadowRoot.querySelector(
-      this.PAGINATION
-    ) as HTMLIcPaginationElement;
-    if (this.currentPage > this.totalPages) {
-      pagination.setCurrentPage(this.totalPages);
-      this.currentPage = this.totalPages;
-    }
-    this.icItemsPerPageChange.emit({ value: Number(this.itemsPerPage) });
-    this.icPageChange.emit({ value: this.currentPage });
+    this.setItemsPerPage(Number(this.pageDropdownEl.value));
   };
 
   private changePage = (page: number) => {
     this.currentPage = page;
-    this.lowerBound =
-      page !== 1 ? (page - 1) * Number(this.itemsPerPage) + 1 : page;
+    this.lowerBound = page !== 1 ? (page - 1) * this.itemsPerPage + 1 : page;
     this.setUpperBound();
   };
 
   private goToPage = () => {
-    const input = this.el.shadowRoot.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
+    const input = this.pageInputEl;
     const page = Number(input.value);
-    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
     if (page <= this.totalPages && page > 0) {
       this.changePage(page);
-      const pagination = this.el.shadowRoot.querySelector(
-        this.PAGINATION
-      ) as HTMLIcPaginationElement;
-      pagination.setCurrentPage(page);
+      this.paginationEl.setCurrentPage(page);
       this.currentPage = page;
       input.value = "";
       this.icPageChange.emit({ value: page });
-      tooltip.displayTooltip(false, false);
+      this.pageInputTooltipEl.displayTooltip(false, false);
       input.validationStatus = "";
     } else {
-      this.inputError = this.INVALID_PAGE_ERROR;
-      input.validationStatus = "error";
-      input.setFocus();
+      this.setInputError(input, this.INVALID_PAGE_ERROR);
     }
   };
 
   private handleBlur = () => {
-    const textField = this.el.shadowRoot?.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
-    const tooltip = this.el.shadowRoot?.querySelector(
-      this.TOOLTIP
-    ) as HTMLIcTooltipElement;
+    const textField = this.pageInputEl;
     if (
       (Number(textField.value) <= this.totalPages &&
         Number(textField.value) > 0) ||
@@ -213,45 +194,28 @@ export class PaginationBar {
     ) {
       textField.validationStatus = "";
     }
-    tooltip.displayTooltip(false, false);
+    this.pageInputTooltipEl.displayTooltip(false, false);
   };
 
   private handleFocus = () => {
-    const textField = this.el.shadowRoot?.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
-    const tooltip = this.el.shadowRoot?.querySelector(
-      this.TOOLTIP
-    ) as HTMLIcTooltipElement;
-    if (textField.validationStatus === "error") {
-      tooltip.displayTooltip(true, true);
+    if (this.pageInputEl.validationStatus === "error") {
+      this.pageInputTooltipEl.displayTooltip(true, true);
     }
   };
 
   private handleInputChange = () => {
-    const tooltip = this.el.shadowRoot.querySelector(
-      this.TOOLTIP
-    ) as HTMLIcTooltipElement;
-    const textField = this.el.shadowRoot.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
+    const textField = this.pageInputEl;
     const inputValue = parseInt(textField.value);
 
     if (inputValue > this.totalPages || inputValue <= 0) {
-      this.inputError = this.INVALID_PAGE_ERROR;
-      tooltip.displayTooltip(true, true);
-      textField.validationStatus = "error";
-      textField.focus();
+      this.setInputError(textField, this.INVALID_PAGE_ERROR);
+      this.pageInputTooltipEl.displayTooltip(true, true);
     }
   };
 
   private handleKeydown = (ev: KeyboardEvent) => {
-    const tooltip = this.el.shadowRoot.querySelector(
-      this.TOOLTIP
-    ) as HTMLIcTooltipElement;
-    const textField = this.el.shadowRoot.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
+    const tooltip = this.pageInputTooltipEl;
+    const textField = this.pageInputEl;
 
     if (ev.key === "Enter") {
       if (textField.validationStatus === "error") {
@@ -266,12 +230,7 @@ export class PaginationBar {
   };
 
   private handleKeyUp = (ev: KeyboardEvent) => {
-    const tooltip = this.el.shadowRoot.querySelector(
-      this.TOOLTIP
-    ) as HTMLIcTooltipElement;
-    const textField = this.el.shadowRoot.querySelector(
-      this.TEXT_FIELD
-    ) as HTMLIcTextFieldElement;
+    const textField = this.pageInputEl;
     const inputValue = parseInt(textField.value);
 
     if (
@@ -281,18 +240,14 @@ export class PaginationBar {
       ev.key !== "Tab" &&
       ev.key !== "Shift"
     ) {
-      this.inputError = this.NAN_ERROR;
-      tooltip.displayTooltip(true, false);
-      textField.validationStatus = "error";
+      this.setInputError(textField, this.NAN_ERROR, false);
+      this.pageInputTooltipEl.displayTooltip(true, false);
     }
   };
 
   private paginationShouldWrap = () => {
-    const pagination = this.el.shadowRoot.querySelector(
-      this.PAGINATION
-    ) as HTMLIcPaginationElement;
-    if (this.paginationControl === "simple") {
-      if (pagination.clientHeight > 63) {
+    if (this.type === "simple") {
+      if (this.paginationEl.clientHeight > 63) {
         this.paginationWrapped = true;
       } else {
         this.paginationWrapped = false;
@@ -319,25 +274,26 @@ export class PaginationBar {
     this.resizeObserver.observe(this.paginationBarEl);
   };
 
-  private setDefaultItemsPerPage = () => {
-    this.itemsPerPage = this.itemsPerPageOptions[0].value;
-  };
-
-  private setDefaultItemsPerPageOptions = () => {
-    this.itemsPerPageOptions =
-      this.totalItems <= 100
-        ? [
-            { label: "10", value: "10" },
-            { label: "25", value: "25" },
-            { label: "50", value: "50" },
-            { label: "All", value: String(this.totalItems) },
-          ]
-        : [
-            { label: "25", value: "25" },
-            { label: "100", value: "100" },
-            { label: "1000", value: "1000" },
-            { label: "All", value: String(this.totalItems) },
-          ];
+  private setDisplayedItemsPerPageOptions = () => {
+    if (
+      this.itemsPerPageOptions === undefined ||
+      this.itemsPerPageOptions === null
+    ) {
+      this.displayedItemsPerPageOptions =
+        this.totalItems <= 100
+          ? [
+              { label: "10", value: "10" },
+              { label: "25", value: "25" },
+              { label: "50", value: "50" },
+            ]
+          : [
+              { label: "25", value: "25" },
+              { label: "100", value: "100" },
+              { label: "1000", value: "1000" },
+            ];
+    } else {
+      this.displayedItemsPerPageOptions = this.itemsPerPageOptions.slice(0, 3);
+    }
   };
 
   private setGoToPageInputStyles = () => {
@@ -353,43 +309,97 @@ export class PaginationBar {
     }
   };
 
+  private setInputError = (
+    el: HTMLIcTextFieldElement,
+    error: string,
+    focus = true
+  ) => {
+    this.inputError = error;
+    el.validationStatus = "error";
+    if (focus) el.setFocus();
+  };
+
+  private setItemsPerPage = (newValue: number) => {
+    if (this.itemsPerPage !== newValue) {
+      this.itemsPerPage = newValue;
+      this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
+    }
+    this.setNumberPages();
+    this.setUpperBound();
+    if (this.currentPage > this.totalPages) {
+      this.paginationEl.setCurrentPage(this.totalPages);
+      this.currentPage = this.totalPages;
+    }
+    this.icPageChange.emit({ value: this.currentPage });
+  };
+
   private setNumberPages = () => {
-    this.totalPages = Math.ceil(this.totalItems / Number(this.itemsPerPage));
+    const numItemsPerPage = this.itemsPerPage;
+    if (this.totalItems <= numItemsPerPage) {
+      this.totalPages = 1;
+    } else {
+      this.totalPages = Math.ceil(this.totalItems / numItemsPerPage);
+    }
+  };
+
+  private setPaginationBarContent = (): void => {
+    this.setDisplayedItemsPerPageOptions();
+    this.trimItemsPerPageOptions();
+    this.updateItemsPerPage();
   };
 
   private setUpperBound = () => {
     this.upperBound = Math.min(
-      this.lowerBound + Number(this.itemsPerPage) - 1,
+      this.lowerBound + this.itemsPerPage - 1,
       this.totalItems
     );
   };
 
   private trimItemsPerPageOptions = () => {
-    this.itemsPerPageOptions = this.itemsPerPageOptions.slice(0, 3);
-    this.itemsPerPageOptions.push({
+    this.displayedItemsPerPageOptions.push({
       label: "All",
       value: String(this.totalItems),
     });
 
-    for (let i = 0; i < this.itemsPerPageOptions.length - 1; i++) {
-      if (this.totalItems <= Number(this.itemsPerPageOptions[i].value)) {
-        this.itemsPerPageOptions.splice(
+    for (let i = 0; i < this.displayedItemsPerPageOptions.length - 1; i++) {
+      if (
+        this.totalItems <= Number(this.displayedItemsPerPageOptions[i].value)
+      ) {
+        this.displayedItemsPerPageOptions.splice(
           i,
-          this.itemsPerPageOptions.length - (i + 1)
+          this.displayedItemsPerPageOptions.length - (i + 1)
         );
       }
     }
+  };
+
+  private updateItemsPerPage = () => {
+    let newItemsPerPage = this.itemsPerPage;
+    let updated = false;
+    let lastOptionValue = 0;
+    for (let i = 0; i < this.displayedItemsPerPageOptions.length; i++) {
+      lastOptionValue = Number(this.displayedItemsPerPageOptions[i].value);
+      if (this.itemsPerPage <= lastOptionValue) {
+        newItemsPerPage = lastOptionValue;
+        updated = true;
+        i = this.displayedItemsPerPageOptions.length;
+      }
+    }
+    if (!updated && this.itemsPerPage > lastOptionValue) {
+      newItemsPerPage = lastOptionValue;
+    }
+    this.setItemsPerPage(newItemsPerPage);
   };
 
   render() {
     const {
       appearance,
       alignment,
-      itemsPerPageOptions,
+      displayedItemsPerPageOptions,
       PAGE_INPUT_FIELD_ID,
-      paginationControl,
-      paginationType,
-      showItemsPerPage,
+      type,
+      labelType,
+      hideItemsPerPageLabel,
       showItemsPerPageControl,
       showGoToPageControl,
     } = this;
@@ -406,7 +416,7 @@ export class PaginationBar {
         }}
         ref={(el) => (this.paginationBarEl = el)}
       >
-        {(showItemsPerPage || showItemsPerPageControl) && (
+        {(!hideItemsPerPageLabel || showItemsPerPageControl) && (
           <div class="item-controls">
             {showItemsPerPageControl && (
               <div class="items-per-page-holder">
@@ -425,13 +435,14 @@ export class PaginationBar {
                   label="items-per-page-input"
                   class="items-per-page-input"
                   hideLabel
-                  options={itemsPerPageOptions}
-                  value={this.itemsPerPage}
+                  options={displayedItemsPerPageOptions}
+                  value={this.itemsPerPage.toString()}
                   onIcChange={() => this.changeItemsPerPage()}
+                  ref={(el: HTMLIcSelectElement) => (this.pageDropdownEl = el)}
                 ></ic-select>
               </div>
             )}
-            {showItemsPerPage && paginationType === "data" ? (
+            {!hideItemsPerPageLabel && labelType === "data" ? (
               <ic-typography
                 class={{
                   [`pagination-text-${appearance}`]: true,
@@ -440,12 +451,16 @@ export class PaginationBar {
                 variant="label"
                 aria-live="polite"
               >
-                {this.lowerBound} - {this.upperBound} of {this.totalItems}{" "}
-                {this.itemLabel.toLowerCase()}
-                {this.totalItems > 1 ? "s" : ""}
+                {this.upperBound === 0 && `0 ${this.itemLabel.toLowerCase()}s`}
+                {this.upperBound > 0 &&
+                  `${this.lowerBound} - ${this.upperBound} of ${
+                    this.totalItems
+                  } ${this.itemLabel.toLowerCase()}${
+                    this.totalItems > 1 ? "s" : ""
+                  }`}
               </ic-typography>
             ) : (
-              showItemsPerPage && (
+              !hideItemsPerPageLabel && (
                 <ic-typography
                   class={{
                     [`pagination-text-${appearance}`]: true,
@@ -469,8 +484,9 @@ export class PaginationBar {
           <div class="pagination-holder">
             <ic-pagination
               appearance={appearance}
-              type={paginationControl}
+              type={type}
               pages={this.totalPages}
+              ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
             ></ic-pagination>
           </div>
           {showGoToPageControl && (
@@ -487,6 +503,9 @@ export class PaginationBar {
                 target={`#${PAGE_INPUT_FIELD_ID}`}
                 disableHover
                 disableClick
+                ref={(el: HTMLIcTooltipElement) =>
+                  (this.pageInputTooltipEl = el)
+                }
               >
                 <ic-text-field
                   type="number"
@@ -503,6 +522,7 @@ export class PaginationBar {
                   validationInlineInternal
                   onBlur={() => this.handleBlur()}
                   onFocus={() => this.handleFocus()}
+                  ref={(el: HTMLIcTextFieldElement) => (this.pageInputEl = el)}
                 ></ic-text-field>
               </ic-tooltip>
               <ic-button

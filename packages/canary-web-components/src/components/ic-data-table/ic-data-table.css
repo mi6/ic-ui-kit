@@ -1,3 +1,7 @@
+/**
+  * @prop --height: height of the table row container
+  */
+
 :host {
   position: relative;
   display: block;
@@ -8,6 +12,11 @@
 .table-container {
   position: relative;
   height: calc(100% - var(--ic-space-xxxs));
+}
+
+ic-loading-indicator {
+  position: sticky;
+  top: 20px;
 }
 
 .table-row-container {
@@ -36,7 +45,7 @@ table {
   z-index: 1;
 }
 
-:host([embedded="true"]) .table-container {
+:host([embedded="true"]) .table-row-container {
   border: var(--ic-border-light);
 }
 
@@ -134,18 +143,21 @@ table {
 .row-header-alignment-left,
 .cell-alignment-left {
   text-align: left !important;
+  justify-content: start !important;
 }
 
 .column-header-alignment-right,
 .row-header-alignment-right,
 .cell-alignment-right {
   text-align: right !important;
+  justify-content: end !important;
 }
 
 .column-header-alignment-center,
 .row-header-alignment-center,
 .cell-alignment-center {
   text-align: center !important;
+  justify-content: center !important;
 }
 
 .table-row:nth-child(even) {
@@ -165,6 +177,7 @@ table {
 .data-type-number,
 .data-type-date {
   text-align: right;
+  justify-content: end;
   vertical-align: top;
 }
 
@@ -206,9 +219,71 @@ table {
   white-space: pre-wrap;
 }
 
+.loading-empty {
+  padding: var(--ic-space-xl) var(--ic-space-xxl);
+  margin-top: var(--ic-space-xl);
+}
+
+.updating-state {
+  padding: 0;
+  border-bottom: var(--ic-border-light);
+}
+
+.updating-state-headers {
+  border-bottom: none;
+}
+
+.loading {
+  position: absolute;
+  left: calc(50% - 5.9741rem);
+  opacity: 0;
+  transition: opacity var(--ic-transition-duration-slow);
+}
+
+.loading.show-background {
+  background-color: var(--ic-architectural-white);
+  border: var(--ic-border-light);
+}
+
+.loading.show {
+  opacity: 1;
+}
+
+.icon,
+::slotted(svg) {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  margin-right: var(--ic-space-xxs);
+}
+
+.column-header-alignment-right > .icon,
+.row-header-alignment-right > .icon,
+.cell-alignment-right > .icon,
+.column-header-alignment-right > ::slotted(svg),
+.row-header-alignment-right > ::slotted(svg),
+.cell-alignment-right > ::slotted(svg) {
+  margin-right: auto;
+}
+
+.column-header-alignment-center > ic-typography,
+.row-header-alignment-right > ic-typography,
+.cell-alignment-center > ic-typography {
+  flex: 1;
+}
+
+.icon > svg {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+  display: inline-block;
+}
+
 @media screen and (min-width: 576px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;
+  }
+
+  .cell-container {
+    display: flex;
   }
 }
