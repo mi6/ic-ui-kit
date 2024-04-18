@@ -31,6 +31,11 @@ export class Stepper {
   @Prop() aligned?: IcStepperAlignment = "full-width";
 
   /**
+   * The appearance of the stepper.
+   */
+  @Prop() appearance?: "light" | "default" = "default";
+
+  /**
    * The length of the connnector between each step in pixels. Minimum length is 100px.
    */
   @Prop() connectorWidth?: number = 100;
@@ -53,6 +58,7 @@ export class Stepper {
 
   componentWillLoad(): void {
     this.setStepTypes();
+
     if (this.variant === "compact") {
       this.variantOverride = false;
     }
