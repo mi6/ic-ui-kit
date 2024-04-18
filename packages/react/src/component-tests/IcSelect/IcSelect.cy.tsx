@@ -313,7 +313,8 @@ describe("IcSelect", () => {
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO).should(
       HAVE_ATTR,
-      ARIA_SELECTED
+      ARIA_SELECTED,
+      "true"
     );
     cy.findShadowEl("ic-select", "[data-value='espresso'] span").should(
       HAVE_CLASS,
@@ -348,7 +349,8 @@ describe("IcSelect", () => {
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO).should(
       HAVE_ATTR,
-      ARIA_SELECTED
+      ARIA_SELECTED,
+      "true"
     );
     cy.findShadowEl("ic-select", `${DATA_VALUE_ESPRESSO} span`).should(
       HAVE_CLASS,
