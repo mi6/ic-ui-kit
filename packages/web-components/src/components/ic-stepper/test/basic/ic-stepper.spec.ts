@@ -933,4 +933,28 @@ describe("switch between the compact and default stepper depending on whether th
 
     expect(page.rootInstance["variantOverride"]).toBeTruthy();
   });
+
+  it("should render a light stepper", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: `<ic-stepper appearance="light">
+      <ic-step step-title="Create" step-type="completed"></ic-step>
+      <ic-step step-title="Read" step-type="current"></ic-step>
+      <ic-step step-title="Update"></ic-step>
+      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+    });
+    page.rootInstance.resizeObserverCallback();
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.appearance).toMatch("light");
+
+    const steps = page.root.querySelectorAll("ic-step");
+
+    steps.forEach((step) => {
+      expect(step.classList.contains("light")).toBeTruthy();
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
