@@ -6,9 +6,9 @@ type updateValueProp = {
 };
 
 type helperTextProp = {
-  initialText: string,
-  newText: string
-}
+  initialText: string;
+  newText: string;
+};
 
 export const DateInputUpdateValue = ({ updatedValue }: updateValueProp) => {
   const [value, setValue] = useState<string | undefined | null | Date>(
@@ -29,26 +29,32 @@ export const DateInputUpdateHelperText = (helperTextFields: helperTextProp) => {
   const [helpText, setHelpText]: any = useState(helperTextFields.initialText);
   const updateHelperText = () => {
     setHelpText(helperTextFields.newText);
-  } 
+  };
   const clearHelperText = () => {
     setHelpText("");
-  }
+  };
 
   const nullHelperText = () => {
     setHelpText(null);
-  }
+  };
   return (
     <>
       <IcDateInput
-        label='When would you like to collect your coffee?'
+        label="When would you like to collect your coffee?"
         helperText={helpText}
       />
       <br />
-      <div style={{display: 'flex', gap: '8px'}}>
-        <button id="changeText" onClick={updateHelperText}>Set helper text</button>
-        <button id="resetText" onClick={clearHelperText}>Clear helper text</button>
-        <button id="nullText" onClick={nullHelperText}>Null helper text</button>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <button id="changeText" onClick={updateHelperText}>
+          Set helper text
+        </button>
+        <button id="resetText" onClick={clearHelperText}>
+          Clear helper text
+        </button>
+        <button id="nullText" onClick={nullHelperText}>
+          Null helper text
+        </button>
       </div>
     </>
-  )
-}
+  );
+};
