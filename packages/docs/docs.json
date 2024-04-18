@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-15T11:49:34",
+  "timestamp": "2024-04-18T12:10:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -14489,6 +14489,33 @@
             },
             {
               "value": "left",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "appearance",
+          "type": "\"default\" | \"light\"",
+          "complexType": {
+            "original": "\"light\" | \"default\"",
+            "resolved": "\"default\" | \"light\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the stepper.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
