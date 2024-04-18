@@ -90,6 +90,21 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
   </Story>
 </Canvas>
 
+### Light
+
+<Canvas>
+  <Story name="Light">
+    <div style={{ backgroundColor: "#2c2f34" }}>
+      <IcStepper appearance="light">
+        <IcStep stepTitle="Create" stepType="completed" />
+        <IcStep stepTitle="Read" stepType="current" />
+        <IcStep stepTitle="Update" stepType="active" />
+        <IcStep stepTitle="Delete" stepType="disabled" />
+      </IcStepper>
+    </div>
+  </Story>
+</Canvas>
+
 ### Custom connector width
 
 <Canvas>
@@ -121,6 +136,88 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
       <IcStep stepTitle="Update" stepStatus="optional" />
       <IcStep stepTitle="Delete" stepStatus="required" />
     </IcStepper>
+    <IcButton
+      class="back-btn-compact-stepper"
+      style={{ marginRight: "var(--ic-space-lg)" }}
+      onClick={() => {
+        const backBtn = document.querySelector(".back-btn-compact-stepper");
+        const nextBtn = document.querySelector(".next-btn-compact-stepper");
+        const steps = document.querySelectorAll(
+          "#standard-compact-stepper > ic-step"
+        );
+        const compactStepTypes = [
+          "active",
+          "completed",
+          "disabled",
+          "completed",
+        ];
+        for (let i = steps.length - 1; i > 0; i--) {
+          if (steps[i].stepType === "current") {
+            steps[i].stepType = compactStepTypes[i];
+            steps[i - 1].stepType = "current";
+            i--;
+          }
+        }
+        if (steps[steps.length - 2].stepType === "current") {
+          nextBtn.setAttribute("disabled", "false");
+        }
+        if (steps[0].stepType === "current") {
+          backBtn.setAttribute("disabled", "true");
+        }
+      }}
+    >
+      Back
+    </IcButton>
+    <IcButton
+      class="next-btn-compact-stepper"
+      onClick={() => {
+        const backBtn = document.querySelector(".back-btn-compact-stepper");
+        const nextBtn = document.querySelector(".next-btn-compact-stepper");
+        const steps = document.querySelectorAll(
+          "#standard-compact-stepper > ic-step"
+        );
+        const compactStepTypes = [
+          "active",
+          "completed",
+          "disabled",
+          "completed",
+        ];
+        for (let i = 0; i < steps.length - 1; i++) {
+          if (steps[i].stepType === "current") {
+            steps[i].stepType = compactStepTypes[i];
+            steps[i + 1].stepType = "current";
+            i++;
+          }
+        }
+        if (steps[1].stepType === "current") {
+          backBtn.setAttribute("disabled", "false");
+        }
+        if (steps[steps.length - 1].stepType === "current") {
+          nextBtn.setAttribute("disabled", "true");
+        }
+      }}
+    >
+      Next
+    </IcButton>
+  </Story>
+</Canvas>
+
+### Compact stepper light
+
+<Canvas>
+  <Story name="Compact stepper light" parameters={{ loki: { skip: true } }}>
+    <div style={{ backgroundColor: "#2c2f34" }}>
+      <IcStepper
+        variant="compact"
+        id="standard-compact-stepper"
+        appearance="light"
+      >
+        <IcStep stepTitle="Create" />
+        <IcStep stepTitle="Read" stepType="current" />
+        <IcStep stepTitle="Update" stepStatus="optional" />
+        <IcStep stepTitle="Delete" stepStatus="required" />
+      </IcStepper>
+    </div>
     <IcButton
       class="back-btn-compact-stepper"
       style={{ marginRight: "var(--ic-space-lg)" }}
