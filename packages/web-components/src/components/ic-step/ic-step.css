@@ -38,6 +38,11 @@
   --compact-step-circular-line-width: var(--ic-space-xxs);
 }
 
+:host(.compact.light) {
+  --compact-step-inner-color: var(--ic-status-info-contrast);
+  --compact-step-outer-color: var(--ic-architectural-600);
+}
+
 :host(.compact) .step {
   column-gap: var(--ic-space-sm);
 }
@@ -54,6 +59,9 @@
 
 :host ic-loading-indicator::part(ic-loading-container) {
   border-radius: 50%;
+}
+
+:host(:not(.light)) ic-loading-indicator::part(ic-loading-container) {
   background-color: var(--ic-architectural-white);
 }
 
@@ -61,6 +69,10 @@
   display: flex;
   flex-direction: column;
   width: 14.25rem;
+}
+
+:host(.compact.light) .disabled .step-title-area {
+  color: var(--ic-architectural-400);
 }
 
 .info-line {
@@ -78,13 +90,25 @@
   color: var(--ic-status-success);
 }
 
+:host(.light) .compact-step-completed .step-status {
+  color: var(--ic-status-success-contrast);
+}
+
 .compact-step-disabled :is(.step-title, .step-status) {
   color: var(--ic-color-tertiary-text);
+}
+
+:host(.light) .compact-step-disabled :is(.step-status) {
+  color: var(--ic-architectural-white);
 }
 
 .step-num {
   color: var(--ic-color-secondary-text);
   white-space: nowrap;
+}
+
+:host(.light) .step-num {
+  color: var(--ic-architectural-white);
 }
 
 :host(.compact) .step-icon {
@@ -115,6 +139,9 @@
 
 :host(.default) .step-icon {
   border-radius: 50%;
+}
+
+:host(.default:not(.light)) .step-icon {
   background-color: var(--ic-architectural-white);
 }
 
@@ -131,10 +158,23 @@
   color: var(--ic-status-info);
 }
 
+:host(.default.light) .current,
+:host(.default.light) .current .step-title-area {
+  color: var(--ic-status-info-contrast);
+}
+
 :host(.default) .step-title-area {
   margin: var(--ic-space-xs) 0;
   padding-right: var(--ic-space-xs);
   width: 100%;
+}
+
+:host(.light) .step-title-area {
+  color: var(--ic-architectural-200);
+}
+
+:host(.compact.light) .step-title-area {
+  color: var(--ic-architectural-white);
 }
 
 :host(.default) .step-title,
@@ -146,6 +186,10 @@
   color: var(--ic-color-tertiary-text);
 }
 
+:host(.light) .step-subtitle {
+  color: var(--ic-architectural-white);
+}
+
 .current .step-subtitle {
   color: var(--ic-color-primary-text);
 }
@@ -154,8 +198,17 @@
   color: var(--ic-status-success);
 }
 
+:host(.default.light) .completed,
+:host(.default.light) .completed .step-title-area {
+  color: var(--ic-status-success-contrast);
+}
+
 .active .step-icon-inner {
   box-shadow: inset var(--ic-architectural-200) 0 0 0 0.125rem;
+}
+
+:host(.light) .active .step-icon-inner {
+  color: var(--ic-architectural-white);
 }
 
 .current .step-icon-inner {
@@ -163,8 +216,17 @@
   color: white;
 }
 
+:host(.light) .current .step-icon-inner {
+  background-color: var(--ic-status-info-contrast);
+}
+
 .disabled {
   color: var(--ic-architectural-200);
+}
+
+:host(.default.light) .disabled,
+:host(.default.light) .disabled .step-title-area {
+  color: var(--ic-architectural-400);
 }
 
 .disabled .step-icon-inner {
@@ -173,7 +235,12 @@
   height: calc(var(--ic-space-xl) - var(--ic-space-xxxs));
 }
 
-.disabled .step-title-area {
+:host(.light) .disabled .step-icon-inner {
+  border: var(--ic-border-width) dashed var(--ic-architectural-400);
+}
+
+.disabled .step-title-area,
+:host(.default.light) .disabled .step-subtitle {
   color: var(--ic-color-tertiary-text);
 }
 
@@ -181,6 +248,11 @@
   background: var(--ic-status-success);
   box-shadow: inset var(--ic-status-success) 0 0 0 var(--ic-space-xxxs);
   border-radius: 100%;
+}
+
+:host(.light) .completed .step-icon-inner {
+  background: var(--ic-status-success-contrast);
+  box-shadow: inset var(--ic-status-success-contrast) 0 0 0 var(--ic-space-xxxs);
 }
 
 :host(.default) .current .step-icon {
@@ -191,12 +263,20 @@
   /* compensating for the circle being bigger than other steps */
 }
 
+:host(.default.light) .current .step-icon {
+  border: var(--ic-space-xxxs) solid var(--ic-status-info-contrast);
+}
+
 .step-connect {
   height: var(--ic-space-xxxs);
   background-color: var(--ic-architectural-200);
   margin: 0 var(--ic-space-xs);
   border-radius: var(--ic-space-xxs);
   width: 100%;
+}
+
+:host(.light) .step-connect {
+  background-color: var(--ic-architectural-600);
 }
 
 .aligned-full-width.step-connect {
@@ -211,8 +291,16 @@
   border-radius: 0;
 }
 
+:host(.light) .disabled .step-connect {
+  border-top: 0.125rem dashed var(--ic-architectural-600);
+}
+
 .completed .step-connect {
   background-color: var(--ic-status-success);
+}
+
+:host(.light) .completed .step-connect {
+  background-color: var(--ic-status-success-contrast);
 }
 
 .step-connect-inner {
@@ -222,6 +310,10 @@
   height: var(--ic-space-xxxs);
   border-radius: var(--ic-space-xxs);
   background-color: var(--ic-status-info);
+}
+
+:host(.light) .step-connect-inner {
+  background-color: var(--ic-status-info-contrast);
 }
 
 .step-icon-inner .check-icon {

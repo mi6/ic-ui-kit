@@ -1897,6 +1897,10 @@ export namespace Components {
          */
         "aligned"?: IcStepperAlignment;
         /**
+          * The appearance of the stepper.
+         */
+        "appearance"?: "light" | "default";
+        /**
           * The length of the connnector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
@@ -5271,6 +5275,10 @@ declare namespace LocalJSX {
           * The alignment of the default stepper within its container.
          */
         "aligned"?: IcStepperAlignment;
+        /**
+          * The appearance of the stepper.
+         */
+        "appearance"?: "light" | "default";
         /**
           * The length of the connnector between each step in pixels. Minimum length is 100px.
          */

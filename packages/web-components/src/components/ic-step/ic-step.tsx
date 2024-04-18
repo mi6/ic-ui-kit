@@ -289,6 +289,9 @@ export class Step {
             this.el.parentElement.classList.contains("default") &&
             !this.el.parentElement.classList.contains("aligned-left"),
           [`${this.variant}`]: true,
+          ["light"]:
+            (this.el.parentElement as HTMLIcStepperElement)?.appearance ===
+            "light",
         }}
       >
         {this.variant === "compact" ? compactStep : defaultStep}
