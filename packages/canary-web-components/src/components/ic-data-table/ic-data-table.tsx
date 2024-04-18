@@ -1,4 +1,17 @@
-import { Component, Element, h, Prop, State, Listen } from "@stencil/core";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  Component,
+  Element,
+  h,
+  Prop,
+  State,
+  Listen,
+  Watch,
+  Fragment,
+  Method,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import unsortedIcon from "./assets/unsorted-icon.svg";
 import ascendingIcon from "./assets/ascending-icon.svg";
 import descendingIcon from "./assets/descending-icon.svg";
@@ -6,25 +19,46 @@ import {
   IcDataTableColumnDataTypes,
   IcDataTableColumnObject,
   IcDataTableDensityOptions,
+  IcDataTableRowHeights,
   IcDataTableSortOrderOptions,
+  IcDensityUpdateEventDetail,
 } from "./ic-data-table.types";
 import {
-  IcPaginationAlignmentOptions,
-  IcPaginationControlTypes,
+  IcPaginationLabelTypes,
   IcPaginationTypes,
-} from "../ic-pagination/ic-pagination.types";
+  IcPaginationAlignmentOptions,
+} from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
+import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
+// Unable to import helper functions via @ukic/web-components
+import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
+/**
+ * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
+ * @slot {COLUMN_KEY}-{ROW_INDEX}[-icon] - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot.
+ * @slot {COLUMN_KEY}-column-icon - The icon slot for a column header.
+ * @slot title-bar - A custom ic-data-table-title-bar can be slotted above the column headers to display additional information about the table.
+ */
 @Component({
   tag: "ic-data-table",
   styleUrl: "ic-data-table.css",
   shadow: true,
 })
 export class DataTable {
+  private DENSITY_HEIGHT_MULTIPLIER = {
+    dense: 0.8,
+    default: 1,
+    spacious: 1.2,
+  };
+
   private SORT_ICONS = {
     unsorted: unsortedIcon,
     ascending: ascendingIcon,
     descending: descendingIcon,
   };
+
+  private hasLoadedForOneSecond: boolean = true;
+  private loadingIndicator: HTMLIcLoadingIndicatorElement;
+  private timerStarted: number;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -64,7 +98,7 @@ export class DataTable {
   /**
    * Set the density of the table including font and padding.
    */
-  @Prop() density?: IcDataTableDensityOptions = "default";
+  @Prop({ mutable: true }) density?: IcDataTableDensityOptions = "default";
 
   /**
    * Applies a border to the table container.
@@ -72,17 +106,46 @@ export class DataTable {
   @Prop() embedded?: boolean = false;
 
   /**
+   * Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.
+   */
+  @Prop({ mutable: true }) globalRowHeight?: IcDataTableRowHeights = 40;
+
+  /**
    * If `true`, column headers will not be visible.
    */
   @Prop() hideColumnHeaders?: boolean = false;
+
+  /**
+   * When set to `true`, the full table will show a loading state, featuring a radial indicator.
+   */
+  @Prop({ mutable: true }) loading?: boolean = false;
+
+  /**
+   * Sets the props for the circular loading indicator used in the loading state.
+   */
+  @Prop() loadingOptions?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    label?: string;
+    labelDuration?: number;
+    max?: number;
+    min?: number;
+    progress?: number;
+    showBackground?: boolean;
+  };
+
+  /**
+   * The minimum amount of time the `loading` state displays for before showing the data. Used to prevent flashing in the component.
+   */
+  @Prop() minimumLoadingDisplayDuration?: number = 1000;
 
   /**
    * Sets the props for the pagination bar.
    */
   @Prop() paginationOptions?: {
     itemsPerPage?: { label: string; value: string }[];
+    labelType?: IcPaginationLabelTypes;
     type?: IcPaginationTypes;
-    control?: IcPaginationControlTypes;
     itemsPerPageControl?: boolean;
     goToPageControl?: boolean;
     alignment?: IcPaginationAlignmentOptions;
@@ -92,8 +155,8 @@ export class DataTable {
       { label: "25", value: "25" },
       { label: "50", value: "50" },
     ],
-    type: "page",
-    control: "simple",
+    labelType: "page",
+    type: "simple",
     itemsPerPageControl: true,
     goToPageControl: true,
     alignment: "right",
@@ -130,12 +193,46 @@ export class DataTable {
    */
   @Prop() stickyRowHeaders?: boolean = false;
 
+  /**
+   * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
+   */
+  @Prop() updating?: boolean = false;
+
+  /**
+   * Sets the props for the linear loading indicator used in the updating state.
+   */
+  @Prop() updatingOptions?: {
+    appearance?: IcThemeForegroundNoDefault;
+    description?: string;
+    max?: number;
+    min?: number;
+    progress?: number;
+  };
+
+  /**
+   * Allows for custom setting of row heights on individual rows based on an individual value from the `data` prop and the row index.
+   * If the function returns `null`, that row's height will be set to the `globalRowHeight` property.
+   */
+  @Prop({ mutable: true }) variableRowHeight?: (params: {
+    [key: string]: any;
+    index: number;
+  }) => IcDataTableRowHeights | null;
+
+  /**
+   * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
+   */
+  @Event() icRowHeightChange: EventEmitter<void>;
+
   componentWillLoad(): void {
     this.rowsPerPage = Number(this.paginationOptions.itemsPerPage[0].value);
     this.previousRowsPerPage = this.rowsPerPage;
     this.toRow = this.rowsPerPage;
     this.sortedColumn = this.sortOptions.defaultColumn;
     this.sortedColumnOrder = this.sortOptions.sortOrders[0];
+    this.loadingOptions = {
+      ...this.loadingOptions,
+      showBackground: this.data?.length > 0,
+    };
   }
 
   componentDidLoad(): void {
@@ -146,6 +243,10 @@ export class DataTable {
       tableElement?.clientWidth > tableContainer?.clientWidth
     ) {
       this.scrollable = true;
+    }
+    if (this.loading) {
+      this.startLoadingTimer();
+      this.showLoadingIndicator();
     }
   }
 
@@ -172,10 +273,72 @@ export class DataTable {
     }
   }
 
+  @Listen("icTableDensityUpdate")
+  handleDensityChange(ev: CustomEvent<IcDensityUpdateEventDetail>): void {
+    this.density = ev.detail.value;
+  }
+
   @Listen("click", { target: "window" })
   clickListener(ev: MouseEvent): void {
     if (ev.target !== this.el) this.selectedRow = undefined;
   }
+
+  @Watch("loading")
+  loadingHandler(newValue: boolean): void {
+    if (newValue) this.startLoadingTimer();
+
+    if (this.loading) {
+      setTimeout(() => {
+        this.showLoadingIndicator();
+      }, 500);
+    }
+  }
+
+  @Watch("data")
+  dataHandler(newData: { [key: string]: any }[]): void {
+    this.loadingOptions = {
+      ...this.loadingOptions,
+      showBackground: newData?.length > 0,
+    };
+    if (this.loading) {
+      !this.hasLoadedForOneSecond
+        ? setTimeout(
+            () => (this.loading = false),
+            this.minimumLoadingDisplayDuration -
+              (Date.now() - this.timerStarted)
+          )
+        : (this.loading = false);
+    }
+    if (this.updating) this.updating = false;
+  }
+
+  @Watch("globalRowHeight")
+  @Watch("variableRowHeight")
+  rowHeightChangeHandler(): void {
+    this.icRowHeightChange.emit();
+  }
+
+  /**
+   * Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.
+   */
+  @Method()
+  async resetRowHeights(): Promise<void> {
+    this.globalRowHeight = 40;
+    this.variableRowHeight = null;
+  }
+
+  private showLoadingIndicator() {
+    this.loadingIndicator.classList.add("show");
+  }
+
+  private startLoadingTimer = (): void => {
+    this.hasLoadedForOneSecond = false;
+    this.timerStarted = Date.now();
+    setTimeout(() => {
+      this.hasLoadedForOneSecond = true;
+      this.timerStarted = null;
+    }, this.minimumLoadingDisplayDuration);
+  };
 
   private isObject = (value: any) => typeof value === "object";
 
@@ -209,7 +372,26 @@ export class DataTable {
     }
   };
 
-  private createCells = (row: object) => {
+  private createUpdatingIndicator = () => {
+    const { appearance, description, max, min, progress } =
+      this.updatingOptions || {};
+    return (
+      <th colSpan={this.columns.length} class="updating-state">
+        <ic-loading-indicator
+          appearance={appearance}
+          description={description || "Updating table data"}
+          fullWidth={true}
+          max={max}
+          min={min}
+          progress={progress}
+          type="linear"
+          size="small"
+        ></ic-loading-indicator>
+      </th>
+    );
+  };
+
+  private createCells = (row: object, rowIndex: number) => {
     const rowValues = Object.values(row);
     const rowKeys = Object.keys(row);
     let rowAlignment: string;
@@ -223,7 +405,9 @@ export class DataTable {
       rowEmphasis = this.getObjectValue(rowValues[headerIndex], "emphasis");
     }
     return rowValues.map((cell, index) => {
-      const { columnAlignment, dataType, emphasis } = this.columns[index];
+      const columnProps = this.columns[index];
+      const cellSlotName = `${columnProps?.key}-${rowIndex}`;
+      const hasIcon = this.isObject(cell) && Object.keys(cell).includes("icon");
       const cellValue = (key: string) => this.getObjectValue(cell, key);
 
       return rowKeys[index] === "header" ? (
@@ -241,78 +425,121 @@ export class DataTable {
         </th>
       ) : (
         <td
-          innerHTML={dataType === "element" ? (cell as string) : null}
           class={{
             ["table-cell"]: true,
             [`table-density-${this.density}`]: this.notDefaultDensity(),
-            [`data-type-${dataType}`]: true,
+            [`data-type-${columnProps?.dataType}`]: true,
             [`cell-alignment-${
-              columnAlignment?.horizontal ||
-              this.getCellAlignment(cell, "horizontal")
-            }`]:
-              !!columnAlignment?.horizontal ||
-              !!this.getCellAlignment(cell, "horizontal"),
-            [`cell-alignment-${
-              columnAlignment?.vertical ||
+              columnProps?.columnAlignment?.vertical ||
               rowAlignment ||
               this.getCellAlignment(cell, "vertical")
             }`]:
-              !!columnAlignment?.vertical ||
+              !!columnProps?.columnAlignment?.vertical ||
               !!rowAlignment ||
               !!this.getCellAlignment(cell, "vertical"),
           }}
         >
-          <ic-typography
-            variant="body"
+          <div
+            innerHTML={
+              columnProps?.dataType === "element" &&
+              !isSlotUsed(this.el, cellSlotName)
+                ? (cell as string)
+                : null
+            }
             class={{
-              [`cell-emphasis-${
-                (this.isObject(cell) && cellValue("emphasis")) ||
-                emphasis ||
-                rowEmphasis
+              "cell-container": columnProps?.dataType !== "element",
+              [`data-type-${columnProps?.dataType}`]: true,
+              [`cell-alignment-${
+                columnProps?.columnAlignment?.horizontal ||
+                this.getCellAlignment(cell, "horizontal")
               }`]:
-                (this.isObject(cell) && !!cellValue("emphasis")) ||
-                !!emphasis ||
-                !!rowEmphasis,
-              [`text-${this.density}`]: this.notDefaultDensity(),
+                !!columnProps?.columnAlignment?.horizontal ||
+                !!this.getCellAlignment(cell, "horizontal"),
             }}
           >
-            {this.isObject(cell) && dataType !== "date" ? (
-              Object.keys(cell).includes("href") ? (
-                <ic-link href={cellValue("href")}>{cellValue("data")}</ic-link>
-              ) : (
-                cellValue("data")
-              )
+            {isSlotUsed(this.el, cellSlotName) ? (
+              <slot name={cellSlotName} />
             ) : (
-              this.getCellContent(cell, dataType)
+              <Fragment>
+                {isSlotUsed(this.el, `${cellSlotName}-icon`) ? (
+                  <slot name={`${cellSlotName}-icon`} />
+                ) : (
+                  (hasIcon || columnProps?.icon?.onAllCells) && (
+                    <span
+                      class="icon"
+                      innerHTML={cellValue("icon") || columnProps?.icon.icon}
+                    ></span>
+                  )
+                )}
+                <ic-typography
+                  variant="body"
+                  class={{
+                    [`cell-emphasis-${
+                      (this.isObject(cell) && cellValue("emphasis")) ||
+                      columnProps?.emphasis ||
+                      rowEmphasis
+                    }`]:
+                      (this.isObject(cell) && !!cellValue("emphasis")) ||
+                      !!columnProps?.emphasis ||
+                      !!rowEmphasis,
+                    [`text-${this.density}`]: this.notDefaultDensity(),
+                  }}
+                >
+                  {this.isObject(cell) && columnProps?.dataType !== "date" ? (
+                    Object.keys(cell).includes("href") ? (
+                      <ic-link href={cellValue("href")}>
+                        {cellValue("data")}
+                      </ic-link>
+                    ) : (
+                      cellValue("data")
+                    )
+                  ) : (
+                    this.getCellContent(cell, columnProps?.dataType)
+                  )}
+                </ic-typography>
+              </Fragment>
             )}
-          </ic-typography>
+          </div>
         </td>
       );
     });
   };
 
   private createColumnHeaders = () => {
-    return this.columns.map(({ cellAlignment, colspan, key, title }) => (
+    return this.columns.map(({ cellAlignment, colspan, icon, key, title }) => (
       <th
         scope="col"
         class={{
           ["column-header"]: true,
-          [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
           [`table-density-${this.density}`]: this.notDefaultDensity(),
+          ["updating-state-headers"]: this.updating && !this.loading,
         }}
         colSpan={colspan}
       >
-        {this.sortable ? (
-          <div class="column-header-inner-container">
-            <ic-typography
-              variant="body"
-              class={{
-                ["column-header-text"]: true,
-                [`text-${this.density}`]: this.notDefaultDensity(),
-              }}
-            >
-              {title}
-            </ic-typography>
+        <div
+          class={{
+            "column-header-inner-container": true,
+            [`column-header-alignment-${cellAlignment}`]: !!cellAlignment,
+          }}
+        >
+          {isSlotUsed(this.el, `${key}-column-icon`) ? (
+            <slot name={`${key}-column-icon`} />
+          ) : (
+            icon &&
+            !icon.hideOnHeader && (
+              <span class="icon" innerHTML={icon.icon}></span>
+            )
+          )}
+          <ic-typography
+            variant="body"
+            class={{
+              ["column-header-text"]: true,
+              [`text-${this.density}`]: this.notDefaultDensity(),
+            }}
+          >
+            {title}
+          </ic-typography>
+          {this.sortable && (
             <ic-button
               variant="icon"
               id={`sort-button-${key}`}
@@ -333,18 +560,8 @@ export class DataTable {
                   this.sortedColumnOrder === "unsorted",
               }}
             ></ic-button>
-          </div>
-        ) : (
-          <ic-typography
-            variant="body"
-            class={{
-              ["column-header-text"]: true,
-              [`text-${this.density}`]: this.notDefaultDensity(),
-            }}
-          >
-            {title}
-          </ic-typography>
-        )}
+          )}
+        </div>
       </th>
     ));
   };
@@ -353,19 +570,56 @@ export class DataTable {
     const data = this.showPagination
       ? this.data.slice(this.fromRow, this.toRow)
       : this.data.slice();
+
+    /**
+     * Ensures that createCells has a value in data to map over to actually render the slot.
+     * Removes the need for the user to add it multiple times.
+     */
+    this.columns.forEach(({ key }) => {
+      data.forEach((row, rowIndex) => {
+        const cellSlotName = `${key}-${rowIndex}`;
+        if (isSlotUsed(this.el, cellSlotName)) {
+          row[key] = getSlotContent(this.el, cellSlotName);
+        }
+      });
+    });
+
     return data
       .sort(!this.sortable ? undefined : this.getSortFunction())
-      .map((row) => (
-        <tr
-          onClick={() => (this.selectedRow = this.selectedRow !== row && row)}
-          class={{
-            ["table-row"]: true,
-            ["table-row-selected"]: this.selectedRow === row,
-          }}
-        >
-          {this.createCells(row)}
-        </tr>
-      ));
+      .map((row, index) => {
+        const variableRowHeightVal = this.variableRowHeight?.({
+          ...row,
+          index,
+        });
+        const findRowHeight = variableRowHeightVal
+          ? variableRowHeightVal !== "auto" && variableRowHeightVal
+          : this.globalRowHeight !== "auto" && this.globalRowHeight;
+        return (
+          <tr
+            // eslint-disable-next-line react/jsx-no-bind
+            onClick={() =>
+              (this.selectedRow =
+                this.selectedRow !== row &&
+                !this.loading &&
+                !this.updating &&
+                row)
+            }
+            class={{
+              ["table-row"]: true,
+              ["table-row-selected"]: this.selectedRow === row,
+            }}
+            style={{
+              height: findRowHeight
+                ? `${
+                    findRowHeight * this.DENSITY_HEIGHT_MULTIPLIER[this.density]
+                  }px`
+                : null,
+            }}
+          >
+            {this.createCells(row, index)}
+          </tr>
+        );
+      });
   };
 
   private getObjectValue = (cell: object, key: string) => {
@@ -465,8 +719,11 @@ export class DataTable {
       caption,
       createColumnHeaders,
       createRows,
+      createUpdatingIndicator,
       data,
       hideColumnHeaders,
+      loading,
+      loadingOptions,
       paginationOptions,
       scrollable,
       scrollOffset,
@@ -476,10 +733,12 @@ export class DataTable {
       sortedColumn,
       stickyColumnHeaders,
       updateScrollOffset,
+      updating,
     } = this;
 
     return (
       <div class="table-container">
+        {isSlotUsed(this.el, "title-bar") && <slot name="title-bar" />}
         <div
           class={{
             ["table-row-container"]: true,
@@ -501,15 +760,52 @@ export class DataTable {
                 <tr>{createColumnHeaders()}</tr>
               </thead>
             )}
+            {updating &&
+              !loading &&
+              (hideColumnHeaders ? (
+                <thead>{createUpdatingIndicator()}</thead>
+              ) : (
+                createUpdatingIndicator()
+              ))}
             {data?.length > 0 && <tbody>{createRows()}</tbody>}
           </table>
+          {!data?.length &&
+            !loading &&
+            (isSlotUsed(this.el, "empty-state") ? (
+              <slot name="empty-state" />
+            ) : (
+              <ic-empty-state
+                aligned="center"
+                heading="No Data"
+                class="loading-empty"
+              ></ic-empty-state>
+            ))}
         </div>
+        {loading && (
+          <ic-loading-indicator
+            appearance={loadingOptions?.appearance}
+            class={{
+              "loading-empty": loading,
+              loading: true,
+              "show-background": loadingOptions.showBackground,
+            }}
+            description={loadingOptions.description || "Loading table data"}
+            label={loadingOptions.label || "Loading..."}
+            labelDuration={loadingOptions?.labelDuration}
+            max={loadingOptions?.max}
+            min={loadingOptions?.min}
+            progress={loadingOptions?.progress}
+            ref={(el: HTMLIcLoadingIndicatorElement) =>
+              (this.loadingIndicator = el)
+            }
+          ></ic-loading-indicator>
+        )}
         {showPagination && (
           <div class="pagination-container">
             <ic-pagination-bar
               totalItems={data.length}
-              paginationType={paginationOptions.type}
-              paginationControl={paginationOptions.control}
+              type={paginationOptions.type}
+              labelType={paginationOptions.labelType}
               showItemsPerPageControl={paginationOptions.itemsPerPageControl}
               showGoToPageControl={paginationOptions.goToPageControl}
               itemsPerPageOptions={paginationOptions.itemsPerPage}
