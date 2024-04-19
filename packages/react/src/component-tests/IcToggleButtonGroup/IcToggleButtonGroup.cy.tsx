@@ -30,7 +30,7 @@ import {
   NOT_HAVE_ATTR,
   NOT_HAVE_BEEN_CALLED,
 } from "../utils/constants";
-import { setThresholdBasedOnEnv } from "../../../cypress/utils/helper";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.02;
 const IC_TOGGLE_BUTTON_GROUP = "ic-toggle-button-group";
