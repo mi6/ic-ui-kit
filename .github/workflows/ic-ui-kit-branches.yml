@@ -1,4 +1,5 @@
 name: Branches
+
 permissions: read-all
 
 on:
@@ -174,6 +175,8 @@ jobs:
     needs: [check-updates]
     name: "Cypress tests"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
@@ -279,6 +282,8 @@ jobs:
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'workflow_dispatch' }}
     name: "Deploy storybook"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
