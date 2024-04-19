@@ -24,7 +24,7 @@ ic-input-component-container:hover {
   color: var(--ic-color-tertiary-text);
 }
 
-.focus-indicator {
+ic-input-component-container .focus-indicator {
   padding: var(--ic-space-xxxs) var(--ic-space-xs);
   align-items: center;
 }
