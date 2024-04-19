@@ -1,0 +1,114 @@
+# Aim of this Github action is to deploy storybook for further testing and review while working on a feature/bug branch.
+name: Deploy Storybook Only
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-updates:
+    name: "Check package updates"
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      core: ${{ steps.filter.outputs.core }}
+      canary: ${{ steps.filter.outputs.canary }}
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: dorny/paths-filter@v3.0.2
+        id: filter
+        with:
+          base: "develop"
+          filters: |
+            core:
+              - 'packages/web-components/**'
+              - 'packages/react/**'
+            canary:
+              - 'packages/canary-web-components/**'
+              - 'packages/canary-react/**'
+
+  ic-ui-kit-deploy:
+    needs: [check-updates]
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'workflow_dispatch' }}
+    name: "Deploy storybook"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Setup node
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20
+
+      - name: Cache dependencies
+        uses: actions/cache@v4.0.2
+        with:
+          path: |
+            packages/*/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Install dependencies
+        run: |
+          npm ci --legacy-peer-deps
+          npm run bootstrap -- -- --ci --legacy-peer-deps
+
+      - name: Build core components
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: |
+          npm run build
+
+      - name: Build all components
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: |
+          npm run build:all
+
+      - name: Build web-components and react storybook
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        run: |
+          npm run build-storybook:web-components
+          npm run build-storybook:react
+
+      - name: Build canary web-components and canary react storybook
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: |
+          npm run build-storybook:canary-web-components
+          npm run build-storybook:canary-react
+
+      - name: Deploy core web components storybook
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: ./packages/web-components/storybook-static
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/web-components
+
+      - name: Deploy core react storybook
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: ./packages/react/storybook-static
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/react
+
+      - name: Deploy canary web components storybook
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: ./packages/canary-web-components/storybook-static
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/canary-web-components
+
+      - name: Deploy canary react storybook
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: ./packages/canary-react/storybook-static
+          target-folder: ./branches/${{ steps.extract_branch.outputs.branch }}/canary-react
