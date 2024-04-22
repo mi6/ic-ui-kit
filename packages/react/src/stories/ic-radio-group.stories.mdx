@@ -13,6 +13,7 @@ import {
 } from "../components";
 import radioOptionReadme from "../../../web-components/src/components/ic-radio-option/readme.md";
 import radioGroupReadme from "../../../web-components/src/components/ic-radio-group/readme.md";
+import { useState, useEffect } from "react";
 
 <Meta title="Radio button" component={IcRadioGroup} />
 
@@ -265,5 +266,80 @@ export const Form = () => {
 <Canvas>
   <Story name="Form" parameters={{ loki: { skip: true } }}>
     <Form />
+  </Story>
+</Canvas>
+
+### Dynamic loading
+
+export const RadioOptionsDynamic = () => {
+  const [radioOptions, setRadioOptions] = useState([]);
+   
+  useEffect(() => {
+    setTimeout(() => {
+      setRadioOptions([
+        { label: 'Item 1', value: 'Item 1'},
+        { label: 'Item 2', value: 'Item 2'},
+        { label: 'Item 3', value: 'Item 3'},
+        { label: 'Item 4', value: 'Item 4'},
+      ])
+    }, 3000)
+  }, [])
+
+return (
+
+<IcRadioGroup label="What is your favourite coffee?" name="radio-group-1">
+  {radioOptions.map((option, index) => (
+    <IcRadioOption
+      key={index + option.value}
+      value={option.value}
+      label={option.label}
+    />
+  ))}
+</IcRadioGroup>
+) }
+
+<Canvas>
+  <Story name="Dynamic loading">
+    <RadioOptionsDynamic />
+  </Story>
+</Canvas>
+
+### Updating options
+
+export const RadioOptionsUpdate = () => {
+  const [radioOptions, setRadioOptions] = useState([
+    { label: "Item 1", value: "Item 1" },
+    { label: "Item 2", value: "Item 2" },
+    { label: "Item 3", value: "Item 3" },
+    { label: "Item 4", value: "Item 4" },
+  ]);
+
+const updateRadios = () => {
+setRadioOptions([
+{ label: "Item 5", value: "Item 5" },
+{ label: "Item 6", value: "Item 6" },
+]);
+};
+
+return (
+
+<>
+  <IcRadioGroup label="What is your favourite coffee?" name="radio-group-1">
+    {radioOptions.map((option, index) => (
+      <IcRadioOption
+        key={index + option.value}
+        value={option.value}
+        label={option.label}
+      />
+    ))}
+  </IcRadioGroup>
+  <br />
+  <IcButton onClick={updateRadios}>Update</IcButton>
+</>
+); };
+
+<Canvas>
+  <Story name="Updating options">
+    <RadioOptionsUpdate />
   </Story>
 </Canvas>
