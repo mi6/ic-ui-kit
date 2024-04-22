@@ -38,18 +38,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install core dependencies
-        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+      - name: Install dependencies
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
-          npm run build
 
-      - name: Install all dependencies
+      - name: Build core components
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: npm run build
+
+      - name: Build all components
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
           npm run build:all
 
       - name: Lint commit messages
@@ -91,6 +91,7 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
+
       - name: E2E core tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         id: core_e2e_tests
@@ -114,6 +115,7 @@ jobs:
         with:
           node-version: 20
       - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+
       - name: Install dependencies
         run: |
           google-chrome --version
@@ -198,11 +200,14 @@ jobs:
     if: ${{ needs.check-updates.outputs.canary == 'true' }}
     name: "Deploy canary storybook"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
+
       - name: Install dependencies
         run: |
           npm ci --legacy-peer-deps
