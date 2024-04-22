@@ -1,5 +1,4 @@
 name: Branches
-
 permissions: read-all
 
 on:
@@ -175,8 +174,6 @@ jobs:
     needs: [check-updates]
     name: "Cypress tests"
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
@@ -285,11 +282,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
-
-      - name: Setup node
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
 

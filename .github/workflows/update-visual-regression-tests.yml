@@ -5,24 +5,26 @@ on: workflow_dispatch
 
 jobs:
   ic-ui-kit-update-visual-tests:
-    name: 'Update Visual Regression Test References'
+    name: "Update Visual Regression Test References"
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
         with:
           node-version: 20
       - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+
       - name: Install dependencies
         run: |
           google-chrome --version
           npm ci --legacy-peer-deps
           npm run bootstrap -- -- --ci --legacy-peer-deps
+
       - name: Update Visual Regression Test References
         run: |
           npm run test-visual:update-ci
       - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 #v9.1.4
-        with: 
+        with:
           commit: --no-verify
           default_author: github_actions
-          message: 'feat(web-components): update loki visual regression test references'
+          message: "feat(web-components): update loki visual regression test references"
