@@ -1,12 +1,12 @@
 name: Scorecard analysis workflow
+permissions: read-all
+
 on:
   branch_protection_rule:
   schedule:
-    - cron: '30 1 * * 6'
+    - cron: "30 1 * * 6"
   push:
-    branches: [ main ]
-
-permissions: read-all
+    branches: [main]
 
 jobs:
   analysis:
