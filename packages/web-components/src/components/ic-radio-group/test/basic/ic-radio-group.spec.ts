@@ -435,4 +435,49 @@ describe("ic-radio-group", () => {
     expect(page.rootInstance.radioOptions[0].selected).toBe(false);
     expect(page.rootInstance.radioOptions[2].selected).toBe(true);
   });
+
+  it("should call this.setRadioOptions() when slot content changes", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test">
+        <ic-radio-option value="test"></ic-radio-option>    
+      </ic-radio-group>`,
+    });
+
+    const radioContainer = document
+      .querySelector("ic-radio-group")
+      .shadowRoot.querySelector(".radio-buttons-container");
+
+    jest.spyOn(page.rootInstance, "setRadioOptions").mockImplementation();
+
+    await page.rootInstance.addSlotChangeListener();
+
+    radioContainer.dispatchEvent(new Event("slotchange"));
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.setRadioOptions).toBeCalledTimes(1);
+  });
+
+  it("should test disconnectedCallback function", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup, RadioOption],
+      html: `<ic-radio-group label="test label" name="test">
+        <ic-radio-option value="test"></ic-radio-option>    
+      </ic-radio-group>`,
+    });
+
+    await page.waitForChanges();
+
+    const radioContainer = page.root.shadowRoot.querySelector(
+      ".radio-buttons-container"
+    );
+    expect((radioContainer as any).__listeners.length).toBe(1);
+
+    page.rootInstance.disconnectedCallback();
+
+    await page.waitForChanges();
+
+    expect((radioContainer as any).__listeners.length).toBe(0);
+  });
 });

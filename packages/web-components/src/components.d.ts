@@ -1487,6 +1487,7 @@ export namespace Components {
           * Sets focus on the radio option.
          */
         "setFocus": () => Promise<void>;
+        "setTabIndex": (value: number) => Promise<void>;
         /**
           * The value for the radio option.
          */

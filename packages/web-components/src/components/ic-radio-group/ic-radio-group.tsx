@@ -111,6 +111,10 @@ export class RadioGroup {
     if (this.resizeObserver !== null) {
       this.resizeObserver.disconnect();
     }
+    this.radioContainer?.removeEventListener(
+      "slotchange",
+      this.setRadioOptions
+    );
   }
 
   componentWillLoad(): void {
@@ -121,34 +125,9 @@ export class RadioGroup {
   }
 
   componentDidLoad(): void {
-    this.radioOptions = Array.from(this.el.querySelectorAll("ic-radio-option"));
-
-    this.radioOptions.forEach((radioOption, index) => {
-      if (!radioOption.selected) {
-        radioOption.selected = this.checkedValue === radioOption.value;
-      }
-      radioOption.name = this.name;
-      radioOption.groupLabel = this.label;
-      if (radioOption.selected) {
-        this.selectedChild = index;
-        this.checkedValue = radioOption.value;
-      }
-    });
-    this.radioOptions[0].shadowRoot.querySelector("input").tabIndex =
-      this.selectedChild > 0 ? -1 : 0;
-
-    if (
-      this.initialOrientation === "horizontal" &&
-      this.radioOptions !== undefined &&
-      (this.radioOptions.length > 2 ||
-        (this.radioOptions.length === 2 &&
-          (isSlotUsed(this.radioOptions[0], "additional-field") ||
-            isSlotUsed(this.radioOptions[1], "additional-field"))))
-    ) {
-      this.currentOrientation = "vertical";
-    }
-
+    this.setRadioOptions();
     checkResizeObserver(this.runResizeObserver);
+    this.addSlotChangeListener();
 
     onComponentRequiredPropUndefined(
       [
@@ -178,8 +157,7 @@ export class RadioGroup {
           this.selectedChild = index;
         }
       });
-      this.radioOptions[0].shadowRoot.querySelector("input").tabIndex =
-        this.selectedChild > 0 ? -1 : 0;
+      this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
     }
   }
 
@@ -189,7 +167,7 @@ export class RadioGroup {
       (radioOption) => radioOption.selected
     );
     if (selectedOption < 0) {
-      this.radioOptions[0].shadowRoot.querySelector("input").tabIndex = 0;
+      this.setFirstRadioOptionTabIndex(0);
       this.selectedChild = selectedOption;
     }
   }
@@ -270,6 +248,45 @@ export class RadioGroup {
     }
 
     return nextItem;
+  };
+
+  private addSlotChangeListener = () => {
+    this.radioContainer.addEventListener("slotchange", this.setRadioOptions);
+  };
+
+  private setFirstRadioOptionTabIndex = (value: number) => {
+    this.radioOptions[0].setTabIndex(value);
+  };
+
+  private setRadioOptions = () => {
+    this.selectedChild = -1;
+    this.checkedValue = "";
+    this.radioOptions = Array.from(this.el.querySelectorAll("ic-radio-option"));
+    if (this.radioOptions.length > 0) {
+      this.radioOptions.forEach((radioOption, index) => {
+        if (!radioOption.selected) {
+          radioOption.selected = this.checkedValue === radioOption.value;
+        }
+        radioOption.name = this.name;
+        radioOption.groupLabel = this.label;
+        if (radioOption.selected) {
+          this.selectedChild = index;
+          this.checkedValue = radioOption.value;
+        }
+      });
+      this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
+    }
+
+    if (
+      this.initialOrientation === "horizontal" &&
+      this.radioOptions !== undefined &&
+      (this.radioOptions.length > 2 ||
+        (this.radioOptions.length === 2 &&
+          (isSlotUsed(this.radioOptions[0], "additional-field") ||
+            isSlotUsed(this.radioOptions[1], "additional-field"))))
+    ) {
+      this.currentOrientation = "vertical";
+    }
   };
 
   render() {
