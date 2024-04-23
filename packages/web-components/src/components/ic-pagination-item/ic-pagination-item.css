@@ -39,7 +39,7 @@ button {
 }
 
 .simple-current {
-  width: calc(var(--ic-space-xxl) + var(--ic-space-md));
+  min-width: calc(var(--ic-space-xxl) + var(--ic-space-md));
   height: var(--ic-space-lg);
   cursor: default;
 }
