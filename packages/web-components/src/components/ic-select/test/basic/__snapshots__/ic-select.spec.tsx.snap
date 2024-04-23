@@ -80,7 +80,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-28-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-28-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-28-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -125,7 +125,7 @@ exports[`ic-select should have correct validation status: with-validation-status
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-3-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-3-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-3-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -171,7 +171,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-4-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-4-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-4-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -215,7 +215,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-0-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-0-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-0-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -260,7 +260,7 @@ exports[`ic-select should not render validation text if no validation status has
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-6-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-6-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-6-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -305,7 +305,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-5-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-5-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-5-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -340,7 +340,7 @@ exports[`ic-select should render readonly: readonly 1`] = `
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="" aria-label="IC Select Test" class="menu" id="ic-select-input-2-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-2-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-2-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -385,7 +385,7 @@ exports[`ic-select should test select as submit on form 1`] = `
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="ic-select-input-1-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-1-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="No results found" class="option" data-label="No results found" data-value id="ic-select-input-1-menu-" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="No results found" aria-selected="false" class="option" data-label="No results found" data-value id="ic-select-input-1-menu-" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -441,7 +441,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
       </ic-input-component-container>
       <ic-menu class="default no-results">
         <ul aria-activedescendant="ic-select-input-7-menu-test-value" aria-label="IC Select Test" class="menu" id="ic-select-input-7-menu" role="listbox" tabindex="-1">
-          <li aria-disabled="false" aria-label="Test label 1" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-7-menu-Test value 1" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 1" aria-selected="false" class="option" data-label="Test label 1" data-value="Test value 1" id="ic-select-input-7-menu-Test value 1" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -452,7 +452,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
               </div>
             </div>
           </li>
-          <li aria-disabled="false" aria-label="Test label 2" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-7-menu-Test value 2" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 2" aria-selected="false" class="option" data-label="Test label 2" data-value="Test value 2" id="ic-select-input-7-menu-Test value 2" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
@@ -463,7 +463,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
               </div>
             </div>
           </li>
-          <li aria-disabled="false" aria-label="Test label 3" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-7-menu-Test value 3" role="option" tabindex="-1">
+          <li aria-disabled="false" aria-label="Test label 3" aria-selected="false" class="option" data-label="Test label 3" data-value="Test value 3" id="ic-select-input-7-menu-Test value 3" role="option" tabindex="-1">
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
