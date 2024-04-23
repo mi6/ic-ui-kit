@@ -784,7 +784,7 @@ export class Menu {
       ? (this.host.querySelector(
           `li[data-value="${this.optionHighlighted}"]`
         ) as HTMLElement)
-      : (menu.querySelector(".option[aria-selected]") as HTMLElement);
+      : (menu.querySelector(".option[aria-selected='true']") as HTMLElement);
 
     if (selectedOption) {
       const elTop = selectedOption.offsetTop + selectedOption.offsetHeight;
@@ -934,7 +934,7 @@ export class Menu {
             : "-1"
         }
         aria-label={this.getOptionAriaLabel(option, parentOption)}
-        aria-selected={option[this.valueField] === value}
+        aria-selected={`${option[this.valueField] === value}`}
         aria-disabled={option.disabled ? "true" : "false"}
         onClick={!option.timedOut && !option.loading && this.handleOptionClick}
         onBlur={this.handleBlur}
