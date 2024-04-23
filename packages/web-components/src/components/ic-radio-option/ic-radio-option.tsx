@@ -204,9 +204,15 @@ export class RadioOption {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("input")) {
-      this.el.shadowRoot.querySelector("input").focus();
-    }
+    this.radioElement?.focus();
+  }
+
+  /**
+   * @internal Sets the tabIndex of the radio option.
+   */
+  @Method()
+  async setTabIndex(value: number): Promise<void> {
+    this.radioElement.tabIndex = value;
   }
 
   private handleClick = () => {
