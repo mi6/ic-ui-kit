@@ -47,3 +47,4 @@ Tell us the issue number. If suggesting an improvement or component, please disc
 - [ ] Min/max content examples tested with no loss of content or overflow. 
 - [ ] All prop combinations work without issue. 
 - [ ] Tested for FOUC (Flash of Unstyled Content) in both SSR (Server-Side Rendering) and SSG (Static Site Generation) settings.
+- [ ] Controlled and uncontrolled input components tested.
