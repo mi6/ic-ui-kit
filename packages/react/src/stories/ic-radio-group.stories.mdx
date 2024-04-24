@@ -13,7 +13,7 @@ import {
 } from "../components";
 import radioOptionReadme from "../../../web-components/src/components/ic-radio-option/readme.md";
 import radioGroupReadme from "../../../web-components/src/components/ic-radio-group/readme.md";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 <Meta title="Radio button" component={IcRadioGroup} />
 
@@ -341,5 +341,60 @@ return (
 <Canvas>
   <Story name="Updating options">
     <RadioOptionsUpdate />
+  </Story>
+</Canvas>
+
+### Controlled
+
+export const Controlled = () => {
+  const [selected, setSelected] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setSelected(false);
+  };
+  const differentButtonClickHandler = () => {
+    setSelected(true);
+  };
+  return (
+    <>
+      <IcRadioOption selected={selected} label="Label" value="valueName1" />
+      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
+        Unselected
+      </IcButton>
+      <IcButton variant="primary" onClick={differentButtonClickHandler}>
+        Selected
+      </IcButton>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Controlled">
+    <Controlled />
+  </Story>
+</Canvas>
+
+### Uncontrolled
+
+export const Uncontrolled = () => {
+  const radioEl = useRef();
+  const handleCheck = () => {
+    console.log(radioEl.current.selected);
+  };
+  return (
+    <IcRadioGroup label="This is a label" name="1">
+      <IcRadioOption
+        ref={radioEl}
+        value="valueName1"
+        label="Unselected / Default"
+        onIcSelectedChange={handleCheck}
+      />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+    </IcRadioGroup>
+  );
+};
+
+<Canvas>
+  <Story name="Uncontrolled">
+    <Uncontrolled />
   </Story>
 </Canvas>

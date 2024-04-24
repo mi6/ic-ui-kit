@@ -2,7 +2,12 @@
 
 import React from "react";
 import { mount } from "cypress/react";
-import { Checkbox, CheckboxForm } from "./IcCheckboxTestData";
+import {
+  Checkbox,
+  CheckboxForm,
+  Controlled,
+  Uncontrolled,
+} from "./IcCheckboxTestData";
 import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../components";
 import {
   BE_DISABLED,
@@ -332,5 +337,22 @@ describe("A11y and visual regression tests", () => {
       testThreshold: DEFAULT_TEST_THRESHOLD,
     });
     cy.checkA11yWithWait();
+  });
+
+  it("renders as a controlled component", () => {
+    mount(<Controlled />);
+
+    cy.get("ic-button#uncheck-btn").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get("ic-button#check-btn").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
+  });
+
+  it("renders as an uncontrolled component", () => {
+    mount(<Uncontrolled />);
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
   });
 });
