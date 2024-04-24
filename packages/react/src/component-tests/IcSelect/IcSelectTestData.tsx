@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState, useRef } from "react";
 import { IcButton, IcSelect } from "../../components";
 
 export const coffeeOptions = [
@@ -264,3 +264,75 @@ export const LoadingSelectSearchableNoTimeout = (): ReactElement => (
     />
   </>
 );
+
+export const ControlledSelect = () => {
+  const [options, setOptions] = useState(coffeeOptions);
+  const handleChange = () => {
+    setOptions(manyOptions);
+  };
+  return (
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <IcSelect placeholder="Controlled" label="Controlled" options={options} />
+      <IcButton id="update-opt" onClick={() => handleChange()}>
+        Update options
+      </IcButton>
+    </div>
+  );
+};
+
+export const ControlledSearchableSelect = () => {
+  const [options, setOptions] = useState(coffeeOptions);
+  const handleChange = () => {
+    setOptions(manyOptions);
+  };
+  return (
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <IcSelect
+        placeholder="Controlled"
+        label="Controlled"
+        options={options}
+        searchable
+      />
+      <IcButton id="update-opt" onClick={() => handleChange()}>
+        Update options
+      </IcButton>
+    </div>
+  );
+};
+
+export const UncontrolledSelect = () => {
+  const selectEl = useRef<any>(null);
+  const handleChange = () => {
+    console.log(selectEl.current.value);
+  };
+  return (
+    <>
+      <IcSelect
+        ref={selectEl}
+        placeholder="Uncontrolled"
+        label="Uncontrolled"
+        options={coffeeOptions}
+        onIcChange={handleChange}
+      />
+    </>
+  );
+};
+
+export const UncontrolledSearchableSelect = () => {
+  const selectEl = useRef<any>(null);
+  const handleChange = () => {
+    console.log(selectEl.current.value);
+  };
+  return (
+    <>
+      <IcSelect
+        ref={selectEl}
+        searchable
+        placeholder="Uncontrolled"
+        label="Uncontrolled"
+        options={coffeeOptions}
+        onIcChange={handleChange}
+      />
+    </>
+  );
+};

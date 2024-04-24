@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   IcRadioOption,
   IcRadioGroup,
@@ -83,5 +83,52 @@ export const RadioOptionsChanging = () => {
         <IcButton onClick={updateRadios}>Update</IcButton>
       </div>
     </IcSectionContainer>
+  );
+};
+
+export const Controlled = () => {
+  const [selected, setSelected] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setSelected(false);
+  };
+  const differentButtonClickHandler = () => {
+    setSelected(true);
+  };
+  return (
+    <>
+      <IcRadioOption selected={selected} label="Label" value="valueName1" />
+      <IcButton
+        id="unselect-btn"
+        variant="primary"
+        onClick={defaultButtonClickHandler}
+      >
+        Unselected
+      </IcButton>
+      <IcButton
+        id="select-btn"
+        variant="primary"
+        onClick={differentButtonClickHandler}
+      >
+        Selected
+      </IcButton>
+    </>
+  );
+};
+
+export const Uncontrolled = () => {
+  const radioEl = useRef<any>(null);
+  const handleCheck = () => {
+    console.log(radioEl.current.selected);
+  };
+  return (
+    <IcRadioGroup label="This is a label" name="1">
+      <IcRadioOption
+        ref={radioEl}
+        value="valueName1"
+        label="Unselected / Default"
+        onIcSelectedChange={handleCheck}
+      />
+      <IcRadioOption value="valueName2" label="Selected / Default" selected />
+    </IcRadioGroup>
   );
 };

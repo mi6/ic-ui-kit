@@ -11,6 +11,7 @@ import {
   HAVE_ATTR,
   HAVE_BEEN_CALLED,
   HAVE_BEEN_CALLED_ONCE,
+  HAVE_BEEN_CALLED_WITH,
   HAVE_CLASS,
   HAVE_FOCUS,
   HAVE_LENGTH,
@@ -40,8 +41,10 @@ import {
   TYPE_ENTER,
 } from "./IcSelectConstants";
 import {
+  ControlledSelect,
   LoadingSelect,
   LoadingSelectNoTimeout,
+  UncontrolledSelect,
   coffeeCustomElements,
   coffeeDisabledOption,
   coffeeOptions,
@@ -1513,5 +1516,29 @@ describe("IcSelect", () => {
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.045,
     });
     cy.checkA11yWithWait();
+  });
+
+  it("renders as an controlled component", () => {
+    mount(<ControlledSelect />);
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "6");
+
+    cy.get("ic-button#update-opt").click();
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "12");
+  });
+
+  it("renders as an uncontrolled component", () => {
+    mount(<UncontrolledSelect />);
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "espresso");
   });
 });
