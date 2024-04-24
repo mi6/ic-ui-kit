@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
 
 import { IcSelect, IcButton, IcTypography } from "../components";
@@ -607,6 +607,59 @@ export const ExternalFiltering = () => {
         />
       );
     }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+export const ControlledExample = () => {
+  const [value, setValue] = useState("Cap");
+  const handleChange = (event) => {
+    console.log(event.detail.value);
+    setValue(event.detail.value);
+  };
+  return (
+    <IcSelect
+      searchable
+      placeholder="Controlled"
+      label="Controlled"
+      options={options}
+      value={value}
+      onIcChange={handleChange}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="Controlled">
+    <ControlledExample />
+  </Story>
+</Canvas>
+
+### Uncontrolled
+
+export const Uncontrolled = () => {
+  const selectEl = useRef();
+  const handleChange = () => {
+    console.log(selectEl.current.value);
+  };
+  return (
+    <>
+      <IcSelect
+        ref={selectEl}
+        searchable
+        placeholder="Uncontrolled"
+        label="Uncontrolled"
+        options={options}
+        onIcChange={handleChange}
+      />
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Uncontrolled">
+    <Uncontrolled />
   </Story>
 </Canvas>
 

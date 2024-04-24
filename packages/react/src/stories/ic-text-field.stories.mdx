@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   Meta,
   Story,
@@ -425,6 +425,29 @@ export const ControlledExample = () => {
 <Canvas>
   <Story name="Controlled">
     <ControlledExample />
+  </Story>
+</Canvas>
+
+### Uncontrolled
+
+export const Uncontrolled = () => {
+  const textFieldEl = useRef();
+  const handleChange = () => {
+    console.log(textFieldEl.current.value);
+  };
+  return (
+    <IcTextField
+      ref={textFieldEl}
+      placeholder="Uncontrolled"
+      label="Uncontrolled"
+      onIcChange={handleChange}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="Uncontrolled">
+    <Uncontrolled />
   </Story>
 </Canvas>
 

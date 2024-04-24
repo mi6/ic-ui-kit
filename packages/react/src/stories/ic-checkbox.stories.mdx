@@ -5,11 +5,16 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcCheckboxGroup, IcCheckbox, IcTextField } from "../components";
+import {
+  IcCheckboxGroup,
+  IcCheckbox,
+  IcTextField,
+  IcButton,
+} from "../components";
 import checkboxReadme from "../../../web-components/src/components/ic-checkbox/readme.md";
 import checkboxGroupReadme from "../../../web-components/src/components/ic-checkbox-group/readme.md";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 <Meta title="Checkbox" component={IcCheckboxGroup} />
 
@@ -340,5 +345,59 @@ export const TextField = () => {
 <Canvas>
   <Story name="TextField value change">
     <TextField />
+  </Story>
+</Canvas>
+
+### Controlled
+
+export const Controlled = () => {
+  const [checked, setChecked] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setChecked(false);
+  };
+  const differentButtonClickHandler = () => {
+    setChecked(true);
+  };
+  return (
+    <>
+      <IcCheckbox checked={checked} label="Label" value="valueName1" />
+      <IcButton variant="primary" onClick={defaultButtonClickHandler}>
+        Unchecked
+      </IcButton>
+      <IcButton variant="primary" onClick={differentButtonClickHandler}>
+        Checked
+      </IcButton>
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Controlled">
+    <Controlled />
+  </Story>
+</Canvas>
+
+### Uncontrolled
+
+export const Uncontrolled = () => {
+  const checkboxEl = useRef();
+  const handleCheck = () => {
+    console.log(checkboxEl.current.checked);
+  };
+  return (
+    <>
+      <IcCheckbox
+        ref={checkboxEl}
+        label="Label"
+        value="valueName1"
+        onIcCheck={handleCheck}
+      />
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Uncontrolled">
+    <Uncontrolled />
   </Story>
 </Canvas>

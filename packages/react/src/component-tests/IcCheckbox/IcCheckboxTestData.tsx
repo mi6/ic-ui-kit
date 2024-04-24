@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../components";
+import React, { useState, useRef } from "react";
+import {
+  IcButton,
+  IcCheckbox,
+  IcCheckboxGroup,
+  IcTextField,
+} from "../../components";
 
 export const Checkbox = () => {
   return (
@@ -63,5 +68,51 @@ export const CheckboxForm = () => {
         </button>
       </form>
     </div>
+  );
+};
+
+export const Controlled = () => {
+  const [checked, setChecked] = useState(true);
+  const defaultButtonClickHandler = () => {
+    setChecked(false);
+  };
+  const differentButtonClickHandler = () => {
+    setChecked(true);
+  };
+  return (
+    <>
+      <IcCheckbox checked={checked} label="Label" value="valueName1" />
+      <IcButton
+        id="uncheck-btn"
+        variant="primary"
+        onClick={defaultButtonClickHandler}
+      >
+        Unchecked
+      </IcButton>
+      <IcButton
+        id="check-btn"
+        variant="primary"
+        onClick={differentButtonClickHandler}
+      >
+        Checked
+      </IcButton>
+    </>
+  );
+};
+
+export const Uncontrolled = () => {
+  const checkboxEl = useRef<any>(null);
+  const handleCheck = () => {
+    console.log(checkboxEl.current.checked);
+  };
+  return (
+    <>
+      <IcCheckbox
+        ref={checkboxEl}
+        label="Label"
+        value="valueName1"
+        onIcCheck={handleCheck}
+      />
+    </>
   );
 };

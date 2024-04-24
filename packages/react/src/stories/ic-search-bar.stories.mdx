@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Meta,
   Story,
@@ -254,5 +254,70 @@ export const ExternalFiltering = () => {
         { label: "Mocha", value: "mocha" },
       ]}
     />
+  </Story>
+</Canvas>
+
+### Controlled
+
+export const ControlledExample = () => {
+  const [value, setValue] = useState("cap");
+  const handleChange = (event) => {
+    console.log(event.detail.value);
+    setValue(event.detail.value);
+  };
+  return (
+    <IcSearchBar
+      placeholder="Controlled"
+      label="Controlled"
+      options={[
+        { label: "Espresso", value: "esp" },
+        { label: "Double Espresso", value: "dbl" },
+        { label: "Flat White", value: "fla" },
+        { label: "Cappuccino", value: "cap" },
+        { label: "Americano", value: "ame" },
+        { label: "Mocha", value: "moc" },
+      ]}
+      value={value}
+      onIcChange={handleChange}
+    />
+  );
+};
+
+<Canvas>
+  <Story name="Controlled">
+    <ControlledExample />
+  </Story>
+</Canvas>
+
+### Uncontrolled
+
+export const Uncontrolled = () => {
+  const searchEl = useRef();
+  const handleChange = () => {
+    console.log(searchEl.current.value);
+  };
+  return (
+    <>
+      <IcSearchBar
+        ref={searchEl}
+        placeholder="Uncontrolled"
+        label="Uncontrolled"
+        options={[
+          { label: "Espresso", value: "esp" },
+          { label: "Double Espresso", value: "dbl" },
+          { label: "Flat White", value: "fla" },
+          { label: "Cappuccino", value: "cap" },
+          { label: "Americano", value: "ame" },
+          { label: "Mocha", value: "moc" },
+        ]}
+        onIcChange={handleChange}
+      />
+    </>
+  );
+};
+
+<Canvas>
+  <Story name="Uncontrolled">
+    <Uncontrolled />
   </Story>
 </Canvas>

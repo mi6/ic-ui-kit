@@ -6,8 +6,15 @@ import {
   Radios,
   RadioOptionsEmptyInitial,
   RadioOptionsChanging,
+  Controlled,
+  Uncontrolled,
 } from "./IcRadioTestData";
-import { HAVE_PROP, HAVE_VALUE, HAVE_FOCUS } from "../utils/constants";
+import {
+  HAVE_PROP,
+  HAVE_VALUE,
+  HAVE_FOCUS,
+  HAVE_BEEN_CALLED_WITH,
+} from "../utils/constants";
 
 //const DEFAULT_TEST_THRESHOLD = 0.2;
 
@@ -86,5 +93,22 @@ describe("IcRadio", () => {
     cy.findShadowEl(RADIO_SELECTOR, INPUT).eq(1).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).first().should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).last().should(HAVE_PROP, "selected", true);
+  });
+
+  it("should render as a controlled component", () => {
+    mount(<Controlled />);
+
+    cy.get("ic-button#unselect-btn").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", false);
+    cy.get("ic-button#select-btn").click();
+    cy.get(RADIO_SELECTOR).eq(0).should(HAVE_PROP, "selected", true);
+  });
+
+  it("should render as an uncontrolled component", () => {
+    mount(<Uncontrolled />);
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
   });
 });

@@ -8,6 +8,7 @@ import {
   CONTAIN_TEXT,
   HAVE_ATTR,
   HAVE_BEEN_CALLED,
+  HAVE_BEEN_CALLED_WITH,
   HAVE_LENGTH,
   HAVE_TEXT,
   HAVE_VALUE,
@@ -33,8 +34,10 @@ import {
   TYPE_ENTER,
 } from "./IcSelectConstants";
 import {
+  ControlledSearchableSelect,
   LoadingSelectSearchable,
   LoadingSelectSearchableNoTimeout,
+  UncontrolledSearchableSelect,
   coffeeCustomElements,
   coffeeDisabledOption,
   coffeeOptions,
@@ -935,5 +938,31 @@ describe("IcSelect searchable", () => {
       name: "searchable-recommended-open",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
+  });
+
+  it("renders as a controlled component", () => {
+    mount(<ControlledSearchableSelect />);
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "6");
+
+    cy.get("ic-button#update-opt").click();
+
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.findShadowEl("ic-select", IC_MENU_LI)
+      .should(BE_VISIBLE)
+      .should(HAVE_LENGTH, "12");
+  });
+
+  it("renders as an uncontrolled component", () => {
+    mount(<UncontrolledSearchableSelect />);
+
+    cy.spy(window.console, "log").as("spyWinConsoleLog");
+    cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("cap");
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
+    cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
+    cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "cappuccino");
   });
 });
