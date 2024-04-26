@@ -245,12 +245,32 @@ The date input is available in three different sizes:
 
 Use the helper text to add additional detail for the date input. 
 
+export const UpdatingHelperText = () => {
+  const [helpText, setHelpText] = useState("We will have your order ready for you on this date");
+  const updateHelperText = () => {
+    setHelpText("this is the new helper text");
+  } 
+  const clearHelperText = (value) => {
+    setHelpText("");
+  }
+  return (
+    <>
+      <IcDateInput
+        label='When would you like to collect your coffee?'
+        helperText={helpText}
+      />
+      <br />
+      <div style={{display: 'flex', gap: '8px'}}>
+        <IcButton onClick={updateHelperText}>Set helper text</IcButton>
+        <IcButton onClick={clearHelperText}>Clear helper text</IcButton>
+      </div>
+    </>
+  )
+}
+
 <Canvas withSource='none'>
-  <Story name="Custom helper text">
-    <IcDateInput
-      label="When would you like to collect your coffee?"
-      helperText="We will have your order ready for you on this date"
-    />
+  <Story name="Custom Helper Text">
+    <UpdatingHelperText />
   </Story>
 </Canvas>
 

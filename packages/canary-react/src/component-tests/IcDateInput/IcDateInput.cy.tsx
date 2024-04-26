@@ -4,8 +4,9 @@
 import React from "react";
 import { mount } from "cypress/react";
 import { IcDateInput } from "../../components";
-import { DateInputUpdateValue } from "./IcDateInputTestData";
+import { DateInputUpdateValue, DateInputUpdateHelperText } from "./IcDateInputTestData";
 import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers";
+import { HAVE_TEXT, HAVE_VALUE } from "../../../../react/src/component-tests/utils/constants";
 
 const DATE_INPUT = "ic-date-input";
 const DAY_INPUT_CLASS = ".day-input";
@@ -52,7 +53,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).type(ARROW_UP_KEY);
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).type("/");
 
-    cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).should("have.value", "02");
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).should(HAVE_VALUE, "02");
   });
 
   it("should update value on ArrowDown on day input", () => {
@@ -64,7 +65,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).type(ARROW_DOWN_KEY);
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).type("/");
 
-    cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).should("have.value", "30");
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_CLASS).should(HAVE_VALUE, "30");
   });
 
   it("should display validation error if date in the past is entered while disable past date is set to true", () => {
@@ -80,7 +81,7 @@ describe("IcDateInput", () => {
       .shadow()
       .find(".statustext")
       .should(
-        "have.text",
+        HAVE_TEXT,
         "Dates in the past are not allowed. Please select a date in the future."
       );
   });
@@ -98,7 +99,7 @@ describe("IcDateInput", () => {
       .shadow()
       .find(".statustext")
       .should(
-        "have.text",
+        HAVE_TEXT,
         "Dates in the future are not allowed. Please select a date in the past."
       );
   });
@@ -109,7 +110,7 @@ describe("IcDateInput", () => {
     cy.checkHydrated(DATE_INPUT);
 
     cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
-      "have.text",
+      HAVE_TEXT,
       "Dates in the future are not allowed. Please select a date in the past."
     );
 
@@ -124,7 +125,7 @@ describe("IcDateInput", () => {
     cy.checkHydrated(DATE_INPUT);
 
     cy.findShadowEl(DATE_INPUT, "ic-input-validation ic-typography").should(
-      "have.text",
+      HAVE_TEXT,
       "Dates in the past are not allowed. Please select a date in the future."
     );
 
@@ -141,7 +142,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("1{upArrow}/");
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "02"
     );
   });
@@ -154,7 +155,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("2{downArrow}/");
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "01"
     );
 
@@ -169,7 +170,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("1{upArrow}/");
 
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "02"
     );
   });
@@ -182,7 +183,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("1{downArrow}/");
 
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "12"
     );
 
@@ -197,7 +198,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000{upArrow}");
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "2001"
     );
   });
@@ -210,7 +211,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000{downArrow}");
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "1999"
     );
   });
@@ -221,26 +222,26 @@ describe("IcDateInput", () => {
     cy.checkHydrated(DATE_INPUT);
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "31"
     );
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "08"
     );
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "2025"
     );
 
     cy.get("button").click();
 
-    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       ""
     );
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
   it("should test setting date to empty string programatically", () => {
@@ -249,26 +250,26 @@ describe("IcDateInput", () => {
     cy.checkHydrated(DATE_INPUT);
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "31"
     );
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "08"
     );
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "2025"
     );
 
     cy.get("button").click();
 
-    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       ""
     );
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
   it("should test setting date to null programatically", () => {
@@ -277,26 +278,26 @@ describe("IcDateInput", () => {
     cy.checkHydrated(DATE_INPUT);
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "31"
     );
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "08"
     );
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "2025"
     );
 
     cy.get("button").click();
 
-    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       ""
     );
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should("have.value", "");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
   it("should enter complete date and check for accessibility", () => {
@@ -327,7 +328,7 @@ describe("IcDateInput", () => {
     cy.get("ic-date-input")
       .shadow()
       .find("span[role='status']")
-      .should("have.text", "Selected date: Sunday, 30 April 2000");
+      .should(HAVE_TEXT, "Selected date: Sunday, 30 April 2000");
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type(
       "{Backspace}{Backspace}{Backspace}{Backspace}"
@@ -338,7 +339,7 @@ describe("IcDateInput", () => {
     cy.get("ic-date-input")
       .shadow()
       .find("span[role='status']")
-      .should("have.text", "Selected date: Tuesday, 30 April 2024");
+      .should(HAVE_TEXT, "Selected date: Tuesday, 30 April 2024");
   });
 
   it("should display validation message if date before min with date string with slashes", () => {
@@ -353,7 +354,7 @@ describe("IcDateInput", () => {
     cy.get("ic-date-input")
       .shadow()
       .find(".statustext")
-      .should("have.text", "Please enter a date after 01/07/2001.");
+      .should(HAVE_TEXT, "Please enter a date after 01/07/2001.");
 
     cy.wait(500).compareSnapshot({
       name: "dateInputWithMinValidation",
@@ -371,7 +372,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050");
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       "Please enter a date before 01/07/2024."
     );
 
@@ -417,7 +418,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
@@ -464,7 +465,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024");
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
@@ -511,7 +512,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
@@ -549,7 +550,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type(ARROW_UP_KEY);
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "21"
     );
   });
@@ -561,7 +562,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type(ARROW_DOWN_KEY);
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "19"
     );
   });
@@ -573,7 +574,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type(ARROW_UP_KEY);
 
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "02"
     );
   });
@@ -585,7 +586,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type(ARROW_DOWN_KEY);
 
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "12"
     );
   });
@@ -597,7 +598,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type(ARROW_UP_KEY);
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "2001"
     );
   });
@@ -609,7 +610,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type(ARROW_DOWN_KEY);
 
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       "1999"
     );
   });
@@ -623,7 +624,7 @@ describe("IcDateInput", () => {
       />
     );
 
-    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should("have.text", "Error");
+    cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Error");
 
     cy.compareSnapshot({
       name: "dateInputWithErrorValidation",
@@ -641,7 +642,7 @@ describe("IcDateInput", () => {
     );
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       "Warning"
     );
 
@@ -661,7 +662,7 @@ describe("IcDateInput", () => {
     );
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
-      "have.text",
+      HAVE_TEXT,
       "Success"
     );
 
@@ -691,12 +692,27 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, "#clear-button").shadow().find("button").focus().click()
     
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).should(
-      "have.value",
+      HAVE_VALUE,
       ""
     ); 
 
     cy.get("@icDateChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(null);
     });
+  });
+
+  it("should update helper text and reset helper text to default when set to empty string", () => {
+    const INITIAL_HELP = "initial helper text";
+    const NEW_HELP = "new helper text";
+    mount(<DateInputUpdateHelperText initialText={INITIAL_HELP} newText={NEW_HELP} />)
+    cy.checkHydrated(DATE_INPUT);
+    cy.findShadowEl(DATE_INPUT, '.helpertext').should(HAVE_TEXT, INITIAL_HELP);
+    cy.get('button#changeText').focus().click();
+    cy.findShadowEl(DATE_INPUT, '.helpertext').should(HAVE_TEXT, NEW_HELP);
+    cy.get('button#resetText').focus().click();
+    cy.findShadowEl(DATE_INPUT, '.helpertext').should(HAVE_TEXT, 'Use format DD/MM/YYYY');
+    cy.get('button#nullText').focus().click();
+    cy.findShadowEl(DATE_INPUT, '.helpertext').should(HAVE_TEXT, 'Use format DD/MM/YYYY');
+
   });
 });
