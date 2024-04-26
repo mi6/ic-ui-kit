@@ -294,9 +294,8 @@ export class DateInput {
   componentWillLoad(): void {
     this.defaultHelperText = `Use format ${this.dateFormat}`;
 
-    if (isEmptyString(this.helperText)) {
+    if (isEmptyString(this.helperText))
       this.helperText = this.defaultHelperText;
-    }
 
     this.watchMinHandler();
     this.watchMaxHandler();
@@ -351,9 +350,11 @@ export class DateInput {
   }
 
   componentWillUpdate(): void {
-    if (!this.isDateSetFromKeyboardEvent) {
-      this.setDate(this.value);
-    }
+    if (isEmptyString(this.helperText))
+      this.helperText = this.defaultHelperText;
+
+    if (!this.isDateSetFromKeyboardEvent) this.setDate(this.value);
+
     this.setAriaInvalid(
       this.isValidDay,
       this.isValidMonth,
