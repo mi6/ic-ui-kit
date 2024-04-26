@@ -8,6 +8,7 @@ import { SlottedSVG } from "../../";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import { SwitchColour } from "./IcChipTestData";
 import { HAVE_PROP } from "../utils/constants";
+import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -121,6 +122,15 @@ describe("IcChip visual and a11y testing", () => {
       </div>
     );
 
+    // Disabled elements do not to pass contrast checks according to WCAG guidance
+    const customCypressRules = {
+      rules: {
+        ...CYPRESS_AXE_OPTIONS.rules,
+        "color-contrast": { enabled: false },
+      },
+    };
+
+    cy.checkA11yWithWait(undefined, undefined, customCypressRules);
     cy.compareSnapshot({
       name: "disabled",
       testThreshold: DEFAULT_TEST_THRESHOLD,
