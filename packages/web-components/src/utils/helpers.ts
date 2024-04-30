@@ -488,7 +488,7 @@ export const hasValidationStatus = (
   status: IcInformationStatusOrEmpty,
   disabled: boolean
 ): boolean => {
-  return status !== "" && !disabled;
+  return !!status && !disabled;
 };
 
 export const isSlotUsed = (element: HTMLElement, slotName: string): boolean =>

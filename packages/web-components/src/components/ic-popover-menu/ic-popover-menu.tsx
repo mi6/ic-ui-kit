@@ -91,8 +91,9 @@ export class PopoverMenu {
   @Event() icPopoverClosed: EventEmitter<void>;
 
   disconnectedCallback(): void {
-    if (this.popperInstance !== undefined) {
+    if (this.popperInstance) {
       this.popperInstance.destroy();
+      this.popperInstance = null;
     }
   }
 
