@@ -262,7 +262,7 @@ export class Select {
       this.loading = false;
       clearTimeout(this.timeoutTimer);
       if (this.isExternalFiltering()) {
-        if (this.options.length > 0) {
+        if (this.options?.length > 0) {
           this.setOptionsValuesFromLabels();
           this.noOptions = null;
           this.uniqueOptions = this.deduplicateOptions(this.options);
@@ -284,7 +284,9 @@ export class Select {
         }
       }
     } else {
-      if (!this.searchable) this.options = this.noOptions;
+      if (!this.searchable) {
+        this.options = this.noOptions;
+      }
     }
   }
 
@@ -384,7 +386,7 @@ export class Select {
 
     addFormResetListener(this.el, this.handleFormReset);
 
-    if (!this.options.length) {
+    if (!this.options?.length) {
       this.initialOptionsEmpty = true;
       this.noOptions = [{ label: this.emptyOptionListText, value: "" }];
       this.uniqueOptions = this.noOptions;
@@ -527,7 +529,7 @@ export class Select {
    * Loop through options array and for all options with no value, infer it from the label
    */
   private setOptionsValuesFromLabels = (): void => {
-    if (this.options.length > 0 && this.options.map) {
+    if (this.options?.length > 0 && this.options.map) {
       this.options.map((option) => {
         if (!option.value) {
           option.value = option.label;
