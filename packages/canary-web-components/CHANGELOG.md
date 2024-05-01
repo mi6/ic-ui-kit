@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.13...@ukic/canary-web-components@2.0.0-canary.14) (2024-05-01)
+
+### Bug Fixes
+
+- **canary-web-components:** date input helper text returns to default ([c9a25e9](https://github.com/mi6/ic-ui-kit/commit/c9a25e948451b8c9334428037323d201649eba5b))
+- **canary-web-components:** make focus indicator in data-input more specific ([d12c8a4](https://github.com/mi6/ic-ui-kit/commit/d12c8a4c48a4899d498e0638d328ff0582e83fd3))
+
 # [2.0.0-canary.13](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.12...@ukic/canary-web-components@2.0.0-canary.13) (2024-04-17)
 
 ### Bug Fixes

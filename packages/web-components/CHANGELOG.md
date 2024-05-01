@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.18.1...@ukic/web-components@2.19.0) (2024-05-01)
+
+### Bug Fixes
+
+- **web-components:** added mutation observer to components that pass down attributes ([327c455](https://github.com/mi6/ic-ui-kit/commit/327c455c0a2618a1bd5b4d3494cb85ab25acb59c))
+
+### Features
+
+- **web-components:** add custom colour prop to chip to alter the background/border colour ([07e6afb](https://github.com/mi6/ic-ui-kit/commit/07e6afb4270748df4f7e9d533004300304626062)), closes [#1468](https://github.com/mi6/ic-ui-kit/issues/1468)
+- **web-components:** add light appearance to stepper component ([5938aec](https://github.com/mi6/ic-ui-kit/commit/5938aec48059d5fb2328a2210a941f86f43b8304)), closes [#1553](https://github.com/mi6/ic-ui-kit/issues/1553)
+- **web-components:** fixes issue updating radio options ([3c8da9e](https://github.com/mi6/ic-ui-kit/commit/3c8da9e971d17f0ead0d9326d76a0daac79a9d68))
+
 ## [2.18.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.18.0...@ukic/web-components@2.18.1) (2024-04-17)
 
 ### Bug Fixes

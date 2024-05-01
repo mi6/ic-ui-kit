@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.18.1...@ukic/react@2.19.0) (2024-05-01)
+
+### Features
+
+- **react:** add custom colour prop to chip to alter background/border colour ([0c3a627](https://github.com/mi6/ic-ui-kit/commit/0c3a6274c3e5890dad7d293d2407c907f0103d39)), closes [#1468](https://github.com/mi6/ic-ui-kit/issues/1468)
+- **react:** add light appearance to stepper component ([a969417](https://github.com/mi6/ic-ui-kit/commit/a96941782c7b4e4b287a95ec5ae63ed0537b47d6)), closes [#1553](https://github.com/mi6/ic-ui-kit/issues/1553)
+- **react:** adds tests and stories for dynamic options ([e95af5d](https://github.com/mi6/ic-ui-kit/commit/e95af5d2ab24c787531eaf2d2c47098929b1acd2))
+- **react:** removes duplicate helper function ([bec491b](https://github.com/mi6/ic-ui-kit/commit/bec491b459c85eb3b3c1325e0d9bb8eb245b5da9))
+
 ## [2.18.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.18.0...@ukic/react@2.18.1) (2024-04-17)
 
 ### Bug Fixes
