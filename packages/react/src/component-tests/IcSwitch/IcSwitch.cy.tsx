@@ -2,8 +2,8 @@
 
 import React from "react";
 import { mount } from "cypress/react";
-import { Controlled, Uncontrolled } from "./IcSwitchTestData";
-import { HAVE_BEEN_CALLED_WITH, HAVE_PROP } from "../utils/constants";
+import { Controlled } from "./IcSwitchTestData";
+import { HAVE_PROP } from "../utils/constants";
 
 describe("IcSwitch", () => {
   it("renders as a controlled component", () => {
