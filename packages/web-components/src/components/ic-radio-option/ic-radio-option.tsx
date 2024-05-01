@@ -27,9 +27,6 @@ import {
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",
-  shadow: {
-    delegatesFocus: true,
-  },
 })
 export class RadioOption {
   private defaultRadioValue: string = "";
