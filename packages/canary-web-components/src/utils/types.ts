@@ -28,8 +28,6 @@ export enum IcInformationStatus {
   Success = "success",
 }
 
-export type IcSearchMatchPositions = "start" | "anywhere";
-
 export type IcSizes = "default" | "large" | "small";
 
 export type IcSizesNoLarge = "default" | "small";
@@ -104,11 +102,6 @@ export enum IcThemeForegroundEnum {
   Light = "light",
 }
 
-export interface IcValueEventDetail {
-  value: string | string[];
-  keyPressed?: string;
-}
-
 export type IcThemeForeground = "default" | "dark" | "light";
 
 export type IcThemeForegroundNoDefault = "dark" | "light";
@@ -177,6 +170,8 @@ export interface IcMenuOption {
   icon?: any;
 }
 
+export type IcSearchMatchPositions = "start" | "anywhere";
+
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
 
 export type IcDateFormat = "DD/MM/YYYY" | "MM/DD/YYYY" | "YYYY/MM/DD";
@@ -224,4 +219,9 @@ export enum IcWeekDays {
   Thursday = 4,
   Friday = 5,
   Saturday = 6,
+}
+
+export interface IcValueEventDetail {
+  value: string | string[];
+  keyPressed?: string;
 }
