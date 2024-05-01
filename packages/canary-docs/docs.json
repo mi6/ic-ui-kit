@@ -2614,7 +2614,7 @@
             "resolved": "string | string[]",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of the currently selected option - or array of values (if multiple options allowed).",
