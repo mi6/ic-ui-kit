@@ -4,6 +4,11 @@
  * @prop --ic-z-index-tooltip: z-index of tooltip
  */
 
+:host(.ic-tooltip) {
+  width: max-content;
+  height: max-content;
+}
+
 :host(.ic-tooltip) .ic-tooltip-container {
   background-color: var(--ic-architectural-800);
   color: #ffff;
