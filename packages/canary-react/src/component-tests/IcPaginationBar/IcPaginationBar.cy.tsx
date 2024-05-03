@@ -482,8 +482,8 @@ describe("IcPaginationBar", () => {
       .should(HAVE_LENGTH, 1);
   });
 
-  it('should render the number of items instead of the page number when labelType is "data"', () => {
-    mount(<PaginationBarItemsPerPage labelType="data" />);
+  it('should render the number of items instead of the page number when rangeLabelType is "data"', () => {
+    mount(<PaginationBarItemsPerPage rangeLabelType="data" />);
 
     cy.checkHydrated(PAGINATION_BAR);
 
@@ -503,6 +503,16 @@ describe("IcPaginationBar", () => {
     cy.findShadowEl(PAGINATION_BAR, ".item-pagination-label").should(
       HAVE_TEXT,
       "1 - 20 of 100 items"
+    );
+  });
+
+  it("should hide the range label when hideRangeLabel is true", () => {
+    mount(<PaginationBarItemsPerPage hideRangeLabel />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+
+    cy.findShadowEl(PAGINATION_BAR, ".item-pagination-label").should(
+      "not.exist"
     );
   });
 });
