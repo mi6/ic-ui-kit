@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-02T08:30:27",
+  "timestamp": "2024-05-03T15:17:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -284,10 +284,10 @@
         },
         {
           "name": "paginationOptions",
-          "type": "{ itemsPerPage?: { label: string; value: string; }[]; labelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+          "type": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
           "complexType": {
-            "original": "{\n    itemsPerPage?: { label: string; value: string }[];\n    labelType?: IcPaginationLabelTypes;\n    type?: IcPaginationTypes;\n    itemsPerPageControl?: boolean;\n    goToPageControl?: boolean;\n    alignment?: IcPaginationAlignmentOptions;\n  }",
-            "resolved": "{ itemsPerPage?: { label: string; value: string; }[]; labelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+            "original": "{\n    itemsPerPage?: { label: string; value: string }[];\n    rangeLabelType?: IcPaginationLabelTypes;\n    type?: IcPaginationTypes;\n    itemsPerPageControl?: boolean;\n    goToPageControl?: boolean;\n    alignment?: IcPaginationAlignmentOptions;\n  }",
+            "resolved": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
             "references": {
               "IcPaginationLabelTypes": {
                 "location": "import",
@@ -310,10 +310,10 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the pagination bar.",
           "docsTags": [],
-          "default": "{\n    itemsPerPage: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    labelType: \"page\",\n    type: \"simple\",\n    itemsPerPageControl: true,\n    goToPageControl: true,\n    alignment: \"right\",\n  }",
+          "default": "{\n    itemsPerPage: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    itemsPerPageControl: true,\n    goToPageControl: true,\n    alignment: \"right\",\n  }",
           "values": [
             {
-              "type": "{ itemsPerPage?: { label: string; value: string; }[]; labelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }"
+              "type": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }"
             }
           ],
           "optional": true,
@@ -2822,7 +2822,7 @@
           "required": false
         },
         {
-          "name": "hideItemsPerPageLabel",
+          "name": "hideRangeLabel",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -2830,7 +2830,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "hide-items-per-page-label",
+          "attr": "hide-range-label",
           "reflectToAttr": false,
           "docs": "If `true`, the number of total items and current item range or number of total pages and current page will be hidden.",
           "docsTags": [],
@@ -2838,28 +2838,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "itemLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "item-label",
-          "reflectToAttr": false,
-          "docs": "The label which will be used in place of 'items' if type is data. Should be capitalised.",
-          "docsTags": [],
-          "default": "\"Item\"",
-          "values": [
-            {
-              "type": "string"
             }
           ],
           "optional": true,
@@ -2886,7 +2864,51 @@
           "required": false
         },
         {
-          "name": "labelType",
+          "name": "pageLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "page-label",
+          "reflectToAttr": false,
+          "docs": "The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.",
+          "docsTags": [],
+          "default": "\"Page\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rangeItemLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "range-item-label",
+          "reflectToAttr": false,
+          "docs": "The label which will be used in place of 'items' if type is data. Should be capitalised.",
+          "docsTags": [],
+          "default": "\"Item\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rangeLabelType",
           "type": "\"data\" | \"page\"",
           "complexType": {
             "original": "IcPaginationLabelTypes",
@@ -2900,7 +2922,7 @@
             }
           },
           "mutable": false,
-          "attr": "label-type",
+          "attr": "range-label-type",
           "reflectToAttr": false,
           "docs": "Whether total number of items and current item range or total number of pages and current page is displayed.",
           "docsTags": [],
@@ -2912,28 +2934,6 @@
             },
             {
               "value": "page",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "pageLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "page-label",
-          "reflectToAttr": false,
-          "docs": "The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.",
-          "docsTags": [],
-          "default": "\"Page\"",
-          "values": [
-            {
               "type": "string"
             }
           ],
