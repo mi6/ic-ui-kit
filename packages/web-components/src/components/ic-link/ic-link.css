@@ -40,7 +40,7 @@
   :host(.link) ::slotted(a:focus) {
     text-decoration-line: underline;
     text-decoration-thickness: 25%;
-    text-underline-offset: 25%;
+    text-underline-offset: 10%;
     border-bottom: 0 !important;
     margin-bottom: 0 !important;
   }
