@@ -36,7 +36,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render iclink dark ", () => {
+  it("render dark links", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcLink appearance={"dark"} href="/components/link/code">
@@ -105,21 +105,23 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render light links with light and dark ", () => {
+  it("render multiline links", () => {
     mount(
-      <div style={{ margin: "25px" }}>
-        <IcLink href="/" appearance="dark" target="_blank">
-          About our coffees
+      <div style={{ width: "100px", margin: "16px", minHeight: "50px" }}>
+        <IcLink href="/">
+          This is a link with a long label so it goes multiline
         </IcLink>
-        <div style={{ backgroundColor: "black" }}>
-          <IcLink href="/" appearance="light" target="_blank">
-            About our coffees
-          </IcLink>
-        </div>
+        <br />
+        <br />
+        <IcLink id="focusLink" href="/">
+          This is a focussed link with a long label so it goes multiline
+        </IcLink>
       </div>
     );
+
+    cy.get("#focusLink").shadow().find("a").focus();
     cy.compareSnapshot({
-      name: "lightAndDarkLink",
+      name: "multilineLinks",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
     });
     cy.checkA11yWithWait();
