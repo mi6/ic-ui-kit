@@ -19,7 +19,16 @@ import readme from "./readme.md";
     name="Default"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-link href="/">This is a link</ic-link>`}
+    {html`<div>
+      <ic-link href="/">This is a link</ic-link>
+      <br />
+      <br />
+      <div style="width: 100px">
+        <ic-link href="/"
+          >This is a very very long link that goes multi-line</ic-link
+        >
+      </div>
+    </div>`}
   </Story>
 </Canvas>
 
@@ -31,6 +40,17 @@ import readme from "./readme.md";
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
     {html`<ic-link href="/" show-icon>This is a link</ic-link>`}
+  </Story>
+</Canvas>
+
+### With download
+
+<Canvas>
+  <Story
+    name="Download link"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
+    {html`<ic-link href="/" download>Download File</ic-link>`}
   </Story>
 </Canvas>
 
