@@ -12,6 +12,8 @@ If you have made a component change, such as adding or updating a slot/prop/even
 
 If your changes update the `docs.json` with more than just a date/time change, then you should commit this file under the docs scope and not alongside your web components or react changes e.g. `docs(docs): update to docs.json`.
 
+This also applies to canary components, where the `docs.json` in `canary-docs` should be updated.
+
 ### All acceptance criteria reviewed and met
 
 If you have added a new feature, or fixed a bug, it is likely that in the ticket you followed, there was an acceptance criteria section. Any acceptance criteria within that section should be met, or discussed with the author of the issue. 
@@ -22,13 +24,23 @@ If you have added a new feature, or fixed a bug, it is likely that in the ticket
 
 If you have added a new feature, or fixed a bug, you might want to add tests to ensure nothing affects this new behaviour in the future. 
 
-For information on writing unit tests, we have a [testing guide](TESTING.md) available.
+For information on writing unit tests, we have a [testing guide](TESTING.md) available. The coverage of unit tests should always be over 80%. 
 
-Visual regression tests are added using the `compareSnapshot` command in Cypress.
+Visual regression tests are added using the `compareSnapshot` command in Cypress. Where a component has resize behaviour and displays differently at breakpoints, visual tests should be added for each breakpoint with reasonable visual differences e.g. mobile breakpoint and desktop breakpoint. 
 
 ### Visual testing against Figma component specification completed
 
 To ensure that any changes you've made match up with the original designs, you should always check the Figma file for if there are any visual differences.
+
+To test this, you should check for:
+
+- Padding
+- Margins
+- Colours
+- Hover states
+- Active states
+- Prop names
+- Figma Prototype functionality vs. implemented functionality
 
 ## Accessibility 
 
@@ -47,7 +59,7 @@ This means that for every `compareSnapshot` command you add, you should also add
 
 As an extra check for any accessibility failures we've utilised the [Storybook accessibility addon](https://storybook.js.org/addons/@storybook/addon-a11y). 
 
-When running Storybook, this can be accessed in the 'Accessibility' tab in the popout menu. There should be no violations.
+When running Storybook, this can be accessed in the 'Accessibility' tab in the popout menu. There should be no violations on any Storybook page.
 
 ### Manual screen reader testing performed using NVDA and VoiceOver
 
@@ -55,20 +67,34 @@ Screen readers are an important part of app usage for blind users, partially-sig
 
 To cover any potential screen reader issues, we suggest testing the components using NVDA and VoiceOver (for macOS). If you don't have access to either of these tools, please leave a comment on your contribution and a member of the ICDS team will reach out.
 
+To test using a screen reader, use tabs, arrow keys, spacebar and enter to navigate as you would as a standard keyboard user. To ensure non-focusable content is read out how you would expect, use up/down arrows on NVDA or the modifier key + left/right arrows on VoiceOver.
+
 These are the common things you should look out for when screen reader testing:
 
 - Page content should be read aloud
 - Relevant semantic information should be read aloud
-- The navigation order should make logical sense
+- The navigation/reading order should make logical sense - this can be tested by viewing the elements list (Insert+F7 for NVDA, and the modifier key + U for VoiceOver)
 - Images/icons should have alt text or aria labels
+- Components with disabled state should announce it's state
 - Components that open or expand should announce the new state of the component
 - Components that can be selected or checked should announce the new state of the component
+- Components in a group should have the group information read aloud as well as the information on the component itself
 
 ### Manual keyboard testing for keyboard controls and logical focus order
 
 The [W3C guidance](https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html) explains that it is a WCAG 2.1 Level A criteria to be able to navigate sequentially where focus is in an order that preserves meaning and operability.
 
 To ensure that this functionality is met, the DOM order should match the visual order. If your changes include dynamic content (e.g. the additional field in radio buttons/checkboxes), the dynamic content should immediately follow its trigger in the DOM.
+
+You should test that each of these common keyboard functions works as expected:
+
+- `TAB` moves forward through interactive elements.
+- `SHIFT + TAB` moves backwards through interactive elements.
+- `ENTER` activates a link or button or selects an option.
+- `SPACE` activates a button, checks or unchecks a checkbox, expands a dropdown menu.
+- `UP` and `DOWN` arrows move through radio button options, menu options and autocomplete options.
+- `SPACE` and `SHIFT + SPACE` will scroll up or down by page, unless you currently have a form control focused.
+- `ESC` closes a dialogue box.
 
 ### Correct roles used and ARIA attributes used correctly where required
 
@@ -102,17 +128,28 @@ To conform to Level AA of WCAG 2.1, an app must allow the user to zoom to 400% w
 
 The [W3C guidance](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) about this requirement is quite extensive explaining the need for it and techniques to make apps meet this criteria. Our most common approach to fit the criteria is to either use CSS media queries to change component styling depending on screen size, or to use the `max-width` and `height` properties to restrict the size of the component.
 
+To test this, use the built in browser zoom or use the Storybook zoom. Please note: using Storybook zoom does not tell you how zoomed in you are.
+
 ### Screen magnifier used with no issues
 
 Similar to the 400% zoom requirement, this point on the checklist requires testing with a screen magnifier to ensure that content correctly overflows and doesn't require horizontal scrolling. There is more useful information in this [online guidance](https://abilitynet.org.uk/factsheets/screen-magnification) about the need for this requirement.
 
 To ensure this requirement is met, the same approaches can be used as with zoom.
 
+To test this:
+
+For Windows, you can switch on the magnifier using the Windows key and ‘+’ and zoom in and out by pressing and holding the Windows key and tapping the ‘+’ or ‘-’ keys. You can switch off the magnifier by pressing the Windows key and ‘Esc’.
+
+For macOS, you can find Zoom under the Accessibility options in ‘Settings’.
+
+
 ### Text resized to 200% with no loss of content
 
 To conform to Level AA of WCAG 2.1, all text should be able to be resized up to 200% without any loss of content or functionality. More information can be found within [WCAG guidance](https://wcag.com/designers/1-4-4-resize-text/).
 
 To ensure this functionality works, we use rem and em values over px in the majority of our sizing variables e.g. `--ic-space-sm`. In cases where our variables are not applicable, rem and em values are still encouraged. 
+
+To test, check [how to change font size](https://usability.yale.edu/web-accessibility/articles/zoom-resizing-text) for different browsers. Ensure there is no overlapping text, obscured text or horizontal scrolling.
 
 ### Text spacing increased with no loss of content
 
@@ -124,10 +161,12 @@ The [W3C guidance](https://www.w3.org/WAI/WCAG21/Techniques/css/C36) for the tex
 
 To use this bookmarklet:
 
-1. Go to the bookmarklet page / URL and save it as a bookmark on your browser
+1. Go to the bookmarklet page / URL and follow the instructions on the page to save the Text Spacing bookmarklet javascript function as a bookmark on your browser
 2. Go to the page on which you want to test the text spacing, e.g. a component story in Storybook
 3. With that page open, go to your bookmarks and click on the bookmarklet.
     - Note: You have to do this in the same tab i.e. on Chrome, don't open your Bookmarks Manager page or go to it in a new tab - just click the three dots in the top right, go to Bookmarks and find the bookmarklet in the popover menu. Bookmarklets contain JavaScript code which is run when they are opened, so doing this will execute it on the right page.
+
+Note: If you're using this bookmarklet to test components, it will have to be re-run each time you open a new page.
 
 To ensure there is no loss of content when increasing line spacing, the containing elements of text can either be made:
 - Large enough to accommodate for the increase in width and height
@@ -194,11 +233,13 @@ To ensure there is no loss of content when switching to dark mode, CSS can be ap
 
 Note: It is important to include the `(not (forced-colors: active))` in the media query to ensure that the CSS doesn't have any effect on elements when Windows High Contrast mode is enabled.
 
+Content should be visible in both light and dark modes, and colour contrast should still meet accessibility standards.
+
 ### Browser support tested 
 
 We recommend checking any changes you've made to a component in Chrome, Safari, Firefox, and Edge.  If you don't have access to some of these browsers, please leave a comment on your contribution and a member of the ICDS team will reach out.
 
-We expect the functionality of the components to work the same across all of these browsers. If it isn't working as expected, it might be worth checking browser support for anything you've contributed.
+We expect the functionality of the components to work the same across all of these browsers. Common things to check for include tabbing order, focus order and styling. If it isn't working as expected, it might be worth checking browser support for anything you've contributed.
 
 ## Testing content extremes
 
@@ -208,7 +249,9 @@ This requirement is to ensure that all use cases of the components are covered.
 
 An example of testing min content could be a button or link with just one letter for text. 
 
-An example of testing max content could be adding a long single word app title to side navigation or top navigation to ensure it breaks and overflows at the correct points for each screen size.
+An example of testing max content could be adding a long single word app title to side navigation or top navigation to ensure it breaks and overflows at the correct points for each screen size. To fix any issues, it's worth considering whether the content should overflow or truncate.
+
+A Storybook example might want to be added for both min and max content to demonstrate the behaviour.
 
 ### All prop combinations work without issue
 
@@ -216,7 +259,7 @@ It's important that all props/slots work within a component without any loss of 
 
 For some components, testing this functionality has been improved by having a Storybook playground to easily try out different prop combinations (e.g. `ic-button` and `ic-select`). 
 
-For other components, you can test this functionality by editing Storybook examples.
+For other components, you can test this functionality by editing Storybook examples or by implementing a Storybook playground for them.
 
 ### Tested for FOUC in both SSR and SSG settings
 
@@ -225,3 +268,9 @@ FOUC (or flashing of unstyled content) is where an app or page briefly appears w
 It is more likely that unwanted FOUC will appear in the Next.js storybook instance than the React or web components instances. Server-side rendering (SSR) is a key feature of Next.js, and this should more accurately represent a website that may experience FOUC. 
 
 When testing any changes, it's still important to check each Storybook for any flashes that may occur.
+
+### Controlled and uncontrolled input components tested
+
+In a controlled component, state handles all the form data. Whereas, in an uncontrolled component, the HTML form element data is managed by only the DOM.
+
+To test this functionality, each input component should have a working useState example (to cover controlled components) and a useRef example (to cover uncontrolled components) in both the React storybook and also Cypress tests.
