@@ -144,7 +144,7 @@ export class DataTable {
    */
   @Prop() paginationOptions?: {
     itemsPerPage?: { label: string; value: string }[];
-    labelType?: IcPaginationLabelTypes;
+    rangeLabelType?: IcPaginationLabelTypes;
     type?: IcPaginationTypes;
     itemsPerPageControl?: boolean;
     goToPageControl?: boolean;
@@ -155,7 +155,7 @@ export class DataTable {
       { label: "25", value: "25" },
       { label: "50", value: "50" },
     ],
-    labelType: "page",
+    rangeLabelType: "page",
     type: "simple",
     itemsPerPageControl: true,
     goToPageControl: true,
@@ -805,7 +805,7 @@ export class DataTable {
             <ic-pagination-bar
               totalItems={data.length}
               type={paginationOptions.type}
-              labelType={paginationOptions.labelType}
+              rangeLabelType={paginationOptions.rangeLabelType}
               showItemsPerPageControl={paginationOptions.itemsPerPageControl}
               showGoToPageControl={paginationOptions.goToPageControl}
               itemsPerPageOptions={paginationOptions.itemsPerPage}
