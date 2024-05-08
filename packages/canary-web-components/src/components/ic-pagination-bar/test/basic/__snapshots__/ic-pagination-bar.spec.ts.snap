@@ -45,12 +45,12 @@ exports[`ic-pagination-bar should render 1`] = `
 `;
 
 exports[`ic-pagination-bar should render with a custom item label 1`] = `
-<ic-pagination-bar item-label="Rows" pagination-type="data" total-items="100">
+<ic-pagination-bar range-item-label="Row" range-label-type="data" total-items="100">
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="item-pagination-label pagination-text-default" variant="label">
-          1 - 10 of 100 rowss
+          1 - 10 of 100 rows
         </ic-typography>
       </div>
       <div class="pagination-controls">
@@ -83,7 +83,7 @@ exports[`ic-pagination-bar should render with a custom page label 1`] = `
 `;
 
 exports[`ic-pagination-bar should render with complex pagination controls 1`] = `
-<ic-pagination-bar pagination-controls="complex" total-items="100">
+<ic-pagination-bar total-items="100" type="complex">
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
@@ -93,7 +93,31 @@ exports[`ic-pagination-bar should render with complex pagination controls 1`] = 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination>
+            <mock:shadow-root>
+              <nav aria-label="Pagination Navigation" role="navigation">
+                <ic-button appearance="default" aria-label="Go to first page" class="first-last page-button" disabled="" id="first-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-pagination-item appearance="default" id="pagination-item-1" page="1" selected="" type="page"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="pagination-item-2" page="2" type="page"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="pagination-item-3" page="3" type="page"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="pagination-item-4" page="4" type="page"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="pagination-item-5" page="5" type="page"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="end-ellipsis" type="ellipsis"></ic-pagination-item>
+                <ic-pagination-item appearance="default" id="pagination-item-10" page="10" type="page"></ic-pagination-item>
+                <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
+                  svg
+                </ic-button>
+                <ic-button appearance="default" aria-label="Go to last page" class="first-last flip page-button" id="last-page-button" variant="icon">
+                  svg
+                </ic-button>
+              </nav>
+            </mock:shadow-root>
+          </ic-pagination>
         </div>
       </div>
     </div>
@@ -146,7 +170,7 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
 `;
 
 exports[`ic-pagination-bar should render with data pagination type 1`] = `
-<ic-pagination-bar pagination-type="data" total-items="100">
+<ic-pagination-bar range-label-type="data" total-items="100">
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
@@ -266,6 +290,20 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
           Page 1 of 10
         </ic-typography>
       </div>
+      <div class="pagination-controls">
+        <div class="pagination-holder">
+          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-pagination-bar>
+`;
+
+exports[`ic-pagination-bar should render without range text 1`] = `
+<ic-pagination-bar hide-range-label="true" total-items="100">
+  <mock:shadow-root>
+    <div class="pagination-bar pagination-bar-right">
       <div class="pagination-controls">
         <div class="pagination-holder">
           <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>

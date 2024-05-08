@@ -73,7 +73,7 @@ export namespace Components {
          */
         "paginationOptions"?: {
     itemsPerPage?: { label: string; value: string }[];
-    labelType?: IcPaginationLabelTypes;
+    rangeLabelType?: IcPaginationLabelTypes;
     type?: IcPaginationTypes;
     itemsPerPageControl?: boolean;
     goToPageControl?: boolean;
@@ -420,11 +420,7 @@ export namespace Components {
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
-        "hideItemsPerPageLabel"?: boolean;
-        /**
-          * The label which will be used in place of 'items' if type is data. Should be capitalised.
-         */
-        "itemLabel"?: string;
+        "hideRangeLabel"?: boolean;
         /**
           * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
@@ -433,13 +429,17 @@ export namespace Components {
     value: string;
   }[];
         /**
-          * Whether total number of items and current item range or total number of pages and current page is displayed.
-         */
-        "labelType"?: IcPaginationLabelTypes;
-        /**
-          * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
+          * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
          */
         "pageLabel"?: string;
+        /**
+          * The label which will be used in place of 'items' if type is data. Should be capitalised.
+         */
+        "rangeItemLabel"?: string;
+        /**
+          * Whether total number of items and current item range or total number of pages and current page is displayed.
+         */
+        "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `true`, the 'go to page' control should be displayed.
          */
@@ -844,7 +844,7 @@ declare namespace LocalJSX {
          */
         "paginationOptions"?: {
     itemsPerPage?: { label: string; value: string }[];
-    labelType?: IcPaginationLabelTypes;
+    rangeLabelType?: IcPaginationLabelTypes;
     type?: IcPaginationTypes;
     itemsPerPageControl?: boolean;
     goToPageControl?: boolean;
@@ -1200,11 +1200,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
          */
-        "hideItemsPerPageLabel"?: boolean;
-        /**
-          * The label which will be used in place of 'items' if type is data. Should be capitalised.
-         */
-        "itemLabel"?: string;
+        "hideRangeLabel"?: boolean;
         /**
           * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
@@ -1212,10 +1208,6 @@ declare namespace LocalJSX {
     label: string;
     value: string;
   }[];
-        /**
-          * Whether total number of items and current item range or total number of pages and current page is displayed.
-         */
-        "labelType"?: IcPaginationLabelTypes;
         /**
           * Emitted when the items per page option is changed.
          */
@@ -1225,9 +1217,17 @@ declare namespace LocalJSX {
          */
         "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
         /**
-          * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
+          * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
          */
         "pageLabel"?: string;
+        /**
+          * The label which will be used in place of 'items' if type is data. Should be capitalised.
+         */
+        "rangeItemLabel"?: string;
+        /**
+          * Whether total number of items and current item range or total number of pages and current page is displayed.
+         */
+        "rangeLabelType"?: IcPaginationLabelTypes;
         /**
           * If `true`, the 'go to page' control should be displayed.
          */

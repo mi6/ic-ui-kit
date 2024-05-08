@@ -71,7 +71,7 @@ export class PaginationBar {
   /**
    * The label which will be used in place of 'items' if type is data. Should be capitalised.
    */
-  @Prop() itemLabel?: string = "Item";
+  @Prop() rangeItemLabel?: string = "Item";
 
   /**
    * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
@@ -94,10 +94,10 @@ export class PaginationBar {
   /**
    * Whether total number of items and current item range or total number of pages and current page is displayed.
    */
-  @Prop() labelType?: IcPaginationLabelTypes = "page";
+  @Prop() rangeLabelType?: IcPaginationLabelTypes = "page";
 
   /**
-   * The label which will be used in place of 'Page' if paginationType is page. Should be capitalised.
+   * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
    */
   @Prop() pageLabel?: string = "Page";
 
@@ -109,7 +109,7 @@ export class PaginationBar {
   /**
    * If `true`, the number of total items and current item range or number of total pages and current page will be hidden.
    */
-  @Prop() hideItemsPerPageLabel?: boolean = false;
+  @Prop() hideRangeLabel?: boolean = false;
 
   /**
    * If `true`, the select input to control 'items per page' should be displayed.
@@ -398,8 +398,8 @@ export class PaginationBar {
       displayedItemsPerPageOptions,
       PAGE_INPUT_FIELD_ID,
       type,
-      labelType,
-      hideItemsPerPageLabel,
+      rangeLabelType,
+      hideRangeLabel,
       showItemsPerPageControl,
       showGoToPageControl,
     } = this;
@@ -416,7 +416,7 @@ export class PaginationBar {
         }}
         ref={(el) => (this.paginationBarEl = el)}
       >
-        {(!hideItemsPerPageLabel || showItemsPerPageControl) && (
+        {(!hideRangeLabel || showItemsPerPageControl) && (
           <div class="item-controls">
             {showItemsPerPageControl && (
               <div class="items-per-page-holder">
@@ -428,7 +428,7 @@ export class PaginationBar {
                   variant="label"
                   onClick={() => focusElFromLabel("ic-select")}
                 >
-                  {this.itemLabel}s per {this.pageLabel.toLowerCase()}
+                  {this.rangeItemLabel}s per {this.pageLabel.toLowerCase()}
                 </ic-typography>
                 <ic-select
                   small
@@ -442,7 +442,7 @@ export class PaginationBar {
                 ></ic-select>
               </div>
             )}
-            {!hideItemsPerPageLabel && labelType === "data" ? (
+            {!hideRangeLabel && rangeLabelType === "data" ? (
               <ic-typography
                 class={{
                   [`pagination-text-${appearance}`]: true,
@@ -451,16 +451,17 @@ export class PaginationBar {
                 variant="label"
                 aria-live="polite"
               >
-                {this.upperBound === 0 && `0 ${this.itemLabel.toLowerCase()}s`}
+                {this.upperBound === 0 &&
+                  `0 ${this.rangeItemLabel.toLowerCase()}s`}
                 {this.upperBound > 0 &&
                   `${this.lowerBound} - ${this.upperBound} of ${
                     this.totalItems
-                  } ${this.itemLabel.toLowerCase()}${
+                  } ${this.rangeItemLabel.toLowerCase()}${
                     this.totalItems > 1 ? "s" : ""
                   }`}
               </ic-typography>
             ) : (
-              !hideItemsPerPageLabel && (
+              !hideRangeLabel && (
                 <ic-typography
                   class={{
                     [`pagination-text-${appearance}`]: true,
