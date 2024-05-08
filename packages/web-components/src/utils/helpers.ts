@@ -400,9 +400,12 @@ export const getThemeColorBrightness = (): number => {
 /**
  * Returns if dark or light foreground colors should be used for color contrast reasons
  * @returns "dark" or "light"
+ * @param brightness - Optional custom brightness value. Defaults to `getThemeColorBrightness`
  */
-export const getThemeForegroundColor = (): IcThemeForeground =>
-  getThemeColorBrightness() > DARK_MODE_THRESHOLD
+export const getThemeForegroundColor = (
+  brightness = getThemeColorBrightness()
+): IcThemeForeground =>
+  brightness > DARK_MODE_THRESHOLD
     ? IcThemeForegroundEnum.Dark
     : IcThemeForegroundEnum.Light;
 
@@ -444,19 +447,19 @@ export const getSlotElements = (
   }
 };
 
-export const getNavItemParentDetails = (
-  el: HTMLElement
-): IcNavParentDetails => {
+export const getNavItemParentDetails = ({
+  parentElement,
+}: HTMLElement): IcNavParentDetails => {
   let navType: IcNavParentDetails = { navType: "", parent: null };
-  switch (getParentElementType(el)) {
+  switch (parentElement.tagName) {
     case "IC-NAVIGATION-GROUP":
-      navType = getNavItemParentDetails(el.parentElement);
+      navType = getNavItemParentDetails(parentElement);
       break;
     case "IC-TOP-NAVIGATION":
-      navType = { navType: "top", parent: getParentElement(el) };
+      navType = { navType: "top", parent: parentElement };
       break;
     case "IC-SIDE-NAVIGATION":
-      navType = { navType: "side", parent: getParentElement(el) };
+      navType = { navType: "side", parent: parentElement };
       break;
     case "IC-PAGE-HEADER":
       navType = { navType: "page-header", parent: null };
@@ -487,14 +490,13 @@ export const DEVICE_SIZES = {
 export const hasValidationStatus = (
   status: IcInformationStatusOrEmpty,
   disabled: boolean
-): boolean => {
-  return !!status && !disabled;
-};
+): boolean => !!status && !disabled;
 
-export const isSlotUsed = (element: HTMLElement, slotName: string): boolean =>
-  Array.from(element.children).some(
-    (child) => child.getAttribute("slot") === slotName
-  );
+export const isSlotUsed = (
+  { children }: HTMLElement,
+  slotName: string
+): boolean =>
+  Array.from(children).some((child) => child.getAttribute("slot") === slotName);
 
 // added as a common method to allow detection of gatsby hydration issue, where (camelCase) props are initially undefined & then update
 // with a value. Allows a callback function to be executed when this is the case
@@ -512,8 +514,7 @@ export const onComponentRequiredPropUndefined = (
   props: IcPropObject[],
   component: string
 ): void => {
-  for (let i = 0; i < props.length; i++) {
-    const { prop, propName } = props[i];
+  props.forEach(({ prop, propName }) => {
     if (prop === null || prop === undefined) {
       console.error(
         `No ${propName} specified for ${component} component - prop '${propName}' (web components) / '${kebabToCamelCase(
@@ -521,20 +522,19 @@ export const onComponentRequiredPropUndefined = (
         )}' (react) required`
       );
     }
-  }
+  });
 };
 
-export const kebabToCamelCase = (kebabCase: string): string => {
-  kebabCase = kebabCase.toLowerCase();
-  const individualWords: string[] = kebabCase.split("-");
-  let camelCase = individualWords[0];
-  for (let i = 1; i < individualWords.length; i++) {
-    camelCase +=
-      individualWords[i].substring(0, 1).toUpperCase() +
-      individualWords[i].substring(1);
-  }
-  return camelCase;
-};
+export const kebabToCamelCase = (kebabCase: string): string =>
+  kebabCase
+    .toLowerCase()
+    .split("-")
+    .map((word, index) =>
+      index === 0
+        ? word
+        : `${word.substring(0, 1).toUpperCase()}${word.substring(1)}`
+    )
+    .join("");
 
 export const checkResizeObserver = (
   callbackFn: IcCallbackFunctionNoReturn
@@ -547,94 +547,56 @@ export const checkResizeObserver = (
   }
 };
 
-const hex2dec = function (v: string) {
-  return parseInt(v, 16);
-};
+const hex2dec = (v: string) => parseInt(v, 16);
 
 export const hexToRgba = (hex: string): IcColorRGBA => {
-  let c;
-  if (hex.length === 4) {
-    c = hex.replace("#", "").split("");
-    return {
-      r: hex2dec(c[0] + c[0]),
-      g: hex2dec(c[1] + c[1]),
-      b: hex2dec(c[2] + c[2]),
-      a: 1,
-    };
-  } else {
-    return {
-      r: hex2dec(hex.slice(1, 3)),
-      g: hex2dec(hex.slice(3, 5)),
-      b: hex2dec(hex.slice(5)),
-      a: 1,
-    };
-  }
+  const hexChars = hex
+    .replace("#", "")
+    .split("")
+    .map((char) => char.repeat(2));
+  return {
+    r: hex2dec(hex.length === 4 ? hexChars[0] : hex.slice(1, 3)),
+    g: hex2dec(hex.length === 4 ? hexChars[1] : hex.slice(3, 5)),
+    b: hex2dec(hex.length === 4 ? hexChars[2] : hex.slice(5)),
+    a: 1,
+  };
 };
 
 export const rgbaStrToObj = (rgbaStr: string): IcColorRGBA => {
-  const fourthChar = rgbaStr.slice(3, 4);
-  let colorRGBA: IcColorRGBA;
-  if (fourthChar.toLowerCase() === "a") {
-    colorRGBA = { r: null, g: null, b: null, a: null };
-    const rgba = rgbaStr
-      .substring(5, rgbaStr.length - 1)
-      .replace(/ /g, "")
-      .split(",");
-    colorRGBA.r = Number(rgba[0]);
-    colorRGBA.g = Number(rgba[1]);
-    colorRGBA.b = Number(rgba[2]);
-    colorRGBA.a = Number(rgba[3]);
-  } else {
-    colorRGBA = { r: null, g: null, b: null, a: 1 };
-    const rgb = rgbaStr
-      .substring(4, rgbaStr.length - 1)
-      .replace(/ /g, "")
-      .split(",");
-    colorRGBA.r = Number(rgb[0]);
-    colorRGBA.g = Number(rgb[1]);
-    colorRGBA.b = Number(rgb[2]);
-  }
-
-  return colorRGBA;
+  const isRGBA = rgbaStr.slice(3, 4).toLowerCase() === "a";
+  const rgbValues = rgbaStr
+    .substring(isRGBA ? 5 : 4, rgbaStr.length - 1)
+    .replace(/ /g, "")
+    .split(",")
+    .map(Number);
+  return {
+    r: rgbValues[0],
+    g: rgbValues[1],
+    b: rgbValues[2],
+    a: isRGBA ? rgbValues[3] : 1,
+  };
 };
 
-export const elementOverflowsX = (element: HTMLElement): boolean =>
-  element.scrollWidth > element.clientWidth;
-
-/**
- *
- * @param child - The child element
- * @returns string
- */
-export const getParentElementType = (child: HTMLElement): string =>
-  child.parentElement.tagName;
-
-export const getParentElement = (child: HTMLElement): HTMLElement =>
-  child.parentElement;
+export const elementOverflowsX = ({
+  scrollWidth,
+  clientWidth,
+}: HTMLElement): boolean => scrollWidth > clientWidth;
 
 export const hasClassificationBanner = (): boolean =>
   !!document.querySelector("ic-classification-banner:not([inline='true'])");
-
-export const getForm = (el: HTMLElement): HTMLFormElement => el.closest("FORM");
 
 export const addFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
 ): void => {
-  const form = getForm(el);
-  if (form !== null) {
-    form.addEventListener("reset", callbackFn);
-  }
+  el.closest("FORM")?.addEventListener("reset", callbackFn);
 };
 
 export const removeFormResetListener = (
   el: HTMLElement,
   callbackFn: IcCallbackFunctionNoReturn
 ): void => {
-  const form = getForm(el);
-  if (form !== null) {
-    form.removeEventListener("reset", callbackFn);
-  }
+  el.closest("FORM")?.removeEventListener("reset", callbackFn);
 };
 
 export const pxToRem = (px: string, base = 16): string =>
@@ -649,13 +611,10 @@ export const removeDisabledFalse = (
   }
 };
 
-export const isMacDevice = (): boolean => {
-  return window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
-};
+export const isMacDevice = (): boolean =>
+  window.navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
 
-export const isNumeric = (value: string): boolean => {
-  return /^-?\d+$/.test(value);
-};
+export const isNumeric = (value: string): boolean => /^-?\d+$/.test(value);
 
 export async function waitForHydration(): Promise<boolean> {
   const elements = document.getElementsByTagName("*");
@@ -673,15 +632,11 @@ export async function waitForHydration(): Promise<boolean> {
   return false;
 }
 
-export const convertToRGBA = (color: IcColor | string) => {
-  let colorRGBA = null;
-
-  const firstChar = color.slice(0, 1);
-  if (firstChar === "#") {
-    colorRGBA = hexToRgba(color);
-  } else if (firstChar.toLowerCase() === "r") {
-    colorRGBA = rgbaStrToObj(color);
-  }
-
-  return colorRGBA;
+export const convertToRGBA = (color: IcColor): IcColorRGBA | null => {
+  const firstChar = color?.slice(0, 1).toLowerCase();
+  return firstChar === "#"
+    ? hexToRgba(color)
+    : firstChar === "r"
+    ? rgbaStrToObj(color)
+    : null;
 };

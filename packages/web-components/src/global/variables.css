@@ -191,7 +191,7 @@
   --ic-status-error-dark: #610a05;
   --ic-status-info-light: #e1f0fc;
   --ic-status-info-contrast: #488fe3;
-  --ic-status-info: #124db3;
+  --ic-status-info: rgb(18 77 179);
   --ic-status-info-dark: #041144;
   --ic-status-anomalous-light: #efdbff;
   --ic-status-anomalous-contrast: #b764fb;
