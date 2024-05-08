@@ -2,13 +2,13 @@
 
 This guide is designed to go through each of the individual points of the pull request checklist so you can feel confident ticking them off when you contribute.
 
-## General 
+## General
 
 ### Changes to docs package checked and committed
 
-When running a `npm run build`, the `docs.json` file gets updated. 
+When running a `npm run build`, the `docs.json` file gets updated.
 
-If you have made a component change, such as adding or updating a slot/prop/event, the `docs.json` should contain changes that are necessary to update the `@ukic/docs` package. 
+If you have made a component change, such as adding or updating a slot/prop/event, the `docs.json` should contain changes that are necessary to update the `@ukic/docs` package.
 
 If your changes update the `docs.json` with more than just a date/time change, then you should commit this file under the docs scope and not alongside your web components or react changes e.g. `docs(docs): update to docs.json`.
 
@@ -16,17 +16,17 @@ This also applies to canary components, where the `docs.json` in `canary-docs` s
 
 ### All acceptance criteria reviewed and met
 
-If you have added a new feature, or fixed a bug, it is likely that in the ticket you followed, there was an acceptance criteria section. Any acceptance criteria within that section should be met, or discussed with the author of the issue. 
+If you have added a new feature, or fixed a bug, it is likely that in the ticket you followed, there was an acceptance criteria section. Any acceptance criteria within that section should be met, or discussed with the author of the issue.
 
 ## Testing
 
 ### Relevant unit tests and visual regression tests added
 
-If you have added a new feature, or fixed a bug, you might want to add tests to ensure nothing affects this new behaviour in the future. 
+If you have added a new feature, or fixed a bug, you might want to add tests to ensure nothing affects this new behaviour in the future.
 
-For information on writing unit tests, we have a [testing guide](TESTING.md) available. The coverage of unit tests should always be over 80%. 
+For information on writing unit tests, we have a [testing guide](TESTING.md) available. The coverage of unit tests should always be over 80%.
 
-Visual regression tests are added using the `compareSnapshot` command in Cypress. Where a component has resize behaviour and displays differently at breakpoints, visual tests should be added for each breakpoint with reasonable visual differences e.g. mobile breakpoint and desktop breakpoint. 
+Visual regression tests are added using the `compareSnapshot` command in Cypress. Where a component has resize behaviour and displays differently at breakpoints, visual tests should be added for each breakpoint with reasonable visual differences e.g. mobile breakpoint and desktop breakpoint.
 
 ### Visual testing against Figma component specification completed
 
@@ -42,28 +42,28 @@ To test this, you should check for:
 - Prop names
 - Figma Prototype functionality vs. implemented functionality
 
-## Accessibility 
+## Accessibility
 
 ### Accessibility Insights FastPass performed
 
-[Accessibility Insights](https://accessibilityinsights.io/) is a tool that helps pick out any accessibility issues within web apps and sites. 
+[Accessibility Insights](https://accessibilityinsights.io/) is a tool that helps pick out any accessibility issues within web apps and sites.
 
 Accessibility Insights offers a FastPass service which identifies common high-impact issues within five minutes. To complete a FastPass, Accessibility Insights offers a [FastPass guide](https://accessibilityinsights.io/docs/web/getstarted/fastpass/).
 
 ### A11y unit test added and yields no issues
 
-For every visual regression test added in Cypress, we advise adding an accessibility check. 
+For every visual regression test added in Cypress, we advise adding an accessibility check.
 This means that for every `compareSnapshot` command you add, you should also add a `checkA11yWithWait` command.
 
 ### A11y plug-in on Storybook yields no issues
 
-As an extra check for any accessibility failures we've utilised the [Storybook accessibility addon](https://storybook.js.org/addons/@storybook/addon-a11y). 
+As an extra check for any accessibility failures we've utilised the [Storybook accessibility addon](https://storybook.js.org/addons/@storybook/addon-a11y).
 
 When running Storybook, this can be accessed in the 'Accessibility' tab in the popout menu. There should be no violations on any Storybook page.
 
 ### Manual screen reader testing performed using NVDA and VoiceOver
 
-Screen readers are an important part of app usage for blind users, partially-sighted users, or users with reading disorders. For that reason, it's important to ensure that any changes you make to our components has no negative impact on the screen reader functionality. 
+Screen readers are an important part of app usage for blind users, partially-sighted users, or users with reading disorders. For that reason, it's important to ensure that any changes you make to our components has no negative impact on the screen reader functionality.
 
 To cover any potential screen reader issues, we suggest testing the components using NVDA and VoiceOver (for macOS). If you don't have access to either of these tools, please leave a comment on your contribution and a member of the ICDS team will reach out.
 
@@ -114,7 +114,7 @@ Common ARIA attributes we use are:
 
 ### Logical heading structure is maintained
 
-Headings should be structured by their ranks, where `<h1>` is the most important heading and `<h6>` is the least important heading. 
+Headings should be structured by their ranks, where `<h1>` is the most important heading and `<h6>` is the least important heading.
 
 It's important that heading ranks aren't skipped e.g. a `<h2>` should not be followed by a `<h4>`.
 
@@ -124,7 +124,7 @@ To ensure this functionality is met, any headings within components should make 
 
 ### Page can be zoomed to 400% with no loss of content
 
-To conform to Level AA of WCAG 2.1, an app must allow the user to zoom to 400% without needing to horizontally scroll. 
+To conform to Level AA of WCAG 2.1, an app must allow the user to zoom to 400% without needing to horizontally scroll.
 
 The [W3C guidance](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) about this requirement is quite extensive explaining the need for it and techniques to make apps meet this criteria. Our most common approach to fit the criteria is to either use CSS media queries to change component styling depending on screen size, or to use the `max-width` and `height` properties to restrict the size of the component.
 
@@ -142,12 +142,11 @@ For Windows, you can switch on the magnifier using the Windows key and ‘+’ a
 
 For macOS, you can find Zoom under the Accessibility options in ‘Settings’.
 
-
 ### Text resized to 200% with no loss of content
 
 To conform to Level AA of WCAG 2.1, all text should be able to be resized up to 200% without any loss of content or functionality. More information can be found within [WCAG guidance](https://wcag.com/designers/1-4-4-resize-text/).
 
-To ensure this functionality works, we use rem and em values over px in the majority of our sizing variables e.g. `--ic-space-sm`. In cases where our variables are not applicable, rem and em values are still encouraged. 
+To ensure this functionality works, we use rem and em values over px in the majority of our sizing variables e.g. `--ic-space-sm`. In cases where our variables are not applicable, rem and em values are still encouraged.
 
 To test, check [how to change font size](https://usability.yale.edu/web-accessibility/articles/zoom-resizing-text) for different browsers. Ensure there is no overlapping text, obscured text or horizontal scrolling.
 
@@ -164,11 +163,12 @@ To use this bookmarklet:
 1. Go to the bookmarklet page / URL and follow the instructions on the page to save the Text Spacing bookmarklet javascript function as a bookmark on your browser
 2. Go to the page on which you want to test the text spacing, e.g. a component story in Storybook
 3. With that page open, go to your bookmarks and click on the bookmarklet.
-    - Note: You have to do this in the same tab i.e. on Chrome, don't open your Bookmarks Manager page or go to it in a new tab - just click the three dots in the top right, go to Bookmarks and find the bookmarklet in the popover menu. Bookmarklets contain JavaScript code which is run when they are opened, so doing this will execute it on the right page.
+   - Note: You have to do this in the same tab i.e. on Chrome, don't open your Bookmarks Manager page or go to it in a new tab - just click the three dots in the top right, go to Bookmarks and find the bookmarklet in the popover menu. Bookmarklets contain JavaScript code which is run when they are opened, so doing this will execute it on the right page.
 
 Note: If you're using this bookmarklet to test components, it will have to be re-run each time you open a new page.
 
 To ensure there is no loss of content when increasing line spacing, the containing elements of text can either be made:
+
 - Large enough to accommodate for the increase in width and height
 - Responsive so that they expand to the size of the text
 
@@ -182,12 +182,12 @@ To emulate `prefers-reduced-motion` without changing your operating system, you 
 
 1. Open DevTools by right-clicking the webpage, and then selecting Inspect
 2. In DevTools, open the Command Menu
-    - Usually `Ctrl+Shift+P` or `Cmd+Shift+P`
+   - Usually `Ctrl+Shift+P` or `Cmd+Shift+P`
 3. Type `prefers-reduced-motion` and select the 'Emulate CSS prefers-reduced-motion' option
 
-To ensure there is no loss of content when switching to reduced motion, CSS can be applied using the `prefers-reduced-motion` media query. 
+To ensure there is no loss of content when switching to reduced motion, CSS can be applied using the `prefers-reduced-motion` media query.
 
-```
+```css
 @media (prefers-reduced-motion: reduce) {
     /* CSS for when motion is reduced */
 }
@@ -195,27 +195,27 @@ To ensure there is no loss of content when switching to reduced motion, CSS can 
 
 ### Windows High Contrast mode tested with no loss of content
 
-Windows HCM uses the CSS media feature forced-colors. 
+Windows HCM uses the CSS media feature forced-colors.
 
-Chrome provides the ability to enable / disable the forced-colors feature in the developer tools. There is some [online documentation](https://devtoolstips.org/tips/en/emulate-forced-colors/) which explains how to access these settings. 
+Chrome provides the ability to enable / disable the forced-colors feature in the developer tools. There is some [online documentation](https://devtoolstips.org/tips/en/emulate-forced-colors/) which explains how to access these settings.
 
 It is possible that some high contrast modes or dark modes use a different method to the forced-colors feature so it would be important to do some research to double-check this if you are using it to try and emulate Windows HCM for testing.
 
-To ensure there is no loss of content when switching to Windows HCM, CSS can be applied using the `forced-colors` media query. 
+To ensure there is no loss of content when switching to Windows HCM, CSS can be applied using the `forced-colors` media query.
 
-```
+```css
 @media (forced-colors: active) {
     /* CSS for when Windows HCM is enabled */
 }
 ```
 
-### System light and dark mode tested with no loss of content 
+### System light and dark mode tested with no loss of content
 
-Most devices provide the option to switch between a light and dark mode. 
+Most devices provide the option to switch between a light and dark mode.
 
 On some websites, enabling these modes may not actually make a difference to its appearance. This is because the website needs to inform the browser that in can render the site in these modes by using the color-scheme CSS property.
 
-```
+```css
 :root {
   color-scheme: light dark;
 }
@@ -223,9 +223,9 @@ On some websites, enabling these modes may not actually make a difference to its
 
 An easy way to temporarily add this CSS to an app to allow for system light or dark modes would be to add it in the Styles section of your browser's DevTools.
 
-To ensure there is no loss of content when switching to dark mode, CSS can be applied using the `prefers-color-scheme` media query. 
+To ensure there is no loss of content when switching to dark mode, CSS can be applied using the `prefers-color-scheme` media query.
 
-```
+```css
 @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
   /* CSS for when the user's system dark mode is enabled */
 }
@@ -235,9 +235,9 @@ Note: It is important to include the `(not (forced-colors: active))` in the medi
 
 Content should be visible in both light and dark modes, and colour contrast should still meet accessibility standards.
 
-### Browser support tested 
+### Browser support tested
 
-We recommend checking any changes you've made to a component in Chrome, Safari, Firefox, and Edge.  If you don't have access to some of these browsers, please leave a comment on your contribution and a member of the ICDS team will reach out.
+We recommend checking any changes you've made to a component in Chrome, Safari, Firefox, and Edge. If you don't have access to some of these browsers, please leave a comment on your contribution and a member of the ICDS team will reach out.
 
 We expect the functionality of the components to work the same across all of these browsers. Common things to check for include tabbing order, focus order and styling. If it isn't working as expected, it might be worth checking browser support for anything you've contributed.
 
@@ -245,9 +245,9 @@ We expect the functionality of the components to work the same across all of the
 
 ### Min/max content examples tested with no loss of content or overflow
 
-This requirement is to ensure that all use cases of the components are covered. 
+This requirement is to ensure that all use cases of the components are covered.
 
-An example of testing min content could be a button or link with just one letter for text. 
+An example of testing min content could be a button or link with just one letter for text.
 
 An example of testing max content could be adding a long single word app title to side navigation or top navigation to ensure it breaks and overflows at the correct points for each screen size. To fix any issues, it's worth considering whether the content should overflow or truncate.
 
@@ -257,15 +257,15 @@ A Storybook example might want to be added for both min and max content to demon
 
 It's important that all props/slots work within a component without any loss of content or functionality. For example, you should be able to set the status and variant of an `ic-status-tag` and expect to see both props affect the styling of the component rather than just one or the other.
 
-For some components, testing this functionality has been improved by having a Storybook playground to easily try out different prop combinations (e.g. `ic-button` and `ic-select`). 
+For some components, testing this functionality has been improved by having a Storybook playground to easily try out different prop combinations (e.g. `ic-button` and `ic-select`).
 
 For other components, you can test this functionality by editing Storybook examples or by implementing a Storybook playground for them.
 
 ### Tested for FOUC in both SSR and SSG settings
 
-FOUC (or flashing of unstyled content) is where an app or page briefly appears without the correctly styling due to rendering before all the information is received. 
+FOUC (or flashing of unstyled content) is where an app or page briefly appears without the correctly styling due to rendering before all the information is received.
 
-It is more likely that unwanted FOUC will appear in the Next.js storybook instance than the React or web components instances. Server-side rendering (SSR) is a key feature of Next.js, and this should more accurately represent a website that may experience FOUC. 
+It is more likely that unwanted FOUC will appear in the Next.js storybook instance than the React or web components instances. Server-side rendering (SSR) is a key feature of Next.js, and this should more accurately represent a website that may experience FOUC.
 
 When testing any changes, it's still important to check each Storybook for any flashes that may occur.
 
