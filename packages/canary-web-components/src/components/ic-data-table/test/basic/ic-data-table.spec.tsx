@@ -900,7 +900,7 @@ describe(icDataTable, () => {
               { label: "25", value: "25" },
               { label: "50", value: "50" },
             ],
-            labelType: "data",
+            rangeLabelType: "data",
           }}
         ></ic-data-table>
       ),

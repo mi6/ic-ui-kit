@@ -857,7 +857,7 @@ export const UpdatingData = (): HTMLElement => {
     itemsPerPage: pageOptions,
     itemsPerPageControl: true,
     goToPageControl: true,
-    labelType: "page",
+    rangeLabelType: "page",
   };
 
   const updateDataButton = document.createElement("ic-button");
