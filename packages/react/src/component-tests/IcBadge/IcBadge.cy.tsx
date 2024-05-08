@@ -10,11 +10,13 @@ import {
   IcTabGroup,
   IcTabPanel,
 } from "../../components";
-import { HAVE_ATTR, HAVE_CLASS } from "../utils/constants";
+import { HAVE_ATTR, HAVE_CLASS, NOT_HAVE_ATTR } from "../utils/constants";
 import { mount } from "cypress/react";
 import { ShowHideBadge, badgeTypes } from "./IcBadgeTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.06;
+
+const ARIA_LABEL = "aria-label";
 
 describe("IcBadge", () => {
   beforeEach(() => {
@@ -51,11 +53,22 @@ describe("IcBadge", () => {
       </IcButton>
     );
 
-    cy.get("ic-button").should(
-      HAVE_ATTR,
-      "aria-label",
-      " 1 notification found"
+    cy.get("ic-button").should(HAVE_ATTR, ARIA_LABEL, " 1 notification found");
+  });
+
+  it("should remove ariaLabel from parent when the badge is not visible", () => {
+    mount(
+      <IcButton variant="secondary" style={{ margin: "16px" }}>
+        <IcBadge text-label="1" slot="badge" size="large" />
+        Default
+      </IcButton>
     );
+
+    cy.get("ic-button").should(HAVE_ATTR, ARIA_LABEL, " 1");
+
+    cy.get("ic-badge").invoke("prop", "visible", false);
+
+    cy.get("ic-button").should(NOT_HAVE_ATTR, ARIA_LABEL);
   });
 
   it("renders success", () => {
