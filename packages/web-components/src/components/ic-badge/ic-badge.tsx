@@ -1,4 +1,12 @@
-import { Component, Element, Host, Method, Prop, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Method,
+  Prop,
+  Watch,
+  h,
+} from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -34,6 +42,7 @@ export class Badge {
   private ariaLabel: string = null;
   private customColorRGBA: IcColorRGBA;
   private foregroundColour: IcThemeForeground;
+  private parentAriaLabel: string;
 
   @Element() el: HTMLIcBadgeElement;
 
@@ -84,11 +93,18 @@ export class Badge {
    */
   @Prop({ mutable: true }) visible: boolean = true;
 
+  @Watch("visible")
+  visibleHandler(): void {
+    this.setAccessibleLabel();
+  }
+
   componentWillLoad(): void {
     this.variant === "custom" && this.setBadgeColour();
 
     this.getBadgeForeground();
 
+    const ariaLabel = this.el.parentElement?.ariaLabel;
+    if (ariaLabel) this.parentAriaLabel = ariaLabel;
     this.setAccessibleLabel();
   }
 
@@ -167,13 +183,17 @@ export class Badge {
       : this.textLabel || "with badge being displayed";
 
     if (parentEl) {
-      const { ariaLabel, tagName } = parentEl;
+      const { tagName } = parentEl;
       if (
         tagName !== "IC-CARD" &&
-        (tagName !== "IC-TAB" || (tagName === "IC-TAB" && ariaLabel))
+        (tagName !== "IC-TAB" || (tagName === "IC-TAB" && this.parentAriaLabel))
       ) {
-        const ariaLabelPrefix = ariaLabel ? `${ariaLabel} ,` : "";
-        parentEl.ariaLabel = `${ariaLabelPrefix} ${defaultAriaLabel}`;
+        const ariaLabelPrefix = this.parentAriaLabel
+          ? `${this.parentAriaLabel} ,`
+          : "";
+        parentEl.ariaLabel = this.visible
+          ? `${ariaLabelPrefix} ${defaultAriaLabel}`
+          : undefined;
       } else {
         this.ariaLabel = `, ${defaultAriaLabel}`;
       }
