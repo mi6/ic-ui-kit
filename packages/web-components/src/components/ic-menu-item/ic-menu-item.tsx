@@ -10,7 +10,6 @@ import {
   Listen,
 } from "@stencil/core";
 import {
-  getParentElement,
   isSlotUsed,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
@@ -169,7 +168,7 @@ export class MenuItem {
     if (this.el.classList.contains("ic-popover-submenu-back-button")) {
       ariaLabel = "Go back to parent menu";
     }
-    const parentEl = getParentElement(this.el);
+    const parentEl = this.el.parentElement;
 
     if (
       parentEl.tagName === "IC-MENU-GROUP" &&

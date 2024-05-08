@@ -8,17 +8,16 @@ import {
   IcColorRGBA,
   IcSizes,
   IcThemeForeground,
-  IcThemeForegroundEnum,
   IcColor,
 } from "../../utils/types";
 import {
   convertToRGBA,
   getCssProperty,
-  getParentElement,
-  getParentElementType,
+  getThemeForegroundColor,
   hexToRgba,
   isPropDefined,
   onComponentRequiredPropUndefined,
+  rgbaStrToObj,
 } from "../../utils/helpers";
 
 /**
@@ -118,114 +117,85 @@ export class Badge {
   }
 
   private setBadgeColour = () => {
-    if (this.customColor !== null && convertToRGBA(this.customColor) !== null) {
-      const colorRGBA = convertToRGBA(this.customColor);
+    const colorRGBA = convertToRGBA(this.customColor);
+
+    if (colorRGBA) {
       this.customColorRGBA = colorRGBA;
-      this.el.style.backgroundColor = `rgba(${colorRGBA.r.toString()}, ${colorRGBA.g.toString()}, ${colorRGBA.b.toString()}, ${colorRGBA.a.toString()})`;
+      const { r, g, b, a } = colorRGBA;
+      this.el.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+    }
+  };
+
+  private getBadgeRGB = () => {
+    switch (this.variant) {
+      case "custom":
+        return this.customColorRGBA;
+      case "error":
+      case "success":
+      case "warning":
+      case "info": {
+        return rgbaStrToObj(getCssProperty(`--ic-status-${this.variant}`));
+      }
+      case "neutral":
+      case "light":
+        return hexToRgba(
+          getCssProperty(
+            `--ic-architectural-${this.variant === "neutral" ? 500 : 40}`
+          )
+        );
     }
   };
 
   private getBadgeForeground = () => {
-    let red: number;
-    let green: number;
-    let blue: number;
-
-    switch (this.variant) {
-      case "custom":
-        red = this.customColorRGBA.r;
-        green = this.customColorRGBA.g;
-        blue = this.customColorRGBA.b;
-        break;
-      case "error":
-        red = parseInt(getCssProperty("--ic-status-error-r"));
-        green = parseInt(getCssProperty("--ic-status-error-g"));
-        blue = parseInt(getCssProperty("--ic-status-error-b"));
-        break;
-      case "success":
-        red = parseInt(getCssProperty("--ic-status-success-r"));
-        green = parseInt(getCssProperty("--ic-status-success-g"));
-        blue = parseInt(getCssProperty("--ic-status-success-b"));
-        break;
-      case "warning":
-        red = parseInt(getCssProperty("--ic-status-warning-r"));
-        green = parseInt(getCssProperty("--ic-status-warning-g"));
-        blue = parseInt(getCssProperty("--ic-status-warning-b"));
-        break;
-      case "info": {
-        const info = hexToRgba(getCssProperty("--ic-status-info"));
-        red = info.r;
-        green = info.g;
-        blue = info.b;
-        break;
-      }
-      case "neutral": {
-        const neutral = hexToRgba(getCssProperty("--ic-architectural-500"));
-        red = neutral.r;
-        green = neutral.g;
-        blue = neutral.b;
-        break;
-      }
-      case "light": {
-        const light = hexToRgba(getCssProperty("--ic-architectural-40"));
-        red = light.r;
-        green = light.g;
-        blue = light.b;
-        break;
-      }
-    }
-
-    const brightness = (red * 299 + green * 587 + blue * 114) / 1000;
-    this.foregroundColour =
-      brightness > 133.3505
-        ? IcThemeForegroundEnum.Dark
-        : IcThemeForegroundEnum.Light;
+    const { r, g, b } = this.getBadgeRGB();
+    this.foregroundColour = getThemeForegroundColor(
+      (r * 299 + g * 587 + b * 114) / 1000
+    );
   };
 
-  private getTextLabel = () => {
-    let label;
-    if (this.textLabel !== null) {
-      if (this.maxNumber !== null) {
-        label =
-          Number(this.textLabel) > this.maxNumber
-            ? `${this.maxNumber}+`
-            : this.textLabel;
-      } else {
-        label = this.textLabel;
-      }
-    }
-    return label;
-  };
+  private getTextLabel = () =>
+    this.maxNumber && Number(this.textLabel) > this.maxNumber
+      ? `${this.maxNumber}+`
+      : this.textLabel;
 
   // Set aria-label on badge and / or parent element
   // Aria-describedby seems to not work, probably due to shadow DOM
   private setAccessibleLabel = () => {
-    const parentElType = getParentElementType(this.el);
-    const parentElAriaLabel = getParentElement(this.el).ariaLabel;
+    const parentEl = this.el.parentElement;
     const defaultAriaLabel = this.isAccessibleLabelDefined()
       ? this.accessibleLabel
       : this.textLabel || "with badge being displayed";
 
-    if (getParentElement(this.el) !== null) {
+    if (parentEl) {
+      const { ariaLabel, tagName } = parentEl;
       if (
-        parentElType !== "IC-CARD" &&
-        (parentElType !== "IC-TAB" ||
-          (parentElType === "IC-TAB" && parentElAriaLabel))
+        tagName !== "IC-CARD" &&
+        (tagName !== "IC-TAB" || (tagName === "IC-TAB" && ariaLabel))
       ) {
-        getParentElement(this.el).ariaLabel = `${
-          parentElAriaLabel ? `${parentElAriaLabel} ,` : ""
-        } ${defaultAriaLabel}`;
+        const ariaLabelPrefix = ariaLabel ? `${ariaLabel} ,` : "";
+        parentEl.ariaLabel = `${ariaLabelPrefix} ${defaultAriaLabel}`;
       } else {
         this.ariaLabel = `, ${defaultAriaLabel}`;
       }
     }
   };
 
-  private isAccessibleLabelDefined = () => {
-    return isPropDefined(this.accessibleLabel) && this.accessibleLabel !== null;
-  };
+  private isAccessibleLabelDefined = () =>
+    isPropDefined(this.accessibleLabel) && this.accessibleLabel !== null;
 
   render() {
-    const { position, size, type, variant, foregroundColour, visible } = this;
+    const {
+      ariaLabel,
+      el,
+      foregroundColour,
+      getTextLabel,
+      position,
+      size,
+      textLabel,
+      type,
+      variant,
+      visible,
+    } = this;
 
     return (
       <Host
@@ -235,17 +205,16 @@ export class Badge {
           [`${variant}`]: true,
           [`${type}`]: true,
           [`foreground-${foregroundColour}`]: foregroundColour !== null,
-          ["show"]: visible,
-          ["hide"]: !visible,
+          [`${visible ? "show" : "hide"}`]: true,
         }}
-        id={this.el.id || null}
-        aria-label={this.ariaLabel}
+        id={el.id || null}
+        aria-label={ariaLabel}
         role="status"
       >
         {type === "icon" && <slot name="badge-icon"></slot>}
-        {type === "text" && (
+        {type === "text" && textLabel && (
           <ic-typography variant={size === "small" ? "badge-small" : "badge"}>
-            {this.getTextLabel()}
+            {getTextLabel()}
           </ic-typography>
         )}
       </Host>
