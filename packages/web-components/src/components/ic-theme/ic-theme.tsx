@@ -8,7 +8,7 @@ import {
   Prop,
 } from "@stencil/core";
 
-import { IcColorRGBA, IcTheme } from "../../utils/types";
+import { IcColor, IcTheme } from "../../utils/types";
 import { convertToRGBA, getThemeForegroundColor } from "../../utils/helpers";
 import { getThemeColorBrightness } from "../../utils/helpers";
 import {
@@ -24,7 +24,7 @@ export class Theme {
   /**
    * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
-  @Prop() color?: string = null;
+  @Prop() color?: IcColor = null;
 
   @Watch("color")
   watchColorPropHandler(): void {
@@ -52,24 +52,22 @@ export class Theme {
   };
 
   private setThemeColor = () => {
-    if (this.color !== null && convertToRGBA(this.color) !== null) {
-      const colorRGBA = convertToRGBA(this.color);
-      this.setThemeRGBA(colorRGBA);
-    }
-  };
+    const colorRGBA = convertToRGBA(this.color);
 
-  private setThemeRGBA = (colorRGBA: IcColorRGBA) => {
-    if (colorRGBA !== null) {
-      const root = document.documentElement;
-      root.style.setProperty("--ic-theme-primary-r", colorRGBA.r.toString());
-      root.style.setProperty("--ic-theme-primary-g", colorRGBA.g.toString());
-      root.style.setProperty("--ic-theme-primary-b", colorRGBA.b.toString());
-      root.style.setProperty("--ic-theme-primary-a", colorRGBA.a.toString());
+    if (colorRGBA) {
+      const { r, g, b, a } = colorRGBA;
+      const { style } = document.documentElement;
+      style.setProperty("--ic-theme-primary-r", `${r}`);
+      style.setProperty("--ic-theme-primary-g", `${g}`);
+      style.setProperty("--ic-theme-primary-b", `${b}`);
+      style.setProperty("--ic-theme-primary-a", `${a}`);
 
       this.checkThemeColorContrast();
 
-      const foregroundColor = getThemeForegroundColor();
-      this.themeChange.emit({ mode: foregroundColor, color: colorRGBA });
+      this.themeChange.emit({
+        mode: getThemeForegroundColor(),
+        color: colorRGBA,
+      });
     }
   };
 
