@@ -16632,11 +16632,17 @@
       "props": [
         {
           "name": "color",
-          "type": "string",
+          "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "IcColor",
+            "resolved": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
+            "references": {
+              "IcColor": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcColor"
+              }
+            }
           },
           "mutable": false,
           "attr": "color",
@@ -16646,7 +16652,13 @@
           "default": "null",
           "values": [
             {
-              "type": "string"
+              "type": "`#${string}`"
+            },
+            {
+              "type": "`rgb(${string})`"
+            },
+            {
+              "type": "`rgba(${string})`"
             }
           ],
           "optional": true,
