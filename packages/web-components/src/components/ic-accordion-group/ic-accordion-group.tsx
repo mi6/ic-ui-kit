@@ -9,8 +9,13 @@ import {
   Method,
 } from "@stencil/core";
 import { IcThemeForeground, IcSizes } from "../../utils/types";
+import { isSlotUsed } from "../../utils/helpers";
 
 let accordionGroupIds = 0;
+
+/**
+ * @slot group-title - Content is placed as the accordion group title.
+ */
 @Component({
   tag: "ic-accordion-group",
   styleUrl: "ic-accordion-group.css",
@@ -155,7 +160,13 @@ export class AccordionGroup {
       >
         <div class="group-title-container">
           <ic-typography variant="h4">
-            <h3>{groupTitle}</h3>
+            <h3>
+              {isSlotUsed(this.el, "group-title") ? (
+                <slot name="group-title" />
+              ) : (
+                groupTitle
+              )}
+            </h3>
           </ic-typography>
           {!singleExpansion && (
             <ic-button

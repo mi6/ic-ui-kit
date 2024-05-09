@@ -554,3 +554,28 @@ import readme from "./readme.md";
     `}
   </Story>
 </Canvas>
+
+### Slotted headings
+
+<Canvas>
+  <Story name="Slotted headings" parameters={{ loki: { skip: true } }}>
+    {html`<ic-accordion-group>
+      <ic-typography variant="h4" slot="group-title">
+        Slotted group title
+      </ic-typography>
+      <ic-accordion>
+        <ic-typography variant="h5" slot="heading">
+          Slotted heading
+        </ic-typography>
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>
+      <ic-accordion heading="Accordion 2">
+        <ic-typography variant="body">
+          This is an example of the main body text.
+        </ic-typography>
+      </ic-accordion>
+    </ic-accordion-group>`}
+  </Story>
+</Canvas>
