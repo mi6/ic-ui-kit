@@ -16,9 +16,11 @@ import {
   GroupWithOneExpanded,
   SimpleAccordion,
   SimpleExpandedAccordion,
+  SlottedHeadingAccordion,
   TwoAccordions,
   TwoAccordionsWithOneExpanded,
 } from "./IcAccordionTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.03;
 
@@ -373,6 +375,16 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.compareSnapshot({
         name: "lightGroupTheme",
         testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      });
+      cy.checkA11yWithWait();
+    });
+
+    it("renders an accordion group and accordion with slotted headings", () => {
+      mount(<SlottedHeadingAccordion />);
+
+      cy.compareSnapshot({
+        name: "slottedHeading",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
       });
       cy.checkA11yWithWait();
     });

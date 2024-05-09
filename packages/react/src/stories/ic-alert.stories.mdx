@@ -12,6 +12,14 @@ import readme from "../../../web-components/src/components/ic-alert/readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  dismissible: false,
+  heading: "Heading",
+  message: "Message",
+  titleAbove: false,
+  variant: "neutral",
+};
+
 ### Variants
 
 <Canvas>
@@ -149,5 +157,37 @@ import readme from "../../../web-components/src/components/ic-alert/readme.md";
         Go to our <IcLink href="/">coffee page</IcLink> to learn more.
       </span>
     </IcAlert>
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      variant: {
+        options: [
+          "neutral",
+          "info",
+          "warning",
+          "error",
+          "success",
+        ],
+        control: { type: "select" },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcAlert
+        dismissible={args.dismissible}
+        variant={args.variant}
+        heading={args.heading}
+        message={args.message}
+        titleAbove={args.titleAbove}
+      >
+      </IcAlert>
+    )}
   </Story>
 </Canvas>
