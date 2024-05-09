@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-18T12:10:30",
+  "timestamp": "2024-05-09T11:31:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -204,7 +204,12 @@
       "tag": "ic-accordion-group",
       "readme": "# ic-accordion-title\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "group-title - Content is placed as the accordion group title."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -403,7 +408,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "group-title",
+          "docs": "Content is placed as the accordion group title."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
