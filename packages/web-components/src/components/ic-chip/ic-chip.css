@@ -83,7 +83,11 @@ ic-tooltip:focus-within {
 }
 
 .chip.disabled ic-typography {
-  color: var(--ic-architectural-200);
+  color: var(--ic-architectural-500);
+}
+
+.filled.disabled ic-typography {
+  color: var(--ic-architectural-600);
 }
 
 .dismiss-icon {
