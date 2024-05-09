@@ -14,6 +14,14 @@ import Button from "../ic-button/readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  dismissible: false,
+  heading: "Heading",
+  message: "Message",
+  titleAbove: false,
+  variant: "neutral",
+};
+
 ### Variants
 
 <Canvas>
@@ -183,5 +191,31 @@ import Button from "../ic-button/readme.md";
         }
       </script>
     `}
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      variant: {
+        options: ["neutral", "info", "warning", "error", "success"],
+        control: { type: "select" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-alert
+        dismissible=${args.dismissible}
+        variant=${args.variant}
+        heading=${args.heading}
+        message=${args.message}
+        title-above=${args.titleAbove}
+      ></ic-alert>`
+    }
   </Story>
 </Canvas>
