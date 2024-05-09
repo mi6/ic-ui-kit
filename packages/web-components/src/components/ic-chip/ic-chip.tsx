@@ -34,7 +34,7 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
 export class Chip {
   @Element() el: HTMLIcChipElement;
 
-  @State() isHovered: boolean = false;
+  @State() hovered: boolean = false;
   @State() visible: boolean = true;
 
   /**
@@ -50,7 +50,7 @@ export class Chip {
 
   @Watch("customColor")
   customColorHandler(): void {
-    if (!this.dismissible && this.customColor !== null) {
+    if (!this.dismissible) {
       this.setChipColour();
     }
   }
@@ -98,7 +98,7 @@ export class Chip {
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
 
-    if (!this.dismissible && this.customColor !== null) {
+    if (!this.dismissible) {
       this.setChipColour();
     }
 
@@ -108,10 +108,6 @@ export class Chip {
   }
 
   componentDidLoad(): void {
-    this.dismissible &&
-      this.el.shadowRoot
-        .querySelector("span.ic-tooltip-label")
-        ?.setAttribute("aria-hidden", "true");
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
       "Chip"
@@ -128,9 +124,7 @@ export class Chip {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (this.el.shadowRoot.querySelector("button")) {
-      this.el.shadowRoot.querySelector("button").focus();
-    }
+    this.el.shadowRoot.querySelector("button")?.focus();
   }
 
   private dismissAction = (): void => {
@@ -139,28 +133,22 @@ export class Chip {
   };
 
   private mouseEnterHandler = (): void => {
-    this.isHovered = true;
+    this.hovered = true;
   };
 
   private mouseLeaveHandler = (): void => {
-    this.isHovered = false;
+    this.hovered = false;
   };
 
   private setChipColour = () => {
-    if (convertToRGBA(this.customColor) !== null) {
-      const colorRGBA = convertToRGBA(this.customColor);
-      const rgbaValue = `rgba(${colorRGBA.r.toString()}, ${colorRGBA.g.toString()}, ${colorRGBA.b.toString()}, ${colorRGBA.a.toString()})`;
-
-      const brightness =
-        (colorRGBA.r * 299 + colorRGBA.g * 587 + colorRGBA.b * 114) / 1000;
+    const colorRGBA = convertToRGBA(this.customColor);
+    if (colorRGBA) {
+      const { r, g, b, a } = colorRGBA;
       const foregroundColour =
-        brightness > 133.3505
-          ? "var(--ic-architectural-black)"
-          : "var(--ic-architectural-white)";
-
+        (r * 299 + g * 587 + b * 114) / 1000 > 133.3505 ? "black" : "white";
       this.el.setAttribute(
         "style",
-        `--chip-custom-color: ${rgbaValue}; --chip-custom-foreground-color: ${foregroundColour};`
+        `--chip-custom-color: rgba(${r}, ${g}, ${b}, ${a}); --chip-custom-foreground-color: var(--ic-architectural-${foregroundColour})`
       );
     }
   };
@@ -174,21 +162,21 @@ export class Chip {
       dismissible,
       visible,
       disabled,
-      isHovered,
+      hovered,
     } = this;
 
     return (
       visible && (
         <div
           class={{
-            ["chip"]: true,
+            chip: true,
             [`${appearance}`]: appearance !== undefined,
             [`${variant}`]: true,
             [`${size}`]: true,
-            ["disabled"]: disabled,
-            ["dismissible"]: dismissible,
-            ["hovered"]: isHovered,
-            ["white-background"]:
+            disabled,
+            dismissible,
+            hovered,
+            "white-background":
               this.variant === "outlined" && !this.transparentBackground,
           }}
         >
@@ -208,13 +196,11 @@ export class Chip {
             <ic-tooltip
               label="Dismiss"
               target="dismiss-icon"
-              class={{ ["tooltip-disabled"]: disabled }}
+              class={{ "tooltip-disabled": disabled }}
             >
               <button
                 id="dismiss-icon"
-                class={{
-                  ["dismiss-icon"]: true,
-                }}
+                class="dismiss-icon"
                 aria-label={`Dismiss ${label} chip`}
                 disabled={disabled}
                 tabindex={disabled ? -1 : 0}
