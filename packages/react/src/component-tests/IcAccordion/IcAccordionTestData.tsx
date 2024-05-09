@@ -42,3 +42,13 @@ export const TwoAccordionsWithOneExpanded = (): ReactElement => (
     </IcAccordion>
   </>
 );
+
+export const SlottedHeadingAccordion = (): ReactElement => (
+  <IcAccordionGroup>
+    <h1 slot="group-title">Group title</h1>
+    <IcAccordion>
+      <h2 slot="heading">Heading</h2>
+      Text
+    </IcAccordion>
+  </IcAccordionGroup>
+);
