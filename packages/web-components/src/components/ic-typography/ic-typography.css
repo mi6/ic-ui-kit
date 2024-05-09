@@ -158,8 +158,8 @@
 .trunc-btn:hover,
 .trunc-btn.focus {
   outline: none;
-  border-bottom: var(--ic-space-xxs) solid !important;
-  margin-bottom: calc(-1 * var(--ic-space-xxs)) !important;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
   text-decoration: none;
   cursor: pointer;
 }
@@ -194,3 +194,12 @@
     margin-bottom: 0 !important;
   }
 }
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  :host,
+  .trunc-btn {
+    color: var(--ic-architectural-white);
+  }
+} */

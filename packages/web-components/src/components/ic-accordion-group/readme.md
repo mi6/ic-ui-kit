@@ -31,6 +31,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot            | Description                                     |
+| --------------- | ----------------------------------------------- |
+| `"group-title"` | Content is placed as the accordion group title. |
+
+
 ## Dependencies
 
 ### Depends on
