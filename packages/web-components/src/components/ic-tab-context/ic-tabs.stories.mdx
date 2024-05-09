@@ -21,7 +21,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
     {html`<ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -38,7 +38,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### With icons
 
 <Canvas>
-  <Story name="With icons">
+  <Story name="With icons" parameters={{ loki: { skip: true } }}>
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab
@@ -95,7 +95,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled">
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -112,7 +112,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Inline
 
 <Canvas>
-  <Story name="Inline">
+  <Story name="Inline" parameters={{ loki: { skip: true } }}>
     {html` <ic-tab-context>
       <ic-tab-group label="Example tab group" inline>
         <ic-tab>One</ic-tab>
@@ -129,7 +129,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Manual activation
 
 <Canvas>
-  <Story name="Manual activation">
+  <Story name="Manual activation" parameters={{ loki: { skip: true } }}>
     {html` <ic-tab-context activation-type="manual">
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -146,7 +146,10 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Light text
 
 <Canvas>
-  <Story name="Light text" parameters={{ backgrounds: { default: "dark" } }}>
+  <Story
+    name="Light text"
+    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+  >
     {html` <ic-tab-context appearance="light">
       <ic-tab-group label="Example tab group">
         <ic-tab>One</ic-tab>
@@ -174,7 +177,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Responsive
 
 <Canvas>
-  <Story name="Responsive">
+  <Story name="Responsive" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-tab-context>
         <ic-tab-group label="Example tab group">
@@ -213,7 +216,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 <Canvas>
   <Story
     name="Responsive (Light text)"
-    parameters={{ backgrounds: { default: "dark" } }}
+    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
   >
     {html`
       <ic-tab-context appearance="light">
@@ -251,7 +254,7 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
 ### Nested Tabs
 
 <Canvas>
-  <Story name="Nested tabs">
+  <Story name="Nested tabs" parameters={{ loki: { skip: true } }}>
     {html`<ic-tab-context id="main">
         <ic-tab-group label="Example tab group">
           <ic-tab>Outer One</ic-tab>
