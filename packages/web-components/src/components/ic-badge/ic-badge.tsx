@@ -51,11 +51,21 @@ export class Badge {
    */
   @Prop() accessibleLabel?: string;
 
+  @Watch("accessibleLabel")
+  accessibleLabelHandler(): void {
+    this.setAccessibleLabel();
+  }
+
   /**
    * The custom badge colour. This will only style the badge component if variant="custom".
    * Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
   @Prop() customColor?: IcColor = null;
+
+  @Watch("customColor")
+  customColorHandler(): void {
+    this.variant === "custom" && this.setBadgeColour();
+  }
 
   /**
    * The maximum number shown on the badge appended with a +.
@@ -87,6 +97,11 @@ export class Badge {
    * The variant of the badge to be displayed.
    */
   @Prop() variant?: IcBadgeVariants = "neutral";
+
+  @Watch("variant")
+  variantHandler(): void {
+    this.getBadgeForeground();
+  }
 
   /**
    * If `true`, the badge will be displayed.
