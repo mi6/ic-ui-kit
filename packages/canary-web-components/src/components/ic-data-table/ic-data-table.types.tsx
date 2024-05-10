@@ -20,6 +20,8 @@ export type IcDataTableColumnObject = {
     horizontal?: string;
     vertical?: string;
   };
+  rowOptions?: RowOptions;
+  textWrap?: boolean;
   cellAlignment?: string;
   emphasis?: string;
   colspan?: number;
@@ -30,8 +32,13 @@ export type IcDataTableColumnObject = {
   };
 };
 
+export type RowOptions = {
+  textWrap: boolean;
+};
+
 export type IcDataTableRowHeights = number | "auto";
 
 export interface IcDensityUpdateEventDetail {
   value: IcDataTableDensityOptions;
 }
+export type IcDataTableTruncationTypes = "tooltip" | "showHide";

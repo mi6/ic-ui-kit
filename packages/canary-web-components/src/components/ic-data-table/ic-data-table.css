@@ -5,6 +5,10 @@
   max-height: 100%;
 }
 
+tbody {
+  vertical-align: top;
+}
+
 .table-container {
   position: relative;
   height: calc(100% - var(--ic-space-xxxs));
@@ -18,7 +22,11 @@ ic-loading-indicator {
 .table-row-container {
   position: relative;
   height: 100%;
+
   overflow: auto;
+
+  /* @TODO: 'overflow: visible' fixes tooltip and scrollbars but will need further testing */
+  /* overflow: visible; */
   transition: var(--ic-easing-transition-fast);
   overflow-anchor: none;
 }
@@ -179,14 +187,17 @@ table {
 
 .cell-alignment-top {
   vertical-align: top;
+  align-items: flex-start;
 }
 
 .cell-alignment-middle {
   vertical-align: middle;
+  align-items: center;
 }
 
 .cell-alignment-bottom {
   vertical-align: bottom;
+  align-items: flex-end;
 }
 
 .cell-emphasis-low {
@@ -218,6 +229,10 @@ table {
 .loading-empty {
   padding: var(--ic-space-xl) var(--ic-space-xxl);
   margin-top: var(--ic-space-xl);
+}
+
+.below-table {
+  padding: var(--ic-space-xl) var(--ic-space-xxl);
 }
 
 .updating-state {
@@ -273,13 +288,19 @@ table {
   display: inline-block;
 }
 
+ic-typography {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text-wrap ic-typography {
+  white-space: normal;
+}
+
 @media screen and (min-width: 576px) {
   .column-header-inner-container {
     display: flex;
     align-items: center;
-  }
-
-  .cell-container {
-    display: flex;
   }
 }
