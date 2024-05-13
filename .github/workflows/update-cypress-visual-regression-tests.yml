@@ -63,7 +63,7 @@ jobs:
           npm run test-cypress:headless
 
       - name: Canary Cypress tests
-        if: always() && ${{ needs.check-updates.outputs.canary == 'true' }}
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
         id: canary_cypress_tests
         run: |
           npm run test-cypress:canary:headless
@@ -71,6 +71,13 @@ jobs:
       - name: Checkout docs.json
         if: always()
         run: git checkout ./packages/docs/docs.json ./packages/canary-docs/docs.json
+
+      - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 #v9.1.4
+        if: ${{ steps.core_cypress_tests.outcome == 'success' }}
+        with:
+          commit: --no-verify
+          default_author: github_actions
+          message: "feat(react): update Cypress visual regression test baseline images"
 
       - uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 #v9.1.4
         if: always() && ${{ steps.canary_cypress_tests.outcome == 'success' }}
