@@ -47,6 +47,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [ic-back-to-top](../ic-back-to-top)
  - [ic-button](../ic-button)
  - [ic-card](../ic-card)
  - [ic-chip](../ic-chip)
@@ -60,6 +61,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ic-tooltip --> ic-typography
+  ic-back-to-top --> ic-tooltip
   ic-button --> ic-tooltip
   ic-card --> ic-tooltip
   ic-chip --> ic-tooltip
