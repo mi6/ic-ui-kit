@@ -26,6 +26,15 @@ Please switch to the Canvas and then choose to open the canvas in a new tab to s
       <ic-back-to-top target="topEl"></ic-back-to-top>
     `}
   </Story>
+  <Story name="Icon Only" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div id="topEl" style="margin-top:-20px;">
+        <ic-typography variant="h2">Top of the page</ic-typography>
+      </div>
+      <div style="height:1200px;"></div>
+      <ic-back-to-top target="topEl" variant="icon"></ic-back-to-top>
+    `}
+  </Story>
 </Canvas>
 
 ### Page example
