@@ -6,12 +6,14 @@ import {
   Checkbox,
   CheckboxForm,
   Controlled,
+  DynamicLoading,
   Uncontrolled,
 } from "./IcCheckboxTestData";
 import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../components";
 import {
   BE_DISABLED,
   BE_VISIBLE,
+  HAVE_ATTR,
   HAVE_BEEN_CALLED_ONCE,
   HAVE_BEEN_CALLED_WITH,
   HAVE_CLASS,
@@ -23,12 +25,13 @@ const DEFAULT_TEST_THRESHOLD = 0.2;
 const CHECKBOX_SELECTOR = "ic-checkbox";
 const CONTAINER_SELECTOR = ".container";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
+const CHECKBOX_GROUP_SELECTOR = "ic-checkbox-group";
 
 describe("IcCheckbox", () => {
   it("renders", () => {
     mount(<Checkbox />);
 
-    cy.checkHydrated("ic-checkbox-group");
+    cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
   });
 
   it("Should not be interactable when disabled", () => {
@@ -81,7 +84,7 @@ describe("IcCheckbox", () => {
       "icCheck",
       cy.stub().as("icChecked")
     );
-    cy.get("ic-checkbox-group").invoke(
+    cy.get(CHECKBOX_GROUP_SELECTOR).invoke(
       "on",
       "icChange",
       cy.stub().as("icChanges")
@@ -126,6 +129,57 @@ describe("IcCheckbox", () => {
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
     cy.get('button[type="reset"]').click();
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+  });
+
+  it("renders checkboxes dynamically in a group", () => {
+    mount(<DynamicLoading />);
+
+    cy.get("ic-button").click();
+    cy.findShadowEl(CHECKBOX_SELECTOR, "input").should(
+      HAVE_ATTR,
+      "id",
+      "ic-checkbox-Item-1-What-is-your-favourite-coffee?"
+    );
+  });
+
+  it("passes down the name and label to child checkboxes when they update", () => {
+    mount(
+      <IcCheckboxGroup
+        label="What is your favourite coffee?"
+        name="checkbox-group-1"
+      >
+        <IcCheckbox value="Item 1" label="Item 1" />
+        <IcCheckbox value="Item 2" label="Item 2" name="Item 2 name" />
+      </IcCheckboxGroup>
+    );
+
+    cy.get(CHECKBOX_SELECTOR).each((item, index) => {
+      const wrappedItem = cy.wrap(item);
+      wrappedItem.should(
+        HAVE_PROP,
+        "groupLabel",
+        "What is your favourite coffee?"
+      );
+      wrappedItem.should(
+        HAVE_PROP,
+        "name",
+        index === 0 ? "checkbox-group-1" : "Item 2 name"
+      );
+    });
+
+    cy.get(CHECKBOX_GROUP_SELECTOR).invoke("prop", "label", "new-label");
+    cy.get(CHECKBOX_SELECTOR).each((item) => {
+      cy.wrap(item).should(HAVE_PROP, "groupLabel", "new-label");
+    });
+
+    cy.get(CHECKBOX_GROUP_SELECTOR).invoke("prop", "name", "new-name");
+    cy.get(CHECKBOX_SELECTOR).each((item, index) => {
+      cy.wrap(item).should(
+        HAVE_PROP,
+        "name",
+        index === 0 ? "new-name" : "Item 2 name"
+      );
+    });
   });
 });
 

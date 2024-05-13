@@ -401,3 +401,40 @@ export const Uncontrolled = () => {
     <Uncontrolled />
   </Story>
 </Canvas>
+
+### Dynamic loading
+
+export const CheckOptionsDynamic = () => {
+  const [checkOptions, setCheckOptions] = useState([]);
+  
+  const updateOptions = () => {
+    setCheckOptions([
+      { label: 'Item 1', value: 'Item 1'},
+      { label: 'Item 2', value: 'Item 2'},
+      { label: 'Item 3', value: 'Item 3'},
+      { label: 'Item 4', value: 'Item 4'},
+    ])
+  }
+
+  return (
+  <>
+    <IcCheckboxGroup label="What is your favourite coffee?" name="checkbox-group-1">
+      {checkOptions.map((option, index) => (
+        <IcCheckbox
+          key={index + option.value}
+          value={option.value}
+          label={option.label}
+        />
+      ))}
+    </IcCheckboxGroup>
+    <br />
+    <IcButton onClick={updateOptions}>Update</IcButton>
+  </>
+  ) 
+}
+
+<Canvas>
+  <Story name="Dynamic loading">
+    <CheckOptionsDynamic />
+  </Story>
+</Canvas>
