@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-09T11:31:25",
+  "timestamp": "2024-05-10T14:30:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -722,6 +722,39 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"icon\"",
+          "complexType": {
+            "original": "IcBackToTopVariants",
+            "resolved": "\"default\" | \"icon\"",
+            "references": {
+              "IcBackToTopVariants": {
+                "location": "import",
+                "path": "./ic-back-to-top.types",
+                "id": "src/components/ic-back-to-top/ic-back-to-top.types.ts::IcBackToTopVariants"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The variant of the button to render",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -738,10 +771,15 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "ic-typography"
+        "ic-typography",
+        "ic-tooltip"
       ],
       "dependencyGraph": {
         "ic-back-to-top": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
           "ic-typography"
         ]
       }
@@ -17963,6 +18001,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "ic-back-to-top",
         "ic-button",
         "ic-card",
         "ic-chip",
@@ -17974,6 +18013,9 @@
       "dependencyGraph": {
         "ic-tooltip": [
           "ic-typography"
+        ],
+        "ic-back-to-top": [
+          "ic-tooltip"
         ],
         "ic-button": [
           "ic-tooltip"
@@ -18762,6 +18804,11 @@
       "declaration": "export type IcStatusVariants =\n  | \"neutral\"\n  | \"info\"\n  | \"warning\"\n  | \"error\"\n  | \"success\";",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-back-to-top/ic-back-to-top.types.ts::IcBackToTopVariants": {
+      "declaration": "export type IcBackToTopVariants = \"default\" | \"icon\";",
+      "docstring": "",
+      "path": "src/components/ic-back-to-top/ic-back-to-top.types.ts"
     },
     "src/components/ic-classification-banner/ic-classification-banner.types.tsx::IcProtectiveMarkings": {
       "declaration": "export type IcProtectiveMarkings =\n  | \"default\"\n  | \"official\"\n  | \"official-sensitive\"\n  | \"secret\"\n  | \"top-secret\";",

@@ -152,4 +152,18 @@ describe("ic-back-to-top", () => {
 
     expect(page.rootInstance.target).toBe("topEl");
   });
+
+  it("should render with an icon only", async () => {
+    const page = await newSpecPage({
+      components: [BackToTop],
+      html: `<div id="topEl"><ic-back-to-top target="topEl" variant="icon"></ic-back-to-top></div>`,
+    });
+
+    expect(page.root.shadowRoot.querySelector("button > span")).not.toBeNull();
+    expect(
+      page.root.shadowRoot.querySelector("button > ic-typography")
+    ).toBeNull();
+
+    expect(page.root).toMatchSnapshot("should render with an icon only");
+  });
 });

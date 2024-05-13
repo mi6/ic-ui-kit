@@ -4,6 +4,7 @@ import {
   onComponentPropUndefinedChange,
   onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
+import { IcBackToTopVariants } from "./ic-back-to-top.types";
 
 const backToTopLabel = "Back to top";
 
@@ -29,6 +30,11 @@ export class BackToTop {
    * The ID of the element to jump back to when the link is clicked.
    */
   @Prop() target!: string;
+
+  /**
+   * The variant of the button to render
+   */
+  @Prop() variant: IcBackToTopVariants = "default";
 
   @Watch("target")
   watchPropHandler(newValue: string, oldValue: string): void {
@@ -157,8 +163,9 @@ export class BackToTop {
     this.bannerOffset = banners.length > 0;
   };
 
-  render() {
-    const { bannerOffset, targetElVisible, footerVisible } = this;
+  private buildButton = () => {
+    const { bannerOffset, targetElVisible, footerVisible, variant } = this;
+
     return (
       <button
         class={{
@@ -166,16 +173,31 @@ export class BackToTop {
           ["offset-banner"]: bannerOffset,
           ["show"]: !targetElVisible,
           ["by-footer"]: footerVisible,
+          ["positioning"]: variant !== "icon",
         }}
         aria-label={backToTopLabel}
         onClick={this.handleClick}
       >
         <span class="ic-back-to-top-icon" innerHTML={ArrowUpward} />
 
-        <ic-typography variant="subtitle-small">
-          <span>{backToTopLabel}</span>
-        </ic-typography>
+        {this.variant !== "icon" && (
+          <ic-typography variant="subtitle-small">
+            <span>{backToTopLabel}</span>
+          </ic-typography>
+        )}
       </button>
+    );
+  };
+
+  render() {
+    const { variant, buildButton } = this;
+
+    return variant === "icon" ? (
+      <ic-tooltip label={backToTopLabel} placement="top" class="positioning">
+        {buildButton()}
+      </ic-tooltip>
+    ) : (
+      buildButton()
     );
   }
 }

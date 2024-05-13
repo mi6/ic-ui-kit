@@ -10,10 +10,16 @@
   right: 0;
 }
 
-button {
+.positioning {
   position: fixed;
   right: var(--ic-space-md);
   bottom: var(--ic-space-md);
+  transition: visibility 0s linear var(--ic-transition-duration-slow),
+    opacity var(--ic-transition-duration-slow);
+  z-index: var(--ic-z-index-back-to-top);
+}
+
+button {
   height: 2.5rem;
   align-items: center;
   padding: var(--ic-space-xs) var(--ic-space-md) var(--ic-space-xs)
@@ -30,10 +36,7 @@ button {
   text-decoration: none;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear var(--ic-transition-duration-slow),
-    opacity var(--ic-transition-duration-slow);
   cursor: pointer;
-  z-index: var(--ic-z-index-back-to-top);
 }
 
 button:hover {
