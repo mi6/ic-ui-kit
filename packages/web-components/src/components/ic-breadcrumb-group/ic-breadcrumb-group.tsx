@@ -210,6 +210,8 @@ export class BreadcrumbGroup {
       this.removeVisuallyHiddenClass(breadcrumb);
     });
     this.expandedBreadcrumbs = true;
+    // Set focus to first unhidden breadcrumb
+    this.collapsedBreadcrumbs[0].setFocus();
   };
 
   private transitionendHandler = (event: TransitionEvent) => {
