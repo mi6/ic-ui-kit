@@ -7,6 +7,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import {
   getInputDescribedByText,
@@ -50,6 +51,22 @@ export class CheckboxGroup {
    * The name for the checkbox group to differentiate from other groups.
    */
   @Prop() name!: string;
+
+  @Watch("label")
+  @Watch("name")
+  labelNameHandler(
+    newValue: string,
+    oldValue: string,
+    propName: "label" | "name"
+  ): void {
+    Array.from(this.el.querySelectorAll("ic-checkbox")).forEach((checkbox) => {
+      if (propName === "label") checkbox.groupLabel = newValue;
+      else if (checkbox.name === oldValue) {
+        // If the checkbox name has been set by the parent, then override it
+        checkbox.name = newValue;
+      }
+    });
+  }
 
   /**
    * If `true`, the checkbox group will require a value.
@@ -95,11 +112,6 @@ export class CheckboxGroup {
   }
 
   componentDidLoad(): void {
-    Array.from(this.el.querySelectorAll("ic-checkbox")).forEach((checkbox) => {
-      if (!checkbox.name) checkbox.name = this.name;
-      checkbox.groupLabel = this.label;
-    });
-
     onComponentRequiredPropUndefined(
       [
         { prop: this.label, propName: "label" },
@@ -110,64 +122,70 @@ export class CheckboxGroup {
   }
 
   @Listen("icCheck")
-  selectHandler(ev: CustomEvent): void {
+  selectHandler({ target }: CustomEvent): void {
     const checkedOptions = Array.from(
       this.el.querySelectorAll("ic-checkbox")
-    ).filter((checkbox) => checkbox.checked && !checkbox.disabled);
+    ).filter(({ checked, disabled }) => checked && !disabled);
     this.icChange.emit({
-      value: checkedOptions.map((opt) => opt.value),
+      value: checkedOptions.map(({ value }) => value),
       checkedOptions: checkedOptions.map((opt) => ({
         checkbox: opt,
         textFieldValue: opt.querySelector("ic-text-field")?.value,
       })),
-      selectedOption: ev.target as HTMLIcCheckboxElement,
+      selectedOption: target as HTMLIcCheckboxElement,
     });
   }
 
   render() {
+    const {
+      disabled,
+      helperText,
+      hideLabel,
+      label,
+      name,
+      required,
+      size,
+      small,
+      validationStatus,
+      validationText,
+    } = this;
+
     const describedBy = getInputDescribedByText(
-      this.name,
-      this.helperText !== "",
-      this.validationStatus !== ""
-    );
-    const hadValidationStatus = hasValidationStatus(
-      this.validationStatus,
-      this.disabled
+      name,
+      helperText !== "",
+      validationStatus !== ""
     );
 
     return (
-      <Host class={{ ["small"]: this.small, [`${this.size}`]: true }}>
-        {(this.validationStatus === "error" ||
-          this.required ||
-          this.hideLabel) && (
+      <Host class={{ ["small"]: small, [`${size}`]: true }}>
+        {(validationStatus === "error" || required || hideLabel) && (
           <span
             id="screenReaderOnlyText"
             class="screen-reader-only-text"
             aria-hidden="true"
           >
-            {this.label}{" "}
-            {this.validationStatus === "error" ? "invalid data " : null}{" "}
-            {this.required ? "required" : null}
+            {label} {validationStatus === "error" ? "invalid data " : null}{" "}
+            {required ? "required" : null}
           </span>
         )}
         <fieldset
-          id={this.name}
+          id={name}
           aria-labelledby={`${
-            this.validationStatus === "error" || this.required || this.hideLabel
+            validationStatus === "error" || required || hideLabel
               ? "screenReaderOnlyText"
               : ""
           } ${describedBy}`.trim()}
-          disabled={this.disabled}
+          disabled={disabled}
         >
-          {!this.hideLabel && (
+          {!hideLabel && (
             <legend>
               <ic-input-label
-                class={{ [`${this.validationStatus}`]: true }}
-                label={this.label}
-                helperText={this.helperText}
-                required={this.required}
-                disabled={this.disabled}
-                for={this.name}
+                class={{ [`${validationStatus}`]: true }}
+                label={label}
+                helperText={helperText}
+                required={required}
+                disabled={disabled}
+                for={name}
               ></ic-input-label>
             </legend>
           )}
@@ -175,12 +193,12 @@ export class CheckboxGroup {
             <slot></slot>
           </div>
         </fieldset>
-        {hadValidationStatus && (
+        {hasValidationStatus(validationStatus, disabled) && (
           <ic-input-validation
-            for={this.name}
+            for={name}
             ariaLiveMode="polite"
-            status={this.validationStatus}
-            message={this.validationText}
+            status={validationStatus}
+            message={validationText}
           ></ic-input-validation>
         )}
       </Host>

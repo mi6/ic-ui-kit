@@ -267,4 +267,20 @@ describe("ic-checkbox-group", () => {
     //test disconnected callback
     page.setContent("");
   });
+
+  it("should test labelNameHandler", async () => {
+    const page = await newSpecPage({
+      components: [Checkbox, CheckboxGroup],
+      html: `<ic-checkbox-group label="test label" name="test">
+      <ic-checkbox value="test" label="test label"></ic-checkbox>    
+    </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+
+    page.root.label = "new label";
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
