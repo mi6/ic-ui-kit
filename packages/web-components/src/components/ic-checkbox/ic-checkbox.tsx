@@ -34,7 +34,6 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class Checkbox {
   private additionalFieldContainer: HTMLDivElement;
-  private IC_TEXT_FIELD: string = "ic-text-field";
 
   @Element() el: HTMLIcCheckboxElement;
 
@@ -140,6 +139,12 @@ export class Checkbox {
     removeDisabledFalse(this.disabled, this.el);
 
     addFormResetListener(this.el, this.handleFormReset);
+
+    const checkboxGroup = this.el.parentElement as HTMLIcCheckboxGroupElement;
+    if (checkboxGroup) {
+      if (!this.name) this.name = checkboxGroup.name;
+      this.groupLabel = checkboxGroup.label;
+    }
   }
 
   componentDidLoad(): void {
@@ -154,18 +159,16 @@ export class Checkbox {
 
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.el.querySelector(this.IC_TEXT_FIELD);
+      const textfield = this.el.querySelector("ic-text-field");
       if (!this.checked) {
-        textfield && textfield.setAttribute("disabled", "");
+        textfield?.setAttribute("disabled", "");
       } else {
-        textfield && textfield.removeAttribute("disabled");
+        textfield?.removeAttribute("disabled");
       }
     } else if (this.additionalFieldContainer) {
-      if (!this.checked) {
-        this.additionalFieldContainer.style.display = "none";
-      } else {
-        this.additionalFieldContainer.style.display = "flex";
-      }
+      this.additionalFieldContainer.style.display = !this.checked
+        ? "none"
+        : "flex";
     }
   }
 
@@ -178,11 +181,7 @@ export class Checkbox {
    */
   @Method()
   async setFocus(): Promise<void> {
-    const checkboxEl: HTMLElement =
-      this.el.shadowRoot.querySelector(".checkbox");
-    if (checkboxEl) {
-      checkboxEl.focus();
-    }
+    this.el.shadowRoot.querySelector<HTMLElement>(".checkbox")?.focus();
   }
 
   private handleClick = () => {
@@ -196,98 +195,110 @@ export class Checkbox {
   };
 
   render() {
-    let id = `ic-checkbox-${
-      isPropDefined(this.label) ? this.label : this.value
-    }-${this.groupLabel}`;
+    const {
+      additionalFieldDisplay,
+      checked,
+      disabled,
+      dynamicText,
+      el,
+      form,
+      formaction,
+      formenctype,
+      formmethod,
+      formnovalidate,
+      formtarget,
+      indeterminate,
+      groupLabel,
+      label,
+      name,
+      size,
+      small,
+      value,
+    } = this;
 
-    id = id.replace(/ /g, "-");
+    const id = `ic-checkbox-${
+      isPropDefined(label) || value
+    }-${groupLabel}`.replace(/ /g, "-");
 
-    const parentElementSize = (
-      this.el.parentElement as HTMLIcCheckboxGroupElement
-    ).size;
+    const parentElementSize = (el.parentElement as HTMLIcCheckboxGroupElement)
+      .size;
 
-    this.checked
-      ? renderHiddenInput(
-          true,
-          this.el,
-          this.name,
-          this.checked && this.value,
-          this.disabled
-        )
-      : removeHiddenInput(this.el);
+    checked
+      ? renderHiddenInput(true, el, name, checked && value, disabled)
+      : removeHiddenInput(el);
 
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
-          ["small"]: this.small,
-          [`${this.size || parentElementSize}`]: true,
+          disabled,
+          small,
+          [`${size || parentElementSize}`]: true,
         }}
       >
         <div class="container">
-          {this.checked && !this.indeterminate && (
-            <svg
-              class="checkmark"
-              width="1.5rem"
-              height="1.5rem"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            >
-              <title>checkmark icon</title>
-              <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
-            </svg>
-          )}
-          {this.checked && this.indeterminate && (
-            <div class="indeterminate-symbol" />
-          )}
+          {checked &&
+            (!indeterminate ? (
+              <svg
+                class="checkmark"
+                width="1.5rem"
+                height="1.5rem"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              >
+                <title>checkmark icon</title>
+                <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
+              </svg>
+            ) : (
+              <div class="indeterminate-symbol" />
+            ))}
           <input
             role="checkbox"
             class={{
-              ["checkbox"]: true,
-              ["checked"]: this.checked,
-              ["indeterminate"]: this.indeterminate,
+              checkbox: true,
+              checked,
+              indeterminate,
             }}
             type="checkbox"
-            name={this.name}
+            name={name}
             id={id}
-            value={this.value}
-            disabled={this.disabled ? true : null}
-            checked={this.checked}
-            indeterminate={this.indeterminate}
+            value={value}
+            disabled={disabled ? true : null}
+            checked={checked}
+            indeterminate={indeterminate}
             onClick={this.handleClick}
-            form={this.form}
-            formaction={this.formaction}
-            formenctype={this.formenctype}
-            formmethod={this.formmethod}
-            formnovalidate={this.formnovalidate}
-            formtarget={this.formtarget}
+            form={form}
+            formaction={formaction}
+            formenctype={formenctype}
+            formmethod={formmethod}
+            formnovalidate={formnovalidate}
+            formtarget={formtarget}
           ></input>
           <ic-typography class="checkbox-label" variant="body">
-            <label htmlFor={id}>{this.label}</label>
+            <label htmlFor={id}>{label}</label>
           </ic-typography>
         </div>
-        {isSlotUsed(this.el, "additional-field") && (
+        {isSlotUsed(el, "additional-field") && (
           <div
             class="dynamic-container"
             ref={(el) => (this.additionalFieldContainer = el)}
           >
-            {this.additionalFieldDisplay === "dynamic" && (
+            {additionalFieldDisplay === "dynamic" && (
               <div class="branch-corner"></div>
             )}
             <div>
-              {this.additionalFieldDisplay === "dynamic" && (
+              {additionalFieldDisplay === "dynamic" && (
                 <ic-typography variant="caption">
                   <p class="dynamic-text" aria-live="polite">
-                    {this.dynamicText}
+                    {dynamicText}
                   </p>
                 </ic-typography>
               )}
               <div
                 class={{
                   "additional-field-wrapper":
-                    this.additionalFieldDisplay === "static",
+                    additionalFieldDisplay === "static",
                 }}
               >
                 <slot name="additional-field"></slot>
