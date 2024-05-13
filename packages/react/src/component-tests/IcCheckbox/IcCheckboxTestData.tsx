@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, ReactElement } from "react";
 import {
   IcButton,
   IcCheckbox,
@@ -113,6 +113,35 @@ export const Uncontrolled = () => {
         value="valueName1"
         onIcCheck={handleCheck}
       />
+    </>
+  );
+};
+
+export const DynamicLoading = (): ReactElement => {
+  const [checkOptions, setCheckOptions] = useState<
+    { label: string; value: string }[]
+  >([]);
+
+  const updateOptions = () => {
+    setCheckOptions([{ label: "Item 1", value: "Item 1" }]);
+  };
+
+  return (
+    <>
+      <IcCheckboxGroup
+        label="What is your favourite coffee?"
+        name="checkbox-group-1"
+      >
+        {checkOptions.map((option, index) => (
+          <IcCheckbox
+            key={index + option.value}
+            value={option.value}
+            label={option.label}
+          />
+        ))}
+      </IcCheckboxGroup>
+      <br />
+      <IcButton onClick={updateOptions}>Update</IcButton>
     </>
   );
 };
