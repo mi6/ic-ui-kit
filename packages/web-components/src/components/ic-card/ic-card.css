@@ -244,3 +244,11 @@ button {
     color: GrayText;
   }
 }
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  ::slotted([slot="icon"]) {
+    fill: var(--ic-architectural-white);
+  }
+} */

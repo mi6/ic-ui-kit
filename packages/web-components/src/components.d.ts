@@ -3960,7 +3960,7 @@ declare namespace LocalJSX {
         /**
           * Sets the heading for the dialog.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * If `true`, the close button will not be displayed.
          */
