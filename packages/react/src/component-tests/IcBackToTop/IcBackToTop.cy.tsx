@@ -58,6 +58,22 @@ describe("IcBackToTop", () => {
     cy.checkA11yWithWait();
   });
 
+  it("should appear with icon only when top is off screen", () => {
+    mount(<BackToTop variant="icon" />);
+
+    cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
+    cy.get(BACK_TO_TOP_SELECTOR)
+      .shadow()
+      .find("ic-tooltip")
+      .wait(500)
+      .should(BE_VISIBLE);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "icon",
+      testThreshold: DEFAULT_TEST_THRESHOLD,
+    });
+  });
+
   it("should appear when the page is scrolled", () => {
     mount(<BackToTop />);
 
