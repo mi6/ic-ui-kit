@@ -42,6 +42,28 @@ import Typography from "../ic-typography/readme.md";
   </Story>
 </Canvas>
 
+### Slotted heading and label
+
+<Canvas>
+  <Story name="Slotted heading and label" parameters={{ loki: { skip: true } }}>
+    {html`<ic-data-entity>
+      <ic-typography variant="h3" slot="heading"
+        >Personal details</ic-typography
+      >
+      <ic-data-row value="Michael Johnson">
+        <ic-typography variant="subtitle-large" slot="label"
+          >Name</ic-typography
+        >
+      </ic-data-row>
+      <ic-data-row value="16 October 1995">
+        <ic-typography variant="subtitle-large" slot="label"
+          >Date of birth</ic-typography
+        >
+      </ic-data-row>
+    </ic-data-entity>`}
+  </Story>
+</Canvas>
+
 ### Long text values
 
 <Canvas>
