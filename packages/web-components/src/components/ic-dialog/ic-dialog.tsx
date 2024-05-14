@@ -16,6 +16,7 @@ import {
   isSlotUsed,
   checkResizeObserver,
   isPropDefined,
+  onComponentRequiredPropUndefined,
 } from "../../utils/helpers";
 
 /**
@@ -108,7 +109,7 @@ export class Dialog {
   /**
    * Sets the heading for the dialog.
    */
-  @Prop() heading!: string;
+  @Prop() heading: string;
 
   /**
    * Sets the optional label for the dialog which appears above the heading.
@@ -204,6 +205,12 @@ export class Dialog {
     if (this.open) {
       this.dialogOpened();
     }
+
+    !isSlotUsed(this.el, "heading") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.heading, propName: "heading" }],
+        "Dialog"
+      );
   }
 
   componentDidRender(): void {
