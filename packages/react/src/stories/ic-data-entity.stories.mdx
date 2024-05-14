@@ -37,6 +37,22 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
   </Story>
 </Canvas>
 
+### Slotted heading and label
+
+<Canvas>
+  <Story name="Slotted heading and label">
+    <IcDataEntity>
+      <IcTypography variant="h3" slot="heading">Personal details</IcTypography>
+      <IcDataRow value="Michael Johnson">
+        <IcTypography variant="subtitle-large" slot="label">Name</IcTypography>
+      </IcDataRow>
+      <IcDataRow value="16 October 1995">
+        <IcTypography variant="subtitle-large" slot="label">Date of birth</IcTypography>
+      </IcDataRow>
+    </IcDataEntity>
+  </Story>
+</Canvas>
+
 ### Long text values
 
 <Canvas>
