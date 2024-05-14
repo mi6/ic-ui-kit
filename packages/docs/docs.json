@@ -4693,7 +4693,7 @@
             }
           ],
           "optional": false,
-          "required": true
+          "required": false
         },
         {
           "name": "hideCloseButton",
