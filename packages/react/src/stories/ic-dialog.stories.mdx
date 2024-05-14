@@ -394,10 +394,9 @@ export const confirm = () => {
     <IcButton variant="primary" onclick={showDialog}>
       Launch dialog
     </IcButton>
-    <IcDialog
-      heading="This dialog has slotted interactive content"
-      label="slotted"
-    >
+    <IcDialog>
+      <IcTypography slot="heading" variant="h4">This dialog has slotted interactive content</IcTypography>
+      <IcTypography slot="label" variant="label">Slotted label</IcTypography>
       <IcAlert
         variant="info"
         heading="Info"

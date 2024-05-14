@@ -51,12 +51,14 @@ export const SlottedContentDialog = () => {
       <IcButton id="slotted-dialog-btn" onClick={handleClick}>
         Display dialog
       </IcButton>
-      <IcDialog
-        ref={dialogEl}
-        heading="This is a default dialog"
-        label="Dialog"
-      >
+      <IcDialog ref={dialogEl}>
         <>
+          <IcTypography slot="heading" variant="h4">
+            This is a default dialog
+          </IcTypography>
+          <IcTypography slot="label" variant="label">
+            Dialog
+          </IcTypography>
           <IcTypography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
