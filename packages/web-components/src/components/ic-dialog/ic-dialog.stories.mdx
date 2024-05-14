@@ -342,12 +342,13 @@ import readme from "./readme.md";
       <ic-button variant="primary" onclick="showDialog()"
         >Launch dialog</ic-button
       >
-      <ic-dialog
-        heading="This dialog has slotted interactive content"
-        label="slotted"
-        dismiss-label="Close"
-        size="medium"
-      >
+      <ic-dialog dismiss-label="Close" size="medium">
+        <ic-typography slot="heading" variant="h4"
+          >This dialog has slotted interactive content</ic-typography
+        >
+        <ic-typography slot="label" variant="label"
+          >Slotted label</ic-typography
+        >
         <ic-alert
           variant="info"
           heading="Info"

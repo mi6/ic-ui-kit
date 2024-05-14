@@ -32,9 +32,16 @@
   overflow-y: visible;
 }
 
-:host(.fade-in) {
-  opacity: 1;
-  transition: opacity var(--ic-easing-transition-slow);
+@media (prefers-reduced-motion: no-preference) {
+  :host(.fade-in) {
+    opacity: 1;
+    transition: opacity var(--ic-easing-transition-slow);
+  }
+
+  :host(.fade-in) .dialog {
+    transform: translateY(0);
+    transition: transform var(--ic-easing-transition-slow);
+  }
 }
 
 :host(.hidden) {
@@ -43,6 +50,7 @@
 
 .dialog {
   background-color: var(--ic-architectural-white);
+  color: var(--ic-architectural-black);
   border: var(--ic-border-default);
   border-radius: var(--ic-border-radius);
   padding: var(--ic-space-xs) 0 var(--ic-space-md);
@@ -52,11 +60,6 @@
   flex-direction: column;
   box-sizing: border-box;
   overflow-x: visible;
-}
-
-:host(.fade-in) .dialog {
-  transform: translateY(0);
-  transition: transform var(--ic-easing-transition-slow);
 }
 
 .small {
