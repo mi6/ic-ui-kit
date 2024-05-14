@@ -32,7 +32,7 @@ describe("IcCard", () => {
     cy.task("generateReport");
   });
 
-  it("renders Card", () => {
+  it("renders card", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <a href="/">
@@ -122,7 +122,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render three variants of cards", () => {
+  it("should render three variants of cards", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -192,7 +192,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render With icon", () => {
+  it("should render with icon", () => {
     mount(
       <IcCard heading="Americano order">
         <SlottedSVG
@@ -216,7 +216,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render with Heading only ", () => {
+  it("should render with heading only ", () => {
     mount(<IcCard heading="Americano order"></IcCard>);
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
@@ -229,7 +229,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render with Message", () => {
+  it("should render with message", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -258,7 +258,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render with a subheading ", () => {
+  it("should render with a subheading", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -288,7 +288,42 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render Interaction button", () => {
+  it("should render with slotted heading, message and subheading", () => {
+    mount(
+      <div style={{ margin: "16px" }}>
+        <IcCard>
+          <IcTypography variant="h4" slot="heading">
+            This is the slotted card heading
+          </IcTypography>
+          <IcTypography slot="message">
+            This is an example of a new card component with slotted text
+            included.
+          </IcTypography>
+          <IcTypography variant="subtitle-small" slot="subheading">
+            This is the slotted subheading
+          </IcTypography>
+          <SlottedSVG
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+          </SlottedSVG>
+        </IcCard>
+      </div>
+    );
+    cy.compareSnapshot({
+      name: "slottedHeadingsCard",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+    cy.checkA11yWithWait();
+  });
+
+  it("should render interaction button", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -335,7 +370,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render Adornment", () => {
+  it("should render adornment", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -371,7 +406,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render with Top image  ", () => {
+  it("should render with top image", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -444,7 +479,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render with middle image", () => {
+  it("should render with middle image", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -521,7 +556,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render with Interaction controls", () => {
+  it("should render with interaction controls", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -560,7 +595,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render Clickable link ", () => {
+  it("should render clickable link ", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -590,7 +625,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render Clickable button ", () => {
+  it("should should render clickable button", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcCard
@@ -622,7 +657,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render With badge", () => {
+  it("should render with badge", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcCard
@@ -655,7 +690,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render Disabled", () => {
+  it("should render disabled", () => {
     mount(
       <IcCard
         heading="Americano order"
@@ -685,7 +720,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render full width variant ", () => {
+  it("should render full width", () => {
     mount(
       <IcCard
         heading="Americano order"
