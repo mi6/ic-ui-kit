@@ -10097,6 +10097,7 @@
           "reflectToAttr": false,
           "docs": "The appearance of the pagination, e.g. dark, light or the default.",
           "docsTags": [],
+          "default": "\"default\"",
           "values": [
             {
               "value": "dark",
@@ -10109,28 +10110,6 @@
             {
               "value": "light",
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "ariaOverride",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "aria-override",
-          "reflectToAttr": false,
-          "docs": "If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -10171,7 +10150,7 @@
           "reflectToAttr": false,
           "docs": "The label for the pagination item (applicable when simple pagination is being used).",
           "docsTags": [],
-          "default": "\"Page \"",
+          "default": "\"Page\"",
           "values": [
             {
               "type": "string"
@@ -10192,27 +10171,6 @@
           "attr": "page",
           "reflectToAttr": false,
           "docs": "The current page number.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "pages",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "pages",
-          "reflectToAttr": false,
-          "docs": "The total number of pages.",
           "docsTags": [],
           "values": [
             {
