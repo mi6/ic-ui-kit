@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.19.0...@ukic/web-components@2.20.0) (2024-05-15)
+
+### Bug Fixes
+
+- **web-components:** add max-content to ic-tooltip to make size match child element ([3196b47](https://github.com/mi6/ic-ui-kit/commit/3196b4784af7733fe9c270f161817222b5592a31)), closes [.#1815](https://github.com/./issues/1815)
+- **web-components:** added watch handlers for accessibleLabel, customColor & variant ([9b3b674](https://github.com/mi6/ic-ui-kit/commit/9b3b674731b076311791329f16d4e1400d9d8950))
+- **web-components:** adjust focus underline display for Link ([7a89112](https://github.com/mi6/ic-ui-kit/commit/7a891129989d10be8ca550a998637ba5af758eb4))
+- **web-components:** changed chip disabled text colour ([f58d1f4](https://github.com/mi6/ic-ui-kit/commit/f58d1f445c3e3030092fd2b9c630e2fc40b1d84a))
+- **web-components:** changed date-picker z-index value ([b6f650b](https://github.com/mi6/ic-ui-kit/commit/b6f650b6da2046b50333baf56f7cc6c041012372))
+- **web-components:** ensured that attributes are passed down when updated ([f9b7711](https://github.com/mi6/ic-ui-kit/commit/f9b7711ef70bb6a7a5a8178d691e615eafd6a570))
+- **web-components:** fixed console errors in ic-popover-menu and ic-select components ([338624f](https://github.com/mi6/ic-ui-kit/commit/338624fab36f0485551fe99d892da74a49d31722))
+- **web-components:** removed aria-label from badge parent when badge is hidden ([cca554f](https://github.com/mi6/ic-ui-kit/commit/cca554fac75b669800066122e333b30b9ae96232))
+- **web-components:** set focus to first revealed breadcrumb when uncollapsing ([b274551](https://github.com/mi6/ic-ui-kit/commit/b274551dc163ef51e8156a72039c1794e788536d))
+
+### Features
+
+- **web-components:** [#1849](https://github.com/mi6/ic-ui-kit/issues/1849) Add an icon variant to ic-back-to-top ([c2395b2](https://github.com/mi6/ic-ui-kit/commit/c2395b2ea495a520ffd0f377e584a5cdd1162970))
+- **web-components:** add missing slot for accordion group title. Add missing stories for 3 comps ([7b84cef](https://github.com/mi6/ic-ui-kit/commit/7b84cefd3606cad743eb8f86470e4e5d000d56f8)), closes [#1817](https://github.com/mi6/ic-ui-kit/issues/1817)
+
 # [2.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.18.1...@ukic/web-components@2.19.0) (2024-05-01)
 
 ### Bug Fixes

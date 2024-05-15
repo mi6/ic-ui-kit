@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.14...@ukic/canary-web-components@2.0.0-canary.15) (2024-05-15)
+
+### Features
+
+- **canary-web-components:** adds enhanced keyboard support to multi-select ([f1f5bbb](https://github.com/mi6/ic-ui-kit/commit/f1f5bbb660b12ddb8df70db7b43b59922d66bd49))
+- **canary-web-components:** new data table functionality ([a342661](https://github.com/mi6/ic-ui-kit/commit/a342661f52914adedebded8389328cd638cf2d01))
+- **canary-web-components:** pagination bar fixes and props rename ([78c2334](https://github.com/mi6/ic-ui-kit/commit/78c2334bdec5eb5894610b9a288744a156b6f456))
+
+### BREAKING CHANGES
+
+- **canary-web-components:** props name changes itemLabel > rangeItemLabel, labelType > rangeLabelType, hideItemsPerPageLabel > hideRangeLabel
+- **canary-web-components:** Updated ic-pagination-bar props to align with ic-pagination
+  props. Additional updates to ic-pagination-bar to use ic-pagination
+  types
+
 # [2.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.13...@ukic/canary-web-components@2.0.0-canary.14) (2024-05-01)
 
 ### Bug Fixes

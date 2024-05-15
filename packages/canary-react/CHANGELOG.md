@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.14...@ukic/canary-react@2.0.0-canary.15) (2024-05-15)
+
+### Features
+
+- **canary-react:** adds cypress tests for multi-select ([d411cdd](https://github.com/mi6/ic-ui-kit/commit/d411cddeb42d23b026b85bbcec8285119a654f71))
+- **canary-react:** updated data table artefacts ([c9907ea](https://github.com/mi6/ic-ui-kit/commit/c9907ea38417604bdf65d6fa23cc67e77a9a4fb2))
+- **canary-react:** updates storybook and cypress tests ([9083619](https://github.com/mi6/ic-ui-kit/commit/90836191e11c94b22836e13175312dea4169e0ff))
+
+### BREAKING CHANGES
+
+- **canary-react:** props name changes itemLabel > rangeItemLabel, labelType > rangeLabelType, hideItemsPerPageLabel > hideRangeLabel
+
 # [2.0.0-canary.14](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.13...@ukic/canary-react@2.0.0-canary.14) (2024-05-01)
 
 **Note:** Version bump only for package @ukic/canary-react

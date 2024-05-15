@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.10.4...@ukic/docs@2.11.0) (2024-05-15)
+
+### Features
+
+- **web-components:** [#1849](https://github.com/mi6/ic-ui-kit/issues/1849) Add an icon variant to ic-back-to-top ([c2395b2](https://github.com/mi6/ic-ui-kit/commit/c2395b2ea495a520ffd0f377e584a5cdd1162970))
+
 ## [2.10.4](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.10.3...@ukic/docs@2.10.4) (2024-05-01)
 
 **Note:** Version bump only for package @ukic/docs

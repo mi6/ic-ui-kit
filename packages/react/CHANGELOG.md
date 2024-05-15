@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.19.0...@ukic/react@2.20.0) (2024-05-15)
+
+### Features
+
+- **react:** add missing slot for accordion group title. Add stories for 3 comps ([98c568f](https://github.com/mi6/ic-ui-kit/commit/98c568f2676de2caa4726984b76530490ff5a474))
+- **react:** added stories and tests for dynamic checkbox loading ([f57e479](https://github.com/mi6/ic-ui-kit/commit/f57e479b4520af3b4779192cb43ab4b89ccc3a79))
+
 # [2.19.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.18.1...@ukic/react@2.19.0) (2024-05-01)
 
 ### Features
