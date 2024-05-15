@@ -1,0 +1,21 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  Description,
+} from "@storybook/addon-docs";
+import { html } from "lit-html";
+import readme from "./readme.md";
+
+<Meta title="Web Components/Tree Item" component="ic-tree-item" />
+
+<Description markdown={readme} />{" "}
+
+### Default
+
+<Canvas>
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {html` <ic-tree-item label="Tree Item Test"/>`}
+  </Story>
+</Canvas>

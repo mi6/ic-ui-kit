@@ -61,6 +61,7 @@
  - [ic-toast](../ic-toast)
  - [ic-tooltip](../ic-tooltip)
  - [ic-top-navigation](../ic-top-navigation)
+ - [ic-tree-item](../ic-tree-item)
 
 ### Graph
 ```mermaid
@@ -104,6 +105,7 @@ graph TD;
   ic-toast --> ic-typography
   ic-tooltip --> ic-typography
   ic-top-navigation --> ic-typography
+  ic-tree-item --> ic-typography
   style ic-typography fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

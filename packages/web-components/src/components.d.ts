@@ -2354,6 +2354,29 @@ export namespace Components {
          */
         "version": string;
     }
+    interface IcTreeItem {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the tree item will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears expanded.
+         */
+        "expanded": boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "label"?: string;
+        /**
+          * Sets focus on tree item heading.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the tree item.
+         */
+        "size"?: IcSizes;
+    }
     interface IcTypography {
         /**
           * If `true`, appropriate top and bottom margins will be applied to the typography.
@@ -2504,6 +2527,10 @@ export interface IcToggleButtonGroupCustomEvent<T> extends CustomEvent<T> {
 export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
+}
+export interface IcTreeItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTreeItemElement;
 }
 declare global {
     interface HTMLIcAccordionElementEventMap {
@@ -3274,6 +3301,23 @@ declare global {
         prototype: HTMLIcTopNavigationElement;
         new (): HTMLIcTopNavigationElement;
     };
+    interface HTMLIcTreeItemElementEventMap {
+        "treeItemClicked": { id: string };
+    }
+    interface HTMLIcTreeItemElement extends Components.IcTreeItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTreeItemElementEventMap>(type: K, listener: (this: HTMLIcTreeItemElement, ev: IcTreeItemCustomEvent<HTMLIcTreeItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLIcTreeItemElement: {
+        prototype: HTMLIcTreeItemElement;
+        new (): HTMLIcTreeItemElement;
+    };
     interface HTMLIcTypographyElement extends Components.IcTypography, HTMLStencilElement {
     }
     var HTMLIcTypographyElement: {
@@ -3344,6 +3388,7 @@ declare global {
         "ic-toggle-button-group": HTMLIcToggleButtonGroupElement;
         "ic-tooltip": HTMLIcTooltipElement;
         "ic-top-navigation": HTMLIcTopNavigationElement;
+        "ic-tree-item": HTMLIcTreeItemElement;
         "ic-typography": HTMLIcTypographyElement;
     }
 }
@@ -5770,6 +5815,26 @@ declare namespace LocalJSX {
          */
         "version"?: string;
     }
+    interface IcTreeItem {
+        "appearance"?: IcThemeForeground;
+        /**
+          * If `true`, the tree item will be disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the tree item appears expanded.
+         */
+        "expanded"?: boolean;
+        /**
+          * The section header outlining section content.
+         */
+        "label"?: string;
+        "onTreeItemClicked"?: (event: IcTreeItemCustomEvent<{ id: string }>) => void;
+        /**
+          * The size of the tree item.
+         */
+        "size"?: IcSizes;
+    }
     interface IcTypography {
         /**
           * If `true`, appropriate top and bottom margins will be applied to the typography.
@@ -5864,6 +5929,7 @@ declare namespace LocalJSX {
         "ic-toggle-button-group": IcToggleButtonGroup;
         "ic-tooltip": IcTooltip;
         "ic-top-navigation": IcTopNavigation;
+        "ic-tree-item": IcTreeItem;
         "ic-typography": IcTypography;
     }
 }
@@ -5934,6 +6000,7 @@ declare module "@stencil/core" {
             "ic-toggle-button-group": LocalJSX.IcToggleButtonGroup & JSXBase.HTMLAttributes<HTMLIcToggleButtonGroupElement>;
             "ic-tooltip": LocalJSX.IcTooltip & JSXBase.HTMLAttributes<HTMLIcTooltipElement>;
             "ic-top-navigation": LocalJSX.IcTopNavigation & JSXBase.HTMLAttributes<HTMLIcTopNavigationElement>;
+            "ic-tree-item": LocalJSX.IcTreeItem & JSXBase.HTMLAttributes<HTMLIcTreeItemElement>;
             "ic-typography": LocalJSX.IcTypography & JSXBase.HTMLAttributes<HTMLIcTypographyElement>;
         }
     }
