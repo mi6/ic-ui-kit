@@ -1,5 +1,11 @@
-import { Component, Element, Host, Prop, h, State } from "@stencil/core";
+import { Component, Element, Host, Prop, h } from "@stencil/core";
 import { IcSkeletonVariants } from "./ic-skeleton.types";
+
+const DEFAULT_HEIGHTS = {
+  text: "1em",
+  circle: "25px",
+  rectangle: "93px",
+};
 
 @Component({
   tag: "ic-skeleton",
@@ -8,11 +14,6 @@ import { IcSkeletonVariants } from "./ic-skeleton.types";
 })
 export class Skeleton {
   @Element() el: HTMLIcSkeletonElement;
-
-  @State() default: boolean;
-  @State() hasChild: boolean;
-  @State() heightOnly: boolean;
-  @State() widthOnly: boolean;
 
   /**
    * The appearance of the skeleton.
@@ -29,48 +30,24 @@ export class Skeleton {
    */
   @Prop() variant?: IcSkeletonVariants = "rectangle";
 
-  componentWillLoad(): void {
-    if (this.el.style.height === "" && this.el.style.width === "") {
-      this.default = true;
-    } else if (!(this.el.style.height === "") && this.el.style.width === "") {
-      this.heightOnly = true;
-    } else if (!(this.el.style.width === "") && this.el.style.height === "") {
-      this.widthOnly = true;
-    }
-  }
-
   render() {
-    const { variant, light, appearance } = this;
+    const { variant, light, appearance, el } = this;
 
-    this.hasChild = !!this.el.firstElementChild;
-
-    const defaultSkeletonStyle = {
-      height: variant == "text" ? "1em" : variant == "circle" ? "25px" : "93px",
-      width: variant == "circle" ? "25px" : "260px",
-    };
-
-    const heightSetStyle = {
-      height: this.el.style.height,
-      width: variant == "circle" ? "25px" : "260px",
-    };
-
-    const widthSetStyle = {
-      height: variant == "text" ? "1em" : variant == "circle" ? "25px" : "93px",
-      width: this.el.style.width,
-    };
+    const style = !el.firstElementChild
+      ? {
+          height: el.style.height || DEFAULT_HEIGHTS[variant],
+          width: el.style.width || (variant === "circle" ? "25px" : "260px"),
+        }
+      : undefined;
 
     return (
       <Host
         class={{
-          ["skeleton"]: true,
-          ["circle"]: variant == "circle",
-          ["light"]: light || appearance === "light",
+          skeleton: true,
+          circle: variant === "circle",
+          light: light || appearance === "light",
         }}
-        style={
-          (!this.hasChild && this.default && defaultSkeletonStyle) ||
-          (this.heightOnly && heightSetStyle) ||
-          (this.widthOnly && widthSetStyle)
-        }
+        style={style}
         aria-disabled="true"
       >
         <slot />

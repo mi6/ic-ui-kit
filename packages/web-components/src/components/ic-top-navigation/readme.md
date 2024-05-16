@@ -30,7 +30,7 @@
 
 | Slot                | Description                                                                                                             |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `"app-icon"`        | Content will be rendered to left of app title.                                                                          |
+| `"app-icon"`        | Content will be rendered to left of app title. Anything that is slotted here will be hidden from screen readers.        |
 | `"app-title"`       | Handle routing by nesting a route in the app title.                                                                     |
 | `"buttons"`         | Content will be rendered to right of search bar.                                                                        |
 | `"navigation"`      | Content will be rendered in navigation panel.                                                                           |
