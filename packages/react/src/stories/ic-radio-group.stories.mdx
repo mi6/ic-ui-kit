@@ -92,17 +92,6 @@ import { useState, useEffect, useRef } from "react";
   </Story>
 </Canvas>
 
-### Basic
-
-<Canvas>
-  <Story name="Basic">
-    <IcRadioGroup label="This is a label" name="1">
-      <IcRadioOption value="valueName1" />
-      <IcRadioOption value="valueName2" />
-    </IcRadioGroup>
-  </Story>
-</Canvas>
-
 ### Conditional dynamic
 
 <Canvas>
@@ -396,5 +385,40 @@ export const Uncontrolled = () => {
 <Canvas>
   <Story name="Uncontrolled">
     <Uncontrolled />
+  </Story>
+</Canvas>
+
+### Additional field rendering
+
+export const RadioOptionsAdditional = () => {
+  const [showAdditional, setShowAdditional] = useState(false);
+  const changeDisplay = () => {
+    setShowAdditional(!showAdditional);
+  }
+  return (
+    <>
+    <IcRadioGroup label='What is your favourite coffee?' name='radio-group-1'>
+      <IcRadioOption value='Item 1' label='Item 1' />
+      <IcRadioOption value='Item 2' label='Item 2 - has conditional field'
+        additionalFieldDisplay={showAdditional ? "dynamic" : "static"}
+      >
+        {showAdditional && (<IcTextField
+          slot='additional-field'
+          placeholder='Placeholder'
+          label='What is your favourite coffee?'
+        />)}
+      </IcRadioOption>
+      <IcRadioOption value='Item 3' label='Item 3' />
+      <IcRadioOption value='Item 4' label='Item 4' />
+    </IcRadioGroup>
+    <br />
+    <IcButton onClick={changeDisplay}>Toggle additional</IcButton>
+    </>
+  )
+}
+
+<Canvas>
+  <Story name="Additional field rendering">
+    <RadioOptionsAdditional />
   </Story>
 </Canvas>
