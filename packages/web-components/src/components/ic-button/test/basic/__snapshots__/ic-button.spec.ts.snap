@@ -225,7 +225,7 @@ exports[`button component should render icon variant with a tooltip based on tit
   <mock:shadow-root>
     <ic-tooltip class="ic-tooltip" id="ic-tooltip-ic-button-with-tooltip-test-button" target="ic-button-with-tooltip-test-button">
       <mock:shadow-root>
-        <div aria-hidden="true" class="ic-tooltip-container" role="tooltip">
+        <div aria-hidden="false" class="ic-tooltip-container" role="tooltip">
           <ic-typography variant="caption">
             Tooltip text
           </ic-typography>
@@ -413,7 +413,7 @@ exports[`button component should update aria-label when attribute changed 2`] = 
 exports[`button component should update tooltip label when title attribute changed 1`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="Tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
         <slot></slot>
       </button>
@@ -426,7 +426,7 @@ exports[`button component should update tooltip label when title attribute chang
 exports[`button component should update tooltip label when title attribute changed 2`] = `
 <ic-button class="button-size-default button-variant-icon" exportparts="button" id="test-button" title="New tooltip text" variant="icon">
   <mock:shadow-root>
-    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="New tooltip text" placement="bottom" silent="" target="ic-button-with-tooltip-test-button">
+    <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-test-button" label="New tooltip text" placement="bottom" target="ic-button-with-tooltip-test-button">
       <button aria-describedby="ic-tooltip-ic-button-with-tooltip-test-button" class="button" part="button" type="button">
         <slot></slot>
       </button>
