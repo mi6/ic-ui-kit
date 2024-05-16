@@ -57,7 +57,7 @@ export class Button {
   private hasTooltip: boolean = false;
   private id: string;
   private inheritedAttributes: { [k: string]: string } = {};
-  private describedByEl: HTMLElement = null;
+  private describedbyEl: HTMLElement = null;
   private describedById: string = null;
   private mutationObserver: MutationObserver = null;
   private hostMutationObserver: MutationObserver = null;
@@ -292,7 +292,7 @@ export class Button {
         );
         if (el) {
           this.describedByContent = el.innerText;
-          this.describedByEl = el;
+          this.describedbyEl = el;
         }
       }
     }
@@ -304,7 +304,7 @@ export class Button {
     if (typeof MutationObserver !== "undefined") {
       if (this.describedById) {
         this.mutationObserver = new MutationObserver(this.mutationCallback);
-        this.mutationObserver.observe(this.describedByEl, {
+        this.mutationObserver.observe(this.describedbyEl, {
           characterData: true,
           childList: true,
           subtree: true,
@@ -414,7 +414,7 @@ export class Button {
 
   // triggered when text content of sibling element in light DOM changes
   private mutationCallback = (): void => {
-    this.describedByContent = this.describedByEl.innerText;
+    this.describedByContent = this.describedbyEl.innerText;
   };
 
   // triggered when attributes of host element change
@@ -464,19 +464,19 @@ export class Button {
             hreflang: this.hreflang,
           };
 
-    let describedBy: string = null;
+    let describedby: string = null;
     let buttonId: string = null;
     if (this.hasTooltip) {
       buttonId =
         this.id !== null
           ? `ic-button-with-tooltip-${this.id}`
           : `ic-button-with-tooltip-${this.buttonIdNum}`;
-      describedBy =
+      describedby =
         this.variant === "icon" && !!ariaLabel
           ? null
           : `ic-tooltip-${buttonId}`;
     } else {
-      describedBy = this.describedById;
+      describedby = this.describedById;
     }
 
     const ButtonContent = () => {
@@ -491,7 +491,7 @@ export class Button {
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           ref={(el) => (this.buttonEl = el)}
-          aria-describedby={describedBy}
+          aria-describedby={describedby}
           part="button"
         >
           {this.hasIconSlot() && !this.loading && (
@@ -578,11 +578,11 @@ export class Button {
       >
         {this.hasTooltip && (
           <ic-tooltip
-            id={describedBy}
+            id={describedby}
             label={title || ariaLabel}
             target={buttonId}
             placement={this.tooltipPlacement}
-            silent={this.variant === "icon" && (!!title || !!ariaLabel)}
+            silent={this.variant === "icon" && !!ariaLabel}
           >
             {this.hasRouterSlot() ? (
               <slot name="router-item"></slot>
@@ -599,7 +599,7 @@ export class Button {
             <ButtonContent />
           ))}
         {this.describedByContent && (
-          <span id={describedBy} class="ic-button-describedby">
+          <span id={describedby} class="ic-button-describedby">
             {this.describedByContent}
           </span>
         )}
