@@ -1,14 +1,16 @@
 import {
   Component,
   Prop,
+  State,
   Element,
   h,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import { IcPaginationItemType } from "./ic-pagination-item.types";
 import { IcThemeForeground } from "../../utils/types";
-import { removeDisabledFalse } from "../../utils/helpers";
+import { removeDisabledFalse, capitalize } from "../../utils/helpers";
 
 @Component({
   tag: "ic-pagination-item",
@@ -18,15 +20,12 @@ import { removeDisabledFalse } from "../../utils/helpers";
 export class PaginationItem {
   @Element() el: HTMLIcPaginationItemElement;
 
+  @State() capitalizedLabel: string;
+
   /**
    * The appearance of the pagination, e.g. dark, light or the default.
    */
-  @Prop() appearance: IcThemeForeground;
-
-  /**
-   * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
-   */
-  @Prop() ariaOverride: boolean = false;
+  @Prop() appearance: IcThemeForeground = "default";
 
   /**
    * If `true`, the pagination item will be disabled.
@@ -36,17 +35,17 @@ export class PaginationItem {
   /**
    * The label for the pagination item (applicable when simple pagination is being used).
    */
-  @Prop() label: string = "Page ";
+  @Prop() label: string = "Page";
+
+  @Watch("label")
+  watchLabelHandler(): void {
+    this.capitalizedLabel = capitalize(this.label);
+  }
 
   /**
    * The current page number.
    */
   @Prop() page: number | null;
-
-  /**
-   * The total number of pages.
-   */
-  @Prop() pages: number;
 
   /**
    * If `true`, the pagination item will be selected.
@@ -64,6 +63,7 @@ export class PaginationItem {
   @Event() paginationItemClick: EventEmitter<{ page: number }>;
 
   componentWillLoad(): void {
+    this.watchLabelHandler();
     removeDisabledFalse(this.disabled, this.el);
   }
 
@@ -79,8 +79,7 @@ export class PaginationItem {
       disabled,
       appearance,
       label,
-      ariaOverride,
-      pages,
+      capitalizedLabel,
     } = this;
 
     return (
@@ -108,8 +107,10 @@ export class PaginationItem {
             onClick={this.handleClick}
             tabindex={selected ? "-1" : "0"}
             role="button"
-            aria-current={selected && "Current page"}
-            aria-label={selected ? `${label}: ${page}` : `Go to page ${page}`}
+            aria-current={selected && "page"}
+            aria-label={
+              selected ? `${label}: ${page}` : `Go to ${label} ${page}`
+            }
             class={{
               ["selected"]: !disabled && selected,
               ["disabled"]: disabled,
@@ -132,13 +133,13 @@ export class PaginationItem {
         ) : (
           <ic-typography
             aria-live="polite"
-            aria-label={
-              ariaOverride ? `Page ${page} of ${pages}` : `${label} ${page}`
-            }
-            class={`simple-current ${appearance}`}
+            class={{
+              [`simple-current ${appearance}`]: true,
+              ["disabled"]: disabled,
+            }}
             variant="label"
           >
-            {label} {page}
+            {capitalizedLabel} {page}
           </ic-typography>
         )}
       </a>

@@ -1343,10 +1343,6 @@ export namespace Components {
          */
         "appearance": IcThemeForeground;
         /**
-          * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
-         */
-        "ariaOverride": boolean;
-        /**
           * If `true`, the pagination item will be disabled.
          */
         "disabled": boolean;
@@ -1358,10 +1354,6 @@ export namespace Components {
           * The current page number.
          */
         "page": number | null;
-        /**
-          * The total number of pages.
-         */
-        "pages": number;
         /**
           * If `true`, the pagination item will be selected.
          */
@@ -4634,10 +4626,6 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
-          * If true the aria-label will be set to `Page X of Y`, where X is the current page and Y is the page count.
-         */
-        "ariaOverride"?: boolean;
-        /**
           * If `true`, the pagination item will be disabled.
          */
         "disabled"?: boolean;
@@ -4650,10 +4638,6 @@ declare namespace LocalJSX {
           * The current page number.
          */
         "page"?: number | null;
-        /**
-          * The total number of pages.
-         */
-        "pages"?: number;
         /**
           * If `true`, the pagination item will be selected.
          */

@@ -135,4 +135,8 @@ ic-typography.dark {
   .selected.dark::after {
     background-color: Highlight;
   }
+
+  .disabled {
+    color: GrayText;
+  }
 }

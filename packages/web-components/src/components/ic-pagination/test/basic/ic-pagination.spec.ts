@@ -400,6 +400,64 @@ describe("ic-pagination complex type", () => {
 
     expect(page.root.currentPage).toBe(1);
   });
+
+  it("should not allow boundaryCount greater than 2", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15 type="complex" boundary-count=3></ic-pagination>`,
+    });
+
+    expect(page.rootInstance.boundaryCount).toEqual(2);
+  });
+
+  it("should not allow boundaryCount greater than 2 - when changed from initial value", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
+    });
+
+    page.root.boundaryCount = 3;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.boundaryCount).toEqual(2);
+  });
+
+  it("should not allow adjacentCount greater than 2", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15 type="complex" adjacent-count=3></ic-pagination>`,
+    });
+
+    expect(page.rootInstance.adjacentCount).toEqual(2);
+  });
+
+  it("should not allow adjacentCount greater than 2 - when changed from initial value", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
+    });
+
+    page.root.adjacentCount = 3;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.adjacentCount).toEqual(2);
+  });
+
+  it("should test switching to complex pagination type", async () => {
+    const page = await newSpecPage({
+      components: [Pagination],
+      html: `<ic-pagination pages=15></ic-pagination>`,
+    });
+
+    expect(page.rootInstance.pages).toEqual(15);
+
+    page.root.type = "complex";
+    await page.waitForChanges();
+
+    expect(page.rootInstance.startItems).toEqual([1]);
+    expect(page.rootInstance.endItems).toEqual([15]);
+    expect(page.rootInstance.midItems).toEqual([2, 3, 4, 5]);
+  });
 });
 describe("ic-pagination appearance tests", () => {
   it("should render as simple type in dark appearance", async () => {

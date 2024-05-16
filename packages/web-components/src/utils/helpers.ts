@@ -640,3 +640,7 @@ export const convertToRGBA = (color: IcColor): IcColorRGBA | null => {
     ? rgbaStrToObj(color)
     : null;
 };
+
+export const capitalize = (text: string): string => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};

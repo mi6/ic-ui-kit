@@ -39,6 +39,13 @@ export class Pagination {
    */
   @Prop({ mutable: true }) adjacentCount: number = 1;
 
+  @Watch("adjacentCount")
+  watchAdjacentCountHandler(): void {
+    if (this.adjacentCount > 2) {
+      this.adjacentCount = 2;
+    }
+  }
+
   /**
    * The appearance of the pagination, e.g. dark, light or the default.
    */
@@ -48,6 +55,13 @@ export class Pagination {
    * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
   @Prop({ mutable: true }) boundaryCount: number = 1;
+
+  @Watch("boundaryCount")
+  watchBoundaryCountHandler(): void {
+    if (this.boundaryCount > 2) {
+      this.boundaryCount = 2;
+    }
+  }
 
   /**
    * The default page to display.
@@ -88,6 +102,11 @@ export class Pagination {
    * The type of pagination to be used.
    */
   @Prop() type: IcPaginationTypes = "simple";
+
+  @Watch("type")
+  watchTypeHandler(): void {
+    this.watchPageChangeHandler();
+  }
 
   /**
    * The current page displayed by the pagination.
@@ -203,13 +222,8 @@ export class Pagination {
 
   componentWillLoad(): void {
     this.watchPageChangeHandler();
-    if (this.boundaryCount > 2) {
-      this.boundaryCount = 2;
-    }
-    if (this.adjacentCount > 2) {
-      this.adjacentCount = 2;
-    }
-
+    this.watchBoundaryCountHandler();
+    this.watchAdjacentCountHandler();
     removeDisabledFalse(this.disabled, this.el);
   }
 
@@ -393,7 +407,6 @@ export class Pagination {
   render() {
     const {
       type,
-      pages,
       currentPage,
       hideCurrentPage,
       disabled,
@@ -414,12 +427,12 @@ export class Pagination {
             {hideFirstAndLastPageButton ? null : this.firstButton()}
             {this.previousButton()}
             <ic-pagination-item
-              pages={pages}
               appearance={this.appearance}
               type="simple-current"
               page={currentPage}
               label={label}
               class={{ ["hide-current-page"]: hideCurrentPage }}
+              disabled={disabled}
             />
             {this.nextButton()}
             {hideFirstAndLastPageButton ? null : this.lastButton()}

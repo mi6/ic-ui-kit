@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-pagination-item should render as ellipsis type: render as ellipsis type 1`] = `
+<ic-pagination-item page="1" type="ellipsis">
+  <mock:shadow-root>
+    <a>
+      <div class="ellipsis item-container">
+        <ic-typography class="default" variant="label">
+          ...
+        </ic-typography>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render as selected item: render as selected item 1`] = `
+<ic-pagination-item page="1" selected="" type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-current="page" aria-label="Page: 1" class="default item-container page selected" role="button" tabindex="-1">
+        <ic-typography class="default page-selected" variant="label">
+          1
+        </ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render default pagination item: render default pagination item 1`] = `
+<ic-pagination-item page="1">
+  <mock:shadow-root>
+    <a>
+      <ic-typography aria-live="polite" class="default simple-current" variant="label">
+        Page 1
+      </ic-typography>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render disabled ellipsis type: render disabled ellipsis type 1`] = `
+<ic-pagination-item disabled="" page="1" type="ellipsis">
+  <mock:shadow-root>
+    <a>
+      <div class="disabled ellipsis item-container">
+        <ic-typography class="default" variant="label">
+          ...
+        </ic-typography>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render disabled: render disabled 1`] = `
+<ic-pagination-item disabled="" page="1" type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to Page 1" class="default disabled item-container page" disabled="" role="button" tabindex="0">
+        <ic-typography class="default disabled" variant="label">
+          1
+        </ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render with custom label: render with custom label 1`] = `
+<ic-pagination-item label="screen" page="1">
+  <mock:shadow-root>
+    <a>
+      <ic-typography aria-live="polite" class="default simple-current" variant="label">
+        Screen 1
+      </ic-typography>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render with dark appearance: render with dark appearance 1`] = `
+<ic-pagination-item appearance="dark" page="1" type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to Page 1" class="dark item-container page" role="button" tabindex="0">
+        <ic-typography class="dark" variant="label">
+          1
+        </ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;
+
+exports[`ic-pagination-item should render with light appearance: render with light appearance 1`] = `
+<ic-pagination-item appearance="light" page="1" type="page">
+  <mock:shadow-root>
+    <a>
+      <button aria-label="Go to Page 1" class="item-container light page" role="button" tabindex="0">
+        <ic-typography class="light" variant="label">
+          1
+        </ic-typography>
+      </button>
+    </a>
+  </mock:shadow-root>
+</ic-pagination-item>
+`;

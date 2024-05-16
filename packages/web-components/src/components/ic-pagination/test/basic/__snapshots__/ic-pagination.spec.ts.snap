@@ -66,7 +66,7 @@ exports[`ic-pagination appearance tests should render as simple type in dark app
       <ic-button appearance="dark" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="dark" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="dark" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="dark" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -88,7 +88,7 @@ exports[`ic-pagination appearance tests should render as simple type in light ap
       <ic-button appearance="light" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="light" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="light" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="light" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -528,7 +528,7 @@ exports[`ic-pagination simple appearance component should render on the last pag
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" label="Page" page="15" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" label="Page" page="15" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" disabled="" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -550,7 +550,7 @@ exports[`ic-pagination simple appearance component should render with 10 pages: 
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -572,7 +572,7 @@ exports[`ic-pagination simple appearance component should render with first and 
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -594,7 +594,7 @@ exports[`ic-pagination simple appearance component should render with interactio
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -616,7 +616,7 @@ exports[`ic-pagination simple appearance component should render with the defaul
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" label="Page" page="4" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" label="Page" page="4" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
@@ -638,7 +638,7 @@ exports[`ic-pagination simple appearance component should render without current
       <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
         svg
       </ic-button>
-      <ic-pagination-item appearance="default" class="hide-current-page" label="Page" page="1" pages="15" type="simple-current"></ic-pagination-item>
+      <ic-pagination-item appearance="default" class="hide-current-page" label="Page" page="1" type="simple-current"></ic-pagination-item>
       <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
         svg
       </ic-button>
