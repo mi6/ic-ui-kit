@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-03T15:17:29",
+  "timestamp": "2024-05-16T15:04:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -283,26 +283,16 @@
           "required": false
         },
         {
-          "name": "paginationOptions",
-          "type": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+          "name": "paginationBarOptions",
+          "type": "IcPaginationBarOptions",
           "complexType": {
-            "original": "{\n    itemsPerPage?: { label: string; value: string }[];\n    rangeLabelType?: IcPaginationLabelTypes;\n    type?: IcPaginationTypes;\n    itemsPerPageControl?: boolean;\n    goToPageControl?: boolean;\n    alignment?: IcPaginationAlignmentOptions;\n  }",
-            "resolved": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }",
+            "original": "IcPaginationBarOptions",
+            "resolved": "IcPaginationBarOptions",
             "references": {
-              "IcPaginationLabelTypes": {
+              "IcPaginationBarOptions": {
                 "location": "import",
-                "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationLabelTypes"
-              },
-              "IcPaginationTypes": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes"
-              },
-              "IcPaginationAlignmentOptions": {
-                "location": "import",
-                "path": "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types",
-                "id": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationAlignmentOptions"
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcPaginationBarOptions"
               }
             }
           },
@@ -310,10 +300,10 @@
           "reflectToAttr": false,
           "docs": "Sets the props for the pagination bar.",
           "docsTags": [],
-          "default": "{\n    itemsPerPage: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    itemsPerPageControl: true,\n    goToPageControl: true,\n    alignment: \"right\",\n  }",
+          "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n  }",
           "values": [
             {
-              "type": "{ itemsPerPage?: { label: string; value: string; }[]; rangeLabelType?: IcPaginationLabelTypes; type?: IcPaginationTypes; itemsPerPageControl?: boolean; goToPageControl?: boolean; alignment?: IcPaginationAlignmentOptions; }"
+              "type": "IcPaginationBarOptions"
             }
           ],
           "optional": true,
@@ -2844,6 +2834,28 @@
           "required": false
         },
         {
+          "name": "itemLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "item-label",
+          "reflectToAttr": false,
+          "docs": "The text which will be used in place of 'Item' on the pagination bar.",
+          "docsTags": [],
+          "default": "\"Item\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "itemsPerPageOptions",
           "type": "{ label: string; value: string; }[]",
           "complexType": {
@@ -2874,31 +2886,9 @@
           "mutable": false,
           "attr": "page-label",
           "reflectToAttr": false,
-          "docs": "The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.",
+          "docs": "The text which will be used in place of 'Page' on the pagination bar.",
           "docsTags": [],
           "default": "\"Page\"",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "rangeItemLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "range-item-label",
-          "reflectToAttr": false,
-          "docs": "The label which will be used in place of 'items' if type is data. Should be capitalised.",
-          "docsTags": [],
-          "default": "\"Item\"",
           "values": [
             {
               "type": "string"
@@ -4247,30 +4237,35 @@
       "docstring": "",
       "path": "../web-components/dist/types/utils/types.d.ts"
     },
-    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationLabelTypes": {
-      "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
+    "src/utils/types.ts::IcPaginationBarOptions": {
+      "declaration": "export interface IcPaginationBarOptions {\n  itemsPerPageOptions?: { label: string; value: string }[];\n  rangeLabelType?: IcPaginationLabelTypes;\n  type?: IcPaginationTypes;\n  showItemsPerPageControl?: boolean;\n  showGoToPageControl?: boolean;\n  alignment?: IcPaginationAlignmentOptions;\n  appearance?: IcThemeForeground;\n  itemLabel?: string;\n  pageLabel?: string;\n  hideRangeLabel?: boolean;\n}",
       "docstring": "",
-      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
-    },
-    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes": {
-      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
-      "docstring": "",
-      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
-    },
-    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationAlignmentOptions": {
-      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
-      "docstring": "",
-      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+      "path": "src/utils/types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
       "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationAlignmentOptions": {
+      "declaration": "export type IcPaginationAlignmentOptions = \"left\" | \"right\" | \"space-between\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
     "../web-components/dist/types/interface.d.ts::IcThemeForeground": {
       "declaration": "any",
       "docstring": "",
       "path": "../web-components/dist/types/interface.d.ts"
+    },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationTypes": {
+      "declaration": "export type IcPaginationTypes = \"simple\" | \"complex\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
+    },
+    "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts::IcPaginationLabelTypes": {
+      "declaration": "export type IcPaginationLabelTypes = \"page\" | \"data\";",
+      "docstring": "",
+      "path": "../web-components/dist/types/components/ic-pagination/ic-pagination.types.d.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDensityUpdateEventDetail": {
       "declaration": "export interface IcDensityUpdateEventDetail {\n  value: IcDataTableDensityOptions;\n}",
