@@ -35,7 +35,7 @@ import {
 import { IcSearchBarBlurEventDetail } from "../ic-search-bar/ic-search-bar.types";
 
 /**
- * @slot app-icon - Content will be rendered to left of app title.
+ * @slot app-icon - Content will be rendered to left of app title. Anything that is slotted here will be hidden from screen readers.
  * @slot app-title - Handle routing by nesting a route in the app title.
  * @slot short-app-title - Handle routing by nesting a route in the short app title (to be displayed in place of app title on small screen sizes).
  * @slot search - Content will be rendered in search area to left of buttons.
@@ -134,16 +134,11 @@ export class TopNavigation {
   @Event() topNavResized: EventEmitter<{ size: number }>;
 
   disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
+    this.resizeObserver?.disconnect();
   }
 
   componentWillLoad(): void {
-    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
-    this.hasNavigation = isSlotUsed(this.el, "navigation");
-    this.hasIconButtons = isSlotUsed(this.el, "buttons");
-    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
+    this.checkSlots();
     this.deviceSize = getCurrentDeviceSize();
     this.initialiseSearchBar();
   }
@@ -158,10 +153,7 @@ export class TopNavigation {
   }
 
   componentWillRender(): void {
-    this.hasNavigation = isSlotUsed(this.el, "navigation");
-    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
-    this.hasIconButtons = isSlotUsed(this.el, "buttons");
-    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
+    this.checkSlots();
   }
 
   @Listen("icNavigationMenuClose", {})
@@ -192,6 +184,13 @@ export class TopNavigation {
   themeChangeHandler({ detail }: CustomEvent<IcTheme>): void {
     this.foregroundColor = detail.mode;
   }
+
+  private checkSlots = () => {
+    this.hasAppIcon = isSlotUsed(this.el, "app-icon");
+    this.hasNavigation = isSlotUsed(this.el, "navigation");
+    this.hasIconButtons = isSlotUsed(this.el, "buttons");
+    this.hasSearchSlotContent = isSlotUsed(this.el, "search");
+  };
 
   private initialiseSearchBar = () => {
     if (this.hasSearchSlotContent) {
@@ -232,15 +231,9 @@ export class TopNavigation {
 
   private showNavMenu(show: boolean): void {
     this.navMenuVisible = show;
-    if (show) {
-      this.icNavigationMenuOpened.emit();
-      document.body.style.height = "100%";
-      document.body.style.overflow = "hidden";
-    } else {
-      this.icNavigationMenuClosed.emit();
-      document.body.style.height = "auto";
-      document.body.style.overflow = "auto";
-    }
+    (show ? this.icNavigationMenuOpened : this.icNavigationMenuClosed).emit();
+    document.body.style.height = show ? "100%" : "auto";
+    document.body.style.overflow = show ? "hidden" : "auto";
   }
 
   private searchButtonMouseDownHandler = () => {
@@ -264,7 +257,7 @@ export class TopNavigation {
       this.topNavResized.emit({
         size: currSize,
       });
-      if (document.activeElement?.tagName === "IC-SEARCH-BAR") {
+      if (this.searchBar && document.activeElement === this.searchBar) {
         this.searchBar.setAttribute("hidden", "true");
         //remove attribute again as this trigger a redraw & applies css
         this.searchBar.removeAttribute("hidden");
