@@ -623,3 +623,9 @@ svg {
 :host(.navigation-item-side-menu) .open-in-new-icon svg {
   fill: var(--ic-color-primary-text);
 }
+
+@media (forced-colors: active) {
+  .open-in-new-icon svg {
+    fill: currentColor;
+  }
+}
