@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-default",
-          "percentage": 0.06411069408579512,
+          "percentage": 0.06975286116828883,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -276,7 +276,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11346366354078473,
+          "percentage": 0.11354848915149197,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -641,7 +641,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardFocus",
-          "percentage": 0.05272570530585627,
+          "percentage": 0.052038447325030754,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -740,7 +740,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.07848566748139434,
+          "percentage": 0.07263607918933951,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -977,7 +977,7 @@
         {
           "status": "pass",
           "name": "IcCheckbox.cy.tsx-focus",
-          "percentage": 0.13253502779501777,
+          "percentage": 0.13294894598603638,
           "failureThreshold": 0.2,
           "specPath": "src/component-tests/IcCheckbox/IcCheckbox.cy.tsx",
           "specFilename": "IcCheckbox.cy.tsx",
@@ -1397,7 +1397,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-neutral-alert",
-          "percentage": 0.06106690320187087,
+          "percentage": 0.0781208332222163,
           "failureThreshold": 0.09000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1408,7 +1408,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-info-alert",
-          "percentage": 0.05660765922852961,
+          "percentage": 0.06828440829842979,
           "failureThreshold": 0.11000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1419,7 +1419,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-warning-alert",
-          "percentage": 0.0612266111806514,
+          "percentage": 0.07824574003313747,
           "failureThreshold": 0.09000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1430,7 +1430,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-error-alert",
-          "percentage": 0.05668810868838955,
+          "percentage": 0.06835111557246158,
           "failureThreshold": 0.11000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1441,7 +1441,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-success-alert",
-          "percentage": 0.056157331073808464,
+          "percentage": 0.07216878364870322,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1452,7 +1452,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-small",
-          "percentage": 0.050543916547889325,
+          "percentage": 0.07019318580413154,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1463,7 +1463,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-large",
-          "percentage": 0.04959471157962981,
+          "percentage": 0.06951281356699641,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -3626,7 +3626,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-message-variant",
-          "percentage": 0.061806148561449774,
+          "percentage": 0.05329165037789691,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3637,7 +3637,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.09793875637356235,
+          "percentage": 0.10831435731240803,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3648,7 +3648,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-button",
-          "percentage": 0.060630025564896474,
+          "percentage": 0.05003998401278722,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3830,7 +3830,7 @@
         {
           "status": "pass",
           "name": "IcToggleButton.cy.tsx-loading",
-          "percentage": 0.05396295025292817,
+          "percentage": 0.05959865770300536,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -4073,7 +4073,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-icon-buttons",
-          "percentage": 0,
+          "percentage": 0.009846466807299845,
           "failureThreshold": 0.02,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -4326,9 +4326,9 @@
       ]
     }
   ],
-  "startedAt": "2024-05-16T15:04:49.695Z",
-  "endedAt": "2024-05-16T15:13:40.889Z",
-  "duration": 465122,
+  "startedAt": "2024-05-17T08:08:24.473Z",
+  "endedAt": "2024-05-17T08:16:55.596Z",
+  "duration": 448014,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
