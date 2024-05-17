@@ -14,6 +14,7 @@ import { IcEmphasisType, IcSizesNoLarge } from "../../utils/types";
 export class StatusTag {
   /**
    * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+   * Screen readers will announce changes to the `label`, but not the initial value.
    */
   @Prop() announced?: boolean = false;
 
