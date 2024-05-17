@@ -1844,7 +1844,7 @@ export namespace Components {
     }
     interface IcStatusTag {
         /**
-          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
          */
         "announced"?: boolean;
         /**
@@ -5227,7 +5227,7 @@ declare namespace LocalJSX {
     }
     interface IcStatusTag {
         /**
-          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region.
+          * If `true`, role='status' is added to the component and it will act as an 'aria-live' region. Screen readers will announce changes to the `label`, but not the initial value.
          */
         "announced"?: boolean;
         /**
