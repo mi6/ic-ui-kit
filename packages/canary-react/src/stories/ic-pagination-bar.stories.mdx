@@ -177,13 +177,12 @@ const PaginationBar = () => (
 export default PaginationBar;
 ```
 
-### Pagination range item label
+### Pagination item label
 
-'Items' can be changed to a custom label by setting the `rangeItemLabel` prop. Set `rangeItemLabel` with a capitalized singular noun.
-The range label type must be set to `data` for the `rangeItemLabel` prop to take effect.
+'Item' can be changed to a custom label by setting the `itemLabel` prop. Any occurences of 'Item' in the pagination bar will be replaced with the custom label.
 
 <Canvas withSource="none">
-  <Story name="Pagination range item label">
+  <Story name="Pagination item label">
     <div style={{
       height: '150px'
     }}>
@@ -192,7 +191,7 @@ The range label type must be set to `data` for the `rangeItemLabel` prop to take
         showItemsPerPageControl
         showGoToPageControl
         rangeLabelType="data"
-        rangeItemLabel="Image"
+        itemLabel="Image"
       />
     </div>
   </Story>
@@ -210,7 +209,7 @@ const PaginationBar = () => (
     showItemsPerPageControl
     showGoToPageControl
     rangeLabelType="data"
-    rangeItemLabel="Image"
+    itemLabel="Image"
   />
 );
 
