@@ -19,6 +19,7 @@ import {
   getThemeForegroundColor,
   onComponentRequiredPropUndefined,
   isPropDefined,
+  isSlotUsed,
 } from "../../utils/helpers";
 import { IcHeroContentAlignments } from "./ic-hero.types";
 
@@ -67,7 +68,7 @@ export class Hero {
   /**
    * The heading of the hero.
    */
-  @Prop() heading!: string;
+  @Prop() heading: string;
 
   /**
    * The optional secondary heading, replaced by slotted right content.
@@ -99,10 +100,11 @@ export class Hero {
   }
 
   componentDidLoad(): void {
-    onComponentRequiredPropUndefined(
-      [{ prop: this.heading, propName: "heading" }],
-      "Hero"
-    );
+    !isSlotUsed(this.el, "heading") &&
+      onComponentRequiredPropUndefined(
+        [{ prop: this.heading, propName: "heading" }],
+        "Hero"
+      );
   }
 
   componentWillRender(): void {

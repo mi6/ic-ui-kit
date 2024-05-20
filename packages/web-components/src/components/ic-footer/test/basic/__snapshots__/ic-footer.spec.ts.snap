@@ -101,6 +101,18 @@ exports[`ic-footer should render with a description via the description slot 1`]
 <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
   <mock:shadow-root>
     <footer>
+      <div class="footer-description">
+        <ic-section-container aligned="left" fullheight="">
+          <div class="footer-description-inner">
+            <ic-typography class="ic-typography-body">
+              <mock:shadow-root>
+                <slot></slot>
+              </mock:shadow-root>
+              <slot name="description"></slot>
+            </ic-typography>
+          </div>
+        </ic-section-container>
+      </div>
       <div class="footer-compliance">
         <ic-section-container aligned="left" fullheight="">
           <div class="footer-compliance-inner">
