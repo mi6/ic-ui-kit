@@ -6,8 +6,10 @@ exports[`ic-data-table-title-bar should not render the actions area if hideDensi
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            header
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              header
+            </h3>
           </ic-typography>
         </slot>
       </div>
@@ -22,8 +24,10 @@ exports[`ic-data-table-title-bar should render 1`] = `
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            header
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              header
+            </h3>
           </ic-typography>
         </slot>
       </div>
@@ -44,8 +48,10 @@ exports[`ic-data-table-title-bar should render the description area if the descr
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            header
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              header
+            </h3>
           </ic-typography>
         </slot>
       </div>
@@ -66,8 +72,10 @@ exports[`ic-data-table-title-bar should render with description and metadata 1`]
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            header
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              header
+            </h3>
           </ic-typography>
         </slot>
         <ic-typography variant="subtitle-small">
@@ -95,8 +103,10 @@ exports[`ic-data-table-title-bar should render with slotted actions 1`] = `
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            header
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              header
+            </h3>
           </ic-typography>
         </slot>
       </div>
@@ -130,8 +140,10 @@ exports[`ic-data-table-title-bar should render with slotted header and descripti
     <div class="title-bar-wrapper">
       <div class="header-container">
         <slot name="heading">
-          <ic-typography variant="h3">
-            Title Bar
+          <ic-typography class="heading" variant="h3">
+            <h3>
+              Title Bar
+            </h3>
           </ic-typography>
         </slot>
       </div>

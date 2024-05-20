@@ -147,20 +147,19 @@ The example below uses the `data` pagination range label type. The range is upda
 ></ic-pagination-bar>
 ```
 
-### Pagination range item label
+### Pagination item label
 
-'Items' can be changed to a custom label by setting the `range-item-label` attribute. Set `range-item-label` with a capitalized singular noun.
-The range label type must be set to `data` for the `range-item-label` attribute to take effect.
+'Item' can be changed to a custom label by setting the `item-label` attribute. Any occurences of 'Item' in the pagination bar will be replaced with the custom label.
 
 <Canvas withSource="none">
-  <Story name="Pagination label type" parameters={{ loki: { skip: true } }}>
+  <Story name="Pagination item label" parameters={{ loki: { skip: true } }}>
     {html`<div style="height: 150px;">
       <ic-pagination-bar
         total-items="100"
         show-items-per-page-control="true"
         show-go-to-page-control="true"
         range-label-type="data"
-        range-item-label="Image"
+        item-label="Image"
       ></ic-pagination-bar>
     </div>`}
   </Story>
@@ -174,7 +173,7 @@ The range label type must be set to `data` for the `range-item-label` attribute 
   show-items-per-page-control="true"
   show-go-to-page-control="true"
   range-label-type="data"
-  range-item-label="Image"
+  item-label="Image"
 ></ic-pagination-bar>
 ```
 

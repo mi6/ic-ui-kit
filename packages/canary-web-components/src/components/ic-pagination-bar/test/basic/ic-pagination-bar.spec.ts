@@ -58,19 +58,32 @@ describe("ic-pagination-bar", () => {
   it("should render with a custom page label", async () => {
     const page = await newSpecPage({
       components: [PaginationBar],
-      html: `<ic-pagination-bar total-items="100" page-label="Sheets"></ic-pagination-bar>`,
+      html: `<ic-pagination-bar total-items="100" page-label="Sheet"></ic-pagination-bar>`,
     });
 
     expect(page.root).toMatchSnapshot();
+
+    expect(page.rootInstance.lowerCasePageLabel).toBe("sheet");
+
+    page.root.itemLabel = "sheet";
+    await page.waitForChanges();
+
+    expect(page.rootInstance.capitalizedPageLabel).toBe("Sheet");
   });
 
   it("should render with a custom item label", async () => {
     const page = await newSpecPage({
       components: [PaginationBar],
-      html: `<ic-pagination-bar total-items="100" range-label-type="data" range-item-label="Row"></ic-pagination-bar>`,
+      html: `<ic-pagination-bar total-items="100" range-label-type="data" item-label="Row"></ic-pagination-bar>`,
     });
 
     expect(page.root).toMatchSnapshot();
+    expect(page.rootInstance.lowerCaseItemLabel).toBe("row");
+
+    page.root.itemLabel = "row";
+    await page.waitForChanges();
+
+    expect(page.rootInstance.capitalizedItemLabel).toBe("Row");
   });
 
   it("should render without range text", async () => {

@@ -468,11 +468,11 @@ It is possible to change the sort options for the sort buttons. The `sortOptions
 
 ### Pagination
 
-Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `show-pagination` to `true` will add the `ic-pagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationOptions` prop.
+Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `show-pagination` to `true` will add the `ic-pagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationBarOptions` prop.
 
 - `itemsPerPage` allows customization on the number of items on each page. This requires a collection with `label` and `value` key pairs.
-- `itemsPerPageControl` shows or hides the `itemsPerPage` component using `true` or `false`.
-- `goToPageControl` displays controls which allows jumping between pages in a non-linear approach.
+- `showItemsPerPageControl` shows or hides the `itemsPerPage` component using `true` or `false`.
+- `showGoToPageControl` displays controls which allows jumping between pages in a non-linear approach.
 
 <Canvas withSource="none">
   <Story name="Pagination" parameters={{ loki: { skip: true } }}>
@@ -510,14 +510,14 @@ Pagination allows large data sets to be split into pages in order to make the da
     },
     ...
   ];
-  dataTable.paginationOptions = {
-    itemsPerPage: [
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: [
       { label: "5", value: "5" },
       { label: "10", value: "10" },
       { label: "15", value: "15" },
     ],
-    itemsPerPageControl: true,
-    goToPageControl: true,
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
   };
   dataTable.columns = columns;
   dataTable.data = data;
@@ -1213,9 +1213,9 @@ More details on `ic-pagination-bar` can be found in the <ic-link href="/?path=/s
   }
 
   const updatePageOptions = () => {
-    dataTable.paginationOptions = {
-      ...dataTable.paginationOptions,
-      itemsPerPage: [
+    dataTable.paginationBarOptions = {
+      ...dataTable.paginationBarOptions,
+      itemsPerPageOptions: [
         { label: '10', value: '10' },
         { label: '20', value: '20' },
         { label: '50', value: '50' }
@@ -1224,20 +1224,20 @@ More details on `ic-pagination-bar` can be found in the <ic-link href="/?path=/s
   }
 
   const resetPageOptions = () => {
-    dataTable.paginationOptions = {
-      ...dataTable.paginationOptions,
-      itemsPerPage: pageOptions
+    dataTable.paginationBarOptions = {
+      ...dataTable.paginationBarOptions,
+      itemsPerPageOptions: pageOptions
     };
   }
 
   dataTable.columns = columns;
   dataTable.data = data;
   dataTable.showPagination = true;
-  dataTable.paginationOptions = {
-    itemsPerPage: pageOptions,
-    itemsPerPageControl: true,
-    goToPageControl: true,
-    type: "page"
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: pageOptions,
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
+    rangeLabelType: "page"
   }
 </script>
 ```
