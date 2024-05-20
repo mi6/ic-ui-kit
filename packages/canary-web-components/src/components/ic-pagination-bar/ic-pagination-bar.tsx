@@ -10,7 +10,7 @@ import {
   Watch,
 } from "@stencil/core";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
-import { checkResizeObserver } from "../../utils/helpers";
+import { checkResizeObserver, capitalize } from "../../utils/helpers";
 import {
   IcPaginationAlignmentOptions,
   IcPaginationLabelTypes,
@@ -37,6 +37,10 @@ export class PaginationBar {
 
   @Element() el: HTMLIcPaginationBarElement;
 
+  @State() capitalizedItemLabel: string;
+
+  @State() capitalizedPageLabel: string;
+
   @State() currentPage: number = 1;
 
   @State() displayedItemsPerPageOptions?: {
@@ -48,7 +52,13 @@ export class PaginationBar {
 
   @State() itemsPerPage: number = 0;
 
+  @State() itemsPerPageString: string = "0";
+
   @State() lowerBound: number = 1;
+
+  @State() lowerCaseItemLabel: string;
+
+  @State() lowerCasePageLabel: string;
 
   @State() paginationWidth: number;
 
@@ -69,9 +79,15 @@ export class PaginationBar {
   @Prop() appearance?: IcThemeForeground = "default";
 
   /**
-   * The label which will be used in place of 'items' if type is data. Should be capitalised.
+   * The text which will be used in place of 'Item' on the pagination bar.
    */
-  @Prop() rangeItemLabel?: string = "Item";
+  @Prop() itemLabel?: string = "Item";
+
+  @Watch("itemLabel")
+  watchItemLabelHandler(): void {
+    this.capitalizedItemLabel = capitalize(this.itemLabel);
+    this.lowerCaseItemLabel = this.itemLabel.toLowerCase();
+  }
 
   /**
    * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
@@ -97,9 +113,15 @@ export class PaginationBar {
   @Prop() rangeLabelType?: IcPaginationLabelTypes = "page";
 
   /**
-   * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
+   * The text which will be used in place of 'Page' on the pagination bar.
    */
   @Prop() pageLabel?: string = "Page";
+
+  @Watch("pageLabel")
+  watchPageLabelHandler(): void {
+    this.capitalizedPageLabel = capitalize(this.pageLabel);
+    this.lowerCasePageLabel = this.pageLabel.toLowerCase();
+  }
 
   /**
    * If `true`, the 'go to page' control should be displayed.
@@ -143,6 +165,8 @@ export class PaginationBar {
   }
 
   componentWillLoad(): void {
+    this.watchPageLabelHandler();
+    this.watchItemLabelHandler();
     this.setPaginationBarContent();
   }
 
@@ -169,6 +193,10 @@ export class PaginationBar {
     this.setUpperBound();
   };
 
+  private focusElFromLabel = (el: "ic-select" | "ic-text-field") => {
+    this.paginationBarEl.querySelector(el)?.setFocus();
+  };
+
   private goToPage = () => {
     const input = this.pageInputEl;
     const page = Number(input.value);
@@ -183,6 +211,10 @@ export class PaginationBar {
     } else {
       this.setInputError(input, this.INVALID_PAGE_ERROR);
     }
+  };
+
+  private goToPageLabelClickHandler = () => {
+    this.focusElFromLabel("ic-text-field");
   };
 
   private handleBlur = () => {
@@ -243,6 +275,10 @@ export class PaginationBar {
       this.setInputError(textField, this.NAN_ERROR, false);
       this.pageInputTooltipEl.displayTooltip(true, false);
     }
+  };
+
+  private itemsPerPageLabelClickHandler = () => {
+    this.focusElFromLabel("ic-select");
   };
 
   private paginationShouldWrap = () => {
@@ -322,6 +358,7 @@ export class PaginationBar {
   private setItemsPerPage = (newValue: number) => {
     if (this.itemsPerPage !== newValue) {
       this.itemsPerPage = newValue;
+      this.itemsPerPageString = newValue.toString();
       this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
     }
     this.setNumberPages();
@@ -402,11 +439,15 @@ export class PaginationBar {
       hideRangeLabel,
       showItemsPerPageControl,
       showGoToPageControl,
+      pageLabel,
+      capitalizedPageLabel,
+      lowerCasePageLabel,
+      capitalizedItemLabel,
+      lowerCaseItemLabel,
+      totalPages,
+      currentPage,
+      itemsPerPageString,
     } = this;
-
-    const focusElFromLabel = (el: "ic-select" | "ic-text-field") => {
-      this.paginationBarEl.querySelector(el)?.setFocus();
-    };
 
     return (
       <div
@@ -426,9 +467,9 @@ export class PaginationBar {
                     ["items-per-page-control-label"]: true,
                   }}
                   variant="label"
-                  onClick={() => focusElFromLabel("ic-select")}
+                  onClick={this.itemsPerPageLabelClickHandler}
                 >
-                  {this.rangeItemLabel}s per {this.pageLabel.toLowerCase()}
+                  {capitalizedItemLabel}s per {lowerCasePageLabel}
                 </ic-typography>
                 <ic-select
                   small
@@ -436,8 +477,8 @@ export class PaginationBar {
                   class="items-per-page-input"
                   hideLabel
                   options={displayedItemsPerPageOptions}
-                  value={this.itemsPerPage.toString()}
-                  onIcChange={() => this.changeItemsPerPage()}
+                  value={itemsPerPageString}
+                  onIcChange={this.changeItemsPerPage}
                   ref={(el: HTMLIcSelectElement) => (this.pageDropdownEl = el)}
                 ></ic-select>
               </div>
@@ -451,14 +492,11 @@ export class PaginationBar {
                 variant="label"
                 aria-live="polite"
               >
-                {this.upperBound === 0 &&
-                  `0 ${this.rangeItemLabel.toLowerCase()}s`}
+                {this.upperBound === 0 && `0 ${lowerCaseItemLabel}s`}
                 {this.upperBound > 0 &&
                   `${this.lowerBound} - ${this.upperBound} of ${
                     this.totalItems
-                  } ${this.rangeItemLabel.toLowerCase()}${
-                    this.totalItems > 1 ? "s" : ""
-                  }`}
+                  } ${lowerCaseItemLabel}${this.totalItems > 1 ? "s" : ""}`}
               </ic-typography>
             ) : (
               !hideRangeLabel && (
@@ -470,7 +508,7 @@ export class PaginationBar {
                   variant="label"
                   aria-live="polite"
                 >
-                  {this.pageLabel} {this.currentPage} of {this.totalPages}
+                  {capitalizedPageLabel} {currentPage} of {totalPages}
                 </ic-typography>
               )
             )}
@@ -486,7 +524,8 @@ export class PaginationBar {
             <ic-pagination
               appearance={appearance}
               type={type}
-              pages={this.totalPages}
+              pages={totalPages}
+              label={pageLabel}
               ref={(el: HTMLIcPaginationElement) => (this.paginationEl = el)}
             ></ic-pagination>
           </div>
@@ -495,9 +534,9 @@ export class PaginationBar {
               <ic-typography
                 class={{ [`pagination-text-${appearance}`]: true }}
                 variant="label"
-                onClick={() => focusElFromLabel("ic-text-field")}
+                onClick={this.goToPageLabelClickHandler}
               >
-                Go to {this.pageLabel.toLowerCase()}
+                Go to {lowerCasePageLabel}
               </ic-typography>
               <ic-tooltip
                 label={this.inputError}
@@ -515,21 +554,21 @@ export class PaginationBar {
                   class={PAGE_INPUT_FIELD_ID}
                   id={PAGE_INPUT_FIELD_ID}
                   hideLabel
-                  onKeyDown={(ev: KeyboardEvent) => this.handleKeydown(ev)}
-                  onKeyUp={(ev: KeyboardEvent) => this.handleKeyUp(ev)}
-                  onInput={() => this.handleInputChange()}
-                  max={this.totalPages}
+                  onKeyDown={this.handleKeydown}
+                  onKeyUp={this.handleKeyUp}
+                  onInput={this.handleInputChange}
+                  max={totalPages}
                   min="1"
                   validationInlineInternal
-                  onBlur={() => this.handleBlur()}
-                  onFocus={() => this.handleFocus()}
+                  onBlur={this.handleBlur}
+                  onFocus={this.handleFocus}
                   ref={(el: HTMLIcTextFieldElement) => (this.pageInputEl = el)}
                 ></ic-text-field>
               </ic-tooltip>
               <ic-button
                 appearance={appearance}
                 variant="secondary"
-                onClick={() => this.goToPage()}
+                onClick={this.goToPage}
                 size="small"
                 class="go-to-page-button"
               >

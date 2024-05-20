@@ -694,6 +694,7 @@ describe(icDataTable, () => {
           caption="Table"
           columns={columns}
           data={data}
+          loading={true}
         ></ic-data-table>
       ),
     });
@@ -708,7 +709,11 @@ describe(icDataTable, () => {
     const page = await newSpecPage({
       components: [DataTable],
       template: () => (
-        <ic-data-table caption="Table" columns={columns}></ic-data-table>
+        <ic-data-table
+          caption="Table"
+          columns={columns}
+          loading={true}
+        ></ic-data-table>
       ),
     });
 
@@ -723,6 +728,8 @@ describe(icDataTable, () => {
     expect(page.rootInstance.loadingOptions.showBackground).toBeTruthy();
     loadingIndicator = page.root.shadowRoot.querySelector(icLoadingIndicator);
     expect(loadingIndicator).toHaveClass(showBackgroundClass);
+    //delay to allow for 1 sec setTimeout in loading indicator, otherwise next test fails
+    await waitForTimeout(1100);
   });
 
   it("when loading is `true`, setting data should cancel the loading after 1 second from initial loading", async () => {
@@ -894,8 +901,8 @@ describe(icDataTable, () => {
           columns={columns}
           data={longData}
           show-pagination
-          paginationOptions={{
-            itemsPerPage: [
+          paginationBarOptions={{
+            itemsPerPageOptions: [
               { label: "10", value: "10" },
               { label: "25", value: "25" },
               { label: "50", value: "50" },

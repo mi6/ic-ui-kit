@@ -712,14 +712,14 @@ export const SortOptions = (): HTMLIcDataTableElement => {
 export const Pagination = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Pagination", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("show-pagination", "true");
-  dataTable.paginationOptions = {
-    itemsPerPage: [
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: [
       { label: "5", value: "5" },
       { label: "10", value: "10" },
       { label: "15", value: "15" },
     ],
-    itemsPerPageControl: true,
-    goToPageControl: true,
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
   };
   return dataTable;
 };
@@ -853,10 +853,10 @@ export const UpdatingData = (): HTMLElement => {
   const pageOptions = [{ label: "5", value: "5" }];
 
   dataTable.showPagination = true;
-  dataTable.paginationOptions = {
-    itemsPerPage: pageOptions,
-    itemsPerPageControl: true,
-    goToPageControl: true,
+  dataTable.paginationBarOptions = {
+    itemsPerPageOptions: pageOptions,
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
     rangeLabelType: "page",
   };
 
@@ -874,9 +874,9 @@ export const UpdatingData = (): HTMLElement => {
 
   const updatePaginationButton = document.createElement("ic-button");
   updatePaginationButton.addEventListener("click", () => {
-    dataTable.paginationOptions = {
-      ...dataTable.paginationOptions,
-      itemsPerPage: [
+    dataTable.paginationBarOptions = {
+      ...dataTable.paginationBarOptions,
+      itemsPerPageOptions: [
         { label: "10", value: "10" },
         { label: "20", value: "20" },
         { label: "50", value: "50" },
@@ -887,9 +887,9 @@ export const UpdatingData = (): HTMLElement => {
 
   const resetPaginationButton = document.createElement("ic-button");
   resetPaginationButton.addEventListener("click", () => {
-    dataTable.paginationOptions = {
-      ...dataTable.paginationOptions,
-      itemsPerPage: pageOptions,
+    dataTable.paginationBarOptions = {
+      ...dataTable.paginationBarOptions,
+      itemsPerPageOptions: pageOptions,
     };
   });
   resetPaginationButton.innerHTML = "Reset page lengths";
