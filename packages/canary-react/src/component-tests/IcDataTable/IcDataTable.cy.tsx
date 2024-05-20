@@ -5,6 +5,7 @@ import React, { ReactElement } from "react";
 import { mount } from "cypress/react";
 import { IcDataTable, IcDataTableTitleBar } from "../../components";
 import { IcButton, IcEmptyState, SlottedSVG } from "@ukic/react";
+import { IcPaginationBarOptions } from "@ukic/canary-web-components/src/utils/types";
 
 import {
   COLS,
@@ -234,26 +235,6 @@ describe("IcDataTables", () => {
       .find("td")
       .eq(1)
       .should(HAVE_TEXT, "Bloggs");
-  });
-
-  it("should render with pagination", () => {
-    mount(
-      <IcDataTable
-        columns={COLS}
-        data={LONG_DATA}
-        showPagination
-        caption="Data Tables"
-      />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.checkA11yWithWait();
-
-    cy.compareSnapshot({
-      name: "pagination",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.062),
-    });
   });
 
   it("should render with column overrides", () => {
@@ -673,33 +654,6 @@ describe("IcDataTables", () => {
     });
   });
 
-  it("should change page when the pagination items are clicked", () => {
-    mount(
-      <IcDataTable
-        caption="Data tables"
-        columns={LONG_COLS}
-        data={LONG_DATA}
-        showPagination
-      />
-    );
-
-    cy.checkHydrated(DATA_TABLE_SELECTOR);
-
-    cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-pagination-item", { includeShadowDom: true })
-      .find("ic-typography", { includeShadowDom: true })
-      .should(HAVE_TEXT, "Page 1");
-
-    cy.get(DATA_TABLE_SELECTOR)
-      .find("#next-page-button", { includeShadowDom: true })
-      .click();
-
-    cy.get(DATA_TABLE_SELECTOR)
-      .find("ic-pagination-item", { includeShadowDom: true })
-      .find("ic-typography", { includeShadowDom: true })
-      .should(HAVE_TEXT, "Page 2");
-  });
-
   it("should apply the correct density scaler to rowHeights", () => {
     mount(
       <IcDataTable
@@ -892,5 +846,180 @@ describe("IcDataTables", () => {
     cy.get(DATA_TABLE_SELECTOR).find("ic-button").eq(2).click();
 
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr").should(HAVE_LENGTH, 5);
+  });
+});
+
+describe("IcDataTables with IcPaginationBar", () => {
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should render with pagination", () => {
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA}
+        showPagination
+        caption="Data Tables"
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "pagination",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.062),
+    });
+  });
+
+  it("should change page when the pagination items are clicked", () => {
+    mount(
+      <IcDataTable
+        caption="Data tables"
+        columns={LONG_COLS}
+        data={LONG_DATA}
+        showPagination
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-pagination-item", { includeShadowDom: true })
+      .find("ic-typography", { includeShadowDom: true })
+      .should(HAVE_TEXT, "Page 1");
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("#next-page-button", { includeShadowDom: true })
+      .click();
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .find("ic-pagination-item", { includeShadowDom: true })
+      .find("ic-typography", { includeShadowDom: true })
+      .should(HAVE_TEXT, "Page 2");
+  });
+
+  it("should test changing pagination bar props after initial load", () => {
+    const defaultPaginationBarOptions: IcPaginationBarOptions = {
+      itemsPerPageOptions: [
+        { label: "10", value: "10" },
+        { label: "25", value: "25" },
+        { label: "50", value: "50" },
+      ],
+      rangeLabelType: "page",
+      type: "simple",
+      showItemsPerPageControl: true,
+      showGoToPageControl: true,
+      alignment: "right",
+      appearance: "default",
+      itemLabel: "Item",
+      pageLabel: "Page",
+      hideRangeLabel: false,
+    };
+
+    mount(
+      <IcDataTable
+        columns={COLS}
+        data={LONG_DATA}
+        showPagination
+        caption="Data Tables"
+        paginationBarOptions={defaultPaginationBarOptions}
+      />
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+    cy.checkA11yWithWait();
+
+    cy.compareSnapshot({
+      name: "pagination",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.062),
+    });
+
+    const newPaginationBarOptions: IcPaginationBarOptions = {
+      itemsPerPageOptions: [{ label: "5", value: "5" }],
+      rangeLabelType: "data",
+      type: "complex",
+      showItemsPerPageControl: false,
+      showGoToPageControl: false,
+      alignment: "left",
+      appearance: "dark",
+      itemLabel: "Row",
+      pageLabel: "Screen",
+      hideRangeLabel: true,
+    };
+
+    cy.get(DATA_TABLE_SELECTOR)
+      .invoke("prop", "paginationBarOptions", newPaginationBarOptions)
+      .then(() => {
+        cy.wait(100);
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "itemsPerPageOptions")
+          .then((itemsPerPageOptions) => {
+            expect(itemsPerPageOptions.length).to.equal(1);
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "rangeLabelType")
+          .then((rangeLabelType) => {
+            expect(rangeLabelType).to.equal("data");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "type")
+          .then((type) => {
+            expect(type).to.equal("complex");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "showItemsPerPageControl")
+          .then((showItemsPerPageControl) => {
+            expect(showItemsPerPageControl).to.be.false;
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "showGoToPageControl")
+          .then((showGoToPageControl) => {
+            expect(showGoToPageControl).to.be.false;
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "alignment")
+          .then((alignment) => {
+            expect(alignment).to.equal("left");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "appearance")
+          .then((appearance) => {
+            expect(appearance).to.equal("dark");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "itemLabel")
+          .then((itemLabel) => {
+            expect(itemLabel).to.equal("Row");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "pageLabel")
+          .then((pageLabel) => {
+            expect(pageLabel).to.equal("Screen");
+          });
+        cy.get(DATA_TABLE_SELECTOR)
+          .find("ic-pagination-bar", { includeShadowDom: true })
+          .invoke("prop", "hideRangeLabel")
+          .then((hideRangeLabel) => {
+            expect(hideRangeLabel).to.be.true;
+          });
+      });
   });
 });

@@ -545,11 +545,11 @@ export default DataTable;
 
 ### Pagination
 
-Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `showPagination` to `true` will add the `IcPagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationOptions` prop.
+Pagination allows large data sets to be split into pages in order to make the data easier to digest. Setting `showPagination` to `true` will add the `IcPagination` component to the bottom of the table. There a several sub components within pagination which are set via the `paginationBarOptions` prop.
 
-- `itemsPerPage` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
-- `itemsPerPageControl` which show or hides the `itemsPerPage` component.
-- `goToPageControl` displays controls which allows jumping between pages in a non-linear approach.
+- `itemsPerPageOptions` which allows customization of how many items appear on each page. This requires a collection with `label` and `value` key pairs.
+- `showItemsPerPageControl` which show or hides the `itemsPerPage` component.
+- `showGoToPageControl` displays controls which allows jumping between pages in a non-linear approach.
 
 <Canvas withSource="none">
   <Story name="Pagination">
@@ -558,14 +558,14 @@ Pagination allows large data sets to be split into pages in order to make the da
       columns={LONG_COLS}
       data={LONG_DATA}
       showPagination
-      paginationOptions={{
-        itemsPerPage: [
+      paginationBarOptions={{
+        itemsPerPageOptions: [
           { label: "5", value: "5" },
           { label: "10", value: "10" },
           { label: "15", value: "15" },
         ],
-        itemsPerPageControl: true,
-        goToPageControl: true,
+        showItemsPerPageControl: true,
+        showGoToPageControl: true,
       }}
     />
   </Story>
@@ -606,14 +606,14 @@ const DataTable = () => (
     columns={columns}
     data={data}
     showPagination
-    paginationOptions={{
-      itemsPerPage: [
+    paginationBarOptions={{
+      itemsPerPageOptions: [
         { label: "5", value: "5" },
         { label: "10", value: "10" },
         { label: "15", value: "15" },
       ],
-      itemsPerPageControl: true,
-      goToPageControl: true,
+      showItemsPerPageControl: true,
+      showGoToPageControl: true,
     }}
   />
 );
@@ -1419,11 +1419,12 @@ export const UpdatingData = () => {
         columns={COLS}
         data={data}
         showPagination
-        paginationOptions={{
-          itemsPerPage: pageOptions,
-          itemsPerPageControl: true,
-          goToPageControl: true,
-          type: "page",
+        paginationBarOptions={{
+          itemsPerPageOptions: pageOptions,
+          showItemsPerPageControl: true,
+          showGoToPageControl: true,
+          rangeLabelType: "page",
+          appearance: "default"
         }}
       />
       <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
@@ -1500,11 +1501,11 @@ const DataTable = () => {
         columns={COLS}
         data={data}
         showPagination
-        paginationOptions={{
-          itemsPerPage: pageOptions,
-          itemsPerPageControl: true,
-          goToPageControl: true,
-          type: "page"
+        paginationBarOptions={{
+          itemsPerPageOptions: pageOptions,
+          showItemsPerPageControl: true,
+          showGoToPageControl: true,
+          rangeLabelType: "page"
         }}
       />
       <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
@@ -1519,3 +1520,68 @@ const DataTable = () => {
 
 export default DataTable;
 ```
+
+export const defaultPaginationBarArgs = {
+  itemsPerPageOptions: [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+    { label: "15", value: "15" },
+  ],
+  rangeLabelType: "page",
+  type: "simple",
+  showItemsPerPageControl: true,
+  showGoToPageControl: true,
+  alignment: "right",
+  appearance: "default",
+  itemLabel: "Item",
+  pageLabel: "Page",
+  hideRangeLabel: false
+};
+
+### Pagination bar options playground
+
+<Canvas withSource="none">
+  <Story
+    args={defaultPaginationBarArgs}
+    argTypes={{
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      rangeLabelType: {
+        options: ["page", "data"],
+        control: { type: "inline-radio" },
+      },
+      type: {
+        options: ["simple", "complex"],
+        control: { type: "inline-radio" },
+      },
+      alignment: {
+        options: ["left", "right", "space-between"],
+        control: { type: "inline-radio" },
+      },
+    }}
+    name="Pagination bar options playground"
+  >
+    {(args) => (
+      <IcDataTable
+        caption="Updating Data"
+        columns={COLS}
+        data={LONG_DATA}
+        showPagination
+        paginationBarOptions={{
+          itemsPerPageOptions: args.itemsPerPageOptions,
+          rangeLabelType: args.rangeLabelType,
+          type: args.type,
+          showItemsPerPageControl: args.showItemsPerPageControl,
+          showGoToPageControl: args.showGoToPageControl,          
+          appearance: args.appearance,
+          alignment: args.alignment,
+          pageLabel: args.pageLabel,
+          itemLabel: args.itemLabel,
+          hideRangeLabel: args.hideRangeLabel
+        }}
+      />
+    )}
+  </Story>
+</Canvas>

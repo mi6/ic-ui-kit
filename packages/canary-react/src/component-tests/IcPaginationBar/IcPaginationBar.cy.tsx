@@ -360,7 +360,7 @@ describe("IcPaginationBar", () => {
       .eq(3)
       .shadow()
       .find("button")
-      .should(HAVE_ATTR, "aria-current", "Current page");
+      .should(HAVE_ATTR, "aria-current", "page");
   });
 
   it("should go back to page 1 when first page button is clicked on complex pagination bar", () => {
@@ -385,7 +385,7 @@ describe("IcPaginationBar", () => {
       .eq(0)
       .shadow()
       .find("button")
-      .should(HAVE_ATTR, "aria-current", "Current page");
+      .should(HAVE_ATTR, "aria-current", "page");
   });
 
   it("should go forward a page when next page button is clicked on complex pagination bar", () => {
@@ -404,7 +404,7 @@ describe("IcPaginationBar", () => {
       .eq(1)
       .shadow()
       .find("button")
-      .should(HAVE_ATTR, "aria-current", "Current page");
+      .should(HAVE_ATTR, "aria-current", "page");
   });
 
   it("should go to the last page when last page button is clicked on complex pagination bar", () => {
@@ -423,7 +423,7 @@ describe("IcPaginationBar", () => {
       .last()
       .shadow()
       .find("button")
-      .should(HAVE_ATTR, "aria-current", "Current page");
+      .should(HAVE_ATTR, "aria-current", "page");
   });
 
   it("should update the complex pagination based on the items per page dropdown", () => {
@@ -514,5 +514,48 @@ describe("IcPaginationBar", () => {
     cy.findShadowEl(PAGINATION_BAR, ".item-pagination-label").should(
       "not.exist"
     );
+  });
+
+  it("should render with custom pageLabel", () => {
+    mount(<PaginationBarItemsPerPage pageLabel="screen" showGoToPageControl />);
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.findShadowEl(PAGINATION_BAR, "ic-pagination")
+      .shadow()
+      .find("ic-pagination-item")
+      .shadow()
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Screen 1");
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.items-per-page-control-label"
+    ).should(HAVE_TEXT, "Items per screen");
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.page-pagination-label"
+    ).should(HAVE_TEXT, "Screen 1 of 10");
+    cy.findShadowEl(PAGINATION_BAR, ".go-to-page-holder")
+      .find("ic-typography")
+      .should(HAVE_TEXT, "Go to screen");
+  });
+
+  it("should render with custom itemLabel", () => {
+    mount(
+      <PaginationBarItemsPerPage
+        pageLabel="screen"
+        itemLabel="row"
+        rangeLabelType="data"
+      />
+    );
+
+    cy.checkHydrated(PAGINATION_BAR);
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.items-per-page-control-label"
+    ).should(HAVE_TEXT, "Rows per screen");
+    cy.findShadowEl(
+      PAGINATION_BAR,
+      "ic-typography.item-pagination-label"
+    ).should(HAVE_TEXT, "1 - 10 of 100 rows");
   });
 });
