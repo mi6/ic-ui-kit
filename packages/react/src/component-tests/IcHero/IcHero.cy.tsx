@@ -2,13 +2,20 @@
 /// <reference types="Cypress" />
 
 import React from "react";
-import { IcButton, IcCard, IcHero, IcSearchBar } from "../../components";
+import {
+  IcButton,
+  IcCard,
+  IcHero,
+  IcSearchBar,
+  IcTypography,
+} from "../../components";
 import { mount } from "cypress/react";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
-describe("IcHero e2e, A11y and visual regression tests", () => {
+describe("IcHero", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1500, 500);
@@ -18,7 +25,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  it("IcHero", () => {
+  it("should render", () => {
     mount(
       <IcHero
         heading="Everything I brew, I brew it for you"
@@ -40,7 +47,30 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render center alignment of Hero Component ", () => {
+  it("should render with slotted heading and subheading", () => {
+    mount(
+      <IcHero>
+        <IcTypography slot="heading" variant="h1">
+          Slotted heading
+        </IcTypography>
+        <IcTypography slot="subheading">Slotted subheading</IcTypography>
+        <IcButton variant="primary" slot="interaction">
+          Button
+        </IcButton>
+        <IcButton variant="secondary" slot="interaction">
+          Button
+        </IcButton>
+      </IcHero>
+    );
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slottedHeadings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+    });
+  });
+
+  it("should render center alignment", () => {
     mount(
       <IcHero
         aligned={"center"}
@@ -62,7 +92,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render centering content alignment", () => {
+  it("should render centering content alignment", () => {
     mount(
       <IcHero
         contentAligned={"center"}
@@ -84,7 +114,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render small size", () => {
+  it("should render small size", () => {
     mount(
       <IcHero
         heading="New coffee launches 14 September 2022"
@@ -106,7 +136,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render Secondary heading and searchbar", () => {
+  it("should render secondary heading and searchbar", () => {
     mount(
       <IcHero
         heading="Everything I brew, I brew it for you"
@@ -124,7 +154,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render Card on right", () => {
+  it("should render card on right", () => {
     mount(
       <IcHero
         heading="Everything I brew, I brew it for you"
@@ -156,7 +186,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render image on right", () => {
+  it("should render image on right", () => {
     mount(
       <IcHero
         heading="Everything I brew, I brew it for you"
@@ -200,7 +230,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("rendering backgroundImage", () => {
+  it("should render background image", () => {
     mount(
       <IcHero
         background-image="https://img.freepik.com/free-photo/fresh-coffee-steams-wooden-table-close-up-generative-ai_188544-8923.jpg"
@@ -222,7 +252,7 @@ describe("IcHero e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render search Bar within Hero Component", () => {
+  it("should render with search bar", () => {
     mount(
       <IcHero
         heading="Everything I brew, I brew it for you"

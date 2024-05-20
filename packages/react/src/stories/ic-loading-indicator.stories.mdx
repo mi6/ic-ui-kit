@@ -51,6 +51,14 @@ export const defaultArgTypes = {
   </Story>
 </Canvas>
 
+### Circular long label
+
+<Canvas>
+  <Story name="Circular long label">
+    <IcLoadingIndicator label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long" />
+  </Story>
+</Canvas>
+
 ### Circular variants (indeterminate)
 
 <Canvas>
@@ -134,6 +142,14 @@ export const defaultArgTypes = {
   </Story>
 </Canvas>
 
+### Linear long label
+
+<Canvas>
+  <Story name="Linear long label">
+    <IcLoadingIndicator type="linear" label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long" />
+  </Story>
+</Canvas>
+
 ### Linear variants (indeterminate)
 
 <Canvas>
@@ -146,7 +162,7 @@ export const defaultArgTypes = {
         label="Full-width"
         size="default"
         type="linear"
-        variant="full-width"
+        fullWidth={true}
       />
     </div>
   </Story>
@@ -192,7 +208,7 @@ export const defaultArgTypes = {
           label="Full-width"
           size="default"
           type="linear"
-          variant="full-width"
+          fullWidth={true}
         />
       </div>
     )}
@@ -232,7 +248,7 @@ export const defaultArgTypes = {
       <IcLoadingIndicator
         label="Full-width"
         type="linear"
-        variant="full-width"
+        fullWidth={true}
         dark
       />
     </div>
@@ -244,8 +260,8 @@ export const defaultArgTypes = {
 <Canvas>
   <Story name="No label">
     <div style={{ display: "grid", gap: "50px" }}>
-      <IcLoadingIndicator name="Loading" />
-      <IcLoadingIndicator name="Loading" type="linear" />
+      <IcLoadingIndicator description="Loading" />
+      <IcLoadingIndicator description="Loading" type="linear" />
     </div>
   </Story>
 </Canvas>
