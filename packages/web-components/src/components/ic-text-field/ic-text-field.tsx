@@ -53,7 +53,6 @@ const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "title"];
 export class TextField {
   private inheritedAttributes: { [k: string]: string } = {};
   private inputEl: HTMLInputElement | HTMLTextAreaElement;
-  private showLeftIcon: boolean = this.hasLeftIconSlot();
   private hostMutationObserver: MutationObserver = null;
 
   @Element() el: HTMLIcTextFieldElement;
@@ -561,8 +560,9 @@ export class TextField {
       getInputDescribedByText(inputId, helperText !== "", showStatusText)
     ).trim();
 
-    if (this.showLeftIcon && !readonly && disabledMode) {
-      this.showLeftIcon = false;
+    let showLeftIcon = this.hasLeftIconSlot();
+    if (showLeftIcon && !readonly && disabledMode) {
+      showLeftIcon = false;
     }
 
     const invalid =
@@ -595,7 +595,7 @@ export class TextField {
             validationInline={validationInline}
             fullWidth={fullWidth}
           >
-            {this.showLeftIcon && (
+            {showLeftIcon && (
               <span
                 class={{
                   ["readonly"]: readonly,
@@ -617,7 +617,7 @@ export class TextField {
                 max={max}
                 value={value}
                 class={{
-                  ["no-left-pad"]: !this.showLeftIcon && readonly,
+                  ["no-left-pad"]: !showLeftIcon && readonly,
                   ["readonly"]: readonly,
                   ["truncate-value"]: truncateValue,
                 }}
@@ -649,7 +649,7 @@ export class TextField {
                 id={inputId}
                 class={{
                   ["no-resize"]: resize === false || readonly,
-                  ["no-left-pad"]: !this.showLeftIcon && readonly,
+                  ["no-left-pad"]: !showLeftIcon && readonly,
                   ["readonly"]: readonly,
                 }}
                 name={name}
