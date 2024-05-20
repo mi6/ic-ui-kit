@@ -160,7 +160,7 @@ export class Footer {
       >
         <footer ref={(footerEl) => (this.footerEl = footerEl)}>
           {/* Description */}
-          {description && (
+          {(isSlotUsed(this.el, "description") || description) && (
             <div class="footer-description">
               <ic-section-container aligned={aligned} fullHeight={true}>
                 <div class="footer-description-inner">

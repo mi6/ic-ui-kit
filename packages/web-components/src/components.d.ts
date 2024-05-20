@@ -4097,7 +4097,7 @@ declare namespace LocalJSX {
         /**
           * The heading of the hero.
          */
-        "heading": string;
+        "heading"?: string;
         /**
           * The optional secondary heading, replaced by slotted right content.
          */

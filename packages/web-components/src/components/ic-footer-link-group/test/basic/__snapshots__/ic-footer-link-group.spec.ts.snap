@@ -17,7 +17,7 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
       </div>
     </footer>
   </mock:shadow-root>
-  <ic-footer-link-group aria-haspopup="true" class="footer-link-group footer-link-group-light footer-link-group-small" group-title="Link group" small="true" tabindex="1">
+  <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-small" group-title="Link group" small="true" tabindex="1">
     <mock:shadow-root>
       <ic-section-container fullheight="">
         <div class="footer-link-group-header">

@@ -95,7 +95,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
         classification="official"
       ></ic-classification-banner>
       <ic-footer
-        align="full-width"
+        aligned="full-width"
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
           please get in touch."
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
@@ -153,7 +153,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
       </ic-button>
       <ic-footer
         group-links
-        align="full-width"
+        aligned="full-width"
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
             please get in touch."
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
@@ -232,6 +232,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
               viewBox="0 0 24 24"
               width="48px"
               fill="#FFFFFF"
+              aria-label="logo"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path
@@ -246,6 +247,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
               viewBox="0 0 24 24"
               width="48px"
               fill="#FFFFFF"
+              aria-label="logo"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path
@@ -260,6 +262,7 @@ import classificationBanner from "../ic-classification-banner/readme.md";
               viewBox="0 0 24 24"
               width="48px"
               fill="#FFFFFF"
+              aria-label="logo"
             >
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path
@@ -273,17 +276,18 @@ import classificationBanner from "../ic-classification-banner/readme.md";
   </Story>
 </Canvas>
 
-### Footer with no caption or logo
+### Footer with no caption or logo or copyright
 
 <Canvas>
   <Story
-    name="Footer with no caption or logo"
+    name="Footer with no caption or logo or copyright"
     parameters={{ loki: { skip: true } }}
   >
     {html`
       <ic-footer
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
           please get in touch."
+        copyright="false"
       >
         <ic-footer-link slot="link" href="/">Get Started</ic-footer-link>
         <ic-footer-link slot="link" href="/">Accessibility</ic-footer-link>
@@ -308,6 +312,98 @@ import classificationBanner from "../ic-classification-banner/readme.md";
           please get in touch."
         caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       >
+      </ic-footer>
+    `}
+  </Story>
+</Canvas>
+
+### Breakpoint
+
+<Canvas>
+  <Story name="Breakpoint" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-footer
+        description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
+          please get in touch."
+        caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
+        breakpoint="extra large"
+      >
+        <ic-footer-link slot="link" href="/">Get Started</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Accessibility</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Styles</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Components</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Patterns</ic-footer-link>
+        <ic-footer-link slot="link" href="/">Design toolkit</ic-footer-link>
+        <div slot="logo" style="display:flex;gap:var(--ic-space-sm);">
+          <ic-footer-link href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="48px"
+              viewBox="0 0 24 24"
+              width="48px"
+              fill="#FFFFFF"
+              aria-label="logo"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"
+              />
+            </svg>
+          </ic-footer-link>
+          <ic-footer-link href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="48px"
+              viewBox="0 0 24 24"
+              width="48px"
+              fill="#FFFFFF"
+              aria-label="logo"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"
+              />
+            </svg>
+          </ic-footer-link>
+          <ic-footer-link href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="48px"
+              viewBox="0 0 24 24"
+              width="48px"
+              fill="#FFFFFF"
+              aria-label="logo"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"
+              />
+            </svg>
+          </ic-footer-link>
+        </div>
+      </ic-footer>
+    `}
+  </Story>
+</Canvas>
+
+### Slotted description and caption
+
+<Canvas>
+  <Story
+    name="Slotted description and caption"
+    parameters={{ loki: { skip: true } }}
+  >
+    {html`
+      <ic-footer>
+        <ic-typography slot="description"
+          >The ICDS is maintained by the Design Practice Team. If you've got a
+          question or want to feedback, please get in touch.</ic-typography
+        >
+        <ic-typography slot="caption"
+          >All content is available under the Open Government Licence v3.0,
+          except source code and code examples which are available under the MIT
+          Licence.</ic-typography
+        >
       </ic-footer>
     `}
   </Story>

@@ -104,7 +104,6 @@ export class FooterLinkGroup {
         tabIndex="1"
         onClick={this.toggleExpanded}
         onKeydown={this.handleKeydown}
-        aria-haspopup="true"
         aria-expanded={this.expanded}
       >
         <ic-section-container fullHeight={true}>

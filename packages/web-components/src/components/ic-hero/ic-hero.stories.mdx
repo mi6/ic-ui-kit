@@ -69,6 +69,32 @@ import image from "./assets/example-background.png";
   </Story>
 </Canvas>
 
+### Slotted heading and subheading
+
+<Canvas>
+  <Story
+    name="Slotted heading and subheading"
+    parameters={{ layout: "fullscreen", loki: { skip: true } }}
+  >
+    {html`<ic-hero>
+      <ic-typography slot="heading" variant="h1">Slotted heading</ic-typography>
+      <ic-typography slot="subheading">Slotted subheading</ic-typography>
+      <ic-button variant="primary" appearance="light" slot="interaction"
+        >Button</ic-button
+      >
+      <ic-button variant="secondary" appearance="light" slot="interaction"
+        >Button</ic-button
+      >
+      <ic-link
+        href="https://google.com"
+        slot="interaction"
+        style="margin-top: var(--ic-space-sm)"
+        >Help</ic-link
+      >
+    </ic-hero>`}
+  </Story>
+</Canvas>
+
 ### Long heading
 
 <Canvas>
@@ -248,8 +274,6 @@ import image from "./assets/example-background.png";
     {html`<ic-hero
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
-      card-heading="Latest announcement"
-      card-message="This is some example text that can be included in the card copy"
       aligned="full-width"
     >
       <ic-button variant="primary" appearance="light" slot="interaction"
