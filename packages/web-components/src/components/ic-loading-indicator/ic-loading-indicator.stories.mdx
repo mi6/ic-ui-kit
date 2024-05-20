@@ -54,6 +54,18 @@ export const defaultArgTypes = {
   </Story>
 </Canvas>
 
+### Circular long label
+
+<Canvas>
+  <Story name="Circular long label" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-loading-indicator
+        label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long"
+      ></ic-loading-indicator>`
+    }
+  </Story>
+</Canvas>
+
 ### Circular variants (indeterminate)
 
 <Canvas>
@@ -149,6 +161,19 @@ export const defaultArgTypes = {
   </Story>
 </Canvas>
 
+### Linear long label
+
+<Canvas>
+  <Story name="Linear long label" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-loading-indicator
+        type="linear"
+        label="This is a label for a loading indicator that is indeterminate and should wrap onto more than one line when it gets too long"
+      ></ic-loading-indicator>`
+    }
+  </Story>
+</Canvas>
+
 ### Linear variants (indeterminate)
 
 <Canvas>
@@ -176,7 +201,7 @@ export const defaultArgTypes = {
           label="Full-width"
           size="default"
           type="linear"
-          variant="full-width"
+          full-width="true"
         ></ic-loading-indicator>
       </div>`
     }
@@ -224,7 +249,7 @@ export const defaultArgTypes = {
           label="Full-width"
           size="default"
           type="linear"
-          variant="full-width"
+          full-width="true"
         ></ic-loading-indicator>
       </div>`
     }
@@ -300,7 +325,7 @@ export const defaultArgTypes = {
         <ic-loading-indicator
           label="Full-width"
           type="linear"
-          variant="full-width"
+          full-width="true"
           appearance="light"
         ></ic-loading-indicator>
         <ic-loading-indicator
@@ -326,7 +351,7 @@ export const defaultArgTypes = {
           max="${args.max}"
           label="Full-width"
           type="linear"
-          variant="full-width"
+          full-width="true"
           appearance="light"
         ></ic-loading-indicator>
       </div>`
@@ -345,22 +370,22 @@ export const defaultArgTypes = {
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
-        <ic-loading-indicator name="Loading"></ic-loading-indicator
+        <ic-loading-indicator description="Loading"></ic-loading-indicator
         ><ic-loading-indicator
           progress="${args.progress}"
           min="${args.min}"
           max="${args.max}"
-          name="Loading"
+          description="Loading"
         ></ic-loading-indicator
         ><ic-loading-indicator
-          name="Loading"
+          description="Loading"
           type="linear"
         ></ic-loading-indicator
         ><ic-loading-indicator
           progress="${args.progress}"
           min="${args.min}"
           max="${args.max}"
-          name="Loading"
+          description="Loading"
           type="linear"
         ></ic-loading-indicator>
       </div>`
