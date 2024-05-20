@@ -92,6 +92,23 @@ export const ControlledReset = () => {
   </Story>
 </Canvas>
 
+### Slotted heading and subheading
+
+<Canvas>
+  <Story name="Slotted heading and subheading" parameters={{ layout: "fullscreen" }}>
+    <IcHero>
+      <IcTypography slot="heading" variant="h1">Slotted heading</IcTypography>
+      <IcTypography slot="subheading">Slotted subheading</IcTypography>
+      <IcButton variant="primary" slot="interaction">
+        Button
+      </IcButton>
+      <IcButton variant="secondary" slot="interaction">
+        Button
+      </IcButton>
+    </IcHero>
+  </Story>
+</Canvas>
+
 ### Full width
 
 <Canvas>
@@ -213,8 +230,6 @@ export const ControlledReset = () => {
     <IcHero
       heading="Hero heading"
       subheading="Hero description. This is a Hero component, it should be used as a page heading."
-      cardHeading="Latest announcement"
-      cardMessage="This is some example text that can be included in the card copy"
       aligned="full-width"
     >
       <IcButton variant="primary" slot="interaction">

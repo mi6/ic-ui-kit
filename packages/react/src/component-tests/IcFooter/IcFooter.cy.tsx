@@ -13,11 +13,12 @@ import {
 import { mount } from "cypress/react";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { BE_VISIBLE, HAVE_LENGTH } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.05;
 
 describe("IcFooter", () => {
-  it(" IcFooter ", () => {
+  it("should render", () => {
     mount(
       <IcFooter
         description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners."
@@ -65,7 +66,7 @@ describe("IcFooter", () => {
     cy.findShadowEl("ic-footer", ".footer-copyright").should(BE_VISIBLE);
   });
 
-  it("Should display grouplinks", () => {
+  it("should display grouplinks", () => {
     mount(
       <IcFooter
         groupLinks
@@ -135,7 +136,7 @@ describe("IcFooter", () => {
       cy.task("generateReport");
     });
 
-    it("tests default footer", () => {
+    it("should render default footer", () => {
       mount(
         <IcFooter
           description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners."
@@ -162,7 +163,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("verify center alignment of footer ", () => {
+    it("should verify center alignment of footer ", () => {
       mount(
         <IcFooter
           aligned="center"
@@ -220,7 +221,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("verify footer display for extra large screen sizes", () => {
+    it("should verify footer display for extra large screen sizes", () => {
       mount(
         <IcFooter
           breakpoint="extra large"
@@ -249,7 +250,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("verify footer display for extra small screen size", () => {
+    it("should verify footer display for extra small screen size", () => {
       mount(
         <IcFooter
           breakpoint="extra small"
@@ -278,7 +279,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("render grouped links", () => {
+    it("should render grouped links", () => {
       mount(
         <IcFooter
           groupLinks
@@ -313,7 +314,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("render logo with links", () => {
+    it("should render logo with links", () => {
       mount(
         <IcFooter description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch.">
           {" "}
@@ -368,7 +369,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait("svg", 500);
     });
 
-    it("render With Layout ", () => {
+    it("should render with layout ", () => {
       mount(
         <div className="footer-layout-root">
           <div style={{ minHeight: "100vh" }}>
@@ -456,7 +457,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait();
     });
 
-    it("footer without description", () => {
+    it("should render without description", () => {
       mount(
         <IcFooter caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence.">
           <IcFooterLink slot="link" href="/">
@@ -480,9 +481,12 @@ describe("IcFooter", () => {
       });
     });
 
-    it("footer with no caption", () => {
+    it("should render with no caption or copyright", () => {
       mount(
-        <IcFooter description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners.">
+        <IcFooter
+          description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners."
+          copyright={false}
+        >
           <IcFooterLink slot="link" href="/">
             Accessibility
           </IcFooterLink>
@@ -499,12 +503,12 @@ describe("IcFooter", () => {
       );
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "noCaption",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+        name: "noCaptionCopyright",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
       });
     });
 
-    it("footer with no links", () => {
+    it("should render a footer with no links", () => {
       mount(
         <IcFooter
           description="The UK Intelligence Community Design System (ICDS) is a joint project by MI6, GCHQ, MI5, and partners."
@@ -515,6 +519,27 @@ describe("IcFooter", () => {
       cy.compareSnapshot({
         name: "noLinks",
         testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      });
+    });
+
+    it("should render a footer with slotted description and caption", () => {
+      mount(
+        <IcFooter>
+          <IcTypography slot="description">
+            The UK Intelligence Community Design System (ICDS) is a joint
+            project by MI6, GCHQ, MI5, and partners.
+          </IcTypography>
+          <IcTypography slot="caption">
+            All content is available under the Open Government Licence v3.0,
+            except source code and code examples which are available under the
+            MIT Licence.
+          </IcTypography>
+        </IcFooter>
+      );
+      cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "slottedDescriptionCaption",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
       });
     });
   });
