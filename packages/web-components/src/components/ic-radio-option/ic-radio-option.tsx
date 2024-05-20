@@ -13,13 +13,16 @@ import {
 } from "@stencil/core";
 import { IcAdditionalFieldTypes, IcValueEventDetail } from "../../utils/types";
 import {
-  getSlotContent,
   onComponentRequiredPropUndefined,
   addFormResetListener,
   removeFormResetListener,
   removeDisabledFalse,
   isPropDefined,
+  isSlotUsed,
 } from "../../utils/helpers";
+
+const ADDITIONAL_FIELD = "additional-field";
+const TEXT_FIELD_SELECTOR = "ic-text-field";
 
 /**
  * @slot additional-field - Content to displayed alongside a radio option.
@@ -136,15 +139,10 @@ export class RadioOption {
   }
 
   componentWillLoad(): void {
-    const additionalFieldContent = getSlotContent(this.el, "additional-field");
-
-    if (additionalFieldContent !== null) {
+    if (isSlotUsed(this.el, ADDITIONAL_FIELD)) {
       this.hasAdditionalField = true;
-      const Element = additionalFieldContent[0] as HTMLElement;
-      if (Element.tagName === "IC-TEXT-FIELD") {
-        const textField = Element as HTMLIcTextFieldElement;
-        textField.hiddenInput = false;
-      }
+      const textField = this.el.querySelector(TEXT_FIELD_SELECTOR);
+      if (textField) textField.hiddenInput = false;
     }
 
     this.defaultRadioValue = this.value;
@@ -161,39 +159,38 @@ export class RadioOption {
     );
   }
 
+  componentWillRender(): void {
+    const hasSlot = isSlotUsed(this.el, ADDITIONAL_FIELD);
+    if (hasSlot && !this.hasAdditionalField) {
+      this.hasAdditionalField = true;
+      const textField = this.el.querySelector(TEXT_FIELD_SELECTOR);
+      if (textField) textField.hiddenInput = false;
+    } else if (!hasSlot && this.hasAdditionalField) {
+      this.hasAdditionalField = false;
+    }
+  }
+
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
-      const textfield = this.el.querySelector("ic-text-field");
+      const textfield = this.el.querySelector(TEXT_FIELD_SELECTOR);
       if (!this.selected) {
-        textfield && textfield.setAttribute("disabled", "");
+        textfield?.setAttribute("disabled", "");
       } else {
-        textfield && textfield.removeAttribute("disabled");
+        textfield?.removeAttribute("disabled");
       }
     }
   }
 
   @Listen("icChange")
   textfieldValueHandler(event: CustomEvent<{ value: string }>): void {
-    const textFieldValue = event.detail.value;
-
     if (this.selected) {
-      if (textFieldValue !== "") {
-        this.value = event.detail.value;
-        this.icCheck.emit({
-          value: this.value,
-        });
-        this.radioOptionSelect.emit({
-          value: this.value,
-        });
-      } else {
-        this.value = this.defaultRadioValue;
-        this.icCheck.emit({
-          value: this.defaultRadioValue,
-        });
-        this.radioOptionSelect.emit({
-          value: this.defaultRadioValue,
-        });
-      }
+      this.value = event.detail.value || this.defaultRadioValue;
+      this.icCheck.emit({
+        value: this.value,
+      });
+      this.radioOptionSelect.emit({
+        value: this.value,
+      });
     }
 
     event.stopImmediatePropagation();
@@ -223,9 +220,9 @@ export class RadioOption {
       this.skipFocus = false;
 
       if (this.hasAdditionalField) {
-        const textfield = this.el.querySelector("ic-text-field");
         this.value =
-          textfield.value !== "" ? textfield.value : this.defaultRadioValue;
+          this.el.querySelector(TEXT_FIELD_SELECTOR).value ||
+          this.defaultRadioValue;
       }
 
       this.icCheck.emit({
@@ -248,63 +245,80 @@ export class RadioOption {
   };
 
   render() {
-    const id = `ic-radio-option-${
-      isPropDefined(this.label) ? this.label : this.value
-    }-${this.groupLabel}`;
+    const {
+      additionalFieldDisplay,
+      disabled,
+      dynamicText,
+      form,
+      formaction,
+      formenctype,
+      formmethod,
+      formnovalidate,
+      formtarget,
+      groupLabel,
+      handleClick,
+      hasAdditionalField,
+      label,
+      name,
+      selected,
+      swallowClick,
+      value,
+    } = this;
+
+    const id = `ic-radio-option-${isPropDefined(label) || value}-${groupLabel}`;
 
     return (
-      <Host onClick={this.handleClick} class={{ disabled: this.disabled }}>
-        <div class={{ ["container"]: true, ["disabled"]: this.disabled }}>
+      <Host onClick={handleClick} class={{ disabled }}>
+        <div class={{ ["container"]: true, disabled }}>
           <div>
             <input
               role="radio"
-              tabindex={this.selected ? "0" : "-1"}
+              tabindex={selected ? "0" : "-1"}
               type="radio"
-              name={this.name}
+              name={name}
               id={id}
-              value={this.value}
-              disabled={this.disabled ? true : null}
-              checked={this.selected}
+              value={value}
+              disabled={disabled ? true : null}
+              checked={selected}
               ref={(el) => (this.radioElement = el)}
-              form={this.form}
-              formaction={this.formaction}
-              formenctype={this.formenctype}
-              formmethod={this.formmethod}
-              formnovalidate={this.formnovalidate}
-              formtarget={this.formtarget}
+              form={form}
+              formaction={formaction}
+              formenctype={formenctype}
+              formmethod={formmethod}
+              formnovalidate={formnovalidate}
+              formtarget={formtarget}
             ></input>
             <span class="checkmark"></span>
           </div>
           <ic-typography class="radio-label" variant="body">
-            <label htmlFor={id}>{this.label}</label>
+            <label htmlFor={id}>{label}</label>
           </ic-typography>
         </div>
 
-        {this.hasAdditionalField && (
+        {hasAdditionalField && (
           <div
-            onClick={this.swallowClick}
+            onClick={swallowClick}
             class={{
               "dynamic-container": true,
-              hidden:
-                this.additionalFieldDisplay === "dynamic" && !this.selected,
+              hidden: additionalFieldDisplay === "dynamic" && !selected,
             }}
           >
-            {this.additionalFieldDisplay === "dynamic" && (
+            {additionalFieldDisplay === "dynamic" && (
               <div class="branch-corner"></div>
             )}
             <div>
-              {this.additionalFieldDisplay === "dynamic" && (
+              {additionalFieldDisplay === "dynamic" && (
                 <ic-typography variant="caption">
-                  <p class="dynamic-text">{this.dynamicText}</p>
+                  <p class="dynamic-text">{dynamicText}</p>
                 </ic-typography>
               )}
               <div
                 class={{
                   "additional-field-wrapper":
-                    this.additionalFieldDisplay === "static",
+                    additionalFieldDisplay === "static",
                 }}
               >
-                <slot name="additional-field"></slot>
+                <slot name={ADDITIONAL_FIELD}></slot>
               </div>
             </div>
           </div>

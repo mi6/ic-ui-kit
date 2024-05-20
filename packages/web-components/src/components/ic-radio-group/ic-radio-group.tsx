@@ -108,9 +108,7 @@ export class RadioGroup {
   @Event() icChange: EventEmitter<IcChangeEventDetail>;
 
   disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
+    this.resizeObserver?.disconnect();
     this.radioContainer?.removeEventListener(
       "slotchange",
       this.setRadioOptions
@@ -139,9 +137,9 @@ export class RadioGroup {
   }
 
   @Listen("icCheck")
-  selectHandler(event: CustomEvent<IcValueEventDetail>): void {
-    this.checkedValue = event.detail.value as string;
-    const selectedOption = event.target as HTMLIcRadioOptionElement;
+  selectHandler({ detail, target }: CustomEvent<IcValueEventDetail>): void {
+    this.checkedValue = detail.value;
+    const selectedOption = target as HTMLIcRadioOptionElement;
     this.icChange.emit({
       value: this.checkedValue,
       selectedOption: {
@@ -183,13 +181,10 @@ export class RadioGroup {
   private checkOrientation() {
     if (this.initialOrientation === "horizontal") {
       let totalWidth = 0;
-      const radioOptionGap = 40;
-      for (let i = 0; i < this.radioOptions.length; i++) {
-        totalWidth += this.radioOptions[i].clientWidth;
-        if (i < this.radioOptions.length - 1) {
-          totalWidth += radioOptionGap;
-        }
-      }
+      this.radioOptions.forEach(({ clientWidth }, i, arr) => {
+        totalWidth += clientWidth;
+        if (i < arr.length - 1) totalWidth += 40;
+      });
 
       if (
         this.currentOrientation === "horizontal" &&
