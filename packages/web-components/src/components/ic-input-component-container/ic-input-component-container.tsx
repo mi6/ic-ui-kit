@@ -6,7 +6,7 @@ import {
   IcSizes,
 } from "../../utils/types";
 import successIcon from "../../assets/success-icon.svg";
-import { isSlotUsed } from "../../utils/helpers";
+import { slotHasContent } from "../../utils/helpers";
 
 /**
  * @slot left-icon - Content will be placed to the left of the input.
@@ -106,7 +106,7 @@ export class InputComponentContainer {
             dark: dark || appearance === "dark",
           }}
         >
-          {isSlotUsed(this.el, "left-icon") && (
+          {slotHasContent(this.el, "left-icon") && (
             <div
               class={{
                 ["icon-container"]: true,

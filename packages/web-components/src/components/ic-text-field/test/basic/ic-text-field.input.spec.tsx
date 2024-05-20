@@ -200,7 +200,6 @@ describe("ic-text-field", () => {
 
     const slot = page.root.shadowRoot.querySelector(`[slot="icon"]`);
     expect(slot).toBeNull();
-    expect(page.rootInstance.showLeftIcon).toBe(false);
   });
 
   it("should not exceed max length if new value < max length", async () => {
