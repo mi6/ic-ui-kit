@@ -17,7 +17,7 @@ exports[`ic-pagination-bar should only allow a maximum of 4 custom items per pag
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="6" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="6" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@ exports[`ic-pagination-bar should render 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ exports[`ic-pagination-bar should render 1`] = `
 `;
 
 exports[`ic-pagination-bar should render with a custom item label 1`] = `
-<ic-pagination-bar range-item-label="Row" range-label-type="data" total-items="100">
+<ic-pagination-bar item-label="Row" range-label-type="data" total-items="100">
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
@@ -55,7 +55,7 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -64,17 +64,17 @@ exports[`ic-pagination-bar should render with a custom item label 1`] = `
 `;
 
 exports[`ic-pagination-bar should render with a custom page label 1`] = `
-<ic-pagination-bar page-label="Sheets" total-items="100">
+<ic-pagination-bar page-label="Sheet" total-items="100">
   <mock:shadow-root>
     <div class="pagination-bar pagination-bar-right">
       <div class="item-controls">
         <ic-typography aria-live="polite" class="page-pagination-label pagination-text-default" variant="label">
-          Sheets 1 of 10
+          Sheet 1 of 10
         </ic-typography>
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Sheet" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -142,7 +142,7 @@ exports[`ic-pagination-bar should render with custom items per page options 1`] 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="7" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="7" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@ exports[`ic-pagination-bar should render with dark appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -180,7 +180,7 @@ exports[`ic-pagination-bar should render with data pagination type 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@ exports[`ic-pagination-bar should render with go to page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
         <div class="go-to-page-holder">
           <ic-typography class="pagination-text-default" variant="label">
@@ -235,7 +235,7 @@ exports[`ic-pagination-bar should render with items per page controls 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -254,7 +254,7 @@ exports[`ic-pagination-bar should render with left alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@ exports[`ic-pagination-bar should render with light appearance 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="light" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="light" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -292,7 +292,7 @@ exports[`ic-pagination-bar should render with space between alignment 1`] = `
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -306,7 +306,7 @@ exports[`ic-pagination-bar should render without range text 1`] = `
     <div class="pagination-bar pagination-bar-right">
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -325,7 +325,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="1" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="1" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -344,7 +344,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="10" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="10" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -363,7 +363,7 @@ exports[`ic-pagination-bar should update pagination when number of item changes 
       </div>
       <div class="pagination-controls">
         <div class="pagination-holder">
-          <ic-pagination appearance="default" pages="5" type="simple"></ic-pagination>
+          <ic-pagination appearance="default" label="Page" pages="5" type="simple"></ic-pagination>
         </div>
       </div>
     </div>
@@ -393,7 +393,7 @@ Object {
                   <ic-button appearance="default" aria-label="Go to previous page" class="flip next-previous page-button" disabled="" id="previous-page-button" variant="icon">
                     svg
                   </ic-button>
-                  <ic-pagination-item appearance="default" label="Page" page="1" pages="10" type="simple-current"></ic-pagination-item>
+                  <ic-pagination-item appearance="default" label="Page" page="1" type="simple-current"></ic-pagination-item>
                   <ic-button appearance="default" aria-label="Go to next page" class="next-previous page-button" id="next-page-button" variant="icon">
                     svg
                   </ic-button>

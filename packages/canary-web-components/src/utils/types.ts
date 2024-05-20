@@ -1,3 +1,9 @@
+import {
+  IcPaginationLabelTypes,
+  IcPaginationTypes,
+  IcPaginationAlignmentOptions,
+} from "../components";
+
 export type IcFocusableComponents =
   | HTMLIcBreadcrumbElement
   | HTMLIcButtonElement
@@ -171,6 +177,19 @@ export interface IcMenuOption {
 }
 
 export type IcSearchMatchPositions = "start" | "anywhere";
+
+export interface IcPaginationBarOptions {
+  itemsPerPageOptions?: { label: string; value: string }[];
+  rangeLabelType?: IcPaginationLabelTypes;
+  type?: IcPaginationTypes;
+  showItemsPerPageControl?: boolean;
+  showGoToPageControl?: boolean;
+  alignment?: IcPaginationAlignmentOptions;
+  appearance?: IcThemeForeground;
+  itemLabel?: string;
+  pageLabel?: string;
+  hideRangeLabel?: boolean;
+}
 
 export type IcCallbackFunctionNoReturn = (...args: unknown[]) => void;
 

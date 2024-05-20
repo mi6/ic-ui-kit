@@ -23,12 +23,8 @@ import {
   IcDataTableSortOrderOptions,
   IcDensityUpdateEventDetail,
 } from "./ic-data-table.types";
-import {
-  IcPaginationLabelTypes,
-  IcPaginationTypes,
-  IcPaginationAlignmentOptions,
-} from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
+import { IcPaginationBarOptions } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
@@ -142,24 +138,21 @@ export class DataTable {
   /**
    * Sets the props for the pagination bar.
    */
-  @Prop() paginationOptions?: {
-    itemsPerPage?: { label: string; value: string }[];
-    rangeLabelType?: IcPaginationLabelTypes;
-    type?: IcPaginationTypes;
-    itemsPerPageControl?: boolean;
-    goToPageControl?: boolean;
-    alignment?: IcPaginationAlignmentOptions;
-  } = {
-    itemsPerPage: [
+  @Prop() paginationBarOptions?: IcPaginationBarOptions = {
+    itemsPerPageOptions: [
       { label: "10", value: "10" },
       { label: "25", value: "25" },
       { label: "50", value: "50" },
     ],
     rangeLabelType: "page",
     type: "simple",
-    itemsPerPageControl: true,
-    goToPageControl: true,
+    showItemsPerPageControl: true,
+    showGoToPageControl: true,
     alignment: "right",
+    appearance: "default",
+    itemLabel: "Item",
+    pageLabel: "Page",
+    hideRangeLabel: false,
   };
 
   /**
@@ -224,7 +217,9 @@ export class DataTable {
   @Event() icRowHeightChange: EventEmitter<void>;
 
   componentWillLoad(): void {
-    this.rowsPerPage = Number(this.paginationOptions.itemsPerPage[0].value);
+    this.rowsPerPage = Number(
+      this.paginationBarOptions.itemsPerPageOptions[0].value
+    );
     this.previousRowsPerPage = this.rowsPerPage;
     this.toRow = this.rowsPerPage;
     this.sortedColumn = this.sortOptions.defaultColumn;
@@ -724,7 +719,7 @@ export class DataTable {
       hideColumnHeaders,
       loading,
       loadingOptions,
-      paginationOptions,
+      paginationBarOptions,
       scrollable,
       scrollOffset,
       showPagination,
@@ -804,12 +799,18 @@ export class DataTable {
           <div class="pagination-container">
             <ic-pagination-bar
               totalItems={data.length}
-              type={paginationOptions.type}
-              rangeLabelType={paginationOptions.rangeLabelType}
-              showItemsPerPageControl={paginationOptions.itemsPerPageControl}
-              showGoToPageControl={paginationOptions.goToPageControl}
-              itemsPerPageOptions={paginationOptions.itemsPerPage}
-              alignment={paginationOptions.alignment}
+              type={paginationBarOptions.type}
+              rangeLabelType={paginationBarOptions.rangeLabelType}
+              showItemsPerPageControl={
+                paginationBarOptions.showItemsPerPageControl
+              }
+              showGoToPageControl={paginationBarOptions.showGoToPageControl}
+              itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
+              alignment={paginationBarOptions.alignment}
+              appearance={paginationBarOptions.appearance}
+              itemLabel={paginationBarOptions.itemLabel}
+              pageLabel={paginationBarOptions.pageLabel}
+              hideRangeLabel={paginationBarOptions.hideRangeLabel}
             ></ic-pagination-bar>
           </div>
         )}

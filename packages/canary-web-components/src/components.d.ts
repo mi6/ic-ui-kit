@@ -7,15 +7,15 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-import { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
+import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
+import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
-export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
-export { IcDateFormat, IcInformationStatusOrEmpty, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
+export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
+export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export namespace Components {
     interface IcDataTable {
@@ -71,14 +71,7 @@ export namespace Components {
         /**
           * Sets the props for the pagination bar.
          */
-        "paginationOptions"?: {
-    itemsPerPage?: { label: string; value: string }[];
-    rangeLabelType?: IcPaginationLabelTypes;
-    type?: IcPaginationTypes;
-    itemsPerPageControl?: boolean;
-    goToPageControl?: boolean;
-    alignment?: IcPaginationAlignmentOptions;
-  };
+        "paginationBarOptions"?: IcPaginationBarOptions;
         /**
           * Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.
          */
@@ -422,6 +415,10 @@ export namespace Components {
          */
         "hideRangeLabel"?: boolean;
         /**
+          * The text which will be used in place of 'Item' on the pagination bar.
+         */
+        "itemLabel"?: string;
+        /**
           * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
         "itemsPerPageOptions"?: {
@@ -429,13 +426,9 @@ export namespace Components {
     value: string;
   }[];
         /**
-          * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
+          * The text which will be used in place of 'Page' on the pagination bar.
          */
         "pageLabel"?: string;
-        /**
-          * The label which will be used in place of 'items' if type is data. Should be capitalised.
-         */
-        "rangeItemLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
@@ -842,14 +835,7 @@ declare namespace LocalJSX {
         /**
           * Sets the props for the pagination bar.
          */
-        "paginationOptions"?: {
-    itemsPerPage?: { label: string; value: string }[];
-    rangeLabelType?: IcPaginationLabelTypes;
-    type?: IcPaginationTypes;
-    itemsPerPageControl?: boolean;
-    goToPageControl?: boolean;
-    alignment?: IcPaginationAlignmentOptions;
-  };
+        "paginationBarOptions"?: IcPaginationBarOptions;
         /**
           * If `true`, adds a pagination bar to the bottom of the table.
          */
@@ -1202,6 +1188,10 @@ declare namespace LocalJSX {
          */
         "hideRangeLabel"?: boolean;
         /**
+          * The text which will be used in place of 'Item' on the pagination bar.
+         */
+        "itemLabel"?: string;
+        /**
           * The options which will be displayed for 'items per page' select input. Set a maximum of 4 options including a required 'All' option with value equal to total number of items.
          */
         "itemsPerPageOptions"?: {
@@ -1217,13 +1207,9 @@ declare namespace LocalJSX {
          */
         "onIcPageChange"?: (event: IcPaginationBarCustomEvent<{ value: number }>) => void;
         /**
-          * The label which will be used in place of 'Page' if rangeLabelType is page. Should be capitalised.
+          * The text which will be used in place of 'Page' on the pagination bar.
          */
         "pageLabel"?: string;
-        /**
-          * The label which will be used in place of 'items' if type is data. Should be capitalised.
-         */
-        "rangeItemLabel"?: string;
         /**
           * Whether total number of items and current item range or total number of pages and current page is displayed.
          */
