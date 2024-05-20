@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-10T14:30:05",
+  "timestamp": "2024-05-20T13:45:53",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -18040,7 +18040,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "app-icon - Content will be rendered to left of app title."
+          "text": "app-icon - Content will be rendered to left of app title. Anything that is slotted here will be hidden from screen readers."
         },
         {
           "name": "slot",
@@ -18327,7 +18327,7 @@
       "slots": [
         {
           "name": "app-icon",
-          "docs": "Content will be rendered to left of app title."
+          "docs": "Content will be rendered to left of app title. Anything that is slotted here will be hidden from screen readers."
         },
         {
           "name": "app-title",
