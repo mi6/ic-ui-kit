@@ -7,11 +7,26 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { IcTextField } from "../components";
+import {SlottedSVG} from "../react-component-lib/slottedSVG";
 import readme from "../../../web-components/src/components/ic-text-field/readme.md";
 
 <Meta title="Text field" component={IcTextField} />
 
 <Description markdown={readme} />
+
+export const SlottedIcon = () => (
+  <SlottedSVG 
+    slot="icon"
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 0 24 24"
+    width="24px"
+    fill="#000000"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+  </SlottedSVG>  
+);
 
 export const ControlledExample = () => {
   const [value, setValue] = useState("");
@@ -86,17 +101,7 @@ export const ControlledExample = () => {
       placeholder="Placeholder"
       helperText="Such as Arabica, Robusta or Liberica"
     >
-      <svg
-        slot="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000000"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-      </svg>
+      <SlottedIcon />
     </IcTextField>
     <IcTextField
       rows="6"
@@ -105,17 +110,7 @@ export const ControlledExample = () => {
       placeholder="Placeholder"
       helperText="Such as Arabica, Robusta or Liberica"
     >
-      <svg
-        slot="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000000"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-      </svg>
+      <SlottedIcon />
     </IcTextField>
   </Story>
 </Canvas>
@@ -131,17 +126,7 @@ export const ControlledExample = () => {
       placeholder="Placeholder"
       helperText="Such as Arabica, Robusta or Liberica"
     >
-      <svg
-        slot="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000000"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-      </svg>
+      <SlottedIcon />
     </IcTextField>
     <IcTextField
       rows="6"
@@ -151,17 +136,7 @@ export const ControlledExample = () => {
       placeholder="Placeholder"
       helperText="Such as Arabica, Robusta or Liberica"
     >
-      <svg
-        slot="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000000"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
-      </svg>
+      <SlottedIcon />
     </IcTextField>
   </Story>
 </Canvas>
@@ -280,7 +255,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="success"
       validationText="Good choice!"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       rows="6"
       maxLength="25"
@@ -290,7 +267,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="success"
       validationText="Good choice!"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       maxLength="25"
       value="Arabica"
@@ -300,7 +279,9 @@ export const ControlledExample = () => {
       validationStatus="success"
       validationText="Good choice!"
       validationInline
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       maxLength="25"
       size="small"
@@ -311,7 +292,9 @@ export const ControlledExample = () => {
       validationStatus="success"
       validationText="Good choice!"
       validationInline
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       maxLength="25"
       value="Arabica"
@@ -320,7 +303,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="warning"
       validationText="A very long warning message to test if wrapping works"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       rows="6"
       maxLength="25"
@@ -330,7 +315,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="warning"
       validationText="A very long warning message to test if wrapping works"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       maxLength="25"
       value="Tea"
@@ -339,7 +326,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="error"
       validationText="Now it has really gone to (coffee) pot"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       rows="6"
       maxLength="25"
@@ -349,7 +338,9 @@ export const ControlledExample = () => {
       helperText="Such as Arabica, Robusta or Liberica"
       validationStatus="error"
       validationText="Now it has really gone to (coffee) pot"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       validationStatus="error"
       validationText="now it has really gone to (coffee) pot"
@@ -361,7 +352,9 @@ export const ControlledExample = () => {
       min="1"
       max="4"
       required
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       validationStatus="error"
       validationText="now it has really gone to (coffee) pot"
@@ -373,7 +366,9 @@ export const ControlledExample = () => {
       min="1"
       max="4"
       required
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
     <IcTextField
       validationStatus="error"
       validationText="I'm not familiar with this type of coffee"
@@ -385,7 +380,9 @@ export const ControlledExample = () => {
       size="small"
       placeholder="Placeholder"
       helperText="Such as Arabica, Robusta or Liberica"
-    />
+    >
+      <SlottedIcon />
+    </IcTextField>
   </Story>
 </Canvas>
 

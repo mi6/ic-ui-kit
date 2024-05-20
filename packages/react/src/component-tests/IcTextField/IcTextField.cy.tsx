@@ -350,6 +350,15 @@ describe("IcTextField visual regression tests", () => {
       name: "icon_value_max_length",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
     });
+    cy.get(IC_TEXTFIELD)
+      .invoke("prop", "value", "This should exceed 25 characters")
+      .then(() => {
+        cy.checkA11yWithWait(undefined, 500);
+        cy.compareSnapshot({
+          name: "icon_value_max_length_exceeded",
+          testThreshold: DEFAULT_TEST_THRESHOLD + 0.046,
+        });
+      });
   });
 
   it("renders a small text field", () => {
