@@ -48,6 +48,14 @@ declare global {
        */
       checkShadowElVisible: typeof Commands.checkShadowElVisible;
       /**
+       * Disable forced colours
+       */
+      disableForcedColors: typeof Commands.disableForcedColors;
+      /**
+       * Enable forced colours
+       */
+      enableForcedColors: typeof Commands.enableForcedColors;
+      /**
        * Check the selector inside the shadow root of an element is visible
        * @param {string} element identifier of the parent element
        * @param {string} selector identifier of the selector to be clicked
@@ -84,6 +92,52 @@ const checkShadowElVisible = (
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get(`${element}`).shadow().find(`${selector}`).should(BE_VISIBLE);
 
+const cdpCommand = "Emulation.setEmulatedMedia";
+const media = "forced-colors";
+  
+const enableForcedColors = () => {
+  const darkMode= "dark";
+  return cy
+    .then(() => {
+      return Cypress.automation("remote:debugger:protocol", {
+        command: cdpCommand,
+        params: {
+          media,
+          features: [
+            { name: media, value: "active" },
+            { name: "prefers-color-scheme", value: darkMode},
+          ],
+        },
+      });
+    })
+    .then(() => {
+      Cypress.log({
+        name: "Enable forced colors",
+        message: `${darkMode} theme`,
+      });
+    })
+    .window();
+}
+  
+const disableForcedColors = () => {
+  return cy
+    .then(() => {
+      return Cypress.automation("remote:debugger:protocol", {
+        command: cdpCommand,
+        params: {
+          media,
+          features: [{ name: media, value: "none" }],
+        },
+      });
+    })
+    .then(() => {
+      Cypress.log({
+        name: "Disable forced colors",
+      });
+    })
+    .window();
+}
+
 const findShadowEl = (
   element: string,
   selector: string
@@ -107,6 +161,8 @@ const Commands = {
   checkHydrated,
   clickOnShadowEl,
   checkShadowElVisible,
+  disableForcedColors,
+  enableForcedColors,
   findShadowEl,
   clickOnButton,
   checkA11yWithWait,
