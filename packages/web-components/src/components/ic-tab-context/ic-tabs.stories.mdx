@@ -311,3 +311,27 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
     }
   </Story>
 </Canvas>
+
+### Min and max content
+
+<Canvas>
+  <Story name="Min and max content" parameters={{ loki: { skip: true } }}>
+    {html`<div style="max-width:500px">
+      <ic-tab-context>
+        <ic-tab-group label="Example tab group">
+          <ic-tab>Extremely long tab label made of plenty of words</ic-tab>
+          <ic-tab>A</ic-tab>
+          <ic-tab>Antidisestablishmentarianismbutmadeevenlonger</ic-tab>
+        </ic-tab-group>
+        <ic-tab-panel
+          >Testing tab behaviour with lots of words in label</ic-tab-panel
+        >
+        <ic-tab-panel>Testing minimum label length</ic-tab-panel>
+        <ic-tab-panel
+          >Testing tab behaviour with one really long word in
+          label</ic-tab-panel
+        >
+      </ic-tab-context>
+    </div>`}
+  </Story>
+</Canvas>
