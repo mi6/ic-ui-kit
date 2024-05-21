@@ -194,3 +194,189 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
     </IcToggleButton>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  label: "Custom Button",
+  disabled: false,
+  loading: false,
+  appearance: "default",
+  size: "default",
+  variant: "default",
+  fullWidth: false,
+  toggleChecked: false,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      toggleChecked: {
+        control: { type: "boolean" },
+      },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
+        <IcToggleButton
+          label={args.label}
+          disabled={args.disabled}
+          variant={args.variant}
+          size={args.size}
+          loading={args.loading}
+          appearance={args.appearance}
+          fullWidth={args.fullWidth}
+          toggleChecked={args.toggleChecked}
+        />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Playground - default with icon
+
+export const defaultWithIconArgs = {
+  label: "Custom Button",
+  disabled: false,
+  loading: false,
+  appearance: "default",
+  size: "default",
+  variant: "default",
+  fullWidth: false,
+  iconPlacement: "left",
+  toggleChecked: false,
+  accessibleLabel: "Custom Button Ally Label",
+};
+
+<Canvas>
+  <Story
+    args={defaultWithIconArgs}
+    argTypes={{
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      toggleChecked: {
+        control: { type: "boolean" },
+      },
+      iconPlacement: {
+        options: ["left", "right", "top"],
+        control: { type: "inline-radio" },
+      },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
+    }}
+    name="Playground - default with icon"
+  >
+    {(args) => (
+      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
+        <IcToggleButton
+          label={args.label}
+          disabled={args.disabled}
+          variant={args.variant}
+          size={args.size}
+          loading={args.loading}
+          appearance={args.appearance}
+          fullWidth={args.fullWidth}
+          toggleChecked={args.toggleChecked}
+          iconPlacement={args.iconPlacement}
+        >
+          <SlottedSVG
+          xmlns="http://www.w3.org/2000/svg"
+          slot="icon"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+        </SlottedSVG>
+        </IcToggleButton>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Playground - icon variant
+
+export const defaultIconArgs = {
+  label: "Custom Button",
+  disabled: false,
+  loading: false,
+  appearance: "default",
+  size: "default",
+  variant: "icon",
+  fullWidth: false,
+  toggleChecked: false,
+  accessibleLabel: "Custom Button Ally Label",
+};
+
+<Canvas>
+  <Story
+    args={defaultIconArgs}
+    argTypes={{
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      toggleChecked: {
+        control: { type: "boolean" },
+      },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
+    }}
+    name="Playground - icon variant"
+  >
+    {(args) => (
+      <div style={{ backgroundColor: args.appearance === 'light' ? '#393939' : '#FFFFFF', width: args.fullWidth ? '95%' : 'fit-content', padding: '1rem'}}>
+        <IcToggleButton
+          label={args.label}
+          disabled={args.disabled}
+          variant={args.variant}
+          size={args.size}
+          loading={args.loading}
+          appearance={args.appearance}
+          fullWidth={args.fullWidth}
+          toggleChecked={args.toggleChecked}
+          accessibleLabel={args.accessibleLabel}
+        >
+          <SlottedSVG
+          xmlns="http://www.w3.org/2000/svg"
+          slot="icon"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+        </SlottedSVG>
+        </IcToggleButton>
+      </div>
+    )}
+  </Story>
+</Canvas>
