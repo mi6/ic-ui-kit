@@ -172,3 +172,24 @@
 :host(.checked.loading.dark) ::part(button) {
   background-color: var(--ic-action-dark-active);
 }
+
+@media (forced-colors: active) {
+  :host(.checked) ::part(button),
+  :host(.checked) ::part(button):hover {
+    background-color: Highlight;
+  }
+
+  :host(.checked.light) ::part(button),
+  :host(.checked.light) ::part(button):hover {
+    background-color: Highlight;
+  }
+
+  :host(.checked.dark) ::part(button),
+  :host(.checked.dark) ::part(button):hover {
+    background-color: Highlight;
+  }
+
+  :host(.checked.disabled) ::part(button) {
+    background-color: GrayText;
+  }
+}
