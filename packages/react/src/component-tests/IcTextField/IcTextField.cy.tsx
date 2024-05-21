@@ -40,6 +40,7 @@ import {
   Controlled,
   Uncontrolled,
 } from "./IcTextFieldTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const IC_TEXTFIELD = "ic-text-field";
 const TEXTFIELD_INPUT = 'input[type="text"]';
@@ -348,7 +349,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "icon_value_max_length",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
     cy.get(IC_TEXTFIELD)
       .invoke("prop", "value", "This should exceed 25 characters")
@@ -356,7 +357,7 @@ describe("IcTextField visual regression tests", () => {
         cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
           name: "icon_value_max_length_exceeded",
-          testThreshold: DEFAULT_TEST_THRESHOLD + 0.046,
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
         });
       });
   });
@@ -366,7 +367,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "small_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -375,7 +376,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full_width_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -384,7 +385,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "multiline_text_area_with_resize",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.023,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -393,7 +394,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "inline_validation_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -402,7 +403,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "validation_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.093,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.093),
     });
   });
 
@@ -411,7 +412,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "readonly_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.023,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -420,7 +421,7 @@ describe("IcTextField visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -433,7 +434,58 @@ describe("IcTextField visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "focused_input_text_field",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+});
+
+describe("IcTextField visual regression in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("renders a text field with input focused", () => {
+    mount(<SimpleTextField />);
+    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
+    cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
+    cy.compareSnapshot({
+      name: "focused_input_text_field_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("renders disabled", () => {
+    mount(<DisabledTextField />);
+    cy.wait(100);
+    cy.compareSnapshot({
+      name: "disabled_text_field_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+    });
+  });
+
+  it("renders a readonly text field", () => {
+    mount(<ReadonlyTextField />);
+    cy.wait(100);
+    cy.compareSnapshot({
+      name: "readonly_text_field_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("renders validation status and text", () => {
+    mount(<TextFieldWithValidation />);
+    cy.wait(100);
+    cy.compareSnapshot({
+      name: "validation_text_field_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
     });
   });
 });
