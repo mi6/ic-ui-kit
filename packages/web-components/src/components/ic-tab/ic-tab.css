@@ -55,14 +55,15 @@
   pointer-events: none;
   color: var(--ic-architectural-300);
 }
-
-:host(.selected.with-transition) {
-  transition: all var(--ic-easing-transition-slow),
-    border-color var(--ic-transition-duration-slow);
+@media (prefers-reduced-motion: no-preference) {
+  :host(.selected.with-transition) {
+    transition: all var(--ic-easing-transition-slow),
+      border-color var(--ic-transition-duration-slow);
+  }
 }
-
 .ic-tab-label {
   pointer-events: none;
+  text-wrap: nowrap;
 }
 
 ::slotted(svg) {
@@ -78,3 +79,14 @@
     color: GrayText;
   }
 }
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  :host(ic-tab) .ic-tab-label {
+    color: var(--ic-architectural-white);
+  }
+  :host(ic-tab.disabled) .ic-tab-label {
+    color: inherit;
+  }
+} */
