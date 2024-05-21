@@ -12,6 +12,16 @@ import readme from "./readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  label: "Custom Switch",
+  helperText: "Custom helper text",
+  disabled: false,
+  checked: false,
+  hideLabel: false,
+  showState: false,
+  size: "default",
+};
+
 ### Default
 
 <Canvas>
@@ -157,5 +167,33 @@ import readme from "./readme.md";
         </script>
       </form>
     </form>`}
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      size: {
+        options: ["default", "small"],
+        control: { type: "inline-radio" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-switch
+        disabled=${args.disabled}
+        show-state=${args.showState}
+        label=${args.label}
+        checked=${args.checked}
+        hide-label=${args.hideLabel}
+        helper-text=${args.helperText}
+        size=${args.size}
+      ></ic-switch>`
+    }
   </Story>
 </Canvas>
