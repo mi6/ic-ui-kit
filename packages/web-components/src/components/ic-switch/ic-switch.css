@@ -117,9 +117,7 @@ input {
 
 .ic-switch-input:focus:not([disabled]) + .ic-switch-toggle,
 .ic-switch-input:focus-visible:not([disabled]) + .ic-switch-toggle {
-  box-shadow: 0 0 0 var(--ic-space-1px) var(--ic-architectural-white),
-    0 0 0 0.188rem var(--ic-action-default),
-    0 0 0 0.5rem var(--ic-action-default-active-alpha);
+  box-shadow: var(--ic-border-focus);
 }
 
 .ic-switch-disabled {
@@ -212,3 +210,13 @@ input {
     stroke: GrayText;
   }
 }
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  .ic-switch-label .ic-typography-label,
+  ic-input-label .helpertext,
+  .ic-switch-checked-status {
+    color: var(--ic-architectural-white);
+  }
+} */
