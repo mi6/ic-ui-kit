@@ -13,6 +13,16 @@ import readme from "../../../web-components/src/components/ic-switch/readme.md";
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  label: "Custom Switch",
+  helperText: "Custom helper text",
+  disabled: false,
+  checked: false,
+  hideLabel: false,
+  showState: false,
+  size: "default",
+};
+
 ### Default
 
 <Canvas>
@@ -149,5 +159,33 @@ export const Controlled = () => {
 <Canvas>
   <Story name="Helper text">
     <IcSwitch label="Helper text" helperText="This is some helper text" />
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      size: {
+        options: ["default", "small"],
+        control: { type: "inline-radio" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      <IcSwitch
+        disabled={args.disabled}
+        show-state={args.showState}
+        label={args.label}
+        checked={args.checked}
+        hide-label={args.hideLabel}
+        helper-text={args.helperText}
+        size={args.size}
+      ></IcSwitch>
+    }
   </Story>
 </Canvas>
