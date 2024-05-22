@@ -2,7 +2,7 @@ import { Breadcrumb } from "../../ic-breadcrumb";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-breadcrumb", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newSpecPage({
       components: [Breadcrumb],
       html: `<ic-breadcrumb></ic-breadcrumb>`,
@@ -22,7 +22,7 @@ describe("ic-breadcrumb", () => {
     `);
   });
 
-  it("renders with page-title and href", async () => {
+  it("should render with page-title and href", async () => {
     const page = await newSpecPage({
       components: [Breadcrumb],
       html: `<ic-breadcrumb page-title="foo" href="/"></ic-breadcrumb>`,
@@ -44,7 +44,7 @@ describe("ic-breadcrumb", () => {
     `);
   });
 
-  it("renders with page-title, href, current", async () => {
+  it("should render with page-title, href, current", async () => {
     const page = await newSpecPage({
       components: [Breadcrumb],
       html: `<ic-breadcrumb page-title="foo" href="/" current="true"></ic-breadcrumb>`,
@@ -66,7 +66,7 @@ describe("ic-breadcrumb", () => {
     `);
   });
 
-  it("renders with icon", async () => {
+  it("should render with icon", async () => {
     const page = await newSpecPage({
       components: [Breadcrumb],
       html: `

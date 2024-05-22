@@ -2,7 +2,7 @@ import { SectionContainer } from "../../ic-section-container";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-section-container", () => {
-  it("renders with left-aligned by default", async () => {
+  it("should render with left-aligned by default", async () => {
     const page = await newSpecPage({
       components: [SectionContainer],
       html: `<ic-section-container>
@@ -20,7 +20,7 @@ describe("ic-section-container", () => {
     `);
   });
 
-  it("renders full-width", async () => {
+  it("should render full-width", async () => {
     const page = await newSpecPage({
       components: [SectionContainer],
       html: `<ic-section-container aligned="full-width">
@@ -38,7 +38,7 @@ describe("ic-section-container", () => {
     `);
   });
 
-  it("renders centered", async () => {
+  it("should render centered", async () => {
     const page = await newSpecPage({
       components: [SectionContainer],
       html: `<ic-section-container aligned="center">
@@ -56,7 +56,7 @@ describe("ic-section-container", () => {
     `);
   });
 
-  it("removes vertical padding when full-height", async () => {
+  it("should remove vertical padding when full-height", async () => {
     const page = await newSpecPage({
       components: [SectionContainer],
       html: `<ic-section-container full-height>

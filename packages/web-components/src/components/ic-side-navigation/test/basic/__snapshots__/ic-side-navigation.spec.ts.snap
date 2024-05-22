@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
+exports[`ic-side-navigation should render expanded: renders-expanded 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-expanded" expanded="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -39,7 +39,7 @@ exports[`ic-side-navigation renders expanded: renders-expanded 1`] = `
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with app title, version and status: renders-with-app-title-version-status 1`] = `
+exports[`ic-side-navigation should render with app title, version and status: renders-with-app-title-version-status 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -82,7 +82,7 @@ exports[`ic-side-navigation renders with app title, version and status: renders-
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] = `
+exports[`ic-side-navigation should render with app-title: renders-with-app-title 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -121,7 +121,7 @@ exports[`ic-side-navigation renders with app-title: renders-with-app-title 1`] =
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with primary navigation items and collapsed icon labels: primary-navigation-items-and-collapsed-icon-labels 1`] = `
+exports[`ic-side-navigation should render with primary navigation items and collapsed icon labels: primary-navigation-items-and-collapsed-icon-labels 1`] = `
 <ic-side-navigation app-title="ACME" class="collapsed-labels side-display sm-collapsed" collapsed-icon-labels="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -191,7 +191,7 @@ exports[`ic-side-navigation renders with primary navigation items and collapsed 
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with primary navigation items: renders-with-primary-navigation-items 1`] = `
+exports[`ic-side-navigation should render with primary navigation items: renders-with-primary-navigation-items 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -261,7 +261,7 @@ exports[`ic-side-navigation renders with primary navigation items: renders-with-
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with secondary navigation items: renders-with-secondary-navigation-items 1`] = `
+exports[`ic-side-navigation should render with secondary navigation items: renders-with-secondary-navigation-items 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -331,7 +331,7 @@ exports[`ic-side-navigation renders with secondary navigation items: renders-wit
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels 1`] = `
+exports[`ic-side-navigation should render with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels 1`] = `
 <ic-side-navigation app-title="ACME" class="collapsed-labels side-display sm-collapsed" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -428,7 +428,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels-menu-toggle 1`] = `
+exports[`ic-side-navigation should render with slotted navigation item - collapsed icon labels true: slotted-navigation-item-collapsed-icon-labels-menu-toggle 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-expanded" collapsed-icon-labels="true" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -522,7 +522,7 @@ exports[`ic-side-navigation renders with slotted navigation item - collapsed ico
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with slotted navigation item: slotted-navigation-item 1`] = `
+exports[`ic-side-navigation should render with slotted navigation item: slotted-navigation-item 1`] = `
 <ic-side-navigation app-title="ACME" class="side-display sm-collapsed" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">
@@ -592,7 +592,7 @@ exports[`ic-side-navigation renders with slotted navigation item: slotted-naviga
 </ic-side-navigation>
 `;
 
-exports[`ic-side-navigation renders with slotted primary secondary navigation and expanded: renders-with-slotted-primary-secondary-navigation-and-expanded 1`] = `
+exports[`ic-side-navigation should render with slotted primary secondary navigation and expanded: renders-with-slotted-primary-secondary-navigation-and-expanded 1`] = `
 <ic-side-navigation app-title="Application Name" class="side-display sm-expanded" expanded="true" status="BETA" version="v0.0.0" style="--sm-side-navigation-bottom-bar-height: undefinedpx;">
   <mock:shadow-root>
     <div class="side-navigation" id="side-navigation">

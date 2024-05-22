@@ -5,7 +5,7 @@ beforeAll(() => {
 });
 
 describe("ic-radio-group component", () => {
-  it("Should have tabIndex of first option 0, when no options are selected", async () => {
+  it("should have tabIndex of first option 0, when no options are selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -23,7 +23,7 @@ describe("ic-radio-group component", () => {
     expect(input1.tabIndex).toBe(0);
     expect(input2.tabIndex).toBe(-1);
   });
-  it("Should not be clickable when disabled", async () => {
+  it("should not be clickable when disabled", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" disabled></ic-radio-option>    
@@ -36,7 +36,7 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
     expect(await radioButton.getProperty("selected")).toBe(false);
   });
-  it("Should be selected when clicked", async () => {
+  it("should be selected when clicked", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -53,7 +53,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Should enable textfield when associated option is selected when static", async () => {
+  it("should enable textfield when associated option is selected when static", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -74,7 +74,7 @@ describe("ic-radio-group component", () => {
 
     expect(textfield).toHaveAttribute("disabled");
   });
-  it("Should display textfield when associated option is selected when dynamic", async () => {
+  it("should display textfield when associated option is selected when dynamic", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -110,7 +110,7 @@ describe("ic-radio-group component", () => {
     });
     expect(additionalFieldDisplay).not.toBe("none");
   });
-  it("Should emit icChange event when radio option is selected", async () => {
+  it("should emit icChange event when radio option is selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -138,7 +138,7 @@ describe("ic-radio-group component", () => {
       value: "test2",
     });
   });
-  it("Should emit icCheck event when radio option is selected", async () => {
+  it("should emit icCheck event when radio option is selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -155,7 +155,7 @@ describe("ic-radio-group component", () => {
       value: "test2",
     });
   });
-  it("Should select when spacebar is pressed", async () => {
+  it("should select when spacebar is pressed", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -174,7 +174,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Should select next radio option down when arrow down is used", async () => {
+  it("should select next radio option down when arrow down is used", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -194,7 +194,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton2.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Should select next radio option down when arrow right is used", async () => {
+  it("should select next radio option down when arrow right is used", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -214,7 +214,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton2.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Should select next radio option down when arrow up is used", async () => {
+  it("should select next radio option down when arrow up is used", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -235,7 +235,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton1.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Should select next radio option down when arrow left is used", async () => {
+  it("should select next radio option down when arrow left is used", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -256,7 +256,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton1.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("Works on a form", async () => {
+  it("shold works in a form", async () => {
     const page = await newE2EPage();
 
     await page.setContent(` <form>
@@ -295,7 +295,7 @@ describe("ic-radio-group component", () => {
 
     expect(value).toBe("valueName1");
   });
-  it("Passes the value of radio button correctly when already selected", async () => {
+  it("should pass the value of radio button correctly when already selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    
@@ -312,7 +312,7 @@ describe("ic-radio-group component", () => {
     expect(value).toBe("test2");
   });
 
-  it("Passes the value of radio button and textfield correctly when already selected", async () => {
+  it("should pass the value of radio button and textfield correctly when already selected", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
     <ic-radio-option value="test1" ></ic-radio-option>    
@@ -357,7 +357,7 @@ describe("ic-radio-group component", () => {
     expect(value).toBe("test2");
   });
 
-  it("Passes the value of radio button and textfield correctly when already selected and has a value in texfield", async () => {
+  it("should pass the value of radio button and textfield correctly when already selected and has a value in texfield", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
     <ic-radio-option value="test1" ></ic-radio-option>    
@@ -382,7 +382,7 @@ describe("ic-radio-group component", () => {
     expect(value).toBe("testValue1");
   });
 
-  it("Should reset to initial state on form reset event", async () => {
+  it("should reset to initial state on form reset event", async () => {
     const page = await newE2EPage();
     await page.setContent(`<form><ic-radio-group label="test label" name="test">
         <ic-radio-option value="test1" ></ic-radio-option>    

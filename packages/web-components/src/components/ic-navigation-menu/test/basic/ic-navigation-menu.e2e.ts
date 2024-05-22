@@ -1,7 +1,7 @@
 import { newE2EPage } from "@stencil/core/testing";
 
 describe("ic-navigation-menu", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newE2EPage();
     await page.setContent(
       `<ic-navigation-menu version="v0.0.7" status="alpha"></ic-navigation-menu>`

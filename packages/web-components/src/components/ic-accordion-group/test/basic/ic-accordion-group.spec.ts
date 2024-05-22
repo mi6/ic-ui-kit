@@ -27,7 +27,7 @@ describe("ic-accordion-group snapshots", () => {
 });
 
 describe("ic-accordion-group functions unit test", () => {
-  it("checks setExpandedToAreAllAccordionsOpen when single expansion is false", async () => {
+  it("should check setExpandedToAreAllAccordionsOpen when single expansion is false", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
@@ -53,7 +53,7 @@ describe("ic-accordion-group functions unit test", () => {
     expect(spySetExpandedToAreAllAccordionsOpen).toBeCalled();
   });
 
-  it("checks handleExpanded", async () => {
+  it("should check handleExpanded", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup],
       html: `<ic-accordion-group group-title="Test heading" expanded></ic-accordion-group>`,
@@ -66,7 +66,7 @@ describe("ic-accordion-group functions unit test", () => {
 });
 
 describe("ic-accordion-group component", () => {
-  it("it should test the handleExpanded function", async () => {
+  it("should test the handleExpanded function", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
@@ -84,7 +84,7 @@ describe("ic-accordion-group component", () => {
     expect(page.root.expanded).toBe(false);
   });
 
-  it("it should test singleExpansion function", async () => {
+  it("should test singleExpansion function", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
@@ -117,7 +117,7 @@ describe("ic-accordion-group component", () => {
     expect(accordion2.expanded).toBe(false);
   });
 
-  it("checks the areAllAccordionsOpen function", async () => {
+  it("should check the areAllAccordionsOpen function", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `

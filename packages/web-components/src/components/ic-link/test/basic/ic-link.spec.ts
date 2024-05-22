@@ -199,7 +199,7 @@ describe("ic-link component", () => {
     expect(page.root).toMatchSnapshot("alert-theme-context");
   });
 
-  it("correctly sets variant on theme change", async () => {
+  it("should correctly set variant on theme change", async () => {
     const page = await newSpecPage({
       components: [Link],
       html: `<ic-hero heading="Hero heading" subheading="Hero description">
