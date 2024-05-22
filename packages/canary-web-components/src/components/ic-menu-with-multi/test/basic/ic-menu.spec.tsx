@@ -78,12 +78,12 @@ describe("ic-menu in isolation", () => {
 
     expect(page).toMatchSnapshot();
   });
-  it("sets open prop to true by default", async () => {
+  it("should set open prop to true by default", async () => {
     const page = await createMenu();
 
     expect(page.root.open).toBe(true);
   });
-  it("tests ungroupedOptionsSet emitter", async () => {
+  it("should test ungroupedOptionsSet emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -102,7 +102,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests menuOptionSelect emitter", async () => {
+  it("should test menuOptionSelect emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -123,7 +123,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests menuStateChange emitter", async () => {
+  it("should test menuStateChange emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -149,7 +149,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests menuOptionId emitter", async () => {
+  it("should test menuOptionId emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -172,7 +172,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests menuKeyPress emitter", async () => {
+  it("should test menuKeyPress emitter", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -194,7 +194,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests setNextOptionValue function", async () => {
+  it("should test setNextOptionValue function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -213,7 +213,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests setPreviousOptionValue function", async () => {
+  it("should test setPreviousOptionValue function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -234,7 +234,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleClickOpen function", async () => {
+  it("should test handleClickOpen function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -257,7 +257,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleKeyboardOpen function", async () => {
+  it("should test handleKeyboardOpen function", async () => {
     const page = await createMenu();
 
     page.root.open = false;
@@ -299,7 +299,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests autoSetInputValueKeyboardOpen function", async () => {
+  it("should test autoSetInputValueKeyboardOpen function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -364,7 +364,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests autoSetInputValueKeyboardOpen function with character keys", async () => {
+  it("should test autoSetInputValueKeyboardOpen function with character keys", async () => {
     const page = await createMenu();
 
     page.root.options = menuOptions;
@@ -378,7 +378,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.root.value).toBe("espresso");
   });
-  it("tests manualSetInputValueKeyboardOpen function", async () => {
+  it("should test manualSetInputValueKeyboardOpen function", async () => {
     const searchBar = window.document.createElement(
       IcSearchBar
     ) as HTMLIcSearchBarElement;
@@ -604,7 +604,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests manualSetInputValueKeyboardOpen function when searchable select", async () => {
+  it("should test manualSetInputValueKeyboardOpen function when searchable select", async () => {
     const searchableSelect = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -640,7 +640,7 @@ describe("ic-menu in isolation", () => {
 
     expect(searchableSelect.setFocus).toHaveBeenCalled();
   });
-  it("tests manualSetInputValueKeyboardOpen function when searchbar", async () => {
+  it("should test manualSetInputValueKeyboardOpen function when searchbar", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -675,7 +675,7 @@ describe("ic-menu in isolation", () => {
 
     expect(select.setFocus).toHaveBeenCalled();
   });
-  it("tests manualSetInputValueKeyboardOpen function when default parameter passed", async () => {
+  it("should test manualSetInputValueKeyboardOpen function when default parameter passed", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -709,7 +709,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.value).toBe(menuOptions[0].value);
   });
-  it("tests manualSetInputValueKeyboardOpen function when multi-select", async () => {
+  it("should test manualSetInputValueKeyboardOpen function when multi-select", async () => {
     const multiSelect = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -851,7 +851,7 @@ describe("ic-menu in isolation", () => {
     expect(page.rootInstance.preventClickOpen).toBe(true);
     expect(page.rootInstance.optionHighlighted).toBe(undefined);
   });
-  it("tests manualSetInputValueKeyboardOpen function when select on enter", async () => {
+  it("should test manualSetInputValueKeyboardOpen function when select on enter", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -884,7 +884,7 @@ describe("ic-menu in isolation", () => {
     await page.waitForChanges();
     expect(eventSpy).toHaveBeenCalled();
   });
-  it("tests setInputValue function when default parameter passed", async () => {
+  it("should test setInputValue function when default parameter passed", async () => {
     const select = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -917,7 +917,7 @@ describe("ic-menu in isolation", () => {
 
     expect(select.setFocus).toHaveBeenCalled();
   });
-  it("tests handleSubmitSearch function", async () => {
+  it("should test handleSubmitSearch function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -944,7 +944,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
-  it("tests handleSetFirstOption function", async () => {
+  it("should test handleSetFirstOption function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -969,7 +969,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("espresso");
   });
-  it("tests handleClearListener function", async () => {
+  it("should test handleClearListener function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -986,7 +986,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("");
   });
-  it("tests handleOptionClick function", async () => {
+  it("should test handleOptionClick function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1031,7 +1031,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.multiOptionClicked).toBe("doubleespresso");
   });
-  it("tests handleBlur function", async () => {
+  it("should test handleBlur function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1070,7 +1070,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleMouseDown function", async () => {
+  it("should test handleMouseDown function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1089,7 +1089,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
-  it("tests handleMenuKeyDown function", async () => {
+  it("should test handleMenuKeyDown function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1112,7 +1112,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests searchMode=`query", async () => {
+  it("should test searchMode=`query", async () => {
     const page = await createMenu();
 
     page.rootInstance.searchMode = "query";
@@ -1123,7 +1123,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBeUndefined;
   });
-  it("tests handleMenuKeyDown function as searchableSelect", async () => {
+  it("should test handleMenuKeyDown function as searchableSelect", async () => {
     const page = await createMenu();
 
     page.rootInstance.activationType = "manual";
@@ -1139,7 +1139,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).toHaveBeenCalled();
   });
-  it("tests handleRetry function", async () => {
+  it("should test handleRetry function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1158,7 +1158,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleRetryKeyDown function", async () => {
+  it("should test handleRetryKeyDown function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1178,7 +1178,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests autoSetValueOnMenuKeyDown - Shift - function", async () => {
+  it("should test autoSetValueOnMenuKeyDown - Shift - function", async () => {
     const page = await createMenu();
 
     const inputEl = page.rootInstance.inputEl;
@@ -1196,7 +1196,7 @@ describe("ic-menu in isolation", () => {
 
     expect(eventSpy).not.toHaveBeenCalled();
   });
-  it("tests autoSetValueOnMenuKeyDown function", async () => {
+  it("should test autoSetValueOnMenuKeyDown function", async () => {
     const page = await createMenu();
 
     const inputEl = page.rootInstance.inputEl;
@@ -1271,7 +1271,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleMenukeyUp function", async () => {
+  it("should test handleMenukeyUp function", async () => {
     const page = await createMenu();
 
     page.rootInstance.preventClickOpen = true;
@@ -1307,7 +1307,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.shiftPressed).toBe(false);
   });
-  it("tests connectedCallback function", async () => {
+  it("should test connectedCallback function", async () => {
     const searchBar = window.document.createElement(IcSearchBar);
     const input = window.document.createElement("input");
 
@@ -1330,7 +1330,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe("espresso");
   });
-  it("tests disconnectedCallback function", async () => {
+  it("should test disconnectedCallback function", async () => {
     const page = await createMenu();
 
     await page.waitForChanges();
@@ -1345,7 +1345,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.parentEl.__listeners.length).toBe(0);
   });
-  it("tests componentDidLoad function", async () => {
+  it("should test componentDidLoad function", async () => {
     const searchBar = window.document.createElement(
       IcSearchBar
     ) as HTMLIcSearchBarElement;
@@ -1377,7 +1377,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.focusFromSearchKeypress).toBe(true);
   });
-  it("tests getParentEl function", async () => {
+  it("should test getParentEl function", async () => {
     const select = window.document.createElement(
       "ic-select"
     ) as HTMLIcSelectElement;
@@ -1392,7 +1392,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.isSearchableSelect).toBe(true);
   });
-  it("tests handleTimeoutBlur function", async () => {
+  it("should test handleTimeoutBlur function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1415,7 +1415,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleMenuChange function when multi-select", async () => {
+  it("should test handleMenuChange function when multi-select", async () => {
     const page = await createMenu();
 
     page.rootInstance.optionHighlighted = "espresso";
@@ -1431,7 +1431,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.optionHighlighted).toBe(undefined);
   });
-  it("tests selectHighlightedOption function when multi-select", async () => {
+  it("should test selectHighlightedOption function when multi-select", async () => {
     const page = await createMenu();
 
     page.rootInstance.open = false;
@@ -1451,7 +1451,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.handleMenuChange).toHaveBeenCalledWith(true);
   });
-  it("tests selectHighlightedOption function when multi-select", async () => {
+  it("should test selectHighlightedOption function when multi-select", async () => {
     const page = await createMenu();
 
     page.rootInstance.open = false;
@@ -1471,7 +1471,7 @@ describe("ic-menu in isolation", () => {
 
     expect(page.rootInstance.handleMenuChange).toHaveBeenCalledWith(true);
   });
-  it("tests handleSelectAllClick function", async () => {
+  it("should test handleSelectAllClick function", async () => {
     const page = await createMenu();
 
     page.rootInstance.menu.tabIndex = -1;
@@ -1487,7 +1487,7 @@ describe("ic-menu in isolation", () => {
     expect(eventSpy).toHaveBeenCalled();
     expect(page.rootInstance.emitSelectAll).toHaveBeenCalled();
   });
-  it("tests handleSelectAllBlur function", async () => {
+  it("should test handleSelectAllBlur function", async () => {
     const multiSelect = window.document.createElement(
       "IC-SELECT"
     ) as HTMLIcSelectElement;
@@ -1529,14 +1529,14 @@ describe("ic-menu in isolation", () => {
       false
     );
   });
-  it("tests handleSelectAllFocus function", async () => {
+  it("should test handleSelectAllFocus function", async () => {
     const page = await createMenu();
 
     await page.rootInstance.handleSelectAllFocus();
 
     expect(page.root).toMatchSnapshot();
   });
-  it("tests emitSelectAll function", async () => {
+  it("should test emitSelectAll function", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
@@ -1591,7 +1591,7 @@ describe("ic-menu in isolation", () => {
       })
     );
   });
-  it("tests handleSelectAllMouseDown", async () => {
+  it("should test handleSelectAllMouseDown", async () => {
     const page = await createMenu();
 
     const eventSpy = jest.fn();
