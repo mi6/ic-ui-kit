@@ -14,7 +14,7 @@ const waitForSearchFocus = async () => {
 };
 
 describe("ic-top-navigation", () => {
-  it("renders with app title", async () => {
+  it("should render with app title", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName"></ic-top-navigation>`,
@@ -22,7 +22,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-app-title");
   });
 
-  it("renders with app icon & title", async () => {
+  it("should render with app icon & title", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName">
@@ -44,7 +44,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-app-icon-and-title");
   });
 
-  it("renders with custom title link url", async () => {
+  it("should render with custom title link url", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName" href="https://www.google.co.uk/">
@@ -53,7 +53,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-custom-title-link-url");
   });
 
-  it("renders with Title, Version & Status", async () => {
+  it("should render with title, version & status", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -65,7 +65,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-title-version-status");
   });
 
-  it("renders with search", async () => {
+  it("should render with search", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -79,7 +79,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-search");
   });
 
-  it("renders with buttons", async () => {
+  it("should render with buttons", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -111,7 +111,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-buttons");
   });
 
-  it("renders with navigation", async () => {
+  it("should render with navigation", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, NavigationItem],
       html: `<ic-top-navigation
@@ -125,7 +125,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-navigation");
   });
 
-  it("tests app title updates", async () => {
+  it("should test app title updates", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName"></ic-top-navigation>`,
@@ -139,7 +139,7 @@ describe("ic-top-navigation", () => {
     expect(appTitle.textContent).toEqual("New Application Name");
   });
 
-  it("tests form in search slot", async () => {
+  it("should test form in search slot", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation app-title="ApplicationName">
@@ -153,7 +153,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("form-in-search-slot");
   });
 
-  it("renders with slotted app-title content", async () => {
+  it("should render with slotted app-title content", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -166,7 +166,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-slotted-app-title-content");
   });
 
-  it("tests behaviour on small device", async () => {
+  it("should test behaviour on small device", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, Button, NavigationMenu, SearchBar, TextField],
       html: `<ic-top-navigation
@@ -225,7 +225,7 @@ describe("ic-top-navigation", () => {
     expect(menuButton).toBeNull();
   });
 
-  it("tests hiding of mobile search bar on resize", async () => {
+  it("should test hiding of mobile search bar on resize", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, Button, NavigationMenu, SearchBar, TextField],
       html: `<ic-top-navigation
@@ -283,7 +283,7 @@ describe("ic-top-navigation", () => {
     expect(page.rootInstance.navMenuVisible).toBe(false);
   });
 
-  it("tests short title on mobile devices", async () => {
+  it("should test short title on mobile devices", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation
@@ -298,7 +298,7 @@ describe("ic-top-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-short-title");
   });
 
-  it("renders with slotted short-app-title", async () => {
+  it("should render with slotted short-app-title", async () => {
     const page = await newSpecPage({
       components: [TopNavigation],
       html: `<ic-top-navigation

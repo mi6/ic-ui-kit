@@ -538,7 +538,7 @@ describe("ic-search-bar", () => {
     expect(await searchBar.getProperty("value")).toBe("qux");
   });
 
-  it("menu should close on Escape", async () => {
+  it("should close menu on escape", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <ic-search-bar label="Test Label"></ic-search-bar>
@@ -566,7 +566,7 @@ describe("ic-search-bar", () => {
     expect(menu).toBeNull();
   });
 
-  it("menu should close when blurred and open when focused", async () => {
+  it("should close menu when blurred and open when focused", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <ic-search-bar label="Test Label"></ic-search-bar>
@@ -1080,7 +1080,7 @@ describe("ic-search-bar", () => {
     expect(focusedElement).toBe("ic-search-bar-input-0");
   });
 
-  it("menu is still rendered when Shift is pressed while focus on input", async () => {
+  it("should render menu when shift is pressed while focus on input", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
     const searchBar = await page.find("ic-search-bar");
@@ -1099,7 +1099,7 @@ describe("ic-search-bar", () => {
     expect(await menu.isVisible()).toBeTruthy();
   });
 
-  it("displays tooltip on search buttons when enabled", async () => {
+  it("should display tooltip on search buttons when enabled", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-search-bar label="Test Label"></ic-search-bar>`);
 
@@ -1200,7 +1200,7 @@ describe("ic-search-bar", () => {
     expect(firstOptionFocused).toBeTruthy();
   });
 
-  it("focuses onto button from search bar", async () => {
+  it("should focus onto button from search bar", async () => {
     const page = await newE2EPage();
     await page.setContent(`
       <ic-search-bar label="Test Label"></ic-search-bar>

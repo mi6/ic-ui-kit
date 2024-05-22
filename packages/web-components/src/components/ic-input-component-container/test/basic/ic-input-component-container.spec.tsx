@@ -2,7 +2,7 @@ import { InputComponentContainer } from "../../ic-input-component-container";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-input-component-container", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container>content</ic-input-component-container>`,
@@ -17,7 +17,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with validation status", async () => {
+  it("should render with validation status", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="success">content</ic-input-component-container>`,
@@ -32,7 +32,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with validation inline", async () => {
+  it("should render with validation inline", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="success" validation-inline=true>content</ic-input-component-container>`,
@@ -50,7 +50,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("ignores validation inline if not success", async () => {
+  it("should ignore validation inline if not success", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="error" validation-inline=true>content</ic-input-component-container>`,
@@ -65,7 +65,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with size small, multiline & fullwidth props set", async () => {
+  it("should render with size small, multiline & fullwidth props set", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container size="small" multi-line=true full-width=true>content</ic-input-component-container>`,
@@ -80,7 +80,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with size large", async () => {
+  it("should render with size large", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container size=large>content</ic-input-component-container>`,
@@ -95,7 +95,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders disabled", async () => {
+  it("should render disabled", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="success" disabled=true>content</ic-input-component-container>`,
@@ -110,7 +110,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders readonly", async () => {
+  it("should render readonly", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="success" readonly=true>content</ic-input-component-container>`,
@@ -125,7 +125,7 @@ describe("ic-input-component-container", () => {
     `);
   });
 
-  it("renders with slotted content", async () => {
+  it("should render with slotted content", async () => {
     const page = await newSpecPage({
       components: [InputComponentContainer],
       html: `<ic-input-component-container validation-status="success" disabled=true><span slot="left-icon">slotted content</span>content</ic-input-component-container>`,

@@ -56,7 +56,7 @@ describe("default variant of ic-stepper component", () => {
 });
 
 describe("compact variant of ic-stepper", () => {
-  it("only shows the current step", async () => {
+  it("should only show the current step", async () => {
     const page = await newE2EPage({ html: compactStepper });
 
     await page.waitForChanges();

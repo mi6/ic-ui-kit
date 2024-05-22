@@ -2,7 +2,7 @@ import { TextField } from "../../ic-text-field";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-text-field", () => {
-  it("renders a textarea", async () => {
+  it("should render a textarea", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label"></ic-text-field>`,
@@ -22,7 +22,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with placeholder", async () => {
+  it("should render textarea with placeholder", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" placeholder="placeholder"></ic-text-field>`,
@@ -42,7 +42,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with value", async () => {
+  it("should render textarea with value", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" value="test value"></ic-text-field>`,
@@ -62,7 +62,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with helperText, required and small", async () => {
+  it("should render textarea with helperText, required and small", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" size="small" helper-text="helper text value" required=true></ic-text-field>`,
@@ -82,7 +82,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with autoprops", async () => {
+  it("should render textarea with autoprops", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" value="test value" autofocus=true autocapitalize="on" autocomplete="on" autocorrect="on"></ic-text-field>`,
@@ -102,7 +102,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with hidden label", async () => {
+  it("should render textarea with hidden label", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" value="test value" hide-label=true></ic-text-field>`,
@@ -121,7 +121,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with icon", async () => {
+  it("should render textarea with icon", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label">
@@ -162,7 +162,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea disabled", async () => {
+  it("should render textarea disabled", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" value="test value" disabled=true></ic-text-field>`,
@@ -182,7 +182,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea readonly", async () => {
+  it("should render textarea readonly", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows="6" label="Test label" value="test value" readonly=true></ic-text-field>`,
@@ -202,7 +202,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with max length", async () => {
+  it("should render textarea with max length", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=6 label="Test label" value="a long test value to exceed limit" max-length=25></ic-text-field>`,
@@ -234,7 +234,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with name & full width", async () => {
+  it("should render textarea with name & full width", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=2 label="Test label" value="test value" name="mycontolname" full-width=true></ic-text-field>`,
@@ -254,7 +254,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with success validation", async () => {
+  it("should render textarea with success validation", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=6 label="Test label" validation-status="success" validation-text="Good choice!" value="test value"></ic-text-field>`,
@@ -275,7 +275,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with warning validation", async () => {
+  it("should render textarea with warning validation", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=6 label="Test label" validation-status="warning" validation-text="warning text" value="test value"></ic-text-field>`,
@@ -296,7 +296,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with error validation", async () => {
+  it("should render textarea with error validation", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=6 label="Test label" validation-status="error" validation-text="error text" value="test value"></ic-text-field>`,
@@ -317,7 +317,7 @@ describe("ic-text-field", () => {
     `);
   });
 
-  it("renders textarea with resize", async () => {
+  it("should render textarea with resize", async () => {
     const page = await newSpecPage({
       components: [TextField],
       html: `<ic-text-field rows=6 label="Test label" resize=true value="test value"></ic-text-field>`,

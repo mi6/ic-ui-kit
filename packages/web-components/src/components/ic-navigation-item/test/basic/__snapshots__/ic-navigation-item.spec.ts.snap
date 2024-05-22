@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-navigation-item renders with label: renders-with-label 1`] = `
+exports[`ic-navigation-item should render with label: renders-with-label 1`] = `
 <ic-navigation-item class="light navigation-item" label="Item label" role="listitem">
   <mock:shadow-root>
     <ic-tooltip class="tooltip-navigation-item" label="Item label" placement="right" target="navigation-item">

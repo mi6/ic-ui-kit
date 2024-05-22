@@ -698,7 +698,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.dialogRendered).toBe(true);
   });
 
-  it("should render with an accordian group as first focussable element", async () => {
+  it("should render with an accordion group as first focussable element", async () => {
     const page = await newSpecPage({
       components: [Dialog, AccordionGroup, Accordion, Button],
       html: `<ic-dialog heading="Dialog heading">
@@ -735,7 +735,7 @@ describe("ic-dialog component", () => {
     expect(page.rootInstance.focusedElementIndex).toBe(1);
   });
 
-  it("should render with an accordian as first focussable element", async () => {
+  it("should render with an accordion as first focussable element", async () => {
     const page = await newSpecPage({
       components: [Dialog, Accordion, Button],
       html: `<ic-dialog heading="Dialog heading">

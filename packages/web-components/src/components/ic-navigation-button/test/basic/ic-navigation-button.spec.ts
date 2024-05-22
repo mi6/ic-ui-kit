@@ -3,7 +3,7 @@ import { Button } from "../../../ic-button/ic-button";
 import { NavigationButton } from "../../ic-navigation-button";
 
 describe("ic-navigation-button", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newSpecPage({
       components: [NavigationButton],
       html: `<ic-navigation-button
@@ -40,7 +40,7 @@ describe("ic-navigation-button", () => {
     `);
   });
 
-  it("renders differently if mode is menu", async () => {
+  it("should render differently if mode is menu", async () => {
     const page = await newSpecPage({
       components: [NavigationButton],
       html: `<ic-navigation-button label="button1" onclick="alert('test')">
@@ -54,7 +54,7 @@ describe("ic-navigation-button", () => {
     expect(el.className).toEqual("popout-menu-button");
   });
 
-  it("correctly sets mode on menu open and close", async () => {
+  it("should correctly set mode on menu open and close", async () => {
     const page = await newSpecPage({
       components: [NavigationButton],
       html: `<ic-navigation-button label="button1" onclick="alert('test')">
@@ -72,7 +72,7 @@ describe("ic-navigation-button", () => {
     expect(page.rootInstance.mode).toEqual("navbar");
   });
 
-  it("correctly sets appearance on theme change", async () => {
+  it("should correctly set appearance on theme change", async () => {
     const page = await newSpecPage({
       components: [NavigationButton],
       html: `<ic-navigation-button label="button1" onclick="alert('test')">
@@ -85,7 +85,7 @@ describe("ic-navigation-button", () => {
     expect(page.rootInstance.initialAppearance).toBe("dark");
   });
 
-  it("correctly sets focus", async () => {
+  it("should correctly set focus", async () => {
     const page = await newSpecPage({
       components: [NavigationButton, Button],
       html: `<ic-navigation-button label="button1" onclick="alert('test')">

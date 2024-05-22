@@ -2,7 +2,7 @@ import { InputContainer } from "../../ic-input-container";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-input-container", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newSpecPage({
       components: [InputContainer],
       html: `<ic-input-container></ic-input-container>`,
@@ -15,7 +15,7 @@ describe("ic-input-container", () => {
     `);
   });
 
-  it("renders disabled", async () => {
+  it("should render disabled", async () => {
     const page = await newSpecPage({
       components: [InputContainer],
       html: `<ic-input-container disabled=true></ic-input-container>`,
@@ -28,7 +28,7 @@ describe("ic-input-container", () => {
     `);
   });
 
-  it("renders readonly", async () => {
+  it("should render readonly", async () => {
     const page = await newSpecPage({
       components: [InputContainer],
       html: `<ic-input-container readonly=true></ic-input-container>`,

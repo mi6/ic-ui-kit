@@ -2,7 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ClassificationBanner } from "../../ic-classification-banner";
 
 describe("ic-classification-banner component", () => {
-  it("should render with default message when no classification set", async () => {
+  it("should render with default classification text when no classification set", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
       html: `<ic-classification-banner></ic-classification-banner>`,
@@ -19,7 +19,7 @@ describe("ic-classification-banner component", () => {
 `);
   });
 
-  it("should render with official message", async () => {
+  it("should render with official classification text", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
       html: `<ic-classification-banner classification="official"></ic-classification-banner>`,
@@ -36,7 +36,7 @@ describe("ic-classification-banner component", () => {
         </ic-classification-banner>`);
   });
 
-  it("should render with official sensitive message", async () => {
+  it("should render with official sensitive classification text", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
       html: `<ic-classification-banner classification="official-sensitive"></ic-classification-banner>`,
@@ -53,7 +53,7 @@ describe("ic-classification-banner component", () => {
         </ic-classification-banner>`);
   });
 
-  it("should render with secret message", async () => {
+  it("should render with secret classification text", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
       html: `<ic-classification-banner classification="secret"></ic-classification-banner>`,
@@ -70,7 +70,7 @@ describe("ic-classification-banner component", () => {
         </ic-classification-banner>`);
   });
 
-  it("should render with top secret message", async () => {
+  it("should render with top secret classification text", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
       html: `<ic-classification-banner classification="top-secret"></ic-classification-banner>`,
