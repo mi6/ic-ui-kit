@@ -379,3 +379,24 @@ export const ChangeTabs = ({ childTabs }): ReactElement => {
     </IcTabContext>
   );
 };
+
+export const MinMaxTabs = (): ReactElement => {
+  return (
+    <div style={{ maxWidth: "500px" }}>
+      <IcTabContext>
+        <IcTabGroup label="Example tab group">
+          <IcTab>Extremely long tab label made of plenty of words</IcTab>
+          <IcTab>A</IcTab>
+          <IcTab>Antidisestablishmentarianismbutmadeevenlonger</IcTab>
+        </IcTabGroup>
+        <IcTabPanel>
+          Testing tab behaviour with lots of words in label
+        </IcTabPanel>
+        <IcTabPanel>Testing minimum label length</IcTabPanel>
+        <IcTabPanel>
+          Testing tab behaviour with one really long word in label
+        </IcTabPanel>
+      </IcTabContext>
+    </div>
+  );
+};

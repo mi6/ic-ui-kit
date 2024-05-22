@@ -22,6 +22,7 @@ import {
   LargerTabGroup,
   LightTabs,
   ManualActivationTabGroup,
+  MinMaxTabs,
   NestedTabs,
   ResponsiveLightTextTabs,
   ResponsiveTabs,
@@ -29,6 +30,7 @@ import {
   TabsWithIcons,
   TabsWithInlineBadges,
 } from "./IcTabsTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.037;
 const IC_TAB_CONTEXT = "ic-tab-context";
@@ -428,7 +430,7 @@ describe("IcTab visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  it("renders default IcTab", () => {
+  it("should render default IcTab", () => {
     mount(<SimpleTabGroup />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -437,7 +439,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders disabled tab", () => {
+  it("should render disabled tab", () => {
     mount(<DisabledTab />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -446,7 +448,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders responsive tabs", () => {
+  it("should render responsive tabs", () => {
     mount(<ResponsiveTabs />);
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -455,7 +457,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders responsive tabs with light text", () => {
+  it("should render responsive tabs with light text", () => {
     mount(
       <div style={{ backgroundColor: "black" }}>
         <ResponsiveLightTextTabs />
@@ -468,7 +470,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders IcTab with light appearance", () => {
+  it("should render IcTab with light appearance", () => {
     mount(
       <div style={{ backgroundColor: "black" }}>
         <LightTabs />
@@ -481,7 +483,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders IcTab with icons", () => {
+  it("should render IcTab with icons", () => {
     mount(<TabsWithIcons />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -490,7 +492,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders IcTab with inline badges", () => {
+  it("should render IcTab with inline badges", () => {
     mount(<TabsWithInlineBadges />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -499,7 +501,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders IcTab correctly with Inline prop set to true", () => {
+  it("should render IcTab correctly with Inline prop set to true", () => {
     mount(<InlineTabGroup />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -508,7 +510,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders compact tab selector with horizontal scroll", () => {
+  it("should render compact tab selector with horizontal scroll", () => {
     mount(<CompactTabSelector />);
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -517,7 +519,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders nested tabs", () => {
+  it("should render nested tabs", () => {
     mount(<NestedTabs />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -526,7 +528,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders manual activation IcTab", () => {
+  it("should render manual activation IcTab", () => {
     mount(<ManualActivationTabGroup />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -535,7 +537,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders focused tab", () => {
+  it("should render focused tab", () => {
     mount(<SimpleTabGroup />);
 
     cy.get(TAB_2).click();
@@ -549,7 +551,7 @@ describe("IcTab visual regression tests", () => {
     });
   });
 
-  it("renders focused light tab", () => {
+  it("should render focused light tab", () => {
     mount(
       <div style={{ backgroundColor: "black" }}>
         <LightTabs />
@@ -564,6 +566,60 @@ describe("IcTab visual regression tests", () => {
     cy.compareSnapshot({
       name: "focused_light_tab",
       testThreshold: DEFAULT_TEST_THRESHOLD + 0.012,
+    });
+  });
+
+  it("should render min and max content tabs", () => {
+    mount(<MinMaxTabs />);
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "min_max_tab",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.012,
+    });
+  });
+});
+
+describe("IcTabs visual regression in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("should render a tab group with tab focussed", () => {
+    mount(<SimpleTabGroup />);
+
+    cy.get(TAB_2).click();
+    cy.focused().as("activeElement");
+    cy.get("@activeElement").should(CONTAIN_TEXT, "Method");
+
+    cy.compareSnapshot({
+      name: "focused_tabs_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render disabled tab", () => {
+    mount(<DisabledTab />);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled_tab_high_contrast",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.011,
+    });
+  });
+
+  it("should render inline tab group", () => {
+    mount(<InlineTabGroup />);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "IcTab_with_inline_prop_high_contrast",
+      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
     });
   });
 });
