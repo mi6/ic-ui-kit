@@ -6,7 +6,7 @@ import { NavigationItem } from "../../../ic-navigation-item/ic-navigation-item";
 import { SideNavigation } from "../../ic-side-navigation";
 
 describe("ic-side-navigation", () => {
-  it("renders with app-title", async () => {
+  it("should render with app-title", async () => {
     const page = await newSpecPage({
       components: [SideNavigation],
       html: `<ic-side-navigation app-title="ACME"></ic-side-navigation>`,
@@ -15,7 +15,7 @@ describe("ic-side-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-app-title");
   });
 
-  it("renders with app title, version and status", async () => {
+  it("should render with app title, version and status", async () => {
     const page = await newSpecPage({
       components: [SideNavigation],
       html: `<ic-side-navigation version="v0.0.0" status="BETA" app-title="ACME" status="BETA"></ic-side-navigation>`,
@@ -24,7 +24,7 @@ describe("ic-side-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-app-title-version-status");
   });
 
-  it("renders with primary navigation items", async () => {
+  it("should render with primary navigation items", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `
@@ -51,7 +51,7 @@ describe("ic-side-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-with-primary-navigation-items");
   });
 
-  it("renders with secondary navigation items", async () => {
+  it("should render with secondary navigation items", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `
@@ -80,7 +80,7 @@ describe("ic-side-navigation", () => {
     );
   });
 
-  it("renders with slotted navigation item", async () => {
+  it("should render with slotted navigation item", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `<ic-side-navigation app-title="ACME">
@@ -113,7 +113,7 @@ describe("ic-side-navigation", () => {
     expect(page.root).toMatchSnapshot("slotted-navigation-item");
   });
 
-  it("renders with slotted navigation item - collapsed icon labels true", async () => {
+  it("should render with slotted navigation item - collapsed icon labels true", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="true">
@@ -172,7 +172,7 @@ describe("ic-side-navigation", () => {
     );
   });
 
-  it("tests menu toggle slotted nav items - collapsed icon labels false", async () => {
+  it("should test menu toggle slotted nav items - collapsed icon labels false", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `<ic-side-navigation app-title="ACME" collapsed-icon-labels="false">
@@ -249,7 +249,7 @@ describe("ic-side-navigation", () => {
     ).toBe("320px");
   });
 
-  it("renders expanded", async () => {
+  it("should render expanded", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `<ic-side-navigation app-title="ACME" expanded="true"></ic-side-navigation>`,
@@ -260,7 +260,7 @@ describe("ic-side-navigation", () => {
     expect(page.root).toMatchSnapshot("renders-expanded");
   });
 
-  it("renders with primary navigation items and collapsed icon labels", async () => {
+  it("should render with primary navigation items and collapsed icon labels", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem],
       html: `
@@ -306,7 +306,7 @@ describe("ic-side-navigation", () => {
     expect(page.rootInstance.deviceSize).toBe(DEVICE_SIZES.XL);
   });
 
-  it("tests menu toggle", async () => {
+  it("should test menu toggle", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem, Button],
       html: `<ic-side-navigation app-title="ACME" version="v0.0.0" status="BETA">
@@ -458,7 +458,7 @@ describe("ic-side-navigation", () => {
     page.setContent("");
   });
 
-  it("renders with slotted primary secondary navigation and expanded", async () => {
+  it("should render with slotted primary secondary navigation and expanded", async () => {
     const page = await newSpecPage({
       components: [SideNavigation, NavigationItem, NavigationGroup],
       html: `<ic-side-navigation app-title="Application Name" version="v0.0.0" status="BETA" expanded="true">

@@ -280,7 +280,7 @@ describe("resizeObserver for ic-page-header", () => {
     expect(page.rootInstance.deviceSize).toBe(DEVICE_SIZES.XL);
   });
 
-  it("shouldn't call the resizeObserver if the resizeObserver is null", async () => {
+  it("should not call the resizeObserver if the resizeObserver is null", async () => {
     const page = await newSpecPage({
       components: [PageHeader, Button],
       html: `

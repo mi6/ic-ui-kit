@@ -2,7 +2,7 @@ import { InputValidation } from "../../ic-input-validation";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("ic-input-validation", () => {
-  it("renders", async () => {
+  it("should render", async () => {
     const page = await newSpecPage({
       components: [InputValidation],
       html: `<ic-input-validation for="test-id" message="validation message"></ic-input-validation>`,
@@ -19,7 +19,7 @@ describe("ic-input-validation", () => {
     `);
   });
 
-  it("renders with success status", async () => {
+  it("should render with success status", async () => {
     const page = await newSpecPage({
       components: [InputValidation],
       html: `<ic-input-validation for="test-id" message="validation message" status="success"></ic-input-validation>`,
@@ -39,7 +39,7 @@ describe("ic-input-validation", () => {
     `);
   });
 
-  it("renders with warning status", async () => {
+  it("should render with warning status", async () => {
     const page = await newSpecPage({
       components: [InputValidation],
       html: `<ic-input-validation for="test-id" message="validation message" status="warning"></ic-input-validation>`,
@@ -59,7 +59,7 @@ describe("ic-input-validation", () => {
     `);
   });
 
-  it("renders with error status", async () => {
+  it("should render with error status", async () => {
     const page = await newSpecPage({
       components: [InputValidation],
       html: `<ic-input-validation for="test-id" message="validation message" status="error"></ic-input-validation>`,
@@ -79,7 +79,7 @@ describe("ic-input-validation", () => {
     `);
   });
 
-  it("renders with full width", async () => {
+  it("should render with full width", async () => {
     const page = await newSpecPage({
       components: [InputValidation],
       html: `<ic-input-validation for="test-id" message="validation message" full-width=true></ic-input-validation>`,

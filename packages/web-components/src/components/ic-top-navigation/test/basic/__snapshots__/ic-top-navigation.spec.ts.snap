@@ -1,45 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-top-navigation renders with Title, Version & Status: renders-with-title-version-status 1`] = `
-<ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
-  <mock:shadow-root>
-    <div class="top-navigation">
-      <ic-section-container aligned="full-width" full-height="">
-        <header role="banner">
-          <div class="top-panel-container">
-            <div class="app-details-container">
-              <a class="title-link" href="/">
-                <ic-typography variant="h3">
-                  <h1 class="title-wrap">
-                    ApplicationName
-                  </h1>
-                </ic-typography>
-              </a>
-              <div class="app-status">
-                <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
-                  alpha
-                </ic-typography>
-              </div>
-              <div class="app-version">
-                <ic-typography aria-label="app version" class="app-version-text" variant="label">
-                  v0.0.7
-                </ic-typography>
-              </div>
-            </div>
-            <div class="search-menu-container">
-              <div class="search-actions-container">
-                <slot name="search"></slot>
-              </div>
-            </div>
-          </div>
-        </header>
-      </ic-section-container>
-    </div>
-  </mock:shadow-root>
-</ic-top-navigation>
-`;
-
-exports[`ic-top-navigation renders with app icon & title: renders-with-app-icon-and-title 1`] = `
+exports[`ic-top-navigation should render with app icon & title: renders-with-app-icon-and-title 1`] = `
 <ic-top-navigation app-title="ApplicationName">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -70,7 +31,7 @@ exports[`ic-top-navigation renders with app icon & title: renders-with-app-icon-
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with app title: renders-with-app-title 1`] = `
+exports[`ic-top-navigation should render with app title: renders-with-app-title 1`] = `
 <ic-top-navigation app-title="ApplicationName">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -94,7 +55,7 @@ exports[`ic-top-navigation renders with app title: renders-with-app-title 1`] = 
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with buttons: renders-with-buttons 1`] = `
+exports[`ic-top-navigation should render with buttons: renders-with-buttons 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -142,7 +103,7 @@ exports[`ic-top-navigation renders with buttons: renders-with-buttons 1`] = `
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with custom title link url: renders-with-custom-title-link-url 1`] = `
+exports[`ic-top-navigation should render with custom title link url: renders-with-custom-title-link-url 1`] = `
 <ic-top-navigation app-title="ApplicationName" href="https://www.google.co.uk/">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -166,7 +127,7 @@ exports[`ic-top-navigation renders with custom title link url: renders-with-cust
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] = `
+exports[`ic-top-navigation should render with navigation: renders-with-navigation 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -229,7 +190,7 @@ exports[`ic-top-navigation renders with navigation: renders-with-navigation 1`] 
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with search: renders-with-search 1`] = `
+exports[`ic-top-navigation should render with search: renders-with-search 1`] = `
 <ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -269,7 +230,7 @@ exports[`ic-top-navigation renders with search: renders-with-search 1`] = `
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with slotted app-title content: renders-with-slotted-app-title-content 1`] = `
+exports[`ic-top-navigation should render with slotted app-title content: renders-with-slotted-app-title-content 1`] = `
 <ic-top-navigation status="alpha" version="v0.0.7">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -311,7 +272,7 @@ exports[`ic-top-navigation renders with slotted app-title content: renders-with-
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation renders with slotted short-app-title: renders-with-slotted-short-title 1`] = `
+exports[`ic-top-navigation should render with slotted short-app-title: renders-with-slotted-short-title 1`] = `
 <ic-top-navigation class="mobile-mode" status="alpha" version="v0.0.7">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -369,7 +330,46 @@ exports[`ic-top-navigation renders with slotted short-app-title: renders-with-sl
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation tests form in search slot: form-in-search-slot 1`] = `
+exports[`ic-top-navigation should render with title, version & status: renders-with-title-version-status 1`] = `
+<ic-top-navigation app-title="ApplicationName" status="alpha" version="v0.0.7">
+  <mock:shadow-root>
+    <div class="top-navigation">
+      <ic-section-container aligned="full-width" full-height="">
+        <header role="banner">
+          <div class="top-panel-container">
+            <div class="app-details-container">
+              <a class="title-link" href="/">
+                <ic-typography variant="h3">
+                  <h1 class="title-wrap">
+                    ApplicationName
+                  </h1>
+                </ic-typography>
+              </a>
+              <div class="app-status">
+                <ic-typography aria-label="app tag" class="app-status-text" variant="label-uppercase">
+                  alpha
+                </ic-typography>
+              </div>
+              <div class="app-version">
+                <ic-typography aria-label="app version" class="app-version-text" variant="label">
+                  v0.0.7
+                </ic-typography>
+              </div>
+            </div>
+            <div class="search-menu-container">
+              <div class="search-actions-container">
+                <slot name="search"></slot>
+              </div>
+            </div>
+          </div>
+        </header>
+      </ic-section-container>
+    </div>
+  </mock:shadow-root>
+</ic-top-navigation>
+`;
+
+exports[`ic-top-navigation should test form in search slot: form-in-search-slot 1`] = `
 <ic-top-navigation app-title="ApplicationName">
   <mock:shadow-root>
     <div class="top-navigation">
@@ -401,7 +401,7 @@ exports[`ic-top-navigation tests form in search slot: form-in-search-slot 1`] = 
 </ic-top-navigation>
 `;
 
-exports[`ic-top-navigation tests short title on mobile devices: renders-with-short-title 1`] = `
+exports[`ic-top-navigation should test short title on mobile devices: renders-with-short-title 1`] = `
 <ic-top-navigation app-title="Application Name" class="mobile-mode" short-app-title="App Name">
   <mock:shadow-root>
     <div class="top-navigation">

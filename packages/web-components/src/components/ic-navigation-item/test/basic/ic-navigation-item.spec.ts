@@ -6,7 +6,7 @@ import { PageHeader } from "../../../ic-page-header/ic-page-header";
 import * as helpers from "../../../../utils/helpers";
 
 describe("ic-navigation-item", () => {
-  it("renders with label", async () => {
+  it("should render with label", async () => {
     const page = await newSpecPage({
       components: [NavigationItem],
       html: `<ic-navigation-item label="Item label"></ic-navigation-item>`,
@@ -67,7 +67,7 @@ describe("ic-navigation-item", () => {
     page.root.click();
   });
 
-  it("test inside side navigation", async () => {
+  it("should test inside side navigation", async () => {
     const page = await newSpecPage({
       components: [TopNavigation, NavigationItem],
       html: `<ic-side-navigation version="v0.0.0" app-title="ACME" status="BETA" collapsed-icon-labels="true">
@@ -110,7 +110,7 @@ describe("ic-navigation-item", () => {
   });
 
   // NOTE: This must go last as mocks getCurrentDeviceSize function, which will apply to all subsequent tests
-  it("test inside top navigation", async () => {
+  it("should test inside top navigation", async () => {
     const myfunc = jest.fn().mockReturnValue(DEVICE_SIZES.S);
     Object.defineProperty(helpers, "getCurrentDeviceSize", {
       value: myfunc,

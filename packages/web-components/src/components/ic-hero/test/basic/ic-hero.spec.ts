@@ -86,7 +86,7 @@ describe("ic-hero component", () => {
     expect(page.root).toMatchSnapshot("renders-small-variant");
   });
 
-  it("correctly sets foregroundColor on theme change", async () => {
+  it("should correctly set foregroundColor on theme change", async () => {
     const page = await newSpecPage({
       components: [Hero],
       html: `<ic-hero heading="Test title" subheading="Test text"></ic-hero>`,

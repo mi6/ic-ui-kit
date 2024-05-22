@@ -136,7 +136,7 @@ describe("ic-accordion snapshots", () => {
       expect(page.root.expanded).toBe(true);
     });
 
-    it("tests id number is added to accordion", async () => {
+    it("should test id number is added to accordion", async () => {
       const page = await newSpecPage({
         components: [Accordion],
         html: `
