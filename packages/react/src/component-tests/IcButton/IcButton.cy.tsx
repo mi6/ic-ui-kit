@@ -37,7 +37,7 @@ const submitForm = (ev: React.FormEvent<HTMLFormElement>) => {
 };
 
 describe("IcButton", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(<IcButton>Test</IcButton>);
 
     cy.get("ic-button").contains("Test").should(BE_VISIBLE);
@@ -291,7 +291,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders text based primary buttons", () => {
+  it("should render text based primary buttons", () => {
     mount(
       <div>
         <div id="primary-buttons">
@@ -347,7 +347,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders text based secondary buttons", () => {
+  it("should render text based secondary buttons", () => {
     mount(
       <div>
         <div id="secondary-buttons">
@@ -403,7 +403,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders text based tertiary buttons", () => {
+  it("should render text based tertiary buttons", () => {
     mount(
       <div>
         <div id="tertiary-buttons">
@@ -459,7 +459,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders text based destructive buttons", () => {
+  it("should render text based destructive buttons", () => {
     mount(
       <div>
         <div id="destructive-buttons">
@@ -487,7 +487,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with-icon based buttons", () => {
+  it("should render with-icon based buttons", () => {
     mount(
       <div>
         <div id="left-buttons">
@@ -588,7 +588,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different sized buttons", () => {
+  it("should render different sized buttons", () => {
     mount(
       <div>
         <div id="primary-buttons">
@@ -622,7 +622,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with icon buttons without viewbox", () => {
+  it("should render with icon buttons without viewbox", () => {
     mount(
       <div>
         <div id="primary-buttons">
@@ -649,7 +649,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders full width buttons", () => {
+  it("should render full width buttons", () => {
     mount(
       <div>
         <div id="left-buttons">
@@ -688,7 +688,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders icon buttons", () => {
+  it("should render icon buttons", () => {
     mount(
       <div>
         <div id="icon-buttons">
@@ -744,7 +744,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders dropdown buttons", () => {
+  it("should render dropdown buttons", () => {
     mount(
       <div>
         <div style={{ padding: "6px" }}>
@@ -913,7 +913,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders dropdown with popover", () => {
+  it("should render dropdown with popover", () => {
     mount(<PopoverDropdown />);
 
     cy.get("ic-button").click();
@@ -925,7 +925,7 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with slotted router item", () => {
+  it("should render with slotted router item", () => {
     mount(
       <IcButton>
         <a slot="router-item" href="/">

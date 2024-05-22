@@ -71,7 +71,7 @@ describe("IcBadge", () => {
     cy.get("ic-button").should(NOT_HAVE_ATTR, ARIA_LABEL);
   });
 
-  it("renders success", () => {
+  it("should render success", () => {
     mount(badgeTypes("success"));
 
     cy.compareSnapshot({
@@ -81,7 +81,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders error", () => {
+  it("should render error", () => {
     mount(badgeTypes("error"));
 
     cy.compareSnapshot({
@@ -91,7 +91,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders warning", () => {
+  it("should render warning", () => {
     mount(badgeTypes("warning"));
 
     cy.compareSnapshot({
@@ -101,7 +101,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders neutral", () => {
+  it("should render neutral", () => {
     mount(badgeTypes("neutral"));
 
     cy.compareSnapshot({
@@ -111,7 +111,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders light", () => {
+  it("should render light", () => {
     mount(badgeTypes("light"));
 
     cy.compareSnapshot({
@@ -121,14 +121,14 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders info", () => {
+  it("should render info", () => {
     mount(badgeTypes("info"));
 
     cy.compareSnapshot({ name: "info", testThreshold: DEFAULT_TEST_THRESHOLD });
     cy.checkA11yWithWait();
   });
 
-  it("renders custom", () => {
+  it("should render custom", () => {
     mount(badgeTypes("custom", "#F8C8DC"));
 
     cy.compareSnapshot({
@@ -138,7 +138,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders max number", () => {
+  it("should render max number", () => {
     mount(
       <div>
         <div style={{ padding: "16px" }}>
@@ -213,7 +213,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders position near", () => {
+  it("should render position near", () => {
     mount(
       <div>
         <div style={{ padding: "16px" }}>
@@ -248,7 +248,7 @@ describe("IcBadge", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders position inline", () => {
+  it("should render position inline", () => {
     cy.viewport(700, 500);
     mount(
       <IcTabContext>

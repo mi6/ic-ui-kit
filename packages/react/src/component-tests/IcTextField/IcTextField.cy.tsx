@@ -55,7 +55,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.task("generateReport");
   });
 
-  it("renders as a controlled component", () => {
+  it("should render as a controlled component", () => {
     mount(<Controlled />);
 
     cy.get(IC_TEXTFIELD).eq(0).should(HAVE_PROP, "value", "");
@@ -63,7 +63,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).eq(0).should(HAVE_PROP, "value", "Test");
   });
 
-  it("renders as an uncontrolled component", () => {
+  it("should render as an uncontrolled component", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
@@ -166,7 +166,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).should(HAVE_ATTR, "disabled");
   });
 
-  it("label should not be visible when hideLabel prop is set", () => {
+  it("should not have label visible when hideLabel prop is set", () => {
     mount(<HiddenLabelTextField />);
 
     cy.checkHydrated(IC_TEXTFIELD);
@@ -344,7 +344,7 @@ describe("IcTextField visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  it("renders a text field with icon, value and max length", () => {
+  it("should render a text field with icon, value and max length", () => {
     mount(<TextFieldWithIconValueMaxLength />);
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
@@ -362,7 +362,7 @@ describe("IcTextField visual regression tests", () => {
       });
   });
 
-  it("renders a small text field", () => {
+  it("should render a small text field", () => {
     mount(<SmallTextField />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -371,7 +371,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders a full width text field", () => {
+  it("should render a full width text field", () => {
     mount(<FullWidthTextField />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -380,7 +380,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders a multiline text field", () => {
+  it("should render a multiline text field", () => {
     mount(<MultiLineTextAreaWithResize />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -389,7 +389,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders text field with inline validation with status of success", () => {
+  it("should render text field with inline validation with status of success", () => {
     mount(<TextFieldWithInlineValidation />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -398,7 +398,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders validation status and text", () => {
+  it("should render validation status and text", () => {
     mount(<TextFieldWithValidation />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -407,7 +407,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders a readonly text field", () => {
+  it("should render a readonly text field", () => {
     mount(<ReadonlyTextField />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -416,7 +416,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders a custom text field", () => {
+  it("should render a custom text field", () => {
     mount(<CustomSizeTextField />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -425,7 +425,7 @@ describe("IcTextField visual regression tests", () => {
     });
   });
 
-  it("renders a text field with input focused", () => {
+  it("should render a text field with input focused", () => {
     mount(<SimpleTextField />);
     cy.checkA11yWithWait();
 

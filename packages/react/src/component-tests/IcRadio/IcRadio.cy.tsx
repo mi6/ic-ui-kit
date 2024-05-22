@@ -33,14 +33,14 @@ describe("IcRadio", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<Radios />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
     cy.checkA11yWithWait();
   });
 
-  it("Should test no options initially", () => {
+  it("should test no options initially", () => {
     mount(<RadioOptionsEmptyInitial />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
@@ -64,7 +64,7 @@ describe("IcRadio", () => {
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
 
-  it("Should update with new options", () => {
+  it("should update with new options", () => {
     mount(<RadioOptionsChanging />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);

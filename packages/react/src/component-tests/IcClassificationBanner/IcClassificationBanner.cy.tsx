@@ -16,7 +16,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.task("generateReport");
   });
 
-  it("tests default banner", () => {
+  it("should test default banner", () => {
     mount(<IcClassificationBanner></IcClassificationBanner>);
 
     cy.compareSnapshot({
@@ -26,7 +26,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests official classification banner", () => {
+  it("should test official classification banner", () => {
     mount(
       <IcClassificationBanner classification="official"></IcClassificationBanner>
     );
@@ -38,7 +38,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests official-sensitive classification banner", () => {
+  it("should test official-sensitive classification banner", () => {
     mount(
       <IcClassificationBanner classification="official-sensitive"></IcClassificationBanner>
     );
@@ -50,7 +50,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests secret classification banner", () => {
+  it("should test secret classification banner", () => {
     mount(
       <IcClassificationBanner classification="secret"></IcClassificationBanner>
     );
@@ -62,7 +62,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests top-secret classification banner", () => {
+  it("should test top-secret classification banner", () => {
     mount(
       <IcClassificationBanner classification="top-secret"></IcClassificationBanner>
     );
@@ -74,7 +74,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests classification banner with country prop", () => {
+  it("should test classification banner with country prop", () => {
     mount(
       <IcClassificationBanner
         classification="official"
@@ -89,7 +89,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests classification banner with up-to prop", () => {
+  it("should test classification banner with up-to prop", () => {
     mount(
       <IcClassificationBanner
         classification="official"
@@ -104,7 +104,7 @@ describe("IcClassificationButton visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("tests classification banner with inline prop", () => {
+  it("should test classification banner with inline prop", () => {
     mount(
       <div>
         <div

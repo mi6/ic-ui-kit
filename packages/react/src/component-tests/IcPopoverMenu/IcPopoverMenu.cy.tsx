@@ -21,7 +21,7 @@ describe("IcPopoverMenu", () => {
     cy.task("generateReport");
   });
 
-  it("renders default", () => {
+  it("should render default", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated("ic-popover-menu");
@@ -35,7 +35,7 @@ describe("IcPopoverMenu", () => {
     });
   });
 
-  it("renders with description", () => {
+  it("should render with description", () => {
     mount(<PopoverMenuDescription />);
 
     cy.checkA11yWithWait();
@@ -73,7 +73,7 @@ describe("IcPopoverMenu", () => {
     });
   });
 
-  it("renders with button variations", () => {
+  it("should render with button variations", () => {
     mount(<PopoverMenuWithVariants />);
 
     cy.checkA11yWithWait();
@@ -86,7 +86,7 @@ describe("IcPopoverMenu", () => {
     });
   });
 
-  it("render PopoverMenu with menu group", () => {
+  it("should render with menu group", () => {
     mount(<PopoverWithMenuGroups />);
 
     cy.checkA11yWithWait();

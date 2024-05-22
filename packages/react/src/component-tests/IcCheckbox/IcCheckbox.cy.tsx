@@ -28,13 +28,13 @@ const TEXT_FIELD_SELECTOR = "ic-text-field";
 const CHECKBOX_GROUP_SELECTOR = "ic-checkbox-group";
 
 describe("IcCheckbox", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(<Checkbox />);
 
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
   });
 
-  it("Should not be interactable when disabled", () => {
+  it("should not be interactable when disabled", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(2).should(BE_VISIBLE);
@@ -48,7 +48,7 @@ describe("IcCheckbox", () => {
     cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_PROP, "checked", false);
   });
 
-  it("Should set checkbox to checked when clicked", () => {
+  it("should set checkbox to checked when clicked", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
@@ -56,7 +56,7 @@ describe("IcCheckbox", () => {
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
   });
 
-  it("Should enable statictextfield when associated checkbox is checked", () => {
+  it("should enable static text field when associated checkbox is checked", () => {
     mount(<Checkbox />);
 
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
@@ -66,7 +66,7 @@ describe("IcCheckbox", () => {
     cy.get(TEXT_FIELD_SELECTOR).should(BE_VISIBLE);
   });
 
-  it("Should display dynamic textfield when associated checkbox is checked", () => {
+  it("should display dynamic textfield when associated checkbox is checked", () => {
     mount(<Checkbox />);
 
     cy.get(TEXT_FIELD_SELECTOR).should(HAVE_PROP, "disabled", true);
@@ -76,7 +76,7 @@ describe("IcCheckbox", () => {
     cy.get(TEXT_FIELD_SELECTOR).should(BE_VISIBLE);
   });
 
-  it("Should emit icChange event when checkbox is checked", () => {
+  it("should emit icChange event when checkbox is checked", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).invoke(
@@ -94,7 +94,7 @@ describe("IcCheckbox", () => {
     cy.get("@icChanges").should(HAVE_BEEN_CALLED_ONCE);
   });
 
-  it("Should set checkbox to checked when space is pressed", () => {
+  it("should set checkbox to checked when space is pressed", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).invoke(
@@ -106,7 +106,7 @@ describe("IcCheckbox", () => {
     cy.get("@icChecked").should(HAVE_BEEN_CALLED_ONCE);
   });
 
-  it("Works on a form", () => {
+  it("should work in a form", () => {
     mount(<CheckboxForm />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
@@ -115,14 +115,14 @@ describe("IcCheckbox", () => {
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, "extra");
   });
 
-  it("Passes the value of checkboxes correctly when already selected", () => {
+  it("should pass the value of checkboxes correctly when already selected", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "checked", true);
     cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "value", "Soya milk");
   });
 
-  it("resets checked state on form reset", () => {
+  it("should reset checked state on form reset", () => {
     mount(<CheckboxForm />);
 
     cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find(CONTAINER_SELECTOR).click();
@@ -191,7 +191,7 @@ describe("A11y and visual regression tests", () => {
   afterEach(() => {
     cy.task("generateReport");
   });
-  it("renders default", () => {
+  it("should render default", () => {
     mount(<Checkbox />);
 
     cy.compareSnapshot({
@@ -201,7 +201,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with hidden label", () => {
+  it("should render with hidden label", () => {
     mount(
       <IcCheckboxGroup label="Select your extras" hideLabel name="1">
         <IcCheckbox value="valueName1" label="Extra shot (50p)" />
@@ -216,7 +216,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait(undefined, 1000);
   });
 
-  it("renders helper text", () => {
+  it("should render helper text", () => {
     mount(
       <IcCheckboxGroup
         label="Select your extras"
@@ -235,7 +235,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different sizes", () => {
+  it("should render different sizes", () => {
     mount(
       <div>
         <IcCheckboxGroup label="Select your extras" name="1" size="small">
@@ -260,7 +260,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different checkbox sizes", () => {
+  it("should render different checkbox sizes", () => {
     mount(
       <div>
         <IcCheckbox value="valueName1" label="Extra shot (50p)" size="small" />
@@ -276,7 +276,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different conditional input", () => {
+  it("should render conditional input", () => {
     mount(
       <IcCheckboxGroup
         label="Which coffee do you like best?"
@@ -300,7 +300,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different conditional input dynamically", () => {
+  it("should render conditional input dynamically", () => {
     mount(
       <IcCheckboxGroup label="Which coffee do you like best?" name="dynamic">
         <IcCheckbox value="americano" label="Americano" />
@@ -326,7 +326,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different with validation", () => {
+  it("should render with validation", () => {
     mount(
       <IcCheckboxGroup
         label="Select your extras"
@@ -346,7 +346,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders different with indeterminate boxes", () => {
+  it("should render with indeterminate boxes", () => {
     mount(
       <IcCheckboxGroup label="Select your preferred drinks" name="1">
         <IcCheckbox value="drinks" label="Drinks" checked indeterminate>
@@ -382,7 +382,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with focus", () => {
+  it("should render with focus", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").eq(0).focus();
@@ -393,7 +393,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders as a controlled component", () => {
+  it("should render as a controlled component", () => {
     mount(<Controlled />);
 
     cy.get("ic-button#uncheck-btn").click();
@@ -402,7 +402,7 @@ describe("A11y and visual regression tests", () => {
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
   });
 
-  it("renders as an uncontrolled component", () => {
+  it("should render as an uncontrolled component", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");

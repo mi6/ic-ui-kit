@@ -32,7 +32,7 @@ describe("IcCard", () => {
     cy.task("generateReport");
   });
 
-  it("renders card", () => {
+  it("should render card", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <a href="/">
@@ -105,7 +105,7 @@ describe("IcCard", () => {
     });
   });
 
-  it("verify text should be match", () => {
+  it("should verify text matches", () => {
     mount(
       <a href="/">
         <IcCard heading="Card" message="This is a static card"></IcCard>
@@ -720,7 +720,7 @@ describe("IcCard", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render full width", () => {
+  it("should render full width variant ", () => {
     mount(
       <IcCard
         heading="Americano order"

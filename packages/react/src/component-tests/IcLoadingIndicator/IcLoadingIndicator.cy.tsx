@@ -36,7 +36,7 @@ describe("IcLoadingIndicator", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<IndeterminateCircularLoadingIndWithLabel />);
     cy.findShadowEl(
       "ic-loading-indicator",
@@ -46,7 +46,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders lots of determinate with many sizes", () => {
+  it("should render lots of determinate with many sizes", () => {
     mount(
       <DeterminateCircularLoadingIndWithLabelSizeSmallDefaultLarge
         progress={defaultArgs.progress}
@@ -62,7 +62,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders determinate with icon", () => {
+  it("should render determinate with icon", () => {
     mount(
       <DeterminateCircularLoadingIndWithIcon
         progress={defaultArgs.progress}
@@ -83,7 +83,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders lots of determinate linear with many sizes", () => {
+  it("should render lots of determinate linear with many sizes", () => {
     mount(
       <DeterminateLinearLoadingIndWithLabelSizeSmallDefaultLargeFull
         progress={defaultArgs.progress}
@@ -102,7 +102,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders determinate light circular with many sizes", () => {
+  it("should render determinate light circular with many sizes", () => {
     mount(
       <DeterminateCircularLightLoadingIndSizeSmallDefaultLarge
         progress={defaultArgs.progress}
@@ -122,7 +122,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders determinate light circular icon size", () => {
+  it("should render determinate light circular icon size", () => {
     mount(
       <DeterminateCircularLightLoadingIndIconNoLabel
         progress={defaultArgs.progress}
@@ -145,7 +145,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders lots of determinate linear light with many sizes", () => {
+  it("should render lots of determinate linear light with many sizes", () => {
     mount(
       <DeterminateLinearLightLoadingIndSizeDefaultLargeFull
         progress={defaultArgs.progress}
@@ -164,7 +164,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders lots of determinate with no label but description", () => {
+  it("should render lots of determinate with no label but description", () => {
     mount(
       <DeterminateLoadingIndWithNameNoLabel
         progress={defaultArgs.progress}
@@ -186,7 +186,7 @@ describe("IcLoadingIndicator", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders determinate circular with inner label", () => {
+  it("should render determinate circular with inner label", () => {
     mount(
       <DeterminateCircularLoadingIndWithInnerLabel
         progress={defaultArgs.progress}
