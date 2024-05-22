@@ -254,7 +254,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-default",
-          "percentage": 0.06409400511139136,
+          "percentage": 0.06377608483824904,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -276,7 +276,7 @@
         {
           "status": "pass",
           "name": "IcBackToTop.cy.tsx-focussed",
-          "percentage": 0.11346366354078473,
+          "percentage": 0.1181020094056605,
           "failureThreshold": 0.3,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -740,7 +740,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.07848566748139434,
+          "percentage": 0.07263607918933951,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -1364,7 +1364,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-background-click-disabled",
-          "percentage": 0,
+          "percentage": 0.048707246209710245,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1386,7 +1386,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-info-alert",
-          "percentage": 0.06889189901577689,
+          "percentage": 0.05660765922852961,
           "failureThreshold": 0.11000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1535,7 +1535,7 @@
         {
           "status": "pass",
           "name": "IcEmptyState.cy.tsx-empty-state-basic-desktop",
-          "percentage": 0.07762758315616085,
+          "percentage": 0.06377858836108975,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcEmptyState/IcEmptyState.cy.tsx",
           "specFilename": "IcEmptyState.cy.tsx",
@@ -3703,7 +3703,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-button",
-          "percentage": 0.060630025564896474,
+          "percentage": 0.05003998401278722,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3714,7 +3714,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-link",
-          "percentage": 0.05556977595779922,
+          "percentage": 0.05692099788303083,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3747,7 +3747,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-custom-aria-label",
-          "percentage": 0.06381222453417527,
+          "percentage": 0.05488169093604897,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -3885,7 +3885,7 @@
         {
           "status": "pass",
           "name": "IcToggleButton.cy.tsx-loading",
-          "percentage": 0.05959865770300536,
+          "percentage": 0.05396295025292817,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -4249,7 +4249,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-theme",
-          "percentage": 0.01384187178777149,
+          "percentage": 0,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -4403,9 +4403,9 @@
       ]
     }
   ],
-  "startedAt": "2024-05-22T12:37:57.084Z",
-  "endedAt": "2024-05-22T12:46:23.146Z",
-  "duration": 441521,
+  "startedAt": "2024-05-22T12:51:21.215Z",
+  "endedAt": "2024-05-22T12:59:42.059Z",
+  "duration": 435772,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
