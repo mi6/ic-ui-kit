@@ -68,6 +68,7 @@ textarea.no-resize {
 
 .maxlengthtext {
   color: var(--ic-color-secondary-text);
+  padding-right: var(--ic-space-xxxs);
 }
 
 .no-left-pad {
