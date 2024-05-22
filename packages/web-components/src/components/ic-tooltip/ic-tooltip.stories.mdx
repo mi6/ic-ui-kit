@@ -329,3 +329,33 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### With icon
+
+<Canvas>
+  <Story name="With icon" height="100px">
+    {(args) =>
+      html`<ic-tooltip
+        label="This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text."
+        id="ic-tooltip-test-button-default"
+      >
+        <svg
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+        <button
+          id="test-button-default"
+          aria-describedby="ic-tooltip-test-button-default"
+        >
+          Default
+        </button></ic-tooltip
+      >`
+    }
+  </Story>
+</Canvas>

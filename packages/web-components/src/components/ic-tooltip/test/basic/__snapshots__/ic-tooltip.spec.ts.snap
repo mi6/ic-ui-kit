@@ -187,6 +187,58 @@ exports[`ic-tooltip component getTooltipTranslate should update when tooltip is 
 </ic-tooltip>
 `;
 
+exports[`ic-tooltip component should render an icon next to the label text and hide it from screen readers when no alt text is given 1`] = `
+<ic-tooltip class="ic-tooltip" label="This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text." target="test-button">
+  <mock:shadow-root>
+    <div aria-hidden="false" class="ic-tooltip-container ic-tooltip-container-with-icon" role="tooltip">
+      <div aria-hidden="true" class="icon-container" role="img">
+        <slot aria-hidden="true" name="icon"></slot>
+      </div>
+      <ic-typography class="ic-typography-caption">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text.
+      </ic-typography>
+      <div class="ic-tooltip-arrow"></div>
+    </div>
+    <slot></slot>
+  </mock:shadow-root>
+  <button id="test-button">
+    Click
+  </button>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
+  </svg>
+</ic-tooltip>
+`;
+
+exports[`ic-tooltip component should render an icon next to the label text and show it to screen readers when alt text is given 1`] = `
+<ic-tooltip class="ic-tooltip" icon-alt-text="an icon" label="This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text." target="test-button">
+  <mock:shadow-root>
+    <div aria-hidden="false" class="ic-tooltip-container ic-tooltip-container-with-icon" role="tooltip">
+      <div aria-hidden="false" aria-label="an icon" class="icon-container" role="img">
+        <slot aria-hidden="true" name="icon"></slot>
+      </div>
+      <ic-typography class="ic-typography-caption">
+        <mock:shadow-root>
+          <slot></slot>
+        </mock:shadow-root>
+        This is a tooltip with an icon and quite a large label to to show the icon aligns with the first line of text.
+      </ic-typography>
+      <div class="ic-tooltip-arrow"></div>
+    </div>
+    <slot></slot>
+  </mock:shadow-root>
+  <button id="test-button">
+    Click
+  </button>
+  <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path>
+  </svg>
+</ic-tooltip>
+`;
+
 exports[`ic-tooltip component should render: ic-tooltip-render 1`] = `
 <ic-tooltip class="ic-tooltip" label="tooltip">
   <mock:shadow-root>
