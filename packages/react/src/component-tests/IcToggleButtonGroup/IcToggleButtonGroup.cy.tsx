@@ -278,3 +278,38 @@ describe("IcToggleButtonGroup", () => {
     });
   });
 });
+
+describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  it("renders a toggle-button group with first button checked and second button focussed", () => {
+    mount(<ToggleGroupSingle />);
+    const toggle = getToggle(0);
+    toggle.click();
+    cy.realPress("ArrowDown");
+    getToggle(1).should(HAVE_FOCUS);
+    cy.compareSnapshot({
+      name: "focused_toggle_checked_toggle_toggle_group_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("renders disabled", () => {
+    mount(<ToggleGroupDisabled />);
+    cy.wait(100);
+    cy.compareSnapshot({
+      name: "disabled_toggle_group_high_contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+    });
+  });
+});
