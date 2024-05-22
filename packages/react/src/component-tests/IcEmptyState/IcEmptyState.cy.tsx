@@ -26,7 +26,7 @@ describe("IcEmptyState", () => {
     cy.task("generateReport");
   });
 
-  it("Desktop Visual Regression Testing and A11y Testing", () => {
+  it("should render desktop visual regression testing and a11y testing", () => {
     mount(<BasicEmptyState />);
 
     cy.compareSnapshot({

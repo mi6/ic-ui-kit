@@ -30,7 +30,7 @@ const getAccordionSelector = (index: number) =>
   `ic-accordion[heading="Accordion ${index}"]`;
 
 describe("IcAccordion", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(<SimpleAccordion />);
 
     cy.get(IC_ACCORDION).contains("Text").should(BE_VISIBLE);
@@ -81,7 +81,7 @@ describe("IcAccordion", () => {
 });
 
 describe("IcAccordionGroup", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(
       <IcAccordionGroup groupTitle="Group">
         <TwoAccordions />
@@ -91,7 +91,7 @@ describe("IcAccordionGroup", () => {
     cy.get(IC_ACCORDION_GROUP).should(BE_VISIBLE);
   });
 
-  it("button text should change to 'See all' when expanded accordion clicked", () => {
+  it("should have changed button text to 'See all' when expanded accordion clicked", () => {
     mount(
       <IcAccordionGroup>
         <SimpleExpandedAccordion />
@@ -192,7 +192,7 @@ describe("IcAccordionGroup", () => {
       .should("eq", true);
   });
 
-  it("both accordions should open when single expansion is false", () => {
+  it("should have both accordions open when single expansion is false", () => {
     mount(<GroupWithOneExpanded />);
     cy.get(getAccordionSelector(1))
       .invoke("prop", "expanded")
@@ -221,7 +221,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
   });
 
   describe("IcAccordion", () => {
-    it("renders an accordion with a heading and body", () => {
+    it("should render an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
       cy.compareSnapshot({
@@ -231,7 +231,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders an expanded accordion", () => {
+    it("should render an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
       cy.compareSnapshot({
@@ -241,7 +241,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders an accordion with an icon", () => {
+    it("should render an accordion with an icon", () => {
       mount(
         <IcAccordion heading="Accordion 1">
           <SlottedSVG
@@ -265,7 +265,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders when disabled", () => {
+    it("should render when disabled", () => {
       mount(<AccordionsWithDisabled />);
 
       cy.compareSnapshot({
@@ -275,7 +275,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders with children", () => {
+    it("should render with children", () => {
       mount(
         <IcAccordion expanded heading="Accordion">
           <IcAccordion heading="Child Accordion 1">Text</IcAccordion>
@@ -291,7 +291,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders accordions at different sizes", () => {
+    it("should render accordions at different sizes", () => {
       mount(
         <>
           <IcAccordion heading="Small" size="small">
@@ -313,7 +313,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
   });
 
   describe("IcAccordionGroup", () => {
-    it("renders a custom groupTitle", () => {
+    it("should render a custom groupTitle", () => {
       mount(
         <IcAccordionGroup groupTitle="Custom Group Title">
           <TwoAccordions />
@@ -327,7 +327,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders a single expansion accordion-group", () => {
+    it("should render a single expansion accordion-group", () => {
       mount(
         <IcAccordionGroup singleExpansion groupTitle="Single Expansion">
           <TwoAccordions />
@@ -341,7 +341,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders accordion groups at different sizes", () => {
+    it("should render accordion groups at different sizes", () => {
       mount(
         <>
           <IcAccordionGroup size="small" groupTitle="Small">
@@ -363,7 +363,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders accordion-groups with a light theme", () => {
+    it("should render accordion-groups with a light theme", () => {
       mount(
         <div style={{ backgroundColor: "black" }}>
           <IcAccordionGroup appearance="light" groupTitle="Light theme">
@@ -379,7 +379,7 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
       cy.checkA11yWithWait();
     });
 
-    it("renders an accordion group and accordion with slotted headings", () => {
+    it("should render an accordion group and accordion with slotted headings", () => {
       mount(<SlottedHeadingAccordion />);
 
       cy.compareSnapshot({

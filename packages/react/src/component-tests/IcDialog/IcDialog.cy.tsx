@@ -41,7 +41,7 @@ describe("IcDialog", () => {
     cy.task("generateReport");
   });
 
-  it("renders and hides when background is clicked", () => {
+  it("should render and hide when background is clicked", () => {
     mount(<SimpleDialog />);
     cy.get("ic-button").click();
     cy.get("ic-dialog").should(BE_VISIBLE);
@@ -57,7 +57,7 @@ describe("IcDialog", () => {
     cy.get("ic-dialog").should(NOT_BE_VISIBLE);
   });
 
-  it("focuses slotted content", () => {
+  it("should focus on slotted content", () => {
     mount(<SlottedContentDialog />);
     cy.get("ic-dialog").should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
@@ -77,7 +77,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("focuses slotted content with height constraint disabled", () => {
+  it("should focus on slotted content with height constraint disabled", () => {
     mount(<NoHeightConstraintDialog />);
     cy.get("ic-dialog").should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
@@ -90,7 +90,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("focuses slotted content - accordian", () => {
+  it("should focus on slotted content - accordion", () => {
     mount(<SlottedContentDialogAccordian />);
     cy.get("ic-dialog").should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
@@ -103,7 +103,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("focuses slotted content - accordian group", () => {
+  it("should focus on slotted content - accordion group", () => {
     mount(<SlottedContentDialogAccordianGroup />);
     cy.get("ic-dialog").should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
@@ -116,7 +116,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("focuses slotted content - accordian group with singleExpansion", () => {
+  it("should focus slotted content - accordion group with singleExpansion", () => {
     mount(<SlottedContentDialogAccordianGroupSingleExpansion />);
     cy.get("ic-dialog").should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
@@ -145,7 +145,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders neutral alert dialog", () => {
+  it("should render neutral alert dialog", () => {
     mount(alertDialog("neutral"));
 
     cy.checkA11yWithWait();
@@ -155,7 +155,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders info alert dialog", () => {
+  it("should render info alert dialog", () => {
     mount(alertDialog("info"));
 
     cy.checkA11yWithWait();
@@ -165,7 +165,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders warning alert dialog", () => {
+  it("should render warning alert dialog", () => {
     mount(alertDialog("warning"));
 
     cy.checkA11yWithWait();
@@ -175,7 +175,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders error alert dialog", () => {
+  it("should render error alert dialog", () => {
     mount(alertDialog("error"));
 
     cy.checkA11yWithWait();
@@ -185,7 +185,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders success alert dialog", () => {
+  it("should render success alert dialog", () => {
     mount(alertDialog("success"));
 
     cy.checkA11yWithWait();
@@ -195,7 +195,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders small dialog", () => {
+  it("should render small dialog", () => {
     mount(sizeDialog("small"));
 
     cy.checkA11yWithWait();
@@ -205,7 +205,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders large dialog", () => {
+  it("should render large dialog", () => {
     mount(sizeDialog("large"));
 
     cy.checkA11yWithWait();
@@ -215,7 +215,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders no dialog controls", () => {
+  it("should render no dialog controls", () => {
     mount(<NoButtonDialog />);
 
     cy.get("ic-button").click();
@@ -226,7 +226,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders destructive dialog controls", () => {
+  it("should render destructive dialog controls", () => {
     mount(<DestructiveButtonDialog />);
 
     cy.get("ic-button").click();
@@ -237,7 +237,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders custom dialog controls", () => {
+  it("should render custom dialog controls", () => {
     mount(<CustomButtonDialog />);
 
     cy.get("ic-button#custom-dialog-btn").click();
@@ -248,7 +248,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("renders with hidden close button", () => {
+  it("should render with hidden close button", () => {
     mount(<HideCloseDialog />);
 
     cy.get("ic-button").click();
@@ -259,7 +259,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("scrolls within the dialog", () => {
+  it("should scroll within the dialog", () => {
     mount(<ScrollableDialog />);
 
     cy.get("ic-button").click();
@@ -279,7 +279,7 @@ describe("IcDialog", () => {
     });
   });
 
-  it("focuses dynamically added element when shown and skips when hidden", () => {
+  it("should focus dynamically added element when shown and skips when hidden", () => {
     mount(<DynamicDialog />);
 
     cy.get("ic-button#dynamic-dialog-btn").click();

@@ -369,7 +369,7 @@ describe("IcFooter", () => {
       cy.checkA11yWithWait("svg", 500);
     });
 
-    it("should render with layout ", () => {
+    it("should render with layout", () => {
       mount(
         <div className="footer-layout-root">
           <div style={{ minHeight: "100vh" }}>

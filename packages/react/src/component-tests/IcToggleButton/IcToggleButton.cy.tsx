@@ -28,13 +28,13 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
 describe("IcToggleButton", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(<IcToggleButton label="Test" />);
 
     cy.get("ic-toggle-button").should("exist");
   });
 
-  it("switches to checked when clicked", () => {
+  it("should switch to checked when clicked", () => {
     mount(<IcToggleButton label="Test Clickable" />);
     cy.get("ic-toggle-button").should(NOT_HAVE_CLASS, "checked");
     cy.get("ic-toggle-button").click();
@@ -88,7 +88,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders default", () => {
+  it("should render default", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" />
@@ -101,7 +101,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders checked", () => {
+  it("should render checked", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" toggleChecked />
@@ -114,7 +114,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders disabled", () => {
+  it("should render disabled", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
@@ -128,7 +128,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with icon", () => {
+  it("should render with icon", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test">
@@ -153,7 +153,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders different sizes", () => {
+  it("should render different sizes", () => {
     mount(
       <div>
         <div style={{ padding: "8px" }}>
@@ -174,7 +174,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with badge", () => {
+  it("should render with badge", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test">
@@ -189,7 +189,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with appearance set to dark", () => {
+  it("should render with appearance set to dark", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" appearance="dark" />
@@ -211,7 +211,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with appearance set to light", () => {
+  it("should render with appearance set to light", () => {
     mount(
       <div
         style={{
@@ -239,7 +239,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders full width", () => {
+  it("should render full width", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" fullWidth />
@@ -252,7 +252,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders loading", () => {
+  it("should render loading", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" loading />
@@ -266,7 +266,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders icon variant", () => {
+  it("should render icon variant", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton variant="icon" accessibleLabel="Refresh the page">
@@ -306,7 +306,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with icon placement right", () => {
+  it("should render with icon placement right", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" iconPlacement="right">
@@ -331,7 +331,7 @@ describe("IcToggleButton Visual Regression Testing", () => {
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
-  it("renders with icon placement top", () => {
+  it("should render with icon placement top", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" iconPlacement="top">

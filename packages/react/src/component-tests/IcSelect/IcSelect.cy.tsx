@@ -118,7 +118,7 @@ describe("IcSelect", () => {
       .should(HAVE_FOCUS);
   });
 
-  it("when an option is selected it should call icChange when select is focused and downArrow pressed", () => {
+  it("should call icChange when an option is selected it and when select is focused and downArrow pressed", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -131,7 +131,7 @@ describe("IcSelect", () => {
     cy.get(".ic-input").should(CONTAIN_VALUE, "espresso");
   });
 
-  it("when no option is selected it should open menu, apply focus style on first option and set as value when clicked and have expanded icon", () => {
+  it("should open menu when no option is selected, apply focus style on first option and set as value when clicked and have expanded icon", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -148,7 +148,7 @@ describe("IcSelect", () => {
       .should(HAVE_CLASS, "expand-icon expand-icon-open");
   });
 
-  it("when an option is selected it should open menu when Enter is pressed ", () => {
+  it("should open menu when an option is selected and when enter is pressed ", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -198,7 +198,7 @@ describe("IcSelect", () => {
     cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
 
-  it("when an option is selected it should open menu, apply focus style on first option and set as value when Down Arrow is pressed", () => {
+  it("should open menu when an option is selected, apply focus style on first option and set as value when Down Arrow is pressed", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -214,7 +214,7 @@ describe("IcSelect", () => {
     cy.get(".ic-input").should(CONTAIN_VALUE, "doubleespresso");
   });
 
-  it("when an option is selected it should move focus to first option and set as value when focus is on last option and Down Arrow is pressed", () => {
+  it("should move focus to first option when an option is selected and set as value when focus is on last option and Down Arrow is pressed", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -358,7 +358,7 @@ describe("IcSelect", () => {
     );
   });
 
-  it("renders with a clear button", () => {
+  it("should render with a clear button", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -873,7 +873,7 @@ describe("IcSelect", () => {
     cy.get("@icBlur").should(HAVE_BEEN_CALLED);
   });
 
-  it("Loading should display a loading message and then the options when fetching options externally", () => {
+  it("should display a loading message and then the options when fetching options externally", () => {
     mount(<LoadingSelectNoTimeout />);
     cy.checkHydrated("ic-select");
     cy.get("ic-button").click();
@@ -979,7 +979,7 @@ describe("IcSelect", () => {
       .should(HAVE_TEXT, "Cappuccino");
   });
 
-  it("hidden input value when on initial load with default value ", () => {
+  it("should render hidden input value when on initial load with default value", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1362,7 +1362,7 @@ describe("IcSelect", () => {
       .should("exist");
   });
 
-  it("renders with helper text", () => {
+  it("should render with helper text", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1378,7 +1378,7 @@ describe("IcSelect", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with custom elements", () => {
+  it("should render with custom elements", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1394,7 +1394,7 @@ describe("IcSelect", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders small", () => {
+  it("should render small", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1415,7 +1415,7 @@ describe("IcSelect", () => {
     });
   });
 
-  it("renders large", () => {
+  it("should render large", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1430,7 +1430,7 @@ describe("IcSelect", () => {
     cy.compareSnapshot("large-open", DEFAULT_TEST_THRESHOLD + 0.02);
   });
 
-  it("renders small - deprecated", () => {
+  it("should render small - deprecated", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1451,7 +1451,7 @@ describe("IcSelect", () => {
     });
   });
 
-  it("renders full width", () => {
+  it("should render full width", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1473,7 +1473,7 @@ describe("IcSelect", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with hidden label", () => {
+  it("should render with hidden label", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -1489,7 +1489,7 @@ describe("IcSelect", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders validation", () => {
+  it("should render validation", () => {
     mount(
       <div>
         <IcSelect
@@ -1520,7 +1520,7 @@ describe("IcSelect", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders as an controlled component", () => {
+  it("should render as an controlled component", () => {
     mount(<ControlledSelect />);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -1536,7 +1536,7 @@ describe("IcSelect", () => {
       .should(HAVE_LENGTH, "12");
   });
 
-  it("renders as an uncontrolled component", () => {
+  it("should render as an uncontrolled component", () => {
     mount(<UncontrolledSelect />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");

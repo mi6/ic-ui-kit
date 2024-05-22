@@ -27,7 +27,7 @@ const DISMISS_BUTTON_SELECTOR = "#dismiss-button";
 const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
 
 describe("IcToast", () => {
-  it("renders", () => {
+  it("should render", () => {
     mount(<SimpleToast />);
     cy.get("ic-toast").should("exist");
   });
@@ -96,7 +96,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders default toast", () => {
+  it("should render default toast", () => {
     mount(<HeadingOnlyToast />);
     cy.get("ic-button").click();
 
@@ -107,7 +107,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders message and variant", () => {
+  it("should render message and variant", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
 
@@ -118,7 +118,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders multiline message", () => {
+  it("should render multiline message", () => {
     mount(<MultilineMessageToast />);
     cy.get("ic-button").click();
 
@@ -129,7 +129,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders slotted button", () => {
+  it("should render slotted button", () => {
     mount(<SlottedActionToast />);
     cy.get(OPEN_BUTTON_SELECTOR).click();
 
@@ -140,7 +140,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders slotted link", () => {
+  it("should render slotted link", () => {
     mount(<SlottedLinkToast />);
     cy.get("ic-button").click();
 
@@ -151,7 +151,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders auto dismiss", () => {
+  it("should render auto dismiss", () => {
     mount(<SimpleAutoDismissToast />);
     cy.get("ic-button").click();
 
@@ -162,7 +162,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders custom neutral icon", () => {
+  it("should render custom neutral icon", () => {
     mount(<SlottedIconToast />);
     cy.get("ic-button").click();
 
@@ -173,7 +173,7 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders custom dismiss button aria label", () => {
+  it("should render custom dismiss button aria label", () => {
     mount(<DismissAriaLabelToast />);
     cy.get("ic-button").click();
 

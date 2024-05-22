@@ -19,7 +19,7 @@ describe("IcBreadcrumb", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(
       <IcBreadcrumbGroup>
         <IcBreadcrumb pageTitle="Home" href="#" />
@@ -37,7 +37,7 @@ describe("IcBreadcrumb", () => {
     });
   });
 
-  it("renders with page-title and href", () => {
+  it("should render with page-title and href", () => {
     mount(
       <IcBreadcrumbGroup>
         <IcBreadcrumb pageTitle="Home" href="#" />
@@ -54,7 +54,7 @@ describe("IcBreadcrumb", () => {
     });
   });
 
-  it("renders with page-title, href, currents", () => {
+  it("should render with page-title, href, currents", () => {
     mount(
       <IcBreadcrumbGroup>
         <IcBreadcrumb pageTitle="Home" href="#" />
@@ -71,7 +71,7 @@ describe("IcBreadcrumb", () => {
     });
   });
 
-  it("rendering with BackBreadcrumbOnly", () => {
+  it("should render with backBreadcrumbOnly", () => {
     mount(
       <IcBreadcrumbGroup backBreadcrumbOnly>
         <IcBreadcrumb pageTitle="Home" href="#" />
@@ -89,7 +89,7 @@ describe("IcBreadcrumb", () => {
     });
   });
 
-  it("renders Breadcrumb with icon", () => {
+  it("should render breadcrumb with icon", () => {
     mount(
       <IcBreadcrumbGroup>
         <IcBreadcrumb pageTitle="Home" href="#">
@@ -189,7 +189,7 @@ describe("IcBreadcrumb", () => {
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
-  it("renders with Collapsed", () => {
+  it("should render collapsed", () => {
     mount(
       <IcBreadcrumbGroup collapsed>
         <IcBreadcrumb pageTitle="Home" href="#" />

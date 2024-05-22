@@ -21,7 +21,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders static", () => {
+  it("should render static", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" />
@@ -35,7 +35,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders outlined", () => {
+  it("should render outlined", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" variant="outlined" />
@@ -49,7 +49,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with icon", () => {
+  it("should render with icon", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default">
@@ -74,7 +74,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders sizes", () => {
+  it("should render sizes", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Small" size="small" />
@@ -90,7 +90,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders dismissible", () => {
+  it("should render dismissible", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip id="small-chip" label="Small" size="small" dismissible />
@@ -114,7 +114,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders disabled", () => {
+  it("shoud render disabled", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" disabled />
@@ -137,7 +137,7 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("renders with long label", () => {
+  it("should render with long label", () => {
     mount(
       <div style={{ padding: "8px", maxWidth: "150px" }}>
         <IcChip
@@ -165,7 +165,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with white background for outlined variant", () => {
+  it("should render with white background for outlined variant", () => {
     mount(
       <div
         style={{
@@ -189,7 +189,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with a custom colour", () => {
+  it("should render with a custom colour", () => {
     mount(
       <div style={{ padding: "8px", gap: "8px" }}>
         <IcChip label="Default" customColor="#F8C8DC" />
@@ -205,7 +205,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("switches custom colour after initial render", () => {
+  it("should switch custom colour after initial render", () => {
     mount(<SwitchColour />);
 
     cy.get("ic-button").click();
