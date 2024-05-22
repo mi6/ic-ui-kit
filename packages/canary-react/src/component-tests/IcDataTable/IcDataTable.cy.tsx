@@ -61,7 +61,7 @@ describe("IcDataTables", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<BasicDataTable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
