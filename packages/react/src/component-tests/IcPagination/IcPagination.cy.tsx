@@ -22,7 +22,7 @@ describe("IcPagination", () => {
     cy.task("generateReport");
   });
 
-  it("renders simple type pagination", () => {
+  it("should render simple type pagination", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination pages={15} aria-label="Simple pagination " />
@@ -43,7 +43,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders complex type pagination", () => {
+  it("should render complex type pagination", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination
@@ -67,7 +67,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("render dark appearance for complex variant", () => {
+  it("should render dark appearance for complex variant", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination pages={15} type="complex" />
@@ -87,7 +87,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("render dark appearance for simple variant", () => {
+  it("should render dark appearance for simple variant", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination pages={15} aria-label="Simple pagination" />
@@ -107,7 +107,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("render light appearance for complex variant", () => {
+  it("should render light appearance for complex variant", () => {
     mount(
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
@@ -130,7 +130,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("render light appearance for simple variant", () => {
+  it("should render light appearance for simple variant", () => {
     mount(
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
@@ -153,7 +153,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders with Boundary and Adjacent parameters set", () => {
+  it("should render with boundary and adjacent parameters set", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination
@@ -171,7 +171,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders with hidden first and last buttons", () => {
+  it("should render with hidden first and last buttons", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination hideFirstAndLastPageButton pages={15} />
@@ -184,7 +184,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders with hide current page", () => {
+  it("should render with hide current page", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination hideCurrentPage pages={15} />
@@ -197,7 +197,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders complex pagination in a disabled state", () => {
+  it("should render complex pagination in a disabled state", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination type="complex" disabled pages={12} />
@@ -210,7 +210,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders simple pagination in a disabled state", () => {
+  it("should render simple pagination in a disabled state", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination disabled pages={12} />
@@ -222,7 +222,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders with page label", () => {
+  it("should render with page label", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination label="Slide" pages={12} type="simple" />
@@ -235,7 +235,7 @@ describe("IcPagination", () => {
     });
   });
 
-  it("renders with default page set to 4", () => {
+  it("should render with default page set to 4", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination pages={12} defaultPage={4} />

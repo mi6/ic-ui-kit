@@ -86,7 +86,7 @@ describe("IcTopNavigation", () => {
       cy.viewport(1024, 750);
     });
 
-    it("renders", () => {
+    it("should render", () => {
       mount(<SimpleTopNav />);
       cy.get(TOP_NAV_SELECTOR).shadow().contains("ApplicationName");
     });
@@ -179,7 +179,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders app icon and title", () => {
+  it("should render app icon and title", () => {
     mount(
       <IcTopNavigation appTitle="ApplicationName">
         <SlottedSVG
@@ -206,7 +206,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders status and version", () => {
+  it("should render status and version", () => {
     mount(<SimpleTopNav />);
 
     cy.compareSnapshot({
@@ -219,7 +219,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders search", () => {
+  it("should render search", () => {
     mount(<TopNavWithSearch />);
 
     cy.compareSnapshot({
@@ -232,7 +232,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders icon buttons", () => {
+  it("should render icon buttons", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -304,7 +304,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with long text values", () => {
+  it("should render with long text values", () => {
     mount(
       <IcTopNavigation
         appTitle="Application With a Long Name"
@@ -349,7 +349,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with long single-word app title", () => {
+  it("should render with long single-word app title", () => {
     mount(
       <IcTopNavigation
         appTitle="Applicationwithareallyreallylongsinglewordname"
@@ -395,7 +395,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with navigation items", () => {
+  it("should render with navigation items", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -448,7 +448,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with slotted navigation items", () => {
+  it("should render with slotted navigation items", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -502,7 +502,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with navigation group", () => {
+  it("should render with navigation group", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -551,7 +551,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with content centre aligned", () => {
+  it("should render with content centre aligned", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -605,7 +605,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with content left aligned", () => {
+  it("should render with content left aligned", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -659,7 +659,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
+  it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -719,7 +719,7 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with different theme colour", () => {
+  it("should render with different theme colour", () => {
     mount(
       <div>
         <IcTheme color="rgb(255, 201, 60)" />
@@ -785,7 +785,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.task("generateReport");
   });
 
-  it("renders app icon and title", () => {
+  it("should render app icon and title", () => {
     mount(
       <div>
         <IcTheme color="rgb(27, 60, 121)" />
@@ -815,7 +815,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders status and version", () => {
+  it("should render status and version", () => {
     mount(<SimpleTopNav />);
 
     cy.compareSnapshot({
@@ -828,7 +828,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders search", () => {
+  it("should render search", () => {
     mount(<TopNavWithSearch />);
 
     cy.compareSnapshot({
@@ -841,7 +841,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders icon buttons", () => {
+  it("should render icon buttons", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -913,7 +913,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with long text values", () => {
+  it("should render with long text values", () => {
     mount(
       <IcTopNavigation
         appTitle="Application With a Long Name"
@@ -958,7 +958,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with long single-word app title", () => {
+  it("should render with long single-word app title", () => {
     mount(
       <IcTopNavigation
         appTitle="Applicationwithareallyreallylongsinglewordname"
@@ -1004,7 +1004,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with navigation items", () => {
+  it("should render with navigation items", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1057,7 +1057,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with slotted navigation items", () => {
+  it("should render with slotted navigation items", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1111,7 +1111,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with navigation group", () => {
+  it("should render with navigation group", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1160,7 +1160,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with menu open", () => {
+  it("should render with menu open", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1210,7 +1210,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with content centre aligned", () => {
+  it("should render with content centre aligned", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1264,7 +1264,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with content left aligned", () => {
+  it("should render with content left aligned", () => {
     mount(
       <IcTopNavigation
         appTitle="ApplicationName"
@@ -1318,7 +1318,7 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
     cy.checkA11yWithWait();
   });
 
-  it("renders with different theme colour", () => {
+  it("should render with different theme colour", () => {
     mount(
       <div>
         <IcTheme color="rgb(255, 201, 60)" />

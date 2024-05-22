@@ -16,7 +16,7 @@ describe("IcAlert", () => {
   afterEach(() => {
     cy.task("generateReport");
   });
-  it("Neutral Alert with Message and Icon", () => {
+  it("should render neutral alert with message and icon", () => {
     mount(
       <IcAlert
         heading="Neutral"
@@ -39,7 +39,7 @@ describe("IcAlert", () => {
     });
     cy.checkA11yWithWait();
   });
-  it("Info Alert with Message and Icon", () => {
+  it("should render info alert with message and icon", () => {
     mount(
       <IcAlert
         variant="info"
@@ -64,7 +64,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("Error Alert with Message and Icon", () => {
+  it("should render error alert with message and icon", () => {
     mount(
       <IcAlert
         variant="error"
@@ -89,7 +89,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("Warning Alert with Message and Icon", () => {
+  it("should render warning alert with message and icon", () => {
     mount(
       <IcAlert
         variant="warning"
@@ -114,7 +114,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("Success Alert with Message and Icon", () => {
+  it("should render success alert with message and icon", () => {
     mount(
       <IcAlert
         variant="success"
@@ -139,7 +139,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("Dismissable alert should close when dismiss button is pressed", () => {
+  it("should close when dismiss button is pressed on dismissible alert", () => {
     mount(
       <IcAlert
         heading="Dismissible"
@@ -157,7 +157,7 @@ describe("IcAlert", () => {
     cy.get("ic-alert").should(NOT_BE_VISIBLE);
     cy.checkA11yWithWait();
   });
-  it("Should display title above message responsively", () => {
+  it("should display title above message responsively", () => {
     mount(
       <IcAlert
         heading="This title is very long so should force the alert to add 'title-above'"
@@ -185,7 +185,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("Should display title above message when title-above is true", () => {
+  it("should display title above message when title-above is true", () => {
     mount(
       <IcAlert
         heading="Title displayed above the message"
@@ -211,7 +211,7 @@ describe("IcAlert", () => {
     });
     cy.checkA11yWithWait();
   });
-  it("With custom message slot and link", () => {
+  it("should render with custom message slot and link", () => {
     mount(
       <IcAlert heading="This alert uses a custom message slot">
         <span slot="message">
@@ -234,7 +234,7 @@ describe("IcAlert", () => {
     cy.checkA11yWithWait();
   });
 
-  it("With action in button slot", () => {
+  it("should render with action in button slot", () => {
     mount(
       <IcAlert heading="With action" message="This alert has an action.">
         <IcButton

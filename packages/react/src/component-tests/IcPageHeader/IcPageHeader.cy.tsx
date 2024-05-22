@@ -27,7 +27,7 @@ describe("IcPageHeader", () => {
     cy.task("generateReport");
   });
 
-  it("render default", () => {
+  it("should render default", () => {
     mount(<PageHeaderDefault />);
     cy.checkHydrated("ic-page-header");
     cy.checkA11yWithWait();
@@ -52,7 +52,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("page header should not stay on top if prop use stickyDesktopOnly for viewport extra small", () => {
+  it("should not stay on top for viewport extra small if stickyDesktopOnly prop is used", () => {
     cy.viewport("iphone-6");
     mount(<DesktopScrollablePageVariant />);
 
@@ -78,7 +78,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("align page header to center", () => {
+  it("should render center aligned", () => {
     mount(PageheaderAlign("center"));
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -87,7 +87,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("small size page header", () => {
+  it("should render small", () => {
     mount(<PageHeaderSmallSize />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -96,7 +96,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("render fullWidth page header", () => {
+  it("should render full width", () => {
     mount(PageheaderAlign("full-width"));
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -105,7 +105,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("render page header without border", () => {
+  it("should render without border", () => {
     mount(<PageHeaderWithoutBorder />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -114,7 +114,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("render page header with actions, input and tabs", () => {
+  it("should render with actions, input and tabs", () => {
     mount(<PageHeaderWithActionsInputTabs />);
     cy.checkA11yWithWait();
     cy.get("ic-navigation-item").should(BE_VISIBLE);
@@ -124,7 +124,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("page header with actions,input and stepper", () => {
+  it("should render with actions, input and stepper", () => {
     mount(<PageHeaderWithStepper />);
     cy.get("ic-chip").should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
@@ -135,7 +135,7 @@ describe("IcPageHeader", () => {
     });
   });
 
-  it("page header With breadcrumb navigation", () => {
+  it("should render with breadcrumbs", () => {
     mount(<PageHeadeWithBreadcrumbNav />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({

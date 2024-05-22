@@ -6,7 +6,7 @@ import { Controlled, Uncontrolled } from "./IcSwitchTestData";
 import { HAVE_BEEN_CALLED_WITH, HAVE_PROP } from "../utils/constants";
 
 describe("IcSwitch", () => {
-  it("renders as a controlled component", () => {
+  it("should render as a controlled component", () => {
     mount(<Controlled />);
 
     cy.get("ic-button#uncheck-btn").click();

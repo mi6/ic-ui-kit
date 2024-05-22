@@ -50,12 +50,12 @@ describe("IcSideNavigation", () => {
       cy.viewport(576, DEFAULT_HEIGHT);
     });
 
-    it("renders", () => {
+    it("should render", () => {
       mount(<BasicSideNav />);
       cy.checkShadowElVisible(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
     });
 
-    it("displays flyout menu when menu button clicked with correct aria-expanded values", () => {
+    it("should display flyout menu when menu button clicked with correct aria-expanded values", () => {
       mount(<BasicSideNav />);
 
       cy.findShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR).should(
@@ -72,7 +72,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    it("dyanmically updated native button aria-label and aria-expanded", () => {
+    it("should dyanmically update native button aria-label and aria-expanded", () => {
       mount(<BasicSideNav />);
 
       cy.findShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR)
@@ -101,7 +101,7 @@ describe("IcSideNavigation", () => {
         .should("eq", "Close navigation menu");
     });
 
-    it("renders the correct number of navigation-items", () => {
+    it("should render the correct number of navigation-items", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -119,7 +119,7 @@ describe("IcSideNavigation", () => {
         .should(CONTAIN_TEXT, "a11y");
     });
 
-    it("renders application name", () => {
+    it("should render application name", () => {
       mount(<BasicSideNav />);
 
       cy.findShadowEl(SIDE_NAV_LABEL, ".top-bar ic-typography").should(
@@ -128,7 +128,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    it("renders app status and version", () => {
+    it("should render app status and version", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -143,7 +143,7 @@ describe("IcSideNavigation", () => {
       ).should(CONTAIN_TEXT, "v0.0.0");
     });
 
-    it("does not render menu expand button", () => {
+    it("should not render menu expand button", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -162,7 +162,7 @@ describe("IcSideNavigation", () => {
         cy.task("generateReport");
       });
 
-      it("renders a default IcSideNavigation", () => {
+      it("should render a default IcSideNavigation", () => {
         mount(<BasicSideNav />);
 
         cy.compareSnapshot({
@@ -181,7 +181,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders a long status and version", () => {
+      it("should render a long status and version", () => {
         mount(<LongPropsSideNav />);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -194,7 +194,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with an IcNavigationGroup", () => {
+      it("should render with an IcNavigationGroup", () => {
         mount(<GroupedSideNav />);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
@@ -207,7 +207,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with a slotted app-title", () => {
+      it("should render with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
 
         cy.compareSnapshot({
@@ -226,7 +226,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with a different theme", () => {
+      it("should render with a different theme", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />
@@ -257,7 +257,7 @@ describe("IcSideNavigation", () => {
       cy.viewport(992, DEFAULT_HEIGHT);
     });
 
-    it("renders collapsed initially", () => {
+    it("should render collapsed initially", () => {
       mount(
         <>
           <IcTheme color="rgb(27, 60, 121)" />
@@ -269,14 +269,14 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(false);
     });
 
-    it("renders expanded with expanded prop", () => {
+    it("should render expanded with expanded prop", () => {
       mount(<ExpandedSideNav />);
 
       cy.get(SIDE_NAV_LABEL).should(BE_VISIBLE);
       cy.checkSideNavSize(true);
     });
 
-    it("renders collapsed and expanded on menu toggle", () => {
+    it("should render collapsed and expanded on menu toggle", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -286,7 +286,7 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(false);
     });
 
-    it("expands when expand button is tabbed to and pressed", () => {
+    it("should expand when expand button is tabbed to and pressed", () => {
       mount(<BasicSideNav />);
       cy.checkHydrated(SIDE_NAV_LABEL);
       cy.findShadowEl("ic-side-navigation", ".title-link").focus();
@@ -298,7 +298,7 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(false);
     });
 
-    it("renders collapsed and expanded when expanded state is externally controlled", () => {
+    it("should render collapsed and expanded when expanded state is externally controlled", () => {
       mount(<DynamicExpandedSideNav />);
 
       cy.get("#expand-btn").click();
@@ -308,7 +308,7 @@ describe("IcSideNavigation", () => {
       cy.checkSideNavSize(false);
     });
 
-    it("updates aria-label on menu expand button", () => {
+    it("should update aria-label on menu expand button", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -322,7 +322,7 @@ describe("IcSideNavigation", () => {
         .should("eq", "Expand side navigation");
     });
 
-    it("displays application name on expanded side navigation", () => {
+    it("should display application name on expanded side navigation", () => {
       mount(<BasicSideNav />);
 
       cy.findShadowEl(SIDE_NAV_LABEL, TITLE_SELECTOR).should(NOT_BE_VISIBLE);
@@ -347,7 +347,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    it("collapse group nav items in collapsed side menu", () => {
+    it("should collapse group nav items in collapsed side menu", () => {
       mount(<GroupedSideNav />);
       cy.findShadowEl(NAV_GROUP_SELECTOR, NAV_GROUP_WRAPPER_SELECTOR)
         .invoke("height")
@@ -364,7 +364,7 @@ describe("IcSideNavigation", () => {
         .should("eq", 56);
     });
 
-    it("aria-landmarks added to side navigation nav sections", () => {
+    it("should have aria-landmarks added to side navigation nav sections", () => {
       const PRIMARY_LANDMARK_ID = "primary-navigation-landmark";
       const SECONDARY_LANDMARK_ID = "secondary-navigation-landmark";
 
@@ -387,7 +387,7 @@ describe("IcSideNavigation", () => {
       ).should(CONTAIN_TEXT, "Secondary");
     });
 
-    it("renders app status and version", () => {
+    it("should render app status and version", () => {
       mount(<BasicSideNav />);
 
       cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -402,7 +402,7 @@ describe("IcSideNavigation", () => {
       ).should(CONTAIN_TEXT, "v0.0.0");
     });
 
-    it("renders tooltip on collapsed side navigation", () => {
+    it("should render tooltip on collapsed side navigation", () => {
       mount(<BasicSideNav />);
 
       cy.get(NAV_ITEM_SELECTOR).first().trigger("mouseenter");
@@ -413,7 +413,7 @@ describe("IcSideNavigation", () => {
         .should(HAVE_CSS, "display", "block");
     });
 
-    it("hides tooltip on expanded side navigation", () => {
+    it("should render tooltip on expanded side navigation", () => {
       mount(<ExpandedSideNav />);
 
       cy.get(NAV_ITEM_SELECTOR).first().trigger("mouseenter");
@@ -424,13 +424,13 @@ describe("IcSideNavigation", () => {
         .should(HAVE_CSS, "display", "none");
     });
 
-    it("hides menu expand if static prop is set to true", () => {
+    it("should render menu expand if static prop is set to true", () => {
       mount(<StaticSideNav />);
 
       cy.findShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR).should(NOT_EXIST);
     });
 
-    it("renders visible labels when slotted menu items and expanded", () => {
+    it("should render visible labels when slotted menu items and expanded", () => {
       mount(<SlottedItemsExpandedSideNav />);
 
       cy.get(SIDE_NAV_LABEL)
@@ -438,7 +438,7 @@ describe("IcSideNavigation", () => {
         .should(HAVE_CSS, "visibility", "visible");
     });
 
-    it("renders navigation item labels when using slotted app-title and side nav is expanded", () => {
+    it("should render navigation item labels when using slotted app-title and side nav is expanded", () => {
       mount(<SlottedAppTitleSideNav />);
 
       cy.get(SIDE_NAV_LABEL)
@@ -458,7 +458,7 @@ describe("IcSideNavigation", () => {
         .should(HAVE_CSS, "visibility", "hidden");
     });
 
-    it("renders ic-side-navigation with theme colours", () => {
+    it("should render ic-side-navigation with theme colours", () => {
       mount(
         <>
           <IcTheme color="rgb(131, 166, 195)" />
@@ -488,7 +488,7 @@ describe("IcSideNavigation", () => {
         cy.task("generateReport");
       });
 
-      it("renders a default IcSideNavigation", () => {
+      it("should render a default IcSideNavigation", () => {
         mount(
           <>
             <IcTheme color="rgb(27, 60, 121)" />
@@ -512,7 +512,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders a long status and version", () => {
+      it("should render a long status and version", () => {
         mount(<LongPropsSideNav />);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -525,7 +525,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with an IcNavigationGroup", () => {
+      it("should render with an IcNavigationGroup", () => {
         mount(<GroupedSideNav />);
 
         cy.clickOnShadowEl(SIDE_NAV_LABEL, EXPAND_BUTTON_SELECTOR);
@@ -538,7 +538,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders static", () => {
+      it("should render static", () => {
         mount(<StaticSideNav />);
 
         cy.compareSnapshot({
@@ -548,7 +548,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with slotted nav items", () => {
+      it("should render with slotted nav items", () => {
         mount(<SlottedItemsExpandedSideNav />);
 
         cy.compareSnapshot({
@@ -558,7 +558,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with a slotted app-title", () => {
+      it("should render with a slotted app-title", () => {
         mount(<SlottedAppTitleSideNav />);
 
         cy.compareSnapshot({
@@ -577,7 +577,7 @@ describe("IcSideNavigation", () => {
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
       });
 
-      it("renders with a different theme", () => {
+      it("should render with a different theme", () => {
         mount(
           <>
             <IcTheme color="rgb(131, 166, 195)" />

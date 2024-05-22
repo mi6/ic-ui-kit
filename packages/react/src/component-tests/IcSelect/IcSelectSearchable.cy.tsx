@@ -58,7 +58,7 @@ describe("IcSelect searchable", () => {
     cy.task("generateReport");
   });
 
-  it("searchable should open menu when character is entered in input field and filter options", () => {
+  it("should open searchable menu when character is entered in input field and filter options", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -93,7 +93,7 @@ describe("IcSelect searchable", () => {
       });
   });
 
-  it("searchable should keep the same options when characters are entered and the menu is reopened", () => {
+  it("should keep searchable the same options when characters are entered and the menu is reopened", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -556,7 +556,7 @@ describe("IcSelect searchable", () => {
     );
   });
 
-  it("loading should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
+  it("should retry loading and keep the menu open when retry button is pressed with Spacebar", () => {
     mount(<LoadingSelectSearchable />);
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke(
@@ -603,7 +603,7 @@ describe("IcSelect searchable", () => {
     );
   });
 
-  it("menu should not be visible on initial load if setting default value and disable filter is set", () => {
+  it("should not display menu on initial load if setting default value and disable filter is set", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -641,7 +641,7 @@ describe("IcSelect searchable", () => {
     cy.get(".ic-input").should(HAVE_VALUE, "");
   });
 
-  it("renders with a default value", () => {
+  it("should render with a default value", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -665,7 +665,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with filtering at the start", () => {
+  it("should render with filtering at the start", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -684,7 +684,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with descriptions", () => {
+  it("should render with descriptions", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -702,7 +702,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with descriptions included in filter", () => {
+  it("should render with descriptions included in filter", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -720,7 +720,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with custom placeholder", () => {
+  it("should render with custom placeholder", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -737,7 +737,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with custom elements", () => {
+  it("should render with custom elements", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -755,7 +755,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders small", () => {
+  it("should render small", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -778,7 +778,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders large", () => {
+  it("should render large", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -802,7 +802,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders small - deprecated", () => {
+  it("should render small - deprecated", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -825,7 +825,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders disabled", () => {
+  it("should render disabled", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -842,7 +842,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with disabled options", () => {
+  it("should render with disabled options", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -860,7 +860,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders full width", () => {
+  it("should render full width", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -883,7 +883,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with groups", () => {
+  it("should render with groups", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -901,7 +901,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with groups included in search", () => {
+  it("should render with groups included in search", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -920,7 +920,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders with recommendations", () => {
+  it("should render with recommendations", () => {
     mount(
       <IcSelect
         label="What is your favourite coffee?"
@@ -938,7 +938,7 @@ describe("IcSelect searchable", () => {
     });
   });
 
-  it("renders as a controlled component", () => {
+  it("should render as a controlled component", () => {
     mount(<ControlledSearchableSelect />);
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -954,7 +954,7 @@ describe("IcSelect searchable", () => {
       .should(HAVE_LENGTH, "12");
   });
 
-  it("renders as an uncontrolled component", () => {
+  it("should render as an uncontrolled component", () => {
     mount(<UncontrolledSearchableSelect />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");

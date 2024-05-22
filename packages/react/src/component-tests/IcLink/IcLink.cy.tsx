@@ -17,7 +17,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  it("IcLink", () => {
+  it("should render IcLink", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcLink href="/components/link/code">About our coffees</IcLink>
@@ -36,7 +36,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render dark links", () => {
+  it("should render dark IcLink", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcLink appearance={"dark"} href="/components/link/code">
@@ -56,7 +56,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render light links", () => {
+  it("should render light IcLink", () => {
     mount(
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
@@ -78,7 +78,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("verify download link should exsit on DOM", () => {
+  it("should verify download link existence on DOM", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcLink download href="/components/link/code">
@@ -90,7 +90,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render link with Icon", () => {
+  it("should render link with icon", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcLink href="/" target="_blank">
@@ -105,7 +105,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("render multiline links", () => {
+  it("should render multiline links", () => {
     mount(
       <div style={{ width: "100px", margin: "16px", minHeight: "50px" }}>
         <IcLink href="/">

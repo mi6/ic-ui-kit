@@ -55,7 +55,7 @@ const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
 describe("IcToggleButtonGroup", () => {
   describe("E2E", () => {
-    it("Single/manual should check only one toggle", () => {
+    it("should check single/manual on only one toggle", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
@@ -65,7 +65,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
       getToggle(2).should(HAVE_ATTR, "toggle-checked");
     });
-    it("Multi should check several toggles", () => {
+    it("should check multi on several toggles", () => {
       mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
@@ -114,7 +114,7 @@ describe("IcToggleButtonGroup", () => {
       cy.task("generateReport");
     });
 
-    it("renders default", () => {
+    it("should render default", () => {
       mount(<ToggleGroupSingle />);
 
       getToggle(0).click();
@@ -124,7 +124,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
-    it("renders multiple checked", () => {
+    it("should render multiple checked", () => {
       mount(<ToggleGroupMulti />);
 
       getToggle(1).click();
@@ -135,7 +135,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
       });
     });
-    it("renders small", () => {
+    it("should render small", () => {
       mount(<ToggleGroupSmall />);
 
       getToggle(0).click();
@@ -145,7 +145,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
-    it("renders large", () => {
+    it("should render large", () => {
       mount(<ToggleGroupLarge />);
 
       getToggle(0).click();
@@ -155,7 +155,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
-    it("renders full-width", () => {
+    it("should render full-width", () => {
       mount(<ToggleGroupFullWidth />);
 
       getToggle(0).click();
@@ -165,7 +165,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
       });
     });
-    it("renders custom width", () => {
+    it("should render custom width", () => {
       mount(<ToggleGroupCustomWidth />);
 
       getToggle(0).click();
@@ -175,7 +175,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
-    it("renders toggle with large label", () => {
+    it("should render toggle with large label", () => {
       mount(<ToggleGroupLargeLabel />);
 
       getToggle(0).click();
@@ -185,7 +185,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
       });
     });
-    it("renders light", () => {
+    it("should render light", () => {
       mount(
         <div style={{ backgroundColor: "black", padding: "1rem" }}>
           <ToggleGroupLight />
@@ -199,7 +199,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       });
     });
-    it("renders dark", () => {
+    it("should render dark", () => {
       mount(<ToggleGroupDark />);
 
       getToggle(0).click();
@@ -209,7 +209,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       });
     });
-    it("renders disabled", () => {
+    it("should render disabled", () => {
       mount(<ToggleGroupDisabled />);
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -218,7 +218,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       });
     });
-    it("renders loading", () => {
+    it("should render loading", () => {
       mount(<ToggleGroupLoading />);
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -227,7 +227,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
       });
     });
-    it("renders loading light", () => {
+    it("should render loading light", () => {
       mount(
         <div style={{ backgroundColor: "black", padding: "1rem" }}>
           <ToggleGroupLoadingLight />
@@ -240,7 +240,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
       });
     });
-    it("renders loading dark", () => {
+    it("should render loading dark", () => {
       mount(<ToggleGroupLoadingDark />);
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -249,7 +249,7 @@ describe("IcToggleButtonGroup", () => {
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
       });
     });
-    it("renders icons", () => {
+    it("should render icons", () => {
       mount(
         <div>
           <ToggleGroupIconRight />
@@ -266,7 +266,7 @@ describe("IcToggleButtonGroup", () => {
       });
     });
     // icon only variant split out due to tooltip visual regression issues
-    it("renders icon only", () => {
+    it("should render icon only", () => {
       mount(
         <div>
           <ToggleGroupIconOnly />

@@ -18,7 +18,7 @@ const SEARCH_SELECTOR = "ic-search-bar";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
 describe("IcSearchBar", () => {
-  it("renders as a controlled component", () => {
+  it("should render as a controlled component", () => {
     mount(<Controlled />);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
@@ -42,7 +42,7 @@ describe("IcSearchBar", () => {
       .should(HAVE_LENGTH, "4");
   });
 
-  it("renders as an uncontrolled component", () => {
+  it("should render as an uncontrolled component", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
