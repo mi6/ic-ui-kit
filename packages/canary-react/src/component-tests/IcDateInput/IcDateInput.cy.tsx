@@ -36,7 +36,7 @@ describe("IcDateInput", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<IcDateInput label="Test Label" />);
 
     cy.checkHydrated(DATE_INPUT);

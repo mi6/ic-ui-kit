@@ -21,7 +21,7 @@ describe("IcDataTableTitleBar", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<IcDataTableTitleBar />);
 
     cy.checkHydrated(TITLE_BAR);

@@ -27,7 +27,7 @@ describe("IcPaginationBar", () => {
     cy.task("generateReport");
   });
 
-  it("renders", () => {
+  it("should render", () => {
     mount(<PaginationBarItemsPerPage />);
 
     cy.checkHydrated(PAGINATION_BAR);
