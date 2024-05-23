@@ -136,9 +136,7 @@ export class MenuItem {
       this.triggerPopoverMenuInstance.emit();
     } else if (this.variant === "toggle") {
       e.preventDefault();
-      this.toggleChecked
-        ? (this.toggleChecked = false)
-        : (this.toggleChecked = true);
+      this.toggleChecked = !this.toggleChecked;
     }
     this.handleMenuItemClick.emit({
       label: this.label,
@@ -214,11 +212,7 @@ export class MenuItem {
           role={this.variant === "toggle" ? "menuitemcheckbox" : "menuitem"}
           aria-disabled={`${this.disabled}`}
           aria-checked={
-            this.variant === "toggle" && this.toggleChecked === true
-              ? true
-              : this.variant === "toggle" && this.toggleChecked === false
-              ? false
-              : undefined
+            this.variant === "toggle" ? this.toggleChecked : undefined
           }
         >
           <ic-button

@@ -77,11 +77,9 @@ export class PopoverMenu {
       this.currentFocus = isPropDefined(this.submenuId) ? 1 : 0;
       // Needed so that anchorEl isn't always focused
       setTimeout(this.setButtonFocus, 50);
-    } else {
-      if (this.popperInstance) {
-        this.popperInstance.destroy();
-        this.popperInstance = null;
-      }
+    } else if (this.popperInstance) {
+      this.popperInstance.destroy();
+      this.popperInstance = null;
     }
   }
 
@@ -126,7 +124,12 @@ export class PopoverMenu {
   }
 
   @Listen("handleMenuItemClick")
-  handleMenuItemClick(ev: CustomEvent): void {
+  handleMenuItemClick(
+    ev: CustomEvent<{
+      label: string;
+      hasSubMenu: boolean;
+    }>
+  ): void {
     if (!ev.detail.hasSubMenu && ev.detail.label !== "Back") {
       this.closeMenu();
     }
@@ -166,13 +169,12 @@ export class PopoverMenu {
   handleKeyDown(ev: KeyboardEvent): void {
     switch (ev.key) {
       case "ArrowDown":
-        ev.preventDefault();
-        this.currentFocus = this.getNextItemToSelect(this.currentFocus, true);
-        this.setButtonFocus();
-        break;
       case "ArrowUp":
         ev.preventDefault();
-        this.currentFocus = this.getNextItemToSelect(this.currentFocus, false);
+        this.currentFocus = this.getNextItemToSelect(
+          this.currentFocus,
+          ev.key === "ArrowDown"
+        );
         this.setButtonFocus();
         break;
       case "Home":
@@ -224,7 +226,7 @@ export class PopoverMenu {
   // Checks that the popover menu has an anchor
   private findAnchorEl = (anchor: string): HTMLElement => {
     let anchorElement: HTMLElement = null;
-    if (anchor === null || anchor === undefined) {
+    if (!anchor) {
       this.submenuId === undefined &&
         console.error("No anchor specified for popover component");
     } else {
@@ -239,12 +241,12 @@ export class PopoverMenu {
   };
 
   private isNotPopoverMenuEl = (ev: Event) => {
-    const target = ev.target as HTMLElement;
+    const { id, tagName } = ev.target as HTMLElement;
     return (
-      target.id !== this.anchor &&
-      target.tagName !== "IC-MENU-ITEM" &&
-      target.tagName !== "IC-MENU-GROUP" &&
-      target.tagName !== "IC-POPOVER-MENU"
+      id !== this.anchor &&
+      tagName !== "IC-MENU-ITEM" &&
+      tagName !== "IC-MENU-GROUP" &&
+      tagName !== "IC-POPOVER-MENU"
     );
   };
 

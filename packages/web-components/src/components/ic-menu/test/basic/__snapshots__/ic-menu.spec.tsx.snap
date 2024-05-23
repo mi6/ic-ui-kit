@@ -9,9 +9,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Espresso
-              </p>
+              Espresso
             </ic-typography>
           </div>
         </div>
@@ -23,9 +21,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Double Espresso
-              </p>
+              Double Espresso
             </ic-typography>
           </div>
         </div>
@@ -34,9 +30,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Flat White
-              </p>
+              Flat White
             </ic-typography>
           </div>
         </div>
@@ -45,9 +39,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Cappuccino
-              </p>
+              Cappuccino
             </ic-typography>
           </div>
           <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
@@ -61,9 +53,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Americano
-              </p>
+              Americano
             </ic-typography>
           </div>
         </div>
@@ -72,9 +62,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Ameno
-              </p>
+              Ameno
             </ic-typography>
           </div>
         </div>
@@ -89,9 +77,7 @@ Object {
           <div class="option-text-container">
             <div class="option-label">
               <ic-typography aria-hidden="true" variant="body">
-                <p>
-                  green
-                </p>
+                green
               </ic-typography>
             </div>
           </div>
@@ -108,9 +94,7 @@ Object {
               </svg>
             </div>
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Aicano
-              </p>
+              Aicano
             </ic-typography>
           </div>
         </div>
@@ -119,9 +103,7 @@ Object {
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
-              <p>
-                Mocha
-              </p>
+              Mocha
             </ic-typography>
           </div>
           <div aria-hidden="true" class="option-element">
