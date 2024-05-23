@@ -84,9 +84,7 @@ exports[`ic-select searchable should render as required: required-searchable 1`]
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -110,9 +108,7 @@ exports[`ic-select should have correct validation status: with-validation-status
           <div class="select-container">
             <button aria-controls="ic-select-input-3-menu" aria-describedby="ic-select-input-3-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-3-menu" class="select-input" id="ic-select-input-3">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon">
@@ -129,9 +125,7 @@ exports[`ic-select should have correct validation status: with-validation-status
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -156,9 +150,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
           <div class="select-container">
             <button aria-controls="ic-select-input-4-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-4-menu" class="select-input" disabled="" id="ic-select-input-4">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon">
@@ -175,9 +167,7 @@ exports[`ic-select should not have a validation status if disabled: no-validatio
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -200,9 +190,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
           <div class="select-container">
             <button aria-controls="ic-select-input-0-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-0-menu" class="select-input" id="ic-select-input-0">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon">
@@ -219,9 +207,7 @@ exports[`ic-select should not render a label when the 'hide-label' prop is suppl
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -245,9 +231,7 @@ exports[`ic-select should not render validation text if no validation status has
           <div class="select-container">
             <button aria-controls="ic-select-input-6-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-6-menu" class="select-input" id="ic-select-input-6">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon">
@@ -264,9 +248,7 @@ exports[`ic-select should not render validation text if no validation status has
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -290,9 +272,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
           <div class="select-container">
             <button aria-controls="ic-select-input-5-menu" aria-describedby="ic-select-input-5-validation-text" aria-expanded="false" aria-haspopup="listbox" aria-invalid="true" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-5-menu" class="select-input" id="ic-select-input-5">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon">
@@ -309,9 +289,7 @@ exports[`ic-select should render correct validation text: with-validation-text 1
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -344,9 +322,7 @@ exports[`ic-select should render readonly: readonly 1`] = `
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -370,9 +346,7 @@ exports[`ic-select should test select as submit on form 1`] = `
           <div class="select-container">
             <button aria-controls="ic-select-input-1-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-1-menu" class="select-input" id="ic-select-input-1">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <span aria-hidden="true" class="expand-icon expand-icon-filled">
@@ -389,9 +363,7 @@ exports[`ic-select should test select as submit on form 1`] = `
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    No results found
-                  </p>
+                  No results found
                 </ic-typography>
               </div>
             </div>
@@ -415,9 +387,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
           <div class="select-container">
             <button aria-controls="ic-select-input-7-menu" aria-describedby="" aria-expanded="false" aria-haspopup="listbox" aria-invalid="false" aria-label="IC Select Test, Select an option" aria-owns="ic-select-input-7-menu" class="select-input" id="ic-select-input-7">
               <ic-typography class="placeholder value-text" variant="body">
-                <p>
-                  Select an option
-                </p>
+                Select an option
               </ic-typography>
               <div class="select-input-end">
                 <div class="divider"></div>
@@ -445,9 +415,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 1
-                  </p>
+                  Test label 1
                 </ic-typography>
               </div>
             </div>
@@ -456,9 +424,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 2
-                  </p>
+                  Test label 2
                 </ic-typography>
               </div>
             </div>
@@ -467,9 +433,7 @@ exports[`ic-select should test with clear button: with-clear-button 1`] = `
             <div class="option-text-container">
               <div class="option-label">
                 <ic-typography aria-hidden="true" variant="body">
-                  <p>
-                    Test label 3
-                  </p>
+                  Test label 3
                 </ic-typography>
               </div>
             </div>
