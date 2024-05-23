@@ -19,6 +19,8 @@ export const defaultArgs = {
   appearance: "default",
   size: "default",
   variant: "secondary",
+  fullWidth: true,
+  iconPlacement: "right-icon",
 };
 
 ### Primary
@@ -1255,6 +1257,9 @@ export const defaultArgs = {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
     }}
     name="Playground"
     parameters={{ loki: { skip: true } }}
@@ -1263,6 +1268,7 @@ export const defaultArgs = {
       html`<ic-button
         disabled=${args.disabled}
         variant=${args.variant}
+        full-width=${args.fullWidth}
         size=${args.size}
         loading=${args.loading}
         appearance=${args.appearance}
@@ -1290,6 +1296,13 @@ export const defaultArgs = {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
+      iconPlacement: {
+        options: ["left-icon", "right-icon"],
+        control: { type: "inline-radio" },
+      },
     }}
     name="Playground with icon"
     parameters={{ loki: { skip: true } }}
@@ -1299,11 +1312,12 @@ export const defaultArgs = {
         disabled=${args.disabled}
         variant=${args.variant}
         size=${args.size}
+        full-width=${args.fullWidth}
         loading=${args.loading}
         appearance=${args.appearance}
         >${args.message}
         <svg
-          slot="left-icon"
+          slot=${args.iconPlacement}
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
           viewBox="0 0 24 24"

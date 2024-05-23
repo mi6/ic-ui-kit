@@ -452,6 +452,10 @@ div.right-icon {
   margin-left: var(--ic-space-xs);
 }
 
+:host(.full-width) .right-icon {
+  margin-right: var(--ic-space-xs);
+}
+
 ::slotted(:not(ic-badge)) {
   width: var(--icon-width) !important;
   height: var(--icon-height) !important;
