@@ -812,6 +812,27 @@ describe("IcDataTables", () => {
       .should(HAVE_CSS, "height", "65px");
   });
 
+  it("should render a SlottedSVG in the cell slot rather than using the cell icon slot", () => {
+    mount(
+      <IcDataTable columns={COLS} data={ICON_DATA} caption="Data tables">
+        <SlottedSVG
+          slot="lastName-4"
+          focusable="false"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+        >
+          <path d="M9 3 5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></path>
+        </SlottedSVG>
+      </IcDataTable>
+    );
+
+    cy.checkHydrated(DATA_TABLE_SELECTOR);
+    cy.compareSnapshot({
+      name: "slotted-icon-in-cell",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.032),
+    });
+  });
+
   // This test needs to be last as it seems to affect other tests.
   // For example, it will remove the last column for the remaining tests if placed higher.
   it('should delete a row when the "Delete" button is clicked', () => {
