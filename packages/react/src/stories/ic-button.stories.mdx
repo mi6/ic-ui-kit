@@ -23,6 +23,7 @@ export const defaultArgs = {
   appearance: "default",
   size: "default",
   variant: "secondary",
+  fullWidth: false,
 };
 
 ### Primary
@@ -1025,6 +1026,9 @@ export const PopoverDropdown = () => {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
     }}
     name="Playground"
   >
@@ -1034,7 +1038,8 @@ export const PopoverDropdown = () => {
         variant={args.variant}
         size={args.size}
         loading={args.loading}
-        appearance={args.appearance}
+            appearance={args.appearance}
+        fullWidth={args.fullWidth}
       >
         {args.message}
       </IcButton>
@@ -1060,6 +1065,9 @@ export const PopoverDropdown = () => {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
+      fullWidth: {
+        control: { type: "boolean" },
+      },
     }}
     name="Playground with icon"
   >
@@ -1070,6 +1078,7 @@ export const PopoverDropdown = () => {
         size={args.size}
         loading={args.loading}
         appearance={args.appearance}
+        fullWidth={args.fullWidth}
       >
         {args.message}
         <svg
