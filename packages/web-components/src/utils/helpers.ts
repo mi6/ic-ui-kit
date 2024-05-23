@@ -440,7 +440,7 @@ export const getSlotElements = (
     const elements = slotContent.assignedElements
       ? slotContent.assignedElements()
       : slotContent.childNodes;
-    return elements.length ? elements : null;
+    return elements.length ? elements : slot.tagName ? [slot] : null;
   } else {
     //check for single element
     return slot === null ? null : [slot];
