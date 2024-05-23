@@ -1218,7 +1218,7 @@ export class Select {
                         this.getLabelFromValue(currValue) === undefined,
                     }}
                   >
-                    <p>{this.getLabelFromValue(currValue) || placeholder}</p>
+                    {this.getLabelFromValue(currValue) || placeholder}
                   </ic-typography>
                   <div class="select-input-end">
                     {currValue && showClearButton && (
