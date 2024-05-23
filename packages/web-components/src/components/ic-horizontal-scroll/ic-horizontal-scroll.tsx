@@ -50,9 +50,7 @@ export class HorizontalScroll {
   componentWillLoad(): void {
     this.itemsContainerEl = this.el.children[0] as HTMLElement;
     this.itemsContainerEl.addEventListener("scroll", this.scrollHandler);
-
-    this.items = (getSlotElements(this.itemsContainerEl) ||
-      Array.from(this.itemsContainerEl.children)) as HTMLElement[];
+    this.items = getSlotElements(this.itemsContainerEl) as HTMLElement[];
     this.items.forEach((item) => {
       if (item.addEventListener) {
         item.addEventListener(this.focusTrigger, this.focusHandler);
