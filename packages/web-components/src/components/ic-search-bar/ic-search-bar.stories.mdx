@@ -393,6 +393,83 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### External filtering with custom loading messages
+
+<Canvas>
+  <Story
+    name="External filtering with custom loading messages"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html` <ic-search-bar
+          label="Search for coffee"
+          placeholder="Type to search"
+          debounce="300"
+          disable-filter="true"
+          id="external-filter-search"
+          timeout="1000"
+          loading-label="Loading time"
+          loading-error-label="Oops error"
+        ></ic-search-bar>
+        <br />
+        <ic-typography
+          >Suggested search options: Espresso, Double Espresso, Flat White,
+          Cappuccino, Americano, Mocha</ic-typography
+        >
+        <br />
+        <ic-typography
+          >The IcChange event will trigger 300ms after you finish typing. 1
+          second later, the options in the searchbar menu will be
+          updated.</ic-typography
+        >
+        <script>
+          var mockData = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+          var select = document.querySelector("#external-filter-search");
+          var optionSelected = false;
+          function handleFilter(event) {
+            query = event.detail.value;
+            if (query !== optionSelected) {
+              if (query.length > 1) {
+                if (!optionSelected) {
+                  select.loading = true;
+                }
+                optionSelected = false;
+                mockAPI = (query) => {
+                  filteredResults = mockData.filter((m) =>
+                    m.label.toLowerCase().includes(query.toLowerCase())
+                  );
+                  return new Promise((resolve) =>
+                    setTimeout(
+                      () => resolve(filteredResults),
+                      event.type === "icChange" ? 2000 : 1000
+                    )
+                  );
+                };
+                mockAPI(query).then((results) => (select.options = results));
+              } else {
+                select.options = [];
+              }
+            }
+            optionSelected = "";
+          }
+          function handleSelect(event) {
+            optionSelected = true;
+          }
+          select.addEventListener("icOptionSelect", handleSelect);
+          select.addEventListener("icChange", handleFilter);
+          select.addEventListener("icRetryLoad", handleFilter);
+        </script>`
+    }
+  </Story>
+</Canvas>
+
 ### Query search mode
 
 <Canvas>
@@ -401,6 +478,182 @@ import readme from "./readme.md";
       html` <ic-search-bar
           label="What is your favourite coffee?"
           search-mode="query"
+        >
+        </ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Empty option list text
+
+<Canvas>
+  <Story name="Empty option list text" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+          empty-option-list-text="There's nothing here"
+        >
+        </ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Characters until suggestion
+
+<Canvas>
+  <Story
+    name="Characters until suggestion"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+          characters-until-suggestion="5"
+        >
+        </ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Hint text
+
+<Canvas>
+  <Story name="Hint text" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+          hint-text="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
+        ></ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Ameno", value: "ameno" },
+            { label: "Aicano", value: "acano" },
+            { label: "Mocha", value: "mocha" },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+### Long option labels
+
+<Canvas>
+  <Story name="Long option labels" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html` <ic-search-bar
+          label="What is your favourite coffee?"
+        ></ic-search-bar>
+        <script>
+          document.querySelector("ic-search-bar").options = [
+            {
+              label: "Espresso because it tastes like coffee",
+              value: "espresso",
+            },
+            {
+              label:
+                "Double Espresso because it tastes like double the amount of coffee",
+              value: "doubleespresso",
+            },
+            {
+              label: "Reallylongonewordanswerthatcouldbethenameofacoffee",
+              value: "flatwhite",
+            },
+          ];
+        </script>`
+    }
+  </Story>
+</Canvas>
+
+export const defaultArgs = {
+  autocapitalize: "off",
+  autocorrect: "off",
+  autofocus: false,
+  disabled: false,
+  fullWidth: false,
+  focusOnLoad: true,
+  helperText: "",
+  hideLabel: false,
+  label: "What is your favourite coffee?",
+  placeholder: "Search",
+  readonly: false,
+  required: false,
+  size: "default",
+  spellcheck: false,
+};
+
+### Playground
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      autocapitalize: {
+        options: ["off", "none", "on", "sentences", "words", "characters"],
+        control: { type: "select" },
+      },
+      autocorrect: {
+        options: ["on", "off"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["default", "small"],
+        control: { type: "inline-radio" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<ic-search-bar
+          autocapitalize=${args.autocapitalize}
+          autocorrect=${args.autocorrect}
+          autofocus=${args.autofocus}
+          label=${args.label}
+          required=${args.required}
+          readonly=${args.readonly}
+          spellcheck=${args.spellcheck}
+          disabled=${args.disabled}
+          full-width=${args.fullWidth}
+          focus-on-load=${args.focusOnLoad}
+          helper-text=${args.helperText}
+          hide-label=${args.hideLabel}
+          placeholder=${args.placeholder}
+          size=${args.size}
         >
         </ic-search-bar>
         <script>
