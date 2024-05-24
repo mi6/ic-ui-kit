@@ -8983,6 +8983,10 @@
         {
           "name": "slot",
           "text": "badge - Badge component overlaying the top right of the icon."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content will be displayed to the left of the label for expanded navigation items, and in replacement of the label for collapsed navigation items."
         }
       ],
       "usage": {},
@@ -9243,6 +9247,10 @@
         {
           "name": "badge",
           "docs": "Badge component overlaying the top right of the icon."
+        },
+        {
+          "name": "icon",
+          "docs": "Content will be displayed to the left of the label for expanded navigation items, and in replacement of the label for collapsed navigation items."
         }
       ],
       "parts": [
