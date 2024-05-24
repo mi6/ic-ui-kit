@@ -321,7 +321,7 @@ export const PageHeaderWithStepper = () => {
   );
 };
 
-export const PageHeadeWithBreadcrumbNav = () => {
+export const PageHeaderWithBreadcrumbNav = () => {
   return (
     <IcPageHeader
       heading="Latte recipe"
@@ -333,6 +333,19 @@ export const PageHeadeWithBreadcrumbNav = () => {
         <IcBreadcrumb pageTitle="Coffees" href="#" />
         <IcBreadcrumb current pageTitle="Latte" href="#" />
       </IcBreadcrumbGroup>
+    </IcPageHeader>
+  );
+};
+
+export const PageHeaderSlottedHeadings = () => {
+  return (
+    <IcPageHeader>
+      <IcTypography slot="heading" variant="h4">
+        <h2>Heading</h2>
+      </IcTypography>
+      <IcTypography slot="subheading" variant="body">
+        Subheading
+      </IcTypography>
     </IcPageHeader>
   );
 };

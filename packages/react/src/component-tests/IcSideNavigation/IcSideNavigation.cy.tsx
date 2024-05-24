@@ -25,6 +25,7 @@ import {
   checkSideNavSize,
 } from "./IcSideNavigationTestData";
 import _ from "cypress/types/lodash";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_HEIGHT = 1171;
 const DEFAULT_TEST_THRESHOLD = 0.06;
@@ -599,6 +600,59 @@ describe("IcSideNavigation", () => {
           testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
         });
         cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+      });
+    });
+  });
+
+  describe("IcSideNavigation visual regression in high contrast mode", () => {
+    before(() => {
+      cy.enableForcedColors();
+    });
+
+    after(() => {
+      cy.disableForcedColors();
+    });
+
+    afterEach(() => {
+      cy.task("generateReport");
+    });
+
+    it("should render", () => {
+      cy.viewport(992, DEFAULT_HEIGHT);
+      mount(<BasicSideNav />);
+      cy.compareSnapshot({
+        name: "defaultHighContrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
+    it("should render expanded", () => {
+      cy.viewport(992, DEFAULT_HEIGHT);
+      mount(<ExpandedSideNav />);
+      cy.compareSnapshot({
+        name: "expandedHighContrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
+    it("should render mobile", () => {
+      cy.viewport(576, DEFAULT_HEIGHT);
+      mount(<BasicSideNav />);
+      cy.compareSnapshot({
+        name: "mobileHighContrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
+    it("should render mobile expanded", () => {
+      cy.viewport(576, DEFAULT_HEIGHT);
+      mount(<BasicSideNav />);
+
+      cy.clickOnShadowEl(SIDE_NAV_LABEL, MENU_BUTTON_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "mobileHighContrastExpanded",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
     });
   });
