@@ -369,3 +369,16 @@
     fill: canvastext;
   }
 }
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  :host(:not(.light)) .step-icon-inner {
+    color: var(--ic-architectural-black);
+  }
+
+  .step-num,
+  .step-subtitle {
+    color: var(--ic-architectural-white) !important;
+  }
+} */

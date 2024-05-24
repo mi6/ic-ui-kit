@@ -34,9 +34,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot      | Description                                           |
-| --------- | ----------------------------------------------------- |
-| `"badge"` | Badge component overlaying the top right of the icon. |
+| Slot      | Description                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"badge"` | Badge component overlaying the top right of the icon.                                                                                             |
+| `"icon"`  | Content will be displayed to the left of the label for expanded navigation items, and in replacement of the label for collapsed navigation items. |
 
 
 ## Shadow Parts

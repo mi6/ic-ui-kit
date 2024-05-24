@@ -86,6 +86,18 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Without border
+
+<Canvas>
+  <Story name="Without border" parameters={{ loki: { skip: true } }}>
+    {html`
+      <ic-page-header heading="Page header" border="false">
+        <ic-status-tag slot="heading-adornment" label="Beta"></ic-status-tag>
+      </ic-page-header>
+    `}
+  </Story>
+</Canvas>
+
 ### Center aligned
 
 <Canvas>
