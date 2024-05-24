@@ -4,7 +4,11 @@ export type IcButtonVariants =
   | "primary"
   | "secondary"
   | "tertiary"
+  | "destructive"
   | "icon"
-  | "destructive";
+  | "icon-primary"
+  | "icon-secondary"
+  | "icon-tertiary"
+  | "icon-destructive";
 
 export type IcButtonTooltipPlacement = "top" | "right" | "bottom" | "left";
