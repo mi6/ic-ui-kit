@@ -70,6 +70,8 @@ export const ExternalFiltering = () => {
       onIcOptionSelect={handleOptionSelect}
       disableFilter
       options={results}
+      loadingLabel="Loading time"
+      loadingErrorLabel="Oops error"
     />
   );
 };
@@ -257,6 +259,78 @@ export const ExternalFiltering = () => {
   </Story>
 </Canvas>
 
+### Empty option list text
+
+<Canvas>
+  <Story name="Empty option list text">
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      emptyOptionListText="There's nothing here"
+      options={[
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappucino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+### Characters until suggestion
+
+<Canvas>
+  <Story name="Characters until suggestion">
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      charactersUntilSuggestion={5}
+      options={[
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappucino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+### Hint text
+
+<Canvas>
+  <Story name="Hint text">
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      hintText="You can use up and down arrows to navigate the options when they are available, and press enter to select an option."
+      options={[
+        { label: "Espresso", value: "espresso" },
+        { label: "Double Espresso", value: "doubleespresso" },
+        { label: "Flat White", value: "flatwhite" },
+        { label: "Cappuccino", value: "cappucino" },
+        { label: "Americano", value: "americano" },
+        { label: "Mocha", value: "mocha" },
+      ]}
+    />
+  </Story>
+</Canvas>
+
+### Long option labels
+
+<Canvas>
+  <Story name="Long option labels">
+    <IcSearchBar
+      label="What is your favourite coffee?"
+      options={[
+        { label: "Espresso because it tastes like coffee", value: "espresso" },
+        { label: "Double Espresso because it tastes like double the amount of coffee", value: "doubleespresso" },
+        { label: "Reallylongonewordanswerthatcouldbethenameofacoffee", value: "flatwhite" },
+      ]}
+    />
+  </Story>
+</Canvas>
+
 ### Controlled
 
 export const ControlledExample = () => {
@@ -319,5 +393,70 @@ export const Uncontrolled = () => {
 <Canvas>
   <Story name="Uncontrolled">
     <Uncontrolled />
+  </Story>
+</Canvas>
+
+export const defaultArgs = {
+  autocapitalize: "off",
+  autocorrect: "off",
+  autofocus: false,
+  disabled: false,
+  fullWidth: false,
+  focusOnLoad: true,
+  helperText: "",
+  hideLabel: false,
+  label: "What is your favourite coffee?",
+  placeholder: "Search",
+  readonly: false,
+  required: false,
+  size: "default",
+  spellcheck: false,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      autocapitalize: {
+        options: ["off", "none", "on", "sentences", "words", "characters"],
+        control: { type: "select" },
+      },
+      autocorrect: {
+        options: ["on", "off"],
+        control: { type: "inline-radio" },
+      },
+      size: {
+        options: ["default", "small"],
+        control: { type: "inline-radio" },
+      }
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcSearchBar
+          autocapitalize={args.autocapitalize}
+          autocorrect={args.autocorrect}
+          autofocus={args.autofocus}
+          label={args.label}
+          required={args.required}
+          readonly={args.readonly}
+          spellcheck={args.spellcheck}
+          disabled={args.disabled}
+          fullWidth={args.fullWidth}
+          focusOnLoad={args.focusOnLoad}
+          helperText={args.helperText}
+          hideLabel={args.hideLabel}
+          placeholder={args.placeholder}
+          size={args.size}
+          options={[
+            { label: "Espresso", value: "espresso" },
+            { label: "Double Espresso", value: "doubleespresso" },
+            { label: "Flat White", value: "flatwhite" },
+            { label: "Cappuccino", value: "cappucino" },
+            { label: "Americano", value: "americano" },
+            { label: "Mocha", value: "mocha" },
+          ]}
+        />
+    )}
   </Story>
 </Canvas>

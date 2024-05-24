@@ -6,7 +6,7 @@ import { mount } from "cypress/react";
 import { BE_VISIBLE, HAVE_LENGTH } from "../utils/constants";
 import {
   DesktopScrollablePageVariant,
-  PageHeadeWithBreadcrumbNav,
+  PageHeaderWithBreadcrumbNav,
   PageHeaderDefault,
   PageHeaderSmallSize,
   PageHeaderWithActionsInputTabs,
@@ -14,6 +14,7 @@ import {
   PageHeaderWithoutBorder,
   PageheaderAlign,
   ScrollStickyPageHeader,
+  PageHeaderSlottedHeadings,
 } from "./IcPageHeaderTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -57,14 +58,6 @@ describe("IcPageHeader", () => {
     mount(<DesktopScrollablePageVariant />);
 
     cy.checkHydrated("ic-page-header");
-
-    // cy.compareSnapshot({
-    //   name: "desktopOnlyBeforeScroll",
-    //   testThreshold: setThresholdBasedOnEnv(0.22),
-    //   cypressScreenshotOptions: {
-    //     capture: "viewport",
-    //   },
-    // });
 
     cy.scrollTo("bottom");
 
@@ -136,11 +129,66 @@ describe("IcPageHeader", () => {
   });
 
   it("should render with breadcrumbs", () => {
-    mount(<PageHeadeWithBreadcrumbNav />);
+    mount(<PageHeaderWithBreadcrumbNav />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "withBreadcrumb",
       testThreshold: setThresholdBasedOnEnv(0.044),
+    });
+  });
+
+  it("should render with slotted headings", () => {
+    mount(<PageHeaderSlottedHeadings />);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "withSlottedHeadings",
+      testThreshold: setThresholdBasedOnEnv(0.042),
+    });
+  });
+
+  describe("IcPageHeader visual regression in high contrast mode", () => {
+    before(() => {
+      cy.enableForcedColors();
+    });
+
+    after(() => {
+      cy.disableForcedColors();
+    });
+
+    afterEach(() => {
+      cy.task("generateReport");
+    });
+
+    it("should render", () => {
+      mount(<PageHeaderDefault />);
+      cy.compareSnapshot({
+        name: "defaultHighContrast",
+        testThreshold: setThresholdBasedOnEnv(0.04),
+      });
+    });
+
+    it("should render with actions, input and tabs", () => {
+      mount(<PageHeaderWithActionsInputTabs />);
+      cy.compareSnapshot({
+        name: "actionsInputTabsHighContrast",
+        testThreshold: setThresholdBasedOnEnv(0.04),
+      });
+    });
+
+    it("should render with breadcrumbs", () => {
+      mount(<PageHeaderWithBreadcrumbNav />);
+      cy.compareSnapshot({
+        name: "breadcrumbsHighContrast",
+        testThreshold: setThresholdBasedOnEnv(0.041),
+      });
+    });
+
+    it("should render with stepper", () => {
+      mount(<PageHeaderWithStepper />);
+      cy.compareSnapshot({
+        name: "stepperHighContrast",
+        testThreshold: setThresholdBasedOnEnv(0.044),
+      });
     });
   });
 });
