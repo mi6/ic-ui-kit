@@ -28,6 +28,7 @@ import { IcExpandedDetail } from "../ic-side-navigation/ic-side-navigation.types
 /**
  * @part link - The `<a>` within ic-navigation-item
  * @slot badge - Badge component overlaying the top right of the icon.
+ * @slot icon - Content will be displayed to the left of the label for expanded navigation items, and in replacement of the label for collapsed navigation items.
  */
 
 @Component({

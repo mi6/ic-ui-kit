@@ -76,6 +76,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  overflow-wrap: anywhere;
 }
 
 .option:not(.loading-option) {

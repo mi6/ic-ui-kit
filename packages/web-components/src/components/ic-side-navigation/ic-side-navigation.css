@@ -671,6 +671,10 @@ slot[name="app-title"]::slotted(a) {
     border-right: var(--ic-hc-border);
   }
 
+  .menu-expand-button {
+    color: Highlight !important;
+  }
+
   slot[name="app-icon"]::slotted(svg) {
     fill: currentcolor;
   }
