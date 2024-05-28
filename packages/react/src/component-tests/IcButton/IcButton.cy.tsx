@@ -21,6 +21,8 @@ import {
   SlottedIcon,
   SlottedIconNoViewBox,
   SlottedRightIcon,
+  IconBtnGroup,
+  iconProps,
 } from "./IcButtonTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -918,11 +920,11 @@ describe("IcButton Visual Regression Testing", () => {
 
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot(
-      "dropdown-popover",
-      DEFAULT_TEST_THRESHOLD + 0.06
-    );
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 200);
+    cy.compareSnapshot({
+      name: "dropdown-popover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+    });
   });
 
   it("should render with slotted router item", () => {
@@ -939,5 +941,27 @@ describe("IcButton Visual Regression Testing", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
+  });
+
+  it("renders with icon variant button group", () => {
+    mount(
+      <>
+        <IconBtnGroup props={iconProps.iconDefault} />
+        <IconBtnGroup props={iconProps.iconLarge} />
+        <IconBtnGroup props={iconProps.iconSmall} />
+        <IconBtnGroup props={iconProps.iconLoading} />
+        <IconBtnGroup props={iconProps.iconDisabled} />
+        <IconBtnGroup props={iconProps.iconDark} />
+        <IconBtnGroup props={iconProps.iconDarkLoading} />
+        <IconBtnGroup props={iconProps.iconLight} />
+        <IconBtnGroup props={iconProps.iconLightLoading} />
+      </>
+    );
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "icon-variants-button-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 });

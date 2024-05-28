@@ -30,7 +30,7 @@ const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
 const DATA_ROW_SELECTOR = "ic-data-row";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
-describe("IcDataEntity E2E ,visual and a11y testing", () => {
+describe("IcDataEntity E2E, visual and a11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -60,6 +60,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <WithLinks />
       </div>
     );
+
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "links",
@@ -73,6 +74,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <SlottedHeadingLabel />
       </div>
     );
+
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "slottedHeadingLabel",
@@ -86,11 +88,13 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <OneDataRow />
       </div>
     );
+
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
     cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "Michael");
     cy.get("ic-link").should(BE_VISIBLE).should(HAVE_TEXT, "Edit");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "oneDataRow",
@@ -104,6 +108,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <WithButton />
       </div>
     );
+
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Download receipt"]').should(BE_VISIBLE);
@@ -113,6 +118,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       .shadow()
       .find('[aria-label="Download"]')
       .should(BE_VISIBLE);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "button",
@@ -126,6 +132,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <WithStatusTags />
       </div>
     );
+
     cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "statusTag",
@@ -139,6 +146,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <Small />
       </div>
     );
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizeSmall",
@@ -152,6 +160,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <Editable />
       </div>
     );
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "editableData",
@@ -165,6 +174,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
         <EditableRow />
       </div>
     );
+
     cy.checkHydrated(DATA_ENTITY_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
@@ -177,6 +187,7 @@ describe("IcDataEntity E2E ,visual and a11y testing", () => {
       .should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
     cy.checkA11yWithWait();
+
     cy.compareSnapshot({
       name: "editableNameData",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
