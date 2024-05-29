@@ -28,7 +28,7 @@
   height: var(--ic-space-lg);
   width: var(--ic-space-lg);
   background-color: var(--ic-architectural-white);
-  border: var(--ic-border-width) solid var(--ic-architectural-300);
+  border: var(--ic-border-width) solid var(--ic-architectural-400);
   border-radius: var(--ic-border-radius);
   outline: none;
   cursor: pointer;
