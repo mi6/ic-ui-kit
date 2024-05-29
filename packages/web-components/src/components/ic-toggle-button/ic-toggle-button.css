@@ -33,6 +33,11 @@
   height: inherit;
 }
 
+:host ic-button {
+  --icon-width: var(--ic-space-lg);
+  --icon-height: var(--ic-space-lg);
+}
+
 :host(.expand-toggle-group-child) ic-button {
   min-width: 100%;
   min-height: 100%;
