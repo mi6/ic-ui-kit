@@ -13,7 +13,7 @@
   background-color: var(--ic-architectural-800);
   color: #ffff;
   text-align: center;
-  padding: var(--ic-space-xxxs) var(--ic-space-xs);
+  padding: var(--ic-space-xxs) var(--ic-space-xs);
   border-radius: var(--ic-border-radius);
   border: var(--ic-border-width) solid var(--ic-architectural-40);
   position: absolute;
@@ -21,6 +21,24 @@
   display: none;
   z-index: var(--ic-z-index-tooltip);
   box-shadow: var(--ic-elevation-overlay);
+}
+
+:host(.ic-tooltip) .ic-tooltip-container-with-icon {
+  text-align: start;
+}
+
+:host(.ic-tooltip) .icon-container {
+  box-sizing: border-box;
+  width: var(--ic-space-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: var(--ic-space-xxs);
+  height: 1lh;
+}
+
+:host(.ic-tooltip) .icon-container ::slotted(svg) {
+  fill: #ffff;
 }
 
 :host(.tooltip-navigation-item:not(.tooltip-navigation-item-side-nav-collapsed))
@@ -56,6 +74,10 @@
 
 :host(.ic-tooltip) .ic-tooltip-container[data-show] {
   display: block;
+}
+
+:host(.ic-tooltip) .ic-tooltip-container-with-icon[data-show] {
+  display: flex;
 }
 
 :host(.ic-tooltip)

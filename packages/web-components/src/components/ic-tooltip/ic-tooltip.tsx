@@ -58,6 +58,11 @@ export class Tooltip {
   @Prop({ reflect: true }) target?: string;
 
   /**
+   * Alt text to be used with an icon in the icon slot.
+   */
+  @Prop() iconAltText?: string;
+
+  /**
    * The text to display on the tooltip.
    */
   @Prop() label!: string;
@@ -85,6 +90,11 @@ export class Tooltip {
   }
 
   componentDidRender(): void {
+    if (this.iconAltText && !this.hasIconSlot) {
+      console.warn(
+        "Prop iconAltText is redundant as no icon has been provided"
+      );
+    }
     const typographyEl = this.el.shadowRoot.querySelector(
       ".ic-tooltip-container > ic-typography"
     );
@@ -265,6 +275,10 @@ export class Tooltip {
     document[method]("keydown", this.handleKeyDown);
   };
 
+  private hasIconSlot(): boolean {
+    return this.el.querySelector(`[slot="icon"]`) !== null;
+  }
+
   render() {
     const { label, maxLines, silent } = this;
     return (
@@ -272,9 +286,22 @@ export class Tooltip {
         <div
           ref={(el) => (this.toolTip = el as HTMLDivElement)}
           role="tooltip"
-          class="ic-tooltip-container"
+          class={{
+            "ic-tooltip-container": true,
+            "ic-tooltip-container-with-icon": this.hasIconSlot(),
+          }}
           aria-hidden={`${silent}`}
         >
+          {this.hasIconSlot() && (
+            <div
+              class="icon-container"
+              aria-hidden={`${!this.iconAltText}`}
+              aria-label={this.iconAltText}
+              role="img"
+            >
+              <slot name="icon" aria-hidden="true" />
+            </div>
+          )}
           <ic-typography maxLines={maxLines} variant="caption">
             {label}
           </ic-typography>
