@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-20T13:45:53",
+  "timestamp": "2024-05-29T14:10:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -14091,7 +14091,7 @@
           "mutable": false,
           "attr": "announced",
           "reflectToAttr": false,
-          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.",
+          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
           "docsTags": [],
           "default": "false",
           "values": [
