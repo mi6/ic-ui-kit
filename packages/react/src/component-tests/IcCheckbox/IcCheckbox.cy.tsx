@@ -19,6 +19,7 @@ import {
   HAVE_CLASS,
   HAVE_PROP,
 } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.2;
 
@@ -196,7 +197,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -211,7 +212,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "hideLabel",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait(undefined, 1000);
   });
@@ -230,7 +231,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "helper",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -255,7 +256,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -271,7 +272,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "checkboxSizes",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -295,7 +296,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.wait(500).compareSnapshot({
       name: "conditional",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -321,7 +322,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "dynamic",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -341,7 +342,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "validation",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -377,7 +378,7 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "indeterminate",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
@@ -388,7 +389,7 @@ describe("A11y and visual regression tests", () => {
     cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").eq(0).focus();
     cy.compareSnapshot({
       name: "focus",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait();
   });
