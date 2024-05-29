@@ -48,8 +48,6 @@
 }
 
 .button:focus,
-:host .button:focus,
-:host(.light) .button:focus,
 ::slotted(a:focus) {
   box-shadow: var(--ic-border-focus);
 }
@@ -130,40 +128,17 @@
 
 :host(.button-variant-primary) .button,
 :host(.button-variant-primary) ::slotted(a) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
   background-color: var(--button-default);
 }
 
-:host(.button-variant-primary) .button:hover:not(:focus) {
+:host(.button-variant-primary) .button:hover {
   background-color: var(--button-default-hover);
 }
 
-:host(.button-variant-primary) .button:hover:focus {
-  background-color: var(--button-default-hover);
-  border-color: var(--button-default-hover);
-}
-
-:host(.button-variant-primary:not(.light)) .button:hover:focus,
-:host(.button-variant-primary:not(.light)) ::slotted(a:hover:focus) {
-  color: var(--ic-architectural-white);
-}
-
-:host(.button-variant-primary) .button:active:not(:focus),
-:host(.button-variant-primary.loading) .button {
-  background-color: var(--button-default-active);
-}
-
-:host(.button-variant-primary) .button:active:focus {
-  background-color: var(--button-default-active);
-}
-
+:host(.button-variant-primary.loading) .button,
 :host(.button-variant-primary) .button:active {
   background-color: var(--button-default-active);
-}
-
-:host(.button-variant-primary:not(.light)) .button:active,
-:host(.button-variant-primary:not(.light)) ::slotted(a:active) {
-  color: var(--ic-architectural-white);
 }
 
 :host(.button-variant-primary.disabled) .button,
@@ -186,26 +161,15 @@
   color: var(--button-default);
 }
 
-:host(.button-variant-secondary) .button:hover:not(:focus),
-:host(.button-variant-secondary) .button:hover:focus,
-:host(.button-variant-secondary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-secondary) ::slotted(a:hover:focus) {
+:host(.button-variant-secondary) .button:hover,
+:host(.button-variant-secondary) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover);
   border-color: var(--button-default-hover);
   color: var(--button-default-hover);
 }
 
-:host(.button-variant-secondary) .button:active:not(:focus),
-:host(.button-variant-secondary) .button:active:focus,
 :host(.button-variant-secondary) .button:active,
-:host(.button-variant-secondary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-secondary) ::slotted(a:active:focus),
-:host(.button-variant-secondary) ::slotted(a:active) {
-  border-color: var(--button-default-active);
-  background-color: var(--button-default-background-active);
-  color: var(--button-default-active);
-}
-
+:host(.button-variant-secondary) ::slotted(a:active),
 :host(.button-variant-secondary.loading) .button {
   border-color: var(--button-default-active);
   background-color: var(--button-default-background-active);
@@ -213,25 +177,16 @@
 }
 
 :host(.button-variant-secondary.disabled) .button,
-:host(.button-variant-secondary.disabled) .button:hover,
-:host(.button-variant-secondary.disabled) .button:active,
-:host(.button-variant-secondary.disabled) ::slotted(a),
-:host(.button-variant-secondary.disabled) ::slotted(a:hover),
-:host(.button-variant-secondary.disabled) ::slotted(a:active) {
+:host(.button-variant-secondary.disabled) ::slotted(a) {
   border-color: var(--ic-architectural-300);
   color: var(--ic-architectural-300);
   background: none;
 }
 
 :host(.button-variant-secondary.light.disabled) .button,
-:host(.button-variant-secondary.light.disabled) .button:hover,
-:host(.button-variant-secondary.light.disabled) .button:active,
-:host(.button-variant-secondary.light.disabled) ::slotted(a),
-:host(.button-variant-secondary.light.disabled) ::slotted(a:hover),
-:host(.button-variant-secondary.light.disabled) ::slotted(a:active) {
+:host(.button-variant-secondary.light.disabled) ::slotted(a) {
   border-color: var(--ic-architectural-500);
   color: var(--ic-architectural-500);
-  background: none;
 }
 
 /* Tertiary */
@@ -241,19 +196,13 @@
   color: var(--button-default);
 }
 
-:host(.button-variant-tertiary) .button:hover:not(:focus),
-:host(.button-variant-tertiary) .button:hover:focus,
-:host(.button-variant-tertiary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-tertiary) ::slotted(a:hover:focus) {
+:host(.button-variant-tertiary) .button:hover,
+:host(.button-variant-tertiary) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover);
   color: var(--button-default-hover);
 }
 
-:host(.button-variant-tertiary) .button:active:not(:focus),
-:host(.button-variant-tertiary) .button:active:focus,
 :host(.button-variant-tertiary) .button:active,
-:host(.button-variant-tertiary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-tertiary) ::slotted(a:active:focus),
 :host(.button-variant-tertiary) ::slotted(a:active),
 :host(.button-variant-tertiary.loading) .button {
   background-color: var(--button-default-background-active);
@@ -261,43 +210,30 @@
 }
 
 :host(.button-variant-tertiary.disabled) .button,
-:host(.button-variant-tertiary.disabled) .button:hover,
-:host(.button-variant-tertiary.disabled) .button:active,
-:host(.button-variant-tertiary.disabled) ::slotted(a),
-:host(.button-variant-tertiary.disabled) ::slotted(a:hover),
-:host(.button-variant-tertiary.disabled) ::slotted(a:active) {
-  border-color: var(--ic-architectural-300);
+:host(.button-variant-tertiary.disabled) ::slotted(a) {
   color: var(--ic-architectural-300);
   background: none;
 }
 
 :host(.button-variant-tertiary.light.disabled) .button,
-:host(.button-variant-tertiary.light.disabled) .button:hover,
-:host(.button-variant-tertiary.light.disabled) .button:active,
-:host(.button-variant-tertiary.light.disabled) ::slotted(a),
-:host(.button-variant-tertiary.light.disabled) ::slotted(a:hover),
-:host(.button-variant-tertiary.light.disabled) ::slotted(a:active) {
-  border-color: var(--ic-architectural-500);
+:host(.button-variant-tertiary.light.disabled) ::slotted(a) {
   color: var(--ic-architectural-500);
-  background: none;
 }
 
 /* Destructive */
 
 :host(.button-variant-destructive) .button,
 :host(.button-variant-destructive) ::slotted(a) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
   background-color: var(--ic-action-destructive);
   text-transform: uppercase;
 }
 
-:host(.button-variant-destructive) .button:hover:not(:focus),
-:host(.button-variant-destructive) .button:hover:focus {
+:host(.button-variant-destructive) .button:hover {
   background-color: var(--ic-action-destructive-hover);
 }
 
-:host(.button-variant-destructive) .button:active:not(:focus),
-:host(.button-variant-destructive) .button:active:focus,
+:host(.button-variant-destructive) .button:active,
 :host(.button-variant-destructive.loading) .button {
   background-color: var(--ic-action-destructive-active);
 }
@@ -323,10 +259,8 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon) .button:hover:not(:focus),
-:host(.button-variant-icon) .button:hover:focus,
-:host(.button-variant-icon) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-icon) ::slotted(a:hover:focus) {
+:host(.button-variant-icon) .button:hover,
+:host(.button-variant-icon) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover);
   color: var(--button-default-hover);
 }
@@ -339,11 +273,7 @@
 }
 
 :host(.button-variant-icon.disabled) .button,
-:host(.button-variant-icon.disabled) .button:hover,
-:host(.button-variant-icon.disabled) .button:active,
-:host(.button-variant-icon.disabled) ::slotted(a),
-:host(.button-variant-icon.disabled) ::slotted(a:hover),
-:host(.button-variant-icon.disabled) ::slotted(a:active) {
+:host(.button-variant-icon.disabled) ::slotted(a) {
   color: var(--ic-architectural-300);
   background: none;
 }
@@ -356,7 +286,7 @@
 
 :host(.button-variant-icon-primary) .button,
 :host(.button-variant-icon-primary) ::slotted(a) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
   background-color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
@@ -368,21 +298,12 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon-primary) .button:hover:not(:focus),
-:host(.button-variant-icon-primary) ::slotted(a:hover:not(:focus)) {
+:host(.button-variant-icon-primary) .button:hover,
+:host(.button-variant-icon-primary) ::slotted(a:hover) {
   background-color: var(--button-default-hover);
-}
-:host(.button-variant-icon-primary) .button:hover:focus,
-:host(.button-variant-icon-primary) ::slotted(a:hover:focus) {
-  background-color: var(--button-default-hover);
-  border-color: var(--button-default-hover);
 }
 
-:host(.button-variant-icon-primary) .button:active:not(:focus),
-:host(.button-variant-icon-primary) .button:active:focus,
 :host(.button-variant-icon-primary) .button:active,
-:host(.button-variant-icon-primary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-icon-primary) ::slotted(a:active:focus),
 :host(.button-variant-icon-primary) ::slotted(a:active),
 :host(.button-variant-icon-primary.loading) .button {
   background: var(--button-default-active);
@@ -392,24 +313,10 @@
   --inner-color: var(--ic-architectural-white);
 }
 
-:host(.button-variant-icon-primary:not(.light)) .button:active,
-:host(.button-variant-icon-primary:not(.light)) ::slotted(a:active) {
-  color: var(--ic-architectural-white);
-}
-
 :host(.button-variant-icon-primary.disabled) .button,
-:host(.button-variant-icon-primary.disabled) .button:hover,
-:host(.button-variant-icon-primary.disabled) .button:active,
-:host(.button-variant-icon-primary.disabled) ::slotted(a),
-:host(.button-variant-icon-primary.disabled) ::slotted(a:hover),
-:host(.button-variant-icon-primary.disabled) ::slotted(a:active) {
+:host(.button-variant-icon-primary.disabled) ::slotted(a) {
   color: var(--ic-architectural-300);
   background: var(--ic-architectural-200);
-}
-
-:host(.button-variant-icon-primary.light) .button,
-:host(.button-variant-icon-primary.light) ::slotted(a) {
-  color: var(--ic-color-primary-text);
 }
 
 :host(.button-variant-icon-primary.light) .button,
@@ -426,12 +333,7 @@
 :host(.button-variant-icon-primary.light) ::slotted(a:active),
 :host(.button-variant-icon-primary.light.loading) .button,
 :host(.button-variant-icon-primary.light.loading) ::slotted(a) {
-  background: var(--ic-architectural-300);
-}
-
-:host(.button-variant-icon-primary.dark) .button,
-:host(.button-variant-icon-primary.dark) ::slotted(a) {
-  color: var(--ic-architectural-white);
+  background: var(--ic-action-light-active);
 }
 
 :host(.button-variant-icon-primary.dark) .button:hover,
@@ -462,29 +364,18 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon-secondary) .button:hover:not(:focus),
-:host(.button-variant-icon-secondary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-icon-secondary) .button:hover:focus,
-:host(.button-variant-icon-secondary) ::slotted(a:hover:focus) {
+:host(.button-variant-icon-secondary) .button:hover,
+:host(.button-variant-icon-secondary) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover);
   border-color: var(--button-default-hover);
   color: var(--button-default-hover);
 }
 
-:host(.button-variant-icon-secondary) .button:active:not(:focus),
-:host(.button-variant-icon-secondary) .button:active:focus,
 :host(.button-variant-icon-secondary) .button:active,
-:host(.button-variant-icon-secondary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-icon-secondary) ::slotted(a:active:focus),
-:host(.button-variant-icon-secondary) ::slotted(a:active) {
-  border-color: var(--button-default-active);
-  background-color: var(--button-default-background-active);
-  color: var(--button-default-active);
-}
-
+:host(.button-variant-icon-secondary) ::slotted(a:active),
 :host(.button-variant-icon-secondary.loading) .button {
   border-color: var(--button-default-active);
-  background: var(--button-default-background-active);
+  background-color: var(--button-default-background-active);
   color: var(--button-default-active);
 }
 
@@ -507,7 +398,6 @@
 :host(.button-variant-icon-secondary.light.disabled) ::slotted(a:active) {
   border-color: var(--ic-architectural-500);
   color: var(--ic-architectural-500);
-  background: none;
 }
 
 /* Icon-tertiary */
@@ -525,19 +415,13 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon-tertiary) .button:hover:not(:focus),
-:host(.button-variant-icon-tertiary) .button:hover:focus,
-:host(.button-variant-icon-tertiary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-icon-tertiary) ::slotted(a:hover:focus) {
+:host(.button-variant-icon-tertiary) .button:hover,
+:host(.button-variant-icon-tertiary) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover);
   color: var(--button-default-hover);
 }
 
-:host(.button-variant-icon-tertiary) .button:active:not(:focus),
-:host(.button-variant-icon-tertiary) .button:active:focus,
 :host(.button-variant-icon-tertiary) .button:active,
-:host(.button-variant-icon-tertiary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-icon-tertiary) ::slotted(a:active:focus),
 :host(.button-variant-icon-tertiary) ::slotted(a:active),
 :host(.button-variant-icon-tertiary.loading) .button {
   background-color: var(--button-default-background-active);
@@ -558,7 +442,7 @@
 
 :host(.button-variant-icon-destructive) .button,
 :host(.button-variant-icon-destructive) ::slotted(a) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
   background-color: var(--ic-action-destructive);
   min-width: 0;
   gap: var(--ic-space-xs);
@@ -570,16 +454,13 @@
   height: var(--ic-space-lg) !important;
 }
 
-:host(.button-variant-icon-destructive) .button:hover:not(:focus),
-:host(.button-variant-icon-destructive) .button:hover:focus,
-:host(.button-variant-icon-destructive) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-icon-destructive) ::slotted(a:hover:focus) {
+:host(.button-variant-icon-destructive) .button:hover,
+:host(.button-variant-icon-destructive) ::slotted(a:hover) {
   background-color: var(--ic-action-destructive-hover);
 }
 
-:host(.button-variant-icon-destructive) .button:active:not(:focus),
-:host(.button-variant-icon-destructive) .button:active:focus,
-:host(.button-variant-icon-destructive) ::slotted(a:active:not(:focus)),
+:host(.button-variant-icon-destructive) .button:active,
+:host(.button-variant-icon-destructive) ::slotted(a:active),
 :host(.button-variant-icon-destructive.loading) .button {
   background-color: var(--ic-action-destructive-active);
 }
@@ -841,14 +722,11 @@ slot[name="router-item"]::slotted(a) {
   background-color: var(--button-default) !important;
 }
 
-:host(.button-variant-primary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-primary) ::slotted(a:hover:focus) {
+:host(.button-variant-primary) ::slotted(a:hover) {
   background-color: var(--button-default-hover) !important;
 }
 
-:host(.button-variant-primary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-primary) ::slotted(a:active),
-:host(.button-variant-primary) ::sloted(a:active:focus) {
+:host(.button-variant-primary) ::slotted(a:active) {
   background-color: var(--button-default-active) !important;
 }
 
@@ -865,14 +743,11 @@ slot[name="router-item"]::slotted(a) {
   border: var(--ic-border-width) solid var(--button-default) !important;
 }
 
-:host(.button-variant-secondary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-secondary) ::slotted(a:hover:focus) {
+:host(.button-variant-secondary) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover) !important;
   border-color: var(--button-default-hover) !important;
 }
 
-:host(.button-variant-secondary) ::slotted(a:active:not(:focus)),
-:host(.button-variant-secondary) ::slotted(a:active:focus),
 :host(.button-variant-secondary) ::slotted(a:active) {
   border-color: var(--button-default-active) !important;
   background-color: var(--button-default-background-active) !important;
@@ -895,13 +770,10 @@ slot[name="router-item"]::slotted(a) {
 :host(.button-variant-tertiary.light.disabled) ::slotted(a:hover),
 :host(.button-variant-tertiary.light.disabled) ::slotted(a:active) {
   border-color: var(--ic-architectural-500) !important;
-  background: none !important;
 }
 
-:host(.button-variant-tertiary) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-tertiary) ::slotted(a:hover:focus),
-:host(.button-variant-icon) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-icon) ::slotted(a:hover:focus) {
+:host(.button-variant-tertiary) ::slotted(a:hover),
+:host(.button-variant-icon) ::slotted(a:hover) {
   background-color: var(--button-default-background-hover) !important;
 }
 
@@ -922,13 +794,11 @@ slot[name="router-item"]::slotted(a) {
   background-color: var(--ic-action-destructive) !important;
 }
 
-:host(.button-variant-destructive) ::slotted(a:hover:not(:focus)),
-:host(.button-variant-destructive) ::slotted(a:hover:focus) {
+:host(.button-variant-destructive) ::slotted(a:hover) {
   background-color: var(--ic-action-destructive-hover) !important;
 }
 
-:host(.button-variant-destructive) ::slotted(a:active:not(:focus)),
-:host(.button-variant-destructive) ::slotted(a:active:focus) {
+:host(.button-variant-destructive) ::slotted(a:active) {
   background-color: var(--ic-action-destructive-active) !important;
 }
 
