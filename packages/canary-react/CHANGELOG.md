@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.15...@ukic/canary-react@2.0.0-canary.16) (2024-05-29)
+
+### Bug Fixes
+
+- **canary-react:** adds cypress visual test for SlottedSVG in table cell ([bc402b6](https://github.com/mi6/ic-ui-kit/commit/bc402b61bb1370576834a00e7895f0669d1ff961))
+- **canary-react:** updates tests and stories for pagination bar changes ([cd8ef88](https://github.com/mi6/ic-ui-kit/commit/cd8ef88d3eb03972c0c25a4de799cee46b08c924))
+
 # [2.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.14...@ukic/canary-react@2.0.0-canary.15) (2024-05-15)
 
 ### Features

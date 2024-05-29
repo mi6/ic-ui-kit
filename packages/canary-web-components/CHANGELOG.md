@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.15...@ukic/canary-web-components@2.0.0-canary.16) (2024-05-29)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes issue with SlottedSVG not appearing in data table cell ([dd7da6f](https://github.com/mi6/ic-ui-kit/commit/dd7da6f7c80c431527148a43b45c13ae5f88bef8))
+- **canary-web-components:** fixes passing of props from data table to pagination bar ([bdebf84](https://github.com/mi6/ic-ui-kit/commit/bdebf8439207130819bc8a2eadb7966a2e6686b2))
+
 # [2.0.0-canary.15](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.14...@ukic/canary-web-components@2.0.0-canary.15) (2024-05-15)
 
 ### Features

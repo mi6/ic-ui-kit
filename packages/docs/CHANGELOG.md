@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.11.0...@ukic/docs@2.11.1) (2024-05-29)
+
+**Note:** Version bump only for package @ukic/docs
+
 # [2.11.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.10.4...@ukic/docs@2.11.0) (2024-05-15)
 
 ### Features

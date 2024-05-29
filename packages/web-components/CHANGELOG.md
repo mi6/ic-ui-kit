@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.20.0...@ukic/web-components@2.21.0) (2024-05-29)
+
+### Bug Fixes
+
+- **web-component:** [ic-button] right-icon margin bug ([486fd1b](https://github.com/mi6/ic-ui-kit/commit/486fd1b8d2de51fb35308ae99785e8fe726a49fe))
+- **web-components:** added code to update hasAdditionalField if new slot content is added ([15d2e69](https://github.com/mi6/ic-ui-kit/commit/15d2e691585d4ca96e309fc95a0319ed3305d908))
+- **web-components:** css changes in ic-toggle-button ([f5c21ac](https://github.com/mi6/ic-ui-kit/commit/f5c21aca603e0e0d279eea6823f645edd9cf7fc5))
+- **web-components:** fixes icon disappearing when validation applied ([fcabf96](https://github.com/mi6/ic-ui-kit/commit/fcabf96e32727c1f7c7f85eddf140745c97d6bba))
+- **web-components:** fixes issue where slot could be detected as empty ([2cfb206](https://github.com/mi6/ic-ui-kit/commit/2cfb206237599ebd9f99d5a6f2f769f97b136ab8))
+- **web-components:** fixes issue with textfield max length display ([c181223](https://github.com/mi6/ic-ui-kit/commit/c1812230c556ed6d5e0a5b37981ee1262d3f458e))
+- **web-components:** ic tab css improvements ([2f5efd9](https://github.com/mi6/ic-ui-kit/commit/2f5efd9c9a7ab6f33ad16f2b89e6469a1e62ab03)), closes [#1817](https://github.com/mi6/ic-ui-kit/issues/1817)
+- **web-components:** ic-pagination fixes for pagination bar ([23e4825](https://github.com/mi6/ic-ui-kit/commit/23e4825067a4345ef0ff8b0023df4f41b1e20ad6))
+- **web-components:** icon buttons with title read their tooltip ([6981fb3](https://github.com/mi6/ic-ui-kit/commit/6981fb3f9c938cbd0eadedd64bafd4157253f617)), closes [#1845](https://github.com/mi6/ic-ui-kit/issues/1845)
+- **web-components:** removed p tag from select and menu options ([84cd05e](https://github.com/mi6/ic-ui-kit/commit/84cd05e18c6c7f74c46d0312fcab2e7d4dd38de3))
+- **web-components:** update checkbox border colour ([aeb6b4a](https://github.com/mi6/ic-ui-kit/commit/aeb6b4a54692e7c54f13d860ff892b26dce94fe7))
+- **web-components:** update dialog heading to not be required when using slot, add story examples ([fa7872d](https://github.com/mi6/ic-ui-kit/commit/fa7872df84430a37adc4a664e85fc01246db87f6)), closes [#1817](https://github.com/mi6/ic-ui-kit/issues/1817)
+- **web-components:** update hero and footer to allow for slots instead of props ([e601511](https://github.com/mi6/ic-ui-kit/commit/e601511092e2d01d3118a0e093c658634588a622)), closes [#1817](https://github.com/mi6/ic-ui-kit/issues/1817)
+- **web-components:** updated slot description/added searchBar check to top-nav ([88a4b6a](https://github.com/mi6/ic-ui-kit/commit/88a4b6ac52c8276188f704bdf787ef8fb5c82dbb))
+
+### Features
+
+- **web-components:** ic-button icon variants ([4dfc06d](https://github.com/mi6/ic-ui-kit/commit/4dfc06d30769f794cf0356cc7fe05d4f7ec9fc00))
+
 # [2.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.19.0...@ukic/web-components@2.20.0) (2024-05-15)
 
 ### Bug Fixes

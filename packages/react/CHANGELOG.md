@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.20.0...@ukic/react@2.21.0) (2024-05-29)
+
+### Bug Fixes
+
+- **react:** [ic-button] storybook playground ([b8d2499](https://github.com/mi6/ic-ui-kit/commit/b8d249917e8c26a4322b92af6cc5d3b301d78be8))
+- **react:** adds tests and updates stories for textfield ([93ea71b](https://github.com/mi6/ic-ui-kit/commit/93ea71bc079d6c4e6a4b7aa7c542366f9060d96a))
+- **react:** storybook playground added ([775aae8](https://github.com/mi6/ic-ui-kit/commit/775aae8eae938c363731e640e6fccd694a08e336))
+- **react:** update checkbox border colour ([8b63c7e](https://github.com/mi6/ic-ui-kit/commit/8b63c7e31c8db214096bf8e113daaadd0242ff6a)), closes [#1886](https://github.com/mi6/ic-ui-kit/issues/1886)
+- **react:** update dialog, card and data entity stories and cypress tests ([6088816](https://github.com/mi6/ic-ui-kit/commit/6088816e14cf75e72121b56c49ad861c2592d1c2))
+- **react:** update stories and cypress tests for footer, hero and loading indicator ([f7c2680](https://github.com/mi6/ic-ui-kit/commit/f7c26809c1bd050a31ce6b267637e783ada6d2ae))
+- **react:** updates visual test baseline images ([9640cb3](https://github.com/mi6/ic-ui-kit/commit/9640cb3e3770bf4a54d085585dd8beea7ff35abb))
+
+### Features
+
+- **react:** added story for conditional tabs/additional field to ic-top-navigation/radio react stories ([1aa0759](https://github.com/mi6/ic-ui-kit/commit/1aa07594f19ae9bf408534096e938099a9fc341b))
+- **react:** update Cypress visual regression test baseline images ([e75f785](https://github.com/mi6/ic-ui-kit/commit/e75f78578a48c3cd4c3e7160c20a636002486cdd))
+- **react:** update Cypress visual regression test baseline images ([1445e86](https://github.com/mi6/ic-ui-kit/commit/1445e865e2424e48d972936862d3b64d79df1125))
+- **react:** update Cypress visual regression test baseline images ([9ed2530](https://github.com/mi6/ic-ui-kit/commit/9ed25302cf2f56c8860a9616b1a3f9df57d71ff2))
+- **react:** update Cypress visual regression test baseline images ([0af5ee8](https://github.com/mi6/ic-ui-kit/commit/0af5ee889c6a7fa7d7b9c7f05a8af581b9c4e0f6))
+
 # [2.20.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.19.0...@ukic/react@2.20.0) (2024-05-15)
 
 ### Features
