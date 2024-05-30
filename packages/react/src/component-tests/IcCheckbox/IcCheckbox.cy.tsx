@@ -202,7 +202,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should render with hidden label", () => {
+  it("should render with hidden group label", () => {
     mount(
       <IcCheckboxGroup label="Select your extras" hideLabel name="1">
         <IcCheckbox value="valueName1" label="Extra shot (50p)" />
@@ -212,6 +212,21 @@ describe("A11y and visual regression tests", () => {
 
     cy.compareSnapshot({
       name: "hideLabel",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+    cy.checkA11yWithWait(undefined, 1000);
+  });
+
+  it("should render with hidden checkbox label", () => {
+    mount(
+      <IcCheckboxGroup label="Select your extras" hideLabel name="1">
+        <IcCheckbox value="valueName1" label="Extra shot (50p)" hideLabel />
+        <IcCheckbox value="valueName2" label="Soya milk" checked hideLabel />
+      </IcCheckboxGroup>
+    );
+
+    cy.compareSnapshot({
+      name: "hideCheckboxLabel",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait(undefined, 1000);
