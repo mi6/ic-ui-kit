@@ -869,6 +869,7 @@ You can customise your own `IcEmptyState` component and slot it into the data ta
 import * as React from "react";
 import { IcDataTable } from "@ukic/canary-react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+import { IcEmptyState, IcButton } from "@ukic/react";
 
 const columns: IcDataTableColumnObject[] = [
   {
@@ -1041,9 +1042,9 @@ Custom HTML elements can be slotted or passed via the `data` prop to display in 
 
 ```tsx
 import * as React from "react";
-import { IcDataTable, IcButton } from "@ukic/canary-react";
+import { IcDataTable } from "@ukic/canary-react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
-import ReactDOMServer from "react-dom/server";
+import { IcButton } from "@ukic/react";
 
 const columns: IcDataTableColumnObject[] = [
   {
@@ -1323,9 +1324,9 @@ More details on `IcDataTableTitleBar` can be found in the <IcLink href="/?path=/
 
 ```jsx
 import * as React from "react";
-import { IcDataTable } from "@ukic/canary-react";
+import { IcDataTable, IcDataTableTitleBar } from "@ukic/canary-react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
-import { SlottedSVG } from "@ukic/react";
+import { SlottedSVG, IcButton, IcTypography, IcLink } from "@ukic/react";
 
 const columns: IcDataTableColumnObject[] = [
   {
@@ -1449,6 +1450,7 @@ export const UpdatingData = () => {
 import * as React from "react";
 import { IcDataTable } from "@ukic/canary-react";
 import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+import { IcButton } from "@ukic/react";
 
 const columns: IcDataTableColumnObject[] = [
   {
