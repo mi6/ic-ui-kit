@@ -28,6 +28,8 @@ import { IcSizes, IcThemeForeground } from "../../utils/types";
   },
 })
 export class ToggleButton {
+  private iconPosition: "left" | "right" | "top";
+
   @Element() el: HTMLIcToggleButtonElement;
 
   /**
@@ -89,6 +91,11 @@ export class ToggleButton {
 
   componentWillLoad(): void {
     removeDisabledFalse(this.disabled, this.el);
+
+    const parentIconPlacement = (
+      this.el.parentElement as HTMLIcToggleButtonGroupElement
+    ).iconPlacement;
+    this.iconPosition = this.iconPlacement || parentIconPlacement;
   }
 
   componentDidLoad(): void {
@@ -158,7 +165,7 @@ export class ToggleButton {
             <slot
               name="icon"
               slot={`${
-                this.iconPlacement ? `${this.iconPlacement}-icon` : "icon"
+                this.iconPosition ? `${this.iconPosition}-icon` : "icon"
               }`}
             ></slot>
           )}
