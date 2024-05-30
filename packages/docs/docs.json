@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-29T14:10:07",
+  "timestamp": "2024-05-30T13:05:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -2146,10 +2146,10 @@
         },
         {
           "name": "variant",
-          "type": "\"destructive\" | \"icon\" | \"primary\" | \"secondary\" | \"tertiary\"",
+          "type": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\"",
           "complexType": {
             "original": "IcButtonVariants",
-            "resolved": "\"destructive\" | \"icon\" | \"primary\" | \"secondary\" | \"tertiary\"",
+            "resolved": "\"destructive\" | \"icon\" | \"icon-destructive\" | \"icon-primary\" | \"icon-secondary\" | \"icon-tertiary\" | \"primary\" | \"secondary\" | \"tertiary\"",
             "references": {
               "IcButtonVariants": {
                 "location": "import",
@@ -2171,6 +2171,22 @@
             },
             {
               "value": "icon",
+              "type": "string"
+            },
+            {
+              "value": "icon-destructive",
+              "type": "string"
+            },
+            {
+              "value": "icon-primary",
+              "type": "string"
+            },
+            {
+              "value": "icon-secondary",
+              "type": "string"
+            },
+            {
+              "value": "icon-tertiary",
               "type": "string"
             },
             {
@@ -18814,7 +18830,7 @@
       "path": "src/components/ic-button/ic-button.types.ts"
     },
     "src/components/ic-button/ic-button.types.ts::IcButtonVariants": {
-      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"icon\"\n  | \"destructive\";",
+      "declaration": "export type IcButtonVariants =\n  | \"primary\"\n  | \"secondary\"\n  | \"tertiary\"\n  | \"destructive\"\n  | \"icon\"\n  | \"icon-primary\"\n  | \"icon-secondary\"\n  | \"icon-tertiary\"\n  | \"icon-destructive\";",
       "docstring": "",
       "path": "src/components/ic-button/ic-button.types.ts"
     },
