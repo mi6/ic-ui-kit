@@ -18,6 +18,35 @@
 | `variant`              | `variant`                | The ICDS typography style to use.                                                                                                                                                     | `"badge" \| "badge-small" \| "body" \| "caption" \| "caption-uppercase" \| "code-extra-small" \| "code-large" \| "code-small" \| "h1" \| "h2" \| "h3" \| "h4" \| "label" \| "label-uppercase" \| "subtitle-large" \| "subtitle-small"` | `"body"`    |
 
 
+## Methods
+
+### `checkMaxLines(height: number) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name     | Type     | Description |
+| -------- | -------- | ----------- |
+| `height` | `number` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `getShowHideExpanded() => Promise<boolean>`
+
+
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+
 ## Dependencies
 
 ### Used by

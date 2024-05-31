@@ -429,6 +429,39 @@
           "required": false
         },
         {
+          "name": "truncationPattern",
+          "type": "\"showHide\" | \"tooltip\"",
+          "complexType": {
+            "original": "IcDataTableTruncationTypes",
+            "resolved": "\"showHide\" | \"tooltip\"",
+            "references": {
+              "IcDataTableTruncationTypes": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "truncation-pattern",
+          "reflectToAttr": false,
+          "docs": "For long text in cells that aren't set to textWrap, define how they should be truncated.\n`tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography \"See More\"/\"See Less\" buttons.",
+          "docsTags": [],
+          "default": "\"tooltip\"",
+          "values": [
+            {
+              "value": "showHide",
+              "type": "string"
+            },
+            {
+              "value": "tooltip",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "updating",
           "type": "boolean",
           "complexType": {
@@ -545,11 +578,6 @@
       ],
       "listeners": [
         {
-          "event": "icItemsPerPageChange",
-          "capture": false,
-          "passive": false
-        },
-        {
           "event": "icPageChange",
           "capture": false,
           "passive": false
@@ -596,6 +624,7 @@
         "ic-typography",
         "ic-link",
         "ic-button",
+        "ic-tooltip",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -605,6 +634,7 @@
           "ic-typography",
           "ic-link",
           "ic-button",
+          "ic-tooltip",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
@@ -4220,7 +4250,7 @@
   ],
   "typeLibrary": {
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: RowOptions;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4246,6 +4276,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
       "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\";",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },

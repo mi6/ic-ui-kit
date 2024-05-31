@@ -33,6 +33,7 @@ import {
   UpdatingData,
   SlottedPagination,
   LargeDataSet,
+  DevArea,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -144,6 +145,7 @@ A basic example with no functionality.
   dataTable.data = data;
 </script>
 ```
+
 ### Large Data Set
 
 <Canvas withSource="none">
@@ -1327,13 +1329,21 @@ These values are set using the `truncation-pattern` attribute.
 If there is a certain row or column that should be exempt from truncation, then a property can either be added to the row or the column object, named `textWrap`. Anything this is applied to will ignore a custom height and show the full content.
 
 <Canvas withSource="none">
-  <Story parameters={{ loki: { skip: true } }} name="Truncating Cell Data with See More/Less Button">
+  <Story
+    parameters={{ loki: { skip: true } }}
+    name="Truncating Cell Data with See More/Less Button"
+  >
     {TruncationShowHide()}
   </Story>
 </Canvas>
 
 <Canvas withSource="none">
-  <Story parameters={{ loki: { skip: true } }} name="Truncating Cell Data with Tooltip">{TruncationTooltip()}</Story>
+  <Story
+    parameters={{ loki: { skip: true } }}
+    name="Truncating Cell Data with Tooltip"
+  >
+    {TruncationTooltip()}
+  </Story>
 </Canvas>
 
 #### Truncating Cell Data code example
@@ -1374,4 +1384,8 @@ If there is a certain row or column that should be exempt from truncation, then 
 </script>
 ```
 
-
+<Canvas withSource="none">
+  <Story parameters={{ loki: { skip: true } }} name="Dev Area">
+    {DevArea()}
+  </Story>
+</Canvas>

@@ -254,7 +254,7 @@ describe("IcDataTables", () => {
       .eq(1)
       .find("td")
       .eq(1)
-      .should(HAVE_TEXT, "Bloggs");
+      .should(HAVE_TEXT, "Bartholomew Christoper Augustine Zacchaeus Ashford");
   });
 
   it("should render with column overrides", () => {
@@ -883,11 +883,10 @@ describe("IcDataTables", () => {
       dataTable?.resetRowHeights();
     });
 
-    // restRowHeight default is 40px but due to viewport and content falling onto two lines, it's 65px
-    // for the tests.
+    // restRowHeight default is 40px but the additional 1px includes the border bottom.
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
-      .eq(1)
-      .should(HAVE_CSS, "height", "65px");
+      .eq(3)
+      .should(HAVE_CSS, "height", "41px");
   });
 
   it("should render a SlottedSVG in the cell slot rather than using the cell icon slot", () => {

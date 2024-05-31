@@ -2372,6 +2372,14 @@ export namespace Components {
          */
         "bold"?: boolean;
         /**
+          * @param height - text container height
+         */
+        "checkMaxLines": (height: number) => Promise<void>;
+        /**
+          * @returns indicates if the text is expanded or not.
+         */
+        "getShowHideExpanded": () => Promise<boolean>;
+        /**
           * If `true`, the typography will have an italic font style.
          */
         "italic"?: boolean;
@@ -2379,6 +2387,9 @@ export namespace Components {
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        "resetTruncation": () => Promise<void>;
+        "setShowHideExpanded": (expanded: boolean) => Promise<void>;
+        "setTruncated": (truncated: boolean) => Promise<void>;
         /**
           * If `true`, the typography will have a line through it.
          */

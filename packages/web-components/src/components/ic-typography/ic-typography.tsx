@@ -1,4 +1,13 @@
-import { Component, Prop, h, Element, Host, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  Host,
+  State,
+  Watch,
+  Method,
+} from "@stencil/core";
 
 import { IcTypographyVariants } from "../../utils/types";
 import { checkResizeObserver } from "../../utils/helpers";
@@ -42,7 +51,7 @@ export class Typography {
   /**
    * The number of lines to display before truncating the text, only used for the 'body' variant.
    */
-  @Prop() maxLines?: number;
+  @Prop({ mutable: true }) maxLines?: number;
 
   /**
    * If `true`, the typography will have a line through it.
@@ -75,6 +84,17 @@ export class Typography {
     }
   }
 
+  @Method()
+  async resetTruncation() {
+    if (this.truncated) {
+      this.truncated = false;
+      this.maxLines = 0;
+      this.el.removeAttribute("max-lines");
+      this.expanded = false;
+      this.el.removeAttribute("style");
+    }
+  }
+
   componentDidLoad(): void {
     if (
       (this.variant === "body" ||
@@ -96,7 +116,13 @@ export class Typography {
     this.expanded = !this.expanded;
   };
 
-  private checkMaxLines = (height: number) => {
+  /**
+   * @internal This checks if the number of lines of text exceeds the maxLines prop. If so, set the line clamp CSS to the max lines
+   * @param height - text container height
+   */
+
+  @Method()
+  async checkMaxLines(height: number) {
     //24 is the height of a single line
     const numLines = Math.floor(height / 24);
     if (numLines > this.maxLines) {
@@ -104,7 +130,24 @@ export class Typography {
       this.truncatedHeight = this.el.clientHeight;
       this.truncated = true;
     }
-  };
+  }
+
+  /**
+   * @internal This method makes it possible to get the expanded status of trucated text outside of ic-typography component
+   * @returns {boolean} indicates if the text is expanded or not.
+   */
+  @Method()
+  async getShowHideExpanded() {
+    return this.expanded;
+  }
+
+  /**
+   * @internal This method makes it possible to set the expanded status of trucated text outside of ic-typography component
+   */
+  @Method()
+  async setShowHideExpanded(expanded: boolean) {
+    this.expanded = expanded;
+  }
 
   private checkMarkerPosition = (elTop: number, markerTop: number) => {
     if (markerTop - elTop < this.truncatedHeight) {

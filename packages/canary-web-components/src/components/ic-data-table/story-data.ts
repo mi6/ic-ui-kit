@@ -20,6 +20,7 @@ const imageIconSVG =
 const userIconSVG =
   '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-481q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42ZM160-160v-94q0-38 19-65t49-41q67-30 128.5-45T480-420q62 0 123 15.5t127.921 44.694q31.301 14.126 50.19 40.966Q800-292 800-254v94H160Zm60-60h520v-34q0-16-9.5-30.5T707-306q-64-31-117-42.5T480-360q-57 0-111 11.5T252-306q-14 7-23 21.5t-9 30.5v34Zm260-321q39 0 64.5-25.5T570-631q0-39-25.5-64.5T480-721q-39 0-64.5 25.5T390-631q0 39 25.5 64.5T480-541Zm0-90Zm0 411Z"/></svg>';
 
+// TODO: Add columnOptions
 export const COLS: IcDataTableColumnObject[] = [
   {
     key: "firstName",
@@ -40,7 +41,6 @@ export const COLS: IcDataTableColumnObject[] = [
     key: "jobTitle",
     title: "Job title",
     dataType: "string",
-    textWrap: true,
   },
   {
     key: "address",
@@ -79,10 +79,7 @@ export const COLS_ALIGNMENT: IcDataTableColumnObject[] = [
 export const DATA = [
   {
     firstName: "Joe",
-    lastName: {
-      data: "Bartholomew Christoper Augustine Zacchaeus Ashford",
-      textWrap: true
-    },
+    lastName: "Bartholomew Christoper Augustine Zacchaeus Ashford",
     age: 30,
     jobTitle: "Developer",
     address: "1 Main Street, Town, County, Postcode",
@@ -91,11 +88,9 @@ export const DATA = [
     firstName: "Sarah",
     lastName: "Smith",
     age: 28,
-    jobTitle: "Senior Software Developer, Site Reliability Engineering",
+    jobTitle:
+      "Senior Software Developer, Site Reliability Engineering, Senior Software Developer, Site Reliability Engineering,",
     address: "2 Main Street, Town, Country, Postcode",
-    rowOptions: {
-      textWrap: true,
-    }
   },
   {
     firstName: "Mark",
@@ -734,17 +729,17 @@ export const createDataTableElement = (
   return dataTable;
 };
 
-export const Basic = (): HTMLIcDataTableElement =>{
+export const Basic = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Basic Table");
   dataTable.setAttribute("sortable", "true");
-  return dataTable
-}
+  return dataTable;
+};
 
 export const LargeDataSet = (): HTMLIcDataTableElement => {
-  const dataTable = createDataTableElement("Basic Table", LONG_COLS, LONG_DATA); 
+  const dataTable = createDataTableElement("Basic Table", LONG_COLS, LONG_DATA);
   dataTable.setAttribute("sortable", "true");
   return dataTable;
-}
+};
 
 export const Embedded = (): HTMLIcDataTableElement => {
   const dataTable = createDataTableElement("Embedded Table");
@@ -938,7 +933,7 @@ export const TruncationShowHide = (): HTMLElement => {
   const dataTable = CustomRowHeights().querySelector("ic-data-table");
   dataTable.globalRowHeight = 40;
   dataTable.variableRowHeight = null;
-  dataTable.setAttribute("truncation-pattern", "showHide");
+  dataTable.setAttribute("truncation-pattern", "show-hide");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
@@ -1130,4 +1125,49 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
   });
   dataTable.appendChild(paginationBar);
   return dataTable;
+}
+
+export const DevArea = (): HTMLElement => {
+  const dataTable = createDataTableElement("Basic Table", COLS, DATA);
+  // dataTable.globalRowHeight = 48;
+  dataTable.variableRowHeight = null;
+  dataTable.setAttribute("truncation-pattern", "tooltip");
+
+  const resetButton = document.createElement("ic-button");
+  resetButton.addEventListener("click", () => dataTable.resetRowHeights());
+  resetButton.innerHTML = "Reset";
+
+  const setButton = document.createElement("ic-button");
+  setButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 72;
+  });
+  setButton.innerHTML = "Set";
+
+  const increaseButton = document.createElement("ic-button");
+  increaseButton.addEventListener("click", () => {
+    dataTable.globalRowHeight = 150;
+  });
+  increaseButton.innerHTML = "Increase row height";
+
+  const updateDataButton = document.createElement("ic-button");
+  updateDataButton.addEventListener("click", () => {
+    setTimeout(() => {
+      dataTable.data = LONG_DATA_VALUES_UPDATE;
+    }, 500);
+  });
+  updateDataButton.innerHTML = "Update data";
+
+  const buttonWrapper = document.createElement("div");
+  buttonWrapper.style["display"] = "flex";
+  buttonWrapper.style["paddingTop"] = "10px";
+  buttonWrapper.style["gap"] = "8px";
+  buttonWrapper.insertAdjacentElement("afterbegin", setButton);
+  buttonWrapper.insertAdjacentElement("beforeend", resetButton);
+  buttonWrapper.insertAdjacentElement("beforeend", increaseButton);
+  buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+
+  const wrapper = document.createElement("div");
+  wrapper.insertAdjacentElement("afterbegin", dataTable);
+  wrapper.insertAdjacentElement("beforeend", buttonWrapper);
+  return wrapper;
 };

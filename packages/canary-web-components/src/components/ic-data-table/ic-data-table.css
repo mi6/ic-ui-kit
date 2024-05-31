@@ -14,6 +14,11 @@ tbody {
   height: calc(100% - var(--ic-space-xxxs));
 }
 
+.cell-container {
+  display: flex;
+  min-height: 1.5rem;
+}
+
 ic-loading-indicator {
   position: sticky;
   top: 20px;
@@ -22,10 +27,10 @@ ic-loading-indicator {
 .table-row-container {
   position: relative;
   height: 100%;
-
   overflow: auto;
 
   /* @TODO: 'overflow: visible' fixes tooltip and scrollbars but will need further testing */
+
   /* overflow: visible; */
   transition: var(--ic-easing-transition-fast);
   overflow-anchor: none;
@@ -195,6 +200,10 @@ table {
   align-items: center;
 }
 
+.cell-alignment-middle {
+  align-items: center;
+}
+
 .cell-alignment-bottom {
   vertical-align: bottom;
   align-items: flex-end;
@@ -289,12 +298,15 @@ table {
 }
 
 ic-typography {
-  text-overflow: ellipsis;
+  /* Using line-clamp due to text-overflow only working with nowrap/single line */
+  display: -webkit-box;
+  -webkit-line-clamp: var(--ic-line-clamp, 0);
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  white-space: nowrap;
 }
 
-.text-wrap ic-typography {
+.text-wrap ic-typography,
+.show-hide-wrap ic-typography {
   white-space: normal;
 }
 

@@ -18646,7 +18646,64 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "checkMaxLines",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(height: number) => Promise<void>",
+            "parameters": [
+              {
+                "name": "height",
+                "type": "number",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "checkMaxLines(height: number) => Promise<void>",
+          "parameters": [
+            {
+              "name": "height",
+              "type": "number",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "getShowHideExpanded",
+          "returns": {
+            "type": "Promise<boolean>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<boolean>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<boolean>"
+          },
+          "signature": "getShowHideExpanded() => Promise<boolean>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
