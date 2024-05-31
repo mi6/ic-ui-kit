@@ -126,6 +126,11 @@ export class Checkbox {
   @Prop() value!: string;
 
   /**
+   * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+   */
+  @Prop() hideLabel = false;
+
+  /**
    * @deprecated This event should not be used anymore. Use icCheck instead.
    */
   @Event() checkboxChecked: EventEmitter<void>;
@@ -274,10 +279,13 @@ export class Checkbox {
             formmethod={formmethod}
             formnovalidate={formnovalidate}
             formtarget={formtarget}
+            aria-label={this.hideLabel ? this.label : undefined}
           ></input>
-          <ic-typography class="checkbox-label" variant="body">
-            <label htmlFor={id}>{label}</label>
-          </ic-typography>
+          {!this.hideLabel && (
+            <ic-typography class="checkbox-label" variant="body">
+              <label htmlFor={id}>{label}</label>
+            </ic-typography>
+          )}
         </div>
         {isSlotUsed(el, "additional-field") && (
           <div

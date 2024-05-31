@@ -68,15 +68,26 @@ describe("ic-checkbox-group", () => {
     expect(page.root).toMatchSnapshot("renders-indeterminate");
   });
 
-  it("should render an aria label when label hidden", async () => {
+  it("should render an aria label when group label hidden", async () => {
     const page = await newSpecPage({
       components: [CheckboxGroup, Checkbox],
       html: `<ic-checkbox-group label="test label" hide-label name="test">
-        <ic-checkbox value="test" label="test label"></ic-checkbox>    
+        <ic-checkbox value="test" label="test label"></ic-checkbox>
       </ic-checkbox-group>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-hidden-label");
+  });
+
+  it("should render an aria label when checkbox label hidden", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="test label" name="test">
+        <ic-checkbox value="test" label="test label" hide-label></ic-checkbox>    
+      </ic-checkbox-group>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-hidden-checkbox-label");
   });
 
   it("should render in a disabled state", async () => {

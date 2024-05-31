@@ -131,7 +131,29 @@ exports[`ic-checkbox-group should remove disabled attribute from static addition
 </ic-checkbox-group>
 `;
 
-exports[`ic-checkbox-group should render an aria label when label hidden: renders-hidden-label 1`] = `
+exports[`ic-checkbox-group should render an aria label when checkbox label hidden: renders-hidden-checkbox-label 1`] = `
+<ic-checkbox-group class="default" label="test label" name="test">
+  <mock:shadow-root>
+    <fieldset aria-labelledby="" id="test">
+      <legend>
+        <ic-input-label for="test" helpertext="" label="test label"></ic-input-label>
+      </legend>
+      <div class="checkboxes-container">
+        <slot></slot>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+  <ic-checkbox additional-field-display="static" class="default" hide-label="" label="test label" value="test">
+    <mock:shadow-root>
+      <div class="container">
+        <input aria-label="test label" class="checkbox" id="ic-checkbox-test-label-test-label" name="test" role="checkbox" type="checkbox" value="test">
+      </div>
+    </mock:shadow-root>
+  </ic-checkbox>
+</ic-checkbox-group>
+`;
+
+exports[`ic-checkbox-group should render an aria label when group label hidden: renders-hidden-label 1`] = `
 <ic-checkbox-group class="default" hide-label="" label="test label" name="test">
   <mock:shadow-root>
     <span aria-hidden="true" class="screen-reader-only-text" id="screenReaderOnlyText">
