@@ -3122,6 +3122,28 @@
           "required": false
         },
         {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "If `true`, the label will be hidden and the required label value will be applied as an aria-label.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "indeterminate",
           "type": "boolean",
           "complexType": {
