@@ -194,10 +194,10 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Hidden label
+### Hidden group label
 
 <Canvas>
-  <Story name="Hidden label" parameters={{ loki: { skip: true } }}>
+  <Story name="Hidden group label" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`
         <ic-checkbox-group label="This is a label" hide-label name="group1">
@@ -214,6 +214,36 @@ import readme from "./readme.md";
             value="valueName3"
             label="Unselected / Disabled"
             Disabled
+          ></ic-checkbox>
+        </ic-checkbox-group>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Hidden checkbox label
+
+<Canvas>
+  <Story name="Hidden checkbox label" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`
+        <ic-checkbox-group label="This is a label" name="group1">
+          <ic-checkbox
+            value="valueName1"
+            label="Unselected / Default"
+            hide-label
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName2"
+            label="Selected / Default"
+            checked
+            hide-label
+          ></ic-checkbox>
+          <ic-checkbox
+            value="valueName3"
+            label="Unselected / Disabled"
+            Disabled
+            hide-label
           ></ic-checkbox>
         </ic-checkbox-group>
       `

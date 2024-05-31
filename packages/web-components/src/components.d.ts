@@ -459,6 +459,10 @@ export namespace Components {
          */
         "groupLabel": string;
         /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel": boolean;
+        /**
           * If `true`, the indeterminate state will be displayed when checked.
          */
         "indeterminate": boolean;
@@ -3737,6 +3741,10 @@ declare namespace LocalJSX {
           * The group label for the checkbox.
          */
         "groupLabel"?: string;
+        /**
+          * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
+         */
+        "hideLabel"?: boolean;
         /**
           * If `true`, the indeterminate state will be displayed when checked.
          */
