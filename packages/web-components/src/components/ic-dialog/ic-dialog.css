@@ -14,7 +14,10 @@
   background: rgb(0 0 0 / 60%);
   z-index: var(--ic-z-index-dialog);
   opacity: 0;
-  transition: opacity var(--ic-easing-transition-slow);
+}
+
+:host(.fade-in) {
+  opacity: 1;
 }
 
 :host(.disable-height-constraint) {
@@ -33,9 +36,13 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :host(.fade-in) {
-    opacity: 1;
+  :host {
     transition: opacity var(--ic-easing-transition-slow);
+  }
+
+  .dialog {
+    transform: translateY(-3rem);
+    transition: transform 1000s;
   }
 
   :host(.fade-in) .dialog {
@@ -54,8 +61,6 @@
   border: var(--ic-border-default);
   border-radius: var(--ic-border-radius);
   padding: var(--ic-space-xs) 0 var(--ic-space-md);
-  transform: translateY(-3rem);
-  transition: transform 1000s;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
