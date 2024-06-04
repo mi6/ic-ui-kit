@@ -313,6 +313,50 @@ export const Form = () => {
   </Story>
 </Canvas>
 
+### Disable parent behaviour
+
+<Canvas>
+  <Story name="Disable parent behaviour">
+    <IcCheckboxGroup label="Liked things" name="1">
+      <IcCheckbox
+        value="drinks"
+        label="Drinks"
+        checked="true"
+        indeterminate="true"
+        disableParentCheckboxBehaviour={false}
+      >
+        <IcCheckboxGroup
+          name="2"
+          label="Coffee"
+          hideLabel
+          slot="additional-field"
+        >
+          <IcCheckbox value="tea" label="Tea" />
+          <IcCheckbox
+            value="coffee"
+            label="Coffee"
+            checked="true"
+            indeterminate="true"
+            disableParentCheckboxBehaviour={false}
+          >
+            <IcCheckboxGroup
+              label="Coffees"
+              hideLabel
+              slot="additional-field"
+              name="3"
+            >
+              <IcCheckbox value="mocha" label="Mocha" />
+              <IcCheckbox value="espresso" label="Espresso" checked />
+              <IcCheckbox value="cappucino" label="Cappucino" />
+            </IcCheckboxGroup>
+          </IcCheckbox>
+          <IcCheckbox value="juice" label="Juice" />
+        </IcCheckboxGroup>
+      </IcCheckbox>
+    </IcCheckboxGroup>
+  </Story>
+</Canvas>
+
 ### TextField value change
 
 export const TextField = () => {

@@ -145,3 +145,52 @@ export const DynamicLoading = (): ReactElement => {
     </>
   );
 };
+
+export const DisableParentBehaviour = (): ReactElement => {
+  return (
+    <div style={{ padding: "5rem" }}>
+      <IcCheckboxGroup label="Liked things" name="1">
+        <IcCheckbox
+          value="drinks"
+          label="Drinks"
+          checked={true}
+          indeterminate={true}
+          disableParentCheckboxBehaviour={false}
+        >
+          <IcCheckboxGroup
+            name="2"
+            label="Coffee"
+            hideLabel
+            slot="additional-field"
+          >
+            <IcCheckbox value="tea" label="Tea" />
+            <IcCheckbox
+              value="coffee"
+              label="Coffee"
+              checked={true}
+              indeterminate={true}
+              disableParentCheckboxBehaviour={false}
+              id="coffee-checkbox"
+            >
+              <IcCheckboxGroup
+                label="Coffees"
+                hideLabel
+                slot="additional-field"
+                name="3"
+              >
+                <IcCheckbox value="mocha" label="Mocha" id="mocha-checkbox" />
+                <IcCheckbox value="espresso" label="Espresso" checked />
+                <IcCheckbox
+                  value="cappucino"
+                  label="Cappucino"
+                  id="cap-checkbox"
+                />
+              </IcCheckboxGroup>
+            </IcCheckbox>
+            <IcCheckbox value="juice" label="Juice" />
+          </IcCheckboxGroup>
+        </IcCheckbox>
+      </IcCheckboxGroup>
+    </div>
+  );
+};

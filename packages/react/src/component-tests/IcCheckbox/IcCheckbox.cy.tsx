@@ -6,6 +6,7 @@ import {
   Checkbox,
   CheckboxForm,
   Controlled,
+  DisableParentBehaviour,
   DynamicLoading,
   Uncontrolled,
 } from "./IcCheckboxTestData";
@@ -181,6 +182,26 @@ describe("IcCheckbox", () => {
         index === 0 ? "new-name" : "Item 2 name"
       );
     });
+  });
+
+  it("should disable parent checkbox behaviour when disableParentCheckboxBehaviour is set to false", () => {
+    mount(<DisableParentBehaviour />);
+
+    const coffeeCheckbox = "#coffee-checkbox";
+
+    cy.get(coffeeCheckbox).should(HAVE_PROP, "indeterminate", true);
+
+    cy.get("#mocha-checkbox").shadow().find(CONTAINER_SELECTOR).click();
+    cy.get("#cap-checkbox").shadow().find(CONTAINER_SELECTOR).click();
+
+    cy.get(coffeeCheckbox).should(HAVE_PROP, "indeterminate", false);
+
+    cy.wait(100);
+
+    cy.get(coffeeCheckbox).shadow().find(CONTAINER_SELECTOR).click();
+
+    cy.get("#mocha-checkbox").should(HAVE_PROP, "checked", false);
+    cy.get("#cap-checkbox").should(HAVE_PROP, "checked", false);
   });
 });
 
