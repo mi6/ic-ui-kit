@@ -490,6 +490,56 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
+### Disable parent behaviour
+
+<Canvas>
+  <Story name="Disable parent behaviour" parameters={{ loki: { skip: true } }}>
+    {(args) =>
+      html`<ic-checkbox-group label="Liked things" name="likes">
+        <ic-checkbox
+          value="drinks"
+          label="Drinks"
+          checked="true"
+          indeterminate="true"
+          disable-parent-checkbox-behaviour="false"
+        >
+          <ic-checkbox-group
+            label="Drinks"
+            hide-label
+            slot="additional-field"
+            name="drinks"
+          >
+            <ic-checkbox value="tea" label="Tea"></ic-checkbox>
+            <ic-checkbox
+              value="coffee"
+              label="Coffee"
+              checked="true"
+              indeterminate="true"
+              disable-parent-checkbox-behaviour="false"
+            >
+              <ic-checkbox-group
+                label="Coffees"
+                hide-label
+                slot="additional-field"
+                name="coffees"
+              >
+                <ic-checkbox value="mocha" label="Mocha"></ic-checkbox>
+                <ic-checkbox
+                  value="espresso"
+                  label="Espresso"
+                  checked
+                ></ic-checkbox>
+                <ic-checkbox value="cappucino" label="Cappucino"></ic-checkbox>
+              </ic-checkbox-group>
+            </ic-checkbox>
+            <ic-checkbox value="juice" label="Juice"></ic-checkbox>
+          </ic-checkbox-group>
+        </ic-checkbox>
+      </ic-checkbox-group>`
+    }
+  </Story>
+</Canvas>
+
 ### TextField value change
 
 <Canvas>

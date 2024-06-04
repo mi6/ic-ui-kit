@@ -123,9 +123,10 @@ export class CheckboxGroup {
 
   @Listen("icCheck")
   selectHandler({ target }: CustomEvent): void {
-    const checkedOptions = Array.from(
-      this.el.querySelectorAll("ic-checkbox")
-    ).filter(({ checked, disabled }) => checked && !disabled);
+    const allOptions = Array.from(this.el.querySelectorAll("ic-checkbox"));
+    const checkedOptions = allOptions.filter(
+      ({ checked, disabled }) => checked && !disabled
+    );
     this.icChange.emit({
       value: checkedOptions.map(({ value }) => value),
       checkedOptions: checkedOptions.map((opt) => ({
@@ -134,6 +135,24 @@ export class CheckboxGroup {
       })),
       selectedOption: target as HTMLIcCheckboxElement,
     });
+    const parentEl =
+      this.el.parentElement.tagName === "IC-CHECKBOX" &&
+      (this.el.parentElement as HTMLIcCheckboxElement);
+    if (parentEl && !parentEl.disableParentCheckboxBehaviour) {
+      if (checkedOptions.length === allOptions.length) {
+        parentEl.checked = true;
+        parentEl.indeterminate = false;
+      } else if (
+        checkedOptions.length > 0 &&
+        checkedOptions.length !== allOptions.length
+      ) {
+        parentEl.indeterminate = true;
+        parentEl.checked = true;
+      } else if (checkedOptions.length === 0) {
+        parentEl.checked = false;
+        parentEl.indeterminate = false;
+      }
+    }
   }
 
   render() {

@@ -294,4 +294,76 @@ describe("ic-checkbox-group", () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should disable parent checkbox behaviour when disableParentCheckboxBehaviour is set to false", async () => {
+    const page = await newSpecPage({
+      components: [CheckboxGroup, Checkbox],
+      html: `<ic-checkbox-group label="Liked things" name="likes">
+      <ic-checkbox
+        value="drinks"
+        label="Drinks"
+        checked="true"
+        indeterminate="true"
+        disable-parent-checkbox-behaviour="false"
+      >
+        <ic-checkbox-group
+          label="Drinks"
+          hide-label
+          slot="additional-field"
+          name="drinks"
+        >
+          <ic-checkbox value="tea" label="Tea"></ic-checkbox>
+          <ic-checkbox
+            value="coffee"
+            label="Coffee"
+            checked="true"
+            indeterminate="true"
+            disable-parent-checkbox-behaviour="false"
+            id="coffee-checkbox"
+          >
+            <ic-checkbox-group
+              label="Coffees"
+              hide-label
+              slot="additional-field"
+              name="coffees"
+            >
+              <ic-checkbox value="mocha" label="Mocha" id="mocha-checkbox"></ic-checkbox>
+              <ic-checkbox
+                value="espresso"
+                label="Espresso"
+                checked
+              ></ic-checkbox>
+              <ic-checkbox value="cappucino" label="Cappucino" id="cap-checkbox"></ic-checkbox>
+            </ic-checkbox-group>
+          </ic-checkbox>
+          <ic-checkbox value="juice" label="Juice"></ic-checkbox>
+        </ic-checkbox-group>
+      </ic-checkbox>
+    </ic-checkbox-group>`,
+    });
+
+    const coffeeCheckbox = page.root.querySelector(
+      "ic-checkbox#coffee-checkbox"
+    ) as HTMLIcCheckboxElement;
+
+    const mochaCheckbox = page.root.querySelector(
+      "ic-checkbox#mocha-checkbox"
+    ) as HTMLIcCheckboxElement;
+
+    const capCheckbox = page.root.querySelector(
+      "ic-checkbox#cap-checkbox"
+    ) as HTMLIcCheckboxElement;
+
+    expect(coffeeCheckbox["indeterminate"]).toBe(true);
+
+    mochaCheckbox.shadowRoot.querySelector("input").click();
+    capCheckbox.shadowRoot.querySelector("input").click();
+
+    expect(coffeeCheckbox["indeterminate"]).toBe(false);
+
+    coffeeCheckbox.shadowRoot.querySelector("input").click();
+
+    expect(mochaCheckbox["checked"]).toBe(false);
+    expect(capCheckbox["checked"]).toBe(false);
+  });
 });

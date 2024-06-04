@@ -423,6 +423,10 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
+          * If `true`, the parent checkbox selected or unselected state will not impact the state of any child checkboxes, or vice versa.
+         */
+        "disableParentCheckboxBehaviour"?: boolean;
+        /**
           * If `true`, the checkbox will be set to the disabled state.
          */
         "disabled"?: boolean;
@@ -3705,6 +3709,10 @@ declare namespace LocalJSX {
           * If `true`, the checkbox will be set to the checked state.
          */
         "checked"?: boolean;
+        /**
+          * If `true`, the parent checkbox selected or unselected state will not impact the state of any child checkboxes, or vice versa.
+         */
+        "disableParentCheckboxBehaviour"?: boolean;
         /**
           * If `true`, the checkbox will be set to the disabled state.
          */

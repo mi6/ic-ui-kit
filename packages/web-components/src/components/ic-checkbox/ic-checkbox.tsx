@@ -8,6 +8,7 @@ import {
   EventEmitter,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes, IcSizes } from "../../utils/types";
 import {
@@ -49,10 +50,20 @@ export class Checkbox {
   @Prop({ reflect: true, mutable: true }) checked?: boolean = false;
   @State() initiallyChecked = this.checked;
 
+  @Watch("checked")
+  checkedHandler(): void {
+    this.handleParentBehaviour();
+  }
+
   /**
    * If `true`, the checkbox will be set to the disabled state.
    */
   @Prop() disabled?: boolean = false;
+
+  /**
+   * If `true`, the parent checkbox selected or unselected state will not impact the state of any child checkboxes, or vice versa.
+   */
+  @Prop() disableParentCheckboxBehaviour?: boolean = true;
 
   /**
    * The text to be displayed when dynamic.
@@ -98,7 +109,7 @@ export class Checkbox {
   /**
    * If `true`, the indeterminate state will be displayed when checked.
    */
-  @Prop() indeterminate: boolean = false;
+  @Prop({ mutable: true }) indeterminate: boolean = false;
 
   /**
    * The label for the checkbox.
@@ -193,6 +204,25 @@ export class Checkbox {
     this.checked = !this.checked;
     this.icCheck.emit();
     this.checkboxChecked.emit();
+    this.handleParentBehaviour();
+  };
+
+  private handleParentBehaviour = () => {
+    if (
+      isSlotUsed(this.el, "additional-field") &&
+      !this.disableParentCheckboxBehaviour
+    ) {
+      this.indeterminate = false;
+      Array.from(this.el.children).forEach((child) => {
+        if (child.tagName === "IC-CHECKBOX-GROUP") {
+          Array.from(child.children).forEach((checkbox) => {
+            if (checkbox.tagName === "IC-CHECKBOX") {
+              (checkbox as HTMLIcCheckboxElement).checked = this.checked;
+            }
+          });
+        }
+      });
+    }
   };
 
   private handleFormReset = (): void => {
