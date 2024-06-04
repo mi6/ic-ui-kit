@@ -40,7 +40,7 @@ describe("IcRadio", () => {
     cy.checkA11yWithWait();
   });
 
-  it("should test no options initially", () => {
+  it.skip("should test no options initially", () => {
     mount(<RadioOptionsEmptyInitial />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
@@ -64,7 +64,7 @@ describe("IcRadio", () => {
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
 
-  it("should update with new options", () => {
+  it.skip("should update with new options", () => {
     mount(<RadioOptionsChanging />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);

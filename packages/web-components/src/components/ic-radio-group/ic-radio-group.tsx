@@ -268,6 +268,9 @@ export class RadioGroup {
           this.selectedChild = index;
           this.checkedValue = radioOption.value;
         }
+        const actualInput = radioOption.shadowRoot.querySelector("input");
+        actualInput.setAttribute("aria-posinset", `${index + 1}`);
+        actualInput.setAttribute("aria-setsize", `${this.radioOptions.length}`);
       });
       this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
     }
