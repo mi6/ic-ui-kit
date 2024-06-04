@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-30T13:05:50",
+  "timestamp": "2024-06-04T10:00:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -2931,6 +2931,28 @@
           "required": false
         },
         {
+          "name": "disableParentCheckboxBehaviour",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-parent-checkbox-behaviour",
+          "reflectToAttr": false,
+          "docs": "If `true`, the parent checkbox selected or unselected state will not impact the state of any child checkboxes, or vice versa.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -3151,7 +3173,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "indeterminate",
           "reflectToAttr": false,
           "docs": "If `true`, the indeterminate state will be displayed when checked.",
