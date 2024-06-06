@@ -29,6 +29,7 @@ import {
   CustomRowHeights,
   CustomTitleBar,
   UpdatingData,
+  SlottedPagination,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -1241,3 +1242,65 @@ More details on `ic-pagination-bar` can be found in the <ic-link href="/?path=/s
   }
 </script>
 ```
+
+### Slotted pagination bar
+
+There may be scenarios when using `ic-data-table` when pagination and data fetching is done using a backend API.
+
+To enable this behaviour, the `pagination-bar` slot can be utilised to provide a custom `ic-pagination-bar` component, allowing the user to have more control over how their data is displayed & interacted with.
+
+```html
+<ic-data-table id="data-table" caption="Slotted pagination bar">
+  <ic-pagination-bar
+    slot="pagination-bar"
+    show-items-per-page-control="true"
+  ></ic-pagination-bar>
+</ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+  // Copy columns array for 'basic' example
+  const columns = [
+    {
+      key: "firstName",
+      title: "First name",
+      dataType: "string",
+    },
+    ...
+  ];
+  // Copy data array for 'basic' example
+  const data = [
+    {
+      firstName: "Joe",
+      lastName: "Bloggs",
+      age: 30,
+      jobTitle: "Developer",
+      address: "1 Main Street, Town, County, Postcode",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+
+  let itemsPerPage = 5;
+  const paginationBar = dataTable.querySelector("ic-pagination-bar");
+  paginationBar.totalItems = data.length;
+  paginationBar.itemsPerPageOptions = [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+  ];
+  paginationBar.addEventListener("icItemsPerPageChange", (ev) => {
+    itemsPerPage = ev.detail.value;
+    dataTable.data = data.slice(0, itemsPerPage);
+  });
+  paginationBar.addEventListener("icPageChange", (ev) => {
+    const fromRow = (ev.detail.value - 1) * itemsPerPage;
+    dataTable.data = data.slice(fromRow, fromRow + itemsPerPage);
+  });
+</script>
+```
+
+<Canvas withSource="none">
+  <Story name="Slotted pagination bar" parameters={{ loki: { skip: true } }}>
+    {SlottedPagination()}
+  </Story>
+</Canvas>

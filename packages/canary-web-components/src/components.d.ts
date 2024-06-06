@@ -69,7 +69,7 @@ export namespace Components {
          */
         "minimumLoadingDisplayDuration"?: number;
         /**
-          * Sets the props for the pagination bar.
+          * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */
         "paginationBarOptions"?: IcPaginationBarOptions;
         /**
@@ -833,7 +833,7 @@ declare namespace LocalJSX {
          */
         "onIcRowHeightChange"?: (event: IcDataTableCustomEvent<void>) => void;
         /**
-          * Sets the props for the pagination bar.
+          * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
          */
         "paginationBarOptions"?: IcPaginationBarOptions;
         /**

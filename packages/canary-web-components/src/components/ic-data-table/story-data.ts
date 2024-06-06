@@ -908,3 +908,30 @@ export const UpdatingData = (): HTMLElement => {
   wrapper.insertAdjacentElement("beforeend", buttonWrapper);
   return wrapper;
 };
+
+export const SlottedPagination = (): HTMLIcDataTableElement => {
+  let itemsPerPage = 5;
+  const dataTable = createDataTableElement(
+    "slotted-pagination",
+    LONG_COLS,
+    LONG_DATA
+  );
+  const paginationBar = document.createElement("ic-pagination-bar");
+  paginationBar.setAttribute("total-items", `${LONG_DATA.length}`);
+  paginationBar.setAttribute("show-items-per-page-control", "true");
+  paginationBar.itemsPerPageOptions = [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+  ];
+  paginationBar.setAttribute("slot", "pagination-bar");
+  paginationBar.addEventListener("icItemsPerPageChange", (ev) => {
+    itemsPerPage = ev.detail.value;
+    dataTable.data = LONG_DATA.slice(0, itemsPerPage);
+  });
+  paginationBar.addEventListener("icPageChange", (ev) => {
+    const fromRow = (ev.detail.value - 1) * itemsPerPage;
+    dataTable.data = LONG_DATA.slice(fromRow, fromRow + itemsPerPage);
+  });
+  dataTable.appendChild(paginationBar);
+  return dataTable;
+};
