@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-16T15:04:30",
+  "timestamp": "2024-06-07T08:35:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -28,6 +28,10 @@
         {
           "name": "slot",
           "text": "title-bar - A custom ic-data-table-title-bar can be slotted above the column headers to display additional information about the table."
+        },
+        {
+          "name": "slot",
+          "text": "pagination-bar - A custom ic-pagination-bar can be slotted below the data to provide enhanced control over how the data is interacted with when being fetched externally."
         }
       ],
       "usage": {},
@@ -298,7 +302,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Sets the props for the pagination bar.",
+          "docs": "Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.",
           "docsTags": [],
           "default": "{\n    itemsPerPageOptions: [\n      { label: \"10\", value: \"10\" },\n      { label: \"25\", value: \"25\" },\n      { label: \"50\", value: \"50\" },\n    ],\n    rangeLabelType: \"page\",\n    type: \"simple\",\n    showItemsPerPageControl: true,\n    showGoToPageControl: true,\n    alignment: \"right\",\n    appearance: \"default\",\n    itemLabel: \"Item\",\n    pageLabel: \"Page\",\n    hideRangeLabel: false,\n  }",
           "values": [
@@ -562,17 +566,15 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--height",
-          "annotation": "prop",
-          "docs": "height of the table row container"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "empty-state",
           "docs": "Content is slotted below the table header when there is no data and the table is not loading."
+        },
+        {
+          "name": "pagination-bar",
+          "docs": "A custom ic-pagination-bar can be slotted below the data to provide enhanced control over how the data is interacted with when being fetched externally."
         },
         {
           "name": "title-bar",
