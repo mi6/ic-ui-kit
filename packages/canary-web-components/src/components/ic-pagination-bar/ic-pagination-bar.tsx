@@ -26,7 +26,6 @@ export class PaginationBar {
   private PAGE_INPUT_FIELD_ID = "go-to-page-input";
 
   private INVALID_PAGE_ERROR = "Please enter a valid page";
-  private NAN_ERROR = "Please enter a number";
 
   private resizeObserver: ResizeObserver = null;
   private pageDropdownEl: HTMLIcSelectElement;
@@ -98,7 +97,17 @@ export class PaginationBar {
   }[];
 
   @Watch("itemsPerPageOptions")
-  watchItemsPerPageOptionsHandler(): void {
+  watchItemsPerPageOptionsHandler(
+    newVal: {
+      label: string;
+      value: string;
+    }[],
+    oldVal: {
+      label: string;
+      value: string;
+    }[]
+  ): void {
+    if (JSON.stringify(newVal) === JSON.stringify(oldVal)) return;
     this.setPaginationBarContent();
   }
 
@@ -159,9 +168,7 @@ export class PaginationBar {
   @Event() icItemsPerPageChange: EventEmitter<{ value: number }>;
 
   disconnectedCallback(): void {
-    if (this.resizeObserver !== null) {
-      this.resizeObserver.disconnect();
-    }
+    this.resizeObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -173,7 +180,16 @@ export class PaginationBar {
   componentDidLoad(): void {
     this.paginationWidth = this.paginationBarEl.clientWidth;
     checkResizeObserver(this.runResizeObserver);
-    this.setGoToPageInputStyles();
+    const textField = this.el.shadowRoot?.querySelector(
+      `.${this.PAGE_INPUT_FIELD_ID}`
+    );
+    if (textField) {
+      const input = textField?.shadowRoot?.querySelector("input");
+      if (input) {
+        input.style.textAlign = "center";
+        input.style.padding = "0";
+      }
+    }
     this.paginationShouldWrap();
   }
 
@@ -236,43 +252,36 @@ export class PaginationBar {
   };
 
   private handleInputChange = () => {
-    const textField = this.pageInputEl;
-    const inputValue = parseInt(textField.value);
+    const inputValue = parseInt(this.pageInputEl.value);
 
     if (inputValue > this.totalPages || inputValue <= 0) {
-      this.setInputError(textField, this.INVALID_PAGE_ERROR);
+      this.setInputError(this.pageInputEl, this.INVALID_PAGE_ERROR);
       this.pageInputTooltipEl.displayTooltip(true, true);
     }
   };
 
   private handleKeydown = (ev: KeyboardEvent) => {
-    const tooltip = this.pageInputTooltipEl;
-    const textField = this.pageInputEl;
-
     if (ev.key === "Enter") {
-      if (textField.validationStatus === "error") {
-        tooltip.displayTooltip(true, true);
+      if (this.pageInputEl.validationStatus === "error") {
+        this.pageInputTooltipEl.displayTooltip(true, true);
       } else {
         this.goToPage();
       }
     } else {
-      tooltip.displayTooltip(false, false);
-      textField.validationStatus = "";
+      this.pageInputTooltipEl.displayTooltip(false, false);
+      this.pageInputEl.validationStatus = "";
     }
   };
 
   private handleKeyUp = (ev: KeyboardEvent) => {
-    const textField = this.pageInputEl;
-    const inputValue = parseInt(textField.value);
-
     if (
-      Number.isNaN(inputValue) &&
+      Number.isNaN(parseInt(this.pageInputEl.value)) &&
       ev.key !== "Backspace" &&
       ev.key !== "Enter" &&
       ev.key !== "Tab" &&
       ev.key !== "Shift"
     ) {
-      this.setInputError(textField, this.NAN_ERROR, false);
+      this.setInputError(this.pageInputEl, "Please enter a number", false);
       this.pageInputTooltipEl.displayTooltip(true, false);
     }
   };
@@ -283,66 +292,23 @@ export class PaginationBar {
 
   private paginationShouldWrap = () => {
     if (this.type === "simple") {
-      if (this.paginationEl.clientHeight > 63) {
-        this.paginationWrapped = true;
-      } else {
-        this.paginationWrapped = false;
-      }
-    }
-  };
-
-  private resizeObserverCallback = (currSize: number) => {
-    if (
-      currSize - this.paginationWidth > 50 ||
-      currSize - this.paginationWidth < -50
-    ) {
-      this.paginationWidth = currSize;
-      this.paginationShouldWrap();
+      this.paginationWrapped = this.paginationEl.clientHeight > 63;
     }
   };
 
   private runResizeObserver = () => {
     this.resizeObserver = new ResizeObserver(() => {
-      const currSize = this.paginationBarEl.clientWidth;
-      this.resizeObserverCallback(currSize);
+      const { clientWidth } = this.paginationBarEl;
+      if (
+        clientWidth - this.paginationWidth > 50 ||
+        clientWidth - this.paginationWidth < -50
+      ) {
+        this.paginationWidth = clientWidth;
+        this.paginationShouldWrap();
+      }
     });
 
     this.resizeObserver.observe(this.paginationBarEl);
-  };
-
-  private setDisplayedItemsPerPageOptions = () => {
-    if (
-      this.itemsPerPageOptions === undefined ||
-      this.itemsPerPageOptions === null
-    ) {
-      this.displayedItemsPerPageOptions =
-        this.totalItems <= 100
-          ? [
-              { label: "10", value: "10" },
-              { label: "25", value: "25" },
-              { label: "50", value: "50" },
-            ]
-          : [
-              { label: "25", value: "25" },
-              { label: "100", value: "100" },
-              { label: "1000", value: "1000" },
-            ];
-    } else {
-      this.displayedItemsPerPageOptions = this.itemsPerPageOptions.slice(0, 3);
-    }
-  };
-
-  private setGoToPageInputStyles = () => {
-    const textField = this.el.shadowRoot?.querySelector(
-      `.${this.PAGE_INPUT_FIELD_ID}`
-    );
-    if (textField !== undefined) {
-      const input = textField?.shadowRoot?.querySelector("input");
-      if (input !== undefined) {
-        input.style.textAlign = "center";
-        input.style.padding = "0";
-      }
-    }
   };
 
   private setInputError = (
@@ -361,7 +327,12 @@ export class PaginationBar {
       this.itemsPerPageString = newValue.toString();
       this.icItemsPerPageChange.emit({ value: this.itemsPerPage });
     }
-    this.setNumberPages();
+
+    this.totalPages =
+      this.totalItems > this.itemsPerPage
+        ? Math.ceil(this.totalItems / this.itemsPerPage)
+        : 1;
+
     this.setUpperBound();
     if (this.currentPage > this.totalPages) {
       this.paginationEl.setCurrentPage(this.totalPages);
@@ -370,19 +341,40 @@ export class PaginationBar {
     this.icPageChange.emit({ value: this.currentPage });
   };
 
-  private setNumberPages = () => {
-    const numItemsPerPage = this.itemsPerPage;
-    if (this.totalItems <= numItemsPerPage) {
-      this.totalPages = 1;
-    } else {
-      this.totalPages = Math.ceil(this.totalItems / numItemsPerPage);
-    }
-  };
-
   private setPaginationBarContent = (): void => {
-    this.setDisplayedItemsPerPageOptions();
-    this.trimItemsPerPageOptions();
-    this.updateItemsPerPage();
+    const displayedItemsPerPageOptions =
+      this.itemsPerPageOptions?.slice(0, 3) ||
+      (this.totalItems <= 100
+        ? [
+            { label: "10", value: "10" },
+            { label: "25", value: "25" },
+            { label: "50", value: "50" },
+          ]
+        : [
+            { label: "25", value: "25" },
+            { label: "100", value: "100" },
+            { label: "1000", value: "1000" },
+          ]);
+    displayedItemsPerPageOptions.push({
+      label: "All",
+      value: String(this.totalItems),
+    });
+
+    this.displayedItemsPerPageOptions = displayedItemsPerPageOptions.filter(
+      ({ value }) => this.totalItems >= Number(value)
+    );
+
+    let lastOptionValue = 0;
+    const updated = this.displayedItemsPerPageOptions.some(({ value }) => {
+      lastOptionValue = Number(value);
+      return this.itemsPerPage <= lastOptionValue;
+    });
+
+    this.setItemsPerPage(
+      updated || (!updated && this.itemsPerPage > lastOptionValue)
+        ? lastOptionValue
+        : this.itemsPerPage
+    );
   };
 
   private setUpperBound = () => {
@@ -390,42 +382,6 @@ export class PaginationBar {
       this.lowerBound + this.itemsPerPage - 1,
       this.totalItems
     );
-  };
-
-  private trimItemsPerPageOptions = () => {
-    this.displayedItemsPerPageOptions.push({
-      label: "All",
-      value: String(this.totalItems),
-    });
-
-    for (let i = 0; i < this.displayedItemsPerPageOptions.length - 1; i++) {
-      if (
-        this.totalItems <= Number(this.displayedItemsPerPageOptions[i].value)
-      ) {
-        this.displayedItemsPerPageOptions.splice(
-          i,
-          this.displayedItemsPerPageOptions.length - (i + 1)
-        );
-      }
-    }
-  };
-
-  private updateItemsPerPage = () => {
-    let newItemsPerPage = this.itemsPerPage;
-    let updated = false;
-    let lastOptionValue = 0;
-    for (let i = 0; i < this.displayedItemsPerPageOptions.length; i++) {
-      lastOptionValue = Number(this.displayedItemsPerPageOptions[i].value);
-      if (this.itemsPerPage <= lastOptionValue) {
-        newItemsPerPage = lastOptionValue;
-        updated = true;
-        i = this.displayedItemsPerPageOptions.length;
-      }
-    }
-    if (!updated && this.itemsPerPage > lastOptionValue) {
-      newItemsPerPage = lastOptionValue;
-    }
-    this.setItemsPerPage(newItemsPerPage);
   };
 
   render() {
@@ -483,23 +439,23 @@ export class PaginationBar {
                 ></ic-select>
               </div>
             )}
-            {!hideRangeLabel && rangeLabelType === "data" ? (
-              <ic-typography
-                class={{
-                  [`pagination-text-${appearance}`]: true,
-                  ["item-pagination-label"]: true,
-                }}
-                variant="label"
-                aria-live="polite"
-              >
-                {this.upperBound === 0 && `0 ${lowerCaseItemLabel}s`}
-                {this.upperBound > 0 &&
-                  `${this.lowerBound} - ${this.upperBound} of ${
-                    this.totalItems
-                  } ${lowerCaseItemLabel}${this.totalItems > 1 ? "s" : ""}`}
-              </ic-typography>
-            ) : (
-              !hideRangeLabel && (
+            {!hideRangeLabel &&
+              (rangeLabelType === "data" ? (
+                <ic-typography
+                  class={{
+                    [`pagination-text-${appearance}`]: true,
+                    ["item-pagination-label"]: true,
+                  }}
+                  variant="label"
+                  aria-live="polite"
+                >
+                  {this.upperBound === 0 && `0 ${lowerCaseItemLabel}s`}
+                  {this.upperBound > 0 &&
+                    `${this.lowerBound} - ${this.upperBound} of ${
+                      this.totalItems
+                    } ${lowerCaseItemLabel}${this.totalItems > 1 ? "s" : ""}`}
+                </ic-typography>
+              ) : (
                 <ic-typography
                   class={{
                     [`pagination-text-${appearance}`]: true,
@@ -510,8 +466,7 @@ export class PaginationBar {
                 >
                   {capitalizedPageLabel} {currentPage} of {totalPages}
                 </ic-typography>
-              )
-            )}
+              ))}
           </div>
         )}
         <div
