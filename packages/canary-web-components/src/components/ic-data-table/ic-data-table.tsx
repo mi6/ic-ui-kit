@@ -28,11 +28,24 @@ import { IcPaginationBarOptions } from "../../utils/types";
 // Unable to import helper functions via @ukic/web-components
 import { getSlotContent, isSlotUsed } from "../../utils/helpers";
 
+const DENSITY_HEIGHT_MULTIPLIER = {
+  dense: 0.8,
+  default: 1,
+  spacious: 1.2,
+};
+
+const SORT_ICONS = {
+  unsorted: unsortedIcon,
+  ascending: ascendingIcon,
+  descending: descendingIcon,
+};
+
 /**
  * @slot empty-state - Content is slotted below the table header when there is no data and the table is not loading.
  * @slot {COLUMN_KEY}-{ROW_INDEX}[-icon] - Each cell should have its own slot, named using the column tag and the row index, allowing for custom elements to be displayed. Include `-icon` at the end for that cell's icon slot.
  * @slot {COLUMN_KEY}-column-icon - The icon slot for a column header.
  * @slot title-bar - A custom ic-data-table-title-bar can be slotted above the column headers to display additional information about the table.
+ * @slot pagination-bar - A custom ic-pagination-bar can be slotted below the data to provide enhanced control over how the data is interacted with when being fetched externally.
  */
 @Component({
   tag: "ic-data-table",
@@ -40,18 +53,6 @@ import { getSlotContent, isSlotUsed } from "../../utils/helpers";
   shadow: true,
 })
 export class DataTable {
-  private DENSITY_HEIGHT_MULTIPLIER = {
-    dense: 0.8,
-    default: 1,
-    spacious: 1.2,
-  };
-
-  private SORT_ICONS = {
-    unsorted: unsortedIcon,
-    ascending: ascendingIcon,
-    descending: descendingIcon,
-  };
-
   private hasLoadedForOneSecond: boolean = true;
   private loadingIndicator: HTMLIcLoadingIndicatorElement;
   private timerStarted: number;
@@ -136,7 +137,7 @@ export class DataTable {
   @Prop() minimumLoadingDisplayDuration?: number = 1000;
 
   /**
-   * Sets the props for the pagination bar.
+   * Sets the props for the built-in pagination bar. If the `pagination-bar` slot is used then this prop is ignored.
    */
   @Prop() paginationBarOptions?: IcPaginationBarOptions = {
     itemsPerPageOptions: [
@@ -246,25 +247,32 @@ export class DataTable {
   }
 
   @Listen("icItemsPerPageChange")
-  handleItemsPerPageChange(ev: CustomEvent): void {
-    this.previousRowsPerPage = this.rowsPerPage;
-    this.rowsPerPage = ev.detail.value;
+  handleItemsPerPageChange({
+    detail,
+    target,
+  }: CustomEvent<{ value: number }>): void {
+    if ((target as HTMLIcPaginationBarElement).parentElement !== this.el) {
+      this.previousRowsPerPage = this.rowsPerPage;
+      this.rowsPerPage = detail.value;
+    }
   }
 
   @Listen("icPageChange")
-  handlePageChange(ev: CustomEvent): void {
-    this.fromRow = (ev.detail.value - 1) * this.rowsPerPage;
-    this.toRow = this.fromRow + this.rowsPerPage;
-    const tableRowsContainer = this.el.shadowRoot.querySelector(
-      ".table-row-container"
-    );
-    if (this.previousRowsPerPage === this.rowsPerPage) {
-      tableRowsContainer.scrollTop = 0;
-    } else if (this.previousRowsPerPage < this.rowsPerPage) {
-      tableRowsContainer.scrollTop = this.scrollOffset;
-      this.previousRowsPerPage = this.rowsPerPage;
-    } else {
-      this.previousRowsPerPage = this.rowsPerPage;
+  handlePageChange({ detail, target }: CustomEvent<{ value: number }>): void {
+    if ((target as HTMLIcPaginationBarElement).parentElement !== this.el) {
+      this.fromRow = (detail.value - 1) * this.rowsPerPage;
+      this.toRow = this.fromRow + this.rowsPerPage;
+      const tableRowsContainer = this.el.shadowRoot.querySelector(
+        ".table-row-container"
+      );
+      if (this.previousRowsPerPage === this.rowsPerPage) {
+        tableRowsContainer.scrollTop = 0;
+      } else if (this.previousRowsPerPage < this.rowsPerPage) {
+        tableRowsContainer.scrollTop = this.scrollOffset;
+        this.previousRowsPerPage = this.rowsPerPage;
+      } else {
+        this.previousRowsPerPage = this.rowsPerPage;
+      }
     }
   }
 
@@ -542,7 +550,7 @@ export class DataTable {
               // eslint-disable-next-line react/jsx-no-bind
               onClick={() => this.sortRows(key)}
               innerHTML={
-                this.SORT_ICONS[
+                SORT_ICONS[
                   this.sortedColumn === key
                     ? this.sortedColumnOrder
                     : "unsorted"
@@ -605,9 +613,7 @@ export class DataTable {
             }}
             style={{
               height: findRowHeight
-                ? `${
-                    findRowHeight * this.DENSITY_HEIGHT_MULTIPLIER[this.density]
-                  }px`
+                ? `${findRowHeight * DENSITY_HEIGHT_MULTIPLIER[this.density]}px`
                 : null,
             }}
           >
@@ -795,23 +801,27 @@ export class DataTable {
             }
           ></ic-loading-indicator>
         )}
-        {showPagination && (
+        {(showPagination || isSlotUsed(this.el, "pagination-bar")) && (
           <div class="pagination-container">
-            <ic-pagination-bar
-              totalItems={data.length}
-              type={paginationBarOptions.type}
-              rangeLabelType={paginationBarOptions.rangeLabelType}
-              showItemsPerPageControl={
-                paginationBarOptions.showItemsPerPageControl
-              }
-              showGoToPageControl={paginationBarOptions.showGoToPageControl}
-              itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
-              alignment={paginationBarOptions.alignment}
-              appearance={paginationBarOptions.appearance}
-              itemLabel={paginationBarOptions.itemLabel}
-              pageLabel={paginationBarOptions.pageLabel}
-              hideRangeLabel={paginationBarOptions.hideRangeLabel}
-            ></ic-pagination-bar>
+            {isSlotUsed(this.el, "pagination-bar") ? (
+              <slot name="pagination-bar" />
+            ) : (
+              <ic-pagination-bar
+                totalItems={data.length}
+                type={paginationBarOptions.type}
+                rangeLabelType={paginationBarOptions.rangeLabelType}
+                showItemsPerPageControl={
+                  paginationBarOptions.showItemsPerPageControl
+                }
+                showGoToPageControl={paginationBarOptions.showGoToPageControl}
+                itemsPerPageOptions={paginationBarOptions.itemsPerPageOptions}
+                alignment={paginationBarOptions.alignment}
+                appearance={paginationBarOptions.appearance}
+                itemLabel={paginationBarOptions.itemLabel}
+                pageLabel={paginationBarOptions.pageLabel}
+                hideRangeLabel={paginationBarOptions.hideRangeLabel}
+              ></ic-pagination-bar>
+            )}
           </div>
         )}
         {sortable && (
