@@ -5,9 +5,9 @@ import {
   ArgsTable,
   Description,
 } from "@storybook/addon-docs";
-import { IcDataTable, IcDataTableTitleBar } from "../components";
+import { IcDataTable, IcDataTableTitleBar, IcPaginationBar } from "../components";
 import { IcButton, IcEmptyState, IcTypography, IcLink, SlottedSVG } from "@ukic/react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import readme from "../../../canary-web-components/src/components/ic-data-table/readme.md";
 import {
   COLS,
@@ -1587,3 +1587,114 @@ export const defaultPaginationBarArgs = {
     )}
   </Story>
 </Canvas>
+
+### Slotted pagination bar
+
+There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
+
+To enable this behaviour, the `pagination-bar` slot can be utilised to provide a custom `IcPaginationBar` component, allowing the user to have more control over how their data is displayed & interacted with.
+
+export const SlottedPagination = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [render, setRender] = useState(false);
+  const [data, setData] = useState(LONG_DATA);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRender(true);
+    }, 2000);
+  });
+
+  const icItemsPerPageChangeHandler = (ev) => {
+    setItemsPerPage(ev.detail.value);
+    setData(LONG_DATA.slice(0, itemsPerPage));
+  }
+
+  const pageChangeHandler = (ev) => {
+    const fromRow = (ev.detail.value - 1) * itemsPerPage;
+    setData(LONG_DATA.slice(fromRow, fromRow + itemsPerPage));
+  }
+
+  return (
+    <IcDataTable caption="Slotted pagination bar" columns={LONG_COLS} data={data}>
+      {render && (
+        <IcPaginationBar
+          slot="pagination-bar"
+          showItemsPerPageControl
+          totalItems={LONG_DATA.length}
+          itemsPerPageOptions={[
+            { label: "5", value: "5" },
+            { label: "10", value: "10" },
+          ]}
+          onIcItemsPerPageChange={icItemsPerPageChangeHandler}
+          onIcPageChange={pageChangeHandler}
+        />
+      )}
+    </IcDataTable>
+  );
+}
+
+<Canvas withSource="none">
+  <Story name="Slotted pagination bar">
+    <SlottedPagination />
+  </Story>
+</Canvas>
+
+#### Slotted pagination bar code example
+
+```jsx
+import { useState } from "react";
+import { IcDataTable, IcPaginationBar } from "@ukic/canary-react";
+import { IcDataTableColumnObject } from "@ukic/canary-web-components";
+
+const columns: IcDataTableColumnObject[] = [
+  {
+    key: "firstName",
+    title: "First name",
+    dataType: "string",
+  },
+  ...
+];
+
+const long_data = [
+  {
+    firstName: "Joe",
+    lastName: "Bloggs",
+    age: 30,
+    jobTitle: "Developer",
+    address: "1 Main Street, Town, County, Postcode",
+  },
+  ...
+];
+
+const DataTable = () => {
+  const [data, setData] = useState(long_data);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+
+  const icItemsPerPageChangeHandler = (ev) => {
+    setItemsPerPage(ev.detail.value);
+    setData(data.slice(0, itemsPerPage));
+  }
+
+  const pageChangeHandler = (ev) => {
+    const fromRow = (ev.detail.value - 1) * itemsPerPage;
+    setData(data.slice(fromRow, fromRow + itemsPerPage));
+  }
+
+  return (
+    <IcDataTable caption="Slotted pagination bar" columns={LONG_COLS} data={data}>
+      <IcPaginationBar
+        slot="pagination-bar"
+        showItemsPerPageControl
+        totalItems={long_data.length}
+        itemsPerPageOptions={[
+          { label: "5", value: "5" },
+          { label: "10", value: "10" },
+        ]}
+        onIcItemsPerPageChange={icItemsPerPageChangeHandler}
+        onIcPageChange={pageChangeHandler}
+      />
+    </IcDataTable>
+  );
+};
+```
