@@ -618,7 +618,7 @@ export class SearchBar {
     }
   };
 
-  private handleMenuChange = (ev: CustomEvent) => {
+  private handleMenuChange = (ev: CustomEvent<IcMenuChangeEventDetail>) => {
     this.setMenuChange(ev.detail.open);
     if (!ev.detail.open) {
       this.handleMenuCloseFromMenuChange(true);
