@@ -250,14 +250,9 @@ export class Menu {
   }
 
   componentDidUpdate(): void {
-    const inputValueInOptions: boolean = this.options.some(
+    const inputValueInOptions = this.options.some(
       (option) => option[this.valueField] === this.value
     );
-
-    const optionHighlightedIsSet =
-      this.optionHighlighted !== null &&
-      this.optionHighlighted !== undefined &&
-      this.optionHighlighted !== "";
 
     if (this.open && this.options.length !== 0) {
       if (
@@ -274,7 +269,7 @@ export class Menu {
       ) {
         this.menu.focus();
       } else if (
-        optionHighlightedIsSet &&
+        !!this.optionHighlighted &&
         !this.focusFromSearchKeypress &&
         !this.preventIncorrectTabOrder
       ) {
@@ -322,8 +317,6 @@ export class Menu {
    */
   @Method()
   async handleKeyboardOpen(event: KeyboardEvent): Promise<void> {
-    this.keyboardNav = false;
-
     if (this.activationType === "automatic") {
       this.autoSetInputValueKeyboardOpen(event);
     } else {
@@ -485,8 +478,6 @@ export class Menu {
   private manSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
     const menuOptions = this.setMenuOptions();
 
-    this.keyboardNav = false;
-
     const highlightedOptionIndex = menuOptions.findIndex(
       (option) => option[this.valueField] === this.optionHighlighted
     );
@@ -554,6 +545,7 @@ export class Menu {
         });
         break;
       case " ":
+        this.keyboardNav = false;
         if (this.isSearchBar || this.isSearchableSelect) {
           break;
         } else {
@@ -564,6 +556,7 @@ export class Menu {
         break;
       case "Enter":
         event.preventDefault();
+        this.keyboardNav = false;
         if (isOpen) {
           if (highlightedOptionIndex >= 0) {
             if (menuOptions[highlightedOptionIndex] !== undefined) {
@@ -600,6 +593,7 @@ export class Menu {
         this.preventIncorrectTabOrder = true;
         break;
       default:
+        this.keyboardNav = false;
         this.focusOnSearchOrSelectInput(menuOptions, highlightedOptionIndex);
         break;
     }
