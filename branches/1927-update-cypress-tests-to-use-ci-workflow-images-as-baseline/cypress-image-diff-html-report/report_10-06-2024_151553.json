@@ -1,6 +1,6 @@
 {
-  "total": 392,
-  "totalPassed": 390,
+  "total": 390,
+  "totalPassed": 388,
   "totalFailed": 2,
   "totalSuites": 31,
   "suites": [
@@ -1340,26 +1340,15 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-default.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-slotted-content",
-          "percentage": 0,
+          "percentage": 0.07574284894738688,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-slotted-content.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-slotted-content.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-slotted-content.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDialog.cy.tsx-slotted-content-clicked",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-slotted-content-clicked.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-slotted-content-clicked.png"
         },
         {
           "status": "pass",
@@ -1536,17 +1525,6 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-hide-close-button.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-hide-close-button.png"
-        },
-        {
-          "status": "fail",
-          "name": "IcDialog.cy.tsx-scroll-before",
-          "percentage": 0.20092883275760434,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-before.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-scroll-before.png",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-before.png"
         },
         {
           "status": "pass",
@@ -4503,9 +4481,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-10T14:42:40.798Z",
-  "endedAt": "2024-06-10T14:50:48.046Z",
-  "duration": 422885,
+  "startedAt": "2024-06-10T15:15:53.503Z",
+  "endedAt": "2024-06-10T15:24:05.224Z",
+  "duration": 428041,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
