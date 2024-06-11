@@ -34,6 +34,13 @@
         "notes": "issue in 'ip' package <= 2.0.1 - no current fix",
         "expiry": "03 July 2024"
       }
+    },
+    {
+      "GHSA-grv7-fg5c-xmjg": {
+        "active": true,
+        "notes": "braces package has a vulnerability which is fixed in v3.0.3, but cannot currrently upgrade",
+        "expiry": "03 July 2024"
+      }
     }    
   ]
 }
