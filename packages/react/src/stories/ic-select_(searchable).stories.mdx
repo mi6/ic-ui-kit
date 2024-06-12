@@ -19,7 +19,7 @@ export const defaultArgs = {
   placeholder: "Select an option",
   readonly: false,
   required: false,
-  small: false,
+  size: 'default',
   validationStatus: "",
   validationText: "",
   includeDescriptionsInSearch: false,
@@ -675,6 +675,10 @@ export const Uncontrolled = () => {
         options: ["anywhere", "start"],
         control: { type: "inline-radio" },
       },
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
       validationStatus: {
         defaultValue: "",
         options: ["none", "error", "success", "warning"],
@@ -699,7 +703,7 @@ export const Uncontrolled = () => {
         required={args.required}
         searchMatchPosition={args.searchMatchPosition}
         searchable
-        small={args.small}
+        size={args.size}
         validationStatus={args.validationStatus}
         validationText={args.validationText}
       />
