@@ -612,6 +612,10 @@ export const Uncontrolled = () => {
     name="Playground"
     args={defaultArgs}
     argTypes={{
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
       validationStatus: {
         defaultValue: "",
         options: ["none", "error", "success", "warning"],
@@ -633,7 +637,7 @@ export const Uncontrolled = () => {
         readonly={args.readonly}
         required={args.required}
         showClearButton={args.showClearButton}
-        small={args.small}
+        size={args.size}
         validationStatus={args.validationStatus}
         validationText={args.validationText}
       />
