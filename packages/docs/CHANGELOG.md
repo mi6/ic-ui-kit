@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.11.1...@ukic/docs@2.12.0) (2024-06-12)
+
+### Features
+
+- **docs:** updated docs to include new icon variants ([eec27e8](https://github.com/mi6/ic-ui-kit/commit/eec27e80bc76f20338a5423485e44ca1c8a2bd67)), closes [#1675](https://github.com/mi6/ic-ui-kit/issues/1675)
+
 ## [2.11.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.11.0...@ukic/docs@2.11.1) (2024-05-29)
 
 **Note:** Version bump only for package @ukic/docs

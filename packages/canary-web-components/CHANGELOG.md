@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.16...@ukic/canary-web-components@2.0.0-canary.17) (2024-06-12)
+
+**Note:** Version bump only for package @ukic/canary-web-components
+
 # [2.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.15...@ukic/canary-web-components@2.0.0-canary.16) (2024-05-29)
 
 ### Bug Fixes

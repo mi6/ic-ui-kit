@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.16...@ukic/canary-react@2.0.0-canary.17) (2024-06-12)
+
+### Bug Fixes
+
+- **canary-react:** cleaned up data table code snippets ([d59db8b](https://github.com/mi6/ic-ui-kit/commit/d59db8b71da1b2926eeab037c679bf11c2cb5840))
+
 # [2.0.0-canary.16](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.15...@ukic/canary-react@2.0.0-canary.16) (2024-05-29)
 
 ### Bug Fixes

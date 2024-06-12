@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.21.0...@ukic/react@2.22.0) (2024-06-12)
+
+### Bug Fixes
+
+- **react:** update stories and cypress tests to include high contrast mode ([a85b7b7](https://github.com/mi6/ic-ui-kit/commit/a85b7b738afed48ae0a58019f26a1d197a80c8ae))
+- **react:** update toggle button icon placement to be overridden by group icon placement ([73f1000](https://github.com/mi6/ic-ui-kit/commit/73f1000e29f4da515065b2758f411f55514f449e))
+- **react:** updates test baseline image for toggle button change ([478b4e5](https://github.com/mi6/ic-ui-kit/commit/478b4e5d75cc5f40f1344d08abfe8578f9bab25b))
+
+### Features
+
+- **react:** update Cypress visual regression test baseline images ([47522c5](https://github.com/mi6/ic-ui-kit/commit/47522c56767c01c4b560ef68a751dcbca581cad8))
+
 # [2.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.20.0...@ukic/react@2.21.0) (2024-05-29)
 
 ### Bug Fixes

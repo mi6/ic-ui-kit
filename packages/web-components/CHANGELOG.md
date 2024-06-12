@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.21.0...@ukic/web-components@2.22.0) (2024-06-12)
+
+### Bug Fixes
+
+- **web-components:** fixes icon size issue on toggle button ([3b0586e](https://github.com/mi6/ic-ui-kit/commit/3b0586e57bf03f4a313c841a02972d8ed96cac0d))
+- **web-components:** fixes opacity issue on dialog ([1a75128](https://github.com/mi6/ic-ui-kit/commit/1a75128d98302cdd3434bb377fa0d24d6262b4aa))
+- **web-components:** removed state update that triggers focusing of the menu after closing ([2d907f2](https://github.com/mi6/ic-ui-kit/commit/2d907f2a4c82755645d2687b5534e1df2669cbe6))
+- **web-components:** update HCM colours, story examples and color-scheme dark colours for some comps ([0839e18](https://github.com/mi6/ic-ui-kit/commit/0839e186820bc8d47c7521227d984aa5c6e46ed6)), closes [#1817](https://github.com/mi6/ic-ui-kit/issues/1817)
+- **web-components:** update toggle button icon placement to be overridden by group icon placement ([d919989](https://github.com/mi6/ic-ui-kit/commit/d919989ae1b61a1168be474b3113b0041310f749)), closes [#1811](https://github.com/mi6/ic-ui-kit/issues/1811)
+
+### Features
+
+- **web-components:** [#1929](https://github.com/mi6/ic-ui-kit/issues/1929) add hide-label prop to ic-checkbox ([507ed6e](https://github.com/mi6/ic-ui-kit/commit/507ed6eaeeb81e09f51c4bcd4b3c957bbe7bc8ed))
+- **web-components:** added colour change to button text and removed redundant classes ([dbbb7b0](https://github.com/mi6/ic-ui-kit/commit/dbbb7b09ab5e8b01f094980762c54e4c290479bb))
+
 # [2.21.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.20.0...@ukic/web-components@2.21.0) (2024-05-29)
 
 ### Bug Fixes
