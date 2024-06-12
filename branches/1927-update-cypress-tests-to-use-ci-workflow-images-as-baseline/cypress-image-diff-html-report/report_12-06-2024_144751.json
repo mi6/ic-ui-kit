@@ -1,7 +1,7 @@
 {
   "total": 398,
-  "totalPassed": 397,
-  "totalFailed": 1,
+  "totalPassed": 396,
+  "totalFailed": 2,
   "totalSuites": 31,
   "suites": [
     {
@@ -1853,14 +1853,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-image-right.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcHero.cy.tsx-background-image",
-          "percentage": 0,
+          "percentage": 0.37024316333998664,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
           "specFilename": "IcHero.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-background-image.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcHero.cy.tsx-background-image.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-background-image.png"
         },
         {
@@ -4569,9 +4569,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-12T14:34:35.162Z",
-  "endedAt": "2024-06-12T14:43:05.692Z",
-  "duration": 446217,
+  "startedAt": "2024-06-12T14:47:51.163Z",
+  "endedAt": "2024-06-12T14:56:32.683Z",
+  "duration": 457047,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
