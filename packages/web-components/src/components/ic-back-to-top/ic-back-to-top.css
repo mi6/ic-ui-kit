@@ -19,6 +19,16 @@
   z-index: var(--ic-z-index-back-to-top);
 }
 
+.icon-only {
+  width: 2.5rem;
+  padding: var(--ic-space-xs) var(--ic-space-xs) var(--ic-space-xs)
+    var(--ic-space-xs);
+}
+
+.icon-only .ic-back-to-top-icon {
+  padding-left: calc(var(--ic-space-xxxs) + var(--ic-space-1px));
+}
+
 button {
   height: 2.5rem;
   align-items: center;

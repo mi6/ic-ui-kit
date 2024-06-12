@@ -21,7 +21,7 @@ exports[`ic-back-to-top should render with an icon only: should render with an i
 <ic-back-to-top target="topEl" variant="icon">
   <mock:shadow-root>
     <ic-tooltip class="positioning" label="Back to top" placement="top">
-      <button aria-label="Back to top" class="ic-back-to-top-link">
+      <button aria-label="Back to top" class="ic-back-to-top-link icon-only">
         <span class="ic-back-to-top-icon">
           svg
         </span>
