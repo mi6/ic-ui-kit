@@ -9,8 +9,9 @@ import {
   NOT_BE_VISIBLE,
 } from "../utils/constants";
 import { BackToTop } from "./IcBackToTopTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.3;
+const DEFAULT_TEST_THRESHOLD = 0.024;
 
 const BACK_TO_TOP_SELECTOR = "ic-back-to-top";
 
@@ -51,11 +52,15 @@ describe("IcBackToTop", () => {
       .find("button")
       .wait(500)
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should appear with icon only when top is off screen", () => {
@@ -64,13 +69,17 @@ describe("IcBackToTop", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("ic-tooltip")
+      .find("button")
       .wait(500)
       .should(BE_VISIBLE);
-    cy.checkA11yWithWait();
+
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "icon",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -100,9 +109,15 @@ describe("IcBackToTop", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.wait(500).get(BACK_TO_TOP_SELECTOR).shadow().find("button").focus();
     cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(HAVE_FOCUS);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focussed",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+      delay: 1000,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 });
