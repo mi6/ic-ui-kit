@@ -1058,15 +1058,26 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-sizes.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcChip.cy.tsx-dismissible",
-          "percentage": 0.1745393938341714,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
           "specFilename": "IcChip.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-dismissible.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcChip.cy.tsx-dismissible.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-dismissible.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcChip.cy.tsx-dismissible-focus",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
+          "specFilename": "IcChip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-dismissible-focus.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-dismissible-focus.png"
         },
         {
           "status": "pass",
@@ -1318,14 +1329,14 @@
       "path": "src/component-tests/IcDialog/IcDialog.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcDialog.cy.tsx-default",
-          "percentage": 0,
+          "percentage": 0.048707246209710245,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-default.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcDialog.cy.tsx-default.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-default.png"
         },
         {
@@ -1842,14 +1853,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-image-right.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcHero.cy.tsx-background-image",
-          "percentage": 0.37024316333998664,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
           "specFilename": "IcHero.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcHero.cy.tsx-background-image.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcHero.cy.tsx-background-image.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcHero.cy.tsx-background-image.png"
         },
         {
@@ -2174,26 +2185,15 @@
       "path": "src/component-tests/IcPagination/IcPagination.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcPagination.cy.tsx-simple",
-          "percentage": 0,
+          "percentage": 0.02349468024894146,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
           "specFilename": "IcPagination.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-simple.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcPagination.cy.tsx-simple.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-simple.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcPagination.cy.tsx-focus_simple",
-          "percentage": 0,
-          "failureThreshold": 0,
-          "specPath": "src/component-tests/IcPagination/IcPagination.cy.tsx",
-          "specFilename": "IcPagination.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcPagination.cy.tsx-focus_simple.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcPagination.cy.tsx-focus_simple.png"
         },
         {
           "status": "pass",
@@ -4459,9 +4459,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-12T09:27:11.385Z",
-  "endedAt": "2024-06-12T09:36:12.529Z",
-  "duration": 469567,
+  "startedAt": "2024-06-12T10:08:27.641Z",
+  "endedAt": "2024-06-12T10:16:42.328Z",
+  "duration": 430630,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
