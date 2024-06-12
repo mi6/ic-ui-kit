@@ -174,6 +174,7 @@ export class BackToTop {
           ["show"]: !targetElVisible,
           ["by-footer"]: footerVisible,
           ["positioning"]: variant !== "icon",
+          ["icon-only"]: variant === "icon",
         }}
         aria-label={backToTopLabel}
         onClick={this.handleClick}
