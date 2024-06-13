@@ -641,6 +641,15 @@ export const convertToRGBA = (color: IcColor): IcColorRGBA | null => {
     : null;
 };
 
-export const capitalize = (text: string): string => {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+export const capitalize = (text: string): string =>
+  text.charAt(0).toUpperCase() + text.slice(1);
+
+export const checkSlotInChildMutations = (
+  addedNodes: NodeList,
+  removedNodes: NodeList,
+  slotName: string
+): boolean => {
+  const hasSlot = (nodeList: NodeList) =>
+    Array.from(nodeList).some((node) => (node as Element).slot === slotName);
+  return hasSlot(addedNodes) || hasSlot(removedNodes);
 };
