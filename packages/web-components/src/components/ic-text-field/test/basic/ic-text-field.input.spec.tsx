@@ -302,12 +302,17 @@ it("should test maxCharacters method", async () => {
 it("should test minCharacters method", async () => {
   const page = await newSpecPage({
     components: [TextField],
-    html: `<ic-text-field label="Test label" rows=1 min-characters=5></ic-text-field>`,
+    html: `<ic-text-field label="Test label" rows=1 min-characters=5 value="test"></ic-text-field>`,
   });
 
-  page.rootInstance.getMinCharactersUnattained("test");
+  const input = page.root.shadowRoot.querySelector("input");
+  input.blur();
   expect(page.rootInstance.minCharactersUnattained).toBe(true);
-  page.rootInstance.getMinCharactersUnattained("testing");
+
+  page.rootInstance.value = "testing";
+  await page.waitForChanges();
+
+  input.blur();
   expect(page.rootInstance.minCharactersUnattained).toBe(false);
 });
 
