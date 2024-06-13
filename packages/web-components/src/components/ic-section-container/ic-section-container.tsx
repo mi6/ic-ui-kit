@@ -22,7 +22,7 @@ export class SectionContainer {
     return (
       <Host
         class={{
-          ["aligned-left"]: aligned === "left",
+          ["aligned-left"]: aligned === "left" || aligned === null,
           ["aligned-center"]: aligned === "center",
           ["aligned-full-width"]: aligned === "full-width",
           ["no-vertical-padding"]: fullHeight,
