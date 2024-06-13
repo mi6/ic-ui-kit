@@ -323,3 +323,58 @@ import readme from "../../../web-components/src/components/ic-tooltip/readme.md"
     </div>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  disableHover: false,
+  maxLines: 3,
+  placement: "bottom",
+  label: "This is a description of the button",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      placement: {
+        options: [
+          "bottom",
+          "top-start",
+          "top",
+          "top-end",
+          "right-start",
+          "right",
+          "right-end",
+          "bottom-end",
+          "bottom-start",
+          "left-end",
+          "left",
+          "left-start"
+        ],
+        control: { type: "select" },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <div style={{margin: "250px"}}>
+        <IcTooltip
+          label={args.label}
+          placement={args.placement}
+          maxLines={args.maxLines}
+          disableHover={args.disableHover}
+          id="ic-tooltip-test-button-default"
+          target="button-id"
+        >
+          <button
+            id="button-id"
+            aria-describedby="ic-tooltip-test-button-default"
+          >
+            Button 1
+          </button>
+        </IcTooltip>
+      </div>
+    )}
+  </Story>
+</Canvas>
