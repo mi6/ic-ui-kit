@@ -482,3 +482,110 @@ export const Uncontrolled = () => {
     ></IcTextField>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  disabled: false,
+  fullWidth: false,
+  helperText: "",
+  hideLabel: false,
+  inputId: "ic-text-field-input-0",
+  inputmode: "text",
+  label: "Text Field",
+  maxCharacters: 0,
+  maxLength: 0,
+  minCharacters: 0,
+  name: "0",
+  placeholder: "",
+  readonly: false,
+  required: false,
+  resize: false,
+  rows: 1,
+  size: "default",
+  spellcheck: false,
+  type: "text",
+  validationInline: false,
+  validationStatus: "none",
+  validationText: "",
+  debounce: 0
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      inputmode: {
+        options: ["none", "text", "tel", "url", "email", "numeric", "decimal", "search"],
+        control: { type: "select" }
+      },
+      size: {
+        options: ["default", "small"],
+        control: { type: "inline-radio" }
+      },
+      type: {
+        options: ["email", "password", "tel", "text", "url", "number", "search"],
+        control: { type: "select" }
+      },
+      validationStatus: {
+        options: ["warning", "error", "success", "none"],
+        mapping: {
+          "warning": "warning",
+          "error": "error",
+          "success": "success",
+          "none": ""
+        },
+        control: { type: "select" }
+      },
+      showIconSlot: {
+        control: { type: "boolean" }
+      }
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcTextField 
+        label={args.label}
+        disabled={args.disabled}
+        fullWidth={args.fullWidth}
+        helperText={args.helperText}
+        hideLabel={args.hideLabel}
+        inputId={args.inputId}
+        inputmode={args.inputmode}
+        max={args.max}
+        maxCharacters={args.maxCharacters}
+        maxLength={args.maxLength}
+        min={args.min}
+        minCharacters={args.minCharacters}
+        name={args.name}
+        placeholder={args.placeholder}
+        readonly={args.readonly}
+        required={args.required}
+        resize={args.resize}
+        rows={args.rows}
+        size={args.size}
+        spellcheck={args.spellcheck}
+        type={args.type}
+        validationInline={args.validationInline}
+        validationStatus={args.validationStatus}
+        validationText={args.validationText}
+        debounce={args.debounce}
+        onIcChange={(ev) => console.log(ev.detail.value)}
+      >
+        {args.showIconSlot && (
+          <SlottedSVG 
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+          </SlottedSVG>  
+        )}
+      </IcTextField>
+    )}
+  </Story>
+</Canvas>
