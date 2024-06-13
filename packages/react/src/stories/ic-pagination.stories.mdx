@@ -13,6 +13,19 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
 
 <Description markdown={readme} />
 
+export const defaultArgs = {
+  pages: 15,
+  type: "simple",
+  appearance: "default",
+  hideCurrentPage: false,
+  hideFirstAndLastPageButton: false,
+  defaultPage: 1,
+  disabled: false,
+  label: "",
+  adjacentCount: 1,
+  boundaryCount: 1,
+};
+
 ### Simple
 
 <Canvas>
@@ -133,5 +146,84 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
         boundaryCount="2"
       />
     </div>
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story name="Playground"
+      args={defaultArgs}
+      argTypes={{
+        pages: {
+          control: {
+            type: "number",
+          },
+        },
+        type: {
+          control: {
+            type: "select",
+            options: ["simple", "complex"],
+          },
+        },
+        appearance: {
+          control: {
+            type: "select",
+            options: ["default", "dark", "light"],
+          },
+        },
+        hideCurrentPage: {
+          control: {
+            type: "boolean",
+          },
+        },
+        hideFirstAndLastPageButton: {
+          control: {
+            type: "boolean",
+          },
+        },
+        defaultPage: {
+          control: {
+            type: "number",
+          },
+        },
+        disabled: {
+          control: {
+            type: "boolean",
+          },
+        },
+        label: {
+          control: {
+            type: "text",
+          },
+        },
+        adjacentCount: {
+          control: {
+            type: "number",
+          },
+        },
+        boundaryCount: {
+          control: {
+            type: "number",
+          },
+        },
+}}
+      >
+      {(args) => (
+          <div>
+            <IcPagination
+              pages={args.pages}
+              type={args.type}
+              adjacentCount={args.adjacentCount}
+              boundaryCount={args.boundaryCount}
+              label={args.label}
+              disabled={args.disabled}
+              defaultPage={args.defaultPage}
+              hideFirstAndLastPageButton={args.hideFirstAndLastPageButton}
+              hideCurrentPage={args.hideCurrentPage}
+              appearance={args.appearance}
+            />
+          </div>
+        )}
   </Story>
 </Canvas>
