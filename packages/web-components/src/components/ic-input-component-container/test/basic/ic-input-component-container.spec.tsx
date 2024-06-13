@@ -144,4 +144,22 @@ describe("ic-input-component-container", () => {
     </ic-input-component-container>
     `);
   });
+
+  it("should test rendering icon after initial render", async () => {
+    const page = await newSpecPage({
+      components: [InputComponentContainer],
+      html: `<ic-input-component-container>content</ic-input-component-container>`,
+    });
+
+    const icon = document.createElement("svg");
+    icon.setAttribute("slot", "left-icon");
+
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [icon],
+        removedNodes: [],
+      },
+    ]);
+  });
 });

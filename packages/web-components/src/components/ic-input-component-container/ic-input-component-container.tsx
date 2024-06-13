@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import { Component, Element, Host, Prop, forceUpdate, h } from "@stencil/core";
 
 import {
   IcInformationStatus,
@@ -6,7 +6,7 @@ import {
   IcSizes,
 } from "../../utils/types";
 import successIcon from "../../assets/success-icon.svg";
-import { slotHasContent } from "../../utils/helpers";
+import { checkSlotInChildMutations, slotHasContent } from "../../utils/helpers";
 
 /**
  * @slot left-icon - Content will be placed to the left of the input.
@@ -16,6 +16,7 @@ import { slotHasContent } from "../../utils/helpers";
   styleUrl: "ic-input-component-container.css",
 })
 export class InputComponentContainer {
+  private hostMutationObserver: MutationObserver;
   @Element() el: HTMLIcInputComponentContainerElement;
 
   /**
@@ -67,6 +68,23 @@ export class InputComponentContainer {
    * The validation status of the input component container - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
+
+  componentDidLoad(): void {
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, { childList: true });
+  }
+
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    if (
+      mutationList.some(({ type, addedNodes, removedNodes }) =>
+        type === "childList"
+          ? checkSlotInChildMutations(addedNodes, removedNodes, "left-icon")
+          : false
+      )
+    ) {
+      forceUpdate(this);
+    }
+  };
 
   render() {
     const {
