@@ -12,11 +12,16 @@ import readme from "../../../web-components/src/components/ic-section-container/
 
 <Description markdown={readme} />
 
-### Left aligned
+export const defaultArgs = {
+  aligned: null,
+  fullHeight: false
+}
+
+### Left Aligned
 
 <Canvas>
-  <Story name="Left aligned">
-    <IcSectionContainer>
+  <Story name="Left Aligned">
+    <IcSectionContainer style={{ border: "1px solid black" }}>
       <main>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button>Start</button>
@@ -31,7 +36,7 @@ import readme from "../../../web-components/src/components/ic-section-container/
 
 <Canvas>
   <Story name="Center alignment">
-    <IcSectionContainer aligned="center">
+    <IcSectionContainer aligned="center" style={{ border: "1px solid black" }}>
       <main>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button>Start</button>
@@ -46,7 +51,7 @@ import readme from "../../../web-components/src/components/ic-section-container/
 
 <Canvas>
   <Story name="Full-width alignment">
-    <IcSectionContainer aligned="full-width">
+    <IcSectionContainer aligned="full-width" style={{ border: "1px solid black" }}>
       <main>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button>Start</button>
@@ -61,7 +66,7 @@ import readme from "../../../web-components/src/components/ic-section-container/
 
 <Canvas>
   <Story name="Full-height">
-    <IcSectionContainer aligned="full-width" full-height>
+    <IcSectionContainer aligned="full-width" fullHeight="true" style={{ border: "1px solid black" }}>
       <main>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <button>Start</button>
@@ -69,5 +74,31 @@ import readme from "../../../web-components/src/components/ic-section-container/
         </div>
       </main>
     </IcSectionContainer>
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story
+    name="Playground"
+    args={defaultArgs}
+    argTypes={{
+      aligned: {
+        options: [null, "left", "center", "full-width"],
+        control: { type: "inline-radio" },
+      },
+    }}
+  >
+    {(args) => (
+      <IcSectionContainer aligned={args.aligned} fullHeight={args.fullHeight} style={{ border: "1px solid black" }}>
+        <main>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <button>Start</button>
+            <button>End</button>
+          </div>
+        </main>
+      </IcSectionContainer>
+    )}
   </Story>
 </Canvas>
