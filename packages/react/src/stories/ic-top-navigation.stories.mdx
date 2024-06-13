@@ -719,3 +719,213 @@ export const ConditionalTabsExample = () => {
   </Story>
 </Canvas>
 
+### Playground
+
+export const defaultArgs = {
+  appTitle: "Application Name",
+  contentAligned: "full-width",
+  customMobileBreakpoint: 992,
+  href: "/",
+  inline: false,
+  shortAppTitle: "App Name",
+  status: "alpha",
+  version: "0.0.1",
+  appIconSlot: "app-icon",
+  searchSlot: "search",
+  buttonsSlot: "buttons",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      contentAligned: {
+        options: [
+          "full-width",
+          "left",
+          "center",
+        ],
+        control: { type: "select" },
+      },
+      customMobileBreakpoint: {
+        options: [
+          0,
+          576,
+          768,
+          992,
+          1200,
+        ],
+        control: { type: "select" },
+      },
+      appIconSlot: {
+        options: [
+          "app-icon",
+          ""
+        ],
+        control: { type: "select" },
+      },
+      searchSlot: {
+        options: [
+          "search",
+          ""
+        ],
+        control: { type: "select" },
+      },
+      buttonsSlot: {
+        options: [
+          "buttons",
+          ""
+        ],
+        control: { type: "select" },
+      }
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcTopNavigation
+        appTitle={args.appTitle}
+        contentAligned={args.contentAligned}
+        customMobileBreakpoint={args.customMobileBreakpoint}
+        href={args.href}
+        inline={args.inline}
+        shortAppTitle={args.shortAppTitle}
+        status={args.status}
+        version={args.version}
+      >
+        <svg
+          slot={args.appIconSlot}
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+          />
+        </svg>
+        <IcSearchBar
+            slot={args.searchSlot}
+            placeholder="Search"
+            label="Search"
+          ></IcSearchBar>
+        <IcNavigationButton
+          label="Button One"
+          slot={args.buttonsSlot}
+          href="https://www.google.com"
+          target="_blank"
+          title="Google 1"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"
+            />
+          </svg>
+          <IcBadge
+            text-label="1"
+            slot="badge"
+            position="near"
+            variant="light"
+          ></IcBadge>
+        </IcNavigationButton>
+        <IcNavigationButton
+          label="Button Two"
+          slot={args.buttonsSlot}
+          href="https://www.google.com"
+          target="_blank"
+          title="Google 2"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"
+            />
+          </svg>
+          <IcBadge
+            slot="badge"
+            position="near"
+            variant="light"
+            type="dot"
+          ></IcBadge>
+        </IcNavigationButton>
+        <IcNavigationButton
+          label="Button Three"
+          slot={args.buttonsSlot}
+          onclick="alert('test')"
+        >
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+            />
+          </svg>
+        </IcNavigationButton>
+        <IcNavigationGroup slot="navigation" label="Navigation group">
+          <IcNavigationItem label="Another One" href="/"></IcNavigationItem>
+          <IcNavigationItem label="Another Two" href="/"></IcNavigationItem>
+          <IcNavigationItem
+            label="Another Three"
+            href="/"
+          ></IcNavigationItem>
+          <IcNavigationItem
+            label="Another Four"
+            href="/"
+          ></IcNavigationItem>
+          <IcNavigationItem
+            label="Another Five"
+            href="/"
+          ></IcNavigationItem>
+          <IcNavigationItem label="Another Six" href="/"></IcNavigationItem>
+          <IcNavigationItem
+            label="Another Seven"
+            href="/"
+          ></IcNavigationItem>
+          <IcNavigationItem
+            label="Another Eight"
+            href="/"
+          ></IcNavigationItem>
+        </IcNavigationGroup>
+        <IcNavigationItem
+          slot="navigation"
+          label="Two thousand five hundred and sixty three"
+          href="/"
+        ></IcNavigationItem>
+        <IcNavigationItem
+          slot="navigation"
+          label="Three"
+          href="/"
+          target="_blank"
+        ></IcNavigationItem>
+        <IcNavigationItem
+          slot="navigation"
+          label="Four"
+          href="/"
+          selected="true"
+        ></IcNavigationItem>
+      </IcTopNavigation>
+    )}
+  </Story>
+</Canvas>
