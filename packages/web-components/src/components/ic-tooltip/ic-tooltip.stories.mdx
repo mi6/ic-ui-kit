@@ -329,3 +329,59 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  disableHover: false,
+  maxLines: 3,
+  placement: "bottom",
+  label: "This is a description of the button",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      placement: {
+        options: [
+          "bottom",
+          "top-start",
+          "top",
+          "top-end",
+          "right-start",
+          "right",
+          "right-end",
+          "bottom-end",
+          "bottom-start",
+          "left-end",
+          "left",
+          "left-start",
+        ],
+        control: { type: "select" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`<div style="margin: 250px">
+        <ic-tooltip
+          label=${args.label}
+          placement=${args.placement}
+          max-lines=${args.maxLines}
+          disable-hover=${args.disableHover}
+          id="ic-tooltip-test-button-default"
+          target="button-id"
+        >
+          <button
+            id="button-id"
+            aria-describedby="ic-tooltip-test-button-default"
+          >
+            Button 1
+          </button>
+        </ic-tooltip>
+      </div> `
+    }
+  </Story>
+</Canvas>
