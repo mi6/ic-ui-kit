@@ -266,8 +266,8 @@ jobs:
         with:
           message: |
             Cypress visual tests failed.
-            View the image diff here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots
-            View the html report here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report
+            View the image diff here: https://github.com/mi6/ic-ui-kit/tree/gh-pages/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-screenshots/diff
+            View the html report here: https://mi6.github.io/ic-ui-kit/branches/${{ steps.extract_branch.outputs.branch }}/cypress-image-diff-html-report/cypress-image-diff-html-report.html
           message-id: "image-diff"
 
   ic-ui-kit-deploy:
