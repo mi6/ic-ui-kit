@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop, State } from "@stencil/core";
+import { Component, Host, h, Element, Prop, State, Watch } from "@stencil/core";
 import {
   checkResizeObserver,
   DEVICE_SIZES,
@@ -33,11 +33,20 @@ export class BreadcrumbGroup {
    * The appearance of the breadcrumb group.
    */
   @Prop() appearance: IcThemeForeground = "default";
+  @Watch("appearance")
+  watchAppearanceHandler(): void {
+    this.setAppearance();
+  }
 
   /**
    * If `true`, display only a single breadcrumb for the parent page with a back icon.
    */
   @Prop() backBreadcrumbOnly: boolean = false;
+  @Watch("backBreadcrumbOnly")
+  watchBackBreadcrumbHandler(): void {
+    this.setBackBreadcrumb();
+  }
+
   /**
    * If `true`, all breadcrumbs between the first and last breadcrumb will be collapsed.
    */
@@ -48,11 +57,7 @@ export class BreadcrumbGroup {
       this.el.querySelectorAll(this.IC_BREADCRUMB)
     );
 
-    if (this.appearance !== "default") {
-      allBreadcrumbs.forEach((breadcrumb) => {
-        breadcrumb.setAttribute("appearance", this.appearance);
-      });
-    }
+    this.setAppearance();
 
     if (this.backBreadcrumbOnly) {
       this.setBackBreadcrumb();
@@ -86,6 +91,16 @@ export class BreadcrumbGroup {
         this.clickHandler
       );
   }
+
+  private setAppearance = () => {
+    const allBreadcrumbs = Array.from(
+      this.el.querySelectorAll(this.IC_BREADCRUMB)
+    );
+
+    allBreadcrumbs.forEach((breadcrumb) => {
+      breadcrumb.setAttribute("appearance", this.appearance);
+    });
+  };
 
   private setBackBreadcrumb = () => {
     if (this.backBreadcrumbOnly) {
