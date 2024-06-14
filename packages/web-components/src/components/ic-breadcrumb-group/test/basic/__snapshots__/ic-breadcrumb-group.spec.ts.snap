@@ -9,7 +9,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb appearance="default" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -21,7 +21,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb class="visuallyhidden" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb appearance="default" class="visuallyhidden" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -33,7 +33,7 @@ exports[`ic-breadcrumb-group should handle the hidden collapsed breadcrumbs: sho
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -57,7 +57,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -69,7 +69,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb appearance="default" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -81,7 +81,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb appearance="default" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -93,7 +93,7 @@ exports[`ic-breadcrumb-group should render collapse on already small devices: sh
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb class="back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
+  <ic-breadcrumb appearance="default" class="back show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -179,7 +179,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb appearance="default" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -210,7 +210,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
       ...
     </button>
   </ic-breadcrumb>
-  <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -222,7 +222,7 @@ exports[`ic-breadcrumb-group should render with collapse button: should render w
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -246,7 +246,7 @@ exports[`ic-breadcrumb-group should render with ic-breadcrumb: should render wit
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb role="listitem">
+  <ic-breadcrumb appearance="default" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -280,7 +280,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       </ol>
     </nav>
   </mock:shadow-root>
-  <ic-breadcrumb aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
+  <ic-breadcrumb appearance="default" aria-current="page" current="true" href="/breadcrumb-1" page-title="Breadcrumb 1" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -311,7 +311,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       ...
     </button>
   </ic-breadcrumb>
-  <ic-breadcrumb class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
+  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-2" page-title="Breadcrumb 2" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -323,7 +323,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb class="hide" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
+  <ic-breadcrumb appearance="default" class="hide" href="/breadcrumb-3" page-title="Breadcrumb 3" role="listitem">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
@@ -335,7 +335,7 @@ exports[`ic-breadcrumb-group should test collapsed behaviour on resize to small 
       </div>
     </mock:shadow-root>
   </ic-breadcrumb>
-  <ic-breadcrumb class="show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
+  <ic-breadcrumb appearance="default" class="show" href="/breadcrumb-4" page-title="Breadcrumb 4" role="listitem" show-back-icon="true">
     <mock:shadow-root>
       <div class="breadcrumb">
         <span aria-hidden="true" class="chevron">
