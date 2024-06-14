@@ -15,7 +15,7 @@ import readme from "../../../web-components/src/components/ic-pagination/readme.
 
 export const defaultArgs = {
   pages: 15,
-  type: "simple",
+  paginationType: "simple",
   appearance: "default",
   hideCurrentPage: false,
   hideFirstAndLastPageButton: false,
@@ -155,65 +155,21 @@ export const defaultArgs = {
   <Story name="Playground"
       args={defaultArgs}
       argTypes={{
-        pages: {
-          control: {
-            type: "number",
-          },
-        },
-        type: {
-          control: {
-            type: "select",
-            options: ["simple", "complex"],
-          },
+        paginationType: {
+          control: { type: "inline-radio" },
+          options: ["simple", "complex"],
         },
         appearance: {
-          control: {
-            type: "select",
-            options: ["default", "dark", "light"],
-          },
-        },
-        hideCurrentPage: {
-          control: {
-            type: "boolean",
-          },
-        },
-        hideFirstAndLastPageButton: {
-          control: {
-            type: "boolean",
-          },
-        },
-        defaultPage: {
-          control: {
-            type: "number",
-          },
-        },
-        disabled: {
-          control: {
-            type: "boolean",
-          },
-        },
-        label: {
-          control: {
-            type: "text",
-          },
-        },
-        adjacentCount: {
-          control: {
-            type: "number",
-          },
-        },
-        boundaryCount: {
-          control: {
-            type: "number",
-          },
+          control: { type: "inline-radio" },
+          options: ["default", "dark", "light"],
         },
 }}
       >
       {(args) => (
-          <div>
+          <div style={{backgroundColor: args.appearance == "light" ? "black" : null, width: "fit-content"}}>
             <IcPagination
               pages={args.pages}
-              type={args.type}
+              type={args.paginationType}
               adjacentCount={args.adjacentCount}
               boundaryCount={args.boundaryCount}
               label={args.label}
