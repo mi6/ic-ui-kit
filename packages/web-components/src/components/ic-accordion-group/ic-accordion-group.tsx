@@ -7,6 +7,7 @@ import {
   Prop,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { IcThemeForeground, IcSizes } from "../../utils/types";
 import { isSlotUsed } from "../../utils/helpers";
@@ -40,11 +41,21 @@ export class AccordionGroup {
    * The appearance of the accordion group, e.g dark, or light.
    */
   @Prop() appearance: IcThemeForeground = "default";
+  @Watch("appearance")
+  watchAppearanceHandler() {
+    this.accordions.forEach((acc) => {
+      acc.appearance = this.appearance;
+    });
+  }
 
   /**
    * If `true`, the accordion will load in an expanded state.
    */
   @Prop({ mutable: true }) expanded: boolean = false;
+  @Watch("expanded")
+  watchExpandedHandler() {
+    this.handleExpanded();
+  }
 
   /**
    * The header for the accordion group.
