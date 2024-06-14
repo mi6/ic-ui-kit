@@ -55,6 +55,63 @@ export const ControlledReset = () => {
   );
 };
 
+### Playground
+
+export const defaultArgs = {
+  aligned: "left",
+  backgroundImage: image,
+  contentAligned: "left",
+  disableBackgroundParallax: false,
+  heading: "Hero heading",
+  secondaryHeading: "Secondary Heading",
+  secondarySubheading: "This is a secondary description.",
+  size: "default",
+  subheading: "Hero description. This is a Hero component, it should be used as a page heading.",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    name="Playground"
+    parameters={{ layout: "fullscreen" }}
+    argTypes={{
+      aligned: {
+        options: ["center", "full-width", "left"],
+        control: { type: "select" },
+      },
+      contentAligned: {
+        options: ["center", "left"],
+        control: { type: "select" },
+      },
+      size: {
+        options: ["default", "small"],
+        control: { type: "select" },
+      },
+    }}
+  >
+    {(args) => (
+        <IcHero
+          aligned={args.aligned}
+          backgroundImage={args.backgroundImage}
+          contentAligned={args.contentAligned}
+          disableBackgroundParallax={args.disableBackgroundParallax}
+          heading={args.heading}
+          secondaryHeading={args.secondaryHeading}
+          secondarySubheading={args.secondarySubheading}
+          size={args.size}
+          subheading={args.subheading}
+        >
+          <IcButton variant="primary" slot="interaction">
+            Button
+          </IcButton>
+          <IcButton variant="secondary" slot="interaction">
+            Button
+          </IcButton>
+        </IcHero>
+    )}
+  </Story>
+</Canvas>
+
 ### Left aligned
 
 <Canvas>
