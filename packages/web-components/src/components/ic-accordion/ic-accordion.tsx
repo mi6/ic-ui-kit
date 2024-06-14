@@ -244,7 +244,11 @@ export class Accordion {
           ref={(el) => (this.expandedContentEl = el)}
         >
           <div class="expanded-content-inner">
-            <slot />
+            {this.message ? (
+              <ic-typography variant="body">{this.message}</ic-typography>
+            ) : (
+              <slot />
+            )}
           </div>
         </div>
       </Host>
