@@ -400,3 +400,74 @@ export const Breadcrumbs = () => {
     </div>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  appearance: "default",
+  backBreadcrumbOnly: false,
+  collapsed: false,
+  current: false,
+  href: "/",
+  pageTitle: "Home",
+  iconSlot: true,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: {
+          type: "radio",
+        },
+      },
+      iconSlot: {
+        mapping: {
+          true: "icon",
+          false: "",
+        }
+      }
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <div style={{backgroundColor: args.appearance == "light" ? "black" : null, width: "fit-content"}}>
+        <IcBreadcrumbGroup
+          appearance={args.appearance}
+          backBreadcrumbOnly={args.backBreadcrumbOnly}
+          collapsed={args.collapsed}
+        >
+          <IcBreadcrumb
+            current={args.current}
+            pageTitle={args.pageTitle}
+            href={args.href}
+          >
+            <svg
+              slot={args.iconSlot}
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 6.19L17 10.69V18.5H15V12.5H9V18.5H7V10.69L12 6.19ZM12 3.5L2 12.5H5V20.5H11V14.5H13V20.5H19V12.5H22L12 3.5Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </IcBreadcrumb>
+          <IcBreadcrumb
+            pageTitle="Breadcrumb 2"
+            href="/breadcrumb-2"
+          />
+          <IcBreadcrumb
+            pageTitle="Breadcrumb 3"
+            href="/breadcrumb-3"
+          />
+        </IcBreadcrumbGroup>
+      </div>
+    )}
+  </Story>
+</Canvas>
