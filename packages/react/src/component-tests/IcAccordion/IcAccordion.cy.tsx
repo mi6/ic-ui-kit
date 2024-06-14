@@ -93,7 +93,7 @@ describe("IcAccordionGroup", () => {
 
   it("should have changed button text to 'See all' when expanded accordion clicked", () => {
     mount(
-      <IcAccordionGroup>
+      <IcAccordionGroup expanded={true}>
         <SimpleExpandedAccordion />
       </IcAccordionGroup>
     );

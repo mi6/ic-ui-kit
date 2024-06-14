@@ -530,3 +530,78 @@ export const Dialog = () => {
   </IcAccordionGroup>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  accessibleButtonLabel: "accordions",
+  appearance: "default",
+  expanded: false,
+  groupTitle: "Accordion group",
+  singleExpansion: false,
+  size: "default",
+  disabled: false,
+  expandedAccordion: false,
+  heading: "Accordion 1",
+  message: "This is an example of the main body text.",
+  sizeAccordion: "default",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    name="Playground"
+    argTypes={{
+      appearance: {
+        options: ["dark", "default", "light"],
+        control: { type: "radio" },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: { type: "radio" },
+      },
+      sizeAccordion: {
+        options: ["small", "default", "large"],
+        control: { type: "radio" },
+      },
+    }}
+  >
+    {(args) =>
+      <div style={{backgroundColor: args.appearance == "light" ? "black" : null}}>
+        <IcAccordionGroup
+          accessibleButtonLabel={args.accessibleButtonLabel}
+          groupTitle={args.groupTitle}
+          expanded={args.expanded}
+          singleExpansion={args.singleExpansion}
+          size={args.size}
+          appearance={args.appearance}
+        >
+          <IcAccordion
+            heading={args.heading}
+            disabled={args.disabled}
+            expanded={args.expandedAccordion || args.expanded}
+            size={args.sizeAccordion}
+            message={args.message}
+          />
+          <IcAccordion heading="Accordion 2">
+            <svg
+              slot="icon"
+              width="20"
+              height="1em"
+              viewBox="0 0 512 512"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"
+              />
+            </svg>
+            <IcTypography variant="body">
+              This is an example of the main body text
+            </IcTypography>
+          </IcAccordion>
+        </IcAccordionGroup>
+      </div>
+    }
+  </Story>
+</Canvas>
