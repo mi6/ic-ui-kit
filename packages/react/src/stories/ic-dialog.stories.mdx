@@ -790,3 +790,59 @@ export const showAutoOpenCloseButtonDialog = () => {
     </IcDialog>
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  buttons: true,
+  closeOnBackdropClick: true,
+  destructive: false,
+  dismissLabel: "Dismiss",
+  disableHeightConstraint: false,
+  disableWidthConstraint: false,
+  hideCloseButton: false,
+  heading: "This is a dialog",
+  label: "Dialog",
+  open: true,
+  size: "medium",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      size: {
+        options: ["small", "medium", "large"],
+        control: {
+          type: "radio",
+        },
+      }
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcDialog
+        heading={args.heading}
+        label={args.label}
+        size={args.size}
+        open={args.open}
+        closeOnBackdropClick={args.closeOnBackdropClick}
+        destructive={args.destructive}
+        dismissLabel={args.dismissLabel}
+        disableHeightConstraint={args.disableHeightConstraint}
+        disableWidthConstraint={args.disableWidthConstraint}
+        hideCloseButton={args.hideCloseButton}
+        buttons={args.buttons}
+        id="medium-dialog"
+      >
+        <IcTypography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </IcTypography>
+      </IcDialog>
+    )}
+  </Story>
+</Canvas>
