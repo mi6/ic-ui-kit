@@ -1284,3 +1284,59 @@ import readme from "./readme.md";
     `}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  buttons: true,
+  closeOnBackdropClick: true,
+  destructive: false,
+  dismissLabel: "Dismiss",
+  disableHeightConstraint: false,
+  disableWidthConstraint: false,
+  hideCloseButton: false,
+  heading: "This is a dialog",
+  label: "Dialog",
+  open: true,
+  size: "medium",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      size: {
+        options: ["small", "medium", "large"],
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<ic-dialog
+        heading=${args.heading}
+        label=${args.label}
+        size=${args.size}
+        open=${args.open}
+        close-on-backdrop-click=${args.closeOnBackdropClick}
+        destructive=${args.destructive}
+        dismiss-label=${args.dismissLabel}
+        disable-height-constraint=${args.disableHeightConstraint}
+        disable-width-constraint=${args.disableWidthConstraint}
+        hide-close-button=${args.hideCloseButton}
+        buttons=${args.buttons}
+        id="medium-dialog"
+      >
+        <ic-typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </ic-typography>
+      </ic-dialog>`
+    }
+  </Story>
+</Canvas>

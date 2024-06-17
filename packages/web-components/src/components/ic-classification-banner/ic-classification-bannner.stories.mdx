@@ -105,3 +105,45 @@ import readme from "./readme.md";
     />`}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  additionalSelectors: "",
+  classification: "official",
+  country: "uk",
+  inline: true,
+  upTo: false,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      classification: {
+        options: [
+          "default",
+          "official",
+          "secret",
+          "official-sensitive",
+          "top-secret",
+        ],
+        control: {
+          type: "select",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<ic-classification-banner
+        classification=${args.classification}
+        inline=${args.inline}
+        up-to=${args.upTo}
+        country=${args.country}
+        additional-selectors=${args.additionalSelectors}
+      ></ic-classification-banner>`
+    }
+  </Story>
+</Canvas>

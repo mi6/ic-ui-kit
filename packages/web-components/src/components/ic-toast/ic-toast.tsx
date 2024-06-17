@@ -9,6 +9,7 @@ import {
   Method,
   Prop,
   State,
+  Watch,
 } from "@stencil/core";
 import closeIcon from "../../assets/close-icon.svg";
 import { VARIANT_ICONS } from "../../utils/constants";
@@ -65,6 +66,10 @@ export class Toast {
    * How the toast will be dismissed. If manual will display a dismiss button.
    */
   @Prop({ mutable: true }) dismissMode?: IcActivationTypes = "manual";
+  @Watch("dismissMode")
+  dismissModeChangeHandler(newValue: IcActivationTypes): void {
+    this.isManual = newValue === "manual";
+  }
 
   /**
    * The title to display at the start of the toast. (NOTE: Should be no more than `70` characters)
