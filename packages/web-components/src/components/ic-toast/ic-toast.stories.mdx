@@ -341,3 +341,90 @@ import readme from "./readme.md";
       </ic-toast-region>`}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  autoDismissTimeout: 5000,
+  dismissButtonAriaLabel: "dismiss",
+  dismissMode: "manual",
+  heading: "This is the heading",
+  message: "This is the message",
+  neutralIconAriaLabel: "",
+  variant: "neutral",
+  actionSlot: "action",
+  neutralIconSlot: "neutral-icon",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      dismissMode: {
+        options: ["manual", "automatic"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      variant: {
+        options: ["neutral", "info", "warning", "error", "success", ""],
+        control: {
+          type: "select",
+        },
+      },
+      actionSlot: {
+        options: ["action", ""],
+        control: {
+          type: "select",
+        },
+      },
+      neutralIconSlot: {
+        options: ["neutral-icon", ""],
+        control: {
+          type: "select",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<button onclick="func()">Display toast</button>
+        <script>
+          var toastRegion = document.querySelector("ic-toast-region");
+          function func() {
+            var x = document.getElementById("toast1");
+            toastRegion.openToast = x;
+          }
+        </script>
+        <ic-toast-region>
+          <ic-toast
+            id="toast1"
+            heading=${args.heading}
+            message=${args.message}
+            variant=${args.variant}
+            dismiss-mode=${args.dismissMode}
+            auto-dismiss-timeout=${args.autoDismissTimeout}
+            neutral-icon-aria-label=${args.neutralIconAriaLabel}
+            dismiss-button-aria-label=${args.dismissButtonAriaLabel}
+          >
+            <ic-button slot=${args.actionSlot} appearance="light"
+              >Click me</ic-button
+            >
+            <svg
+              slot=${args.neutralIconSlot}
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.79502 15.875L4.62502 11.705L3.20502 13.115L8.79502 18.705L20.795 6.70501L19.385 5.29501L8.79502 15.875Z"
+              />
+            </svg>
+          </ic-toast>
+        </ic-toast-region>`
+    }
+  </Story>
+</Canvas>
