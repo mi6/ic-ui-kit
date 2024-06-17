@@ -36,6 +36,94 @@ import readme from "../../../web-components/src/components/ic-page-header/readme
 
 <Description markdown={readme} />
 
+### Playground
+
+export const defaultArgs = {
+  aligned: "left",
+  border: true,
+  heading: "Page Header Title",
+  reverseOrder: false,
+  size: "default",
+  sticky: false,
+  stickyDesktopOnly: false,
+  subheading: "Page Header Subtitle",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    name="Playground"
+    parameters={{ layout: "fullscreen" }}
+    argTypes={{
+      aligned: {
+        options: ["center", "full-width", "left"],
+        control: { type: "select" },
+      },
+      size: {
+        options: ["default", "small"],
+        control: { type: "select" },
+      },
+    }}
+  >
+    {(args) => (
+        <>
+          <IcPageHeader
+            aligned={args.aligned}
+            border={args.border}
+            heading={args.heading}
+            reverseOrder={args.reverseOrder}
+            size={args.size}
+            sticky={args.sticky}
+            stickyDesktopOnly={args.stickyDesktopOnly}
+            subheading={args.subheading}
+          >
+            <IcStatusTag slot="heading-adornment" label="Beta" />
+            <IcButton slot="actions" variant="primary">
+                Create coffee
+                <svg
+                  slot="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </IcButton>
+              <IcButton slot="actions" variant="tertiary">
+                Filter coffee
+              </IcButton>
+              <IcButton slot="actions" variant="tertiary">
+                Clean coffee
+              </IcButton>
+          </IcPageHeader>
+          <IcSectionContainer aligned={args.aligned}>
+            <IcTypography>Example page content to test out the sticky prop.</IcTypography>
+            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+            <IcTypography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</IcTypography>
+            <IcTypography>Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.</IcTypography>
+            <IcTypography>Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue.</IcTypography>
+            <IcTypography>Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.</IcTypography>
+            <IcTypography>Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</IcTypography>
+          </IcSectionContainer>
+        </>
+    )}
+  </Story>
+</Canvas>
+
 ### Heading with adornment
 
 <Canvas>
