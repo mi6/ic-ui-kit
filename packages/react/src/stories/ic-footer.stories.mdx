@@ -17,6 +17,75 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Description markdown={readme} />
 
+### Playground
+
+export const defaultArgs = {
+  aligned: "left",
+  breakpoint: "medium",
+  caption: "All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence.",
+  copyright: true,
+  description: "The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, please get in touch.",
+  groupLinks: true,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    name="Playground"
+    argTypes={{
+      aligned: {
+        options: ["center", "full-width", "left"],
+        control: { type: "select" },
+      },
+      breakpoint: {
+        options: ["extra large", "extra small", "large", "medium", "small"],
+        control: { type: "select" },
+      },
+    }}
+  >
+    {(args) => (
+        <IcFooter
+          aligned={args.aligned}
+          breakpoint={args.breakpoint}
+          caption={args.caption}
+          copyright={args.copyright}
+          description={args.description}
+          groupLinks={args.groupLinks}
+        >
+          <IcFooterLinkGroup slot="link" groupTitle="Links 1">
+            <IcFooterLink href="/">Get Started</IcFooterLink>
+            <IcFooterLink href="/">Accessibility</IcFooterLink>
+            <IcFooterLink href="/">Styles</IcFooterLink>
+          </IcFooterLinkGroup>
+          <IcFooterLinkGroup slot="link" groupTitle="Links 2">
+            <IcFooterLink href="/">Get Started</IcFooterLink>
+            <IcFooterLink href="/">Accessibility</IcFooterLink>
+            <IcFooterLink href="/">Styles</IcFooterLink>
+          </IcFooterLinkGroup>
+          <IcFooterLinkGroup slot="link" groupTitle="Links 3">
+            <IcFooterLink href="/">Get Started</IcFooterLink>
+            <IcFooterLink href="/">Accessibility</IcFooterLink>
+            <IcFooterLink href="/">Styles</IcFooterLink>
+          </IcFooterLinkGroup>
+          <div
+            slot="logo"
+            style={{
+              width: "100px",
+              height: "100px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "var(--ic-theme-primary)",
+              color: "var(--ic-theme-text)",
+            }}
+          >
+            Logo
+          </div>
+        </IcFooter>
+    )}
+  </Story>
+</Canvas>
+
 ### Ungrouped links
 
 <Canvas>
@@ -72,7 +141,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
           please get in touch."
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
     >
-      <IcFooterLinkGroup slot="link" group-title="Links 1">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 1">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -80,7 +149,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" group-title="Links 2">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 2">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -88,7 +157,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" group-title="Links 3">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 3">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -293,7 +362,7 @@ export const Controlled = () => {
       caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
       style={{ position: "fixed", bottom: "0", left: "0", right: "0" }}
     >
-      <IcFooterLinkGroup slot="link" group-title="Links 1">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 1">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -301,7 +370,7 @@ export const Controlled = () => {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" group-title="Links 2">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 2">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
@@ -309,7 +378,7 @@ export const Controlled = () => {
         <IcFooterLink href="/">Patterns</IcFooterLink>
         <IcFooterLink href="/">Design toolkit</IcFooterLink>
       </IcFooterLinkGroup>
-      <IcFooterLinkGroup slot="link" group-title="Links 3">
+      <IcFooterLinkGroup slot="link" groupTitle="Links 3">
         <IcFooterLink href="/">Get Started</IcFooterLink>
         <IcFooterLink href="/">Accessibility</IcFooterLink>
         <IcFooterLink href="/">Styles</IcFooterLink>
