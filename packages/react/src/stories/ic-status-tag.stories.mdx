@@ -75,3 +75,57 @@ import readme from "../../../web-components/src/components/ic-status-tag/readme.
     <IcStatusTag label="Neutral" appearance="outlined" />
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  announced: false,
+  label: "Status tag label",
+  size: "default",
+  status: "neutral",
+  variant: "filled",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      size: {
+        options: [
+          "default", "small"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      status: {
+        options: [
+          "neutral", "success", "warning", "danger"
+        ],
+        control: {
+          type: "select",
+        },
+      },
+      variant: {
+        options: [
+          "filled", "outlined"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <IcStatusTag
+        label={args.label}
+        size={args.size}
+        status={args.status}
+        variant={args.variant}
+        announced={args.announced}
+      ></IcStatusTag>
+    )}
+  </Story>
+</Canvas>
