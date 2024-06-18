@@ -173,7 +173,7 @@ export class RadioOption {
   componentDidRender(): void {
     if (this.additionalFieldDisplay === "static") {
       const textfield = this.el.querySelector(TEXT_FIELD_SELECTOR);
-      if (!this.selected) {
+      if (!this.selected || this.disabled) {
         textfield?.setAttribute("disabled", "");
       } else {
         textfield?.removeAttribute("disabled");

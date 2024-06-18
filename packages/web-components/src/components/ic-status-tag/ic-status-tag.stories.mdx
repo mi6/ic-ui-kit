@@ -117,3 +117,51 @@ import readme from "./readme.md";
     `}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  announced: false,
+  label: "Status tag label",
+  size: "default",
+  status: "neutral",
+  variant: "filled",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      size: {
+        options: ["default", "small"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      status: {
+        options: ["neutral", "success", "warning", "danger"],
+        control: {
+          type: "select",
+        },
+      },
+      variant: {
+        options: ["filled", "outlined"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<ic-status-tag
+        label=${args.label}
+        size=${args.size}
+        status=${args.status}
+        variant=${args.variant}
+        announced=${args.announced}
+      ></ic-status-tag>`
+    }
+  </Story>
+</Canvas>
