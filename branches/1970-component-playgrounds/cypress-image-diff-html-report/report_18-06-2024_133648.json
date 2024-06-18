@@ -1,6 +1,6 @@
 {
-  "total": 405,
-  "totalPassed": 404,
+  "total": 403,
+  "totalPassed": 402,
   "totalFailed": 1,
   "totalSuites": 30,
   "suites": [
@@ -652,7 +652,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardFocus",
-          "percentage": 0.052038447325030754,
+          "percentage": 0.09068627239003707,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -663,7 +663,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardBlur",
-          "percentage": 0.0543323108288245,
+          "percentage": 0.05429548784199291,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -751,7 +751,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.07848566748139434,
+          "percentage": 0.07263607918933951,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -1224,14 +1224,14 @@
       "path": "src/component-tests/IcDataEntity/IcDataEntity.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataEntity.cy.tsx-default",
-          "percentage": 0.038628842850906106,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataEntity/IcDataEntity.cy.tsx",
           "specFilename": "IcDataEntity.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataEntity.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataEntity.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataEntity.cy.tsx-default.png"
         },
         {
@@ -1452,7 +1452,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-error-alert",
-          "percentage": 0.0689391337823929,
+          "percentage": 0.05668810868838955,
           "failureThreshold": 0.11000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1474,7 +1474,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-small",
-          "percentage": 0.050543916547889325,
+          "percentage": 0.05542214885163993,
           "failureThreshold": 0.08,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1539,28 +1539,6 @@
         },
         {
           "status": "pass",
-          "name": "IcDialog.cy.tsx-scroll-before",
-          "percentage": 0.09402736746997298,
-          "failureThreshold": 0.12000000000000001,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-before.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-before.png"
-        },
-        {
-          "status": "pass",
-          "name": "IcDialog.cy.tsx-scroll-after",
-          "percentage": 0.10128085949477324,
-          "failureThreshold": 0.12000000000000001,
-          "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
-          "specFilename": "IcDialog.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcDialog.cy.tsx-scroll-after.png",
-          "diffPath": "",
-          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDialog.cy.tsx-scroll-after.png"
-        },
-        {
-          "status": "pass",
           "name": "IcDialog.cy.tsx-tab-dynamic-content",
           "percentage": 0,
           "failureThreshold": 0.12000000000000001,
@@ -1579,7 +1557,7 @@
         {
           "status": "pass",
           "name": "IcEmptyState.cy.tsx-empty-state-basic-desktop",
-          "percentage": 0.07762758315616085,
+          "percentage": 0.06377858836108975,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcEmptyState/IcEmptyState.cy.tsx",
           "specFilename": "IcEmptyState.cy.tsx",
@@ -1899,7 +1877,7 @@
         {
           "status": "pass",
           "name": "IcHero.cy.tsx-backgroundImage",
-          "percentage": 0.04428694314731299,
+          "percentage": 0.04452714527865745,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
           "specFilename": "IcHero.cy.tsx",
@@ -3535,14 +3513,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSideNavigation.cy.tsx-mobileHighContrastExpanded",
-          "percentage": 0,
+          "percentage": 0.08143082916360121,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png"
         }
       ]
@@ -4122,7 +4100,7 @@
         {
           "status": "pass",
           "name": "IcToggleButton.cy.tsx-loading",
-          "percentage": 0.05396295025292817,
+          "percentage": 0.05959865770300536,
           "failureThreshold": 0.06,
           "specPath": "src/component-tests/IcToggleButton/IcToggleButton.cy.tsx",
           "specFilename": "IcToggleButton.cy.tsx",
@@ -4486,7 +4464,7 @@
         {
           "status": "pass",
           "name": "IcTopNavigation.cy.tsx-theme",
-          "percentage": 0,
+          "percentage": 0.01384187178777149,
           "failureThreshold": 0.04,
           "specPath": "src/component-tests/IcTopNavigation/IcTopNavigation.cy.tsx",
           "specFilename": "IcTopNavigation.cy.tsx",
@@ -4640,9 +4618,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-18T13:21:58.239Z",
-  "endedAt": "2024-06-18T13:30:44.943Z",
-  "duration": 461844,
+  "startedAt": "2024-06-18T13:36:48.016Z",
+  "endedAt": "2024-06-18T13:45:24.351Z",
+  "duration": 452377,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
