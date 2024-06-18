@@ -12,6 +12,7 @@ import {
   IcTab,
   IcTabContext,
   IcButton,
+  IcBadge
 } from "../components";
 import readme from "../../../web-components/src/components/ic-tab-context/readme.md";
 import TabContextReadme from "../../../web-components/src/components/ic-tab-context/readme.md";
@@ -294,5 +295,85 @@ export const ControlledTabsExample = () => {
       <IcTabPanel>Tab Eight</IcTabPanel>
       <IcTabPanel>Tab Nine</IcTabPanel>
     </IcTabContext>
+  </Story>
+</Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  activationType: "automatic",
+  appearance: "dark",
+  disabled: false,
+  inline: false,
+  groupLabel: "Example tab group",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      activationType: {
+        options: [
+          "automatic", "manual"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      appearance: {
+        options: [
+          "dark", "light"
+        ],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <div style={{ backgroundColor: args.appearance == "light" ? "black" : ""}}>
+        <IcTabContext
+          activationType={args.activationType}
+          appearance={args.appearance}
+        >
+          <IcTabGroup
+            label={args.groupLabel}
+            inline={args.inline}
+          >
+            <IcTab disabled={args.disabled}>
+              One
+            </IcTab>
+            <IcTab>
+              Two
+              <IcBadge
+                textLabel="1"
+                slot="badge"
+                position="inline"
+                accessibleLabel="1 notification found"
+              />
+            </IcTab>
+            <IcTab>
+              Three
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#000000"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
+            </IcTab>
+          </IcTabGroup>
+          <IcTabPanel>Tab One</IcTabPanel>
+          <IcTabPanel>Tab Two</IcTabPanel>
+          <IcTabPanel>Tab Three</IcTabPanel>
+        </IcTabContext>
+      </div>
+    )}
   </Story>
 </Canvas>
