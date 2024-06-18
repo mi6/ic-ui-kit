@@ -421,3 +421,142 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  accessibleLabel: "",
+  appearance: "default",
+  disabled: false,
+  fullWidth: false,
+  iconPlacement: "left",
+  loading: false,
+  selectMethod: "manual",
+  selectType: "single",
+  size: "default",
+  variant: "default",
+  toggleAccessibleLabel: "",
+  toggleAppearance: "default",
+  toggleDisabled: false,
+  toggleFullWidth: false,
+  toggleIconPlacement: "left",
+  label: "Toggle",
+  toggleLoading: false,
+  toggleSize: "default",
+  toggleChecked: false,
+  toggleVariant: "default",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      appearance: {
+        options: ["default", "dark", "light"],
+        control: {
+          type: "radio",
+        },
+      },
+      iconPlacement: {
+        options: ["left", "right", "top"],
+        control: {
+          type: "radio",
+        },
+      },
+      selectMethod: {
+        options: ["manual", "auto"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      selectType: {
+        options: ["single", "multi"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      size: {
+        options: ["default", "small", "large"],
+        control: {
+          type: "radio",
+        },
+      },
+      variant: {
+        options: ["default", "icon"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      toggleAppearance: {
+        options: ["default", "dark", "light"],
+        control: {
+          type: "radio",
+        },
+      },
+      toggleIconPlacement: {
+        options: ["left", "right", "top"],
+        control: {
+          type: "radio",
+        },
+      },
+      toggleSize: {
+        options: ["default", "small", "large"],
+        control: {
+          type: "radio",
+        },
+      },
+      toggleVariant: {
+        options: ["default", "icon"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<ic-toggle-button-group
+        accessible-label=${args.accessibleLabel}
+        appearance=${args.appearance}
+        disabled=${args.disabled}
+        full-width=${args.fullWidth}
+        icon-placement=${args.iconPlacement}
+        loading=${args.loading}
+        select-method=${args.selectMethod}
+        select-type=${args.selectType}
+        size=${args.size}
+        variant=${args.variant}
+      >
+        <ic-toggle-button
+          accessible-label=${args.toggleAccessibleLabel}
+          appearance=${args.toggleAppearance}
+          disabled=${args.toggleDisabled}
+          full-width=${args.toggleFullWidth}
+          icon-placement=${args.toggleIconPlacement}
+          loading=${args.toggleLoading}
+          size=${args.toggleSize}
+          toggle-checked=${args.toggleChecked}
+          variant=${args.toggleVariant}
+          label=${args.label}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+            slot="icon"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+            />
+          </svg>
+        </ic-toggle-button>
+        <ic-toggle-button label="Second toggle"></ic-toggle-button>
+        <ic-toggle-button label="Third toggle"></ic-toggle-button>
+      </ic-toggle-button-group>`
+    }
+  </Story>
+</Canvas>

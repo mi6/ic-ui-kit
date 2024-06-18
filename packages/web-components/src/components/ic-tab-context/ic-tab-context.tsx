@@ -47,6 +47,14 @@ export class TabContext {
    * The appearance of the tab context, e.g dark, or light.
    */
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
+  @Watch("appearance")
+  watchAppearanceHandler(): void {
+    this.tabs.forEach((tab, index) => {
+      tab.appearance = this.appearance;
+      this.tabPanels[index].appearance = this.appearance;
+    });
+    this.tabGroup.appearance = this.appearance;
+  }
 
   /**
    * The unique context needed if using multiple tabs inside one another i.e. rendering another set of tabs inside a tab panel.

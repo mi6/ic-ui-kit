@@ -335,3 +335,77 @@ import TabPanelReadme from "../ic-tab-panel/readme.md";
     </div>`}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  activationType: "automatic",
+  appearance: "dark",
+  disabled: false,
+  inline: false,
+  groupLabel: "Example tab group",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      activationType: {
+        options: ["automatic", "manual"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      appearance: {
+        options: ["dark", "light"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`<div
+        style="background-color: ${args.appearance == "light" ? "black" : ""};"
+      >
+        <ic-tab-context
+          activation-type=${args.activationType}
+          appearance=${args.appearance}
+        >
+          <ic-tab-group label=${args.groupLabel} inline=${args.inline}>
+            <ic-tab disabled=${args.disabled}> One </ic-tab>
+            <ic-tab>
+              Two
+              <ic-badge
+                text-label="1"
+                slot="badge"
+                position="inline"
+                accessible-label="1 notification found"
+              >
+              </ic-badge>
+            </ic-tab>
+            <ic-tab>
+              Three
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#000000"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
+            </ic-tab>
+          </ic-tab-group>
+          <ic-tab-panel>Tab One</ic-tab-panel>
+          <ic-tab-panel>Tab Two</ic-tab-panel>
+          <ic-tab-panel>Tab Three</ic-tab-panel>
+        </ic-tab-context>
+      </div>`
+    }
+  </Story>
+</Canvas>

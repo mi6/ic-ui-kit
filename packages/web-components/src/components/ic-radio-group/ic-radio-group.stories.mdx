@@ -357,3 +357,100 @@ import readme from "./readme.md";
     }
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  disabled: false,
+  helperText: "Some helper text",
+  hideLabel: false,
+  label: "This is a label",
+  name: "1",
+  orientation: "vertical",
+  required: false,
+  size: "default",
+  validationStatus: "",
+  validationText: "",
+  additionalFieldDisplay: "static",
+  radioDisabled: false,
+  dynamicText: "This selection requires additional answers",
+  radioLabel: "Radio 1",
+  radioName: "radio1",
+  value: "valueName1",
+  selected: false,
+  additionalFieldSlot: true,
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      orientation: {
+        options: ["vertical", "horizontal"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      size: {
+        options: ["default", "small"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      validationStatus: {
+        options: ["error", "warning", "success", ""],
+        control: {
+          type: "radio",
+        },
+      },
+      additionalFieldDisplay: {
+        options: ["static", "dynamic"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      additionalFieldSlot: {
+        mapping: {
+          true: "additional-field",
+          false: "",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html`
+        <ic-radio-group
+          label=${args.label}
+          name=${args.name}
+          orientation=${args.orientation}
+          required=${args.required}
+          size=${args.size}
+          validation-status=${args.validationStatus}
+          validation-text=${args.validationText}
+          helper-text=${args.helperText}
+          disabled=${args.disabled}
+          hide-label=${args.hideLabel}
+        >
+          <ic-radio-option
+            additional-field-display=${args.additionalFieldDisplay}
+            value=${args.value}
+            label=${args.radioLabel}
+            name=${args.radioName}
+            selected=${args.selected}
+            disabled=${args.radioDisabled}
+            dynamic-text=${args.dynamicText}
+          >
+            <ic-text-field
+              slot=${args.additionalFieldSlot}
+              placeholder="Placeholder"
+              label="What's your favourite type of coffee?"
+            ></ic-text-field>
+          </ic-radio-option>
+          <ic-radio-option value="valueName2" label="Radio 2"></ic-radio-option>
+        </ic-radio-group>
+      `
+    }
+  </Story>
+</Canvas>
