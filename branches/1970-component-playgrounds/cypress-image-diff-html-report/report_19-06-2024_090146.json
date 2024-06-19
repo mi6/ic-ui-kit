@@ -1,7 +1,7 @@
 {
   "total": 405,
-  "totalPassed": 404,
-  "totalFailed": 1,
+  "totalPassed": 403,
+  "totalFailed": 2,
   "totalSuites": 30,
   "suites": [
     {
@@ -652,7 +652,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardFocus",
-          "percentage": 0.05272570530585627,
+          "percentage": 0.052038447325030754,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -1342,7 +1342,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-slotted-content",
-          "percentage": 0.010206207261596576,
+          "percentage": 0.07642738928769799,
           "failureThreshold": 0.09000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -3535,14 +3535,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSideNavigation.cy.tsx-mobileHighContrastExpanded",
-          "percentage": 0,
+          "percentage": 0.07828045233713839,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png"
         }
       ]
@@ -3929,7 +3929,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-multiline",
-          "percentage": 0.09793875637356235,
+          "percentage": 0.10831435731240803,
           "failureThreshold": 0.12000000000000001,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -4640,9 +4640,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-19T08:50:06.894Z",
-  "endedAt": "2024-06-19T08:58:48.456Z",
-  "duration": 457350,
+  "startedAt": "2024-06-19T09:01:46.651Z",
+  "endedAt": "2024-06-19T09:10:22.292Z",
+  "duration": 452317,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
