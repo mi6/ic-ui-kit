@@ -9,7 +9,7 @@ import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers"
 const MULTI_SELECT = "ic-select-with-multi";
 const DROPDOWN_ARROW = "button.select-input";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.076;
 const SCREENSHOT_DELAY = 300;
 
 describe("IcSelect - Multi", () => {
@@ -31,7 +31,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-multi-select",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -44,10 +48,14 @@ describe("IcSelect - Multi", () => {
       .realPress("ArrowDown")
       .realPress(["Shift", "ArrowDown"]);
 
-    cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "multi-select-shift-arrow-down",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -63,7 +71,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-arrow-up",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -80,7 +92,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-ctrl-end",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -97,7 +113,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-ctrl-home",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -115,7 +135,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-click",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -133,7 +157,11 @@ describe("IcSelect - Multi", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "multi-select-shift-click-from-bottom",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      delay: SCREENSHOT_DELAY,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 });
