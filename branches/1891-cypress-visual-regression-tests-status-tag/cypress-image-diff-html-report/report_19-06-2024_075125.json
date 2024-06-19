@@ -663,7 +663,7 @@
         {
           "status": "pass",
           "name": "IcCard.cy.tsx-cardBlur",
-          "percentage": 0.05429548784199291,
+          "percentage": 0.0543323108288245,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
@@ -1224,14 +1224,14 @@
       "path": "src/component-tests/IcDataEntity/IcDataEntity.cy.tsx",
       "tests": [
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcDataEntity.cy.tsx-default",
-          "percentage": 0.038628842850906106,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDataEntity/IcDataEntity.cy.tsx",
           "specFilename": "IcDataEntity.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcDataEntity.cy.tsx-default.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcDataEntity.cy.tsx-default.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcDataEntity.cy.tsx-default.png"
         },
         {
@@ -1408,7 +1408,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-background-click-disabled",
-          "percentage": 0,
+          "percentage": 0.048707246209710245,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1441,7 +1441,7 @@
         {
           "status": "pass",
           "name": "IcDialog.cy.tsx-warning-alert",
-          "percentage": 0.0612266111806514,
+          "percentage": 0.06709174377919636,
           "failureThreshold": 0.09000000000000001,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -1899,7 +1899,7 @@
         {
           "status": "pass",
           "name": "IcHero.cy.tsx-backgroundImage",
-          "percentage": 0.04452714527865745,
+          "percentage": 0.04428694314731299,
           "failureThreshold": 0.1,
           "specPath": "src/component-tests/IcHero/IcHero.cy.tsx",
           "specFilename": "IcHero.cy.tsx",
@@ -3535,14 +3535,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSideNavigation.cy.tsx-mobileHighContrastExpanded",
-          "percentage": 0,
+          "percentage": 0.08146043499230655,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSideNavigation/IcSideNavigation.cy.tsx",
           "specFilename": "IcSideNavigation.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSideNavigation.cy.tsx-mobileHighContrastExpanded.png"
         }
       ]
@@ -3979,7 +3979,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-default",
-          "percentage": 0.052763623833091675,
+          "percentage": 0.04152107898405339,
           "failureThreshold": 0.060000000000000005,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -4012,7 +4012,7 @@
         {
           "status": "pass",
           "name": "IcToast.cy.tsx-slotted-button",
-          "percentage": 0.05003998401278722,
+          "percentage": 0.060630025564896474,
           "failureThreshold": 0.07,
           "specPath": "src/component-tests/IcToast/IcToast.cy.tsx",
           "specFilename": "IcToast.cy.tsx",
@@ -4712,9 +4712,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-18T16:24:08.875Z",
-  "endedAt": "2024-06-18T16:32:28.258Z",
-  "duration": 433332,
+  "startedAt": "2024-06-19T07:51:25.761Z",
+  "endedAt": "2024-06-19T08:00:11.903Z",
+  "duration": 460678,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
