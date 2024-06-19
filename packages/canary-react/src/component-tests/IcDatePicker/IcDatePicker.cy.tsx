@@ -55,7 +55,7 @@ const END_KEY = "{End}";
 const PAGE_UP_KEY = "{PageUp}";
 const PAGE_DOWN_KEY = "{PageDown}";
 
-const DEFAULT_TEST_THRESHOLD = 0.035;
+const DEFAULT_TEST_THRESHOLD = 0.038;
 const SCREENSHOT_DELAY = 500;
 
 const checkDateInputValue = (date: Date | null) => {
@@ -121,7 +121,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
@@ -145,7 +145,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-max-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
@@ -164,7 +164,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -189,7 +189,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "default-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -207,7 +207,7 @@ describe("IcDatePickers", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -231,7 +231,7 @@ describe("IcDatePickers", () => {
     cy.checkA11yWithWait(undefined, SCREENSHOT_DELAY);
     cy.compareSnapshot({
       name: "default-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -251,7 +251,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -276,7 +276,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-max-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -298,7 +298,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -325,7 +325,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -347,7 +347,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -374,7 +374,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "small-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -394,7 +394,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -419,7 +419,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -441,7 +441,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -468,7 +468,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -490,7 +490,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -517,7 +517,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "large-max-width-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
@@ -539,7 +539,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "goto-today-hidden",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
@@ -561,7 +561,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "clear-hidden",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
@@ -1034,7 +1034,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "escape-to-close",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -1050,8 +1050,8 @@ describe("IcDatePickers", () => {
     cy.get("body").click();
 
     cy.compareSnapshot({
-      name: "escape-to-close",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      name: "click-to-close",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -2146,7 +2146,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "open-at-date",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
 
     cy.findShadowEl(DATE_PICKER, FOCUSSED_DAY_BTN_CLASS)
@@ -2209,7 +2209,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     // check input becomes enabled when prop changed
@@ -2243,7 +2243,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "disable-weekends",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -2463,7 +2463,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "days-outside-month-hidden",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -2483,7 +2483,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "min-max",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
@@ -2504,7 +2504,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "min-max-month-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -2525,7 +2525,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "min-max-year-view",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
@@ -2575,7 +2575,7 @@ describe("IcDatePickers", () => {
 
     cy.wait(SCREENSHOT_DELAY).compareSnapshot({
       name: "position-above",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
   });
 });

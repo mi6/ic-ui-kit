@@ -24,6 +24,8 @@ describe("IcDataTableTitleBar", () => {
   it("should render", () => {
     mount(<IcDataTableTitleBar />);
 
+    cy.wait;
+
     cy.checkHydrated(TITLE_BAR);
 
     cy.checkA11yWithWait();
