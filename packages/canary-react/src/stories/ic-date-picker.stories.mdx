@@ -6,7 +6,9 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { IcDatePicker } from "../components";
+import { IcLink } from "@ukic/react";
 import { useState } from "react";
+import { useArgs } from '@storybook/client-api';
 import readme from "../../../canary-web-components/src/components/ic-date-picker/readme.md";
 
 
@@ -507,3 +509,109 @@ const DatePickerWithIcChange = () => {
 
 export default DatePickerWithIcChange;
 ```
+
+### Playground example
+
+Go to the <IcLink href="/?path=/story/react-components-date-picker--playground-example">separate page for the playground example</IcLink> to view the prop controls.
+
+export const defaultArgs = {
+  dateFormat: "DD/MM/YYYY",
+  disabled: false,
+  disableDays: [],
+  disableDaysMessage: "This day is not available",
+  disableFuture: false,
+  disableFutureMessage: "This date is in the future",
+  disablePast: false,
+  disablePastMessage: "This date is in the past",
+  helperText: "Choose a date",
+  label: "When would you like to collect your coffee?",
+  max: "",
+  min: "",
+  openAtDate: "",
+  required: false,
+  showDaysOutsideMonth: true,
+  showPickerClearButton: true,
+  showPickerTodayButton: true,
+  size: "default",
+  startOfWeek: 1,
+  validationStatus: "",
+  validationText: "",
+  value: "",
+};
+
+<Canvas withSource="none">
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      dateFormat: {
+        options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+        control: {
+          type: "radio",
+        },
+      },
+      validationStatus: {
+        options: ["", "error", "success", "warning"],
+        control: {
+          type: "radio",
+        },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: {
+          type: "radio",
+        },
+      },
+      startOfWeek: {
+        options: [0, 1, 2, 3, 4, 5, 6],
+        control: {
+          type: "select",
+        },
+      },
+      openAtDate: {
+        control: {
+          type: "text",
+        },
+      },
+    }}
+    name="Playground example"
+  >
+    {(args) => {
+      const [{ value }, updateArgs] = useArgs();
+
+      const updateDate = (ev) => {
+        const date = ev.detail.value;
+        let formattedDate;
+        date === null ? formattedDate = "" : formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+        updateArgs({ value: formattedDate});
+      };
+
+      return(
+       <IcDatePicker
+          dateFormat={args.dateFormat}
+          disabled={args.disabled}
+          disableDays={args.disableDays}
+          disableDaysMessage={args.disableDaysMessage}
+          disableFuture={args.disableFuture}
+          disableFutureMessage={args.disableFutureMessage}
+          disablePast={args.disablePast}
+          disablePastMessage={args.disablePastMessage}
+          helperText={args.helperText}
+          label={args.label}
+          max={args.max}
+          min={args.min}
+          openAtDate={args.openAtDate}
+          required={args.required}
+          showDaysOutsideMonth={args.showDaysOutsideMonth}
+          showPickerClearButton={args.showPickerClearButton}
+          showPickerTodayButton={args.showPickerTodayButton}
+          size={args.size}
+          startOfWeek={args.startOfWeek}
+          validationStatus={args.validationStatus}
+          validationText={args.validationText}
+          value={value}
+          onIcChange={updateDate}
+       />
+    )}
+    }
+  </Story>
+</Canvas>
