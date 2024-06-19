@@ -452,7 +452,7 @@
         {
           "status": "fail",
           "name": "IcDateInput.cy.tsx-date-input-with-min-validation",
-          "percentage": 0.011489125293076058,
+          "percentage": 0.1093252029497316,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDateInput/IcDateInput.cy.tsx",
           "specFilename": "IcDateInput.cy.tsx",
@@ -1064,9 +1064,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-19T09:11:13.697Z",
-  "endedAt": "2024-06-19T09:15:06.696Z",
-  "duration": 220169,
+  "startedAt": "2024-06-19T09:59:37.346Z",
+  "endedAt": "2024-06-19T10:03:52.757Z",
+  "duration": 242805,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.4"
