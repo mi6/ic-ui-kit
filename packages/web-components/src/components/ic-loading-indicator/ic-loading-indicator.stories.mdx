@@ -13,15 +13,31 @@ import readme from "./readme.md";
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  progress: 30,
-  min: 0,
-  max: 100,
+  appearance: "dark",
+  description: "Loading",
+  fullWidth: false,
+  labelDuration: 8000,
+  size: "default",
+  type: "circular",
+  label: null,
 };
 
 export const defaultArgTypes = {
-  progress: { type: { name: "number", min: 1, max: 100 } },
-  min: { type: { name: "number", min: 1, max: 100 } },
-  max: { type: { name: "number", min: 1, max: 100 } },
+  appearance: {
+    options: ["dark", "light"],
+    control: { type: "radio" },
+  },
+  label: {
+    control: { type: "text" },
+  },
+  size: {
+    options: ["small", "default", "large", "icon"],
+    control: { type: "radio" },
+  },
+  type: {
+    options: ["circular", "linear"],
+    control: { type: "radio" },
+  },
 };
 
 ### Circular (indeterminate)
@@ -37,17 +53,12 @@ export const defaultArgTypes = {
 ### Circular (determinate)
 
 <Canvas>
-  <Story
-    name="Circular (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Circular (determinate)" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-loading-indicator
-        progress="${args.progress}"
-        min="${args.min}"
-        max="${args.max}"
+        progress="30"
+        min="0"
+        max="100"
         label="Loading..."
       ></ic-loading-indicator>`
     }
@@ -88,29 +99,27 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Circular variants (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Small"
           size="small"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Default"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Large"
           size="large"
         ></ic-loading-indicator>
@@ -143,17 +152,12 @@ export const defaultArgTypes = {
 ### Linear (determinate)
 
 <Canvas>
-  <Story
-    name="Linear (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
-    parameters={{ loki: { skip: true } }}
-  >
+  <Story name="Linear (determinate)" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-loading-indicator
-        progress="${args.progress}"
-        min="${args.min}"
-        max="${args.max}"
+        progress="30"
+        min="0"
+        max="100"
         label="Progress"
         type="linear"
       ></ic-loading-indicator>`
@@ -213,39 +217,37 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Linear variants (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Small"
           size="small"
           type="linear"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Default"
           type="linear"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Large"
           size="large"
           type="linear"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Full-width"
           size="default"
           type="linear"
@@ -306,8 +308,6 @@ export const defaultArgTypes = {
   <Story
     name="Linear light"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
   >
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
@@ -329,26 +329,26 @@ export const defaultArgTypes = {
           appearance="light"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Default"
           type="linear"
           appearance="light"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Large"
           size="large"
           type="linear"
           appearance="light"
         ></ic-loading-indicator>
         <ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           label="Full-width"
           type="linear"
           full-width="true"
@@ -362,19 +362,14 @@ export const defaultArgTypes = {
 ### No label
 
 <Canvas>
-  <Story
-    name="No label"
-    parameters={{ loki: { skip: true } }}
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
-  >
+  <Story name="No label" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<div style="display: grid; gap: 50px;">
         <ic-loading-indicator description="Loading"></ic-loading-indicator
         ><ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           description="Loading"
         ></ic-loading-indicator
         ><ic-loading-indicator
@@ -382,9 +377,9 @@ export const defaultArgTypes = {
           type="linear"
         ></ic-loading-indicator
         ><ic-loading-indicator
-          progress="${args.progress}"
-          min="${args.min}"
-          max="${args.max}"
+          progress="30"
+          min="0"
+          max="100"
           description="Loading"
           type="linear"
         ></ic-loading-indicator>
@@ -419,10 +414,78 @@ export const defaultArgTypes = {
       html`<ic-loading-indicator
         size="small"
         inner-label="3"
-        progress="${args.progress}"
-        min="${args.min}"
-        max="${args.max}"
+        progress="30"
+        min="0"
+        max="100"
       ></ic-loading-indicator>`
+    }
+  </Story>
+</Canvas>
+
+### Playground - indeterminate
+
+<Canvas>
+  <Story
+    parameters={{ loki: { skip: true } }}
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
+    name="Playground - indeterminate"
+  >
+    {(args) =>
+      html`<div
+        style="background-color: ${args.appearance === "light"
+          ? "#393939"
+          : "#FFFFFF"}; padding: 16px;"
+      >
+        <ic-loading-indicator
+          appearance=${args.appearance}
+          description=${args.description}
+          full-width=${args.fullWidth}
+          label-duration=${args.labelDuration}
+          size=${args.size}
+          type=${args.type}
+          label=${args.label}
+        >
+        </ic-loading-indicator>
+      </div>`
+    }
+  </Story>
+</Canvas>
+
+### Playground - determinate
+
+<Canvas>
+  <Story
+    parameters={{ loki: { skip: true } }}
+    args={{
+      ...defaultArgs,
+      max: 100,
+      min: 0,
+      progress: 30,
+    }}
+    argTypes={defaultArgTypes}
+    name="Playground - determinate"
+  >
+    {(args) =>
+      html`<div
+        style="background-color: ${args.appearance === "light"
+          ? "#393939"
+          : "#FFFFFF"}; padding: 16px;"
+      >
+        <ic-loading-indicator
+          appearance=${args.appearance}
+          description=${args.description}
+          full-width=${args.fullWidth}
+          label-duration=${args.labelDuration}
+          size=${args.size}
+          type=${args.type}
+          label=${args.label}
+          progress=${args.progress}
+          min=${args.min}
+          max=${args.max}
+        >
+        </ic-loading-indicator>
+      </div>`
     }
   </Story>
 </Canvas>
