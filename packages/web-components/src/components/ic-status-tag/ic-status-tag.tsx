@@ -4,7 +4,7 @@ import {
   IcStatusTagStatuses,
   IcStatusTagAppearance,
 } from "./ic-status-tag.types";
-import { IcEmphasisType, IcSizesNoLarge } from "../../utils/types";
+import { IcEmphasisType, IcSizes } from "../../utils/types";
 
 @Component({
   tag: "ic-status-tag",
@@ -31,7 +31,7 @@ export class StatusTag {
   /**
    * The size of the status tag component.
    */
-  @Prop() size?: IcSizesNoLarge = "default";
+  @Prop() size?: IcSizes = "default";
 
   /**
    * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
@@ -72,6 +72,7 @@ export class StatusTag {
             [`${variant}-${status}`]: true,
             ["outlined"]: variant === "outlined",
             ["small"]: small || size === "small",
+            [`${size}`]: true,
           }}
         >
           <ic-typography

@@ -68,16 +68,28 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Small
+### Size
 
 <Canvas>
-  <Story name="Small" parameters={{ loki: { skip: true } }}>
+  <Story name="Size" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-status-tag label="Small" size="small"></ic-status-tag>
       <ic-status-tag
         label="Small"
         variant="outlined"
         size="small"
+      ></ic-status-tag>
+      <ic-status-tag label="Default" size="default"></ic-status-tag>
+      <ic-status-tag
+        label="Default"
+        variant="outlined"
+        size="default"
+      ></ic-status-tag>
+      <ic-status-tag label="Large" size="large"></ic-status-tag>
+      <ic-status-tag
+        label="Large"
+        variant="outlined"
+        size="large"
       ></ic-status-tag>
     `}
   </Story>
@@ -134,7 +146,7 @@ export const defaultArgs = {
     parameters={{ loki: { skip: true } }}
     argTypes={{
       size: {
-        options: ["default", "small"],
+        options: ["default", "small", "large"],
         control: {
           type: "inline-radio",
         },
