@@ -13,8 +13,9 @@ import {
 import { HAVE_ATTR, HAVE_CLASS, NOT_HAVE_ATTR } from "../utils/constants";
 import { mount } from "cypress/react";
 import { ShowHideBadge, badgeTypes } from "./IcBadgeTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.06;
+const DEFAULT_TEST_THRESHOLD = 0.049;
 
 const ARIA_LABEL = "aria-label";
 
@@ -74,68 +75,71 @@ describe("IcBadge", () => {
   it("should render success", () => {
     mount(badgeTypes("success"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "success",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render error", () => {
     mount(badgeTypes("error"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "error",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render warning", () => {
     mount(badgeTypes("warning"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "warning",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render neutral", () => {
     mount(badgeTypes("neutral"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "neutral",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render light", () => {
     mount(badgeTypes("light"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "light",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render info", () => {
     mount(badgeTypes("info"));
 
-    cy.compareSnapshot({ name: "info", testThreshold: DEFAULT_TEST_THRESHOLD });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "info",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+    });
   });
 
   it("should render custom", () => {
     mount(badgeTypes("custom", "#F8C8DC"));
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render max number", () => {
@@ -206,11 +210,11 @@ describe("IcBadge", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "max-number",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render position near", () => {
@@ -241,11 +245,11 @@ describe("IcBadge", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "position-near",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render position inline", () => {
@@ -304,10 +308,10 @@ describe("IcBadge", () => {
       </IcTabContext>
     );
 
-    cy.wait(100).compareSnapshot({
+    cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "position-inline",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 });

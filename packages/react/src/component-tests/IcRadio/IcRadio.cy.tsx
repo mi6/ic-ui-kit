@@ -15,14 +15,14 @@ import {
   HAVE_FOCUS,
   HAVE_BEEN_CALLED_WITH,
 } from "../utils/constants";
-
-//const DEFAULT_TEST_THRESHOLD = 0.2;
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const RADIO_GROUP_SELECTOR = "ic-radio-group";
 const RADIO_SELECTOR = "ic-radio-option";
 const IC_BUTTON = "ic-button";
 const BUTTON = "button";
 const INPUT = "input";
+const DEFAULT_TEST_THRESHOLD = 0;
 
 describe("IcRadio", () => {
   beforeEach(() => {
@@ -110,5 +110,26 @@ describe("IcRadio", () => {
     cy.spy(window.console, "log").as("spyWinConsoleLog");
     cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
+  });
+});
+
+describe("visual regression and a11y", () => {
+  it("should render IcRadio", () => {
+    mount(<Radios />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "default-radio",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+    });
+  });
+  it("should render IcRadio with no options initially", () => {
+    mount(<RadioOptionsEmptyInitial />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "empty-initial-radio",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
+    });
   });
 });

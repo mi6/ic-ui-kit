@@ -22,7 +22,7 @@ import {
 } from "./IcAccordionTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.03;
+const DEFAULT_TEST_THRESHOLD = 0.024;
 
 const IC_ACCORDION = "ic-accordion";
 const IC_ACCORDION_GROUP = "ic-accordion-group";
@@ -211,7 +211,7 @@ describe("IcAccordionGroup", () => {
   });
 });
 
-describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", () => {
+describe("Visual regression and A11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -224,21 +224,21 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
     it("should render an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
-      cy.compareSnapshot({
-        name: "headingBody",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "heading-body",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
     });
 
     it("should render an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
+      cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "expanded",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
       });
-      cy.checkA11yWithWait();
     });
 
     it("should render an accordion with an icon", () => {
@@ -258,21 +258,21 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordion>
       );
 
-      cy.compareSnapshot({
-        name: "withIcon",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "icon",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
     });
 
     it("should render when disabled", () => {
       mount(<AccordionsWithDisabled />);
 
+      cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "disabled",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
       });
-      cy.checkA11yWithWait();
     });
 
     it("should render with children", () => {
@@ -284,11 +284,11 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordion>
       );
 
-      cy.compareSnapshot({
-        name: "withChildren",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "children",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      });
     });
 
     it("should render accordions at different sizes", () => {
@@ -304,11 +304,11 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </>
       );
 
-      cy.compareSnapshot({
-        name: "individualSizes",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "individual-sizes",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+      });
     });
   });
 
@@ -320,11 +320,11 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordionGroup>
       );
 
-      cy.compareSnapshot({
-        name: "groupTitle",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "group-title",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      });
     });
 
     it("should render a single expansion accordion-group", () => {
@@ -334,11 +334,11 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </IcAccordionGroup>
       );
 
-      cy.compareSnapshot({
-        name: "singleExpansion",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "single-expansion",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      });
     });
 
     it("should render accordion groups at different sizes", () => {
@@ -356,11 +356,11 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </>
       );
 
-      cy.compareSnapshot({
-        name: "groupSizes",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "group-sizes",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
+      });
     });
 
     it("should render accordion-groups with a light theme", () => {
@@ -372,21 +372,21 @@ describe("IcAccordion & IcAccordionGroup Visual Regression and A11y Testing", ()
         </div>
       );
 
-      cy.compareSnapshot({
-        name: "lightGroupTheme",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "light-group-theme",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      });
     });
 
     it("should render an accordion group and accordion with slotted headings", () => {
       mount(<SlottedHeadingAccordion />);
 
-      cy.compareSnapshot({
-        name: "slottedHeading",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
-      });
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "slotted-heading",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      });
     });
   });
 });

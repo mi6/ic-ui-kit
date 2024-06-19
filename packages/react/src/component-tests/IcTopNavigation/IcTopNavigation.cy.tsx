@@ -31,10 +31,8 @@ import {
   TopNavWithSearch,
 } from "./IcTopNavigationTestData";
 
-const DEFAULT_TEST_THRESHOLD = 0.02;
-const DEFAULT_TEST_THRESHOLD_MOBILE = 0.04;
-const MOBILE_CLIP = { x: 0, y: 0, width: 375, height: 200 };
-const DESKTOP_CLIP = { x: 0, y: 0, width: 1444, height: 200 };
+const DEFAULT_TEST_THRESHOLD = 0.009;
+const DEFAULT_TEST_THRESHOLD_MOBILE = 0.025;
 
 const TOP_NAV_SELECTOR = "ic-top-navigation";
 const SEARCH_BAR_SELECTOR = "ic-search-bar";
@@ -50,11 +48,13 @@ describe("IcTopNavigation", () => {
 
     it("renders", () => {
       mount(<SimpleTopNav />);
+
       cy.get(TOP_NAV_SELECTOR).shadow().contains("AppName");
     });
 
     it("should open and close menu", () => {
       mount(<SimpleTopNav />);
+
       cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button");
       cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
         .shadow()
@@ -66,6 +66,7 @@ describe("IcTopNavigation", () => {
 
     it("should toggle search bar when clicking on button", () => {
       mount(<TopNavWithSearch />);
+
       cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
       cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "40px");
       cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
@@ -74,6 +75,7 @@ describe("IcTopNavigation", () => {
 
     it("should hide search bar when loses focus", () => {
       mount(<TopNavWithSearch />);
+
       cy.findShadowEl(TOP_NAV_SELECTOR, "ic-button").first().click();
       cy.get(SEARCH_BAR_SELECTOR).should(HAVE_CSS, "height", "40px");
       cy.get(SEARCH_BAR_SELECTOR).should(BE_VISIBLE).should(HAVE_FOCUS).blur();
@@ -88,11 +90,13 @@ describe("IcTopNavigation", () => {
 
     it("should render", () => {
       mount(<SimpleTopNav />);
+
       cy.get(TOP_NAV_SELECTOR).shadow().contains("ApplicationName");
     });
 
     it("should hide dropdown menu when nav item clicked", () => {
       mount(<TopNavWithNavItems />);
+
       cy.checkHydrated("ic-navigation-group");
       cy.get(TOP_NAV_SELECTOR)
         .find("ic-navigation-group")
@@ -104,6 +108,7 @@ describe("IcTopNavigation", () => {
 
     it("should toggle to short title at small screen sizes", () => {
       mount(<SimpleTopNav />);
+
       cy.viewport(1024, 750);
       cy.findShadowEl(TOP_NAV_SELECTOR, "h1").contains("ApplicationName");
       cy.viewport("iphone-6");
@@ -122,6 +127,7 @@ describe("IcTopNavigation", () => {
           <IcSearchBar slot="search" label="Search" placeholder="Search" />
         </IcTopNavigation>
       );
+
       cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
       cy.viewport(992, 750);
       cy.get(TOP_NAV_SELECTOR).should(NOT_HAVE_CLASS, MOBILE_CSS_CLASS);
@@ -155,6 +161,7 @@ describe("IcNavigationButton", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+
     cy.findShadowEl(NAV_BUTTON_SELECTOR, "ic-button").should(
       NOT_HAVE_ATTR,
       "title"
@@ -195,41 +202,35 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </SlottedSVG>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "app-icon-title",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render status and version", () => {
     mount(<SimpleTopNav />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "status-version",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render search", () => {
     mount(<TopNavWithSearch />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "search",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render icon buttons", () => {
@@ -293,15 +294,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "icon-buttons",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with long text values", () => {
@@ -338,15 +337,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "long-text",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with long single-word app title", () => {
@@ -384,15 +381,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "long-single-word-app-title",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: DESKTOP_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with navigation items", () => {
@@ -437,15 +432,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "navigation-items",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with slotted navigation items", () => {
@@ -491,15 +484,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcNavigationItem>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "slotted-navigation-items",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with navigation group", () => {
@@ -540,15 +531,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcNavigationGroup>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "navigation-group",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with content centre aligned", () => {
@@ -594,15 +583,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "content-centre",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with content left aligned", () => {
@@ -648,15 +635,14 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "content-left",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      delay: 200,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render IcNavigationGroup correctly when it is included in IcHorizontalScroll", () => {
@@ -708,18 +694,16 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "nav-group-in-horizontal-scroll",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
-    cy.checkA11yWithWait();
   });
 
-  it("should render with different theme colour", () => {
+  it("should render with different theme color", () => {
     mount(
       <div>
         <IcTheme color="rgb(255, 201, 60)" />
@@ -764,15 +748,13 @@ describe("IcTopNavigation Desktop Visual Regression Testing", () => {
         </IcTopNavigation>
       </div>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "theme",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 1444, height: 300 },
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
-    cy.checkA11yWithWait();
   });
 });
 
@@ -804,41 +786,41 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcTopNavigation>
       </div>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-app-icon-title",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.004
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render status and version", () => {
     mount(<SimpleTopNav />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-status-version",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.004
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render search", () => {
     mount(<TopNavWithSearch />);
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-search",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render icon buttons", () => {
@@ -902,15 +884,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-icon-buttons",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with long text values", () => {
@@ -947,15 +929,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-long-text",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE + 0.01,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.015
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with long single-word app title", () => {
@@ -993,15 +975,13 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationButton>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-long-single-word-app-title",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD_MOBILE),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with navigation items", () => {
@@ -1046,15 +1026,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-navigation-items",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with slotted navigation items", () => {
@@ -1100,15 +1080,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationItem>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-slotted-navigation-items",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with navigation group", () => {
@@ -1149,15 +1129,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationGroup>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-navigation-group",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with menu open", () => {
@@ -1198,16 +1178,18 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcNavigationGroup>
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
     cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button#menu-button");
+
+    cy.checkA11yWithWait(undefined, 800);
     cy.compareSnapshot({
       name: "mobile-open-menu",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE + 0.02,
-      cypressScreenshotOptions: {
-        clip: { x: 0, y: 0, width: 375, height: 500 },
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.034
+      ),
+      delay: 800,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with content centre aligned", () => {
@@ -1253,15 +1235,15 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-content-centre",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with content left aligned", () => {
@@ -1307,18 +1289,18 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         <IcNavigationItem slot="navigation" label="Three" href="/" selected />
       </IcTopNavigation>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-content-left",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.009
+      ),
     });
-    cy.checkA11yWithWait();
   });
 
-  it("should render with different theme colour", () => {
+  it("should render with different theme color - mobile", () => {
     mount(
       <div>
         <IcTheme color="rgb(255, 201, 60)" />
@@ -1363,14 +1345,14 @@ describe("IcTopNavigation Mobile Visual Regression Testing", () => {
         </IcTopNavigation>
       </div>
     );
+    cy.checkHydrated(TOP_NAV_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "mobile-theme",
-      testThreshold: DEFAULT_TEST_THRESHOLD_MOBILE,
-      cypressScreenshotOptions: {
-        clip: MOBILE_CLIP,
-      },
+      testThreshold: setThresholdBasedOnEnv(
+        DEFAULT_TEST_THRESHOLD_MOBILE + 0.012
+      ),
     });
-    cy.checkA11yWithWait();
   });
 });

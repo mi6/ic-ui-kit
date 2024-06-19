@@ -67,18 +67,20 @@ describe("IcSelect searchable", () => {
       />
     );
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "searchable-default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.get("ic-select").shadow().find("input").type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-default-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
     });
 
     cy.findShadowEl("ic-select", IC_MENU_LI)
@@ -101,6 +103,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find("input").type("foo");
     cy.checkShadowElVisible("ic-select", IC_MENU_LI).should(HAVE_LENGTH, 1);
@@ -129,6 +132,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -147,6 +151,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -173,6 +178,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -218,6 +224,7 @@ describe("IcSelect searchable", () => {
         includeGroupTitlesInSearch
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("b");
@@ -243,6 +250,7 @@ describe("IcSelect searchable", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
@@ -263,6 +271,7 @@ describe("IcSelect searchable", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
@@ -284,6 +293,7 @@ describe("IcSelect searchable", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
     cy.findShadowEl("ic-select", IC_MENU_UL)
@@ -330,6 +340,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChange"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
@@ -347,6 +358,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("bar");
@@ -362,6 +374,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
@@ -379,6 +392,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
@@ -401,6 +415,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("o");
@@ -425,6 +440,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", 'input[role="combobox"]')
@@ -444,6 +460,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("f");
@@ -478,6 +495,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
     cy.window().then((win) => {
@@ -498,6 +516,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("cap");
@@ -517,6 +536,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
@@ -542,6 +562,7 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Lat");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -587,6 +608,7 @@ describe("IcSelect searchable", () => {
 
   it("should cancel loading if the clear button is pressed mid-load", () => {
     mount(<LoadingSelectSearchableNoTimeout />);
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("foo");
     cy.get("ic-button").click();
@@ -612,6 +634,7 @@ describe("IcSelect searchable", () => {
         value="Test Value"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_MENU_LI).should(NOT_BE_VISIBLE);
   });
@@ -631,6 +654,7 @@ describe("IcSelect searchable", () => {
         </form>
       </>
     );
+
     cy.checkHydrated("ic-select");
     cy.get(".ic-input").should(HAVE_VALUE, "");
 
@@ -650,10 +674,12 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "searchable-default-value",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).click();
@@ -661,7 +687,7 @@ describe("IcSelect searchable", () => {
     cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
       name: "searchable-default-value-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -674,13 +700,14 @@ describe("IcSelect searchable", () => {
         searchMatchPosition="start"
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-search-match-position-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -692,13 +719,15 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-descriptions-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
   });
 
@@ -711,12 +740,14 @@ describe("IcSelect searchable", () => {
         includeDescriptionsInSearch
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("coff");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-descriptions-in-filter-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
     });
   });
 
@@ -729,11 +760,13 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-custom-placeholder",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -745,13 +778,15 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-custom-elements-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -764,17 +799,20 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-small",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
     cy.compareSnapshot({
       name: "searchable-small-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -787,18 +825,21 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-large",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.wait(1000);
+
     cy.compareSnapshot({
       name: "searchable-large-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.067),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -811,17 +852,23 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
-    cy.checkA11yWithWait();
+
+    cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
       name: "searchable-small-deprecated",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      delay: 200,
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
       name: "searchable-small-open-deprecated",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      delay: 200,
     });
   });
 
@@ -834,11 +881,13 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -850,13 +899,15 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-disabled-options-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -869,17 +920,20 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "searchable-full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-full-width-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
@@ -891,13 +945,15 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-groups-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -910,13 +966,15 @@ describe("IcSelect searchable", () => {
         includeGroupTitlesInSearch
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("bo");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-groups-in-filter-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
   });
 
@@ -928,13 +986,15 @@ describe("IcSelect searchable", () => {
         searchable
       />
     );
+
     cy.checkHydrated("ic-select");
 
     cy.get("ic-select").shadow().find(IC_INPUT_CONTAINER).type("ca");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "searchable-recommended-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 

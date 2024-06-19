@@ -15,7 +15,8 @@ import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { BE_VISIBLE, HAVE_LENGTH } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.034;
+const FOOTER_SELECTOR = "ic-footer";
 
 describe("IcFooter", () => {
   it("should render", () => {
@@ -38,7 +39,7 @@ describe("IcFooter", () => {
         </IcFooterLink>
       </IcFooter>
     );
-    cy.checkHydrated("ic-footer");
+    cy.checkHydrated(FOOTER_SELECTOR);
   });
 
   it("should display caption and description and copyright ", () => {
@@ -61,6 +62,8 @@ describe("IcFooter", () => {
         </IcFooterLink>
       </IcFooter>
     );
+    cy.checkHydrated(FOOTER_SELECTOR);
+
     cy.findShadowEl("ic-footer", "div.footer-description").should(BE_VISIBLE);
     cy.findShadowEl("ic-footer", ".footer-caption").should(BE_VISIBLE);
     cy.findShadowEl("ic-footer", ".footer-copyright").should(BE_VISIBLE);
@@ -93,6 +96,7 @@ describe("IcFooter", () => {
         </IcFooterLinkGroup>
       </IcFooter>
     );
+
     cy.viewport(1440, 750);
     cy.get("ic-footer-link-group").should(BE_VISIBLE).should(HAVE_LENGTH, "3");
     cy.get("ic-footer-link").should(BE_VISIBLE).should(HAVE_LENGTH, "12");
@@ -111,18 +115,23 @@ describe("IcFooter", () => {
         </IcFooterLinkGroup>
       </IcFooter>
     );
+
     cy.viewport(600, 750);
-    cy.checkHydrated("ic-footer");
+    cy.checkHydrated(FOOTER_SELECTOR);
+
     cy.compareSnapshot({
-      name: "beforeClick",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "before-click",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
+
     cy.get('ic-footer-link-group[slot="link"]').each(($linkGroup) => {
       cy.wrap($linkGroup).click({ force: true });
     });
-    cy.wait(500).compareSnapshot({
-      name: "afterClick",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+
+    // cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "after-click",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -156,11 +165,13 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+      cy.checkHydrated(FOOTER_SELECTOR);
+
+      cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "default",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
       });
-      cy.checkA11yWithWait();
     });
 
     it("should verify center alignment of footer ", () => {
@@ -184,12 +195,15 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+
       cy.viewport(1440, 750);
-      cy.compareSnapshot({
-        name: "centerFooter",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "center",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      });
     });
 
     it("should display full-width footer ", () => {
@@ -213,12 +227,15 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+
       cy.viewport(1440, 750);
-      cy.compareSnapshot({
-        name: "fullWidthFooter",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "full-width",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      });
     });
 
     it("should verify footer display for extra large screen sizes", () => {
@@ -242,12 +259,15 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+
       cy.viewport(1440, 750);
-      cy.compareSnapshot({
-        name: "extraLargeFooter",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "extra-large",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      });
     });
 
     it("should verify footer display for extra small screen size", () => {
@@ -271,12 +291,15 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+
       cy.viewport(450, 790);
-      cy.compareSnapshot({
-        name: "extraSmallFooter",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "extra-small",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.059),
+      });
     });
 
     it("should render grouped links", () => {
@@ -306,12 +329,15 @@ describe("IcFooter", () => {
           </IcFooterLinkGroup>
         </IcFooter>
       );
+
       cy.viewport(1440, 750);
-      cy.compareSnapshot({
-        name: "groupLinks",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "group-links",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      });
     });
 
     it("should render logo with links", () => {
@@ -362,11 +388,13 @@ describe("IcFooter", () => {
           </div>
         </IcFooter>
       );
-      cy.compareSnapshot({
-        name: "logoWithLinks",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.5,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait("svg", 500);
+      cy.compareSnapshot({
+        name: "logo-with-links",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      });
     });
 
     it("should render with layout", () => {
@@ -420,11 +448,12 @@ describe("IcFooter", () => {
           </IcFooter>
         </div>
       );
-      cy.compareSnapshot({
-        name: "layoutLink",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "layout-link",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
+      });
     });
 
     it("should not display the crown copyright", () => {
@@ -450,11 +479,13 @@ describe("IcFooter", () => {
           </IcFooter>
         </div>
       );
-      cy.compareSnapshot({
-        name: "notDisplayCopyRight",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-      });
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "no-copyright",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
+      });
     });
 
     it("should render without description", () => {
@@ -474,10 +505,12 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "withoutDescription",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+        name: "no-description",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
       });
     });
 
@@ -501,10 +534,12 @@ describe("IcFooter", () => {
           </IcFooterLink>
         </IcFooter>
       );
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "noCaptionCopyright",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+        name: "no-caption-copyright",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
       });
     });
 
@@ -515,10 +550,12 @@ describe("IcFooter", () => {
           caption="All content is available under the Open Government Licence v3.0, except source code and code examples which are available under the MIT Licence."
         ></IcFooter>
       );
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "noLinks",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+        name: "no-links",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
 
@@ -536,10 +573,12 @@ describe("IcFooter", () => {
           </IcTypography>
         </IcFooter>
       );
+      cy.checkHydrated(FOOTER_SELECTOR);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
-        name: "slottedDescriptionCaption",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+        name: "slotted-description-caption",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
       });
     });
   });

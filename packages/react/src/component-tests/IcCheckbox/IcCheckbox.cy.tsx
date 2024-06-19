@@ -21,7 +21,7 @@ import {
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.2;
+const DEFAULT_TEST_THRESHOLD = 0;
 
 const CHECKBOX_SELECTOR = "ic-checkbox";
 const CONTAINER_SELECTOR = ".container";
@@ -37,6 +37,8 @@ describe("IcCheckbox", () => {
 
   it("should not be interactable when disabled", () => {
     mount(<Checkbox />);
+
+    cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.get(CHECKBOX_SELECTOR).eq(2).should(BE_VISIBLE);
     cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_CLASS, "disabled");
@@ -195,11 +197,11 @@ describe("A11y and visual regression tests", () => {
   it("should render default", () => {
     mount(<Checkbox />);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with hidden group label", () => {
@@ -210,11 +212,11 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hideLabel",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "hide-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
-    cy.checkA11yWithWait(undefined, 1000);
   });
 
   it("should render with hidden checkbox label", () => {
@@ -226,7 +228,7 @@ describe("A11y and visual regression tests", () => {
     );
 
     cy.compareSnapshot({
-      name: "hideCheckboxLabel",
+      name: "hide-checkbox-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
     cy.checkA11yWithWait(undefined, 1000);
@@ -244,11 +246,11 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "helper",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render different sizes", () => {
@@ -269,11 +271,11 @@ describe("A11y and visual regression tests", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render different checkbox sizes", () => {
@@ -285,11 +287,11 @@ describe("A11y and visual regression tests", () => {
       </div>
     );
 
-    cy.compareSnapshot({
-      name: "checkboxSizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-    });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "checkbox-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
+    });
   });
 
   it("should render conditional input", () => {
@@ -309,11 +311,11 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
-    cy.wait(500).compareSnapshot({
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
       name: "conditional",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render conditional input dynamically", () => {
@@ -335,11 +337,11 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dynamic",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with validation", () => {
@@ -355,11 +357,11 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "validation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with indeterminate boxes", () => {
@@ -391,22 +393,23 @@ describe("A11y and visual regression tests", () => {
       </IcCheckboxGroup>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "indeterminate",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with focus", () => {
     mount(<Checkbox />);
 
     cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").eq(0).focus();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render as a controlled component", () => {

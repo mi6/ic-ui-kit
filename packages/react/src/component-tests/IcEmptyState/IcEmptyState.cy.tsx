@@ -11,8 +11,9 @@ import {
   EmptyStateImage,
 } from "./IcEmptyStateTestData";
 import { IcEmptyState } from "../..";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.016;
 
 const EMPTY_STATE = "ic-empty-state";
 
@@ -29,19 +30,19 @@ describe("IcEmptyState", () => {
   it("should render desktop visual regression testing and a11y testing", () => {
     mount(<BasicEmptyState />);
 
-    cy.compareSnapshot({
-      name: "empty-state-basic-desktop",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "basic-desktop",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
   });
 
   it("should render", () => {
     mount(<IcEmptyState heading="Empty state title" />);
 
     cy.compareSnapshot({
-      name: "empty-state-title",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "title",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -55,8 +56,8 @@ describe("IcEmptyState", () => {
     );
 
     cy.compareSnapshot({
-      name: "empty-state-body",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      name: "body",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
@@ -64,8 +65,8 @@ describe("IcEmptyState", () => {
     mount(<EmptyStateTitle />);
 
     cy.compareSnapshot({
-      name: "empty-state-slotted-image",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "slotted-image",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -73,8 +74,8 @@ describe("IcEmptyState", () => {
     mount(<ButtonEmptyState />);
 
     cy.compareSnapshot({
-      name: "empty-state-button",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      name: "button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 

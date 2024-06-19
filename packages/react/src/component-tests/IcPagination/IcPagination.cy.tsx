@@ -12,6 +12,7 @@ const NEXT_PAGE_SELECTOR = "#next-page-button";
 const PREV_PAGE_SELECTOR = "#previous-page-button";
 const LAST_PAGE_SELECTOR = "#last-page-button";
 const FIRST_PAGE_SELECTOR = "#first-page-button";
+const DEFAULT_TEST_THRESHOLD = 0;
 
 describe("IcPagination", () => {
   beforeEach(() => {
@@ -28,18 +29,23 @@ describe("IcPagination", () => {
         <IcPagination pages={15} aria-label="Simple pagination " />
       </div>
     );
-    cy.compareSnapshot({
-      name: "simple_pagination",
-      testThreshold: setThresholdBasedOnEnv(0.03),
-    });
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "simple",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+    });
+
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR);
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focus_simple_pagination",
-      testThreshold: setThresholdBasedOnEnv(0.135),
+      name: "focus-simple",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -53,17 +59,22 @@ describe("IcPagination", () => {
         />
       </div>
     );
-    cy.compareSnapshot({
-      name: "complex_pagination",
-      testThreshold: setThresholdBasedOnEnv(0.02),
-    });
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "complex",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+    });
+
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focus_complex_pagination",
-      testThreshold: setThresholdBasedOnEnv(0.032),
+      name: "focus-complex",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -73,17 +84,22 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark_complex_appearance",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "dark-complex-appearance",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark_complex_focus",
-      testThreshold: setThresholdBasedOnEnv(0.032),
+      name: "dark-complex-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
@@ -93,17 +109,21 @@ describe("IcPagination", () => {
         <IcPagination pages={15} aria-label="Simple pagination" />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark_simple_appearance",
-      testThreshold: setThresholdBasedOnEnv(0.022),
+      name: "dark-simple-appearance",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dark_simple_focus",
-      testThreshold: setThresholdBasedOnEnv(0.035),
+      name: "dark-simple-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
   });
 
@@ -115,18 +135,22 @@ describe("IcPagination", () => {
         <IcPagination appearance="light" pages={15} type="complex" />
       </div>
     );
-    cy.checkA11yWithWait();
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "light_complex_appearance",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "light-complex-appearance",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
-    cy.wait(1000);
+
+    cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "light_complex_focus",
-      testThreshold: setThresholdBasedOnEnv(0.135),
+      name: "light-complex-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -135,21 +159,25 @@ describe("IcPagination", () => {
       <div
         style={{ backgroundColor: "black", margin: "16px", minHeight: "50px" }}
       >
-        {" "}
         <IcPagination appearance="light" pages={15} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light_simple_appearance",
-      testThreshold: setThresholdBasedOnEnv(0.023),
+      name: "light-simple-appearance",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, BUTTON_SELECTOR).each(($button) => {
       $button.focus();
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light_simple_focus",
-      testThreshold: setThresholdBasedOnEnv(0.036),
+      name: "light-simple-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -164,10 +192,12 @@ describe("IcPagination", () => {
         />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "boundary_adjacent_items",
-      testThreshold: setThresholdBasedOnEnv(0.024),
+      name: "boundary-adjacent-items",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
     });
   });
 
@@ -177,10 +207,12 @@ describe("IcPagination", () => {
         <IcPagination hideFirstAndLastPageButton pages={15} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide_first_last_page_buttons",
-      testThreshold: setThresholdBasedOnEnv(0.022),
+      name: "hide-first-last-page-buttons",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -190,10 +222,12 @@ describe("IcPagination", () => {
         <IcPagination hideCurrentPage pages={15} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "hide_current_page",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "hide-current-page",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -203,10 +237,12 @@ describe("IcPagination", () => {
         <IcPagination type="complex" disabled pages={12} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled_with_complex",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "disabled-with-complex",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 
@@ -216,9 +252,12 @@ describe("IcPagination", () => {
         <IcPagination disabled pages={12} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled_with_simple",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "disabled-with-simple",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
@@ -228,10 +267,12 @@ describe("IcPagination", () => {
         <IcPagination label="Slide" pages={12} type="simple" />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "label",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -241,10 +282,12 @@ describe("IcPagination", () => {
         <IcPagination pages={12} defaultPage={4} />
       </div>
     );
+    cy.checkHydrated(PAGINATION_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default_page_4",
-      testThreshold: setThresholdBasedOnEnv(0.023),
+      name: "default-page-4",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
   });
 
@@ -254,23 +297,30 @@ describe("IcPagination", () => {
         <IcPagination pages={15} />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_before_click_next_page1",
-      testThreshold: setThresholdBasedOnEnv(0.022),
+      name: "simple-before-click-next-page-1",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR)
       .click()
       .click()
       .click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_after_click_next_page1",
-      testThreshold: setThresholdBasedOnEnv(0.023),
+      name: "simple-after-click-next-page-1",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
     });
+
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
@@ -284,20 +334,27 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_before_click_next_page1",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "complex-before-click-next-page-1",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_after_click_next_page1",
-      testThreshold: setThresholdBasedOnEnv(0.033),
+      name: "complex-after-click-next-page-1",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
+
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
@@ -309,6 +366,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.checkHydrated(PAGINATION_SELECTOR);
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
@@ -319,9 +377,11 @@ describe("IcPagination", () => {
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(3);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_after_click_page_3",
-      testThreshold: setThresholdBasedOnEnv(0.068),
+      name: "complex-after-click-page-3",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -331,15 +391,19 @@ describe("IcPagination", () => {
         <IcPagination pages={15} />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_after_click_page_3",
-      testThreshold: setThresholdBasedOnEnv(0.022),
+      name: "simple-after-click-page-3",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click().click();
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
@@ -352,6 +416,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.get("ic-pagination").invoke(
       "on",
       "icPageChange",
@@ -362,17 +427,22 @@ describe("IcPagination", () => {
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_afterclick_lastPage_button",
-      testThreshold: setThresholdBasedOnEnv(0.034),
+      name: "complex-after-click-lastPage-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-13").click();
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(13);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_afterclick_page_13_button",
-      testThreshold: setThresholdBasedOnEnv(0.022),
+      name: "complex-after-click-page-13-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -382,24 +452,30 @@ describe("IcPagination", () => {
         <IcPagination pages={15} />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
     cy.findShadowEl(PAGINATION_SELECTOR, "#last-page-button").click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_afterclick_lastPage_button",
-      testThreshold: setThresholdBasedOnEnv(0.034),
+      name: "simple-after-click-lastPage-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
+
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click().click();
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_afterclick_page_13_button",
-      testThreshold: setThresholdBasedOnEnv(0.021),
+      name: "simple-after-click-page-13-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
@@ -409,6 +485,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
@@ -416,10 +493,13 @@ describe("IcPagination", () => {
     );
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_previous_page_button_clicked",
-      testThreshold: setThresholdBasedOnEnv(0.038),
+      name: "simple-previous-page-button-clicked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
+
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
@@ -432,6 +512,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
@@ -445,9 +526,11 @@ describe("IcPagination", () => {
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_previous_page_button_clicked",
-      testThreshold: setThresholdBasedOnEnv(0.038),
+      name: "complex-previous-page-button-clicked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
   });
 
@@ -457,6 +540,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} />
       </div>
     );
+
     cy.get("ic-pagination").invoke(
       "on",
       "icPageChange",
@@ -468,9 +552,11 @@ describe("IcPagination", () => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "simple_first_page_button_clicked",
-      testThreshold: setThresholdBasedOnEnv(0.035),
+      name: "simple-first-page-button-clicked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
   });
 
@@ -480,6 +566,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.get("ic-pagination").invoke(
       "on",
       "icPageChange",
@@ -493,9 +580,11 @@ describe("IcPagination", () => {
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_first_page_button_clicked",
-      testThreshold: setThresholdBasedOnEnv(0.035),
+      name: "complex-first-page-button-clicked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -510,6 +599,7 @@ describe("IcPagination", () => {
         />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
@@ -527,9 +617,11 @@ describe("IcPagination", () => {
     cy.get("@icPageChanged").should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
     });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "complex_middle_state_page_7",
-      testThreshold: setThresholdBasedOnEnv(0.02),
+      name: "complex-middle-state-page-7",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
   });
 
@@ -544,6 +636,7 @@ describe("IcPagination", () => {
         />
       </div>
     );
+
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
@@ -569,6 +662,7 @@ describe("IcPagination", () => {
         <IcPagination pages={15} type="complex" />
       </div>
     );
+
     cy.checkHydrated(PAGINATION_SELECTOR);
     cy.get(PAGINATION_SELECTOR).invoke(
       "on",

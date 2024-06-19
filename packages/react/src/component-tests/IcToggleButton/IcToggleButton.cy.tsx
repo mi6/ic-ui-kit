@@ -11,8 +11,9 @@ import {
   NOT_BE_CALLED_ONCE,
   NOT_HAVE_CLASS,
 } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.02;
+const DEFAULT_TEST_THRESHOLD = 0.012;
 
 /**
  * Justification for additional rule: in the browser this is
@@ -79,7 +80,7 @@ describe("IcToggleButton", () => {
   });
 });
 
-describe("IcToggleButton Visual Regression Testing", () => {
+describe("IcToggleButton visual regression tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -94,11 +95,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render checked", () => {
@@ -107,11 +109,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" toggleChecked />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "checked",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render disabled", () => {
@@ -121,11 +124,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test Checked" disabled toggleChecked />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with icon", () => {
@@ -146,11 +150,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </IcToggleButton>
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render different sizes", () => {
@@ -167,11 +172,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </div>
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with badge", () => {
@@ -182,11 +188,11 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </IcToggleButton>
       </div>
     );
-    cy.wait(100).compareSnapshot({
+    cy.checkA11yWithWait(undefined, 100, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
       name: "with-badge",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with appearance set to dark", () => {
@@ -195,20 +201,21 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" appearance="dark" />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "appearance-dark",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
 
     cy.checkHydrated("ic-toggle-button");
     cy.clickOnButton("ic-toggle-button");
 
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "appearance-dark-checked",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with appearance set to light", () => {
@@ -223,20 +230,21 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" appearance="light" />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "appearance-light",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
 
     cy.checkHydrated("ic-toggle-button");
     cy.clickOnButton("ic-toggle-button");
 
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "appearance-light-checked",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render full width", () => {
@@ -245,11 +253,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" fullWidth />
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "full-width",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render loading", () => {
@@ -259,11 +268,13 @@ describe("IcToggleButton Visual Regression Testing", () => {
         <IcToggleButton label="Test" loading toggleChecked />
       </div>
     );
-    cy.wait(500).compareSnapshot({
+
+    cy.checkA11yWithWait(undefined, 0, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
       name: "loading",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      delay: 500,
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render icon variant", () => {
@@ -299,11 +310,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </IcToggleButton>
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "icon-variant",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with icon placement right", () => {
@@ -324,11 +336,12 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </IcToggleButton>
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "icon-right",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 
   it("should render with icon placement top", () => {
@@ -349,10 +362,11 @@ describe("IcToggleButton Visual Regression Testing", () => {
         </IcToggleButton>
       </div>
     );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "icon-top",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
   });
 });

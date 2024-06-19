@@ -44,7 +44,7 @@ import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const IC_TEXTFIELD = "ic-text-field";
 const TEXTFIELD_INPUT = 'input[type="text"]';
-const DEFAULT_TEST_THRESHOLD = 0.035;
+const DEFAULT_TEST_THRESHOLD = 0.03;
 
 describe("IcTextField end-to-end tests", () => {
   beforeEach(() => {
@@ -188,7 +188,7 @@ describe("IcTextField end-to-end tests", () => {
     const maxInput = cy.findShadowEl("#max", "input");
     const minInput = cy.findShadowEl("#min", "input");
 
-    maxInput.type("Test Text").should(HAVE_VALUE, "Test Text");
+    maxInput.type("Test Text").wait(100).should(HAVE_VALUE, "Test Text");
     cy.findShadowEl(IC_TEXTFIELD, ".maxlengthtext").should(
       CONTAIN_TEXT,
       "9/20"
@@ -200,7 +200,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.findShadowEl(IC_TEXTFIELD, ".icon-warning").should(NOT_EXIST);
 
     maxInput.realType("{backspace}".repeat(9));
-    maxInput.realType("This string is too long");
+    maxInput.realType("This string is too long").wait(200);
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -213,7 +213,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.get(IC_TEXTFIELD).should(HAVE_VALUE, "This string is too l");
 
     minInput.type("A").should(HAVE_VALUE, "A");
-    cy.realPress("Tab");
+    cy.realPress("Tab").wait(200);
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -228,7 +228,7 @@ describe("IcTextField end-to-end tests", () => {
 
     const input = cy.findShadowEl(IC_TEXTFIELD, 'input[type="number"]');
 
-    input.type("2").should(HAVE_VALUE, "2");
+    input.type("2").wait(200).should(HAVE_VALUE, "2");
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -236,7 +236,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(NOT_EXIST);
 
     input.clear();
-    input.type("5").should(HAVE_VALUE, "5");
+    input.type("5").wait(200).should(HAVE_VALUE, "5");
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -244,7 +244,7 @@ describe("IcTextField end-to-end tests", () => {
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(BE_VISIBLE);
 
     input.clear();
-    input.type("0").should(HAVE_VALUE, "0");
+    input.type("0").wait(200).should(HAVE_VALUE, "0");
     cy.get(IC_TEXTFIELD)
       .shadow()
       .find('[id$="validation-text"]')
@@ -346,95 +346,104 @@ describe("IcTextField visual regression tests", () => {
 
   it("should render a text field with icon, value and max length", () => {
     mount(<TextFieldWithIconValueMaxLength />);
+
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "icon_value_max_length",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      name: "icon-value-max-length",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
     cy.get(IC_TEXTFIELD)
       .invoke("prop", "value", "This should exceed 25 characters")
       .then(() => {
         cy.checkA11yWithWait(undefined, 500);
         cy.compareSnapshot({
-          name: "icon_value_max_length_exceeded",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
+          name: "icon-value-max-length-exceeded",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
         });
       });
   });
 
   it("should render a small text field", () => {
     mount(<SmallTextField />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "small_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      name: "small-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
   it("should render a full width text field", () => {
     mount(<FullWidthTextField />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "full_width_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      name: "full-width-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
   it("should render a multiline text field", () => {
     mount(<MultiLineTextAreaWithResize />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "multiline_text_area_with_resize",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      name: "multiline-text-area-with-resize",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
   it("should render text field with inline validation with status of success", () => {
     mount(<TextFieldWithInlineValidation />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "inline_validation_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      name: "inline-validation-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
   it("should render validation status and text", () => {
     mount(<TextFieldWithValidation />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "validation_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.093),
+      name: "validation-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.098),
     });
   });
 
   it("should render a readonly text field", () => {
     mount(<ReadonlyTextField />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "readonly_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      name: "readonly-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
   it("should render a custom text field", () => {
     mount(<CustomSizeTextField />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "custom_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      name: "custom-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
   it("should render a text field with input focused", () => {
     mount(<SimpleTextField />);
+
     cy.checkA11yWithWait();
 
     cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
 
     cy.compareSnapshot({
-      name: "focused_input_text_field",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "focused-input-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 });
@@ -454,38 +463,40 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
   it("renders a text field with input focused", () => {
     mount(<SimpleTextField />);
+
     cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
+
     cy.compareSnapshot({
-      name: "focused_input_text_field_high_contrast",
+      name: "focused-input-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
   it("renders disabled", () => {
     mount(<DisabledTextField />);
-    cy.wait(100);
-    cy.compareSnapshot({
-      name: "disabled_text_field_high_contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+
+    cy.wait(100).compareSnapshot({
+      name: "disabled-text-field-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
   it("renders a readonly text field", () => {
     mount(<ReadonlyTextField />);
-    cy.wait(100);
-    cy.compareSnapshot({
-      name: "readonly_text_field_high_contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+
+    cy.wait(100).compareSnapshot({
+      name: "readonly-text-field-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
   it("renders validation status and text", () => {
     mount(<TextFieldWithValidation />);
-    cy.wait(100);
-    cy.compareSnapshot({
-      name: "validation_text_field_high_contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
+
+    cy.wait(100).compareSnapshot({
+      name: "validation-text-field-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.115),
     });
   });
 });

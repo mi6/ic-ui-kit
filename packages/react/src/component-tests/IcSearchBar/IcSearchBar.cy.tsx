@@ -22,6 +22,7 @@ import "cypress-axe";
 
 const SEARCH_SELECTOR = "ic-search-bar";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
+const DEFAULT_TEST_THRESHOLD = 0.042;
 
 describe("IcSearchBar", () => {
   it("should render as a controlled component", () => {
@@ -46,6 +47,11 @@ describe("IcSearchBar", () => {
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
       .should(HAVE_LENGTH, "4");
+
+    cy.compareSnapshot({
+      name: "controlled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
   });
 
   it("should render as an uncontrolled component", () => {
@@ -72,8 +78,8 @@ describe("IcSearchBar", () => {
       .type("Latte");
 
     cy.compareSnapshot({
-      name: "emptyOptionListText",
-      testThreshold: setThresholdBasedOnEnv(0.07),
+      name: "empty-option-list-text",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
@@ -86,8 +92,8 @@ describe("IcSearchBar", () => {
       .type("Lat");
 
     cy.compareSnapshot({
-      name: "charactersUntilSuggestionNoShow",
-      testThreshold: setThresholdBasedOnEnv(0.04),
+      name: "characters-until-suggestion-no-show",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
@@ -96,8 +102,8 @@ describe("IcSearchBar", () => {
       .type("te");
 
     cy.compareSnapshot({
-      name: "charactersUntilSuggestionShow",
-      testThreshold: setThresholdBasedOnEnv(0.08),
+      name: "characters-until-suggestion-show",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
@@ -108,13 +114,16 @@ describe("IcSearchBar", () => {
       .shadow()
       .find(IC_INPUT_CONTAINER)
       .type("esp")
-      .click();
-
-    cy.wait(100);
+      .click()
+      .wait(300);
 
     cy.compareSnapshot({
-      name: "longOptionLabel",
-      testThreshold: setThresholdBasedOnEnv(0.06),
+      name: "long-option-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 });

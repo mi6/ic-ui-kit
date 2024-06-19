@@ -3,8 +3,9 @@ import { mount } from "@cypress/react";
 import React from "react";
 import { IcAlert, IcButton, IcLink } from "../../components";
 import { BE_VISIBLE, NOT_BE_VISIBLE } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.03;
+const DEFAULT_TEST_THRESHOLD = 0;
 
 const TYPOGRAPHY_SELECTOR = "ic-typography";
 
@@ -23,6 +24,7 @@ describe("IcAlert", () => {
         message="This alert is for displaying miscellaneous messages."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Neutral"]').should(BE_VISIBLE);
@@ -33,11 +35,13 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying miscellaneous messages.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "neutral",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
   it("should render info alert with message and icon", () => {
     mount(
@@ -47,6 +51,7 @@ describe("IcAlert", () => {
         message="This alert is for displaying information."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Info"]').should(BE_VISIBLE);
@@ -57,11 +62,13 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying information.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "info",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render error alert with message and icon", () => {
@@ -72,6 +79,7 @@ describe("IcAlert", () => {
         message="This alert is for displaying errors."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Error"]').should(BE_VISIBLE);
@@ -82,11 +90,13 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying errors.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "error",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render warning alert with message and icon", () => {
@@ -97,6 +107,7 @@ describe("IcAlert", () => {
         message="This alert is for displaying warnings."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Warning"]').should(BE_VISIBLE);
@@ -107,11 +118,13 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying warnings.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "warning",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render success alert with message and icon", () => {
@@ -122,6 +135,7 @@ describe("IcAlert", () => {
         message="This alert is for displaying success messages."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Success"]').should(BE_VISIBLE);
@@ -132,11 +146,13 @@ describe("IcAlert", () => {
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
       .contains("This alert is for displaying success messages.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "success",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should close when dismiss button is pressed on dismissible alert", () => {
@@ -147,15 +163,19 @@ describe("IcAlert", () => {
         dismissible
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.get("ic-alert").should("exist");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "dismissable",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "dismissible",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: 500,
     });
+
     cy.findShadowEl("ic-alert", "ic-button").should(BE_VISIBLE).click();
     cy.get("ic-alert").should(NOT_BE_VISIBLE);
-    cy.checkA11yWithWait();
   });
   it("should display title above message responsively", () => {
     mount(
@@ -164,6 +184,7 @@ describe("IcAlert", () => {
         message="This alert does not have 'title-above' added as a prop but it's forced to add it due to the length of the title."
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
@@ -178,11 +199,13 @@ describe("IcAlert", () => {
         "This alert does not have 'title-above' added as a prop but it's forced to add it due to the length of the title."
       )
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "responsive",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should display title above message when title-above is true", () => {
@@ -193,6 +216,7 @@ describe("IcAlert", () => {
         title-above="true"
       />
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.get('[heading="Title displayed above the message"]').should(BE_VISIBLE);
@@ -205,11 +229,13 @@ describe("IcAlert", () => {
         "This alert has the title at the top of the alert and the message below it."
       )
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "title-above-set",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
   it("should render with custom message slot and link", () => {
     mount(
@@ -220,6 +246,7 @@ describe("IcAlert", () => {
         </span>
       </IcAlert>
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
@@ -227,11 +254,13 @@ describe("IcAlert", () => {
       .contains("This alert uses a custom message slot")
       .should(BE_VISIBLE);
     cy.get("ic-link").click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-message",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with action in button slot", () => {
@@ -247,6 +276,7 @@ describe("IcAlert", () => {
         </IcButton>
       </IcAlert>
     );
+
     cy.checkHydrated("ic-alert");
     cy.findShadowEl("ic-alert", "svg").should(BE_VISIBLE);
     cy.findShadowEl("ic-alert", TYPOGRAPHY_SELECTOR)
@@ -257,10 +287,12 @@ describe("IcAlert", () => {
       .contains("This alert has an action.")
       .should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).click();
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-action",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 });
