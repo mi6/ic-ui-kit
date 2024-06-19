@@ -13,6 +13,17 @@
 .small {
   padding: var(--ic-space-xxxs) var(--ic-space-sm);
   border-radius: calc(var(--ic-space-md) - var(--ic-space-xxxs));
+  
+}
+
+.large {
+  padding: var(--ic-space-xs) var(--ic-space-sm);
+  border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
+}
+
+.large {
+  padding: var(--ic-space-xs) var(--ic-space-sm);
+  border-radius: calc(var(--ic-space-md) + var(--ic-space-xxs));
 }
 
 .filled-neutral {
@@ -41,6 +52,11 @@
 
 .outlined.small {
   padding: var(--ic-space-1px) calc(var(--ic-space-sm) - var(--ic-space-1px));
+}
+
+.outlined.large {
+  padding: calc(var(--ic-space-xs) - var(--ic-space-1px))
+    calc(var(--ic-space-sm) - var(--ic-space-1px));
 }
 
 .outlined-neutral {
