@@ -6,9 +6,10 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import { IcDateInput } from "../components";
-import { IcButton, IcTypography } from "@ukic/react";
+import { IcButton, IcTypography, IcLink } from "@ukic/react";
 import readme from "../../../canary-web-components/src/components/ic-date-input/readme.md";
 import { useState } from "react";
+import { useArgs } from '@storybook/client-api';
 
 <Meta title="React Components/Date Input" component={IcDateInput} />
 
@@ -605,5 +606,96 @@ The date input can be cleared by setting the the value attribute to one of the f
 <Canvas withSource='none'>
   <Story name="With clearing value" parameters={{ loki: { skip: true } }}>
     <ClearDateInput />
+  </Story>
+</Canvas>
+
+### Playground example
+
+Go to the <IcLink href="/?path=/story/react-components-date-input--playground-example">separate page for the playground example</IcLink> to view the prop controls.
+
+export const defaultArgs = {
+  dateFormat: "DD/MM/YYYY",
+  disabled: false,
+  disableDays: [],
+  disableDaysMessage: "This day is not available",
+  disableFuture: false,
+  disableFutureMessage: "This date is in the future",
+  disablePast: false,
+  disablePastMessage: "This date is in the past",
+  helperText: "Choose a date",
+  label: "When would you like to collect your coffee?",
+  max: "",
+  min: "",
+  required: false,
+  showClearButton: true,
+  size: "default",
+  validationStatus: "",
+  validationText: "",
+  value: "",
+};
+
+<Canvas withSource="none">
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      dateFormat: {
+        options: ["DD/MM/YYYY", "MM/DD/YYYY", "YYYY/MM/DD"],
+        control: {
+          type: "radio",
+        },
+      },
+      validationStatus: {
+        options: ["", "error", "success", "warning"],
+        control: {
+          type: "radio",
+        },
+      },
+      size: {
+        options: ["small", "default", "large"],
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground example"
+  >
+    {(args) => {
+
+      const [{ value }, updateArgs] = useArgs();
+
+      const updateDate = (ev) => {
+        const date = ev.detail.value;
+        let formattedDate;
+        date === null ? formattedDate = "" : formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+        updateArgs({ value: formattedDate});
+      };
+
+      return(
+       <IcDateInput
+          dateFormat={args.dateFormat}
+          disabled={args.disabled}
+          disableDays={args.disableDays}
+          disableDaysMessage={args.disableDaysMessage}
+          disableFuture={args.disableFuture}
+          disableFutureMessage={args.disableFutureMessage}
+          disablePast={args.disablePast}
+          disablePastMessage={args.disablePastMessage}
+          helperText={args.helperText}
+          label={args.label}
+          max={args.max}
+          min={args.min}
+          openAtDate={args.openAtDate}
+          required={args.required}
+          showDaysOutsideMonth={args.showDaysOutsideMonth}
+          showPickerClearButton={args.showPickerClearButton}
+          showPickerTodayButton={args.showPickerTodayButton}
+          size={args.size}
+          startOfWeek={args.startOfWeek}
+          validationStatus={args.validationStatus}
+          validationText={args.validationText}
+          value={value}
+          onIcChange={updateDate}
+      />
+    )}}
   </Story>
 </Canvas>
