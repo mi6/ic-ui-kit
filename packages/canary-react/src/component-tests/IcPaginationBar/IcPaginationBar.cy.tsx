@@ -15,7 +15,7 @@ import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import { PaginationBarItemsPerPage } from "./IcPaginationBarTestData";
 
 const PAGINATION_BAR = "ic-pagination-bar";
-const DEFAULT_THRESHOLD = 0.04;
+const DEFAULT_TEST_THRESHOLD = 0.027;
 
 describe("IcPaginationBar", () => {
   beforeEach(() => {
@@ -39,21 +39,21 @@ describe("IcPaginationBar", () => {
 
     cy.compareSnapshot({
       name: "right-alignment",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
     cy.get(PAGINATION_BAR).invoke("prop", "alignment", "left");
 
     cy.compareSnapshot({
       name: "left-alignment",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
     cy.get(PAGINATION_BAR).invoke("prop", "alignment", "space-between");
 
     cy.compareSnapshot({
       name: "space-between-alignment",
-      testThreshold: setThresholdBasedOnEnv(0.026),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -202,7 +202,7 @@ describe("IcPaginationBar", () => {
 
     cy.compareSnapshot({
       name: "go-to-page",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
@@ -227,7 +227,7 @@ describe("IcPaginationBar", () => {
 
     cy.compareSnapshot({
       name: "go-to-page-invalid-tooltip",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.006),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 
@@ -245,7 +245,7 @@ describe("IcPaginationBar", () => {
 
     cy.compareSnapshot({
       name: "go-to-page-valid",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 

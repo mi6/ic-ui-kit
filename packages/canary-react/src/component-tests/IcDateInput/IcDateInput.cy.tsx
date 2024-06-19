@@ -43,11 +43,14 @@ describe("IcDateInput", () => {
 
     cy.get(DATE_INPUT).should("to.be.visible");
 
-    cy.compareSnapshot({
-      name: "dateInputRender",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.004),
-    });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "date-input-render",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.004),
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
+    });
   });
 
   it("should update value on ArrowUp on day input", () => {
@@ -291,11 +294,15 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("04");
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithValues",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-values",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.01),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should populate screen reader aria live when date is complete and updated", () => {
@@ -331,16 +338,21 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("06");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2000").wait(200);
 
     cy.get("ic-date-input")
       .shadow()
       .find(".statustext")
       .should(HAVE_TEXT, "Please enter a date after 01/07/2001.");
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithMinValidation",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-min-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -351,16 +363,21 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("01");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("12");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2050").wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
       HAVE_TEXT,
       "Please enter a date before 01/07/2024."
     );
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithMaxValidation",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-max-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.025),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -397,16 +414,21 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
       HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithCustomDisableDaysMessage",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-custom-disable-days-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.02),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -423,11 +445,16 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("2024").wait(200);
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithLongCustomDisableDaysMessage",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-long-custom-disable-days-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -444,16 +471,21 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024").wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
       HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithCustomDisableFutureMessage",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0155),
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-custom-disable-future-message",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -470,11 +502,16 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("3024").wait(200);
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithLongCustomDisableFutureMessage",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-long-custom-disable-future-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -491,16 +528,21 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990").wait(200);
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(
       HAVE_TEXT,
       CUSTOM_DISABLE_DAY_MESSAGE
     );
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithCustomDisablePastMessage",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0155),
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-custom-disable-past-message",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.016),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -517,11 +559,16 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, DAY_INPUT_ARIA_LABEL).type("18");
     cy.findShadowEl(DATE_INPUT, MONTH_INPUT_ARIA_LABEL).type("02");
-    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990");
+    cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).type("1990").wait(200);
 
-    cy.wait(500).compareSnapshot({
-      name: "dateInputWithLongCustomDisablePastMessage",
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "date-input-with-long-custom-disable-past-message",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.037),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -602,9 +649,14 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Error");
 
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "dateInputWithErrorValidation",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.007),
+      name: "date-input-with-error-validation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.008),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -619,9 +671,14 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Warning");
 
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "dateInputWithWarningValidation",
+      name: "date-input-with-warning-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.015),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
@@ -636,9 +693,14 @@ describe("IcDateInput", () => {
 
     cy.findShadowEl(DATE_INPUT, STATUS_TEXT_SPAN).should(HAVE_TEXT, "Success");
 
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "dateInputWithSuccessValidation",
+      name: "date-input-with-success-validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_THRESHOLD + 0.0085),
+      delay: 500,
+      cypressScreenshotOptions: {
+        capture: "viewport",
+      },
     });
   });
 
