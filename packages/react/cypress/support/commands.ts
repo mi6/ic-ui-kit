@@ -74,6 +74,12 @@ declare global {
        * @param {any} optionObject object to replace the default axe ruleset, optional with CYPRESS_AXE_OPTIONS as default
        */
       checkA11yWithWait: typeof Commands.checkA11yWithWait;
+      /**
+       * Mock ResizeObserver
+       * @param {number} width width of the viewport
+       * @param {number} height height of the viewport
+       */
+      mockResizeObserver: typeof Commands.mockResizeObserver;
     }
   }
 }
@@ -157,6 +163,23 @@ const checkA11yWithWait = (
   cy.checkA11y(element, optionObject, CYPRESS_AXE_REPORTING);
 };
 
+const mockResizeObserver = (
+  width: number,
+  height: number
+) => {
+cy.window().then((win) => {
+  cy.stub(win, "ResizeObserver").callsFake((callback) => {
+    return {
+      observe: () => {
+        callback([{ contentRect: { width, height } }], this);
+      },
+      unobserve: () => null,
+      disconnect: () => null,
+    };
+  });
+});
+};
+
 const Commands = {
   checkHydrated,
   clickOnShadowEl,
@@ -166,6 +189,7 @@ const Commands = {
   findShadowEl,
   clickOnButton,
   checkA11yWithWait,
+  mockResizeObserver,
 };
 
 export default Commands;
