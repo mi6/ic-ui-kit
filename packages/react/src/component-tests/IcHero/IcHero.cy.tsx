@@ -13,7 +13,8 @@ import { mount } from "cypress/react";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.022;
+const IC_HERO_SELECTOR = "ic-hero";
 
 describe("IcHero", () => {
   beforeEach(() => {
@@ -39,12 +40,14 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
-    cy.checkHydrated("ic-hero");
+
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with slotted heading and subheading", () => {
@@ -62,11 +65,12 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
+    cy.checkHydrated(IC_HERO_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slottedHeadings",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "slotted-headings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -85,11 +89,13 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot({
-      name: "centerHero",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "centered",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
   });
 
   it("should render centering content alignment", () => {
@@ -107,11 +113,13 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
-    cy.compareSnapshot({
-      name: "centerContentHero",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "centered-content",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
+    });
   });
 
   it("should render small size", () => {
@@ -129,11 +137,13 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "small",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render secondary heading and searchbar", () => {
@@ -147,11 +157,13 @@ describe("IcHero", () => {
         <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
       </IcHero>
     );
-    cy.wait(500).compareSnapshot({
-      name: "secondaryHeading_Serch",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "secondary-heading-search",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render card on right", () => {
@@ -179,11 +191,13 @@ describe("IcHero", () => {
         />
       </IcHero>
     );
-    cy.compareSnapshot({
-      name: "cardContent",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "card-content",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
   });
 
   it("should render image on right", () => {
@@ -223,11 +237,13 @@ describe("IcHero", () => {
         </SlottedSVG>
       </IcHero>
     );
-    cy.compareSnapshot({
-      name: "imageRight",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "image-right",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+    });
   });
 
   it("should render background image", () => {
@@ -245,11 +261,14 @@ describe("IcHero", () => {
         </IcButton>
       </IcHero>
     );
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, 300);
     cy.compareSnapshot({
-      name: "backgroundImage",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "background-image",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.009),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with search bar", () => {
@@ -261,10 +280,12 @@ describe("IcHero", () => {
         <IcSearchBar slot="interaction" label="Search for coffee" hideLabel />
       </IcHero>
     );
-    cy.wait(500).compareSnapshot({
+    cy.checkHydrated(IC_HERO_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
       name: "searchbar",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 });

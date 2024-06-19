@@ -26,7 +26,7 @@ import {
 } from "./IcButtonTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.03;
+const DEFAULT_TEST_THRESHOLD = 0;
 
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
@@ -342,11 +342,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "primary",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render text based secondary buttons", () => {
@@ -398,11 +398,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "secondary",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render text based tertiary buttons", () => {
@@ -454,11 +454,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tertiary",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render text based destructive buttons", () => {
@@ -482,11 +482,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "destructive",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with-icon based buttons", () => {
@@ -583,11 +583,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render different sized buttons", () => {
@@ -617,11 +617,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "size",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with icon buttons without viewbox", () => {
@@ -644,11 +644,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "icon-without-viewbox",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render full width buttons", () => {
@@ -683,11 +683,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full-width",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render icon buttons", () => {
@@ -742,8 +742,12 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
-    cy.compareSnapshot({ name: "icon", testThreshold: 0 });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: 1000,
+    });
   });
 
   it("should render dropdown buttons", () => {
@@ -908,11 +912,11 @@ describe("IcButton Visual Regression Testing", () => {
       </div>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dropdown",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.06,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.077),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render dropdown with popover", () => {
@@ -920,10 +924,11 @@ describe("IcButton Visual Regression Testing", () => {
 
     cy.get("ic-button").click();
 
-    cy.checkA11yWithWait(undefined, 200);
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "dropdown-popover",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
+      delay: 500,
     });
   });
 
@@ -936,11 +941,11 @@ describe("IcButton Visual Regression Testing", () => {
       </IcButton>
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "router-slot",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
-    cy.checkA11yWithWait();
   });
 
   it("renders with icon variant button group", () => {
@@ -962,6 +967,28 @@ describe("IcButton Visual Regression Testing", () => {
     cy.compareSnapshot({
       name: "icon-variants-button-group",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("renders with icon variant button group", () => {
+    mount(
+      <>
+        <IconBtnGroup props={iconProps.iconDefault} />
+        <IconBtnGroup props={iconProps.iconLarge} />
+        <IconBtnGroup props={iconProps.iconSmall} />
+        <IconBtnGroup props={iconProps.iconLoading} />
+        <IconBtnGroup props={iconProps.iconDisabled} />
+        <IconBtnGroup props={iconProps.iconDark} />
+        <IconBtnGroup props={iconProps.iconDarkLoading} />
+        <IconBtnGroup props={iconProps.iconLight} />
+        <IconBtnGroup props={iconProps.iconLightLoading} />
+      </>
+    );
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "icon-variants-button-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 });

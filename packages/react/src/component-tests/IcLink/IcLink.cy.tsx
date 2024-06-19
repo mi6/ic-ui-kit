@@ -5,8 +5,9 @@ import React from "react";
 import { IcLink } from "../../components";
 import { mount } from "cypress/react";
 import { HAVE_ATTR } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.026;
 
 describe("IcLink e2e, A11y and visual regression tests", () => {
   beforeEach(() => {
@@ -23,17 +24,21 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         <IcLink href="/components/link/code">About our coffees</IcLink>
       </div>
     );
+
     cy.checkHydrated("ic-link");
+
     cy.compareSnapshot({
-      name: "defaultLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
+
     cy.get("ic-link").shadow().find("a").focus();
-    cy.compareSnapshot({
-      name: "defaultFocusLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "default-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should render dark IcLink", () => {
@@ -44,16 +49,19 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         </IcLink>
       </div>
     );
+
     cy.compareSnapshot({
-      name: "darkLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
+
     cy.get("ic-link").shadow().find("a").focus();
-    cy.compareSnapshot({
-      name: "darkFocusLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dark-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
   });
 
   it("should render light IcLink", () => {
@@ -66,16 +74,19 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         </IcLink>
       </div>
     );
+
     cy.compareSnapshot({
-      name: "lightLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
+
     cy.get("ic-link").shadow().find("a").focus();
-    cy.compareSnapshot({
-      name: "lightFocusLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "light-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
   });
 
   it("should verify download link existence on DOM", () => {
@@ -86,7 +97,9 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         </IcLink>
       </div>
     );
+
     cy.get('[download="true"]').should("exist");
+
     cy.checkA11yWithWait();
   });
 
@@ -98,11 +111,12 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         </IcLink>
       </div>
     );
-    cy.compareSnapshot({
-      name: "linkWithIcon",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should render multiline links", () => {
@@ -120,11 +134,12 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
     );
 
     cy.get("#focusLink").shadow().find("a").focus();
-    cy.compareSnapshot({
-      name: "multilineLinks",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "multiline",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
+    });
   });
 
   it("should update any attributes that are inherited from the root element", () => {
@@ -134,6 +149,7 @@ describe("IcLink e2e, A11y and visual regression tests", () => {
         About our coffees
       </IcLink>
     );
+
     cy.findShadowEl("ic-link", "a").should(
       HAVE_ATTR,
       ARIA_LABEL_ATTR,

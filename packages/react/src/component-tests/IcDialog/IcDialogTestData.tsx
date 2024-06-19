@@ -80,7 +80,7 @@ export const SlottedContentDialog = () => {
   );
 };
 
-export const SlottedContentDialogAccordian = () => {
+export const SlottedContentDialogAccordion = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
@@ -106,7 +106,7 @@ export const SlottedContentDialogAccordian = () => {
   );
 };
 
-export const SlottedContentDialogAccordianGroup = () => {
+export const SlottedContentDialogAccordionGroup = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
@@ -131,7 +131,7 @@ export const SlottedContentDialogAccordianGroup = () => {
   );
 };
 
-export const SlottedContentDialogAccordianGroupSingleExpansion = () => {
+export const SlottedContentDialogAccordionGroupSingleExpansion = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;

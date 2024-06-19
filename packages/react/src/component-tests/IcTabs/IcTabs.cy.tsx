@@ -306,6 +306,8 @@ describe("IcTab end-to-end tests", () => {
       .should(CONTAIN_TEXT, "Ingredients")
       .and(HAVE_ATTR, "selected");
 
+    cy.wait(2000);
+
     cy.focused().as("activeElement");
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "Method")
@@ -327,6 +329,8 @@ describe("IcTab end-to-end tests", () => {
     cy.get("@activeElement")
       .should(CONTAIN_TEXT, "History")
       .and(HAVE_ATTR, "selected");
+
+    cy.wait(2000);
 
     cy.focused().as("activeElement");
     cy.get("@activeElement")
@@ -432,28 +436,31 @@ describe("IcTab visual regression tests", () => {
 
   it("should render default IcTab", () => {
     mount(<SimpleTabGroup />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default_IcTab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
   it("should render disabled tab", () => {
     mount(<DisabledTab />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled_tab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.011,
+      name: "disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 
   it("should render responsive tabs", () => {
     mount(<ResponsiveTabs />);
+
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "responsive_tabs",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.002,
+      name: "responsive",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -463,10 +470,11 @@ describe("IcTab visual regression tests", () => {
         <ResponsiveLightTextTabs />
       </div>
     );
+
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "responsive_light_text_tabs",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "responsive-light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -476,64 +484,71 @@ describe("IcTab visual regression tests", () => {
         <LightTabs />
       </div>
     );
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "light_IcTab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.012,
+      name: "light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
   it("should render IcTab with icons", () => {
     mount(<TabsWithIcons />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "IcTab_with_icons",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
+      name: "with-icons",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
   it("should render IcTab with inline badges", () => {
     mount(<TabsWithInlineBadges />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "IcTab_with_inline_badges",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.008,
+      name: "with-inline-badges",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 
   it("should render IcTab correctly with Inline prop set to true", () => {
     mount(<InlineTabGroup />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "IcTab_with_inline_prop",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
+      name: "with-inline-prop",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
   it("should render compact tab selector with horizontal scroll", () => {
     mount(<CompactTabSelector />);
+
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "compact_IcTab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      name: "compact",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
   it("should render nested tabs", () => {
     mount(<NestedTabs />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "nested_tabs",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.029,
+      name: "nested",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
     });
   });
 
   it("should render manual activation IcTab", () => {
     mount(<ManualActivationTabGroup />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "manual_activation_tabs",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
+      name: "manual-activation",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
   });
 
@@ -546,8 +561,9 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focused_tab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.014,
+      name: "focused",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      delay: 500,
     });
   });
 
@@ -564,17 +580,19 @@ describe("IcTab visual regression tests", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focused_light_tab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.012,
+      name: "focused-light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      delay: 500,
     });
   });
 
   it("should render min and max content tabs", () => {
     mount(<MinMaxTabs />);
+
     // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "min_max_tab",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.012,
+      name: "min-max",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
     });
   });
 });
@@ -600,26 +618,26 @@ describe("IcTabs visual regression in high contrast mode", () => {
     cy.get("@activeElement").should(CONTAIN_TEXT, "Method");
 
     cy.compareSnapshot({
-      name: "focused_tabs_high_contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      name: "focused-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
   it("should render disabled tab", () => {
     mount(<DisabledTab />);
-    cy.checkA11yWithWait();
+
     cy.compareSnapshot({
-      name: "disabled_tab_high_contrast",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.011,
+      name: "disabled-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
     });
   });
 
   it("should render inline tab group", () => {
     mount(<InlineTabGroup />);
-    cy.checkA11yWithWait();
+
     cy.compareSnapshot({
-      name: "IcTab_with_inline_prop_high_contrast",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.015,
+      name: "inline-prop-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 });

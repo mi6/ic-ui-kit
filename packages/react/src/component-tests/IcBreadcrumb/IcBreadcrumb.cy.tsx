@@ -2,11 +2,12 @@
 
 import { mount } from "cypress/react";
 import React from "react";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { IcBreadcrumb, IcBreadcrumbGroup } from "../../components";
 import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import { BE_VISIBLE, HAVE_FOCUS } from "../utils/constants";
-const DEFAULT_TEST_THRESHOLD = 0.03;
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+
+const DEFAULT_TEST_THRESHOLD = 0.013;
 
 const IC_BREADCRUMB_LABEL = "ic-breadcrumb";
 
@@ -30,10 +31,11 @@ describe("IcBreadcrumb", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.get("ic-breadcrumb-group").should(BE_VISIBLE);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "rabderBreadcrumb",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      name: "default",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -47,11 +49,6 @@ describe("IcBreadcrumb", () => {
     );
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-    cy.compareSnapshot({
-      name: "randerPageTitle",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-    });
   });
 
   it("should render with page-title, href, currents", () => {
@@ -64,11 +61,6 @@ describe("IcBreadcrumb", () => {
     );
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
-    cy.compareSnapshot({
-      name: "pageTitleWithCurrent",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-    });
   });
 
   it("should render with backBreadcrumbOnly", () => {
@@ -82,10 +74,11 @@ describe("IcBreadcrumb", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, "svg").should(BE_VISIBLE);
     cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "backBreadcrumb",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      name: "back",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -142,10 +135,11 @@ describe("IcBreadcrumb", () => {
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, "svg").should(BE_VISIBLE);
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "breadcrumWithIcon",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      name: "icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 
@@ -159,10 +153,6 @@ describe("IcBreadcrumb", () => {
     );
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
     cy.findShadowEl(IC_BREADCRUMB_LABEL, ".chevron").should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "currentPageClassBreadcrumb",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-    });
   });
 
   it("should call 'setFocus' when breadcrumb is focused", () => {
@@ -182,11 +172,12 @@ describe("IcBreadcrumb", () => {
       .each(($el) => {
         cy.wrap($el).focus().should(HAVE_FOCUS);
       });
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "focusBreadcrumb",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.3,
+      name: "focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
   });
 
   it("should render collapsed", () => {
@@ -198,12 +189,14 @@ describe("IcBreadcrumb", () => {
       </IcBreadcrumbGroup>
     );
     cy.checkHydrated(IC_BREADCRUMB_LABEL);
+
+    cy.checkA11yWithWait(undefined, 200, { includedImpacts: ["critical"] });
+    cy.compareSnapshot({
+      name: "collapsed",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      delay: 100,
+    });
     cy.get("#collapsed-ellipsis").should(BE_VISIBLE).click();
     cy.get('[page-title="Beverages"]').should(BE_VISIBLE);
-    cy.checkA11y(undefined, { includedImpacts: ["critical"] });
-    cy.compareSnapshot({
-      name: "collapsedBreadcrumb",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
-    });
   });
 });

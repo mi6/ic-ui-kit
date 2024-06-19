@@ -19,4 +19,4 @@ export const NO_RESULTS_FOUND = "No results found";
 export const RETRY_BUTTON = "#retry-button";
 export const LOADING_MESSAGE = "Loading...";
 
-export const DEFAULT_TEST_THRESHOLD = 0.05;
+export const DEFAULT_TEST_THRESHOLD = 0.042;

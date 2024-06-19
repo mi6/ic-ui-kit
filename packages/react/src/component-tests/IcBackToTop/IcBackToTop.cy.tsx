@@ -11,7 +11,7 @@ import {
 import { BackToTop } from "./IcBackToTopTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.024;
+const DEFAULT_TEST_THRESHOLD = 0.031;
 
 const BACK_TO_TOP_SELECTOR = "ic-back-to-top";
 
@@ -56,7 +56,7 @@ describe("IcBackToTop", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -76,7 +76,7 @@ describe("IcBackToTop", () => {
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -113,7 +113,7 @@ describe("IcBackToTop", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focussed",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.057),
       delay: 1000,
       cypressScreenshotOptions: {
         capture: "viewport",

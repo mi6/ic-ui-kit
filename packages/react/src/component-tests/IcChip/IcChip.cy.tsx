@@ -10,7 +10,8 @@ import { SwitchColour } from "./IcChipTestData";
 import { HAVE_PROP } from "../utils/constants";
 import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 
-const DEFAULT_TEST_THRESHOLD = 0.03;
+const DEFAULT_TEST_THRESHOLD = 0.022;
+const CHIP_SELECTOR = "ic-chip";
 
 describe("IcChip visual and a11y testing", () => {
   beforeEach(() => {
@@ -27,12 +28,13 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Default" />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "static",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render outlined", () => {
@@ -41,12 +43,13 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Default" variant="outlined" />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "outlined",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with icon", () => {
@@ -66,12 +69,13 @@ describe("IcChip visual and a11y testing", () => {
         </IcChip>
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render sizes", () => {
@@ -82,36 +86,40 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Large" size="large" />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render dismissible", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip id="small-chip" label="Small" size="small" dismissible />
-        <IcChip label="Default" dismissible />
-        <IcChip label="Large" size="large" dismissible />
+        <IcChip id="default-chip" label="Default" dismissible />
+        <IcChip id="large-chip" label="Large" size="large" dismissible />
       </div>
     );
+    cy.checkHydrated("ic-chip#small-chip");
+    cy.checkHydrated("ic-chip#default-chip");
+    cy.checkHydrated("ic-chip#large-chip");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dismissible",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-chip#small-chip", "button").focus();
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dismissible-focus",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
     });
-    cy.checkA11yWithWait();
   });
 
   it("shoud render disabled", () => {
@@ -121,6 +129,7 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Default" variant="outlined" disabled />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
     // Disabled elements do not to pass contrast checks according to WCAG guidance
     const customCypressRules = {
@@ -133,7 +142,7 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait(undefined, undefined, customCypressRules);
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
     });
   });
 
@@ -157,12 +166,13 @@ describe("IcChip visual and a11y testing", () => {
         </IcChip>
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "long-label",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with white background for outlined variant", () => {
@@ -181,12 +191,13 @@ describe("IcChip visual and a11y testing", () => {
         />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "white-background",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with a custom colour", () => {
@@ -197,19 +208,19 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Default" customColor="#00008B" />
       </div>
     );
+    cy.checkHydrated(CHIP_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-colour",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should switch custom colour after initial render", () => {
     mount(<SwitchColour />);
 
     cy.get("ic-button").click();
-
     cy.get("ic-chip").should(HAVE_PROP, "customColor", "#00008B");
   });
 });
