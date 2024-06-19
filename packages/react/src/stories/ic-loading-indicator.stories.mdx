@@ -15,15 +15,31 @@ import readme from "../../../web-components/src/components/ic-loading-indicator/
 <Description markdown={readme} />
 
 export const defaultArgs = {
-  progress: 30,
-  min: 0,
-  max: 100,
+  appearance: "dark",
+  description: "Loading",
+  fullWidth: false,
+  labelDuration: 8000,
+  size: "default",
+  type: "circular",
+  label: null,
 };
 
 export const defaultArgTypes = {
-  progress: { type: { name: "number", min: 1, max: 100 } },
-  min: { type: { name: "number", min: 1, max: 100 } },
-  max: { type: { name: "number", min: 1, max: 100 } },
+  appearance: {
+    options: ["dark", "light"],
+    control: { type: "radio" },
+  },
+  label: {
+    control: { type: "text" },
+  },
+  size: {
+    options: ["small", "default", "large", "icon"],
+    control: { type: "radio" },
+  },
+  type: {
+    options: ["circular", "linear"],
+    control: { type: "radio" },
+  },
 };
 
 ### Circular (determinate)
@@ -37,17 +53,13 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Circular (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
   >
-    {(args) => (
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Loading..."
-      />
-    )}
+    <IcLoadingIndicator
+      progress="30"
+      min="0"
+      max="100"
+      label="Loading..."
+    />
   </Story>
 </Canvas>
 
@@ -76,33 +88,29 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Circular variants (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
   >
-    {(args) => (
-      <div style={{ display: "grid", gap: "50px" }}>
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Small"
-          size="small"
-        />
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Default"
-        />
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Large"
-          size="large"
-        />
-      </div>
-    )}
+    <div style={{ display: "grid", gap: "50px" }}>
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Small"
+        size="small"
+      />
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Default"
+      />
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Large"
+        size="large"
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -127,18 +135,14 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Linear (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
   >
-    {(args) => (
-      <IcLoadingIndicator
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-        label="Loading..."
-        type="linear"
-      />
-    )}
+    <IcLoadingIndicator
+      progress="30"
+      min="0"
+      max="100"
+      label="Loading..."
+      type="linear"
+    />
   </Story>
 </Canvas>
 
@@ -173,45 +177,41 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Linear variants (determinate)"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
   >
-    {(args) => (
-      <div style={{ display: "grid", gap: "50px" }}>
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Small"
-          size="small"
-          type="linear"
-        />
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Default"
-          type="linear"
-        />
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Large"
-          size="large"
-          type="linear"
-        />
-        <IcLoadingIndicator
-          progress={args.progress}
-          min={args.min}
-          max={args.max}
-          label="Full-width"
-          size="default"
-          type="linear"
-          fullWidth={true}
-        />
-      </div>
-    )}
+    <div style={{ display: "grid", gap: "50px" }}>
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Small"
+        size="small"
+        type="linear"
+      />
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Default"
+        type="linear"
+      />
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Large"
+        size="large"
+        type="linear"
+      />
+      <IcLoadingIndicator
+        progress="30"
+        min="0"
+        max="100"
+        label="Full-width"
+        size="default"
+        type="linear"
+        fullWidth={true}
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -282,18 +282,68 @@ export const defaultArgTypes = {
 <Canvas>
   <Story
     name="Progress indicator for compact step"
-    args={defaultArgs}
-    argTypes={defaultArgTypes}
     parameters={{ loki: { skip: true } }}
   >
+    <IcLoadingIndicator
+      size="small"
+      inner-label="3"
+      progress="30"
+      min="0"
+      max="100"
+    />
+  </Story>
+</Canvas>
+
+### Playground - indeterminate
+
+<Canvas>
+  <Story name="Playground - indeterminate"
+    args={defaultArgs}
+    argTypes={defaultArgTypes}
+  >
     {(args) => (
-      <IcLoadingIndicator
-        size="small"
-        inner-label="3"
-        progress={args.progress}
-        min={args.min}
-        max={args.max}
-      />
-    )}
+        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+          <IcLoadingIndicator
+            appearance={args.appearance}
+            description={args.description}
+            fullWidth={args.fullWidth}
+            labelDuration={args.labelDuration}
+            size={args.size}
+            type={args.type}
+            label={args.label}
+          />
+        </div>
+      )}
+  </Story>
+</Canvas>
+
+### Playground - determinate
+
+<Canvas>
+  <Story name="Playground - determinate"
+    args={{
+      ...defaultArgs,
+      max: 100,
+      min: 0,
+      progress: 30,
+    }}
+    argTypes={defaultArgTypes}
+  >
+    {(args) => (
+        <div style={{ backgroundColor: args.appearance === "light" ? "#393939" : "#FFFFFF", padding: "16px" }}>
+          <IcLoadingIndicator
+            appearance={args.appearance}
+            description={args.description}
+            fullWidth={args.fullWidth}
+            labelDuration={args.labelDuration}
+            size={args.size}
+            type={args.type}
+            label={args.label}
+            progress={args.progress}
+            min={args.min}
+            max={args.max}
+          />
+        </div>
+      )}
   </Story>
 </Canvas>
