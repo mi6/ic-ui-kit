@@ -1858,7 +1858,7 @@ export namespace Components {
         /**
           * The size of the status tag component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
@@ -5241,7 +5241,7 @@ declare namespace LocalJSX {
         /**
           * The size of the status tag component.
          */
-        "size"?: IcSizesNoLarge;
+        "size"?: IcSizes;
         /**
           * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
          */
