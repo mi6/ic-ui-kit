@@ -17,6 +17,7 @@ import {
   PageHeaderSlottedHeadings,
 } from "./IcPageHeaderTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+const DEFAULT_TEST_THRESHOLD = 0.042;
 
 describe("IcPageHeader", () => {
   beforeEach(() => {
@@ -30,23 +31,26 @@ describe("IcPageHeader", () => {
 
   it("should render default", () => {
     mount(<PageHeaderDefault />);
+
     cy.checkHydrated("ic-page-header");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(0.042),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
   it("should stay at the top of the page if the sticky variant is used", () => {
     cy.viewport(1050, 450);
     mount(<ScrollStickyPageHeader />);
-    cy.checkA11yWithWait();
+
     cy.scrollTo("bottom").checkHydrated("ic-button#end");
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "stickyVariant",
-      testThreshold: setThresholdBasedOnEnv(0.13),
+      name: "sticky-variant",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.087),
       cypressScreenshotOptions: {
         clip: { x: 0, y: 450, width: 1050, height: 600 },
       },
@@ -63,8 +67,8 @@ describe("IcPageHeader", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "desktopOnlyAfterScroll",
-      testThreshold: setThresholdBasedOnEnv(0.3),
+      name: "desktop-only-after-scroll",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.199),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -73,58 +77,66 @@ describe("IcPageHeader", () => {
 
   it("should render center aligned", () => {
     mount(PageheaderAlign("center"));
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "centerPageHeader",
-      testThreshold: setThresholdBasedOnEnv(0.047),
+      name: "center-page-header",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
   it("should render small", () => {
     mount(<PageHeaderSmallSize />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "smallSize",
-      testThreshold: setThresholdBasedOnEnv(0.042),
+      name: "small-size",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
   it("should render full width", () => {
     mount(PageheaderAlign("full-width"));
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "fullWidthPageHeader",
-      testThreshold: setThresholdBasedOnEnv(0.048),
+      name: "full-width-page-header",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
   it("should render without border", () => {
     mount(<PageHeaderWithoutBorder />);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "withoutBorder",
-      testThreshold: setThresholdBasedOnEnv(0.048),
+      name: "without-border",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
     });
   });
 
   it("should render with actions, input and tabs", () => {
     mount(<PageHeaderWithActionsInputTabs />);
-    cy.checkA11yWithWait();
+
     cy.get("ic-navigation-item").should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "withActionInputTab",
-      testThreshold: setThresholdBasedOnEnv(0.052),
+      name: "with-action-input-tab",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 
   it("should render with actions, input and stepper", () => {
     mount(<PageHeaderWithStepper />);
+
     cy.get("ic-chip").should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
     cy.get("ic-text-field").should(BE_VISIBLE);
+
     cy.compareSnapshot({
-      name: "withActionInputStep",
-      testThreshold: setThresholdBasedOnEnv(0.054),
+      name: "with-action-input-step",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
     });
   });
 
@@ -132,8 +144,8 @@ describe("IcPageHeader", () => {
     mount(<PageHeaderWithBreadcrumbNav />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "withBreadcrumb",
-      testThreshold: setThresholdBasedOnEnv(0.044),
+      name: "with-breadcrumb",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
@@ -141,8 +153,8 @@ describe("IcPageHeader", () => {
     mount(<PageHeaderSlottedHeadings />);
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "withSlottedHeadings",
-      testThreshold: setThresholdBasedOnEnv(0.042),
+      name: "with-slotted-headings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
@@ -162,33 +174,42 @@ describe("IcPageHeader", () => {
     it("should render", () => {
       mount(<PageHeaderDefault />);
       cy.compareSnapshot({
-        name: "defaultHighContrast",
-        testThreshold: setThresholdBasedOnEnv(0.04),
+        name: "default-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
       });
     });
 
     it("should render with actions, input and tabs", () => {
       mount(<PageHeaderWithActionsInputTabs />);
       cy.compareSnapshot({
-        name: "actionsInputTabsHighContrast",
-        testThreshold: setThresholdBasedOnEnv(0.04),
+        name: "actions-input-tabs-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
       });
     });
 
     it("should render with breadcrumbs", () => {
       mount(<PageHeaderWithBreadcrumbNav />);
       cy.compareSnapshot({
-        name: "breadcrumbsHighContrast",
-        testThreshold: setThresholdBasedOnEnv(0.041),
+        name: "breadcrumbs-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
       });
     });
 
     it("should render with stepper", () => {
       mount(<PageHeaderWithStepper />);
       cy.compareSnapshot({
-        name: "stepperHighContrast",
-        testThreshold: setThresholdBasedOnEnv(0.044),
+        name: "stepper-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
       });
+    });
+  });
+
+  it("should render with slotted headings", () => {
+    mount(<PageHeaderSlottedHeadings />);
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "with-slotted-headings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 });

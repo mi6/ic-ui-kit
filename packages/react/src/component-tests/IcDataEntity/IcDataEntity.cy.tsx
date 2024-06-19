@@ -9,7 +9,6 @@ import {
   HAVE_TEXT,
   HAVE_VALUE,
 } from "../utils/constants";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import {
   Default,
@@ -23,7 +22,7 @@ import {
   WithStatusTags,
 } from "./IcDataEntityTestData";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.025;
 
 const DATA_ENTITY_SELECTOR = "ic-data-entity";
 const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
@@ -47,10 +46,11 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+      delay: 200,
     });
   });
 
@@ -61,10 +61,10 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "links",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
@@ -75,10 +75,10 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slottedHeadingLabel",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "slotted-heading-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
     });
   });
 
@@ -97,8 +97,8 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "oneDataRow",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "one-data-row",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
@@ -122,7 +122,7 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "button",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
@@ -133,10 +133,10 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkA11y(undefined, CYPRESS_AXE_OPTIONS);
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "statusTag",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.07),
+      name: "status-tag",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
     });
   });
 
@@ -149,8 +149,8 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "sizeSmall",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      name: "size-small",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -161,10 +161,11 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "editableData",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "editable-data",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+      delay: 500,
     });
   });
 
@@ -186,11 +187,12 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       .type("Matt")
       .should(HAVE_VALUE, "Matt");
     cy.get("ic-button").contains("Confirm").click();
+
     cy.checkA11yWithWait();
 
     cy.compareSnapshot({
-      name: "editableNameData",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
+      name: "editable-name-data",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
     });
   });
 });

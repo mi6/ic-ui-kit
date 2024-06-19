@@ -27,6 +27,8 @@ const defaultArgs = {
   max: 100,
 };
 
+const DEFAULT_TEST_THRESHOLD = 0;
+
 describe("IcLoadingIndicator", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -38,6 +40,7 @@ describe("IcLoadingIndicator", () => {
 
   it("should render", () => {
     mount(<IndeterminateCircularLoadingIndWithLabel />);
+
     cy.findShadowEl(
       "ic-loading-indicator",
       "ic-typography#ic-loading-label"
@@ -55,11 +58,11 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
-    cy.compareSnapshot({
-      name: "determinateCircularsWith3Sizes",
-      testThreshold: setThresholdBasedOnEnv(0.03),
-    });
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "determinate-circulars-with-3-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
   });
 
   it("should render determinate with icon", () => {
@@ -73,14 +76,14 @@ describe("IcLoadingIndicator", () => {
 
     cy.get("ic-loading-indicator").invoke("prop", "size").should("eq", "icon");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateCircularWithIcon",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      name: "determinate-circular-with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       cypressScreenshotOptions: {
         clip: ICON_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render lots of determinate linear with many sizes", () => {
@@ -92,14 +95,14 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateLinearsWith3Sizes",
-      testThreshold: setThresholdBasedOnEnv(0.04),
+      name: "determinate-linears-with-3-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render determinate light circular with many sizes", () => {
@@ -110,16 +113,16 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
     cy.get("ic-loading-indicator")
       .invoke("prop", "appearance")
       .should("eq", "light");
 
-    cy.compareSnapshot({
-      name: "determinateLightCircularWith3Sizes",
-      testThreshold: setThresholdBasedOnEnv(0.03),
-    });
-
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "determinate-light-circular-with-3-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+    });
   });
 
   it("should render determinate light circular icon size", () => {
@@ -130,19 +133,20 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
     cy.get("ic-loading-indicator")
       .invoke("prop", "appearance")
       .should("eq", "light");
     cy.get("ic-loading-indicator").invoke("prop", "size").should("eq", "icon");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateCircularLightWithIcon",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      name: "determinate-circular-light-with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       cypressScreenshotOptions: {
         clip: ICON_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render lots of determinate linear light with many sizes", () => {
@@ -154,14 +158,14 @@ describe("IcLoadingIndicator", () => {
       />
     );
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateLinearsLightWith3Sizes",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      name: "determinate-linears-light-with-3-sizes",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.024),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render lots of determinate with no label but description", () => {
@@ -172,18 +176,19 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
     cy.get("ic-loading-indicator")
       .invoke("prop", "description")
       .should("eq", "Loading");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateCircularWithDescNoLabel",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      name: "determinate-circular-with-desc-no-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       cypressScreenshotOptions: {
         clip: MULTI_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render determinate circular with inner label", () => {
@@ -194,23 +199,25 @@ describe("IcLoadingIndicator", () => {
         min={defaultArgs.min}
       />
     );
+
     cy.get("ic-loading-indicator")
       .invoke("prop", "inner-label")
       .should("eq", "3");
     cy.get("ic-loading-indicator").invoke("prop", "min").should("eq", 0);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "determinateCircularWithInnerLabel",
-      testThreshold: setThresholdBasedOnEnv(0.03),
+      name: "determinate-circular-with-inner-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
       cypressScreenshotOptions: {
         clip: INNER_LABEL_CLIP,
       },
     });
-    cy.checkA11yWithWait();
   });
 
   it("should change label after specified amount of time", () => {
     mount(<IndeterminateCircularLoadingIndE2EWithDuration />);
+
     cy.findShadowEl("ic-loading-indicator", "ic-typography#ic-loading-label")
       .find("p")
       .should(HAVE_TEXT, "First label");

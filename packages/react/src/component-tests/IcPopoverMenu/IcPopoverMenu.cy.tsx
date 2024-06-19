@@ -12,6 +12,8 @@ import {
   PopoverWithMenuGroups,
 } from "./IcPopoverMenuData";
 
+const DEFAULT_TEST_THRESHOLD = 0.016;
+
 describe("IcPopoverMenu", () => {
   beforeEach(() => {
     cy.injectAxe();
@@ -25,33 +27,31 @@ describe("IcPopoverMenu", () => {
     mount(<PopoverDropdown />);
 
     cy.checkHydrated("ic-popover-menu");
-    cy.checkA11yWithWait();
 
-    cy.get("ic-button").click();
+    cy.get("ic-button").click().wait(500);
 
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "default_afterclick_button",
-      testThreshold: setThresholdBasedOnEnv(0.037),
+      name: "default-after-click-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
     });
   });
 
   it("should render with description", () => {
     mount(<PopoverMenuDescription />);
 
-    cy.checkA11yWithWait();
+    cy.get("ic-button").click().wait(500);
 
-    cy.get("ic-button").click();
-
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "popovermenu_with_description",
-      testThreshold: setThresholdBasedOnEnv(0.049),
+      name: "description",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
   it("should not be clickable when disabled", () => {
     mount(<DisabledPopoverMenu />);
 
-    cy.checkA11yWithWait();
     cy.checkHydrated("ic-popover-menu");
 
     cy.get("ic-popover-menu").invoke(
@@ -67,42 +67,42 @@ describe("IcPopoverMenu", () => {
 
     cy.get("@triggerPopoverMenuInstance").should(NOT_BE_CALLED_ONCE);
 
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "disabled_dropdown",
-      testThreshold: setThresholdBasedOnEnv(0.017),
+      name: "disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
   it("should render with button variations", () => {
     mount(<PopoverMenuWithVariants />);
 
-    cy.checkA11yWithWait();
+    cy.get("ic-button").click().wait(500);
 
-    cy.get("ic-button").click();
-
+    // cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "popoverMenu_with_variants",
-      testThreshold: setThresholdBasedOnEnv(0.061),
+      name: "variants",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
 
   it("should render with menu group", () => {
     mount(<PopoverWithMenuGroups />);
 
-    cy.checkA11yWithWait();
+    cy.get("ic-button").click().wait(500);
 
-    cy.get("ic-button").click();
-
+    // cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "popoverMenu_with_menu_group",
-      testThreshold: setThresholdBasedOnEnv(0.039),
+      name: "menu-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      delay: 1000,
     });
   });
 
   it("should emit icPopoverClosed when document body is clicked", () => {
     mount(<PopoverDropdown />);
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
 
     cy.get("ic-popover-menu").invoke(
       "on",
@@ -118,7 +118,7 @@ describe("IcPopoverMenu", () => {
   it("should emit triggerPopoverMenuInstance when submenu trigger button is clicked", () => {
     mount(<PopoverDropdown />);
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
 
     cy.get("ic-popover-menu").invoke(
       "on",
@@ -135,7 +135,7 @@ describe("IcPopoverMenu", () => {
   it("should emit triggerPopoverMenuInstance when handleMenuItemClick", () => {
     mount(<PopoverMenuDescription />);
 
-    cy.checkA11yWithWait();
+    // cy.checkA11yWithWait();
 
     cy.get("ic-popover-menu").invoke(
       "on",

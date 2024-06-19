@@ -57,6 +57,7 @@ import {
   searchableCoffeeOption,
   validationCoffeeOption,
 } from "./IcSelectTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 describe("IcSelect", () => {
   beforeEach(() => {
@@ -69,11 +70,12 @@ describe("IcSelect", () => {
 
   it("should render when no options are provided", () => {
     mount(<IcSelect label="What is your favourite coffee?" />);
+
     cy.checkHydrated("ic-select");
 
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.get("ic-select").should("exist");
@@ -86,14 +88,15 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
-    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", SC_IC_MENU_TYPOGRAPHY)
@@ -110,6 +113,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", "button").should(HAVE_ATTR, "aria-expanded");
@@ -125,6 +129,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -138,6 +143,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_VALUE_ESPRESSO)
@@ -155,6 +161,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_ENTER);
@@ -168,6 +175,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -181,6 +189,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_BACKSPACE);
@@ -205,6 +214,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -221,6 +231,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -239,6 +250,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -256,6 +268,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -273,6 +286,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -290,6 +304,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -307,6 +322,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -330,18 +346,21 @@ describe("IcSelect", () => {
         value="espresso"
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "default-value",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.005,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-value-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.025,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
-    cy.checkA11yWithWait();
 
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.clickOnShadowEl("ic-select", DATA_VALUE_ESPRESSO);
@@ -367,16 +386,17 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.compareSnapshot({
       name: "clear-button",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
 
     cy.clickOnShadowEl("ic-select", "ic-button#clear-button");
     cy.compareSnapshot({
       name: "clear-button-cleared",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
     cy.checkA11yWithWait();
   });
@@ -389,6 +409,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -407,6 +428,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -426,6 +448,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.clickOnShadowEl("ic-select", DATA_VALUE_ESPRESSO);
@@ -440,6 +463,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -459,6 +483,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -476,6 +501,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -492,6 +518,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -510,6 +537,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.findShadowEl("ic-select", ID_CLEAR_BUTTON).should(BE_VISIBLE);
@@ -525,6 +553,7 @@ describe("IcSelect", () => {
         value="espresso"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
     cy.get("input").should(HAVE_VALUE, "espresso");
@@ -537,6 +566,7 @@ describe("IcSelect", () => {
         options={coffeeOptionsDescriptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -551,11 +581,11 @@ describe("IcSelect", () => {
         cy.log($t1.text());
       });
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "descriptions-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render the placeholder", () => {
@@ -566,12 +596,14 @@ describe("IcSelect", () => {
         placeholder="Placeholder goes here"
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-placeholder",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
-    cy.checkA11yWithWait();
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -588,12 +620,14 @@ describe("IcSelect", () => {
         disabled
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
-    cy.checkA11yWithWait();
 
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
     cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
@@ -606,14 +640,15 @@ describe("IcSelect", () => {
         options={coffeeDisabledOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-options-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should set aria-disabled and skip focus when option disabled", () => {
@@ -623,6 +658,7 @@ describe("IcSelect", () => {
         options={coffeeDisabledOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -639,12 +675,14 @@ describe("IcSelect", () => {
         required
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "required",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
-    cy.checkA11yWithWait();
 
     cy.get("ic-select")
       .shadow()
@@ -662,12 +700,14 @@ describe("IcSelect", () => {
         readonly
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "readonly",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
 
     cy.get("ic-select")
       .shadow()
@@ -687,6 +727,7 @@ describe("IcSelect", () => {
         options={groupCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -700,11 +741,11 @@ describe("IcSelect", () => {
           });
       });
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "groups-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render and focus child options correctly", () => {
@@ -714,6 +755,7 @@ describe("IcSelect", () => {
         options={groupCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -747,14 +789,15 @@ describe("IcSelect", () => {
           options={recommendedCoffeeOption}
         />
       );
+
       cy.checkHydrated("ic-select");
       cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
 
+      cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "recommended-open",
-        testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
       });
-      cy.checkA11yWithWait();
 
       cy.checkShadowElVisible("ic-select", IC_MENU_LI);
       cy.findShadowEl("ic-select", ".last-recommended-option ").should("exist");
@@ -770,6 +813,7 @@ describe("IcSelect", () => {
         validationText="Error message"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -783,6 +827,7 @@ describe("IcSelect", () => {
         options={coffeeOptionsDescriptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -807,6 +852,7 @@ describe("IcSelect", () => {
         options={groupCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -834,6 +880,7 @@ describe("IcSelect", () => {
         options={groupAndDescriptionCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -851,6 +898,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
     cy.get("ic-select").shadow().find(IC_MENU_UL).should(NOT_BE_FOCUSED);
@@ -866,6 +914,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.findShadowEl("ic-select", "button").focus();
     cy.findShadowEl("ic-select", "button").should(HAVE_FOCUS);
@@ -875,6 +924,7 @@ describe("IcSelect", () => {
 
   it("should display a loading message and then the options when fetching options externally", () => {
     mount(<LoadingSelectNoTimeout />);
+
     cy.checkHydrated("ic-select");
     cy.get("ic-button").click();
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -899,6 +949,7 @@ describe("IcSelect", () => {
 
   it("should focus the retry button on tab and emit icBlur and close the menu when blurring", () => {
     mount(<LoadingSelect />);
+
     cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
 
     cy.get("ic-button").click();
@@ -916,6 +967,7 @@ describe("IcSelect", () => {
 
   it("should retry loading and keep the menu open when retry button is clicked", () => {
     mount(<LoadingSelect />);
+
     cy.get("ic-select").invoke(
       "on",
       "icRetryLoad",
@@ -937,6 +989,7 @@ describe("IcSelect", () => {
 
   it("should retry loading and keep the menu open when retry button is pressed with Enter", () => {
     mount(<LoadingSelect />);
+
     cy.get("ic-select").invoke(
       "on",
       "icRetryLoad",
@@ -968,6 +1021,7 @@ describe("IcSelect", () => {
         searchMatchPosition="start"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -986,6 +1040,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO).should(
@@ -1002,6 +1057,7 @@ describe("IcSelect", () => {
         showClearButton
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", DATA_LABEL_ESPRESSO).should(
@@ -1031,6 +1087,7 @@ describe("IcSelect", () => {
         options={searchableCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").should(HAVE_CLASS, "hydrated");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Ko");
@@ -1050,6 +1107,7 @@ describe("IcSelect", () => {
         options={coffeeDisabledOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Test");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -1077,6 +1135,7 @@ describe("IcSelect", () => {
         options={coffeeDisabledOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Test");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
@@ -1109,6 +1168,7 @@ describe("IcSelect", () => {
         </form>
       </>
     );
+
     cy.checkHydrated("ic-select");
     cy.get(".ic-input").should(HAVE_VALUE, "");
 
@@ -1127,6 +1187,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
@@ -1139,6 +1200,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.viewport(320, 480);
     cy.viewport("iphone-5");
@@ -1153,6 +1215,7 @@ describe("IcSelect", () => {
         options={coffeeDisabledOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", IC_MENU_LI).should(
@@ -1168,6 +1231,7 @@ describe("IcSelect", () => {
         options={groupCoffeeOption}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
@@ -1190,6 +1254,7 @@ describe("IcSelect", () => {
         required
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.get('[required="true"]').should("exist");
@@ -1203,6 +1268,7 @@ describe("IcSelect", () => {
         hide-label
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.get('[hide-label="true"]').should("exist");
@@ -1217,6 +1283,7 @@ describe("IcSelect", () => {
         disabled
       />
     );
+
     cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
     cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
   });
@@ -1229,6 +1296,7 @@ describe("IcSelect", () => {
         readonly
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get('[readonly="true"]').should("exist");
     cy.get("ic-select").shadow().find(IC_MENU_LI).should("exist");
@@ -1242,6 +1310,7 @@ describe("IcSelect", () => {
         placeholder="Test placeholder"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", "button ic-typography").should(
@@ -1258,6 +1327,7 @@ describe("IcSelect", () => {
         value="espresso"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").shadow().find(IC_MENU_LI).should(NOT_BE_VISIBLE);
     cy.get("input").should(HAVE_VALUE, "espresso");
@@ -1283,6 +1353,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icChange", cy.stub().as("icChanges"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
@@ -1297,6 +1368,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.get("ic-select").invoke("on", "icFocus", cy.stub().as("icFocus"));
     cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
@@ -1313,6 +1385,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.get("ic-select").invoke("on", "icBlur", cy.stub().as("icBlur"));
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
     cy.get("@icBlur").should(NOT_HAVE_BEEN_CALLED);
@@ -1325,6 +1398,7 @@ describe("IcSelect", () => {
         options={coffeeOptions}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", "button ic-typography").should(
       HAVE_CLASS,
@@ -1353,6 +1427,7 @@ describe("IcSelect", () => {
         value="espresso"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.findShadowEl("ic-select", "button.select-input").should(BE_VISIBLE);
@@ -1370,12 +1445,14 @@ describe("IcSelect", () => {
         helperText="Enter your favourite coffee"
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "helper-text",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with custom elements", () => {
@@ -1385,13 +1462,15 @@ describe("IcSelect", () => {
         options={coffeeCustomElements}
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-elements-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render small", () => {
@@ -1402,16 +1481,18 @@ describe("IcSelect", () => {
         size="small"
       />
     );
+
     cy.checkHydrated("ic-select");
     cy.compareSnapshot({
       name: "small",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
     cy.compareSnapshot({
       name: "small-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
@@ -1423,11 +1504,24 @@ describe("IcSelect", () => {
         size="large"
       />
     );
+
     cy.checkHydrated("ic-select");
-    cy.compareSnapshot("large", DEFAULT_TEST_THRESHOLD);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      delay: 1000,
+    });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
-    cy.compareSnapshot("large-open", DEFAULT_TEST_THRESHOLD + 0.02);
+
+    cy.checkA11yWithWait(undefined, 500);
+    cy.compareSnapshot({
+      name: "large-open",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      delay: 1000,
+    });
   });
 
   it("should render small - deprecated", () => {
@@ -1438,16 +1532,19 @@ describe("IcSelect", () => {
         small
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "small-deprecated",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER).wait(200);
+
     cy.compareSnapshot({
       name: "small-deprecated-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
   });
 
@@ -1459,18 +1556,21 @@ describe("IcSelect", () => {
         fullWidth
       />
     );
+
     cy.checkHydrated("ic-select");
+
     cy.compareSnapshot({
       name: "full-width",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full-width-open",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with hidden label", () => {
@@ -1481,12 +1581,14 @@ describe("IcSelect", () => {
         hideLabel
       />
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "hidden-label",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render validation", () => {
@@ -1512,12 +1614,14 @@ describe("IcSelect", () => {
         />
       </div>
     );
+
     cy.checkHydrated("ic-select");
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "validation",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.045,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render as an controlled component", () => {

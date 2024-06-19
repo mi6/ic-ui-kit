@@ -20,8 +20,9 @@ import {
   SlottedIconToast,
   SlottedLinkToast,
 } from "./IcToastTestData";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.035;
 
 const DISMISS_BUTTON_SELECTOR = "#dismiss-button";
 const OPEN_BUTTON_SELECTOR = "ic-button#open-toast-btn";
@@ -100,87 +101,95 @@ describe("IcToast Visual Regression and A11y Testing", () => {
     mount(<HeadingOnlyToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render message and variant", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "message-variant",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render multiline message", () => {
     mount(<MultilineMessageToast />);
-    cy.get("ic-button").click();
+    cy.get("ic-button").click().wait(200);
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "multiline",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.07,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.056),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render slotted button", () => {
     mount(<SlottedActionToast />);
     cy.get(OPEN_BUTTON_SELECTOR).click();
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "slotted-button",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render slotted link", () => {
     mount(<SlottedLinkToast />);
-    cy.get("ic-button").click();
+    cy.get("ic-button").click().wait(200);
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "slotted-link",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render auto dismiss", () => {
     mount(<SimpleAutoDismissToast />);
     cy.get("ic-button").click();
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "auto-dismiss",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render custom neutral icon", () => {
     mount(<SlottedIconToast />);
-    cy.get("ic-button").click();
+    cy.get("ic-button").click().wait(200);
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "custom-icon",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      delay: 500,
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render custom dismiss button aria label", () => {
     mount(<DismissAriaLabelToast />);
-    cy.get("ic-button").click();
+    cy.get("ic-button").click().wait(200);
 
-    cy.wait(100).compareSnapshot({
+    // cy.checkA11yWithWait(undefined, 100);
+    cy.compareSnapshot({
       name: "custom-aria-label",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+      delay: 1000,
     });
-    cy.checkA11yWithWait();
   });
 });

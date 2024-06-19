@@ -20,7 +20,7 @@ import {
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.05;
+const DEFAULT_TEST_THRESHOLD = 0.027;
 
 const TYPOGRAPHY_SELECTOR = "ic-typography";
 
@@ -40,9 +40,11 @@ describe("IcCard", () => {
         </a>
       </div>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("a").should(HAVE_CLASS, "ic-card-wrapper-link");
     cy.get("a").focus().should(HAVE_FOCUS);
+
     cy.checkA11yWithWait();
   });
 
@@ -69,8 +71,10 @@ describe("IcCard", () => {
         </IcCard>
       </div>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("ic-card").should(BE_VISIBLE).click().should(HAVE_FOCUS);
+
     cy.checkA11yWithWait();
   });
 
@@ -88,38 +92,44 @@ describe("IcCard", () => {
         </a>
       </div>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
     cy.get("a").focus();
     cy.get("ic-card").shadow().find(".card").should(HAVE_CLASS, "focussed");
-    cy.compareSnapshot({
-      name: "cardFocus",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
+
     cy.get("a").blur();
     cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
+
     cy.compareSnapshot({
-      name: "cardBlur",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "blur",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
     });
   });
 
-  it("should verify text matches", () => {
+  it("should render card wrapped in <a>", () => {
     mount(
       <a href="/">
         <IcCard heading="Card" message="This is a static card"></IcCard>
       </a>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("This is a static card")
       .should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "cardTextVerify",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "wrapped-anchor",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
   });
 
   it("should render three variants of cards", () => {
@@ -177,6 +187,7 @@ describe("IcCard", () => {
         </IcTypography>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("svg").should(BE_VISIBLE);
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
@@ -185,11 +196,12 @@ describe("IcCard", () => {
     cy.get('[slot="image-mid"]').should(BE_VISIBLE);
     cy.get("ic-status-tag").should(BE_VISIBLE);
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
-    cy.compareSnapshot({
-      name: "renderThreeCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "render-three",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
+    });
   });
 
   it("should render with icon", () => {
@@ -207,26 +219,30 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("svg").should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "withIcon",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should render with heading only ", () => {
     mount(<IcCard heading="Americano order"></IcCard>);
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Americano order")
       .should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "headingOnly",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "heading-only",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
   });
 
   it("should render with message", () => {
@@ -247,15 +263,17 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Extras: Double espresso shot and oat milk.")
       .should(BE_VISIBLE);
+
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "message",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with a subheading", () => {
@@ -277,15 +295,17 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("Name: Michael")
       .should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "subHeadingCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "sub-heading",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
   });
 
   it("should render with slotted heading, message and subheading", () => {
@@ -316,11 +336,12 @@ describe("IcCard", () => {
         </IcCard>
       </div>
     );
-    cy.compareSnapshot({
-      name: "slottedHeadingsCard",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "slotted-headings",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+    });
   });
 
   it("should render interaction button", () => {
@@ -360,14 +381,16 @@ describe("IcCard", () => {
         </IcButton>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("ic-button").should(BE_VISIBLE);
     cy.get("ic-button").shadow().find("button").focus();
+
+    cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
       name: "interaction",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.07,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.046),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render adornment", () => {
@@ -395,15 +418,17 @@ describe("IcCard", () => {
         />
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", "div")
       .find(".adornment")
       .should(HAVE_CLASS, "adornment");
-    cy.compareSnapshot({
-      name: "adornmentCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "adornment",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+    });
   });
 
   it("should render with top image", () => {
@@ -470,13 +495,15 @@ describe("IcCard", () => {
         />
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", ".card").find(".image-top").should("exist");
-    cy.compareSnapshot({
-      name: "topImageCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "top-image",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+    });
   });
 
   it("should render with middle image", () => {
@@ -547,13 +574,15 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", ".card").find(".image-mid").should("exist");
-    cy.compareSnapshot({
-      name: "midImageCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "mid-image",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
+    });
   });
 
   it("should render with interaction controls", () => {
@@ -583,14 +612,16 @@ describe("IcCard", () => {
         </div>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", ".card")
       .find(".interaction-area")
       .should("exist");
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
+
     cy.compareSnapshot({
       name: "interaction-controls",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
     cy.checkA11yWithWait();
   });
@@ -616,13 +647,15 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.get('[href="#"]').should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "clickableLink",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "clickable-link",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
+    });
   });
 
   it("should should render clickable button", () => {
@@ -648,13 +681,15 @@ describe("IcCard", () => {
         </IcCard>
       </div>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("ic-card").click();
+
+    cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
-      name: "clickableButtonCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      name: "clickable-button",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
     });
-    cy.checkA11yWithWait();
   });
 
   it("should render with badge", () => {
@@ -681,13 +716,15 @@ describe("IcCard", () => {
         </IcCard>
       </div>
     );
+
     cy.checkHydrated("ic-card");
     cy.get("ic-badge").should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "badgeCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "badge",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+    });
   });
 
   it("should render disabled", () => {
@@ -711,13 +748,15 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.get('[disabled="true"]').should("exist");
-    cy.compareSnapshot({
-      name: "disabledCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+    });
   });
 
   it("should render full width variant ", () => {
@@ -741,15 +780,17 @@ describe("IcCard", () => {
         </SlottedSVG>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
     cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
       .contains("This is a full width card")
       .should(BE_VISIBLE);
-    cy.compareSnapshot({
-      name: "widthCard",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
-    });
+
     cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "full-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
   });
 
   it("should render expandable and toggle expanded content when expansion toggle is clicked", () => {
@@ -780,19 +821,22 @@ describe("IcCard", () => {
         <IcTypography slot="expanded-content">Expanded</IcTypography>
       </IcCard>
     );
+
     cy.checkHydrated("ic-card");
+
+    cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
       name: "expandable",
-      testThreshold: setThresholdBasedOnEnv(0.07),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
-    cy.checkA11yWithWait();
 
     cy.findShadowEl("ic-card", "button").click({ force: true });
     cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
+
+    cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
-      name: "expandedClicked",
-      testThreshold: setThresholdBasedOnEnv(0.08),
+      name: "expanded-clicked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
     });
-    cy.checkA11yWithWait();
   });
 });

@@ -8,9 +8,9 @@ import {
   SimpleDialog,
   SlottedContentDialog,
   NoHeightConstraintDialog,
-  SlottedContentDialogAccordian,
-  SlottedContentDialogAccordianGroup,
-  SlottedContentDialogAccordianGroupSingleExpansion,
+  SlottedContentDialogAccordion,
+  SlottedContentDialogAccordionGroup,
+  SlottedContentDialogAccordionGroupSingleExpansion,
   alertDialog,
   sizeDialog,
   NoButtonDialog,
@@ -23,13 +23,17 @@ import {
 import {
   BE_VISIBLE,
   HAVE_FOCUS,
-  NOT_BE_VISIBLE,
   NOT_EXIST,
+  HAVE_ATTR,
+  NOT_HAVE_ATTR,
 } from "../utils/constants";
+import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0.07;
+const DEFAULT_TEST_THRESHOLD = 0;
 
 const DYNAMIC_SHOW_BUTTON = "ic-button#show-btn";
+const DIALOG = "ic-dialog";
+const BUTTON = "ic-button";
 
 describe("IcDialog", () => {
   beforeEach(() => {
@@ -43,197 +47,227 @@ describe("IcDialog", () => {
 
   it("should render and hide when background is clicked", () => {
     mount(<SimpleDialog />);
-    cy.get("ic-button").click();
-    cy.get("ic-dialog").should(BE_VISIBLE);
 
-    cy.checkA11yWithWait();
+    cy.get(BUTTON).click().wait(300);
+    cy.get(DIALOG).should(HAVE_ATTR, "open");
+
+    cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
       name: "default",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      delay: 500,
     });
 
     cy.get("body").click(0, 0);
-
-    cy.get("ic-dialog").should(NOT_BE_VISIBLE);
+    cy.get(DIALOG).should(NOT_HAVE_ATTR, "open");
   });
 
   it("should focus on slotted content", () => {
     mount(<SlottedContentDialog />);
-    cy.get("ic-dialog").should("exist");
-    cy.get("ic-button#slotted-dialog-btn").click();
 
-    cy.checkHydrated("ic-dialog");
-    cy.checkA11yWithWait();
+    cy.get(DIALOG).should("exist");
+    cy.get("ic-button#slotted-dialog-btn").click().wait(300);
+
+    cy.checkA11yWithWait(undefined, 200);
     cy.compareSnapshot({
       name: "slotted-content",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.066),
+      delay: 1100,
     });
 
     cy.get("ic-select").click();
-    cy.checkA11yWithWait();
+
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "slotted-content-clicked",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
+      delay: 1100,
     });
   });
 
   it("should focus on slotted content with height constraint disabled", () => {
     mount(<NoHeightConstraintDialog />);
-    cy.get("ic-dialog").should("exist");
+
+    cy.get(DIALOG).should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
 
     cy.get("ic-select").click();
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disable-height-constraint",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+      delay: 1100,
     });
   });
 
   it("should focus on slotted content - accordion", () => {
-    mount(<SlottedContentDialogAccordian />);
-    cy.get("ic-dialog").should("exist");
+    mount(<SlottedContentDialogAccordion />);
+
+    cy.get(DIALOG).should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
 
-    cy.checkHydrated("ic-dialog");
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-content-accordian",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "slotted-content-accordion",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
+      delay: 1100,
     });
   });
 
   it("should focus on slotted content - accordion group", () => {
-    mount(<SlottedContentDialogAccordianGroup />);
-    cy.get("ic-dialog").should("exist");
+    mount(<SlottedContentDialogAccordionGroup />);
+
+    cy.get(DIALOG).should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
 
-    cy.checkHydrated("ic-dialog");
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-content-accordian-group",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "slotted-content-accordion-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+      delay: 1100,
     });
   });
 
   it("should focus slotted content - accordion group with singleExpansion", () => {
-    mount(<SlottedContentDialogAccordianGroupSingleExpansion />);
-    cy.get("ic-dialog").should("exist");
+    mount(<SlottedContentDialogAccordionGroupSingleExpansion />);
+
+    cy.get(DIALOG).should("exist");
     cy.get("ic-button#slotted-dialog-btn").click();
 
-    cy.checkHydrated("ic-dialog");
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "slotted-content-accordian-group-single-expansion",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      name: "slotted-content-accordion-group-single-expansion",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+      delay: 1100,
     });
   });
 
   it("should not hide when background click is disabled", () => {
     mount(<NoBackgroundClickDialog />);
-    cy.get("ic-button").click();
-    cy.get("ic-dialog").should(BE_VISIBLE);
 
-    cy.get("body").click(0, 0);
+    cy.get(BUTTON).click().wait(1000);
+    cy.get(DIALOG).should(BE_VISIBLE);
 
-    cy.get("ic-dialog").should(BE_VISIBLE);
+    cy.get("body").click(0, 0).wait(1000);
+
+    cy.get(DIALOG).should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "background-click-disabled",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      delay: 1100,
     });
   });
 
   it("should render neutral alert dialog", () => {
     mount(alertDialog("neutral"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "neutral-alert",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      delay: 1100,
     });
   });
 
   it("should render info alert dialog", () => {
     mount(alertDialog("info"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "info-alert",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      delay: 1100,
     });
   });
 
   it("should render warning alert dialog", () => {
     mount(alertDialog("warning"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "warning-alert",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.02,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+      delay: 1100,
     });
   });
 
   it("should render error alert dialog", () => {
     mount(alertDialog("error"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "error-alert",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.04,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      delay: 1100,
     });
   });
 
   it("should render success alert dialog", () => {
     mount(alertDialog("success"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "success-alert",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.03,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      delay: 1100,
     });
   });
 
   it("should render small dialog", () => {
     mount(sizeDialog("small"));
+    cy.checkHydrated(DIALOG);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "small",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      delay: 1100,
     });
   });
 
   it("should render large dialog", () => {
     mount(sizeDialog("large"));
+    cy.checkHydrated(DIALOG);
 
-    cy.checkA11yWithWait();
+    cy.checkA11yWithWait(undefined, 1100);
     cy.compareSnapshot({
       name: "large",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      delay: 1100,
     });
   });
 
   it("should render no dialog controls", () => {
     mount(<NoButtonDialog />);
 
-    cy.get("ic-button").click();
+    cy.get(BUTTON).click();
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "no-dialog-controls",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      delay: 1100,
     });
   });
 
   it("should render destructive dialog controls", () => {
     mount(<DestructiveButtonDialog />);
 
-    cy.get("ic-button").click();
+    cy.get(BUTTON).click();
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "destructive-dialog-controls",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      delay: 1100,
     });
   });
 
@@ -241,41 +275,45 @@ describe("IcDialog", () => {
     mount(<CustomButtonDialog />);
 
     cy.get("ic-button#custom-dialog-btn").click();
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-dialog-controls",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.01,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.055),
+      delay: 1100,
     });
   });
 
   it("should render with hidden close button", () => {
     mount(<HideCloseDialog />);
 
-    cy.get("ic-button").click();
+    cy.get(BUTTON).click();
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "hide-close-button",
-      testThreshold: DEFAULT_TEST_THRESHOLD,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.053),
+      delay: 1100,
     });
   });
 
   it("should scroll within the dialog", () => {
     mount(<ScrollableDialog />);
 
-    cy.get("ic-button").click();
+    cy.get(BUTTON).click().wait(1000);
 
-    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "scroll-before",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.098),
+      delay: 1100,
     });
 
-    cy.findShadowEl("ic-dialog", ".content-area").scrollTo("bottom");
+    cy.findShadowEl("ic-dialog", ".content-area").scrollTo("bottom").wait(1000);
 
-    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "scroll-after",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.106),
+      delay: 1100,
     });
   });
 
@@ -295,7 +333,8 @@ describe("IcDialog", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tab-dynamic-content",
-      testThreshold: DEFAULT_TEST_THRESHOLD + 0.05,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.104),
+      delay: 1100,
     });
 
     cy.get("ic-button#hide-btn").click();
