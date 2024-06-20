@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h, State } from "@stencil/core";
+import { Component, Element, Host, Prop, h, State, Watch } from "@stencil/core";
 import { checkResizeObserver, pxToRem } from "../../utils/helpers";
 import { IcStepperAlignment } from "./ic-stepper.types";
 import { IcStepTypes, IcStepVariants } from "../ic-step/ic-step.types";
@@ -12,6 +12,7 @@ export class Stepper {
   private resizeObserver: ResizeObserver = null;
   private steps: HTMLIcStepElement[];
   private stepsWithStepTitles: HTMLIcStepElement[];
+  private visuallyHidden: string = "visually-hidden";
 
   @Element() el: HTMLIcStepperElement;
 
@@ -49,6 +50,13 @@ export class Stepper {
    * The variant of the stepper.
    */
   @Prop({ mutable: true }) variant?: IcStepVariants = "default";
+
+  @Watch("hideStepInfo")
+  @Watch("variant")
+  handlePropChange(): void {
+    this.setHideStepInfo();
+    this.getChildren();
+  }
 
   disconnectedCallback(): void {
     if (this.resizeObserver !== null) {
@@ -184,7 +192,7 @@ export class Stepper {
         }
 
         if (this.hideStepInfo && stepTitleArea !== null) {
-          stepTitleArea.classList.remove("visually-hidden");
+          stepTitleArea.classList.remove(this.visuallyHidden);
         }
 
         step.compactStepStyling = this.stepTypes[index];
@@ -231,26 +239,39 @@ export class Stepper {
         }
 
         if (this.hideStepInfo && stepTitleArea !== null) {
-          stepTitleArea.classList.add("visually-hidden");
+          stepTitleArea.classList.add(this.visuallyHidden);
+        }
+      }
+    });
+  };
+
+  private setHideStepInfo = (): void => {
+    this.steps.forEach((step) => {
+      const stepTitleArea = step.shadowRoot.querySelector(
+        ".step > .step-title-area"
+      );
+
+      if (stepTitleArea !== null) {
+        if (this.hideStepInfo) {
+          stepTitleArea.classList?.add(this.visuallyHidden);
+        } else {
+          stepTitleArea.classList?.remove(this.visuallyHidden);
         }
       }
     });
   };
 
   private overrideVariant = () => {
-    let minDefaultStepperWidth = 148 * this.steps.length;
-
-    if (this.aligned === "left" && this.connectorWidth > 100) {
-      minDefaultStepperWidth = (this.connectorWidth + 48) * this.steps.length;
-    }
-
     if (this.variantOverride) {
+      let minDefaultStepperWidth = 148 * this.steps.length;
+
+      if (this.aligned === "left" && this.connectorWidth > 100) {
+        minDefaultStepperWidth = (this.connectorWidth + 48) * this.steps.length;
+      }
       if (this.el.clientWidth < minDefaultStepperWidth) {
         this.variant = "compact";
-        this.getChildren();
       } else {
         this.variant = "default";
-        this.getChildren();
       }
     }
   };

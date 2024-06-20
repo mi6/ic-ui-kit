@@ -957,4 +957,43 @@ describe("switch between the compact and default stepper depending on whether th
 
     expect(page.root).toMatchSnapshot();
   });
+
+  it("should test the setHideStepInfo method", async () => {
+    const page = await newSpecPage({
+      components: [Stepper, Step],
+      html: `<ic-stepper>
+      <ic-step step-title="Create" step-type="completed"></ic-step>
+      <ic-step step-title="Read" step-type="current"></ic-step>
+      <ic-step step-title="Update"></ic-step>
+      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hideStepInfo).toBeFalsy();
+
+    const steps = page.root.querySelectorAll("ic-step");
+
+    steps.forEach((step) => {
+      const stepTitle = step.shadowRoot.querySelector(
+        ".step > .step-title-area"
+      );
+
+      expect(stepTitle).not.toBeNull();
+      expect(stepTitle.classList.contains("visually-hidden")).toBeFalsy();
+    });
+
+    page.rootInstance.hideStepInfo = true;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hideStepInfo).toBeTruthy();
+
+    steps.forEach((step) => {
+      const stepTitle = step.shadowRoot.querySelector(
+        ".step > .step-title-area"
+      );
+
+      expect(stepTitle).not.toBeNull();
+      expect(stepTitle.classList.contains("visually-hidden")).toBeTruthy();
+    });
+  });
 });
