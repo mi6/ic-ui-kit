@@ -131,3 +131,42 @@ import readme from "../../../web-components/src/components/ic-skeleton/readme.md
     <IcSkeleton dark="true" />
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  appearance: "default",
+  variant: "rectangle",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      appearance: {
+        options: ["default", "light"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      variant: {
+        options: ["rectangle", "circle", "text"],
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => (
+      <div>
+        <IcSkeleton
+          appearance={args.appearance}
+          variant={args.variant}
+          style={{ height: args.variant == "circle" ? "20px" : "", width: args.variant == "circle" ? "20px" : "" }}
+        ></IcSkeleton>
+      </div>
+    )}
+  </Story>
+</Canvas>
