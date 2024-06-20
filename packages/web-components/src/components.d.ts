@@ -33,6 +33,7 @@ import { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 import { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 import { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 import { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+import { Options } from "@popperjs/core";
 export { IcActivationTypes, IcAdditionalFieldTypes, IcAlignment, IcAutocompleteTypes, IcAutocorrectStates, IcBlurEventDetail, IcColor, IcDeviceSizes, IcEmphasisType, IcInformationStatusOrEmpty, IcMenuOption, IcOrientation, IcSearchMatchPositions, IcSelectMethodTypes, IcSelectTypes, IcSizes, IcSizesNoLarge, IcStatusVariants, IcTheme, IcThemeForeground, IcThemeForegroundNoDefault, IcTypographyVariants, IcValueEventDetail } from "./utils/types";
 export { IcBackToTopVariants } from "./components/ic-back-to-top/ic-back-to-top.types";
 export { IcBadgePositions, IcBadgeTypes, IcBadgeVariants } from "./components/ic-badge/ic-badge.types";
@@ -61,6 +62,7 @@ export { IcTabClickEventDetail, IcTabSelectEventDetail } from "./components/ic-t
 export { IcAriaAutocompleteTypes, IcTextFieldInputModes, IcTextFieldTypes } from "./components/ic-text-field/ic-text-field.types";
 export { IcChangeEventDetail as IcChangeEventDetail3 } from "./components/ic-toggle-button-group/ic-toggle-button-group.types";
 export { IcTooltipPlacements } from "./components/ic-tooltip/ic-tooltip.types";
+export { Options } from "@popperjs/core";
 export namespace Components {
     interface IcAccordion {
         "appearance"?: IcThemeForeground;
@@ -2322,6 +2324,10 @@ export namespace Components {
           * The position of the tooltip in relation to the parent element.
          */
         "placement"?: IcTooltipPlacements;
+        /**
+          * @param props object - createPopper props set externally
+         */
+        "setExternalPopperProps": <T extends Partial<Options>>(props: T) => Promise<void>;
         "silent"?: boolean;
         /**
           * The ID of the element the tooltip is describing - for when aria-labelledby or aria-describedby is used.
@@ -2389,7 +2395,6 @@ export namespace Components {
         "maxLines"?: number;
         "resetTruncation": () => Promise<void>;
         "setShowHideExpanded": (expanded: boolean) => Promise<void>;
-        "setTruncated": (truncated: boolean) => Promise<void>;
         /**
           * If `true`, the typography will have a line through it.
          */

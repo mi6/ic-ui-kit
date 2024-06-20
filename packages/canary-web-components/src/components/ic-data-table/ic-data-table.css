@@ -29,7 +29,7 @@ ic-loading-indicator {
   height: 100%;
   overflow: auto;
 
-  /* @TODO: 'overflow: visible' fixes tooltip and scrollbars but will need further testing */
+  /* @TODO: 'overflow: visible' fixes tooltip and scrollbars but causing issues when setting a height on the table */
 
   /* overflow: visible; */
   transition: var(--ic-easing-transition-fast);

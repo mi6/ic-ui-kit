@@ -76,6 +76,7 @@ export class DataTable {
   private SHOW_HIDE_CSS_CLASS = "show-hide-wrap";
   private TOOLTIP = "ic-tooltip";
   private dataUpdated = false;
+  private tableSorted: boolean;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -213,7 +214,6 @@ export class DataTable {
    * For long text in cells that aren't set to textWrap, define how they should be truncated.
    * `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
    */
-  //TODO: Add prop value to turn it off??
   @Prop() truncationPattern?: IcDataTableTruncationTypes = "tooltip";
 
   /**
@@ -281,10 +281,11 @@ export class DataTable {
 
   componentDidRender(): void {
     //TODO: Make this more efficient by preventing an extra render to apply truncation
-    if (!this.dataUpdated) {
+    if (!this.dataUpdated && !this.tableSorted) {
       this.debounceDataTruncation();
     }
 
+    this.tableSorted = false;
     this.dataUpdated = false;
   }
 
@@ -295,7 +296,7 @@ export class DataTable {
     typographyEl.checkMaxLines(typographyEl.scrollHeight);
     typographyEl.setAttribute(
       "max-lines",
-      `${Math.floor(cellContainer.clientHeight / 24)}`
+      `${Math.floor(cellContainer?.clientHeight / 24)}`
     );
     typographyEl.setShowHideExpanded(false);
 
@@ -306,16 +307,10 @@ export class DataTable {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
         if (!typographyEl.classList.contains("text-wrap")) {
-          // this.dataTruncation(typographyEl);
-
-          // this.resizeObserver = new ResizeObserver(() =>
-          //   this.dataTruncation(typographyEl)
-          // );
-
           this.resizeObserver = new ResizeObserver(
             debounce(() => {
               this.dataTruncation(typographyEl);
-            }, 100) as ResizeObserverCallback
+            }, 200) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -337,13 +332,23 @@ export class DataTable {
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
-    if (typographyEl?.scrollHeight > cellContainer.clientHeight) {
+    // if (
+    //   typographyEl.textContent ===
+    //   "Senior Software Developer, Site Reliability Engineering, Senior Software Developer, Site Reliability Engineering,"
+    // ) {
+    //   console.log({
+    //     scrollHeight: typographyEl?.scrollHeight,
+    //     clientHeight: cellContainer.clientHeight,
+    //   });
+    // }
+
+    if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
       if (
         this.truncationPattern === "tooltip" &&
         !typographyEl.closest(".text-wrap")
       ) {
-        const numLines = Math.floor(cellContainer.clientHeight / 24);
+        const numLines = Math.floor(cellContainer?.clientHeight / 24);
         typographyEl.setAttribute("style", `--ic-line-clamp: ${numLines}`);
 
         if (!tooltip) {
@@ -384,7 +389,6 @@ export class DataTable {
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
-    console.log("Calling dataTruncation");
     // TODO: Need to prevent this running so many times so truncation can work dynamically
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
@@ -393,7 +397,7 @@ export class DataTable {
     if (cellContainer?.classList.contains("data-type-element")) return;
 
     if (
-      typographyEl?.scrollHeight === cellContainer.clientHeight &&
+      typographyEl?.scrollHeight === cellContainer?.clientHeight &&
       this.truncationPattern === "show-hide" &&
       typographyEl.hasAttribute("max-lines")
     ) {
@@ -943,6 +947,15 @@ export class DataTable {
     this.sortedColumnOrder = sortOrders[nextSortOrderIndex];
 
     sortButton.setAttribute("aria-label", this.getSortButtonLabel(column));
+
+    if (this.truncationPattern === "tooltip") {
+      // setTimeout allows sorting to finish before truncation is updated
+      setTimeout(() => {
+        this.updateTruncationTooltip();
+      }, 300);
+    }
+
+    this.tableSorted = true;
   };
 
   private getTypographyElements = (): HTMLIcTypographyElement[] => {
@@ -959,6 +972,17 @@ export class DataTable {
     return typographyEl.closest(this.TOOLTIP);
   };
 
+  private updateTruncationTooltip = () => {
+    this.getTypographyElements().forEach(
+      (typographyEl: HTMLIcTypographyElement) => {
+        const tooltip = this.getTooltip(typographyEl);
+        const cellContainer = this.getCellContainer(typographyEl);
+
+        this.regenerateTooltip(cellContainer, typographyEl, tooltip);
+      }
+    );
+  };
+
   private updateScrollOffset = () => {
     this.scrollOffset = this.el.shadowRoot.querySelector(
       ".table-row-container"
@@ -970,6 +994,21 @@ export class DataTable {
     return rowOptionsIndex > -1 && rowValues[rowOptionsIndex];
   }
 
+  private regenerateTooltip(
+    cellContainer: HTMLElement,
+    typographyEl: HTMLIcTypographyElement,
+    tooltip: HTMLIcTooltipElement
+  ) {
+    if (tooltip) {
+      cellContainer.appendChild(typographyEl);
+      tooltip.remove();
+    }
+
+    if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
+      this.createTruncationTooltip(typographyEl, cellContainer);
+    }
+  }
+
   private createTruncationTooltip(
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement
@@ -977,6 +1016,10 @@ export class DataTable {
     const tooltipEl = document.createElement("ic-tooltip");
     tooltipEl.setAttribute("target", typographyEl.id);
     tooltipEl.setAttribute("label", typographyEl.textContent);
+    tooltipEl.setExternalPopperProps({
+      // This might need reverting back to absolute if the tooltip doesnt dynamically position itself correctly
+      strategy: "fixed",
+    });
     cellContainer.appendChild(tooltipEl);
     tooltipEl.appendChild(typographyEl);
   }
