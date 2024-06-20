@@ -41,4 +41,4 @@ export type IcDataTableRowHeights = number | "auto";
 export interface IcDensityUpdateEventDetail {
   value: IcDataTableDensityOptions;
 }
-export type IcDataTableTruncationTypes = "tooltip" | "show-hide";
+export type IcDataTableTruncationTypes = "tooltip" | "show-hide" | undefined;

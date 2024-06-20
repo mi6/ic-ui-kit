@@ -214,7 +214,7 @@ export class DataTable {
    * For long text in cells that aren't set to textWrap, define how they should be truncated.
    * `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
    */
-  @Prop() truncationPattern?: IcDataTableTruncationTypes = "tooltip";
+  @Prop() truncationPattern?: IcDataTableTruncationTypes;
 
   /**
    * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
@@ -277,16 +277,19 @@ export class DataTable {
       this.startLoadingTimer();
       this.showLoadingIndicator();
     }
+
+    if (this.truncationPattern) {
+      this.debounceDataTruncation();
+    }
   }
 
   componentDidRender(): void {
     //TODO: Make this more efficient by preventing an extra render to apply truncation
-    if (!this.dataUpdated && !this.tableSorted) {
-      this.debounceDataTruncation();
-    }
-
-    this.tableSorted = false;
-    this.dataUpdated = false;
+    // if (!this.dataUpdated && !this.tableSorted) {
+    //   this.debounceDataTruncation();
+    // }
+    console.warn(this.tableSorted);
+    console.warn(this.dataUpdated);
   }
 
   private createShowHideTruncation(
@@ -456,6 +459,16 @@ export class DataTable {
         this.showLoadingIndicator();
       }, 500);
     }
+  }
+
+  @Watch("truncationPattern")
+  truncationPatternHandler(newValue: IcDataTableTruncationTypes): void {
+    //TODO: If previously set to a different truncation pattern, remove all truncation and then re-apply
+    if (newValue === "show-hide" || newValue === "tooltip") {
+      this.debounceDataTruncation();
+    }
+
+    //TODO: If undefined, remove all truncation
   }
 
   @Watch("data")
@@ -700,6 +713,7 @@ export class DataTable {
               }}
               style={{
                 height:
+                  this.truncationPattern &&
                   currentRowHeight &&
                   !columnProps.textWrap &&
                   !rowOptions.textWrap &&
@@ -709,7 +723,9 @@ export class DataTable {
                     : null,
               }}
               data-row-height={
-                currentRowHeight ? this.setRowHeight(currentRowHeight) : null
+                this.truncationPattern && currentRowHeight
+                  ? this.setRowHeight(currentRowHeight)
+                  : null
               }
             >
               {isSlotUsed(this.el, cellSlotName) ? (
