@@ -114,3 +114,44 @@ import IcTypography from "../ic-typography/readme.md";
       <ic-skeleton light="true"></ic-skeleton>`}
   </Story>
 </Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  appearance: "default",
+  variant: "rectangle",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      appearance: {
+        options: ["default", "light"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      variant: {
+        options: ["rectangle", "circle", "text"],
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) =>
+      html` <div>
+        <ic-skeleton
+          appearance=${args.appearance}
+          variant=${args.variant}
+          style="height: ${args.variant == "circle"
+            ? "20px"
+            : ""};width:${args.variant == "circle" ? "20px" : ""};"
+        ></ic-skeleton>
+      </div>`
+    }
+  </Story>
+</Canvas>
