@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { IcLink } from "@ukic/react";
 import { IcSelectWithMulti } from "../components";
 import { useRef } from "react";
 import readme from "../../../canary-web-components/src/components/ic-select-with-multi/readme.md";
@@ -892,3 +893,114 @@ const MultiSelect = () => {
 
 export default MultiSelect;
 ```
+
+### Playground Example
+
+Go to the <IcLink href="/?path=/story/react-components-multi-select--playground-example">separate page for the playground example</IcLink> to view the prop controls.
+
+export const playgroundOptions = [
+  {
+    label: "Cappuccino",
+    value: "Cap",
+    description: "Coffee frothed up with pressurised steam",
+  },
+  {
+    label: "Boring",
+    children: [
+      {
+        label: "Latte",
+        value: "Lat",
+        description: "A milkier coffee than a cappuccino",
+      },
+      {
+        label: "Filter",
+        value: "Fil",
+        description: "Coffee filtered using paper or a mesh",
+      },
+    ],
+  },
+  {
+    label: "Fancy",
+    children: [
+      {
+        label: "Flat white",
+        value: "Fla",
+        description:
+          "Coffee without froth made with espresso and hot steamed milk",
+      },
+      {
+        label: "Macchiato",
+        value: "Mac",
+        description: "Espresso coffee with a dash of frothy steamed milk",
+      },
+    ],
+  },
+  {
+    label: "Americano",
+    value: "Ame",
+    description: "Espresso coffee diluted with hot water",
+  },
+  {
+    label: "Mocha",
+    value: "Moc",
+    description: "A mixture of coffee and chocolate",
+  },
+];
+
+export const defaultArgs = {
+  disabled: false,
+  fullWidth: false,
+  helperText: "Select some options from the list",
+  hideLabel: false,
+  loading: false,
+  loadingLabel: "Loading...",
+  label: "What is your favourite coffee?",
+  placeholder: "Select an option",
+  readonly: false,
+  required: false,
+  size: "default",
+  validationStatus: "",
+  validationText: "",
+  showClearButton: false,
+};
+
+<Canvas withSource="none">
+  <Story
+    name="Playground Example"
+    args={defaultArgs}
+    argTypes={{
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
+      validationStatus: {
+        defaultValue: "",
+        options: ["", "error", "success", "warning"],
+        control: { type: "select" },
+      },
+    }}
+  >
+    {(args) => (
+      <div style={{ height: "500px" }}>
+        <IcSelectWithMulti
+          multiple
+          options={playgroundOptions}
+          disabled={args.disabled}
+          fullWidth={args.fullWidth}
+          helperText={args.helperText}
+          hideLabel={args.hideLabel}
+          loading={args.loading}
+          loadingLabel={args.loadingLabel}
+          label={args.label}
+          placeholder={args.placeholder}
+          readonly={args.readonly}
+          required={args.required}
+          size={args.size}
+          validationStatus={args.validationStatus}
+          validationText={args.validationText}
+          showClearButton={args.showClearButton}
+        />
+      </div>
+    )}
+  </Story>
+</Canvas>
