@@ -17,6 +17,87 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
 
 <Description markdown={stepReadme} />
 
+export const defaultArgs = {
+  aligned: "full-width",
+  connectorWidth: 100,
+  appearance: "default",
+  variant: "default",
+  hideStepInfo: false,
+  stepTitle: "Editable step",
+  stepType: "current",
+  stepStatus: "optional",
+  stepSubtitle: "Optional subtitle",
+};
+
+export const CompactButtons = () => (
+    <div>
+      <IcButton
+        class="back-btn-compact-stepper"
+        style={{ marginRight: "var(--ic-space-lg)" }}
+        onClick={() => {
+          const backBtn = document.querySelector(".back-btn-compact-stepper");
+          const nextBtn = document.querySelector(".next-btn-compact-stepper");
+          const steps = document.querySelectorAll(
+            "#standard-compact-stepper > ic-step"
+          );
+          const compactStepTypes = [
+            "active",
+            "completed",
+            "disabled",
+            "completed",
+          ];
+          for (let i = steps.length - 1; i > 0; i--) {
+            if (steps[i].stepType === "current") {
+              steps[i].stepType = compactStepTypes[i];
+              steps[i - 1].stepType = "current";
+              i--;
+            }
+          }
+          if (steps[steps.length - 2].stepType === "current") {
+            nextBtn.setAttribute("disabled", "false");
+          }
+          if (steps[0].stepType === "current") {
+            backBtn.setAttribute("disabled", "true");
+          }
+        }}
+      >
+        Back
+      </IcButton>
+      <IcButton
+        class="next-btn-compact-stepper"
+        onClick={() => {
+          const backBtn = document.querySelector(".back-btn-compact-stepper");
+          const nextBtn = document.querySelector(".next-btn-compact-stepper");
+          const steps = document.querySelectorAll(
+            "#standard-compact-stepper > ic-step"
+          );
+          const compactStepTypes = [
+            "active",
+            "completed",
+            "disabled",
+            "completed",
+          ];
+          for (let i = 0; i < steps.length - 1; i++) {
+            if (steps[i].stepType === "current") {
+              steps[i].stepType = compactStepTypes[i];
+              steps[i + 1].stepType = "current";
+              i++;
+            }
+          }
+          if (steps[1].stepType === "current") {
+            backBtn.setAttribute("disabled", "false");
+          }
+          if (steps[steps.length - 1].stepType === "current") {
+            nextBtn.setAttribute("disabled", "true");
+          }
+        }}
+      >
+        Next
+      </IcButton>
+    </div>
+  )
+
+
 ### Full-width stepper
 
 <Canvas>
@@ -136,69 +217,7 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
       <IcStep stepTitle="Update" stepStatus="optional" />
       <IcStep stepTitle="Delete" stepStatus="required" />
     </IcStepper>
-    <IcButton
-      class="back-btn-compact-stepper"
-      style={{ marginRight: "var(--ic-space-lg)" }}
-      onClick={() => {
-        const backBtn = document.querySelector(".back-btn-compact-stepper");
-        const nextBtn = document.querySelector(".next-btn-compact-stepper");
-        const steps = document.querySelectorAll(
-          "#standard-compact-stepper > ic-step"
-        );
-        const compactStepTypes = [
-          "active",
-          "completed",
-          "disabled",
-          "completed",
-        ];
-        for (let i = steps.length - 1; i > 0; i--) {
-          if (steps[i].stepType === "current") {
-            steps[i].stepType = compactStepTypes[i];
-            steps[i - 1].stepType = "current";
-            i--;
-          }
-        }
-        if (steps[steps.length - 2].stepType === "current") {
-          nextBtn.setAttribute("disabled", "false");
-        }
-        if (steps[0].stepType === "current") {
-          backBtn.setAttribute("disabled", "true");
-        }
-      }}
-    >
-      Back
-    </IcButton>
-    <IcButton
-      class="next-btn-compact-stepper"
-      onClick={() => {
-        const backBtn = document.querySelector(".back-btn-compact-stepper");
-        const nextBtn = document.querySelector(".next-btn-compact-stepper");
-        const steps = document.querySelectorAll(
-          "#standard-compact-stepper > ic-step"
-        );
-        const compactStepTypes = [
-          "active",
-          "completed",
-          "disabled",
-          "completed",
-        ];
-        for (let i = 0; i < steps.length - 1; i++) {
-          if (steps[i].stepType === "current") {
-            steps[i].stepType = compactStepTypes[i];
-            steps[i + 1].stepType = "current";
-            i++;
-          }
-        }
-        if (steps[1].stepType === "current") {
-          backBtn.setAttribute("disabled", "false");
-        }
-        if (steps[steps.length - 1].stepType === "current") {
-          nextBtn.setAttribute("disabled", "true");
-        }
-      }}
-    >
-      Next
-    </IcButton>
+    <CompactButtons/>
   </Story>
 </Canvas>
 
@@ -218,69 +237,7 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
         <IcStep stepTitle="Delete" stepStatus="required" />
       </IcStepper>
     </div>
-    <IcButton
-      class="back-btn-compact-stepper"
-      style={{ marginRight: "var(--ic-space-lg)" }}
-      onClick={() => {
-        const backBtn = document.querySelector(".back-btn-compact-stepper");
-        const nextBtn = document.querySelector(".next-btn-compact-stepper");
-        const steps = document.querySelectorAll(
-          "#standard-compact-stepper > ic-step"
-        );
-        const compactStepTypes = [
-          "active",
-          "completed",
-          "disabled",
-          "completed",
-        ];
-        for (let i = steps.length - 1; i > 0; i--) {
-          if (steps[i].stepType === "current") {
-            steps[i].stepType = compactStepTypes[i];
-            steps[i - 1].stepType = "current";
-            i--;
-          }
-        }
-        if (steps[steps.length - 2].stepType === "current") {
-          nextBtn.setAttribute("disabled", "false");
-        }
-        if (steps[0].stepType === "current") {
-          backBtn.setAttribute("disabled", "true");
-        }
-      }}
-    >
-      Back
-    </IcButton>
-    <IcButton
-      class="next-btn-compact-stepper"
-      onClick={() => {
-        const backBtn = document.querySelector(".back-btn-compact-stepper");
-        const nextBtn = document.querySelector(".next-btn-compact-stepper");
-        const steps = document.querySelectorAll(
-          "#standard-compact-stepper > ic-step"
-        );
-        const compactStepTypes = [
-          "active",
-          "completed",
-          "disabled",
-          "completed",
-        ];
-        for (let i = 0; i < steps.length - 1; i++) {
-          if (steps[i].stepType === "current") {
-            steps[i].stepType = compactStepTypes[i];
-            steps[i + 1].stepType = "current";
-            i++;
-          }
-        }
-        if (steps[1].stepType === "current") {
-          backBtn.setAttribute("disabled", "false");
-        }
-        if (steps[steps.length - 1].stepType === "current") {
-          nextBtn.setAttribute("disabled", "true");
-        }
-      }}
-    >
-      Next
-    </IcButton>
+    <CompactButtons/>
   </Story>
 </Canvas>
 
@@ -381,5 +338,55 @@ import stepReadme from "../../../web-components/src/components/ic-step/readme.md
     >
       Next
     </IcButton>
+  </Story>
+</Canvas>
+
+### Playground
+
+<Canvas>
+  <Story name="Playground"
+    args={defaultArgs}
+    argTypes={{
+      aligned: {
+        options: ["left", "full-width"],
+        control: { type: "inline-radio" },
+      },
+      connectorWidth: {
+        control: { type: "range", min: 100, max: 500, step: 5 },
+        description: 'Width of the connector, only available when IcStepper is left-aligned.',
+      },
+      appearance: {
+        options: ["default", "light"],
+        control: { type: "inline-radio" },
+      },
+      variant: {
+        options: ["default", "compact"],
+        control: { type: "inline-radio" },
+      },
+      stepTitle: { control: "text" },
+      stepType: {
+        options: ["active", "completed", "disabled"],
+        control: { type: "inline-radio" },
+      },
+      stepStatus: {
+        options: ["optional", "required"],
+        control: { type: "inline-radio" },
+      },
+      stepSubtitle: {
+        control: "text",
+      },
+    }}
+      >
+      {(args) => (
+        <div style={{backgroundColor: args.appearance === 'light' ? '#585858' : null, padding: '1rem'}}>
+          <IcStepper aligned={args.aligned} appearance={args.appearance} variant={args.variant} connectorWidth={args.connectorWidth} hideStepInfo={args.hideStepInfo} id={args.variant === 'compact' ? 'standard-compact-stepper' : 'default-stepper'}>
+            <IcStep stepTitle="Create" stepType="completed" />
+            <IcStep stepTitle={args.stepTitle} stepSubtitle={args.stepSubtitle} stepType={args.stepType} stepStatus={args.stepStatus} />
+            <IcStep stepTitle="Update" stepType="active"/>
+            <IcStep stepTitle="Delete" stepType="disabled" />
+          </IcStepper>
+          {args.variant === 'compact' && <CompactButtons/>}
+        </div>
+      )}
   </Story>
 </Canvas>
