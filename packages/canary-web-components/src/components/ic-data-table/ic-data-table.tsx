@@ -77,6 +77,7 @@ export class DataTable {
   private TOOLTIP = "ic-tooltip";
   private dataUpdated = false;
   private tableSorted: boolean;
+  private showHideBtnClicked = false;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -283,11 +284,8 @@ export class DataTable {
     }
   }
 
-  componentDidRender(): void {
+  componentDidUpdate(): void {
     //TODO: Make this more efficient by preventing an extra render to apply truncation
-    // if (!this.dataUpdated && !this.tableSorted) {
-    //   this.debounceDataTruncation();
-    // }
     console.warn(this.tableSorted);
     console.warn(this.dataUpdated);
   }
@@ -320,14 +318,6 @@ export class DataTable {
         }
       }
     );
-  };
-
-  private removeShowHideTruncation = (
-    typographyEl: HTMLIcTypographyElement,
-    cellContainer: HTMLElement
-  ) => {
-    typographyEl.removeAttribute("max-lines");
-    cellContainer.classList.remove(this.SHOW_HIDE_CSS_CLASS);
   };
 
   private truncate = (
@@ -375,7 +365,7 @@ export class DataTable {
         this.truncationPattern === "show-hide" &&
         !isEmptyString(typographyEl.getAttribute("max-lines"))
       ) {
-        this.removeShowHideTruncation(typographyEl, cellContainer);
+        this.resetShowHideTruncation();
       }
     }
   };
@@ -396,8 +386,48 @@ export class DataTable {
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
     const cellContainer = this.getCellContainer(typographyEl);
-
     if (cellContainer?.classList.contains("data-type-element")) return;
+
+    if (
+      this.truncationPattern === "show-hide" &&
+      typographyEl.shadowRoot.querySelector("button")
+    ) {
+      const showHideBtn = typographyEl.shadowRoot.querySelector("button");
+      if (!showHideBtn.getAttribute("data-click-event")) {
+        showHideBtn.addEventListener("click", () => {
+          this.showHideBtnClicked = true;
+        });
+        showHideBtn.setAttribute("data-click-event", "true");
+      }
+
+      // if (
+      //   typographyEl.textContent ===
+      //   "Junior Human Resource Information Specialist"
+      // ) {
+      //   console.log({
+      //     scrollHeight: typographyEl.scrollHeight,
+      //     truncWrapper:
+      //       typographyEl.shadowRoot.querySelector(".trunc-wrapper")
+      //         .scrollHeight,
+      //     clientHeight: cellContainer.clientHeight,
+      //   });
+      // }
+
+      if (this.showHideBtnClicked) {
+        this.showHideBtnClicked = false;
+        return;
+      }
+
+      if (showHideBtn) {
+        const cellContainerClientHeight = cellContainer.clientHeight - 24;
+        const truncWrapper =
+          typographyEl.shadowRoot.querySelector(".trunc-wrapper");
+
+        if (truncWrapper.scrollHeight <= cellContainerClientHeight) {
+          this.resetShowHideTruncation();
+        }
+      }
+    }
 
     if (
       typographyEl?.scrollHeight === cellContainer?.clientHeight &&
@@ -488,7 +518,7 @@ export class DataTable {
     }
     if (this.updating) this.updating = false;
 
-    this.dataUpdated = true;
+    // this.dataUpdated = true;
 
     if (this.truncationPattern === "show-hide") {
       this.resetShowHideTruncation();
@@ -530,6 +560,10 @@ export class DataTable {
     this.removeTextWrap();
 
     this.icRowHeightChange.emit();
+
+    if (this.truncationPattern) {
+      this.debounceDataTruncation();
+    }
   }
 
   /**

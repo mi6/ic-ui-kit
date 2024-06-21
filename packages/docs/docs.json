@@ -18499,7 +18499,7 @@
             "resolved": "number",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "max-lines",
           "reflectToAttr": false,
           "docs": "The number of lines to display before truncating the text, only used for the 'body' variant.",
@@ -18648,20 +18648,14 @@
       ],
       "methods": [
         {
-          "name": "checkMaxLines",
+          "name": "resetTruncation",
           "returns": {
             "type": "Promise<void>",
             "docs": ""
           },
           "complexType": {
-            "signature": "(height: number) => Promise<void>",
-            "parameters": [
-              {
-                "name": "height",
-                "type": "number",
-                "docs": ""
-              }
-            ],
+            "signature": "() => Promise<void>",
+            "parameters": [],
             "references": {
               "Promise": {
                 "location": "global",
@@ -18670,35 +18664,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "checkMaxLines(height: number) => Promise<void>",
-          "parameters": [
-            {
-              "name": "height",
-              "type": "number",
-              "docs": ""
-            }
-          ],
-          "docs": "",
-          "docsTags": []
-        },
-        {
-          "name": "getShowHideExpanded",
-          "returns": {
-            "type": "Promise<boolean>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<boolean>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<boolean>"
-          },
-          "signature": "getShowHideExpanded() => Promise<boolean>",
+          "signature": "resetTruncation() => Promise<void>",
           "parameters": [],
           "docs": "",
           "docsTags": []

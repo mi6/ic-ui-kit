@@ -176,6 +176,7 @@ table {
 .table-cell {
   padding: var(--ic-space-xs);
   border-bottom: solid var(--ic-architectural-100) var(--ic-space-1px);
+  overflow: hidden;
 }
 
 .data-type-string {
