@@ -18,6 +18,13 @@ This also applies to canary components, where the `docs.json` in `canary-docs` s
 
 If you have added a new feature, or fixed a bug, it is likely that in the ticket you followed, there was an acceptance criteria section. Any acceptance criteria within that section should be met, or discussed with the author of the issue.
 
+### Playground stories in React Storybook up to date
+
+Every component should have a comprehensive Playground storybook that allows users to modify every property to manual test for issues. 
+If you have added or modified the properties of a component you need to make sure the corresponding Playground is updated.
+
+React Storybooks are found in `packages/react/src/stories`. You can run storybook locally with `npm run storybook`, and react will be on [port 6007](http://localhost:6007)
+
 ## Testing
 
 ### Relevant unit tests and visual regression tests added
