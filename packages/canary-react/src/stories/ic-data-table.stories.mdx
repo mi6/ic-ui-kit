@@ -1540,54 +1540,6 @@ export const defaultPaginationBarArgs = {
   hideRangeLabel: false
 };
 
-### Pagination bar options playground
-
-<Canvas withSource="none">
-  <Story
-    args={defaultPaginationBarArgs}
-    argTypes={{
-      appearance: {
-        options: ["default", "dark", "light"],
-        control: { type: "inline-radio" },
-      },
-      rangeLabelType: {
-        options: ["page", "data"],
-        control: { type: "inline-radio" },
-      },
-      type: {
-        options: ["simple", "complex"],
-        control: { type: "inline-radio" },
-      },
-      alignment: {
-        options: ["left", "right", "space-between"],
-        control: { type: "inline-radio" },
-      },
-    }}
-    name="Pagination bar options playground"
-  >
-    {(args) => (
-      <IcDataTable
-        caption="Updating Data"
-        columns={COLS}
-        data={LONG_DATA}
-        showPagination
-        paginationBarOptions={{
-          itemsPerPageOptions: args.itemsPerPageOptions,
-          rangeLabelType: args.rangeLabelType,
-          type: args.type,
-          showItemsPerPageControl: args.showItemsPerPageControl,
-          showGoToPageControl: args.showGoToPageControl,          
-          appearance: args.appearance,
-          alignment: args.alignment,
-          pageLabel: args.pageLabel,
-          itemLabel: args.itemLabel,
-          hideRangeLabel: args.hideRangeLabel
-        }}
-      />
-    )}
-  </Story>
-</Canvas>
-
 ### Slotted pagination bar
 
 There may be scenarios when using `IcDataTable` when pagination and data fetching is done using a backend API.
@@ -1698,3 +1650,181 @@ const DataTable = () => {
   );
 };
 ```
+
+### Playground example
+
+Go to the <IcLink href="/?path=/story/react-components-data-table--playground-example">separate page for the playground example</IcLink> to view the prop controls.
+
+export const defaultArgs = {
+  caption: "Screen reader caption for data table",
+  columns: COLS,
+  data: LONG_DATA,
+  density: "default",
+  embedded: false,
+  globalRowHeight: 40,
+  hideColumnHeaders: false,
+  loading: false,
+  loadingAppearance: "dark",
+  loadingDesc: "loading",
+  loadingLabel: "Loading data...",
+  loadingLabelDuration: 20, 
+  loadingMax: 100,
+  loadingMin: 0,
+  loadingProgress: 50, 
+  loadingShowBackground: false,
+  minimumLoadingDisplayDuration: 1000,
+  paginationItemsPerPageOptions: [
+    { label: "5", value: "5" },
+    { label: "10", value: "10" },
+    { label: "15", value: "15" },
+  ],
+  paginationRangeLabelType: "page",
+  paginationType: "simple",
+  paginationShowItemsPerPageControl: true,
+  paginationShowGoToPageControl: true,
+  paginationAlignment: "right",
+  paginationAppearance: "default",
+  paginationItemLabel: "Item",
+  paginationPageLabel: "Page",
+  paginationHideRangeLabel: false,
+  showPagination: true,
+  sortable: false,
+  sortOrders: ["unsorted", "ascending", "descending"],
+  defaultColumn: "",
+  stickyColumnHeaders: false,
+  stickyRowHeaders: false,
+  updating: false,
+  updatingAppearance: "dark",
+  updatingDesc: "loading",
+  updatingMax: 100,
+  updatingMin: 0,
+  updatingProgress: 50, 
+  titleBarSlot: true,
+  titleBarDesc: "Title bar description",
+  titleBarHeading: "Title bar heading",
+  hideDensitySelect: false,
+  titleBarMetadata: "128 items | 32gb | Updated: 01/02/03",
+  titleBarPrimaryActionSlot: true,
+  titleBarCustomActionSlot: true,
+};
+
+<Canvas withSource="none">
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      density: {
+        options: ["default", "dense", "spacious"],
+        control: { type: "inline-radio" },
+      },
+      loadingAppearance: {
+        options: ["dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      paginationAppearance: {
+        options: ["default", "dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      paginationRangeLabelType: {
+        options: ["page", "data"],
+        control: { type: "inline-radio" },
+      },
+      paginationType: {
+        options: ["simple", "complex"],
+        control: { type: "inline-radio" },
+      },
+      paginationAlignment: {
+        options: ["left", "right", "space-between"],
+        control: { type: "inline-radio" },
+      },
+      updatingAppearance: {
+        options: ["dark", "light"],
+        control: { type: "inline-radio" },
+      },
+      titleBarSlot: {
+        mapping: {
+          true: "title-bar",
+          false: "",
+        }
+      },
+      titleBarPrimaryActionSlot: {
+        mapping: {
+          true: "primary-action",
+          false: "",
+        }
+      },
+      titleBarCustomActionSlot: {
+        mapping: {
+          true: "custom-actions",
+          false: "",
+        }
+      },
+    }}
+    name="Playground example"
+  >
+    {(args) => (
+      <IcDataTable
+        caption={args.caption}
+        columns={args.columns}
+        data={args.data}
+        density={args.density}
+        embedded={args.embedded}
+        globalRowHeight={args.globalRowHeight}
+        hideColumnHeaders={args.hideColumnHeaders}
+        loading={args.loading}
+        loadingOptions={{
+          appearance: args.loadingAppearance,
+          description: args.loadingDesc,
+          label: args.loadingLabel,
+          labelDuration: args.loadingLabelDuration,
+          max: args.loadingMax,
+          min: args.loadingMin,
+          progress: args.loadingProgress,
+          showBackground: args.loadingShowBackground
+        }}
+        minimumLoadingDisplayDuration={args.minimumLoadingDisplayDuration}
+        paginationBarOptions={{
+          itemsPerPageOptions: args.paginationItemsPerPageOptions,
+          rangeLabelType: args.paginationRangeLabelType,
+          type: args.paginationType,
+          showItemsPerPageControl: args.paginationShowItemsPerPageControl,
+          showGoToPageControl: args.paginationShowGoToPageControl,          
+          appearance: args.paginationAppearance,
+          alignment: args.paginationAlignment,
+          pageLabel: args.paginationPageLabel,
+          itemLabel: args.paginationItemLabel,
+          hideRangeLabel: args.paginationHideRangeLabel
+        }}
+        showPagination={args.showPagination}
+        sortable={args.sortable}
+        sortOptions={{
+          sortOrders: args.sortOrders,
+          defaultColumn: args.defaultColumn
+        }}
+        stickyColumnHeaders={args.stickyColumnHeaders}
+        stickyRowHeaders={args.stickyRowHeaders}
+        updating={args.updating}
+        updatingOptions={{
+          appearance: args.updatingAppearance,
+          description: args.updatingDesc,
+          max: args.updatingMax,
+          min: args.updatingMin,
+          progress: args.updatingProgress
+        }}
+        style={{ height: "450px" }}
+      >
+        <IcDataTableTitleBar
+          slot={args.titleBarSlot}
+          description={args.titleBarDesc}
+          heading={args.titleBarHeading}
+          hideDensitySelect={args.hideDensitySelect}
+          metadata={args.titleBarMetadata}
+        >
+          <IcButton slot={args.titleBarPrimaryActionSlot}>Primary</IcButton>
+          <IcButton slot={args.titleBarCustomActionSlot} variant="icon" aria-label="Icon 1">
+            <SlottedSVG path={mdiImage} viewBox="0 0 24 24" />
+          </IcButton>
+        </IcDataTableTitleBar>
+      </IcDataTable>
+    )}
+  </Story>
+</Canvas>
