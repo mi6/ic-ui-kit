@@ -475,6 +475,10 @@ export namespace Components {
          */
         "name": string;
         /**
+          * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
+         */
+        "nativeIndeterminateBehaviour": boolean;
+        /**
           * Sets focus on the checkbox.
          */
         "setFocus": () => Promise<void>;
@@ -3757,6 +3761,10 @@ declare namespace LocalJSX {
           * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
          */
         "name"?: string;
+        /**
+          * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
+         */
+        "nativeIndeterminateBehaviour"?: boolean;
         /**
           * @deprecated This event should not be used anymore. Use icCheck instead.
          */
