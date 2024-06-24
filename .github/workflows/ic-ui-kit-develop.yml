@@ -44,8 +44,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
@@ -93,8 +93,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: E2E core tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -122,8 +122,8 @@ jobs:
       - name: Install dependencies
         run: |
           google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Core visual regression tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -146,8 +146,8 @@ jobs:
       - name: Install dependencies
         run: |
           google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Core Cypress tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -180,8 +180,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}

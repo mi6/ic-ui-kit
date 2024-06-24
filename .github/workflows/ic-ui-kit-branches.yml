@@ -57,8 +57,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
@@ -118,8 +118,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: E2E core tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -159,8 +159,8 @@ jobs:
       - name: Install dependencies
         run: |
           google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Core visual regression tests
         if: ${{ needs.check-updates.outputs.core == 'true' }}
@@ -205,8 +205,8 @@ jobs:
       - name: Install dependencies
         run: |
           google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Cache Cypress Binary
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 #v4.0.2
@@ -305,8 +305,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Build core components
         if: ${{ needs.check-updates.outputs.canary == 'false' }}
