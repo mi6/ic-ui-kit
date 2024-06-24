@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-30T13:05:50",
+  "timestamp": "2024-06-24T09:26:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -3108,7 +3108,7 @@
             "resolved": "string",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "group-label",
           "reflectToAttr": false,
           "docs": "The group label for the checkbox.",
@@ -3194,7 +3194,7 @@
             "resolved": "string",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "name",
           "reflectToAttr": false,
           "docs": "The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.",
@@ -3202,6 +3202,28 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "nativeIndeterminateBehaviour",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "native-indeterminate-behaviour",
+          "reflectToAttr": false,
+          "docs": "If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
