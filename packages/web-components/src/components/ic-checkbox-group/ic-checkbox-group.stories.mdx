@@ -7,6 +7,8 @@ import {
 } from "@storybook/addon-docs";
 import { html } from "lit-html";
 import readme from "./readme.md";
+import { useArgs } from "@storybook/client-api";
+import { useEffect } from "react";
 
 <Meta title="Web Components/Checkbox" component="Checkbox" />
 
@@ -447,45 +449,187 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Indeterminate" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<ic-checkbox-group label="Liked things" name="likes">
-        <ic-checkbox
-          value="drinks"
-          label="Drinks"
-          checked="true"
-          indeterminate="true"
-        >
-          <ic-checkbox-group
-            label="Drinks"
-            hide-label
-            slot="additional-field"
-            name="drinks"
-          >
-            <ic-checkbox value="tea" label="Tea"></ic-checkbox>
-            <ic-checkbox
-              value="coffee"
-              label="Coffee"
-              checked="true"
-              indeterminate="true"
+      html`
+        <script>
+          var indeterminate = true;
+          var nativeIndeterminate = true;
+          var indeterminateTextEl = document.querySelector(
+            "#indeterminate-text"
+          );
+          indeterminateTextEl.innerHTML = indeterminate;
+          var checkedTextEl = document.querySelector("#checked-text");
+          checkedTextEl.innerHTML = true;
+          var nativeIndeterminateTextEl = document.querySelector(
+            "#native-indeterminate-text"
+          );
+          nativeIndeterminateTextEl.innerHTML = nativeIndeterminate;
+          var nativeCheckedTextEl = document.querySelector(
+            "#native-checked-text"
+          );
+          nativeCheckedTextEl.innerHTML = true;
+          function toggleIndeterminate() {
+            indeterminate = !indeterminate;
+            document.querySelector("#indeterminate-checkbox").indeterminate =
+              indeterminate;
+            indeterminateTextEl.innerHTML = indeterminate;
+          }
+          function toggleNativeIndeterminate() {
+            nativeIndeterminate = !nativeIndeterminate;
+            document.querySelector(
+              "#native-indeterminate-checkbox"
+            ).indeterminate = nativeIndeterminate;
+            nativeIndeterminateTextEl.innerHTML = nativeIndeterminate;
+          }
+          function icCheckHandler(ev) {
+            document.querySelector("#checked-text").innerHTML =
+              ev.target.checked;
+          }
+          function icCheckHandlerNative(ev) {
+            document.querySelector("#native-checked-text").innerHTML =
+              ev.target.checked;
+          }
+          document
+            .querySelector("#indeterminate-button")
+            .addEventListener("click", toggleIndeterminate);
+          document
+            .querySelector("#indeterminate-checkbox")
+            .addEventListener("icCheck", icCheckHandler);
+          document
+            .querySelector("#native-indeterminate-button")
+            .addEventListener("click", toggleNativeIndeterminate);
+          document
+            .querySelector("#native-indeterminate-checkbox")
+            .addEventListener("icCheck", icCheckHandlerNative);
+        </script>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <div style="border:1px solid gray;padding:8px;">
+            <ic-checkbox-group
+              label="'native-indeterminate-behavior'=false"
+              name="indeterminate"
             >
-              <ic-checkbox-group
-                label="Coffees"
-                hide-label
-                slot="additional-field"
-                name="coffees"
+              <ic-checkbox
+                id="indeterminate-checkbox"
+                value="indeterminate"
+                label="Indeterminate checkbox"
+                checked="true"
+                indeterminate="true"
               >
-                <ic-checkbox value="mocha" label="Mocha"></ic-checkbox>
-                <ic-checkbox
-                  value="espresso"
-                  label="Espresso"
-                  checked
-                ></ic-checkbox>
-                <ic-checkbox value="cappucino" label="Cappucino"></ic-checkbox>
-              </ic-checkbox-group>
-            </ic-checkbox>
-            <ic-checkbox value="juice" label="Juice"></ic-checkbox>
-          </ic-checkbox-group>
-        </ic-checkbox>
-      </ic-checkbox-group>`
+              </ic-checkbox>
+            </ic-checkbox-group>
+            <br />
+            <ic-button id="indeterminate-button"
+              >Toggle indeterminate</ic-button
+            >
+            <br />
+            <br />
+            <span>Indeterminate: <span id="indeterminate-text"></span></span>
+            <br />
+            <span>Checked: <span id="checked-text"></span></span>
+          </div>
+          <div style="border:1px solid gray;padding:8px;">
+            <ic-checkbox-group
+              label="'native-indeterminate-behavior'=true"
+              name="native_indeterminate"
+            >
+              <ic-checkbox
+                id="native-indeterminate-checkbox"
+                value="indeterminate"
+                label="Indeterminate checkbox"
+                checked="true"
+                indeterminate="true"
+                native-indeterminate-behaviour="true"
+              >
+              </ic-checkbox>
+            </ic-checkbox-group>
+            <br />
+            <ic-button id="native-indeterminate-button"
+              >Toggle indeterminate</ic-button
+            >
+            <br />
+            <br />
+            <span
+              >Indeterminate: <span id="native-indeterminate-text"></span
+            ></span>
+            <br />
+            <span>Checked: <span id="native-checked-text"></span></span>
+          </div>
+        </div>
+      `
+    }
+  </Story>
+</Canvas>
+
+### Indeterminate with children
+
+<Canvas>
+  <Story
+    name="Indeterminate with children"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) =>
+      html`
+        <script>
+          var drinksCheckbox = document.querySelector("#drinks-checkbox");
+          var teaCheckbox = document.querySelector("#tea-checkbox");
+          var coffeeCheckbox = document.querySelector("#coffee-checkbox");
+          var juiceCheckbox = document.querySelector("#juice-checkbox");
+          var drinksGroup = document.querySelector("#drinks-group");
+          drinksCheckbox.addEventListener("icCheck", function (ev) {
+            if (ev.target === drinksCheckbox) {
+              teaCheckbox.checked = drinksCheckbox.checked;
+              coffeeCheckbox.checked = drinksCheckbox.checked;
+              juiceCheckbox.checked = drinksCheckbox.checked;
+            }
+          });
+          drinksGroup.addEventListener("icChange", function (ev) {
+            if (ev.detail.checkedOptions.length === 3) {
+              drinksCheckbox.indeterminate = false;
+              drinksCheckbox.checked = true;
+            } else if (ev.detail.checkedOptions.length === 0) {
+              drinksCheckbox.indeterminate = false;
+              drinksCheckbox.checked = false;
+            } else {
+              drinksCheckbox.indeterminate = true;
+              drinksCheckbox.checked = false;
+            }
+          });
+          coffeeCheckbox.checked = true;
+          drinksCheckbox.indeterminate = true;
+        </script>
+        <ic-checkbox-group label="Liked things" name="1">
+          <ic-checkbox
+            id="drinks-checkbox"
+            value="drinks"
+            label="Drinks"
+            indeterminate="false"
+            native-indeterminate-behaviour
+          >
+            <ic-checkbox-group
+              id="drinks-group"
+              name="2"
+              label="Drinks"
+              hide-label
+              slot="additional-field"
+            >
+              <ic-checkbox
+                id="tea-checkbox"
+                value="tea"
+                label="Tea"
+              ></ic-checkbox>
+              <ic-checkbox
+                id="coffee-checkbox"
+                value="coffee"
+                label="Coffee"
+              ></ic-checkbox>
+              <ic-checkbox
+                id="juice-checkbox"
+                value="juice"
+                label="Juice"
+              ></ic-checkbox>
+            </ic-checkbox-group>
+          </ic-checkbox>
+        </ic-checkbox-group>
+      `
     }
   </Story>
 </Canvas>
@@ -526,5 +670,88 @@ import readme from "./readme.md";
         </div>
       `
     }
+  </Story>
+</Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  additionalFieldDisplay: "dynamic",
+  additionalFieldSlot: "additional-field",
+  checked: false,
+  disabled: false,
+  dynamicText: "Dynamic text",
+  groupLabel: "Checkbox group label",
+  helperText: "Helper text",
+  hideLabel: false,
+  hideGroupLabel: false,
+  indeterminate: false,
+  label: "Checkbox label",
+  nativeIndeterminateBehaviour: false,
+  required: false,
+  size: "default",
+  validationStatus: "",
+  validationText: "",
+  value: "checkbox-value",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    argTypes={{
+      additionalFieldDisplay: {
+        options: ["dynamic", "static"],
+        control: { type: "inline-radio" },
+      },
+      additionalFieldSlot: {
+        options: ["additional-field", ""],
+        control: { type: "select" },
+      },
+      size: {
+        options: ["default", "large", "small"],
+        control: { type: "inline-radio" },
+      },
+      validationStatus: {
+        options: ["warning", "error", "success", ""],
+        control: { type: "select" },
+      },
+    }}
+    name="Playground"
+    parameters={{ loki: { skip: true } }}
+  >
+    {(args) => {
+      const [{ checked }, updateArgs] = useArgs();
+
+      return html` <ic-checkbox-group
+        disabled=${args.disabled}
+        label=${args.groupLabel}
+        size=${args.size}
+        helper-text=${args.helperText}
+        hide-label=${args.hideGroupLabel}
+        required=${args.required}
+        validation-status=${args.validationStatus}
+        validation-text=${args.validationText}
+      >
+        <ic-checkbox
+          disabled=${args.disabled}
+          label=${args.label}
+          value=${args.value}
+          size=${args.size}
+          hide-label=${args.hideLabel}
+          indeterminate=${args.indeterminate}
+          checked=${checked}
+          additional-field-display=${args.additionalFieldDisplay}
+          dynamic-text=${args.dynamicText}
+          native-indeterminate-behaviour=${args.nativeIndeterminateBehaviour}
+        >
+          <ic-text-field
+            slot=${args.additionalFieldSlot}
+            placeholder="Placeholder"
+            label="What's your favourite type of coffee?"
+          ></ic-text-field>
+        </ic-checkbox>
+      </ic-checkbox-group>`;
+    }}
+
   </Story>
 </Canvas>

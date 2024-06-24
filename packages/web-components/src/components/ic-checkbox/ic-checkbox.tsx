@@ -8,6 +8,7 @@ import {
   EventEmitter,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { IcAdditionalFieldTypes, IcSizes } from "../../utils/types";
 import {
@@ -93,12 +94,20 @@ export class Checkbox {
   /**
    * The group label for the checkbox.
    */
-  @Prop() groupLabel: string;
+  @Prop({ mutable: true }) groupLabel: string;
 
   /**
    * If `true`, the indeterminate state will be displayed when checked.
    */
   @Prop() indeterminate: boolean = false;
+  @State() displayIndeterminate = this.indeterminate;
+
+  @Watch("indeterminate")
+  watchIndeterminateHandler(): void {
+    this.displayIndeterminate = this.nativeIndeterminateBehaviour
+      ? this.indeterminate
+      : this.indeterminate && this.checked;
+  }
 
   /**
    * The label for the checkbox.
@@ -108,7 +117,12 @@ export class Checkbox {
   /**
    * The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.
    */
-  @Prop() name: string;
+  @Prop({ mutable: true }) name: string;
+
+  /**
+   * If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.
+   */
+  @Prop() nativeIndeterminateBehaviour: boolean = false;
 
   /**
    * The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group.
@@ -191,6 +205,9 @@ export class Checkbox {
 
   private handleClick = () => {
     this.checked = !this.checked;
+    this.displayIndeterminate = this.nativeIndeterminateBehaviour
+      ? false
+      : this.indeterminate && this.checked;
     this.icCheck.emit();
     this.checkboxChecked.emit();
   };
@@ -212,7 +229,7 @@ export class Checkbox {
       formmethod,
       formnovalidate,
       formtarget,
-      indeterminate,
+      displayIndeterminate,
       groupLabel,
       label,
       name,
@@ -241,29 +258,27 @@ export class Checkbox {
         }}
       >
         <div class="container">
-          {checked &&
-            (!indeterminate ? (
-              <svg
-                class="checkmark"
-                width="1.5rem"
-                height="1.5rem"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-              >
-                <title>checkmark icon</title>
-                <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
-              </svg>
-            ) : (
-              <div class="indeterminate-symbol" />
-            ))}
+          {displayIndeterminate && <div class="indeterminate-symbol" />}
+          {!displayIndeterminate && checked && (
+            <svg
+              class="checkmark"
+              width="1.5rem"
+              height="1.5rem"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <title>checkmark icon</title>
+              <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z" />
+            </svg>
+          )}
           <input
             role="checkbox"
             class={{
               checkbox: true,
               checked,
-              indeterminate,
+              indeterminate: displayIndeterminate,
             }}
             type="checkbox"
             name={name}
@@ -271,7 +286,7 @@ export class Checkbox {
             value={value}
             disabled={disabled ? true : null}
             checked={checked}
-            indeterminate={indeterminate}
+            indeterminate={displayIndeterminate}
             onClick={this.handleClick}
             form={form}
             formaction={formaction}
