@@ -39,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: |
           google-chrome --version
-          npm ci --legacy-peer-deps
-          npm run bootstrap -- -- --ci --legacy-peer-deps
+          npm ci
+          npm run bootstrap -- -- --ci
 
       - name: Extract branch name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
