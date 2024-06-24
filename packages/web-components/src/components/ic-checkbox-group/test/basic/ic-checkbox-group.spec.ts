@@ -254,6 +254,82 @@ describe("ic-checkbox-group", () => {
     expect(eventSpy).toHaveBeenCalled();
   });
 
+  it("should test indeterminate with 'nativeIndeterminateBehaviour' set to 'false'", async () => {
+    const page = await newSpecPage({
+      components: [Checkbox],
+      html: `<ic-checkbox value="test" label="test label" checked indeterminate></ic-checkbox>`,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.displayIndeterminate).toBe(true);
+
+    page.root.shadowRoot.querySelector("input").click();
+
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.displayIndeterminate).toBe(false);
+
+    page.root.shadowRoot.querySelector("input").click();
+
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.displayIndeterminate).toBe(true);
+
+    page.root.indeterminate = false;
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.displayIndeterminate).toBe(false);
+
+    page.root.indeterminate = true;
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.displayIndeterminate).toBe(true);
+  });
+
+  it("should test indeterminate with 'nativeIndeterminateBehaviour' set to 'true'", async () => {
+    const page = await newSpecPage({
+      components: [Checkbox],
+      html: `<ic-checkbox value="test" label="test label" indeterminate native-indeterminate-behaviour></ic-checkbox>`,
+    });
+    await page.waitForChanges();
+
+    expect(page.rootInstance.displayIndeterminate).toBe(true);
+
+    page.root.shadowRoot.querySelector("input").click();
+
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.displayIndeterminate).toBe(false);
+
+    page.root.shadowRoot.querySelector("input").click();
+
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.displayIndeterminate).toBe(false);
+
+    page.root.indeterminate = false;
+    await page.waitForChanges();
+
+    page.root.indeterminate = true;
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(false);
+    expect(page.rootInstance.displayIndeterminate).toBe(true);
+
+    page.root.shadowRoot.querySelector("input").click();
+
+    await page.waitForChanges();
+
+    expect(page.root.checked).toBe(true);
+    expect(page.rootInstance.displayIndeterminate).toBe(false);
+  });
+
   it("should test form reset event", async () => {
     const page = await newSpecPage({
       components: [Checkbox],
