@@ -8,6 +8,9 @@ import {
   Controlled,
   DynamicLoading,
   Uncontrolled,
+  IndeterminateCheckbox,
+  NativeIndeterminateCheckbox,
+  IndeterminateWithChildren,
 } from "./IcCheckboxTestData";
 import { IcCheckbox, IcCheckboxGroup, IcTextField } from "../../components";
 import {
@@ -18,6 +21,7 @@ import {
   HAVE_BEEN_CALLED_WITH,
   HAVE_CLASS,
   HAVE_PROP,
+  NOT_EXIST,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -27,6 +31,7 @@ const CHECKBOX_SELECTOR = "ic-checkbox";
 const CONTAINER_SELECTOR = ".container";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 const CHECKBOX_GROUP_SELECTOR = "ic-checkbox-group";
+const INDETERMINATE_SYMBOL_SELECTOR = ".indeterminate-symbol";
 
 describe("IcCheckbox", () => {
   it("should render", () => {
@@ -125,6 +130,122 @@ describe("IcCheckbox", () => {
     cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "value", "Soya milk");
   });
 
+  it("should test default indeterminate checkbox behaviour", () => {
+    mount(<IndeterminateCheckbox />);
+
+    cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+
+    cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(NOT_EXIST);
+
+    cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR)
+      .invoke("prop", "indeterminate", "false")
+      .then(() => {
+        cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+        cy.get(CHECKBOX_SELECTOR)
+          .shadow()
+          .find(INDETERMINATE_SYMBOL_SELECTOR)
+          .should(NOT_EXIST);
+
+        cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+        cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+        cy.get(CHECKBOX_SELECTOR)
+          .shadow()
+          .find(INDETERMINATE_SYMBOL_SELECTOR)
+          .should(NOT_EXIST);
+
+        cy.get(CHECKBOX_SELECTOR)
+          .invoke("prop", "indeterminate", "true")
+          .then(() => {
+            cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+            cy.get(CHECKBOX_SELECTOR)
+              .shadow()
+              .find(INDETERMINATE_SYMBOL_SELECTOR)
+              .should(NOT_EXIST);
+            cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+            cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+            cy.get(CHECKBOX_SELECTOR)
+              .shadow()
+              .find(INDETERMINATE_SYMBOL_SELECTOR)
+              .should(BE_VISIBLE);
+          });
+      });
+  });
+
+  it("should test native indeterminate checkbox behaviour", () => {
+    mount(<NativeIndeterminateCheckbox />);
+
+    cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR)
+      .invoke("prop", "indeterminate", "false")
+      .then(() => {
+        cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+        cy.get(CHECKBOX_SELECTOR)
+          .shadow()
+          .find(INDETERMINATE_SYMBOL_SELECTOR)
+          .should(NOT_EXIST);
+
+        cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+        cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+        cy.get(CHECKBOX_SELECTOR)
+          .shadow()
+          .find(INDETERMINATE_SYMBOL_SELECTOR)
+          .should(NOT_EXIST);
+
+        cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+        cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+        cy.get(CHECKBOX_SELECTOR)
+          .shadow()
+          .find(INDETERMINATE_SYMBOL_SELECTOR)
+          .should(NOT_EXIST);
+
+        cy.get(CHECKBOX_SELECTOR)
+          .invoke("prop", "indeterminate", "true")
+          .then(() => {
+            cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+            cy.get(CHECKBOX_SELECTOR)
+              .shadow()
+              .find(INDETERMINATE_SYMBOL_SELECTOR)
+              .should(BE_VISIBLE);
+
+            cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+            cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", true);
+            cy.get(CHECKBOX_SELECTOR)
+              .shadow()
+              .find(INDETERMINATE_SYMBOL_SELECTOR)
+              .should(NOT_EXIST);
+
+            cy.get(CHECKBOX_SELECTOR).shadow().find("input").click();
+            cy.get(CHECKBOX_SELECTOR).should(HAVE_PROP, "checked", false);
+            cy.get(CHECKBOX_SELECTOR)
+              .shadow()
+              .find(INDETERMINATE_SYMBOL_SELECTOR)
+              .should(NOT_EXIST);
+          });
+      });
+  });
+
   it("should reset checked state on form reset", () => {
     mount(<CheckboxForm />);
 
@@ -132,6 +253,75 @@ describe("IcCheckbox", () => {
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
     cy.get('button[type="reset"]').click();
     cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+  });
+
+  it("should test indeterminate behaviour with children", () => {
+    mount(<IndeterminateWithChildren />);
+
+    // check parent checkbox
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR).eq(3).should(HAVE_PROP, "checked", true);
+
+    // clear child checkboxes
+    cy.get(CHECKBOX_SELECTOR).eq(1).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR).eq(2).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR).eq(3).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(NOT_EXIST);
+
+    // re-check each child checkbox
+    cy.get(CHECKBOX_SELECTOR).eq(3).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR).eq(2).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(BE_VISIBLE);
+
+    cy.get(CHECKBOX_SELECTOR).eq(1).shadow().find("input").click();
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", true);
+    cy.get(CHECKBOX_SELECTOR)
+      .eq(0)
+      .shadow()
+      .find(INDETERMINATE_SYMBOL_SELECTOR)
+      .should(NOT_EXIST);
+
+    //clear parent checkbox
+    cy.get(CHECKBOX_SELECTOR).eq(0).shadow().find("input").click();
+
+    cy.get(CHECKBOX_SELECTOR).eq(0).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(1).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_PROP, "checked", false);
+    cy.get(CHECKBOX_SELECTOR).eq(3).should(HAVE_PROP, "checked", false);
   });
 
   it("renders checkboxes dynamically in a group", () => {
@@ -259,14 +449,17 @@ describe("A11y and visual regression tests", () => {
         <IcCheckboxGroup label="Select your extras" name="1" size="small">
           <IcCheckbox value="valueName1" label="Extra shot (50p)" />
           <IcCheckbox value="valueName2" label="Soya milk" checked />
+          <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
         </IcCheckboxGroup>
         <IcCheckboxGroup label="Select your extras" name="2">
           <IcCheckbox value="valueName1" label="Extra shot (50p)" />
           <IcCheckbox value="valueName2" label="Soya milk" checked />
+          <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
         </IcCheckboxGroup>
         <IcCheckboxGroup label="Select your extras" name="3" size="large">
           <IcCheckbox value="valueName1" label="Extra shot (50p)" />
           <IcCheckbox value="valueName2" label="Soya milk" checked />
+          <IcCheckbox value="valueName3" label="Sugar" indeterminate checked />
         </IcCheckboxGroup>
       </div>
     );
@@ -274,7 +467,7 @@ describe("A11y and visual regression tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "sizes",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.078),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.083),
     });
   });
 
@@ -361,42 +554,6 @@ describe("A11y and visual regression tests", () => {
     cy.compareSnapshot({
       name: "validation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.06),
-    });
-  });
-
-  it("should render with indeterminate boxes", () => {
-    mount(
-      <IcCheckboxGroup label="Select your preferred drinks" name="1">
-        <IcCheckbox value="drinks" label="Drinks" checked indeterminate>
-          <IcCheckboxGroup
-            name="2"
-            label="Coffee"
-            hideLabel
-            slot="additional-field"
-          >
-            <IcCheckbox value="tea" label="Tea" />
-            <IcCheckbox value="coffee" label="Coffee" checked indeterminate>
-              <IcCheckboxGroup
-                label="Coffees"
-                hideLabel
-                slot="additional-field"
-                name="3"
-              >
-                <IcCheckbox value="mocha" label="Mocha" />
-                <IcCheckbox value="espresso" label="Espresso" checked />
-                <IcCheckbox value="cappuccino" label="Cappuccino" />
-              </IcCheckboxGroup>
-            </IcCheckbox>
-            <IcCheckbox value="juice" label="Juice" />
-          </IcCheckboxGroup>
-        </IcCheckbox>
-      </IcCheckboxGroup>
-    );
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "indeterminate",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
     });
   });
 
