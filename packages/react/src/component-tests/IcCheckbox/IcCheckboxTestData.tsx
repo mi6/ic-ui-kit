@@ -60,7 +60,7 @@ export const CheckboxForm = () => {
             onIcCheck={(ev) => console.log("onIcCheck", ev)}
           />
           <IcCheckbox value="Soya milk" label="Soya milk" checked />
-          <IcCheckbox value="keep cup" label="Takeaway cup" disabled />
+          <IcCheckbox value="keep cup" label="Takeaway cup" />
         </IcCheckboxGroup>
         <input type="submit" />
         <button type="reset" id="resetBtn">
@@ -106,14 +106,12 @@ export const Uncontrolled = () => {
     console.log(checkboxEl.current.checked);
   };
   return (
-    <>
-      <IcCheckbox
-        ref={checkboxEl}
-        label="Label"
-        value="valueName1"
-        onIcCheck={handleCheck}
-      />
-    </>
+    <IcCheckbox
+      ref={checkboxEl}
+      label="Label"
+      value="valueName1"
+      onIcCheck={handleCheck}
+    />
   );
 };
 
@@ -143,5 +141,105 @@ export const DynamicLoading = (): ReactElement => {
       <br />
       <IcButton onClick={updateOptions}>Update</IcButton>
     </>
+  );
+};
+
+export const IndeterminateCheckbox = () => (
+  <IcCheckbox label="Label" value="valueName1" indeterminate checked />
+);
+
+export const NativeIndeterminateCheckbox = () => (
+  <IcCheckbox
+    label="Label"
+    value="valueName1"
+    indeterminate
+    nativeIndeterminateBehaviour
+  />
+);
+
+export const IndeterminateWithChildren = () => {
+  const [drinksChecked, setDrinksChecked] = useState({
+    tea: false,
+    coffee: false,
+    juice: false,
+  });
+  const [parentChecked, setParentChecked] = useState(false);
+  const [parentIndeterminate, setParentIndeterminate] = useState(false);
+
+  const drinksChangeHandler = (e) => {
+    if (e.detail.checkedOptions.length === 0) {
+      setParentChecked(false);
+      setParentIndeterminate(false);
+    } else if (e.detail.checkedOptions.length === 3) {
+      setParentChecked(true);
+      setParentIndeterminate(false);
+    } else {
+      setParentIndeterminate(true);
+    }
+  };
+
+  const drinksCheckHandler = (ev) => {
+    if (ev.target.id === "drinks-checkbox") {
+      setParentChecked(ev.target.checked);
+      setParentIndeterminate(false);
+      setDrinksChecked({
+        tea: ev.target.checked,
+        coffee: ev.target.checked,
+        juice: ev.target.checked,
+      });
+    }
+  };
+
+  const teaCheckHandler = (ev) => {
+    setDrinksChecked({ ...drinksChecked, tea: ev.target.checked });
+  };
+
+  const coffeeCheckHandler = (ev) => {
+    setDrinksChecked({ ...drinksChecked, coffee: ev.target.checked });
+  };
+
+  const juiceCheckHandler = (ev) => {
+    setDrinksChecked({ ...drinksChecked, juice: ev.target.checked });
+  };
+
+  return (
+    <IcCheckboxGroup label="Liked things" name="1">
+      <IcCheckbox
+        id="drinks-checkbox"
+        value="drinks"
+        label="Drinks"
+        checked={parentChecked}
+        indeterminate={parentIndeterminate}
+        nativeIndeterminateBehaviour
+        onIcCheck={drinksCheckHandler}
+      >
+        <IcCheckboxGroup
+          name="2"
+          label="Drinks"
+          hideLabel
+          slot="additional-field"
+          onIcChange={drinksChangeHandler}
+        >
+          <IcCheckbox
+            value="tea"
+            label="Tea"
+            checked={drinksChecked.tea}
+            onIcCheck={teaCheckHandler}
+          />
+          <IcCheckbox
+            value="coffee"
+            label="Coffee"
+            checked={drinksChecked.coffee}
+            onIcCheck={coffeeCheckHandler}
+          />
+          <IcCheckbox
+            value="juice"
+            label="Juice"
+            checked={drinksChecked.juice}
+            onIcCheck={juiceCheckHandler}
+          />
+        </IcCheckboxGroup>
+      </IcCheckbox>
+    </IcCheckboxGroup>
   );
 };
