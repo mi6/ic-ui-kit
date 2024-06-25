@@ -626,6 +626,6 @@ svg {
 
 @media (forced-colors: active) {
   .open-in-new-icon svg {
-    fill: currentColor;
+    fill: currentcolor;
   }
 }

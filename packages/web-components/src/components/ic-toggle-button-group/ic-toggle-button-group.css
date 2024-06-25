@@ -35,8 +35,9 @@
 
 ::slotted(ic-toggle-button) {
   flex-grow: 1;
-  --toggle-button-border: none;
   width: min-content;
+
+  --toggle-button-border: none;
 }
 
 ::slotted(ic-toggle-button:not(:last-of-type)) {
@@ -48,6 +49,7 @@
   border: var(--ic-border-disabled);
   pointer-events: none;
 }
+
 :host(.disabled) ::slotted(ic-toggle-button:not(:last-of-type)) {
   border-right: var(--ic-border-disabled);
 }
