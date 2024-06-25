@@ -82,6 +82,7 @@ export class DataTable {
   private truncWrapperDetails: truncWrapperDetailsTypes = {
     scrollHeight: null,
   };
+  private rowHeightSet = false;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -250,7 +251,6 @@ export class DataTable {
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
-  // private rowHeightSet = false;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -402,7 +402,6 @@ export class DataTable {
     const cellContainer = this.getCellContainer(typographyEl);
     const cellContainerClientHeight = cellContainer.clientHeight - 24;
 
-    // console.log(cellContainerClientHeight, cellContainer.clientHeight);
     if (
       cellContainer?.classList.contains("data-type-element") ||
       this.dataUpdated
@@ -458,27 +457,19 @@ export class DataTable {
       }
     }
 
-    console.log({
-      data: typographyEl.textContent,
-      maxLines: typographyEl.getAttribute("max-lines"),
-      cellContainerLines: this.getLines(cellContainerClientHeight),
-      typographyScrollHeight: typographyEl?.scrollHeight,
-      typographyLines: this.getLines(typographyEl?.scrollHeight),
-      "cellContainer.clientHeight": cellContainer?.clientHeight,
-      "cellContainer.lines": this.getLines(cellContainer?.clientHeight),
-    });
+    if (this.rowHeightSet && this.truncationPattern === "show-hide") {
+      const typographyMaxLines = +typographyEl.getAttribute("max-lines");
+
+      if (this.getLines(cellContainer.clientHeight) > typographyMaxLines) {
+        this.resetShowHideTruncation();
+      }
+      this.rowHeightSet = false;
+      return;
+    }
 
     if (typographyEl?.scrollHeight === cellContainer?.clientHeight) {
       return;
     }
-
-    // if (
-    //   typographyEl?.scrollHeight === cellContainer?.clientHeight &&
-    //   this.truncationPattern === "show-hide" &&
-    //   typographyEl.hasAttribute("max-lines")
-    // ) {
-    //   return;
-    // }
 
     this.truncate(typographyEl, cellContainer, tooltip);
   };
@@ -600,7 +591,7 @@ export class DataTable {
 
     this.icRowHeightChange.emit();
 
-    // this.rowHeightSet = true;
+    this.rowHeightSet = true;
   }
 
   /**
