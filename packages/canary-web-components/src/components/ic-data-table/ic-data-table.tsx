@@ -25,6 +25,7 @@ import {
   IcDataTableSortOrderOptions,
   IcDataTableTruncationTypes,
   IcDensityUpdateEventDetail,
+  truncWrapperDetailsTypes,
 } from "./ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationBarOptions } from "../../utils/types";
@@ -78,6 +79,9 @@ export class DataTable {
   private dataUpdated = false;
   private tableSorted: boolean;
   private showHideBtnClicked = false;
+  private truncWrapperDetails: truncWrapperDetailsTypes = {
+    scrollHeight: null,
+  };
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -325,10 +329,13 @@ export class DataTable {
         if (!typographyEl.classList.contains("text-wrap")) {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
-            debounce((entries) => {
-              console.log(entries);
-              this.dataTruncation(typographyEl);
-            }, 0) as ResizeObserverCallback
+            debounce(
+              (/*entries: ResizeObserverEntry[]*/) => {
+                // console.log(entries[0].contentRect, typographyEl.textContent);
+                this.dataTruncation(typographyEl);
+              },
+              200
+            ) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -344,6 +351,10 @@ export class DataTable {
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
+    console.log({
+      typographyEl: typographyEl?.scrollHeight,
+      cellContainer: cellContainer?.clientHeight,
+    });
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
       if (
@@ -393,7 +404,6 @@ export class DataTable {
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
-    console.log("truncate", typographyEl.textContent);
     // TODO: Need to prevent this running so many times so truncation can work dynamically
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
@@ -428,12 +438,30 @@ export class DataTable {
         const truncWrapper =
           typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
+        /**
+         * This function does a number of things before resetting the truncation
+         * 1. Checks if truncated wrapper height and the previously stored truncation wrapper height is the same AND
+         * 2. Check if the truncated wrapper height is less than cell container height
+         * 3. OR if the number of truncated wrapper lines is equal to the max lines set
+         * 4. OR cell container (minus see more/see less) is 0
+         */
         if (
-          truncWrapper.scrollHeight <= cellContainerClientHeight ||
-          (truncWrapper.scrollHeight === 24 && cellContainerClientHeight === 0)
+          (this.truncWrapperDetails.scrollHeight !==
+            truncWrapper.scrollHeight &&
+            truncWrapper.scrollHeight < cellContainerClientHeight) ||
+          this.getLines(truncWrapper.scrollHeight) ===
+            +typographyEl.getAttribute("max-lines") ||
+          cellContainerClientHeight === 0
         ) {
           this.resetShowHideTruncation();
+          this.truncWrapperDetails = {
+            scrollHeight: null,
+          };
         }
+
+        this.truncWrapperDetails = {
+          scrollHeight: truncWrapper.scrollHeight,
+        };
       }
     }
 
@@ -562,8 +590,6 @@ export class DataTable {
     this.deleteTextWrapDataKey(this.data);
     this.deleteTextWrapDataKey(this.columns);
     this.removeTextWrap();
-
-    // this.rowHeightManuallySet = true;
 
     this.icRowHeightChange.emit();
   }

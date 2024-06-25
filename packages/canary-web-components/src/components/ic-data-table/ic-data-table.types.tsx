@@ -42,3 +42,7 @@ export interface IcDensityUpdateEventDetail {
   value: IcDataTableDensityOptions;
 }
 export type IcDataTableTruncationTypes = "tooltip" | "show-hide" | undefined;
+
+export type truncWrapperDetailsTypes = {
+  scrollHeight: number | null;
+};
