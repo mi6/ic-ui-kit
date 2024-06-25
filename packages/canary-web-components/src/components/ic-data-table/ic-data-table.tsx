@@ -250,7 +250,7 @@ export class DataTable {
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
-  // private rowHeightManuallySet = false;
+  // private rowHeightSet = false;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -329,13 +329,9 @@ export class DataTable {
         if (!typographyEl.classList.contains("text-wrap")) {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
-            debounce(
-              (/*entries: ResizeObserverEntry[]*/) => {
-                // console.log(entries[0].contentRect, typographyEl.textContent);
-                this.dataTruncation(typographyEl);
-              },
-              200
-            ) as ResizeObserverCallback
+            debounce(() => {
+              this.dataTruncation(typographyEl);
+            }, 200) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -344,17 +340,13 @@ export class DataTable {
     );
   };
 
-  private getLines = (height: number): number => height / 24;
+  private getLines = (height: number): number => Math.floor(height / 24);
 
   private truncate = (
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
-    console.log({
-      typographyEl: typographyEl?.scrollHeight,
-      cellContainer: cellContainer?.clientHeight,
-    });
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
       if (
@@ -408,6 +400,9 @@ export class DataTable {
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
     const cellContainer = this.getCellContainer(typographyEl);
+    const cellContainerClientHeight = cellContainer.clientHeight - 24;
+
+    // console.log(cellContainerClientHeight, cellContainer.clientHeight);
     if (
       cellContainer?.classList.contains("data-type-element") ||
       this.dataUpdated
@@ -433,8 +428,6 @@ export class DataTable {
       }
 
       if (showHideBtn) {
-        const cellContainerClientHeight = cellContainer.clientHeight - 24;
-
         const truncWrapper =
           typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
@@ -465,13 +458,27 @@ export class DataTable {
       }
     }
 
-    if (
-      typographyEl?.scrollHeight === cellContainer?.clientHeight &&
-      this.truncationPattern === "show-hide" &&
-      typographyEl.hasAttribute("max-lines")
-    ) {
+    console.log({
+      data: typographyEl.textContent,
+      maxLines: typographyEl.getAttribute("max-lines"),
+      cellContainerLines: this.getLines(cellContainerClientHeight),
+      typographyScrollHeight: typographyEl?.scrollHeight,
+      typographyLines: this.getLines(typographyEl?.scrollHeight),
+      "cellContainer.clientHeight": cellContainer?.clientHeight,
+      "cellContainer.lines": this.getLines(cellContainer?.clientHeight),
+    });
+
+    if (typographyEl?.scrollHeight === cellContainer?.clientHeight) {
       return;
     }
+
+    // if (
+    //   typographyEl?.scrollHeight === cellContainer?.clientHeight &&
+    //   this.truncationPattern === "show-hide" &&
+    //   typographyEl.hasAttribute("max-lines")
+    // ) {
+    //   return;
+    // }
 
     this.truncate(typographyEl, cellContainer, tooltip);
   };
@@ -592,6 +599,8 @@ export class DataTable {
     this.removeTextWrap();
 
     this.icRowHeightChange.emit();
+
+    // this.rowHeightSet = true;
   }
 
   /**
