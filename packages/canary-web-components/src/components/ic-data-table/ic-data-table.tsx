@@ -246,6 +246,7 @@ export class DataTable {
    * Emitted when the `globalRowHeight` or `variableRowHeight` properties change in the data table.
    */
   @Event() icRowHeightChange: EventEmitter<void>;
+  // private rowHeightManuallySet = false;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -286,8 +287,22 @@ export class DataTable {
 
   componentDidUpdate(): void {
     //TODO: Make this more efficient by preventing an extra render to apply truncation
+    this.truncateUpdatedData();
     console.warn(this.tableSorted);
-    console.warn(this.dataUpdated);
+  }
+
+  private truncateUpdatedData() {
+    if (this.dataUpdated) {
+      if (this.truncationPattern === "show-hide") {
+        this.resetShowHideTruncation();
+      }
+
+      setTimeout(() => {
+        this.debounceDataTruncation();
+      }, 75);
+
+      this.dataUpdated = false;
+    }
   }
 
   private createShowHideTruncation(
@@ -309,9 +324,11 @@ export class DataTable {
       (typographyEl: HTMLIcTypographyElement) => {
         if (!typographyEl.classList.contains("text-wrap")) {
           this.resizeObserver = new ResizeObserver(
-            debounce(() => {
+            // This gets triggered twice due to updated data and see more/see less button
+            debounce((entries) => {
+              console.log(entries);
               this.dataTruncation(typographyEl);
-            }, 200) as ResizeObserverCallback
+            }, 0) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -320,29 +337,23 @@ export class DataTable {
     );
   };
 
+  private getLines = (height: number): number => height / 24;
+
   private truncate = (
     typographyEl: HTMLIcTypographyElement,
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
-    // if (
-    //   typographyEl.textContent ===
-    //   "Senior Software Developer, Site Reliability Engineering, Senior Software Developer, Site Reliability Engineering,"
-    // ) {
-    //   console.log({
-    //     scrollHeight: typographyEl?.scrollHeight,
-    //     clientHeight: cellContainer.clientHeight,
-    //   });
-    // }
-
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
       if (
         this.truncationPattern === "tooltip" &&
         !typographyEl.closest(".text-wrap")
       ) {
-        const numLines = Math.floor(cellContainer?.clientHeight / 24);
-        typographyEl.setAttribute("style", `--ic-line-clamp: ${numLines}`);
+        typographyEl.setAttribute(
+          "style",
+          `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+        );
 
         if (!tooltip) {
           this.createTruncationTooltip(typographyEl, cellContainer);
@@ -382,36 +393,29 @@ export class DataTable {
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
+    console.log("truncate", typographyEl.textContent);
     // TODO: Need to prevent this running so many times so truncation can work dynamically
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
     const cellContainer = this.getCellContainer(typographyEl);
-    if (cellContainer?.classList.contains("data-type-element")) return;
+    if (
+      cellContainer?.classList.contains("data-type-element") ||
+      this.dataUpdated
+    )
+      return;
 
     if (
       this.truncationPattern === "show-hide" &&
       typographyEl.shadowRoot.querySelector("button")
     ) {
       const showHideBtn = typographyEl.shadowRoot.querySelector("button");
+
       if (!showHideBtn.getAttribute("data-click-event")) {
         showHideBtn.addEventListener("click", () => {
           this.showHideBtnClicked = true;
         });
         showHideBtn.setAttribute("data-click-event", "true");
       }
-
-      // if (
-      //   typographyEl.textContent ===
-      //   "Junior Human Resource Information Specialist"
-      // ) {
-      //   console.log({
-      //     scrollHeight: typographyEl.scrollHeight,
-      //     truncWrapper:
-      //       typographyEl.shadowRoot.querySelector(".trunc-wrapper")
-      //         .scrollHeight,
-      //     clientHeight: cellContainer.clientHeight,
-      //   });
-      // }
 
       if (this.showHideBtnClicked) {
         this.showHideBtnClicked = false;
@@ -420,10 +424,14 @@ export class DataTable {
 
       if (showHideBtn) {
         const cellContainerClientHeight = cellContainer.clientHeight - 24;
+
         const truncWrapper =
           typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
-        if (truncWrapper.scrollHeight <= cellContainerClientHeight) {
+        if (
+          truncWrapper.scrollHeight <= cellContainerClientHeight ||
+          (truncWrapper.scrollHeight === 24 && cellContainerClientHeight === 0)
+        ) {
           this.resetShowHideTruncation();
         }
       }
@@ -502,7 +510,7 @@ export class DataTable {
   }
 
   @Watch("data")
-  dataHandler(newData: { [key: string]: any }[]): void {
+  async dataHandler(newData: { [key: string]: any }[]) {
     this.loadingOptions = {
       ...this.loadingOptions,
       showBackground: newData?.length > 0,
@@ -518,11 +526,7 @@ export class DataTable {
     }
     if (this.updating) this.updating = false;
 
-    // this.dataUpdated = true;
-
-    if (this.truncationPattern === "show-hide") {
-      this.resetShowHideTruncation();
-    }
+    this.dataUpdated = true;
   }
 
   private getCellContainer = (
@@ -559,11 +563,9 @@ export class DataTable {
     this.deleteTextWrapDataKey(this.columns);
     this.removeTextWrap();
 
-    this.icRowHeightChange.emit();
+    // this.rowHeightManuallySet = true;
 
-    if (this.truncationPattern) {
-      this.debounceDataTruncation();
-    }
+    this.icRowHeightChange.emit();
   }
 
   /**
@@ -707,6 +709,7 @@ export class DataTable {
       if (rowKeys[index] !== "rowOptions") {
         return (
           <td
+            id={`row-${rowIndex}-${Math.floor(Math.random() * 100)}`}
             class={{
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),

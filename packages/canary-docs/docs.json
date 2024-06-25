@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-07T08:35:11",
+  "timestamp": "2024-06-25T08:24:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -430,10 +430,10 @@
         },
         {
           "name": "truncationPattern",
-          "type": "\"showHide\" | \"tooltip\"",
+          "type": "\"show-hide\" | \"tooltip\"",
           "complexType": {
             "original": "IcDataTableTruncationTypes",
-            "resolved": "\"showHide\" | \"tooltip\"",
+            "resolved": "\"show-hide\" | \"tooltip\"",
             "references": {
               "IcDataTableTruncationTypes": {
                 "location": "import",
@@ -447,10 +447,9 @@
           "reflectToAttr": false,
           "docs": "For long text in cells that aren't set to textWrap, define how they should be truncated.\n`tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography \"See More\"/\"See Less\" buttons.",
           "docsTags": [],
-          "default": "\"tooltip\"",
           "values": [
             {
-              "value": "showHide",
+              "value": "show-hide",
               "type": "string"
             },
             {
@@ -577,6 +576,11 @@
         }
       ],
       "listeners": [
+        {
+          "event": "icItemsPerPageChange",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "icPageChange",
           "capture": false,
@@ -4280,7 +4284,7 @@
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
-      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"showHide\";",
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
