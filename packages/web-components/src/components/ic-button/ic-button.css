@@ -115,6 +115,7 @@
 
 :host(.top-icon) .button {
   flex-direction: column;
+
   --height: fit-content;
 }
 
