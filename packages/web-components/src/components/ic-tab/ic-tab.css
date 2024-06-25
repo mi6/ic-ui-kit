@@ -55,12 +55,14 @@
   pointer-events: none;
   color: var(--ic-architectural-300);
 }
+
 @media (prefers-reduced-motion: no-preference) {
   :host(.selected.with-transition) {
     transition: all var(--ic-easing-transition-slow),
       border-color var(--ic-transition-duration-slow);
   }
 }
+
 .ic-tab-label {
   pointer-events: none;
   text-wrap: nowrap;
