@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  IcDataEntity,
+  IcDataList,
   IcDataRow,
   IcTypography,
   IcStatusTag,
@@ -15,18 +15,18 @@ const LARGE_SPACING_CSS = "var(--ic-space-lg)";
 
 export const Default = () => {
   return (
-    <IcDataEntity heading="Personal Details">
+    <IcDataList heading="Personal Details">
       <IcDataRow label="Name" value="Michael Johnson" />
       <IcDataRow label="Date of birth" value="16 October 1995" />
       <IcDataRow label="Telephone" value="07449 7654873" />
       <IcDataRow label="Email" value="mjohnson@coffee.gov" />
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const SlottedHeadingLabel = () => {
   return (
-    <IcDataEntity>
+    <IcDataList>
       <IcTypography variant="h3" slot="heading">
         Personal details
       </IcTypography>
@@ -40,13 +40,13 @@ export const SlottedHeadingLabel = () => {
           Date of birth
         </IcTypography>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const WithLinks = () => {
   return (
-    <IcDataEntity heading="Order details">
+    <IcDataList heading="Order details">
       <IcDataRow label="Order name" value="Michael">
         <IcLink href="#" slot="end-component">
           Edit
@@ -75,25 +75,25 @@ export const WithLinks = () => {
           Edit
         </IcLink>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const OneDataRow = () => {
   return (
-    <IcDataEntity heading="Order details">
+    <IcDataList heading="Order details">
       <IcDataRow label="Order name" value="Michael">
         <IcLink href="#" slot="end-component">
           Edit
         </IcLink>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const WithButton = () => {
   return (
-    <IcDataEntity heading="Order details">
+    <IcDataList heading="Order details">
       <IcDataRow label="Download receipt" value="CoffeeOrder_X46w32.pdf">
         <IcButton variant="icon" aria-label="Download" slot="end-component">
           <SlottedSVG viewBox="0 0 24 24" height="24px" width="24px">
@@ -104,13 +104,13 @@ export const WithButton = () => {
           </SlottedSVG>
         </IcButton>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const WithStatusTags = () => {
   return (
-    <IcDataEntity heading="Order details">
+    <IcDataList heading="Order details">
       <IcDataRow label="Order name" value="Michael"></IcDataRow>
       <IcDataRow label="Drink" value="Americano">
         <IcStatusTag
@@ -132,13 +132,13 @@ export const WithStatusTags = () => {
           slot="end-component"
         />
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const Small = () => {
   return (
-    <IcDataEntity heading="Personal details" size="small">
+    <IcDataList heading="Personal details" size="small">
       <IcDataRow label="Name" value="Michael Johnson"></IcDataRow>
       <IcDataRow label="Date of birth" value="16 October 1995"></IcDataRow>
       <IcDataRow label="Telephone" value="07449 7654873"></IcDataRow>
@@ -154,14 +154,14 @@ export const Small = () => {
           United Kingdom
         </IcTypography>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   );
 };
 
 export const Editable = () => {
   return (
     <>
-      <IcDataEntity heading="Order details">
+      <IcDataList heading="Order details">
         <IcDataRow label="Order name">
           <IcTextField
             slot="value"
@@ -207,7 +207,7 @@ export const Editable = () => {
             full-width
           />
         </IcDataRow>
-      </IcDataEntity>
+      </IcDataList>
       <IcButton
         onClick={() => {
           const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
@@ -241,7 +241,7 @@ export const Editable = () => {
 export const EditableRow = () => {
   return (
     <>
-      <IcDataEntity heading="Order details">
+      <IcDataList heading="Order details">
         <IcDataRow label="Order name">
           <IcTextField
             slot="value"
@@ -251,7 +251,7 @@ export const EditableRow = () => {
             full-width
           />
         </IcDataRow>
-      </IcDataEntity>
+      </IcDataList>
       <IcButton
         onClick={() => {
           const textFields = document.querySelectorAll(TEXT_FIELD_SELECTOR);
