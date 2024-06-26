@@ -14,7 +14,7 @@ import Button from "../ic-button/readme.md";
 import TextField from "../ic-text-field/readme.md";
 import Typography from "../ic-typography/readme.md";
 
-<Meta title="Web Components/Data entity" component="ic-data-entity" />
+<Meta title="Web Components/Data list" component="ic-data-list" />
 
 <Description markdown={readme} />
 
@@ -22,7 +22,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Default" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details">
+    {html`<ic-data-list heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
       <ic-data-row label="Telephone" value="07449 7654873"></ic-data-row>
@@ -38,7 +38,7 @@ import Typography from "../ic-typography/readme.md";
           United Kingdom
         </ic-typography>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -46,7 +46,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Slotted heading and label" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity>
+    {html`<ic-data-list>
       <ic-typography variant="h3" slot="heading"
         >Personal details</ic-typography
       >
@@ -60,7 +60,7 @@ import Typography from "../ic-typography/readme.md";
           >Date of birth</ic-typography
         >
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -68,7 +68,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Long text values" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity
+    {html`<ic-data-list
       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
     >
       <ic-data-row
@@ -93,7 +93,7 @@ import Typography from "../ic-typography/readme.md";
           United Kingdom
         </ic-typography>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -101,7 +101,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Small" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details" size="small">
+    {html`<ic-data-list heading="Personal details" size="small">
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
       <ic-data-row label="Telephone" value="07449 7654873"></ic-data-row>
@@ -117,7 +117,7 @@ import Typography from "../ic-typography/readme.md";
           United Kingdom
         </ic-typography>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -125,7 +125,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details" small>
+    {html`<ic-data-list heading="Personal details" small>
       <ic-data-row label="Name" value="Michael Johnson"></ic-data-row>
       <ic-data-row label="Date of birth" value="16 October 1995"></ic-data-row>
       <ic-data-row label="Telephone" value="07449 7654873"></ic-data-row>
@@ -141,7 +141,7 @@ import Typography from "../ic-typography/readme.md";
           United Kingdom
         </ic-typography>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -149,7 +149,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Link" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details">
+    {html`<ic-data-list heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-link href="#" slot="end-component"> Edit </ic-link>
       </ic-data-row>
@@ -174,7 +174,7 @@ import Typography from "../ic-typography/readme.md";
         </ic-typography>
         <ic-link href="#" slot="end-component"> Edit </ic-link>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -182,7 +182,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Icon button" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details">
+    {html`<ic-data-list heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-button variant="icon" aria-label="Edit" slot="end-component">
           <svg
@@ -262,7 +262,7 @@ import Typography from "../ic-typography/readme.md";
           </svg>
         </ic-button>
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -270,7 +270,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Adornment" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details">
+    {html`<ic-data-list heading="Personal details">
       <ic-data-row label="Name" value="Michael Johnson">
         <ic-status-tag
           status="success"
@@ -320,7 +320,7 @@ import Typography from "../ic-typography/readme.md";
           slot="end-component"
         />
       </ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -328,7 +328,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Status tag" parameters={{ loki: { skip: true } }}>
-    {html` <ic-data-entity heading="Personal details">
+    {html` <ic-data-list heading="Personal details">
       <ic-data-row label="Name"
         ><ic-status-tag
           status="success"
@@ -364,7 +364,7 @@ import Typography from "../ic-typography/readme.md";
           variant="filled"
           slot="value"
       /></ic-data-row>
-    </ic-data-entity>`}
+    </ic-data-list>`}
   </Story>
 </Canvas>
 
@@ -372,7 +372,7 @@ import Typography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Editable example" parameters={{ loki: { skip: true } }}>
-    {html`<ic-data-entity heading="Personal details">
+    {html`<ic-data-list heading="Personal details">
         <ic-data-row label="Name">
           <ic-text-field
             slot="value"
@@ -423,7 +423,7 @@ import Typography from "../ic-typography/readme.md";
             full-width
           />
         </ic-data-row>
-      </ic-data-entity>
+      </ic-data-list>
       <ic-button
         onclick="
         var textFields = document.querySelectorAll('ic-text-field');
@@ -486,7 +486,7 @@ export const defaultArgs = {
     name="Playground"
   >
     {(args) =>
-      html`<ic-data-entity heading=${args.heading} size=${args.size}>
+      html`<ic-data-list heading=${args.heading} size=${args.size}>
         <ic-data-row
           label=${args.label}
           value=${args.value}
@@ -510,7 +510,7 @@ export const defaultArgs = {
           value="16 October 1995"
         ></ic-data-row>
         <ic-data-row label="Telephone" value="07449 7654873"></ic-data-row>
-      </ic-data-entity>`
+      </ic-data-list>`
     }
   </Story>
 </Canvas>
