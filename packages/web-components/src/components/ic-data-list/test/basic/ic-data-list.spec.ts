@@ -1,12 +1,12 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { DataEntity } from "../../ic-data-entity";
+import { DataList } from "../../ic-data-list";
 
-describe("ic-data-entity", () => {
+describe("ic-data-list", () => {
   it("should render with data-row children", async () => {
     const page = await newSpecPage({
-      components: [DataEntity],
+      components: [DataList],
       html: `
-      <ic-data-entity heading="Heading">
+      <ic-data-list heading="Heading">
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
@@ -15,13 +15,13 @@ describe("ic-data-entity", () => {
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
-      </ic-data-entity>`,
+      </ic-data-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-entity heading="Heading">
+    <ic-data-list heading="Heading">
       <mock:shadow-root>
-        <div class="heading" id="data-entity-heading">
+        <div class="heading" id="data-list-heading">
           <slot name="heading">  
             <ic-typography variant="h3">
               Heading
@@ -29,7 +29,7 @@ describe("ic-data-entity", () => {
           </slot>
         </div>
         <div class="divider"></div>
-        <ul aria-labelledby="data-entity-heading" class="rows">
+        <ul aria-labelledby="data-list-heading" class="rows">
           <slot></slot>
         </ul>
       </mock:shadow-root>
@@ -41,25 +41,25 @@ describe("ic-data-entity", () => {
      <ic-data-row label="Label" value="value"></ic-data-row>
      <ic-data-row label="Label" value="value"></ic-data-row>
      <ic-data-row label="Label" value="value"></ic-data-row>
-    </ic-data-entity>
+    </ic-data-list>
     `);
   });
 
   it("should render with small prop", async () => {
     const page = await newSpecPage({
-      components: [DataEntity],
+      components: [DataList],
       html: `
-      <ic-data-entity heading="Heading" small>
+      <ic-data-list heading="Heading" small>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
-      </ic-data-entity>`,
+      </ic-data-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-entity heading="Heading" class="small" small>
+    <ic-data-list heading="Heading" class="small" small>
       <mock:shadow-root>
-        <div class="heading" id="data-entity-heading">
+        <div class="heading" id="data-list-heading">
           <slot name="heading">  
             <ic-typography variant="h3">
               Heading
@@ -67,22 +67,22 @@ describe("ic-data-entity", () => {
           </slot>
         </div>
         <div class="divider"></div>
-        <ul aria-labelledby="data-entity-heading" class="rows">
+        <ul aria-labelledby="data-list-heading" class="rows">
           <slot></slot>
         </ul>
       </mock:shadow-root>
      <ic-data-row size="small" label="Label" value="value"></ic-data-row>
      <ic-data-row size="small" label="Label" value="value"></ic-data-row>
      <ic-data-row size="small" label="Label" value="value"></ic-data-row>
-    </ic-data-entity>
+    </ic-data-list>
     `);
   });
 
   it("should render with a slotted heading", async () => {
     const page = await newSpecPage({
-      components: [DataEntity],
+      components: [DataList],
       html: `
-      <ic-data-entity>
+      <ic-data-list>
         <ic-typography variant="h3" slot="heading">Heading</ic-typography>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
@@ -92,19 +92,19 @@ describe("ic-data-entity", () => {
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
-      </ic-data-entity>`,
+      </ic-data-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-entity>
+    <ic-data-list>
       <mock:shadow-root>
-        <div class="heading" id="data-entity-heading">
+        <div class="heading" id="data-list-heading">
           <slot name="heading">  
             <ic-typography variant="h3"></ic-typography>
           </slot>
         </div>
         <div class="divider"></div>
-        <ul aria-labelledby="data-entity-heading" class="rows">
+        <ul aria-labelledby="data-list-heading" class="rows">
           <slot></slot>
         </ul>
       </mock:shadow-root>
@@ -119,15 +119,15 @@ describe("ic-data-entity", () => {
      <ic-data-row label="Label" value="value"></ic-data-row>
      <ic-data-row label="Label" value="value"></ic-data-row>
      <ic-data-row label="Label" value="value"></ic-data-row>
-    </ic-data-entity>
+    </ic-data-list>
     `);
   });
 
   it("should render data-row children with slotted content", async () => {
     const page = await newSpecPage({
-      components: [DataEntity],
+      components: [DataList],
       html: `
-      <ic-data-entity heading="Heading">
+      <ic-data-list heading="Heading">
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
@@ -136,13 +136,13 @@ describe("ic-data-entity", () => {
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
         <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
-      </ic-data-entity>`,
+      </ic-data-list>`,
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-entity heading="Heading">
+    <ic-data-list heading="Heading">
       <mock:shadow-root>
-        <div class="heading" id="data-entity-heading">
+        <div class="heading" id="data-list-heading">
           <slot name="heading">  
             <ic-typography variant="h3">
               Heading
@@ -150,7 +150,7 @@ describe("ic-data-entity", () => {
           </slot>
         </div>
         <div class="divider"></div>
-        <ul aria-labelledby="data-entity-heading" class="rows">
+        <ul aria-labelledby="data-list-heading" class="rows">
           <slot></slot>
         </ul>
       </mock:shadow-root>
@@ -162,7 +162,7 @@ describe("ic-data-entity", () => {
      <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
      <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
      <ic-data-row label="Label" value="value"><ic-link href="/" slot="end-component"></ic-link></ic-data-row>
-    </ic-data-entity>
+    </ic-data-list>
     `);
   });
 });
