@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-10T17:44:57",
+  "timestamp": "2024-07-12T08:47:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -10,7 +10,7 @@
       "filePath": "src/components/ic-accordion/ic-accordion.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion",
-      "readme": "# ic-accordion\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -189,16 +189,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-accordion": ["ic-typography"]
+        "ic-accordion": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-accordion-group/ic-accordion-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-accordion-group",
-      "readme": "# ic-accordion-title\r\n\r\n\r\n\r",
+      "readme": "# ic-accordion-title\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -391,7 +395,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\r\nOtherwise, the first accordion will be focused.",
+          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\nOtherwise, the first accordion will be focused.",
           "docsTags": []
         }
       ],
@@ -412,19 +416,32 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-accordion-group": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-accordion-group": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-alert/ic-alert.tsx",
       "encapsulation": "shadow",
       "tag": "ic-alert",
-      "readme": "# ic-alert\r\n\r\n\r\n\r",
+      "readme": "# ic-alert\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -649,21 +666,38 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-dialog"],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependents": [
+        "ic-dialog"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-alert": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-dialog": ["ic-alert"]
+        "ic-alert": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-dialog": [
+          "ic-alert"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-back-to-top/ic-back-to-top.tsx",
       "encapsulation": "shadow",
       "tag": "ic-back-to-top",
-      "readme": "# ic-back-to-top\r\n\r\n\r\n\r",
+      "readme": "# ic-back-to-top\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -726,21 +760,35 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-back-to-top",
+          "annotation": "prop",
+          "docs": "z-index of back to top"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-back-to-top": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-back-to-top": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-badge/ic-badge.tsx",
       "encapsulation": "shadow",
       "tag": "ic-badge",
-      "readme": "# ic-badge\r\n\r\n\r\n\r",
+      "readme": "# ic-badge\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1103,16 +1151,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-badge": ["ic-typography"]
+        "ic-badge": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-breadcrumb/ic-breadcrumb.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb",
-      "readme": "# ic-breadcrumb\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1221,18 +1273,26 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-breadcrumb-group"],
-      "dependencies": ["ic-link"],
+      "dependents": [
+        "ic-breadcrumb-group"
+      ],
+      "dependencies": [
+        "ic-link"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb": ["ic-link"],
-        "ic-breadcrumb-group": ["ic-breadcrumb"]
+        "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-breadcrumb-group/ic-breadcrumb-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-breadcrumb-group",
-      "readme": "# ic-breadcrumb-group\r\n\r\n\r\n\r",
+      "readme": "# ic-breadcrumb-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1326,17 +1386,23 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-breadcrumb"],
+      "dependencies": [
+        "ic-breadcrumb"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb-group": ["ic-breadcrumb"],
-        "ic-breadcrumb": ["ic-link"]
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ],
+        "ic-breadcrumb": [
+          "ic-link"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-button/ic-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-button",
-      "readme": "# ic-button\r\n\r",
+      "readme": "# ic-button\n",
       "docs": "",
       "docsTags": [
         {
@@ -2226,7 +2292,18 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--height",
+          "annotation": "prop",
+          "docs": "The height of the button."
+        },
+        {
+          "name": "--min-width",
+          "annotation": "prop",
+          "docs": "Minimum width of the button."
+        }
+      ],
       "slots": [
         {
           "name": "badge",
@@ -2271,33 +2348,73 @@
         "ic-toggle-button",
         "ic-top-navigation"
       ],
-      "dependencies": ["ic-loading-indicator", "ic-tooltip"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-accordion-group": ["ic-button"],
-        "ic-alert": ["ic-button"],
-        "ic-dialog": ["ic-button"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-menu": ["ic-button"],
-        "ic-menu-item": ["ic-button"],
-        "ic-navigation-button": ["ic-button"],
-        "ic-navigation-menu": ["ic-button"],
-        "ic-pagination": ["ic-button"],
-        "ic-search-bar": ["ic-button"],
-        "ic-select": ["ic-button"],
-        "ic-side-navigation": ["ic-button"],
-        "ic-toast": ["ic-button"],
-        "ic-toggle-button": ["ic-button"],
-        "ic-top-navigation": ["ic-button"]
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-button"
+        ],
+        "ic-alert": [
+          "ic-button"
+        ],
+        "ic-dialog": [
+          "ic-button"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-menu": [
+          "ic-button"
+        ],
+        "ic-menu-item": [
+          "ic-button"
+        ],
+        "ic-navigation-button": [
+          "ic-button"
+        ],
+        "ic-navigation-menu": [
+          "ic-button"
+        ],
+        "ic-pagination": [
+          "ic-button"
+        ],
+        "ic-search-bar": [
+          "ic-button"
+        ],
+        "ic-select": [
+          "ic-button"
+        ],
+        "ic-side-navigation": [
+          "ic-button"
+        ],
+        "ic-toast": [
+          "ic-button"
+        ],
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-top-navigation": [
+          "ic-button"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-card/ic-card.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card",
-      "readme": "# ic-card\r\n\r\n\r\n\r",
+      "readme": "# ic-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2730,17 +2847,25 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-card": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-card": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-checkbox/ic-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox",
-      "readme": "# ic-checkbox\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3264,16 +3389,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-checkbox": ["ic-typography"]
+        "ic-checkbox": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-checkbox-group/ic-checkbox-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-checkbox-group",
-      "readme": "# ic-checkbox-group\r\n\r\n\r\n\r",
+      "readme": "# ic-checkbox-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3575,18 +3704,28 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-checkbox-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-checkbox-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-chip/ic-chip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-chip",
-      "readme": "# ic-chip\r\n\r\n\r\n\r",
+      "readme": "# ic-chip\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -3910,17 +4049,25 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-chip": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-chip": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-classification-banner/ic-classification-banner.tsx",
       "encapsulation": "shadow",
       "tag": "ic-classification-banner",
-      "readme": "# ic-classification-banner\r\n\r\n\r\n\r",
+      "readme": "# ic-classification-banner\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4062,25 +4209,35 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-classification-banner",
+          "annotation": "prop",
+          "docs": "z-index of classification banner"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-classification-banner": ["ic-typography"]
+        "ic-classification-banner": [
+          "ic-typography"
+        ]
       }
     },
     {
-      "filePath": "src/components/ic-data-entity/ic-data-entity.tsx",
+      "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
-      "tag": "ic-data-entity",
-      "readme": "# ic-data-entity\r\n\r\n\r\n\r",
+      "tag": "ic-data-list",
+      "readme": "# ic-data-list\n\n\n",
       "docs": "",
       "docsTags": [
         {
           "name": "slot",
-          "text": "heading - Content will be placed at the top of the data entity."
+          "text": "heading - Content will be placed at the top of the data list."
         }
       ],
       "usage": {},
@@ -4096,7 +4253,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The title for the data entity.",
+          "docs": "The title for the data list.",
           "docsTags": [],
           "values": [
             {
@@ -4123,7 +4280,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the data entity component.",
+          "docs": "The size of the data list component.",
           "docsTags": [],
           "default": "\"default\"",
           "values": [
@@ -4175,21 +4332,25 @@
       "slots": [
         {
           "name": "heading",
-          "docs": "Content will be placed at the top of the data entity."
+          "docs": "Content will be placed at the top of the data list."
         }
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-data-entity": ["ic-typography"]
+        "ic-data-list": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-data-row/ic-data-row.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-row",
-      "readme": "# ic-data-row\r\n\r\n\r\n\r",
+      "readme": "# ic-data-row\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4331,16 +4492,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-data-row": ["ic-typography"]
+        "ic-data-row": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-dialog/ic-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ic-dialog",
-      "readme": "# ic-dialog\r\n\r\n\r\n\r",
+      "readme": "# ic-dialog\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -4904,7 +5069,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-dialog",
+          "annotation": "prop",
+          "docs": "z-index of dialog"
+        }
+      ],
       "slots": [
         {
           "name": "alert",
@@ -4925,20 +5096,38 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button", "ic-alert"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button",
+        "ic-alert"
+      ],
       "dependencyGraph": {
-        "ic-dialog": ["ic-typography", "ic-button", "ic-alert"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-alert": ["ic-typography", "ic-button"]
+        "ic-dialog": [
+          "ic-typography",
+          "ic-button",
+          "ic-alert"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-alert": [
+          "ic-typography",
+          "ic-button"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-divider/ic-divider.tsx",
       "encapsulation": "scoped",
       "tag": "ic-divider",
-      "readme": "# ic-divider\r\n\r\n\r\n\r",
+      "readme": "# ic-divider\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4956,17 +5145,21 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-side-navigation"],
+      "dependents": [
+        "ic-side-navigation"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-divider"]
+        "ic-side-navigation": [
+          "ic-divider"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-empty-state/ic-empty-state.tsx",
       "encapsulation": "shadow",
       "tag": "ic-empty-state",
-      "readme": "# ic-empty-state\r\n\r\n\r\n\r",
+      "readme": "# ic-empty-state\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5179,16 +5372,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-empty-state": ["ic-typography"]
+        "ic-empty-state": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-footer/ic-footer.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer",
-      "readme": "# ic-footer\r\n\r\n\r\n\r",
+      "readme": "# ic-footer\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5410,16 +5607,22 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container", "ic-typography"]
+        "ic-footer": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-footer-link/ic-footer-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link",
-      "readme": "# ic-footer-link\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -5620,7 +5823,7 @@
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-footer-link-group",
-      "readme": "# ic-footer-link-group\r\n\r\n\r\n\r",
+      "readme": "# ic-footer-link-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -5667,16 +5870,22 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-section-container"],
+      "dependencies": [
+        "ic-typography",
+        "ic-section-container"
+      ],
       "dependencyGraph": {
-        "ic-footer-link-group": ["ic-typography", "ic-section-container"]
+        "ic-footer-link-group": [
+          "ic-typography",
+          "ic-section-container"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-hero/ic-hero.tsx",
       "encapsulation": "shadow",
       "tag": "ic-hero",
-      "readme": "# ic-hero\r\n\r\n\r\n\r",
+      "readme": "# ic-hero\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -5994,16 +6203,22 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-hero": ["ic-section-container", "ic-typography"]
+        "ic-hero": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-horizontal-scroll/ic-horizontal-scroll.tsx",
       "encapsulation": "shadow",
       "tag": "ic-horizontal-scroll",
-      "readme": "# ic-horizontal-scroll\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-scroll\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6052,23 +6267,44 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-page-header", "ic-tab-group", "ic-top-navigation"],
-      "dependencies": ["ic-button"],
+      "dependents": [
+        "ic-page-header",
+        "ic-tab-group",
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-page-header": ["ic-horizontal-scroll"],
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-top-navigation": ["ic-horizontal-scroll"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-page-header": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-top-navigation": [
+          "ic-horizontal-scroll"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-input-component-container/ic-input-component-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-component-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6352,7 +6588,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--border-color",
+          "annotation": "prop",
+          "docs": "Border colour of the input component container"
+        }
+      ],
       "slots": [
         {
           "name": "left-icon",
@@ -6360,18 +6602,25 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-component-container"],
-        "ic-text-field": ["ic-input-component-container"]
+        "ic-select": [
+          "ic-input-component-container"
+        ],
+        "ic-text-field": [
+          "ic-input-component-container"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-input-container/ic-input-container.tsx",
       "encapsulation": "none",
       "tag": "ic-input-container",
-      "readme": "# ic-input-container\r\n\r\n\r\n\r",
+      "readme": "# ic-input-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6427,18 +6676,25 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-container"],
-        "ic-text-field": ["ic-input-container"]
+        "ic-select": [
+          "ic-input-container"
+        ],
+        "ic-text-field": [
+          "ic-input-container"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-input-label/ic-input-label.tsx",
       "encapsulation": "none",
       "tag": "ic-input-label",
-      "readme": "# ic-input-label\r\n\r\n\r\n\r",
+      "readme": "# ic-input-label\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -6668,21 +6924,35 @@
         "ic-switch",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-label": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-label"],
-        "ic-radio-group": ["ic-input-label"],
-        "ic-select": ["ic-input-label"],
-        "ic-switch": ["ic-input-label"],
-        "ic-text-field": ["ic-input-label"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-label"
+        ],
+        "ic-radio-group": [
+          "ic-input-label"
+        ],
+        "ic-select": [
+          "ic-input-label"
+        ],
+        "ic-switch": [
+          "ic-input-label"
+        ],
+        "ic-text-field": [
+          "ic-input-label"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-input-validation/ic-input-validation.tsx",
       "encapsulation": "none",
       "tag": "ic-input-validation",
-      "readme": "# ic-input-validation\r\n\r\n\r\n\r",
+      "readme": "# ic-input-validation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -6847,20 +7117,32 @@
         "ic-select",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-validation": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-validation"],
-        "ic-radio-group": ["ic-input-validation"],
-        "ic-select": ["ic-input-validation"],
-        "ic-text-field": ["ic-input-validation"]
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-validation"
+        ],
+        "ic-radio-group": [
+          "ic-input-validation"
+        ],
+        "ic-select": [
+          "ic-input-validation"
+        ],
+        "ic-text-field": [
+          "ic-input-validation"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-link/ic-link.tsx",
       "encapsulation": "shadow",
       "tag": "ic-link",
-      "readme": "# ic-link\r\n\r\n\r\n\r",
+      "readme": "# ic-link\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -7144,17 +7426,21 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-breadcrumb"],
+      "dependents": [
+        "ic-breadcrumb"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-breadcrumb": ["ic-link"]
+        "ic-breadcrumb": [
+          "ic-link"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-loading-indicator/ic-loading-indicator.tsx",
       "encapsulation": "shadow",
       "tag": "ic-loading-indicator",
-      "readme": "# ic-loading\r\n\r\n\r\n\r",
+      "readme": "# ic-loading\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7422,7 +7708,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--circular-diameter",
+          "annotation": "prop",
+          "docs": "Diameter of the circular-indicator"
+        }
+      ],
       "slots": [],
       "parts": [
         {
@@ -7430,21 +7722,38 @@
           "docs": ""
         }
       ],
-      "dependents": ["ic-button", "ic-menu", "ic-step", "ic-toast"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-button",
+        "ic-menu",
+        "ic-step",
+        "ic-toast"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator"],
-        "ic-menu": ["ic-loading-indicator"],
-        "ic-step": ["ic-loading-indicator"],
-        "ic-toast": ["ic-loading-indicator"]
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator"
+        ],
+        "ic-step": [
+          "ic-loading-indicator"
+        ],
+        "ic-toast": [
+          "ic-loading-indicator"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-menu/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu",
-      "readme": "# ic-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-menu\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7854,25 +8163,53 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of menu"
+        }
+      ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-search-bar", "ic-select"],
-      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
+      "dependents": [
+        "ic-search-bar",
+        "ic-select"
+      ],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-search-bar": ["ic-menu"],
-        "ic-select": ["ic-menu"]
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-menu"
+        ],
+        "ic-select": [
+          "ic-menu"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-menu-group/ic-menu-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-group",
-      "readme": "# ic-menu-group\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -7906,16 +8243,20 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-menu-group": ["ic-typography"]
+        "ic-menu-group": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-menu-item/ic-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-menu-item",
-      "readme": "# ic-menu-item\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8228,21 +8569,38 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-popover-menu"],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependents": [
+        "ic-popover-menu"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-popover-menu": ["ic-menu-item"]
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-popover-menu": [
+          "ic-menu-item"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-navigation-button/ic-navigation-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-button",
-      "readme": "# ic-navigation-button\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8503,19 +8861,30 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button"],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-navigation-button": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-navigation-group/ic-navigation-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-group",
-      "readme": "# ic-navigation-group\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -8607,20 +8976,30 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-item",
+          "annotation": "prop",
+          "docs": "z-index of navigation group item"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-group": ["ic-typography"]
+        "ic-navigation-group": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-navigation-item/ic-navigation-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-item",
-      "readme": "# ic-navigation-item\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-item\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8883,7 +9262,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-item",
+          "annotation": "prop",
+          "docs": "z-index of navigation item"
+        }
+      ],
       "slots": [
         {
           "name": "badge",
@@ -8901,17 +9286,25 @@
         }
       ],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-navigation-item": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-item": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-navigation-menu/ic-navigation-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-navigation-menu",
-      "readme": "# ic-navigation-menu\r\n\r\n\r\n\r",
+      "readme": "# ic-navigation-menu\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -8985,7 +9378,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-navigation-menu",
+          "annotation": "prop",
+          "docs": "z-index of navigation menu"
+        }
+      ],
       "slots": [
         {
           "name": "buttons",
@@ -8997,21 +9396,38 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-top-navigation"],
-      "dependencies": ["ic-button", "ic-typography"],
+      "dependents": [
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-menu": ["ic-button", "ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-top-navigation": ["ic-navigation-menu"]
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-top-navigation": [
+          "ic-navigation-menu"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-page-header/ic-page-header.tsx",
       "encapsulation": "shadow",
       "tag": "ic-page-header",
-      "readme": "# ic-page-header\r\n\r\n\r\n\r",
+      "readme": "# ic-page-header\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -9281,7 +9697,13 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-page-header",
+          "annotation": "prop",
+          "docs": "z-index of page-header"
+        }
+      ],
       "slots": [
         {
           "name": "actions",
@@ -9329,17 +9751,26 @@
           "ic-typography",
           "ic-horizontal-scroll"
         ],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-pagination/ic-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination",
-      "readme": "# ic-pagination\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9686,20 +10117,35 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button", "ic-pagination-item"],
+      "dependencies": [
+        "ic-button",
+        "ic-pagination-item"
+      ],
       "dependencyGraph": {
-        "ic-pagination": ["ic-button", "ic-pagination-item"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-pagination-item": ["ic-typography"]
+        "ic-pagination": [
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-pagination-item/ic-pagination-item.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-item",
-      "readme": "# ic-pagination-item\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-item\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -9871,18 +10317,26 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-pagination"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-pagination"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-pagination-item": ["ic-typography"],
-        "ic-pagination": ["ic-pagination-item"]
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-pagination-item"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-popover-menu/ic-popover-menu.tsx",
       "encapsulation": "shadow",
       "tag": "ic-popover-menu",
-      "readme": "# ic-popover-menu\r\n\r\nThis is a wrapper component to be placed around one or more ic-menu-item components.\r\n\r",
+      "readme": "# ic-popover-menu\n\nThis is a wrapper component to be placed around one or more ic-menu-item components.\n",
       "docs": "This is a wrapper component to be placed around one or more ic-menu-item components.",
       "docsTags": [],
       "usage": {},
@@ -9992,24 +10446,56 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-popover",
+          "annotation": "prop",
+          "docs": "z-index of popover menu."
+        },
+        {
+          "name": "--max-height",
+          "annotation": "prop",
+          "docs": "Maximum height of the popover menu."
+        },
+        {
+          "name": "--popover-width",
+          "annotation": "prop",
+          "docs": "Default width of the popover menu."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-menu-item", "ic-typography"],
+      "dependencies": [
+        "ic-menu-item",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-popover-menu": ["ic-menu-item", "ic-typography"],
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-popover-menu": [
+          "ic-menu-item",
+          "ic-typography"
+        ],
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-radio-group/ic-radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-radio-group",
-      "readme": "# ic-radio-group\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10339,18 +10825,28 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-radio-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-radio-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
       "encapsulation": "none",
       "tag": "ic-radio-option",
-      "readme": "# ic-radio-option\r\n\r\n\r\n\r",
+      "readme": "# ic-radio-option\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -10772,16 +11268,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-radio-option": ["ic-typography"]
+        "ic-radio-option": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-search-bar/ic-search-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-search-bar",
-      "readme": "# ic-search-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-search-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -10832,10 +11332,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -10852,15 +11352,15 @@
           "default": "\"off\"",
           "values": [
             {
+              "value": "name",
+              "type": "string"
+            },
+            {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "name",
               "type": "string"
             },
             {
@@ -11988,13 +12488,27 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of search bar menu"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-text-field", "ic-button", "ic-menu"],
+      "dependencies": [
+        "ic-text-field",
+        "ic-button",
+        "ic-menu"
+      ],
       "dependencyGraph": {
-        "ic-search-bar": ["ic-text-field", "ic-button", "ic-menu"],
+        "ic-search-bar": [
+          "ic-text-field",
+          "ic-button",
+          "ic-menu"
+        ],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -12002,19 +12516,34 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-section-container/ic-section-container.tsx",
       "encapsulation": "shadow",
       "tag": "ic-section-container",
-      "readme": "# ic-section-container\r\n\r\n\r\n\r",
+      "readme": "# ic-section-container\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -12094,18 +12623,28 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container"],
-        "ic-footer-link-group": ["ic-section-container"],
-        "ic-hero": ["ic-section-container"],
-        "ic-page-header": ["ic-section-container"],
-        "ic-top-navigation": ["ic-section-container"]
+        "ic-footer": [
+          "ic-section-container"
+        ],
+        "ic-footer-link-group": [
+          "ic-section-container"
+        ],
+        "ic-hero": [
+          "ic-section-container"
+        ],
+        "ic-page-header": [
+          "ic-section-container"
+        ],
+        "ic-top-navigation": [
+          "ic-section-container"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-select/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -12263,7 +12802,7 @@
           "mutable": false,
           "attr": "formaction",
           "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -12347,7 +12886,7 @@
           "mutable": false,
           "attr": "formtarget",
           "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -13090,7 +13629,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is highlighted within the menu.\r\nHighlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is highlighted within the menu.\nHighlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -13115,7 +13654,18 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-menu",
+          "annotation": "prop",
+          "docs": "z-index of select menu"
+        },
+        {
+          "name": "--input-width",
+          "annotation": "prop",
+          "docs": "Width of the input field"
+        }
+      ],
       "slots": [
         {
           "name": "icon",
@@ -13143,19 +13693,34 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-side-navigation/ic-side-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-side-navigation",
-      "readme": "# ic-side-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-side-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -13426,7 +13991,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-side-navigation",
+          "annotation": "prop",
+          "docs": "z-index of side navigation panel"
+        }
+      ],
       "slots": [
         {
           "name": "app-icon",
@@ -13447,20 +14018,35 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button", "ic-divider"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button",
+        "ic-divider"
+      ],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-typography", "ic-button", "ic-divider"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-side-navigation": [
+          "ic-typography",
+          "ic-button",
+          "ic-divider"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-skeleton/ic-skeleton.tsx",
       "encapsulation": "shadow",
       "tag": "ic-skeleton",
-      "readme": "# ic-skeleton\r\n\r\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \r\n\r",
-      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\r\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
+      "readme": "# ic-skeleton\n\nWhen using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important. \n",
+      "docs": "When using the skeleton component, an aria-live level should be applied to the parent element of the skeleton and the element that it is\nrepresenting so that any changes, such as the real element replacing the skeleton placeholder, are announced to assistive technology like screen readers. The recommendation is to use aria-live=\"polite\" over aria-live=\"recommended\" unless changes are critically important.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -13571,7 +14157,7 @@
       "filePath": "src/components/ic-status-tag/ic-status-tag.tsx",
       "encapsulation": "shadow",
       "tag": "ic-status-tag",
-      "readme": "# ic-status-tag\r\n\r\n\r\n\r",
+      "readme": "# ic-status-tag\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -13587,7 +14173,7 @@
           "mutable": false,
           "attr": "announced",
           "reflectToAttr": false,
-          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\r\nScreen readers will announce changes to the `label`, but not the initial value.",
+          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13804,16 +14390,20 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-status-tag": ["ic-typography"]
+        "ic-status-tag": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-step/ic-step.tsx",
       "encapsulation": "shadow",
       "tag": "ic-step",
-      "readme": "# ic-step\r\n\r\n\r\n\r",
+      "readme": "# ic-step\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -13941,17 +14531,25 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-loading-indicator", "ic-typography"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-step": ["ic-loading-indicator", "ic-typography"],
-        "ic-loading-indicator": ["ic-typography"]
+        "ic-step": [
+          "ic-loading-indicator",
+          "ic-typography"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-stepper/ic-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "ic-stepper",
-      "readme": "# ic-stepper\r\n\r\nThis is a wrapper component to be placed around one or more ic-step components\r\n\r",
+      "readme": "# ic-stepper\n\nThis is a wrapper component to be placed around one or more ic-step components\n",
       "docs": "This is a wrapper component to be placed around one or more ic-step components",
       "docsTags": [],
       "usage": {},
@@ -14108,7 +14706,7 @@
       "filePath": "src/components/ic-switch/ic-switch.tsx",
       "encapsulation": "shadow",
       "tag": "ic-switch",
-      "readme": "# ic-switch\r\n\r\n\r\n\r",
+      "readme": "# ic-switch\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -14439,17 +15037,25 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-typography"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-switch": ["ic-input-label", "ic-typography"],
-        "ic-input-label": ["ic-typography"]
+        "ic-switch": [
+          "ic-input-label",
+          "ic-typography"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-tab/ic-tab.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab",
-      "readme": "# ic-tab\r\n\r\n\r\n\r",
+      "readme": "# ic-tab\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -14525,16 +15131,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tab": ["ic-typography"]
+        "ic-tab": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-tab-context/ic-tab-context.tsx",
       "encapsulation": "none",
       "tag": "ic-tab-context",
-      "readme": "# ic-tab-context\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-context\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14731,7 +15341,7 @@
       "filePath": "src/components/ic-tab-group/ic-tab-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-group",
-      "readme": "# ic-tab-group\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14815,20 +15425,33 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-horizontal-scroll"],
+      "dependencies": [
+        "ic-horizontal-scroll"
+      ],
       "dependencyGraph": {
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-tab-panel/ic-tab-panel.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tab-panel",
-      "readme": "# ic-tab-panel\r\n\r\n\r\n\r",
+      "readme": "# ic-tab-panel\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -14876,7 +15499,7 @@
       "filePath": "src/components/ic-text-field/ic-text-field.tsx",
       "encapsulation": "shadow",
       "tag": "ic-text-field",
-      "readme": "# ic-textfield\r\n\r\n\r\n\r",
+      "readme": "# ic-textfield\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -14919,7 +15542,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -14932,10 +15555,10 @@
         },
         {
           "name": "autocomplete",
-          "type": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
           "complexType": {
             "original": "IcAutocompleteTypes",
-            "resolved": "\"on\" | \"off\" | \"name\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
             "references": {
               "IcAutocompleteTypes": {
                 "location": "import",
@@ -14952,15 +15575,15 @@
           "default": "\"off\"",
           "values": [
             {
+              "value": "name",
+              "type": "string"
+            },
+            {
               "value": "on",
               "type": "string"
             },
             {
               "value": "off",
-              "type": "string"
-            },
-            {
-              "value": "name",
               "type": "string"
             },
             {
@@ -15259,7 +15882,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the text field fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -15353,7 +15976,7 @@
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
           "docsTags": [],
           "default": "\"text\"",
           "values": [
@@ -16037,7 +16660,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--input-width",
+          "annotation": "prop",
+          "docs": "Width of the input field"
+        }
+      ],
       "slots": [
         {
           "name": "icon",
@@ -16045,7 +16674,9 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-search-bar"],
+      "dependents": [
+        "ic-search-bar"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -16061,16 +16692,22 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-search-bar": ["ic-text-field"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-text-field"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-theme/ic-theme.tsx",
       "encapsulation": "shadow",
       "tag": "ic-theme",
-      "readme": "# ic-theme\r\n\r\n\r\n\r",
+      "readme": "# ic-theme\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16124,7 +16761,7 @@
       "filePath": "src/components/ic-toast/ic-toast.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toast",
-      "readme": "# ic-toast\r\n\r\n\r\n\r",
+      "readme": "# ic-toast\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16363,7 +17000,13 @@
           "passive": true
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-toast",
+          "annotation": "prop",
+          "docs": "z-index of toast"
+        }
+      ],
       "slots": [
         {
           "name": "action",
@@ -16376,19 +17019,34 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-loading-indicator", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-loading-indicator",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toast": ["ic-typography", "ic-loading-indicator", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-toast": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-toast-region/ic-toast-region.tsx",
       "encapsulation": "none",
       "tag": "ic-toast-region",
-      "readme": "# ic-toast-region\r\n\r\n\r\n\r",
+      "readme": "# ic-toast-region\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -16488,7 +17146,7 @@
       "filePath": "src/components/ic-toggle-button/ic-toggle-button.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button",
-      "readme": "# ic-toggle-button\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -16801,19 +17459,30 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button"],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toggle-button": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-toggle-button-group/ic-toggle-button-group.tsx",
       "encapsulation": "shadow",
       "tag": "ic-toggle-button-group",
-      "readme": "# ic-toggle-button-group\r\n\r\n\r\n\r",
+      "readme": "# ic-toggle-button-group\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17145,7 +17814,7 @@
       "filePath": "src/components/ic-tooltip/ic-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "ic-tooltip",
-      "readme": "# ic-tooltip\r\n\r\n\r\n\r",
+      "readme": "# ic-tooltip\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17366,7 +18035,13 @@
       ],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-z-index-tooltip",
+          "annotation": "prop",
+          "docs": "z-index of tooltip"
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -17376,21 +18051,35 @@
         "ic-chip",
         "ic-navigation-item"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tooltip": ["ic-typography"],
-        "ic-back-to-top": ["ic-tooltip"],
-        "ic-button": ["ic-tooltip"],
-        "ic-card": ["ic-tooltip"],
-        "ic-chip": ["ic-tooltip"],
-        "ic-navigation-item": ["ic-tooltip"]
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-back-to-top": [
+          "ic-tooltip"
+        ],
+        "ic-button": [
+          "ic-tooltip"
+        ],
+        "ic-card": [
+          "ic-tooltip"
+        ],
+        "ic-chip": [
+          "ic-tooltip"
+        ],
+        "ic-navigation-item": [
+          "ic-tooltip"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-top-navigation/ic-top-navigation.tsx",
       "encapsulation": "shadow",
       "tag": "ic-top-navigation",
-      "readme": "# ic-top-navigation\r\n\r\n\r\n\r",
+      "readme": "# ic-top-navigation\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -17726,18 +18415,30 @@
           "ic-horizontal-scroll",
           "ic-navigation-menu"
         ],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-navigation-menu": ["ic-button", "ic-typography"]
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ]
       }
     },
     {
       "filePath": "src/components/ic-typography/ic-typography.tsx",
       "encapsulation": "shadow",
       "tag": "ic-typography",
-      "readme": "# ic-typography\r\n\r\n\r\n\r",
+      "readme": "# ic-typography\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -17775,7 +18476,7 @@
           "mutable": false,
           "attr": "bold",
           "reflectToAttr": false,
-          "docs": "If `true`, the typography will have a bold font weight.\r\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
+          "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -17979,7 +18680,7 @@
         "ic-checkbox",
         "ic-chip",
         "ic-classification-banner",
-        "ic-data-entity",
+        "ic-data-list",
         "ic-data-row",
         "ic-dialog",
         "ic-empty-state",
@@ -18012,45 +18713,123 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-accordion": ["ic-typography"],
-        "ic-accordion-group": ["ic-typography"],
-        "ic-alert": ["ic-typography"],
-        "ic-back-to-top": ["ic-typography"],
-        "ic-badge": ["ic-typography"],
-        "ic-card": ["ic-typography"],
-        "ic-checkbox": ["ic-typography"],
-        "ic-chip": ["ic-typography"],
-        "ic-classification-banner": ["ic-typography"],
-        "ic-data-entity": ["ic-typography"],
-        "ic-data-row": ["ic-typography"],
-        "ic-dialog": ["ic-typography"],
-        "ic-empty-state": ["ic-typography"],
-        "ic-footer": ["ic-typography"],
-        "ic-footer-link-group": ["ic-typography"],
-        "ic-hero": ["ic-typography"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-menu": ["ic-typography"],
-        "ic-menu-group": ["ic-typography"],
-        "ic-menu-item": ["ic-typography"],
-        "ic-navigation-group": ["ic-typography"],
-        "ic-navigation-item": ["ic-typography"],
-        "ic-navigation-menu": ["ic-typography"],
-        "ic-page-header": ["ic-typography"],
-        "ic-pagination-item": ["ic-typography"],
-        "ic-popover-menu": ["ic-typography"],
-        "ic-radio-option": ["ic-typography"],
-        "ic-select": ["ic-typography"],
-        "ic-side-navigation": ["ic-typography"],
-        "ic-status-tag": ["ic-typography"],
-        "ic-step": ["ic-typography"],
-        "ic-switch": ["ic-typography"],
-        "ic-tab": ["ic-typography"],
-        "ic-text-field": ["ic-typography"],
-        "ic-toast": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-top-navigation": ["ic-typography"]
+        "ic-accordion": [
+          "ic-typography"
+        ],
+        "ic-accordion-group": [
+          "ic-typography"
+        ],
+        "ic-alert": [
+          "ic-typography"
+        ],
+        "ic-back-to-top": [
+          "ic-typography"
+        ],
+        "ic-badge": [
+          "ic-typography"
+        ],
+        "ic-card": [
+          "ic-typography"
+        ],
+        "ic-checkbox": [
+          "ic-typography"
+        ],
+        "ic-chip": [
+          "ic-typography"
+        ],
+        "ic-classification-banner": [
+          "ic-typography"
+        ],
+        "ic-data-list": [
+          "ic-typography"
+        ],
+        "ic-data-row": [
+          "ic-typography"
+        ],
+        "ic-dialog": [
+          "ic-typography"
+        ],
+        "ic-empty-state": [
+          "ic-typography"
+        ],
+        "ic-footer": [
+          "ic-typography"
+        ],
+        "ic-footer-link-group": [
+          "ic-typography"
+        ],
+        "ic-hero": [
+          "ic-typography"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-typography"
+        ],
+        "ic-menu-group": [
+          "ic-typography"
+        ],
+        "ic-menu-item": [
+          "ic-typography"
+        ],
+        "ic-navigation-group": [
+          "ic-typography"
+        ],
+        "ic-navigation-item": [
+          "ic-typography"
+        ],
+        "ic-navigation-menu": [
+          "ic-typography"
+        ],
+        "ic-page-header": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-popover-menu": [
+          "ic-typography"
+        ],
+        "ic-radio-option": [
+          "ic-typography"
+        ],
+        "ic-select": [
+          "ic-typography"
+        ],
+        "ic-side-navigation": [
+          "ic-typography"
+        ],
+        "ic-status-tag": [
+          "ic-typography"
+        ],
+        "ic-step": [
+          "ic-typography"
+        ],
+        "ic-switch": [
+          "ic-typography"
+        ],
+        "ic-tab": [
+          "ic-typography"
+        ],
+        "ic-text-field": [
+          "ic-typography"
+        ],
+        "ic-toast": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-top-navigation": [
+          "ic-typography"
+        ]
       }
     }
   ],
