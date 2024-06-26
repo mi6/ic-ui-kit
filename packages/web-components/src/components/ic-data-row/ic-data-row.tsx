@@ -25,7 +25,7 @@ export class DataRow {
   @Element() el: HTMLIcDataRowElement;
 
   @State() deviceSize: number = DEVICE_SIZES.XL;
-  @State() entitySize: "xl" | "m" | "xs";
+  @State() listSize: "xl" | "m" | "xs";
 
   /**
    * The label in the leftmost cell of the row.
@@ -73,7 +73,7 @@ export class DataRow {
   private checkLabelAbove() {
     const rowSize = this.el.shadowRoot.querySelector(".data")?.clientWidth + 46;
     if (rowSize) {
-      this.entitySize =
+      this.listSize =
         rowSize < DEVICE_SIZES.S ? "xs" : rowSize < DEVICE_SIZES.M ? "m" : "xl";
     }
   }
@@ -89,7 +89,7 @@ export class DataRow {
             variant={
               isValue
                 ? "body"
-                : this.entitySize === "xs"
+                : this.listSize === "xs"
                 ? "label"
                 : "subtitle-large"
             }
@@ -112,7 +112,7 @@ export class DataRow {
   render() {
     const {
       el,
-      entitySize,
+      listSize,
       hasEndComponent,
       label,
       renderCellContent,
@@ -125,8 +125,8 @@ export class DataRow {
       <Host
         class={{
           ["small"]: small || size === "small",
-          ["breakpoint-medium"]: entitySize === "m",
-          ["breakpoint-xs"]: entitySize === "xs",
+          ["breakpoint-medium"]: listSize === "m",
+          ["breakpoint-xs"]: listSize === "xs",
         }}
         role="listitem"
       >
