@@ -13,7 +13,7 @@ export const excludeComps = [
   'ic-checkbox-group',
   'ic-chip',
   'ic-classification-banner',
-  'ic-data-entity',
+  'ic-data-list',
   'ic-data-row',
   'ic-dialog',
   'ic-divider',

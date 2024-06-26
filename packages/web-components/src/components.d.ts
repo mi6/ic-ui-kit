@@ -599,13 +599,13 @@ export namespace Components {
          */
         "upTo"?: boolean;
     }
-    interface IcDataEntity {
+    interface IcDataList {
         /**
-          * The title for the data entity.
+          * The title for the data list.
          */
         "heading": string;
         /**
-          * The size of the data entity component.
+          * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
         /**
@@ -2680,11 +2680,11 @@ declare global {
         prototype: HTMLIcClassificationBannerElement;
         new (): HTMLIcClassificationBannerElement;
     };
-    interface HTMLIcDataEntityElement extends Components.IcDataEntity, HTMLStencilElement {
+    interface HTMLIcDataListElement extends Components.IcDataList, HTMLStencilElement {
     }
-    var HTMLIcDataEntityElement: {
-        prototype: HTMLIcDataEntityElement;
-        new (): HTMLIcDataEntityElement;
+    var HTMLIcDataListElement: {
+        prototype: HTMLIcDataListElement;
+        new (): HTMLIcDataListElement;
     };
     interface HTMLIcDataRowElement extends Components.IcDataRow, HTMLStencilElement {
     }
@@ -3333,7 +3333,7 @@ declare global {
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
         "ic-chip": HTMLIcChipElement;
         "ic-classification-banner": HTMLIcClassificationBannerElement;
-        "ic-data-entity": HTMLIcDataEntityElement;
+        "ic-data-list": HTMLIcDataListElement;
         "ic-data-row": HTMLIcDataRowElement;
         "ic-dialog": HTMLIcDialogElement;
         "ic-divider": HTMLIcDividerElement;
@@ -3927,13 +3927,13 @@ declare namespace LocalJSX {
          */
         "upTo"?: boolean;
     }
-    interface IcDataEntity {
+    interface IcDataList {
         /**
-          * The title for the data entity.
+          * The title for the data list.
          */
         "heading"?: string;
         /**
-          * The size of the data entity component.
+          * The size of the data list component.
          */
         "size"?: IcSizesNoLarge;
         /**
@@ -5865,7 +5865,7 @@ declare namespace LocalJSX {
         "ic-checkbox-group": IcCheckboxGroup;
         "ic-chip": IcChip;
         "ic-classification-banner": IcClassificationBanner;
-        "ic-data-entity": IcDataEntity;
+        "ic-data-list": IcDataList;
         "ic-data-row": IcDataRow;
         "ic-dialog": IcDialog;
         "ic-divider": IcDivider;
@@ -5935,7 +5935,7 @@ declare module "@stencil/core" {
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
             "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
             "ic-classification-banner": LocalJSX.IcClassificationBanner & JSXBase.HTMLAttributes<HTMLIcClassificationBannerElement>;
-            "ic-data-entity": LocalJSX.IcDataEntity & JSXBase.HTMLAttributes<HTMLIcDataEntityElement>;
+            "ic-data-list": LocalJSX.IcDataList & JSXBase.HTMLAttributes<HTMLIcDataListElement>;
             "ic-data-row": LocalJSX.IcDataRow & JSXBase.HTMLAttributes<HTMLIcDataRowElement>;
             "ic-dialog": LocalJSX.IcDialog & JSXBase.HTMLAttributes<HTMLIcDialogElement>;
             "ic-divider": LocalJSX.IcDivider & JSXBase.HTMLAttributes<HTMLIcDividerElement>;
