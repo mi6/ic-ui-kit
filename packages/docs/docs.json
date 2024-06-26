@@ -188,9 +188,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-accordion": ["ic-typography"]
+        "ic-accordion": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -411,12 +415,25 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-accordion-group": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-accordion-group": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -1086,9 +1103,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-badge": ["ic-typography"]
+        "ic-badge": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -1204,11 +1225,19 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-breadcrumb-group"],
-      "dependencies": ["ic-link"],
+      "dependents": [
+        "ic-breadcrumb-group"
+      ],
+      "dependencies": [
+        "ic-link"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb": ["ic-link"],
-        "ic-breadcrumb-group": ["ic-breadcrumb"]
+        "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ]
       }
     },
     {
@@ -1309,10 +1338,16 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-breadcrumb"],
+      "dependencies": [
+        "ic-breadcrumb"
+      ],
       "dependencyGraph": {
-        "ic-breadcrumb-group": ["ic-breadcrumb"],
-        "ic-breadcrumb": ["ic-link"]
+        "ic-breadcrumb-group": [
+          "ic-breadcrumb"
+        ],
+        "ic-breadcrumb": [
+          "ic-link"
+        ]
       }
     },
     {
@@ -2258,7 +2293,10 @@
         "ic-toggle-button",
         "ic-top-navigation"
       ],
-      "dependencies": ["ic-loading-indicator", "ic-tooltip"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
         "ic-button": [
           "ic-loading-indicator",
@@ -2757,7 +2795,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
         "ic-card-vertical": [
           "ic-typography",
@@ -3143,9 +3184,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-checkbox": ["ic-typography"]
+        "ic-checkbox": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3426,11 +3471,21 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-checkbox-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-checkbox-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3703,10 +3758,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-chip": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-chip": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3865,9 +3928,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-classification-banner": ["ic-typography"]
+        "ic-classification-banner": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -3951,7 +4018,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
         "ic-data-list": [
           "ic-typography"
@@ -4076,9 +4145,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-data-row": ["ic-typography"]
+        "ic-data-row": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -4544,10 +4617,14 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-side-navigation"],
+      "dependents": [
+        "ic-side-navigation"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-divider"]
+        "ic-side-navigation": [
+          "ic-divider"
+        ]
       }
     },
     {
@@ -4767,9 +4844,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-empty-state": ["ic-typography"]
+        "ic-empty-state": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -4998,9 +5079,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container", "ic-typography"]
+        "ic-footer": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
@@ -5261,9 +5348,15 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-section-container"],
+      "dependencies": [
+        "ic-typography",
+        "ic-section-container"
+      ],
       "dependencyGraph": {
-        "ic-footer-link-group": ["ic-typography", "ic-section-container"]
+        "ic-footer-link-group": [
+          "ic-typography",
+          "ic-section-container"
+        ]
       }
     },
     {
@@ -5560,9 +5653,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-section-container", "ic-typography"],
+      "dependencies": [
+        "ic-section-container",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-hero": ["ic-section-container", "ic-typography"]
+        "ic-hero": [
+          "ic-section-container",
+          "ic-typography"
+        ]
       }
     },
     {
@@ -5618,16 +5717,37 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-page-header", "ic-tab-group", "ic-top-navigation"],
-      "dependencies": ["ic-button"],
+      "dependents": [
+        "ic-page-header",
+        "ic-tab-group",
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-page-header": ["ic-horizontal-scroll"],
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-top-navigation": ["ic-horizontal-scroll"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-page-header": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-top-navigation": [
+          "ic-horizontal-scroll"
+        ]
       }
     },
     {
@@ -5876,11 +5996,18 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-component-container"],
-        "ic-text-field": ["ic-input-component-container"]
+        "ic-select": [
+          "ic-input-component-container"
+        ],
+        "ic-text-field": [
+          "ic-input-component-container"
+        ]
       }
     },
     {
@@ -5943,11 +6070,18 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-select", "ic-text-field"],
+      "dependents": [
+        "ic-select",
+        "ic-text-field"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": ["ic-input-container"],
-        "ic-text-field": ["ic-input-container"]
+        "ic-select": [
+          "ic-input-container"
+        ],
+        "ic-text-field": [
+          "ic-input-container"
+        ]
       }
     },
     {
@@ -6156,14 +6290,28 @@
         "ic-switch",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-label": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-label"],
-        "ic-radio-group": ["ic-input-label"],
-        "ic-select": ["ic-input-label"],
-        "ic-switch": ["ic-input-label"],
-        "ic-text-field": ["ic-input-label"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-label"
+        ],
+        "ic-radio-group": [
+          "ic-input-label"
+        ],
+        "ic-select": [
+          "ic-input-label"
+        ],
+        "ic-switch": [
+          "ic-input-label"
+        ],
+        "ic-text-field": [
+          "ic-input-label"
+        ]
       }
     },
     {
@@ -6335,13 +6483,25 @@
         "ic-select",
         "ic-text-field"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-input-validation": ["ic-typography"],
-        "ic-checkbox-group": ["ic-input-validation"],
-        "ic-radio-group": ["ic-input-validation"],
-        "ic-select": ["ic-input-validation"],
-        "ic-text-field": ["ic-input-validation"]
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-checkbox-group": [
+          "ic-input-validation"
+        ],
+        "ic-radio-group": [
+          "ic-input-validation"
+        ],
+        "ic-select": [
+          "ic-input-validation"
+        ],
+        "ic-text-field": [
+          "ic-input-validation"
+        ]
       }
     },
     {
@@ -6905,14 +7065,31 @@
           "docs": ""
         }
       ],
-      "dependents": ["ic-button", "ic-menu", "ic-step", "ic-toast"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-button",
+        "ic-menu",
+        "ic-step",
+        "ic-toast"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator"],
-        "ic-menu": ["ic-loading-indicator"],
-        "ic-step": ["ic-loading-indicator"],
-        "ic-toast": ["ic-loading-indicator"]
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator"
+        ],
+        "ic-step": [
+          "ic-loading-indicator"
+        ],
+        "ic-toast": [
+          "ic-loading-indicator"
+        ]
       }
     },
     {
@@ -7310,15 +7487,37 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-search-bar", "ic-select"],
-      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
+      "dependents": [
+        "ic-search-bar",
+        "ic-select"
+      ],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-search-bar": ["ic-menu"],
-        "ic-select": ["ic-menu"]
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-menu"
+        ],
+        "ic-select": [
+          "ic-menu"
+        ]
       }
     },
     {
@@ -7359,9 +7558,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-menu-group": ["ic-typography"]
+        "ic-menu-group": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -7681,14 +7884,31 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-popover-menu"],
-      "dependencies": ["ic-typography", "ic-button"],
+      "dependents": [
+        "ic-popover-menu"
+      ],
+      "dependencies": [
+        "ic-typography",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-popover-menu": ["ic-menu-item"]
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-popover-menu": [
+          "ic-menu-item"
+        ]
       }
     },
     {
@@ -7956,12 +8176,23 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button"],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-navigation-button": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8070,9 +8301,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-group": ["ic-typography"]
+        "ic-navigation-group": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8366,10 +8601,18 @@
         }
       ],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-tooltip"],
+      "dependencies": [
+        "ic-typography",
+        "ic-tooltip"
+      ],
       "dependencyGraph": {
-        "ic-navigation-item": ["ic-typography", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-navigation-item": [
+          "ic-typography",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -8468,14 +8711,31 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-top-navigation"],
-      "dependencies": ["ic-button", "ic-typography"],
+      "dependents": [
+        "ic-top-navigation"
+      ],
+      "dependencies": [
+        "ic-button",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-navigation-menu": ["ic-button", "ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-top-navigation": ["ic-navigation-menu"]
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-top-navigation": [
+          "ic-navigation-menu"
+        ]
       }
     },
     {
@@ -8778,10 +9038,19 @@
           "ic-typography",
           "ic-horizontal-scroll"
         ],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -9135,13 +9404,28 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button", "ic-pagination-item"],
+      "dependencies": [
+        "ic-button",
+        "ic-pagination-item"
+      ],
       "dependencyGraph": {
-        "ic-pagination": ["ic-button", "ic-pagination-item"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-pagination-item": ["ic-typography"]
+        "ic-pagination": [
+          "ic-button",
+          "ic-pagination-item"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-pagination-item": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -9320,11 +9604,19 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ic-pagination"],
-      "dependencies": ["ic-typography"],
+      "dependents": [
+        "ic-pagination"
+      ],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-pagination-item": ["ic-typography"],
-        "ic-pagination": ["ic-pagination-item"]
+        "ic-pagination-item": [
+          "ic-typography"
+        ],
+        "ic-pagination": [
+          "ic-pagination-item"
+        ]
       }
     },
     {
@@ -9461,13 +9753,29 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-menu-item", "ic-typography"],
+      "dependencies": [
+        "ic-menu-item",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-popover-menu": ["ic-menu-item", "ic-typography"],
-        "ic-menu-item": ["ic-typography", "ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-popover-menu": [
+          "ic-menu-item",
+          "ic-typography"
+        ],
+        "ic-menu-item": [
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -9776,11 +10084,21 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-input-validation"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-input-validation"
+      ],
       "dependencyGraph": {
-        "ic-radio-group": ["ic-input-label", "ic-input-validation"],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-radio-group": [
+          "ic-input-label",
+          "ic-input-validation"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -10078,9 +10396,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-radio-option": ["ic-typography"]
+        "ic-radio-option": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -11226,9 +11548,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-text-field", "ic-button", "ic-menu"],
+      "dependencies": [
+        "ic-text-field",
+        "ic-button",
+        "ic-menu"
+      ],
       "dependencyGraph": {
-        "ic-search-bar": ["ic-text-field", "ic-button", "ic-menu"],
+        "ic-search-bar": [
+          "ic-text-field",
+          "ic-button",
+          "ic-menu"
+        ],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -11236,12 +11566,27 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ]
       }
     },
     {
@@ -11328,11 +11673,21 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-footer": ["ic-section-container"],
-        "ic-footer-link-group": ["ic-section-container"],
-        "ic-hero": ["ic-section-container"],
-        "ic-page-header": ["ic-section-container"],
-        "ic-top-navigation": ["ic-section-container"]
+        "ic-footer": [
+          "ic-section-container"
+        ],
+        "ic-footer-link-group": [
+          "ic-section-container"
+        ],
+        "ic-hero": [
+          "ic-section-container"
+        ],
+        "ic-page-header": [
+          "ic-section-container"
+        ],
+        "ic-top-navigation": [
+          "ic-section-container"
+        ]
       }
     },
     {
@@ -12227,12 +12582,27 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
-        "ic-input-validation": ["ic-typography"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-menu": [
+          "ic-loading-indicator",
+          "ic-typography",
+          "ic-button"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12537,12 +12907,27 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-button", "ic-divider"],
+      "dependencies": [
+        "ic-typography",
+        "ic-button",
+        "ic-divider"
+      ],
       "dependencyGraph": {
-        "ic-side-navigation": ["ic-typography", "ic-button", "ic-divider"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-side-navigation": [
+          "ic-typography",
+          "ic-button",
+          "ic-divider"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12800,9 +13185,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-status-tag": ["ic-typography"]
+        "ic-status-tag": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -12937,10 +13326,18 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-loading-indicator", "ic-typography"],
+      "dependencies": [
+        "ic-loading-indicator",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-step": ["ic-loading-indicator", "ic-typography"],
-        "ic-loading-indicator": ["ic-typography"]
+        "ic-step": [
+          "ic-loading-indicator",
+          "ic-typography"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13407,10 +13804,18 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-input-label", "ic-typography"],
+      "dependencies": [
+        "ic-input-label",
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-switch": ["ic-input-label", "ic-typography"],
-        "ic-input-label": ["ic-typography"]
+        "ic-switch": [
+          "ic-input-label",
+          "ic-typography"
+        ],
+        "ic-input-label": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13493,9 +13898,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
-        "ic-tab": ["ic-typography"]
+        "ic-tab": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -13729,13 +14138,26 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-horizontal-scroll"],
+      "dependencies": [
+        "ic-horizontal-scroll"
+      ],
       "dependencyGraph": {
-        "ic-tab-group": ["ic-horizontal-scroll"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-tab-group": [
+          "ic-horizontal-scroll"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -14920,7 +15342,9 @@
         }
       ],
       "parts": [],
-      "dependents": ["ic-search-bar"],
+      "dependents": [
+        "ic-search-bar"
+      ],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -14936,9 +15360,15 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": ["ic-typography"],
-        "ic-input-validation": ["ic-typography"],
-        "ic-search-bar": ["ic-text-field"]
+        "ic-input-label": [
+          "ic-typography"
+        ],
+        "ic-input-validation": [
+          "ic-typography"
+        ],
+        "ic-search-bar": [
+          "ic-text-field"
+        ]
       }
     },
     {
@@ -15257,12 +15687,27 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-typography", "ic-loading-indicator", "ic-button"],
+      "dependencies": [
+        "ic-typography",
+        "ic-loading-indicator",
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toast": ["ic-typography", "ic-loading-indicator", "ic-button"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-toast": [
+          "ic-typography",
+          "ic-loading-indicator",
+          "ic-button"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -15633,12 +16078,23 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ic-button"],
+      "dependencies": [
+        "ic-button"
+      ],
       "dependencyGraph": {
-        "ic-toggle-button": ["ic-button"],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"]
+        "ic-toggle-button": [
+          "ic-button"
+        ],
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
       }
     },
     {
@@ -16213,7 +16669,9 @@
         "ic-chip",
         "ic-navigation-item"
       ],
-      "dependencies": ["ic-typography"],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
         "ic-tooltip": [
           "ic-typography"
@@ -16572,11 +17030,23 @@
           "ic-horizontal-scroll",
           "ic-navigation-menu"
         ],
-        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
-        "ic-loading-indicator": ["ic-typography"],
-        "ic-tooltip": ["ic-typography"],
-        "ic-horizontal-scroll": ["ic-button"],
-        "ic-navigation-menu": ["ic-button", "ic-typography"]
+        "ic-button": [
+          "ic-loading-indicator",
+          "ic-tooltip"
+        ],
+        "ic-loading-indicator": [
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ],
+        "ic-horizontal-scroll": [
+          "ic-button"
+        ],
+        "ic-navigation-menu": [
+          "ic-button",
+          "ic-typography"
+        ]
       }
     },
     {
