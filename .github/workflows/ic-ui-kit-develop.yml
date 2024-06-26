@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - develop
+      - v3.0.0/develop
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -211,32 +212,32 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/web-components/storybook-static
-          target-folder: ./branches/develop/web-components
+          target-folder: ./branches/${{ github.ref_name }}/web-components
 
       - name: Deploy react storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/react/storybook-static
-          target-folder: ./branches/develop/react
+          target-folder: ./branches/${{ github.ref_name }}/react
 
       - name: Deploy nextjs storybook
         if: ${{ needs.check-updates.outputs.core == 'true' }}
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/nextjs/storybook-static
-          target-folder: ./branches/develop/nextjs
+          target-folder: ./branches/${{ github.ref_name }}/nextjs
 
       - name: Deploy canary web components storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/canary-web-components/storybook-static
-          target-folder: ./branches/canary/develop/web-components
+          target-folder: ./branches/canary/${{ github.ref_name }}/web-components
 
       - name: Deploy canary react storybook
         if: ${{ needs.check-updates.outputs.canary == 'true' }}
         uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e #v4.5.0
         with:
           folder: ./packages/canary-react/storybook-static
-          target-folder: ./branches/canary/develop/react
+          target-folder: ./branches/canary/${{ github.ref_name }}/react
