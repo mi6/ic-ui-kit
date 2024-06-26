@@ -20,16 +20,16 @@ import {
   WithButton,
   WithLinks,
   WithStatusTags,
-} from "./IcDataEntityTestData";
+} from "./IcDataListTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
-const DATA_ENTITY_SELECTOR = "ic-data-entity";
+const DATA_LIST_SELECTOR = "ic-data-list";
 const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
 const DATA_ROW_SELECTOR = "ic-data-row";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
-describe("IcDataEntity E2E, visual and a11y testing", () => {
+describe("IcDataList E2E, visual and a11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
@@ -89,7 +89,7 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.checkHydrated(DATA_LIST_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
     cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "Michael");
@@ -109,7 +109,7 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.checkHydrated(DATA_LIST_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Download receipt"]').should(BE_VISIBLE);
     cy.get(DATA_ROW_SELECTOR).should(HAVE_VALUE, "CoffeeOrder_X46w32.pdf");
@@ -176,7 +176,7 @@ describe("IcDataEntity E2E, visual and a11y testing", () => {
       </div>
     );
 
-    cy.checkHydrated(DATA_ENTITY_SELECTOR);
+    cy.checkHydrated(DATA_LIST_SELECTOR);
     cy.get(ORDER_DETAILS_HEADING_SELECTOR).should(BE_VISIBLE);
     cy.get('[label="Order name"]').should(BE_VISIBLE);
     cy.get("input").should(HAVE_VALUE, "Michael");
