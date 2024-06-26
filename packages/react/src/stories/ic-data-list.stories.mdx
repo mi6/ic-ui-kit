@@ -7,7 +7,7 @@ import {
 } from "@storybook/addon-docs";
 import {
   IcButton,
-  IcDataEntity,
+  IcDataList,
   IcDataRow,
   IcStatusTag,
   IcLink,
@@ -16,7 +16,7 @@ import {
 } from "../components";
 import readme from "../../../web-components/src/components/ic-data-row/readme.md";
 
-<Meta title="Data entity" component={(IcDataRow, IcDataEntity)} />
+<Meta title="Data list" component={(IcDataRow, IcDataList)} />
 
 <Description markdown={readme} />
 
@@ -24,7 +24,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Default">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
@@ -33,7 +33,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -41,7 +41,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Slotted heading and label">
-    <IcDataEntity>
+    <IcDataList>
       <IcTypography variant="h3" slot="heading">Personal details</IcTypography>
       <IcDataRow value="Michael Johnson">
         <IcTypography variant="subtitle-large" slot="label">Name</IcTypography>
@@ -49,7 +49,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       <IcDataRow value="16 October 1995">
         <IcTypography variant="subtitle-large" slot="label">Date of birth</IcTypography>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -57,7 +57,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Long text values">
-    <IcDataEntity heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
+    <IcDataList heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
       <IcDataRow
         label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         value="value"
@@ -82,7 +82,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       </IcDataRow>
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -90,7 +90,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Size small">
-    <IcDataEntity heading="Data" size="small">
+    <IcDataList heading="Data" size="small">
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
@@ -99,7 +99,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -107,7 +107,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Deprecated - small">
-    <IcDataEntity heading="Data" small>
+    <IcDataList heading="Data" small>
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
@@ -116,7 +116,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
       <IcDataRow label="Label" value="value" />
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -124,7 +124,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Link">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label" value="value">
         <IcLink href="/" slot="end-component">
           Edit
@@ -165,7 +165,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
           Edit
         </IcLink>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -173,7 +173,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Icon button">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label" value="value">
         <IcButton variant="icon" aria-label="Edit" slot="end-component">
           <svg
@@ -270,7 +270,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
           </svg>
         </IcButton>
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -278,7 +278,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Adornment">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label" value="value">
         <IcStatusTag
           status="success"
@@ -343,7 +343,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
           slot="end-component"
         />
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -351,7 +351,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Status tag">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label">
         <IcStatusTag
           status="success"
@@ -416,7 +416,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
           slot="value"
         />
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
   </Story>
 </Canvas>
 
@@ -424,7 +424,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
 
 <Canvas>
   <Story name="Editable example">
-    <IcDataEntity heading="Data">
+    <IcDataList heading="Data">
       <IcDataRow label="Label">
         <IcTextField slot="value" label="label" value="value" readonly />
       </IcDataRow>
@@ -449,7 +449,7 @@ import readme from "../../../web-components/src/components/ic-data-row/readme.md
       <IcDataRow label="Label">
         <IcTextField slot="value" label="label" value="value" readonly />
       </IcDataRow>
-    </IcDataEntity>
+    </IcDataList>
     <IcButton
       onclick="
           var textFields = document.querySelectorAll('ic-text-field');
@@ -515,7 +515,7 @@ export const defaultArgs = {
     name="Playground"
   >
     {(args) => (
-      <IcDataEntity heading={args.heading} size={args.size}>
+      <IcDataList heading={args.heading} size={args.size}>
         <IcDataRow
           label={args.label}
           value={args.value}
@@ -536,7 +536,7 @@ export const defaultArgs = {
         </IcDataRow>
         <IcDataRow label="Date of birth" value="16 October 1995" />
         <IcDataRow label="Telephone" value="07449 7654873" />
-      </IcDataEntity>
+      </IcDataList>
     )}
   </Story>
 </Canvas>
