@@ -109,7 +109,7 @@ exports[`ic-data-row should render slotted content in the value slot 1`] = `
 </ic-data-row>
 `;
 
-exports[`ic-data-row should render the label variant of typography when entity size is xs 1`] = `
+exports[`ic-data-row should render the label variant of typography when list size is xs 1`] = `
 <ic-data-row class="breakpoint-xs" label="label" role="listitem">
   <mock:shadow-root>
     <div class="data">
