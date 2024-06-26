@@ -47,13 +47,13 @@ describe("ic-data-row", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render the label variant of typography when entity size is xs", async () => {
+  it("should render the label variant of typography when list size is xs", async () => {
     const page = await newSpecPage({
       components: [DataRow],
       html: `<ic-data-row label="label"><ic-status-tag variant="success" label="success" slot="value"></ic-status-tag></ic-data-row>`,
     });
 
-    page.rootInstance.entitySize = "xs";
+    page.rootInstance.listSize = "xs";
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
@@ -77,7 +77,7 @@ describe("ic-data-row", () => {
     page.setContent("");
   });
 
-  it("should change entity size depending on screen size", async () => {
+  it("should change list size depending on screen size", async () => {
     const page = await newSpecPage({
       components: [DataRow],
       html: `<ic-data-row label="label" value="value"></ic-data-row>`,
@@ -95,6 +95,6 @@ describe("ic-data-row", () => {
 
     page.rootInstance.checkLabelAbove();
 
-    expect(page.rootInstance.entitySize).toBe("xs");
+    expect(page.rootInstance.listSize).toBe("xs");
   });
 });

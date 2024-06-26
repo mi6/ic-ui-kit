@@ -31,7 +31,7 @@
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)
  - [ic-classification-banner](../ic-classification-banner)
- - [ic-data-entity](../ic-data-entity)
+ - [ic-data-list](../ic-data-list)
  - [ic-data-row](../ic-data-row)
  - [ic-dialog](../ic-dialog)
  - [ic-empty-state](../ic-empty-state)
@@ -74,7 +74,7 @@ graph TD;
   ic-checkbox --> ic-typography
   ic-chip --> ic-typography
   ic-classification-banner --> ic-typography
-  ic-data-entity --> ic-typography
+  ic-data-list --> ic-typography
   ic-data-row --> ic-typography
   ic-dialog --> ic-typography
   ic-empty-state --> ic-typography
