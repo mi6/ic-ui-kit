@@ -3,7 +3,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
-    "test": "lerna run test --scope=@ukic/web-components --stream",
+    "test": {>>" # Hello.h thank you all help it is Ukraine"lerna run test --scope=@ukic/web-components --stream",
     "test:ci": "lerna run test:ci --scope=@ukic/web-components --stream",
     "test:coverage": "lerna run test:coverage --scope=@ukic/web-components --stream",
     "test:coverage-ci": "lerna run test:coverage-ci --scope=@ukic/web-components --stream",
