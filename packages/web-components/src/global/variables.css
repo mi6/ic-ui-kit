@@ -202,15 +202,6 @@
   --ic-status-unknown: var(--ic-architectural-500);
   --ic-status-unknown-dark: var(--ic-architectural-800);
 
-  /* deprecated status */
-  --ic-status-warning-mid: var(--ic-status-warning);
-  --ic-status-warning-mid-hover: var(--ic-status-warning-hover);
-  --ic-status-warning-mid-pressed: var(--ic-status-warning-pressed);
-  --ic-status-success-background: var(--ic-status-success-light);
-  --ic-status-warning-background: var(--ic-status-warning-light);
-  --ic-status-error-background: var(--ic-status-error-light);
-  --ic-status-info-background: var(--ic-status-info-light);
-
   /* architectural */
   --ic-architectural-20: #f9fafa;
   --ic-architectural-40: #f4f4f5;
