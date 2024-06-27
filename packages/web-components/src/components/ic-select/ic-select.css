@@ -227,3 +227,22 @@ select:not([disabled]) {
   white-space: nowrap;
   width: var(--ic-space-1px);
 }
+
+::slotted([slot="icon"]) {
+  fill: var(--ic-color-tertiary-text);
+}
+
+.has-value ::slotted([slot="icon"]) {
+  fill: var(--ic-color-primary-text);
+}
+
+.readonly ::slotted([slot="icon"]) {
+  padding: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (forced-colors: active) {
+  .has-value ::slotted([slot="icon"]) {
+    fill: currentcolor;
+  }
+}
