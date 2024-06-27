@@ -74,12 +74,11 @@ Type: `Promise<void>`
 
 
 
-## CSS Custom Properties
+## Slots
 
-| Name                | Description              |
-| ------------------- | ------------------------ |
-| `--ic-z-index-menu` | z-index of select menu   |
-| `--input-width`     | Width of the input field |
+| Slot     | Description                                                  |
+| -------- | ------------------------------------------------------------ |
+| `"icon"` | Content will be placed to the left of the select text input. |
 
 
 ## Dependencies

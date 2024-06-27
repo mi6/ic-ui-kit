@@ -42,6 +42,9 @@ import { IcOptionSelectEventDetail } from "../ic-menu/ic-menu.types";
 let inputIds = 0;
 const MUTABLE_ATTRIBUTES = [...IC_INHERITED_ARIA, "tabindex", "title"];
 
+/**
+ * @slot icon - Content will be placed to the left of the select text input.
+ */
 @Component({
   tag: "ic-select",
   styleUrl: "ic-select.css",
@@ -990,6 +993,15 @@ export class Select {
     }
   };
 
+  private hasLeftIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasValue(): boolean {
+    return this.value !== null && this.value !== "" && this.value !== undefined;
+  }
+
   render() {
     const {
       small,
@@ -1029,6 +1041,11 @@ export class Select {
       hasValidationStatus(this.validationStatus, this.disabled)
     ).trim();
 
+    let showLeftIcon = this.hasLeftIconSlot();
+    if (showLeftIcon && (disabled || (readonly && !this.hasValue()))) {
+      showLeftIcon = false;
+    }
+
     return (
       <Host
         class={{
@@ -1061,6 +1078,17 @@ export class Select {
             readonly={readonly}
             validationStatus={validationStatus}
           >
+            {showLeftIcon && (
+              <span
+                slot="left-icon"
+                class={{
+                  ["readonly"]: readonly,
+                  ["has-value"]: this.hasValue(),
+                }}
+              >
+                <slot name="icon" />
+              </span>
+            )}
             {readonly ? (
               <ic-typography>
                 <p>{this.getLabelFromValue(currValue)}</p>
