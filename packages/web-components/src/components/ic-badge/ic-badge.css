@@ -30,7 +30,7 @@
 }
 
 :host(.warning) {
-  background-color: var(--ic-status-warning-mid);
+  background-color: var(--ic-status-warning);
 }
 
 :host(.error) {
