@@ -20,7 +20,10 @@ export const config: Cypress.ConfigOptions = {
       return config;
     },
     supportFile: "./cypress/support/index.ts",
-    retries: 3,
+    retries: {
+      runMode: 3,
+      openMode: 0
+    },
   },
 }
 
