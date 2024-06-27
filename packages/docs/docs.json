@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-24T09:26:04",
+  "timestamp": "2024-06-27T11:13:20",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -12642,7 +12642,12 @@
       "tag": "ic-select",
       "readme": "# ic-select\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon - Content will be placed to the left of the select text input."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -13657,7 +13662,12 @@
           "docs": "Width of the input field"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon",
+          "docs": "Content will be placed to the left of the select text input."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
