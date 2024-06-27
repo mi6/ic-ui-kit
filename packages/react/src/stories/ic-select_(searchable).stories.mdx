@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
 
 import { IcSelect, IcButton, IcTypography } from "../components";
+import {SlottedSVG} from "../react-component-lib/slottedSVG";
 import readme from "../../../web-components/src/components/ic-select/readme.md";
 
 <Meta title="Select/Searchable" component={IcSelect} />
@@ -684,6 +685,9 @@ export const Uncontrolled = () => {
         options: ["", "error", "success", "warning"],
         control: { type: "select" },
       },
+      showIcon: {
+        control: { type: "boolean" }
+      }
     }}
   >
     {(args) => (
@@ -706,7 +710,21 @@ export const Uncontrolled = () => {
         size={args.size}
         validationStatus={args.validationStatus}
         validationText={args.validationText}
-      />
+      >
+        {args.showIcon && (
+          <SlottedSVG 
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+          </SlottedSVG>  
+        )}
+      </IcSelect>
     )}
   </Story>
 </Canvas>

@@ -3,6 +3,7 @@
 import { mount } from "@cypress/react";
 import React from "react";
 import { IcSelect } from "../../components";
+import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_DISABLED,
   BE_VISIBLE,
@@ -104,6 +105,31 @@ describe("IcSelect", () => {
       .each(($t1) => {
         cy.log($t1.text());
       });
+  });
+
+  it("should render with an icon", () => {
+    mount(
+      <IcSelect label="What is your favourite coffee?">
+        <SlottedSVG
+          slot="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+        </SlottedSVG>
+      </IcSelect>
+    );
+
+    cy.checkHydrated("ic-select");
+
+    cy.compareSnapshot({
+      name: "with-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
   });
 
   it("should open, set focus on menu and set aria-expanded to 'true' when input clicked", () => {
