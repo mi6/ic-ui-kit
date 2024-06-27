@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.17...@ukic/canary-web-components@2.0.0-canary.18) (2024-06-27)
+
+### Features
+
+- **canary-web-components:** added slot for pagination bar to ic-data-table ([d2da54f](https://github.com/mi6/ic-ui-kit/commit/d2da54f74186c6c2e0a9387b778ee464434391c8))
+
 # [2.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.16...@ukic/canary-web-components@2.0.0-canary.17) (2024-06-12)
 
 **Note:** Version bump only for package @ukic/canary-web-components

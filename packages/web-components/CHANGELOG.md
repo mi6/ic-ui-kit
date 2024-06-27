@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.22.0...@ukic/web-components@2.23.0) (2024-06-27)
+
+### Bug Fixes
+
+- **web-components:** account for null aligned in section container ([4e6ddcd](https://github.com/mi6/ic-ui-kit/commit/4e6ddcd518016e9965ffa48eb805c78842c987d3))
+- **web-components:** add playground stories for components. Add watch to tab context appearance prop ([7db3f91](https://github.com/mi6/ic-ui-kit/commit/7db3f917e928eb96fe849598ed242e4eed8ecae0)), closes [#1970](https://github.com/mi6/ic-ui-kit/issues/1970)
+- **web-components:** add playground stories for components. Update dismissMode on toast ([0460845](https://github.com/mi6/ic-ui-kit/commit/0460845d6b8ebda0dec2f20efacc06f138225007)), closes [#1970](https://github.com/mi6/ic-ui-kit/issues/1970)
+- **web-components:** fix for hideStepInfo prop ([931ef7c](https://github.com/mi6/ic-ui-kit/commit/931ef7c4c918ce92130c2a6011fa658dec597fbd))
+- **web-components:** update back to top icon variant to match Figma designs ([c8e0f60](https://github.com/mi6/ic-ui-kit/commit/c8e0f60cd259954d27015626373c487f45edda7c)), closes [#1979](https://github.com/mi6/ic-ui-kit/issues/1979)
+
+### Features
+
+- **web-components:** add loading indicator props playground ([8e2cf2d](https://github.com/mi6/ic-ui-kit/commit/8e2cf2d9f804214016a8eff581c262a0137d9a12)), closes [.#1970](https://github.com/./issues/1970)
+- **web-components:** implements native indeterminate checkbox behaviour ([950d879](https://github.com/mi6/ic-ui-kit/commit/950d879a64595a4d1741389737a54e10bb7cecc1))
+- **web-components:** update select playground argType ([c36c63c](https://github.com/mi6/ic-ui-kit/commit/c36c63c44361bced1725f26a617e37a1d4e07790)), closes [.#1970](https://github.com/./issues/1970)
+
 # [2.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.21.0...@ukic/web-components@2.22.0) (2024-06-12)
 
 ### Bug Fixes

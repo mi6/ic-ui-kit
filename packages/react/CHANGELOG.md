@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.22.0...@ukic/react@2.23.0) (2024-06-27)
+
+### Bug Fixes
+
+- **react:** update back to top cypress test and merge in ci generated snapshot ([7f2a8cb](https://github.com/mi6/ic-ui-kit/commit/7f2a8cbd142725178cb80fbf87482af9e2dc5a7e))
+- **web-components:** update back to top icon variant to match Figma designs ([c8e0f60](https://github.com/mi6/ic-ui-kit/commit/c8e0f60cd259954d27015626373c487f45edda7c)), closes [#1979](https://github.com/mi6/ic-ui-kit/issues/1979)
+
+### Features
+
+- **react:** add a storybook playground for ic-pagination ([6e8758f](https://github.com/mi6/ic-ui-kit/commit/6e8758fc2381a46dde71de8503e1ad0e5bb13ebc))
+- **react:** add loading indicator props playground ([fbbf0b6](https://github.com/mi6/ic-ui-kit/commit/fbbf0b6af8de252e5131b7de508d39d94e764800)), closes [.#1970](https://github.com/./issues/1970)
+- **react:** adds playground for back to top ([5c6d265](https://github.com/mi6/ic-ui-kit/commit/5c6d265327300881f3762c2a7b4f52558aa5a0a7))
+- **react:** tests updated and storybook playground added ([5a62361](https://github.com/mi6/ic-ui-kit/commit/5a62361c8d74c5e06e28093bab81f0c179edd118))
+- **react:** update Cypress visual regression test baseline images ([9baef99](https://github.com/mi6/ic-ui-kit/commit/9baef999e08000a7e40c6a16b5112eb7ce6ce827))
+- **react:** update select playground argType ([ee5adb4](https://github.com/mi6/ic-ui-kit/commit/ee5adb4a9089b2a7e94b5856867fc71fb29323de)), closes [.#1970](https://github.com/./issues/1970)
+
 # [2.22.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.21.0...@ukic/react@2.22.0) (2024-06-12)
 
 ### Bug Fixes

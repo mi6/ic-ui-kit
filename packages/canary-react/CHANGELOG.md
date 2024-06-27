@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.17...@ukic/canary-react@2.0.0-canary.18) (2024-06-27)
+
+### Features
+
+- **canary-react:** add props playground for multi-select ([ef8bc6d](https://github.com/mi6/ic-ui-kit/commit/ef8bc6d633c673b18aaf93d77952fcb51b91ecfe)), closes [.#1970](https://github.com/./issues/1970)
+- **canary-react:** added story for new ic-data-table pagination slot to react package ([63e68aa](https://github.com/mi6/ic-ui-kit/commit/63e68aa715543656f639d7e88f10dae44c89f2ed))
+
 # [2.0.0-canary.17](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.16...@ukic/canary-react@2.0.0-canary.17) (2024-06-12)
 
 ### Bug Fixes
