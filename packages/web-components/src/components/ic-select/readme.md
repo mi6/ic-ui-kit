@@ -81,6 +81,14 @@ Type: `Promise<void>`
 | `"icon"` | Content will be placed to the left of the select text input. |
 
 
+## CSS Custom Properties
+
+| Name                | Description              |
+| ------------------- | ------------------------ |
+| `--ic-z-index-menu` | z-index of select menu   |
+| `--input-width`     | Width of the input field |
+
+
 ## Dependencies
 
 ### Depends on
