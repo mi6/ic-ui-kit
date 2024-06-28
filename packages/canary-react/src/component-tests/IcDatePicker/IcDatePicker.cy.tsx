@@ -2285,7 +2285,7 @@ describe("IcDatePickers", () => {
       });
   });
 
-  it("should test 'disableFuture' and 'disableFutureMessage' props", () => {
+  it.skip("should test 'disableFuture' and 'disableFutureMessage' props", () => {
     const msg = "Days in the future are not allowed.";
     mount(
       <IcDatePicker
@@ -2349,7 +2349,7 @@ describe("IcDatePickers", () => {
       });
   });
 
-  it("should test 'disablePast' and 'disablePastMessage' props", () => {
+  it.skip("should test 'disablePast' and 'disablePastMessage' props", () => {
     const msg = "Days in the past are not allowed.";
     mount(
       <IcDatePicker

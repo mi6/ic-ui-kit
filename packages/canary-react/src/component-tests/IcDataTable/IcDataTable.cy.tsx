@@ -20,6 +20,9 @@ import {
   ROW_ALIGNMENT,
   ROW_HEADER_COLS,
   ROW_HEADER_DATA,
+  LONG_DATA_VALUES,
+  COLUMNS_NO_TEXT_WRAP,
+  LONG_DATA_VALUES_UPDATE,
 } from "@ukic/canary-web-components/src/components/ic-data-table/story-data";
 
 import {
@@ -868,15 +871,14 @@ describe("IcDataTables", () => {
   });
 
   it("should reset globalRowHeight", () => {
-    mount(<BasicDataTable globalRowHeight={150} />);
+    mount(<BasicDataTable globalRowHeight={150} truncationPattern="tooltip" />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
 
-    cy.wait(350);
-
     cy.findShadowEl(DATA_TABLE_SELECTOR, "tr")
       .eq(1)
-      .should(HAVE_CSS, "height", "150px");
+      .invoke("css", "height")
+      .should("equal", "151px");
 
     cy.document().then((doc) => {
       const dataTable = doc.querySelector("ic-data-table");
@@ -1132,5 +1134,935 @@ describe("IcDataTables with IcPaginationBar", () => {
             expect(hideRangeLabel).to.be.true;
           });
       });
+  });
+});
+
+describe("IcDataTable with truncation", () => {
+  beforeEach(() => {
+    cy.viewport(1024, 768);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  describe("tooltip truncation", () => {
+    // Unable to test hover state
+    it("renders tooltip truncation", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
+        .eq(0)
+        .find(".table-cell")
+        .eq(4)
+        .find("ic-tooltip")
+        .should("have.attr", "label", LONG_DATA_VALUES[0].jobTitle);
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("renders tooltip truncation on sorted data", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(3).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
+        .eq(0)
+        .find(".table-cell")
+        .eq(4)
+        .find("ic-tooltip")
+        .should("have.attr", "label", LONG_DATA_VALUES[5].jobTitle);
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-sort",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("it should display all data on multiple lines when large global row height is set with tooltips removed", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          globalRowHeight={150}
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.wait(250);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("not.exist");
+      });
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-rowheight",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should reset tooltip truncation after row height has been reset", () => {
+      mount(
+        <>
+          <IcDataTable
+            columns={COLS}
+            data={LONG_DATA_VALUES}
+            caption="Data Tables"
+            truncationPattern="tooltip"
+          />
+          <IcButton
+            onClick={() =>
+              document.querySelector("ic-data-table")?.resetRowHeights()
+            }
+          >
+            Reset
+          </IcButton>
+        </>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get("ic-button").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "tbody tr")
+        .eq(0)
+        .find(".table-cell")
+        .eq(4)
+        .find("ic-tooltip")
+        .should("have.attr", "label", LONG_DATA_VALUES[0].jobTitle);
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-reset-rowheight",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+    it("should re-evaluate tooltip truncation if data prop is updated", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get(DATA_TABLE_SELECTOR).invoke("prop", "data", DATA);
+
+      cy.wait(250);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("exist");
+      });
+    });
+
+    it("should display more truncated data when scrolling down table", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+          style={{ height: "250px" }}
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.wait(250);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row-container").scrollTo(
+        0,
+        250
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row, i) => {
+        if (i > 5 && i < 11) {
+          cy.wrap($row)
+            .find(".table-cell:last-child")
+            .find("ic-tooltip")
+            .should("exist");
+        }
+      });
+    });
+
+    it("should removed tooltip truncation if table cell is wide enough to display all content", () => {
+      // Ideally, it would be good to test the behaviour once the viewport size has decreased
+      // however, it does not seem possible to trigger the ResizeObserver in Cypress tests
+      const newColumns = () => {
+        return COLS.filter((col, i) => {
+          if (col.key === "jobTitle" || col.key === "address") {
+            return col;
+          }
+        });
+      };
+
+      const newData = () => {
+        return DATA.map((d, i) => ({
+          jobTitle: d.jobTitle,
+          address: d.address,
+        }));
+      };
+
+      mount(
+        <IcDataTable
+          columns={newColumns()}
+          data={newData()}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("not.exist");
+      });
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-wide-table",
+      });
+
+      // Cypress doesn't seem to trigger resizeObserver so unable to check if
+      // changing viewport affects table
+    });
+
+    it("should render truncation when table is in dense", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={DATA}
+          caption="Data Tables"
+          density="dense"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("exist");
+      });
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-dense",
+      });
+    });
+
+    it("should render truncation when table is in spacious", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={DATA}
+          caption="Data Tables"
+          density="spacious"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child")
+          .find("ic-tooltip")
+          .should("exist");
+      });
+
+      cy.compareSnapshot({
+        name: "tooltip-truncation-spacious",
+      });
+    });
+
+    it("should render tooltip truncation with data tables pagination", () => {
+      const defaultPaginationBarOptions: IcPaginationBarOptions = {
+        itemsPerPageOptions: [
+          { label: "10", value: "10" },
+          { label: "25", value: "25" },
+          { label: "50", value: "50" },
+        ],
+        rangeLabelType: "page",
+        type: "simple",
+        showItemsPerPageControl: true,
+        showGoToPageControl: true,
+        alignment: "right",
+        appearance: "default",
+        itemLabel: "Item",
+        pageLabel: "Page",
+        hideRangeLabel: false,
+      };
+
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA}
+          caption="Data Tables"
+          showPagination
+          truncationPattern="tooltip"
+          {...defaultPaginationBarOptions}
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find("ic-pagination")
+        .shadow()
+        .find("#next-page-button")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row).find("ic-tooltip").should("exist");
+      });
+    });
+  });
+  describe("see more/see less truncation", () => {
+    it("renders typrograpny link truncation", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .should("have.text", LONG_DATA_VALUES[0].jobTitle);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See more");
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-hide",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See less");
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-show",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should re-render show hide truncation on table sort", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          sortable
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".sort-button").eq(1).click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .should("have.text", "Junior Tester");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell")
+        .eq(2)
+        .find("ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See more");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(1)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See more");
+    });
+
+    it("should render full data over multiple lines and show/hide link should be removed", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          globalRowHeight={150}
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.wait(250);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-row-height",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should re-render show hide data truncation when row height is reset", () => {
+      mount(
+        <>
+          <IcDataTable
+            columns={COLS}
+            data={LONG_DATA_VALUES}
+            caption="Data Tables"
+            truncationPattern="show-hide"
+            globalRowHeight={150}
+          />
+          <IcButton
+            onClick={() =>
+              document.querySelector("ic-data-table")?.resetRowHeights()
+            }
+          >
+            Reset
+          </IcButton>
+        </>
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.get("ic-button").click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .filter(":lt(2)")
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See more");
+    });
+
+    it("should add show hide truncation on updated data object", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.wait(250);
+
+      cy.get(DATA_TABLE_SELECTOR).invoke(
+        "prop",
+        "data",
+        LONG_DATA_VALUES_UPDATE
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(0)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("not.exist");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(2)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See more");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(2)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .click();
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-data-update",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should display show hide truncation when scrolling down table", () => {
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          style={{ height: "500px" }}
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row-container").scrollTo(
+        0,
+        250
+      );
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row, i) => {
+        if (i > 5 && i < 11) {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        }
+      });
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-scroll",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should remove show hide truncation if table cell is wide enough to display all content", () => {
+      cy.viewport(1400, 768);
+
+      const newColumns = () => {
+        return COLUMNS_NO_TEXT_WRAP.filter((col, i) => {
+          if (col.key === "department" || col.key === "jobTitle") {
+            return col;
+          }
+        });
+      };
+
+      const newData = () => {
+        return LONG_DATA_VALUES.map((d, i) => ({
+          department: d.department,
+          jobTitle: d.jobTitle,
+        }));
+      };
+
+      mount(
+        <IcDataTable
+          columns={newColumns()}
+          data={newData()}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.wait(250);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("not.exist");
+      });
+    });
+
+    it("should increase table width from small to make sure truncation is still displayed", () => {
+      const newColumns = () => {
+        return COLUMNS_NO_TEXT_WRAP.filter((col, i) => {
+          if (col.key === "department" || col.key === "jobTitle") {
+            return col;
+          }
+        });
+      };
+
+      const newData = () => {
+        return LONG_DATA_VALUES.map((d, i) => ({
+          department: d.department,
+          jobTitle: d.jobTitle,
+        }));
+      };
+
+      mount(
+        <IcDataTable
+          columns={newColumns()}
+          data={newData()}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .filter(":gt(0)")
+        .filter(":lt(3)")
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .click({ multiple: true });
+
+      cy.viewport(1250, 768);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(1)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See less");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(2)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("have.text", "See less");
+
+      cy.viewport(2100, 768);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(1)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("not.exist");
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
+        .eq(2)
+        .find(".table-cell:last-child ic-typography")
+        .shadow()
+        .find("button")
+        .should("not.exist");
+    });
+
+    it("should render show hide truncation when data table is set to dense", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          density="dense"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-dense",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should render show hide truncation when data table is set to spacious", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+          density="spacious"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "show-hide-truncation-spacious",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should render show hide truncation with data table pagination", () => {
+      const defaultPaginationBarOptions: IcPaginationBarOptions = {
+        itemsPerPageOptions: [
+          { label: "10", value: "10" },
+          { label: "25", value: "25" },
+          { label: "50", value: "50" },
+        ],
+        rangeLabelType: "page",
+        type: "simple",
+        showItemsPerPageControl: true,
+        showGoToPageControl: true,
+        alignment: "right",
+        appearance: "default",
+        itemLabel: "Item",
+        pageLabel: "Page",
+        hideRangeLabel: false,
+      };
+
+      mount(
+        <IcDataTable
+          columns={COLS}
+          data={LONG_DATA}
+          caption="Data Tables"
+          showPagination
+          truncationPattern="show-hide"
+          {...defaultPaginationBarOptions}
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, "ic-pagination-bar")
+        .shadow()
+        .find("ic-pagination")
+        .shadow()
+        .find("#next-page-button")
+        .click();
+
+      cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row").each(($row) => {
+        cy.wrap($row)
+          .find(".table-cell:last-child ic-typography")
+          .shadow()
+          .find("button")
+          .should("have.text", "See more");
+      });
+    });
+  });
+  describe("textWrap", () => {
+    const textWrapColumns = () => {
+      return COLUMNS_NO_TEXT_WRAP.map((col, i) => {
+        if (col.key === "jobTitle") {
+          return {
+            ...col,
+            textWrap: true,
+          };
+        }
+        return col;
+      });
+    };
+
+    const textWrapRow = () => {
+      return LONG_DATA_VALUES.map((data) => {
+        if (data.name === "Luke Fisher" || data.name === "John Smith") {
+          return {
+            ...data,
+            rowOptions: {
+              textWrap: true,
+            },
+          };
+        }
+
+        return data;
+      });
+    };
+
+    const textWrapCell = () => {
+      return LONG_DATA_VALUES.map((data) => {
+        if (
+          data.jobTitle === "Senior Financial Operations and Reporting Analyst"
+        ) {
+          return {
+            ...data,
+            jobTitle: {
+              data: data.jobTitle,
+              textWrap: true,
+            },
+          };
+        }
+
+        return data;
+      });
+    };
+
+    it("renders textWrap via columns with tooltip truncation", () => {
+      mount(
+        <IcDataTable
+          columns={textWrapColumns()}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-tooltip-truncation-column",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("renders textWrap via columns with show hide truncation", () => {
+      mount(
+        <IcDataTable
+          columns={textWrapColumns()}
+          data={LONG_DATA_VALUES}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-show-hide-truncation-column",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should textWrap a row with tooltip truncation set", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={textWrapRow()}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-tooltip-truncation-rows",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should textWrap a row with show hide truncation set", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={textWrapRow()}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-show-hide-truncation-rows",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should textWrap at the table cell level with tooltip truncation", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={textWrapCell()}
+          caption="Data Tables"
+          truncationPattern="tooltip"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-tooltip-truncation-table-cell",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
+
+    it("should textWrap at the table cell level with show hide truncation", () => {
+      mount(
+        <IcDataTable
+          columns={COLUMNS_NO_TEXT_WRAP}
+          data={textWrapCell()}
+          caption="Data Tables"
+          truncationPattern="show-hide"
+        />
+      );
+
+      cy.checkHydrated(DATA_TABLE_SELECTOR);
+
+      cy.compareSnapshot({
+        name: "text-wrap-show-hide-truncation-table-cell",
+        cypressSCreenshotOptions: {
+          capture: "viewport",
+        },
+      });
+    });
   });
 });

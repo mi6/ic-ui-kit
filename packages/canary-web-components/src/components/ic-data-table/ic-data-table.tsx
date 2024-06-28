@@ -77,7 +77,7 @@ export class DataTable {
   private SHOW_HIDE_CSS_CLASS = "show-hide-wrap";
   private TOOLTIP = "ic-tooltip";
   private dataUpdated = false;
-  private tableSorted: boolean;
+  // private tableSorted: boolean;
   private showHideBtnClicked = false;
   private truncWrapperDetails: truncWrapperDetailsTypes = {
     scrollHeight: null,
@@ -273,6 +273,11 @@ export class DataTable {
   componentDidLoad(): void {
     const tableElement = this.el.shadowRoot.querySelector("table");
     const tableContainer = this.el.shadowRoot.querySelector(".table-container");
+
+    if (this.dataUpdated) {
+      this.dataUpdated = false; // Cypress
+    }
+
     if (
       tableElement?.clientHeight > tableContainer?.clientHeight ||
       tableElement?.clientWidth > tableContainer?.clientWidth
@@ -285,14 +290,26 @@ export class DataTable {
     }
 
     if (this.truncationPattern) {
+      this.getTypographyElements().forEach(
+        (typographyEl: HTMLIcTypographyElement) => {
+          if (!typographyEl.classList.contains("text-wrap")) {
+            this.dataTruncation(typographyEl);
+          }
+        }
+      );
+
       this.debounceDataTruncation();
     }
   }
 
   componentDidUpdate(): void {
+    console.log("this.resizeObserver", this.resizeObserver);
     //TODO: Make this more efficient by preventing an extra render to apply truncation
     this.truncateUpdatedData();
-    console.warn(this.tableSorted);
+
+    // if (!this.resizeObserver) {
+    //   // this.debounceDataTruncation();
+    // }
   }
 
   private truncateUpdatedData() {
@@ -303,9 +320,16 @@ export class DataTable {
 
       setTimeout(() => {
         this.debounceDataTruncation();
-      }, 75);
+      }, 150);
 
       this.dataUpdated = false;
+    }
+
+    if (this.rowHeightSet) {
+      // Cypress
+      this.debounceDataTruncation();
+
+      this.rowHeightSet = false;
     }
   }
 
@@ -330,8 +354,9 @@ export class DataTable {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
             debounce(() => {
+              console.log("resizeObserver triggered");
               this.dataTruncation(typographyEl);
-            }, 200) as ResizeObserverCallback
+            }, 250) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -347,6 +372,7 @@ export class DataTable {
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
+    // debugger;
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
       if (
@@ -396,17 +422,21 @@ export class DataTable {
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
+    // console.log("dataTruncation");
     // TODO: Need to prevent this running so many times so truncation can work dynamically
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
     const cellContainer = this.getCellContainer(typographyEl);
     const cellContainerClientHeight = cellContainer.clientHeight - 24;
 
+    // console.log(this.dataUpdated);
+
     if (
       cellContainer?.classList.contains("data-type-element") ||
       this.dataUpdated
-    )
+    ) {
       return;
+    }
 
     if (
       this.truncationPattern === "show-hide" &&
@@ -467,7 +497,14 @@ export class DataTable {
       return;
     }
 
-    if (typographyEl?.scrollHeight === cellContainer?.clientHeight) {
+    if (
+      typographyEl?.scrollHeight > 0 &&
+      cellContainer?.clientHeight > 0 &&
+      typographyEl?.scrollHeight === cellContainer?.clientHeight
+    ) {
+      if (tooltip) {
+        this.removeTooltip(cellContainer, typographyEl, tooltip);
+      }
       return;
     }
 
@@ -563,7 +600,9 @@ export class DataTable {
 
   private deleteTextWrapDataKey = (
     array: IcDataTableColumnObject[] | object[]
-  ) => array.forEach((val) => val.textWrap && delete val.textWrap);
+  ) =>
+    Array.isArray(array) &&
+    array.forEach((val) => val.textWrap && delete val.textWrap);
 
   private resetShowHideTruncation() {
     this.getTypographyElements().forEach((typographyEl) => {
@@ -592,6 +631,8 @@ export class DataTable {
     this.icRowHeightChange.emit();
 
     this.rowHeightSet = true;
+
+    console.log('@Watch("globalRowHeight")');
   }
 
   /**
@@ -599,6 +640,7 @@ export class DataTable {
    */
   @Method()
   async resetRowHeights(): Promise<void> {
+    console.log("resetRowHeights");
     this.globalRowHeight = 40;
     this.variableRowHeight = null;
   }
@@ -735,7 +777,6 @@ export class DataTable {
       if (rowKeys[index] !== "rowOptions") {
         return (
           <td
-            id={`row-${rowIndex}-${Math.floor(Math.random() * 100)}`}
             class={{
               ["table-cell"]: true,
               [`table-density-${this.density}`]: this.notDefaultDensity(),
@@ -776,7 +817,6 @@ export class DataTable {
               }}
               style={{
                 height:
-                  this.truncationPattern &&
                   currentRowHeight &&
                   !columnProps.textWrap &&
                   !rowOptions.textWrap &&
@@ -1034,7 +1074,12 @@ export class DataTable {
       }, 300);
     }
 
-    this.tableSorted = true;
+    if (this.truncationPattern === "show-hide") {
+      this.resetShowHideTruncation();
+      console.log("1");
+    }
+
+    // this.tableSorted = true;
   };
 
   private getTypographyElements = (): HTMLIcTypographyElement[] => {
@@ -1079,13 +1124,28 @@ export class DataTable {
     tooltip: HTMLIcTooltipElement
   ) {
     if (tooltip) {
-      cellContainer.appendChild(typographyEl);
-      tooltip.remove();
+      this.removeTooltip(cellContainer, typographyEl, tooltip);
+    }
+
+    if (!typographyEl.getAttribute("style")) {
+      typographyEl.setAttribute(
+        "style",
+        `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+      );
     }
 
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       this.createTruncationTooltip(typographyEl, cellContainer);
     }
+  }
+
+  private removeTooltip(
+    cellContainer: HTMLElement,
+    typographyEl: HTMLIcTypographyElement,
+    tooltip: HTMLIcTooltipElement
+  ) {
+    cellContainer.appendChild(typographyEl);
+    tooltip.remove();
   }
 
   private createTruncationTooltip(

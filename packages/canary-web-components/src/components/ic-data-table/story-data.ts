@@ -1125,13 +1125,17 @@ export const SlottedPagination = (): HTMLIcDataTableElement => {
   });
   dataTable.appendChild(paginationBar);
   return dataTable;
-}
+};
 
 export const DevArea = (): HTMLElement => {
-  const dataTable = createDataTableElement("Basic Table", COLS, DATA);
-  // dataTable.globalRowHeight = 48;
+  const dataTable = createDataTableElement(
+    "Basic Table",
+    COLS,
+    LONG_DATA_VALUES
+  );
+  dataTable.sortable = true;
   dataTable.variableRowHeight = null;
-  dataTable.setAttribute("truncation-pattern", "tooltip");
+  dataTable.setAttribute("truncation-pattern", "show-hide");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());

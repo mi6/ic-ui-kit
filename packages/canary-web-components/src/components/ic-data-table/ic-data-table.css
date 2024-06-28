@@ -201,10 +201,6 @@ table {
   align-items: center;
 }
 
-.cell-alignment-middle {
-  align-items: center;
-}
-
 .cell-alignment-bottom {
   vertical-align: bottom;
   align-items: flex-end;
