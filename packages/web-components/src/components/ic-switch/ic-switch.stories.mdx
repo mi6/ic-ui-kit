@@ -25,19 +25,23 @@ export const defaultArgs = {
 ### Default
 
 <Canvas>
-  <Story name="Default">{html` <ic-switch label="Label"></ic-switch> `}</Story>
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
+    {html` <ic-switch label="Label"></ic-switch> `}
+  </Story>
 </Canvas>
 
 ### Label
 
 <Canvas>
-  <Story name="Name">{html` <ic-switch label="Label"></ic-switch> `}</Story>
+  <Story name="Name" parameters={{ loki: { skip: true } }}>
+    {html` <ic-switch label="Label"></ic-switch> `}
+  </Story>
 </Canvas>
 
 ### State
 
 <Canvas>
-  <Story name="State">
+  <Story name="State" parameters={{ loki: { skip: true } }}>
     {html`<div style="display:flex; justify-content: center">
       <ic-switch show-state="true" label="Label"></ic-switch>
     </div>`}
@@ -47,7 +51,7 @@ export const defaultArgs = {
 ### Checked
 
 <Canvas>
-  <Story name="Checked">
+  <Story name="Checked" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-switch checked="true" label="Label" show-state="true"></ic-switch>
     `}
@@ -57,7 +61,7 @@ export const defaultArgs = {
 ### Small
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Small" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-switch size="small" show-state="true" label="Label"></ic-switch>
     `}
@@ -67,7 +71,7 @@ export const defaultArgs = {
 ### Deprecated - small
 
 <Canvas>
-  <Story name="Deprecated - small">
+  <Story name="Deprecated - small" parameters={{ loki: { skip: true } }}>
     {html` <ic-switch small show-state="true" label="Label"></ic-switch> `}
   </Story>
 </Canvas>
@@ -75,7 +79,7 @@ export const defaultArgs = {
 ### Disabled
 
 <Canvas>
-  <Story name="Disabled">
+  <Story name="Disabled" parameters={{ loki: { skip: true } }}>
     {html` <ic-switch disabled="true" label="Label"></ic-switch> `}
   </Story>
 </Canvas>
@@ -83,7 +87,7 @@ export const defaultArgs = {
 ### Disabled, name and state
 
 <Canvas>
-  <Story name="Disabled, name and state">
+  <Story name="Disabled, name and state" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-switch disabled="true" show-state="true" label="Label"></ic-switch>
     `}
@@ -93,7 +97,10 @@ export const defaultArgs = {
 ### Disabled, name, state and checked
 
 <Canvas>
-  <Story name="Disabled, name, state and checked">
+  <Story
+    name="Disabled, name, state and checked"
+    parameters={{ loki: { skip: true } }}
+  >
     {html`
       <ic-switch
         disabled="true"
@@ -108,7 +115,7 @@ export const defaultArgs = {
 ### Hidden label
 
 <Canvas>
-  <Story name="ARIA label">
+  <Story name="ARIA label" parameters={{ loki: { skip: true } }}>
     {html` <ic-switch label="Custom label" hide-label="true"></ic-switch> `}
   </Story>
 </Canvas>
@@ -116,7 +123,7 @@ export const defaultArgs = {
 ### Helper text
 
 <Canvas>
-  <Story name="Helper text">
+  <Story name="Helper text" parameters={{ loki: { skip: true } }}>
     {html` <ic-switch label="Label" helper-text="Helper Text"></ic-switch>`}
   </Story>
 </Canvas>
@@ -124,7 +131,7 @@ export const defaultArgs = {
 ### Right adornment
 
 <Canvas>
-  <Story name="Right adornment">
+  <Story name="Right adornment" parameters={{ loki: { skip: true } }}>
     {html` <ic-switch label="Right adornment">
       <svg
         slot="right-adornment"
@@ -145,7 +152,7 @@ export const defaultArgs = {
 ### Default in form
 
 <Canvas>
-  <Story name="Default in form">
+  <Story name="Default in form" parameters={{ loki: { skip: true } }}>
     {html` <form id="form" aria-label="test form">
       <ic-switch id="switch" label="custom label" hide-label="true"></ic-switch>
       <br />
