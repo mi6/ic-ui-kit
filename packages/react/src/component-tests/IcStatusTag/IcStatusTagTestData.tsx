@@ -86,3 +86,38 @@ export const AllStatusesSmall = () => {
     </div>
   );
 };
+
+export const AllStatusesLarge = () => {
+  return (
+    <div style={{ padding: "10px" }}>
+      <IcStatusTag label="Neutral" status="neutral" size="large" />
+      <IcStatusTag
+        label="Neutral"
+        status="neutral"
+        variant="outlined"
+        size="large"
+      />
+      <IcStatusTag label="Success" status="success" size="large" />
+      <IcStatusTag
+        label="Success"
+        status="success"
+        variant="outlined"
+        size="large"
+      />
+      <IcStatusTag label="Warning" status="warning" size="large" />
+      <IcStatusTag
+        label="Warning"
+        status="warning"
+        variant="outlined"
+        size="large"
+      />
+      <IcStatusTag label="Error" status="danger" size="large" />
+      <IcStatusTag
+        label="Error"
+        status="danger"
+        variant="outlined"
+        size="large"
+      />
+    </div>
+  );
+};

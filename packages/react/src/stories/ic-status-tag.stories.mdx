@@ -49,12 +49,16 @@ import readme from "../../../web-components/src/components/ic-status-tag/readme.
   </Story>
 </Canvas>
 
-### Small
+### Size
 
 <Canvas>
-  <Story name="Small">
+  <Story name="Size">
     <IcStatusTag label="Small" size="small" />
     <IcStatusTag label="Small" variant="outlined" size="small" />
+    <IcStatusTag label="default" size="default" />
+    <IcStatusTag label="default" variant="outlined" size="default" />
+    <IcStatusTag label="large" size="large" />
+    <IcStatusTag label="large" variant="outlined" size="large" />
   </Story>
 </Canvas>
 
@@ -93,7 +97,7 @@ export const defaultArgs = {
     argTypes={{
       size: {
         options: [
-          "default", "small"
+          "default", "small", "large"
         ],
         control: {
           type: "inline-radio",

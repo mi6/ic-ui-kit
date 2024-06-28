@@ -10,6 +10,7 @@ import {
   Danger,
   AllStatusesSmall,
   AllStatuses,
+  AllStatusesLarge,
 } from "./IcStatusTagTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 import "cypress-axe";
@@ -83,6 +84,18 @@ describe("IcStatusTag visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "small",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
+    });
+  });
+
+  it("should render large status tags", () => {
+    mount(<AllStatusesLarge />);
+
+    cy.checkHydrated(STATUS_TAG_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "large",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 });
