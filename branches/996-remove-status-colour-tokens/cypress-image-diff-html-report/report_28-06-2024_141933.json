@@ -313,14 +313,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-error.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcBadge.cy.tsx-warning",
-          "percentage": 0.06203224967708329,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBadge/IcBadge.cy.tsx",
           "specFilename": "IcBadge.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcBadge.cy.tsx-warning.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcBadge.cy.tsx-warning.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcBadge.cy.tsx-warning.png"
         },
         {
@@ -2753,14 +2753,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-characters-until-suggestion-show.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcSearchBar.cy.tsx-long-option-label",
-          "percentage": 0,
+          "percentage": 0.2720073528417936,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-long-option-label.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-long-option-label.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-long-option-label.png"
         }
       ]
@@ -4663,9 +4663,9 @@
       ]
     }
   ],
-  "startedAt": "2024-06-27T13:16:11.447Z",
-  "endedAt": "2024-06-27T13:24:36.572Z",
-  "duration": 438255,
+  "startedAt": "2024-06-28T14:19:33.100Z",
+  "endedAt": "2024-06-28T14:27:52.806Z",
+  "duration": 433151,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
