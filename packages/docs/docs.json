@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-24T09:26:04",
+  "timestamp": "2024-06-26T13:00:20",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -4229,15 +4229,15 @@
       }
     },
     {
-      "filePath": "src/components/ic-data-entity/ic-data-entity.tsx",
+      "filePath": "src/components/ic-data-list/ic-data-list.tsx",
       "encapsulation": "shadow",
-      "tag": "ic-data-entity",
+      "tag": "ic-data-list",
       "readme": "# ic-data-entity\n\n\n",
       "docs": "",
       "docsTags": [
         {
           "name": "slot",
-          "text": "heading - Content will be placed at the top of the data entity."
+          "text": "heading - Content will be placed at the top of the data list."
         }
       ],
       "usage": {},
@@ -4253,7 +4253,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The title for the data entity.",
+          "docs": "The title for the data list.",
           "docsTags": [],
           "values": [
             {
@@ -4280,7 +4280,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the data entity component.",
+          "docs": "The size of the data list component.",
           "docsTags": [],
           "default": "\"default\"",
           "values": [
@@ -4332,7 +4332,7 @@
       "slots": [
         {
           "name": "heading",
-          "docs": "Content will be placed at the top of the data entity."
+          "docs": "Content will be placed at the top of the data list."
         }
       ],
       "parts": [],
@@ -4341,7 +4341,7 @@
         "ic-typography"
       ],
       "dependencyGraph": {
-        "ic-data-entity": [
+        "ic-data-list": [
           "ic-typography"
         ]
       }
@@ -18662,7 +18662,7 @@
         "ic-checkbox",
         "ic-chip",
         "ic-classification-banner",
-        "ic-data-entity",
+        "ic-data-list",
         "ic-data-row",
         "ic-dialog",
         "ic-empty-state",
@@ -18722,7 +18722,7 @@
         "ic-classification-banner": [
           "ic-typography"
         ],
-        "ic-data-entity": [
+        "ic-data-list": [
           "ic-typography"
         ],
         "ic-data-row": [

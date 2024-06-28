@@ -20,7 +20,7 @@ import {
   WithButton,
   WithLinks,
   WithStatusTags,
-} from "./IcDataEntityTestData";
+} from "./IcDataListTestData";
 
 const DEFAULT_TEST_THRESHOLD = 0.025;
 
@@ -29,7 +29,7 @@ const ORDER_DETAILS_HEADING_SELECTOR = '[heading="Order details"]';
 const DATA_ROW_SELECTOR = "ic-data-row";
 const TEXT_FIELD_SELECTOR = "ic-text-field";
 
-describe("IcDataEntity E2E, visual and a11y testing", () => {
+describe("IcDataList E2E, visual and a11y testing", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1024, 750);
