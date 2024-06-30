@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  context: path.join(__dirname, '..'),
   entry: './src/fonts.js',
   output: {
     filename: 'fonts.js',
