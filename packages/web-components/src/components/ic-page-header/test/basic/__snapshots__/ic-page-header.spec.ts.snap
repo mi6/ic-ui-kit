@@ -29,9 +29,9 @@ exports[`ic-page-header component renders additional functionality should render
     </header>
   </mock:shadow-root>
   <ic-stepper slot="stepper">
-    <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
-    <ic-step step-subtitle="Optional" step-title="Warm milk" step-type="completed"></ic-step>
-    <ic-step step-title="Pour milk" step-type="current"></ic-step>
+    <ic-step heading="Warm kettle" type="completed"></ic-step>
+    <ic-step heading="Warm milk" subheading="Optional" type="completed"></ic-step>
+    <ic-step heading="Pour milk" type="current"></ic-step>
   </ic-stepper>
 </ic-page-header>
 `;
@@ -75,9 +75,9 @@ exports[`ic-page-header component renders additional functionality should render
     </header>
   </mock:shadow-root>
   <ic-stepper slot="stepper">
-    <ic-step step-title="Warm kettle" step-type="completed"></ic-step>
-    <ic-step step-subtitle="Optional" step-title="Warm milk" step-type="completed"></ic-step>
-    <ic-step step-title="Pour milk" step-type="current"></ic-step>
+    <ic-step heading="Warm kettle" type="completed"></ic-step>
+    <ic-step heading="Warm milk" subheading="Optional" type="completed"></ic-step>
+    <ic-step heading="Pour milk" type="current"></ic-step>
   </ic-stepper>
   <ic-status-tag label="Beta" slot="heading-adornment"></ic-status-tag>
   <ic-button slot="actions" variant="tertiary">
