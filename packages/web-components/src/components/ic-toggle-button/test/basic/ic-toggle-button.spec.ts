@@ -83,20 +83,20 @@ describe("ic-toggle-button component", () => {
     const page = await newSpecPage({
       components: [ToggleButton],
       html: `<ic-toggle-button label="Toggle">
-          <ic-badge text-label="1" slot="badge" variant="success"></ic-badge>
+          <ic-badge label="1" slot="badge" variant="success"></ic-badge>
         </ic-toggle-button>`,
     });
 
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should update toggleChecked value on click", async () => {
+  it("should update checked value on click", async () => {
     const page = await newSpecPage({
       components: [ToggleButton],
       html: `<ic-toggle-button label="Toggle" id='test-button' onclick='alert('test')'></ic-toggle-button>`,
     });
 
-    expect(page.rootInstance.toggleChecked).toBeFalsy();
+    expect(page.rootInstance.checked).toBeFalsy();
 
     const element = document.getElementById("test-button");
 
@@ -104,7 +104,7 @@ describe("ic-toggle-button component", () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.toggleChecked).toBeTruthy();
+    expect(page.rootInstance.checked).toBeTruthy();
   });
 
   it("should emit icToggleChecked on click", async () => {
