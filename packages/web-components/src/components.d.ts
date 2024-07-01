@@ -107,7 +107,7 @@ export namespace Components {
         /**
           * The header for the accordion group.
          */
-        "groupTitle": string;
+        "label": string;
         /**
           * Sets the focus on first focusable element in the accordion group. If the "See/Hide all" button is present, it will be focused. Otherwise, the first accordion will be focused.
          */
@@ -175,7 +175,11 @@ export namespace Components {
          */
         "hideBadge": () => Promise<void>;
         /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+          * The text displayed in the badge. This will only be displayed if type="text".
+         */
+        "label"?: string;
+        /**
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
          */
         "maxNumber"?: number;
         /**
@@ -190,10 +194,6 @@ export namespace Components {
           * The size of the badge to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "textLabel"?: string;
         /**
           * The type of badge to be displayed.
          */
@@ -725,10 +725,6 @@ export namespace Components {
          */
         "body"?: string;
         /**
-          * The number of lines of body text to display before truncating.
-         */
-        "bodyMaxLines"?: number;
-        /**
           * The title rendered in the empty state container.
          */
         "heading"?: string;
@@ -736,6 +732,10 @@ export namespace Components {
           * The size of the image or icon used in the image slot.
          */
         "imageSize"?: IcSizes;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "maxLines"?: number;
         /**
           * The subtitle rendered in the empty state container.
          */
@@ -797,7 +797,7 @@ export namespace Components {
         /**
           * The title of the link group to be displayed.
          */
-        "groupTitle": string;
+        "label": string;
     }
     interface IcHero {
         /**
@@ -915,10 +915,6 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * If `true`, the input label will display with error styling.
-         */
-        "error"?: boolean;
-        /**
           * The ID of the form element the label is bound to.
          */
         "for": string;
@@ -938,6 +934,10 @@ export namespace Components {
           * If `true`, the input label will require a value.
          */
         "required": boolean;
+        /**
+          * The status of the label - e.g. 'error'.
+         */
+        "status": "error" | "";
     }
     interface IcInputValidation {
         /**
@@ -1304,7 +1304,7 @@ export namespace Components {
         /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "adjacentCount": number;
+        "adjacentPageCount": number;
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
@@ -1312,7 +1312,7 @@ export namespace Components {
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "boundaryCount": number;
+        "boundaryPageCount": number;
         /**
           * The current page displayed by the pagination.
          */
@@ -1507,6 +1507,10 @@ export namespace Components {
     }
     interface IcSearchBar {
         /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText"?: string;
+        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize": string;
@@ -1533,7 +1537,7 @@ export namespace Components {
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1558,10 +1562,6 @@ export namespace Components {
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
-        /**
-          * The hint text for the hidden assistive description element.
-         */
-        "hintText"?: string;
         /**
           * The label for the search bar.
          */
@@ -1657,7 +1657,7 @@ export namespace Components {
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1881,27 +1881,27 @@ export namespace Components {
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
         "current"?: boolean;
-        "lastStep": boolean;
-        "lastStepNum"?: number;
-        "nextStepTitle"?: string;
-        "progress"?: number;
-        "stepNum"?: number;
-        /**
-          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
-         */
-        "stepStatus"?: IcStepStatuses;
-        /**
-          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
-         */
-        "stepSubtitle"?: string;
         /**
           * The title of the step within the stepper.
          */
-        "stepTitle"?: string;
+        "heading"?: string;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepHeading"?: string;
+        "progress"?: number;
+        /**
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "status"?: IcStepStatuses;
+        "stepNum"?: number;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
+         */
+        "subheading"?: string;
         /**
           * The state of the step within the stepper.
          */
-        "stepType"?: IcStepTypes;
+        "type"?: IcStepTypes;
         "variant": IcStepVariants;
     }
     interface IcStepper {
@@ -2234,6 +2234,10 @@ export namespace Components {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "checked": boolean;
+        /**
           * If `true`, the toggle button will be in disabled state.
          */
         "disabled"?: boolean;
@@ -2257,10 +2261,6 @@ export namespace Components {
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * If `true`, the toggle button will be in a checked state.
-         */
-        "toggleChecked": boolean;
         /**
           * The variant of the toggle button.
          */
@@ -3435,7 +3435,7 @@ declare namespace LocalJSX {
         /**
           * The header for the accordion group.
          */
-        "groupTitle"?: string;
+        "label"?: string;
         /**
           * If `true`, only one accordion will open at a time.
          */
@@ -3503,7 +3503,11 @@ declare namespace LocalJSX {
          */
         "customColor"?: IcColor;
         /**
-          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and textLabel is not empty.
+          * The text displayed in the badge. This will only be displayed if type="text".
+         */
+        "label"?: string;
+        /**
+          * The maximum number shown on the badge appended with a +. This will only be displayed if type="text" and label is not empty.
          */
         "maxNumber"?: number;
         /**
@@ -3514,10 +3518,6 @@ declare namespace LocalJSX {
           * The size of the badge to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * The text displayed in the badge. This will only be displayed if type="text".
-         */
-        "textLabel"?: string;
         /**
           * The type of badge to be displayed.
          */
@@ -4061,10 +4061,6 @@ declare namespace LocalJSX {
          */
         "body"?: string;
         /**
-          * The number of lines of body text to display before truncating.
-         */
-        "bodyMaxLines"?: number;
-        /**
           * The title rendered in the empty state container.
          */
         "heading"?: string;
@@ -4072,6 +4068,10 @@ declare namespace LocalJSX {
           * The size of the image or icon used in the image slot.
          */
         "imageSize"?: IcSizes;
+        /**
+          * The number of lines of body text to display before truncating.
+         */
+        "maxLines"?: number;
         /**
           * The subtitle rendered in the empty state container.
          */
@@ -4134,7 +4134,7 @@ declare namespace LocalJSX {
         /**
           * The title of the link group to be displayed.
          */
-        "groupTitle": string;
+        "label": string;
     }
     interface IcHero {
         /**
@@ -4251,10 +4251,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * If `true`, the input label will display with error styling.
-         */
-        "error"?: boolean;
-        /**
           * The ID of the form element the label is bound to.
          */
         "for"?: string;
@@ -4274,6 +4270,10 @@ declare namespace LocalJSX {
           * If `true`, the input label will require a value.
          */
         "required"?: boolean;
+        /**
+          * The status of the label - e.g. 'error'.
+         */
+        "status"?: "error" | "";
     }
     interface IcInputValidation {
         /**
@@ -4633,7 +4633,7 @@ declare namespace LocalJSX {
         /**
           * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "adjacentCount"?: number;
+        "adjacentPageCount"?: number;
         /**
           * The appearance of the pagination, e.g. dark, light or the default.
          */
@@ -4641,7 +4641,7 @@ declare namespace LocalJSX {
         /**
           * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
          */
-        "boundaryCount"?: number;
+        "boundaryPageCount"?: number;
         /**
           * The current page displayed by the pagination.
          */
@@ -4849,6 +4849,10 @@ declare namespace LocalJSX {
     }
     interface IcSearchBar {
         /**
+          * The hint text for the hidden assistive description element.
+         */
+        "assistiveHintText"?: string;
+        /**
           * The automatic capitalisation of the text value as it is entered/edited by the user. Available options: "off", "none", "on", "sentences", "words", "characters".
          */
         "autocapitalize"?: string;
@@ -4875,7 +4879,7 @@ declare namespace LocalJSX {
         /**
           * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source. If `true`, all options provided will be displayed.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -4900,10 +4904,6 @@ declare namespace LocalJSX {
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
-        /**
-          * The hint text for the hidden assistive description element.
-         */
-        "hintText"?: string;
         /**
           * The label for the search bar.
          */
@@ -5041,7 +5041,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -5301,27 +5301,27 @@ declare namespace LocalJSX {
     interface IcStep {
         "compactStepStyling"?: IcStepTypes;
         "current"?: boolean;
-        "lastStep": boolean;
-        "lastStepNum"?: number;
-        "nextStepTitle"?: string;
-        "progress"?: number;
-        "stepNum"?: number;
-        /**
-          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
-         */
-        "stepStatus"?: IcStepStatuses;
-        /**
-          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
-         */
-        "stepSubtitle"?: string;
         /**
           * The title of the step within the stepper.
          */
-        "stepTitle"?: string;
+        "heading"?: string;
+        "lastStep": boolean;
+        "lastStepNum"?: number;
+        "nextStepHeading"?: string;
+        "progress"?: number;
+        /**
+          * The status of the step. Use this prop to display a status message on the step if it is required or optional.
+         */
+        "status"?: IcStepStatuses;
+        "stepNum"?: number;
+        /**
+          * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
+         */
+        "subheading"?: string;
         /**
           * The state of the step within the stepper.
          */
-        "stepType"?: IcStepTypes;
+        "type"?: IcStepTypes;
         "variant": IcStepVariants;
     }
     interface IcStepper {
@@ -5685,6 +5685,10 @@ declare namespace LocalJSX {
          */
         "appearance"?: IcThemeForeground;
         /**
+          * If `true`, the toggle button will be in a checked state.
+         */
+        "checked"?: boolean;
+        /**
           * If `true`, the toggle button will be in disabled state.
          */
         "disabled"?: boolean;
@@ -5714,10 +5718,6 @@ declare namespace LocalJSX {
           * The size of the toggle button to be displayed.
          */
         "size"?: IcSizes;
-        /**
-          * If `true`, the toggle button will be in a checked state.
-         */
-        "toggleChecked"?: boolean;
         /**
           * The variant of the toggle button.
          */
