@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import { IcLink } from "@ukic/react";
+import { IcLink, SlottedSVG } from "@ukic/react";
 import { IcSelectWithMulti } from "../components";
 import { useRef } from "react";
 import readme from "../../../canary-web-components/src/components/ic-select-with-multi/readme.md";
@@ -962,6 +962,7 @@ export const defaultArgs = {
   validationStatus: "",
   validationText: "",
   showClearButton: false,
+  showIcon: true,
 };
 
 <Canvas withSource="none">
@@ -978,6 +979,12 @@ export const defaultArgs = {
         options: ["", "error", "success", "warning"],
         control: { type: "select" },
       },
+      showIcon: {
+        mapping: {
+          true: "icon", 
+          false: "",
+        }
+      }
     }}
   >
     {(args) => (
@@ -999,7 +1006,19 @@ export const defaultArgs = {
           validationStatus={args.validationStatus}
           validationText={args.validationText}
           showClearButton={args.showClearButton}
-        />
+        >
+          <SlottedSVG 
+            slot={args.showIcon}
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z" />
+          </SlottedSVG>  
+        </IcSelectWithMulti>
       </div>
     )}
   </Story>
