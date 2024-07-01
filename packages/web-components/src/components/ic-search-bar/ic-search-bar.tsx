@@ -114,7 +114,7 @@ export class SearchBar {
    * Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.
    * If `true`, all options provided will be displayed.
    */
-  @Prop() disableFilter?: boolean = false;
+  @Prop() disableAutoFiltering?: boolean = false;
 
   /**
    * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
@@ -150,7 +150,7 @@ export class SearchBar {
   /**
    * The hint text for the hidden assistive description element.
    */
-  @Prop() hintText?: string =
+  @Prop() assistiveHintText?: string =
     "When autocomplete results are available use the up and down arrows to choose and press enter to select";
 
   /**
@@ -250,7 +250,7 @@ export class SearchBar {
 
   @Watch("options")
   watchOptionsHandler(newOptions: IcMenuOption[]): void {
-    if (this.disableFilter && !this.hasTimedOut) {
+    if (this.disableAutoFiltering && !this.hasTimedOut) {
       this.loading = false;
       clearTimeout(this.timeoutTimer);
       if (newOptions.length > 0) {
@@ -353,7 +353,7 @@ export class SearchBar {
 
       this.preLoad = false;
 
-      if (this.disableFilter === false) {
+      if (this.disableAutoFiltering === false) {
         const rawFilteredOptions = getFilteredMenuOptions(
           this.options,
           false,
@@ -472,7 +472,7 @@ export class SearchBar {
 
     if (this.hasOptionsOrFilterDisabled()) {
       this.renderAssistiveHintEl();
-      if (this.disableFilter) {
+      if (this.disableAutoFiltering) {
         this.filteredOptions = this.options;
       }
     }
@@ -695,7 +695,7 @@ export class SearchBar {
       this.hasOptionsOrFilterDisabled()
     ) {
       this.assistiveHintEl = document.createElement("span");
-      this.assistiveHintEl.innerText = this.hintText;
+      this.assistiveHintEl.innerText = this.assistiveHintText;
       this.assistiveHintEl.id = `${this.inputId}-assistive-hint`;
       this.assistiveHintEl.style.display = "none";
       if (input.after !== undefined) {
@@ -734,7 +734,7 @@ export class SearchBar {
   };
 
   private hasOptionsOrFilterDisabled = (): boolean =>
-    this.options.length > 0 || this.disableFilter;
+    this.options.length > 0 || this.disableAutoFiltering;
 
   private hadNoOptions = (): boolean =>
     this.filteredOptions.length === 1 &&
