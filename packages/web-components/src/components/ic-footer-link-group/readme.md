@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property                  | Attribute     | Description                                  | Type     | Default     |
-| ------------------------- | ------------- | -------------------------------------------- | -------- | ----------- |
-| `groupTitle` _(required)_ | `group-title` | The title of the link group to be displayed. | `string` | `undefined` |
+| Property             | Attribute | Description                                  | Type     | Default     |
+| -------------------- | --------- | -------------------------------------------- | -------- | ----------- |
+| `label` _(required)_ | `label`   | The title of the link group to be displayed. | `string` | `undefined` |
 
 
 ## Dependencies
