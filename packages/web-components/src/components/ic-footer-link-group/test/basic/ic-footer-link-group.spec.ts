@@ -7,7 +7,7 @@ describe("ic-footer-link-group", () => {
   it("should render", async () => {
     const page = await newSpecPage({
       components: [FooterLinkGroup],
-      html: `<ic-footer-link-group group-title="Link group"></ic-footer-link-group>`,
+      html: `<ic-footer-link-group label="Link group"></ic-footer-link-group>`,
     });
 
     expect(page.root).toMatchSnapshot("footer-link-group");
@@ -16,7 +16,7 @@ describe("ic-footer-link-group", () => {
   it("should render with links", async () => {
     const page = await newSpecPage({
       components: [FooterLinkGroup, FooterLink],
-      html: `<ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
+      html: `<ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
     expect(page.root).toMatchSnapshot("footer-link-group-with-links");
@@ -25,7 +25,7 @@ describe("ic-footer-link-group", () => {
   it("should render within footer", async () => {
     const page = await newSpecPage({
       components: [Footer, FooterLinkGroup, FooterLink],
-      html: `<ic-footer><ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group><ic-footer>`,
+      html: `<ic-footer><ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group><ic-footer>`,
     });
 
     expect(page.root).toMatchSnapshot("footer-link-group-in-footer");
@@ -34,7 +34,7 @@ describe("ic-footer-link-group", () => {
   it("should expand and collapse", async () => {
     const page = await newSpecPage({
       components: [Footer, FooterLinkGroup, FooterLink],
-      html: `<ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
+      html: `<ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
     expect(page.rootInstance.expanded).toBe(false);
@@ -53,7 +53,7 @@ describe("ic-footer-link-group", () => {
   it("should check and set small state", async () => {
     const page = await newSpecPage({
       components: [Footer, FooterLinkGroup, FooterLink],
-      html: `<ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
+      html: `<ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
     await page.rootInstance.footerResizeHandler();
@@ -64,7 +64,7 @@ describe("ic-footer-link-group", () => {
   it("should update theme", async () => {
     const page = await newSpecPage({
       components: [Footer, FooterLinkGroup, FooterLink],
-      html: `<ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
+      html: `<ic-footer-link-group label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
     await page.rootInstance.footerThemeChangeHandler({
@@ -77,7 +77,7 @@ describe("ic-footer-link-group", () => {
   it("should render small", async () => {
     const page = await newSpecPage({
       components: [Footer, FooterLinkGroup, FooterLink],
-      html: `<ic-footer breakpoint="extra large"><ic-footer-link-group small=true group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group></ic-footer>`,
+      html: `<ic-footer breakpoint="extra large"><ic-footer-link-group small=true label="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group></ic-footer>`,
     });
 
     expect(page.root).not.toBeNull;

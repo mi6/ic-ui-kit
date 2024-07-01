@@ -702,7 +702,7 @@ describe("ic-dialog component", () => {
     const page = await newSpecPage({
       components: [Dialog, AccordionGroup, Accordion, Button],
       html: `<ic-dialog heading="Dialog heading">
-        <ic-accordion-group group-title="Test heading">
+        <ic-accordion-group label="Test heading">
           <ic-accordion>
             <ic-typography variant="body" >
               This is an example of the main body text.

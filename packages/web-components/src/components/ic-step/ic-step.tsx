@@ -35,7 +35,7 @@ export class Step {
   /**
    * @internal The name of the next step. This is managed by ic-stepper.
    */
-  @Prop() nextStepTitle?: string;
+  @Prop() nextStepHeading?: string;
 
   /**
    * @internal The progress of the next step, calculated by dividing the current step number by the total number of steps. This is managed by ic-stepper.
@@ -50,17 +50,17 @@ export class Step {
   /**
    * The status of the step. Use this prop to display a status message on the step if it is required or optional.
    */
-  @Prop() stepStatus?: IcStepStatuses;
+  @Prop() status?: IcStepStatuses;
 
   /**
    * Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.
    */
-  @Prop() stepSubtitle?: string;
+  @Prop() subheading?: string;
 
   /**
    * The title of the step within the stepper.
    */
-  @Prop() stepTitle?: string;
+  @Prop() heading?: string;
 
   /**
    * @internal The variant of the step. This is managed by ic-stepper.
@@ -70,11 +70,11 @@ export class Step {
   /**
    * The state of the step within the stepper.
    */
-  @Prop() stepType?: IcStepTypes = "active";
+  @Prop() type?: IcStepTypes = "active";
 
-  @Watch("stepType")
-  stepTypeChangeHandler(): void {
-    if (this.variant === "compact" && this.stepType === "current") {
+  @Watch("type")
+  typeChangeHandler(): void {
+    if (this.variant === "compact" && this.type === "current") {
       this.current = true;
     } else {
       this.current = false;
@@ -85,28 +85,25 @@ export class Step {
     // ARIA LABEL
     let ariaLabel = "";
 
-    if (this.stepType === "completed") {
+    if (this.type === "completed") {
       ariaLabel = ". Completed step";
-    } else if (this.stepType === "disabled") {
+    } else if (this.type === "disabled") {
       ariaLabel = ". Non-required step";
-    } else if (this.stepStatus === "required") {
+    } else if (this.status === "required") {
       ariaLabel = ". Required step";
-    } else if (this.stepStatus === "optional") {
+    } else if (this.status === "optional") {
       ariaLabel = ". Optional step";
     }
 
     // STEP STATUS
     let stepStatus;
-    if (isPropDefined(this.stepStatus)) {
-      stepStatus = this.stepStatus[0].toUpperCase() + this.stepStatus.slice(1);
+    if (isPropDefined(this.status)) {
+      stepStatus = this.status[0].toUpperCase() + this.status.slice(1);
     }
 
     // STEP TYPE
     let stepType;
-    if (
-      this.stepType === "disabled" ||
-      this.compactStepStyling === "disabled"
-    ) {
+    if (this.type === "disabled" || this.compactStepStyling === "disabled") {
       stepType = "Not required";
     } else if (this.compactStepStyling === "completed") {
       stepType = "Completed";
@@ -114,10 +111,7 @@ export class Step {
 
     // STATUS ICON FOR COMPACT STEP
     let statusIcon;
-    if (
-      this.stepType === "completed" ||
-      this.compactStepStyling === "completed"
-    ) {
+    if (this.type === "completed" || this.compactStepStyling === "completed") {
       statusIcon = (
         <span
           class="check-icon step-icon"
@@ -126,7 +120,7 @@ export class Step {
         ></span>
       );
     } else if (
-      this.stepType === "disabled" ||
+      this.type === "disabled" ||
       this.compactStepStyling === "disabled"
     ) {
       statusIcon = (
@@ -152,7 +146,7 @@ export class Step {
           class={{
             "compact-step-progress-indicator": true,
             "not-required":
-              this.stepType === "disabled" ||
+              this.type === "disabled" ||
               this.compactStepStyling === "disabled",
           }}
           aria-hidden="true"
@@ -160,37 +154,36 @@ export class Step {
           inner-label={this.stepNum}
           progress={this.progress}
         ></ic-loading-indicator>
-        <div class="step-title-area">
-          <ic-typography variant="h4" class="step-title">
-            {this.stepTitle}
+        <div class="heading-area">
+          <ic-typography variant="h4" class="heading">
+            {this.heading}
           </ic-typography>
           <div class="info-line">
             <ic-typography variant="caption" class="step-num">
               {`${this.stepNum} of ${this.lastStepNum}`}
               <span class="visually-hidden"> steps</span>
             </ic-typography>
-            {(this.stepSubtitle ||
-              this.stepType === "completed" ||
-              this.stepType === "disabled" ||
+            {(this.subheading ||
+              this.type === "completed" ||
+              this.type === "disabled" ||
               (this.variant === "compact" &&
                 !!this.compactStepStyling &&
                 this.compactStepStyling !== "active") ||
-              !!this.stepStatus) && (
+              !!this.status) && (
               <div class="step-status">
                 {statusIcon !== undefined && statusIcon}
-                {(this.stepSubtitle || stepType) && (
+                {(this.subheading || stepType) && (
                   <ic-typography variant="caption">
-                    {this.stepSubtitle !== null &&
-                    isPropDefined(this.stepSubtitle)
-                      ? this.stepSubtitle
-                      : this.stepType === "disabled" ||
+                    {this.subheading !== null && isPropDefined(this.subheading)
+                      ? this.subheading
+                      : this.type === "disabled" ||
                         (this.variant === "compact" &&
                           this.compactStepStyling === "disabled") ||
-                        this.stepType === "completed" ||
+                        this.type === "completed" ||
                         (this.variant === "compact" &&
                           this.compactStepStyling === "completed")
                       ? stepType
-                      : this.stepStatus && stepStatus}
+                      : this.status && stepStatus}
                   </ic-typography>
                 )}
               </div>
@@ -201,10 +194,10 @@ export class Step {
               Last step
             </ic-typography>
           ) : (
-            isPropDefined(this.nextStepTitle) && (
+            isPropDefined(this.nextStepHeading) && (
               <ic-typography variant="subtitle-small" class="next-step">
                 Next<span class="visually-hidden"> step is</span>:{" "}
-                {this.nextStepTitle}
+                {this.nextStepHeading}
               </ic-typography>
             )
           )}
@@ -214,7 +207,7 @@ export class Step {
 
     // ICON FOR DEFAULT STEP
     let icon;
-    if (this.stepType !== "completed") {
+    if (this.type !== "completed") {
       icon = (
         <ic-typography variant="subtitle-small">
           <span class="step-icon-inner" aria-hidden="true">
@@ -231,7 +224,7 @@ export class Step {
     }
 
     // STEP CONNECT FOR DEFAULT STEP
-    const partialBar = this.stepType === "current" && (
+    const partialBar = this.type === "current" && (
       <div class="step-connect-inner"></div>
     );
 
@@ -253,24 +246,24 @@ export class Step {
       <div
         class={{
           ["step"]: true,
-          [`${this.stepType}`]: true,
+          [`${this.type}`]: true,
         }}
       >
         <div class="step-top">
           <div class="step-icon">{icon}</div>
           {finalStep}
         </div>
-        {(this.stepTitle || this.stepSubtitle || this.stepStatus) && (
-          <div class="step-title-area">
-            {this.stepTitle && (
-              <ic-typography variant="subtitle-large" class="step-title">
-                {this.stepTitle}
+        {(this.heading || this.subheading || this.status) && (
+          <div class="heading-area">
+            {this.heading && (
+              <ic-typography variant="subtitle-large" class="heading">
+                {this.heading}
               </ic-typography>
             )}
-            {this.stepTitle && (this.stepSubtitle || this.stepStatus) && (
-              <ic-typography variant="caption" class="step-subtitle">
-                {this.stepSubtitle !== null && isPropDefined(this.stepSubtitle)
-                  ? this.stepSubtitle
+            {this.heading && (this.subheading || this.status) && (
+              <ic-typography variant="caption" class="subheading">
+                {this.subheading !== null && isPropDefined(this.subheading)
+                  ? this.subheading
                   : stepStatus}
               </ic-typography>
             )}
@@ -283,7 +276,7 @@ export class Step {
       <Host
         role="listitem"
         aria-label={`Step ${this.stepNum}${ariaLabel}`}
-        aria-current={(this.current || this.stepType === "current") && "step"}
+        aria-current={(this.current || this.type === "current") && "step"}
         class={{
           ["aligned-full-width"]:
             this.el.parentElement.classList.contains("default") &&
