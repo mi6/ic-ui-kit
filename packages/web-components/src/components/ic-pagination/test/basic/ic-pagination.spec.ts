@@ -47,18 +47,18 @@ describe("ic-pagination simple appearance component", () => {
 
     expect(page.root).toMatchSnapshot("no current page");
   });
-  it("should render all pages when total pages less than min width based on boundary-count and adjacent-count", async () => {
+  it("should render all pages when total pages less than min width based on boundary-page-count and adjacent-page-count", async () => {
     const page = await newSpecPage({
       components: [Pagination],
       html: `<ic-pagination
       pages="11"
       type="complex"
-      adjacent-count="2"
-      boundary-count="2"></ic-pagination>`,
+      adjacent-page-count="2"
+      boundary-page-count="2"></ic-pagination>`,
     });
 
     expect(page.root).toMatchSnapshot(
-      "pages less than adjacent-count + boundary-count"
+      "pages less than adjacent-page-count + boundary-page-count"
     );
   });
   it("should render with interactions disabled", async () => {
@@ -192,7 +192,7 @@ describe("ic-pagination complex type", () => {
       html: `<ic-pagination
       pages=15
       type="complex"
-      adjacent-count=0
+      adjacent-page-count=0
     ></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
@@ -203,7 +203,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 0 adjacent items and 0 boundary items with default page set at 7", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=0 boundary-count=0 default-page=7></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=0 boundary-page-count=0 default-page=7></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 0 adjacent items and 0 boundary items and default page 7"
@@ -213,7 +213,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 0 adjacent items and 0 boundary items with default page set at 15", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=0 boundary-count=0 default-page=15></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=0 boundary-page-count=0 default-page=15></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 0 adjacent items and 0 boundary items and default page 15"
@@ -223,7 +223,7 @@ describe("ic-pagination complex type", () => {
   it("should render in complex type with 1 adjacent items and 0 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=1 boundary-count=0></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=1 boundary-page-count=0></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 1 adjacent items and 0 boundary items"
@@ -233,7 +233,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 2 adjacent items and 0 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=2 boundary-count=0></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=2 boundary-page-count=0></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 2 adjacent items and 0 boundary items"
@@ -243,7 +243,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 0 adjacent items and 1 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=0 boundary-count=1></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=0 boundary-page-count=1></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 0 adjacent items and 1 boundary items"
@@ -253,7 +253,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 0 adjacent items and 2 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=0 boundary-count=2></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=0 boundary-page-count=2></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 0 adjacent items and 2 boundary items"
@@ -263,7 +263,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 1 adjacent items and 2 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=1 boundary-count=2></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=1 boundary-page-count=2></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 1 adjacent items and 2 boundary items"
@@ -273,7 +273,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 2 adjacent items and 1 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=2 boundary-count=1></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=2 boundary-page-count=1></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 2 adjacent items and 1 boundary items"
@@ -283,7 +283,7 @@ describe("ic-pagination complex type", () => {
   it("should render as complex type with 2 adjacent items and 2 boundary items", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=2 boundary-count=2></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=2 boundary-page-count=2></ic-pagination>`,
     });
     expect(page.root).toMatchSnapshot(
       "render complex type with 2 adjacent items and 2 boundary items"
@@ -401,46 +401,46 @@ describe("ic-pagination complex type", () => {
     expect(page.root.currentPage).toBe(1);
   });
 
-  it("should not allow boundaryCount greater than 2", async () => {
+  it("should not allow boundaryPageCount greater than 2", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" boundary-count=3></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" boundary-page-count=3></ic-pagination>`,
     });
 
-    expect(page.rootInstance.boundaryCount).toEqual(2);
+    expect(page.rootInstance.boundaryPageCount).toEqual(2);
   });
 
-  it("should not allow boundaryCount greater than 2 - when changed from initial value", async () => {
+  it("should not allow boundaryPageCount greater than 2 - when changed from initial value", async () => {
     const page = await newSpecPage({
       components: [Pagination],
       html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
     });
 
-    page.root.boundaryCount = 3;
+    page.root.boundaryPageCount = 3;
     await page.waitForChanges();
 
-    expect(page.rootInstance.boundaryCount).toEqual(2);
+    expect(page.rootInstance.boundaryPageCount).toEqual(2);
   });
 
-  it("should not allow adjacentCount greater than 2", async () => {
+  it("should not allow adjacentPageCount greater than 2", async () => {
     const page = await newSpecPage({
       components: [Pagination],
-      html: `<ic-pagination pages=15 type="complex" adjacent-count=3></ic-pagination>`,
+      html: `<ic-pagination pages=15 type="complex" adjacent-page-count=3></ic-pagination>`,
     });
 
-    expect(page.rootInstance.adjacentCount).toEqual(2);
+    expect(page.rootInstance.adjacentPageCount).toEqual(2);
   });
 
-  it("should not allow adjacentCount greater than 2 - when changed from initial value", async () => {
+  it("should not allow adjacentPageCount greater than 2 - when changed from initial value", async () => {
     const page = await newSpecPage({
       components: [Pagination],
       html: `<ic-pagination pages=15 type="complex"></ic-pagination>`,
     });
 
-    page.root.adjacentCount = 3;
+    page.root.adjacentPageCount = 3;
     await page.waitForChanges();
 
-    expect(page.rootInstance.adjacentCount).toEqual(2);
+    expect(page.rootInstance.adjacentPageCount).toEqual(2);
   });
 
   it("should test switching to complex pagination type", async () => {
