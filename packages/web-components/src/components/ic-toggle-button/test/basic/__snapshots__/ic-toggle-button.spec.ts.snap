@@ -34,7 +34,7 @@ exports[`ic-toggle-button component should render slotted badge 1`] = `
       <slot name="badge" slot="badge"></slot>
     </ic-button>
   </mock:shadow-root>
-  <ic-badge slot="badge" text-label="1" variant="success"></ic-badge>
+  <ic-badge label="1" slot="badge" variant="success"></ic-badge>
 </ic-toggle-button>
 `;
 

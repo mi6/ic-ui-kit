@@ -1,5 +1,5 @@
 export interface IcChangeEventDetail {
-  toggleChecked: boolean[] | boolean;
+  checked: boolean[] | boolean;
   toggledOptions?: {
     toggleButton: HTMLIcToggleButtonElement;
   }[];

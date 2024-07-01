@@ -25,10 +25,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="Checked" parameters={{ loki: { skip: true } }}>
     {(args) =>
-      html`<ic-toggle-button
-        label="Toggle"
-        toggle-checked="true"
-      ></ic-toggle-button>`
+      html`<ic-toggle-button label="Toggle" checked="true"></ic-toggle-button>`
     }
   </Story>
 </Canvas>
@@ -44,7 +41,7 @@ import readme from "./readme.md";
       <ic-toggle-button
         label="Toggle"
         disabled="true"
-        toggle-checked="true"
+        checked="true"
       ></ic-toggle-button>`}
   </Story>
 </Canvas>
@@ -92,7 +89,7 @@ import readme from "./readme.md";
 <Canvas>
   <Story name="With badge" parameters={{ loki: { skip: true } }}>
     {(args) => html`<ic-toggle-button label="Toggle">
-        <ic-badge text-label="1" slot="badge" variant="success"></ic-badge>
+        <ic-badge label="1" slot="badge" variant="success"></ic-badge>
       </ic-toggle-button>
       <ic-toggle-button label="Toggle">
         <ic-badge slot="badge" variant="success" type="dot"></ic-badge>
@@ -148,7 +145,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             label="Toggle"
             loading="true"
-            toggle-checked="true"
+            checked="true"
           ></ic-toggle-button>
           <ic-toggle-button
             variant="icon"
@@ -171,7 +168,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             variant="icon"
             loading="true"
-            toggle-checked="true"
+            checked="true"
             accessible-label="Refresh the page"
           >
             <svg
@@ -199,7 +196,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             label="Toggle"
             loading="true"
-            toggle-checked="true"
+            checked="true"
             appearance="light"
           ></ic-toggle-button>
           <ic-toggle-button
@@ -224,7 +221,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             variant="icon"
             loading="true"
-            toggle-checked="true"
+            checked="true"
             accessible-label="Refresh the page"
             appearance="light"
           >
@@ -251,7 +248,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             label="Toggle"
             loading="true"
-            toggle-checked="true"
+            checked="true"
             appearance="dark"
           ></ic-toggle-button>
           <ic-toggle-button
@@ -276,7 +273,7 @@ import readme from "./readme.md";
           <ic-toggle-button
             variant="icon"
             loading="true"
-            toggle-checked="true"
+            checked="true"
             accessible-label="Refresh the page"
             appearance="dark"
           >

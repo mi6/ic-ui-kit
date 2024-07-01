@@ -20,10 +20,10 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Full-width stepper" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update" step-type="active"></ic-step>
-      <ic-step step-title="Delete" step-type="disabled"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update" type="active"></ic-step>
+      <ic-step heading="Delete" type="disabled"></ic-step>
     </ic-stepper>`}
   </Story>
 </Canvas>
@@ -33,10 +33,10 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Left-aligned stepper" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper aligned="left">
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update" step-type="active"></ic-step>
-      <ic-step step-title="Delete" step-type="disabled"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update" type="active"></ic-step>
+      <ic-step heading="Delete" type="disabled"></ic-step>
     </ic-stepper>`}
   </Story>
 </Canvas>
@@ -49,22 +49,22 @@ import Step from "../ic-step/readme.md";
     parameters={{ loki: { skip: true } }}
   >
     {html`<ic-stepper hide-step-info>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update" step-type="active"></ic-step>
-      <ic-step step-title="Delete" step-type="disabled"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update" type="active"></ic-step>
+      <ic-step heading="Delete" type="disabled"></ic-step>
     </ic-stepper>`}
   </Story>
 </Canvas>
 
-### Without step titles
+### Without headings
 
 <Canvas>
-  <Story name="Without step titles" parameters={{ loki: { skip: true } }}>
+  <Story name="Without headings" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper>
-      <ic-step step-type="completed"></ic-step>
-      <ic-step step-type="completed"></ic-step>
-      <ic-step step-type="current"></ic-step>
+      <ic-step type="completed"></ic-step>
+      <ic-step type="completed"></ic-step>
+      <ic-step type="current"></ic-step>
       <ic-step></ic-step>
     </ic-stepper>`}
   </Story>
@@ -75,17 +75,17 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Custom stepper" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper>
-      <ic-step step-title="First"></ic-step>
+      <ic-step heading="First"></ic-step>
       <ic-step
-        step-title="Second With a Very Long Title"
-        step-subtitle="Optional subtitle that is long and should wrap"
-        step-type="current"
+        heading="Second With a Very Long Title"
+        subheading="Optional subtitle that is long and should wrap"
+        type="current"
       ></ic-step>
-      <ic-step step-title="Third" step-type="disabled"></ic-step>
+      <ic-step heading="Third" type="disabled"></ic-step>
       <ic-step
-        step-title="Fourth title that is long and should wrap"
-        step-subtitle="Optional Subtitle"
-        step-type="completed"
+        heading="Fourth title that is long and should wrap"
+        subheading="Optional Subtitle"
+        type="completed"
       ></ic-step>
     </ic-stepper>`}
   </Story>
@@ -96,17 +96,17 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Custom connector width" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper aligned="left" connector-width="200">
-      <ic-step step-title="First"></ic-step>
+      <ic-step heading="First"></ic-step>
       <ic-step
-        step-title="Second With a Very Long Title"
-        step-subtitle="Optional subtitle that is long and should wrap"
-        step-type="current"
+        heading="Second With a Very Long Title"
+        subheading="Optional subtitle that is long and should wrap"
+        type="current"
       ></ic-step>
-      <ic-step step-title="Third" step-type="disabled"></ic-step>
+      <ic-step heading="Third" type="disabled"></ic-step>
       <ic-step
-        step-title="Fourth title that is long and should wrap"
-        step-subtitle="Optional Subtitle"
-        step-type="completed"
+        heading="Fourth title that is long and should wrap"
+        subheading="Optional Subtitle"
+        type="completed"
       ></ic-step>
     </ic-stepper>`}
   </Story>
@@ -118,10 +118,10 @@ import Step from "../ic-step/readme.md";
   <Story name="Light" parameters={{ loki: { skip: true } }}>
     {html`<div style="background-color:#24262b;">
       <ic-stepper appearance="light">
-        <ic-step step-title="Create" step-type="completed"></ic-step>
-        <ic-step step-title="Read" step-type="current"></ic-step>
-        <ic-step step-title="Update" step-type="active"></ic-step>
-        <ic-step step-title="Delete" step-type="disabled"></ic-step>
+        <ic-step heading="Create" type="completed"></ic-step>
+        <ic-step heading="Read" type="current"></ic-step>
+        <ic-step heading="Update" type="active"></ic-step>
+        <ic-step heading="Delete" type="disabled"></ic-step>
       </ic-stepper>
     </div>`}
   </Story>
@@ -132,10 +132,10 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Compact stepper" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper variant="compact" id="standard-compact-stepper">
-        <ic-step step-title="Create"></ic-step>
-        <ic-step step-title="Read" step-type="current"></ic-step>
-        <ic-step step-title="Update" step-status="optional"></ic-step>
-        <ic-step step-title="Delete" step-status="required"></ic-step>
+        <ic-step heading="Create"></ic-step>
+        <ic-step heading="Read" type="current"></ic-step>
+        <ic-step heading="Update" status="optional"></ic-step>
+        <ic-step heading="Delete" status="required"></ic-step>
       </ic-stepper>
       <ic-button
         class="back-btn-compact-stepper"
@@ -160,31 +160,31 @@ import Step from "../ic-step/readme.md";
         );
         function toPreviousStep() {
           for (let i = steps.length - 1; i > 0; i--) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i - 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i - 1].type = "current";
               i--;
             }
           }
-          if (steps[steps.length - 2].stepType === "current") {
+          if (steps[steps.length - 2].type === "current") {
             nextBtn.setAttribute("disabled", "false");
           }
-          if (steps[0].stepType === "current") {
+          if (steps[0].type === "current") {
             backBtn.setAttribute("disabled", "true");
           }
         }
         function toNextStep() {
           for (let i = 0; i < steps.length - 1; i++) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i + 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i + 1].type = "current";
               i++;
             }
           }
-          if (steps[1].stepType === "current") {
+          if (steps[1].type === "current") {
             backBtn.setAttribute("disabled", "false");
           }
-          if (steps[steps.length - 1].stepType === "current") {
+          if (steps[steps.length - 1].type === "current") {
             nextBtn.setAttribute("disabled", "true");
           }
         }
@@ -202,10 +202,10 @@ import Step from "../ic-step/readme.md";
           id="standard-compact-stepper"
           appearance="light"
         >
-          <ic-step step-title="Create"></ic-step>
-          <ic-step step-title="Read" step-type="current"></ic-step>
-          <ic-step step-title="Update" step-status="optional"></ic-step>
-          <ic-step step-title="Delete" step-status="required"></ic-step>
+          <ic-step heading="Create"></ic-step>
+          <ic-step heading="Read" type="current"></ic-step>
+          <ic-step heading="Update" status="optional"></ic-step>
+          <ic-step heading="Delete" status="required"></ic-step>
         </ic-stepper>
       </div>
       <ic-button
@@ -231,31 +231,31 @@ import Step from "../ic-step/readme.md";
         );
         function toPreviousStep() {
           for (let i = steps.length - 1; i > 0; i--) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i - 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i - 1].type = "current";
               i--;
             }
           }
-          if (steps[steps.length - 2].stepType === "current") {
+          if (steps[steps.length - 2].type === "current") {
             nextBtn.setAttribute("disabled", "false");
           }
-          if (steps[0].stepType === "current") {
+          if (steps[0].type === "current") {
             backBtn.setAttribute("disabled", "true");
           }
         }
         function toNextStep() {
           for (let i = 0; i < steps.length - 1; i++) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i + 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i + 1].type = "current";
               i++;
             }
           }
-          if (steps[1].stepType === "current") {
+          if (steps[1].type === "current") {
             backBtn.setAttribute("disabled", "false");
           }
-          if (steps[steps.length - 1].stepType === "current") {
+          if (steps[steps.length - 1].type === "current") {
             nextBtn.setAttribute("disabled", "true");
           }
         }
@@ -268,23 +268,23 @@ import Step from "../ic-step/readme.md";
 <Canvas>
   <Story name="Custom compact stepper" parameters={{ loki: { skip: true } }}>
     {html`<ic-stepper variant="compact" id="custom-compact-stepper">
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
-          step-type="current"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
+          type="current"
         ></ic-step>
-        <ic-step step-title="Third" step-type="disabled"></ic-step>
+        <ic-step heading="Third" type="disabled"></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
-          step-type="disabled"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="disabled"
         ></ic-step>
       </ic-stepper>
       <ic-button
@@ -317,31 +317,31 @@ import Step from "../ic-step/readme.md";
         );
         function toPreviousCustomStep() {
           for (let i = customSteps.length - 1; i > 0; i--) {
-            if (customSteps[i].stepType === "current") {
-              customSteps[i].stepType = customCompactStepTypes[i];
-              customSteps[i - 1].stepType = "current";
+            if (customSteps[i].type === "current") {
+              customSteps[i].type = customCompactStepTypes[i];
+              customSteps[i - 1].type = "current";
               i--;
             }
           }
-          if (customSteps[customSteps.length - 2].stepType === "current") {
+          if (customSteps[customSteps.length - 2].type === "current") {
             nextBtnCustomCompactStepper.setAttribute("disabled", "false");
           }
-          if (customSteps[0].stepType === "current") {
+          if (customSteps[0].type === "current") {
             backBtnCustomCompactStepper.setAttribute("disabled", "true");
           }
         }
         function toNextCustomStep() {
           for (let i = 0; i < customSteps.length - 1; i++) {
-            if (customSteps[i].stepType === "current") {
-              customSteps[i].stepType = customCompactStepTypes[i];
-              customSteps[i + 1].stepType = "current";
+            if (customSteps[i].type === "current") {
+              customSteps[i].type = customCompactStepTypes[i];
+              customSteps[i + 1].type = "current";
               i++;
             }
           }
-          if (customSteps[1].stepType === "current") {
+          if (customSteps[1].type === "current") {
             backBtnCustomCompactStepper.setAttribute("disabled", "false");
           }
-          if (customSteps[customSteps.length - 1].stepType === "current") {
+          if (customSteps[customSteps.length - 1].type === "current") {
             nextBtnCustomCompactStepper.setAttribute("disabled", "true");
           }
         }

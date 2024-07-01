@@ -223,7 +223,7 @@ describe("ic-search-bar search", () => {
   it("should test keydown event - arrow down", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -271,7 +271,7 @@ describe("ic-search-bar search", () => {
   it("should test keydown event - arrow up", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
     const focusSpy = jest.spyOn(SearchBar.prototype, "setFocus");
 
@@ -316,7 +316,7 @@ describe("ic-search-bar search", () => {
   it("should test keydown event - backspace", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -335,7 +335,7 @@ describe("ic-search-bar search", () => {
   it("should test wrap around in menu", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -358,7 +358,7 @@ describe("ic-search-bar search", () => {
   it("should test menu item click", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -384,7 +384,7 @@ describe("ic-search-bar search", () => {
   it("should test keydown event - escape", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -412,7 +412,7 @@ describe("ic-search-bar search", () => {
   it("should test key up event", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -441,7 +441,7 @@ describe("ic-search-bar search", () => {
   it("should test changing value", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.value = "mocha";
@@ -481,7 +481,7 @@ describe("ic-search-bar search", () => {
   it("should test clear button events", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -515,7 +515,7 @@ describe("ic-search-bar search", () => {
   it("should test select of empty option list text", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -532,7 +532,7 @@ describe("ic-search-bar search", () => {
   it("should test select of empty option list text with previous option", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField, Menu],
-      html: '<ic-search-bar label="Test label" value="espresso" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" value="espresso" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     page.root.options = menuOptions;
@@ -559,7 +559,7 @@ describe("ic-search-bar search", () => {
         InputContainer,
         InputLabel,
       ],
-      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     const textfield = page.root.shadowRoot.querySelector("ic-text-field");
@@ -588,7 +588,7 @@ describe("ic-search-bar search", () => {
         InputContainer,
         InputLabel,
       ],
-      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true" timeout="1000"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true" timeout="1000"></ic-search-bar>',
     });
 
     const textfield = page.root.shadowRoot.querySelector("ic-text-field");
@@ -654,7 +654,7 @@ describe("ic-search-bar search", () => {
         InputContainer,
         InputLabel,
       ],
-      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-filter="true" timeout="1000"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" helper-text="This is a description" disable-auto-filtering="true" timeout="1000"></ic-search-bar>',
     });
 
     const textfield = page.root.shadowRoot.querySelector("ic-text-field");
@@ -684,7 +684,7 @@ describe("ic-search-bar search", () => {
   it("should render a hidden assistive element on load", async () => {
     const page = await newSpecPage({
       components: [SearchBar, TextField, InputContainer, InputLabel],
-      html: '<ic-search-bar label="Test label" hint-text="Hint" disable-filter="true"></ic-search-bar>',
+      html: '<ic-search-bar label="Test label" assistive-hint-text="Hint" disable-auto-filtering="true"></ic-search-bar>',
     });
 
     expect(page.rootInstance.assistiveHintEl).not.toBeNull;

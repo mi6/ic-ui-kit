@@ -28,7 +28,7 @@ export class LoadingIndicator {
   @State() circularLineWidth: number;
   @State() indeterminate: boolean;
   @State() indicatorLabel: string;
-  @State() showSecond: boolean = false;
+  @State() clipInnerElement: boolean = false;
 
   /**
    * The appearance of the loading indicator, e.g. dark or light.
@@ -215,8 +215,8 @@ export class LoadingIndicator {
 
     const progress = Math.min(this.max, Math.max(this.min, this.progress));
     const proportion = (progress - this.min) / (this.max - this.min);
-    this.showSecond = proportion > 0.5;
-    if (this.showSecond) {
+    this.clipInnerElement = proportion > 0.5;
+    if (this.clipInnerElement) {
       this.innerElement.classList.remove("clip");
     } else {
       this.innerElement.classList.add("clip");

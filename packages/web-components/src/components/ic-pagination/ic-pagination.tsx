@@ -37,12 +37,12 @@ export class Pagination {
   /**
    * The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
-  @Prop({ mutable: true }) adjacentCount: number = 1;
+  @Prop({ mutable: true }) adjacentPageCount: number = 1;
 
-  @Watch("adjacentCount")
-  watchAdjacentCountHandler(): void {
-    if (this.adjacentCount > 2) {
-      this.adjacentCount = 2;
+  @Watch("adjacentPageCount")
+  watchAdjacentPageCountHandler(): void {
+    if (this.adjacentPageCount > 2) {
+      this.adjacentPageCount = 2;
     }
   }
 
@@ -54,12 +54,12 @@ export class Pagination {
   /**
    * The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.
    */
-  @Prop({ mutable: true }) boundaryCount: number = 1;
+  @Prop({ mutable: true }) boundaryPageCount: number = 1;
 
-  @Watch("boundaryCount")
-  watchBoundaryCountHandler(): void {
-    if (this.boundaryCount > 2) {
-      this.boundaryCount = 2;
+  @Watch("boundaryPageCount")
+  watchBoundaryPageCountHandler(): void {
+    if (this.boundaryPageCount > 2) {
+      this.boundaryPageCount = 2;
     }
   }
 
@@ -135,7 +135,10 @@ export class Pagination {
     let startEllipsis = false;
     let endEllipsis = false;
 
-    if (this.pages <= this.boundaryCount * 2 + this.adjacentCount * 2 + 3) {
+    if (
+      this.pages <=
+      this.boundaryPageCount * 2 + this.adjacentPageCount * 2 + 3
+    ) {
       this.startEllipsis = false;
       this.endEllipsis = false;
       for (let i = 1; i <= this.pages; i++) {
@@ -145,18 +148,21 @@ export class Pagination {
       return;
     }
 
-    startItemCount = this.boundaryCount === 0 ? 1 : this.boundaryCount;
+    startItemCount = this.boundaryPageCount === 0 ? 1 : this.boundaryPageCount;
     endStart =
-      this.boundaryCount === 0
+      this.boundaryPageCount === 0
         ? this.pages
-        : this.pages - this.boundaryCount + 1;
+        : this.pages - this.boundaryPageCount + 1;
 
-    if (this.currentPage <= this.adjacentCount + this.boundaryCount + 2) {
+    if (
+      this.currentPage <=
+      this.adjacentPageCount + this.boundaryPageCount + 2
+    ) {
       startEllipsis = false;
       endEllipsis = true;
 
-      let numItems = 2 * this.adjacentCount + 1;
-      if (this.boundaryCount === 0) {
+      let numItems = 2 * this.adjacentPageCount + 1;
+      if (this.boundaryPageCount === 0) {
         numItems--;
       }
       midStart = startItemCount + 1;
@@ -165,28 +171,28 @@ export class Pagination {
       startEllipsis = true;
       if (
         this.currentPage >
-        this.pages - (this.adjacentCount + this.boundaryCount + 2)
+        this.pages - (this.adjacentPageCount + this.boundaryPageCount + 2)
       ) {
-        let numItems = 2 * this.adjacentCount + 1;
-        if (this.boundaryCount === 0) {
+        let numItems = 2 * this.adjacentPageCount + 1;
+        if (this.boundaryPageCount === 0) {
           numItems--;
         }
         midEnd =
-          this.boundaryCount === 0
+          this.boundaryPageCount === 0
             ? this.pages - 1
-            : this.pages - this.boundaryCount;
+            : this.pages - this.boundaryPageCount;
         midStart = midEnd - numItems;
       } else {
         endEllipsis = true;
-        midStart = this.currentPage - this.adjacentCount;
-        midEnd = this.currentPage + this.adjacentCount;
+        midStart = this.currentPage - this.adjacentPageCount;
+        midEnd = this.currentPage + this.adjacentPageCount;
       }
     }
 
     //create array of start items
     if (
-      this.boundaryCount > 0 ||
-      (this.boundaryCount === 0 && startEllipsis === false)
+      this.boundaryPageCount > 0 ||
+      (this.boundaryPageCount === 0 && startEllipsis === false)
     ) {
       for (let i = 1; i <= startItemCount; i++) {
         startItems.push(i);
@@ -195,8 +201,8 @@ export class Pagination {
 
     //create array of end items
     if (
-      this.boundaryCount > 0 ||
-      (this.boundaryCount === 0 && endEllipsis === false)
+      this.boundaryPageCount > 0 ||
+      (this.boundaryPageCount === 0 && endEllipsis === false)
     ) {
       for (let i = endStart; i <= this.pages; i++) {
         endItems.push(i);
@@ -222,8 +228,8 @@ export class Pagination {
 
   componentWillLoad(): void {
     this.watchPageChangeHandler();
-    this.watchBoundaryCountHandler();
-    this.watchAdjacentCountHandler();
+    this.watchBoundaryPageCountHandler();
+    this.watchAdjacentPageCountHandler();
     removeDisabledFalse(this.disabled, this.el);
   }
 

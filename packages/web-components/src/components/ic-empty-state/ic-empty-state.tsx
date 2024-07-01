@@ -35,7 +35,7 @@ export class EmptyState {
   /**
    * The number of lines of body text to display before truncating.
    */
-  @Prop() bodyMaxLines?: number;
+  @Prop() maxLines?: number;
 
   /**
    * The title rendered in the empty state container.
@@ -61,8 +61,7 @@ export class EmptyState {
   }
 
   render() {
-    const { aligned, body, bodyMaxLines, heading, imageSize, subheading } =
-      this;
+    const { aligned, body, maxLines, heading, imageSize, subheading } = this;
     return (
       <Host
         class={{
@@ -79,7 +78,7 @@ export class EmptyState {
             <ic-typography variant="subtitle-small">{subheading}</ic-typography>
           </slot>
           <slot name="body">
-            <ic-typography maxLines={bodyMaxLines}>{body}</ic-typography>
+            <ic-typography maxLines={maxLines}>{body}</ic-typography>
           </slot>
         </div>
         {isSlotUsed(this.el, "actions") && (
