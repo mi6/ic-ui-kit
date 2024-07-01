@@ -67,7 +67,7 @@ describe("ic-footer", () => {
       components: [Footer],
       html: `
             <ic-footer description="This is a footer" caption="Made by ICDS">
-                <ic-footer-link-group group-title="Links" slot="link">
+                <ic-footer-link-group label="Links" slot="link">
                     <ic-footer-link href="/">Link</ic-footer-link>
                     <ic-footer-link href="/">Link</ic-footer-link>
                 </ic-footer-link-group>
