@@ -32,7 +32,7 @@ export class FooterLinkGroup {
   /**
    * The title of the link group to be displayed.
    */
-  @Prop() groupTitle!: string;
+  @Prop() label!: string;
 
   componentWillLoad(): void {
     this.small = this.isSmall(this.el);
@@ -40,7 +40,7 @@ export class FooterLinkGroup {
 
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
-      [{ prop: this.groupTitle, propName: "group-title" }],
+      [{ prop: this.label, propName: "label" }],
       "Footer Link Group"
     );
   }
@@ -79,7 +79,7 @@ export class FooterLinkGroup {
   };
 
   render() {
-    const { small, groupTitle } = this;
+    const { small, label } = this;
 
     return !small ? (
       <Host
@@ -89,8 +89,8 @@ export class FooterLinkGroup {
         }}
         role="listitem"
       >
-        <div class="footer-link-group-title">
-          <ic-typography variant="subtitle-small">{groupTitle}</ic-typography>
+        <div class="footer-link-label">
+          <ic-typography variant="subtitle-small">{label}</ic-typography>
         </div>
         <div class="footer-link-group-links" role="list">
           <slot />
@@ -109,8 +109,8 @@ export class FooterLinkGroup {
       >
         <ic-section-container fullHeight={true}>
           <div class="footer-link-group-header">
-            <div class="footer-link-group-title">
-              <ic-typography variant="label">{groupTitle}</ic-typography>
+            <div class="footer-link-label">
+              <ic-typography variant="label">{label}</ic-typography>
             </div>
             {this.expanded ? (
               <svg
