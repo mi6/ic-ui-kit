@@ -1394,10 +1394,10 @@ describe("ic-search-bar", () => {
     expect(activeElId).toBe("search-submit-button");
   });
 
-  it("should not filter options when disable-filter is set to true", async () => {
+  it("should not filter options when disable-auto-filtering is set to true", async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<ic-search-bar label="Test Label" disable-filter="true"></ic-search-bar>`
+      `<ic-search-bar label="Test Label" disable-auto-filtering="true"></ic-search-bar>`
     );
 
     const searchBar = await page.find("ic-search-bar");
@@ -1462,7 +1462,7 @@ describe("ic-search-bar", () => {
   it("should display the loading option in the menu when loading then cancel loading when options provided", async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<ic-search-bar label="Test Label" loading-label="load" disable-filter="true"></ic-search-bar>`
+      `<ic-search-bar label="Test Label" loading-label="load" disable-auto-filtering="true"></ic-search-bar>`
     );
     const searchBar = await page.find("ic-search-bar");
     searchBar.setProperty("options", options);
@@ -1491,7 +1491,7 @@ describe("ic-search-bar", () => {
   it("should display the timeout state in the menu when timed out and should not update the options", async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<ic-search-bar label="Test Label" loading-error-label="error message" timeout="1000" disable-filter="true"></ic-search-bar>`
+      `<ic-search-bar label="Test Label" loading-error-label="error message" timeout="1000" disable-auto-filtering="true"></ic-search-bar>`
     );
     const searchBar = await page.find("ic-search-bar");
     searchBar.setProperty("options", options);
@@ -1524,7 +1524,7 @@ describe("ic-search-bar", () => {
   it("should be able to focus retry button using tab and should keep loading state when menu closed", async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<ic-search-bar label="Test Label" timeout="1000" disable-filter="true"></ic-search-bar>`
+      `<ic-search-bar label="Test Label" timeout="1000" disable-auto-filtering="true"></ic-search-bar>`
     );
     const searchBar = await page.find("ic-search-bar");
     searchBar.setProperty("options", options);
@@ -1560,7 +1560,7 @@ describe("ic-search-bar", () => {
   it("should trigger a retry when the retry button is pressed using space and enter", async () => {
     const page = await newE2EPage();
     await page.setContent(
-      `<ic-search-bar label="Test Label" timeout="1000" disable-filter="true"></ic-search-bar>`
+      `<ic-search-bar label="Test Label" timeout="1000" disable-auto-filtering="true"></ic-search-bar>`
     );
     const searchBar = await page.find("ic-search-bar");
     searchBar.setProperty("options", options);

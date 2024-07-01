@@ -8,10 +8,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
     page.rootInstance.resizeObserverCallback();
 
@@ -32,10 +32,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper aligned="left">
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -52,10 +52,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper hide-step-info>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -70,7 +70,7 @@ describe("default variant of ic-stepper component", () => {
 
     steps.forEach((step) => {
       const stepTitleArea = step.shadowRoot.querySelector(
-        ".step > .step-title-area"
+        ".step > .heading-area"
       );
 
       expect(stepTitleArea.classList.contains("visually-hidden")).toBeTruthy();
@@ -84,10 +84,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
-      <ic-step step-type="completed"></ic-step>
-      <ic-step step-type="current"></ic-step>
-      <ic-step step-type="disabled"></ic-step>
-      <ic-step step-type="active"></ic-step></ic-stepper>`,
+      <ic-step type="completed"></ic-step>
+      <ic-step type="current"></ic-step>
+      <ic-step type="disabled"></ic-step>
+      <ic-step type="active"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -111,11 +111,11 @@ describe("default variant of ic-stepper component", () => {
     expect(page.rootInstance["noOfResizes"]).toBe(0);
 
     steps.forEach((step) => {
-      expect(step["stepTitle"]).toBeUndefined();
-      expect(step["stepSubtitle"]).toBeUndefined();
+      expect(step["heading"]).toBeUndefined();
+      expect(step["subheading"]).toBeUndefined();
 
       const stepTitleArea = step.shadowRoot.querySelector(
-        ".step > .step-title-area"
+        ".step > .heading-area"
       );
       expect(stepTitleArea).toBeNull();
     });
@@ -131,10 +131,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper aligned="left" connector-width="150">
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -150,10 +150,10 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper connector-width="150">
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -169,30 +169,30 @@ describe("default variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step variant="compact" step-type="disabled" step-title="First"></ic-step>
+        <ic-step variant="compact" type="disabled" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -202,7 +202,7 @@ describe("default variant of ic-stepper component", () => {
     await page.waitForChanges();
 
     const disabledSteps = page.root.querySelectorAll(
-      'ic-step[step-type="disabled"]'
+      'ic-step[type="disabled"]'
     );
 
     disabledSteps.forEach((step) => {
@@ -215,10 +215,10 @@ describe("default variant of ic-stepper component", () => {
       components: [Stepper, Step],
       html: `
     <ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step last-step step-title="Delete"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step last-step heading="Delete"></ic-step>
     </ic-stepper>
     `,
     });
@@ -241,10 +241,10 @@ describe("resizeObserver for ic-stepper", () => {
       components: [Stepper],
       html: `
     <ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step>
     </ic-stepper>
     `,
     });
@@ -259,10 +259,10 @@ describe("resizeObserver for ic-stepper", () => {
       components: [Stepper],
       html: `
     <ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step>
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step>
     </ic-stepper>
     `,
     });
@@ -288,27 +288,27 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
-          step-type="completed"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -326,12 +326,12 @@ describe("compact variant of ic-stepper component", () => {
     const steps = page.root.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const stepTitle = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .step-title"
+      const heading = step.shadowRoot.querySelector(
+        ".step > .heading-area > .heading"
       );
 
-      expect(stepTitle).not.toBeNull();
-      expect(stepTitle.classList.contains("hide")).toBeFalsy();
+      expect(heading).not.toBeNull();
+      expect(heading.classList.contains("hide")).toBeFalsy();
     });
   });
 
@@ -339,10 +339,10 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper hide-step-info>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.el.clientWidth = 50;
@@ -358,12 +358,12 @@ describe("compact variant of ic-stepper component", () => {
     const steps = page.root.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const stepTitle = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .step-title"
+      const heading = step.shadowRoot.querySelector(
+        ".step > .heading-area > .heading"
       );
 
-      expect(stepTitle).not.toBeNull();
-      expect(stepTitle.classList.contains("visually-hidden")).toBeFalsy();
+      expect(heading).not.toBeNull();
+      expect(heading.classList.contains("visually-hidden")).toBeFalsy();
     });
 
     expect(page.root).toMatchSnapshot();
@@ -373,10 +373,10 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper >
-      <ic-step step-type="completed"></ic-step>
-      <ic-step step-type="current"></ic-step>
-      <ic-step step-type="disabled"></ic-step>
-      <ic-step step-type="active" ></ic-step></ic-stepper>`,
+      <ic-step type="completed"></ic-step>
+      <ic-step type="current"></ic-step>
+      <ic-step type="disabled"></ic-step>
+      <ic-step type="active" ></ic-step></ic-stepper>`,
     });
 
     page.rootInstance.el.clientWidth = 50;
@@ -400,9 +400,9 @@ describe("compact variant of ic-stepper component", () => {
     expect(page.rootInstance["noOfResizes"]).toBe(0);
 
     steps.forEach((step) => {
-      const stepTitle = "Step " + step["stepNum"];
-      expect(step["stepTitle"]).toMatch(stepTitle);
-      expect(step["stepSubtitle"]).toBeUndefined();
+      const heading = "Step " + step["stepNum"];
+      expect(step["heading"]).toMatch(heading);
+      expect(step["subheading"]).toBeUndefined();
     });
 
     page.rootInstance.resizeObserverCallback();
@@ -416,27 +416,27 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
-          step-type="completed"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -480,27 +480,27 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
-          step-type="completed"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -531,31 +531,31 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact">
-        <ic-step variant="compact" step-title="First"></ic-step>
+        <ic-step variant="compact" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
-          step-type="completed"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -587,33 +587,33 @@ describe("compact variant of ic-stepper component", () => {
     expect(notCurrentSteps.classList.contains("hide")).toBeTruthy;
   });
 
-  it("should render status icons next to all steps with a disabled stepType", async () => {
+  it("should render status icons next to all steps with a disabled type", async () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step variant="compact" step-title="First"></ic-step>
+        <ic-step variant="compact" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-status="required"
+          heading="Third"
+          status="required"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-type="disabled"
+          heading="Fifth and final step"
+          type="disabled"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -623,18 +623,18 @@ describe("compact variant of ic-stepper component", () => {
     await page.waitForChanges();
 
     const notRequiredSteps = page.root.querySelectorAll(
-      'ic-step[step-type="disabled"]'
+      'ic-step[type="disabled"]'
     );
 
     notRequiredSteps.forEach((step) => {
       const textContent = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .info-line > .step-status > ic-typography"
+        ".step > .heading-area > .info-line > .step-status > ic-typography"
       ).textContent;
 
       expect(textContent).toBe("Not required");
 
       const statusIcon = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .info-line > .step-status > .step-icon"
+        ".step > .heading-area > .info-line > .step-status > .step-icon"
       );
 
       expect(statusIcon).toEqualHtml(
@@ -645,32 +645,32 @@ describe("compact variant of ic-stepper component", () => {
     });
   });
 
-  it("should render status icons next to all steps with a completed stepType", async () => {
+  it("should render status icons next to all steps with a completed type", async () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step variant="compact" step-title="First"></ic-step>
+        <ic-step variant="compact" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -680,18 +680,18 @@ describe("compact variant of ic-stepper component", () => {
     await page.waitForChanges();
 
     const completeSteps = page.root.querySelectorAll(
-      'ic-step[step-type="completed"]'
+      'ic-step[type="completed"]'
     );
 
     completeSteps.forEach((step) => {
       const textContent = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .info-line > .step-status > ic-typography"
+        ".step > .heading-area > .info-line > .step-status > ic-typography"
       ).textContent;
 
       expect(textContent).toBe("Completed");
 
       const statusIcon = step.shadowRoot.querySelector(
-        ".step > .step-title-area > .info-line > .step-status > span.step-icon"
+        ".step > .heading-area > .info-line > .step-status > span.step-icon"
       );
 
       expect(statusIcon).toEqualHtml(
@@ -702,34 +702,34 @@ describe("compact variant of ic-stepper component", () => {
     });
   });
 
-  it("should update the aria label of a step if its stepStatus is set to 'optional'", async () => {
+  it("should update the aria label of a step if its status is set to 'optional'", async () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step variant="compact" step-title="First"></ic-step>
+        <ic-step variant="compact" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-status="optional"
+          heading="Third"
+          status="optional"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -739,7 +739,7 @@ describe("compact variant of ic-stepper component", () => {
     await page.waitForChanges();
 
     const optionalSteps = page.root.querySelectorAll(
-      'ic-step[step-status="optional"]'
+      'ic-step[status="optional"]'
     );
 
     optionalSteps.forEach((step) => {
@@ -747,34 +747,34 @@ describe("compact variant of ic-stepper component", () => {
     });
   });
 
-  it("should update the aria label of a step if its stepStatus is set to 'required'", async () => {
+  it("should update the aria label of a step if its status is set to 'required'", async () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step variant="compact" step-title="First"></ic-step>
+        <ic-step variant="compact" heading="First"></ic-step>
         <ic-step
           variant="compact"
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Third"
-          step-status="required"
+          heading="Third"
+          status="required"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
           variant="compact"
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -784,7 +784,7 @@ describe("compact variant of ic-stepper component", () => {
     await page.waitForChanges();
 
     const requiredSteps = page.root.querySelectorAll(
-      'ic-step[step-status="required"]'
+      'ic-step[status="required"]'
     );
 
     requiredSteps.forEach((step) => {
@@ -796,25 +796,25 @@ describe("compact variant of ic-stepper component", () => {
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper variant="compact" id="custom-stepper">
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -833,9 +833,9 @@ describe("compact variant of ic-stepper component", () => {
 
     for (let i = 0; i < steps.length; i++) {
       if (steps[i] !== steps[steps.length - 1]) {
-        expect(steps[i]["nextStepTitle"]).toBe(steps[i + 1]["stepTitle"]);
+        expect(steps[i]["nextStepHeading"]).toBe(steps[i + 1]["heading"]);
       } else {
-        expect(steps[i]["nextStepTitle"]).toBeUndefined();
+        expect(steps[i]["nextStepHeading"]).toBeUndefined();
       }
     }
   });
@@ -846,26 +846,26 @@ describe("switch between the compact and default stepper depending on whether th
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper >
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -887,26 +887,26 @@ describe("switch between the compact and default stepper depending on whether th
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
-        <ic-step step-title="First"></ic-step>
+        <ic-step heading="First"></ic-step>
         <ic-step
-          step-title="Second With a Very Long Title"
-          step-subtitle="Optional subtitle that is long and should wrap"
+          heading="Second With a Very Long Title"
+          subheading="Optional subtitle that is long and should wrap"
           current
-          step-type="current"
+          type="current"
         ></ic-step>
         <ic-step
-          step-title="Third"
-          step-type="disabled"
+          heading="Third"
+          type="disabled"
         ></ic-step>
         <ic-step
-          step-title="Fourth title that is long and should wrap"
-          step-subtitle="Optional Subtitle"
-          step-type="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         ></ic-step>
         <ic-step
-          step-title="Fifth and final step"
-          step-subtitle="Optional Subtitle"
-          step-status="optional"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
         ></ic-step>
       </ic-stepper>`,
     });
@@ -938,10 +938,10 @@ describe("switch between the compact and default stepper depending on whether th
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper appearance="light">
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
     page.rootInstance.resizeObserverCallback();
 
@@ -962,10 +962,10 @@ describe("switch between the compact and default stepper depending on whether th
     const page = await newSpecPage({
       components: [Stepper, Step],
       html: `<ic-stepper>
-      <ic-step step-title="Create" step-type="completed"></ic-step>
-      <ic-step step-title="Read" step-type="current"></ic-step>
-      <ic-step step-title="Update"></ic-step>
-      <ic-step step-title="Delete"></ic-step></ic-stepper>`,
+      <ic-step heading="Create" type="completed"></ic-step>
+      <ic-step heading="Read" type="current"></ic-step>
+      <ic-step heading="Update"></ic-step>
+      <ic-step heading="Delete"></ic-step></ic-stepper>`,
     });
     await page.waitForChanges();
 
@@ -974,12 +974,10 @@ describe("switch between the compact and default stepper depending on whether th
     const steps = page.root.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      const stepTitle = step.shadowRoot.querySelector(
-        ".step > .step-title-area"
-      );
+      const heading = step.shadowRoot.querySelector(".step > .heading-area");
 
-      expect(stepTitle).not.toBeNull();
-      expect(stepTitle.classList.contains("visually-hidden")).toBeFalsy();
+      expect(heading).not.toBeNull();
+      expect(heading.classList.contains("visually-hidden")).toBeFalsy();
     });
 
     page.rootInstance.hideStepInfo = true;
@@ -988,12 +986,10 @@ describe("switch between the compact and default stepper depending on whether th
     expect(page.rootInstance.hideStepInfo).toBeTruthy();
 
     steps.forEach((step) => {
-      const stepTitle = step.shadowRoot.querySelector(
-        ".step > .step-title-area"
-      );
+      const heading = step.shadowRoot.querySelector(".step > .heading-area");
 
-      expect(stepTitle).not.toBeNull();
-      expect(stepTitle.classList.contains("visually-hidden")).toBeTruthy();
+      expect(heading).not.toBeNull();
+      expect(heading.classList.contains("visually-hidden")).toBeTruthy();
     });
   });
 });
