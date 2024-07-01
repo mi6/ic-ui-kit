@@ -42,7 +42,7 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     await page.waitForChanges();
 
-    expect(buttons[0].toggleChecked).toBeFalsy();
+    expect(buttons[0].checked).toBeFalsy();
   });
   it("should test that focusing group when an ic-toggle-button selected should not select first option", async () => {
     const page = await newSpecPage({
@@ -61,14 +61,14 @@ describe("ic-toggle-button-group component unit tests", () => {
     );
     await page.waitForChanges();
 
-    buttons[1].toggleChecked = true;
+    buttons[1].checked = true;
 
     toggleGroup.focus();
 
     await page.waitForChanges();
 
-    expect(buttons[0].toggleChecked).toBeFalsy();
-    expect(buttons[1].toggleChecked).toBeTruthy();
+    expect(buttons[0].checked).toBeFalsy();
+    expect(buttons[1].checked).toBeTruthy();
   });
   it("should test that focusing the toggle-button-group focuses, but does not not select, the first ic-toggle-button when select method is 'multi'", async () => {
     const page = await newSpecPage({
@@ -92,7 +92,7 @@ describe("ic-toggle-button-group component unit tests", () => {
 
     await page.waitForChanges();
 
-    expect(buttons[0].toggleChecked).toBeFalsy();
+    expect(buttons[0].checked).toBeFalsy();
   });
   it("should test that focusing the toggle-button-group focuses, but does not not select, the first ic-toggle-button when select method is 'multi'", async () => {
     const page = await newSpecPage({
@@ -114,8 +114,8 @@ describe("ic-toggle-button-group component unit tests", () => {
       toggleGroup.querySelectorAll("ic-toggle-button")
     );
     await page.waitForChanges();
-    buttons[0].toggleChecked = true;
-    buttons[1].toggleChecked = true;
+    buttons[0].checked = true;
+    buttons[1].checked = true;
 
     const customEv = new CustomEvent("icToggleChecked", {});
 
@@ -145,40 +145,40 @@ describe("ic-toggle-button-group component unit tests", () => {
       "#2"
     )) as HTMLIcToggleButtonElement;
 
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(firstButton.checked).toBeFalsy();
     await firstButton.click();
-    expect(firstButton.toggleChecked).toBeTruthy();
+    expect(firstButton.checked).toBeTruthy();
 
     await page.waitForChanges();
     page.rootInstance.handleKeyDown(keyboard("ArrowLeft"));
-    expect(thirdButton.toggleChecked).toBeTruthy();
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(thirdButton.checked).toBeTruthy();
+    expect(firstButton.checked).toBeFalsy();
 
     await page.waitForChanges();
     await firstButton.click();
     page.rootInstance.handleKeyDown(keyboard("ArrowUp"));
-    expect(thirdButton.toggleChecked).toBeTruthy();
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(thirdButton.checked).toBeTruthy();
+    expect(firstButton.checked).toBeFalsy();
 
     await page.waitForChanges();
     await firstButton.click();
     page.rootInstance.handleKeyDown(keyboard("ArrowDown"));
-    expect(secondButton.toggleChecked).toBeTruthy();
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(secondButton.checked).toBeTruthy();
+    expect(firstButton.checked).toBeFalsy();
 
     await page.waitForChanges();
     await firstButton.click();
     page.rootInstance.handleKeyDown(keyboard("ArrowLeft"));
-    expect(thirdButton.toggleChecked).toBeTruthy();
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(thirdButton.checked).toBeTruthy();
+    expect(firstButton.checked).toBeFalsy();
 
     secondButton.disabled = true;
 
     await page.waitForChanges();
     await firstButton.click();
     page.rootInstance.handleKeyDown(keyboard("ArrowRight"));
-    expect(thirdButton.toggleChecked).toBeTruthy();
-    expect(firstButton.toggleChecked).toBeFalsy();
+    expect(thirdButton.checked).toBeTruthy();
+    expect(firstButton.checked).toBeFalsy();
 
     // for coverage
     page.rootInstance.handleKeyDown(keyboard("Tab"));
