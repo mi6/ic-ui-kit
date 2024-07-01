@@ -200,7 +200,7 @@ exports[`ic-footer should render with link groups 1`] = `
       </div>
     </footer>
   </mock:shadow-root>
-  <ic-footer-link-group group-title="Links" slot="link">
+  <ic-footer-link-group label="Links" slot="link">
     <ic-footer-link href="/">
       Link
     </ic-footer-link>
