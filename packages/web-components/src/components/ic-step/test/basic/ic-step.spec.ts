@@ -15,7 +15,7 @@ describe("default variant of ic-step component", () => {
   it("should render default step with correct title", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
-      html: `<ic-step variant="default" step-title="First"></ic-step>`,
+      html: `<ic-step variant="default" heading="First"></ic-step>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -25,31 +25,31 @@ describe("default variant of ic-step component", () => {
     const page = await newSpecPage({
       components: [Step, Typography],
       html: `<ic-step variant="default" 
-      step-title="Second With a Very Long Title"
-      step-subtitle="Optional Subtitle"
-      step-type="current"
+      heading="Second With a Very Long Title"
+      subheading="Optional Subtitle"
+      type="current"
     ></ic-step>`,
     });
 
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render disabled stepType", async () => {
+  it("should render disabled type", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
       html: `<ic-step variant="default" 
-      step-type="disabled"
+      type="disabled"
     ></ic-step>`,
     });
 
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render completed stepType", async () => {
+  it("should render completed type", async () => {
     const page = await newSpecPage({
       components: [Step, Typography],
       html: `<ic-step variant="default" 
-      step-type="completed"
+      type="completed"
     ></ic-step>`,
     });
 
@@ -63,31 +63,31 @@ describe("compact variant of ic-step component", () => {
       components: [Step],
       html: `<ic-step
       variant="compact" 
-      step-type="current"
+      type="current"
       last-step="false"
       step-num="3"
       last-step-num="4"
       progress="75"
-      step-title="Third step"
-      next-step-title="Fourth step"></ic-step>`,
+      heading="Third step"
+      next-step-heading="Fourth step"></ic-step>`,
     });
 
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should render an step status icon for a step with a disabled stepType", async () => {
+  it("should render an step status icon for a step with a disabled type", async () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
       variant="compact"
-      step-type="disabled"
+      type="disabled"
       compact-step-styling = "disabled"
       last-step="false"
       step-num="3"
       last-step-num="4"
       progress="75"
-      step-title="Third step"
-      next-step-title="next step"
+      heading="Third step"
+      next-step-heading="next step"
     ></ic-step>`,
     });
 
@@ -106,7 +106,7 @@ describe("compact variant of ic-step component", () => {
     );
   });
 
-  it("should render a step status icon for a step with a completed stepType", async () => {
+  it("should render a step status icon for a step with a completed type", async () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
@@ -115,9 +115,9 @@ describe("compact variant of ic-step component", () => {
       step-num="3"
       last-step-num="4"
       progress="75"
-      step-title="Third step"
-      next-step-title="next step"
-      step-type="completed"
+      heading="Third step"
+      next-step-heading="next step"
+      type="completed"
       compact-step-styling = "completed"
     ></ic-step>`,
     });
@@ -142,12 +142,12 @@ describe("compact variant of ic-step component", () => {
       components: [Step],
       html: `<ic-step
       variant="compact" 
-      step-type="current"
+      type="current"
       last-step="true"
       step-num=4"
       last-step-num="4"
       progress="100"
-      step-title="Final step"
+      heading="Final step"
     ></ic-step>`,
     });
 
@@ -167,7 +167,7 @@ describe("compact variant of ic-step component", () => {
       step-num=4"
       last-step-num="4"
       progress="100"
-      step-title="Final step"
+      heading="Final step"
     ></ic-step>`,
     });
 
@@ -180,7 +180,7 @@ describe("compact variant of ic-step component", () => {
     ).toBeTruthy();
   });
 
-  it("should watch the stepType & change the value of the current prop if stepType = 'current'", async () => {
+  it("should watch the type & change the value of the current prop if type = 'current'", async () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
@@ -189,17 +189,17 @@ describe("compact variant of ic-step component", () => {
       step-num=4"
       last-step-num="4"
       progress="100"
-      step-title="Final step"
-      step-type = "current"
+      heading="Final step"
+      type = "current"
     ></ic-step>`,
     });
 
-    await page.rootInstance.stepTypeChangeHandler();
+    await page.rootInstance.typeChangeHandler();
     await page.waitForChanges();
     expect(page.rootInstance.current).toBeTruthy();
   });
 
-  it("should watch the stepType & shouldn't change the value of the current prop if stepType is not 'current'", async () => {
+  it("should watch the type & shouldn't change the value of the current prop if type is not 'current'", async () => {
     const page = await newSpecPage({
       components: [Step],
       html: `<ic-step
@@ -208,13 +208,13 @@ describe("compact variant of ic-step component", () => {
       step-num=4"
       last-step-num="4"
       progress="100"
-      step-title="Final step"
-      step-type = "completed"
+      heading="Final step"
+      type = "completed"
       compact-step-styling = "completed"
     ></ic-step>`,
     });
 
-    await page.rootInstance.stepTypeChangeHandler();
+    await page.rootInstance.typeChangeHandler();
     await page.waitForChanges();
     expect(page.rootInstance.current).toBeFalsy();
   });

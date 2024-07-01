@@ -12,7 +12,7 @@
 | `accessibleButtonLabel` | `accessible-button-label` | The accessible button label to provide more context to the 'See all/Hide all' button for screen reader users. | `string`                          | `"accordions"` |
 | `appearance`            | `appearance`              | The appearance of the accordion group, e.g dark, or light.                                                    | `"dark" \| "default" \| "light"`  | `"default"`    |
 | `expanded`              | `expanded`                | If `true`, the accordion will load in an expanded state.                                                      | `boolean`                         | `false`        |
-| `groupTitle`            | `group-title`             | The header for the accordion group.                                                                           | `string`                          | `""`           |
+| `label`                 | `label`                   | The header for the accordion group.                                                                           | `string`                          | `""`           |
 | `singleExpansion`       | `single-expansion`        | If `true`, only one accordion will open at a time.                                                            | `boolean`                         | `false`        |
 | `size`                  | `size`                    | The size of the accordion.                                                                                    | `"default" \| "large" \| "small"` | `"default"`    |
 
@@ -33,9 +33,9 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot            | Description                                     |
-| --------------- | ----------------------------------------------- |
-| `"group-title"` | Content is placed as the accordion group title. |
+| Slot      | Description                                     |
+| --------- | ----------------------------------------------- |
+| `"label"` | Content is placed as the accordion group title. |
 
 
 ## Dependencies
