@@ -69,7 +69,7 @@ export class Badge {
 
   /**
    * The maximum number shown on the badge appended with a +.
-   * This will only be displayed if type="text" and textLabel is not empty.
+   * This will only be displayed if type="text" and label is not empty.
    */
   @Prop() maxNumber?: number;
 
@@ -86,7 +86,7 @@ export class Badge {
   /**
    * The text displayed in the badge. This will only be displayed if type="text".
    */
-  @Prop() textLabel?: string;
+  @Prop() label?: string;
 
   /**
    * The type of badge to be displayed.
@@ -126,7 +126,7 @@ export class Badge {
   componentDidLoad(): void {
     this.type === "text" &&
       onComponentRequiredPropUndefined(
-        [{ prop: this.textLabel, propName: "text-label" }],
+        [{ prop: this.label, propName: "label" }],
         "Badge"
       );
   }
@@ -184,10 +184,10 @@ export class Badge {
     );
   };
 
-  private getTextLabel = () =>
-    this.maxNumber && Number(this.textLabel) > this.maxNumber
+  private getLabel = () =>
+    this.maxNumber && Number(this.label) > this.maxNumber
       ? `${this.maxNumber}+`
-      : this.textLabel;
+      : this.label;
 
   // Set aria-label on badge and / or parent element
   // Aria-describedby seems to not work, probably due to shadow DOM
@@ -195,7 +195,7 @@ export class Badge {
     const parentEl = this.el.parentElement;
     const defaultAriaLabel = this.isAccessibleLabelDefined()
       ? this.accessibleLabel
-      : this.textLabel || "with badge being displayed";
+      : this.label || "with badge being displayed";
 
     if (parentEl) {
       const { tagName } = parentEl;
@@ -223,10 +223,10 @@ export class Badge {
       ariaLabel,
       el,
       foregroundColour,
-      getTextLabel,
+      getLabel,
       position,
       size,
-      textLabel,
+      label,
       type,
       variant,
       visible,
@@ -247,9 +247,9 @@ export class Badge {
         role="status"
       >
         {type === "icon" && <slot name="badge-icon"></slot>}
-        {type === "text" && textLabel && (
+        {type === "text" && label && (
           <ic-typography variant={size === "small" ? "badge-small" : "badge"}>
-            {getTextLabel()}
+            {getLabel()}
           </ic-typography>
         )}
         {type === "dot" && <span class="sr-only">badge</span>}
