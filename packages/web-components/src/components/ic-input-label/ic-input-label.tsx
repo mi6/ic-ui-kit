@@ -26,11 +26,6 @@ export class InputLabel {
   @Prop() disabled: boolean = false;
 
   /**
-   * If `true`, the input label will display with error styling.
-   */
-  @Prop() error?: boolean = false;
-
-  /**
    * The ID of the form element the label is bound to.
    */
   @Prop() for: string;
@@ -55,6 +50,11 @@ export class InputLabel {
    */
   @Prop() required: boolean = false;
 
+  /**
+   * The status of the label - e.g. 'error'.
+   */
+  @Prop() status: "error" | "" = "";
+
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -69,7 +69,7 @@ export class InputLabel {
       label,
       required,
       helperText,
-      error,
+      status,
       dark,
       appearance,
     } = this;
@@ -94,7 +94,7 @@ export class InputLabel {
           variant="label"
           class={{
             ["readonly-label"]: readonly,
-            ["error-label"]: error && !(readonly || disabled),
+            ["error-label"]: status === "error" && !(readonly || disabled),
             ["dark"]: dark || appearance === "dark",
           }}
         >

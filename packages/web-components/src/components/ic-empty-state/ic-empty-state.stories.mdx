@@ -243,7 +243,7 @@ import readme from "./readme.md";
       subheading="Empty state subtitle"
       body="Body of text that is truncated to two lines. Click the 'See more' link to expand the text, then click 'See less' to truncate the text once more!
 Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak, percolator, instant, qui saucer latte in brewed café au lait. Con panna, cup, cream, body americano affogato cup espresso, rich milk seasonal saucer grinder spoon that cultivar strong redeye frappuccino barista extraction redeye mazagran. Grounds, french press dripper organic and foam id saucer, crema, black rich dark, grounds breve coffee steamed caramelization percolator."
-      body-max-lines="2"
+      max-lines="2"
     >
       <svg
         slot="image"
@@ -350,7 +350,7 @@ Dripper caramelization java saucer grounds galão, mocha, and robusta kopi-luwak
 export const defaultArgs = {
   aligned: "left",
   body: "This is the body text for the empty state.",
-  bodyMaxLines: 3,
+  maxLines: 3,
   heading: "This is the heading",
   imageSize: "default",
   subheading: "This is the subheading",
@@ -384,7 +384,7 @@ export const defaultArgs = {
         subheading=${args.subheading}
         body=${args.body}
         image-size=${args.imageSize}
-        body-max-lines=${args.bodyMaxLines}
+        max-lines=${args.maxLines}
         aligned=${args.aligned}
       >
         ${args.showImage &&
