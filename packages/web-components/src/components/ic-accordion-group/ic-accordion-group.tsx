@@ -15,7 +15,7 @@ import { isSlotUsed } from "../../utils/helpers";
 let accordionGroupIds = 0;
 
 /**
- * @slot group-title - Content is placed as the accordion group title.
+ * @slot label - Content is placed as the accordion group title.
  */
 @Component({
   tag: "ic-accordion-group",
@@ -60,7 +60,7 @@ export class AccordionGroup {
   /**
    * The header for the accordion group.
    */
-  @Prop() groupTitle: string = "";
+  @Prop() label: string = "";
 
   /**
    * If `true`, only one accordion will open at a time.
@@ -153,13 +153,8 @@ export class AccordionGroup {
   };
 
   render() {
-    const {
-      appearance,
-      size,
-      groupTitle,
-      singleExpansion,
-      accessibleButtonLabel,
-    } = this;
+    const { appearance, size, label, singleExpansion, accessibleButtonLabel } =
+      this;
     return (
       <Host
         context-id={this.accordionGroupId}
@@ -169,14 +164,10 @@ export class AccordionGroup {
           ["accordion-group"]: true,
         }}
       >
-        <div class="group-title-container">
+        <div class="label-container">
           <ic-typography variant="h4">
             <h3>
-              {isSlotUsed(this.el, "group-title") ? (
-                <slot name="group-title" />
-              ) : (
-                groupTitle
-              )}
+              {isSlotUsed(this.el, "label") ? <slot name="label" /> : label}
             </h3>
           </ic-typography>
           {!singleExpansion && (
