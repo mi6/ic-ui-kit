@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-07T08:35:11",
+  "timestamp": "2024-07-01T13:46:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -3147,7 +3147,12 @@
       "tag": "ic-select-with-multi",
       "readme": "# ic-select\n\n\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon - Content will be placed to the left of the select text input."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4172,7 +4177,12 @@
           "docs": "Width of the dropdown menu"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon",
+          "docs": "Content will be placed to the left of the select text input."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
