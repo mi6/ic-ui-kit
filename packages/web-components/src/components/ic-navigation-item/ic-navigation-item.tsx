@@ -122,12 +122,12 @@ export class NavigationItem {
   disconnectedCallback(): void {
     if (this.navigationType === "side") {
       this.parentEl.removeEventListener(
-        "sideNavExpanded",
+        "icSideNavExpanded",
         this.sideNavExpandHandler
       );
     } else if (this.navigationType === "top") {
       this.parentEl.removeEventListener(
-        "topNavResized",
+        "icTopNavResized",
         this.topNavResizedHandler
       );
     }
@@ -141,12 +141,12 @@ export class NavigationItem {
 
     if (this.navigationType === "side") {
       this.parentEl.addEventListener(
-        "sideNavExpanded",
+        "icSideNavExpanded",
         this.sideNavExpandHandler
       );
     } else if (this.navigationType === "top") {
       this.parentEl.addEventListener(
-        "topNavResized",
+        "icTopNavResized",
         this.topNavResizedHandler
       );
       if (this.el.parentElement.tagName === "IC-NAVIGATION-GROUP")
