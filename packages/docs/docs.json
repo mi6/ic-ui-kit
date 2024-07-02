@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-27T11:13:20",
+  "timestamp": "2024-07-09T07:49:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -10840,7 +10840,7 @@
     },
     {
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ic-radio-option",
       "readme": "# ic-radio-option\n\n\n",
       "docs": "",
