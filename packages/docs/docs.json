@@ -10753,7 +10753,7 @@
     },
     {
       "filePath": "src/components/ic-radio-option/ic-radio-option.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ic-radio-option",
       "readme": "# ic-radio-option\r\n\r\n\r\n\r",
       "docs": "",
