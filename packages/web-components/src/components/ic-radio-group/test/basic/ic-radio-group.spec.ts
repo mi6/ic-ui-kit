@@ -197,9 +197,7 @@ describe("ic-radio-group", () => {
     });
 
     const div =
-      page.rootInstance.radioOptions[1].shadowRoot.querySelector(
-        ".dynamic-container"
-      );
+      page.rootInstance.radioOptions[1].querySelector(".dynamic-container");
     div.click();
     await page.waitForChanges();
 
