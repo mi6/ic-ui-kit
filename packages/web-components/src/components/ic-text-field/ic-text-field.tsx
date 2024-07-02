@@ -31,6 +31,7 @@ import {
   removeFormResetListener,
   isSlotUsed,
   removeDisabledFalse,
+  checkSlotInChildMutations,
 } from "../../utils/helpers";
 import { IC_INHERITED_ARIA } from "../../utils/constants";
 import {
@@ -355,12 +356,13 @@ export class TextField {
       "Text Field"
     );
     if (this.validationInlineInternal) {
-      this.getInlineValidationText();
+      this.getValidationText.emit({ value: this.validationText });
     }
 
     this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
     this.hostMutationObserver.observe(this.el, {
       attributes: true,
+      childList: true,
     });
   }
 
@@ -376,41 +378,29 @@ export class TextField {
 
   @Method()
   async setFocus(): Promise<void> {
-    if (this.inputEl) {
-      this.inputEl.focus();
-    }
+    this.inputEl?.focus();
   }
 
   private getMaxLengthExceeded = (value: string) => {
     this.numChars = value.length;
 
     if (this.type === "number") {
-      this.minValueUnattained =
-        value && Number(value) < Number(this.min) ? true : false;
-      this.maxValueExceeded = Number(value) > Number(this.max) ? true : false;
+      this.minValueUnattained = value && Number(value) < Number(this.min);
+      this.maxValueExceeded = Number(value) > Number(this.max);
     }
 
     if (this.maxLength > 0) {
-      this.maxLengthExceeded = value.length > this.maxLength ? true : false;
+      this.maxLengthExceeded = this.numChars > this.maxLength;
     }
   };
 
   private getMaxCharactersReached = (value: string) => {
     this.numChars = value.length;
+    this.maxCharactersReached =
+      this.maxCharacters > 0 ? this.numChars >= this.maxCharacters : false;
 
-    if (this.maxCharacters > 0) {
-      this.maxCharactersReached = this.numChars >= this.maxCharacters;
-      if (this.maxCharactersError && !this.maxCharactersReached) {
-        this.maxCharactersError = false;
-      }
-    }
-  };
-
-  private getMinCharactersUnattained = (value: string) => {
-    this.numChars = value.length;
-
-    if (this.minCharacters > 0) {
-      this.minCharactersUnattained = this.numChars < this.minCharacters;
+    if (this.maxCharactersError && !this.maxCharactersReached) {
+      this.maxCharactersError = false;
     }
   };
 
@@ -421,39 +411,18 @@ export class TextField {
 
   private onBlur = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
-    this.getMinCharactersUnattained(value);
+    this.numChars = value.length;
+    this.minCharactersUnattained =
+      this.minCharacters > 0 ? this.numChars < this.minCharacters : false;
     this.icBlur.emit({ value: value });
   };
 
   private onFocus = (ev: Event) => {
-    const value = (ev.target as HTMLInputElement).value;
-    this.icFocus.emit({ value: value });
+    this.icFocus.emit({ value: (ev.target as HTMLInputElement).value });
   };
 
-  private isTextArea = (): boolean => {
-    return this.rows > 1;
-  };
-
-  private getInlineValidationText = () => {
-    this.getValidationText.emit({ value: this.validationText });
-  };
-
-  private hasLeftIconSlot(): boolean {
-    const iconEl = this.el.querySelector(`[slot="icon"]`);
-    return iconEl !== null;
-  }
-
-  private hasStatus = (status: IcInformationStatusOrEmpty): boolean => {
-    return status !== "" && !this.disabled;
-  };
-
-  private showStatusText = (status: IcInformationStatusOrEmpty): boolean => {
-    return (
-      this.hasStatus(status) &&
-      !(status == IcInformationStatus.Success && this.validationInline) &&
-      !this.validationInlineInternal
-    );
-  };
+  private hasStatus = (status: IcInformationStatusOrEmpty) =>
+    status !== "" && !this.disabled;
 
   private handleFormReset = (): void => {
     this.value = this.initialValue;
@@ -462,13 +431,21 @@ export class TextField {
   // triggered when attributes of host element change
   private hostMutationCallback = (mutationList: MutationRecord[]): void => {
     let forceComponentUpdate = false;
-    mutationList.forEach(({ attributeName }) => {
-      if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
-        this.inheritedAttributes[attributeName] =
-          this.el.getAttribute(attributeName);
-        forceComponentUpdate = true;
+    mutationList.forEach(
+      ({ attributeName, type, addedNodes, removedNodes }) => {
+        if (MUTABLE_ATTRIBUTES.includes(attributeName)) {
+          this.inheritedAttributes[attributeName] =
+            this.el.getAttribute(attributeName);
+          forceComponentUpdate = true;
+        } else if (type === "childList") {
+          forceComponentUpdate = checkSlotInChildMutations(
+            addedNodes,
+            removedNodes,
+            "icon"
+          );
+        }
       }
-    });
+    );
     if (forceComponentUpdate) {
       forceUpdate(this);
     }
@@ -513,9 +490,7 @@ export class TextField {
     } = this;
 
     const disabledMode = readonly ? true : disabled;
-
     const placeholderText = disabled ? "" : placeholder;
-
     const currentStatus =
       maxLengthExceeded ||
       maxValueExceeded ||
@@ -540,7 +515,6 @@ export class TextField {
       : validationText;
 
     const maxNumChars = readonly ? 0 : maxLength;
-
     const messageAriaLive =
       maxLengthExceeded ||
       maxCharactersError ||
@@ -550,24 +524,26 @@ export class TextField {
         ? "assertive"
         : "polite";
 
-    const showStatusText = this.showStatusText(currentStatus);
-    const multiline = this.isTextArea();
+    const showStatusText =
+      this.hasStatus(currentStatus) &&
+      !(currentStatus == IcInformationStatus.Success && validationInline) &&
+      !validationInlineInternal;
+
+    const multiline = rows > 1;
     const hiddenCharCountDescId =
-      maxLength > 0 ? inputId + "-charcount-desc" : "";
-    const describedBy = (
-      hiddenCharCountDescId +
-      " " +
-      getInputDescribedByText(inputId, helperText !== "", showStatusText)
-    ).trim();
+      maxLength > 0 ? `${inputId}-charcount-desc` : "";
 
-    let showLeftIcon = this.hasLeftIconSlot();
-    if (showLeftIcon && !readonly && disabledMode) {
-      showLeftIcon = false;
-    }
+    const describedBy = `${hiddenCharCountDescId} ${getInputDescribedByText(
+      inputId,
+      helperText !== "",
+      showStatusText
+    )}`.trim();
 
-    const invalid =
-      currentStatus === IcInformationStatus.Error ? "true" : "false";
     const disabledText = disabledMode && !readonly;
+    const showLeftIcon =
+      !!this.el.querySelector(`[slot="icon"]`) && !disabledText;
+
+    const invalid = `${currentStatus === IcInformationStatus.Error}`;
 
     if (hiddenInput) {
       renderHiddenInput(true, this.el, name, value, disabledMode);
