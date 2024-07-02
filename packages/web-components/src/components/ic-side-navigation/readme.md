@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event             | Description                                                 | Type                            |
-| ----------------- | ----------------------------------------------------------- | ------------------------------- |
-| `sideNavExpanded` | Emitted when the side navigation is collapsed and expanded. | `CustomEvent<IcExpandedDetail>` |
+| Event               | Description                                                 | Type                            |
+| ------------------- | ----------------------------------------------------------- | ------------------------------- |
+| `icSideNavExpanded` | Emitted when the side navigation is collapsed and expanded. | `CustomEvent<IcExpandedDetail>` |
 
 
 ## Slots

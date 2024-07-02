@@ -3038,7 +3038,7 @@ declare global {
         new (): HTMLIcSelectElement;
     };
     interface HTMLIcSideNavigationElementEventMap {
-        "sideNavExpanded": IcExpandedDetail;
+        "icSideNavExpanded": IcExpandedDetail;
     }
     interface HTMLIcSideNavigationElement extends Components.IcSideNavigation, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcSideNavigationElementEventMap>(type: K, listener: (this: HTMLIcSideNavigationElement, ev: IcSideNavigationCustomEvent<HTMLIcSideNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3267,7 +3267,7 @@ declare global {
     interface HTMLIcTopNavigationElementEventMap {
         "icNavigationMenuClosed": void;
         "icNavigationMenuOpened": void;
-        "topNavResized": { size: number };
+        "icTopNavResized": { size: number };
     }
     interface HTMLIcTopNavigationElement extends Components.IcTopNavigation, HTMLStencilElement {
         addEventListener<K extends keyof HTMLIcTopNavigationElementEventMap>(type: K, listener: (this: HTMLIcTopNavigationElement, ev: IcTopNavigationCustomEvent<HTMLIcTopNavigationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5194,7 +5194,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the side navigation is collapsed and expanded.
          */
-        "onSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
+        "onIcSideNavExpanded"?: (event: IcSideNavigationCustomEvent<IcExpandedDetail>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
@@ -5773,7 +5773,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the top navigation is resized.
          */
-        "onTopNavResized"?: (event: IcTopNavigationCustomEvent<{ size: number }>) => void;
+        "onIcTopNavResized"?: (event: IcTopNavigationCustomEvent<{ size: number }>) => void;
         /**
           * The short title of the app to be displayed at small screen sizes in place of the app title.
          */
