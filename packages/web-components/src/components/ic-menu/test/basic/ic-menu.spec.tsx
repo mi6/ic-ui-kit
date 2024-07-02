@@ -1311,7 +1311,7 @@ describe("ic-menu in isolation", () => {
       IcSearchBar
     ) as HTMLIcSearchBarElement;
     const input = window.document.createElement("input");
-    searchBar.disableFilter = true;
+    searchBar.disableAutoFiltering = true;
 
     const page = await newSpecPage({
       components: [Menu, InputComponentContainer],

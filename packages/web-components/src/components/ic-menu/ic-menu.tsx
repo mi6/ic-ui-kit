@@ -232,7 +232,7 @@ export class Menu {
   componentDidLoad(): void {
     if (
       this.isSearchBar &&
-      (this.parentEl as HTMLIcSearchBarElement).disableFilter
+      (this.parentEl as HTMLIcSearchBarElement).disableAutoFiltering
     ) {
       this.focusFromSearchKeypress = true;
     }

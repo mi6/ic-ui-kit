@@ -45,7 +45,7 @@ describe("IcBadge", () => {
     mount(
       <IcButton variant="secondary" style={{ margin: "16px" }}>
         <IcBadge
-          text-label="1"
+          label="1"
           slot="badge"
           size="large"
           accessible-label="1 notification found"
@@ -60,7 +60,7 @@ describe("IcBadge", () => {
   it("should remove ariaLabel from parent when the badge is not visible", () => {
     mount(
       <IcButton variant="secondary" style={{ margin: "16px" }}>
-        <IcBadge text-label="1" slot="badge" size="large" />
+        <IcBadge label="1" slot="badge" size="large" />
         Default
       </IcButton>
     );
@@ -148,7 +148,7 @@ describe("IcBadge", () => {
         <div style={{ padding: "16px" }}>
           <IcButton variant="secondary" style={{ marginRight: "16px" }}>
             <IcBadge
-              text-label="1000"
+              label="1000"
               slot="badge"
               size="small"
               max-number="9"
@@ -158,7 +158,7 @@ describe("IcBadge", () => {
           </IcButton>
           <IcButton variant="secondary" style={{ marginRight: "16px" }}>
             <IcBadge
-              text-label="1000"
+              label="1000"
               max-number="9"
               slot="badge"
               variant="success"
@@ -167,7 +167,7 @@ describe("IcBadge", () => {
           </IcButton>
           <IcButton variant="secondary">
             <IcBadge
-              text-label="1000"
+              label="1000"
               slot="badge"
               size="large"
               max-number="9"
@@ -179,7 +179,7 @@ describe("IcBadge", () => {
         <div style={{ padding: "16px" }}>
           <IcButton variant="secondary" style={{ marginRight: "16px" }}>
             <IcBadge
-              text-label="1000"
+              label="1000"
               slot="badge"
               size="small"
               max-number="99"
@@ -189,7 +189,7 @@ describe("IcBadge", () => {
           </IcButton>
           <IcButton variant="secondary" style={{ marginRight: "16px" }}>
             <IcBadge
-              text-label="1000"
+              label="1000"
               max-number="99"
               slot="badge"
               variant="success"
@@ -198,7 +198,7 @@ describe("IcBadge", () => {
           </IcButton>
           <IcButton variant="secondary">
             <IcBadge
-              text-label="1000"
+              label="1000"
               slot="badge"
               size="large"
               max-number="99"
@@ -222,13 +222,13 @@ describe("IcBadge", () => {
       <div>
         <div style={{ padding: "16px" }}>
           <IcChip label="Small" style={{ marginRight: "16px" }}>
-            <IcBadge text-label="1" slot="badge" position="near" size="small" />
+            <IcBadge label="1" slot="badge" position="near" size="small" />
           </IcChip>
           <IcChip label="Default" style={{ marginRight: "16px" }}>
-            <IcBadge text-label="1" slot="badge" position="near" />
+            <IcBadge label="1" slot="badge" position="near" />
           </IcChip>
           <IcChip label="Large">
-            <IcBadge text-label="1" slot="badge" position="near" size="large" />
+            <IcBadge label="1" slot="badge" position="near" size="large" />
           </IcChip>
         </div>
         <div style={{ padding: "16px" }}>
@@ -260,7 +260,7 @@ describe("IcBadge", () => {
           <IcTab>
             Small
             <IcBadge
-              text-label="1"
+              label="1"
               slot="badge"
               position="inline"
               size="small"
@@ -270,7 +270,7 @@ describe("IcBadge", () => {
           <IcTab>
             Default
             <IcBadge
-              text-label="1"
+              label="1"
               slot="badge"
               position="inline"
               accessibleLabel="1 notification found"
@@ -279,7 +279,7 @@ describe("IcBadge", () => {
           <IcTab>
             Large
             <IcBadge
-              text-label="1"
+              label="1"
               slot="badge"
               position="inline"
               size="large"

@@ -12,7 +12,7 @@ describe("ic-accordion-group snapshots", () => {
   it("should match default snapshot", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup],
-      html: `<ic-accordion-group group-title="Test heading"></ic-accordion-group>`,
+      html: `<ic-accordion-group label="Test heading"></ic-accordion-group>`,
     });
     expect(page.root).toMatchSnapshot("renders as default");
   });
@@ -20,7 +20,7 @@ describe("ic-accordion-group snapshots", () => {
   it("should match light snapshot", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup],
-      html: `<ic-accordion-group appearance="light" group-title="Test heading"></ic-accordion-group>`,
+      html: `<ic-accordion-group appearance="light" label="Test heading"></ic-accordion-group>`,
     });
     expect(page.root).toMatchSnapshot("renders as light");
   });
@@ -31,7 +31,7 @@ describe("ic-accordion-group functions unit test", () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
-    <ic-accordion-group group-title="Test heading">
+    <ic-accordion-group label="Test heading">
       <ic-accordion>
         <ic-typography variant="body" >
           This is an example of the main body text.
@@ -56,7 +56,7 @@ describe("ic-accordion-group functions unit test", () => {
   it("should check handleExpanded", async () => {
     const page = await newSpecPage({
       components: [AccordionGroup],
-      html: `<ic-accordion-group group-title="Test heading" expanded></ic-accordion-group>`,
+      html: `<ic-accordion-group label="Test heading" expanded></ic-accordion-group>`,
     });
     expect(page.root.expanded).toBe(true);
     await page.rootInstance.handleExpanded();
@@ -70,7 +70,7 @@ describe("ic-accordion-group component", () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
-      <ic-accordion-group expanded="true" group-title="Test heading">
+      <ic-accordion-group expanded="true" label="Test heading">
         <ic-accordion heading="Accordion 1">
           <ic-typography variant="body">
             This is an example of the main body text.
@@ -88,7 +88,7 @@ describe("ic-accordion-group component", () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
-      <ic-accordion-group group-title="Test heading" single-expansion="true">
+      <ic-accordion-group label="Test heading" single-expansion="true">
         <ic-accordion heading="Accordion 1">
           <ic-typography variant="body">
             This is an example of the main body text.
@@ -121,7 +121,7 @@ describe("ic-accordion-group component", () => {
     const page = await newSpecPage({
       components: [AccordionGroup, Accordion],
       html: `
-      <ic-accordion-group group-title="Test heading">
+      <ic-accordion-group label="Test heading">
         <ic-accordion heading="Accordion 1">
           <ic-typography variant="body">
             This is an example of the main body text.
