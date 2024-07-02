@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from "cypress";
 import webpackConfig from './.webpack/webpack.config.js'
+import webpackPreprocessor from '@cypress/webpack-preprocessor';
+
+const options = {
+  webpackOptions: webpackConfig
+ };
 
 export const config: Cypress.ConfigOptions = {
   component: {
@@ -19,6 +24,7 @@ export const config: Cypress.ConfigOptions = {
         return launchActions;
       });
       config.browsers = config.browsers.filter((b) => b.name == 'electron')
+      on('file:preprocessor', webpackPreprocessor(options))
       return config;
     },
     supportFile: "./cypress/support/index.ts",

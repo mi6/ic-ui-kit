@@ -2,6 +2,9 @@ const path = require('path');
 
 module.exports = {
     context: path.join(__dirname, '..'),
+    output: {
+        publicPath: path.join(__dirname, "..", "dist")
+    },
     module: {
         rules: [
             {
