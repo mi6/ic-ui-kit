@@ -55,6 +55,8 @@ export class Menu {
   @State() optionHighlighted: string;
   @State() preventIncorrectTabOrder: boolean = false;
 
+  @State() highlightedValue: string;
+
   /**
    * Determines whether options manually set as values (by pressing 'Enter') when they receive focus using keyboard navigation.
    */
@@ -153,6 +155,7 @@ export class Menu {
 
   @Watch("value")
   watchValueHandler(): void {
+    this.highlightedValue = this.value;
     this.menuValueChange.emit({ value: this.value });
   }
 
@@ -250,8 +253,12 @@ export class Menu {
   }
 
   componentDidUpdate(): void {
+    // const inputValueInOptions = this.options.some(
+    //   (option) => option[this.valueField] === this.value
+    // );
+    // console.log("componentDidUpdate", this.highlightedValue);
     const inputValueInOptions = this.options.some(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField] === this.highlightedValue
     );
 
     if (this.open && this.options.length !== 0) {
@@ -382,40 +389,52 @@ export class Menu {
 
   private setNextOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex + 1]) {
-      this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
-        ),
-      });
+      this.highlightedValue = this.ungroupedOptions[selectedOptionIndex + 1][this.valueField];
+      if (!this.ungroupedOptions[selectedOptionIndex + 1].disabled) {
+        this.menuOptionSelect.emit({
+          value: this.ungroupedOptions[selectedOptionIndex + 1][this.valueField],
+          optionId: this.getOptionId(
+            this.ungroupedOptions[selectedOptionIndex + 1][this.valueField]
+          ),
+        });
+      }
     } else {
-      this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[0][this.valueField],
-        optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
-      });
+      this.highlightedValue = this.ungroupedOptions[0][this.valueField];
+      if (!this.ungroupedOptions[0][this.valueField].disabled) {  
+        this.menuOptionSelect.emit({
+          value: this.ungroupedOptions[0][this.valueField],
+          optionId: this.getOptionId(this.ungroupedOptions[0][this.valueField]),
+        });
+      }
     }
   };
 
   private setPreviousOptionValue = (selectedOptionIndex: number): void => {
     if (this.ungroupedOptions[selectedOptionIndex - 1]) {
-      this.menuOptionSelect.emit({
-        value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
-        ),
-      });
+      this.highlightedValue = this.ungroupedOptions[selectedOptionIndex - 1][this.valueField];
+      if (!this.ungroupedOptions[selectedOptionIndex - 1].disabled) {
+        this.menuOptionSelect.emit({
+          value: this.ungroupedOptions[selectedOptionIndex - 1][this.valueField],
+          optionId: this.getOptionId(
+            this.ungroupedOptions[selectedOptionIndex - 1][this.valueField]
+          ),
+        });
+      }
     } else {
-      this.menuOptionSelect.emit({
-        value:
-          this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
-          ],
-        optionId: this.getOptionId(
-          this.ungroupedOptions[this.ungroupedOptions.length - 1][
-            this.valueField
-          ]
-        ),
-      });
+      this.highlightedValue = this.ungroupedOptions[this.ungroupedOptions.length - 1][this.valueField];
+      if (!this.ungroupedOptions[this.ungroupedOptions.length - 1][this.valueField].disabled) {
+        this.menuOptionSelect.emit({
+          value:
+            this.ungroupedOptions[this.ungroupedOptions.length - 1][
+              this.valueField
+            ],
+          optionId: this.getOptionId(
+            this.ungroupedOptions[this.ungroupedOptions.length - 1][
+              this.valueField
+            ]
+          ),
+        });
+      }
     }
   };
 
@@ -440,6 +459,7 @@ export class Menu {
     this.isSearchBar ? this.options : this.ungroupedOptions;
 
   private setHighlightedOption = (highlightedIndex: number): void => {
+    // console.log("setHighlightedOption", highlightedIndex)
     const menuOptions = this.setMenuOptions();
 
     menuOptions[highlightedIndex] &&
@@ -449,9 +469,17 @@ export class Menu {
   };
 
   private autoSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
+    // const selectedOptionIndex = this.ungroupedOptions.findIndex(
+    //   (option) => option[this.valueField] === this.value
+    // );
+    console.log("keydown")
+
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField] === this.highlightedValue
     );
+
+    console.log("selectedOptionIndex", selectedOptionIndex)
+    
 
     this.keyboardNav = false;
 
@@ -477,6 +505,7 @@ export class Menu {
 
   private manSetInputValueKeyboardOpen = (event: KeyboardEvent) => {
     const menuOptions = this.setMenuOptions();
+    console.log("manSetInputValueKeyboardOpen");
 
     const highlightedOptionIndex = menuOptions.findIndex(
       (option) => option[this.valueField] === this.optionHighlighted
@@ -659,9 +688,10 @@ export class Menu {
   };
 
   private autoSetValueOnMenuKeyDown = (event: KeyboardEvent): void => {
+    console.log("autoSetValueOnMenuKeyDown")
     event.cancelBubble = true;
     const selectedOptionIndex = this.ungroupedOptions.findIndex(
-      (option) => option[this.valueField] === this.value
+      (option) => option[this.valueField] === this.highlightedValue
     );
 
     const isSearchableSelect = this.inputEl.tagName === "INPUT";
@@ -799,7 +829,9 @@ export class Menu {
           option.children.map(
             (option) => !option.disabled && this.ungroupedOptions.push(option)
           );
-        } else if (!option.disabled) {
+        // } else if (!option.disabled) {
+        }
+        else {
           this.ungroupedOptions.push(option);
         }
       });
@@ -842,6 +874,9 @@ export class Menu {
   }
 
   private optionContent = (option: IcMenuOption) => {
+    const {
+      keyboardNav,
+    } = this;
     return (
       <Fragment>
         {option.loading && <ic-loading-indicator size="icon" />}
@@ -879,9 +914,13 @@ export class Menu {
         {!!option[this.valueField] &&
           !!this.value &&
           option[this.valueField].toLowerCase() === this.value?.toLowerCase() &&
+          !(option.disabled && keyboardNav) &&
           this.parentEl.tagName !== "IC-SEARCH-BAR" && (
             <span class="check-icon" innerHTML={Check} />
           )}
+        {option.disabled && (
+          <div class="disabled-focus-border"></div>
+          )} 
       </Fragment>
     );
   };
@@ -894,6 +933,7 @@ export class Menu {
     const {
       open,
       value,
+      highlightedValue,
       keyboardNav,
       isManualMode,
       initialOptionsListRender,
@@ -909,7 +949,7 @@ export class Menu {
           "focused-option": isManualMode
             ? (keyboardNav || initialOptionsListRender) &&
               option[this.valueField] === optionHighlighted
-            : keyboardNav && option[this.valueField] === value,
+            : keyboardNav && option[this.valueField] === highlightedValue,
           "last-recommended-option":
             option.recommended &&
             options[index + 1] &&
@@ -981,7 +1021,8 @@ export class Menu {
       inputLabel,
       options,
       menuId,
-      value,
+      highlightedValue,
+      // value,
       fullWidth,
       hasTimedOut,
       isLoading,
@@ -1009,7 +1050,7 @@ export class Menu {
             role="listbox"
             aria-label={inputLabel}
             aria-activedescendant={
-              value != null && value !== "" ? this.getOptionId(value) : ""
+              highlightedValue != null && highlightedValue !== "" ? this.getOptionId(highlightedValue) : ""
             }
             tabindex={
               open && !keyboardNav && inputEl?.tagName !== "INPUT" ? "0" : "-1"

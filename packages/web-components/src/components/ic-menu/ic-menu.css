@@ -192,12 +192,27 @@
   color: var(--ic-color-white-text) !important;
 }
 
+.focused-option.disabled-option {
+  position: relative;
+}
+
 :host(.no-results) li {
   cursor: no-drop;
 }
 
 :host(.no-results) li:hover {
   background-color: transparent;
+}
+
+.focused-option.disabled-option .disabled-focus-border {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px dashed white;
+  margin: 2px;
+  border-radius: 2px;
 }
 
 @media (forced-colors: active) {

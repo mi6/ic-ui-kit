@@ -551,9 +551,11 @@ export class Select {
   };
 
   private setMenuChange = (open: boolean) => {
-    if (this.open !== open) {
-      this.open = open;
-    }
+    this.open=true;
+    console.log(open)
+    // if (this.open !== open) {
+    //   this.open = open;
+    // }
   };
 
   private getLabelFromValue = (value: string): string | undefined => {
@@ -611,8 +613,10 @@ export class Select {
       );
     }
 
+    
     this.ariaActiveDescendant = event.detail.optionId;
     this.icOptionSelect.emit({ value: event.detail.value });
+    // console.log("handleCustomSelectChange", event.detail.value)
     this.emitIcChange(event.detail.value);
   };
 
@@ -631,6 +635,7 @@ export class Select {
   };
 
   private handleMenuValueChange = (ev: CustomEvent): void => {
+    // console.log("handleMenuValueChange", this.value, ev.detail.value);
     this.value = ev.detail.value;
   };
 
@@ -1279,7 +1284,7 @@ export class Select {
               small={small}
               size={size}
               menuId={menuId}
-              open={this.open}
+              open={true}
               options={searchable ? this.filteredOptions : this.uniqueOptions}
               value={currValue}
               fullWidth={fullWidth}
