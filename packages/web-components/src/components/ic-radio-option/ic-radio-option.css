@@ -1,18 +1,18 @@
 @import "../../global/normalize.css";
 
-:host {
+ic-radio-option {
   display: flex;
   flex-direction: column;
   width: fit-content;
 }
 
-:host([additional-field-display="static"]) ::slotted(ic-text-field) {
+.additional-field-wrapper ic-text-field {
   margin-top: calc(var(--ic-space-sm) / 2);
   margin-left: var(--ic-space-xl);
 }
 
 /* The label turns grey when disabled  */
-:host(.disabled) {
+.disabled {
   color: var(--ic-architectural-200);
 }
 
@@ -182,7 +182,7 @@
 }
 
 @media (max-width: 576px) {
-  ::slotted(ic-text-field) {
+  ic-text-field {
     --input-width: 100%;
   }
 }
