@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-24T09:26:04",
+  "timestamp": "2024-07-02T10:52:08",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -18646,30 +18646,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "resetTruncation",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "resetTruncation() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
+      "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],

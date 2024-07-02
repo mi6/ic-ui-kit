@@ -1161,6 +1161,16 @@ export const DevArea = (): HTMLElement => {
   });
   updateDataButton.innerHTML = "Update data";
 
+  const switchTruncation = document.createElement("ic-button");
+  switchTruncation.addEventListener("click", () => {
+    if (dataTable.truncationPattern === 'show-hide') {
+      dataTable.truncationPattern = 'tooltip';
+    } else {
+      dataTable.truncationPattern = 'show-hide';
+    }
+  });
+  switchTruncation.innerHTML = "Toggle truncation pattern";
+
   const buttonWrapper = document.createElement("div");
   buttonWrapper.style["display"] = "flex";
   buttonWrapper.style["paddingTop"] = "10px";
@@ -1169,6 +1179,7 @@ export const DevArea = (): HTMLElement => {
   buttonWrapper.insertAdjacentElement("beforeend", resetButton);
   buttonWrapper.insertAdjacentElement("beforeend", increaseButton);
   buttonWrapper.insertAdjacentElement("beforeend", updateDataButton);
+  buttonWrapper.insertAdjacentElement("beforeend", switchTruncation);
 
   const wrapper = document.createElement("div");
   wrapper.insertAdjacentElement("afterbegin", dataTable);

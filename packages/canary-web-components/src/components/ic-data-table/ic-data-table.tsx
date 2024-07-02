@@ -377,27 +377,11 @@ export class DataTable {
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) => {
-    // debugger;
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
-      if (
-        this.truncationPattern === "tooltip" &&
-        !typographyEl.closest(".text-wrap")
-      ) {
-        typographyEl.setAttribute(
-          "style",
-          `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
-        );
+      this.addTooltipTruncation(typographyEl, cellContainer, tooltip);
 
-        if (!tooltip) {
-          this.createTruncationTooltip(typographyEl, cellContainer);
-        }
-      }
-
-      if (this.truncationPattern === "show-hide") {
-        cellContainer.classList.add(this.SHOW_HIDE_CSS_CLASS);
-        this.createShowHideTruncation(typographyEl, cellContainer);
-      }
+      this.addShowHideTruncation(cellContainer, typographyEl);
     } else {
       if (this.truncationPattern === "tooltip" && tooltip) {
         typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
@@ -415,6 +399,36 @@ export class DataTable {
     }
   };
 
+  private addTooltipTruncation(
+    typographyEl: HTMLIcTypographyElement,
+    cellContainer: HTMLElement,
+    tooltip: HTMLIcTooltipElement
+  ) {
+    if (
+      this.truncationPattern === "tooltip" &&
+      !typographyEl.closest(".text-wrap")
+    ) {
+      typographyEl.setAttribute(
+        "style",
+        `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+      );
+
+      if (!tooltip) {
+        this.createTruncationTooltip(typographyEl, cellContainer);
+      }
+    }
+  }
+
+  private addShowHideTruncation(
+    cellContainer: HTMLElement,
+    typographyEl: HTMLIcTypographyElement
+  ) {
+    if (this.truncationPattern === "show-hide") {
+      cellContainer.classList.add(this.SHOW_HIDE_CSS_CLASS);
+      this.createShowHideTruncation(typographyEl, cellContainer);
+    }
+  }
+
   @Listen("icItemsPerPageChange")
   handleItemsPerPageChange({
     detail,
@@ -427,7 +441,6 @@ export class DataTable {
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
-    // console.log("dataTruncation");
     // TODO: Need to prevent this running so many times so truncation can work dynamically
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
@@ -576,12 +589,25 @@ export class DataTable {
 
   @Watch("truncationPattern")
   truncationPatternHandler(newValue: IcDataTableTruncationTypes): void {
-    //TODO: If previously set to a different truncation pattern, remove all truncation and then re-apply
-    if (newValue === "show-hide" || newValue === "tooltip") {
-      this.debounceDataTruncation();
+    if (newValue === "show-hide") {
+      this.updateTruncationTooltip(true);
+
+      // Not using debounceDataTruncation here due to resizeObserver not being triggered
+      this.getTypographyElements().forEach(
+        (typographyEl: HTMLIcTypographyElement) => {
+          const cellContainer = this.getCellContainer(typographyEl);
+          const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
+
+          this.truncate(typographyEl, cellContainer, tooltip);
+        }
+      );
     }
 
-    //TODO: If undefined, remove all truncation
+    if (newValue === "tooltip") {
+      // ResizeObserver is trigger here due to the see more/see less links being removed.
+      // The resizeObserver will also apply the tooltip where relevant
+      this.resetShowHideTruncation();
+    }
   }
 
   @Watch("data")
@@ -1110,13 +1136,18 @@ export class DataTable {
     return typographyEl.closest(this.TOOLTIP);
   };
 
-  private updateTruncationTooltip = () => {
+  private updateTruncationTooltip = (removeTooltipOnly: boolean = false) => {
     this.getTypographyElements().forEach(
       (typographyEl: HTMLIcTypographyElement) => {
         const tooltip = this.getTooltip(typographyEl);
         const cellContainer = this.getCellContainer(typographyEl);
 
-        this.regenerateTooltip(cellContainer, typographyEl, tooltip);
+        this.regenerateTooltip(
+          cellContainer,
+          typographyEl,
+          tooltip,
+          removeTooltipOnly
+        );
       }
     );
   };
@@ -1135,10 +1166,14 @@ export class DataTable {
   private regenerateTooltip(
     cellContainer: HTMLElement,
     typographyEl: HTMLIcTypographyElement,
-    tooltip: HTMLIcTooltipElement
+    tooltip: HTMLIcTooltipElement,
+    removeTooltipOnly?: boolean
   ) {
     if (tooltip) {
       this.removeTooltip(cellContainer, typographyEl, tooltip);
+      if (removeTooltipOnly) {
+        return;
+      }
     }
 
     if (!typographyEl.getAttribute("style")) {
