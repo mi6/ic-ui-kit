@@ -131,7 +131,7 @@ export class TopNavigation {
   /**
    * Emitted when the top navigation is resized.
    */
-  @Event() topNavResized: EventEmitter<{ size: number }>;
+  @Event() icTopNavResized: EventEmitter<{ size: number }>;
 
   disconnectedCallback(): void {
     this.resizeObserver?.disconnect();
@@ -254,7 +254,7 @@ export class TopNavigation {
           this.toggleSearchBar();
         }
       }
-      this.topNavResized.emit({
+      this.icTopNavResized.emit({
         size: currSize,
       });
       if (this.searchBar && document.activeElement === this.searchBar) {
