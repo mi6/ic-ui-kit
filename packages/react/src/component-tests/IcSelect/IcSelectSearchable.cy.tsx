@@ -630,7 +630,7 @@ describe("IcSelect searchable", () => {
       <IcSelect
         label="What is your favourite coffee?"
         searchable
-        disableFilter
+        disableAutoFiltering
         value="Test Value"
       />
     );
