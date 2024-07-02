@@ -7,6 +7,8 @@ import {
   State,
   Watch,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 
 import { IcTypographyVariants } from "../../utils/types";
@@ -68,6 +70,14 @@ export class Typography {
    */
   @Prop() variant?: IcTypographyVariants = "body";
 
+  /**
+   * @internal Emits and event when the typography truncation button has been clicked.
+   */
+  @Event() typographyTruncationExpandToggle: EventEmitter<{
+    expanded: boolean;
+    typographyEl: HTMLIcTypographyElement;
+  }>;
+
   @State() expanded: boolean = false;
 
   @Watch("expanded")
@@ -116,6 +126,10 @@ export class Typography {
 
   private toggleExpanded = () => {
     this.expanded = !this.expanded;
+    this.typographyTruncationExpandToggle.emit({
+      expanded: this.expanded,
+      typographyEl: this.el,
+    });
   };
 
   /**

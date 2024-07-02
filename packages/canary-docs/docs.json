@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-02T15:09:25",
+  "timestamp": "2024-07-02T15:42:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -577,6 +577,11 @@
         }
       ],
       "listeners": [
+        {
+          "event": "typographyTruncationExpandToggle",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "icPageChange",
           "capture": false,

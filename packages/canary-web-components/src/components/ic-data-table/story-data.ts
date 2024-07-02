@@ -1135,7 +1135,7 @@ export const DevArea = (): HTMLElement => {
   );
   dataTable.sortable = true;
   dataTable.variableRowHeight = null;
-  dataTable.setAttribute("truncation-pattern", "tooltip");
+  dataTable.setAttribute("truncation-pattern", "show-hide");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());

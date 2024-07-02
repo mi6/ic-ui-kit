@@ -495,6 +495,23 @@ export class DataTable {
     return typographyEl.shadowRoot.querySelector(".trunc-wrapper");
   }
 
+  // Set the height to initial if row height is set and the show / hide truncation
+  // is clicked
+  @Listen("typographyTruncationExpandToggle")
+  handleTypographyTruncationExpandToggle({
+    detail,
+  }: CustomEvent<{
+    expanded: boolean;
+    typographyEl: HTMLIcTypographyElement;
+  }>) {
+    const { expanded, typographyEl } = detail;
+    const cellContainer = this.getCellContainer(typographyEl);
+
+    if (cellContainer.style.height && expanded) {
+      cellContainer.style.height = "inherit";
+    }
+  }
+
   @Listen("icPageChange")
   handlePageChange({ detail, target }: CustomEvent<{ value: number }>): void {
     if ((target as HTMLIcPaginationBarElement).parentElement !== this.el) {

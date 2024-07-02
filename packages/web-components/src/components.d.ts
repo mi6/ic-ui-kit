@@ -2525,6 +2525,10 @@ export interface IcTopNavigationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIcTopNavigationElement;
 }
+export interface IcTypographyCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIcTypographyElement;
+}
 declare global {
     interface HTMLIcAccordionElementEventMap {
         "accordionClicked": { id: string };
@@ -3294,7 +3298,21 @@ declare global {
         prototype: HTMLIcTopNavigationElement;
         new (): HTMLIcTopNavigationElement;
     };
+    interface HTMLIcTypographyElementEventMap {
+        "typographyTruncationExpandToggle": {
+    expanded: boolean;
+    typographyEl: HTMLIcTypographyElement;
+  };
+    }
     interface HTMLIcTypographyElement extends Components.IcTypography, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIcTypographyElementEventMap>(type: K, listener: (this: HTMLIcTypographyElement, ev: IcTypographyCustomEvent<HTMLIcTypographyElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIcTypographyElementEventMap>(type: K, listener: (this: HTMLIcTypographyElement, ev: IcTypographyCustomEvent<HTMLIcTypographyElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIcTypographyElement: {
         prototype: HTMLIcTypographyElement;
@@ -5815,6 +5833,10 @@ declare namespace LocalJSX {
           * The number of lines to display before truncating the text, only used for the 'body' variant.
          */
         "maxLines"?: number;
+        "onTypographyTruncationExpandToggle"?: (event: IcTypographyCustomEvent<{
+    expanded: boolean;
+    typographyEl: HTMLIcTypographyElement;
+  }>) => void;
         /**
           * If `true`, the typography will have a line through it.
          */
