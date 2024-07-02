@@ -94,7 +94,7 @@ export class Select {
   /**
    * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
    */
-  @Prop() disableFilter?: boolean = false;
+  @Prop() disableAutoFiltering?: boolean = false;
 
   /**
    * The text displayed when there are no options in the option list.
@@ -728,7 +728,7 @@ export class Select {
   };
 
   private isExternalFiltering = (): boolean =>
-    this.searchable && this.disableFilter;
+    this.searchable && this.disableAutoFiltering;
 
   private handleClick = (event: MouseEvent): void => {
     if (!this.open) {
@@ -975,7 +975,7 @@ export class Select {
     this.inputValueToFilter = this.searchableSelectInputValue;
     this.setMenuChange(true);
 
-    if (!this.disableFilter) {
+    if (!this.disableAutoFiltering) {
       this.handleFilter();
       this.debounceAriaLiveUpdate();
     }
