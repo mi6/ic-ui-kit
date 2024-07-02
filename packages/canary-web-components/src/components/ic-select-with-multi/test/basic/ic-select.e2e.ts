@@ -111,7 +111,7 @@ const getTestSearchableSelect = (
     </script>`;
 
 const getTestSearchableSelectAsync = () =>
-  `<ic-select-with-multi label="IC Select Test" searchable disable-filter="true" value="Test value"></ic-select-with-multi>
+  `<ic-select-with-multi label="IC Select Test" searchable disable-auto-filtering="true" value="Test value"></ic-select-with-multi>
     <script>
       var select = document.querySelector('ic-select-with-multi');
       select.options = [];
