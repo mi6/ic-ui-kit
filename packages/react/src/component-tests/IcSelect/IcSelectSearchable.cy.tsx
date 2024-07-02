@@ -572,7 +572,7 @@ describe("IcSelect searchable end-to-end, visual regression and a11y tests", () 
       <IcSelect
         label="What is your favourite coffee?"
         searchable
-        disableFilter
+        disableAutoFiltering
         value="Test Value"
       />
     );

@@ -23,7 +23,7 @@ export const AccordionsWithDisabled = (): ReactElement => (
 );
 
 export const GroupWithOneExpanded = (): ReactElement => (
-  <IcAccordionGroup groupTitle="Title">
+  <IcAccordionGroup label="Title">
     <TwoAccordionsWithOneExpanded />
   </IcAccordionGroup>
 );
@@ -46,7 +46,7 @@ export const TwoAccordionsWithOneExpanded = (): ReactElement => (
 
 export const SlottedHeadingAccordion = (): ReactElement => (
   <IcAccordionGroup>
-    <h1 slot="group-title">Group title</h1>
+    <h1 slot="label">Group title</h1>
     <IcAccordion>
       <h2 slot="heading">Heading</h2>
       <IcTypography variant="body">Text</IcTypography>

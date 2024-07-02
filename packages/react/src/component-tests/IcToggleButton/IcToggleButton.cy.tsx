@@ -123,7 +123,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
   it("should render checked", () => {
     mount(
       <div style={{ padding: "8px" }}>
-        <IcToggleButton label="Test" toggleChecked />
+        <IcToggleButton label="Test" checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
@@ -139,7 +139,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
-        <IcToggleButton label="Test Checked" disabled toggleChecked />
+        <IcToggleButton label="Test Checked" disabled checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
@@ -190,7 +190,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test">
-          <IcBadge textLabel="1" slot="badge" variant="success" />
+          <IcBadge label="1" slot="badge" variant="success" />
         </IcToggleButton>
       </div>
     );
@@ -222,7 +222,7 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" loading />
-        <IcToggleButton label="Test" loading toggleChecked />
+        <IcToggleButton label="Test" loading checked />
       </div>
     );
     cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
