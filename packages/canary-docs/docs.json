@@ -1175,19 +1175,10 @@
           "ic-empty-state",
           "ic-pagination-bar"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-empty-state": [
-          "ic-typography"
-        ],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-empty-state": ["ic-typography"],
         "ic-pagination-bar": [
           "ic-typography",
           "ic-select",
@@ -1205,24 +1196,11 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -1390,15 +1368,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-select"
-      ],
+      "dependencies": ["ic-typography", "ic-select"],
       "dependencyGraph": {
-        "ic-data-table-title-bar": [
-          "ic-typography",
-          "ic-select"
-        ],
+        "ic-data-table-title-bar": ["ic-typography", "ic-select"],
         "ic-select": [
           "ic-input-container",
           "ic-input-label",
@@ -1408,27 +1380,12 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -2096,9 +2053,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-date-picker"
-      ],
+      "dependents": ["ic-date-picker"],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -2114,25 +2069,12 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-date-picker": [
-          "ic-date-input"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-date-picker": ["ic-date-input"]
       }
     },
     {
@@ -2872,27 +2814,12 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button",
-        "ic-date-input",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-button", "ic-date-input", "ic-typography"],
       "dependencyGraph": {
-        "ic-date-picker": [
-          "ic-button",
-          "ic-date-input",
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-date-picker": ["ic-button", "ic-date-input", "ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-date-input": [
           "ic-input-container",
           "ic-input-label",
@@ -2900,12 +2827,8 @@
           "ic-button",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -3356,33 +3279,18 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-select-with-multi"
-      ],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependents": ["ic-select-with-multi"],
+      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
       "dependencyGraph": {
         "ic-menu-with-multi": [
           "ic-loading-indicator",
           "ic-typography",
           "ic-button"
         ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-select-with-multi": [
-          "ic-menu-with-multi"
-        ]
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-select-with-multi": ["ic-menu-with-multi"]
       }
     },
     {
@@ -3755,9 +3663,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-data-table"
-      ],
+      "dependents": ["ic-data-table"],
       "dependencies": [
         "ic-typography",
         "ic-select",
@@ -3784,34 +3690,14 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-pagination-item": ["ic-typography"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -3819,9 +3705,7 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-data-table": [
-          "ic-pagination-bar"
-        ]
+        "ic-data-table": ["ic-pagination-bar"]
       }
     },
     {
@@ -3878,7 +3762,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -3886,7 +3770,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
           "docsTags": [],
@@ -4877,27 +4761,16 @@
           "ic-menu-with-multi",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
         "ic-menu-with-multi": [
           "ic-loading-indicator",
           "ic-typography",
           "ic-button"
         ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
