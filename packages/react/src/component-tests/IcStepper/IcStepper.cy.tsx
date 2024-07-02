@@ -9,7 +9,7 @@ import {
   LeftAligned,
   CustomConnectorWidth,
   CustomCompact,
-  WithoutStepTitles,
+  WithoutHeadings,
   WithHiddenStepInformation,
   Light,
   SmallConnectorWidth,
@@ -91,8 +91,8 @@ describe("IcStepper visual regression and a11y tests", () => {
     });
   });
 
-  it("should render a stepper without step titles", () => {
-    mount(<WithoutStepTitles />);
+  it("should render a stepper without headings", () => {
+    mount(<WithoutHeadings />);
 
     cy.checkHydrated(STEPPER_SELECTOR);
 
