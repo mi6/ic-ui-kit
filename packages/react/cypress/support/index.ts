@@ -13,3 +13,4 @@ Cypress.Commands.add("enableForcedColors", Commands.enableForcedColors);
 Cypress.Commands.add("findShadowEl", Commands.findShadowEl);
 Cypress.Commands.add("clickOnButton", Commands.clickOnButton);
 Cypress.Commands.add("checkA11yWithWait", Commands.checkA11yWithWait);
+Cypress.Commands.add("mockResizeObserver", Commands.mockResizeObserver);
