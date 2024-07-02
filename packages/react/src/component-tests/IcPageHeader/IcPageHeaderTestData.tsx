@@ -128,13 +128,9 @@ export const DesktopScrollablePageVariant = () => {
           Filter coffee
         </IcButton>
         <IcStepper slot="stepper">
-          <IcStep stepTitle="Warm kettle" stepType="completed" />
-          <IcStep
-            stepTitle="Warm milk"
-            stepSubtitle="Optional"
-            stepType="completed"
-          />
-          <IcStep stepTitle="Pour milk" stepType="current" />
+          <IcStep heading="Warm kettle" type="completed" />
+          <IcStep heading="Warm milk" subheading="Optional" type="completed" />
+          <IcStep heading="Pour milk" type="current" />
         </IcStepper>
         <IcTextField
           slot="input"
@@ -303,13 +299,9 @@ export const PageHeaderWithStepper = () => {
         Filter coffee
       </IcButton>
       <IcStepper slot="stepper">
-        <IcStep stepTitle="Warm kettle" stepType="completed" />
-        <IcStep
-          stepTitle="Warm milk"
-          stepSubtitle="Optional"
-          stepType="completed"
-        />
-        <IcStep stepTitle="Pour milk" stepType="current" />
+        <IcStep heading="Warm kettle" type="completed" />
+        <IcStep heading="Warm milk" subheading="Optional" type="completed" />
+        <IcStep heading="Pour milk" type="current" />
       </IcStepper>
       <IcTextField
         slot="input"
