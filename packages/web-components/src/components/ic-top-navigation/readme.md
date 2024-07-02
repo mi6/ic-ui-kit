@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event           | Description                                 | Type                             |
-| --------------- | ------------------------------------------- | -------------------------------- |
-| `topNavResized` | Emitted when the top navigation is resized. | `CustomEvent<{ size: number; }>` |
+| Event             | Description                                 | Type                             |
+| ----------------- | ------------------------------------------- | -------------------------------- |
+| `icTopNavResized` | Emitted when the top navigation is resized. | `CustomEvent<{ size: number; }>` |
 
 
 ## Slots
