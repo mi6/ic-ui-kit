@@ -13958,7 +13958,7 @@
       "methods": [],
       "events": [
         {
-          "event": "sideNavExpanded",
+          "event": "icSideNavExpanded",
           "detail": "IcExpandedDetail",
           "bubbles": true,
           "complexType": {
@@ -18325,7 +18325,7 @@
       "methods": [],
       "events": [
         {
-          "event": "topNavResized",
+          "event": "icTopNavResized",
           "detail": "{ size: number; }",
           "bubbles": true,
           "complexType": {
