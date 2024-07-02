@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-24T09:26:04",
+  "timestamp": "2024-07-02T09:23:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -13949,7 +13949,7 @@
       "methods": [],
       "events": [
         {
-          "event": "sideNavExpanded",
+          "event": "icSideNavExpanded",
           "detail": "IcExpandedDetail",
           "bubbles": true,
           "complexType": {
@@ -18312,7 +18312,7 @@
       "methods": [],
       "events": [
         {
-          "event": "topNavResized",
+          "event": "icTopNavResized",
           "detail": "{ size: number; }",
           "bubbles": true,
           "complexType": {
