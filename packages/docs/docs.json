@@ -188,13 +188,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-accordion": [
-          "ic-typography"
-        ]
+        "ic-accordion": ["ic-typography"]
       }
     },
     {
@@ -206,7 +202,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "group-title - Content is placed as the accordion group title."
+          "text": "label - Content is placed as the accordion group title."
         }
       ],
       "usage": {},
@@ -293,7 +289,7 @@
           "required": false
         },
         {
-          "name": "groupTitle",
+          "name": "label",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -301,7 +297,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "group-title",
+          "attr": "label",
           "reflectToAttr": false,
           "docs": "The header for the accordion group.",
           "docsTags": [],
@@ -409,31 +405,18 @@
       "styles": [],
       "slots": [
         {
-          "name": "group-title",
+          "name": "label",
           "docs": "Content is placed as the accordion group title."
         }
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependencies": ["ic-typography", "ic-button"],
       "dependencyGraph": {
-        "ic-accordion-group": [
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-accordion-group": ["ic-typography", "ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -695,31 +678,14 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-dialog"
-      ],
-      "dependencies": [
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependents": ["ic-dialog"],
+      "dependencies": ["ic-typography", "ic-button"],
       "dependencyGraph": {
-        "ic-alert": [
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-dialog": [
-          "ic-alert"
-        ]
+        "ic-alert": ["ic-typography", "ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-dialog": ["ic-alert"]
       }
     },
     {
@@ -799,18 +765,10 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-back-to-top": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-back-to-top": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -883,6 +841,27 @@
           "required": false
         },
         {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The text displayed in the badge. This will only be displayed if type=\"text\".",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "maxNumber",
           "type": "number",
           "complexType": {
@@ -893,7 +872,7 @@
           "mutable": false,
           "attr": "max-number",
           "reflectToAttr": false,
-          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and textLabel is not empty.",
+          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and label is not empty.",
           "docsTags": [],
           "values": [
             {
@@ -971,27 +950,6 @@
             },
             {
               "value": "small",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "textLabel",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "text-label",
-          "reflectToAttr": false,
-          "docs": "The text displayed in the badge. This will only be displayed if type=\"text\".",
-          "docsTags": [],
-          "values": [
-            {
               "type": "string"
             }
           ],
@@ -1180,13 +1138,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-badge": [
-          "ic-typography"
-        ]
+        "ic-badge": ["ic-typography"]
       }
     },
     {
@@ -1302,19 +1256,11 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-breadcrumb-group"
-      ],
-      "dependencies": [
-        "ic-link"
-      ],
+      "dependents": ["ic-breadcrumb-group"],
+      "dependencies": ["ic-link"],
       "dependencyGraph": {
-        "ic-breadcrumb": [
-          "ic-link"
-        ],
-        "ic-breadcrumb-group": [
-          "ic-breadcrumb"
-        ]
+        "ic-breadcrumb": ["ic-link"],
+        "ic-breadcrumb-group": ["ic-breadcrumb"]
       }
     },
     {
@@ -1415,16 +1361,10 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-breadcrumb"
-      ],
+      "dependencies": ["ic-breadcrumb"],
       "dependencyGraph": {
-        "ic-breadcrumb-group": [
-          "ic-breadcrumb"
-        ],
-        "ic-breadcrumb": [
-          "ic-link"
-        ]
+        "ic-breadcrumb-group": ["ic-breadcrumb"],
+        "ic-breadcrumb": ["ic-link"]
       }
     },
     {
@@ -2377,66 +2317,26 @@
         "ic-toggle-button",
         "ic-top-navigation"
       ],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-loading-indicator", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-accordion-group": [
-          "ic-button"
-        ],
-        "ic-alert": [
-          "ic-button"
-        ],
-        "ic-dialog": [
-          "ic-button"
-        ],
-        "ic-horizontal-scroll": [
-          "ic-button"
-        ],
-        "ic-menu": [
-          "ic-button"
-        ],
-        "ic-menu-item": [
-          "ic-button"
-        ],
-        "ic-navigation-button": [
-          "ic-button"
-        ],
-        "ic-navigation-menu": [
-          "ic-button"
-        ],
-        "ic-pagination": [
-          "ic-button"
-        ],
-        "ic-search-bar": [
-          "ic-button"
-        ],
-        "ic-select": [
-          "ic-button"
-        ],
-        "ic-side-navigation": [
-          "ic-button"
-        ],
-        "ic-toast": [
-          "ic-button"
-        ],
-        "ic-toggle-button": [
-          "ic-button"
-        ],
-        "ic-top-navigation": [
-          "ic-button"
-        ]
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-accordion-group": ["ic-button"],
+        "ic-alert": ["ic-button"],
+        "ic-dialog": ["ic-button"],
+        "ic-horizontal-scroll": ["ic-button"],
+        "ic-menu": ["ic-button"],
+        "ic-menu-item": ["ic-button"],
+        "ic-navigation-button": ["ic-button"],
+        "ic-navigation-menu": ["ic-button"],
+        "ic-pagination": ["ic-button"],
+        "ic-search-bar": ["ic-button"],
+        "ic-select": ["ic-button"],
+        "ic-side-navigation": ["ic-button"],
+        "ic-toast": ["ic-button"],
+        "ic-toggle-button": ["ic-button"],
+        "ic-top-navigation": ["ic-button"]
       }
     },
     {
@@ -2876,18 +2776,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-card": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-card": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -3418,13 +3310,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-checkbox": [
-          "ic-typography"
-        ]
+        "ic-checkbox": ["ic-typography"]
       }
     },
     {
@@ -3733,21 +3621,11 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-input-label",
-        "ic-input-validation"
-      ],
+      "dependencies": ["ic-input-label", "ic-input-validation"],
       "dependencyGraph": {
-        "ic-checkbox-group": [
-          "ic-input-label",
-          "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-checkbox-group": ["ic-input-label", "ic-input-validation"],
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -4078,18 +3956,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-chip": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-chip": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -4248,13 +4118,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-classification-banner": [
-          "ic-typography"
-        ]
+        "ic-classification-banner": ["ic-typography"]
       }
     },
     {
@@ -4366,13 +4232,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-data-entity": [
-          "ic-typography"
-        ]
+        "ic-data-entity": ["ic-typography"]
       }
     },
     {
@@ -4521,13 +4383,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-data-row": [
-          "ic-typography"
-        ]
+        "ic-data-row": ["ic-typography"]
       }
     },
     {
@@ -5125,31 +4983,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-button",
-        "ic-alert"
-      ],
+      "dependencies": ["ic-typography", "ic-button", "ic-alert"],
       "dependencyGraph": {
-        "ic-dialog": [
-          "ic-typography",
-          "ic-button",
-          "ic-alert"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-alert": [
-          "ic-typography",
-          "ic-button"
-        ]
+        "ic-dialog": ["ic-typography", "ic-button", "ic-alert"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-alert": ["ic-typography", "ic-button"]
       }
     },
     {
@@ -5174,14 +5014,10 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-side-navigation"
-      ],
+      "dependents": ["ic-side-navigation"],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-side-navigation": [
-          "ic-divider"
-        ]
+        "ic-side-navigation": ["ic-divider"]
       }
     },
     {
@@ -5273,27 +5109,6 @@
           "required": false
         },
         {
-          "name": "bodyMaxLines",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "body-max-lines",
-          "reflectToAttr": false,
-          "docs": "The number of lines of body text to display before truncating.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "heading",
           "type": "string",
           "complexType": {
@@ -5352,6 +5167,27 @@
           "required": false
         },
         {
+          "name": "maxLines",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-lines",
+          "reflectToAttr": false,
+          "docs": "The number of lines of body text to display before truncating.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "subheading",
           "type": "string",
           "complexType": {
@@ -5401,13 +5237,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-empty-state": [
-          "ic-typography"
-        ]
+        "ic-empty-state": ["ic-typography"]
       }
     },
     {
@@ -5636,15 +5468,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-section-container",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-section-container", "ic-typography"],
       "dependencyGraph": {
-        "ic-footer": [
-          "ic-section-container",
-          "ic-typography"
-        ]
+        "ic-footer": ["ic-section-container", "ic-typography"]
       }
     },
     {
@@ -5858,7 +5684,7 @@
       "usage": {},
       "props": [
         {
-          "name": "groupTitle",
+          "name": "label",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -5866,7 +5692,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "group-title",
+          "attr": "label",
           "reflectToAttr": false,
           "docs": "The title of the link group to be displayed.",
           "docsTags": [],
@@ -5899,15 +5725,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-section-container"
-      ],
+      "dependencies": ["ic-typography", "ic-section-container"],
       "dependencyGraph": {
-        "ic-footer-link-group": [
-          "ic-typography",
-          "ic-section-container"
-        ]
+        "ic-footer-link-group": ["ic-typography", "ic-section-container"]
       }
     },
     {
@@ -6232,15 +6052,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-section-container",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-section-container", "ic-typography"],
       "dependencyGraph": {
-        "ic-hero": [
-          "ic-section-container",
-          "ic-typography"
-        ]
+        "ic-hero": ["ic-section-container", "ic-typography"]
       }
     },
     {
@@ -6296,37 +6110,16 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-page-header",
-        "ic-tab-group",
-        "ic-top-navigation"
-      ],
-      "dependencies": [
-        "ic-button"
-      ],
+      "dependents": ["ic-page-header", "ic-tab-group", "ic-top-navigation"],
+      "dependencies": ["ic-button"],
       "dependencyGraph": {
-        "ic-horizontal-scroll": [
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-page-header": [
-          "ic-horizontal-scroll"
-        ],
-        "ic-tab-group": [
-          "ic-horizontal-scroll"
-        ],
-        "ic-top-navigation": [
-          "ic-horizontal-scroll"
-        ]
+        "ic-horizontal-scroll": ["ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-page-header": ["ic-horizontal-scroll"],
+        "ic-tab-group": ["ic-horizontal-scroll"],
+        "ic-top-navigation": ["ic-horizontal-scroll"]
       }
     },
     {
@@ -6631,18 +6424,11 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-select",
-        "ic-text-field"
-      ],
+      "dependents": ["ic-select", "ic-text-field"],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": [
-          "ic-input-component-container"
-        ],
-        "ic-text-field": [
-          "ic-input-component-container"
-        ]
+        "ic-select": ["ic-input-component-container"],
+        "ic-text-field": ["ic-input-component-container"]
       }
     },
     {
@@ -6705,18 +6491,11 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-select",
-        "ic-text-field"
-      ],
+      "dependents": ["ic-select", "ic-text-field"],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-select": [
-          "ic-input-container"
-        ],
-        "ic-text-field": [
-          "ic-input-container"
-        ]
+        "ic-select": ["ic-input-container"],
+        "ic-text-field": ["ic-input-container"]
       }
     },
     {
@@ -6803,28 +6582,6 @@
             }
           ],
           "optional": false,
-          "required": false
-        },
-        {
-          "name": "error",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "error",
-          "reflectToAttr": false,
-          "docs": "If `true`, the input label will display with error styling.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
           "required": false
         },
         {
@@ -6934,6 +6691,32 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "status",
+          "type": "\"\" | \"error\"",
+          "complexType": {
+            "original": "\"error\" | \"\"",
+            "resolved": "\"\" | \"error\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "status",
+          "reflectToAttr": false,
+          "docs": "The status of the label - e.g. 'error'.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "error",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -6949,28 +6732,14 @@
         "ic-switch",
         "ic-text-field"
       ],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-checkbox-group": [
-          "ic-input-label"
-        ],
-        "ic-radio-group": [
-          "ic-input-label"
-        ],
-        "ic-select": [
-          "ic-input-label"
-        ],
-        "ic-switch": [
-          "ic-input-label"
-        ],
-        "ic-text-field": [
-          "ic-input-label"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-checkbox-group": ["ic-input-label"],
+        "ic-radio-group": ["ic-input-label"],
+        "ic-select": ["ic-input-label"],
+        "ic-switch": ["ic-input-label"],
+        "ic-text-field": ["ic-input-label"]
       }
     },
     {
@@ -7142,25 +6911,13 @@
         "ic-select",
         "ic-text-field"
       ],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-checkbox-group": [
-          "ic-input-validation"
-        ],
-        "ic-radio-group": [
-          "ic-input-validation"
-        ],
-        "ic-select": [
-          "ic-input-validation"
-        ],
-        "ic-text-field": [
-          "ic-input-validation"
-        ]
+        "ic-input-validation": ["ic-typography"],
+        "ic-checkbox-group": ["ic-input-validation"],
+        "ic-radio-group": ["ic-input-validation"],
+        "ic-select": ["ic-input-validation"],
+        "ic-text-field": ["ic-input-validation"]
       }
     },
     {
@@ -7451,14 +7208,10 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-breadcrumb"
-      ],
+      "dependents": ["ic-breadcrumb"],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-breadcrumb": [
-          "ic-link"
-        ]
+        "ic-breadcrumb": ["ic-link"]
       }
     },
     {
@@ -7747,31 +7500,14 @@
           "docs": ""
         }
       ],
-      "dependents": [
-        "ic-button",
-        "ic-menu",
-        "ic-step",
-        "ic-toast"
-      ],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependents": ["ic-button", "ic-menu", "ic-step", "ic-toast"],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator"
-        ],
-        "ic-step": [
-          "ic-loading-indicator"
-        ],
-        "ic-toast": [
-          "ic-loading-indicator"
-        ]
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator"],
+        "ic-menu": ["ic-loading-indicator"],
+        "ic-step": ["ic-loading-indicator"],
+        "ic-toast": ["ic-loading-indicator"]
       }
     },
     {
@@ -8197,37 +7933,15 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-search-bar",
-        "ic-select"
-      ],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependents": ["ic-search-bar", "ic-select"],
+      "dependencies": ["ic-loading-indicator", "ic-typography", "ic-button"],
       "dependencyGraph": {
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-search-bar": [
-          "ic-menu"
-        ],
-        "ic-select": [
-          "ic-menu"
-        ]
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-search-bar": ["ic-menu"],
+        "ic-select": ["ic-menu"]
       }
     },
     {
@@ -8268,13 +7982,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-menu-group": [
-          "ic-typography"
-        ]
+        "ic-menu-group": ["ic-typography"]
       }
     },
     {
@@ -8594,31 +8304,14 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-popover-menu"
-      ],
-      "dependencies": [
-        "ic-typography",
-        "ic-button"
-      ],
+      "dependents": ["ic-popover-menu"],
+      "dependencies": ["ic-typography", "ic-button"],
       "dependencyGraph": {
-        "ic-menu-item": [
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-popover-menu": [
-          "ic-menu-item"
-        ]
+        "ic-menu-item": ["ic-typography", "ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-popover-menu": ["ic-menu-item"]
       }
     },
     {
@@ -8886,23 +8579,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button"
-      ],
+      "dependencies": ["ic-button"],
       "dependencyGraph": {
-        "ic-navigation-button": [
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-navigation-button": ["ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -9011,13 +8693,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-navigation-group": [
-          "ic-typography"
-        ]
+        "ic-navigation-group": ["ic-typography"]
       }
     },
     {
@@ -9311,18 +8989,10 @@
         }
       ],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-tooltip"
-      ],
+      "dependencies": ["ic-typography", "ic-tooltip"],
       "dependencyGraph": {
-        "ic-navigation-item": [
-          "ic-typography",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-navigation-item": ["ic-typography", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -9421,31 +9091,14 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-top-navigation"
-      ],
-      "dependencies": [
-        "ic-button",
-        "ic-typography"
-      ],
+      "dependents": ["ic-top-navigation"],
+      "dependencies": ["ic-button", "ic-typography"],
       "dependencyGraph": {
-        "ic-navigation-menu": [
-          "ic-button",
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-top-navigation": [
-          "ic-navigation-menu"
-        ]
+        "ic-navigation-menu": ["ic-button", "ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-top-navigation": ["ic-navigation-menu"]
       }
     },
     {
@@ -9776,19 +9429,10 @@
           "ic-typography",
           "ic-horizontal-scroll"
         ],
-        "ic-horizontal-scroll": [
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-horizontal-scroll": ["ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -9801,7 +9445,7 @@
       "usage": {},
       "props": [
         {
-          "name": "adjacentCount",
+          "name": "adjacentPageCount",
           "type": "number",
           "complexType": {
             "original": "number",
@@ -9809,7 +9453,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "adjacent-count",
+          "attr": "adjacent-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed adjacent to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
           "docsTags": [],
@@ -9860,7 +9504,7 @@
           "required": false
         },
         {
-          "name": "boundaryCount",
+          "name": "boundaryPageCount",
           "type": "number",
           "complexType": {
             "original": "number",
@@ -9868,7 +9512,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "boundary-count",
+          "attr": "boundary-page-count",
           "reflectToAttr": false,
           "docs": "The number of pages displayed as boundary items to the current page when using 'complex' type pagination. Accepted values are 0, 1 & 2.",
           "docsTags": [],
@@ -10142,28 +9786,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button",
-        "ic-pagination-item"
-      ],
+      "dependencies": ["ic-button", "ic-pagination-item"],
       "dependencyGraph": {
-        "ic-pagination": [
-          "ic-button",
-          "ic-pagination-item"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ]
+        "ic-pagination": ["ic-button", "ic-pagination-item"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-pagination-item": ["ic-typography"]
       }
     },
     {
@@ -10342,19 +9971,11 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "ic-pagination"
-      ],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependents": ["ic-pagination"],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
-        "ic-pagination": [
-          "ic-pagination-item"
-        ]
+        "ic-pagination-item": ["ic-typography"],
+        "ic-pagination": ["ic-pagination-item"]
       }
     },
     {
@@ -10491,29 +10112,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-menu-item",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-menu-item", "ic-typography"],
       "dependencyGraph": {
-        "ic-popover-menu": [
-          "ic-menu-item",
-          "ic-typography"
-        ],
-        "ic-menu-item": [
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-popover-menu": ["ic-menu-item", "ic-typography"],
+        "ic-menu-item": ["ic-typography", "ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -10850,21 +10455,11 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-input-label",
-        "ic-input-validation"
-      ],
+      "dependencies": ["ic-input-label", "ic-input-validation"],
       "dependencyGraph": {
-        "ic-radio-group": [
-          "ic-input-label",
-          "ic-input-validation"
-        ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-radio-group": ["ic-input-label", "ic-input-validation"],
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -11293,13 +10888,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-radio-option": [
-          "ic-typography"
-        ]
+        "ic-radio-option": ["ic-typography"]
       }
     },
     {
@@ -11311,6 +10902,28 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "assistiveHintText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "assistive-hint-text",
+          "reflectToAttr": false,
+          "docs": "The hint text for the hidden assistive description element.",
+          "docsTags": [],
+          "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "autocapitalize",
           "type": "string",
@@ -11674,7 +11287,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -11682,7 +11295,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
@@ -11822,28 +11435,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "hintText",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hint-text",
-          "reflectToAttr": false,
-          "docs": "The hint text for the hidden assistive description element.",
-          "docsTags": [],
-          "default": "\"When autocomplete results are available use the up and down arrows to choose and press enter to select\"",
-          "values": [
-            {
-              "type": "string"
             }
           ],
           "optional": true,
@@ -12523,17 +12114,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-text-field",
-        "ic-button",
-        "ic-menu"
-      ],
+      "dependencies": ["ic-text-field", "ic-button", "ic-menu"],
       "dependencyGraph": {
-        "ic-search-bar": [
-          "ic-text-field",
-          "ic-button",
-          "ic-menu"
-        ],
+        "ic-search-bar": ["ic-text-field", "ic-button", "ic-menu"],
         "ic-text-field": [
           "ic-input-container",
           "ic-input-label",
@@ -12541,27 +12124,12 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"]
       }
     },
     {
@@ -12648,21 +12216,11 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-footer": [
-          "ic-section-container"
-        ],
-        "ic-footer-link-group": [
-          "ic-section-container"
-        ],
-        "ic-hero": [
-          "ic-section-container"
-        ],
-        "ic-page-header": [
-          "ic-section-container"
-        ],
-        "ic-top-navigation": [
-          "ic-section-container"
-        ]
+        "ic-footer": ["ic-section-container"],
+        "ic-footer-link-group": ["ic-section-container"],
+        "ic-hero": ["ic-section-container"],
+        "ic-page-header": ["ic-section-container"],
+        "ic-top-navigation": ["ic-section-container"]
       }
     },
     {
@@ -12730,7 +12288,7 @@
           "required": false
         },
         {
-          "name": "disableFilter",
+          "name": "disableAutoFiltering",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -12738,7 +12296,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "disable-filter",
+          "attr": "disable-auto-filtering",
           "reflectToAttr": false,
           "docs": "If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.",
           "docsTags": [],
@@ -13718,27 +13276,12 @@
           "ic-menu",
           "ic-input-validation"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-loading-indicator",
-          "ic-typography",
-          "ic-button"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-menu": ["ic-loading-indicator", "ic-typography", "ic-button"],
+        "ic-input-validation": ["ic-typography"]
       }
     },
     {
@@ -14043,27 +13586,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-button",
-        "ic-divider"
-      ],
+      "dependencies": ["ic-typography", "ic-button", "ic-divider"],
       "dependencyGraph": {
-        "ic-side-navigation": [
-          "ic-typography",
-          "ic-button",
-          "ic-divider"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-side-navigation": ["ic-typography", "ic-button", "ic-divider"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -14415,13 +13943,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-status-tag": [
-          "ic-typography"
-        ]
+        "ic-status-tag": ["ic-typography"]
       }
     },
     {
@@ -14434,7 +13958,28 @@
       "usage": {},
       "props": [
         {
-          "name": "stepStatus",
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The title of the step within the stepper.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "status",
           "type": "\"optional\" | \"required\"",
           "complexType": {
             "original": "IcStepStatuses",
@@ -14448,7 +13993,7 @@
             }
           },
           "mutable": false,
-          "attr": "step-status",
+          "attr": "status",
           "reflectToAttr": false,
           "docs": "The status of the step. Use this prop to display a status message on the step if it is required or optional.",
           "docsTags": [],
@@ -14466,7 +14011,7 @@
           "required": false
         },
         {
-          "name": "stepSubtitle",
+          "name": "subheading",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -14474,7 +14019,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "step-subtitle",
+          "attr": "subheading",
           "reflectToAttr": false,
           "docs": "Additional information about the step. Use this prop to override the default step status messaging displayed when selecting a step type or step status.",
           "docsTags": [],
@@ -14487,28 +14032,7 @@
           "required": false
         },
         {
-          "name": "stepTitle",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "step-title",
-          "reflectToAttr": false,
-          "docs": "The title of the step within the stepper.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "stepType",
+          "name": "type",
           "type": "\"active\" | \"completed\" | \"current\" | \"disabled\"",
           "complexType": {
             "original": "IcStepTypes",
@@ -14522,7 +14046,7 @@
             }
           },
           "mutable": false,
-          "attr": "step-type",
+          "attr": "type",
           "reflectToAttr": false,
           "docs": "The state of the step within the stepper.",
           "docsTags": [],
@@ -14556,18 +14080,10 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-loading-indicator",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-loading-indicator", "ic-typography"],
       "dependencyGraph": {
-        "ic-step": [
-          "ic-loading-indicator",
-          "ic-typography"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ]
+        "ic-step": ["ic-loading-indicator", "ic-typography"],
+        "ic-loading-indicator": ["ic-typography"]
       }
     },
     {
@@ -15062,18 +14578,10 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-input-label",
-        "ic-typography"
-      ],
+      "dependencies": ["ic-input-label", "ic-typography"],
       "dependencyGraph": {
-        "ic-switch": [
-          "ic-input-label",
-          "ic-typography"
-        ],
-        "ic-input-label": [
-          "ic-typography"
-        ]
+        "ic-switch": ["ic-input-label", "ic-typography"],
+        "ic-input-label": ["ic-typography"]
       }
     },
     {
@@ -15156,13 +14664,9 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-tab": [
-          "ic-typography"
-        ]
+        "ic-tab": ["ic-typography"]
       }
     },
     {
@@ -15450,26 +14954,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-horizontal-scroll"
-      ],
+      "dependencies": ["ic-horizontal-scroll"],
       "dependencyGraph": {
-        "ic-tab-group": [
-          "ic-horizontal-scroll"
-        ],
-        "ic-horizontal-scroll": [
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-tab-group": ["ic-horizontal-scroll"],
+        "ic-horizontal-scroll": ["ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -16721,9 +16212,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-search-bar"
-      ],
+      "dependents": ["ic-search-bar"],
       "dependencies": [
         "ic-input-container",
         "ic-input-label",
@@ -16739,15 +16228,9 @@
           "ic-input-validation",
           "ic-typography"
         ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-search-bar": [
-          "ic-text-field"
-        ]
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-search-bar": ["ic-text-field"]
       }
     },
     {
@@ -17066,27 +16549,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-typography",
-        "ic-loading-indicator",
-        "ic-button"
-      ],
+      "dependencies": ["ic-typography", "ic-loading-indicator", "ic-button"],
       "dependencyGraph": {
-        "ic-toast": [
-          "ic-typography",
-          "ic-loading-indicator",
-          "ic-button"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-toast": ["ic-typography", "ic-loading-indicator", "ic-button"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -17266,6 +16734,28 @@
           "required": false
         },
         {
+          "name": "checked",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the toggle button will be in a checked state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -17420,28 +16910,6 @@
           "required": false
         },
         {
-          "name": "toggleChecked",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "toggle-checked",
-          "reflectToAttr": true,
-          "docs": "If `true`, the toggle button will be in a checked state.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "variant",
           "type": "\"default\" | \"icon\"",
           "complexType": {
@@ -17506,23 +16974,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "ic-button"
-      ],
+      "dependencies": ["ic-button"],
       "dependencyGraph": {
-        "ic-toggle-button": [
-          "ic-button"
-        ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ]
+        "ic-toggle-button": ["ic-button"],
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"]
       }
     },
     {
@@ -18098,28 +17555,14 @@
         "ic-chip",
         "ic-navigation-item"
       ],
-      "dependencies": [
-        "ic-typography"
-      ],
+      "dependencies": ["ic-typography"],
       "dependencyGraph": {
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-back-to-top": [
-          "ic-tooltip"
-        ],
-        "ic-button": [
-          "ic-tooltip"
-        ],
-        "ic-card": [
-          "ic-tooltip"
-        ],
-        "ic-chip": [
-          "ic-tooltip"
-        ],
-        "ic-navigation-item": [
-          "ic-tooltip"
-        ]
+        "ic-tooltip": ["ic-typography"],
+        "ic-back-to-top": ["ic-tooltip"],
+        "ic-button": ["ic-tooltip"],
+        "ic-card": ["ic-tooltip"],
+        "ic-chip": ["ic-tooltip"],
+        "ic-navigation-item": ["ic-tooltip"]
       }
     },
     {
@@ -18462,23 +17905,11 @@
           "ic-horizontal-scroll",
           "ic-navigation-menu"
         ],
-        "ic-button": [
-          "ic-loading-indicator",
-          "ic-tooltip"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-horizontal-scroll": [
-          "ic-button"
-        ],
-        "ic-navigation-menu": [
-          "ic-button",
-          "ic-typography"
-        ]
+        "ic-button": ["ic-loading-indicator", "ic-tooltip"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-horizontal-scroll": ["ic-button"],
+        "ic-navigation-menu": ["ic-button", "ic-typography"]
       }
     },
     {
@@ -18760,123 +18191,45 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ic-accordion": [
-          "ic-typography"
-        ],
-        "ic-accordion-group": [
-          "ic-typography"
-        ],
-        "ic-alert": [
-          "ic-typography"
-        ],
-        "ic-back-to-top": [
-          "ic-typography"
-        ],
-        "ic-badge": [
-          "ic-typography"
-        ],
-        "ic-card": [
-          "ic-typography"
-        ],
-        "ic-checkbox": [
-          "ic-typography"
-        ],
-        "ic-chip": [
-          "ic-typography"
-        ],
-        "ic-classification-banner": [
-          "ic-typography"
-        ],
-        "ic-data-entity": [
-          "ic-typography"
-        ],
-        "ic-data-row": [
-          "ic-typography"
-        ],
-        "ic-dialog": [
-          "ic-typography"
-        ],
-        "ic-empty-state": [
-          "ic-typography"
-        ],
-        "ic-footer": [
-          "ic-typography"
-        ],
-        "ic-footer-link-group": [
-          "ic-typography"
-        ],
-        "ic-hero": [
-          "ic-typography"
-        ],
-        "ic-input-label": [
-          "ic-typography"
-        ],
-        "ic-input-validation": [
-          "ic-typography"
-        ],
-        "ic-loading-indicator": [
-          "ic-typography"
-        ],
-        "ic-menu": [
-          "ic-typography"
-        ],
-        "ic-menu-group": [
-          "ic-typography"
-        ],
-        "ic-menu-item": [
-          "ic-typography"
-        ],
-        "ic-navigation-group": [
-          "ic-typography"
-        ],
-        "ic-navigation-item": [
-          "ic-typography"
-        ],
-        "ic-navigation-menu": [
-          "ic-typography"
-        ],
-        "ic-page-header": [
-          "ic-typography"
-        ],
-        "ic-pagination-item": [
-          "ic-typography"
-        ],
-        "ic-popover-menu": [
-          "ic-typography"
-        ],
-        "ic-radio-option": [
-          "ic-typography"
-        ],
-        "ic-select": [
-          "ic-typography"
-        ],
-        "ic-side-navigation": [
-          "ic-typography"
-        ],
-        "ic-status-tag": [
-          "ic-typography"
-        ],
-        "ic-step": [
-          "ic-typography"
-        ],
-        "ic-switch": [
-          "ic-typography"
-        ],
-        "ic-tab": [
-          "ic-typography"
-        ],
-        "ic-text-field": [
-          "ic-typography"
-        ],
-        "ic-toast": [
-          "ic-typography"
-        ],
-        "ic-tooltip": [
-          "ic-typography"
-        ],
-        "ic-top-navigation": [
-          "ic-typography"
-        ]
+        "ic-accordion": ["ic-typography"],
+        "ic-accordion-group": ["ic-typography"],
+        "ic-alert": ["ic-typography"],
+        "ic-back-to-top": ["ic-typography"],
+        "ic-badge": ["ic-typography"],
+        "ic-card": ["ic-typography"],
+        "ic-checkbox": ["ic-typography"],
+        "ic-chip": ["ic-typography"],
+        "ic-classification-banner": ["ic-typography"],
+        "ic-data-entity": ["ic-typography"],
+        "ic-data-row": ["ic-typography"],
+        "ic-dialog": ["ic-typography"],
+        "ic-empty-state": ["ic-typography"],
+        "ic-footer": ["ic-typography"],
+        "ic-footer-link-group": ["ic-typography"],
+        "ic-hero": ["ic-typography"],
+        "ic-input-label": ["ic-typography"],
+        "ic-input-validation": ["ic-typography"],
+        "ic-loading-indicator": ["ic-typography"],
+        "ic-menu": ["ic-typography"],
+        "ic-menu-group": ["ic-typography"],
+        "ic-menu-item": ["ic-typography"],
+        "ic-navigation-group": ["ic-typography"],
+        "ic-navigation-item": ["ic-typography"],
+        "ic-navigation-menu": ["ic-typography"],
+        "ic-page-header": ["ic-typography"],
+        "ic-pagination-item": ["ic-typography"],
+        "ic-popover-menu": ["ic-typography"],
+        "ic-radio-option": ["ic-typography"],
+        "ic-select": ["ic-typography"],
+        "ic-side-navigation": ["ic-typography"],
+        "ic-status-tag": ["ic-typography"],
+        "ic-step": ["ic-typography"],
+        "ic-switch": ["ic-typography"],
+        "ic-tab": ["ic-typography"],
+        "ic-text-field": ["ic-typography"],
+        "ic-toast": ["ic-typography"],
+        "ic-tooltip": ["ic-typography"],
+        "ic-top-navigation": ["ic-typography"]
       }
     }
   ],
@@ -19202,7 +18555,7 @@
       "path": "src/utils/types.ts"
     },
     "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts::IcChangeEventDetail": {
-      "declaration": "export interface IcChangeEventDetail {\n  toggleChecked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
+      "declaration": "export interface IcChangeEventDetail {\n  checked: boolean[] | boolean;\n  toggledOptions?: {\n    toggleButton: HTMLIcToggleButtonElement;\n  }[];\n  selectedOption: HTMLIcToggleButtonElement;\n}",
       "docstring": "",
       "path": "src/components/ic-toggle-button-group/ic-toggle-button-group.types.ts"
     }
