@@ -22,7 +22,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 
 <Canvas>
   <Story name="Checked">
-    <IcToggleButton label="Toggle" toggleChecked />
+    <IcToggleButton label="Toggle" checked />
   </Story>
 </Canvas>
 
@@ -75,7 +75,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="With badge">
     <IcToggleButton label="Toggle">
-      <IcBadge textLabel="1" slot="badge" variant="success" />
+      <IcBadge label="1" slot="badge" variant="success" />
     </IcToggleButton>
     <IcToggleButton label="Toggle">
       <IcBadge slot="badge" variant="success" type="dot" />
@@ -120,7 +120,7 @@ import { SlottedSVG } from "../react-component-lib/slottedSVG";
 <Canvas>
   <Story name="Loading">
     <IcToggleButton label="Toggle" loading />
-    <IcToggleButton label="Toggle" loading toggleChecked />
+    <IcToggleButton label="Toggle" loading checked />
   </Story>
 </Canvas>
 
@@ -205,7 +205,7 @@ export const defaultArgs = {
   size: "default",
   variant: "default",
   fullWidth: false,
-  toggleChecked: false,
+  checked: false,
 };
 
 <Canvas>
@@ -220,7 +220,7 @@ export const defaultArgs = {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
-      toggleChecked: {
+      checked: {
         control: { type: "boolean" },
       },
       fullWidth: {
@@ -239,7 +239,7 @@ export const defaultArgs = {
           loading={args.loading}
           appearance={args.appearance}
           fullWidth={args.fullWidth}
-          toggleChecked={args.toggleChecked}
+          checked={args.checked}
         />
       </div>
     )}
@@ -257,7 +257,7 @@ export const defaultWithIconArgs = {
   variant: "default",
   fullWidth: false,
   iconPlacement: "left",
-  toggleChecked: false,
+  checked: false,
   accessibleLabel: "Custom Button Ally Label",
 };
 
@@ -273,7 +273,7 @@ export const defaultWithIconArgs = {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
-      toggleChecked: {
+      checked: {
         control: { type: "boolean" },
       },
       iconPlacement: {
@@ -296,7 +296,7 @@ export const defaultWithIconArgs = {
           loading={args.loading}
           appearance={args.appearance}
           fullWidth={args.fullWidth}
-          toggleChecked={args.toggleChecked}
+          checked={args.checked}
           iconPlacement={args.iconPlacement}
         >
           <SlottedSVG
@@ -326,7 +326,7 @@ export const defaultIconArgs = {
   size: "default",
   variant: "icon",
   fullWidth: false,
-  toggleChecked: false,
+  checked: false,
   accessibleLabel: "Custom Button Ally Label",
 };
 
@@ -342,7 +342,7 @@ export const defaultIconArgs = {
         options: ["default", "dark", "light"],
         control: { type: "inline-radio" },
       },
-      toggleChecked: {
+      checked: {
         control: { type: "boolean" },
       },
       fullWidth: {
@@ -361,7 +361,7 @@ export const defaultIconArgs = {
           loading={args.loading}
           appearance={args.appearance}
           fullWidth={args.fullWidth}
-          toggleChecked={args.toggleChecked}
+          checked={args.checked}
           accessibleLabel={args.accessibleLabel}
         >
           <SlottedSVG
