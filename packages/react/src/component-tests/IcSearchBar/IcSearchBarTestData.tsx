@@ -94,7 +94,7 @@ export const OptionsNoFiltering = () => {
       <IcSearchBar
         placeholder="Start typing to search…"
         label="What is your favourite coffee?"
-        disableFilter
+        disableAutoFiltering
         options={defaultOptions}
       />
       <br />
@@ -311,7 +311,7 @@ export const ExternalFiltering = () => {
       onIcChange={handleChange}
       onIcRetryLoad={handleChange}
       onIcOptionSelect={handleOptionSelect}
-      disableFilter
+      disableAutoFiltering
       options={results}
       loadingLabel="Loading time"
       loadingErrorLabel="Oops error"
