@@ -1,6 +1,6 @@
 {
-  "total": 405,
-  "totalPassed": 405,
+  "total": 406,
+  "totalPassed": 406,
   "totalFailed": 0,
   "totalSuites": 32,
   "suites": [
@@ -2682,6 +2682,17 @@
       "tests": [
         {
           "status": "pass",
+          "name": "IcRadio.cy.tsx-default-radio",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-default-radio.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-radio.png"
+        },
+        {
+          "status": "pass",
           "name": "IcRadio.cy.tsx-empty-initial-radio",
           "percentage": 0,
           "failureThreshold": 0,
@@ -4652,9 +4663,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-01T12:15:58.956Z",
-  "endedAt": "2024-07-01T12:24:10.536Z",
-  "duration": 425370,
+  "startedAt": "2024-07-02T13:21:51.835Z",
+  "endedAt": "2024-07-02T13:30:52.883Z",
+  "duration": 475333,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
