@@ -83,6 +83,8 @@ export class DataTable {
     scrollHeight: null,
   };
   private rowHeightSet = false;
+  private initialLoad: boolean = false;
+  private icPageChangeEvent: boolean = false;
 
   @Element() el: HTMLIcDataTableElement;
 
@@ -220,7 +222,7 @@ export class DataTable {
    * For long text in cells that aren't set to textWrap, define how they should be truncated.
    * `tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography "See More"/"See Less" buttons.
    */
-  @Prop() truncationPattern?: IcDataTableTruncationTypes;
+  @Prop() truncationPattern?: IcDataTableTruncationTypes = "tooltip";
 
   /**
    * If `true`, the table displays a linear loading indicator below the header row to indicate an updating state.
@@ -268,6 +270,8 @@ export class DataTable {
       ...this.loadingOptions,
       showBackground: this.data?.length > 0,
     };
+
+    this.initialLoad = true;
   }
 
   componentDidLoad(): void {
@@ -303,13 +307,9 @@ export class DataTable {
   }
 
   componentDidUpdate(): void {
-    console.log("this.resizeObserver", this.resizeObserver);
+    // console.log("this.resizeObserver", this.resizeObserver);
     //TODO: Make this more efficient by preventing an extra render to apply truncation
     this.truncateUpdatedData();
-
-    // if (!this.resizeObserver) {
-    //   // this.debounceDataTruncation();
-    // }
   }
 
   private truncateUpdatedData() {
@@ -330,6 +330,11 @@ export class DataTable {
       this.debounceDataTruncation();
 
       this.rowHeightSet = false;
+    }
+
+    if (!this.initialLoad && this.icPageChangeEvent) {
+      this.updateTruncationTooltip();
+      this.icPageChangeEvent = false;
     }
   }
 
@@ -354,7 +359,7 @@ export class DataTable {
           this.resizeObserver = new ResizeObserver(
             // This gets triggered twice due to updated data and see more/see less button
             debounce(() => {
-              console.log("resizeObserver triggered");
+              // console.log("resizeObserver triggered");
               this.dataTruncation(typographyEl);
             }, 250) as ResizeObserverCallback
           );
@@ -528,6 +533,13 @@ export class DataTable {
         this.previousRowsPerPage = this.rowsPerPage;
       }
     }
+
+    if (!this.initialLoad && this.truncationPattern === "tooltip") {
+      // This is to prevent icPageChange from triggering truncation on first load
+      this.icPageChangeEvent = true;
+    }
+
+    this.initialLoad = false;
   }
 
   @Listen("icTableDensityUpdate")
@@ -631,8 +643,6 @@ export class DataTable {
     this.icRowHeightChange.emit();
 
     this.rowHeightSet = true;
-
-    console.log('@Watch("globalRowHeight")');
   }
 
   /**
@@ -845,32 +855,36 @@ export class DataTable {
                       ></span>
                     )
                   )}
-                  <ic-typography
-                    variant="body"
-                    class={{
-                      [`cell-emphasis-${
-                        (this.isObject(cell) && cellValue("emphasis")) ||
-                        columnProps?.emphasis ||
-                        rowEmphasis
-                      }`]:
-                        (this.isObject(cell) && !!cellValue("emphasis")) ||
-                        !!columnProps?.emphasis ||
-                        !!rowEmphasis,
-                      [`text-${this.density}`]: this.notDefaultDensity(),
-                    }}
-                  >
-                    {this.isObject(cell) && columnProps?.dataType !== "date" ? (
-                      Object.keys(cell).includes("href") ? (
-                        <ic-link href={cellValue("href")}>
-                          {cellValue("data")}
-                        </ic-link>
-                      ) : (
-                        cellValue("data")
-                      )
-                    ) : (
-                      this.getCellContent(cell, columnProps?.dataType)
+                  {columnProps?.dataType !== "element" &&
+                    !isSlotUsed(this.el, cellSlotName) && (
+                      <ic-typography
+                        variant="body"
+                        class={{
+                          [`cell-emphasis-${
+                            (this.isObject(cell) && cellValue("emphasis")) ||
+                            columnProps?.emphasis ||
+                            rowEmphasis
+                          }`]:
+                            (this.isObject(cell) && !!cellValue("emphasis")) ||
+                            !!columnProps?.emphasis ||
+                            !!rowEmphasis,
+                          [`text-${this.density}`]: this.notDefaultDensity(),
+                        }}
+                      >
+                        {this.isObject(cell) &&
+                        columnProps?.dataType !== "date" ? (
+                          Object.keys(cell).includes("href") ? (
+                            <ic-link href={cellValue("href")}>
+                              {cellValue("data")}
+                            </ic-link>
+                          ) : (
+                            cellValue("data")
+                          )
+                        ) : (
+                          this.getCellContent(cell, columnProps?.dataType)
+                        )}
+                      </ic-typography>
                     )}
-                  </ic-typography>
                 </Fragment>
               )}
             </div>

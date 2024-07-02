@@ -83,7 +83,9 @@ export class Typography {
       this.resizeObserver.disconnect();
     }
   }
-
+  /**
+   * @internal This is used by data table to remove all truncation in certain events
+   */
   @Method()
   async resetTruncation() {
     if (this.truncated) {

@@ -1611,10 +1611,13 @@ describe("IcDataTable with truncation", () => {
 
       cy.findShadowEl(DATA_TABLE_SELECTOR, ".table-row")
         .filter(":lt(2)")
-        .find(".table-cell:last-child ic-typography")
-        .shadow()
-        .find("button")
-        .should("have.text", "See more");
+        .each(($row) => {
+          cy.wrap($row)
+            .find(".table-cell:last-child ic-typography")
+            .shadow()
+            .find("button")
+            .should("have.text", "See more");
+        });
     });
 
     it("should add show hide truncation on updated data object", () => {

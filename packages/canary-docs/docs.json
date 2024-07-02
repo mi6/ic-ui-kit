@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-25T08:24:12",
+  "timestamp": "2024-07-02T10:09:08",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -447,6 +447,7 @@
           "reflectToAttr": false,
           "docs": "For long text in cells that aren't set to textWrap, define how they should be truncated.\n`tooltip` adds a tooltip for the rest of the text, `showHide` adds the ic-typography \"See More\"/\"See Less\" buttons.",
           "docsTags": [],
+          "default": "\"tooltip\"",
           "values": [
             {
               "value": "show-hide",
