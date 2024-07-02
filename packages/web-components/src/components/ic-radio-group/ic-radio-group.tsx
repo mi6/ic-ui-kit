@@ -12,7 +12,7 @@ import {
 } from "@stencil/core";
 import {
   hasValidationStatus,
-  isSlotUsed,
+  slotHasContent,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   renderHiddenInput,
@@ -277,8 +277,8 @@ export class RadioGroup {
       this.radioOptions !== undefined &&
       (this.radioOptions.length > 2 ||
         (this.radioOptions.length === 2 &&
-          (isSlotUsed(this.radioOptions[0], "additional-field") ||
-            isSlotUsed(this.radioOptions[1], "additional-field"))))
+          (slotHasContent(this.radioOptions[0], "additional-field") ||
+            slotHasContent(this.radioOptions[1], "additional-field"))))
     ) {
       this.currentOrientation = "vertical";
     }
