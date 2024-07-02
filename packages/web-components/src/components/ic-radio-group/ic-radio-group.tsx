@@ -12,7 +12,6 @@ import {
 } from "@stencil/core";
 import {
   hasValidationStatus,
-  isSlotUsed,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   renderHiddenInput,
