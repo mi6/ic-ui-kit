@@ -1144,7 +1144,7 @@ describe("ic-select searchable", () => {
   it("should test click on input with external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true"></ic-select>`,
     });
 
     page.root.options = menuOptions;
@@ -1451,7 +1451,7 @@ describe("ic-select searchable", () => {
   it("should test debounce change", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300"></ic-select>`,
     });
 
     await page.waitForChanges();
@@ -1464,7 +1464,7 @@ describe("ic-select searchable", () => {
   it("should test no results state when no options passed and filtering disabled", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300"></ic-select>`,
     });
 
     page.root.options = menuOptions;
@@ -1500,7 +1500,7 @@ describe("ic-select searchable", () => {
   it("should test menu opens and closes when enter pressed - external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300"></ic-select>`,
     });
 
     page.root.options = [];
@@ -1637,7 +1637,7 @@ describe("ic-select searchable", () => {
   it("should test loading state and timeout for searchable select with external filtering", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300" timeout="1000"></ic-select>`,
     });
 
     page.rootInstance.searchableSelectInputValue = "test";
@@ -1699,7 +1699,7 @@ describe("ic-select searchable", () => {
   it("should test keydown on loading retry button", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
-      html: `<ic-select label="IC Select Test" searchable="true" disable-filter="true" debounce="300" timeout="1000"></ic-select>`,
+      html: `<ic-select label="IC Select Test" searchable="true" disable-auto-filtering="true" debounce="300" timeout="1000"></ic-select>`,
     });
     const input = page.root.shadowRoot.querySelector("input");
     const spy = jest.spyOn(input, "focus");
