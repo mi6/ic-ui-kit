@@ -702,7 +702,7 @@ describe("IcCard", () => {
           clickable
           href="#"
         >
-          <IcBadge size="large" text-label="New" slot="badge" variant="info" />
+          <IcBadge size="large" label="New" slot="badge" variant="info" />
           <SlottedSVG
             slot="icon"
             xmlns="http://www.w3.org/2000/svg"
