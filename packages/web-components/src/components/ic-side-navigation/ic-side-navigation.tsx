@@ -126,7 +126,7 @@ export class SideNavigation {
   /**
    * Emitted when the side navigation is collapsed and expanded.
    */
-  @Event() sideNavExpanded: EventEmitter<IcExpandedDetail>;
+  @Event() icSideNavExpanded: EventEmitter<IcExpandedDetail>;
 
   componentWillLoad(): void {
     this.setMenuExpanded(this.expanded);
@@ -176,7 +176,7 @@ export class SideNavigation {
     sideNavExpanded: boolean;
     sideNavMobile?: boolean;
   }): void => {
-    this.sideNavExpanded.emit({
+    this.icSideNavExpanded.emit({
       sideNavExpanded: objDetails.sideNavExpanded,
       sideNavMobile: objDetails.sideNavMobile,
     });
