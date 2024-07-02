@@ -9,7 +9,7 @@ export const badgeTypes = (variant: IcBadgeVariants, customColor?: IcColor) => {
       <div style={{ padding: "16px" }}>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             variant={variant}
             customColor={customColor}
@@ -19,7 +19,7 @@ export const badgeTypes = (variant: IcBadgeVariants, customColor?: IcColor) => {
         </IcButton>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             variant={variant}
             customColor={customColor}
@@ -28,7 +28,7 @@ export const badgeTypes = (variant: IcBadgeVariants, customColor?: IcColor) => {
         </IcButton>
         <IcButton variant="secondary">
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             variant={variant}
             customColor={customColor}
@@ -148,7 +148,7 @@ export const ShowHideBadge = () => {
 
   return (
     <IcButton variant="secondary" onClick={badgeVisibility}>
-      <IcBadge text-label="1" slot="badge" />
+      <IcBadge label="1" slot="badge" />
       Hide/Show badge
     </IcButton>
   );
