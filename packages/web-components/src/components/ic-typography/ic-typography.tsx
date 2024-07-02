@@ -135,15 +135,6 @@ export class Typography {
   }
 
   /**
-   * @internal This method makes it possible to get the expanded status of trucated text outside of ic-typography component
-   * @returns {boolean} indicates if the text is expanded or not.
-   */
-  @Method()
-  async getShowHideExpanded() {
-    return this.expanded;
-  }
-
-  /**
    * @internal This method makes it possible to set the expanded status of trucated text outside of ic-typography component
    */
   @Method()

@@ -25,7 +25,6 @@ import {
   IcDataTableSortOrderOptions,
   IcDataTableTruncationTypes,
   IcDensityUpdateEventDetail,
-  truncWrapperDetailsTypes,
 } from "./ic-data-table.types";
 import { IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcPaginationBarOptions } from "../../utils/types";
@@ -69,7 +68,6 @@ export class DataTable {
     descending: descendingIcon,
   };
 
-  // private currentRowHeight: number;
   private hasLoadedForOneSecond: boolean = true;
   private loadingIndicator: HTMLIcLoadingIndicatorElement;
   private timerStarted: number;
@@ -77,11 +75,7 @@ export class DataTable {
   private SHOW_HIDE_CSS_CLASS = "show-hide-wrap";
   private TOOLTIP = "ic-tooltip";
   private dataUpdated = false;
-  // private tableSorted: boolean;
   private showHideBtnClicked = false;
-  private truncWrapperDetails: truncWrapperDetailsTypes = {
-    scrollHeight: null,
-  };
   private rowHeightSet = false;
   private initialLoad: boolean = false;
   private icPageChangeEvent: boolean = false;
@@ -307,7 +301,6 @@ export class DataTable {
   }
 
   componentDidUpdate(): void {
-    // console.log("this.resizeObserver", this.resizeObserver);
     //TODO: Make this more efficient by preventing an extra render to apply truncation
     this.truncateUpdatedData();
   }
@@ -318,18 +311,11 @@ export class DataTable {
         this.resetShowHideTruncation();
       }
 
-      setTimeout(() => {
-        this.debounceDataTruncation();
-      }, 150);
+      if (this.truncationPattern === "tooltip") {
+        this.updateTruncationTooltip();
+      }
 
       this.dataUpdated = false;
-    }
-
-    if (this.rowHeightSet) {
-      // Cypress
-      this.debounceDataTruncation();
-
-      this.rowHeightSet = false;
     }
 
     if (!this.initialLoad && this.icPageChangeEvent) {
@@ -361,7 +347,7 @@ export class DataTable {
             debounce(() => {
               // console.log("resizeObserver triggered");
               this.dataTruncation(typographyEl);
-            }, 250) as ResizeObserverCallback
+            }, 200) as ResizeObserverCallback
           );
 
           this.resizeObserver.observe(typographyEl);
@@ -379,9 +365,14 @@ export class DataTable {
   ) => {
     if (typographyEl?.scrollHeight > cellContainer?.clientHeight) {
       //24 is the height of a single line
-      this.addTooltipTruncation(typographyEl, cellContainer, tooltip);
-
-      this.addShowHideTruncation(cellContainer, typographyEl);
+      if (!typographyEl.closest(".text-wrap")) {
+        if (this.truncationPattern === "tooltip") {
+          this.addTooltipTruncation(typographyEl, cellContainer, tooltip);
+        }
+        if (this.truncationPattern === "show-hide") {
+          this.addShowHideTruncation(cellContainer, typographyEl);
+        }
+      }
     } else {
       if (this.truncationPattern === "tooltip" && tooltip) {
         typographyEl.setAttribute("style", `--ic-line-clamp: 0`);
@@ -394,7 +385,7 @@ export class DataTable {
         this.truncationPattern === "show-hide" &&
         !isEmptyString(typographyEl.getAttribute("max-lines"))
       ) {
-        this.resetShowHideTruncation();
+        this.resetShowHideTruncation(typographyEl);
       }
     }
   };
@@ -404,18 +395,13 @@ export class DataTable {
     cellContainer: HTMLElement,
     tooltip: HTMLIcTooltipElement
   ) {
-    if (
-      this.truncationPattern === "tooltip" &&
-      !typographyEl.closest(".text-wrap")
-    ) {
-      typographyEl.setAttribute(
-        "style",
-        `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
-      );
+    typographyEl.setAttribute(
+      "style",
+      `--ic-line-clamp: ${this.getLines(cellContainer?.clientHeight)}`
+    );
 
-      if (!tooltip) {
-        this.createTruncationTooltip(typographyEl, cellContainer);
-      }
+    if (!tooltip) {
+      this.createTruncationTooltip(typographyEl, cellContainer);
     }
   }
 
@@ -423,21 +409,8 @@ export class DataTable {
     cellContainer: HTMLElement,
     typographyEl: HTMLIcTypographyElement
   ) {
-    if (this.truncationPattern === "show-hide") {
-      cellContainer.classList.add(this.SHOW_HIDE_CSS_CLASS);
-      this.createShowHideTruncation(typographyEl, cellContainer);
-    }
-  }
-
-  @Listen("icItemsPerPageChange")
-  handleItemsPerPageChange({
-    detail,
-    target,
-  }: CustomEvent<{ value: number }>): void {
-    if ((target as HTMLIcPaginationBarElement).parentElement !== this.el) {
-      this.previousRowsPerPage = this.rowsPerPage;
-      this.rowsPerPage = detail.value;
-    }
+    cellContainer.classList.add(this.SHOW_HIDE_CSS_CLASS);
+    this.createShowHideTruncation(typographyEl, cellContainer);
   }
 
   private dataTruncation = (typographyEl: HTMLIcTypographyElement) => {
@@ -445,9 +418,6 @@ export class DataTable {
     // TODO: Tooltip truncation mentioned in AC. Will need revisiting
     const tooltip: HTMLIcTooltipElement = this.getTooltip(typographyEl);
     const cellContainer = this.getCellContainer(typographyEl);
-    const cellContainerClientHeight = cellContainer.clientHeight - 24;
-
-    // console.log(this.dataUpdated);
 
     if (
       cellContainer?.classList.contains("data-type-element") ||
@@ -474,45 +444,37 @@ export class DataTable {
         return;
       }
 
+      // If the see more/see less is present and the max lines is equal to the cell conainer
+      // remove the see more/see less button
       if (showHideBtn) {
         const truncWrapper =
           typographyEl.shadowRoot.querySelector(".trunc-wrapper");
 
-        /**
-         * This function does a number of things before resetting the truncation
-         * 1. Checks if truncated wrapper height and the previously stored truncation wrapper height is the same AND
-         * 2. Check if the truncated wrapper height is less than cell container height
-         * 3. OR if the number of truncated wrapper lines is equal to the max lines set
-         * 4. OR cell container (minus see more/see less) is 0
-         */
         if (
-          (this.truncWrapperDetails.scrollHeight !==
-            truncWrapper.scrollHeight &&
-            truncWrapper.scrollHeight < cellContainerClientHeight) ||
           this.getLines(truncWrapper.scrollHeight) ===
-            +typographyEl.getAttribute("max-lines") ||
-          cellContainerClientHeight === 0
+          +typographyEl.getAttribute("max-lines")
         ) {
-          this.resetShowHideTruncation();
-          this.truncWrapperDetails = {
-            scrollHeight: null,
-          };
+          this.resetShowHideTruncation(typographyEl);
         }
-
-        this.truncWrapperDetails = {
-          scrollHeight: truncWrapper.scrollHeight,
-        };
       }
     }
 
+    // Deals with setting and resetting row height and re-truncating data
     if (this.rowHeightSet && this.truncationPattern === "show-hide") {
-      const typographyMaxLines = +typographyEl.getAttribute("max-lines");
+      const truncWrapper = this.getTruncWrapper(typographyEl);
 
-      if (this.getLines(cellContainer.clientHeight) > typographyMaxLines) {
-        this.resetShowHideTruncation();
+      if (
+        truncWrapper &&
+        cellContainer.clientHeight > truncWrapper.scrollHeight
+      ) {
+        this.resetShowHideTruncation(typographyEl);
+        return;
       }
-      this.rowHeightSet = false;
-      return;
+
+      if (typographyEl.scrollHeight > cellContainer.clientHeight) {
+        this.addShowHideTruncation(cellContainer, typographyEl);
+        return;
+      }
     }
 
     if (
@@ -528,6 +490,10 @@ export class DataTable {
 
     this.truncate(typographyEl, cellContainer, tooltip);
   };
+
+  private getTruncWrapper(typographyEl: HTMLIcTypographyElement) {
+    return typographyEl.shadowRoot.querySelector(".trunc-wrapper");
+  }
 
   @Listen("icPageChange")
   handlePageChange({ detail, target }: CustomEvent<{ value: number }>): void {
@@ -555,6 +521,17 @@ export class DataTable {
     this.initialLoad = false;
   }
 
+  @Listen("icItemsPerPageChange")
+  handleItemsPerPageChange({
+    detail,
+    target,
+  }: CustomEvent<{ value: number }>): void {
+    if ((target as HTMLIcPaginationBarElement).parentElement !== this.el) {
+      this.previousRowsPerPage = this.rowsPerPage;
+      this.rowsPerPage = detail.value;
+    }
+  }
+
   @Listen("icTableDensityUpdate")
   handleDensityChange(ev: CustomEvent<IcDensityUpdateEventDetail>): void {
     this.density = ev.detail.value;
@@ -564,17 +541,6 @@ export class DataTable {
   clickListener(ev: MouseEvent): void {
     if (ev.target !== this.el) this.selectedRow = undefined;
   }
-
-  private removeTextWrap = (): void => {
-    this.getTypographyElements().forEach(
-      (typographyEl: HTMLIcTypographyElement) => {
-        const tableCell = typographyEl.closest("td");
-        if (tableCell.classList.contains("text-wrap")) {
-          tableCell.classList.remove("text-wrap");
-        }
-      }
-    );
-  };
 
   @Watch("loading")
   loadingHandler(newValue: boolean): void {
@@ -630,6 +596,17 @@ export class DataTable {
     this.dataUpdated = true;
   }
 
+  private removeTextWrap = (): void => {
+    this.getTypographyElements().forEach(
+      (typographyEl: HTMLIcTypographyElement) => {
+        const tableCell = typographyEl.closest("td");
+        if (tableCell.classList.contains("text-wrap")) {
+          tableCell.classList.remove("text-wrap");
+        }
+      }
+    );
+  };
+
   private getCellContainer = (
     typographyEl: HTMLIcTypographyElement
   ): HTMLElement => {
@@ -642,8 +619,8 @@ export class DataTable {
     Array.isArray(array) &&
     array.forEach((val) => val.textWrap && delete val.textWrap);
 
-  private resetShowHideTruncation() {
-    this.getTypographyElements().forEach((typographyEl) => {
+  private resetShowHideTruncation(typographyEl?: HTMLIcTypographyElement) {
+    if (typographyEl) {
       const cellContainer = this.getCellContainer(typographyEl);
       typographyEl.resetTruncation().then(() => {
         cellContainer.style.setProperty(
@@ -651,7 +628,17 @@ export class DataTable {
           cellContainer.getAttribute("data-row-height")
         );
       });
-    });
+    } else {
+      this.getTypographyElements().forEach((typographyEl) => {
+        const cellContainer = this.getCellContainer(typographyEl);
+        typographyEl.resetTruncation().then(() => {
+          cellContainer.style.setProperty(
+            "height",
+            cellContainer.getAttribute("data-row-height")
+          );
+        });
+      });
+    }
   }
 
   @Watch("globalRowHeight")
@@ -676,7 +663,6 @@ export class DataTable {
    */
   @Method()
   async resetRowHeights(): Promise<void> {
-    console.log("resetRowHeights");
     this.globalRowHeight = 40;
     this.variableRowHeight = null;
   }
@@ -1116,7 +1102,6 @@ export class DataTable {
 
     if (this.truncationPattern === "show-hide") {
       this.resetShowHideTruncation();
-      console.log("1");
     }
 
     // this.tableSorted = true;

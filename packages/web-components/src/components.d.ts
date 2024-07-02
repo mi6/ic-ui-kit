@@ -2382,10 +2382,6 @@ export namespace Components {
          */
         "checkMaxLines": (height: number) => Promise<void>;
         /**
-          * @returns indicates if the text is expanded or not.
-         */
-        "getShowHideExpanded": () => Promise<boolean>;
-        /**
           * If `true`, the typography will have an italic font style.
          */
         "italic"?: boolean;

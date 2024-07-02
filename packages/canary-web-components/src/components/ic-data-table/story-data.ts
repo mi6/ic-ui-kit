@@ -1135,7 +1135,7 @@ export const DevArea = (): HTMLElement => {
   );
   dataTable.sortable = true;
   dataTable.variableRowHeight = null;
-  dataTable.setAttribute("truncation-pattern", "show-hide");
+  dataTable.setAttribute("truncation-pattern", "tooltip");
 
   const resetButton = document.createElement("ic-button");
   resetButton.addEventListener("click", () => dataTable.resetRowHeights());
@@ -1143,7 +1143,7 @@ export const DevArea = (): HTMLElement => {
 
   const setButton = document.createElement("ic-button");
   setButton.addEventListener("click", () => {
-    dataTable.globalRowHeight = 72;
+    dataTable.globalRowHeight = 80;
   });
   setButton.innerHTML = "Set";
 
