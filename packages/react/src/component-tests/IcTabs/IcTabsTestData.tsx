@@ -283,7 +283,7 @@ export const TabsWithInlineBadges = (): ReactElement => (
         <IcTab>
           Small
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             size="small"
@@ -293,7 +293,7 @@ export const TabsWithInlineBadges = (): ReactElement => (
         <IcTab>
           Default
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             accessibleLabel="1 notification found"
@@ -302,7 +302,7 @@ export const TabsWithInlineBadges = (): ReactElement => (
         <IcTab>
           Large
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             size="large"
