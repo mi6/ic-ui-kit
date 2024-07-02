@@ -15,10 +15,10 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     const radioButton1 = await page.find("ic-radio-option[value='test1']");
-    const input1 = radioButton1.shadowRoot.querySelector("input");
+    const input1 = await radioButton1.find("input");
 
     const radioButton2 = await page.find("ic-radio-option[value='test2']");
-    const input2 = radioButton2.shadowRoot.querySelector("input");
+    const input2 = await radioButton2.find("input");
 
     expect(input1.tabIndex).toBe(0);
     expect(input2.tabIndex).toBe(-1);
@@ -50,7 +50,7 @@ describe("ic-radio-group component", () => {
     expect(await radioButton.getProperty("selected")).toBe(true);
 
     radioButton = await page.find("ic-radio-option[value='test2']");
-    const input = radioButton.shadowRoot.querySelector("input");
+    const input = await radioButton.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should enable textfield when associated option is selected when static", async () => {
@@ -90,9 +90,9 @@ describe("ic-radio-group component", () => {
     const radioButton = await page.find("ic-radio-option[value='test2']");
 
     let additionalFieldDisplay = await page.evaluate(() => {
-      const additionalField = document
-        .querySelector("ic-radio-option[value='test2']")
-        .shadowRoot.querySelector(".dynamic-container");
+      const additionalField = document.querySelector(
+        "ic-radio-option[value='test2'] .dynamic-container"
+      );
 
       return window.getComputedStyle(additionalField).display;
     });
@@ -102,9 +102,9 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     additionalFieldDisplay = await page.evaluate(() => {
-      const additionalField = document
-        .querySelector("ic-radio-option[value='test2']")
-        .shadowRoot.querySelector(".dynamic-container");
+      const additionalField = document.querySelector(
+        "ic-radio-option[value='test2'] .dynamic-container"
+      );
 
       return window.getComputedStyle(additionalField).display;
     });
@@ -171,7 +171,7 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     expect(await radioButton.getProperty("selected")).toBe(true);
-    const input = radioButton.shadowRoot.querySelector("input");
+    const input = await radioButton.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should select next radio option down when arrow down is used", async () => {
@@ -191,7 +191,7 @@ describe("ic-radio-group component", () => {
     await radioButton1.press("ArrowDown");
     await page.waitForChanges();
 
-    const input = radioButton2.shadowRoot.querySelector("input");
+    const input = await radioButton2.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should select next radio option down when arrow right is used", async () => {
@@ -211,7 +211,7 @@ describe("ic-radio-group component", () => {
     await radioButton1.press("ArrowRight");
     await page.waitForChanges();
 
-    const input = radioButton2.shadowRoot.querySelector("input");
+    const input = await radioButton2.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should select next radio option down when arrow up is used", async () => {
@@ -232,7 +232,7 @@ describe("ic-radio-group component", () => {
     await radioButton2.press("ArrowUp");
     await page.waitForChanges();
 
-    const input = radioButton1.shadowRoot.querySelector("input");
+    const input = await radioButton1.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should select next radio option down when arrow left is used", async () => {
@@ -253,7 +253,7 @@ describe("ic-radio-group component", () => {
     await radioButton2.press("ArrowLeft");
     await page.waitForChanges();
 
-    const input = radioButton1.shadowRoot.querySelector("input");
+    const input = await radioButton1.find("input");
     expect(input.tabIndex).toBe(0);
   });
   it("should work in a form", async () => {
@@ -306,8 +306,8 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     const value = await (
-      await page.find('input[name="test"]')
-    ).getProperty("value");
+      await page.findAll('input[name="test"]')
+    )[1].getProperty("value");
 
     expect(value).toBe("test2");
   });
@@ -340,8 +340,8 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     let value = await (
-      await page.find('input[name="test"]')
-    ).getProperty("value");
+      await page.findAll('input[name="test"]')
+    )[1].getProperty("value");
 
     expect(value).toBe("test");
 
@@ -352,7 +352,9 @@ describe("ic-radio-group component", () => {
 
     await page.waitForChanges();
 
-    value = await (await page.find('input[name="test"]')).getProperty("value");
+    value = await (
+      await page.findAll('input[name="test"]')
+    )[1].getProperty("value");
 
     expect(value).toBe("test2");
   });
@@ -376,8 +378,8 @@ describe("ic-radio-group component", () => {
     await page.waitForChanges();
 
     const value = await (
-      await page.find('input[name="test"]')
-    ).getProperty("value");
+      await page.findAll('input[name="test"]')
+    )[1].getProperty("value");
 
     expect(value).toBe("testValue1");
   });
