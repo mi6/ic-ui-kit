@@ -13,6 +13,7 @@ const PREV_PAGE_SELECTOR = "#previous-page-button";
 const LAST_PAGE_SELECTOR = "#last-page-button";
 const FIRST_PAGE_SELECTOR = "#first-page-button";
 const DEFAULT_TEST_THRESHOLD = 0;
+const PAGE_CHANGE_EVENT = "@icPageChanged";
 
 describe("IcPagination", () => {
   beforeEach(() => {
@@ -186,8 +187,8 @@ describe("IcPagination", () => {
       <div style={{ margin: "16px" }}>
         <IcPagination
           type="complex"
-          adjacentCount={2}
-          boundaryCount={2}
+          adjacentPageCount={2}
+          boundaryPageCount={2}
           pages={15}
         />
       </div>
@@ -321,7 +322,7 @@ describe("IcPagination", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
       expect(stub.getCall(2).args[0].detail.value).to.equal(4);
@@ -355,7 +356,7 @@ describe("IcPagination", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
     });
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
   });
@@ -374,7 +375,7 @@ describe("IcPagination", () => {
       cy.stub().as("icPageChanged")
     );
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-3").click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(3);
     });
 
@@ -399,7 +400,7 @@ describe("IcPagination", () => {
     );
 
     cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click().click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
     });
 
@@ -417,14 +418,14 @@ describe("IcPagination", () => {
       </div>
     );
 
-    cy.get("ic-pagination").invoke(
+    cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
 
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
 
@@ -435,7 +436,7 @@ describe("IcPagination", () => {
     });
 
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-13").click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(13);
     });
 
@@ -467,7 +468,7 @@ describe("IcPagination", () => {
     });
 
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click().click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
@@ -500,7 +501,7 @@ describe("IcPagination", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
     });
 
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
@@ -519,11 +520,11 @@ describe("IcPagination", () => {
       cy.stub().as("icPageChanged")
     );
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
     cy.findShadowEl(PAGINATION_SELECTOR, PREV_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(14);
     });
 
@@ -541,14 +542,14 @@ describe("IcPagination", () => {
       </div>
     );
 
-    cy.get("ic-pagination").invoke(
+    cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
     cy.findShadowEl(PAGINATION_SELECTOR, FIRST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
@@ -567,17 +568,17 @@ describe("IcPagination", () => {
       </div>
     );
 
-    cy.get("ic-pagination").invoke(
+    cy.get(PAGINATION_SELECTOR).invoke(
       "on",
       "icPageChange",
       cy.stub().as("icPageChanged")
     );
     cy.findShadowEl(PAGINATION_SELECTOR, LAST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(15);
     });
     cy.findShadowEl(PAGINATION_SELECTOR, FIRST_PAGE_SELECTOR).click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(1);
     });
 
@@ -594,8 +595,8 @@ describe("IcPagination", () => {
         <IcPagination
           pages={15}
           type="complex"
-          adjacentCount={1}
-          boundaryCount={1}
+          adjacentPageCount={1}
+          boundaryPageCount={1}
         />
       </div>
     );
@@ -609,12 +610,12 @@ describe("IcPagination", () => {
     for (let i = 1; i < 6; i++) {
       cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
     }
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
 
     cy.findShadowEl(PAGINATION_SELECTOR, "#pagination-item-7").click();
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(1).args[0].detail.value).to.equal(3);
     });
 
@@ -625,14 +626,14 @@ describe("IcPagination", () => {
     });
   });
 
-  it("should not navigate to 'page 8' when the middle state is reached and the adjacent-count for complex pagination", () => {
+  it("should not navigate to 'page 8' when the middle state is reached and the adjacent-page-count for complex pagination", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <IcPagination
           pages={15}
           type="complex"
-          adjacentCount={1}
-          boundaryCount={1}
+          adjacentPageCount={1}
+          boundaryPageCount={1}
         />
       </div>
     );
@@ -646,7 +647,7 @@ describe("IcPagination", () => {
     for (let i = 1; i < 6; i++) {
       cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click();
     }
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
     cy.findShadowEl(PAGINATION_SELECTOR, "#end-ellipsis")
@@ -680,7 +681,7 @@ describe("IcPagination", () => {
       .realPress(["Shift", "Tab"])
       .realPress(["Shift", "Tab"])
       .realPress("Enter");
-    cy.get("@icPageChanged").should((stub) => {
+    cy.get(PAGE_CHANGE_EVENT).should((stub) => {
       expect(stub.getCall(0).args[0].detail.value).to.equal(2);
       expect(stub.getCall(1).args[0].detail.value).to.equal(15);
       expect(stub.getCall(2).args[0].detail.value).to.equal(13);

@@ -268,7 +268,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -281,7 +281,7 @@ describe("IcRadio visual regression and a11y tests", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -319,7 +319,7 @@ describe("IcRadio visual regression tests in high contrast mode", () => {
     mount(<ConditionalDynamic />);
 
     cy.checkHydrated(RADIO_GROUP_SELECTOR);
-    cy.get(RADIO_SELECTOR).eq(1).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(1).find(".container").click();
 
     cy.compareSnapshot({
       name: "conditional-dynamic-high-contrast",
