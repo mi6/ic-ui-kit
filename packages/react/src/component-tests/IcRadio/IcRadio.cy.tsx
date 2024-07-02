@@ -73,11 +73,11 @@ describe("IcRadio end-to-end tests", () => {
     cy.get(RADIO_SELECTOR).eq(2).should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).last().should(HAVE_PROP, "selected", false);
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).first().should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).first().should(HAVE_FOCUS);
 
     cy.realPress("ArrowDown");
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).first().should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).eq(1).should(HAVE_PROP, "selected", true);
   });
@@ -94,7 +94,7 @@ describe("IcRadio end-to-end tests", () => {
     cy.findShadowEl(IC_BUTTON, BUTTON).focus();
     cy.realPress(["Shift", "Tab"]);
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).first().should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).first().should(HAVE_FOCUS);
 
     cy.get(RADIO_SELECTOR)
       .first()
@@ -108,7 +108,7 @@ describe("IcRadio end-to-end tests", () => {
 
     cy.realPress("ArrowDown");
 
-    cy.findShadowEl(RADIO_SELECTOR, INPUT).eq(1).should(HAVE_FOCUS);
+    cy.get(RADIO_SELECTOR).find(INPUT).eq(1).should(HAVE_FOCUS);
     cy.get(RADIO_SELECTOR).first().should(HAVE_PROP, "selected", false);
     cy.get(RADIO_SELECTOR).last().should(HAVE_PROP, "selected", true);
   });
@@ -126,7 +126,7 @@ describe("IcRadio end-to-end tests", () => {
     mount(<Uncontrolled />);
 
     cy.spy(window.console, "log").as("spyWinConsoleLog");
-    cy.get(RADIO_SELECTOR).eq(0).shadow().find(".container").click();
+    cy.get(RADIO_SELECTOR).eq(0).find(".container").click();
     cy.get("@spyWinConsoleLog").should(HAVE_BEEN_CALLED_WITH, true);
   });
 
