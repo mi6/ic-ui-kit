@@ -26,10 +26,10 @@ export const FullWidth = () => {
   return (
     <div style={{ padding: "100px" }}>
       <IcStepper>
-        <IcStep stepTitle="Create" stepType="completed"></IcStep>
-        <IcStep stepTitle="Read" stepType="current"></IcStep>
-        <IcStep stepTitle="Update" stepType="active"></IcStep>
-        <IcStep stepTitle="Delete" stepType="disabled"></IcStep>
+        <IcStep heading="Create" type="completed"></IcStep>
+        <IcStep heading="Read" type="current"></IcStep>
+        <IcStep heading="Update" type="active"></IcStep>
+        <IcStep heading="Delete" type="disabled"></IcStep>
       </IcStepper>
     </div>
   );
@@ -39,26 +39,26 @@ export const Compact = () => {
   return (
     <div style={{ padding: "10px" }}>
       <IcStepper variant="compact" id="standard-compact-stepper">
-        <IcStep stepTitle="Create" />
-        <IcStep stepTitle="Read" stepType="current" />
-        <IcStep stepTitle="Update" stepStatus="optional" />
-        <IcStep stepTitle="Delete" stepStatus="required" />
+        <IcStep heading="Create" />
+        <IcStep heading="Read" type="current" />
+        <IcStep heading="Update" status="optional" />
+        <IcStep heading="Delete" status="required" />
       </IcStepper>
       <IcButton
         class="back-btn-compact-stepper"
         style={{ marginRight: "var(--ic-space-lg)" }}
         onClick={() => {
           for (let i = steps.length - 1; i > 0; i--) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i - 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i - 1].type = "current";
               i--;
             }
           }
-          if (steps[steps.length - 2].stepType === "current") {
+          if (steps[steps.length - 2].type === "current") {
             nextBtn.setAttribute("disabled", "false");
           }
-          if (steps[0].stepType === "current") {
+          if (steps[0].type === "current") {
             backBtn.setAttribute("disabled", "true");
           }
         }}
@@ -69,16 +69,16 @@ export const Compact = () => {
         class="next-btn-compact-stepper"
         onClick={() => {
           for (let i = 0; i < steps.length - 1; i++) {
-            if (steps[i].stepType === "current") {
-              steps[i].stepType = compactStepTypes[i];
-              steps[i + 1].stepType = "current";
+            if (steps[i].type === "current") {
+              steps[i].type = compactStepTypes[i];
+              steps[i + 1].type = "current";
               i++;
             }
           }
-          if (steps[1].stepType === "current") {
+          if (steps[1].type === "current") {
             backBtn.setAttribute("disabled", "false");
           }
-          if (steps[steps.length - 1].stepType === "current") {
+          if (steps[steps.length - 1].type === "current") {
             nextBtn.setAttribute("disabled", "true");
           }
         }}
@@ -93,10 +93,10 @@ export const LeftAligned = () => {
   return (
     <div style={{ padding: "100px" }}>
       <IcStepper aligned="left">
-        <IcStep stepTitle="Create" stepType="completed" />
-        <IcStep stepTitle="Read" stepType="current" />
-        <IcStep stepTitle="Update" stepType="active" />
-        <IcStep stepTitle="Delete" stepType="disabled" />
+        <IcStep heading="Create" type="completed" />
+        <IcStep heading="Read" type="current" />
+        <IcStep heading="Update" type="active" />
+        <IcStep heading="Delete" type="disabled" />
       </IcStepper>
     </div>
   );
@@ -106,17 +106,17 @@ export const CustomConnectorWidth = () => {
   return (
     <div style={{ padding: "10px" }}>
       <IcStepper aligned="left" connectorWidth={200}>
-        <IcStep stepTitle="First" />
+        <IcStep heading="First" />
         <IcStep
-          stepTitle="Second with a very long title"
-          stepSubtitle="Optional subtitle that is long and should wrap"
-          stepType="current"
+          heading="Second with a very long title"
+          subheading="Optional subtitle that is long and should wrap"
+          type="current"
         />
-        <IcStep stepTitle="Third" stepType="disabled" />
+        <IcStep heading="Third" type="disabled" />
         <IcStep
-          stepTitle="Fourth title that is long and should wrap"
-          stepSubtitle="Optional Subtitle"
-          stepType="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         />
       </IcStepper>
     </div>
@@ -127,17 +127,17 @@ export const SmallConnectorWidth = () => {
   return (
     <div style={{ padding: "10px" }}>
       <IcStepper aligned="left" connectorWidth={80}>
-        <IcStep stepTitle="First" />
+        <IcStep heading="First" />
         <IcStep
-          stepTitle="Second with a very long title"
-          stepSubtitle="Optional subtitle that is long and should wrap"
-          stepType="current"
+          heading="Second with a very long title"
+          subheading="Optional subtitle that is long and should wrap"
+          type="current"
         />
-        <IcStep stepTitle="Third" stepType="disabled" />
+        <IcStep heading="Third" type="disabled" />
         <IcStep
-          stepTitle="Fourth title that is long and should wrap"
-          stepSubtitle="Optional Subtitle"
-          stepType="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         />
       </IcStepper>
     </div>
@@ -148,23 +148,23 @@ export const CustomCompact = () => {
   return (
     <div style={{ padding: "10px" }}>
       <IcStepper variant="compact" id="custom-compact-stepper">
-        <IcStep stepTitle="First" />
+        <IcStep heading="First" />
         <IcStep
-          stepTitle="Second with a very long title"
-          stepSubtitle="Optional subtitle that is long and should wrap"
-          stepType="current"
+          heading="Second with a very long title"
+          subheading="Optional subtitle that is long and should wrap"
+          type="current"
         />
-        <IcStep stepTitle="Third" stepType="disabled" />
+        <IcStep heading="Third" type="disabled" />
         <IcStep
-          stepTitle="Fourth title that is long and should wrap"
-          stepSubtitle="Optional Subtitle"
-          stepType="completed"
+          heading="Fourth title that is long and should wrap"
+          subheading="Optional Subtitle"
+          type="completed"
         />
         <IcStep
-          stepTitle="Fifth and final step"
-          stepSubtitle="Optional Subtitle"
-          stepStatus="optional"
-          stepType="completed"
+          heading="Fifth and final step"
+          subheading="Optional Subtitle"
+          status="optional"
+          type="completed"
         />
       </IcStepper>
       <IcButton
@@ -172,16 +172,16 @@ export const CustomCompact = () => {
         style={{ marginRight: "var(--ic-space-lg)" }}
         onClick={() => {
           for (let i = customSteps.length - 1; i > 0; i--) {
-            if (customSteps[i].stepType === "current") {
-              customSteps[i].stepType = customCompactStepTypes[i];
-              customSteps[i - 1].stepType = "current";
+            if (customSteps[i].type === "current") {
+              customSteps[i].type = customCompactStepTypes[i];
+              customSteps[i - 1].type = "current";
               i--;
             }
           }
-          if (customSteps[customSteps.length - 2].stepType === "current") {
+          if (customSteps[customSteps.length - 2].type === "current") {
             nextBtnCustomCompactStepper.setAttribute("disabled", "false");
           }
-          if (customSteps[0].stepType === "current") {
+          if (customSteps[0].type === "current") {
             backBtnCustomCompactStepper.setAttribute("disabled", "true");
           }
         }}
@@ -192,16 +192,16 @@ export const CustomCompact = () => {
         class="next-btn-custom-compact-stepper"
         onClick={() => {
           for (let i = 0; i < customSteps.length - 1; i++) {
-            if (customSteps[i].stepType === "current") {
-              customSteps[i].stepType = customCompactStepTypes[i];
-              customSteps[i + 1].stepType = "current";
+            if (customSteps[i].type === "current") {
+              customSteps[i].type = customCompactStepTypes[i];
+              customSteps[i + 1].type = "current";
               i++;
             }
           }
-          if (customSteps[1].stepType === "current") {
+          if (customSteps[1].type === "current") {
             backBtnCustomCompactStepper.setAttribute("disabled", "false");
           }
-          if (customSteps[customSteps.length - 1].stepType === "current") {
+          if (customSteps[customSteps.length - 1].type === "current") {
             nextBtnCustomCompactStepper.setAttribute("disabled", "true");
           }
         }}
@@ -212,13 +212,13 @@ export const CustomCompact = () => {
   );
 };
 
-export const WithoutStepTitles = () => {
+export const WithoutHeadings = () => {
   return (
     <div style={{ padding: "100px" }}>
       <IcStepper>
-        <IcStep stepType="completed" />
-        <IcStep stepType="completed" />
-        <IcStep stepType="current" />
+        <IcStep type="completed" />
+        <IcStep type="completed" />
+        <IcStep type="current" />
         <IcStep />
       </IcStepper>
     </div>
@@ -229,10 +229,10 @@ export const WithHiddenStepInformation = () => {
   return (
     <div style={{ padding: "100px" }}>
       <IcStepper hideStepInfo>
-        <IcStep stepTitle="Create" stepType="completed" />
-        <IcStep stepTitle="Read" stepType="current" />
-        <IcStep stepTitle="Update" stepType="active" />
-        <IcStep stepTitle="Delete" stepType="disabled" />
+        <IcStep heading="Create" type="completed" />
+        <IcStep heading="Read" type="current" />
+        <IcStep heading="Update" type="active" />
+        <IcStep heading="Delete" type="disabled" />
       </IcStepper>
     </div>
   );
@@ -242,10 +242,10 @@ export const Light = () => {
   return (
     <div style={{ padding: "100px", backgroundColor: "#2c2f34" }}>
       <IcStepper appearance="light">
-        <IcStep stepTitle="Create" stepType="completed" />
-        <IcStep stepTitle="Read" stepType="current" />
-        <IcStep stepTitle="Update" stepType="active" />
-        <IcStep stepTitle="Delete" stepType="disabled" />
+        <IcStep heading="Create" type="completed" />
+        <IcStep heading="Read" type="current" />
+        <IcStep heading="Update" type="active" />
+        <IcStep heading="Delete" type="disabled" />
       </IcStepper>
     </div>
   );
