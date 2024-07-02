@@ -19,6 +19,7 @@ import {
   removeDisabledFalse,
   isPropDefined,
   isSlotUsed,
+  slotHasContent,
 } from "../../utils/helpers";
 
 const ADDITIONAL_FIELD = "additional-field";
@@ -30,9 +31,6 @@ const TEXT_FIELD_SELECTOR = "ic-text-field";
 @Component({
   tag: "ic-radio-option",
   styleUrl: "ic-radio-option.css",
-  shadow: {
-    delegatesFocus: true,
-  },
 })
 export class RadioOption {
   private defaultRadioValue: string = "";
@@ -160,7 +158,7 @@ export class RadioOption {
   }
 
   componentWillRender(): void {
-    const hasSlot = isSlotUsed(this.el, ADDITIONAL_FIELD);
+    const hasSlot = slotHasContent(this.el, ADDITIONAL_FIELD);
     if (hasSlot && !this.hasAdditionalField) {
       this.hasAdditionalField = true;
       const textField = this.el.querySelector(TEXT_FIELD_SELECTOR);
@@ -269,10 +267,9 @@ export class RadioOption {
 
     return (
       <Host onClick={handleClick} class={{ disabled }}>
-        <div class={{ ["container"]: true, disabled }}>
+        <div class={{ container: true, disabled }}>
           <div>
             <input
-              role="radio"
               tabindex={selected ? "0" : "-1"}
               type="radio"
               name={name}
