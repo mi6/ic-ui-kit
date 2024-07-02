@@ -62,19 +62,19 @@ describe("IcToggleButtonGroup", () => {
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
       getToggle(0).should(HAVE_FOCUS);
       getToggle(2).click();
-      getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
-      getToggle(2).should(HAVE_ATTR, "toggle-checked");
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
+      getToggle(2).should(HAVE_ATTR, "checked");
     });
     it("should check multi on several toggles", () => {
       mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
-      getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(2).click();
-      getToggle(2).should(HAVE_ATTR, "toggle-checked");
+      getToggle(2).should(HAVE_ATTR, "checked");
       getToggle(1).click();
-      getToggle(1).should(HAVE_ATTR, "toggle-checked");
+      getToggle(1).should(HAVE_ATTR, "checked");
     });
     it("should focus parent but not interact with toggle when disabled", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
@@ -82,7 +82,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
-      getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
@@ -92,7 +92,7 @@ describe("IcToggleButtonGroup", () => {
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
 
       cy.get(IC_TOGGLE_BUTTON_GROUP).focus();
-      getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
+      getToggle(0).should(NOT_HAVE_ATTR, "checked");
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
