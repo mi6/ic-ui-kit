@@ -83,7 +83,7 @@ describe("IcAccordion", () => {
 describe("IcAccordionGroup", () => {
   it("should render", () => {
     mount(
-      <IcAccordionGroup groupTitle="Group">
+      <IcAccordionGroup label="Group">
         <TwoAccordions />
       </IcAccordionGroup>
     );
@@ -160,7 +160,7 @@ describe("IcAccordionGroup", () => {
 
   it("should open second accordion and close first accordion on single expansion", () => {
     mount(
-      <IcAccordionGroup singleExpansion groupTitle="Title">
+      <IcAccordionGroup singleExpansion label="Title">
         <TwoAccordionsWithOneExpanded />
       </IcAccordionGroup>
     );
@@ -313,9 +313,9 @@ describe("Visual regression and A11y testing", () => {
   });
 
   describe("IcAccordionGroup", () => {
-    it("should render a custom groupTitle", () => {
+    it("should render a custom label", () => {
       mount(
-        <IcAccordionGroup groupTitle="Custom Group Title">
+        <IcAccordionGroup label="Custom Group Title">
           <TwoAccordions />
         </IcAccordionGroup>
       );
@@ -329,7 +329,7 @@ describe("Visual regression and A11y testing", () => {
 
     it("should render a single expansion accordion-group", () => {
       mount(
-        <IcAccordionGroup singleExpansion groupTitle="Single Expansion">
+        <IcAccordionGroup singleExpansion label="Single Expansion">
           <TwoAccordions />
         </IcAccordionGroup>
       );
@@ -344,13 +344,13 @@ describe("Visual regression and A11y testing", () => {
     it("should render accordion groups at different sizes", () => {
       mount(
         <>
-          <IcAccordionGroup size="small" groupTitle="Small">
+          <IcAccordionGroup size="small" label="Small">
             <TwoAccordions />
           </IcAccordionGroup>
-          <IcAccordionGroup groupTitle="Default">
+          <IcAccordionGroup label="Default">
             <TwoAccordions />
           </IcAccordionGroup>
-          <IcAccordionGroup size="large" groupTitle="Large">
+          <IcAccordionGroup size="large" label="Large">
             <TwoAccordions />
           </IcAccordionGroup>
         </>
@@ -366,7 +366,7 @@ describe("Visual regression and A11y testing", () => {
     it("should render accordion-groups with a light theme", () => {
       mount(
         <div style={{ backgroundColor: "black" }}>
-          <IcAccordionGroup appearance="light" groupTitle="Light theme">
+          <IcAccordionGroup appearance="light" label="Light theme">
             <TwoAccordions />
           </IcAccordionGroup>
         </div>
