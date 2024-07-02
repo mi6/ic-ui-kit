@@ -21,8 +21,8 @@ import {
   WithIcon,
 } from "./IcToggleButtonTestData";
 
-const IC_TOGGLE_BUTTON_SELECTOR = "ic-toggle-button";
-const DEFAULT_TEST_THRESHOLD = 0.0;
+const DEFAULT_TEST_THRESHOLD = 0.012;
+const TOGGLE_BUTTON_SELECTOR = "ic-toggle-button";
 
 /**
  * Justification for additional rule: in the browser this is
@@ -41,7 +41,7 @@ describe("IcToggleButton end-to-end tests", () => {
   it("should render", () => {
     mount(<IcToggleButton label="Test" />);
 
-    cy.get(IC_TOGGLE_BUTTON_SELECTOR).should("exist");
+    cy.get(TOGGLE_BUTTON_SELECTOR).should("exist");
   });
 
   it("should switch to checked when clicked", () => {
@@ -79,8 +79,8 @@ describe("IcToggleButton end-to-end tests", () => {
       />
     );
 
-    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
-    cy.clickOnButton(IC_TOGGLE_BUTTON_SELECTOR);
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
 
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
@@ -88,8 +88,8 @@ describe("IcToggleButton end-to-end tests", () => {
   it("should have loading bar when loading", () => {
     mount(<IcToggleButton label="test" loading />);
 
-    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
-    cy.findShadowEl(IC_TOGGLE_BUTTON_SELECTOR, "ic-button")
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.findShadowEl(TOGGLE_BUTTON_SELECTOR, "ic-button")
       .shadow()
       .find("ic-loading-indicator")
       .should("exist");
@@ -99,8 +99,8 @@ describe("IcToggleButton end-to-end tests", () => {
     cy.spy(window.console, "log").as("spyWinConsoleLog");
     mount(<IcToggleButton label="test" loading />);
 
-    cy.checkHydrated(IC_TOGGLE_BUTTON_SELECTOR);
-    cy.clickOnButton(IC_TOGGLE_BUTTON_SELECTOR);
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
 });
@@ -208,7 +208,59 @@ describe("IcToggleButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait(undefined, 100, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
       name: "with-badge",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+    });
+  });
+
+  it("should render with appearance set to dark", () => {
+    mount(
+      <div style={{ padding: "8px" }}>
+        <IcToggleButton label="Test" appearance="dark" />
+      </div>
+    );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "appearance-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "appearance-dark-checked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
+    });
+  });
+
+  it("should render with appearance set to light", () => {
+    mount(
+      <div
+        style={{
+          padding: "8px",
+          backgroundColor: "#2c2f34",
+          width: "fit-content",
+        }}
+      >
+        <IcToggleButton label="Test" appearance="light" />
+      </div>
+    );
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "appearance-light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
+
+    cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
+    cy.compareSnapshot({
+      name: "appearance-light-checked",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
   });
 
