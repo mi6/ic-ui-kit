@@ -46,7 +46,7 @@
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@cypress/react": "^8.0.0",
-    "@cypress/webpack-preprocessor": "^6.0.0",
+    "@cypress/webpack-preprocessor": "^6.0.2",
     "@mdi/js": "^7.2.96",
     "@stencil/react-output-target": "^0.5.3",
     "@storybook/addon-a11y": "^7.6.7",
