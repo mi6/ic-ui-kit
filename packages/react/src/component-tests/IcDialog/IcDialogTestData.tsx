@@ -127,7 +127,7 @@ export const DialogAccordionGroup = () => {
         heading="This is a default dialog"
         label="Dialog"
       >
-        <IcAccordionGroup groupTitle="Title">
+        <IcAccordionGroup label="Title">
           <IcAccordion heading="Accordion 1">Text</IcAccordion>
           <IcAccordion heading="Accordion 2">Text 2</IcAccordion>
           <IcAccordion heading="Accordion 3">Text 3</IcAccordion>
@@ -152,7 +152,7 @@ export const DialogAccordionGroupSingleExpansion = () => {
         heading="This is a default dialog"
         label="Dialog"
       >
-        <IcAccordionGroup groupTitle="Title" singleExpansion>
+        <IcAccordionGroup label="Title" singleExpansion>
           <IcAccordion heading="Accordion 1">Text</IcAccordion>
           <IcAccordion heading="Accordion 2">Text 2</IcAccordion>
           <IcAccordion heading="Accordion 3">Text 3</IcAccordion>
