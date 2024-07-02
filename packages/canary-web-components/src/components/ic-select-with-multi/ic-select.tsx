@@ -41,6 +41,9 @@ import Clear from "./assets/Clear.svg";
 
 let inputIds = 0;
 
+/**
+ * @slot icon - Content will be placed to the left of the select text input.
+ */
 @Component({
   tag: "ic-select-with-multi",
   styleUrl: "ic-select.css",
@@ -1091,6 +1094,15 @@ export class Select {
     }
   };
 
+  private hasLeftIconSlot(): boolean {
+    const iconEl = this.el.querySelector(`[slot="icon"]`);
+    return iconEl !== null;
+  }
+
+  private hasValue(): boolean {
+    return this.value !== null && this.value !== "" && this.value !== undefined;
+  }
+
   render() {
     const {
       size,
@@ -1137,6 +1149,11 @@ export class Select {
       currValue?.length
     } of ${getOptionsWithoutGroupTitlesCount(this.options)} selected`;
 
+    let showLeftIcon = this.hasLeftIconSlot();
+    if (showLeftIcon && (disabled || (readonly && !this.hasValue()))) {
+      showLeftIcon = false;
+    }
+
     return (
       <Host
         class={{
@@ -1169,6 +1186,17 @@ export class Select {
             readonly={readonly}
             validationStatus={validationStatus}
           >
+            {showLeftIcon && (
+              <span
+                slot="left-icon"
+                class={{
+                  ["readonly"]: readonly,
+                  ["has-value"]: this.hasValue(),
+                }}
+              >
+                <slot name="icon" />
+              </span>
+            )}
             {readonly ? (
               <ic-typography>
                 <p>
