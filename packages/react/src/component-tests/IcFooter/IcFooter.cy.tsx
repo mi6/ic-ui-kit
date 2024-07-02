@@ -76,19 +76,19 @@ describe("IcFooter", () => {
         description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
             please get in touch."
       >
-        <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+        <IcFooterLinkGroup slot="link" label="Grouped heading">
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
           <IcFooterLink href="/">Components</IcFooterLink>
           <IcFooterLink href="/">Patterns</IcFooterLink>
         </IcFooterLinkGroup>
-        <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+        <IcFooterLinkGroup slot="link" label="Grouped heading">
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
           <IcFooterLink href="/">Components</IcFooterLink>
           <IcFooterLink href="/">Patterns</IcFooterLink>
         </IcFooterLinkGroup>
-        <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+        <IcFooterLinkGroup slot="link" label="Grouped heading">
           <IcFooterLink href="/">Accessibility</IcFooterLink>
           <IcFooterLink href="/">Styles</IcFooterLink>
           <IcFooterLink href="/">Components</IcFooterLink>
@@ -105,11 +105,11 @@ describe("IcFooter", () => {
   it("should toggle the link groups when clicked ", () => {
     mount(
       <IcFooter description="Description" groupLinks>
-        <IcFooterLinkGroup slot="link" groupTitle="Link group 1">
+        <IcFooterLinkGroup slot="link" label="Link group 1">
           <IcFooterLink href="/">Link 1</IcFooterLink>
           <IcFooterLink href="/">Link 2</IcFooterLink>
         </IcFooterLinkGroup>
-        <IcFooterLinkGroup slot="link" groupTitle="Link group 2">
+        <IcFooterLinkGroup slot="link" label="Link group 2">
           <IcFooterLink href="/">Link 1</IcFooterLink>
           <IcFooterLink href="/">Link 2</IcFooterLink>
         </IcFooterLinkGroup>
@@ -309,19 +309,19 @@ describe("IcFooter", () => {
           description="The ICDS is maintained by the Design Practice Team. If you've got a question or want to feedback, 
             please get in touch."
         >
-          <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+          <IcFooterLinkGroup slot="link" label="Grouped heading">
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
             <IcFooterLink href="/">Components</IcFooterLink>
             <IcFooterLink href="/">Patterns</IcFooterLink>
           </IcFooterLinkGroup>
-          <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+          <IcFooterLinkGroup slot="link" label="Grouped heading">
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
             <IcFooterLink href="/">Components</IcFooterLink>
             <IcFooterLink href="/">Patterns</IcFooterLink>
           </IcFooterLinkGroup>
-          <IcFooterLinkGroup slot="link" groupTitle="Grouped heading">
+          <IcFooterLinkGroup slot="link" label="Grouped heading">
             <IcFooterLink href="/">Accessibility</IcFooterLink>
             <IcFooterLink href="/">Styles</IcFooterLink>
             <IcFooterLink href="/">Components</IcFooterLink>

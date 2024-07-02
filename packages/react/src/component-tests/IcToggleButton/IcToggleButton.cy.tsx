@@ -14,6 +14,7 @@ import {
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
 const DEFAULT_TEST_THRESHOLD = 0.012;
+const TOGGLE_BUTTON_SELECTOR = "ic-toggle-button";
 
 /**
  * Justification for additional rule: in the browser this is
@@ -32,16 +33,16 @@ describe("IcToggleButton", () => {
   it("should render", () => {
     mount(<IcToggleButton label="Test" />);
 
-    cy.get("ic-toggle-button").should("exist");
+    cy.get(TOGGLE_BUTTON_SELECTOR).should("exist");
   });
 
   it("should switch to checked when clicked", () => {
     mount(<IcToggleButton label="Test Clickable" />);
-    cy.get("ic-toggle-button").should(NOT_HAVE_CLASS, "checked");
-    cy.get("ic-toggle-button").click();
-    cy.get("ic-toggle-button").should(HAVE_CLASS, "checked");
-    cy.get("ic-toggle-button").click();
-    cy.get("ic-toggle-button").should(NOT_HAVE_CLASS, "checked");
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
+    cy.get(TOGGLE_BUTTON_SELECTOR).click();
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(HAVE_CLASS, "checked");
+    cy.get(TOGGLE_BUTTON_SELECTOR).click();
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
   });
 
   it("should not be clickable when disabled", () => {
@@ -54,8 +55,8 @@ describe("IcToggleButton", () => {
       />
     );
 
-    cy.checkHydrated("ic-toggle-button");
-    cy.clickOnButton("ic-toggle-button");
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
 
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
@@ -63,8 +64,8 @@ describe("IcToggleButton", () => {
   it("should have loading bar when loading", () => {
     mount(<IcToggleButton label="test" loading />);
 
-    cy.checkHydrated("ic-toggle-button");
-    cy.findShadowEl("ic-toggle-button", "ic-button")
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.findShadowEl(TOGGLE_BUTTON_SELECTOR, "ic-button")
       .shadow()
       .find("ic-loading-indicator")
       .should("exist");
@@ -74,8 +75,8 @@ describe("IcToggleButton", () => {
     cy.spy(window.console, "log").as("spyWinConsoleLog");
     mount(<IcToggleButton label="test" loading />);
 
-    cy.checkHydrated("ic-toggle-button");
-    cy.clickOnButton("ic-toggle-button");
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
 });
@@ -106,7 +107,7 @@ describe("IcToggleButton visual regression tests", () => {
   it("should render checked", () => {
     mount(
       <div style={{ padding: "8px" }}>
-        <IcToggleButton label="Test" toggleChecked />
+        <IcToggleButton label="Test" checked />
       </div>
     );
 
@@ -121,7 +122,7 @@ describe("IcToggleButton visual regression tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" disabled />
-        <IcToggleButton label="Test Checked" disabled toggleChecked />
+        <IcToggleButton label="Test Checked" disabled checked />
       </div>
     );
 
@@ -184,7 +185,7 @@ describe("IcToggleButton visual regression tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test">
-          <IcBadge textLabel="1" slot="badge" variant="success" />
+          <IcBadge label="1" slot="badge" variant="success" />
         </IcToggleButton>
       </div>
     );
@@ -208,8 +209,8 @@ describe("IcToggleButton visual regression tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
     });
 
-    cy.checkHydrated("ic-toggle-button");
-    cy.clickOnButton("ic-toggle-button");
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
@@ -237,8 +238,8 @@ describe("IcToggleButton visual regression tests", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
 
-    cy.checkHydrated("ic-toggle-button");
-    cy.clickOnButton("ic-toggle-button");
+    cy.checkHydrated(TOGGLE_BUTTON_SELECTOR);
+    cy.clickOnButton(TOGGLE_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
     cy.compareSnapshot({
@@ -265,7 +266,7 @@ describe("IcToggleButton visual regression tests", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcToggleButton label="Test" loading />
-        <IcToggleButton label="Test" loading toggleChecked />
+        <IcToggleButton label="Test" loading checked />
       </div>
     );
 
