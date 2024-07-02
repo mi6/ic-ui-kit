@@ -1,0 +1,44 @@
+name: Update v3.0.0 Branch
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  rebase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+
+      - name: Rebase off develop
+        run: |
+          git checkout release/v3.0.0
+          git rebase origin/develop
+
+      - name: Check for conflicts
+        run: |
+          if [[ -n $(git diff --name-only --diff-filter=U) ]]; then
+            echo "Conflicts found. Creating pull request..."
+            # Ensure we're on the branch where we want to create the PR from
+            git checkout -b release/v3.0.0/resolve-conflicts
+            # Add all files with conflicts (or as needed)
+            git add .
+            # Commit the changes to start resolving conflicts
+            git commit -m "Start resolving conflicts between develop and release/v3.0.0"
+            # Push the new branch to remote
+            git push origin release/v3.0.0/resolve-conflicts
+            # Use curl to create a pull request via GitHub API
+            curl \
+              -X POST \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" "https://api.github.com/repos/mi6/ic-ui-kit/pulls" \
+              -d '{"title":"Resolve conflicts between develop and release/v3.0.0","head":"release/v3.0.0/resolve-conflicts","base":"release/v3.0.0","body":"This PR is to resolve conflicts between develop and release/v3.0.0."}'
+
+          else
+            echo "No conflicts found. Force pushing changes..."
+            git push --force origin release/v3.0.0
+          fi
