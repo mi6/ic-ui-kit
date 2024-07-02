@@ -530,7 +530,7 @@ export namespace Components {
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
@@ -1472,7 +1472,7 @@ declare namespace LocalJSX {
         /**
           * If `true`, the built in filtering will be disabled for a searchable variant. For example, if options will already be filtered from external source.
          */
-        "disableFilter"?: boolean;
+        "disableAutoFiltering"?: boolean;
         /**
           * If `true`, the disabled state will be set.
          */
