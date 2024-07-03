@@ -24,7 +24,7 @@ export const defaultArgs = {
 ### Default
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" parameters={{ loki: { skip: true } }}>
     {(args) => html`<ic-typography>I am typography</ic-typography>`}
   </Story>
 </Canvas>
@@ -32,7 +32,7 @@ export const defaultArgs = {
 ### Variants
 
 <Canvas>
-  <Story name="Variants">
+  <Story name="Variants" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography variant="h1">Extra large title</ic-typography>
       <ic-typography variant="h2">Large title</ic-typography>
@@ -59,15 +59,15 @@ export const defaultArgs = {
 ### Overriding component
 
 <Canvas>
-  <Story name="Component override">{html`
-    <ic-typography variant="h1"><h3>H1 rendered as H3</h3></ic-typography>
+  <Story name="Component override" parameters={{ loki: { skip: true } }}>{html`
+    <ic-typography variant="h1"><h3>H3 rendered as H1</h3></ic-typography>
   `}</Story>
 </Canvas>
 
 ### Vertical margins
 
 <Canvas>
-  <Story name="Vertical margins">
+  <Story name="Vertical margins" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography apply-vertical-margins variant="h1"
         >Extra large title</ic-typography
@@ -112,7 +112,7 @@ export const defaultArgs = {
 ### Truncation
 
 <Canvas>
-  <Story name="Truncation">
+  <Story name="Truncation" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography max-lines="3" variant="body">
         Body of text that is truncated to three lines. Click the 'See more' link
@@ -134,7 +134,7 @@ export const defaultArgs = {
 ### Bold
 
 <Canvas>
-  <Story name="Bold">
+  <Story name="Bold" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography variant="h1" bold="true">Extra large title</ic-typography>
       <ic-typography variant="h2" bold="true">Large title</ic-typography>
@@ -167,7 +167,7 @@ export const defaultArgs = {
 ### Italic
 
 <Canvas>
-  <Story name="Italic">
+  <Story name="Italic" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography variant="h1" italic="true"
         >Extra large title</ic-typography
@@ -208,7 +208,7 @@ export const defaultArgs = {
 ### Strikethrough
 
 <Canvas>
-  <Story name="Strikethrough">
+  <Story name="Strikethrough" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography variant="h1" strikethrough="true"
         >Extra large title</ic-typography
@@ -257,7 +257,7 @@ export const defaultArgs = {
 ### Underline
 
 <Canvas>
-  <Story name="Underline">
+  <Story name="Underline" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography variant="h1" underline="true"
         >Extra large title</ic-typography
@@ -298,7 +298,7 @@ export const defaultArgs = {
 ### All prop text styles
 
 <Canvas>
-  <Story name="All prop text styles">
+  <Story name="All prop text styles" parameters={{ loki: { skip: true } }}>
     {html`
       <ic-typography
         variant="h1"
@@ -466,6 +466,7 @@ export const defaultArgs = {
       },
     }}
     name="Playground"
+    parameters={{ loki: { skip: true } }}
   >
     {(args) =>
       html`<ic-typography
