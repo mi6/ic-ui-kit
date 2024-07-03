@@ -14,7 +14,6 @@ import {
   hasValidationStatus,
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
-  renderHiddenInput,
   checkResizeObserver,
 } from "../../utils/helpers";
 import {
@@ -308,30 +307,34 @@ export class RadioGroup {
   };
 
   render() {
-    renderHiddenInput(
-      true,
-      this.el,
-      this.name,
-      this.checkedValue,
-      this.disabled
-    );
+    const {
+      disabled,
+      handleKeyDown,
+      helperText,
+      hideLabel,
+      label,
+      required,
+      size,
+      validationStatus,
+      validationText,
+    } = this;
 
     return (
       <Host
-        onKeyDown={this.handleKeyDown}
-        class={{ small: this.small || this.size === "small" }}
+        onKeyDown={handleKeyDown}
+        class={{ small: this.small || size === "small" }}
       >
         <div
           role="radiogroup"
-          aria-label={`${this.label}${this.required ? ", required" : ""}`}
+          aria-label={`${label}${required ? ", required" : ""}`}
         >
-          {!this.hideLabel && (
+          {!hideLabel && (
             <ic-input-label
-              class={{ [`${this.validationStatus}`]: true }}
-              label={this.label}
-              helperText={this.helperText}
-              required={this.required}
-              disabled={this.disabled}
+              class={{ [`${validationStatus}`]: true }}
+              label={label}
+              helperText={helperText}
+              required={required}
+              disabled={disabled}
             ></ic-input-label>
           )}
           <div
@@ -344,11 +347,11 @@ export class RadioGroup {
             <slot></slot>
           </div>
         </div>
-        {hasValidationStatus(this.validationStatus, this.disabled) && (
+        {hasValidationStatus(validationStatus, disabled) && (
           <ic-input-validation
             ariaLiveMode="polite"
-            status={this.validationStatus}
-            message={this.validationText}
+            status={validationStatus}
+            message={validationText}
           ></ic-input-validation>
         )}
       </Host>
