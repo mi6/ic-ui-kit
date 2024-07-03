@@ -40,7 +40,8 @@ To find out more about the different types of contributions, the criteria or our
 
 You can help us speed up the development of our Design System by contributing new components and patterns, making improvements to existing ones or raising bugs.
 
-Before getting started, please check our [Github issues](https://github.com/mi6/ic-ui-kit/issues) page to check whether a similar bug or suggestion already exists. If not, create a ticket with as much information as possible. The working group will triage your ticket and get back to you. The working group meet on a fortnightly basis to review new tickets, but important bugs will be reviewed sooner.
+> [!NOTE]
+> Before getting started, please check our [Github issues](https://github.com/mi6/ic-ui-kit/issues) page to check whether a similar bug or suggestion already exists. If not, create a ticket with as much > information as possible. The working group will triage your ticket and get back to you. The working group meet on a fortnightly basis to review new tickets, but important bugs will be reviewed sooner.
 
 ### Contributing code
 
