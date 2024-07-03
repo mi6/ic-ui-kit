@@ -22,7 +22,6 @@ exports[`ic-radio-group should render as helper text: renders-with-helpertext 1`
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
@@ -48,7 +47,6 @@ exports[`ic-radio-group should render as required: renders-required 1`] = `
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
@@ -76,7 +74,6 @@ exports[`ic-radio-group should render radio option disabled: renders-disabled 1`
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
@@ -126,7 +123,6 @@ exports[`ic-radio-group should render with dynamic additional field: renders-wit
       </div>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="test">
 </ic-radio-group>
 `;
 
@@ -152,7 +148,6 @@ exports[`ic-radio-group should render with selected option: renders-with-selecte
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="test">
 </ic-radio-group>
 `;
 
@@ -196,7 +191,6 @@ exports[`ic-radio-group should render with selected static additional field: ren
       </div>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="test">
 </ic-radio-group>
 `;
 
@@ -240,7 +234,6 @@ exports[`ic-radio-group should render with unselected static additional field: r
       </div>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
@@ -267,7 +260,6 @@ exports[`ic-radio-group should render with validation status: renders-with-valid
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="test">
 </ic-radio-group>
 `;
 
@@ -293,7 +285,6 @@ exports[`ic-radio-group should render: renders 1`] = `
       </ic-typography>
     </div>
   </ic-radio-option>
-  <input class="ic-input" name="test" type="hidden" value="">
 </ic-radio-group>
 `;
 
