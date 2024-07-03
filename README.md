@@ -44,7 +44,7 @@ To install the components, no additional configuration is needed for internal sy
 
 This is a monorepo using `lerna`. To get started is simple:
 
-```
+```console
 npm install
 npm run bootstrap
 npm run build
@@ -52,7 +52,7 @@ npm run build
 
 Storybook is used during development; this command will launch separate web components and React Storybooks.
 
-```
+```console
 npm run storybook
 ```
 
@@ -62,7 +62,7 @@ Developers are able to build and install components locally, enabling effective 
 
 To get started make sure you are in the top-level directory of `ic-ui-kit`:
 
-```
+```console
 npm run build
 cd packages/docs
 npm pack
@@ -76,17 +76,20 @@ npm pack
 
 In the `package.json` of your project replace the value of `@ukic/docs`, `@ukic/fonts`, `@ukic/react` and `@ukic/web-components` with the full filepath to the .tgz file in each respective directory, for example:
 
-```
-./package.json
+### [./package.json](https://github.com/mi6/ic-ui-kit/blob/main/package.json)
+
+```json
+"dependencies": {
   "@ukic/docs": "../ic-ui-kit/packages/docs/ukic-docs-2.1.0-beta.17.tgz"
   "@ukic/fonts": "../ic-ui-kit/packages/fonts/ukic-fonts-2.1.0-beta.17.tgz",
   "@ukic/react": "../ic-ui-kit/packages/react/ukic-react-2.1.0-beta.17.tgz",
   "@ukic/web-components": "../ic-ui-kit/packages/web-components/ukic-web-components-2.1.0-beta.17.tgz",
+}
 ```
 
 Finally, install the dependencies:
 
-```
+```console
 npm install
 ```
 
