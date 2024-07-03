@@ -1,0 +1,34 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+      "ukic",
+      "popout",
+      "ICDS",
+      "spacebar",
+      "WCAG",
+      "FOUC",
+      "datepicker",
+      "GCHQ",
+      "desending",
+      "Bloggs",
+      "statustext"
+    ],
+    "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc"],
+    "ignorePaths": [
+      "package.json",
+      "package-lock.json",
+      "node_modules",
+      "packages/**/node_modules",
+      "packages/**/package.json",
+      "packages/**/package-lock.json",
+      "packages/**/dist",
+      "audit-ci.json",
+      "packages/canary-web-components/www/**",
+      "packages/canary-web-components/hydrate/**",
+      "packages/react/storybook-static/**",
+      "packages/web-components/hydrate/index.js",
+      "packages/**/CHANGELOG.md"
+    ],
+    "import": ["@cspell/dict-la/cspell-ext.json"]
+  }
