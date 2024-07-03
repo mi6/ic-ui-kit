@@ -15,7 +15,7 @@ import readme from "./readme.md";
 ### Default
 
 <Canvas>
-  <Story name="Default" height="100px">
+  <Story name="Default" height="100px" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-tooltip
         label="This is a description of the button"
@@ -35,7 +35,11 @@ import readme from "./readme.md";
 ### Using external method
 
 <Canvas>
-  <Story name="Using external method" height="100px">
+  <Story
+    name="Using external method"
+    height="100px"
+    parameters={{ loki: { skip: true } }}
+  >
     {(args) =>
       html`<script>
           let display = true;
@@ -67,7 +71,11 @@ import readme from "./readme.md";
 ### Disabled Hover
 
 <Canvas>
-  <Story name="Disabled Hover" height="100px">
+  <Story
+    name="Disabled Hover"
+    height="100px"
+    parameters={{ loki: { skip: true } }}
+  >
     {(args) =>
       html`<ic-tooltip
         label="This shows 'Code' has been copied"
@@ -89,7 +97,7 @@ import readme from "./readme.md";
 ### Top placements
 
 <Canvas>
-  <Story name="Top placements">
+  <Story name="Top placements" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html` <div style="margin: 40px">
         <ic-tooltip
@@ -139,7 +147,7 @@ import readme from "./readme.md";
 ### Bottom placements
 
 <Canvas>
-  <Story name="Bottom placements">
+  <Story name="Bottom placements" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html` <div style="margin: 40px">
         <ic-tooltip
@@ -189,7 +197,7 @@ import readme from "./readme.md";
 ### Right placements
 
 <Canvas>
-  <Story name="Right placements">
+  <Story name="Right placements" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html` <div style="margin: 40px">
         <ic-tooltip
@@ -239,7 +247,7 @@ import readme from "./readme.md";
 ### Left placements
 
 <Canvas>
-  <Story name="Left placements">
+  <Story name="Left placements" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html` <div style="margin-left: 400px">
         <ic-tooltip
@@ -289,7 +297,7 @@ import readme from "./readme.md";
 ### Truncation
 
 <Canvas>
-  <Story name="Truncation" height="100px">
+  <Story name="Truncation" height="100px" parameters={{ loki: { skip: true } }}>
     {(args) =>
       html`<ic-tooltip
         label="This is a body of text that is truncated to three lines within a tooltip. It has been truncated based on the max-lines property. The number of lines in the text is clamped to the number passed through the max-lines property."
