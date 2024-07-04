@@ -141,37 +141,13 @@ export const ControlledExample = () => {
   </Story>
 </Canvas>
 
-### Max length
-
-<Canvas>
-  <Story name="Max length">
-    <IcTextField
-      maxLength="25"
-      value="Arabica"
-      label="What is your favourite coffee?"
-      required
-      placeholder="Placeholder"
-      helperText="Such as Arabica, Robusta or Liberica"
-    />
-    <IcTextField
-      rows="6"
-      maxLength="25"
-      value="Arabica"
-      label="What is your favourite coffee?"
-      required
-      placeholder="Placeholder"
-      helperText="Such as Arabica, Robusta or Liberica"
-    />
-  </Story>
-</Canvas>
-
 ### Full width
 
 <Canvas>
   <Story name="Full width">
     <IcTextField
       fullWidth="true"
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -180,8 +156,8 @@ export const ControlledExample = () => {
     />
     <IcTextField
       fullWidth="true"
-      true="6"
-      maxLength="25"
+      rows="6"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -197,7 +173,7 @@ export const ControlledExample = () => {
   <Story name="Disabled">
     <IcTextField
       disabled
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -207,7 +183,7 @@ export const ControlledExample = () => {
     <IcTextField
       rows="6"
       disabled
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -223,7 +199,7 @@ export const ControlledExample = () => {
   <Story name="Read only">
     <IcTextField
       readonly
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -233,7 +209,7 @@ export const ControlledExample = () => {
     <IcTextField
       rows="6"
       readonly
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -248,7 +224,7 @@ export const ControlledExample = () => {
 <Canvas>
   <Story name="Validation">
     <IcTextField
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -260,7 +236,7 @@ export const ControlledExample = () => {
     </IcTextField>
     <IcTextField
       rows="6"
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -271,7 +247,7 @@ export const ControlledExample = () => {
       <SlottedIcon />
     </IcTextField>
     <IcTextField
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -283,7 +259,7 @@ export const ControlledExample = () => {
       <SlottedIcon />
     </IcTextField>
     <IcTextField
-      maxLength="25"
+      maxCharacters="25"
       size="small"
       value="Arabica"
       label="What is your favourite coffee?"
@@ -296,7 +272,7 @@ export const ControlledExample = () => {
       <SlottedIcon />
     </IcTextField>
     <IcTextField
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -308,7 +284,7 @@ export const ControlledExample = () => {
     </IcTextField>
     <IcTextField
       rows="6"
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -319,7 +295,7 @@ export const ControlledExample = () => {
       <SlottedIcon />
     </IcTextField>
     <IcTextField
-      maxLength="25"
+      maxCharacters="25"
       value="Tea"
       label="What is your favourite coffee?"
       required
@@ -331,7 +307,7 @@ export const ControlledExample = () => {
     </IcTextField>
     <IcTextField
       rows="6"
-      maxLength="25"
+      maxCharacters="25"
       value="Tea"
       label="What is your favourite coffee?"
       required
@@ -392,7 +368,7 @@ export const ControlledExample = () => {
   <Story name="Text area with resize">
     <IcTextField
       rows="6"
-      maxLength="25"
+      maxCharacters="25"
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -471,12 +447,18 @@ export const Uncontrolled = () => {
     parameters={{ loki: { skip: true } }}
   >
     <IcTextField
-      max-characters={2}
+      maxCharacters={2}
       label="What is your favourite coffee?"
       helper-text="Short answers only."
     ></IcTextField>
     <IcTextField
-      min-characters={3}
+      maxCharacters={2}
+      label="What is your favourite coffee?"
+      helper-text="Short answers only. The character count is hidden."
+      hideCharCount
+    ></IcTextField>
+    <IcTextField
+      minCharacters={3}
       label="What is your favourite coffee?"
       helper-text="Long answer please."
     ></IcTextField>
@@ -489,12 +471,12 @@ export const defaultArgs = {
   disabled: false,
   fullWidth: false,
   helperText: "",
+  hideCharCount: false,
   hideLabel: false,
   inputId: "ic-text-field-input-0",
   inputmode: "text",
   label: "Text Field",
   maxCharacters: 0,
-  maxLength: 0,
   minCharacters: 0,
   name: "0",
   placeholder: "",
@@ -549,12 +531,12 @@ export const defaultArgs = {
         disabled={args.disabled}
         fullWidth={args.fullWidth}
         helperText={args.helperText}
+        hideCharCount={args.hideCharCount}
         hideLabel={args.hideLabel}
         inputId={args.inputId}
         inputmode={args.inputmode}
         max={args.max}
         maxCharacters={args.maxCharacters}
-        maxLength={args.maxLength}
         min={args.min}
         minCharacters={args.minCharacters}
         name={args.name}
