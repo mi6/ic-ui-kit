@@ -1,0 +1,197 @@
+name: V3
+permissions: read-all
+
+on:
+  push:
+    branches:
+      - v3.0.0/main
+
+jobs:
+  check-updates:
+    name: "Check package updates"
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      core: ${{ steps.filter.outputs.core }}
+      canary: ${{ steps.filter.outputs.canary }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
+        id: filter
+        with:
+          filters: |
+            core:
+              - './packages/web-components/**'
+              - './packages/react/**'
+            canary:
+              - './packages/canary-web-components/**'
+              - './packages/canary-react/**'
+
+  ic-ui-kit-static-analysis-tests:
+    needs: [check-updates]
+    name: "Static analysis tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Build core components
+        if: ${{ needs.check-updates.outputs.canary == 'false' }}
+        run: npm run build
+
+      - name: Build all components
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: |
+          npm run build:all
+
+      - name: Lint commit messages
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+          echo "$COMMIT_MESSAGE" | npx commitlint
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Prettier
+        run: npm run prettier
+
+      - name: Audit
+        run: npm run audit:bypass-expiry
+
+      - name: A11y core tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        run: npm run test-a11y:ci
+
+      - name: A11y canary tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-a11y:ci:canary
+
+      - name: Unit Component tests
+        run: npm run test:coverage-ci
+
+  ic-ui-kit-e2e-tests:
+    needs: [check-updates]
+    name: "E2E tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: E2E core tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_e2e_tests
+        run: npm run test-e2e
+
+      - name: Build core components
+        if: ${{ steps.core_e2e_tests.outcome == 'skipped' && needs.check-updates.outputs.canary == 'true' }}
+        run: npm run build
+
+      - name: E2E canary tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-e2e:canary
+
+  ic-ui-kit-visual-tests:
+    needs: ["check-updates"]
+    name: "Visual regression tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Core visual regression tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        run: npm run test-visual:ci
+
+      - name: Canary visual regression tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        run: npm run test-visual:ci:canary
+
+  ic-ui-kit-cypress-tests:
+    needs: [check-updates]
+    name: "Cypress tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+      - uses: browser-actions/setup-chrome@97349de5c98094d4fc9412f31c524d7697115ad8 #v1.5.0
+      - name: Install dependencies
+        run: |
+          google-chrome --version
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Core Cypress tests
+        if: ${{ needs.check-updates.outputs.core == 'true' }}
+        id: core_cypress_tests
+        run: npm run test-cypress:ci
+
+      - name: Canary Cypress tests
+        if: ${{ needs.check-updates.outputs.canary == 'true' }}
+        id: canary_cypress_tests
+        run: npm run test-cypress:ci:canary
+
+  ic-ui-kit-publish:
+    needs:
+      [
+        ic-ui-kit-static-analysis-tests,
+        ic-ui-kit-e2e-tests,
+        ic-ui-kit-visual-tests,
+        ic-ui-kit-cypress-tests,
+      ]
+    name: "Publish v3 packages"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          fetch-depth: "0"
+          TOKEN: ${{ secrets.PUBLISH_PAT }}
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 #4.0.2
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run bootstrap -- -- --ci
+
+      - name: Build
+        run: npm run build:all
+
+      # Runs git checkout for docs.json and canary-docs files to revert timestamp changes
+      - name: Publish
+        run: |
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.EMAIL }}
+          git checkout packages/docs/docs.json packages/canary-docs/docs.json
+          npx lerna publish --tag=next --no-commit-hooks -y
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
