@@ -74,7 +74,7 @@ describe("IcSideNavigation", () => {
       );
     });
 
-    it("should dyanmically update native button aria-label and aria-expanded", () => {
+    it("should dynamically update native button aria-label and aria-expanded", () => {
       mount(<BasicSideNav />);
 
       cy.findShadowEl(SIDE_NAV_SELECTOR, MENU_BUTTON_SELECTOR)

@@ -122,7 +122,7 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("shoud render disabled", () => {
+  it("should render disabled", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" disabled />
