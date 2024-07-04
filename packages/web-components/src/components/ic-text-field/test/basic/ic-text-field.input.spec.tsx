@@ -98,22 +98,31 @@ describe("ic-text-field", () => {
     expect(page.root).toMatchSnapshot("renders-readonly");
   });
 
-  it("should render with max length", async () => {
+  it("should render with max characters", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" value="a long test value to exceed limit" max-length=25></ic-text-field>`,
+      html: `<ic-text-field label="Test label" value="Test value" max-characters=25></ic-text-field>`,
     });
 
-    expect(page.root).toMatchSnapshot("renders-with-maxlength");
+    expect(page.root).toMatchSnapshot("renders-with-max-characters");
   });
 
-  it("should render with max length message", async () => {
+  it("should render with max characters and hidden character count", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" value="a long test value to exceed limit" max-length=25 max-length-message="You have exceeded the maximum length"></ic-text-field>`,
+      html: `<ic-text-field label="Test label" value="Test value" max-characters=25 hide-char-count></ic-text-field>`,
     });
 
-    expect(page.root).toMatchSnapshot("renders-with-max-length-message");
+    expect(page.root).toMatchSnapshot("renders-with-hidden-char-count");
+  });
+
+  it("should render with max characters and a value set which exceeds the max number of characters", async () => {
+    const page = await newSpecPage({
+      components: [TextField],
+      html: `<ic-text-field label="Test label" value="A long value which exceeds the max characters" max-characters=25></ic-text-field>`,
+    });
+
+    expect(page.root).toMatchSnapshot("renders-with-max-characters-long-value");
   });
 
   it("should render with name & full width", async () => {
@@ -211,16 +220,6 @@ describe("ic-text-field", () => {
     expect(slot).toBeNull();
   });
 
-  it("should not exceed max length if new value < max length", async () => {
-    const page = await newSpecPage({
-      components: [TextField],
-      html: `<ic-text-field label="Test label" rows=1 max-length=5></ic-text-field>`,
-    });
-
-    page.rootInstance.watchValueHandler("test");
-    expect(page.rootInstance.maxLengthExceeded).toBe(false);
-  });
-
   it("should test keydown", async () => {
     const page = await newSpecPage({
       components: [TextField],
@@ -294,6 +293,18 @@ it("should render with min/max and min validation", async () => {
   });
 
   expect(page.root).toMatchSnapshot("renders-with-min");
+});
+
+it("should test setting value cannot exceed maxCharacters", async () => {
+  const page = await newSpecPage({
+    components: [TextField],
+    html: `<ic-text-field label="Test label" rows=1 max-characters=5 value="Test value"></ic-text-field>`,
+  });
+
+  expect(page.rootInstance.value).toBe("Test ");
+
+  page.rootInstance.watchValueHandler("Another test value");
+  expect(page.rootInstance.value).toBe("Anoth");
 });
 
 it("should test maxCharacters method", async () => {
