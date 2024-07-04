@@ -1893,7 +1893,7 @@ describe("ic-select-with-multi", () => {
       expect(firstOption[0]).not.toHaveClass("aria-selected");
     });
 
-    it("should not selet a menu option when one has previously been set and backspace is pressed", async () => {
+    it("should not select a menu option when one has previously been set and backspace is pressed", async () => {
       const page = await newE2EPage();
 
       await page.setContent(getTestSearchableSelect(searchableOptions));
