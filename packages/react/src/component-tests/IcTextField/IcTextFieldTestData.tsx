@@ -54,11 +54,11 @@ export const SimpleTextField = (): ReactElement => (
   </div>
 );
 
-export const TextFieldWithHelperTextPlaceholderIconRequiredMaxlength =
+export const TextFieldWithHelperTextPlaceholderIconRequired =
   (): ReactElement => (
     <div style={style}>
       <IcTextField
-        maxLength={25}
+        maxCharacters={25}
         label="What is your favourite coffee?"
         required
         placeholder="Please enter…"
@@ -72,7 +72,7 @@ export const TextFieldWithHelperTextPlaceholderIconRequiredMaxlength =
 export const TextFieldNotRequired = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       label="What is your favourite coffee?"
       placeholder="Please enter…"
       helperText="Such as Arabica, Robusta or Liberica"
@@ -85,7 +85,7 @@ export const TextFieldNotRequired = (): ReactElement => (
 export const DisabledTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       label="What is your favourite coffee?"
       required
       placeholder="Please enter…"
@@ -100,7 +100,7 @@ export const DisabledTextField = (): ReactElement => (
 export const HiddenLabelTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       label="What is your favourite coffee?"
       required
       placeholder="Please enter…"
@@ -120,9 +120,18 @@ export const TextFieldWithMinMaxCharacters = (): ReactElement => (
         helperText="Short answers only."
         placeholder="Please enter…"
         maxCharacters={20}
-        maxLength={20}
         type="text"
         id="max"
+      ></IcTextField>
+    </div>
+    <div style={style}>
+      <IcTextField
+        label="What is your favourite coffee?"
+        helperText="Short answers only. The character count is hidden."
+        placeholder="Please enter…"
+        maxCharacters={20}
+        hideCharCount
+        type="text"
       ></IcTextField>
     </div>
     <div style={style}>
@@ -136,6 +145,19 @@ export const TextFieldWithMinMaxCharacters = (): ReactElement => (
       ></IcTextField>
     </div>
   </>
+);
+
+export const TextFieldWithHiddenCharCount = (): ReactElement => (
+  <div style={style}>
+    <IcTextField
+      label="What is your favourite coffee?"
+      helperText="Short answers only."
+      placeholder="Please enter…"
+      maxCharacters={20}
+      hideCharCount
+      type="text"
+    ></IcTextField>
+  </div>
 );
 
 export const TextFieldWithMinMaxValue = (): ReactElement => (
@@ -154,7 +176,7 @@ export const TextFieldWithMinMaxValue = (): ReactElement => (
 export const TextFieldWithDebounce = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       label="What is your favourite coffee?"
       required
       placeholder="Please enter…"
@@ -178,10 +200,10 @@ export const TextFieldWithinForm = (): ReactElement => (
   </div>
 );
 
-export const TextFieldWithIconValueMaxLength = (): ReactElement => (
+export const TextFieldWithIconValueMaxCharacters = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -193,21 +215,10 @@ export const TextFieldWithIconValueMaxLength = (): ReactElement => (
   </div>
 );
 
-export const TextFieldWithMaxLengthMessage = (): ReactElement => (
-  <div style={style}>
-    <IcTextField
-      maxLength={25}
-      value="Arabica"
-      label="What is your favourite coffee?"
-      maxLengthMessage="You have reached the maximum number of characters"
-    />
-  </div>
-);
-
 export const SmallTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -223,7 +234,7 @@ export const SmallTextField = (): ReactElement => (
 export const FullWidthTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -252,7 +263,7 @@ export const TextFieldWithValidation = (): ReactElement => (
   <>
     <div style={style}>
       <IcTextField
-        maxLength={25}
+        maxCharacters={25}
         value="Arabica"
         label="What is your favourite coffee?"
         required
@@ -264,7 +275,7 @@ export const TextFieldWithValidation = (): ReactElement => (
     </div>
     <div style={style}>
       <IcTextField
-        maxLength={25}
+        maxCharacters={25}
         value="Arabica"
         label="What is your favourite coffee?"
         required
@@ -276,7 +287,7 @@ export const TextFieldWithValidation = (): ReactElement => (
     </div>
     <div style={style}>
       <IcTextField
-        maxLength={25}
+        maxCharacters={25}
         value="Arabica"
         label="What is your favourite coffee?"
         required
@@ -292,7 +303,7 @@ export const TextFieldWithValidation = (): ReactElement => (
 export const TextFieldWithInlineValidation = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       value="Arabica"
       label="What is your favourite coffee?"
       required
@@ -308,7 +319,7 @@ export const TextFieldWithInlineValidation = (): ReactElement => (
 export const ReadonlyTextField = (): ReactElement => (
   <div style={style}>
     <IcTextField
-      maxLength={25}
+      maxCharacters={25}
       value="Arabica"
       label="What is your favourite coffee?"
       placeholder="Please enter…"
@@ -326,7 +337,7 @@ export const CustomSizeTextField = (): ReactElement => (
       style={{ "--input-width": "40%" }}
       label="What is your favourite coffee?"
       value="Arabica"
-      max-length="25"
+      maxCharacters={25}
       required
       placeholder="Placeholder"
       helper-text="Such as Arabica, Robusta or Liberica"
