@@ -219,7 +219,7 @@ describe("IcDateInput", () => {
     );
   });
 
-  it("should test setting date to undefined programatically", () => {
+  it("should test setting date to undefined programmatically", () => {
     mount(<DateInputUpdateValue updatedValue={undefined} />);
 
     cy.checkHydrated(DATE_INPUT);
@@ -241,7 +241,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
-  it("should test setting date to empty string programatically", () => {
+  it("should test setting date to empty string programmatically", () => {
     mount(<DateInputUpdateValue updatedValue={""} />);
 
     cy.checkHydrated(DATE_INPUT);
@@ -263,7 +263,7 @@ describe("IcDateInput", () => {
     cy.findShadowEl(DATE_INPUT, YEAR_INPUT_ARIA_LABEL).should(HAVE_VALUE, "");
   });
 
-  it("should test setting date to null programatically", () => {
+  it("should test setting date to null programmatically", () => {
     mount(<DateInputUpdateValue updatedValue={null} />);
 
     cy.checkHydrated(DATE_INPUT);

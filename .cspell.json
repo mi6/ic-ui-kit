@@ -12,7 +12,13 @@
       "GCHQ",
       "desending",
       "Bloggs",
-      "statustext"
+      "statustext",
+      "helpertext",
+      "whenup",
+      "doubleclick",
+      "Modernizr",
+      "Macchiato",
+      "xxxs"
     ],
     "dictionaries": ["npm", "softwareTerms", "node", "html", "css", "bash", "en-gb", "misc"],
     "ignorePaths": [
@@ -28,7 +34,8 @@
       "packages/canary-web-components/hydrate/**",
       "packages/react/storybook-static/**",
       "packages/web-components/hydrate/index.js",
-      "packages/**/CHANGELOG.md"
+      "packages/**/CHANGELOG.md",
+      "packages/**/src/components/**/test/basic/__snapshots__/*.spec.tsx.snap"
     ],
     "import": ["@cspell/dict-la/cspell-ext.json"]
   }
