@@ -60,9 +60,8 @@ export class TextField {
 
   @State() numChars: number = 0;
   @State() maxCharactersReached: boolean = false;
-  @State() maxCharactersError: boolean = false;
+  @State() maxCharactersWarning: boolean = false;
   @State() minCharactersUnattained: boolean = false;
-  @State() maxLengthExceeded: boolean = false;
   @State() maxValueExceeded: boolean = false;
   @State() minValueUnattained: boolean = false;
 
@@ -130,6 +129,11 @@ export class TextField {
   @Prop() helperText: string = "";
 
   /**
+   * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
+   */
+  @Prop() hideCharCount: boolean = false;
+
+  /**
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel: boolean = false;
@@ -162,19 +166,9 @@ export class TextField {
   @Prop() max: string | number = undefined;
 
   /**
-   * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
+   * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
    */
   @Prop() maxCharacters: number = 0;
-
-  /**
-   * The count of characters in the field. Will display a warning if the bound is reached.
-   */
-  @Prop() maxLength: number = 0;
-
-  /**
-   * The text to display as the validation message when the maximum length is exceeded.
-   */
-  @Prop() maxLengthMessage: string = "Maximum length exceeded";
 
   /**
    * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
@@ -283,15 +277,24 @@ export class TextField {
 
   @Watch("value")
   private watchValueHandler(newValue: string): void {
-    if (this.inputEl && this.inputEl.value !== newValue) {
-      this.inputEl.value = newValue;
+    let value;
+
+    if (this.maxCharacters > 0) {
+      value = newValue.substring(0, this.maxCharacters);
+      this.value = value;
+    } else {
+      value = newValue;
     }
 
-    this.getMaxLengthExceeded(newValue);
+    if (this.inputEl && this.inputEl.value !== value) {
+      this.inputEl.value = value;
+    }
 
-    this.getMaxCharactersReached(newValue);
+    this.getMaxValueExceeded(value);
 
-    this.icChange.emit({ value: newValue });
+    this.getMaxCharactersReached(value);
+
+    this.icChange.emit({ value });
   }
 
   /**
@@ -336,16 +339,16 @@ export class TextField {
   componentWillLoad(): void {
     if (this.value !== this.initialValue) {
       this.watchValueHandler(this.value);
+    } else if (this.maxCharacters > 0) {
+      this.value = this.value.substring(0, this.maxCharacters);
     }
 
-    this.getMaxLengthExceeded(this.value);
-
+    this.getMaxValueExceeded(this.value);
     this.getMaxCharactersReached(this.value);
 
     this.inheritedAttributes = inheritAttributes(this.el, MUTABLE_ATTRIBUTES);
 
     if (this.readonly) {
-      this.maxLengthExceeded = false;
       this.maxValueExceeded = false;
       this.minValueUnattained = false;
     }
@@ -374,7 +377,7 @@ export class TextField {
   @Listen("keydown", {})
   handleKeyDown(ev: KeyboardEvent): void {
     this.icKeydown.emit({ event: ev });
-    this.maxCharactersError = this.maxCharactersReached;
+    this.maxCharactersWarning = this.maxCharactersReached;
   }
 
   /**
@@ -386,16 +389,10 @@ export class TextField {
     this.inputEl?.focus();
   }
 
-  private getMaxLengthExceeded = (value: string) => {
-    this.numChars = value.length;
-
+  private getMaxValueExceeded = (value: string) => {
     if (this.type === "number") {
       this.minValueUnattained = value && Number(value) < Number(this.min);
       this.maxValueExceeded = Number(value) > Number(this.max);
-    }
-
-    if (this.maxLength > 0) {
-      this.maxLengthExceeded = this.numChars > this.maxLength;
     }
   };
 
@@ -404,8 +401,8 @@ export class TextField {
     this.maxCharactersReached =
       this.maxCharacters > 0 ? this.numChars >= this.maxCharacters : false;
 
-    if (this.maxCharactersError && !this.maxCharactersReached) {
-      this.maxCharactersError = false;
+    if (this.maxCharactersWarning && !this.maxCharactersReached) {
+      this.maxCharactersWarning = false;
     }
   };
 
@@ -466,18 +463,17 @@ export class TextField {
       small,
       placeholder,
       helperText,
+      hideCharCount,
       rows,
       resize,
       disabled,
       value,
       min,
       max,
-      maxLength,
       numChars,
       readonly,
-      maxLengthExceeded,
       maxCharacters,
-      maxCharactersError,
+      maxCharactersWarning,
       maxCharactersReached,
       minCharacters,
       minCharactersUnattained,
@@ -497,19 +493,16 @@ export class TextField {
     const disabledMode = readonly ? true : disabled;
 
     const currentStatus =
-      maxLengthExceeded ||
       maxValueExceeded ||
       minValueUnattained ||
       minCharactersUnattained ||
-      maxCharactersError
-        ? maxCharactersError
+      maxCharactersWarning
+        ? maxCharactersWarning
           ? IcInformationStatus.Warning
           : IcInformationStatus.Error
         : validationStatus;
 
-    const currentValidationText = maxLengthExceeded
-      ? this.maxLengthMessage
-      : maxCharactersError
+    const currentValidationText = maxCharactersWarning
       ? `Maximum input is ${maxCharacters} characters`
       : maxValueExceeded
       ? `Maximum value of ${max} exceeded`
@@ -519,13 +512,12 @@ export class TextField {
       ? `Minimum input is ${minCharacters} characters`
       : validationText;
 
-    const maxNumChars = readonly ? 0 : maxLength;
+    const maxNumChars = readonly ? 0 : maxCharacters;
     const messageAriaLive =
-      maxLengthExceeded ||
-      maxCharactersError ||
+      maxCharactersWarning ||
       maxValueExceeded ||
       minValueUnattained ||
-      (maxLength === 0 && currentStatus === IcInformationStatus.Error)
+      currentStatus === IcInformationStatus.Error
         ? "assertive"
         : "polite";
 
@@ -535,8 +527,13 @@ export class TextField {
       !validationInlineInternal;
 
     const multiline = rows > 1;
+
+    const charsRemaining = maxNumChars - numChars;
+    const hiddenRemainingCharCountDesc = `${charsRemaining} character${
+      charsRemaining === 1 ? "" : "s"
+    } remaining.`;
     const hiddenCharCountDescId =
-      maxLength > 0 ? `${inputId}-charcount-desc` : "";
+      maxCharacters > 0 ? `${inputId}-char-count-desc` : "";
 
     const describedBy = `${hiddenCharCountDescId} ${getInputDescribedByText(
       inputId,
@@ -668,7 +665,7 @@ export class TextField {
             !isEmptyString(validationText) ||
             maxNumChars > 0 ||
             maxValueExceeded ||
-            maxCharactersError ||
+            maxCharactersWarning ||
             minCharactersUnattained ||
             minValueUnattained) &&
             !validationInlineInternal && (
@@ -688,25 +685,24 @@ export class TextField {
               >
                 {!readonly && maxNumChars > 0 && (
                   <div slot="validation-message-adornment">
-                    <ic-typography
-                      variant="caption"
-                      class={{
-                        ["maxlengthtext"]: true,
-                        ["error"]: maxLengthExceeded,
-                        ["disabled"]: disabledText,
-                      }}
-                    >
-                      <span
-                        aria-live="polite"
-                        id={`${inputId}-charcount`}
-                        class="charcount"
+                    {!hideCharCount && (
+                      <ic-typography
+                        variant="caption"
+                        class={{
+                          ["char-count-text"]: true,
+                        }}
                       >
-                        {numChars}/{maxNumChars}
-                      </span>
-                      <span hidden={true} id={hiddenCharCountDescId}>
-                        Field can contain a maximum of {maxNumChars} characters.
-                      </span>
-                    </ic-typography>
+                        <span class="char-count">
+                          {numChars}/{maxNumChars}
+                        </span>
+                      </ic-typography>
+                    )}
+                    <span class="remaining-char-count-desc" aria-live="polite">
+                      {hiddenRemainingCharCountDesc}
+                    </span>
+                    <span hidden={true} id={hiddenCharCountDescId}>
+                      Field can contain a maximum of {maxNumChars} characters.
+                    </span>
                   </div>
                 )}
               </ic-input-validation>
