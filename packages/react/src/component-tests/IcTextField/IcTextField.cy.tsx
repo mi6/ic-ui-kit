@@ -30,9 +30,10 @@ import {
   SmallTextField,
   TextFieldNotRequired,
   TextFieldWithDebounce,
-  TextFieldWithHelperTextPlaceholderIconRequiredMaxlength,
-  TextFieldWithIconValueMaxLength,
+  TextFieldWithHelperTextPlaceholderIconRequired,
+  TextFieldWithIconValueMaxCharacters,
   TextFieldWithInlineValidation,
+  TextFieldWithHiddenCharCount,
   TextFieldWithMinMaxCharacters,
   TextFieldWithMinMaxValue,
   TextFieldWithValidation,
@@ -82,7 +83,7 @@ describe("IcTextField end-to-end tests", () => {
   });
 
   it("should display helper text", () => {
-    mount(<TextFieldWithHelperTextPlaceholderIconRequiredMaxlength />);
+    mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
 
     cy.checkHydrated(IC_TEXTFIELD);
 
@@ -93,36 +94,15 @@ describe("IcTextField end-to-end tests", () => {
   });
 
   it("should display placeholder text", () => {
-    mount(<TextFieldWithHelperTextPlaceholderIconRequiredMaxlength />);
+    mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
 
     cy.checkHydrated(IC_TEXTFIELD);
 
     cy.get(IC_TEXTFIELD).should(HAVE_ATTR, "placeholder", "Please enter…");
   });
 
-  it("should display max length label that updates on text being entered", () => {
-    mount(<TextFieldWithHelperTextPlaceholderIconRequiredMaxlength />);
-
-    cy.checkHydrated(IC_TEXTFIELD);
-
-    cy.get(IC_TEXTFIELD).should(HAVE_ATTR, "max-length", "25");
-    cy.get(IC_TEXTFIELD).should(HAVE_VALUE, "");
-    cy.findShadowEl(IC_TEXTFIELD, ".maxlengthtext").should(
-      CONTAIN_TEXT,
-      "0/25"
-    );
-
-    cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT)
-      .type("Test Text")
-      .should(HAVE_VALUE, "Test Text");
-    cy.findShadowEl(IC_TEXTFIELD, ".maxlengthtext").should(
-      CONTAIN_TEXT,
-      "9/25"
-    );
-  });
-
   it("should emit icChange events when the value has changed", () => {
-    mount(<TextFieldWithHelperTextPlaceholderIconRequiredMaxlength />);
+    mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
 
     cy.checkHydrated(IC_TEXTFIELD);
 
@@ -135,7 +115,7 @@ describe("IcTextField end-to-end tests", () => {
   });
 
   it("should show as required when prop set to true", () => {
-    mount(<TextFieldWithHelperTextPlaceholderIconRequiredMaxlength />);
+    mount(<TextFieldWithHelperTextPlaceholderIconRequired />);
 
     cy.checkHydrated(IC_TEXTFIELD);
 
@@ -189,7 +169,7 @@ describe("IcTextField end-to-end tests", () => {
     const minInput = cy.findShadowEl("#min", "input");
 
     maxInput.type("Test Text").wait(100).should(HAVE_VALUE, "Test Text");
-    cy.findShadowEl(IC_TEXTFIELD, ".maxlengthtext").should(
+    cy.findShadowEl(IC_TEXTFIELD, ".char-count-text").should(
       CONTAIN_TEXT,
       "9/20"
     );
@@ -198,6 +178,10 @@ describe("IcTextField end-to-end tests", () => {
       .find('[id$="validation-text"]')
       .should(NOT_BE_VISIBLE);
     cy.findShadowEl(IC_TEXTFIELD, ".icon-warning").should(NOT_EXIST);
+    cy.findShadowEl(IC_TEXTFIELD, ".remaining-char-count-desc").should(
+      CONTAIN_TEXT,
+      "11 characters remaining."
+    );
 
     maxInput.realType("{backspace}".repeat(9));
     maxInput.realType("This string is too long").wait(200);
@@ -205,10 +189,15 @@ describe("IcTextField end-to-end tests", () => {
       .shadow()
       .find('[id$="validation-text"]')
       .should(CONTAIN_TEXT, "Maximum input is 20 characters");
-    cy.findShadowEl(IC_TEXTFIELD, ".maxlengthtext").should(
+    cy.findShadowEl(IC_TEXTFIELD, ".char-count-text").should(
       CONTAIN_TEXT,
       "20/20"
     );
+    cy.findShadowEl(IC_TEXTFIELD, ".remaining-char-count-desc").should(
+      CONTAIN_TEXT,
+      "0 characters remaining."
+    );
+
     cy.findShadowEl(IC_TEXTFIELD, ".icon-warning").should(BE_VISIBLE);
     cy.get(IC_TEXTFIELD).should(HAVE_VALUE, "This string is too l");
 
@@ -219,6 +208,15 @@ describe("IcTextField end-to-end tests", () => {
       .find('[id$="validation-text"]')
       .should(CONTAIN_TEXT, "Minimum input is 5 characters");
     cy.findShadowEl(IC_TEXTFIELD, ".icon-error").should(BE_VISIBLE);
+  });
+
+  it("should not show character count when maxCharacters and hideCharCount props are set", () => {
+    mount(<TextFieldWithHiddenCharCount />);
+
+    cy.checkHydrated(IC_TEXTFIELD);
+
+    cy.findShadowEl(IC_TEXTFIELD, ".char-count-text").should(NOT_EXIST);
+    cy.findShadowEl(IC_TEXTFIELD, ".remaining-char-count-desc").should("exist");
   });
 
   it("should trigger min / max value validation when lower / higher value set", () => {
@@ -344,23 +342,14 @@ describe("IcTextField visual regression tests", () => {
     cy.task("generateReport");
   });
 
-  it("should render a text field with icon, value and max length", () => {
-    mount(<TextFieldWithIconValueMaxLength />);
+  it("should render a text field with icon, value and max characters", () => {
+    mount(<TextFieldWithIconValueMaxCharacters />);
 
     cy.checkA11yWithWait(undefined, 500);
     cy.compareSnapshot({
-      name: "icon-value-max-length",
+      name: "icon-value-max-characters",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
-    cy.get(IC_TEXTFIELD)
-      .invoke("prop", "value", "This should exceed 25 characters")
-      .then(() => {
-        cy.checkA11yWithWait(undefined, 500);
-        cy.compareSnapshot({
-          name: "icon-value-max-length-exceeded",
-          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.052),
-        });
-      });
   });
 
   it("should render a small text field", () => {
@@ -444,6 +433,16 @@ describe("IcTextField visual regression tests", () => {
     cy.compareSnapshot({
       name: "focused-input-text-field",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
+  });
+
+  it("should render with min and max characters", () => {
+    mount(<TextFieldWithMinMaxCharacters />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "min-max-characters-text-field",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 });
