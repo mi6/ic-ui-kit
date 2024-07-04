@@ -2067,6 +2067,10 @@ export namespace Components {
         "helperText": string;
         "hiddenInput": boolean;
         /**
+          * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
+         */
+        "hideCharCount": boolean;
+        /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel": boolean;
@@ -2087,17 +2091,9 @@ export namespace Components {
          */
         "max": string | number;
         /**
-          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
+          * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
         "maxCharacters": number;
-        /**
-          * The count of characters in the field. Will display a warning if the bound is reached.
-         */
-        "maxLength": number;
-        /**
-          * The text to display as the validation message when the maximum length is exceeded.
-         */
-        "maxLengthMessage": string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
@@ -5502,6 +5498,10 @@ declare namespace LocalJSX {
         "helperText"?: string;
         "hiddenInput"?: boolean;
         /**
+          * If `true`, the character count which is displayed when `maxCharacters` is set will be visually hidden.
+         */
+        "hideCharCount"?: boolean;
+        /**
           * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
          */
         "hideLabel"?: boolean;
@@ -5522,17 +5522,9 @@ declare namespace LocalJSX {
          */
         "max"?: string | number;
         /**
-          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
+          * The count of characters in the field. Will display a warning if the bound is reached. (NOTE: If the value of the text field has been set using the `value` prop, it will be truncated to this number of characters)
          */
         "maxCharacters"?: number;
-        /**
-          * The count of characters in the field. Will display a warning if the bound is reached.
-         */
-        "maxLength"?: number;
-        /**
-          * The text to display as the validation message when the maximum length is exceeded.
-         */
-        "maxLengthMessage"?: string;
         /**
           * The minimum number that can be accepted as a value, when `type` is `number` and `rows` is `1`. (NOTE: Ensure to include visual indication of min value in `helperText` or `label`)
          */
