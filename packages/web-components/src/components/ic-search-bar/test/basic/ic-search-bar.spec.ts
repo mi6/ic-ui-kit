@@ -50,7 +50,7 @@ describe("ic-search-bar search", () => {
     expect(page.root).toMatchSnapshot("renders-with-value");
   });
 
-  it("should render aria-label when hidelLabel is set", async () => {
+  it("should render aria-label when hideLabel is set", async () => {
     const page = await newSpecPage({
       components: [SearchBar, Button, TextField],
       html: '<ic-search-bar label="Test label" hide-label="true"></ic-search-bar>',

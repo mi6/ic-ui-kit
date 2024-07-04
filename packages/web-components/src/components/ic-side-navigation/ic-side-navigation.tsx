@@ -277,7 +277,7 @@ export class SideNavigation {
 
   /**
    * In order to style nested slotted elements (e.g. using React Router components), this method
-   * rearranges the a tag and labels and adds inline styling expand/collaped animations as external CSS classes are not
+   * rearranges the a tag and labels and adds inline styling expand/collapsed animations as external CSS classes are not
    * do not take affect.
    * @param menuExpanded boolean - true or false depending on side navigation state
    */

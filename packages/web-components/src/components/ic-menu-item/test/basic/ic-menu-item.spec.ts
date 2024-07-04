@@ -63,7 +63,7 @@ describe("menu item variants", () => {
     const page = await newSpecPage({
       components: [MenuItem],
       html: `<ic-menu-item
-            variant="destuctive"
+            variant="destructive"
             label="Destructive variant"
           />`,
     });
@@ -75,7 +75,7 @@ describe("menu item variants", () => {
     const page = await newSpecPage({
       components: [MenuItem],
       html: `<ic-menu-item
-            variant="destuctive"
+            variant="destructive"
             submenu-trigger-for="submenu-1"
             label="Destructive variant"
           />`,
