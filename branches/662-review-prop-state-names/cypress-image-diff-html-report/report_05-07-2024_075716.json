@@ -1,7 +1,7 @@
 {
   "total": 440,
-  "totalPassed": 438,
-  "totalFailed": 2,
+  "totalPassed": 440,
+  "totalFailed": 0,
   "totalSuites": 34,
   "suites": [
     {
@@ -2764,14 +2764,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-hidden-label.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-options-no-filtering",
-          "percentage": 0.2465846710564142,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-options-no-filtering.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-options-no-filtering.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-options-no-filtering.png"
         },
         {
@@ -2863,14 +2863,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-focused-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-options-no-filtering-high-contrast",
-          "percentage": 0.08962142600963231,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-options-no-filtering-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-options-no-filtering-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-options-no-filtering-high-contrast.png"
         }
       ]
@@ -5049,9 +5049,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-05T07:41:48.387Z",
-  "endedAt": "2024-07-05T07:50:55.208Z",
-  "duration": 479220,
+  "startedAt": "2024-07-05T07:57:16.257Z",
+  "endedAt": "2024-07-05T08:06:30.217Z",
+  "duration": 485278,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
