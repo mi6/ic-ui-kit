@@ -14,6 +14,7 @@ import {
   HAVE_TEXT,
   HAVE_ATTR,
   BE_VISIBLE,
+  NOT_BE_VISIBLE,
   CONTAIN_TEXT,
 } from "@ukic/react/src/component-tests/utils/constants";
 
@@ -41,6 +42,8 @@ const PREV_YEAR_BUTTON_ID = "#previous-year-button";
 const NEXT_YEAR_BUTTON_ID = "#next-year-button";
 const PREV_DECADE_BUTTON_ID = "#prev-decade-button";
 const NEXT_DECADE_BUTTON_ID = "#next-decade-button";
+const TOOLTIP = "ic-tooltip";
+const TOOLTIP_CONTAINER = ".ic-tooltip-container";
 
 const ATTR_ARIA_LABEL = "aria-label";
 
@@ -1036,6 +1039,98 @@ describe("IcDatePickers", () => {
       name: "escape-to-close",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
+  });
+
+  it("should not move focus to calendar button when Escape key pressed in input", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(".day-input")
+      .type(ESCAPE_KEY);
+
+    cy.compareSnapshot({
+      name: "escape-pressed-in-input",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+
+  it("should hide tooltip on calendar button when focused and Escape key pressed", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .focus();
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(TOOLTIP)
+      .shadow()
+      .find(TOOLTIP_CONTAINER)
+      .should(BE_VISIBLE);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .type(ESCAPE_KEY);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CALENDAR_BUTTON_ID)
+      .shadow()
+      .find(TOOLTIP)
+      .shadow()
+      .find(TOOLTIP_CONTAINER)
+      .should(NOT_BE_VISIBLE);
+  });
+
+  it("should hide tooltip on clear button when focused and Escape key pressed", () => {
+    mount(<IcDatePicker label={DEFAULT_LABEL} value={DEFAULT_VALUE} />);
+
+    cy.checkHydrated(DATE_PICKER);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CLEAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .focus();
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CLEAR_BUTTON_ID)
+      .shadow()
+      .find(TOOLTIP)
+      .shadow()
+      .find(TOOLTIP_CONTAINER)
+      .should(BE_VISIBLE);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CLEAR_BUTTON_ID)
+      .shadow()
+      .find(BUTTON)
+      .type(ESCAPE_KEY);
+
+    cy.findShadowEl(DATE_PICKER, DATE_INPUT)
+      .shadow()
+      .find(CLEAR_BUTTON_ID)
+      .shadow()
+      .find(TOOLTIP)
+      .shadow()
+      .find(TOOLTIP_CONTAINER)
+      .should(NOT_BE_VISIBLE);
   });
 
   it("should close on document click", () => {
