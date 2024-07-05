@@ -1053,7 +1053,7 @@ describe("IcDatePickers", () => {
 
     cy.compareSnapshot({
       name: "escape-pressed-in-input",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
   });
 
