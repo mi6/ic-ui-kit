@@ -462,12 +462,15 @@ export class DatePicker {
 
   private keyDownHandler = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
-      this.closeButtonClickHandler();
-      this.inputEl.setCalendarFocus();
+      if (this.calendarOpen) {
+        this.closeButtonClickHandler();
+        this.inputEl.setCalendarFocus();
+        event.stopImmediatePropagation();
+      }
     } else {
       this.clearDialogDescription();
+      event.stopImmediatePropagation();
     }
-    event.stopImmediatePropagation();
   };
 
   private closeButtonClickHandler = () => {
