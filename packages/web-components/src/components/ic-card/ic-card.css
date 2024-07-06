@@ -6,7 +6,7 @@
 
 a {
   text-decoration: none !important;
-  color: var(--ic-architechtural-black) !important;
+  color: var(--ic-architectural-black) !important;
 }
 
 button {
@@ -24,7 +24,7 @@ button {
   box-sizing: border-box;
   padding: var(--ic-space-md);
   text-align: left;
-  color: var(--ic-architechtural-black);
+  color: var(--ic-architectural-black);
   transition: var(--ic-easing-transition-fast);
   width: inherit;
   position: relative;

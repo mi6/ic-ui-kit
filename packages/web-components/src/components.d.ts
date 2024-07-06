@@ -1908,7 +1908,7 @@ export namespace Components {
          */
         "appearance"?: "light" | "default";
         /**
-          * The length of the connnector between each step in pixels. Minimum length is 100px.
+          * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
         /**
@@ -5291,7 +5291,7 @@ declare namespace LocalJSX {
          */
         "appearance"?: "light" | "default";
         /**
-          * The length of the connnector between each step in pixels. Minimum length is 100px.
+          * The length of the connector between each step in pixels. Minimum length is 100px.
          */
         "connectorWidth"?: number;
         /**

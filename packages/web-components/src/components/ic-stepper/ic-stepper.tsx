@@ -37,7 +37,7 @@ export class Stepper {
   @Prop() appearance?: "light" | "default" = "default";
 
   /**
-   * The length of the connnector between each step in pixels. Minimum length is 100px.
+   * The length of the connector between each step in pixels. Minimum length is 100px.
    */
   @Prop() connectorWidth?: number = 100;
 
