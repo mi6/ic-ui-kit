@@ -203,7 +203,6 @@ export class Typography {
             onBlur={this.truncButtonBlur}
             onMouseDown={this.truncButtonFocusFromMouse}
             onClick={this.toggleExpanded}
-            aria-hidden="true"
           >
             {expanded ? "See less" : "See more"}
           </button>
