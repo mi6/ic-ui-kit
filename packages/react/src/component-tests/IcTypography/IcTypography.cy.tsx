@@ -132,7 +132,7 @@ describe("IcTypography visual regression and a11y tests", () => {
 
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "truncation",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
@@ -145,7 +145,7 @@ describe("IcTypography visual regression and a11y tests", () => {
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
     cy.findShadowEl(TYPOGRAPHY_SELECTOR, ".trunc-btn").click();
 
-    //cy.checkA11yWithWait();
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "truncation-expanded",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.164),
