@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-hero component should render small: renders-small-variant 1`] = `
-<ic-hero class="small" heading="Test title" small="" subheading="Test text">
+<ic-hero class="ic-hero-small" heading="Test title" small="" subheading="Test text">
   <mock:shadow-root>
     <ic-section-container aligned="left" class="section-container" fullheight="">
       <div class="left-container left-container-full-width">

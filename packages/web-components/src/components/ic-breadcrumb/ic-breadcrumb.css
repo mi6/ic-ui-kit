@@ -28,12 +28,12 @@
   color: currentcolor;
 }
 
-:host(.back) {
+:host(.ic-breadcrumb-back) {
   display: flex;
   align-items: center;
 }
 
-:host(.back) .chevron {
+:host(.ic-breadcrumb-back) .chevron {
   display: none;
 }
 

@@ -11,7 +11,7 @@ exports[`ic-tab-context component should render tab context with custom contextI
         </div>
       </ic-horizontal-scroll>
     </mock:shadow-root>
-    <ic-tab aria-controls="ic-tab-panel-0-context-custom-context" aria-disabled="false" aria-selected="true" class="selected" context-id="custom-context" id="ic-tab-0-context-custom-context" role="tab" selected="" tab-id="ic-tab--0-context-custom-context" tabindex="0">
+    <ic-tab aria-controls="ic-tab-panel-0-context-custom-context" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="custom-context" id="ic-tab-0-context-custom-context" role="tab" selected="" tab-id="ic-tab--0-context-custom-context" tabindex="0">
       <mock:shadow-root>
         <ic-typography class="ic-tab-label" variant="label">
           <span>
@@ -72,7 +72,7 @@ exports[`ic-tab-context component should render tab context with custom contextI
 exports[`ic-tab-context component should render tab context with tabs - light appearance 1`] = `
 <ic-tab-context appearance="light" context-id="default">
   <!---->
-  <ic-tab-group appearance="light" aria-label="Example tab group" class="light" context-id="default" label="Example tab group" role="tablist">
+  <ic-tab-group appearance="light" aria-label="Example tab group" class="ic-tab-group-light" context-id="default" label="Example tab group" role="tablist">
     <mock:shadow-root>
       <ic-horizontal-scroll appearance="light" focus-trigger="tabFocus">
         <div class="tabs-container">
@@ -80,7 +80,7 @@ exports[`ic-tab-context component should render tab context with tabs - light ap
         </div>
       </ic-horizontal-scroll>
     </mock:shadow-root>
-    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-light selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-light ic-tab-selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
       <mock:shadow-root>
         <ic-typography class="ic-tab-label" variant="label">
           <span>
@@ -149,7 +149,7 @@ exports[`ic-tab-context component should render tab context with tabs - manual a
         </div>
       </ic-horizontal-scroll>
     </mock:shadow-root>
-    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
       <mock:shadow-root>
         <ic-typography class="ic-tab-label" variant="label">
           <span>
@@ -238,7 +238,7 @@ exports[`ic-tab-context component should render tab context with tabs - selected
       </mock:shadow-root>
       Two
     </ic-tab>
-    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="true" class="selected" context-id="default" id="ic-tab-2-context-default" role="tab" selected="" tab-id="ic-tab--2-context-default" tabindex="0">
+    <ic-tab aria-controls="ic-tab-panel-2-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-2-context-default" role="tab" selected="" tab-id="ic-tab--2-context-default" tabindex="0">
       <mock:shadow-root>
         <ic-typography class="ic-tab-label" variant="label">
           <span>
@@ -287,7 +287,7 @@ exports[`ic-tab-context component should render tab context with tabs 1`] = `
         </div>
       </ic-horizontal-scroll>
     </mock:shadow-root>
-    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
+    <ic-tab aria-controls="ic-tab-panel-0-context-default" aria-disabled="false" aria-selected="true" class="ic-tab-selected" context-id="default" id="ic-tab-0-context-default" role="tab" selected="" tab-id="ic-tab--0-context-default" tabindex="0">
       <mock:shadow-root>
         <ic-typography class="ic-tab-label" variant="label">
           <span>

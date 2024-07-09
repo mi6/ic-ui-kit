@@ -300,7 +300,7 @@ export class RadioGroup {
     return (
       <Host
         onKeyDown={handleKeyDown}
-        class={{ small: this.small || size === "small" }}
+        class={{ "ic-radio-group-small": this.small || size === "small" }}
       >
         <div
           role="radiogroup"
