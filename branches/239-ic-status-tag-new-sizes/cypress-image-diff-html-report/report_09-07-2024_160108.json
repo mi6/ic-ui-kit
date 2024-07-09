@@ -1,7 +1,7 @@
 {
   "total": 488,
-  "totalPassed": 487,
-  "totalFailed": 1,
+  "totalPassed": 488,
+  "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
     {
@@ -2835,14 +2835,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
-          "percentage": 0.02,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
@@ -5589,9 +5589,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-09T09:23:54.828Z",
-  "endedAt": "2024-07-09T09:33:34.897Z",
-  "duration": 508412,
+  "startedAt": "2024-07-09T16:01:08.975Z",
+  "endedAt": "2024-07-09T16:10:36.492Z",
+  "duration": 493971,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
