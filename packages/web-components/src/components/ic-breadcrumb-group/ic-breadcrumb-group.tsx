@@ -288,8 +288,8 @@ export class BreadcrumbGroup {
     return (
       <Host
         class={{
-          back: this.backBreadcrumbOnly,
-          collapsed: this.collapsed,
+          "ic-breadcrumb-group-back": this.backBreadcrumbOnly,
+          "ic-breadcrumb-group-collapsed": this.collapsed,
         }}
       >
         <nav aria-label="breadcrumbs">

@@ -4,27 +4,27 @@
  * @prop --ic-z-index-menu: z-index of search bar menu
  */
 
-:host(.search) {
+:host(.ic-search-bar-search) {
   --divider-height: 1.5rem;
 }
 
-:host(.search.small) {
+:host(.ic-search-bar-search.ic-search-bar-small) {
   --divider-height: 1rem;
 }
 
-:host(.fullwidth) {
+:host(.ic-search-bar-full-width) {
   width: 100%;
 }
 
-:host(.search) .disabled:hover {
+:host(.ic-search-bar-search) .ic-button-disabled:hover {
   border-color: var(--ic-architectural-200);
 }
 
-:host(.search.disabled) .disabled svg {
+:host(.ic-search-bar-search.ic-search-bar-disabled) .ic-button-disabled svg {
   color: var(--ic-architectural-200);
 }
 
-:host(.search) .disabled svg {
+:host(.ic-search-bar-search) .ic-button-disabled svg {
   color: var(--ic-architectural-400);
 }
 
