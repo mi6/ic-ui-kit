@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`compact variant of ic-step component should render a compact step with no step status 1`] = `
-<ic-step aria-current="step" aria-label="Step 3" class="compact" heading="Third step" last-step="false" last-step-num="4" next-step-heading="Fourth step" progress="75" role="listitem" step-num="3" type="current" variant="compact">
+<ic-step aria-current="step" aria-label="Step 3" class="ic-step-compact" heading="Third step" last-step="false" last-step-num="4" next-step-heading="Fourth step" progress="75" role="listitem" step-num="3" type="current" variant="compact">
   <mock:shadow-root>
     <div class="step">
       <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
@@ -31,7 +31,7 @@ exports[`compact variant of ic-step component should render a compact step with 
 `;
 
 exports[`compact variant of ic-step component should render a step status icon for a step with a completed type 1`] = `
-<ic-step aria-label="Step 3. Completed step" class="compact" compact-step-styling="completed" heading="Third step" last-step="false" last-step-num="4" next-step-heading="next step" progress="75" role="listitem" step-num="3" type="completed" variant="compact">
+<ic-step aria-label="Step 3. Completed step" class="ic-step-compact" compact-step-styling="completed" heading="Third step" last-step="false" last-step-num="4" next-step-heading="next step" progress="75" role="listitem" step-num="3" type="completed" variant="compact">
   <mock:shadow-root>
     <div class="compact-step-completed step">
       <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator" inner-label="3" progress="75" size="small"></ic-loading-indicator>
@@ -69,7 +69,7 @@ exports[`compact variant of ic-step component should render a step status icon f
 `;
 
 exports[`compact variant of ic-step component should render an step status icon for a step with a disabled type 1`] = `
-<ic-step aria-label="Step 3. Non-required step" class="compact" compact-step-styling="disabled" heading="Third step" last-step="false" last-step-num="4" next-step-heading="next step" progress="75" role="listitem" step-num="3" type="disabled" variant="compact">
+<ic-step aria-label="Step 3. Non-required step" class="ic-step-compact" compact-step-styling="disabled" heading="Third step" last-step="false" last-step-num="4" next-step-heading="next step" progress="75" role="listitem" step-num="3" type="disabled" variant="compact">
   <mock:shadow-root>
     <div class="compact-step-disabled step">
       <ic-loading-indicator aria-hidden="true" class="compact-step-progress-indicator not-required" inner-label="3" progress="75" size="small"></ic-loading-indicator>
@@ -107,7 +107,7 @@ exports[`compact variant of ic-step component should render an step status icon 
 `;
 
 exports[`default variant of ic-step component should render completed type 1`] = `
-<ic-step aria-label="Step undefined. Completed step" class="default" role="listitem" type="completed" variant="default">
+<ic-step aria-label="Step undefined. Completed step" class="ic-step-default" role="listitem" type="completed" variant="default">
   <mock:shadow-root>
     <div class="completed step">
       <div class="step-top">
@@ -126,7 +126,7 @@ exports[`default variant of ic-step component should render completed type 1`] =
 `;
 
 exports[`default variant of ic-step component should render default step with correct title 1`] = `
-<ic-step aria-label="Step undefined" class="default" heading="First" role="listitem" variant="default">
+<ic-step aria-label="Step undefined" class="ic-step-default" heading="First" role="listitem" variant="default">
   <mock:shadow-root>
     <div class="active step">
       <div class="step-top">
@@ -154,7 +154,7 @@ exports[`default variant of ic-step component should render default step with co
 `;
 
 exports[`default variant of ic-step component should render default step with correct title, subtitle and current state 1`] = `
-<ic-step aria-current="step" aria-label="Step undefined" class="default" heading="Second With a Very Long Title" role="listitem" subheading="Optional Subtitle" type="current" variant="default">
+<ic-step aria-current="step" aria-label="Step undefined" class="ic-step-default" heading="Second With a Very Long Title" role="listitem" subheading="Optional Subtitle" type="current" variant="default">
   <mock:shadow-root>
     <div class="current step">
       <div class="step-top">
@@ -190,7 +190,7 @@ exports[`default variant of ic-step component should render default step with co
 `;
 
 exports[`default variant of ic-step component should render default step with no title 1`] = `
-<ic-step aria-label="Step undefined" class="default" role="listitem" variant="default">
+<ic-step aria-label="Step undefined" class="ic-step-default" role="listitem" variant="default">
   <mock:shadow-root>
     <div class="active step">
       <div class="step-top">
@@ -210,7 +210,7 @@ exports[`default variant of ic-step component should render default step with no
 `;
 
 exports[`default variant of ic-step component should render disabled type 1`] = `
-<ic-step aria-label="Step undefined. Non-required step" class="default" role="listitem" type="disabled" variant="default">
+<ic-step aria-label="Step undefined. Non-required step" class="ic-step-default" role="listitem" type="disabled" variant="default">
   <mock:shadow-root>
     <div class="disabled step">
       <div class="step-top">
