@@ -50,8 +50,8 @@ export class TabGroup {
         role="tablist"
         aria-label={label}
         class={{
-          ["light"]: appearance === IcThemeForegroundEnum.Light,
-          ["inline"]: this.inline,
+          ["ic-tab-group-light"]: appearance === IcThemeForegroundEnum.Light,
+          ["ic-tab-group-inline"]: this.inline,
         }}
       >
         <ic-horizontal-scroll

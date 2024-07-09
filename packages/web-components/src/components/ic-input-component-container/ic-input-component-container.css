@@ -17,69 +17,69 @@ ic-input-component-container {
   outline: none;
 }
 
-ic-input-component-container.fullwidth {
+ic-input-component-container.ic-input-component-container-full-width {
   width: 100%;
 }
 
-ic-input-component-container.disabled,
-ic-input-component-container.disabled:hover {
+ic-input-component-container.ic-input-component-container-disabled,
+ic-input-component-container.ic-input-component-container-disabled:hover {
   border: var(--ic-border-width) dashed var(--ic-architectural-200);
 }
 
-ic-input-component-container.readonly,
-ic-input-component-container.readonly:hover {
+ic-input-component-container.ic-input-component-container-readonly,
+ic-input-component-container.ic-input-component-container-readonly:hover {
   border: none;
   padding: 0;
 }
 
-ic-input-component-container.error {
+ic-input-component-container.ic-input-component-container-error {
   border: var(--ic-error-border-default);
   padding: 0;
 }
 
-ic-input-component-container.error:hover {
+ic-input-component-container.ic-input-component-container-error:hover {
   border: var(--ic-error-border-hover);
 }
 
-ic-input-component-container.error:focus-within {
+ic-input-component-container.ic-input-component-container-error:focus-within {
   border: var(--ic-error-border-pressed);
 }
 
-ic-input-component-container.warning {
+ic-input-component-container.ic-input-component-container-warning {
   border: var(--ic-warning-border-default);
   padding: 0;
 }
 
-ic-input-component-container.warning:hover {
+ic-input-component-container.ic-input-component-container-warning:hover {
   border: var(--ic-warning-border-hover);
 }
 
-ic-input-component-container.warning:focus-within {
+ic-input-component-container.ic-input-component-container-warning:focus-within {
   border: var(--ic-warning-border-pressed);
 }
 
-ic-input-component-container.success {
+ic-input-component-container.ic-input-component-container-success {
   border: var(--ic-success-border-default);
   padding: 0;
 }
 
-ic-input-component-container.success:hover {
+ic-input-component-container.ic-input-component-container-success:hover {
   border: var(--ic-success-border-hover);
 }
 
-ic-input-component-container.success:focus-within {
+ic-input-component-container.ic-input-component-container-success:focus-within {
   border: var(--ic-success-border-pressed);
 }
 
-ic-input-component-container.small {
+ic-input-component-container.ic-input-component-container-small {
   height: var(--ic-space-xl);
 }
 
-ic-input-component-container.large {
+ic-input-component-container.ic-input-component-container-large {
   height: var(--ic-space-xxl);
 }
 
-ic-input-component-container.multiline {
+ic-input-component-container.ic-input-component-container-multiline {
   height: auto;
 }
 
@@ -90,17 +90,21 @@ ic-input-component-container .icon-container {
   align-items: center;
 }
 
-ic-input-component-container.multiline .icon-container,
-ic-input-component-container.multiline.small .icon-container {
+ic-input-component-container.ic-input-component-container-multiline
+  .icon-container,
+ic-input-component-container.ic-input-component-container-multiline.ic-input-component-container-small
+  .icon-container {
   margin-top: 0.375rem;
   display: block;
 }
 
-ic-input-component-container.readonly .icon-container {
+ic-input-component-container.ic-input-component-container-readonly
+  .icon-container {
   margin-left: -0.313rem;
 }
 
-ic-input-component-container.disabled ::placeholder {
+ic-input-component-container.ic-input-component-container-disabled
+  ::placeholder {
   display: none;
 }
 
@@ -110,7 +114,7 @@ ic-input-component-container .inline-success {
   align-items: center;
 }
 
-ic-input-component-container.dark:hover {
+ic-input-component-container.ic-input-component-container-dark:hover {
   --border-color: var(--ic-architectural-400);
 }
 
@@ -143,7 +147,7 @@ ic-input-component-container:focus {
   box-shadow: var(--ic-border-focus);
 }
 
-.focus-indicator.dark:focus-within {
+.focus-indicator.ic-input-component-container-dark:focus-within {
   box-shadow: var(--ic-border-focus);
 }
 
@@ -159,8 +163,8 @@ ic-input-component-container:focus {
     outline: 0.125rem solid Highlight;
   }
 
-  ic-input-component-container.disabled,
-  ic-input-component-container.disabled:hover {
+  ic-input-component-container.ic-input-component-container-disabled,
+  ic-input-component-container.ic-input-component-container-disabled:hover {
     border: var(--ic-border-width) dashed GrayText;
   }
 }
