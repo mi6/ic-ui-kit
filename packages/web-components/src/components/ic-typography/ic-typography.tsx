@@ -180,10 +180,10 @@ export class Typography {
         class={{
           [`ic-typography-${variant}`]: true,
           [`ic-typography-vertical-margins-${variant}`]: applyVerticalMargins,
-          ["bold"]: bold,
-          ["italic"]: italic,
-          ["strikethrough"]: strikethrough,
-          ["underline"]: underline,
+          ["ic-typography-bold"]: bold,
+          ["ic-typography-italic"]: italic,
+          ["ic-typography-strikethrough"]: strikethrough,
+          ["ic-typography-underline"]: underline,
         }}
       >
         {(variant === "body" ||

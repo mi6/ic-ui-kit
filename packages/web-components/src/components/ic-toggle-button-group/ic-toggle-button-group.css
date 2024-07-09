@@ -15,12 +15,12 @@
   border-radius: var(--ic-border-radius);
 }
 
-:host(.full-width) {
+:host(.ic-toggle-button-group-full-width) {
   width: 100%;
   max-width: 100%;
 }
 
-:host(.loading) {
+:host(.ic-toggle-button-group-loading) {
   min-width: max-content;
 }
 
@@ -45,29 +45,32 @@
 }
 
 /* DISABLED */
-:host(.disabled) {
+:host(.ic-toggle-button-group-disabled) {
   border: var(--ic-border-disabled);
   pointer-events: none;
 }
 
-:host(.disabled) ::slotted(ic-toggle-button:not(:last-of-type)) {
+:host(.ic-toggle-button-group-disabled)
+  ::slotted(ic-toggle-button:not(:last-of-type)) {
   border-right: var(--ic-border-disabled);
 }
 
 /* DARK */
-:host(.dark) {
+:host(.ic-toggle-button-group-dark) {
   border: var(--ic-border-width) solid var(--ic-action-dark);
 }
 
-:host(.dark) ::slotted(ic-toggle-button:not(:last-of-type)) {
+:host(.ic-toggle-button-group-dark)
+  ::slotted(ic-toggle-button:not(:last-of-type)) {
   border-right: var(--ic-border-width) solid var(--ic-action-dark);
 }
 
 /* LIGHT */
-:host(.light) ::slotted(ic-toggle-button:not(:last-of-type)) {
+:host(.ic-toggle-button-group-light)
+  ::slotted(ic-toggle-button:not(:last-of-type)) {
   border-right: var(--ic-border-width) solid var(--ic-action-light);
 }
 
-:host(.light) {
+:host(.ic-toggle-button-group-light) {
   border: var(--ic-border-width) solid var(--ic-action-light);
 }
