@@ -58,8 +58,8 @@ export class FooterLinkGroup {
 
   private isSmall(e: HTMLElement): boolean {
     if (e.parentElement !== null) {
-      if (e.parentElement.classList.contains("footer")) {
-        return e.parentElement.classList.contains("footer-small");
+      if (e.parentElement.classList.contains("ic-footer")) {
+        return e.parentElement.classList.contains("ic-footer-small");
       } else {
         return this.isSmall(e.parentElement);
       }

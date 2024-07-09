@@ -568,13 +568,13 @@ export class Button {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled && !this.loading,
-          [`button-variant-${this.variant}`]: true,
-          [`button-size-${this.size}`]: true,
-          ["loading"]: this.loading,
-          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
-          ["light"]: this.appearance === IcThemeForegroundEnum.Light,
-          ["full-width"]: this.fullWidth,
+          ["ic-button-disabled"]: this.disabled && !this.loading,
+          [`ic-button-variant-${this.variant}`]: true,
+          [`ic-button-size-${this.size}`]: true,
+          ["ic-button-loading"]: this.loading,
+          ["ic-button-dark"]: this.appearance === IcThemeForegroundEnum.Dark,
+          ["ic-button-light"]: this.appearance === IcThemeForegroundEnum.Light,
+          ["ic-button-full-width"]: this.fullWidth,
           ["with-badge"]: isSlotUsed(this.el, "badge"),
           ["dropdown-no-icon"]:
             this.dropdown &&
