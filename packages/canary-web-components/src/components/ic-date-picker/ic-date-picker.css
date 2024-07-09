@@ -14,12 +14,12 @@
   --input-field-width: var(--input-width, 19.125rem);
 }
 
-:host(.large) {
+:host(.ic-date-picker-large) {
   --month-button-width: 6.3125rem;
   --input-field-width: var(--input-width, 21.125rem);
 }
 
-:host(.small) {
+:host(.ic-date-picker-small) {
   --month-button-width: 6.25rem;
   --input-field-width: var(--input-width, 17.125rem);
 }
@@ -52,12 +52,12 @@ ic-date-input {
   animation: fade-in-calendar var(--ic-transition-duration-slow);
 }
 
-:host(.small) .calendar-container {
+:host(.ic-date-picker-small) .calendar-container {
   min-width: 17rem;
   max-width: 21.5rem;
 }
 
-:host(.large) .calendar-container {
+:host(.ic-date-picker-large) .calendar-container {
   min-width: 21rem;
   max-width: 25.5rem;
 }
@@ -94,13 +94,13 @@ ic-date-input {
   row-gap: var(--ic-space-xxs);
 }
 
-:host(.small) .month-picker,
-:host(.small) .year-picker {
+:host(.ic-date-picker-small) .month-picker,
+:host(.ic-date-picker-small) .year-picker {
   width: 13.125rem;
 }
 
-:host(.large) .month-picker,
-:host(.large) .year-picker {
+:host(.ic-date-picker-large) .month-picker,
+:host(.ic-date-picker-large) .year-picker {
   width: 20rem;
 }
 
@@ -136,7 +136,7 @@ ic-date-input {
   padding-right: var(--ic-space-lg);
 }
 
-:host(.small) .prev-decade .year-button::part(button) {
+:host(.ic-date-picker-small) .prev-decade .year-button::part(button) {
   padding-left: 0;
   padding-right: calc(var(--ic-space-lg) + var(--ic-space-xxs));
 }
@@ -151,8 +151,8 @@ ic-date-input {
   padding-left: var(--ic-space-lg);
 }
 
-:host(.small) .next-decade .year-button::part(button),
-:host(.large) .next-decade .year-button::part(button) {
+:host(.ic-date-picker-small) .next-decade .year-button::part(button),
+:host(.ic-date-picker-large) .next-decade .year-button::part(button) {
   padding-left: var(--ic-space-xl);
 }
 
@@ -165,7 +165,7 @@ ic-date-input {
   animation: fade-in-buttons var(--ic-transition-duration-slow);
 }
 
-:host(.small) .bottom-buttons {
+:host(.ic-date-picker-small) .bottom-buttons {
   padding-top: var(--ic-space-xxs);
 }
 
@@ -186,11 +186,11 @@ ic-date-input {
   animation: fade-in-buttons var(--ic-transition-duration-slow);
 }
 
-:host(.large) .calendar {
+:host(.ic-date-picker-large) .calendar {
   width: 19.25rem;
 }
 
-:host(.small) .calendar {
+:host(.ic-date-picker-small) .calendar {
   padding-bottom: var(--ic-space-xxs);
   width: 14rem;
 }
@@ -215,11 +215,11 @@ ic-date-input {
   padding: var(--ic-space-xxs) 0;
 }
 
-:host(.small) .calendar-days-container {
+:host(.ic-date-picker-small) .calendar-days-container {
   padding: var(--ic-space-xxxs) 0;
 }
 
-:host(.large) .calendar-days-container {
+:host(.ic-date-picker-large) .calendar-days-container {
   padding: var(--ic-space-xs) 0;
 }
 
@@ -231,8 +231,8 @@ ic-date-input {
   align-items: center;
 }
 
-:host(.small) .calendar-day-header,
-:host(.large) .calendar-day-header {
+:host(.ic-date-picker-small) .calendar-day-header,
+:host(.ic-date-picker-large) .calendar-day-header {
   padding: var(--ic-space-xxs);
 }
 
@@ -249,12 +249,12 @@ ic-date-input {
   height: 2.25rem;
 }
 
-:host(.small) .day-button-container {
+:host(.ic-date-picker-small) .day-button-container {
   width: 2rem;
   height: 2rem;
 }
 
-:host(.large) .day-button-container {
+:host(.ic-date-picker-large) .day-button-container {
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -278,12 +278,12 @@ ic-date-input {
   cursor: default;
 }
 
-:host(.large) .day-button {
+:host(.ic-date-picker-large) .day-button {
   width: 2.25rem;
   height: 2.25rem;
 }
 
-:host(.small) .day-button {
+:host(.ic-date-picker-small) .day-button {
   width: 1.75rem;
   height: 1.75rem;
 }
@@ -360,11 +360,11 @@ ic-date-input {
   background-color: var(--ic-action-default);
 }
 
-:host(.small) .day-button.today::after {
+:host(.ic-date-picker-small) .day-button.today::after {
   bottom: 0.35rem;
 }
 
-:host(.large) .day-button.today::after {
+:host(.ic-date-picker-large) .day-button.today::after {
   width: 1rem;
 }
 
