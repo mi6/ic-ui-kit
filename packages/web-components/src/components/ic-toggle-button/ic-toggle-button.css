@@ -8,21 +8,21 @@
   );
 }
 
-:host(.dark) {
+:host(.ic-toggle-button-dark) {
   --button-border: var(
     --toggle-button-border,
     var(--ic-border-width) solid var(--ic-action-dark)
   );
 }
 
-:host(.light) {
+:host(.ic-toggle-button-light) {
   --button-border: var(
     --toggle-button-border,
     var(--ic-border-width) solid var(--ic-action-light)
   );
 }
 
-:host(.disabled) {
+:host(.ic-toggle-button-disabled) {
   --button-border: var(--toggle-button-border, var(--ic-border-disabled));
 }
 
@@ -46,13 +46,14 @@
 }
 
 :host(.expand-toggle-group-child) ::part(button):focus,
-:host(.expand-toggle-group-child.checked) ::part(button):focus {
+:host(.expand-toggle-group-child.ic-toggle-button-checked)
+  ::part(button):focus {
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-action-default),
     var(--ic-border-focus);
 }
 
-:host(.expand-toggle-group-child.light) ::part(button):focus,
-:host(.expand-toggle-group-child.dark) ::part(button):focus {
+:host(.expand-toggle-group-child.ic-toggle-button-light) ::part(button):focus,
+:host(.expand-toggle-group-child.ic-toggle-button-dark) ::part(button):focus {
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-action-dark),
     var(--ic-border-focus);
 }
@@ -65,136 +66,142 @@
   border: var(--button-border);
 }
 
-:host(.checked) ::part(button) {
+:host(.ic-toggle-button-checked) ::part(button) {
   background-color: var(--ic-action-default);
   color: var(--ic-architectural-white);
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-architectural-white);
 }
 
-:host(.checked) ::part(button):focus {
+:host(.ic-toggle-button-checked) ::part(button):focus {
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-architectural-white),
     var(--ic-border-focus);
 }
 
-:host(.checked) ::part(button):hover {
+:host(.ic-toggle-button-checked) ::part(button):hover {
   background-color: var(--button-default-hover);
 }
 
-:host(.checked) ::part(button):active,
-:host(.icon.checked) ::part(button):active {
+:host(.ic-toggle-button-checked) ::part(button):active,
+:host(.ic-toggle-button-icon.ic-toggle-button-checked) ::part(button):active {
   background-color: var(--ic-action-default-active);
 }
 
-:host(.dark.checked) ::part(button) {
+:host(.ic-toggle-button-dark.ic-toggle-button-checked) ::part(button) {
   background-color: var(--ic-action-dark);
 }
 
-:host(.dark.checked) ::part(button):hover {
+:host(.ic-toggle-button-dark.ic-toggle-button-checked) ::part(button):hover {
   background-color: var(--ic-action-dark-hover);
 }
 
-:host(.dark.checked) ::part(button):active,
-:host(.icon.dark.checked) ::part(button):active {
+:host(.ic-toggle-button-dark.ic-toggle-button-checked) ::part(button):active,
+:host(.ic-toggle-button-icon.ic-toggle-button-dark.ic-toggle-button-checked)
+  ::part(button):active {
   background-color: var(--ic-action-dark-active);
 }
 
-:host(.light.checked) ::part(button) {
+:host(.ic-toggle-button-light.ic-toggle-button-checked) ::part(button) {
   background-color: var(--ic-action-light);
   color: var(--ic-color-primary-text);
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-architectural-black);
 }
 
-:host(.light.checked) ::part(button):hover {
+:host(.ic-toggle-button-light.ic-toggle-button-checked) ::part(button):hover {
   background-color: var(--ic-action-light-hover);
 }
 
-:host(.light.checked) ::part(button):active,
-:host(.icon.light.checked) ::part(button):active {
+:host(.ic-toggle-button-light.ic-toggle-button-checked) ::part(button):active,
+:host(.ic-toggle-button-icon.ic-toggle-button-light.ic-toggle-button-checked)
+  ::part(button):active {
   background-color: var(--ic-action-light-active);
 }
 
-:host(.light.checked) ::part(button):focus {
+:host(.ic-toggle-button-light.ic-toggle-button-checked) ::part(button):focus {
   box-shadow: inset 0 0 0 var(--ic-space-xxxs) var(--ic-architectural-black),
     var(--ic-border-focus);
 }
 
-:host(.disabled) ::part(button),
-:host(.icon.disabled) ::part(button) {
+:host(.ic-toggle-button-disabled) ::part(button),
+:host(.ic-toggle-button-icon.ic-toggle-button-disabled) ::part(button) {
   border: var(--button-border);
 }
 
-:host(.disabled.checked) ::part(button),
-:host(.icon.disabled.checked) ::part(button) {
+:host(.ic-toggle-button-disabled.ic-toggle-button-checked) ::part(button),
+:host(.ic-toggle-button-icon.ic-toggle-button-disabled.ic-toggle-button-checked)
+  ::part(button) {
   background-color: transparent;
 }
 
-:host(.disabled.checked) ::part(button),
-:host(.icon.disabled.checked) ::part(button)::before {
+:host(.ic-toggle-button-disabled.ic-toggle-button-checked) ::part(button),
+:host(.ic-toggle-button-icon.ic-toggle-button-disabled.ic-toggle-button-checked)
+  ::part(button)::before {
   background-image: radial-gradient(var(--ic-architectural-400) 95%, white 20%);
   background-repeat: no-repeat;
 }
 
-:host(.icon) ::part(button) {
+:host(.ic-toggle-button-icon) ::part(button) {
   border: var(--button-border);
   height: calc(var(--ic-space-xl) + var(--ic-space-xs));
   width: calc(var(--ic-space-xl) + var(--ic-space-xs));
 }
 
-:host(.icon) ::part(button):active {
+:host(.ic-toggle-button-icon) ::part(button):active {
   background-color: var(--ic-action-default-bg-active);
 }
 
-:host(.icon.dark) ::part(button):active {
+:host(.ic-toggle-button-icon.ic-toggle-button-dark) ::part(button):active {
   background-color: var(--ic-action-dark-bg-active);
 }
 
-:host(.icon.light) ::part(button):active {
+:host(.ic-toggle-button-icon.ic-toggle-button-light) ::part(button):active {
   background-color: var(--ic-action-light-bg-active);
 }
 
-:host(.icon.small) ::part(button) {
+:host(.ic-toggle-button-icon.ic-toggle-button-small) ::part(button) {
   height: var(--ic-space-xl);
   width: var(--ic-space-xl);
 }
 
-:host(.icon.large) ::part(button) {
+:host(.ic-toggle-button-icon.ic-toggle-button-large) ::part(button) {
   height: var(--ic-space-xxl);
   width: var(--ic-space-xxl);
 }
 
-:host(.checked.loading) ::part(button) {
+:host(.ic-toggle-button-checked.ic-toggle-button-loading) ::part(button) {
   background-color: var(--button-default-active);
 }
 
-:host(.loading) ::part(ic-loading-container) {
+:host(.ic-toggle-button-loading) ::part(ic-loading-container) {
   --inner-color: var(--ic-architectural-white);
 }
 
-:host(.checked.loading.light) ::part(button) {
+:host(.ic-toggle-button-checked.ic-toggle-button-loading.ic-toggle-button-light)
+  ::part(button) {
   background-color: var(--ic-action-light-active);
 }
 
-:host(.checked.loading.dark) ::part(button) {
+:host(.ic-toggle-button-checked.ic-toggle-button-loading.ic-toggle-button-dark)
+  ::part(button) {
   background-color: var(--ic-action-dark-active);
 }
 
 @media (forced-colors: active) {
-  :host(.checked) ::part(button),
-  :host(.checked) ::part(button):hover {
+  :host(.ic-toggle-button-checked) ::part(button),
+  :host(.ic-toggle-button-checked) ::part(button):hover {
     background-color: Highlight;
   }
 
-  :host(.checked.light) ::part(button),
-  :host(.checked.light) ::part(button):hover {
+  :host(.ic-toggle-button-checked.ic-toggle-button-light) ::part(button),
+  :host(.ic-toggle-button-checked.ic-toggle-button-light) ::part(button):hover {
     background-color: Highlight;
   }
 
-  :host(.checked.dark) ::part(button),
-  :host(.checked.dark) ::part(button):hover {
+  :host(.ic-toggle-button-checked.ic-toggle-button-dark) ::part(button),
+  :host(.ic-toggle-button-checked.ic-toggle-button-dark) ::part(button):hover {
     background-color: Highlight;
   }
 
-  :host(.checked.disabled) ::part(button) {
+  :host(.ic-toggle-button-checked.ic-toggle-button-disabled) ::part(button) {
     background-color: GrayText;
   }
 }
