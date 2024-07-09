@@ -60,14 +60,14 @@
   outline: none;
 }
 
-:host(.open) {
+:host(.ic-popover-menu-open) {
   display: block;
   min-width: calc(20rem - var(--ic-space-xl));
   width: var(--popover-width, 20rem);
   max-width: calc(100vw - var(--ic-space-xl));
 }
 
-:host(.open) .menu {
+:host(.ic-popover-menu-open) .menu {
   visibility: visible;
   height: fit-content;
   max-height: var(--max-height, fit-content);

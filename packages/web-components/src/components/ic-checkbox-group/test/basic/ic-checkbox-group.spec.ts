@@ -182,7 +182,7 @@ describe("ic-checkbox-group", () => {
     const checkboxes = page.root.querySelectorAll("ic-checkbox");
 
     checkboxes.forEach((checkbox) => {
-      expect(checkbox.classList.contains("small")).toBe(true);
+      expect(checkbox.classList.contains("ic-checkbox-small")).toBe(true);
     });
   });
 
@@ -203,7 +203,7 @@ describe("ic-checkbox-group", () => {
     const largeCheckbox = page.root.querySelector(
       "ic-checkbox:not(#small-checkbox)"
     ) as HTMLIcCheckboxElement;
-    expect(largeCheckbox.classList.contains("large")).toBe(true);
+    expect(largeCheckbox.classList.contains("ic-checkbox-large")).toBe(true);
 
     expect(page.root).toMatchSnapshot();
   });
