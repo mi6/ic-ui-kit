@@ -156,8 +156,8 @@ export class Tab {
         class={{
           ["with-transition"]: !this.isInitialRender,
           ["ic-tab-light"]: appearance === IcThemeForegroundEnum.Light,
-          ["selected"]: selected,
-          ["disabled"]: disabled,
+          ["ic-tab-selected"]: selected,
+          ["ic-tab-disabled"]: disabled,
         }}
         role="tab"
         aria-selected={selected ? "true" : "false"}

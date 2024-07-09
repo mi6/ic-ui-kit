@@ -18,14 +18,14 @@
   border-radius: var(--ic-space-xxs);
 }
 
-:host(.right),
-:host(.right) .action-area {
+:host(.ic-empty-state-right),
+:host(.ic-empty-state-right) .action-area {
   align-items: flex-end;
   text-align: right;
 }
 
-:host(.center),
-:host(.center) .action-area {
+:host(.ic-empty-state-center),
+:host(.ic-empty-state-center) .action-area {
   align-items: center;
   text-align: center;
 }

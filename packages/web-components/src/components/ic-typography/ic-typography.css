@@ -165,23 +165,23 @@
   cursor: pointer;
 }
 
-:host(.strikethrough) {
+:host(.ic-typography-strikethrough) {
   text-decoration: line-through;
 }
 
-:host(.underline) {
+:host(.ic-typography-underline) {
   text-decoration: underline;
 }
 
-:host(.underline.strikethrough) {
+:host(.ic-typography-underline.ic-typography-strikethrough) {
   text-decoration: line-through underline;
 }
 
-:host(.italic) {
+:host(.ic-typography-italic) {
   font-style: italic !important;
 }
 
-:host(.bold) {
+:host(.ic-typography-bold) {
   font-weight: var(--ic-font-weight-bold);
 }
 
