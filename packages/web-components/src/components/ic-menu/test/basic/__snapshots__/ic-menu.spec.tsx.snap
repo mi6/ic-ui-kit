@@ -3,7 +3,7 @@
 exports[`ic-menu in isolation should render 1`] = `
 Object {
   "body": <body>
-  <ic-menu class="default no-focus open" data-popper-placement="bottom" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
+  <ic-menu class="ic-menu-default ic-menu-no-focus ic-menu-open" data-popper-placement="bottom" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 7px);">
     <ul aria-activedescendant="menu-id-espresso" aria-label="input-label" class="menu" id="menu-id" role="listbox" tabindex="-1">
       <li aria-disabled="false" aria-label="Espresso" aria-selected="true" class="option" data-label="Espresso" data-value="espresso" id="menu-id-espresso" role="option" tabindex="-1">
         <div class="option-text-container">

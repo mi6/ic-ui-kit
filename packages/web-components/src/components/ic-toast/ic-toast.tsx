@@ -279,7 +279,7 @@ export class Toast {
     } = this;
     return (
       <Host
-        class={{ ["hidden"]: !visible }}
+        class={{ ["ic-toast-hidden"]: !visible }}
         role={isManual ? "dialog" : "status"}
       >
         <div class="container">

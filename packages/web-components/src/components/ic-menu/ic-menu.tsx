@@ -995,11 +995,12 @@ export class Menu {
     return (
       <Host
         class={{
-          "full-width": fullWidth,
-          "no-focus": inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
-          small: small,
-          [size]: true,
-          open: open,
+          "ic-menu-full-width": fullWidth,
+          "ic-menu-no-focus":
+            inputEl?.tagName === "INPUT" || hasTimedOut || isLoading,
+          "ic-menu-small": small,
+          [`ic-menu-${size}`]: true,
+          "ic-menu-open": open,
         }}
       >
         {options.length !== 0 && (
