@@ -134,7 +134,7 @@ export const BadgeTypes = (variant: IcBadgeVariants, customColor?: IcColor) => {
 export const ShowHideBadge = (): ReactElement => {
   const badgeVisibility = () => {
     const badge: any = document.querySelector("ic-badge");
-    if (badge.classList.contains("show")) {
+    if (badge.classList.contains("ic-badge-show")) {
       badge.visible = false;
     } else {
       badge.visible = true;
