@@ -655,7 +655,7 @@ describe("IcSelect", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
     });
 
-    cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
+    cy.get("ic-select").should(HAVE_CLASS, "ic-select-disabled hydrated");
     cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
   });
 
@@ -1310,7 +1310,7 @@ describe("IcSelect", () => {
       />
     );
 
-    cy.get("ic-select").should(HAVE_CLASS, "disabled hydrated");
+    cy.get("ic-select").should(HAVE_CLASS, "ic-select-disabled hydrated");
     cy.findShadowEl("ic-select", "button").should(BE_DISABLED);
   });
 

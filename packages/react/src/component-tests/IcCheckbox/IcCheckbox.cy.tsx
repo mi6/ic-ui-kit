@@ -46,7 +46,7 @@ describe("IcCheckbox", () => {
     cy.checkHydrated(CHECKBOX_GROUP_SELECTOR);
 
     cy.get(CHECKBOX_SELECTOR).eq(2).should(BE_VISIBLE);
-    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_CLASS, "disabled");
+    cy.get(CHECKBOX_SELECTOR).eq(2).should(HAVE_CLASS, "ic-checkbox-disabled");
     cy.get(CHECKBOX_SELECTOR)
       .eq(2)
       .shadow()
