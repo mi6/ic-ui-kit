@@ -43,7 +43,9 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.rootInstance.variant).toMatch("default");
     expect(page.rootInstance.aligned).toMatch("left");
-    expect(page.root.classList.contains("aligned-left")).toBeTruthy();
+    expect(
+      page.root.classList.contains("ic-stepper-aligned-left")
+    ).toBeTruthy();
 
     expect(page.root).toMatchSnapshot();
   });
@@ -143,7 +145,9 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    expect(page.root.classList.contains("aligned-left")).toBeTruthy();
+    expect(
+      page.root.classList.contains("ic-stepper-aligned-left")
+    ).toBeTruthy();
   });
 
   it("should ignore the connectorWidth prop if the stepper is set to be aligned full-width", async () => {
@@ -162,7 +166,7 @@ describe("default variant of ic-stepper component", () => {
 
     expect(page.root).toMatchSnapshot();
 
-    expect(page.root.classList.contains("aligned-left")).toBeFalsy();
+    expect(page.root.classList.contains("ic-stepper-aligned-left")).toBeFalsy();
   });
 
   it("should add 'disabled step' to the aria labels of all disabled steps", async () => {
@@ -952,7 +956,7 @@ describe("switch between the compact and default stepper depending on whether th
     const steps = page.root.querySelectorAll("ic-step");
 
     steps.forEach((step) => {
-      expect(step.classList.contains("light")).toBeTruthy();
+      expect(step.classList.contains("ic-step-light")).toBeTruthy();
     });
 
     expect(page.root).toMatchSnapshot();

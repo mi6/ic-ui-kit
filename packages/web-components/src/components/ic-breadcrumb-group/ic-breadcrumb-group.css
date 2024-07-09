@@ -11,26 +11,28 @@
   margin: 0;
 }
 
-:host(.back) ol ::slotted(ic-breadcrumb) {
+:host(.ic-breadcrumb-group-back) ol ::slotted(ic-breadcrumb) {
   display: none;
 }
 
-:host(.back) ol ::slotted(ic-breadcrumb.show) {
+:host(.ic-breadcrumb-group-back) ol ::slotted(ic-breadcrumb.show) {
   display: flex;
 }
 
-:host(.collapsed) ol ::slotted(ic-breadcrumb.hide) {
+:host(.ic-breadcrumb-group-collapsed) ol ::slotted(ic-breadcrumb.hide) {
   display: none;
   opacity: 0;
   visibility: hidden;
 }
 
-:host(.collapsed) ol ::slotted(ic-breadcrumb.visuallyhidden) {
+:host(.ic-breadcrumb-group-collapsed)
+  ol
+  ::slotted(ic-breadcrumb.visuallyhidden) {
   display: block;
   opacity: 0;
   transition: all var(--ic-easing-transition-slow);
 }
 
-:host(.collapsed) ol ::slotted(ic-breadcrumb.fade) {
+:host(.ic-breadcrumb-group-collapsed) ol ::slotted(ic-breadcrumb.fade) {
   opacity: 1;
 }
