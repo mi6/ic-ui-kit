@@ -173,7 +173,7 @@ exports[`ic-text-field should render with max length: renders-with-maxlength 1`]
 `;
 
 exports[`ic-text-field should render with name & full width: renders-with-name-full-width 1`] = `
-<ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontrolname" value="test value">
+<ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" value="test value">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-11" helpertext="" label="Test label"></ic-input-label>

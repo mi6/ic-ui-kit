@@ -161,10 +161,10 @@ export class Tab {
     return (
       <Host
         class={{
-          "with-transition": !isInitialRender,
-          "ic-tab-light": appearance === IcThemeForegroundEnum.Light,
-          selected,
-          disabled,
+          ["with-transition"]: !isInitialRender,
+          ["ic-tab-light"]: appearance === IcThemeForegroundEnum.Light,
+          ["ic-tab-selected"]: selected,
+          ["ic-tab-disabled"]: disabled,
         }}
         role="tab"
         aria-selected={`${selected}`}
