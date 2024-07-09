@@ -266,7 +266,10 @@ export class RadioOption {
     const id = `ic-radio-option-${isPropDefined(label) || value}-${groupLabel}`;
 
     return (
-      <Host onClick={handleClick} class={{ disabled }}>
+      <Host
+        onClick={handleClick}
+        class={{ ["ic-radio-option-disabled"]: disabled }}
+      >
         <div class={{ container: true, disabled }}>
           <div>
             <input
