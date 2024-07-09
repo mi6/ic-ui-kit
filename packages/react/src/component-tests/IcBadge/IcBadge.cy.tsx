@@ -36,9 +36,9 @@ describe("IcBadge", () => {
     );
 
     cy.get("ic-button").click();
-    cy.get("ic-badge").should(HAVE_CLASS, "hide");
+    cy.get("ic-badge").should(HAVE_CLASS, "ic-badge-hide");
     cy.get("ic-button").click();
-    cy.get("ic-badge").should(HAVE_CLASS, "show");
+    cy.get("ic-badge").should(HAVE_CLASS, "ic-badge-show");
   });
 
   it("should have more descriptive aria-label if prop set", () => {
