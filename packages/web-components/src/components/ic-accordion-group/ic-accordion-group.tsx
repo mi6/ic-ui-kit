@@ -159,9 +159,9 @@ export class AccordionGroup {
       <Host
         context-id={this.accordionGroupId}
         class={{
-          [`${appearance}`]: true,
-          [`${size}`]: true,
-          ["accordion-group"]: true,
+          [`ic-accordion-group-${appearance}`]: true,
+          [`ic-accordion-group-${size}`]: true,
+          ["ic-accordion-group"]: true,
         }}
       >
         <div class="label-container">

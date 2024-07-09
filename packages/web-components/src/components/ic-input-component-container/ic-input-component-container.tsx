@@ -107,14 +107,15 @@ export class InputComponentContainer {
     return (
       <Host
         class={{
-          small: small,
-          [`${size}`]: true,
-          [validationStatus]: hasValidationStatus,
-          disabled: disabled,
-          readonly: readonly,
-          ["multiline"]: multiLine,
-          ["fullwidth"]: fullWidth,
-          ["dark"]: dark || appearance === "dark",
+          ["ic-input-component-container-small"]: small,
+          [`ic-input-component-container-${size}`]: true,
+          [`ic-input-component-container-${validationStatus}`]:
+            hasValidationStatus,
+          [`ic-input-component-container-disabled`]: disabled,
+          [`ic-input-component-container-readonly`]: readonly,
+          ["ic-input-component-container-multiline"]: multiLine,
+          ["ic-input-component-container-full-width"]: fullWidth,
+          ["ic-input-component-container-dark"]: dark || appearance === "dark",
         }}
         aria-disabled={disabled && `${disabled}`}
       >

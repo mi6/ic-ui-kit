@@ -43,7 +43,7 @@ describe("ic-input-label", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-label class="disabled" disabled="true" for="test-input-id" label="Test label" required="true">
+    <ic-input-label class="ic-input-label-disabled" disabled="true" for="test-input-id" label="Test label" required="true">
       <ic-typography variant="label">
         <label htmlfor="test-input-id">
           Test label *
@@ -60,7 +60,7 @@ describe("ic-input-label", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-label class="readonly" for="test-input-id" label="Test label" readonly="true" required="true">
+    <ic-input-label class="ic-input-label-readonly" for="test-input-id" label="Test label" readonly="true" required="true">
       <ic-typography class="readonly-label" variant="label">
         Test label *
       </ic-typography>

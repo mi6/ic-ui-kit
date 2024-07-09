@@ -436,9 +436,9 @@ export class NavigationGroup {
       <Host
         class={{
           ["in-side-menu"]: inTopNavSideMenu,
-          expanded: this.expanded,
-          collapsed: !this.expanded,
-          ["navigation-group-side-nav"]: this.navigationType === "side",
+          "ic-navigation-group-expanded": this.expanded,
+          "ic-navigation-group-collapsed": !this.expanded,
+          ["ic-navigation-group-side-nav"]: this.navigationType === "side",
         }}
         role="listitem"
       >

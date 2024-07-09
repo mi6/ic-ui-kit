@@ -40,7 +40,7 @@ export class ClassificationBanner {
     const { classification, inline, country, upTo, additionalSelectors } = this;
 
     return (
-      <Host class={{ ["inline"]: inline }}>
+      <Host class={{ ["ic-classification-banner-inline"]: inline }}>
         <banner
           aria-label="Protective marking"
           class={{
