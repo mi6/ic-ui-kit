@@ -554,7 +554,7 @@ export class TextField {
       renderHiddenInput(true, this.el, name, value, disabledMode);
     }
     return (
-      <Host class={{ ["fullwidth"]: fullWidth }}>
+      <Host class={{ ["ic-text-field-full-width"]: fullWidth }}>
         <ic-input-container readonly={readonly} disabled={disabledMode}>
           {!this.hideLabel && (
             <ic-input-label

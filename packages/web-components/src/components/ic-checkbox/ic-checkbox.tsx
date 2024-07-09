@@ -252,9 +252,9 @@ export class Checkbox {
     return (
       <Host
         class={{
-          disabled,
-          small,
-          [`${size || parentElementSize}`]: true,
+          "ic-checkbox-disabled": disabled,
+          "ic-checkbox-small": small || size === "small",
+          [`ic-checkbox-${size || parentElementSize}`]: true,
         }}
       >
         <div class="container">
