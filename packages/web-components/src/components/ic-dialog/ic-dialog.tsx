@@ -640,8 +640,8 @@ export class Dialog {
     return (
       <Host
         class={{
-          ["hidden"]: !this.dialogRendered,
-          ["fade-in"]: this.fadeIn,
+          ["ic-dialog-hidden"]: !this.dialogRendered,
+          ["ic-dialog-fade-in"]: this.fadeIn,
           ["disable-height-constraint"]: this.disableHeightConstraint,
         }}
       >

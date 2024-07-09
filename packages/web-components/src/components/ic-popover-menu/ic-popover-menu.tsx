@@ -336,7 +336,7 @@ export class PopoverMenu {
 
   render() {
     return (
-      <Host class={{ open: this.open }}>
+      <Host class={{ "ic-popover-menu-open": this.open }}>
         <div
           id={
             this.parentPopover === undefined
