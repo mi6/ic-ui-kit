@@ -157,7 +157,12 @@ export class CheckboxGroup {
     );
 
     return (
-      <Host class={{ ["small"]: small, [`${size}`]: true }}>
+      <Host
+        class={{
+          ["ic-checkbox-group-small"]: small,
+          [`ic-checkbox-group-${size}`]: true,
+        }}
+      >
         {(validationStatus === "error" || required || hideLabel) && (
           <span
             id="screenReaderOnlyText"

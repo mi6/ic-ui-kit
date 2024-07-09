@@ -7,18 +7,18 @@
   align-items: center;
 }
 
-:host(.small) .label-container {
+:host(.ic-accordion-group-small) .label-container {
   padding: var(--ic-space-xxs) var(--ic-space-xs);
 }
 
-:host(.large) .label-container {
+:host(.ic-accordion-group-large) .label-container {
   padding: var(--ic-space-sm) var(--ic-space-xs);
 }
 
-:host(.light) {
+:host(.ic-accordion-group-light) {
   color: var(--ic-color-white-text);
 }
 
-:host(.accordion-group.dark) ::slotted(ic-accordion) {
+:host(.ic-accordion-group.ic-accordion-group-dark) ::slotted(ic-accordion) {
   color: var(--ic-color-white-text);
 }

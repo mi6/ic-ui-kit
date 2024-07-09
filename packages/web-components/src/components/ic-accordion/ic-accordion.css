@@ -10,16 +10,16 @@
   color: var(--ic-color-primary-text);
 }
 
-:host(.light) ic-typography,
-:host(.light) .expanded-content,
-:host(.light) .icon-container,
-:host(.light) .expand-chevron {
+:host(.ic-accordion-light) ic-typography,
+:host(.ic-accordion-light) .expanded-content,
+:host(.ic-accordion-light) .icon-container,
+:host(.ic-accordion-light) .expand-chevron {
   color: var(--ic-color-white-text);
 }
 
-:host(.disabled) ic-typography,
-:host(.disabled) .icon-container,
-:host(.disabled) .expand-chevron {
+:host(.ic-accordion-disabled) ic-typography,
+:host(.ic-accordion-disabled) .icon-container,
+:host(.ic-accordion-disabled) .expand-chevron {
   color: var(--ic-architectural-500);
 }
 

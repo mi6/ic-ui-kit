@@ -26,7 +26,7 @@ describe("ic-input-validation", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-validation class="success" for="test-id" message="validation message" status="success">
+    <ic-input-validation class="ic-input-validation-success" for="test-id" message="validation message" status="success">
       <span class="icon-success status-icon">
         svg
       </span>
@@ -46,7 +46,7 @@ describe("ic-input-validation", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-validation class="warning" for="test-id" message="validation message" status="warning">
+    <ic-input-validation class="ic-input-validation-warning" for="test-id" message="validation message" status="warning">
       <span class="icon-warning status-icon">
         svg
       </span>
@@ -66,7 +66,7 @@ describe("ic-input-validation", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-validation class="error" for="test-id" message="validation message" status="error">
+    <ic-input-validation class="ic-input-validation-error" for="test-id" message="validation message" status="error">
       <span class="icon-error status-icon">
         svg
       </span>
@@ -86,7 +86,7 @@ describe("ic-input-validation", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-input-validation for="test-id" class="fullwidth" full-width="true" message="validation message">
+    <ic-input-validation for="test-id" class="ic-input-validation-full-width" full-width="true" message="validation message">
       <ic-typography class="statustext" variant="caption">
         <span aria-live="polite" id="test-id-validation-text">
           validation message
