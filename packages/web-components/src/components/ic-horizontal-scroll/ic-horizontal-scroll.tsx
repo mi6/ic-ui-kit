@@ -216,9 +216,11 @@ export class HorizontalScroll {
     return (
       <Host
         class={{
-          ["visible"]: itemOverflow,
-          ["dark"]: this.appearance === IcThemeForegroundEnum.Dark,
-          ["light"]: this.appearance === IcThemeForegroundEnum.Light,
+          ["ic-horizontal-scroll-visible"]: itemOverflow,
+          ["ic-horizontal-scroll-dark"]:
+            this.appearance === IcThemeForegroundEnum.Dark,
+          ["ic-horizontal-scroll-light"]:
+            this.appearance === IcThemeForegroundEnum.Light,
         }}
       >
         <div

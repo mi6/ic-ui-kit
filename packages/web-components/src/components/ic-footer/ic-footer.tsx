@@ -147,14 +147,14 @@ export class Footer {
     return (
       <Host
         class={{
-          footer: true,
-          [`footer-${small ? "small" : "sparse"}`]: true,
-          [`footer-${groupLinks ? "grouped" : "ungrouped"}`]: true,
-          [`footer-${foregroundColor}`]: true,
+          ["ic-footer"]: true,
+          [`ic-footer-${small ? "small" : "sparse"}`]: true,
+          [`ic-footer-${groupLinks ? "grouped" : "ungrouped"}`]: true,
+          [`ic-footer-foreground-${foregroundColor}`]: true,
           // Slots will be able to infer their own color
-          [IcThemeForegroundEnum.Dark]:
+          [`ic-footer-${IcThemeForegroundEnum.Dark}`]:
             foregroundColor === IcThemeForegroundEnum.Dark,
-          [IcThemeForegroundEnum.Light]:
+          [`ic-footer-${IcThemeForegroundEnum.Light}`]:
             foregroundColor === IcThemeForegroundEnum.Light,
         }}
       >

@@ -37,7 +37,7 @@ export class DataList {
     }
 
     return (
-      <Host class={{ small: small || size === "small" }}>
+      <Host class={{ "ic-data-list-small": small || size === "small" }}>
         <div class="heading" id="data-list-heading">
           <slot name="heading">
             <ic-typography variant="h3">{heading}</ic-typography>

@@ -10,7 +10,7 @@ describe("ic-link component", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-link class="default link">
+      <ic-link class="ic-link-default ic-link">
       <mock:shadow-root>
         <a tabindex="-1">
         <slot></slot>
@@ -28,7 +28,7 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link class="default link" download="test-download">
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" download="test-download">
     <mock:shadow-root>
         <a download="test-download" tabindex="-1">
         <slot></slot>
@@ -46,9 +46,9 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link href="test-href" class="default link">
+      .toEqualHtml(`<ic-link href="test-href" class="ic-link-default ic-link">
     <mock:shadow-root>
-        <a class="default ic-link" href="test-href" tabindex="0">
+        <a class="default link" href="test-href" tabindex="0">
         <slot></slot>
         </a>
         </mock:shadow-root>
@@ -64,9 +64,9 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link href="test-href" appearance="dark" class="dark link">
+      .toEqualHtml(`<ic-link href="test-href" appearance="dark" class="ic-link-dark ic-link">
     <mock:shadow-root>
-        <a class="dark ic-link" href="test-href" tabindex="0">
+        <a class="dark link" href="test-href" tabindex="0">
         <slot></slot>
         </a>
         </mock:shadow-root>
@@ -82,7 +82,7 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link class="default link" hreflang="test-hreflang">
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" hreflang="test-hreflang">
     <mock:shadow-root>
         <a hreflang="test-hreflang" tabindex="-1">
         <slot></slot>
@@ -100,7 +100,7 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link class="default link" referrerpolicy="no-referrer">
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" referrerpolicy="no-referrer">
     <mock:shadow-root>
         <a referrerpolicy="no-referrer" tabindex="-1">
         <slot></slot>
@@ -117,7 +117,8 @@ describe("ic-link component", () => {
       html: `<ic-link rel="test-rel">IC Link Test</ic-link>`,
     });
 
-    expect(page.root).toEqualHtml(`<ic-link class="default link" rel="test-rel">
+    expect(page.root)
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" rel="test-rel">
     <mock:shadow-root>
         <a rel="test-rel" tabindex="-1">
         <slot></slot>
@@ -135,7 +136,7 @@ describe("ic-link component", () => {
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link class="default link" target="test-target">
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" target="test-target">
     <mock:shadow-root>
         <a target="test-target" tabindex="-1">
         <slot></slot>
@@ -152,7 +153,8 @@ describe("ic-link component", () => {
       html: `<ic-link show-icon>IC Link Test</ic-link>`,
     });
 
-    expect(page.root).toEqualHtml(`<ic-link class="default link" show-icon>
+    expect(page.root)
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" show-icon>
     <mock:shadow-root>
         <a tabindex="-1">
           <slot></slot>
@@ -174,11 +176,11 @@ describe("ic-link component", () => {
       </ic-link>`,
     });
 
-    expect(page.root).toEqualHtml(`<ic-link class="default link">
+    expect(page.root).toEqualHtml(`<ic-link class="ic-link-default ic-link">
     <mock:shadow-root>
       <slot name="router-item"></slot>
     </mock:shadow-root>
-    <ic-link class="default link" slot="router-item">
+    <ic-link class="ic-link-default ic-link" slot="router-item">
       <mock:shadow-root>
         <a tabindex="-1">
           <slot></slot>

@@ -150,7 +150,7 @@ exports[`ic-popover-menu should render a menu item and menu group: should render
 `;
 
 exports[`ic-popover-menu should render on a dialog 1`] = `
-<ic-dialog class="hidden">
+<ic-dialog class="ic-dialog-hidden">
   <mock:shadow-root>
     <dialog aria-describedby="dialog-alert dialog-content" aria-labelledby="dialog-label dialog-heading" class="dialog small">
       <div class="heading-area">
@@ -188,7 +188,7 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
     </dialog>
   </mock:shadow-root>
   <ic-button data-gets-focus id="anchorEl"></ic-button>
-  <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" class="open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+  <ic-popover-menu anchor="#anchorEl" aria-label="popover-menu" class="ic-popover-menu-open" data-popper-placement="bottom-start" data-popper-reference-hidden open="" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
       <div class="menu" id="ic-popover-submenu-undefined" tabindex="0">
         <div>

@@ -8,11 +8,11 @@
   max-width: 100%;
 }
 
-:host(.light) {
+:host(.ic-horizontal-scroll-light) {
   --splitter-color: var(--ic-keyline-lighten-rgb);
 }
 
-:host(.dark) {
+:host(.ic-horizontal-scroll-dark) {
   --splitter-color: var(--ic-keyline-darken-rgb);
 }
 
@@ -27,7 +27,7 @@
   padding: var(--ic-space-xs) !important;
 }
 
-:host(.visible) ::slotted(*) {
+:host(.ic-horizontal-scroll-visible) ::slotted(*) {
   margin: calc(var(--ic-space-xs) * -1) 0 !important;
   padding: var(--ic-space-xs) !important;
 }
@@ -88,7 +88,7 @@
   color: var(--ic-keyline-darken-rgb);
 }
 
-:host(.dark) .disabled ic-button > svg,
-:host(.light) .disabled ic-button > svg {
+:host(.ic-horizontal-scroll-dark) .disabled ic-button > svg,
+:host(.ic-horizontal-scroll-light) .disabled ic-button > svg {
   color: var(--splitter-color) !important;
 }

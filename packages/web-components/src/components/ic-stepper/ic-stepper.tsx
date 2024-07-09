@@ -295,8 +295,8 @@ export class Stepper {
     return (
       <Host
         class={{
-          [`${this.variant}`]: true,
-          ["aligned-left"]:
+          [`ic-stepper-${this.variant}`]: true,
+          ["ic-stepper-aligned-left"]:
             this.variant === "default" && this.aligned === "left",
         }}
       >

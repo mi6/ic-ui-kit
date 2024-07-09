@@ -180,10 +180,10 @@ export class Hero {
     return (
       <Host
         class={{
-          [IcThemeForegroundEnum.Dark]:
+          [`ic-hero-${IcThemeForegroundEnum.Dark}`]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
-          ["small"]: small || size === "small",
+          ["ic-hero-small"]: small || size === "small",
           ["secondary-heading"]: !!secondaryHeading,
         }}
         style={style}

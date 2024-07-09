@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-toggle-button component should render 1`] = `
-<ic-toggle-button class="default" label="Toggle" variant="default">
+<ic-toggle-button class="ic-toggle-button-default" label="Toggle" variant="default">
   <mock:shadow-root>
     <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
       Toggle
@@ -12,7 +12,7 @@ exports[`ic-toggle-button component should render 1`] = `
 `;
 
 exports[`ic-toggle-button component should render icon variant 1`] = `
-<ic-toggle-button accessible-label="Refresh the page" class="default icon" variant="icon">
+<ic-toggle-button accessible-label="Refresh the page" class="ic-toggle-button-default ic-toggle-button-icon" variant="icon">
   <mock:shadow-root>
     <ic-button appearance="default" aria-disabled="false" aria-label="Refresh the page, unticked" aria-pressed="false" size="default" title="Refresh the page" variant="icon">
       <slot></slot>
@@ -26,7 +26,7 @@ exports[`ic-toggle-button component should render icon variant 1`] = `
 `;
 
 exports[`ic-toggle-button component should render slotted badge 1`] = `
-<ic-toggle-button class="default" label="Toggle" variant="default">
+<ic-toggle-button class="ic-toggle-button-default" label="Toggle" variant="default">
   <mock:shadow-root>
     <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
       Toggle
@@ -39,7 +39,7 @@ exports[`ic-toggle-button component should render slotted badge 1`] = `
 `;
 
 exports[`ic-toggle-button component should render slotted icon 1`] = `
-<ic-toggle-button class="default" label="Toggle" variant="default">
+<ic-toggle-button class="ic-toggle-button-default" label="Toggle" variant="default">
   <mock:shadow-root>
     <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
       Toggle
@@ -55,7 +55,7 @@ exports[`ic-toggle-button component should render slotted icon 1`] = `
 `;
 
 exports[`ic-toggle-button component should render slotted icon with icon placement 1`] = `
-<ic-toggle-button class="default" icon-placement="right" label="Toggle" variant="default">
+<ic-toggle-button class="ic-toggle-button-default" icon-placement="right" label="Toggle" variant="default">
   <mock:shadow-root>
     <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
       Toggle

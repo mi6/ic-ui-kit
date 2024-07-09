@@ -7,7 +7,7 @@
   display: block;
 }
 
-:host(.fullwidth) {
+:host(.ic-text-field-full-width) {
   width: 100%;
 }
 

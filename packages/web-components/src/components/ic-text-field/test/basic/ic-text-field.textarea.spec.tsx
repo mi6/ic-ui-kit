@@ -241,7 +241,7 @@ describe("ic-text-field", () => {
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontrolname" rows="2" value="test value">
+      <ic-text-field class="ic-text-field-full-width" full-width="true" label="Test label" name="mycontrolname" rows="2" value="test value">
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>

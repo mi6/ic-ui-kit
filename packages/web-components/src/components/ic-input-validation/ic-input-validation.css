@@ -4,7 +4,7 @@ ic-input-validation {
   display: flex;
 }
 
-ic-input-validation.fullwidth {
+ic-input-validation.ic-input-validation-full-width {
   width: 100%;
 }
 
