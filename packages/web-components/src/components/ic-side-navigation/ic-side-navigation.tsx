@@ -721,11 +721,11 @@ export class SideNavigation {
           "sm-expanded": !isSDevice && menuExpanded,
           "side-display":
             this.deviceSize > DEVICE_SIZES.S || this.disableTopBarBehaviour,
-          [IcThemeForegroundEnum.Dark]:
+          [`ic-side-navigation-${IcThemeForegroundEnum.Dark}`]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["collapsed-labels"]:
             !isSDevice && !menuExpanded && collapsedIconLabels,
-          ["inline"]: inline,
+          ["ic-side-navigation-inline"]: inline,
         }}
       >
         {isSDevice && this.renderTopBar({ ...topBarProps })}

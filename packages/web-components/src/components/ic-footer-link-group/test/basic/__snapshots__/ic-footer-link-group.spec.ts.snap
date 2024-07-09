@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-footer-link-group should render small: footer-link-group-small 1`] = `
-<ic-footer breakpoint="extra large" class="footer footer-light footer-small footer-ungrouped light">
+<ic-footer breakpoint="extra large" class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-small ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -70,7 +70,7 @@ exports[`ic-footer-link-group should render with links: footer-link-group-with-l
 `;
 
 exports[`ic-footer-link-group should render within footer: footer-link-group-in-footer 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
@@ -106,7 +106,7 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
       Link
     </ic-footer-link>
   </ic-footer-link-group>
-  <ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+  <ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
     <mock:shadow-root>
       <footer>
         <div class="footer-compliance">
