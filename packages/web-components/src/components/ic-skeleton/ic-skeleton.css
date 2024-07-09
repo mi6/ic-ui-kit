@@ -44,11 +44,11 @@
   visibility: hidden;
 }
 
-:host(.circle) {
+:host(.ic-skeleton-circle) {
   border-radius: 50%;
 }
 
-:host(.light) {
+:host(.ic-skeleton-light) {
   background-color: var(--ic-architectural-600);
   animation: loading-light 1200ms infinite;
 }
