@@ -25,7 +25,7 @@ exports[`ic-link component should get theme from context: alert-theme-context 1`
       <div class="dismiss-icon-container"></div>
     </div>
   </mock:shadow-root>
-  <ic-link class="default link" slot="action">
+  <ic-link class="ic-link ic-link-default" slot="action">
     <mock:shadow-root>
       <a tabindex="-1">
         <slot></slot>
