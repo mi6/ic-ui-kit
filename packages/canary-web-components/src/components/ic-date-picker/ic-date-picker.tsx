@@ -1330,7 +1330,10 @@ export class DatePicker {
     }
 
     return (
-      <Host onKeyDown={this.keyDownHandler} class={size}>
+      <Host
+        onKeyDown={this.keyDownHandler}
+        class={{ [`ic-date-picker-${size}`]: true }}
+      >
         <div class="date-input-container">
           <ic-date-input
             ref={(el) => (this.inputEl = el)}

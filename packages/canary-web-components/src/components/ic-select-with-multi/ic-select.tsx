@@ -1140,11 +1140,11 @@ export class Select {
     return (
       <Host
         class={{
-          disabled: disabled,
-          searchable: searchable,
-          small: small,
-          [size]: size !== "default",
-          "full-width": fullWidth,
+          ["ic-select-disabled"]: disabled,
+          ["ic-select-searchable"]: searchable,
+          ["ic-select-small"]: small,
+          [`ic-select-${size}`]: size !== "default",
+          ["ic-select-full-width"]: fullWidth,
         }}
         onBlur={this.onBlur}
       >
