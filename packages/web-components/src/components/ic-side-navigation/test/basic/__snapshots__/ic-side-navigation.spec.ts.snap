@@ -673,7 +673,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
       </ic-typography>
     </a>
   </ic-navigation-item>
-  <ic-navigation-group class="expanded navigation-group-side-nav" expandable="true" label="Second navigation group" role="listitem" slot="primary-navigation">
+  <ic-navigation-group class="ic-navigation-group-expanded ic-navigation-group-side-nav" expandable="true" label="Second navigation group" role="listitem" slot="primary-navigation">
     <mock:shadow-root>
       <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
         <ic-typography variant="caption">

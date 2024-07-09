@@ -835,10 +835,10 @@ export class SearchBar {
     return (
       <Host
         class={{
-          search: true,
-          fullwidth: fullWidth,
-          disabled,
-          small: size === "small",
+          ["ic-search-bar-search"]: true,
+          ["ic-search-bar-full-width"]: fullWidth,
+          ["ic-search-bar-disabled"]: disabled,
+          ["ic-search-bar-small"]: size === "small",
         }}
         onFocus={this.handleHostFocus}
         onBlur={this.handleHostBlur}

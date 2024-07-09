@@ -9,7 +9,7 @@
   z-index: var(--ic-z-index-page-header);
 }
 
-:host(.sticky) {
+:host(.ic-page-header-sticky) {
   position: sticky;
   top: 0;
   box-shadow: var(--ic-elevation-overlay);
@@ -128,7 +128,7 @@ header.tabs {
 }
 
 @media screen and (min-width: 992px) {
-  :host(.sticky-desktop) {
+  :host(.ic-page-header-sticky-desktop) {
     position: sticky;
     top: 0;
     box-shadow: var(--ic-elevation-overlay);
