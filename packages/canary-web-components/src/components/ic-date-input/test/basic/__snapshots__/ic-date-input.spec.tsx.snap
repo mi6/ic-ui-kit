@@ -674,7 +674,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             <input aria-label="year" class="fit-to-value year-input" disabled="" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button class="button-size-default button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
+            <ic-button class="button-size-default ic-button-variant-icon clear-button dark disabled" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-disabled="true" aria-label="Clear input" class="button" disabled="" part="button" type="button">
@@ -686,7 +686,7 @@ exports[`ic-date-input component should render disabled, with calendar button 1`
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
-              <ic-button class="button-size-default button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
+              <ic-button class="button-size-default ic-button-variant-icon calendar-button disabled" exportparts="button" id="calendar-button">
                 <mock:shadow-root>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-disabled="true" aria-haspopup="dialog" aria-label="Display calendar" class="button" disabled="" part="button" type="button">
@@ -949,7 +949,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             <input aria-label="year" class="fit-to-value year-input" id="year-input" inputmode="number" maxlength="4" pattern="[0-9]*" placeholder="YYYY" value="2001">
           </div>
           <div class="action-buttons">
-            <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+            <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear input" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear input" class="button" part="button" type="button">
@@ -961,7 +961,7 @@ exports[`ic-date-input component should render with open calendar button 1`] = `
             </ic-button>
             <div class="show-calendar-button-wrapper">
               <div class="default divider"></div>
-              <ic-button class="button-size-default button-variant-icon calendar-button" exportparts="button" id="calendar-button">
+              <ic-button class="button-size-default ic-button-variant-icon calendar-button" exportparts="button" id="calendar-button">
                 <mock:shadow-root>
                   <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-calendar-button" label="Display calendar" placement="bottom" target="ic-button-with-tooltip-calendar-button">
                     <button aria-describedby="ic-tooltip-ic-button-with-tooltip-calendar-button" aria-haspopup="dialog" aria-label="Display calendar" class="button" part="button" type="button">
