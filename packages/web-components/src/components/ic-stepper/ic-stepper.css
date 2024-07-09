@@ -9,19 +9,19 @@
   padding: 0;
 }
 
-:host(.default:not(.aligned-left)) .step-item-list {
+:host(.ic-stepper-default:not(.ic-stepper-aligned-left)) .step-item-list {
   flex: auto;
 }
 
-:host(.compact) ul ::slotted(ic-step) {
+:host(.ic-stepper-compact) ul ::slotted(ic-step) {
   display: none;
 }
 
-:host(.compact) ul ::slotted(ic-step.show) {
+:host(.ic-stepper-compact) ul ::slotted(ic-step.show) {
   display: flex;
 }
 
-:host(.compact) ul ::slotted(ic-step.hide) {
+:host(.ic-stepper-compact) ul ::slotted(ic-step.hide) {
   display: none;
   opacity: 0;
   visibility: hidden;

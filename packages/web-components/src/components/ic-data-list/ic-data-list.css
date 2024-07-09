@@ -10,7 +10,7 @@
   gap: var(--ic-space-md);
 }
 
-:host(.small) .rows {
+:host(.ic-data-list-small) .rows {
   gap: var(--ic-space-xs);
 }
 
@@ -21,7 +21,7 @@
   background-color: var(--ic-architectural-300);
 }
 
-:host(.small) .divider {
+:host(.ic-data-list-small) .divider {
   margin-top: var(--ic-space-sm);
   margin-bottom: var(--ic-space-xs);
 }

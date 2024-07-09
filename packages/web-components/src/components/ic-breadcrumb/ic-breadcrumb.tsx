@@ -124,7 +124,7 @@ export class Breadcrumb {
     return (
       <Host
         class={{
-          back: this.showBackIcon,
+          "ic-breadcrumb-back": this.showBackIcon,
         }}
         aria-current={current && "page"}
         role="listitem"
