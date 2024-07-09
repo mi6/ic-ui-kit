@@ -85,8 +85,8 @@ export class InputLabel {
     return (
       <Host
         class={{
-          ["disabled"]: disabled,
-          ["readonly"]: readonly,
+          ["ic-input-label-disabled"]: disabled,
+          ["ic-input-label-readonly"]: readonly,
           ["with-helper"]: helperText !== "",
         }}
       >

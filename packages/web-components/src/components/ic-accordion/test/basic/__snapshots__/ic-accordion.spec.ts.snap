@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ic-accordion snapshots should match default snapshot: renders as default 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-0">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-0">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" id="ic-accordion-0-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
@@ -24,7 +24,7 @@ exports[`ic-accordion snapshots should match default snapshot: renders as defaul
 `;
 
 exports[`ic-accordion snapshots should match large snapshot: renders large accordion 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-5" size="large">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-5" size="large">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="large section-button" id="ic-accordion-5-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
@@ -47,7 +47,7 @@ exports[`ic-accordion snapshots should match large snapshot: renders large accor
 `;
 
 exports[`ic-accordion snapshots should match light snapshot: renders as light 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-1">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-1">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" id="ic-accordion-1-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
@@ -70,7 +70,7 @@ exports[`ic-accordion snapshots should match light snapshot: renders as light 1`
 `;
 
 exports[`ic-accordion snapshots should match small snapshot: renders small accordion 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-4" size="small">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-4" size="small">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" id="ic-accordion-4-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">
@@ -93,7 +93,7 @@ exports[`ic-accordion snapshots should match small snapshot: renders small accor
 `;
 
 exports[`ic-accordion snapshots should match with icon snapshot: renders with icon 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-2">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-2">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" id="ic-accordion-2-button" tabindex="0">
       <div class="icon-container">
@@ -122,7 +122,7 @@ exports[`ic-accordion snapshots should match with icon snapshot: renders with ic
 `;
 
 exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] = `
-<ic-accordion aria-disabled="true" class="default disabled" disabled="" heading="Accordion 1" id="ic-accordion-7">
+<ic-accordion aria-disabled="true" class="ic-accordion-default ic-accordion-disabled" disabled="" heading="Accordion 1" id="ic-accordion-7">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" disabled="" id="ic-accordion-7-button" tabindex="-1">
       <ic-typography class="section-header" variant="subtitle-large">
@@ -145,7 +145,7 @@ exports[`ic-accordion snapshots should render in a disabled state: disabled 1`] 
 `;
 
 exports[`ic-accordion snapshots should render with a heading slot when supplied: renders with heading slot 1`] = `
-<ic-accordion aria-disabled="false" class="default" id="ic-accordion-6">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" id="ic-accordion-6">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="default section-button" id="ic-accordion-6-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large"></ic-typography>
@@ -167,7 +167,7 @@ exports[`ic-accordion snapshots should render with a heading slot when supplied:
 `;
 
 exports[`ic-accordion snapshots should render with slot: renders small accordion 1`] = `
-<ic-accordion aria-disabled="false" class="default" heading="Accordion 1" id="ic-accordion-3" size="small">
+<ic-accordion aria-disabled="false" class="ic-accordion-default" heading="Accordion 1" id="ic-accordion-3" size="small">
   <mock:shadow-root>
     <button aria-controls="expanded-content-area" aria-expanded="false" class="section-button small" id="ic-accordion-3-button" tabindex="0">
       <ic-typography class="section-header" variant="subtitle-large">

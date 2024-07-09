@@ -32,7 +32,7 @@ exports[`ic-back-to-top should render with an icon only: should render with an i
 `;
 
 exports[`ic-back-to-top should render with footer: should render with footer 1`] = `
-<ic-footer class="footer footer-light footer-sparse footer-ungrouped light">
+<ic-footer class="ic-footer ic-footer-foreground-light ic-footer-light ic-footer-sparse ic-footer-ungrouped">
   <mock:shadow-root>
     <footer>
       <div class="footer-compliance">
