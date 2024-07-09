@@ -218,7 +218,7 @@ exports[`ic-select multi should test keydown on menu - arrow down, up, and enter
 `;
 
 exports[`ic-select searchable should render as required: required-searchable 1`] = `
-<ic-select class="searchable" label="IC Select Test" required="true" searchable="true">
+<ic-select class="ic-select-searchable" label="IC Select Test" required="true" searchable="true">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-select-input-26" helpertext="" label="IC Select Test" required=""></ic-input-label>
@@ -363,7 +363,7 @@ exports[`ic-select single should have correct validation status: with-validation
 `;
 
 exports[`ic-select single should not have a validation status if disabled: no-validation-status-if-disabled 1`] = `
-<ic-select class="disabled" disabled="" label="IC Select Test" validation-status="error">
+<ic-select class="ic-select-disabled" disabled="" label="IC Select Test" validation-status="error">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label disabled="" for="ic-select-input-4" helpertext="" label="IC Select Test"></ic-input-label>
@@ -643,7 +643,7 @@ exports[`ic-select single should test with clear button: with-clear-button 1`] =
                 </span>
               </div>
             </button>
-            <ic-button class="button-size-default button-variant-icon clear-button dark" exportparts="button" id="clear-button">
+            <ic-button class="button-size-default ic-button-variant-icon clear-button dark" exportparts="button" id="clear-button">
               <mock:shadow-root>
                 <ic-tooltip id="ic-tooltip-ic-button-with-tooltip-clear-button" label="Clear selection" placement="bottom" target="ic-button-with-tooltip-clear-button">
                   <button aria-describedby="ic-tooltip-ic-button-with-tooltip-clear-button" aria-label="Clear selection" class="button" part="button" type="button">
