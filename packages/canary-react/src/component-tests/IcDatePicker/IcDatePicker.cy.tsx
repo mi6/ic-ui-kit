@@ -581,7 +581,7 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID).should(
       HAVE_CLASS,
-      "disabled"
+      "ic-button-disabled"
     );
     cy.findShadowEl(DATE_PICKER, TODAY_BUTTON_ID)
       .shadow()
@@ -613,7 +613,7 @@ describe("IcDatePickers", () => {
 
     cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID).should(
       HAVE_CLASS,
-      "disabled"
+      "ic-button-disabled"
     );
     cy.findShadowEl(DATE_PICKER, CLEAR_BUTTON_ID)
       .shadow()
@@ -2654,7 +2654,7 @@ describe("IcDatePickers", () => {
     cy.findShadowEl(DATE_PICKER, DATE_INPUT)
       .shadow()
       .find("ic-input-component-container")
-      .should(HAVE_CLASS, "warning");
+      .should(HAVE_CLASS, "ic-input-component-container-warning");
   });
 
   it("should test picker opens above input when not enough room below", () => {
