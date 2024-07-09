@@ -15,7 +15,7 @@
   z-index: var(--ic-z-index-toast);
 }
 
-:host(.hidden) {
+:host(.ic-toast-hidden) {
   display: none;
   animation: fadeout var(--ic-transition-duration-slow) ease-in-out;
 }

@@ -44,8 +44,8 @@ export class Skeleton {
       <Host
         class={{
           skeleton: true,
-          circle: variant === "circle",
-          light: light || appearance === "light",
+          "ic-skeleton-circle": variant === "circle",
+          "ic-skeleton-light": light || appearance === "light",
         }}
         style={style}
         aria-disabled="true"

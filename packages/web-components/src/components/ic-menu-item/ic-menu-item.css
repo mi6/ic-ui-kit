@@ -28,14 +28,14 @@ li {
   --icon-height: auto;
 }
 
-:host(.disabled) ::part(button) {
+:host(.ic-menu-item-disabled) ::part(button) {
   color: var(--ic-architectural-200) !important;
   pointer-events: none;
 }
 
-:host(.disabled) .menu-item-label,
-:host(.disabled) .shortcut,
-:host(.disabled) .menu-item-description {
+:host(.ic-menu-item-disabled) .menu-item-label,
+:host(.ic-menu-item-disabled) .shortcut,
+:host(.ic-menu-item-disabled) .menu-item-description {
   color: var(--ic-architectural-200) !important;
 }
 
@@ -54,8 +54,8 @@ li {
   box-shadow: none;
 }
 
-:host(.disabled) ::part(button):focus-visible,
-:host(.disabled) ::part(button):focus {
+:host(.ic-menu-item-disabled) ::part(button):focus-visible,
+:host(.ic-menu-item-disabled) ::part(button):focus {
   color: var(--ic-theme-lighten-40) !important;
 }
 
@@ -70,13 +70,13 @@ ic-button:focus-within .menu-item-description {
   color: var(--ic-color-white-text);
 }
 
-:host(.disabled) ic-button:focus-within .focus-border {
+:host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
   border-color: var(--ic-architectural-white);
 }
 
-:host(.disabled) ic-button:focus-within .menu-item-label,
-:host(.disabled) ic-button:focus-within .shortcut,
-:host(.disabled) ic-button:focus-within .menu-item-description {
+:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
+:host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
+:host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
   color: var(--ic-theme-lighten-40) !important;
 }
 
@@ -165,23 +165,23 @@ ic-button:active .shortcut {
     border-color: canvas;
   }
 
-  :host(.disabled) ic-button:focus-within .focus-border {
+  :host(.ic-menu-item-disabled) ic-button:focus-within .focus-border {
     border-color: GrayText;
   }
 
-  :host(.disabled) .menu-item-info,
-  :host(.disabled) .menu-item-label,
-  :host(.disabled) .shortcut,
-  :host(.disabled) .menu-item-description,
-  :host(.disabled) ic-button:focus-within .menu-item-info,
-  :host(.disabled) ic-button:focus-within .menu-item-label,
-  :host(.disabled) ic-button:focus-within .shortcut,
-  :host(.disabled) ic-button:focus-within .menu-item-description {
+  :host(.ic-menu-item-disabled) .menu-item-info,
+  :host(.ic-menu-item-disabled) .menu-item-label,
+  :host(.ic-menu-item-disabled) .shortcut,
+  :host(.ic-menu-item-disabled) .menu-item-description,
+  :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-info,
+  :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-label,
+  :host(.ic-menu-item-disabled) ic-button:focus-within .shortcut,
+  :host(.ic-menu-item-disabled) ic-button:focus-within .menu-item-description {
     color: GrayText !important;
   }
 
-  :host(.disabled) ::part(button):focus-visible,
-  :host(.disabled) ::part(button):focus {
+  :host(.ic-menu-item-disabled) ::part(button):focus-visible,
+  :host(.ic-menu-item-disabled) ::part(button):focus {
     outline-color: GrayText !important;
   }
 }
