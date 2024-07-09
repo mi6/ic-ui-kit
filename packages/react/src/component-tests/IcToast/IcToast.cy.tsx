@@ -36,9 +36,9 @@ describe("IcToast", () => {
   it("should close on dismiss icon click", () => {
     mount(<SimpleToast />);
     cy.get("ic-button").click();
-    cy.get("ic-toast").should(NOT_HAVE_CLASS, "hidden");
+    cy.get("ic-toast").should(NOT_HAVE_CLASS, "ic-toast-hidden");
     cy.clickOnShadowEl("ic-toast", DISMISS_BUTTON_SELECTOR);
-    cy.get("ic-toast").should(HAVE_CLASS, "hidden");
+    cy.get("ic-toast").should(HAVE_CLASS, "ic-toast-hidden");
   });
 
   it("should focus on dismiss button when no action is provided", () => {
