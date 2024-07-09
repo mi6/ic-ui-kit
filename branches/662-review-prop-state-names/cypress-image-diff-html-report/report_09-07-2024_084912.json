@@ -1,7 +1,7 @@
 {
-  "total": 484,
+  "total": 487,
   "totalPassed": 484,
-  "totalFailed": 0,
+  "totalFailed": 3,
   "totalSuites": 36,
   "suites": [
     {
@@ -2802,6 +2802,28 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-static.png"
         },
         {
+          "status": "fail",
+          "name": "IcRadio.cy.tsx-conditional-dynamic-first-selected",
+          "percentage": 0.04331281565541543,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-first-selected.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-first-selected.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-first-selected.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcRadio.cy.tsx-conditional-dynamic-second-selected",
+          "percentage": 0.04331281565541543,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-second-selected.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-second-selected.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-second-selected.png"
+        },
+        {
           "status": "pass",
           "name": "IcRadio.cy.tsx-default-high-contrast",
           "percentage": 0,
@@ -2811,6 +2833,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-default-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
+          "percentage": 0.040644802865803145,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
+          "specFilename": "IcRadio.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
     },
@@ -5545,9 +5578,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-09T08:16:48.908Z",
-  "endedAt": "2024-07-09T08:27:21.362Z",
-  "duration": 559237,
+  "startedAt": "2024-07-09T08:49:12.207Z",
+  "endedAt": "2024-07-09T08:58:56.019Z",
+  "duration": 512586,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
