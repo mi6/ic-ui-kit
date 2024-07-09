@@ -135,12 +135,12 @@ export class ToggleButton {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
-          ["checked"]: this.checked,
-          [`${this.appearance}`]: true,
-          ["icon"]: this.variant === "icon",
-          [`${this.size}`]: true,
-          ["loading"]: this.loading,
+          ["ic-toggle-button-disabled"]: this.disabled,
+          ["ic-toggle-button-checked"]: this.checked,
+          [`ic-toggle-button-${this.appearance}`]: true,
+          ["ic-toggle-button-icon"]: this.variant === "icon",
+          [`ic-toggle-button-${this.size}`]: true,
+          ["ic-toggle-button-loading"]: this.loading,
         }}
         onFocus={this.handleFocus}
       >

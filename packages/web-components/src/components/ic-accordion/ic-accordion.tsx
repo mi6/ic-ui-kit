@@ -193,8 +193,8 @@ export class Accordion {
       <Host
         id={this.accordionId}
         class={{
-          [`${appearance}`]: true,
-          ["disabled"]: disabled,
+          [`ic-accordion-${appearance}`]: true,
+          ["ic-accordion-disabled"]: disabled,
         }}
         aria-disabled={disabled ? "true" : "false"}
       >
