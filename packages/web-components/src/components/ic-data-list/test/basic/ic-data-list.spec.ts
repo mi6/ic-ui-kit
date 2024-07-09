@@ -57,7 +57,7 @@ describe("ic-data-list", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-list heading="Heading" class="small" small>
+    <ic-data-list heading="Heading" class="ic-data-list-small" small>
       <mock:shadow-root>
         <div class="heading" id="data-list-heading">
           <slot name="heading">  
