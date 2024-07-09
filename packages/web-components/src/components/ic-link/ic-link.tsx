@@ -149,13 +149,13 @@ export class Link {
     } = this;
 
     return (
-      <Host class={{ ["link"]: true, [`${appearance}`]: true }}>
+      <Host class={{ ["ic-link"]: true, [`ic-link-${appearance}`]: true }}>
         {this.hasRouterSlot() ? (
           <slot name="router-item"></slot>
         ) : (
           <a
             class={{
-              ["ic-link"]: href !== null,
+              ["link"]: href !== null,
               [`${appearance}`]: href !== null,
             }}
             download={download !== false ? download : null}

@@ -65,7 +65,7 @@ export class EmptyState {
     return (
       <Host
         class={{
-          [`${aligned}`]: true,
+          [`ic-empty-state-${aligned}`]: true,
           [`image-${imageSize}`]: isSlotUsed(this.el, "image"),
         }}
       >

@@ -140,11 +140,11 @@ describe("ic-toast component", () => {
       html: `<ic-toast heading="Heading"></ic-toast>`,
     });
 
-    expect(page.root.classList.contains("hidden")).toBeTruthy();
+    expect(page.root.classList.contains("ic-toast-hidden")).toBeTruthy();
 
     page.rootInstance.setVisible();
     await page.waitForChanges();
-    expect(page.root.classList.contains("hidden")).toBeFalsy();
+    expect(page.root.classList.contains("ic-toast-hidden")).toBeFalsy();
   });
 
   it("should emit the icDismiss event when dismissed with by clicking the button", async () => {

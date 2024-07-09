@@ -280,10 +280,10 @@ export class ToggleButtonGroup {
         aria-disabled={this.disabled ? "true" : "false"}
         tabindex={0}
         class={{
-          ["full-width"]: this.fullWidth,
-          ["loading"]: this.loading,
-          ["disabled"]: this.disabled,
-          [`${this.appearance}`]: true,
+          ["ic-toggle-button-group-full-width"]: this.fullWidth,
+          ["ic-toggle-button-group-loading"]: this.loading,
+          ["ic-toggle-button-group-disabled"]: this.disabled,
+          [`ic-toggle-button-group-${this.appearance}`]: true,
         }}
         onFocus={this.handleHostFocus}
       >

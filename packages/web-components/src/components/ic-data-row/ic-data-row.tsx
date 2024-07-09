@@ -124,7 +124,7 @@ export class DataRow {
     return (
       <Host
         class={{
-          ["small"]: small || size === "small",
+          ["ic-data-row-small"]: small || size === "small",
           ["breakpoint-medium"]: listSize === "m",
           ["breakpoint-xs"]: listSize === "xs",
         }}

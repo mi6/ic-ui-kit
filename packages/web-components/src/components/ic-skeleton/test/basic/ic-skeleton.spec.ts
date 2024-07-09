@@ -73,7 +73,7 @@ describe("ic-skeleton", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-skeleton aria-disabled="true" class="circle skeleton" variant="circle" style="height: 25px; width: 25px;">
+    <ic-skeleton aria-disabled="true" class="ic-skeleton-circle skeleton" variant="circle" style="height: 25px; width: 25px;">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>

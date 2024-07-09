@@ -233,8 +233,10 @@ export class Step {
         class={{
           ["step-connect"]: true,
           ["aligned-full-width"]:
-            this.el.parentElement.classList.contains("default") &&
-            !this.el.parentElement.classList.contains("aligned-left"),
+            this.el.parentElement.classList.contains("ic-stepper-default") &&
+            !this.el.parentElement.classList.contains(
+              "ic-stepper-aligned-left"
+            ),
         }}
       >
         {partialBar}
@@ -279,10 +281,12 @@ export class Step {
         aria-current={(this.current || this.type === "current") && "step"}
         class={{
           ["aligned-full-width"]:
-            this.el.parentElement.classList.contains("default") &&
-            !this.el.parentElement.classList.contains("aligned-left"),
-          [`${this.variant}`]: true,
-          ["light"]:
+            this.el.parentElement.classList.contains("ic-stepper-default") &&
+            !this.el.parentElement.classList.contains(
+              "ic-stepper-aligned-left"
+            ),
+          [`ic-step-${this.variant}`]: true,
+          ["ic-step-light"]:
             (this.el.parentElement as HTMLIcStepperElement)?.appearance ===
             "light",
         }}

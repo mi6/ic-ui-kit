@@ -68,8 +68,8 @@ export class InputValidation {
     return (
       <Host
         class={{
-          [this.status]: this.status !== "",
-          ["fullwidth"]: this.fullWidth,
+          [`ic-input-validation-${this.status}`]: this.status !== "",
+          ["ic-input-validation-full-width"]: this.fullWidth,
         }}
       >
         {displayIcon !== "" && (

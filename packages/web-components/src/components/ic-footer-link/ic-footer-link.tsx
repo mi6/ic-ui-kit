@@ -75,10 +75,10 @@ export class FooterLink {
 
   private inferConfig(e: HTMLElement): FooterConfig {
     if (e.parentElement !== null) {
-      if (e.parentElement.classList.contains("footer")) {
+      if (e.parentElement.classList.contains("ic-footer")) {
         return {
-          small: e.parentElement.classList.contains("footer-small"),
-          grouped: e.parentElement.classList.contains("footer-grouped"),
+          small: e.parentElement.classList.contains("ic-footer-small"),
+          grouped: e.parentElement.classList.contains("ic-footer-grouped"),
         };
       } else {
         return this.inferConfig(e.parentElement);

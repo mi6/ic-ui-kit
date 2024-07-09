@@ -47,17 +47,17 @@
   --background-color-active: var(--ic-action-dark-bg-active);
 }
 
-:host(.selected) {
+:host(.ic-tab-selected) {
   border-bottom: var(--ic-space-xxs) solid var(--indicator-color);
 }
 
-:host(.disabled) {
+:host(.ic-tab-disabled) {
   pointer-events: none;
   color: var(--ic-architectural-300);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :host(.selected.with-transition) {
+  :host(.ic-tab-selected.with-transition) {
     transition: all var(--ic-easing-transition-slow),
       border-color var(--ic-transition-duration-slow);
   }
@@ -77,7 +77,7 @@
     border-bottom: var(--ic-space-xxs) solid canvas;
   }
 
-  :host(.disabled) {
+  :host(.ic-tab-disabled) {
     color: GrayText;
   }
 }
@@ -88,7 +88,7 @@
   :host(ic-tab) .ic-tab-label {
     color: var(--ic-architectural-white);
   }
-  :host(ic-tab.disabled) .ic-tab-label {
+  :host(ic-tab.ic-tab-disabled) .ic-tab-label {
     color: inherit;
   }
 } */

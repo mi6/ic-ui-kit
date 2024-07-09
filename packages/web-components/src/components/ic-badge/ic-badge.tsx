@@ -235,12 +235,13 @@ export class Badge {
     return (
       <Host
         class={{
-          [`${position}`]: true,
-          [`${size}`]: true,
-          [`${variant}`]: true,
-          [`${type}`]: true,
-          [`foreground-${foregroundColour}`]: foregroundColour !== null,
-          [`${visible ? "show" : "hide"}`]: true,
+          [`ic-badge-${position}`]: true,
+          [`ic-badge-${size}`]: true,
+          [`ic-badge-${variant}`]: true,
+          [`ic-badge-${type}`]: true,
+          [`ic-badge-foreground-${foregroundColour}`]:
+            foregroundColour !== null,
+          [`${visible ? "ic-badge-show" : "ic-badge-hide"}`]: true,
         }}
         id={el.id || null}
         aria-label={ariaLabel}

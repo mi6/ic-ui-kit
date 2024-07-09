@@ -1,6 +1,6 @@
 @import "../../global/normalize.css";
 
-:host(.disabled) {
+:host(.ic-checkbox-disabled) {
   color: var(--ic-architectural-200);
   pointer-events: none;
 }
@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-:host(.small) .container {
+:host(.ic-checkbox-small) .container {
   margin-bottom: var(--ic-space-xxxs);
 }
 
@@ -36,14 +36,14 @@
   flex-shrink: 0;
 }
 
-:host(.small) .checkbox,
-:host(.small) .container svg {
+:host(.ic-checkbox-small) .checkbox,
+:host(.ic-checkbox-small) .container svg {
   width: var(--ic-space-md);
   height: var(--ic-space-md);
 }
 
-:host(.large) .checkbox,
-:host(.large) .container svg {
+:host(.ic-checkbox-large) .checkbox,
+:host(.ic-checkbox-large) .container svg {
   width: var(--ic-space-xl);
   height: var(--ic-space-xl);
 }
@@ -123,12 +123,12 @@
   flex-shrink: 0;
 }
 
-:host(.small) .checkmark {
+:host(.ic-checkbox-small) .checkmark {
   margin-left: calc(-1 * var(--ic-space-md));
   right: calc(-1 * var(--ic-space-md));
 }
 
-:host(.large) .checkmark {
+:host(.ic-checkbox-large) .checkmark {
   margin-left: calc(-1 * var(--ic-space-xl));
   right: calc(-1 * var(--ic-space-xl));
 }
@@ -145,13 +145,13 @@
   flex-shrink: 0;
 }
 
-:host(.small) .indeterminate-symbol {
+:host(.ic-checkbox-small) .indeterminate-symbol {
   width: 0.6rem;
   right: -0.8rem;
   margin-left: -0.6rem;
 }
 
-:host(.large) .indeterminate-symbol {
+:host(.ic-checkbox-large) .indeterminate-symbol {
   width: 1.25rem;
   right: -1.625rem;
   margin-left: -1.25rem;

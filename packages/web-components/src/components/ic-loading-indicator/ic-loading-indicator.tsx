@@ -289,9 +289,10 @@ export class LoadingIndicator {
     return (
       <Host
         class={{
-          ["light"]: appearance === IcThemeForegroundEnum.Light,
-          ["label"]: !!label,
-          ["full-width"]: fullWidth,
+          ["ic-loading-indicator-light"]:
+            appearance === IcThemeForegroundEnum.Light,
+          ["ic-loading-indicator-label"]: !!label,
+          ["ic-loading-indicator-full-width"]: fullWidth,
           ["inner-label"]: !!innerLabel,
         }}
       >

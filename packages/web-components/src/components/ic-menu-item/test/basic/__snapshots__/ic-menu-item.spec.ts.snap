@@ -67,7 +67,7 @@ exports[`menu item variants should render the toggle variant 1`] = `
 <ic-menu-item id="test-menu-item" label="Toggle variant" variant="toggle">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitemcheckbox">
-      <ic-button class="button-size-default button-variant-tertiary full-width" exportparts="button">
+      <ic-button class="ic-button-full-width ic-button-size-default ic-button-variant-tertiary" exportparts="button">
         <mock:shadow-root>
           <button aria-disabled="false" aria-label="Toggle variant" class="button" part="button" type="button">
             <slot></slot>
