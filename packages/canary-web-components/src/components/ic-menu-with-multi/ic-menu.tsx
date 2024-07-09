@@ -1394,16 +1394,16 @@ export class Menu {
     return (
       <Host
         class={{
-          "full-width": fullWidth,
-          "no-focus":
+          "ic-menu-full-width": fullWidth,
+          "ic-menu-no-focus":
             inputEl?.tagName === "INPUT" ||
             hasTimedOut ||
             isLoading ||
             hasNoResults,
-          small: small,
-          [size]: true,
-          open: open && options.length !== 0,
-          multiple: this.isMultiSelect,
+          "ic-menu-small": small,
+          [`ic-menu-${size}`]: true,
+          "ic-menu-open": open && options.length !== 0,
+          "ic-menu-multiple": this.isMultiSelect,
         }}
       >
         {options.length !== 0 && (
