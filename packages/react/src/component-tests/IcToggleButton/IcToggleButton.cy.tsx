@@ -38,11 +38,12 @@ describe("IcToggleButton", () => {
 
   it("should switch to checked when clicked", () => {
     mount(<IcToggleButton label="Test Clickable" />);
-    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
+    const checkedClass = "ic-toggle-button-checked";
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, checkedClass);
     cy.get(TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(TOGGLE_BUTTON_SELECTOR).should(HAVE_CLASS, "checked");
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(HAVE_CLASS, checkedClass);
     cy.get(TOGGLE_BUTTON_SELECTOR).click();
-    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, "checked");
+    cy.get(TOGGLE_BUTTON_SELECTOR).should(NOT_HAVE_CLASS, checkedClass);
   });
 
   it("should not be clickable when disabled", () => {
