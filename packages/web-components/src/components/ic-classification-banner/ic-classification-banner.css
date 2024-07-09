@@ -13,7 +13,7 @@
   z-index: var(--ic-z-index-classification-banner);
 }
 
-:host(.inline) {
+:host(.ic-classification-banner-inline) {
   position: static;
   left: auto;
   bottom: auto;

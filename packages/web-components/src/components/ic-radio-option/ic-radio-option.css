@@ -12,7 +12,7 @@ ic-radio-option {
 }
 
 /* The label turns grey when disabled  */
-.disabled {
+ic-radio-option.ic-radio-option-disabled {
   color: var(--ic-architectural-200);
 }
 

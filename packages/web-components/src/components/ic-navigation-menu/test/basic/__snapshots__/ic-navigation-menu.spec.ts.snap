@@ -44,7 +44,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
       </span>
       <nav aria-hidden="true" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="button-size-large button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
+          <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <mock:shadow-root>
               <ic-tooltip label="Close app menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close app menu" class="button" part="button" type="button">
@@ -80,7 +80,7 @@ exports[`ic-navigation-menu should test slotted buttons: renders-with-slotted-bu
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="button-size-large button-variant-icon light" exportparts="button">
+      <ic-button class="ic-button-light ic-button-size-large ic-button-variant-icon" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-2">
             <button aria-label="button1" class="button" part="button" type="button">
@@ -148,7 +148,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
       </span>
       <nav aria-hidden="false" aria-labelledby="navigation-landmark-text">
         <div class="menu-close-button-container">
-          <ic-button class="button-size-large button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
+          <ic-button class="ic-button-size-large ic-button-variant-icon menu-close-button" exportparts="button" id="menu-close-button">
             <mock:shadow-root>
               <ic-tooltip label="Close navigation menu" placement="bottom" silent="" target="ic-button-with-tooltip-menu-close-button">
                 <button aria-label="Close navigation menu" class="button" part="button" type="button">
@@ -185,7 +185,7 @@ exports[`ic-navigation-menu should test slotted navigation and buttons: renders-
   </mock:shadow-root>
   <ic-navigation-button label="button1" onclick="alert('test')" slot="buttons">
     <mock:shadow-root>
-      <ic-button class="button-size-large button-variant-icon light" exportparts="button">
+      <ic-button class="ic-button-light ic-button-size-large ic-button-variant-icon" exportparts="button">
         <mock:shadow-root>
           <ic-tooltip label="button1" placement="bottom" silent="" target="ic-button-with-tooltip-6">
             <button aria-label="button1" class="button" part="button" type="button">
@@ -251,7 +251,7 @@ exports[`ic-navigation-menu should test slotted navigation group: renders-with-s
       </div>
     </div>
   </mock:shadow-root>
-  <ic-navigation-group class="expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
+  <ic-navigation-group class="ic-navigation-group-expanded" expandable="true" label="Navigation group" role="listitem" slot="navigation">
     <mock:shadow-root>
       <button aria-expanded="true" aria-haspopup="false" class="light navigation-group" tabindex="0">
         <ic-typography variant="label">
