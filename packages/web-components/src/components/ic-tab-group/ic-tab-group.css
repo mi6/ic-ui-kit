@@ -6,12 +6,12 @@
   border-bottom: var(--ic-border-default);
 }
 
-:host(.inline) {
+:host(.ic-tab-group-inline) {
   margin-bottom: 0;
   border-bottom: none;
 }
 
-.light {
+:host(.ic-tab-group-light) {
   border-bottom: var(--ic-border-width) solid var(--ic-architectural-white);
 }
 
