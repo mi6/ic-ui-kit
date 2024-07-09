@@ -987,7 +987,7 @@ exports[`ic-data-table should be able to slot a custom empty state into the data
         <slot name="actions"></slot>
       </div>
     </mock:shadow-root>
-    <ic-button class="button-size-default button-variant-primary" exportparts="button" slot="actions">
+    <ic-button class="button-size-default ic-button-variant-primary" exportparts="button" slot="actions">
       <mock:shadow-root>
         <button class="button" part="button" type="button">
           <slot></slot>
@@ -5942,7 +5942,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -5959,7 +5959,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -5976,7 +5976,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -5993,7 +5993,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 1`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6215,7 +6215,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort descending" class="button-size-default ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6232,7 +6232,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6249,7 +6249,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6266,7 +6266,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 2`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6488,7 +6488,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Remove sort" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Remove sort" class="button-size-default ic-button-variant-icon sort-button" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6505,7 +6505,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6522,7 +6522,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6539,7 +6539,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 3`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6761,7 +6761,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Name
                   </ic-typography>
-                  <ic-button aria-label="Sort ascending" class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
+                  <ic-button aria-label="Sort ascending" class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-name">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-name">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6778,7 +6778,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Age
                   </ic-typography>
-                  <ic-button aria-label="Sort descending" class="button-size-default button-variant-icon sort-button" exportparts="button" id="sort-button-age">
+                  <ic-button aria-label="Sort descending" class="button-size-default ic-button-variant-icon sort-button" exportparts="button" id="sort-button-age">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-age">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6795,7 +6795,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Department
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-department">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-department">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
@@ -6812,7 +6812,7 @@ exports[`ic-data-table should sort data when the sort button is clicked 4`] = `
                   <ic-typography class="column-header-text" variant="body">
                     Employee number
                   </ic-typography>
-                  <ic-button class="button-size-default button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
+                  <ic-button class="button-size-default ic-button-variant-icon sort-button sort-button-unsorted" exportparts="button" id="sort-button-employeeNumber">
                     <mock:shadow-root>
                       <ic-tooltip label="Sort ascending" placement="bottom" silent="" target="ic-button-with-tooltip-sort-button-employeeNumber">
                         <button aria-label="Sort ascending" class="button" part="button" type="button">
