@@ -205,7 +205,7 @@ export class MenuItem {
     return (
       <Host
         class={{
-          ["disabled"]: this.disabled,
+          ["ic-menu-item-disabled"]: this.disabled,
         }}
       >
         <li
