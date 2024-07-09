@@ -177,8 +177,8 @@ export class PageHeader {
     return (
       <Host
         class={{
-          ["sticky"]: sticky,
-          ["sticky-desktop"]: !sticky && stickyDesktopOnly,
+          ["ic-page-header-sticky"]: sticky,
+          ["ic-page-header-sticky-desktop"]: !sticky && stickyDesktopOnly,
         }}
         aria-label={this.el.ariaLabel || "page header"}
       >
