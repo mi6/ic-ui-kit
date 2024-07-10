@@ -143,6 +143,7 @@
   line-clamp: var(--truncation-max-lines, initial);
   -webkit-line-clamp: var(--truncation-max-lines, initial);
   overflow: hidden;
+  padding-right: var(--ellipsis-padding-right, 0);
 }
 
 .trunc-btn {
