@@ -2084,11 +2084,11 @@ export namespace Components {
          */
         "max": string | number;
         /**
-          * The maximum number of characters that can be entered in the field.
+          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
          */
         "maxCharacters": number;
         /**
-          * The label for maximum number of characters that can be entered in the field.
+          * The count of characters in the field. Will display a warning if the bound is reached.
          */
         "maxLength": number;
         /**
@@ -5485,11 +5485,11 @@ declare namespace LocalJSX {
          */
         "max"?: string | number;
         /**
-          * The maximum number of characters that can be entered in the field.
+          * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
          */
         "maxCharacters"?: number;
         /**
-          * The label for maximum number of characters that can be entered in the field.
+          * The count of characters in the field. Will display a warning if the bound is reached.
          */
         "maxLength"?: number;
         /**
