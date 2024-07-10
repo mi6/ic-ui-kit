@@ -43,11 +43,13 @@ Type: `Promise<void>`
 ### Used by
 
  - [ic-breadcrumb](../ic-breadcrumb)
+ - [ic-footer-link](../ic-footer-link)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-breadcrumb --> ic-link
+  ic-footer-link --> ic-link
   style ic-link fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
