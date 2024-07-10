@@ -122,12 +122,15 @@ describe("IcSearchBar end-to-end tests", () => {
     mount(<LongOptionLabel />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+    cy.wait(500);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
       .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("esp")
-      .wait(200);
+      .find(SEARCH_INPUT)
+      .as("input");
+
+    cy.get("@input").focus();
+    cy.realType("es").wait(200);
 
     cy.findShadowEl(SEARCH_SELECTOR, IC_MENU_LI)
       .should(BE_VISIBLE)
@@ -212,17 +215,20 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     mount(<OptionsNoFiltering />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+    cy.wait(500);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
       .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
+      .find(SEARCH_INPUT)
+      .as("input");
+
+    cy.get("@input").focus();
+    cy.realType("La").wait(200);
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "options-no-filtering",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
-      delay: 200,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.05),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -233,17 +239,20 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     mount(<EmptyOptionListText />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+    cy.wait(500);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
       .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
+      .find(SEARCH_INPUT)
+      .as("input");
+
+    cy.get("@input").focus();
+    cy.realType("Macchiato").wait(200);
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "empty-option-list-text",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
-      delay: 200,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
@@ -300,13 +309,15 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     mount(<LongOptionLabel />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+    cy.wait(500);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
       .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("esp")
-      .click()
-      .wait(300);
+      .find(SEARCH_INPUT)
+      .as("input");
+
+    cy.get("@input").focus();
+    cy.realType("es").wait(200);
 
     //cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -373,16 +384,19 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     mount(<OptionsNoFiltering />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+    cy.wait(500);
 
     cy.findShadowEl(SEARCH_SELECTOR, TEXT_FIELD_SELECTOR)
       .shadow()
-      .find(IC_INPUT_CONTAINER)
-      .type("Latte");
+      .find(SEARCH_INPUT)
+      .as("input");
+
+    cy.get("@input").focus();
+    cy.realType("La").wait(200);
 
     cy.compareSnapshot({
       name: "options-no-filtering-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.043),
-      delay: 200,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),
       cypressScreenshotOptions: {
         capture: "viewport",
       },
