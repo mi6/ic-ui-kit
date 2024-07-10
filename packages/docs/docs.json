@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-27T11:13:20",
+  "timestamp": "2024-07-10T10:16:33",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -16065,7 +16065,7 @@
           "mutable": false,
           "attr": "max-characters",
           "reflectToAttr": false,
-          "docs": "The maximum number of characters that can be entered in the field.",
+          "docs": "The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -16087,7 +16087,7 @@
           "mutable": false,
           "attr": "max-length",
           "reflectToAttr": false,
-          "docs": "The label for maximum number of characters that can be entered in the field.",
+          "docs": "The count of characters in the field. Will display a warning if the bound is reached.",
           "docsTags": [],
           "default": "0",
           "values": [
