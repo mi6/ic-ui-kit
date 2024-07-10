@@ -2835,14 +2835,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
-          "percentage": 0,
+          "percentage": 0.03286335345030997,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
@@ -2962,14 +2962,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-small.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcSearchBar.cy.tsx-long-option-label",
-          "percentage": 0.2720073528417936,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcSearchBar/IcSearchBar.cy.tsx",
           "specFilename": "IcSearchBar.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcSearchBar.cy.tsx-long-option-label.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcSearchBar.cy.tsx-long-option-label.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcSearchBar.cy.tsx-long-option-label.png"
         },
         {
@@ -5578,9 +5578,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-10T09:34:28.310Z",
-  "endedAt": "2024-07-10T09:44:14.974Z",
-  "duration": 514787,
+  "startedAt": "2024-07-10T11:23:27.272Z",
+  "endedAt": "2024-07-10T11:33:00.828Z",
+  "duration": 500739,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
