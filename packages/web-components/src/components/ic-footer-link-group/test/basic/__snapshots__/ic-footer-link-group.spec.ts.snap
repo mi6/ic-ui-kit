@@ -36,9 +36,9 @@ exports[`ic-footer-link-group should render small: footer-link-group-small 1`] =
     </mock:shadow-root>
     <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-small" href="/" role="listitem">
       <mock:shadow-root>
-        <a href="/">
+        <ic-link href="/">
           <slot></slot>
-        </a>
+        </ic-link>
       </mock:shadow-root>
       Link
     </ic-footer-link>
@@ -60,9 +60,9 @@ exports[`ic-footer-link-group should render with links: footer-link-group-with-l
   </mock:shadow-root>
   <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/" role="listitem">
     <mock:shadow-root>
-      <a href="/">
+      <ic-link href="/">
         <slot></slot>
-      </a>
+      </ic-link>
     </mock:shadow-root>
     Link
   </ic-footer-link>
@@ -99,9 +99,9 @@ exports[`ic-footer-link-group should render within footer: footer-link-group-in-
     </mock:shadow-root>
     <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/" role="listitem">
       <mock:shadow-root>
-        <a href="/">
+        <ic-link href="/">
           <slot></slot>
-        </a>
+        </ic-link>
       </mock:shadow-root>
       Link
     </ic-footer-link>
