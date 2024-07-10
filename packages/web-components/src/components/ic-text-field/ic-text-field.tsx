@@ -162,12 +162,12 @@ export class TextField {
   @Prop() max: string | number = undefined;
 
   /**
-   * The maximum number of characters that can be entered in the field.
+   * The maximum number of characters that can be entered in the field. Will display an error if too many characters are entered.
    */
   @Prop() maxCharacters: number = 0;
 
   /**
-   * The label for maximum number of characters that can be entered in the field.
+   * The count of characters in the field. Will display a warning if the bound is reached.
    */
   @Prop() maxLength: number = 0;
 
