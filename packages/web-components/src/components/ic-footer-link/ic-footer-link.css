@@ -1,169 +1,117 @@
 @import "../../global/normalize.css";
 
-:host(.footer-link-ungrouped-sparse) {
-  --footer-link-margin-left: 0;
-  --footer-link-margin-right: 2.5rem;
-  --footer-link-margin-bottom: 0;
-}
-
-:host(.footer-link-ungrouped-small) {
-  --footer-link-margin-left: 0;
-  --footer-link-margin-right: 0;
-  --footer-link-margin-bottom: var(--ic-space-md);
-}
-
-:host(.footer-link-grouped-sparse) {
-  --footer-link-margin-left: 0;
-  --footer-link-margin-right: 0;
-  --footer-link-margin-bottom: var(--ic-space-md);
-}
-
-:host(.footer-link-grouped-small) {
-  --footer-link-margin-left: var(--ic-space-md);
-  --footer-link-margin-right: 0;
-  --footer-link-margin-bottom: var(--ic-space-md);
-}
-
-:host(.footer-link) {
-  margin-left: var(--footer-link-margin-left);
-  margin-right: var(--footer-link-margin-right);
-  margin-bottom: var(--footer-link-margin-bottom);
-}
-
-/* Link styling */
-
-:host(.footer-link) a,
-:host(.footer-link) a ::slotted(a) {
-  display: flex;
-  align-items: flex-end;
-  font-weight: var(--ic-font-weight-bold);
-  color: inherit;
-  width: fit-content;
-  font-size: var(--ic-font-size-regular);
-}
-
-:host(.footer-link) a:link,
-:host(.footer-link) a ::slotted(a:link) {
-  color: inherit;
+:host(.link) .ic-link,
+:host(.link) ::slotted(a) {
+  color: var(--ic-hyperlink);
   text-decoration: underline;
   font-weight: var(--ic-font-weight-bold);
-}
-
-:host(.footer-link) a:link > ::slotted(svg),
-:host(.footer-link) a:link > ::slotted(img),
-:host(.footer-link) a ::slotted(a:link > ::slotted(svg)),
-:host(.footer-link) a ::slotted(a:link > ::slotted(img)) {
-  padding: var(--ic-space-xxxs);
-  pointer-events: none;
   transition: var(--ic-easing-transition-fast);
 }
 
-/*
-There's an apparent defect in Chrome that means this isn't always re-rendered if changed.
-Not an issue in Safari. Line 73-79 implement the same function but less clean.
-
-a:link > ::slotted(svg) ,
-a:link:visited > ::slotted(svg) {
-  fill: var(--ic-theme-text);
-}
-*/
-
-:host(.footer-link-light) ::slotted(svg) {
-  fill: var(--ic-architectural-white);
+:host(.link.dark) .ic-link.dark,
+:host(.link.dark) ::slotted(a) {
+  color: var(--ic-color-primary-text);
 }
 
-:host(.footer-link-dark) ::slotted(svg) {
-  fill: var(--ic-architectural-black);
+:host(.link.light) .ic-link.light,
+:host(.link.light) ::slotted(a) {
+  color: var(--ic-color-white-text);
 }
 
-:host(.footer-link) a:link:hover,
-:host(.footer-link) a:link:focus,
-:host(.footer-link) a ::slotted(a:link:hover),
-:host(.footer-link) a ::slotted(a:link:focus) {
+:host(.link) .ic-link:visited,
+:host(.link) ::slotted(a:visited) {
+  color: var(--ic-hyperlink-visited);
+}
+
+:host(.link) .ic-link:hover,
+:host(.link) .ic-link:focus,
+:host(.link) ::slotted(a:hover),
+:host(.link) ::slotted(a:focus) {
+  outline: none;
   border-bottom: 0.25rem solid !important;
   margin-bottom: -0.25rem !important;
   text-decoration: none;
 }
 
-@supports (text-underline-offset: 25%) {
-  :host(.footer-link) a:link:hover,
-  :host(.footer-link) a:link:focus,
-  :host(.footer-link) a ::slotted(a:link:hover),
-  :host(.footer-link) a ::slotted(a:link:focus) {
+@supports (text-underline-offset: 10%) {
+  :host(.link) .ic-link:hover,
+  :host(.link) .ic-link:focus,
+  :host(.link) ::slotted(a:hover),
+  :host(.link) ::slotted(a:focus) {
     text-decoration-line: underline;
     text-decoration-thickness: 25%;
-    text-underline-offset: 25%;
+    text-underline-offset: 10%;
     border-bottom: 0 !important;
     margin-bottom: 0 !important;
   }
 }
 
-:host(.footer-link) a:link:hover,
-:host(.footer-link) a ::slotted(a:link:hover) {
-  outline: none;
+:host(.link) .ic-link:active,
+:host(.link) .ic-link:focus:active,
+:host(.link) .ic-link:visited:active,
+:host(.link) ::slotted(a:active),
+:host(.link) ::slotted(a:focus:active),
+:host(.link) ::slotted(a:visited:active) {
+  text-decoration: none;
 }
 
-:host(.footer-link) a:link:focus,
-:host(.footer-link) a ::slotted(a:link:focus) {
-  outline: none;
+.ic-link-open-in-new-icon {
+  vertical-align: middle;
+  margin-left: var(--ic-space-xxs);
 }
 
-:host(.footer-link) a:link:focus > ::slotted(svg),
-:host(.footer-link) a:link:focus > ::slotted(img),
-:host(.footer-link) a ::slotted(a:link:focus > ::slotted(svg)),
-:host(.footer-link) a ::slotted(a:link:focus > ::slotted(img)) {
-  box-shadow: var(--ic-border-focus);
-  border-radius: var(--ic-border-radius);
+.ic-link > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink);
 }
 
-:host(.footer-link) a:focus,
-:host(.footer-link) a ::slotted(a:focus) {
-  outline: none;
-  transition: var(--ic-transition-duration-fast);
+.ic-link.dark > .ic-link-open-in-new-icon {
+  fill: var(--ic-color-primary-text);
 }
 
-:host(.footer-link) a:link:active,
-:host(.footer-link) a:link:focus:active,
-:host(.footer-link) a:link:visited:active,
-:host(.footer-link) a ::slotted(a:link:active),
-:host(.footer-link) a ::slotted(a:link:focus:active),
-:host(.footer-link) a ::slotted(a:link:visited:active) {
+.ic-link.light > .ic-link-open-in-new-icon {
+  fill: var(--ic-color-white-text);
+}
+
+.ic-link-open-in-new-icon > svg {
+  width: var(--ic-space-md);
+  height: var(--ic-space-md);
+  fill: currentcolor;
+}
+
+.ic-link:visited > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink-visited);
+}
+
+.ic-link.light:visited > .ic-link-open-in-new-icon {
+  fill: var(--ic-hyperlink-contrast-visited);
+}
+
+:host(.breadcrumb-link) .ic-link {
+  display: var(--breadcrumb-link-display);
+  align-items: var(--breadcrumb-link-align-items);
+  gap: var(--breadcrumb-link-gap);
+}
+
+:host(.breadcrumb-link) .ic-link ::slotted(.back-icon) {
+  height: var(--ic-space-lg);
+  width: var(--ic-space-lg);
+}
+
+:host(.breadcrumb-link.current-page) a,
+:host(.breadcrumb-link.current-page) ::slotted(a) {
+  font-weight: normal;
   color: inherit;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-:host(.footer-link) a:hover,
-:host(.footer-link) a ::slotted(a:hover) {
+:host(.breadcrumb-link.current-page) .ic-link,
+:host(.breadcrumb-link.current-page) ::slotted(a:focus) {
+  outline: var(--ic-hc-focus-outline);
   text-decoration: none;
 }
 
-.open-in-new-icon {
-  padding-left: var(--ic-space-xxs);
-}
-
-.open-in-new-icon,
-.open-in-new-icon svg {
-  height: var(--ic-space-md);
-  width: var(--ic-space-md);
-}
-
-:host(.footer-link-light) .open-in-new-icon svg {
-  fill: var(--ic-architectural-white);
-}
-
-:host(.footer-link-dark) .open-in-new-icon svg {
-  fill: var(--ic-architectural-black);
-}
-
-@media screen and (min-width: 769px) {
-  :host(.footer-link.footer-link-ungrouped-sparse:last-of-type) {
-    margin-right: 0;
-  }
-}
-
-@media (forced-colors: active) {
-  :host(.footer-link-light) ::slotted(svg),
-  :host(.footer-link-dark) ::slotted(svg) {
-    fill: currentcolor;
-  }
+:host(.breadcrumb-link.current-page) .ic-link:visited {
+  color: var(--ic-color-primary-text);
 }

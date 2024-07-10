@@ -10,8 +10,6 @@ import {
 import { DEVICE_SIZES, getThemeForegroundColor } from "../../utils/helpers";
 import { IcTheme, IcThemeForeground } from "../../utils/types";
 
-import OpenInNew from "../../assets/OpenInNew.svg";
-
 type FooterConfig = { small: boolean; grouped: boolean };
 
 @Component({
@@ -111,19 +109,16 @@ export class FooterLink {
         }}
         role="listitem"
       >
-        <a
+        <ic-link
           href={href}
           hreflang={hreflang}
-          referrerPolicy={referrerpolicy}
+          referrerpolicy={referrerpolicy}
           rel={rel}
           download={download !== false ? download : null}
           target={target}
         >
           <slot />
-          {target === "_blank" && (
-            <span class="open-in-new-icon" innerHTML={OpenInNew} />
-          )}
-        </a>
+        </ic-link>
       </Host>
     );
   }
