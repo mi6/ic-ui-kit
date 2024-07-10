@@ -26,6 +26,7 @@ import {
   NOT_EXIST,
   HAVE_ATTR,
   NOT_HAVE_ATTR,
+  NOT_BE_VISIBLE,
 } from "../utils/constants";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
@@ -324,9 +325,10 @@ describe("IcDialog", () => {
 
     cy.get(DYNAMIC_SHOW_BUTTON).click();
 
-    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus();
-
-    cy.focused().next().next().shadow().find("button").focus();
+    cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button")
+      .focus()
+      .realPress("Tab")
+      .realPress("Tab");
 
     cy.findShadowEl("ic-button#tab-btn", "button").should(HAVE_FOCUS);
 
@@ -342,5 +344,47 @@ describe("IcDialog", () => {
     cy.findShadowEl(DYNAMIC_SHOW_BUTTON, "button").focus();
 
     cy.focused().next().next().should(NOT_EXIST);
+  });
+
+  it("should test pressing escape on dialog", () => {
+    mount(<SimpleDialog />);
+
+    cy.get(BUTTON).click().wait(300);
+    cy.get(BUTTON).realPress("Escape");
+
+    cy.findShadowEl(DIALOG, ".dialog").should(NOT_BE_VISIBLE);
+  });
+
+  it("should test pressing escape on close button", () => {
+    mount(<SimpleDialog />);
+
+    cy.get(BUTTON).click().wait(300);
+
+    cy.findShadowEl(DIALOG, "ic-button.close-icon")
+      .shadow()
+      .find("button")
+      .focus();
+
+    cy.findShadowEl(DIALOG, "ic-button.close-icon")
+      .shadow()
+      .find("ic-tooltip")
+      .shadow()
+      .find(".ic-tooltip-container")
+      .should(BE_VISIBLE);
+
+    cy.findShadowEl(DIALOG, "ic-button.close-icon").realPress("Escape");
+
+    // first press of Escape should hide tooltip on button
+    cy.findShadowEl(DIALOG, "ic-button.close-icon")
+      .shadow()
+      .find("ic-tooltip")
+      .shadow()
+      .find(".ic-tooltip-container")
+      .should(NOT_BE_VISIBLE);
+
+    // second press should hide dialog
+    cy.findShadowEl(DIALOG, "ic-button.close-icon").realPress("Escape");
+
+    cy.findShadowEl(DIALOG, ".dialog").should(NOT_BE_VISIBLE);
   });
 });

@@ -64,6 +64,45 @@ describe("IcTopNavigation", () => {
       cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR).should(NOT_EXIST);
     });
 
+    it("should hide tooltip when escape pressed on close button", () => {
+      mount(<TopNavWithNavItems />);
+
+      cy.clickOnShadowEl(TOP_NAV_SELECTOR, "ic-button");
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
+        .shadow()
+        .find("#menu-close-button")
+        .shadow()
+        .find("ic-tooltip")
+        .shadow()
+        .find(".ic-tooltip-container")
+        .should(BE_VISIBLE);
+
+      // first press of Escape should hide tooltip on button
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
+        .shadow()
+        .find("#menu-close-button")
+        .realPress("Escape");
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
+        .shadow()
+        .find("#menu-close-button")
+        .should(BE_VISIBLE);
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
+        .shadow()
+        .find("#menu-close-button")
+        .shadow()
+        .find("ic-tooltip")
+        .shadow()
+        .find(".ic-tooltip-container")
+        .should(NOT_BE_VISIBLE);
+
+      // second press should hide menu
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR)
+        .shadow()
+        .find("#menu-close-button")
+        .realPress("Escape");
+      cy.findShadowEl(TOP_NAV_SELECTOR, NAV_MENU_SELECTOR).should(NOT_EXIST);
+    });
+
     it("should toggle search bar when clicking on button", () => {
       mount(<TopNavWithSearch />);
 
