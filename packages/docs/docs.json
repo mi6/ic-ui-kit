@@ -5259,8 +5259,14 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
+      "dependencies": [
+        "ic-link"
+      ],
+      "dependencyGraph": {
+        "ic-footer-link": [
+          "ic-link"
+        ]
+      }
     },
     {
       "filePath": "src/components/ic-footer-link-group/ic-footer-link-group.tsx",
@@ -6725,11 +6731,15 @@
       ],
       "parts": [],
       "dependents": [
-        "ic-breadcrumb"
+        "ic-breadcrumb",
+        "ic-footer-link"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "ic-breadcrumb": [
+          "ic-link"
+        ],
+        "ic-footer-link": [
           "ic-link"
         ]
       }
