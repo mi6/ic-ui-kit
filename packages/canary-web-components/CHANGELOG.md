@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.18...@ukic/canary-web-components@2.0.0-canary.19) (2024-07-10)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes focus and accessibility issues ([9728589](https://github.com/mi6/ic-ui-kit/commit/9728589f212cd6a39cb461d401a06f219b0bf8cb))
+
 # [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.17...@ukic/canary-web-components@2.0.0-canary.18) (2024-06-27)
 
 ### Features

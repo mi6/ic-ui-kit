@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.23.0...@ukic/web-components@2.24.0) (2024-07-10)
+
+### Bug Fixes
+
+- **web-components:** added fix to text-field to remove max char validation and render icons ([b0930b2](https://github.com/mi6/ic-ui-kit/commit/b0930b2897a2c487dbfaaa7a58656c2ab31dbde5))
+- **web-components:** remove aria-hidden ([dffb07e](https://github.com/mi6/ic-ui-kit/commit/dffb07ed59fe1ebf367c504212b149cb759f2bbf))
+
+### Features
+
+- **web-components:** add icon slot to select ([c219d50](https://github.com/mi6/ic-ui-kit/commit/c219d5016d6227978ccd2173b71f491e3105613f)), closes [#2045](https://github.com/mi6/ic-ui-kit/issues/2045)
+
 # [2.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.22.0...@ukic/web-components@2.23.0) (2024-06-27)
 
 ### Bug Fixes

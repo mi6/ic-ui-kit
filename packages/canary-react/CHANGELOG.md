@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.18...@ukic/canary-react@2.0.0-canary.19) (2024-07-10)
+
+### Bug Fixes
+
+- **canary-react:** adds tests for fix to focus and accessibility issues ([6d9aa3e](https://github.com/mi6/ic-ui-kit/commit/6d9aa3e16272c2ccd77de028d659e1e82955ddb8))
+- **canary-react:** fixes test threshold issue ([9228afb](https://github.com/mi6/ic-ui-kit/commit/9228afbd73ba58b1d3573d616bff596560f2338a))
+
 # [2.0.0-canary.18](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.17...@ukic/canary-react@2.0.0-canary.18) (2024-06-27)
 
 ### Features

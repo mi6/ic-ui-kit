@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.23.0...@ukic/react@2.24.0) (2024-07-10)
+
+### Bug Fixes
+
+- **react:** uncomment a11y test ([23c3a11](https://github.com/mi6/ic-ui-kit/commit/23c3a11d0281eefcf9e6e3b3def93e90ab4aecab))
+
+### Features
+
+- **react:** add icon slot for select ([57ef58c](https://github.com/mi6/ic-ui-kit/commit/57ef58c0bbcb34f34bcbb423b6cbdd81f095fac3))
+- **react:** added playground to ic-text-field react storybook ([a7b720f](https://github.com/mi6/ic-ui-kit/commit/a7b720f0b057264aefed4c50d5272d931024c477))
+
 # [2.23.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.22.0...@ukic/react@2.23.0) (2024-06-27)
 
 ### Bug Fixes
