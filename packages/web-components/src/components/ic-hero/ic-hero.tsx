@@ -66,12 +66,12 @@ export class Hero {
   @Prop() disableBackgroundParallax?: boolean = false;
 
   /**
-   * The heading of the hero.
+   * The heading of the hero. An <h2> level heading.
    */
   @Prop() heading: string;
 
   /**
-   * The optional secondary heading, replaced by slotted right content.
+   * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
    */
   @Prop() secondaryHeading?: string;
 
@@ -84,11 +84,6 @@ export class Hero {
    * The size of the hero component.
    */
   @Prop() size?: IcSizesNoLarge = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * The description for the hero.
@@ -132,7 +127,6 @@ export class Hero {
   render() {
     const {
       aligned,
-      small,
       size,
       heading,
       subheading,
@@ -158,7 +152,7 @@ export class Hero {
           [`ic-hero-${IcThemeForegroundEnum.Dark}`]:
             foregroundColor === IcThemeForegroundEnum.Dark,
           ["has-background-image"]: backgroundImage !== undefined,
-          ["ic-hero-small"]: small || size === "small",
+          ["ic-hero-small"]: size === "small",
           ["secondary-heading"]: !!secondaryHeading,
         }}
         style={style}
@@ -177,12 +171,12 @@ export class Hero {
             <div class="heading">
               <slot name="heading">
                 <ic-typography
-                  variant={small || size === "small" ? "h2" : "h1"}
+                  variant={size === "small" ? "h2" : "h1"}
                   class={{
-                    ["heading-bottom-spacing"]: !small && size !== "small",
+                    ["heading-bottom-spacing"]: size !== "small",
                   }}
                 >
-                  {heading}
+                  <h2>{heading}</h2>
                 </ic-typography>
               </slot>
             </div>
@@ -202,7 +196,7 @@ export class Hero {
                   <div class="secondary-container">
                     <div class="secondary-heading">
                       <ic-typography variant="h4">
-                        {secondaryHeading}
+                        <h3>{secondaryHeading}</h3>
                       </ic-typography>
                     </div>
                     <div class="secondary-subheading">
