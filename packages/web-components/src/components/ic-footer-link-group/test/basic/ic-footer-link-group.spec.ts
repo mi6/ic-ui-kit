@@ -10,19 +10,7 @@ describe("ic-footer-link-group", () => {
       html: `<ic-footer-link-group group-title="Link group"></ic-footer-link-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-sparse" group-title="Link group">
-        <mock:shadow-root>
-            <div class="footer-link-group-title">
-                <ic-typography variant="subtitle-small">
-                    Link group
-                </ic-typography>
-            </div>
-            <div class="footer-link-group-links">
-                <slot></slot>
-            </div>
-        </mock:shadow-root>
-    </ic-footer-link-group>`);
+    expect(page.root).toMatchSnapshot("footer-link-group");
   });
 
   it("should render with links", async () => {
@@ -31,27 +19,7 @@ describe("ic-footer-link-group", () => {
       html: `<ic-footer-link-group group-title="Link group"><ic-footer-link href="/">Link</ic-footer-link></ic-footer-link-group>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-footer-link-group class="footer-link-group footer-link-group-light footer-link-group-sparse" group-title="Link group">
-        <mock:shadow-root>
-            <div class="footer-link-group-title">
-                <ic-typography variant="subtitle-small">
-                    Link group
-                </ic-typography>
-            </div>
-            <div class="footer-link-group-links">
-                <slot></slot>
-            </div>
-        </mock:shadow-root>
-        <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/">
-            <mock:shadow-root>
-                <a href="/">
-                    <slot></slot>
-                </a>
-            </mock:shadow-root>
-            Link
-        </ic-footer-link>
-    </ic-footer-link-group>`);
+    expect(page.root).toMatchSnapshot("footer-link-group-with-links");
   });
 
   it("should render within footer", async () => {
