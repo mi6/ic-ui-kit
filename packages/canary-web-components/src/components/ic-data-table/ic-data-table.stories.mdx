@@ -27,9 +27,14 @@ import {
   Updating,
   CustomIcons,
   CustomRowHeights,
+  TruncationShowHide,
+  TruncationTextWrap,
+  TruncationTooltip,
   CustomTitleBar,
   UpdatingData,
   SlottedPagination,
+  LargeDataSet,
+  DevArea,
 } from "./story-data";
 import readme from "./readme.md";
 
@@ -141,6 +146,14 @@ A basic example with no functionality.
   dataTable.data = data;
 </script>
 ```
+
+### Large Data Set
+
+<Canvas withSource="none">
+  <Story name="Large Data Set" parameters={{ loki: { skip: true } }}>
+    {LargeDataSet()}
+  </Story>
+</Canvas>
 
 ### Embedded
 
@@ -800,7 +813,7 @@ If it needs to be determinate, use `max`, `min` and `progress`.
 
 ### Updating state
 
-If certain data in the table has changed, an `updating` prop has been supplied to show a linear `ic-loading-indicator` just above the data rows.
+If data in the table has changed, an `updating` prop has been supplied to show a linear `ic-loading-indicator` just above the data rows.
 
 This prop is also accompanied by an `updatingOptions` prop, which contains similar options to `loadingOptions`, minus `label` and `labelDuration` since the linear version is displayed.
 
@@ -1302,5 +1315,219 @@ To enable this behaviour, the `pagination-bar` slot can be utilised to provide a
 <Canvas withSource="none">
   <Story name="Slotted pagination bar" parameters={{ loki: { skip: true } }}>
     {SlottedPagination()}
+  </Story>
+</Canvas>
+
+### Data truncation
+
+When a row is given a set height, and has content that no longer fits into the cell area, the content becomes truncated. There are two types of truncation:
+
+- `tooltip`: Adds a line-clamp to the cell and displays the message in a tooltip.
+- `show-hide`: Adds a `See more/See less` button underneath the cell text, allowing the user to display the full content should they wish.
+
+These values are set using the `truncation-pattern` attribute.
+
+#### Data truncation tooltip
+
+<Canvas withSource="none">
+  <Story parameters={{ loki: { skip: true } }} name="Data truncation tooltip">
+    {TruncationTooltip()}
+  </Story>
+</Canvas>
+
+#### Data truncation tooltip code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Data truncation tooltip"
+  truncation-pattern="tooltip"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "name",
+      title: "Name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      name: "John Smith",
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: "Senior Financial Operations and Reporting Analyst",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+#### Data truncation see more / see less
+
+<Canvas withSource="none">
+  <Story
+    parameters={{ loki: { skip: true } }}
+    name="Data truncation see more / see less"
+  >
+    {TruncationShowHide()}
+  </Story>
+</Canvas>
+
+#### Data truncation show / hide code example
+
+```html
+<ic-data-table
+  id="data-table"
+  caption="Data truncation see more / see less"
+  truncation-pattern="show-hide"
+></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    {
+      key: "name",
+      title: "Name",
+      dataType: "string",
+    },
+    ...
+  ];
+
+  const data = [
+    {
+      name: "John Smith",
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: "Senior Financial Operations and Reporting Analyst",
+    },
+    ...
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+### Text Wrap
+
+Text can be set to wrap in a particular column, row or cell.
+
+Any column, row or cell, text wrap is applied to will ignore the custom height if the custom height is too small and the full content will be shown.
+
+To set text to wrap in a column, add `textWrap: true` as a key value.
+
+```jsx
+const column = [
+  { key: "name", title: "Name", dataType: "string" },
+
+  ...
+]
+```
+
+To set text to wrap in a row, add `rowOptions: { textWrap: true }` to an object within the data array.
+
+```jsx
+const data = [
+  {
+    name: "Tim Rayes",
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+    rowOptions: {
+      textWrap: true
+    }
+  },
+  ...
+]
+```
+
+To set text wrap in a cell, add `textWrap` to a data key within an object.
+
+```jsx
+const data = [
+  {
+    name: {
+      data:"Tim Rayes",
+      textWrap: true
+    }
+    age: 41,
+    department: "Sales and Marketing",
+    employeeNumber: 3,
+    jobTitle:
+      "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+  },
+  ...
+]
+```
+
+<Canvas withSource="none">
+  <Story parameters={{ loki: { skip: true } }} name="Text Wrap">
+    {TruncationTextWrap()}
+  </Story>
+</Canvas>
+
+#### Text Wrap code example
+
+```html
+<ic-data-table id="data-table" caption="Text Wrap"></ic-data-table>
+<script>
+  const dataTable = document.querySelector("#data-table");
+
+  const columns = [
+    { key: "name", title: "Name", dataType: "string" },
+    { key: "age", title: "Age", dataType: "number" },
+    {
+      key: "department",
+      title: "Department",
+      dataType: "string",
+      textWrap: true,
+    },
+    { key: "employeeNumber", title: "Employee Number", dataType: "number" },
+    { key: "jobTitle", title: "Job Title", dataType: "string" },
+  ];
+
+  const data = [
+    {
+      name: "John Smith",
+      age: 36,
+      department: "Accounts & Finance",
+      employeeNumber: 1,
+      jobTitle: {
+        data: "Senior Financial Operations and Reporting Analyst",
+        textWrap: true,
+      },
+    },
+    ...{
+      name: "Tim Rayes",
+      age: 41,
+      department: "Sales and Marketing",
+      employeeNumber: 3,
+      jobTitle:
+        "Regional Sales and Marketing Strategy Director (Europe, the Middle East, and Africa)",
+      rowOptions: {
+        textWrap: true,
+      },
+    },
+  ];
+  dataTable.columns = columns;
+  dataTable.data = data;
+</script>
+```
+
+#### Development Area
+
+<Canvas withSource="none">
+  <Story parameters={{ loki: { skip: true } }} name="Dev Area">
+    {DevArea()}
   </Story>
 </Canvas>
