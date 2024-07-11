@@ -175,7 +175,7 @@ exports[`ic-footer should render with link groups 1`] = `
       </div>
       <div class="footer-links">
         <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
+          <div class="footer-links-inner" role="list">
             <slot name="link"></slot>
           </div>
         </ic-section-container>
@@ -228,7 +228,7 @@ exports[`ic-footer should render with links 1`] = `
       </div>
       <div class="footer-links">
         <ic-section-container aligned="left" fullheight="">
-          <div class="footer-links-inner">
+          <div class="footer-links-inner" role="list">
             <slot name="link"></slot>
           </div>
         </ic-section-container>
