@@ -85,7 +85,7 @@ a:link:visited > ::slotted(svg) {
   text-decoration: none;
 }
 
-@supports (text-decoration-thickness: 25%) {
+@supports (text-underline-offset: 25%) {
   :host(.footer-link) a:link:hover,
   :host(.footer-link) a:link:focus,
   :host(.footer-link) a ::slotted(a:link:hover),

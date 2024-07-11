@@ -92,7 +92,7 @@ button {
   text-decoration: none;
 }
 
-@supports (text-decoration-thickness: 25%) {
+@supports (text-underline-offset: 25%) {
   .card.clickable:hover .card-title,
   .card.clickable:focus .card-title,
   .card.clickable.focussed .card-title {

@@ -184,7 +184,7 @@
   font-weight: var(--ic-font-weight-bold);
 }
 
-@supports (text-decoration-thickness: 25%) {
+@supports (text-underline-offset: 25%) {
   .trunc-btn:hover,
   .trunc-btn.focus {
     text-decoration-line: underline;
