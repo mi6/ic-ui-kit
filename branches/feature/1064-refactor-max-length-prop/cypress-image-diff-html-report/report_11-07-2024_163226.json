@@ -1,7 +1,7 @@
 {
   "total": 487,
-  "totalPassed": 486,
-  "totalFailed": 1,
+  "totalPassed": 479,
+  "totalFailed": 8,
   "totalSuites": 36,
   "suites": [
     {
@@ -4308,36 +4308,36 @@
       "path": "src/component-tests/IcTextField/IcTextField.cy.tsx",
       "tests": [
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-icon-value-max-characters",
-          "percentage": 0,
+          "percentage": 0.009165151389911681,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-icon-value-max-characters.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-icon-value-max-characters.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-icon-value-max-characters.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-small-text-field",
-          "percentage": 0,
+          "percentage": 0.009165151389911681,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-small-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-small-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-small-text-field.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-full-width-text-field",
-          "percentage": 0,
+          "percentage": 0.009165151389911681,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-full-width-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-full-width-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-full-width-text-field.png"
         },
         {
@@ -4352,25 +4352,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-multiline-text-area-with-resize.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-inline-validation-text-field",
-          "percentage": 0,
+          "percentage": 0.009165151389911681,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-inline-validation-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-inline-validation-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-inline-validation-text-field.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-validation-text-field",
-          "percentage": 0,
+          "percentage": 0.015827097582710614,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-validation-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-validation-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-validation-text-field.png"
         },
         {
@@ -4385,14 +4385,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-readonly-text-field.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-custom-text-field",
-          "percentage": 0,
+          "percentage": 0.009797958971132713,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-custom-text-field.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-custom-text-field.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-custom-text-field.png"
         },
         {
@@ -4451,14 +4451,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-readonly-text-field-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcTextField.cy.tsx-validation-text-field-high-contrast",
-          "percentage": 0,
+          "percentage": 0.015827097582710614,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcTextField/IcTextField.cy.tsx",
           "specFilename": "IcTextField.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcTextField.cy.tsx-validation-text-field-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcTextField.cy.tsx-validation-text-field-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcTextField.cy.tsx-validation-text-field-high-contrast.png"
         }
       ]
@@ -5578,9 +5578,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-11T14:34:02.175Z",
-  "endedAt": "2024-07-11T14:43:25.662Z",
-  "duration": 490616,
+  "startedAt": "2024-07-11T16:32:26.197Z",
+  "endedAt": "2024-07-11T16:43:04.803Z",
+  "duration": 566418,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
