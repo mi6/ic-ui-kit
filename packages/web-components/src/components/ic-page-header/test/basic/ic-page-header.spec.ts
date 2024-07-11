@@ -216,6 +216,15 @@ describe("ic-page-header component renders additional functionality", () => {
 
     expect(page.root).toMatchSnapshot("should render with breadcrumbs");
   });
+
+  it("should render with a custom aria-label", async () => {
+    const page = await newSpecPage({
+      components: [PageHeader],
+      html: `<ic-page-header heading="Page header" subheading="This is a simple page header component and this is the text." aria-label="header"></ic-page-header>`,
+    });
+
+    expect(page.root).toMatchSnapshot("should render with a custom aria-label");
+  });
 });
 
 describe("resizeObserver for ic-page-header", () => {
