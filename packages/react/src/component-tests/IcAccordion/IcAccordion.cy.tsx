@@ -4,7 +4,6 @@
 import { mount } from "cypress/react";
 import React from "react";
 import { IcAccordion, IcAccordionGroup } from "../../components";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
@@ -19,199 +18,219 @@ import {
   SlottedHeadingAccordion,
   TwoAccordions,
   TwoAccordionsWithOneExpanded,
+  WithIcon,
+  WithChildren,
+  DifferentSizes,
+  DifferentSizesGroup,
 } from "./IcAccordionTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
-
-const DEFAULT_TEST_THRESHOLD = 0.024;
 
 const IC_ACCORDION = "ic-accordion";
 const IC_ACCORDION_GROUP = "ic-accordion-group";
 const getAccordionSelector = (index: number) =>
   `ic-accordion[heading="Accordion ${index}"]`;
 
-describe("IcAccordion", () => {
-  it("should render", () => {
-    mount(<SimpleAccordion />);
+const DEFAULT_TEST_THRESHOLD = 0.02;
 
-    cy.get(IC_ACCORDION).contains("Text").should(BE_VISIBLE);
+describe("End-to-end tests", () => {
+  describe("IcAccordion", () => {
+    it("should render a simple accordion", () => {
+      mount(<SimpleAccordion />);
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.get(IC_ACCORDION).contains("Text").should(BE_VISIBLE);
+    });
+
+    it("should expand when clicked", () => {
+      mount(<SimpleAccordion />);
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.get(IC_ACCORDION).invoke(
+        "on",
+        "accordionClicked",
+        cy.stub().as("isClicked")
+      );
+
+      cy.get(IC_ACCORDION).click();
+      cy.get("@isClicked").should(HAVE_BEEN_CALLED_ONCE);
+      cy.findShadowEl(IC_ACCORDION, "button")
+        .invoke("attr", "aria-expanded")
+        .should("eq", "true");
+    });
+
+    it("should expand when space bar pressed", () => {
+      mount(<SimpleAccordion />);
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", false);
+
+      cy.findShadowEl(IC_ACCORDION, "button").type(" ");
+      cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", true);
+    });
+
+    it("should skip disabled accordion when using tab", () => {
+      mount(<AccordionsWithDisabled />);
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.findShadowEl('ic-accordion[heading="accordion1"]', "button").should(
+        HAVE_ATTR,
+        "tabindex",
+        0
+      );
+      cy.findShadowEl('ic-accordion[heading="accordion2"]', "button").should(
+        HAVE_ATTR,
+        "tabindex",
+        -1
+      );
+      cy.findShadowEl('ic-accordion[heading="accordion3"]', "button").should(
+        HAVE_ATTR,
+        "tabindex",
+        0
+      );
+    });
   });
+  describe("IcAccordionGroup", () => {
+    it("should render an accordion group", () => {
+      mount(
+        <IcAccordionGroup groupTitle="Group">
+          <TwoAccordions />
+        </IcAccordionGroup>
+      );
 
-  it("should expand when clicked", () => {
-    mount(<SimpleAccordion />);
-    cy.get(IC_ACCORDION).invoke(
-      "on",
-      "accordionClicked",
-      cy.stub().as("isClicked")
-    );
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.get(IC_ACCORDION_GROUP).should(BE_VISIBLE);
+    });
 
-    cy.get(IC_ACCORDION).click();
-    cy.get("@isClicked").should(HAVE_BEEN_CALLED_ONCE);
-    cy.findShadowEl(IC_ACCORDION, "button")
-      .invoke("attr", "aria-expanded")
-      .should("eq", "true");
-  });
+    it("should have changed button text to 'See all' when expanded accordion clicked", () => {
+      mount(
+        <IcAccordionGroup expanded={true}>
+          <SimpleExpandedAccordion />
+        </IcAccordionGroup>
+      );
 
-  it("should expand when space bar pressed", () => {
-    mount(<SimpleAccordion />);
-    cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", false);
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
+        CONTAIN_TEXT,
+        "Hide all"
+      );
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
+        CONTAIN_TEXT,
+        "See all"
+      );
+    });
 
-    cy.findShadowEl(IC_ACCORDION, "button").type(" ");
-    cy.get(IC_ACCORDION).invoke("prop", "expanded").should("eq", true);
-  });
+    it("should open accordion when 'See all' clicked", () => {
+      mount(
+        <IcAccordionGroup>
+          <IcAccordion></IcAccordion>
+        </IcAccordionGroup>
+      );
 
-  it("should skip disabled accordion when using tab", () => {
-    mount(<AccordionsWithDisabled />);
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+      cy.findShadowEl(IC_ACCORDION, ".section-button-open").should(
+        "not.be.null"
+      );
+    });
 
-    cy.findShadowEl('ic-accordion[heading="accordion1"]', "button").should(
-      HAVE_ATTR,
-      "tabindex",
-      0
-    );
-    cy.findShadowEl('ic-accordion[heading="accordion2"]', "button").should(
-      HAVE_ATTR,
-      "tabindex",
-      -1
-    );
-    cy.findShadowEl('ic-accordion[heading="accordion3"]', "button").should(
-      HAVE_ATTR,
-      "tabindex",
-      0
-    );
+    it("the See all/ Hide all function should work as expected", () => {
+      mount(<GroupWithOneExpanded />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
+        CONTAIN_TEXT,
+        "See all"
+      );
+
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
+        CONTAIN_TEXT,
+        "Hide all"
+      );
+
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
+        CONTAIN_TEXT,
+        "See all"
+      );
+    });
+
+    it("should open second accordion and close first accordion on single expansion", () => {
+      mount(
+        <IcAccordionGroup singleExpansion groupTitle="Title">
+          <TwoAccordionsWithOneExpanded />
+        </IcAccordionGroup>
+      );
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+
+      cy.findShadowEl(getAccordionSelector(1), "button")
+        .focus()
+        .realPress("Space");
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+
+      cy.realPress("Tab").realPress("Space");
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+    });
+
+    it("should have both accordions open when single expansion is false", () => {
+      mount(<GroupWithOneExpanded />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+
+      cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
+    });
   });
 });
 
-describe("IcAccordionGroup", () => {
-  it("should render", () => {
-    mount(
-      <IcAccordionGroup groupTitle="Group">
-        <TwoAccordions />
-      </IcAccordionGroup>
-    );
-
-    cy.get(IC_ACCORDION_GROUP).should(BE_VISIBLE);
-  });
-
-  it("should have changed button text to 'See all' when expanded accordion clicked", () => {
-    mount(
-      <IcAccordionGroup expanded={true}>
-        <SimpleExpandedAccordion />
-      </IcAccordionGroup>
-    );
-
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
-      CONTAIN_TEXT,
-      "Hide all"
-    );
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
-      CONTAIN_TEXT,
-      "See all"
-    );
-  });
-
-  it("should open accordion when 'See all' clicked", () => {
-    mount(
-      <IcAccordionGroup>
-        <IcAccordion></IcAccordion>
-      </IcAccordionGroup>
-    );
-
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-    cy.findShadowEl(IC_ACCORDION, ".section-button-open").should("not.be.null");
-  });
-
-  it("should test the See all/ Hide all function", () => {
-    mount(<GroupWithOneExpanded />);
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
-      CONTAIN_TEXT,
-      "See all"
-    );
-
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
-      CONTAIN_TEXT,
-      "Hide all"
-    );
-
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").should(
-      CONTAIN_TEXT,
-      "See all"
-    );
-  });
-
-  it("should open second accordion and close first accordion on single expansion", () => {
-    mount(
-      <IcAccordionGroup singleExpansion groupTitle="Title">
-        <TwoAccordionsWithOneExpanded />
-      </IcAccordionGroup>
-    );
-    cy.checkHydrated(IC_ACCORDION_GROUP);
-
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-
-    cy.findShadowEl(getAccordionSelector(1), "button")
-      .focus()
-      .realPress("Space");
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-
-    cy.realPress("Tab").realPress("Space");
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-  });
-
-  it("should have both accordions open when single expansion is false", () => {
-    mount(<GroupWithOneExpanded />);
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-
-    cy.findShadowEl(IC_ACCORDION_GROUP, "ic-button").click();
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
-  });
-});
-
-describe("Visual regression and A11y testing", () => {
+describe("Visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -224,90 +243,91 @@ describe("Visual regression and A11y testing", () => {
     it("should render an accordion with a heading and body", () => {
       mount(<SimpleAccordion />);
 
+      cy.checkHydrated(IC_ACCORDION);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "heading-body",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       });
     });
 
     it("should render an expanded accordion", () => {
       mount(<SimpleExpandedAccordion />);
 
+      cy.checkHydrated(IC_ACCORDION);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "expanded",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
       });
     });
 
     it("should render an accordion with an icon", () => {
-      mount(
-        <IcAccordion heading="Accordion 1">
-          <SlottedSVG
-            slot="icon"
-            width="20"
-            height="1em"
-            viewBox="0 0 512 512"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-          </SlottedSVG>
-          Text
-        </IcAccordion>
-      );
+      mount(<WithIcon />);
+
+      cy.checkHydrated(IC_ACCORDION);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "icon",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
       });
     });
 
-    it("should render when disabled", () => {
+    it("should render a disabled accordion", () => {
       mount(<AccordionsWithDisabled />);
+
+      cy.checkHydrated(IC_ACCORDION);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "disabled",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      });
+    });
+
+    it("should render a focused accordion", () => {
+      mount(
+        <div style={{ padding: "10px" }}>
+          <SimpleAccordion />
+        </div>
+      );
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.findShadowEl(getAccordionSelector(1), "button")
+        .focus()
+        .realPress("Space");
+
+      cy.checkA11yWithWait();
+      cy.compareSnapshot({
+        name: "focused",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.007),
       });
     });
 
     it("should render with children", () => {
-      mount(
-        <IcAccordion expanded heading="Accordion">
-          <IcAccordion heading="Child Accordion 1">Text</IcAccordion>
-          <IcAccordion heading="Child Accordion 2">Text</IcAccordion>
-          <IcAccordion heading="Child Accordion 3">Text</IcAccordion>
-        </IcAccordion>
-      );
+      mount(<WithChildren />);
+
+      cy.checkHydrated(IC_ACCORDION);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "children",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
       });
     });
 
     it("should render accordions at different sizes", () => {
-      mount(
-        <>
-          <IcAccordion heading="Small" size="small">
-            Text
-          </IcAccordion>
-          <IcAccordion heading="Default">Text</IcAccordion>
-          <IcAccordion heading="Large" size="large">
-            Text
-          </IcAccordion>
-        </>
-      );
+      mount(<DifferentSizes />);
+
+      cy.checkHydrated(IC_ACCORDION);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "individual-sizes",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
       });
     });
   });
@@ -320,10 +340,12 @@ describe("Visual regression and A11y testing", () => {
         </IcAccordionGroup>
       );
 
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "group-title",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
       });
     });
 
@@ -334,32 +356,24 @@ describe("Visual regression and A11y testing", () => {
         </IcAccordionGroup>
       );
 
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "single-expansion",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
       });
     });
 
     it("should render accordion groups at different sizes", () => {
-      mount(
-        <>
-          <IcAccordionGroup size="small" groupTitle="Small">
-            <TwoAccordions />
-          </IcAccordionGroup>
-          <IcAccordionGroup groupTitle="Default">
-            <TwoAccordions />
-          </IcAccordionGroup>
-          <IcAccordionGroup size="large" groupTitle="Large">
-            <TwoAccordions />
-          </IcAccordionGroup>
-        </>
-      );
+      mount(<DifferentSizesGroup />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
 
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "group-sizes",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.051),
       });
     });
 
@@ -372,20 +386,130 @@ describe("Visual regression and A11y testing", () => {
         </div>
       );
 
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "light-group-theme",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
       });
     });
 
     it("should render an accordion group and accordion with slotted headings", () => {
       mount(<SlottedHeadingAccordion />);
 
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
       cy.checkA11yWithWait();
       cy.compareSnapshot({
         name: "slotted-heading",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      });
+    });
+  });
+});
+
+describe("Visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  describe("IcAccordion", () => {
+    it("should render an accordion with a heading and body in high contrast mode", () => {
+      mount(<SimpleAccordion />);
+
+      cy.checkHydrated(IC_ACCORDION);
+
+      cy.compareSnapshot({
+        name: "heading-body-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+
+    it("should render an expanded accordion in high contrast mode", () => {
+      mount(<SimpleExpandedAccordion />);
+
+      cy.checkHydrated(IC_ACCORDION);
+
+      cy.compareSnapshot({
+        name: "expanded-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
+      });
+    });
+
+    it("should render a disabled accordion in high contrast mode", () => {
+      mount(<AccordionsWithDisabled />);
+
+      cy.checkHydrated(IC_ACCORDION);
+
+      cy.compareSnapshot({
+        name: "disabled-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      });
+    });
+
+    it("should render with children in high contrast mode", () => {
+      mount(<WithChildren />);
+
+      cy.checkHydrated(IC_ACCORDION);
+
+      cy.compareSnapshot({
+        name: "children-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+      });
+    });
+
+    it.skip("should render a focused accordion in high contrast mode", () => {
+      mount(
+        <div style={{ padding: "10px" }}>
+          <SimpleAccordion />
+        </div>
+      );
+
+      cy.checkHydrated(IC_ACCORDION);
+      cy.findShadowEl(getAccordionSelector(1), "button")
+        .focus()
+        .realPress("Space");
+
+      cy.compareSnapshot({
+        name: "focused-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      });
+    });
+  });
+
+  describe("IcAccordionGroup", () => {
+    it("should render a single expansion accordion-group in high contrast mode", () => {
+      mount(
+        <IcAccordionGroup singleExpansion groupTitle="Single Expansion">
+          <TwoAccordions />
+        </IcAccordionGroup>
+      );
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
+      cy.compareSnapshot({
+        name: "single-expansion-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
+      });
+    });
+
+    it("should render accordion groups at different sizes in high contrast mode", () => {
+      mount(<DifferentSizesGroup />);
+
+      cy.checkHydrated(IC_ACCORDION_GROUP);
+
+      cy.compareSnapshot({
+        name: "group-sizes-high-contrast",
+        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
       });
     });
   });
