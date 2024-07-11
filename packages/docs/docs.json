@@ -394,7 +394,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\nOtherwise, the first accordion will be focused.",
+          "docs": "Sets the focus on first focusable element in the accordion group. If the \"See/Hide all\" button is present, it will be focused.\r\nOtherwise, the first accordion will be focused.",
           "docsTags": []
         }
       ],
@@ -865,7 +865,7 @@
           "mutable": false,
           "attr": "custom-color",
           "reflectToAttr": false,
-          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
+          "docs": "The custom badge colour. This will only style the badge component if variant=\"custom\".\r\nCan be a hex value e.g. \"#ff0000\", RGB e.g. \"rgb(255, 0, 0)\", or RGBA e.g. \"rgba(255, 0, 0, 1)\".",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -914,7 +914,7 @@
           "mutable": false,
           "attr": "max-number",
           "reflectToAttr": false,
-          "docs": "The maximum number shown on the badge appended with a +.\nThis will only be displayed if type=\"text\" and label is not empty.",
+          "docs": "The maximum number shown on the badge appended with a +.\r\nThis will only be displayed if type=\"text\" and label is not empty.",
           "docsTags": [],
           "values": [
             {
@@ -4622,7 +4622,7 @@
           "reflectToAttr": false,
           "docs": "Sets the label and onclick functions for default buttons.",
           "docsTags": [],
-          "default": "[\n    {\n      label: \"Cancel\",\n      onclick: \"this.cancelDialog();\",\n    },\n    { label: \"Confirm\", onclick: \"this.confirmDialog();\" },\n  ]",
+          "default": "[\r\n    {\r\n      label: \"Cancel\",\r\n      onclick: \"this.cancelDialog();\",\r\n    },\r\n    { label: \"Confirm\", onclick: \"this.confirmDialog();\" },\r\n  ]",
           "values": [
             {
               "type": "{ label: string; onclick: string; }[]"
@@ -4708,7 +4708,7 @@
           "mutable": false,
           "attr": "disable-height-constraint",
           "reflectToAttr": false,
-          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\nThis prop also prevents popover elements from being cut off within the content area.",
+          "docs": "If set to `true`, the content area max height and overflow properties are removed allowing the dialog to stretch below the fold.\r\nThis prop also prevents popover elements from being cut off within the content area.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -6060,7 +6060,7 @@
           "mutable": false,
           "attr": "heading",
           "reflectToAttr": false,
-          "docs": "The heading of the hero.",
+          "docs": "The heading of the hero. An <h2> level heading.",
           "docsTags": [],
           "values": [
             {
@@ -6081,7 +6081,7 @@
           "mutable": false,
           "attr": "secondary-heading",
           "reflectToAttr": false,
-          "docs": "The optional secondary heading, replaced by slotted right content.",
+          "docs": "The optional secondary heading, an <h3> level heading. Replaced by slotted right content.",
           "docsTags": [],
           "values": [
             {
@@ -6140,34 +6140,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -7562,7 +7534,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label to be displayed beneath the loading indicator.\nDisplay a changing label by separating multiple messages with forward slashes.",
+          "docs": "The label to be displayed beneath the loading indicator.\r\nDisplay a changing label by separating multiple messages with forward slashes.",
           "docsTags": [],
           "values": [
             {
@@ -7605,7 +7577,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The maximum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The maximum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "100",
           "values": [
@@ -7627,7 +7599,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The minimum value that the progress value can take.\nUsed to calculate the proportional width of the progress bar.",
+          "docs": "The minimum value that the progress value can take.\r\nUsed to calculate the proportional width of the progress bar.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -7649,7 +7621,7 @@
           "mutable": false,
           "attr": "progress",
           "reflectToAttr": false,
-          "docs": "The current amount of progress made.\nIf not provided, component acts as an indeterminate loading indicator.",
+          "docs": "The current amount of progress made.\r\nIf not provided, component acts as an indeterminate loading indicator.",
           "docsTags": [],
           "values": [
             {
@@ -8181,7 +8153,7 @@
               "docs": "The keyboard event which is available when handleKeyboardOpen is invoked."
             }
           ],
-          "docs": "Used alongside activationType\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
+          "docs": "Used alongside activationType\r\nIf menu is opened via keyboard navigation (i.e. Enter, ArrowUp or ArrowDown), emit optionSelect custom event.",
           "docsTags": [
             {
               "name": "param",
@@ -11348,7 +11320,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -11710,7 +11682,7 @@
           "mutable": false,
           "attr": "disable-auto-filtering",
           "reflectToAttr": false,
-          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\nIf `true`, all options provided will be displayed.",
+          "docs": "Specify whether to disable the built in filtering. For example, if options will already be filtered from external source.\r\nIf `true`, all options provided will be displayed.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11798,7 +11770,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the search bar fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the search bar fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -12831,7 +12803,7 @@
           "mutable": false,
           "attr": "formaction",
           "reflectToAttr": false,
-          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -12915,7 +12887,7 @@
           "mutable": false,
           "attr": "formtarget",
           "reflectToAttr": false,
-          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
+          "docs": "The place to display the response from submitting the form. It overrides the target attribute of the select's form owner.\r\nThis prop should only be used with searchable select and will only be applied if searchable is true.",
           "docsTags": [],
           "values": [
             {
@@ -13658,7 +13630,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when an option is highlighted within the menu.\nHighlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.",
+          "docs": "Emitted when an option is highlighted within the menu.\r\nHighlighting a menu item will also trigger an `icChange/onIcChange` due to the value being updated.",
           "docsTags": []
         },
         {
@@ -14202,7 +14174,7 @@
           "mutable": false,
           "attr": "announced",
           "reflectToAttr": false,
-          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\nScreen readers will announce changes to the `label`, but not the initial value.",
+          "docs": "If `true`, role='status' is added to the component and it will act as an 'aria-live' region.\r\nScreen readers will announce changes to the `label`, but not the initial value.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -15390,11 +15362,11 @@
           "docsTags": [
             {
               "name": "deprecated",
-              "text": "This is no longer required.\nThe context id is passed down from `ic-tab-context`"
+              "text": "This is no longer required.\r\nThe context id is passed down from `ic-tab-context`"
             }
           ],
           "default": "\"default\"",
-          "deprecation": "This is no longer required.\nThe context id is passed down from `ic-tab-context`",
+          "deprecation": "This is no longer required.\r\nThe context id is passed down from `ic-tab-context`",
           "values": [
             {
               "type": "string"
@@ -15571,7 +15543,7 @@
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
-          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
+          "docs": "The automatic capitalisation of the text value as it is entered/edited by the user.\r\nAvailable options: \"off\", \"none\", \"on\", \"sentences\", \"words\", \"characters\".",
           "docsTags": [],
           "default": "\"off\"",
           "values": [
@@ -15911,7 +15883,7 @@
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Specify whether the text field fills the full width of the container.\nIf `true`, this overrides the --input-width CSS variable.",
+          "docs": "Specify whether the text field fills the full width of the container.\r\nIf `true`, this overrides the --input-width CSS variable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -16027,7 +15999,7 @@
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
           "docsTags": [],
           "default": "\"text\"",
           "values": [
@@ -16837,7 +16809,7 @@
           "mutable": true,
           "attr": "auto-dismiss-timeout",
           "reflectToAttr": false,
-          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\n(NOTE: Has a minimum value of `5000ms`)",
+          "docs": "If toast dismissMode is set to `automatic`, use this prop to define the time before the toast dismisses (in MILLISECONDS)\r\n(NOTE: Has a minimum value of `5000ms`)",
           "docsTags": [],
           "default": "5000",
           "values": [
@@ -17480,7 +17452,7 @@
           "detail": "{ checked: boolean; }",
           "bubbles": true,
           "complexType": {
-            "original": "{\n    checked: boolean;\n  }",
+            "original": "{\r\n    checked: boolean;\r\n  }",
             "resolved": "{ checked: boolean; }",
             "references": {}
           },
@@ -18527,7 +18499,7 @@
           "mutable": false,
           "attr": "bold",
           "reflectToAttr": false,
-          "docs": "If `true`, the typography will have a bold font weight.\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
+          "docs": "If `true`, the typography will have a bold font weight.\r\nNote: This will have no impact on variants that already use an equivalent or higher font weight (h1, h2, and subtitle-large).",
           "docsTags": [],
           "default": "false",
           "values": [
