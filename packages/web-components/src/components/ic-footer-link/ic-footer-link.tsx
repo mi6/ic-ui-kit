@@ -109,6 +109,7 @@ export class FooterLink {
           }`]: true,
           [`footer-link-${this.foregroundColor}`]: true,
         }}
+        role="listitem"
       >
         <a
           href={href}

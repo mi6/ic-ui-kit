@@ -8,15 +8,7 @@ describe("ic-footer-link", () => {
       html: `<ic-footer-link href="/">Link</ic-footer-link>`,
     });
 
-    expect(page.root).toEqualHtml(`
-    <ic-footer-link class="footer-link footer-link-light footer-link-ungrouped-sparse" href="/">
-        <mock:shadow-root>
-            <a href="/">
-                <slot></slot>
-            </a>
-        </mock:shadow-root>
-            Link
-    </ic-footer-link>`);
+    expect(page.root).toMatchSnapshot("footer-link");
   });
 
   it("should render small with grouped links", async () => {
@@ -28,15 +20,7 @@ describe("ic-footer-link", () => {
     page.rootInstance.footerConfig = { small: true, grouped: true };
     await page.waitForChanges();
 
-    expect(page.root).toEqualHtml(`
-        <ic-footer-link class="footer-link footer-link-light footer-link-grouped-small" href="/">
-            <mock:shadow-root>
-                <a href="/">
-                    <slot></slot>
-                </a>
-            </mock:shadow-root>
-                Link
-        </ic-footer-link>`);
+    expect(page.root).toMatchSnapshot("small-footer-link-with-grouped-links");
   });
 
   it("should set foregroundColor on theme change", async () => {

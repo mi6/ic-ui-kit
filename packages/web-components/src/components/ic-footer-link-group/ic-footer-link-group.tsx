@@ -87,11 +87,12 @@ export class FooterLinkGroup {
           ["footer-link-group footer-link-group-sparse"]: true,
           [`footer-link-group-${this.dropdownIconStyle}`]: true,
         }}
+        role="listitem"
       >
         <div class="footer-link-group-title">
           <ic-typography variant="subtitle-small">{groupTitle}</ic-typography>
         </div>
-        <div class="footer-link-group-links">
+        <div class="footer-link-group-links" role="list">
           <slot />
         </div>
       </Host>
@@ -148,7 +149,7 @@ export class FooterLinkGroup {
             )}
           </div>
           {this.expanded && (
-            <div class="footer-link-group-links">
+            <div class="footer-link-group-links" role="list">
               <slot />
             </div>
           )}

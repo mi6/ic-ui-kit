@@ -176,12 +176,12 @@ export class Footer {
           {isSlotUsed(this.el, "link") && (
             <div class="footer-links">
               {groupLinks && small ? (
-                <div class="footer-links-inner">
+                <div class="footer-links-inner" role="list">
                   <slot name="link" />
                 </div>
               ) : (
                 <ic-section-container fullHeight aligned={aligned}>
-                  <div class="footer-links-inner">
+                  <div class="footer-links-inner" role="list">
                     <slot name="link" />
                   </div>
                 </ic-section-container>
