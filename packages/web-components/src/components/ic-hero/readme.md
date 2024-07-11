@@ -7,18 +7,17 @@
 
 ## Properties
 
-| Property                    | Attribute                     | Description                                                                                                                         | Type                                 | Default     |
-| --------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
-| `aligned`                   | `aligned`                     | The alignment of the hero.                                                                                                          | `"center" \| "full-width" \| "left"` | `"left"`    |
-| `backgroundImage`           | `background-image`            | The optional background image.                                                                                                      | `string`                             | `undefined` |
-| `contentAligned`            | `content-aligned`             | The alignment of the hero content.                                                                                                  | `"center" \| "left"`                 | `"left"`    |
-| `disableBackgroundParallax` | `disable-background-parallax` | If `true`, the background image (if set) will not scroll using a parallax effect.                                                   | `boolean`                            | `false`     |
-| `heading`                   | `heading`                     | The heading of the hero.                                                                                                            | `string`                             | `undefined` |
-| `secondaryHeading`          | `secondary-heading`           | The optional secondary heading, replaced by slotted right content.                                                                  | `string`                             | `undefined` |
-| `secondarySubheading`       | `secondary-subheading`        | The optional secondary subheading, replaced by slotted right content.                                                               | `string`                             | `undefined` |
-| `size`                      | `size`                        | The size of the hero component.                                                                                                     | `"default" \| "small"`               | `"default"` |
-| `small`                     | `small`                       | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/> | `boolean`                            | `false`     |
-| `subheading`                | `subheading`                  | The description for the hero.                                                                                                       | `string`                             | `undefined` |
+| Property                    | Attribute                     | Description                                                                               | Type                                 | Default     |
+| --------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------ | ----------- |
+| `aligned`                   | `aligned`                     | The alignment of the hero.                                                                | `"center" \| "full-width" \| "left"` | `"left"`    |
+| `backgroundImage`           | `background-image`            | The optional background image.                                                            | `string`                             | `undefined` |
+| `contentAligned`            | `content-aligned`             | The alignment of the hero content.                                                        | `"center" \| "left"`                 | `"left"`    |
+| `disableBackgroundParallax` | `disable-background-parallax` | If `true`, the background image (if set) will not scroll using a parallax effect.         | `boolean`                            | `false`     |
+| `heading`                   | `heading`                     | The heading of the hero. An <h2> level heading.                                           | `string`                             | `undefined` |
+| `secondaryHeading`          | `secondary-heading`           | The optional secondary heading, an <h3> level heading. Replaced by slotted right content. | `string`                             | `undefined` |
+| `secondarySubheading`       | `secondary-subheading`        | The optional secondary subheading, replaced by slotted right content.                     | `string`                             | `undefined` |
+| `size`                      | `size`                        | The size of the hero component.                                                           | `"default" \| "small"`               | `"default"` |
+| `subheading`                | `subheading`                  | The description for the hero.                                                             | `string`                             | `undefined` |
 
 
 ## Slots

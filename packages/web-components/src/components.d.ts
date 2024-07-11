@@ -811,11 +811,11 @@ export namespace Components {
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero.
+          * The heading of the hero. An <h2> level heading.
          */
         "heading": string;
         /**
-          * The optional secondary heading, replaced by slotted right content.
+          * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
@@ -826,10 +826,6 @@ export namespace Components {
           * The size of the hero component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The description for the hero.
          */
@@ -4112,11 +4108,11 @@ declare namespace LocalJSX {
          */
         "disableBackgroundParallax"?: boolean;
         /**
-          * The heading of the hero.
+          * The heading of the hero. An <h2> level heading.
          */
         "heading"?: string;
         /**
-          * The optional secondary heading, replaced by slotted right content.
+          * The optional secondary heading, an <h3> level heading. Replaced by slotted right content.
          */
         "secondaryHeading"?: string;
         /**
@@ -4127,10 +4123,6 @@ declare namespace LocalJSX {
           * The size of the hero component.
          */
         "size"?: IcSizesNoLarge;
-        /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * The description for the hero.
          */
