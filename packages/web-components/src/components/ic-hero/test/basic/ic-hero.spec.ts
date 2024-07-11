@@ -77,10 +77,10 @@ describe("ic-hero component", () => {
     );
   });
 
-  it("should render small", async () => {
+  it("should render at size small", async () => {
     const page = await newSpecPage({
       components: [Hero],
-      html: `<ic-hero small heading="Test title" subheading="Test text"></ic-hero>`,
+      html: `<ic-hero size="small" heading="Test title" subheading="Test text"></ic-hero>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-small-variant");
