@@ -33,7 +33,7 @@
   text-decoration: none;
 }
 
-@supports (text-decoration-thickness: 25%) {
+@supports (text-underline-offset: 10%) {
   :host(.link) .ic-link:hover,
   :host(.link) .ic-link:focus,
   :host(.link) ::slotted(a:hover),

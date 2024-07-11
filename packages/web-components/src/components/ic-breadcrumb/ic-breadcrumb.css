@@ -92,7 +92,7 @@ ic-link {
   }
 }
 
-@supports (text-decoration-thickness: 25%) {
+@supports (text-underline-offset: 25%) {
   ic-link {
     --breadcrumb-link-display: flex;
   }
