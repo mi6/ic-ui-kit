@@ -180,12 +180,14 @@ export class PageHeader {
           ["sticky"]: sticky,
           ["sticky-desktop"]: !sticky && stickyDesktopOnly,
         }}
+        aria-label={this.el.ariaLabel || "page header"}
       >
         <header
           class={{
             ["border-bottom"]: border,
             ["tabs"]: isSlotUsed(this.el, "tabs"),
           }}
+          role="presentation"
         >
           <ic-section-container
             aligned={aligned}
