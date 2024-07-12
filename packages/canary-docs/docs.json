@@ -561,7 +561,7 @@
           "reflectToAttr": false,
           "docs": "Sets the row height on all rows in the table that aren't set using the `variableRowHeight` method.",
           "docsTags": [],
-          "default": "40",
+          "default": "\"auto\"",
           "values": [
             {
               "value": "auto",
@@ -809,6 +809,38 @@
           "required": false
         },
         {
+          "name": "truncationPattern",
+          "type": "\"show-hide\" | \"tooltip\"",
+          "complexType": {
+            "original": "IcDataTableTruncationTypes",
+            "resolved": "\"show-hide\" | \"tooltip\"",
+            "references": {
+              "IcDataTableTruncationTypes": {
+                "location": "import",
+                "path": "./ic-data-table.types",
+                "id": "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "truncation-pattern",
+          "reflectToAttr": false,
+          "docs": "Sets the method used to truncate longer text in cells where textWrap is `false`.\nThe `tooltip` truncation pattern allows the overflowing text to be seen in a tooltip. The `showHide` truncation pattern allows the overflowing text to be shown and hidden using the ic-typography \"See more\"/\"See less\" buttons.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "show-hide",
+              "type": "string"
+            },
+            {
+              "value": "tooltip",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "updating",
           "type": "boolean",
           "complexType": {
@@ -891,8 +923,14 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
+            "signature": "(rowHeight?: number | \"auto\") => Promise<void>",
+            "parameters": [
+              {
+                "name": "rowHeight",
+                "type": "number | \"auto\"",
+                "docs": ""
+              }
+            ],
             "references": {
               "Promise": {
                 "location": "global",
@@ -901,9 +939,15 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "resetRowHeights() => Promise<void>",
-          "parameters": [],
-          "docs": "Resets the `globalRowHeight` prop to `40px` and sets the `variableRowHeight` prop to `null`.",
+          "signature": "resetRowHeights(rowHeight?: number | \"auto\") => Promise<void>",
+          "parameters": [
+            {
+              "name": "rowHeight",
+              "type": "number | \"auto\"",
+              "docs": ""
+            }
+          ],
+          "docs": "Resets the `globalRowHeight` prop to number or auto and sets the `variableRowHeight` prop to `null`.",
           "docsTags": []
         }
       ],
@@ -925,12 +969,17 @@
       ],
       "listeners": [
         {
-          "event": "icItemsPerPageChange",
+          "event": "typographyTruncationExpandToggle",
           "capture": false,
           "passive": false
         },
         {
           "event": "icPageChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "icItemsPerPageChange",
           "capture": false,
           "passive": false
         },
@@ -976,6 +1025,7 @@
         "ic-typography",
         "ic-link",
         "ic-button",
+        "ic-tooltip",
         "ic-empty-state",
         "ic-pagination-bar"
       ],
@@ -985,6 +1035,7 @@
           "ic-typography",
           "ic-link",
           "ic-button",
+          "ic-tooltip",
           "ic-empty-state",
           "ic-pagination-bar"
         ],
@@ -4605,7 +4656,7 @@
       "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
-      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
+      "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  rowOptions?: IcDataTableRowOptions;\n  textWrap?: boolean;\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
@@ -4631,6 +4682,11 @@
     },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableSortOrderOptions": {
       "declaration": "export type IcDataTableSortOrderOptions =\n  | \"unsorted\"\n  | \"ascending\"\n  | \"descending\";",
+      "docstring": "",
+      "path": "src/components/ic-data-table/ic-data-table.types.tsx"
+    },
+    "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableTruncationTypes": {
+      "declaration": "export type IcDataTableTruncationTypes = \"tooltip\" | \"show-hide\" | undefined;",
       "docstring": "",
       "path": "src/components/ic-data-table/ic-data-table.types.tsx"
     },
