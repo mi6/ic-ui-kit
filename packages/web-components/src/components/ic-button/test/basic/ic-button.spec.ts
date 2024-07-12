@@ -1,6 +1,7 @@
 import { Button } from "../../ic-button";
 import { newSpecPage } from "@stencil/core/testing";
 import * as helpers from "../../../../utils/helpers";
+import { testKeyboardEvent as keyboardEvent } from "../../../../testspec.setup";
 import { Tooltip } from "../../../ic-tooltip/ic-tooltip";
 
 beforeAll(() => {
@@ -256,6 +257,33 @@ describe("button component", () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  it("should hide tooltip when escape key pressed", async () => {
+    const page = await newSpecPage({
+      components: [Button, Tooltip],
+      html: "<ic-button variant='icon' id='test-button' title='Tooltip text'>Button</ic-button>",
+    });
+
+    const tooltip = page.root.shadowRoot.querySelector("ic-tooltip");
+    const tooltipContainer = tooltip.shadowRoot.querySelector(
+      ".ic-tooltip-container"
+    );
+
+    let tooltipVisible = tooltipContainer.getAttribute("data-show");
+    expect(tooltipVisible).toBeNull();
+
+    await tooltip.displayTooltip(true);
+    await page.waitForChanges();
+
+    tooltipVisible = tooltipContainer.getAttribute("data-show");
+    expect(tooltipVisible).toBe("");
+
+    page.rootInstance.handleKeyDown(keyboardEvent("Escape"));
+    await page.waitForChanges();
+
+    tooltipVisible = tooltipContainer.getAttribute("data-show");
+    expect(tooltipVisible).toBeNull();
   });
 
   it("should stop immediate propagation of a click event when disabled", async () => {

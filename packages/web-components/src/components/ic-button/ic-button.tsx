@@ -365,6 +365,15 @@ export class Button {
     this.buttonEl?.focus();
   }
 
+  private async closeButtonTooltip(ev: KeyboardEvent): Promise<void> {
+    const tooltip = this.el.shadowRoot.querySelector("ic-tooltip");
+    if (await tooltip.isTooltipVisible()) {
+      tooltip.displayTooltip(false);
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+    }
+  }
+
   private hasIconSlot(position?: "left" | "right" | "top"): boolean {
     const selectorPrefix = position ? `${position}-` : "";
     return this.el.querySelector(`[slot="${selectorPrefix}icon"]`) !== null;
@@ -393,6 +402,12 @@ export class Button {
 
       hiddenFormButton.click();
       hiddenFormButton.remove();
+    }
+  };
+
+  private handleKeyDown = (ev: KeyboardEvent): void => {
+    if (ev.key === "Escape" && this.hasTooltip) {
+      this.closeButtonTooltip(ev);
     }
   };
 
@@ -572,6 +587,7 @@ export class Button {
             this.appearance !== "light",
         }}
         onClick={this.handleClick}
+        onKeyDown={this.handleKeyDown}
         aria-owns={this.ariaOwnsId}
         aria-controls={this.ariaControlsId}
         aria-expanded={this.dropdown && `${this.dropdownExpanded}`}
