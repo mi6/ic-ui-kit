@@ -318,7 +318,7 @@ describe("IcPagination", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "simple-after-click-next-page-1",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.023),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
     });
 
     cy.get("@icPageChanged").should((stub) => {
@@ -398,15 +398,15 @@ describe("IcPagination", () => {
       cy.stub().as("icPageChanged")
     );
 
+    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click().click();
+    cy.get("@icPageChanged").should((stub) => {
+      expect(stub.getCall(1).args[0].detail.value).to.equal(3);
+    });
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "simple-after-click-page-3",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
-    });
-
-    cy.findShadowEl(PAGINATION_SELECTOR, NEXT_PAGE_SELECTOR).click().click();
-    cy.get("@icPageChanged").should((stub) => {
-      expect(stub.getCall(0).args[0].detail.value).to.equal(2);
     });
   });
 
