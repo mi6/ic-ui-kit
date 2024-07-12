@@ -2310,6 +2310,7 @@ export namespace Components {
           * @param persistTooltip Whether the tooltip should stay on the screen when actions are performed that would previously dismiss the tooltip, such as on hover
          */
         "displayTooltip": (show: boolean, persistTooltip?: boolean) => Promise<void>;
+        "isTooltipVisible": () => Promise<boolean>;
         /**
           * The text to display on the tooltip.
          */
