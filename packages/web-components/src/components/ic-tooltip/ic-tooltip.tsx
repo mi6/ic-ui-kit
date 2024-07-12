@@ -105,6 +105,14 @@ export class Tooltip {
     show ? this.show() : this.hide();
   }
 
+  /**
+   * @internal Method to return if tooltip is currently visible.
+   */
+  @Method()
+  async isTooltipVisible(): Promise<boolean> {
+    return Promise.resolve(this.toolTip.hasAttribute("data-show"));
+  }
+
   private getTooltipTranslate = (dialogEl: DOMRect) => {
     const child = this.el.children[0].getBoundingClientRect();
     let tooltipX;
