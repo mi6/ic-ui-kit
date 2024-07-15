@@ -1,7 +1,7 @@
 {
-  "total": 487,
-  "totalPassed": 479,
-  "totalFailed": 8,
+  "total": 488,
+  "totalPassed": 481,
+  "totalFailed": 7,
   "totalSuites": 36,
   "suites": [
     {
@@ -2835,14 +2835,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-default-high-contrast.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcRadio.cy.tsx-conditional-dynamic-high-contrast",
-          "percentage": 0.03286335345030997,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcRadio/IcRadio.cy.tsx",
           "specFilename": "IcRadio.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcRadio.cy.tsx-conditional-dynamic-high-contrast.png"
         }
       ]
@@ -3820,6 +3820,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-small.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-small.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcStatusTag.cy.tsx-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-large.png"
         },
         {
           "status": "pass",
@@ -5578,9 +5589,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-11T16:32:26.197Z",
-  "endedAt": "2024-07-11T16:43:04.803Z",
-  "duration": 566418,
+  "startedAt": "2024-07-15T13:42:04.474Z",
+  "endedAt": "2024-07-15T13:52:18.015Z",
+  "duration": 540283,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
