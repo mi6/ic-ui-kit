@@ -8,7 +8,7 @@ const defaultOptions = [
   { label: "Espresso", value: "espresso" },
   { label: "Double Espresso", value: "doubleespresso" },
   { label: "Flat White", value: "flatwhite" },
-  { label: "Cappuccino", value: "cappucino" },
+  { label: "Cappuccino", value: "cappuccino" },
   { label: "Americano", value: "americano" },
   { label: "Mocha", value: "mocha" },
 ];
@@ -198,7 +198,7 @@ export const CharactersUntilSuggestion = () => {
           { label: "Espresso", value: "espresso" },
           { label: "Double Espresso", value: "doubleespresso" },
           { label: "Flat White", value: "flatwhite" },
-          { label: "Cappuccino", value: "cappucino" },
+          { label: "Cappuccino", value: "cappuccino" },
           { label: "Americano", value: "americano" },
           { label: "Mocha", value: "mocha" },
           { label: "Latte", value: "latte" },
@@ -261,7 +261,7 @@ export const ExternalFiltering = () => {
     { label: "Espresso", value: "espresso" },
     { label: "Double Espresso", value: "doubleespresso" },
     { label: "Flat White", value: "flatwhite" },
-    { label: "Cappuccino", value: "cappucino" },
+    { label: "Cappuccino", value: "cappuccino" },
     { label: "Americano", value: "americano" },
     { label: "Mocha", value: "mocha" },
   ];

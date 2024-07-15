@@ -187,7 +187,7 @@ export const MultilineMessageToast = () => {
         <IcToast
           heading="Your coffee is ready"
           ref={toastEl}
-          message="Please dismiss and come to collect your delicious coffee from the barista right away before it gets cold. Dont delay! We wouldn't want you to lose out on your fantastic coffee now would we?"
+          message="Please dismiss and come to collect your delicious coffee from the barista right away before it gets cold. Don't delay! We wouldn't want you to lose out on your fantastic coffee now would we?"
         />
       </IcToastRegion>
     </>
