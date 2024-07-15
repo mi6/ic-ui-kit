@@ -74,6 +74,10 @@ export class BackToTop {
     );
   }
 
+  private getObservedEl = () => {
+    return document.querySelector("#ic-back-to-top-target");
+  };
+
   private setTargetElVisible = (visible: boolean) => {
     this.targetElVisible = visible;
   };
@@ -117,7 +121,7 @@ export class BackToTop {
 
     //remove old element & observer
     if (this.topObserver !== null) {
-      const observedEl = document.querySelector("#ic-back-to-top-target");
+      const observedEl = this.getObservedEl();
       if (observedEl !== null) {
         this.topObserver.unobserve(observedEl);
         observedEl.remove();
@@ -136,6 +140,7 @@ export class BackToTop {
     //insert a new 0px height element before specified target that can be used to determine when page is scrolled
     const objBackToTopTargetEl = document.createElement("div");
     objBackToTopTargetEl.setAttribute("id", "ic-back-to-top-target");
+    objBackToTopTargetEl.setAttribute("tabindex", "-1"); // Needed for virtual cursor behaviour to work
     objParent.insertBefore(objBackToTopTargetEl, this.targetEl);
 
     // resize observer needs to factor in any top margin on the target el
@@ -153,6 +158,8 @@ export class BackToTop {
     } else {
       this.targetEl.scrollIntoView();
     }
+    // Get virtual cursor to move
+    (this.getObservedEl() as HTMLElement).focus();
   };
 
   private checkForClassificationBanner = () => {
