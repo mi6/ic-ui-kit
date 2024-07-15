@@ -4,7 +4,7 @@ beforeAll(() => {
   jest.spyOn(console, "warn").mockImplementation(jest.fn());
 });
 
-describe("ic-typograpghy", () => {
+describe("ic-typography", () => {
   it("should test truncation", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-typography max-lines="3">

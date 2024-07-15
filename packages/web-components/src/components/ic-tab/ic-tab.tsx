@@ -145,7 +145,7 @@ export class Tab {
   private handleMouseDown = () => {
     //set flag so that focus gets handled after click
     //there is a timing issue where a long click only causes focus to happen & not the click
-    //the focus does need to be a seperate event though to handle focus from keyboard
+    //the focus does need to be a separate event though to handle focus from keyboard
     this.focusFromClick = true;
   };
 

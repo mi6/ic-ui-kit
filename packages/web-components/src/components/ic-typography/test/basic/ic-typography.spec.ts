@@ -407,7 +407,7 @@ describe("ic-typography component", () => {
     page.rootInstance.resizeObserverCallback();
     expect(page.rootInstance.lastMarkerTop).toBe(120);
 
-    //test lastWidth not overwritten as merkerTop should match lastMarkerTop
+    //test lastWidth not overwritten as markerTop should match lastMarkerTop
     page.rootInstance.el.clientWidth = 300;
     page.rootInstance.lastMarkerTop = 0;
     page.rootInstance.resizeObserverCallback();

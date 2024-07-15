@@ -85,7 +85,7 @@ export class TabContext {
     this.setControlledMode();
     this.getChildren();
     this.linkTabs();
-    this.attatchEventListeners();
+    this.attachEventListeners();
     this.setInitialTab();
     this.configureTabs();
   }
@@ -215,7 +215,7 @@ export class TabContext {
   };
 
   // Determines how keyboard navigation is to be handled based on the activation type
-  private attatchEventListeners = (): void => {
+  private attachEventListeners = (): void => {
     this.tabGroup.addEventListener("keydown", this.keydownHandler);
   };
 

@@ -131,7 +131,7 @@ export class PageHeader {
 
     const max = Math.max(...actionHeights);
 
-    /* The smallest breakpoint displays buttons in the same order the user has slotted them in. When the device size is larger than the small breakpoiint then the order of the button reverses due to best practice for reading patterns. If the device size is larger than the small breakpoint and the buttons have started to wrap then they follow the order the user has slotted them in. This logic is programmed based on the height of the action-area div that wraps the actions slot. If the height of the action-area div is taller than the height of the tallest button, then it is assumed that the taller height is caused by the buttons wrapping */
+    /* The smallest breakpoint displays buttons in the same order the user has slotted them in. When the device size is larger than the small breakpoint then the order of the button reverses due to best practice for reading patterns. If the device size is larger than the small breakpoint and the buttons have started to wrap then they follow the order the user has slotted them in. This logic is programmed based on the height of the action-area div that wraps the actions slot. If the height of the action-area div is taller than the height of the tallest button, then it is assumed that the taller height is caused by the buttons wrapping */
     let actionAreaHeight = actionArea.offsetHeight;
 
     if (actionAreaHeight === undefined) {

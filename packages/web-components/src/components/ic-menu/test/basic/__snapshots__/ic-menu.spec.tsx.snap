@@ -35,14 +35,14 @@ Object {
           </div>
         </div>
       </li>
-      <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappucino" id="menu-id-cappucino" role="option" tabindex="-1">
+      <li aria-disabled="false" aria-label="Cappuccino, with chocolate is best!" aria-selected="false" class="option" data-label="Cappuccino" data-value="cappuccino" id="menu-id-cappuccino" role="option" tabindex="-1">
         <div class="option-text-container">
           <div class="option-label">
             <ic-typography aria-hidden="true" variant="body">
               Cappuccino
             </ic-typography>
           </div>
-          <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappucino-description" variant="caption">
+          <ic-typography aria-hidden="true" class="option-description" id="menu-id-cappuccino-description" variant="caption">
             <p>
               with chocolate is best!
             </p>

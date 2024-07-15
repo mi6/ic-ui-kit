@@ -237,19 +237,19 @@ describe("ic-text-field", () => {
   it("should render textarea with name & full width", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field rows=2 label="Test label" value="test value" name="mycontolname" full-width=true></ic-text-field>`,
+      html: `<ic-text-field rows=2 label="Test label" value="test value" name="mycontrolname" full-width=true></ic-text-field>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontolname" rows="2" value="test value">
+      <ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontrolname" rows="2" value="test value">
         <mock:shadow-root>
           <ic-input-container>
             <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>
-            <ic-input-component-container fullwidth="" size="default" multiline="" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-10" inputmode="text" name="mycontolname" placeholder="" rows="2" value="test value"></textarea>
+            <ic-input-component-container fullwidth="" size="default" multiline="" validationstatus=""><textarea aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" class="no-resize" id="ic-text-field-input-10" inputmode="text" name="mycontrolname" placeholder="" rows="2" value="test value"></textarea>
           </ic-input-component-container>
       </ic-input-container>
         </mock:shadow-root>
-        <input class="ic-input" name="mycontolname" type="hidden" value="test value">
+        <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
       </ic-text-field>
     `);
   });
