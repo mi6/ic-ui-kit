@@ -725,17 +725,17 @@ export const Pagination = (): HTMLIcDataTableElement => {
 };
 
 export const ColumnOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Column Overides", COLS_ALIGNMENT, DATA);
+  createDataTableElement("Column Overrides", COLS_ALIGNMENT, DATA);
 
 export const RowOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Row Overides", ROW_HEADER_COLS, ROW_ALIGNMENT);
+  createDataTableElement("Row Overrides", ROW_HEADER_COLS, ROW_ALIGNMENT);
 
 export const CellOverrides = (): HTMLIcDataTableElement =>
-  createDataTableElement("Cell Overides", COLS, DATA_CELL_ALIGNMENT);
+  createDataTableElement("Cell Overrides", COLS, DATA_CELL_ALIGNMENT);
 
 export const LinksHTMLElements = (): HTMLIcDataTableElement =>
   createDataTableElement(
-    "Links and HTML Elements Overides",
+    "Links and HTML Elements Overrides",
     COLS_ELEMENTS,
     DATA_ELEMENTS
   );

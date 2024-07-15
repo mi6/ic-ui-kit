@@ -1763,7 +1763,7 @@ describe("ic-select searchable", () => {
     });
   });
 
-  it("should clear the searchable input if the value is programatically set to undefined", async () => {
+  it("should clear the searchable input if the value is programmatically set to undefined", async () => {
     const page = await newSpecPage({
       components: [Select, Menu, IcInputComponentContainer],
       html: `<ic-select label="IC Select Test" searchable="true"></ic-select>`,

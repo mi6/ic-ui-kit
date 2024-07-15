@@ -1624,13 +1624,13 @@ describe("ic-date-input component", () => {
       const validDay = false;
       const validMonth = true;
       const validDate = true;
-      const disanbledDate = false;
+      const disabledDate = false;
 
       componentInstance.setAriaInvalid(
         validDay,
         validMonth,
         validDate,
-        disanbledDate
+        disabledDate
       );
 
       expect(dayInput).toHaveAttribute(ARIA_INVALID);
@@ -1643,13 +1643,13 @@ describe("ic-date-input component", () => {
       const validDay = true;
       const validMonth = false;
       const validDate = true;
-      const disanbledDate = false;
+      const disabledDate = false;
 
       componentInstance.setAriaInvalid(
         validDay,
         validMonth,
         validDate,
-        disanbledDate
+        disabledDate
       );
 
       expect(monthInput).toHaveAttribute(ARIA_INVALID);
