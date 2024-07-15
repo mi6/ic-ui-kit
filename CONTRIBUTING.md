@@ -382,7 +382,7 @@ it("should have the correct text after the button is clicked", () => {
     * Example - cy.get("ic-button").shadow().find("ic-typography")
     * Alternatively - cy.findShadowEl("ic-button", "ic-typography")
     */
-    cy.get("ic-typogrpahy").should("have.text", "baz")
+    cy.get("ic-typography").should("have.text", "baz")
   });
 ```
 
