@@ -44,10 +44,10 @@ exports[`menu item variants should render the default variant 1`] = `
 `;
 
 exports[`menu item variants should render the destructive variant 1`] = `
-<ic-menu-item label="Destructive variant" variant="destuctive">
+<ic-menu-item label="Destructive variant" variant="destructive">
   <mock:shadow-root>
     <li aria-disabled="false" role="menuitem">
-      <ic-button aria-disabled="false" aria-label="Destructive variant" fullwidth="" variant="tertiary">
+      <ic-button aria-disabled="false" aria-label="Destructive variant, destructive" fullwidth="" variant="tertiary">
         <div class="focus-border">
           <div class="menu-item-info">
             <div class="menu-labels">

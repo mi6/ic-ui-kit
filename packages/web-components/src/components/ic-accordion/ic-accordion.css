@@ -98,7 +98,7 @@ button:disabled {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  visibility: var(--ic-expanded-content-visiblity, hidden);
+  visibility: var(--ic-expanded-content-visibility, hidden);
 }
 
 .expanded-content-inner {

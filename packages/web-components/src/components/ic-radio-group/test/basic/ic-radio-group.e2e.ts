@@ -256,7 +256,7 @@ describe("ic-radio-group component", () => {
     const input = radioButton1.shadowRoot.querySelector("input");
     expect(input.tabIndex).toBe(0);
   });
-  it("shold works in a form", async () => {
+  it("should work in a form", async () => {
     const page = await newE2EPage();
 
     await page.setContent(` <form>
@@ -357,7 +357,7 @@ describe("ic-radio-group component", () => {
     expect(value).toBe("test2");
   });
 
-  it("should pass the value of radio button and textfield correctly when already selected and has a value in texfield", async () => {
+  it("should pass the value of radio button and textfield correctly when already selected and has a value in textfield", async () => {
     const page = await newE2EPage();
     await page.setContent(`<ic-radio-group label="test label" name="test">
     <ic-radio-option value="test1" ></ic-radio-option>    

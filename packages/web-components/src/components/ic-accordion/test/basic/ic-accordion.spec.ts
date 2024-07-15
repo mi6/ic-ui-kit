@@ -340,7 +340,7 @@ describe("ic-accordion snapshots", () => {
       expect(
         (
           page.rootInstance.expandedContentEl as HTMLDivElement
-        ).style.getPropertyValue("--ic-expanded-content-visiblity")
+        ).style.getPropertyValue("--ic-expanded-content-visibility")
       ).toBe("hidden");
     });
 
@@ -372,7 +372,7 @@ describe("ic-accordion snapshots", () => {
       expect(
         (
           page.rootInstance.expandedContentEl as HTMLDivElement
-        ).style.getPropertyValue("--ic-expanded-content-visiblity")
+        ).style.getPropertyValue("--ic-expanded-content-visibility")
       ).toBe("");
     });
 

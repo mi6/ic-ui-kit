@@ -29,7 +29,7 @@ export class Accordion {
   private accordionId = `ic-accordion-${accordionIds++}`;
   private expandedContentEl: HTMLDivElement;
   private accordionBtnHeading: HTMLButtonElement;
-  private CONTENT_VISIBILITY_PROPERTY = "--ic-expanded-content-visiblity";
+  private CONTENT_VISIBILITY_PROPERTY = "--ic-expanded-content-visibility";
 
   @Element() el: HTMLIcAccordionElement;
   /**

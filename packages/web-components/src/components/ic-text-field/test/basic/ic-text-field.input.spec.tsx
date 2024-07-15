@@ -54,7 +54,7 @@ describe("ic-text-field", () => {
       html: `<ic-text-field label="Test label" value="test value" hide-label=true></ic-text-field>`,
     });
 
-    expect(page.root).toMatchSnapshot("renders-with-hiden-label");
+    expect(page.root).toMatchSnapshot("renders-with-hidden-label");
   });
 
   it("should render with icon", async () => {
@@ -110,7 +110,7 @@ describe("ic-text-field", () => {
   it("should render with name & full width", async () => {
     const page = await newSpecPage({
       components: [TextField],
-      html: `<ic-text-field label="Test label" value="test value" name="mycontolname" full-width=true></ic-text-field>`,
+      html: `<ic-text-field label="Test label" value="test value" name="mycontrolname" full-width=true></ic-text-field>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-name-full-width");
