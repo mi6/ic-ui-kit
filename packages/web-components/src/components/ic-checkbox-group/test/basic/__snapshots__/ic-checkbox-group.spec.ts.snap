@@ -363,7 +363,7 @@ exports[`ic-checkbox-group should render with disabled static additional field: 
         <ic-input-container disabled="">
           <ic-input-label disabled="" for="ic-text-field-input-2" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container disabled="" size="default" validationstatus="">
-            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="" type="text" value="">
+            <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" disabled="" id="ic-text-field-input-2" inputmode="text" name="ic-text-field-input-2" placeholder="Placeholder" type="text" value="">
           </ic-input-component-container>
         </ic-input-container>
       </mock:shadow-root>
