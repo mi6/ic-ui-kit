@@ -8,6 +8,7 @@ import {
 
 import {
   IcBackToTop,
+  IcButton,
   IcClassificationBanner,
   IcTypography,
 } from "../components";
@@ -41,12 +42,13 @@ Please switch to the Canvas and then choose to open the canvas in a new tab to s
       id="header"
       style={{
         width: "100%",
-        height: "80px",
+        height: "100px",
         backgroundColor: "#23508e",
         color: "var(--ic-architectural-white)",
       }}
     >
       <IcTypography variant="h1">Header</IcTypography>
+      <IcButton variant="secondary" appearance="light">Button</IcButton>
     </div>
     <div id="topPageEl">
       <IcTypography variant="h2">Top of the page</IcTypography>
@@ -60,6 +62,8 @@ Please switch to the Canvas and then choose to open the canvas in a new tab to s
       quis rutrum id, vulputate eget diam. Integer mattis quis nisi id blandit.
       Duis nisi lectus, suscipit elementum iaculis sed, porta et risus.
     </p>
+    <br />
+    <IcButton>Button</IcButton>
     <br />
     <br />
     <br />
@@ -176,7 +180,7 @@ Please switch to the Canvas and then choose to open the canvas in a new tab to s
 export const defaultArgs = {
   target: "topEl",
   variant: "default",
-};       
+};
 
 <Canvas>
   <Story
