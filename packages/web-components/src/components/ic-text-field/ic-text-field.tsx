@@ -490,7 +490,7 @@ export class TextField {
     } = this;
 
     const disabledMode = readonly ? true : disabled;
-    const placeholderText = disabled ? "" : placeholder;
+
     const currentStatus =
       maxLengthExceeded ||
       maxValueExceeded ||
@@ -597,7 +597,7 @@ export class TextField {
                   ["readonly"]: readonly,
                   ["truncate-value"]: truncateValue,
                 }}
-                placeholder={placeholderText}
+                placeholder={placeholder ? placeholder : ""}
                 required={required}
                 disabled={disabledMode}
                 readonly={readonly}
@@ -634,7 +634,7 @@ export class TextField {
                 rows={rows}
                 required={required}
                 disabled={disabledMode}
-                placeholder={placeholderText}
+                placeholder={placeholder ? placeholder : ""}
                 readonly={readonly}
                 onInput={this.onInput}
                 onBlur={this.onBlur}

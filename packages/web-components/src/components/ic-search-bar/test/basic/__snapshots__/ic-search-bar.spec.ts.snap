@@ -56,7 +56,7 @@ exports[`ic-search-bar search should render disabled variant: renders-disabled 1
         <ic-input-container disabled="">
           <ic-input-label disabled="" for="ic-search-bar-input-4" helpertext="" label="Test label"></ic-input-label>
           <ic-input-component-container disabled="" size="default" validationstatus="">
-            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="" type="text" value="">
+            <input aria-describedby="" aria-invalid="false" aria-label="" autocapitalize="off" autocomplete="off" disabled="" id="ic-search-bar-input-4" inputmode="search" name="ic-search-bar-input-4" placeholder="Search" type="text" value="">
             <slot name="clear-button"></slot>
             <slot name="search-submit-button"></slot>
           </ic-input-component-container>
