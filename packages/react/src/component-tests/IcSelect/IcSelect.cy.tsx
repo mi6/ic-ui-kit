@@ -24,7 +24,7 @@ import {
 } from "../utils/constants";
 import {
   ARIA_SELECTED,
-  DATA_LABEL_CAPUCCINO,
+  DATA_LABEL_CAPPUCCINO,
   DATA_LABEL_ESPRESSO,
   DATA_VALUE_ESPRESSO,
   DEFAULT_TEST_THRESHOLD,
@@ -794,7 +794,7 @@ describe("IcSelect", () => {
           .then((childgroup) => {
             cy.log(childgroup);
           });
-        cy.findShadowEl("ic-select", DATA_LABEL_CAPUCCINO)
+        cy.findShadowEl("ic-select", DATA_LABEL_CAPPUCCINO)
           .focused()
           .should(HAVE_FOCUS);
         cy.findShadowEl("ic-select", '[data-label="Flat white"]')
@@ -1123,7 +1123,7 @@ describe("IcSelect", () => {
       "ic-select",
       '[aria-label="Latte macchiato"]'
     ).scrollIntoView();
-    cy.findShadowEl("ic-select", DATA_LABEL_CAPUCCINO).scrollIntoView();
+    cy.findShadowEl("ic-select", DATA_LABEL_CAPPUCCINO).scrollIntoView();
   });
 
   it("should only highlight and select enabled options in searchable with arrowDown", () => {
@@ -1139,7 +1139,7 @@ describe("IcSelect", () => {
     cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER);
     cy.checkShadowElVisible("ic-select", IC_MENU_LI);
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type(TYPE_DOWN_ARROW);
-    cy.findShadowEl("ic-select", DATA_LABEL_CAPUCCINO).should(
+    cy.findShadowEl("ic-select", DATA_LABEL_CAPPUCCINO).should(
       HAVE_CLASS,
       "option sc-ic-menu"
     );
@@ -1165,7 +1165,7 @@ describe("IcSelect", () => {
     cy.checkHydrated("ic-select");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("Test");
     cy.findShadowEl("ic-select", IC_INPUT_CONTAINER).type("{upArrow}");
-    cy.findShadowEl("ic-select", DATA_LABEL_CAPUCCINO).should(
+    cy.findShadowEl("ic-select", DATA_LABEL_CAPPUCCINO).should(
       HAVE_CLASS,
       "option sc-ic-menu"
     );

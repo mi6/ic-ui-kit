@@ -12,7 +12,7 @@ export const TYPE_ENTER = "{enter}";
 export const TYPE_BACKSPACE = "{backspace}";
 export const DATA_VALUE_ESPRESSO = "[data-value='espresso']";
 export const DATA_VALUE_CAP = '[data-value="Cap"]';
-export const DATA_LABEL_CAPUCCINO = '[data-label="Cappuccino"]';
+export const DATA_LABEL_CAPPUCCINO = '[data-label="Cappuccino"]';
 export const DATA_LABEL_ESPRESSO = '[data-label="Espresso"]';
 export const INPUT_TYPE_HIDDEN = "input[type='hidden']";
 export const NO_RESULTS_FOUND = "No results found";
