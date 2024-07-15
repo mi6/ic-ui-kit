@@ -162,7 +162,7 @@ describe("IcDataTables", () => {
     });
   });
 
-  it('should sort data to "ascending", desending and then remove sort when the sort button is clicked three times', () => {
+  it('should sort data to "ascending", descending and then remove sort when the sort button is clicked three times', () => {
     mount(<BasicDataTable sortable />);
 
     cy.checkHydrated(DATA_TABLE_SELECTOR);
