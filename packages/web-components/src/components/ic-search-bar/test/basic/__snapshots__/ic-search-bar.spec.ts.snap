@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-search-bar search should render aria-label when hidelLabel is set: renders-with-hidden-label 1`] = `
+exports[`ic-search-bar search should render aria-label when hideLabel is set: renders-with-hidden-label 1`] = `
 <ic-search-bar class="search" hide-label="true" label="Test label" value="">
   <mock:shadow-root>
     <ic-text-field value="">

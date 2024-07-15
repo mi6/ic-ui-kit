@@ -109,8 +109,8 @@ export class TopNavigation {
 
   @Watch("appTitle")
   watchPropHandler(newValue: string, oldValue: string): void {
-    //added for gatsby rehydration issue where prop is initially undefined but then changes to actual value
-    //this watch can be removed once gatbsy hydration issue is resolved
+    //added for Gatsby rehydration issue where prop is initially undefined but then changes to actual value
+    //this watch can be removed once Gatsby hydration issue is resolved
     onComponentPropUndefinedChange(
       oldValue,
       newValue,

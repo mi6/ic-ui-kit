@@ -71,7 +71,7 @@ exports[`ic-text-field should render with helperText, required and small: render
 </ic-text-field>
 `;
 
-exports[`ic-text-field should render with hidden label: renders-with-hiden-label 1`] = `
+exports[`ic-text-field should render with hidden label: renders-with-hidden-label 1`] = `
 <ic-text-field hide-label="true" label="Test label" value="test value">
   <mock:shadow-root>
     <ic-input-container>
@@ -147,16 +147,16 @@ exports[`ic-text-field should render with max length: renders-with-maxlength 1`]
 `;
 
 exports[`ic-text-field should render with name & full width: renders-with-name-full-width 1`] = `
-<ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontolname" value="test value">
+<ic-text-field class="fullwidth" full-width="true" label="Test label" name="mycontrolname" value="test value">
   <mock:shadow-root>
     <ic-input-container>
       <ic-input-label for="ic-text-field-input-10" helpertext="" label="Test label"></ic-input-label>
       <ic-input-component-container fullwidth="" size="default" validationstatus="">
-        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="mycontolname" placeholder="" type="text" value="test value">
+        <input aria-describedby="" aria-invalid="false" aria-label="Test label" autocapitalize="off" autocomplete="off" id="ic-text-field-input-10" inputmode="text" name="mycontrolname" placeholder="" type="text" value="test value">
       </ic-input-component-container>
     </ic-input-container>
   </mock:shadow-root>
-  <input class="ic-input" name="mycontolname" type="hidden" value="test value">
+  <input class="ic-input" name="mycontrolname" type="hidden" value="test value">
 </ic-text-field>
 `;
 
