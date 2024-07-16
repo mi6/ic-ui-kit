@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
+import { defineCustomElements } from "@ukic/web-components/loader";
 import "./Form.css";
 import {
   IcCheckbox,
@@ -29,6 +30,8 @@ import {
   initialFormSteps,
 } from "./constants";
 import { handleSteps } from "./methods";
+
+defineCustomElements();
 
 const Form: React.FC = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
