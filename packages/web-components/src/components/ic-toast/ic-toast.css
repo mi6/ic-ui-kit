@@ -28,6 +28,10 @@
   display: none;
 }
 
+:host(:focus) {
+  outline: none;
+}
+
 .container {
   max-width: 32.5rem;
   min-width: 18rem;
@@ -119,9 +123,12 @@
   padding-bottom: var(--ic-space-md);
 }
 
-ic-button,
-.toast-dismiss-timer {
+ic-button {
   padding: var(--ic-space-xs);
+}
+
+.toast-dismiss-timer {
+  padding: var(--ic-space-sm);
 }
 
 @media (max-width: 576px) {
