@@ -28,6 +28,10 @@
   display: none;
 }
 
+:host(:focus) {
+  outline: none;
+}
+
 .container {
   max-width: 32.5rem;
   min-width: 18rem;
