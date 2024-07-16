@@ -3,7 +3,7 @@
 exports[`ic-toast-region component should render 1`] = `
 <ic-toast-region>
   <!---->
-  <ic-toast aria-label="Heading" class="ic-toast-hidden" heading="Heading" role="dialog">
+  <ic-toast aria-label="Heading" class="ic-toast-hidden" heading="Heading" role="dialog" tabindex="0">
     <mock:shadow-root>
       <div class="container">
         <div class="toast-content">
