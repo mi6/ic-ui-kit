@@ -15,7 +15,7 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" heading="Heading" role="dialog">
+      .toEqualHtml(`<ic-toast aria-label="Heading" heading="Heading" role="dialog" tabindex="0">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -45,7 +45,7 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Heading" aria-description="toast message" message="toast message" heading="Heading" role="dialog">
+      .toEqualHtml(`<ic-toast aria-label="Heading" aria-description="toast message" message="toast message" heading="Heading" role="dialog" tabindex="0">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -80,7 +80,7 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast aria-label="Success" aria-description="Heading" heading="Heading" role="dialog" variant="success">
+      .toEqualHtml(`<ic-toast aria-label="Success" aria-description="Heading" heading="Heading" role="dialog" variant="success" tabindex="0">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-icon-container">
@@ -116,7 +116,7 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
 
     expect(page.root)
-      .toEqualHtml(`<ic-toast heading="Heading" role="status" dismiss-mode="automatic">
+      .toEqualHtml(`<ic-toast heading="Heading" role="status" dismiss-mode="automatic" tabindex="0">
       <mock:shadow-root>
         <div class="container">
           <div class="toast-content">
@@ -128,7 +128,7 @@ describe("ic-toast component", () => {
               </ic-typography>
             </div>
           </div>
-          <ic-loading-indicator appearance="light" class="toast-dismiss-timer" progress="100" size="icon"></ic-loading-indicator>
+          <ic-loading-indicator appearance="light" class="toast-dismiss-timer" description="" progress="100" size="icon"></ic-loading-indicator>
         </div>
       </mock:shadow-root>
     </ic-toast>`);
@@ -222,6 +222,26 @@ describe("ic-toast component", () => {
     await page.waitForChanges();
     await waitForTimeout(1000);
     expect(intervalCb).toHaveBeenCalledTimes(2);
+    page.setContent("");
+  });
+
+  it("should set isManual to true when toast is hovered over, and back to false when mouse leaves", async () => {
+    const page = await newSpecPage({
+      components: [Toast],
+      html: `<ic-toast heading="Heading" dismiss-mode="automatic" auto-dismiss-timeout="10000"></ic-toast>`,
+    });
+
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
+    page.rootInstance.handleTimer({ type: "mouseenter" });
+    await page.waitForChanges();
+    expect(page.rootInstance.isManual).toBeTruthy();
+
+    page.rootInstance.handleTimer({ type: "mouseleave" });
+    await page.waitForChanges();
+    await waitForTimeout(1000);
+    expect(page.rootInstance.isManual).toBeFalsy();
     page.setContent("");
   });
 
@@ -319,5 +339,30 @@ describe("ic-toast component", () => {
     });
 
     expect(page.root.getAttribute("aria-label")).toBe("Hello World");
+  });
+
+  it("should focus the new dismiss button when an auto dismiss toast is tabbed to", async () => {
+    const page = await newSpecPage({
+      components: [Toast, Button],
+      html: `<ic-toast heading="Heading" dismiss-mode="automatic" auto-dismiss-timeout="10000"></ic-toast>`,
+    });
+
+    page.rootInstance.setVisible();
+    await page.waitForChanges();
+
+    const dismissFocus = jest.spyOn(Button.prototype, "setFocus");
+
+    page.rootInstance.handleKeyboard({
+      key: "Tab",
+      shiftKey: false,
+      preventDefault: (): void => null,
+    });
+    await page.waitForChanges();
+    expect(page.rootInstance.focusInteractiveElement).toBeTruthy();
+
+    page.root.focus();
+    await page.waitForChanges();
+    expect(page.rootInstance.isManual).toBeTruthy();
+    expect(dismissFocus).toHaveBeenCalled();
   });
 });
