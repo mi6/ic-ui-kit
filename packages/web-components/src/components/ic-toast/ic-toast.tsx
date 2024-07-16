@@ -42,12 +42,14 @@ const TOAST_MESSAGE_CHAR_LIMIT = 140;
 export class Toast {
   private dismissTimeout: number;
   private interactiveElements: ActionAreaElementTypes[] = [];
-  private isManual: boolean;
   private neutralVariantLabel: string;
   private timerRefreshInterval: number;
+  private focusInteractiveElement: boolean;
+  private shiftKeyPressed: boolean;
 
   @Element() el: HTMLIcToastElement;
 
+  @State() isManual: boolean;
   @State() timerProgress = 100;
   @State() visible = false;
 
@@ -141,31 +143,66 @@ export class Toast {
       [{ prop: this.heading, propName: "heading" }],
       "Toast"
     );
-    const actionContent = getSlot(this.el, "action") as ActionAreaElementTypes;
-    const dismissButton = this.el.shadowRoot.querySelector("ic-button");
-    if (actionContent) this.interactiveElements.push(actionContent);
-    if (dismissButton) this.interactiveElements.push(dismissButton);
+  }
+
+  componentDidUpdate(): void {
+    if (this.focusInteractiveElement && this.isManual) {
+      this.resetAutoDismissTimer();
+
+      const actionContent = getSlot(
+        this.el,
+        "action"
+      ) as ActionAreaElementTypes;
+      const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+      if (actionContent) this.interactiveElements.push(actionContent);
+      if (dismissButton) this.interactiveElements.push(dismissButton);
+
+      this.focusInteractiveElement = false;
+      this.findNextInteractiveElement(this.shiftKeyPressed).setFocus();
+      this.shiftKeyPressed = false;
+    }
+  }
+
+  @Watch("visible")
+  watchVisibleHandler(): void {
+    if (this.visible) {
+      const actionContent = getSlot(
+        this.el,
+        "action"
+      ) as ActionAreaElementTypes;
+      const dismissButton = this.el.shadowRoot.querySelector("ic-button");
+      if (actionContent) this.interactiveElements.push(actionContent);
+      if (dismissButton) this.interactiveElements.push(dismissButton);
+    } else {
+      this.interactiveElements = [];
+    }
   }
 
   @Listen("icDismiss", { capture: true })
   handleDismiss(): void {
     this.visible = false;
-    clearInterval(this.timerRefreshInterval);
-    this.timerProgress = 100;
+    this.resetAutoDismissTimer();
   }
 
   @Listen("keydown", { target: "document" })
   handleKeyboard(ev: KeyboardEvent): void {
-    if (this.isManual && this.visible) {
-      switch (ev.key) {
-        case "Tab":
-          ev.preventDefault();
-          this.findNextInteractiveElement(ev.shiftKey).setFocus();
-          break;
-        case "Escape":
-          !ev.repeat && this.dismissAction();
-          ev.stopImmediatePropagation();
-          break;
+    if (this.visible) {
+      if (this.isManual) {
+        switch (ev.key) {
+          case "Tab":
+            ev.preventDefault();
+            this.findNextInteractiveElement(ev.shiftKey).setFocus();
+            break;
+          case "Escape":
+            !ev.repeat && this.dismissAction();
+            ev.stopImmediatePropagation();
+            break;
+        }
+      } else {
+        if (ev.key === "Tab") {
+          this.shiftKeyPressed = ev.shiftKey;
+          this.focusInteractiveElement = true;
+        }
       }
     }
   }
@@ -173,24 +210,29 @@ export class Toast {
   @Listen("mouseenter")
   @Listen("mouseleave")
   handleTimer(ev: MouseEvent): void {
-    if (!this.isManual) {
-      switch (ev.type) {
-        case "mouseenter":
-          window.clearTimeout(this.dismissTimeout);
-          window.clearInterval(this.timerRefreshInterval);
-          this.timerProgress = 100;
-          break;
-        case "mouseleave":
-          this.dismissTimeout = window.setTimeout(
-            this.dismissAction,
-            this.autoDismissTimeout
-          );
-          this.timerRefreshInterval = window.setInterval(
-            this.handleProgressChange,
-            AUTO_DISMISS_TIMER_REFRESH_RATE_MS
-          );
-          break;
-      }
+    switch (ev.type) {
+      case "mouseenter":
+        if (!this.isManual) {
+          this.resetAutoDismissTimer();
+        }
+        this.isManual = true;
+        break;
+      case "mouseleave":
+        if (this.dismissMode === "automatic") {
+          this.isManual = false;
+          this.interactiveElements = [];
+          if (this.visible) {
+            this.dismissTimeout = window.setTimeout(
+              this.dismissAction,
+              this.autoDismissTimeout
+            );
+            this.timerRefreshInterval = window.setInterval(
+              this.handleProgressChange,
+              AUTO_DISMISS_TIMER_REFRESH_RATE_MS
+            );
+          }
+        }
+        break;
     }
   }
 
@@ -262,11 +304,27 @@ export class Toast {
       : firstEl;
   }
 
+  private resetAutoDismissTimer(): void {
+    window.clearTimeout(this.dismissTimeout);
+    window.clearInterval(this.timerRefreshInterval);
+    this.timerProgress = 100;
+  }
+
   private isActive(targetEl: HTMLElement): boolean {
     return targetEl === this.el
       ? !!this.el.shadowRoot.activeElement
       : document.activeElement === targetEl;
   }
+
+  private onFocus = (): void => {
+    if (this.focusInteractiveElement) {
+      this.isManual = true;
+    }
+  };
+
+  private onBlur = (): void => {
+    this.handleTimer({ type: "mouseleave" } as MouseEvent);
+  };
 
   render() {
     const {
@@ -281,6 +339,9 @@ export class Toast {
       <Host
         class={{ ["ic-toast-hidden"]: !visible }}
         role={isManual ? "dialog" : "status"}
+        tabindex="0"
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
       >
         <div class="container">
           {variant && visible && (
@@ -330,6 +391,7 @@ export class Toast {
               appearance="light"
               size="icon"
               progress={this.timerProgress}
+              description=""
             ></ic-loading-indicator>
           ) : (
             <ic-button
