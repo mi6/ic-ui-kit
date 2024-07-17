@@ -1,6 +1,6 @@
 {
-  "total": 487,
-  "totalPassed": 487,
+  "total": 488,
+  "totalPassed": 488,
   "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
@@ -3823,6 +3823,17 @@
         },
         {
           "status": "pass",
+          "name": "IcStatusTag.cy.tsx-large",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcStatusTag/IcStatusTag.cy.tsx",
+          "specFilename": "IcStatusTag.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcStatusTag.cy.tsx-large.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcStatusTag.cy.tsx-large.png"
+        },
+        {
+          "status": "pass",
           "name": "IcStatusTag.cy.tsx-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -5578,9 +5589,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-17T12:37:59.233Z",
-  "endedAt": "2024-07-17T12:47:50.881Z",
-  "duration": 517724,
+  "startedAt": "2024-07-17T18:39:49.414Z",
+  "endedAt": "2024-07-17T18:49:12.857Z",
+  "duration": 490625,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
