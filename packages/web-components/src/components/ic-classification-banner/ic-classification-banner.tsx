@@ -37,7 +37,17 @@ export class ClassificationBanner {
   @Prop() upTo?: boolean = false;
 
   render() {
-    const { classification, inline, country, upTo, additionalSelectors } = this;
+    const { inline, upTo } = this;
+
+    // In case of unrecognized props, fallback to default
+    let { country, additionalSelectors, classification } = this;
+    if (!country) country = "";
+    if (!additionalSelectors) additionalSelectors = "";
+    if (
+      !classification ||
+      (classification && !classificationText[classification])
+    )
+      classification = "default";
 
     return (
       <Host class={{ ["inline"]: inline }}>
@@ -57,9 +67,9 @@ export class ClassificationBanner {
             {classification === "default"
               ? classificationText[classification]
               : `${upTo ? "up to" : ""} 
-               ${country !== "" ? country : ""} 
+               ${country} 
                ${classificationText[classification]} 
-               ${additionalSelectors !== "" ? additionalSelectors : ""}`}
+               ${additionalSelectors}`}
           </ic-typography>
         </banner>
       </Host>

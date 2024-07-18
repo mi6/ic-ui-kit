@@ -138,6 +138,57 @@ describe("ic-classification-banner component", () => {
         </ic-classification-banner>`);
   });
 
+  it("should render default banner if no props are passed", async () => {
+    const page = await newSpecPage({
+      components: [ClassificationBanner],
+      html: `<ic-classification-banner></ic-classification-banner>`,
+    });
+    expect(page.root).toEqualHtml(`
+        <ic-classification-banner>
+          <mock:shadow-root>
+            <banner aria-label="Protective marking" class="classification-banner default">
+              <ic-typography variant="caption-uppercase">
+                protective marking not set
+              </ic-typography>
+            </banner>
+          </mock:shadow-root>
+        </ic-classification-banner>`);
+  });
+
+  it("should render default banner if props with empty strings are passed", async () => {
+    const page = await newSpecPage({
+      components: [ClassificationBanner],
+      html: `<ic-classification-banner classification="" country="" additionalSelectors=""></ic-classification-banner>`,
+    });
+    expect(page.root).toEqualHtml(`
+        <ic-classification-banner classification="" country="" additionalSelectors="">
+          <mock:shadow-root>
+            <banner aria-label="Protective marking" class="classification-banner default">
+              <ic-typography variant="caption-uppercase">
+                protective marking not set
+              </ic-typography>
+            </banner>
+          </mock:shadow-root>
+        </ic-classification-banner>`);
+  });
+
+  it("should render default banner if props with undefined are passed", async () => {
+    const page = await newSpecPage({
+      components: [ClassificationBanner],
+      html: `<ic-classification-banner classification=${undefined} country=${undefined} additionalSelectors=${undefined}></ic-classification-banner>`,
+    });
+    expect(page.root).toEqualHtml(`
+        <ic-classification-banner classification="undefined" country="undefined" additionalSelectors="undefined">
+          <mock:shadow-root>
+            <banner aria-label="Protective marking" class="classification-banner default">
+              <ic-typography variant="caption-uppercase">
+                protective marking not set
+              </ic-typography>
+            </banner>
+          </mock:shadow-root>
+        </ic-classification-banner>`);
+  });
+
   it("should render with additional selectors after classification when supplied", async () => {
     const page = await newSpecPage({
       components: [ClassificationBanner],
