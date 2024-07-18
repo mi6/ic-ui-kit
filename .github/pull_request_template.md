@@ -18,6 +18,7 @@ Tell us the issue number. If suggesting an improvement or component, please disc
 - [ ] Relevant unit tests and visual regression tests added. 
 - [ ] Visual testing against Figma component specification completed. 
 - [ ] Playground stories in React Storybook up to date, with any prop changes and additions addressed. 
+- [ ] Compare performance of modified components against develop using Performance addon in React Storybook.
 
 ### Accessibility 
 
