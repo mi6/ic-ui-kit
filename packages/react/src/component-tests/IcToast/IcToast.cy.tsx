@@ -86,6 +86,20 @@ describe("IcToast", () => {
       .find("ic-loading-indicator")
       .should("exist");
   });
+
+  it("should focus the new dismiss button when auto dismiss toast is tabbed to", () => {
+    mount(<SimpleAutoDismissToast />);
+    cy.get("ic-button").click();
+    cy.checkHydrated("ic-toast");
+
+    cy.get("ic-toast").click(60, 40);
+
+    cy.realPress("Tab").realPress("Tab");
+    cy.get("ic-toast")
+      .shadow()
+      .find("ic-button#dismiss-button")
+      .should("exist");
+  });
 });
 
 describe("IcToast Visual Regression and A11y Testing", () => {
