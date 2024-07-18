@@ -119,6 +119,20 @@ describe("IcToast end-to-end tests", () => {
     cy.get(IC_TOAST_SELECTOR).should(HAVE_CLASS, "hidden");
     cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
   });
+
+  it("should focus the new dismiss button when auto dismiss toast is tabbed to", () => {
+    mount(<SimpleAutoDismissToast />);
+    cy.get("ic-button").click();
+    cy.checkHydrated("ic-toast");
+
+    cy.get("ic-toast").click(60, 40);
+
+    cy.realPress("Tab").realPress("Tab");
+    cy.get("ic-toast")
+      .shadow()
+      .find("ic-button#dismiss-button")
+      .should("exist");
+  });
 });
 
 describe("IcToast visual regression and a11y tests", () => {
