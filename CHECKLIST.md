@@ -18,13 +18,6 @@ This also applies to canary components, where the `docs.json` in `canary-docs` s
 
 If you have added a new feature, or fixed a bug, it is likely that in the ticket you followed, there was an acceptance criteria section. Any acceptance criteria within that section should be met, or discussed with the author of the issue.
 
-### Playground stories in React Storybook up to date
-
-Every component should have a comprehensive Playground storybook that allows users to modify every property to manual test for issues. 
-If you have added or modified the properties of a component you need to make sure the corresponding Playground is updated.
-
-React Storybooks are found in `packages/react/src/stories`. You can run storybook locally with `npm run storybook`, and react will be on [port 6007](http://localhost:6007)
-
 ## Testing
 
 ### Relevant unit tests and visual regression tests added
@@ -48,6 +41,17 @@ To test this, you should check for:
 - Active states
 - Prop names
 - Figma Prototype functionality vs. implemented functionality
+
+### Playground stories in React Storybook up to date
+
+Every component should have a comprehensive Playground storybook that allows users to modify every property to manual test for issues. 
+If you have added or modified the properties of a component you need to make sure the corresponding Playground is updated.
+
+React Storybooks are found in `packages/react/src/stories`. You can run storybook locally with `npm run storybook`, and react will be on [port 6007](http://localhost:6007)
+
+### Compare performance of modified components against develop
+
+Within the Addon panel in React Storybook we can test the render times of any Story. By running these performance checks on [the develop branch's Storybook](https://mi6.github.io/ic-ui-kit/branches/develop/react/) and comparing with Stories on your branch you can identify any significant performance impacts. Any significant increases in render time should be investigated.
 
 ## Accessibility
 
