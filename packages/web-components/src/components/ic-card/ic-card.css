@@ -26,8 +26,11 @@ button {
   text-align: left;
   color: var(--ic-architechtural-black);
   transition: var(--ic-easing-transition-fast);
-  width: inherit;
   position: relative;
+  width: inherit;
+  min-width: fit-content;
+  height: fit-content;
+  min-height: 100%;
 }
 
 .dark.card,
