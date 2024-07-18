@@ -73,6 +73,7 @@ npm pack
 cd ../web-components
 npm pack
 ```
+Alternatively, you can use the [`build-tar.sh` script](./build-tar.sh) to do the same.
 
 In the `package.json` of your project replace the value of `@ukic/docs`, `@ukic/fonts`, `@ukic/react` and `@ukic/web-components` with the full filepath to the .tgz file in each respective directory, for example:
 
@@ -93,6 +94,23 @@ Finally, install the dependencies:
 npm install
 ```
 
+## Faster development building with ic-design-system
+
+If you want to build the components in this repository and use them in [`ic-design-system`](https://github.com/mi6/ic-design-system), you can use `npm link`. This will speed up development because you do not have to generate a compressed npm package, but rather directly use the package after building it locally.
+
+First, build the monorepo packages in the top-level directory of `ic-ui-kit`:
+
+```console
+npm run build
+```
+
+Then, to use the package, make sure you are in the top-level directory of `ic-design-system`. You will need to link the generated build from `ic-ui-kit`, e.g.: 
+
+```console
+npm link ../path/to/ic-ui-kit/packages/react
+```
+> [!NOTE]
+> Now you can develop and debug faster with `ic-ui-kit` in `ic-design-system`.
 
 ## Contributing
 
