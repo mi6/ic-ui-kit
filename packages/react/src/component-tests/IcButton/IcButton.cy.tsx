@@ -4,7 +4,6 @@
 import { mount } from "cypress/react";
 import React from "react";
 import { IcButton } from "../../components";
-import { SlottedSVG } from "../../react-component-lib/slottedSVG";
 import {
   BE_VISIBLE,
   CONTAIN_TEXT,
@@ -18,31 +17,41 @@ import {
 import {
   DARK_BG_STYLE,
   PopoverDropdown,
-  SlottedIcon,
-  SlottedIconNoViewBox,
-  SlottedRightIcon,
-  IconBtnGroup,
-  iconProps,
+  TextPrimaryButton,
+  TextSecondaryButton,
+  TextTertiaryButton,
+  TextDestructiveButton,
+  WithIcons,
+  DifferentSizes,
+  IconNoViewbox,
+  FullWidth,
+  DropdownButtons,
+  IconButtonGroup,
+  IconBtnWithTooltip,
+  CustomHeightMinWidth,
+  FileUpload,
 } from "./IcButtonTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
 
-const DEFAULT_TEST_THRESHOLD = 0;
-
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
+const IC_BUTTON_SELECTOR = "ic-button";
 const ID_NAME = "#name";
 const TEXT_INPUT = "@textInput";
+
+const DEFAULT_TEST_THRESHOLD = 0.009;
 
 const submitForm = (ev: React.FormEvent<HTMLFormElement>) => {
   ev.preventDefault();
   console.log("foo");
 };
 
-describe("IcButton", () => {
+describe("IcButton end-to-end tests", () => {
   it("should render", () => {
     mount(<IcButton>Test</IcButton>);
 
-    cy.get("ic-button").contains("Test").should(BE_VISIBLE);
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).contains("Test").should(BE_VISIBLE);
   });
 
   it("should pass onclick method", () => {
@@ -55,9 +64,10 @@ describe("IcButton", () => {
         Test
       </IcButton>
     );
-    cy.checkHydrated("ic-button");
-    cy.clickOnButton("ic-button");
-    cy.get("ic-button").should(CONTAIN_TEXT, "clicked");
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).should(CONTAIN_TEXT, "clicked");
   });
 
   it("should not be clickable when disabled", () => {
@@ -68,8 +78,8 @@ describe("IcButton", () => {
       </IcButton>
     );
 
-    cy.checkHydrated("ic-button");
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
 
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
@@ -94,14 +104,17 @@ describe("IcButton", () => {
       </div>
     );
 
-    cy.checkHydrated("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
-    cy.findShadowEl("ic-button", "button").should(
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "button").should(
       HAVE_ATTR,
       "aria-describedby"
     );
-    cy.clickOnButton("ic-button");
-    cy.findShadowEl("ic-button", "#button-description")
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description")
+      .should("exist")
+      .should(CONTAIN_TEXT, "This button does something amazing");
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#button-description")
       .should("exist")
       .should(CONTAIN_TEXT, "See, I told you it was amazing!");
   });
@@ -109,17 +122,17 @@ describe("IcButton", () => {
   it("should have loading bar when loading", () => {
     mount(<IcButton loading>Loading</IcButton>);
 
-    cy.checkHydrated("ic-button");
-    cy.findShadowEl("ic-button", "ic-loading-indicator").should("exist");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").should("exist");
   });
 
   it("should not be clickable when loading", () => {
     cy.spy(window.console, "log").as("spyWinConsoleLog");
     mount(<IcButton loading>Loading</IcButton>);
 
-    cy.checkHydrated("ic-button");
-    cy.findShadowEl("ic-button", "ic-loading-indicator").should("exist");
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "ic-loading-indicator").should("exist");
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
   });
 
@@ -132,13 +145,13 @@ describe("IcButton", () => {
         </IcButton>
       </form>
     );
+
     cy.get(ID_NAME).as("textInput");
     cy.get(TEXT_INPUT).type("foo");
-
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "foo");
 
-    cy.checkHydrated("ic-button");
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
 
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "");
   });
@@ -154,13 +167,13 @@ describe("IcButton", () => {
         </IcButton>
       </div>
     );
+
     cy.get(ID_NAME).as("textInput");
     cy.get(TEXT_INPUT).type("foo");
-
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "foo");
 
-    cy.checkHydrated("ic-button");
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
 
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "foo");
   });
@@ -176,8 +189,8 @@ describe("IcButton", () => {
       </form>
     );
 
-    cy.checkHydrated("ic-button");
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
     cy.get(WIN_CONSOLE_SPY).should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -196,11 +209,10 @@ describe("IcButton", () => {
 
     cy.get(ID_NAME).as("textInput");
     cy.get(TEXT_INPUT).type("foo");
-
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "foo");
-    cy.checkHydrated("ic-button");
 
-    cy.clickOnButton("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
 
     cy.get(TEXT_INPUT).should(HAVE_VALUE, "foo");
     cy.get(WIN_CONSOLE_SPY).should(NOT_BE_CALLED_ONCE);
@@ -213,24 +225,23 @@ describe("IcButton", () => {
       </IcButton>
     );
 
-    cy.checkHydrated("ic-button");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
-    cy.get("ic-button").invoke("on", "icFocus", cy.stub().as("icFocus"));
-
-    cy.get("ic-button").shadow().find("button").focus();
-
-    cy.get("ic-button").should(HAVE_FOCUS);
+    cy.get(IC_BUTTON_SELECTOR).invoke("on", "icFocus", cy.stub().as("icFocus"));
+    cy.get(IC_BUTTON_SELECTOR).shadow().find("button").focus();
+    cy.get(IC_BUTTON_SELECTOR).should(HAVE_FOCUS);
     cy.get("@icFocus").should(HAVE_BEEN_CALLED_ONCE);
   });
 
   it("should emit icBlur on blur event", () => {
     mount(<IcButton id="ic-button">Primary</IcButton>);
-    cy.checkHydrated("ic-button");
 
-    cy.get("ic-button").invoke("on", "icBlur", cy.stub().as("icBlur"));
-    cy.get("ic-button").shadow().find("button").focus();
-    cy.get("ic-button").should(HAVE_FOCUS);
-    cy.get("ic-button").blur();
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.get(IC_BUTTON_SELECTOR).invoke("on", "icBlur", cy.stub().as("icBlur"));
+    cy.get(IC_BUTTON_SELECTOR).shadow().find("button").focus();
+    cy.get(IC_BUTTON_SELECTOR).should(HAVE_FOCUS);
+    cy.get(IC_BUTTON_SELECTOR).blur();
     cy.get("@icBlur").should(HAVE_BEEN_CALLED_ONCE);
   });
 
@@ -240,31 +251,29 @@ describe("IcButton", () => {
         Button
       </IcButton>
     );
-    cy.checkHydrated("ic-button");
 
-    cy.clickOnButton("ic-button");
-    cy.get("ic-button").should(HAVE_PROP, "dropdownExpanded");
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).should(HAVE_PROP, "dropdownExpanded");
   });
 
   it("should upload files from fixtures", () => {
-    mount(
-      <>
-        <span id="selected-file">No File Selected</span>
-        <IcButton
-          fileUpload={true}
-          accept=".doc, text/plain, .json"
-          aria-describedby="selected-file"
-        >
-          Test
-        </IcButton>
-      </>
+    mount(<FileUpload />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).invoke(
+      "on",
+      "icFileSelection",
+      cy.stub().as("icFileSelection")
     );
-    cy.checkHydrated("ic-button");
-    cy.findShadowEl("ic-button", "button").should(
+    cy.get(IC_BUTTON_SELECTOR + '[file-upload="true"]').should("exist");
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "button").should(
       HAVE_ATTR,
       "aria-describedby"
     );
-    cy.clickOnButton("ic-button");
+
+    cy.clickOnButton(IC_BUTTON_SELECTOR);
     cy.get('input[type="file"]').attachFile(
       "IcButton/fixtures/ICDSFileUpload.json"
     );
@@ -278,13 +287,25 @@ describe("IcButton", () => {
           descEl.innerText = value as string;
         }
       });
-    cy.findShadowEl("ic-button", "#selected-file")
+    cy.findShadowEl(IC_BUTTON_SELECTOR, "#selected-file")
       .should("exist")
       .should(CONTAIN_TEXT, "C:\\fakepath\\ICDSFileUpload.json");
+    cy.get("@icFileSelection").should(HAVE_BEEN_CALLED_ONCE);
+  });
+
+  it("download link should exist on the DOM", () => {
+    mount(
+      <IcButton download href="/components/button/code">
+        Download
+      </IcButton>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR + '[download="true"]').should("exist");
   });
 });
 
-describe("IcButton Visual Regression Testing", () => {
+describe("IcButton visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -293,642 +314,113 @@ describe("IcButton Visual Regression Testing", () => {
     cy.task("generateReport");
   });
 
-  it("should render text based primary buttons", () => {
-    mount(
-      <div>
-        <div id="primary-buttons">
-          <IcButton
-            variant="primary"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="primary" disabled>
-            Button
-          </IcButton>
-          <IcButton variant="primary" loading>
-            Button
-          </IcButton>
-          <IcButton
-            variant="primary"
-            appearance="dark"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="primary" disabled appearance="dark">
-            Button
-          </IcButton>
-          <IcButton variant="primary" loading appearance="dark">
-            Button
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              variant="primary"
-              appearance="light"
-              onClick={() => alert("test")}
-            >
-              Button
-            </IcButton>
-            <IcButton variant="primary" disabled appearance="light">
-              Button
-            </IcButton>
-            <IcButton variant="primary" loading appearance="light">
-              Button
-            </IcButton>
-          </div>
-        </div>
-      </div>
-    );
+  it("should render text-based primary buttons", () => {
+    mount(<TextPrimaryButton />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "primary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
-  it("should render text based secondary buttons", () => {
-    mount(
-      <div>
-        <div id="secondary-buttons">
-          <IcButton
-            variant="secondary"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="secondary" disabled>
-            Button
-          </IcButton>
-          <IcButton variant="secondary" loading>
-            Button
-          </IcButton>
-          <IcButton
-            variant="secondary"
-            appearance="dark"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="secondary" disabled appearance="dark">
-            Button
-          </IcButton>
-          <IcButton variant="secondary" loading appearance="dark">
-            Button
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              variant="secondary"
-              appearance="light"
-              onClick={() => alert("test")}
-            >
-              Button
-            </IcButton>
-            <IcButton variant="secondary" disabled appearance="light">
-              Button
-            </IcButton>
-            <IcButton variant="secondary" loading appearance="light">
-              Button
-            </IcButton>
-          </div>
-        </div>
-      </div>
-    );
+  it("should render text-based secondary buttons", () => {
+    mount(<TextSecondaryButton />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "secondary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
     });
   });
 
-  it("should render text based tertiary buttons", () => {
-    mount(
-      <div>
-        <div id="tertiary-buttons">
-          <IcButton
-            variant="tertiary"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="tertiary" disabled>
-            Button
-          </IcButton>
-          <IcButton variant="tertiary" loading>
-            Button
-          </IcButton>
-          <IcButton
-            variant="tertiary"
-            appearance="dark"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="tertiary" disabled appearance="dark">
-            Button
-          </IcButton>
-          <IcButton variant="tertiary" loading appearance="dark">
-            Button
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              variant="tertiary"
-              appearance="light"
-              onClick={() => alert("test")}
-            >
-              Button
-            </IcButton>
-            <IcButton variant="tertiary" disabled appearance="light">
-              Button
-            </IcButton>
-            <IcButton variant="tertiary" loading appearance="light">
-              Button
-            </IcButton>
-          </div>
-        </div>
-      </div>
-    );
+  it("should render text-based tertiary buttons", () => {
+    mount(<TextTertiaryButton />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tertiary",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
     });
   });
 
-  it("should render text based destructive buttons", () => {
-    mount(
-      <div>
-        <div id="destructive-buttons">
-          <IcButton
-            variant="destructive"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-          </IcButton>
-          <IcButton variant="destructive" disabled>
-            Button
-          </IcButton>
-          <IcButton variant="destructive" loading>
-            Button
-          </IcButton>
-        </div>
-      </div>
-    );
+  it("should render text-based destructive buttons", () => {
+    mount(<TextDestructiveButton />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "destructive",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
     });
   });
 
-  it("should render with-icon based buttons", () => {
-    mount(
-      <div>
-        <div id="left-buttons">
-          <IcButton
-            variant="primary"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="secondary">
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="tertiary">
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="destructive">
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="primary" disabled>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton
-            variant="primary"
-            appearance="dark"
-            onClick={() => alert("test")}
-          >
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              variant="primary"
-              appearance="light"
-              onClick={() => alert("test")}
-            >
-              Button
-              <SlottedIcon />
-            </IcButton>
-          </div>
-        </div>
-        <div id="right-buttons">
-          <IcButton
-            variant="primary"
-            id="mybuttonid"
-            onClick={() => alert("test")}
-          >
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <IcButton variant="secondary">
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <IcButton variant="tertiary">
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <IcButton variant="destructive">
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <IcButton variant="primary" disabled>
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <IcButton
-            variant="primary"
-            appearance="dark"
-            onClick={() => alert("test")}
-          >
-            Button
-            <SlottedRightIcon />
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              variant="primary"
-              appearance="light"
-              onClick={() => alert("test")}
-            >
-              Button
-              <SlottedRightIcon />
-            </IcButton>
-          </div>
-        </div>
-      </div>
-    );
+  it("should render with-icon buttons", () => {
+    mount(<WithIcons />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.061),
     });
   });
 
-  it("should render different sized buttons", () => {
-    mount(
-      <div>
-        <div id="primary-buttons">
-          <IcButton variant="primary" size="small">
-            Small
-          </IcButton>
-          <IcButton variant="primary">Default</IcButton>
-          <IcButton variant="primary" size="large">
-            Large
-          </IcButton>
-          <IcButton variant="primary" size="small">
-            Small
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="primary">
-            Default
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="primary" size="large">
-            Large
-            <SlottedIcon />
-          </IcButton>
-        </div>
-      </div>
-    );
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "size",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
-    });
-  });
-
-  it("should render with icon buttons without viewbox", () => {
-    mount(
-      <div>
-        <div id="primary-buttons">
-          <IcButton variant="primary" size="small">
-            Small
-            <SlottedIconNoViewBox />
-          </IcButton>
-          <IcButton variant="primary">
-            Default
-            <SlottedIconNoViewBox />
-          </IcButton>
-          <IcButton variant="primary" size="large">
-            Large
-            <SlottedIconNoViewBox />
-          </IcButton>
-        </div>
-      </div>
-    );
+  it("should render with-icon buttons without viewbox", () => {
+    mount(<IconNoViewbox />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "icon-without-viewbox",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+    });
+  });
+
+  it("should render different sized buttons", () => {
+    mount(<DifferentSizes />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "size",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.032),
     });
   });
 
   it("should render full width buttons", () => {
-    mount(
-      <div>
-        <div id="left-buttons">
-          <IcButton variant="primary" fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="secondary" fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="tertiary" fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="destructive" fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="primary" disabled fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-          <IcButton variant="primary" appearance="dark" fullWidth>
-            Button
-            <SlottedIcon />
-          </IcButton>
-        </div>
-      </div>
-    );
+    mount(<FullWidth />);
+
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .eq(0)
+      .focus()
+      .realPress("Enter");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full-width",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
-    });
-  });
-
-  it("should render icon buttons", () => {
-    mount(
-      <div>
-        <div id="icon-buttons">
-          <IcButton
-            aria-label="friendly button label"
-            variant="icon"
-            size="small"
-          >
-            <SlottedIcon />
-          </IcButton>
-          <IcButton aria-label="friendly button label" variant="icon">
-            <SlottedIcon />
-          </IcButton>
-          <IcButton
-            aria-label="friendly button label"
-            variant="icon"
-            size="large"
-          >
-            <SlottedIcon />
-          </IcButton>
-          <IcButton aria-label="friendly button label" variant="icon" disabled>
-            <SlottedIcon />
-          </IcButton>
-          <IcButton
-            aria-label="friendly button label"
-            variant="icon"
-            appearance="dark"
-          >
-            <SlottedIcon />
-          </IcButton>
-          <div style={DARK_BG_STYLE}>
-            <IcButton
-              aria-label="friendly button label"
-              variant="icon"
-              appearance="light"
-            >
-              <SlottedIcon />
-            </IcButton>
-            <IcButton
-              aria-label="friendly button label"
-              variant="icon"
-              appearance="light"
-              disabled
-            >
-              <SlottedIcon />
-            </IcButton>
-          </div>
-        </div>
-      </div>
-    );
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "icon",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
-      delay: 1000,
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
   it("should render dropdown buttons", () => {
-    mount(
-      <div>
-        <div style={{ padding: "6px" }}>
-          <IcButton dropdown variant="primary">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown variant="secondary">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="tertiary">
-            Button
-          </IcButton>
-        </div>
-        <div style={{ padding: "6px" }}>
-          <IcButton dropdown disabled variant="primary">
-            Button
-          </IcButton>
-          <IcButton dropdown disabled variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown disabled variant="secondary">
-            Button
-          </IcButton>
-          <IcButton dropdown disabled variant="tertiary">
-            Button
-          </IcButton>
-        </div>
-        <div style={{ padding: "6px" }}>
-          <IcButton dropdown variant="primary" appearance="dark">
-            Button
-          </IcButton>
-          <IcButton dropdown appearance="dark" variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown variant="secondary" appearance="dark">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="tertiary" appearance="dark">
-            Button
-          </IcButton>
-        </div>
-        <div
-          style={{
-            backgroundColor: "#2c2f34",
-            padding: "6px 10px",
-            width: "fit-content",
-          }}
-        >
-          <IcButton dropdown variant="primary" appearance="light">
-            Button
-          </IcButton>
-          <IcButton dropdown appearance="light" variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown variant="secondary" appearance="light">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="tertiary" appearance="light">
-            Button
-          </IcButton>
-        </div>
-        <div style={{ padding: "6px" }}>
-          <IcButton dropdown variant="primary" size="small">
-            Button
-          </IcButton>
-          <IcButton dropdown size="small" variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown variant="secondary" size="small">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="tertiary" size="small">
-            Button
-          </IcButton>
-        </div>
-        <div style={{ padding: "6px" }}>
-          <IcButton dropdown variant="primary" size="large">
-            Button
-          </IcButton>
-          <IcButton dropdown size="large" variant="primary">
-            Button
-            <SlottedSVG
-              slot="left-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#000000"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-            </SlottedSVG>
-          </IcButton>
-          <IcButton dropdown variant="secondary" size="large">
-            Button
-          </IcButton>
-          <IcButton dropdown variant="tertiary" size="large">
-            Button
-          </IcButton>
-        </div>
-      </div>
-    );
+    mount(<DropdownButtons />);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dropdown",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.077),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.068),
     });
   });
 
-  it("should render dropdown with popover", () => {
+  it("should render expanded dropdown with popover", () => {
     mount(<PopoverDropdown />);
 
-    cy.get("ic-button").click();
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click();
 
-    cy.checkA11yWithWait(undefined, 500);
+    cy.checkA11yWithWait(undefined, 1000);
     cy.compareSnapshot({
-      name: "dropdown-popover",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.035),
-      delay: 500,
+      name: "expanded-dropdown-popover",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
@@ -944,51 +436,343 @@ describe("IcButton Visual Regression Testing", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "router-slot",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
     });
   });
 
-  it("renders with icon variant button group", () => {
+  it("should render with icon variant button group", () => {
+    mount(<IconButtonGroup />);
+
+    cy.checkA11yWithWait();
+    cy.wait(500).compareSnapshot({
+      name: "icon-variants-button-group",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+    });
+  });
+
+  it("should render tooltip on a text-based button on hover", () => {
     mount(
-      <>
-        <IconBtnGroup props={iconProps.iconDefault} />
-        <IconBtnGroup props={iconProps.iconLarge} />
-        <IconBtnGroup props={iconProps.iconSmall} />
-        <IconBtnGroup props={iconProps.iconLoading} />
-        <IconBtnGroup props={iconProps.iconDisabled} />
-        <IconBtnGroup props={iconProps.iconDark} />
-        <IconBtnGroup props={iconProps.iconDarkLoading} />
-        <IconBtnGroup props={iconProps.iconLight} />
-        <IconBtnGroup props={iconProps.iconLightLoading} />
-      </>
+      <IcButton
+        style={{ padding: "10px" }}
+        title="This is a tooltip"
+        tooltip-placement="bottom"
+      >
+        Test
+      </IcButton>
     );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "icon-variants-button-group",
+      name: "tooltip-primary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
+    });
+  });
+
+  it("should render tooltip on an icon button on hover", () => {
+    mount(<IconBtnWithTooltip />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "tooltip-icon",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+
+  it("should render focused text-based primary button", () => {
+    mount(<IcButton style={{ padding: "10px" }}>Test</IcButton>);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focused-primary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
+    });
+  });
+
+  it("should render focused text-based secondary button", () => {
+    mount(
+      <IcButton variant="secondary" style={{ padding: "10px" }}>
+        Test
+      </IcButton>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focused-secondary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
+  });
+
+  it("should render focused text-based tertiary button", () => {
+    mount(
+      <IcButton variant="tertiary" style={{ padding: "10px" }}>
+        Test
+      </IcButton>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focused-tertiary",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.005),
+    });
+  });
+
+  it("should render focused text-based destructive button", () => {
+    mount(
+      <IcButton variant="destructive" style={{ padding: "10px" }}>
+        Test
+      </IcButton>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focused-destructive",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
-  it("renders with icon variant button group", () => {
+  it("should render focused text-based primary button with light appearance", () => {
     mount(
-      <>
-        <IconBtnGroup props={iconProps.iconDefault} />
-        <IconBtnGroup props={iconProps.iconLarge} />
-        <IconBtnGroup props={iconProps.iconSmall} />
-        <IconBtnGroup props={iconProps.iconLoading} />
-        <IconBtnGroup props={iconProps.iconDisabled} />
-        <IconBtnGroup props={iconProps.iconDark} />
-        <IconBtnGroup props={iconProps.iconDarkLoading} />
-        <IconBtnGroup props={iconProps.iconLight} />
-        <IconBtnGroup props={iconProps.iconLightLoading} />
-      </>
+      <div style={DARK_BG_STYLE}>
+        <IcButton appearance="light">Test</IcButton>
+      </div>
     );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
-      name: "icon-variants-button-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
+      name: "focused-primary-light",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),
+    });
+  });
+
+  it("should render focused text-based primary button with dark appearance", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton appearance="dark">Test</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "focused-primary-dark",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render button with custom height and width", () => {
+    mount(<CustomHeightMinWidth />);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "height-width",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+    });
+  });
+});
+
+describe("IcButton visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render text-based primary buttons in high contrast mode", () => {
+    mount(<TextPrimaryButton />);
+
+    cy.compareSnapshot({
+      name: "primary-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+    });
+  });
+
+  it("should render text-based secondary buttons in high contrast mode", () => {
+    mount(<TextSecondaryButton />);
+
+    cy.compareSnapshot({
+      name: "secondary-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
+    });
+  });
+
+  it("should render text-based tertiary buttons in high contrast mode", () => {
+    mount(<TextTertiaryButton />);
+
+    cy.compareSnapshot({
+      name: "tertiary-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
+    });
+  });
+
+  it("should render text-based destructive buttons in high contrast mode", () => {
+    mount(<TextDestructiveButton />);
+
+    cy.compareSnapshot({
+      name: "destructive-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+    });
+  });
+
+  it("should render with-icon buttons in high contrast mode", () => {
+    mount(<WithIcons />);
+
+    cy.compareSnapshot({
+      name: "with-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
+    });
+  });
+
+  it("should render icon variants in high contrast mode", () => {
+    mount(<IconButtonGroup />);
+
+    cy.wait(500).compareSnapshot({
+      name: "icon-variants-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
+    });
+  });
+
+  it("should render expanded dropdown with popover in high contrast mode", () => {
+    mount(<PopoverDropdown />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR).click().wait(1000);
+
+    cy.compareSnapshot({
+      name: "expanded-dropdown-popover-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("should render tooltip on an icon button on hover in high contrast mode", () => {
+    mount(<IconBtnWithTooltip />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .trigger("mouseover");
+
+    cy.compareSnapshot({
+      name: "tooltip-icon-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
+    });
+  });
+
+  it("should render focused text-based primary button in high contrast mode", () => {
+    mount(<IcButton style={{ padding: "10px" }}>Test</IcButton>);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.compareSnapshot({
+      name: "focused-primary-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render focused text-based primary button with light appearance in high contrast mode", () => {
+    mount(
+      <div style={DARK_BG_STYLE}>
+        <IcButton appearance="light">Test</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.compareSnapshot({
+      name: "focused-primary-light-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
+    });
+  });
+
+  it("should render focused text-based primary button with dark appearance in high contrast mode", () => {
+    mount(
+      <div style={{ padding: "10px" }}>
+        <IcButton appearance="dark">Test</IcButton>
+      </div>
+    );
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+    cy.get(IC_BUTTON_SELECTOR)
+      .shadow()
+      .find("button")
+      .focus()
+      .realPress("Enter");
+
+    cy.compareSnapshot({
+      name: "focused-primary-dark-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.004),
     });
   });
 });
