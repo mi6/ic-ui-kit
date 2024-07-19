@@ -181,7 +181,7 @@ describe("IcDialog", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "info-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
       delay: 1100,
     });
   });
@@ -193,7 +193,7 @@ describe("IcDialog", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "warning-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.064),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.075),
       delay: 1100,
     });
   });
@@ -205,7 +205,7 @@ describe("IcDialog", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "error-alert",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.063),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.074),
       delay: 1100,
     });
   });

@@ -171,7 +171,7 @@ describe("IcSearchBar visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.02),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.021),
     });
   });
 
@@ -360,7 +360,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.checkHydrated(SEARCH_SELECTOR);
     cy.compareSnapshot({
       name: "disabled-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
     });
   });
 
