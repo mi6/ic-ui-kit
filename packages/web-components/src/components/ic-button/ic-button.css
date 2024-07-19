@@ -540,6 +540,7 @@
   height: var(--height, 2.5rem);
   width: 2.5rem;
   padding: var(--ic-space-xs);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 /* Width */
