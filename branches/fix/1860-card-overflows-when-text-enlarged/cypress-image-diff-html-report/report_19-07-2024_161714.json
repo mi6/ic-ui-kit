@@ -1,7 +1,7 @@
 {
   "total": 487,
-  "totalPassed": 484,
-  "totalFailed": 3,
+  "totalPassed": 487,
+  "totalFailed": 0,
   "totalSuites": 36,
   "suites": [
     {
@@ -650,14 +650,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-wrapped-anchor.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCard.cy.tsx-render-three",
-          "percentage": 0.19507947098554476,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-render-three.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-render-three.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-render-three.png"
         },
         {
@@ -738,25 +738,25 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-adornment.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCard.cy.tsx-top-image",
-          "percentage": 0.20078844588272504,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-top-image.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-top-image.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-top-image.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCard.cy.tsx-mid-image",
-          "percentage": 0.17509997144488632,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-mid-image.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-mid-image.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-mid-image.png"
         },
         {
@@ -5578,9 +5578,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-18T18:26:33.824Z",
-  "endedAt": "2024-07-18T18:36:24.656Z",
-  "duration": 518643,
+  "startedAt": "2024-07-19T16:17:14.634Z",
+  "endedAt": "2024-07-19T16:26:39.379Z",
+  "duration": 493011,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
