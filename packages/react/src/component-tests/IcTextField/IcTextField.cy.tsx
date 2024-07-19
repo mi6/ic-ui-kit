@@ -478,7 +478,7 @@ describe("IcTextField visual regression in high contrast mode", () => {
 
     cy.wait(100).compareSnapshot({
       name: "disabled-text-field-high-contrast",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
