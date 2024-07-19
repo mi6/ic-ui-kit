@@ -485,16 +485,19 @@
 :host(.button-size-default) .button {
   height: var(--height, 2.5rem);
   padding: var(--ic-space-xs) var(--ic-space-md);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 :host(.button-size-small) .button {
   height: var(--height, var(--ic-space-xl));
   padding: var(--ic-space-xxs) var(--ic-space-md);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 :host(.button-size-large) .button {
   height: var(--height, var(--ic-space-xxl));
   padding: var(--ic-space-sm) var(--ic-space-md);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 :host(.button-size-default.button-variant-icon) .button,
@@ -510,6 +513,7 @@
   height: var(--height, var(--ic-space-xl));
   width: var(--ic-space-xl);
   padding: 0.375rem;
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 :host(.button-size-small.button-variant-icon) .button,
@@ -525,6 +529,7 @@
   height: var(--height, var(--ic-space-lg));
   width: var(--ic-space-lg);
   padding: var(--ic-space-xxs);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 :host(.button-size-large.button-variant-icon) .button,
@@ -540,6 +545,7 @@
   height: var(--height, 2.5rem);
   width: 2.5rem;
   padding: var(--ic-space-xs);
+  display: -webkit-box; /* in safari, this will render the icon on smaller devices */
 }
 
 /* Width */
