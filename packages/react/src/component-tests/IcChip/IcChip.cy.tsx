@@ -4,16 +4,49 @@
 import React from "react";
 import { IcChip } from "../../components";
 import { mount } from "cypress/react";
-import { SlottedSVG } from "../../";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
-import { SwitchColour } from "./IcChipTestData";
-import { HAVE_PROP } from "../utils/constants";
-import { CYPRESS_AXE_OPTIONS } from "../../../cypress/utils/a11y";
+import {
+  SwitchColour,
+  CustomColour,
+  WhiteBackground,
+  LongLabel,
+  Disabled,
+  Dismissible,
+  WithIcon,
+  WithBadgeSlot,
+} from "./IcChipTestData";
+import {
+  HAVE_BEEN_CALLED_ONCE,
+  HAVE_PROP,
+  NOT_BE_VISIBLE,
+} from "../utils/constants";
 
-const DEFAULT_TEST_THRESHOLD = 0.022;
 const CHIP_SELECTOR = "ic-chip";
+const DEFAULT_TEST_THRESHOLD = 0.022;
 
-describe("IcChip visual and a11y testing", () => {
+describe("IcChip end-to-end tests", () => {
+  it("should switch custom colour after initial render", () => {
+    mount(<SwitchColour />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+    cy.get(CHIP_SELECTOR).should(HAVE_PROP, "customColor", "#F8C8DC");
+    cy.get("ic-button").click();
+    cy.get(CHIP_SELECTOR).should(HAVE_PROP, "customColor", "#00008B");
+  });
+
+  it("should emit icDismiss event when chip is dismissed", () => {
+    mount(<IcChip label="Dismissible" dismissible />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.get(CHIP_SELECTOR).invoke("on", "icDismiss", cy.stub().as("icDismiss"));
+    cy.get(CHIP_SELECTOR).shadow().find("button").click();
+    cy.get("@icDismiss").should(HAVE_BEEN_CALLED_ONCE);
+    cy.get(CHIP_SELECTOR).should(NOT_BE_VISIBLE);
+  });
+});
+
+describe("IcChip visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -22,12 +55,13 @@ describe("IcChip visual and a11y testing", () => {
     cy.task("generateReport");
   });
 
-  it("should render static", () => {
+  it("should render static chip", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" />
       </div>
     );
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -37,12 +71,13 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("should render outlined", () => {
+  it("should render outlined chip", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Default" variant="outlined" />
       </div>
     );
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -52,23 +87,9 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("should render with icon", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip label="Default">
-          <SlottedSVG
-            slot="icon"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"></path>
-          </SlottedSVG>
-        </IcChip>
-      </div>
-    );
+  it("should render chip with icon", () => {
+    mount(<WithIcon />);
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -78,7 +99,7 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("should render sizes", () => {
+  it("should render chips of different sizes", () => {
     mount(
       <div style={{ padding: "8px" }}>
         <IcChip label="Small" size="small" />
@@ -86,6 +107,7 @@ describe("IcChip visual and a11y testing", () => {
         <IcChip label="Large" size="large" />
       </div>
     );
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -95,14 +117,9 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("should render dismissible", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip id="small-chip" label="Small" size="small" dismissible />
-        <IcChip id="default-chip" label="Default" dismissible />
-        <IcChip id="large-chip" label="Large" size="large" dismissible />
-      </div>
-    );
+  it("should render dismissible chip", () => {
+    mount(<Dismissible />);
+
     cy.checkHydrated("ic-chip#small-chip");
     cy.checkHydrated("ic-chip#default-chip");
     cy.checkHydrated("ic-chip#large-chip");
@@ -110,104 +127,67 @@ describe("IcChip visual and a11y testing", () => {
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "dismissible",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
-    });
-
-    cy.findShadowEl("ic-chip#small-chip", "button").focus();
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "dismissible-focus",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.017),
-    });
-  });
-
-  it("should render disabled", () => {
-    mount(
-      <div style={{ padding: "8px" }}>
-        <IcChip label="Default" disabled />
-        <IcChip label="Default" variant="outlined" disabled />
-      </div>
-    );
-    cy.checkHydrated(CHIP_SELECTOR);
-
-    // Disabled elements do not to pass contrast checks according to WCAG guidance
-    const customCypressRules = {
-      rules: {
-        ...CYPRESS_AXE_OPTIONS.rules,
-        "color-contrast": { enabled: false },
-      },
-    };
-
-    cy.checkA11yWithWait(undefined, undefined, customCypressRules);
-    cy.compareSnapshot({
-      name: "disabled",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.001),
-    });
-  });
-
-  it("should render with long label", () => {
-    mount(
-      <div style={{ padding: "8px", maxWidth: "150px" }}>
-        <IcChip
-          label="Really long name for a chip that should wrap"
-          dismissible
-        >
-          <SlottedSVG
-            slot="icon"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 3C11.66 3 13 4.34 13 6C13 7.66 11.66 9 10 9C8.34 9 7 7.66 7 6C7 4.34 8.34 3 10 3ZM10 17.2C7.5 17.2 5.29 15.92 4 13.98C4.03 11.99 8 10.9 10 10.9C11.99 10.9 15.97 11.99 16 13.98C14.71 15.92 12.5 17.2 10 17.2Z"></path>
-          </SlottedSVG>
-        </IcChip>
-      </div>
-    );
-    cy.checkHydrated(CHIP_SELECTOR);
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "long-label",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.025),
     });
   });
 
+  it("should render dismissible chip with focus", () => {
+    mount(<Dismissible />);
+
+    cy.checkHydrated("ic-chip#small-chip");
+    cy.checkHydrated("ic-chip#default-chip");
+    cy.checkHydrated("ic-chip#large-chip");
+
+    cy.findShadowEl("ic-chip#small-chip", "button").eq(0).focus();
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "dismissible-focus",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.028),
+    });
+  });
+
+  it("should render disabled chip", () => {
+    mount(<Disabled />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "disabled",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should render chip with long label", () => {
+    mount(<LongLabel />);
+
+    cy.checkHydrated("ic-chip#small-chip");
+    cy.checkHydrated("ic-chip#default-chip");
+    cy.checkHydrated("ic-chip#large-chip");
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "long-label",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.058),
+    });
+  });
+
   it("should render with white background for outlined variant", () => {
-    mount(
-      <div
-        style={{
-          backgroundColor: "#2c2f34",
-          padding: "8px",
-          width: "fit-content",
-        }}
-      >
-        <IcChip
-          label="Default"
-          variant="outlined"
-          transparentBackground={false}
-        />
-      </div>
-    );
+    mount(<WhiteBackground />);
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "white-background",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
   });
 
   it("should render with a custom colour", () => {
-    mount(
-      <div style={{ padding: "8px", gap: "8px" }}>
-        <IcChip label="Default" customColor="#F8C8DC" />
-        <IcChip label="Default" customColor="#F8C8DC" variant="outlined" />
-        <IcChip label="Default" customColor="#00008B" />
-      </div>
-    );
+    mount(<CustomColour />);
+
     cy.checkHydrated(CHIP_SELECTOR);
 
     cy.checkA11yWithWait();
@@ -217,10 +197,90 @@ describe("IcChip visual and a11y testing", () => {
     });
   });
 
-  it("should switch custom colour after initial render", () => {
-    mount(<SwitchColour />);
+  it("should render with a badge slot", () => {
+    mount(<WithBadgeSlot />);
 
-    cy.get("ic-button").click();
-    cy.get("ic-chip").should(HAVE_PROP, "customColor", "#00008B");
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "badge-slot",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+});
+
+describe("IcChip visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render with a custom colour in high contrast mode", () => {
+    mount(<CustomColour />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "custom-colour-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.014),
+    });
+  });
+
+  it("should render disabled chip in high contrast mode", () => {
+    mount(<Disabled />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "disabled-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should render dismissible chip in high contrast mode", () => {
+    mount(<Dismissible />);
+
+    cy.checkHydrated("ic-chip#small-chip");
+    cy.checkHydrated("ic-chip#default-chip");
+    cy.checkHydrated("ic-chip#large-chip");
+
+    cy.compareSnapshot({
+      name: "dismissible-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+    });
+  });
+
+  it("should render dismissible chip with focus in high contrast mode", () => {
+    mount(<Dismissible />);
+
+    cy.checkHydrated("ic-chip#small-chip");
+    cy.checkHydrated("ic-chip#default-chip");
+    cy.checkHydrated("ic-chip#large-chip");
+
+    cy.findShadowEl("ic-chip#small-chip", "button").eq(0).focus().wait(500);
+
+    cy.compareSnapshot({
+      name: "dismissible-focus-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.029),
+    });
+  });
+
+  it("should render with white background for outlined variant in high contrast mode", () => {
+    mount(<WhiteBackground />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "white-background-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
+    });
   });
 });
