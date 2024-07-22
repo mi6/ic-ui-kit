@@ -24,14 +24,15 @@
 
 ### Depends on
 
-- [ic-typography](../ic-typography)
-- [ic-tooltip](../ic-tooltip)
+- [ic-button](../ic-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  ic-back-to-top --> ic-typography
-  ic-back-to-top --> ic-tooltip
+  ic-back-to-top --> ic-button
+  ic-button --> ic-loading-indicator
+  ic-button --> ic-tooltip
+  ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
   style ic-back-to-top fill:#f9f,stroke:#333,stroke-width:4px
 ```
