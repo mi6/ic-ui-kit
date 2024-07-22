@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ic-card-horizontal should render 1`] = `
+<ic-card-horizontal heading="Card" message="This is a static card">
+  <mock:shadow-root>
+    <div class="card medium">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render as a button 1`] = `
+<ic-card-horizontal clickable="true" heading="Card" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <button class="card clickable medium" tabindex="0">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a clickable card rendered as a button
+          </ic-typography>
+        </div>
+      </div>
+    </button>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render as a link 1`] = `
+<ic-card-horizontal clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
+  <mock:shadow-root>
+    <a class="card clickable medium" href="/" hreflang="" tabindex="0">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a clickable card rendered as a button
+          </ic-typography>
+        </div>
+      </div>
+    </a>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render extra large 1`] = `
+<ic-card-horizontal heading="Card" message="This is a static card" size="extra large">
+  <mock:shadow-root>
+    <div class="card extra large">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render large 1`] = `
+<ic-card-horizontal heading="Card" message="This is a static card" size="large">
+  <mock:shadow-root>
+    <div class="card large">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render small 1`] = `
+<ic-card-horizontal heading="Card" message="This is a static card" size="small">
+  <mock:shadow-root>
+    <div class="card small">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a static card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with a link parent 1`] = `
+<ic-card-horizontal clickable="true" heading="Card" message="This is a clickable card">
+  <mock:shadow-root>
+    <div class="card clickable medium">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a clickable card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with a slotted heading and message 1`] = `
+<ic-card-horizontal id="test-card">
+  <mock:shadow-root>
+    <div class="card medium">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography class="ic-typography-h4">
+                <mock:shadow-root>
+                  <slot></slot>
+                </mock:shadow-root>
+                <p></p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <slot name="message"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <ic-typography class="ic-typography-body" slot="heading">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Heading
+  </ic-typography>
+  <ic-typography class="ic-typography-body" slot="message">
+    <mock:shadow-root>
+      <slot></slot>
+    </mock:shadow-root>
+    Message
+  </ic-typography>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with an icon 1`] = `
+<ic-card-horizontal heading="Card" id="test-card" message="This is a card">
+  <mock:shadow-root>
+    <div class="card medium with-icon">
+      <div class="card-content">
+        <div class="card-header">
+          <div class="icon">
+            <slot name="icon"></slot>
+          </div>
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <div slot="icon">
+    Image placeholder
+  </div>
+</ic-card-horizontal>
+`;
+
+exports[`ic-card-horizontal should render with an image 1`] = `
+<ic-card-horizontal heading="Card" id="test-card" message="This is a card">
+  <mock:shadow-root>
+    <div class="card medium with-image">
+      <div class="image">
+        <slot name="image"></slot>
+      </div>
+      <div class="card-content">
+        <div class="card-header">
+          <div class="card-title">
+            <slot name="heading">
+              <ic-typography variant="h4">
+                <p>
+                  Card
+                </p>
+              </ic-typography>
+            </slot>
+          </div>
+        </div>
+        <div class="card-message">
+          <ic-typography variant="body">
+            This is a card
+          </ic-typography>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <div slot="image">
+    Image placeholder
+  </div>
+</ic-card-horizontal>
+`;
