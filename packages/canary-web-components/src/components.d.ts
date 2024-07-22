@@ -5,12 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 import { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 import { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 import { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
 import { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEventDetail, IcSearchBarSearchModes } from "@ukic/web-components/dist/types/components";
 import { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 import { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
+export { IcCardSizes } from "./components/ic-card-horizontal/ic-card-horizontal.types";
 export { IcDataTableColumnObject, IcDataTableDensityOptions, IcDataTableRowHeights, IcDataTableSortOrderOptions, IcDensityUpdateEventDetail } from "./components/ic-data-table/ic-data-table.types";
 export { IcActivationTypes, IcMenuOption, IcThemeForegroundNoDefault } from "@ukic/web-components/dist/types/utils/types";
 export { IcDateFormat, IcInformationStatusOrEmpty, IcPaginationBarOptions, IcSearchMatchPositions, IcSizes, IcValueEventDetail, IcWeekDays } from "./utils/types";
@@ -18,6 +20,52 @@ export { IcMenuChangeEventDetail, IcMenuOptionIdEventDetail, IcOptionSelectEvent
 export { IcPaginationAlignmentOptions, IcPaginationLabelTypes, IcPaginationTypes } from "@ukic/web-components/dist/types/components/ic-pagination/ic-pagination.types";
 export { IcThemeForeground } from "@ukic/web-components/dist/types/interface";
 export namespace Components {
+    interface IcCardHorizontal {
+        /**
+          * If `true`, the horizontal card will be a clickable variant, instead of static.
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the horizontal card will be disabled if it is clickable.
+         */
+        "disabled"?: boolean;
+        /**
+          * The heading for the horizontal card. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The main body message of the horizontal card.
+         */
+        "message"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * Sets focus on the card.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The size of the horizontal card.
+         */
+        "size": IcCardSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+    }
     interface IcDataTable {
         /**
           * The title for the table only visible to screen readers.
@@ -630,6 +678,12 @@ export interface IcSelectWithMultiCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIcSelectWithMultiElement;
 }
 declare global {
+    interface HTMLIcCardHorizontalElement extends Components.IcCardHorizontal, HTMLStencilElement {
+    }
+    var HTMLIcCardHorizontalElement: {
+        prototype: HTMLIcCardHorizontalElement;
+        new (): HTMLIcCardHorizontalElement;
+    };
     interface HTMLIcDataTableElementEventMap {
         "icRowHeightChange": void;
     }
@@ -768,6 +822,7 @@ declare global {
         new (): HTMLIcSelectWithMultiElement;
     };
     interface HTMLElementTagNameMap {
+        "ic-card-horizontal": HTMLIcCardHorizontalElement;
         "ic-data-table": HTMLIcDataTableElement;
         "ic-data-table-title-bar": HTMLIcDataTableTitleBarElement;
         "ic-date-input": HTMLIcDateInputElement;
@@ -778,6 +833,48 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IcCardHorizontal {
+        /**
+          * If `true`, the horizontal card will be a clickable variant, instead of static.
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the horizontal card will be disabled if it is clickable.
+         */
+        "disabled"?: boolean;
+        /**
+          * The heading for the horizontal card. This is required, unless a slotted heading is used.
+         */
+        "heading"?: string;
+        /**
+          * The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an "a" tag, otherwise it will render as a button.
+         */
+        "href"?: string | undefined;
+        /**
+          * The human language of the linked URL.
+         */
+        "hreflang"?: string;
+        /**
+          * The main body message of the horizontal card.
+         */
+        "message"?: string;
+        /**
+          * How much of the referrer to send when following the link.
+         */
+        "referrerpolicy"?: ReferrerPolicy;
+        /**
+          * The relationship of the linked URL as space-separated link types.
+         */
+        "rel"?: string;
+        /**
+          * The size of the horizontal card.
+         */
+        "size"?: IcCardSizes;
+        /**
+          * The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).
+         */
+        "target"?: string;
+    }
     interface IcDataTable {
         /**
           * The title for the table only visible to screen readers.
@@ -1410,6 +1507,7 @@ declare namespace LocalJSX {
         "value"?: string | string[];
     }
     interface IntrinsicElements {
+        "ic-card-horizontal": IcCardHorizontal;
         "ic-data-table": IcDataTable;
         "ic-data-table-title-bar": IcDataTableTitleBar;
         "ic-date-input": IcDateInput;
@@ -1423,6 +1521,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ic-card-horizontal": LocalJSX.IcCardHorizontal & JSXBase.HTMLAttributes<HTMLIcCardHorizontalElement>;
             "ic-data-table": LocalJSX.IcDataTable & JSXBase.HTMLAttributes<HTMLIcDataTableElement>;
             "ic-data-table-title-bar": LocalJSX.IcDataTableTitleBar & JSXBase.HTMLAttributes<HTMLIcDataTableTitleBarElement>;
             "ic-date-input": LocalJSX.IcDateInput & JSXBase.HTMLAttributes<HTMLIcDateInputElement>;
