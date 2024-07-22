@@ -16,9 +16,9 @@
 }
 
 :host(.light) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
 }
 
 :host(.accordion-group.dark) ::slotted(ic-accordion) {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
 }

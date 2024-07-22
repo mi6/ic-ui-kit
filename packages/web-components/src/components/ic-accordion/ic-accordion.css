@@ -5,11 +5,16 @@
   border-bottom: var(--ic-border-default);
 }
 
+:host ic-typography,
+:host .expand-chevron {
+  color: var(--ic-color-primary-text);
+}
+
 :host(.light) ic-typography,
 :host(.light) .expanded-content,
 :host(.light) .icon-container,
 :host(.light) .expand-chevron {
-  color: var(--ic-architectural-white);
+  color: var(--ic-color-white-text);
 }
 
 :host(.disabled) ic-typography,
