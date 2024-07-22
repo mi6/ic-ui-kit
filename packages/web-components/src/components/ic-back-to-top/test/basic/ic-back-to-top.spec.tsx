@@ -2,6 +2,7 @@ import { newSpecPage } from "@stencil/core/testing";
 import { ClassificationBanner } from "../../../ic-classification-banner/ic-classification-banner";
 import { Footer } from "../../../ic-footer/ic-footer";
 import { BackToTop } from "../../ic-back-to-top";
+import { Button } from "../../../ic-button/ic-button";
 
 beforeAll(() => {
   // IntersectionObserver isn't available in test environment
@@ -20,7 +21,7 @@ beforeAll(() => {
 describe("ic-back-to-top", () => {
   it("should render", async () => {
     const page = await newSpecPage({
-      components: [BackToTop],
+      components: [BackToTop, Button],
       html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div>`,
     });
 
@@ -29,17 +30,17 @@ describe("ic-back-to-top", () => {
 
   it("should render with footer", async () => {
     const page = await newSpecPage({
-      components: [BackToTop, Footer],
+      components: [BackToTop, Button, Footer],
       html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div><ic-footer></ic-footer>`,
     });
 
-    expect(page.root).toMatchSnapshot("should render with footer");
+    expect(page.body).toMatchSnapshot("should render with footer");
   });
 
   it("should render with no targetId set", async () => {
     jest.spyOn(console, "error").mockImplementation(jest.fn());
     const page = await newSpecPage({
-      components: [BackToTop],
+      components: [BackToTop, Button],
       html: `<ic-back-to-top></ic-back-to-top>`,
     });
 
@@ -48,7 +49,7 @@ describe("ic-back-to-top", () => {
 
   it("should render when target starts with #", async () => {
     const page = await newSpecPage({
-      components: [BackToTop],
+      components: [BackToTop, Button],
       html: `<div id="topEl"><ic-back-to-top target="#topEl"></ic-back-to-top></div>`,
     });
 
@@ -75,7 +76,7 @@ describe("ic-back-to-top", () => {
 
     expect(page.rootInstance.isTargetElNull).toBe(true);
 
-    page.root.shadowRoot.querySelector("button").click();
+    page.root.shadowRoot.querySelector("ic-button").click();
     expect(page.win.screenX).toBe(0);
     expect(page.win.screenY).toBe(0);
   });
@@ -86,7 +87,7 @@ describe("ic-back-to-top", () => {
       html: `<div id="topEl"><ic-back-to-top target="topEl"></ic-back-to-top></div>`,
     });
 
-    page.root.shadowRoot.querySelector("button").click();
+    page.root.shadowRoot.querySelector("ic-button").click();
     expect(page.rootInstance.targetElVisible).toBe(true);
   });
 
@@ -155,14 +156,9 @@ describe("ic-back-to-top", () => {
 
   it("should render with an icon only", async () => {
     const page = await newSpecPage({
-      components: [BackToTop],
+      components: [BackToTop, Button],
       html: `<div id="topEl"><ic-back-to-top target="topEl" variant="icon"></ic-back-to-top></div>`,
     });
-
-    expect(page.root.shadowRoot.querySelector("button > span")).not.toBeNull();
-    expect(
-      page.root.shadowRoot.querySelector("button > ic-typography")
-    ).toBeNull();
 
     expect(page.root).toMatchSnapshot("should render with an icon only");
   });
