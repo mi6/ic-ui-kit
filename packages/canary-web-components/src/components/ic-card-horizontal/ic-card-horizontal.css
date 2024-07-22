@@ -1,0 +1,212 @@
+@import "../../../dist/core/normalize.css";
+
+/**
+  * @prop --card-horizontal-width: Width of the horizontal card
+  */
+
+:host {
+  display: flex;
+
+  --card-max-width: 548px;
+  --image-size: 114px;
+  --message-max-lines: 2;
+}
+
+.card.small {
+  --card-max-width: 360px;
+}
+
+.card.large {
+  --card-max-width: 720px;
+  --image-size: 142px;
+  --message-max-lines: 3;
+}
+
+.card.extra-large {
+  --card-max-width: 1130px;
+  --image-size: 186px;
+  --message-max-lines: 5;
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--ic-architectural-black) !important;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: var(--ic-hc-focus-outline);
+  padding: 0;
+}
+
+.card,
+.card.clickable {
+  display: flex;
+  flex-direction: row;
+  border: var(--ic-border-default);
+  border-radius: var(--ic-border-radius);
+  box-sizing: border-box;
+  text-align: left;
+  color: var(--ic-architectural-black);
+  transition: var(--ic-easing-transition-fast);
+  position: relative;
+  max-width: var(--card-max-width);
+  height: fit-content;
+  width: var(--card-horizontal-width, fit-content);
+}
+
+.dark.card,
+.dark.card.clickable {
+  border: var(--ic-border-width) solid var(--ic-architectural-700);
+}
+
+.card.clickable:hover {
+  background-color: var(--ic-action-default-bg-hover);
+  border: var(--ic-border-hover);
+  cursor: pointer;
+}
+
+.card.clickable:focus,
+.card.clickable.focussed {
+  background-color: var(--ic-action-default-bg-hover);
+  box-shadow: var(--ic-border-focus);
+  outline: var(--ic-hc-focus-outline);
+  border: var(--ic-border-pressed);
+}
+
+.card.clickable:active {
+  background-color: var(--ic-action-default-bg-active);
+  box-shadow: var(--ic-border-focus);
+}
+
+.card.disabled {
+  border: var(--ic-border-disabled);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding-right: var(--ic-space-xs);
+}
+
+.card.disabled ::slotted(svg) {
+  fill: var(--ic-color-tertiary-text);
+}
+
+.card.clickable .card-title {
+  color: var(--ic-hyperlink);
+  text-decoration: underline;
+  text-decoration-thickness: var(--ic-space-1px);
+}
+
+.card.clickable:hover .card-title,
+.card.clickable:focus .card-title,
+.card.clickable.focussed .card-title {
+  display: inline-block;
+  border-bottom: 0.25rem solid !important;
+  margin-bottom: -0.25rem !important;
+  text-decoration: none;
+}
+
+.card.clickable:active .card-title {
+  text-decoration: none;
+}
+
+.card.disabled .card-title {
+  text-decoration: underline;
+  text-decoration-thickness: var(--ic-space-1px);
+  text-decoration-color: var(--ic-color-tertiary-text);
+  color: var(--ic-color-tertiary-text);
+}
+
+.card-message {
+  margin-top: var(--ic-space-xxxs);
+  align-items: left;
+}
+
+.card.disabled .card-message {
+  color: var(--ic-color-tertiary-text);
+}
+
+.image {
+  display: flex;
+  height: var(--image-size);
+  width: var(--image-size);
+  border-radius: var(--ic-border-radius);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ic-space-md);
+}
+
+.card .card-title ::slotted([slot="heading"]),
+.card .card-title ic-typography p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(var(--card-max-width) - var(--ic-space-xl));
+}
+
+.card.with-icon .card-title ::slotted([slot="heading"]),
+.card.with-icon .card-title ic-typography p {
+  max-width: calc(var(--card-max-width) - (2 * var(--ic-space-xl)));
+}
+
+.card.with-image .card-title ::slotted([slot="heading"]),
+.card.with-image .card-title ic-typography p {
+  max-width: calc(
+    var(--card-max-width) - var(--image-size) - var(--ic-space-xl)
+  );
+}
+
+.card.with-image.with-icon .card-title ::slotted([slot="heading"]),
+.card.with-image.with-icon .card-title ic-typography p {
+  max-width: calc(
+    var(--card-max-width) - var(--image-size) - (2 * var(--ic-space-xl))
+  );
+}
+
+.card .card-message ::slotted([slot="message"]),
+.card .card-message ic-typography {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: var(--message-max-lines, initial);
+  -webkit-line-clamp: var(--message-max-lines, initial);
+  overflow: hidden;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  .card ::slotted(svg) {
+    fill: currentcolor;
+  }
+
+  .card.disabled ::slotted(svg) {
+    fill: GrayText !important;
+  }
+
+  .card.disabled {
+    border-color: GrayText !important;
+  }
+
+  .card.disabled .card-message,
+  .card.disabled .card-title {
+    color: GrayText;
+  }
+}
+
+/* Add back in after storybook has the `color-scheme: light dark` code */
+
+/* @media (prefers-color-scheme: dark) and (not (forced-colors: active)) {
+  ::slotted([slot="icon"]) {
+    fill: var(--ic-architectural-white);
+  }
+} */
