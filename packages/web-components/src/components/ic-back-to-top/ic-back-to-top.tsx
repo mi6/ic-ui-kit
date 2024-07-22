@@ -170,42 +170,28 @@ export class BackToTop {
     this.bannerOffset = banners.length > 0;
   };
 
-  private buildButton = () => {
-    const { bannerOffset, targetElVisible, footerVisible, variant } = this;
+  render() {
+    const { variant, bannerOffset, targetElVisible, footerVisible } = this;
+    const btnVariant = variant === "icon" ? "icon" : "tertiary";
+    const size = variant === "icon" ? "large" : "default";
+    const label = variant === "icon" ? "" : backToTopLabel;
 
     return (
-      <button
+      <ic-button
+        aria-label={backToTopLabel}
+        variant={btnVariant}
+        size={size}
+        onClick={this.handleClick}
         class={{
-          ["ic-back-to-top-link"]: true,
           ["offset-banner"]: bannerOffset,
           ["show"]: !targetElVisible,
           ["by-footer"]: footerVisible,
-          ["positioning"]: variant !== "icon",
           ["icon-only"]: variant === "icon",
         }}
-        aria-label={backToTopLabel}
-        onClick={this.handleClick}
       >
         <span class="ic-back-to-top-icon" innerHTML={ArrowUpward} />
-
-        {this.variant !== "icon" && (
-          <ic-typography variant="subtitle-small">
-            <span>{backToTopLabel}</span>
-          </ic-typography>
-        )}
-      </button>
-    );
-  };
-
-  render() {
-    const { variant, buildButton } = this;
-
-    return variant === "icon" ? (
-      <ic-tooltip label={backToTopLabel} placement="top" class="positioning">
-        {buildButton()}
-      </ic-tooltip>
-    ) : (
-      buildButton()
+        {label}
+      </ic-button>
     );
   }
 }
