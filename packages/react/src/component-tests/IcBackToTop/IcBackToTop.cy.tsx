@@ -19,9 +19,11 @@ describe("IcBackToTop end-to-end tests", () => {
   it("should be hidden when viewport is at the top of the page", () => {
     mount(<BackToTop />);
 
+    cy.checkHydrated("ic-back-to-top");
+
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .should("exist")
       .should(NOT_BE_VISIBLE);
   });
@@ -29,10 +31,9 @@ describe("IcBackToTop end-to-end tests", () => {
   it("should have the correct text", () => {
     mount(<BackToTop />);
 
-    cy.get(BACK_TO_TOP_SELECTOR)
-      .shadow()
-      .find("ic-typography")
-      .should(CONTAIN_TEXT, "Back to top");
+    cy.checkHydrated("ic-back-to-top");
+
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().should(CONTAIN_TEXT, "Back to top");
   });
 
   it("should appear when top is off screen", () => {
@@ -41,7 +42,7 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .wait(500)
       .should(BE_VISIBLE)
       .and(CONTAIN_TEXT, "Back to top");
@@ -53,7 +54,7 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .wait(500)
       .should(BE_VISIBLE)
       .and(NOT_CONTAIN, "Back to top");
@@ -63,7 +64,7 @@ describe("IcBackToTop end-to-end tests", () => {
     mount(<BackToTop />);
 
     cy.scrollTo(0, 100).checkHydrated(BACK_TO_TOP_SELECTOR);
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(BE_VISIBLE);
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("ic-button").should(BE_VISIBLE);
   });
 
   it("should hide and scroll page to top when clicked", () => {
@@ -72,19 +73,28 @@ describe("IcBackToTop end-to-end tests", () => {
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
     cy.get(BACK_TO_TOP_SELECTOR)
       .shadow()
-      .find("button")
+      .find("ic-button")
       .should(BE_VISIBLE)
       .click()
       .wait(500);
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(NOT_BE_VISIBLE);
+    cy.get(BACK_TO_TOP_SELECTOR)
+      .shadow()
+      .find("ic-button")
+      .should(NOT_BE_VISIBLE);
   });
 
   it("should focus component", () => {
     mount(<BackToTop />);
 
     cy.scrollTo("bottom").checkHydrated(BACK_TO_TOP_SELECTOR);
-    cy.wait(500).get(BACK_TO_TOP_SELECTOR).shadow().find("button").focus();
-    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("button").should(HAVE_FOCUS);
+    cy.wait(500)
+      .get(BACK_TO_TOP_SELECTOR)
+      .shadow()
+      .find("ic-button")
+      .shadow()
+      .find("button")
+      .focus();
+    cy.get(BACK_TO_TOP_SELECTOR).shadow().find("ic-button").should(HAVE_FOCUS);
   });
 });
 
