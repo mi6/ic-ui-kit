@@ -8,6 +8,7 @@ import type { JSX } from '@ukic/canary-web-components';
 import { defineCustomElements } from '@ukic/canary-web-components/loader';
 
 defineCustomElements();
+export const IcCardHorizontal = /*@__PURE__*/createReactComponent<JSX.IcCardHorizontal, HTMLIcCardHorizontalElement>('ic-card-horizontal');
 export const IcDataTable = /*@__PURE__*/createReactComponent<JSX.IcDataTable, HTMLIcDataTableElement>('ic-data-table');
 export const IcDataTableTitleBar = /*@__PURE__*/createReactComponent<JSX.IcDataTableTitleBar, HTMLIcDataTableTitleBarElement>('ic-data-table-title-bar');
 export const IcDateInput = /*@__PURE__*/createReactComponent<JSX.IcDateInput, HTMLIcDateInputElement>('ic-date-input');
