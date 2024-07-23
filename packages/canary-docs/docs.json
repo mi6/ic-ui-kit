@@ -1,11 +1,391 @@
 {
-  "timestamp": "2024-06-07T08:35:11",
+  "timestamp": "2024-07-23T14:18:38",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
     "typescriptVersion": "5.2.2"
   },
   "components": [
+    {
+      "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-card-horizontal",
+      "readme": "# ic-horizontal-card\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content will be placed at the top of the horizontal card to the right of the icon."
+        },
+        {
+          "name": "slot",
+          "text": "message - Content will be placed in the main body of the horizontal card."
+        },
+        {
+          "name": "slot",
+          "text": "image - Content will be placed to the left of all other content."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content will be placed to the left of the horizontal card heading."
+        },
+        {
+          "name": "slot",
+          "text": "badge - Badge component overlaying the top right of the horizontal card."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "clickable",
+          "reflectToAttr": false,
+          "docs": "If `true`, the horizontal card will be a clickable variant, instead of static.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the horizontal card will be disabled if it is clickable.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The heading for the horizontal card. This is required, unless a slotted heading is used.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "complexType": {
+            "original": "string | undefined",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL that the clickable horizontal card link points to. If set, the clickable horizontal card will render as an \"a\" tag, otherwise it will render as a button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": false,
+          "docs": "The human language of the linked URL.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "The main body message of the horizontal card.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "referrerpolicy",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "complexType": {
+            "original": "ReferrerPolicy",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "references": {
+              "ReferrerPolicy": {
+                "location": "global",
+                "id": "global::ReferrerPolicy"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "referrerpolicy",
+          "reflectToAttr": false,
+          "docs": "How much of the referrer to send when following the link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "no-referrer",
+              "type": "string"
+            },
+            {
+              "value": "no-referrer-when-downgrade",
+              "type": "string"
+            },
+            {
+              "value": "origin",
+              "type": "string"
+            },
+            {
+              "value": "origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "same-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "unsafe-url",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The relationship of the linked URL as space-separated link types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"extra-large\" | \"large\" | \"medium\" | \"small\"",
+          "complexType": {
+            "original": "IcCardSizes",
+            "resolved": "\"extra-large\" | \"large\" | \"medium\" | \"small\"",
+            "references": {
+              "IcCardSizes": {
+                "location": "import",
+                "path": "./ic-card-horizontal.types",
+                "id": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts::IcCardSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the horizontal card.",
+          "docsTags": [],
+          "default": "\"medium\"",
+          "values": [
+            {
+              "value": "extra-large",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the card.",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": true,
+          "passive": false
+        },
+        {
+          "event": "themeChange",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--card-horizontal-width",
+          "annotation": "prop",
+          "docs": "Width of the horizontal card"
+        }
+      ],
+      "slots": [
+        {
+          "name": "badge",
+          "docs": "Badge component overlaying the top right of the horizontal card."
+        },
+        {
+          "name": "heading",
+          "docs": "Content will be placed at the top of the horizontal card to the right of the icon."
+        },
+        {
+          "name": "icon",
+          "docs": "Content will be placed to the left of the horizontal card heading."
+        },
+        {
+          "name": "image",
+          "docs": "Content will be placed to the left of all other content."
+        },
+        {
+          "name": "message",
+          "docs": "Content will be placed in the main body of the horizontal card."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-card-horizontal": [
+          "ic-typography"
+        ]
+      }
+    },
     {
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
@@ -4219,6 +4599,11 @@
     }
   ],
   "typeLibrary": {
+    "src/components/ic-card-horizontal/ic-card-horizontal.types.ts::IcCardSizes": {
+      "declaration": "export type IcCardSizes = \"small\" | \"medium\" | \"large\" | \"extra-large\";",
+      "docstring": "",
+      "path": "src/components/ic-card-horizontal/ic-card-horizontal.types.ts"
+    },
     "src/components/ic-data-table/ic-data-table.types.tsx::IcDataTableColumnObject": {
       "declaration": "{\n  key: string;\n  title: string;\n  dataType: IcDataTableColumnDataTypes;\n  columnAlignment?: {\n    horizontal?: string;\n    vertical?: string;\n  };\n  cellAlignment?: string;\n  emphasis?: string;\n  colspan?: number;\n  icon?: {\n    icon: string;\n    onAllCells?: boolean;\n    hideOnHeader?: boolean;\n  };\n}",
       "docstring": "",
