@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.19...@ukic/canary-web-components@2.0.0-canary.20) (2024-07-24)
+
+### Bug Fixes
+
+- **canary-web-components:** reword misspelled words ([97ab9e7](https://github.com/mi6/ic-ui-kit/commit/97ab9e7566436f855597115094556f2c7e08ed22))
+
 # [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.18...@ukic/canary-web-components@2.0.0-canary.19) (2024-07-10)
 
 ### Bug Fixes

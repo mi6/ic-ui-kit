@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.24.0...@ukic/web-components@2.25.0) (2024-07-24)
+
+### Bug Fixes
+
+- **web-components:** add CSS to stop card contents overflowing when large text size ([f410e9b](https://github.com/mi6/ic-ui-kit/commit/f410e9b08113edf0ffc777e22f380efc5801f23d))
+- **web-components:** add list role to ic-footer-link and listitem role to ic-footer-link-group ([0c0c980](https://github.com/mi6/ic-ui-kit/commit/0c0c9802646580024854805d463bfa84adcaf3a2)), closes [#1686](https://github.com/mi6/ic-ui-kit/issues/1686)
+- **web-components:** fixes accordion using wrong text color ([d820d0d](https://github.com/mi6/ic-ui-kit/commit/d820d0d40ab05d1c9dcc76229fb4230de1439c50))
+- **web-components:** fixes docs issue ([3994cc1](https://github.com/mi6/ic-ui-kit/commit/3994cc158bf5b52b4f60275170e1245703325c17))
+- **web-components:** fixes issue with tooltip arrow positioning ([3e815c2](https://github.com/mi6/ic-ui-kit/commit/3e815c26bdc782707d289ab9d914b8e8d354f6c5))
+- **web-components:** fixes issues hiding tooltips on buttons ([6c61259](https://github.com/mi6/ic-ui-kit/commit/6c6125954410ab31079d59513f1a2eaf7e3ad132))
+- **web-components:** reword misspelled words ([e296ab5](https://github.com/mi6/ic-ui-kit/commit/e296ab5df937cdcc697238c964ca0138470f1c43))
+- **web-components:** show placeholder even if disabled & update snapshots ([fda5abf](https://github.com/mi6/ic-ui-kit/commit/fda5abf3bee426c420be904bb3921e21cf7966cd))
+- **web-components:** update role on page header to presentation ([097c241](https://github.com/mi6/ic-ui-kit/commit/097c241f169051c529ad73d6c7c67f684a6c2892))
+- **web-components:** update support css so that focus underline appears ([4d38be1](https://github.com/mi6/ic-ui-kit/commit/4d38be1d0f7244cfddd27dff0fb7da9813e1ba3d)), closes [#1869](https://github.com/mi6/ic-ui-kit/issues/1869) [#1910](https://github.com/mi6/ic-ui-kit/issues/1910) [#1855](https://github.com/mi6/ic-ui-kit/issues/1855) [#1861](https://github.com/mi6/ic-ui-kit/issues/1861)
+
+### Features
+
+- **web-components:** add large variant to status tag ([47ac116](https://github.com/mi6/ic-ui-kit/commit/47ac116ab813545217ae8d768d267966b8d7623c))
+- **web-components:** make virtual cursor move when back to top clicked ([0202099](https://github.com/mi6/ic-ui-kit/commit/0202099fec54379497cc694bce74637fde9a2dda))
+
 # [2.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.23.0...@ukic/web-components@2.24.0) (2024-07-10)
 
 ### Bug Fixes

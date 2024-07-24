@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.24.0...@ukic/react@2.25.0) (2024-07-24)
+
+### Bug Fixes
+
+- **react:** adds missing images and updates some thresholds ([b8507e2](https://github.com/mi6/ic-ui-kit/commit/b8507e2e28de06daf8901afdbede519e53291464))
+- **react:** adds test case for hiding tooltip fix ([0fc6361](https://github.com/mi6/ic-ui-kit/commit/0fc6361ecccae201cc8a3fdbcd176cd01c048167))
+- **react:** cypress test update after tooltip change ([7f4d8ee](https://github.com/mi6/ic-ui-kit/commit/7f4d8eeabab5634e788ed3e8472342e9a46dd8ed))
+- **react:** reword misspelled words ([d9cebde](https://github.com/mi6/ic-ui-kit/commit/d9cebde5f6bae151b00f9415a9f4082e441b7c6a))
+
+### Features
+
+- **react:** add buttons to 'Page example' back to top story ([3c9cdfc](https://github.com/mi6/ic-ui-kit/commit/3c9cdfc15a4a6eafffd6d8e8f31eae1d54b28a35))
+- **react:** update card 'Reduced width' story to show increased width as well ([a211e69](https://github.com/mi6/ic-ui-kit/commit/a211e69597e4933331ed1245dcfd8d361f20fa30))
+
 # [2.24.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.23.0...@ukic/react@2.24.0) (2024-07-10)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.3](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.12.2...@ukic/docs@2.12.3) (2024-07-24)
+
+### Bug Fixes
+
+- **docs:** reword wrong word ([09bde07](https://github.com/mi6/ic-ui-kit/commit/09bde076500c005f08f0fcd05f20af3c2ea9226c))
+
 ## [2.12.2](https://github.com/mi6/ic-ui-kit/compare/@ukic/docs@2.12.1...@ukic/docs@2.12.2) (2024-07-10)
 
 **Note:** Version bump only for package @ukic/docs

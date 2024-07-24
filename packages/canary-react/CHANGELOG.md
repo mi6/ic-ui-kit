@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.19...@ukic/canary-react@2.0.0-canary.20) (2024-07-24)
+
+### Bug Fixes
+
+- **canary-react:** reword misspelled words ([cc75949](https://github.com/mi6/ic-ui-kit/commit/cc75949bbf461593cdf0001caaf4adf015aa6bda))
+
 # [2.0.0-canary.19](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.18...@ukic/canary-react@2.0.0-canary.19) (2024-07-10)
 
 ### Bug Fixes
