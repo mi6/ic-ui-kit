@@ -42,7 +42,7 @@ To install the components, no additional configuration is needed for internal sy
 
 ## Developing
 
-This is a monorepo using `lerna`. To get started is simple:
+This is a monorepo using [`lerna`](https://github.com/lerna/lerna). To get started is simple:
 
 ```console
 npm install
