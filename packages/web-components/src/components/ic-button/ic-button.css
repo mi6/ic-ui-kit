@@ -252,7 +252,6 @@
   color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.button-variant-icon) .icon-container {
@@ -291,7 +290,6 @@
   background-color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.button-variant-icon-primary) .icon-container {
@@ -357,7 +355,6 @@
   color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.button-variant-icon-secondary) .icon-container {
@@ -408,7 +405,6 @@
   color: var(--button-default);
   min-width: 0;
   gap: var(--ic-space-xs);
-  margin: var(--ic-space-1px) 0;
 }
 
 :host(.button-variant-icon-tertiary) .icon-container {
