@@ -6,12 +6,14 @@ import {
   State,
   h,
   Method,
+  forceUpdate,
 } from "@stencil/core";
 import {
   onComponentRequiredPropUndefined,
   isSlotUsed,
   getThemeFromContext,
   removeDisabledFalse,
+  checkSlotInChildMutations,
 } from "../../utils/helpers";
 import {
   IcTheme,
@@ -39,6 +41,8 @@ import chevronIcon from "../../assets/chevron-icon.svg";
   shadow: true,
 })
 export class Card {
+  private hostMutationObserver: MutationObserver = null;
+
   @Element() el: HTMLIcCardElement;
 
   @State() appearance?: IcThemeForeground = "default";
@@ -112,6 +116,8 @@ export class Card {
       this.parentEl.removeEventListener("focus", this.parentFocussed);
       this.parentEl.removeEventListener("blur", this.parentBlurred);
     }
+
+    this.hostMutationObserver?.disconnect();
   }
 
   componentWillLoad(): void {
@@ -134,6 +140,11 @@ export class Card {
         "Card"
       );
     this.updateTheme();
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
 
   @Listen("click", { capture: true })
@@ -179,6 +190,28 @@ export class Card {
 
   private toggleExpanded = (): void => {
     this.areaExpanded = !this.areaExpanded;
+  };
+
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    if (
+      mutationList.some(({ type, addedNodes, removedNodes }) =>
+        type === "childList"
+          ? checkSlotInChildMutations(addedNodes, removedNodes, [
+              "message",
+              "adornment",
+              "expanded-content",
+              "image-top",
+              "image-mid",
+              "icon",
+              "interaction-button",
+              "badge",
+              "interaction-controls",
+            ])
+          : false
+      )
+    ) {
+      forceUpdate(this);
+    }
   };
 
   render() {

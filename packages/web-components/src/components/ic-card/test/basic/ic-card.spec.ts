@@ -203,4 +203,31 @@ describe("ic-card", () => {
     //Can't expect anything in this test - this is to increase code coverage only
     await page.rootInstance.setFocus().toHaveBeenCalled;
   });
+
+  it("should test rendering slotted after initial render", async () => {
+    const page = await newSpecPage({
+      components: [Card],
+      html: `<ic-card heading="Card" message="This is a static card"></ic-card>`,
+    });
+
+    const icon = document.createElement("svg");
+    icon.setAttribute("slot", "icon");
+
+    const imageMid = document.createElement("svg");
+    imageMid.setAttribute("slot", "image-mid");
+
+    const imageTop = document.createElement("svg");
+    imageTop.setAttribute("slot", "image-top");
+
+    const button = document.createElement("button");
+    button.setAttribute("slot", "interaction-button");
+
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [icon, imageMid, imageTop, button],
+        removedNodes: [],
+      },
+    ]);
+  });
 });
