@@ -67,6 +67,7 @@ export const defaultArgs = {
   secondarySubheading: "This is a secondary description.",
   size: "default",
   subheading: "Hero description. This is a Hero component, it should be used as a page heading.",
+  showSecondary: false,
 };
 
 <Canvas>
@@ -107,6 +108,13 @@ export const defaultArgs = {
           <IcButton variant="secondary" slot="interaction">
             Button
           </IcButton>
+          {args.showSecondary && (
+            <IcCard
+              heading="Latest announcement"
+              message="This is some example text that can be included in the card copy."
+              slot="secondary"
+            />
+          )}
         </IcHero>
     )}
   </Story>
