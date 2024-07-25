@@ -335,8 +335,8 @@ export const defaultArgs = {
   heading: "This is the heading",
   imageSize: "default",
   subheading: "This is the subheading",
-  imageSlot: "image",
-  actionsSlot: "actions",
+  showImage: false,
+  showActions: false,
 };
 
 <Canvas>
@@ -356,18 +356,6 @@ export const defaultArgs = {
           type: "radio",
         },
       },
-      imageSlot: {
-        options: ["image", ""],
-        control: {
-          type: "select",
-        },
-      },
-      actionsSlot: {
-        options: ["actions", ""],
-        control: {
-          type: "select",
-        },
-      },
     }}
     name="Playground"
   >
@@ -380,8 +368,9 @@ export const defaultArgs = {
         bodyMaxLines={args.bodyMaxLines}
         aligned={args.aligned}
       >
+      {args.showImage && (
         <svg
-          slot={args.imageSlot}
+          slot="image"
           height="326px"
           width="326px"
           xmlns="http://www.w3.org/2000/svg"
@@ -401,8 +390,13 @@ export const defaultArgs = {
           <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
           <polygon fill="#880088" points="943 900 1210 900 971 687" />
         </svg>
-        <IcButton slot={args.actionsSlot}>Action</IcButton>
-        <IcLink href="/" slot={args.actionsSlot}>Standalone link</IcLink>
+      )}
+      {args.showActions && (
+        <div slot="actions" style={{ display: "flex", flexDirection: "column"}}>
+          <IcButton>Action</IcButton>
+          <IcLink href="/">Standalone link</IcLink>
+        </div>
+      )}
       </IcEmptyState>
     )}
   </Story>
