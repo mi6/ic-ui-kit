@@ -2560,6 +2560,15 @@ describe("IcDatePickers", () => {
       name: "days-outside-month-hidden",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
     });
+
+    cy.get(DATE_PICKER)
+      .invoke("prop", "startOfWeek", "4")
+      .then(() => {
+        cy.wait(SCREENSHOT_DELAY).compareSnapshot({
+          name: "start-of-week",
+          testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
+        });
+      });
   });
 
   it("should test 'min' and 'max' props", () => {
