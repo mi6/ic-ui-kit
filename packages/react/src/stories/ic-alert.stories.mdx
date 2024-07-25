@@ -18,6 +18,7 @@ export const defaultArgs = {
   message: "Message",
   titleAbove: false,
   variant: "neutral",
+  showAction: false,
 };
 
 ### Variants
@@ -185,6 +186,11 @@ export const defaultArgs = {
         message={args.message}
         titleAbove={args.titleAbove}
       >
+        {args.showAction && (
+          <IcButton slot="action" variant="secondary">
+            Button
+          </IcButton>
+        )}
       </IcAlert>
     )}
   </Story>
