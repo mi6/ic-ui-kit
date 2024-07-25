@@ -97,4 +97,22 @@ describe("ic-hero component", () => {
 
     expect(page.rootInstance.foregroundColor).toBe("dark");
   });
+
+  it("should test rendering secondary slot after initial render", async () => {
+    const page = await newSpecPage({
+      components: [Hero],
+      html: `<ic-hero heading="Test title" subheading="Test text"></ic-hero>`,
+    });
+
+    const icon = document.createElement("svg");
+    icon.setAttribute("slot", "secondary");
+
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [icon],
+        removedNodes: [],
+      },
+    ]);
+  });
 });

@@ -196,4 +196,22 @@ describe("ic-alert component", () => {
 
     expect(alert).toBeNull();
   });
+
+  it("should test rendering an action after initial render", async () => {
+    const page = await newSpecPage({
+      components: [Alert],
+      html: `<ic-alert heading="Test heading"></ic-alert>`,
+    });
+
+    const action = document.createElement("button");
+    action.setAttribute("slot", "action");
+
+    page.rootInstance.hostMutationCallback([
+      {
+        type: "childList",
+        addedNodes: [action],
+        removedNodes: [],
+      },
+    ]);
+  });
 });
