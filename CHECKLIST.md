@@ -285,3 +285,9 @@ When testing any changes, it's still important to check each Storybook for any f
 In a controlled component, state handles all the form data. Whereas, in an uncontrolled component, the HTML form element data is managed by only the DOM.
 
 To test this functionality, each input component should have a working useState example (to cover controlled components) and a useRef example (to cover uncontrolled components) in both the React storybook and also Cypress tests.
+
+### Props/slots can be updated after initial render
+
+It's important to test that props and slots can be updated after the initial render without loss of content functionality, or with any styling errors. 
+
+To test this functionality, update each prop/slot on the component in the props playground and ensure it makes the changes correctly. 
