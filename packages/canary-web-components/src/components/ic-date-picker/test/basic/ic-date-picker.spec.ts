@@ -1429,4 +1429,38 @@ describe("ic-date-picker", () => {
 
     expect(page.rootInstance.yearButtonFocussed).toBe(false);
   });
+
+  it("should test change of startOfWeek", async () => {
+    const page = await newSpecPage({
+      components: [DatePicker, DateInput, Button, Tooltip],
+      html: `<ic-date-picker label="Date picker label" open-at-date="23/12/2022"></ic-date-picker>`,
+    });
+    page.rootInstance.calendarOpen = true;
+
+    await page.waitForChanges();
+    await waitForTimeout(DELAY_MS);
+
+    expect(page.rootInstance.orderedDaysOfWeek).toEqual([
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun",
+    ]);
+
+    page.root.startOfWeek = 4;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.orderedDaysOfWeek).toEqual([
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+    ]);
+  });
 });
