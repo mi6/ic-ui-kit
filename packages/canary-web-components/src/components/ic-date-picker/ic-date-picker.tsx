@@ -265,6 +265,16 @@ export class DatePicker {
    */
   @Prop() startOfWeek?: IcWeekDays = IcWeekDays.Monday;
 
+  @Watch("startOfWeek")
+  watchStartOfWeekHandler(): void {
+    this.orderedDaysOfWeek = this.daysOfWeek
+      .slice(this.startOfWeek)
+      .concat(this.daysOfWeek.slice(0, this.startOfWeek));
+    if (this.calendarOpen) {
+      this.updateMonthInView();
+    }
+  }
+
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'. This will override the built-in date validation.
    */
@@ -387,10 +397,8 @@ export class DatePicker {
 
     this.monthNames = stringEnumToArray(IcDateInputMonths);
     this.daysOfWeek = stringEnumToArray(IcShortDayNames);
-    this.orderedDaysOfWeek = this.daysOfWeek
-      .splice(this.startOfWeek, this.daysOfWeek.length)
-      .concat(this.daysOfWeek.splice(0, this.startOfWeek));
 
+    this.watchStartOfWeekHandler();
     this.watchMaxHandler();
     this.watchMinHandler();
   }
