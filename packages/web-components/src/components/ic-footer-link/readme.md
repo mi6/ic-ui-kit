@@ -17,6 +17,19 @@
 | `target`         | `target`         | The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe). | `string`                                                                                                                                                                                 | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ic-link](../ic-link)
+
+### Graph
+```mermaid
+graph TD;
+  ic-footer-link --> ic-link
+  style ic-footer-link fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

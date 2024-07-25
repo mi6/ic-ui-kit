@@ -8,7 +8,7 @@
 
 :host(.ic-footer-sparse) {
   --footer-links-padding: 1.5rem 0;
-  --footer-logo-margin-bottom: var(--ic-space-lg);
+  --footer-logo-margin-bottom: calc(var(--ic-space-md) + var(--ic-space-xxs));
   --footer-link-inner-flex-direction: row;
 }
 
