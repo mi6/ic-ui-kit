@@ -647,9 +647,13 @@ export const capitalize = (text: string): string =>
 export const checkSlotInChildMutations = (
   addedNodes: NodeList,
   removedNodes: NodeList,
-  slotName: string
+  slotName: string | string[]
 ): boolean => {
   const hasSlot = (nodeList: NodeList) =>
-    Array.from(nodeList).some((node) => (node as Element).slot === slotName);
+    Array.from(nodeList).some((node) =>
+      Array.isArray(slotName)
+        ? slotName.some((name) => (node as Element).slot === name)
+        : (node as Element).slot === slotName
+    );
   return hasSlot(addedNodes) || hasSlot(removedNodes);
 };

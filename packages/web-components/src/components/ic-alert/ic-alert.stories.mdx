@@ -20,6 +20,7 @@ export const defaultArgs = {
   message: "Message",
   titleAbove: false,
   variant: "neutral",
+  showAction: false,
 };
 
 ### Variants
@@ -215,7 +216,10 @@ export const defaultArgs = {
         heading=${args.heading}
         message=${args.message}
         title-above=${args.titleAbove}
-      ></ic-alert>`
+      >
+        ${args.showAction &&
+        html`<ic-button slot="action" variant="secondary">Button</ic-button>`}
+      </ic-alert>`
     }
   </Story>
 </Canvas>
