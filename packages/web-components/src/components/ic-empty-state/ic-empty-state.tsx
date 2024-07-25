@@ -1,9 +1,10 @@
-import { h, Component, Host, Prop, Element } from "@stencil/core";
+import { h, Component, Host, Prop, Element, forceUpdate } from "@stencil/core";
 
 import { IcEmptyStateAlignment } from "./ic-empty-state.types";
 import {
   isSlotUsed,
   onComponentRequiredPropUndefined,
+  checkSlotInChildMutations,
 } from "../../utils/helpers";
 import { IcSizes } from "../../utils/types";
 
@@ -20,6 +21,8 @@ import { IcSizes } from "../../utils/types";
   shadow: true,
 })
 export class EmptyState {
+  private hostMutationObserver: MutationObserver = null;
+
   @Element() el: HTMLIcEmptyStateElement;
 
   /**
@@ -52,13 +55,37 @@ export class EmptyState {
    */
   @Prop() subheading?: string;
 
+  disconnectedCallback(): void {
+    this.hostMutationObserver?.disconnect();
+  }
+
   componentDidLoad(): void {
     !isSlotUsed(this.el, "heading") &&
       onComponentRequiredPropUndefined(
         [{ prop: this.heading, propName: "heading" }],
         "Empty State"
       );
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
+
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    if (
+      mutationList.some(({ type, addedNodes, removedNodes }) =>
+        type === "childList"
+          ? checkSlotInChildMutations(addedNodes, removedNodes, [
+              "image",
+              "actions",
+            ])
+          : false
+      )
+    ) {
+      forceUpdate(this);
+    }
+  };
 
   render() {
     const { aligned, body, bodyMaxLines, heading, imageSize, subheading } =

@@ -6,6 +6,7 @@ import {
   h,
   State,
   Listen,
+  forceUpdate,
 } from "@stencil/core";
 import {
   IcAlignment,
@@ -20,6 +21,7 @@ import {
   onComponentRequiredPropUndefined,
   isPropDefined,
   isSlotUsed,
+  checkSlotInChildMutations,
 } from "../../utils/helpers";
 import { IcHeroContentAlignments } from "./ic-hero.types";
 
@@ -36,6 +38,8 @@ import { IcHeroContentAlignments } from "./ic-hero.types";
   shadow: true,
 })
 export class Hero {
+  private hostMutationObserver: MutationObserver = null;
+
   @Element() el: HTMLIcHeroElement;
 
   @State() foregroundColor: IcThemeForeground = getThemeForegroundColor();
@@ -95,6 +99,10 @@ export class Hero {
    */
   @Prop() subheading?: string;
 
+  disconnectedCallback(): void {
+    this.hostMutationObserver?.disconnect();
+  }
+
   componentWillLoad(): void {
     this.rightContent = slotHasContent(this.el, "secondary");
   }
@@ -105,6 +113,11 @@ export class Hero {
         [{ prop: this.heading, propName: "heading" }],
         "Hero"
       );
+
+    this.hostMutationObserver = new MutationObserver(this.hostMutationCallback);
+    this.hostMutationObserver.observe(this.el, {
+      childList: true,
+    });
   }
 
   componentWillRender(): void {
@@ -128,6 +141,18 @@ export class Hero {
     const y = -100 + scrolltotop * factor;
     this.scrollFactor = "right " + y + "px";
   }
+
+  private hostMutationCallback = (mutationList: MutationRecord[]): void => {
+    if (
+      mutationList.some(({ type, addedNodes, removedNodes }) =>
+        type === "childList"
+          ? checkSlotInChildMutations(addedNodes, removedNodes, "secondary")
+          : false
+      )
+    ) {
+      forceUpdate(this);
+    }
+  };
 
   render() {
     const {
