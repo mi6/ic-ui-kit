@@ -100,6 +100,9 @@ yarn run storybook
    - Click on `Compare & pull request`.
    - Set the base to be the original repository's `develop` branch and the host to be your `forked branch`.
    - Click on `Create pull request`.
+10. Workflows aren't automatically added to your forked repo, so to run any of the workflows you'll need to:
+   - Navigate to the actions tab in your forked repo.
+   - Click on `I understand my workflows, go ahead and enable them`
 
 ### Documentation
 
@@ -406,6 +409,44 @@ Below is an example of a visual regression test within an integration test.
     });
   });
 ```
+
+#### Generating/updating Cypress screenshots
+
+Follow these steps when generating new Cypress screenshots or making an update to existing Cypress screenshots:
+
+1. Open up the 'cypress-image-diff-screenshots' directory within the React/Canary React package
+   - If new Cypress screenshots are being generated there should be no legacy screenshots and you can move onto step 2.
+   - If updates are being made to existing screenshots, please delete the individual legacy screenshots from the baseline directory.
+2. Push up the tests, and Cypress screenshot deletions, to GitHub.
+3. Go to the Actions tab within the GitHub UI and select 'Update Cypress visual regression test images'. This action is set to be run manually. In order to trigger it, select 'Run workflow' in the top right. Select your branch and press 'Run workflow'.
+   - The action will run the Cypress tests in a headless browser, and generate snapshots based on how the components are rendered on Electron within the CI environment. 
+   - When complete, the action will commit the new screenshots to the branch with the subject 'feat(scope): update Cypress visual regression test baseline images'.
+4. Within your IDE, run `git fetch --all`  to retrieve the latest updates from the remote. 
+5. Run `git reset --hard <remote>/<branch>`  to pull the latest commits, which include the CI generated commit, locally.
+6. Run `git reset --soft HEAD^1`  which will go back a commit and move all the newly generated images into staged. 
+7. Run `npm run cypress:open` within the React/Canary React package to open up the Cypress dialog.
+8. Run the tests for the Cypress screenshots that were just generated.
+   - There should be multiple screenshot failures appearing. This is due to the screenshot on the CI not matching how the component is rendered locally.
+   - Once all the tests have run, a 'cypress-image-diff-html-report' will be generated at the root level of the React/Canary React package which will contain a HTML file. 
+   - Open the file to view the actual threshold required to make the visual regression tests pass locally.
+9. To start amending the threshold, import `setThresholdBasedOnEnv` from the core React package.
+   - From the React package, import the function using:
+   `import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers"; `
+   - From the Canary React package, import the function using:
+   `import { setThresholdBasedOnEnv } from "../../../../react/cypress/utils/helpers"; `
+   - `setThresholdBasedOnEnv`  will revert the threshold back to 0 when the tests are run on the CI but will use the threshold set when running the tests locally.
+10. Amend the `cy.compareSnapshot()` command so that the `testThreshold` number is 1 above the actual percentage from the HTML report.
+    - If the actual percentage was 2.0%, update the command to:
+    ```tsx
+    cy.compareSnapshot({
+        name: "default", 
+        testThreshold: setThresholdBasedOnEnv(0.021)
+    });
+    ```
+11. Once all the tests have been amended, run `npm run cypress:open` to open up the Cypress dialog again.
+   - Run the tests with the updated thresholds and they should all pass.
+12. Commit the updates and push up. 
+
 
 ### Testing best practice
 
