@@ -52,7 +52,7 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "lint-cypress": "lerna run lint:cypress --scope=@ukic/react",
-    "lint:spelling": "cspell --fail-fast --no-must-find-files \"**/*.*\"",
+    "lint:spelling": "cspell --gitignore --no-must-find-files \"**/*.*\"",
     "static-analysis": "npm run lint && npm run prettier && npm run audit",
     "audit:fix": "lerna-audit"
   },

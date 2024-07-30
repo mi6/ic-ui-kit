@@ -65,6 +65,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Lint grammar
+        run: npm run lint:spelling
+
       - name: Prettier
         run: npm run prettier
 
