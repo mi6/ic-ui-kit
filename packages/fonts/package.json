@@ -3,7 +3,7 @@
   "version": "2.6.0",
   "description": "Typography assets for @ukic components",
   "scripts": {
-    "build": "rimraf ./dist && webpack --config webpack.config.js",
+    "build": "rimraf ./dist && webpack --config .webpack/webpack.config.js",
     "audit": "echo 'Audit for: @ukic/fonts' && audit-ci -m --config ../../audit-ci.json"
   },
   "license": "MIT",
