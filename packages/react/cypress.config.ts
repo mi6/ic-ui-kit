@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from "cypress";
+import webpackConfig from "./.webpack/webpack.config";
 
 export const config: Cypress.ConfigOptions = {
   component: {
     devServer: {
       framework: "react",
       bundler: "webpack",
+      webpackConfig
     },
     fixturesFolder: "./src/component-tests",
     setupNodeEvents(on, config) {
