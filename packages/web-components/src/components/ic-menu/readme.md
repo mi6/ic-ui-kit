@@ -20,7 +20,6 @@
 | `options` _(required)_    | --                | The possible menu selection options.                                                                                                            | `IcMenuOption[]`                  | `undefined`    |
 | `searchMode`              | `search-mode`     | Specify the mode search bar uses to search. `navigation` allows for quick lookups of a set of values, `query` allows for more general searches. | `"navigation" \| "query"`         | `"navigation"` |
 | `size`                    | `size`            | The size of the menu component.                                                                                                                 | `"default" \| "large" \| "small"` | `"default"`    |
-| `small`                   | `small`           | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/>             | `boolean`                         | `false`        |
 | `value` _(required)_      | `value`           | The value of the currently selected option.                                                                                                     | `string`                          | `undefined`    |
 | `valueField`              | `value-field`     | The custom name for the value field for IcMenuOption.                                                                                           | `string`                          | `"value"`      |
 
