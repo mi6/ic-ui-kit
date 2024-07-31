@@ -97,7 +97,6 @@ export class Alert {
   }
 
   private dismissAction = (): void => {
-    this.dismiss.emit();
     this.icDismiss.emit();
   };
 
