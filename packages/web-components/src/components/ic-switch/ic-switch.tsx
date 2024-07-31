@@ -87,11 +87,6 @@ export class Switch {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The value of the toggle does not mean if it's checked or not, use the `checked`
    * property for that.
    *
@@ -166,7 +161,6 @@ export class Switch {
     const {
       label,
       checkedState,
-      small,
       size,
       disabled,
       name,
@@ -191,7 +185,7 @@ export class Switch {
           class={{
             ["ic-switch-container"]: true,
             ["ic-switch-disabled"]: disabled,
-            ["ic-switch-small"]: small || size === "small",
+            ["ic-switch-small"]: size === "small",
           }}
           htmlFor={inputId}
         >
@@ -204,7 +198,7 @@ export class Switch {
               disabled={disabled}
               class={{
                 ["ic-switch-label"]: true,
-                ["ic-switch-label-small"]: small || size === "small",
+                ["ic-switch-label-small"]: size === "small",
               }}
             ></ic-input-label>
           )}
@@ -235,9 +229,9 @@ export class Switch {
               <line
                 class="ic-switch-icon-line"
                 x1="9"
-                y1={small || size === "small" ? "2" : "1"}
+                y1={size === "small" ? "2" : "1"}
                 x2="9"
-                y2={small || size === "small" ? "8" : "9"}
+                y2={size === "small" ? "8" : "9"}
               />
             </svg>
             <svg
@@ -252,7 +246,7 @@ export class Switch {
                 fill="none"
                 cx="5"
                 cy="5"
-                r={small || size === "small" ? "3.335" : "4.445"}
+                r={size === "small" ? "3.335" : "4.445"}
               />
             </svg>
           </span>
