@@ -32,7 +32,7 @@ describe("ic-switch component", () => {
   it("should render small", async () => {
     const page = await newSpecPage({
       components: [Switch],
-      html: `<ic-switch label="Custom title" checked=true small></ic-switch>`,
+      html: `<ic-switch label="Custom title" checked=true size="small"></ic-switch>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-small");

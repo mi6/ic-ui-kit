@@ -37,7 +37,6 @@ import arrowDropdown from "../../assets/arrow-dropdown.svg";
 let buttonIds = 0;
 
 /**
- * @slot icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead.
  * @slot left-icon - Content will be placed to the left of the button label.
  * @slot right-icon - Content will be placed to the right of the button label.
  * @slot top-icon - Content will be placed above the button label.
@@ -509,11 +508,6 @@ export class Button {
           aria-describedby={describedby}
           part="button"
         >
-          {this.hasIconSlot() && !this.loading && (
-            <div class="icon-container">
-              <slot name="icon" />
-            </div>
-          )}
           {this.hasIconSlot("left") && !this.loading && (
             <div class="icon-container">
               <slot name="left-icon" />
