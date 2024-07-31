@@ -67,7 +67,7 @@ exports[`ic-switch component should render disabled: renders-disabled 1`] = `
 `;
 
 exports[`ic-switch component should render small: renders-small 1`] = `
-<ic-switch checked="true" label="Custom title" small="">
+<ic-switch checked="true" label="Custom title" size="small">
   <mock:shadow-root>
     <label class="ic-switch-container ic-switch-small" htmlfor="ic-switch-input-3">
       <ic-input-label class="ic-switch-label ic-switch-label-small" for="ic-switch-input-3" helpertext="" label="Custom title" readonly=""></ic-input-label>
