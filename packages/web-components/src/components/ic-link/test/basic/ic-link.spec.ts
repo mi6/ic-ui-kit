@@ -147,16 +147,16 @@ describe("ic-link component", () => {
     `);
   });
 
-  it("should render an 'open in new' icon when 'show-icon' is provided", async () => {
+  it("should render an 'open in new' icon when target is blank", async () => {
     const page = await newSpecPage({
       components: [Link],
-      html: `<ic-link show-icon>IC Link Test</ic-link>`,
+      html: `<ic-link target="_blank">IC Link Test</ic-link>`,
     });
 
     expect(page.root)
-      .toEqualHtml(`<ic-link class="ic-link-default ic-link" show-icon>
+      .toEqualHtml(`<ic-link class="ic-link-default ic-link" target="_blank">
     <mock:shadow-root>
-        <a tabindex="-1">
+        <a tabindex="-1" target="_blank">
           <slot></slot>
           <span class="ic-link-open-in-new-icon">
             svg
