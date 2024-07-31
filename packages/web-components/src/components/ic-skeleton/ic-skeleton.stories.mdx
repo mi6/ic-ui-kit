@@ -105,13 +105,17 @@ import IcTypography from "../ic-typography/readme.md";
 
 <Canvas>
   <Story name="Light" parameters={{ loki: { skip: true } }}>
-    {html` <ic-skeleton variant="circle" height="20" light="true"></ic-skeleton>
+    {html` <ic-skeleton
+        variant="circle"
+        height="20"
+        appearance="light"
+      ></ic-skeleton>
       <div style="height:8px"></div>
       <ic-typography variant="caption"
-        ><ic-skeleton variant="text" light="true"
+        ><ic-skeleton variant="text" appearance="light"
       /></ic-typography>
       <div style="height:8px"></div>
-      <ic-skeleton light="true"></ic-skeleton>`}
+      <ic-skeleton appearance="light"></ic-skeleton>`}
   </Story>
 </Canvas>
 
