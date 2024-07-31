@@ -60,11 +60,6 @@ export class Alert {
   @Prop() variant?: IcStatusVariants = "neutral";
 
   /**
-   * @deprecated This event should not be used anymore. Use icDismiss instead.
-   */
-  @Event() dismiss: EventEmitter<void>;
-
-  /**
    * Is emitted when the user dismisses the alert.
    */
   @Event() icDismiss: EventEmitter<void>;
@@ -79,7 +74,6 @@ export class Alert {
   }
 
   private dismissAction = (): void => {
-    this.dismiss.emit();
     this.icDismiss.emit();
   };
 

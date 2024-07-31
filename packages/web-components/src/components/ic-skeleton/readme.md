@@ -8,11 +8,10 @@ representing so that any changes, such as the real element replacing the skeleto
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                                                                               | Type                                | Default       |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------- |
-| `appearance` | `appearance` | The appearance of the skeleton.                                                                                                           | `"default" \| "light"`              | `"default"`   |
-| `light`      | `light`      | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `appearance` to "light" instead.<br/><br/> | `boolean`                           | `false`       |
-| `variant`    | `variant`    | The variant of the skeleton that will be displayed.                                                                                       | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
+| Property     | Attribute    | Description                                         | Type                                | Default       |
+| ------------ | ------------ | --------------------------------------------------- | ----------------------------------- | ------------- |
+| `appearance` | `appearance` | The appearance of the skeleton.                     | `"default" \| "light"`              | `"default"`   |
+| `variant`    | `variant`    | The variant of the skeleton that will be displayed. | `"circle" \| "rectangle" \| "text"` | `"rectangle"` |
 
 
 ----------------------------------------------

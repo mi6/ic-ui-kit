@@ -39,7 +39,7 @@ import readme from "./readme.md";
     name="With icon"
     parameters={{ layout: "fullscreen", loki: { skip: true } }}
   >
-    {html`<ic-link href="/" show-icon>This is a link</ic-link>`}
+    {html`<ic-link href="/" target="_blank">This is a link</ic-link>`}
   </Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ import readme from "./readme.md";
     name="Light"
     parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
   >
-    {html` <ic-link href="/" appearance="light" show-icon
+    {html` <ic-link href="/" appearance="light" target="_blank"
       >This is a link</ic-link
     >`}
   </Story>
