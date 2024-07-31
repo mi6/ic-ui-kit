@@ -20,29 +20,6 @@
 | `visible`         | `visible`          | If `true`, the badge will be displayed.                                                                                                                                                 | `boolean`                                                                         | `true`      |
 
 
-## Methods
-
-### `hideBadge() => Promise<void>`
-
-<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use visible prop to set badge visibility.<br/><br/>
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `showBadge() => Promise<void>`
-
-<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use visible prop to set badge visibility.<br/><br/>
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ## Slots
 
 | Slot           | Description                                                    |
