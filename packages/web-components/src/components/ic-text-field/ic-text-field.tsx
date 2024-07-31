@@ -221,11 +221,6 @@ export class TextField {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * If `true`, the value of the text field will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
@@ -460,7 +455,6 @@ export class TextField {
       label,
       required,
       size,
-      small,
       placeholder,
       helperText,
       hideCharCount,
@@ -565,7 +559,7 @@ export class TextField {
           )}
 
           <ic-input-component-container
-            size={small ? "small" : size}
+            size={size}
             validationStatus={currentStatus}
             multiLine={multiline}
             disabled={disabledMode}
