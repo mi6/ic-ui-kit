@@ -92,11 +92,6 @@ export class RadioGroup {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
@@ -322,7 +317,7 @@ export class RadioGroup {
     return (
       <Host
         onKeyDown={handleKeyDown}
-        class={{ "ic-radio-group-small": this.small || size === "small" }}
+        class={{ "ic-radio-group-small": size === "small" }}
       >
         <div
           role="radiogroup"
