@@ -1550,30 +1550,6 @@ describe("IcSelect", () => {
     });
   });
 
-  it("should render small - deprecated", () => {
-    mount(
-      <IcSelect
-        label="What is your favourite coffee?"
-        options={coffeeOptions}
-        small
-      />
-    );
-
-    cy.checkHydrated("ic-select");
-
-    cy.compareSnapshot({
-      name: "small-deprecated",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.002),
-    });
-
-    cy.clickOnShadowEl("ic-select", IC_INPUT_CONTAINER).wait(200);
-
-    cy.compareSnapshot({
-      name: "small-deprecated-open",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),
-    });
-  });
-
   it("should render full width", () => {
     mount(
       <IcSelect
