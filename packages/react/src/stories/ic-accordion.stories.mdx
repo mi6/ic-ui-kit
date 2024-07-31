@@ -417,7 +417,7 @@ export const PopoverMenu = () => {
 export const Dialog = () => {
   const dialogEl = useRef();
   const showDialog = () => {
-    dialogEl.current.showDialog();
+    dialogEl.current.open = true;
   };
   return (
     <>
