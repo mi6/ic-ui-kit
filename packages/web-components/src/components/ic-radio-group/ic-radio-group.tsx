@@ -15,6 +15,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   checkResizeObserver,
+  slotHasContent,
 } from "../../utils/helpers";
 import {
   IcInformationStatusOrEmpty,
@@ -90,11 +91,6 @@ export class RadioGroup {
    * The size of the radio group component.
    */
   @Prop() size?: IcSizesNoLarge = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
@@ -204,8 +200,8 @@ export class RadioGroup {
           this.radioOptions !== undefined &&
           (this.radioOptions.length > 2 ||
             (this.radioOptions.length === 2 &&
-              (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-                isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+              (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+                slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
         ) {
           this.currentOrientation = this.RADIO_VERTICAL;
         } else {
@@ -298,8 +294,8 @@ export class RadioGroup {
         this.radioOptions !== undefined &&
         (this.radioOptions.length > 2 ||
           (this.radioOptions.length === 2 &&
-            (isSlotUsed(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
-              isSlotUsed(this.radioOptions[1], this.ADDITIONAL_FIELD))))
+            (slotHasContent(this.radioOptions[0], this.ADDITIONAL_FIELD) ||
+              slotHasContent(this.radioOptions[1], this.ADDITIONAL_FIELD))))
       ) {
         this.currentOrientation = this.RADIO_VERTICAL;
       }
@@ -322,7 +318,7 @@ export class RadioGroup {
     return (
       <Host
         onKeyDown={handleKeyDown}
-        class={{ "ic-radio-group-small": this.small || size === "small" }}
+        class={{ "ic-radio-group-small": size === "small" }}
       >
         <div
           role="radiogroup"
