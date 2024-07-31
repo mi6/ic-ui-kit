@@ -20,10 +20,9 @@
 
 ## Events
 
-| Event       | Description                                                                                                             | Type                |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `dismiss`   | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icDismiss instead.<br/><br/> | `CustomEvent<void>` |
-| `icDismiss` | Is emitted when the user dismisses the alert.                                                                           | `CustomEvent<void>` |
+| Event       | Description                                   | Type                |
+| ----------- | --------------------------------------------- | ------------------- |
+| `icDismiss` | Is emitted when the user dismisses the alert. | `CustomEvent<void>` |
 
 
 ## Slots
@@ -36,10 +35,6 @@
 
 
 ## Dependencies
-
-### Used by
-
- - [ic-dialog](../ic-dialog)
 
 ### Depends on
 
@@ -55,7 +50,6 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-dialog --> ic-alert
   style ic-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

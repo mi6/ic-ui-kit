@@ -269,28 +269,6 @@ describe("ic-badge", () => {
     expect(page.rootInstance.visible).toBe(true);
   });
 
-  //To be removed when we remove show and hide methods
-  it("should hide and show the badge using methods", async () => {
-    const page = await newSpecPage({
-      components: [Badge],
-      html: `<ic-button>Button<ic-badge slot="badge" label="1"/></ic-button>`,
-    });
-
-    const badge = document.querySelector("ic-badge");
-
-    expect(page.rootInstance.visible).toBe(true);
-
-    await badge.hideBadge();
-    await page.waitForChanges();
-
-    expect(page.rootInstance.visible).toBe(false);
-
-    await badge.showBadge();
-    await page.waitForChanges();
-
-    expect(page.rootInstance.visible).toBe(true);
-  });
-
   it("should set the correct badge colour", async () => {
     const page = await newSpecPage({
       components: [Badge],
@@ -334,5 +312,21 @@ describe("ic-badge", () => {
     });
 
     expect(page.root).toMatchSnapshot("should render with id");
+  });
+
+  it("should set the correct badge colour if the custom colour is updated", async () => {
+    const page = await newSpecPage({
+      components: [Badge],
+      html: `<ic-button>Button<ic-badge slot="badge" variant="custom" label="1" custom-color="#F8C8DC"/></ic-button>`,
+    });
+
+    page.rootInstance.customColor = "rgb(222,10,43)";
+
+    expect(page.rootInstance.customColorRGBA).toEqual({
+      a: 1,
+      b: 43,
+      g: 10,
+      r: 222,
+    });
   });
 });
