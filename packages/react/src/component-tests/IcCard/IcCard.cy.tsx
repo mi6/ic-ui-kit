@@ -150,7 +150,7 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-        <IcStatusTag slot="adornment" label="In Progress" small />
+        <IcStatusTag slot="adornment" label="In Progress" size="small" />
         <SlottedSVG
           slot="image-mid"
           style={{
@@ -368,7 +368,6 @@ describe("IcCard", () => {
           slot="interaction-button"
         >
           <SlottedSVG
-            slot="icon"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -476,7 +475,6 @@ describe("IcCard", () => {
           slot="interaction-button"
         >
           <SlottedSVG
-            slot="icon"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -531,7 +529,6 @@ describe("IcCard", () => {
           slot="interaction-button"
         >
           <SlottedSVG
-            slot="icon"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
