@@ -648,7 +648,7 @@ export class SideNavigation {
             >
               <span
                 class="mobile-top-bar-menu-icon"
-                slot="icon"
+                slot="left-icon"
                 innerHTML={menuOpen ? closeIcon : menuIcon}
               ></span>
               {menuOpen ? "Close" : "Menu"}
