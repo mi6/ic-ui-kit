@@ -87,11 +87,6 @@ export class Select {
   @State() searchableSelectInputValue: string = null;
 
   /**
-   * @deprecated This prop should not be used anymore.
-   */
-  @Prop() charactersUntilSuggestions?: number = 0;
-
-  /**
    * If `true`, the disabled state will be set.
    */
   @Prop({ reflect: true }) disabled?: boolean = false;
@@ -222,11 +217,6 @@ export class Select {
    * The size of the select component.
    */
   @Prop() size?: IcSizes = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * If using external filtering, set a timeout for when loading takes too long.
@@ -1005,7 +995,6 @@ export class Select {
 
   render() {
     const {
-      small,
       size,
       disabled,
       fullWidth,
@@ -1051,7 +1040,6 @@ export class Select {
         class={{
           ["ic-select-disabled"]: disabled,
           ["ic-select-searchable"]: searchable,
-          ["ic-select-small"]: small,
           [`ic-select-${size}`]: size !== "default",
           ["ic-select-full-width"]: fullWidth,
         }}
@@ -1071,7 +1059,6 @@ export class Select {
           <ic-input-component-container
             ref={(el) => (this.anchorEl = el)}
             class={{ "menu-open": this.open }}
-            small={small}
             size={size}
             fullWidth={fullWidth}
             disabled={disabled}
@@ -1304,7 +1291,6 @@ export class Select {
               }
               inputLabel={label}
               anchorEl={this.anchorEl}
-              small={small}
               size={size}
               menuId={menuId}
               open={this.open}

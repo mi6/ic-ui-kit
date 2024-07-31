@@ -20,12 +20,6 @@ export class TabGroup {
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
-   * @deprecated This is no longer required.
-   * The context id is passed down from `ic-tab-context`
-   */
-  @Prop({ reflect: true }) contextId?: string = "default";
-
-  /**
    * If `true`, the tabs and tab panels will be positioned separately.
    */
   @Prop({ reflect: true }) inline?: boolean = false;
