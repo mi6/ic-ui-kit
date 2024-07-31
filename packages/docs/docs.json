@@ -646,9 +646,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-dialog"
-      ],
+      "dependents": [],
       "dependencies": [
         "ic-typography",
         "ic-button"
@@ -667,9 +665,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-dialog": [
-          "ic-alert"
         ]
       }
     },
@@ -4523,14 +4518,12 @@
       "dependents": [],
       "dependencies": [
         "ic-typography",
-        "ic-button",
-        "ic-alert"
+        "ic-button"
       ],
       "dependencyGraph": {
         "ic-dialog": [
           "ic-typography",
-          "ic-button",
-          "ic-alert"
+          "ic-button"
         ],
         "ic-button": [
           "ic-loading-indicator",
@@ -4541,10 +4534,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-alert": [
-          "ic-typography",
-          "ic-button"
         ]
       }
     },
