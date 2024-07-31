@@ -146,11 +146,6 @@ export class Menu {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The possible menu selection options.
    */
   @Prop() options!: IcMenuOption[];
@@ -1379,7 +1374,6 @@ export class Menu {
       hasTimedOut,
       isLoading,
       size,
-      small,
       open,
       inputEl,
       keyboardNav,
@@ -1400,7 +1394,6 @@ export class Menu {
             hasTimedOut ||
             isLoading ||
             hasNoResults,
-          "ic-menu-small": small,
           [`ic-menu-${size}`]: true,
           "ic-menu-open": open && options.length !== 0,
           "ic-menu-multiple": this.isMultiSelect,

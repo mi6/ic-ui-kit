@@ -437,10 +437,6 @@ export namespace Components {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
         "value": string | string[];
@@ -499,10 +495,6 @@ export namespace Components {
         "type"?: IcPaginationTypes;
     }
     interface IcSelectWithMulti {
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -627,10 +619,6 @@ export namespace Components {
           * The size of the select.
          */
         "size"?: IcSizes;
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
@@ -1259,10 +1247,6 @@ declare namespace LocalJSX {
          */
         "size"?: IcSizes;
         /**
-          * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
-        /**
           * The value of the currently selected option - or array of values (if multiple options allowed).
          */
         "value": string | string[];
@@ -1329,10 +1313,6 @@ declare namespace LocalJSX {
         "type"?: IcPaginationTypes;
     }
     interface IcSelectWithMulti {
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore.
-         */
-        "charactersUntilSuggestions"?: number;
         /**
           * The amount of time, in milliseconds, to wait to trigger the `icChange` event after each keystroke.
          */
@@ -1485,10 +1465,6 @@ declare namespace LocalJSX {
           * The size of the select.
          */
         "size"?: IcSizes;
-        /**
-          * **[DEPRECATED]** This prop should not be used anymore. Set prop `size` to "small" instead.
-         */
-        "small"?: boolean;
         /**
           * If using external filtering, set a timeout for when loading takes too long.
          */
