@@ -79,11 +79,6 @@ export class CheckboxGroup {
   @Prop() size?: IcSizes = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small: boolean = false;
-
-  /**
    * The validation status - e.g. 'error' | 'warning' | 'success'.
    */
   @Prop() validationStatus: IcInformationStatusOrEmpty = "";
@@ -145,7 +140,6 @@ export class CheckboxGroup {
       name,
       required,
       size,
-      small,
       validationStatus,
       validationText,
     } = this;
@@ -159,7 +153,6 @@ export class CheckboxGroup {
     return (
       <Host
         class={{
-          ["ic-checkbox-group-small"]: small,
           [`ic-checkbox-group-${size}`]: true,
         }}
       >

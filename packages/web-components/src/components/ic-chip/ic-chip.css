@@ -40,7 +40,6 @@
   z-index: 1;
 }
 
-.chip.outline.hovered:not(:focus-within),
 .chip.outlined.hovered:not(:focus-within) {
   background-color: var(--ic-action-dark-bg-hover);
 }
@@ -59,7 +58,6 @@ ic-tooltip:focus-within {
   background-color: var(--ic-architectural-100);
 }
 
-.outline,
 .outlined {
   color: var(--ic-architectural-900);
   border: var(--ic-border-width) solid
@@ -67,17 +65,14 @@ ic-tooltip:focus-within {
   padding: calc(var(--ic-space-xxs) - var(--ic-space-1px));
 }
 
-.outline.small,
 .outlined.small {
   padding: calc(var(--ic-space-xxxs) - var(--ic-space-1px));
 }
 
-.outline.large,
 .outlined.large {
   padding: calc(var(--ic-space-xs) - var(--ic-space-1px));
 }
 
-.outline.disabled,
 .outlined.disabled {
   border: var(--ic-border-disabled);
   background: none;
