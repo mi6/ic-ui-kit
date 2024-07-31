@@ -16,11 +16,6 @@ export class InputLabel {
   @Prop() appearance?: "dark" | "default" = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `appearance` to "dark" instead.
-   */
-  @Prop() dark?: boolean = false;
-
-  /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
@@ -70,7 +65,6 @@ export class InputLabel {
       required,
       helperText,
       status,
-      dark,
       appearance,
     } = this;
     const labelText = required ? label + " *" : label;
@@ -95,7 +89,7 @@ export class InputLabel {
           class={{
             ["readonly-label"]: readonly,
             ["error-label"]: status === "error" && !(readonly || disabled),
-            ["dark"]: dark || appearance === "dark",
+            ["dark"]: appearance === "dark",
           }}
         >
           {labelContent}

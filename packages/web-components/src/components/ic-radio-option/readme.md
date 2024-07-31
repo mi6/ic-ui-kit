@@ -27,11 +27,10 @@
 
 ## Events
 
-| Event               | Description                                                                                                           | Type                              |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| `icCheck`           | Emitted when the radio option is selected.                                                                            | `CustomEvent<IcValueEventDetail>` |
-| `icSelectedChange`  | Emitted when the radio option is selected or deselected.                                                              | `CustomEvent<void>`               |
-| `radioOptionSelect` | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icCheck instead.<br/><br/> | `CustomEvent<IcValueEventDetail>` |
+| Event              | Description                                              | Type                              |
+| ------------------ | -------------------------------------------------------- | --------------------------------- |
+| `icCheck`          | Emitted when the radio option is selected.               | `CustomEvent<IcValueEventDetail>` |
+| `icSelectedChange` | Emitted when the radio option is selected or deselected. | `CustomEvent<void>`               |
 
 
 ## Methods

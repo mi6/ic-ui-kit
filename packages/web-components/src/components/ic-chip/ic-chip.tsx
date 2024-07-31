@@ -17,7 +17,6 @@ import {
   convertToRGBA,
   isElInAGGrid,
 } from "../../utils/helpers";
-import { IcChipAppearance } from "./ic-chip.types";
 import { IcColor, IcEmphasisType, IcSizes } from "../../utils/types";
 import dismissIcon from "../../assets/dismiss-icon.svg";
 
@@ -39,11 +38,6 @@ export class Chip {
 
   @State() hovered: boolean = false;
   @State() visible: boolean = true;
-
-  /**
-   * @deprecated This prop should not be used anymore. Use variant prop instead.
-   */
-  @Prop() appearance?: IcChipAppearance;
 
   /**
    * The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`.
@@ -89,11 +83,6 @@ export class Chip {
   @Prop() variant?: IcEmphasisType = "filled";
 
   /**
-   * @deprecated This event should not be used anymore. Use icDismiss instead.
-   */
-  @Event() dismiss: EventEmitter<void>;
-
-  /**
    * Is emitted when the user dismisses the chip.
    */
   @Event() icDismiss: EventEmitter<void>;
@@ -103,10 +92,6 @@ export class Chip {
 
     if (!this.dismissible) {
       this.setChipColour();
-    }
-
-    if (this.appearance === "outline") {
-      this.variant = "outlined";
     }
   }
 
@@ -137,7 +122,6 @@ export class Chip {
   }
 
   private dismissAction = (): void => {
-    this.dismiss.emit();
     this.icDismiss.emit();
   };
 
@@ -163,23 +147,14 @@ export class Chip {
   };
 
   render() {
-    const {
-      label,
-      appearance,
-      variant,
-      size,
-      dismissible,
-      visible,
-      disabled,
-      hovered,
-    } = this;
+    const { label, variant, size, dismissible, visible, disabled, hovered } =
+      this;
 
     return (
       visible && (
         <div
           class={{
             chip: true,
-            [`${appearance}`]: appearance !== undefined,
             [`${variant}`]: true,
             [`${size}`]: true,
             disabled,
