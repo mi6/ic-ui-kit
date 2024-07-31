@@ -638,26 +638,6 @@
       "methods": [],
       "events": [
         {
-          "event": "dismiss",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icDismiss instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icDismiss instead."
-        },
-        {
           "event": "icDismiss",
           "detail": "void",
           "bubbles": true,
@@ -695,9 +675,7 @@
         }
       ],
       "parts": [],
-      "dependents": [
-        "ic-dialog"
-      ],
+      "dependents": [],
       "dependencies": [
         "ic-typography",
         "ic-button"
@@ -716,9 +694,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-dialog": [
-          "ic-alert"
         ]
       }
     },
@@ -1116,64 +1091,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "hideBadge",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "hideBadge() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
-        },
-        {
-          "name": "showBadge",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "showBadge() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use visible prop to set badge visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use visible prop to set badge visibility."
-        }
-      ],
+      "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -1439,10 +1357,6 @@
       "readme": "# ic-button\n",
       "docs": "",
       "docsTags": [
-        {
-          "name": "slot",
-          "text": "icon - Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead."
-        },
         {
           "name": "slot",
           "text": "left-icon - Content will be placed to the left of the button label."
@@ -2342,10 +2256,6 @@
         {
           "name": "badge",
           "docs": "Badge component overlaying the top right of the button."
-        },
-        {
-          "name": "icon",
-          "docs": "Deprecated. This slot should not be used anymore. Use left-icon or right-icon slot instead."
         },
         {
           "name": "left-icon",
@@ -3304,34 +3214,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -3382,26 +3264,6 @@
         }
       ],
       "events": [
-        {
-          "event": "checkboxChecked",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icCheck instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icCheck instead."
-        },
         {
           "event": "icCheck",
           "detail": "void",
@@ -3613,34 +3475,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -3777,44 +3611,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "appearance",
-          "type": "\"filled\" | \"outline\"",
-          "complexType": {
-            "original": "IcChipAppearance",
-            "resolved": "\"filled\" | \"outline\"",
-            "references": {
-              "IcChipAppearance": {
-                "location": "import",
-                "path": "./ic-chip.types",
-                "id": "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use variant prop instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
-          "values": [
-            {
-              "value": "filled",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "customColor",
           "type": "`#${string}` | `rgb(${string})` | `rgba(${string})`",
@@ -4032,26 +3828,6 @@
         }
       ],
       "events": [
-        {
-          "event": "dismiss",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icDismiss instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icDismiss instead."
-        },
         {
           "event": "icDismiss",
           "detail": "void",
@@ -4333,34 +4109,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -4461,34 +4209,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -4566,81 +4286,6 @@
       "usage": {},
       "props": [
         {
-          "name": "alertHeading",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert-heading",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a heading instead.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "alertMessage",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "alert-message",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a message instead.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "buttonProps",
-          "type": "{ label: string; onclick: string; }[]",
-          "complexType": {
-            "original": "{ label: string; onclick: string }[]",
-            "resolved": "{ label: string; onclick: string; }[]",
-            "references": {}
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Sets the label and onclick functions for default buttons.",
-          "docsTags": [],
-          "default": "[\n    {\n      label: \"Cancel\",\n      onclick: \"this.cancelDialog();\",\n    },\n    { label: \"Confirm\", onclick: \"this.confirmDialog();\" },\n  ]",
-          "values": [
-            {
-              "type": "{ label: string; onclick: string; }[]"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "buttons",
           "type": "boolean",
           "complexType": {
@@ -4651,7 +4296,7 @@
           "mutable": false,
           "attr": "buttons",
           "reflectToAttr": false,
-          "docs": "If set to `false`, dialog controls will not be displayed overriding buttonProps or slotted dialog controls.",
+          "docs": "If set to `false`, default buttons or slotted dialog controls will not be displayed.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -4888,50 +4533,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "status",
-          "type": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "\"neutral\" | \"info\" | \"warning\" | \"error\" | \"success\"",
-            "resolved": "\"error\" | \"info\" | \"neutral\" | \"success\" | \"warning\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "status",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use an ic-alert/IcAlert component within an alert slot with a variant instead.",
-          "values": [
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "neutral",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [
@@ -4978,62 +4579,6 @@
           "parameters": [],
           "docs": "Confirms the dialog. Used by the default 'Confirm' button or can be called manually to trigger confirming of dialog.",
           "docsTags": []
-        },
-        {
-          "name": "hideDialog",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "hideDialog() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
-        },
-        {
-          "name": "showDialog",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "showDialog() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This method should not be used anymore. Use open prop to set dialog visibility."
-            }
-          ],
-          "deprecation": "This method should not be used anymore. Use open prop to set dialog visibility."
         }
       ],
       "events": [
@@ -5136,14 +4681,12 @@
       "dependents": [],
       "dependencies": [
         "ic-typography",
-        "ic-button",
-        "ic-alert"
+        "ic-button"
       ],
       "dependencyGraph": {
         "ic-dialog": [
           "ic-typography",
-          "ic-button",
-          "ic-alert"
+          "ic-button"
         ],
         "ic-button": [
           "ic-loading-indicator",
@@ -5154,10 +4697,6 @@
         ],
         "ic-tooltip": [
           "ic-typography"
-        ],
-        "ic-alert": [
-          "ic-typography",
-          "ic-button"
         ]
       }
     },
@@ -6352,34 +5891,6 @@
           "required": false
         },
         {
-          "name": "dark",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "dark",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -6499,34 +6010,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -6731,34 +6214,6 @@
             {
               "value": "default",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "dark",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "dark",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"dark\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -7341,33 +6796,6 @@
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "showIcon",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-icon",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target=\"_blank\"."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. The 'open in new tab/window' icon will display automatically if target=\"_blank\".",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -8049,34 +7477,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -9611,34 +9011,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "sticky",
           "type": "boolean",
           "complexType": {
@@ -10706,34 +10078,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "validationStatus",
           "type": "\"\" | \"error\" | \"success\" | \"warning\"",
           "complexType": {
@@ -11234,32 +10578,6 @@
           "composed": true,
           "docs": "Emitted when the radio option is selected or deselected.",
           "docsTags": []
-        },
-        {
-          "event": "radioOptionSelect",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icCheck instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icCheck instead."
         }
       ],
       "listeners": [
@@ -12125,34 +11443,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "spellcheck",
           "type": "boolean",
           "complexType": {
@@ -12320,58 +11610,6 @@
           "docsTags": []
         },
         {
-          "event": "icInputBlur",
-          "detail": "IcSearchBarBlurEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcSearchBarBlurEventDetail",
-            "resolved": "IcSearchBarBlurEventDetail",
-            "references": {
-              "IcSearchBarBlurEventDetail": {
-                "location": "import",
-                "path": "./ic-search-bar.types",
-                "id": "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icSearchBarBlur instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icSearchBarBlur instead."
-        },
-        {
-          "event": "icInputFocus",
-          "detail": "IcValueEventDetail",
-          "bubbles": true,
-          "complexType": {
-            "original": "IcValueEventDetail",
-            "resolved": "IcValueEventDetail",
-            "references": {
-              "IcValueEventDetail": {
-                "location": "import",
-                "path": "../../utils/types",
-                "id": "src/utils/types.ts::IcValueEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icSearchBarFocus instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icSearchBarFocus instead."
-        },
-        {
           "event": "icMenuChange",
           "detail": "IcMenuChangeEventDetail",
           "bubbles": true,
@@ -12453,12 +11691,18 @@
         },
         {
           "event": "icSearchBarFocus",
-          "detail": "void",
+          "detail": "IcValueEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "IcValueEventDetail",
+            "resolved": "IcValueEventDetail",
+            "references": {
+              "IcValueEventDetail": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcValueEventDetail"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -12664,34 +11908,6 @@
       ],
       "usage": {},
       "props": [
-        {
-          "name": "charactersUntilSuggestions",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "characters-until-suggestions",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore."
-            }
-          ],
-          "default": "0",
-          "deprecation": "This prop should not be used anymore.",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "debounce",
           "type": "number",
@@ -13349,34 +12565,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -14088,34 +13276,6 @@
           "required": false
         },
         {
-          "name": "light",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "light",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `appearance` to \"light\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "variant",
           "type": "\"circle\" | \"rectangle\" | \"text\"",
           "complexType": {
@@ -14195,44 +13355,6 @@
           "required": false
         },
         {
-          "name": "appearance",
-          "type": "\"filled\" | \"outlined\"",
-          "complexType": {
-            "original": "IcStatusTagAppearance",
-            "resolved": "\"filled\" | \"outlined\"",
-            "references": {
-              "IcStatusTagAppearance": {
-                "location": "import",
-                "path": "./ic-status-tag.types",
-                "id": "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagAppearance"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "appearance",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Use variant prop instead."
-            }
-          ],
-          "deprecation": "This prop should not be used anymore. Use variant prop instead.",
-          "values": [
-            {
-              "value": "filled",
-              "type": "string"
-            },
-            {
-              "value": "outlined",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -14285,34 +13407,6 @@
             {
               "value": "small",
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,
@@ -14913,34 +14007,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -15290,32 +14356,6 @@
           "composed": true,
           "docs": "Emitted when a user selects a tab.",
           "docsTags": []
-        },
-        {
-          "event": "tabSelect",
-          "detail": "IcTabSelectEventDetail",
-          "bubbles": false,
-          "complexType": {
-            "original": "IcTabSelectEventDetail",
-            "resolved": "IcTabSelectEventDetail",
-            "references": {
-              "IcTabSelectEventDetail": {
-                "location": "import",
-                "path": "../ic-tab/ic-tab.types",
-                "id": "src/components/ic-tab/ic-tab.types.ts::IcTabSelectEventDetail"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This event should not be used anymore. Use icTabSelect instead."
-            }
-          ],
-          "deprecation": "This event should not be used anymore. Use icTabSelect instead."
         }
       ],
       "listeners": [
@@ -15356,34 +14396,6 @@
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "contextId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "context-id",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This is no longer required.\nThe context id is passed down from `ic-tab-context`"
-            }
-          ],
-          "default": "\"default\"",
-          "deprecation": "This is no longer required.\nThe context id is passed down from `ic-tab-context`",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "inline",
           "type": "boolean",
@@ -15465,36 +14477,7 @@
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [
-        {
-          "name": "contextId",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "context-id",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This is no longer required.\nThe context id is passed down from `ic-tab-context`"
-            }
-          ],
-          "default": "\"default\"",
-          "deprecation": "This is no longer required.\nThe context id is passed down from `ic-tab-context`",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
+      "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
@@ -16351,34 +15334,6 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "small",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This prop should not be used anymore. Set prop `size` to \"small\" instead."
-            }
-          ],
-          "default": "false",
-          "deprecation": "This prop should not be used anymore. Set prop `size` to \"small\" instead.",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "spellcheck",
           "type": "boolean",
           "complexType": {
@@ -17109,56 +16064,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "setVisible",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(toast: HTMLIcToastElement) => Promise<void>",
-            "parameters": [
-              {
-                "name": "toast",
-                "type": "HTMLIcToastElement",
-                "docs": "The toast component to display"
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "HTMLIcToastElement": {
-                "location": "global",
-                "id": "global::HTMLIcToastElement"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setVisible(toast: HTMLIcToastElement) => Promise<void>",
-          "parameters": [
-            {
-              "name": "toast",
-              "type": "HTMLIcToastElement",
-              "docs": "The toast component to display"
-            }
-          ],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "Use openToast prop to display toast instead."
-            },
-            {
-              "name": "param",
-              "text": "toast The toast component to display"
-            }
-          ],
-          "deprecation": "Use openToast prop to display toast instead."
-        }
-      ],
+      "methods": [],
       "events": [],
       "listeners": [
         {
@@ -18928,11 +17834,6 @@
       "docstring": "",
       "path": "src/components/ic-badge/ic-badge.types.ts"
     },
-    "src/components/ic-chip/ic-chip.types.ts::IcChipAppearance": {
-      "declaration": "export type IcChipAppearance = \"filled\" | \"outline\";",
-      "docstring": "",
-      "path": "src/components/ic-chip/ic-chip.types.ts"
-    },
     "src/utils/types.ts::IcEmphasisType": {
       "declaration": "export type IcEmphasisType = \"filled\" | \"outlined\";",
       "docstring": "",
@@ -19103,15 +18004,15 @@
       "docstring": "",
       "path": "src/components/ic-radio-group/ic-radio-group.types.ts"
     },
-    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
-      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
-      "docstring": "",
-      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
-    },
     "src/utils/types.ts::IcBlurEventDetail": {
       "declaration": "export interface IcBlurEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
       "docstring": "",
       "path": "src/utils/types.ts"
+    },
+    "src/components/ic-search-bar/ic-search-bar.types.ts::IcSearchBarBlurEventDetail": {
+      "declaration": "export interface IcSearchBarBlurEventDetail extends IcValueEventDetail {\n  relatedTarget: IcRelatedTarget;\n}",
+      "docstring": "",
+      "path": "src/components/ic-search-bar/ic-search-bar.types.ts"
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
@@ -19122,11 +18023,6 @@
       "declaration": "export type IcSkeletonVariants = \"rectangle\" | \"text\" | \"circle\";",
       "docstring": "",
       "path": "src/components/ic-skeleton/ic-skeleton.types.ts"
-    },
-    "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagAppearance": {
-      "declaration": "export type IcStatusTagAppearance = \"filled\" | \"outlined\";",
-      "docstring": "",
-      "path": "src/components/ic-status-tag/ic-status-tag.types.ts"
     },
     "src/components/ic-status-tag/ic-status-tag.types.ts::IcStatusTagStatuses": {
       "declaration": "export type IcStatusTagStatuses = \"neutral\" | \"success\" | \"warning\" | \"danger\";",
