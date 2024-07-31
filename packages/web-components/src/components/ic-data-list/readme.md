@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                                                         | Type                   | Default     |
-| --------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `heading` | `heading` | The title for the data list.                                                                                                        | `string`               | `undefined` |
-| `size`    | `size`    | The size of the data list component.                                                                                                | `"default" \| "small"` | `"default"` |
-| `small`   | `small`   | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/> | `boolean`              | `false`     |
+| Property  | Attribute | Description                          | Type                   | Default     |
+| --------- | --------- | ------------------------------------ | ---------------------- | ----------- |
+| `heading` | `heading` | The title for the data list.         | `string`               | `undefined` |
+| `size`    | `size`    | The size of the data list component. | `"default" \| "small"` | `"default"` |
 
 
 ## Slots

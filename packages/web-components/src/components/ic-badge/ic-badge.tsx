@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  Host,
-  Method,
-  Prop,
-  Watch,
-  h,
-} from "@stencil/core";
+import { Component, Element, Host, Prop, Watch, h } from "@stencil/core";
 import {
   IcBadgePositions,
   IcBadgeTypes,
@@ -106,7 +98,7 @@ export class Badge {
   /**
    * If `true`, the badge will be displayed.
    */
-  @Prop({ mutable: true }) visible: boolean = true;
+  @Prop() visible: boolean = true;
 
   @Watch("visible")
   visibleHandler(): void {
@@ -129,22 +121,6 @@ export class Badge {
         [{ prop: this.label, propName: "label" }],
         "Badge"
       );
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
-   */
-  @Method()
-  async showBadge(): Promise<void> {
-    this.visible = true;
-  }
-
-  /**
-   * @deprecated This method should not be used anymore. Use visible prop to set badge visibility.
-   */
-  @Method()
-  async hideBadge(): Promise<void> {
-    this.visible = false;
   }
 
   private setBadgeColour = () => {

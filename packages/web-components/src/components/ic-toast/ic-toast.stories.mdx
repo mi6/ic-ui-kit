@@ -324,24 +324,6 @@ import readme from "./readme.md";
   </Story>
 </Canvas>
 
-### Deprecated - setVisible
-
-<Canvas>
-  <Story name="Deprecated - setVisible" parameters={{ loki: { skip: true } }}>
-    {(args) => html`<button onclick="func()">Display toast</button>
-      <script>
-        var toastRegion = document.querySelector("ic-toast-region");
-        function func() {
-          var x = document.getElementById("toast1");
-          toastRegion.setVisible(x);
-        }
-      </script>
-      <ic-toast-region>
-        <ic-toast id="toast1" heading="Your coffee is ready"></ic-toast>
-      </ic-toast-region>`}
-  </Story>
-</Canvas>
-
 ### Playground
 
 export const defaultArgs = {
