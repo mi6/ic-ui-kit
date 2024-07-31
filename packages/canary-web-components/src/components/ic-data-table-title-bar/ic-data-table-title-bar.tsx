@@ -125,7 +125,7 @@ export class DataTableTitleBar {
                 )}
                 {!hideDensitySelect && (
                   <ic-select
-                    small
+                    size="small"
                     label="Change density"
                     class="density-input"
                     hideLabel
