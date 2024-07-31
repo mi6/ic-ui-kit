@@ -32,7 +32,7 @@ export const ControlledTabsExample = () => {
     <>
       <IcTabContext
         selectedTabIndex={selectedTab}
-        onTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
+        onIcTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
       >
         <IcTabGroup label="Example tab group">
           <IcTab>One</IcTab>
@@ -162,7 +162,7 @@ export const ControlledTabsExample = () => {
     <>
       <IcTabContext
         selectedTabIndex={selectedTab}
-        onTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
+        onIcTabSelect={(event) => setSelectedTab(event.detail.tabIndex)}
       >
         <IcTabGroup label="Example tab group">
           <IcTab>One</IcTab>
