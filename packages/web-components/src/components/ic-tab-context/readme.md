@@ -17,10 +17,9 @@
 
 ## Events
 
-| Event         | Description                                                                                                               | Type                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| `icTabSelect` | Emitted when a user selects a tab.                                                                                        | `CustomEvent<IcTabSelectEventDetail>` |
-| `tabSelect`   | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icTabSelect instead.<br/><br/> | `CustomEvent<IcTabSelectEventDetail>` |
+| Event         | Description                        | Type                                  |
+| ------------- | ---------------------------------- | ------------------------------------- |
+| `icTabSelect` | Emitted when a user selects a tab. | `CustomEvent<IcTabSelectEventDetail>` |
 
 
 ----------------------------------------------

@@ -95,7 +95,7 @@ export class ToggleButton {
     const parentIconPlacement = (
       this.el.parentElement as HTMLIcToggleButtonGroupElement
     ).iconPlacement;
-    this.iconPosition = this.iconPlacement || parentIconPlacement;
+    this.iconPosition = this.iconPlacement || parentIconPlacement || "left";
   }
 
   componentDidLoad(): void {
@@ -162,12 +162,7 @@ export class ToggleButton {
           {this.variant !== "icon" && this.label}
           <slot />
           {isSlotUsed(this.el, "icon") && (
-            <slot
-              name="icon"
-              slot={`${
-                this.iconPosition ? `${this.iconPosition}-icon` : "icon"
-              }`}
-            ></slot>
+            <slot name="icon" slot={`${this.iconPosition}-icon`}></slot>
           )}
           {isSlotUsed(this.el, "badge") && (
             <slot name="badge" slot="badge"></slot>
