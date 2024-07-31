@@ -209,11 +209,6 @@ export class SearchBar {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * If `true`, the value of the search will have its spelling and grammar checked.
    */
   @Prop() spellcheck: boolean = false;
@@ -374,24 +369,16 @@ export class SearchBar {
     this.debounceAriaLiveUpdate();
   };
 
-  /**
-   * @deprecated This event should not be used anymore. Use icSearchBarBlur instead.
-   */
-  @Event() icInputBlur: EventEmitter<IcSearchBarBlurEventDetail>;
   private onInputBlur = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
     const nextFocus = (ev as FocusEvent).relatedTarget;
 
-    this.icInputBlur.emit({ value: value, relatedTarget: nextFocus });
+    this.icSearchBarBlur.emit({ value: value, relatedTarget: nextFocus });
   };
 
-  /**
-   * @deprecated This event should not be used anymore. Use icSearchBarFocus instead.
-   */
-  @Event() icInputFocus: EventEmitter<IcValueEventDetail>;
   private onInputFocus = (ev: Event) => {
     const value = (ev.target as HTMLInputElement).value;
-    this.icInputFocus.emit({ value: value });
+    this.icSearchBarFocus.emit({ value: value });
 
     this.handleShowClearButton(true);
   };
@@ -447,7 +434,7 @@ export class SearchBar {
   /**
    * Emitted when focus is invoked from ic-search-bar
    */
-  @Event() icSearchBarFocus: EventEmitter<void>;
+  @Event() icSearchBarFocus: EventEmitter<IcValueEventDetail>;
 
   disconnectedCallback(): void {
     if (this.assistiveHintEl) {
@@ -459,10 +446,6 @@ export class SearchBar {
     this.watchValueHandler(this.value);
 
     removeDisabledFalse(this.disabled, this.el);
-
-    if (this.small) {
-      this.size = "small";
-    }
   }
 
   componentDidLoad(): void {
@@ -777,7 +760,6 @@ export class SearchBar {
       name,
       label,
       required,
-      small,
       size,
       placeholder,
       helperText,
@@ -919,7 +901,7 @@ export class SearchBar {
               ref={(el) => (this.searchSubmitButton = el)}
               class={{
                 ["search-submit-button"]: true,
-                ["search-submit-button-small"]: !!small,
+                ["search-submit-button-small"]: size === "small",
               }}
               disabled={this.isSubmitDisabled()}
               innerHTML={searchIcon}
@@ -963,7 +945,6 @@ export class SearchBar {
                 inputEl={this.inputEl}
                 inputLabel={label}
                 ref={(el) => (this.menu = el)}
-                small={size === "small"}
                 fullWidth={fullWidth}
                 menuId={menuId}
                 open={!!menuRendered}

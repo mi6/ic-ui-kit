@@ -26,12 +26,6 @@ export class TabPanel {
   @Prop() appearance?: IcThemeForegroundNoDefault = "dark";
 
   /**
-   * @deprecated This is no longer required.
-   * The context id is passed down from `ic-tab-context`
-   */
-  @Prop({ reflect: true }) contextId?: string = "default";
-
-  /**
    * @internal Emitted when a tab panel is dynamically created.
    */
   @Event() tabPanelCreated: EventEmitter<HTMLIcTabPanelElement>;
@@ -48,7 +42,7 @@ export class TabPanel {
   disconnectedCallback(): void {
     document
       .querySelector<HTMLIcTabContextElement>(
-        `ic-tab-context[context-id=${this.contextId}]`
+        `ic-tab-context[context-id=${this.el.getAttribute("context-id")}]`
       )
       ?.tabRemovedHandler();
   }
