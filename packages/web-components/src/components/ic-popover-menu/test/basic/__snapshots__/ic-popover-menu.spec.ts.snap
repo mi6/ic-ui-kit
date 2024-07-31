@@ -176,14 +176,12 @@ exports[`ic-popover-menu should render on a dialog 1`] = `
         </div>
       </div>
       <div class="dialog-controls">
-        <slot name="dialog-controls">
-          <ic-button class="dialog-control-button" variant="tertiary">
-            Cancel
-          </ic-button>
-          <ic-button class="dialog-control-button" data-gets-focus variant="primary">
-            Confirm
-          </ic-button>
-        </slot>
+        <ic-button class="dialog-control-button" variant="tertiary">
+          Cancel
+        </ic-button>
+        <ic-button class="dialog-control-button" data-gets-focus variant="primary">
+          Confirm
+        </ic-button>
       </div>
     </dialog>
   </mock:shadow-root>

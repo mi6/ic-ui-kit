@@ -126,10 +126,6 @@
   position: relative;
 }
 
-.status-alert {
-  margin-bottom: var(--ic-space-xs);
-}
-
 .dialog-controls {
   margin-top: auto;
   padding: var(--ic-space-xs) var(--ic-space-md) 0;
@@ -182,11 +178,6 @@
 }
 
 @media (max-width: 364px) {
-  .triple-button {
-    flex-direction: column;
-    gap: var(--ic-space-xs);
-  }
-
   .dialog-control-button {
     width: unset;
   }

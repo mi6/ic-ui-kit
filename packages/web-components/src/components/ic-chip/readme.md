@@ -9,7 +9,6 @@
 
 | Property                | Attribute                | Description                                                                                                                                                                                                  | Type                                                    | Default     |
 | ----------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- | ----------- |
-| `appearance`            | `appearance`             | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Use variant prop instead.<br/><br/>                                                                                    | `"filled" \| "outline"`                                 | `undefined` |
 | `customColor`           | `custom-color`           | The custom chip colour. This prop will be applied to the chip component if `dismissible` is set to `false`. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)". | ``#${string}` \| `rgb(${string})` \| `rgba(${string})`` | `null`      |
 | `disabled`              | `disabled`               | If `true`, the chip will appear disabled.                                                                                                                                                                    | `boolean`                                               | `false`     |
 | `dismissible`           | `dismissible`            | If `true`, the chip will have a close button at the end to dismiss it.                                                                                                                                       | `boolean`                                               | `false`     |
@@ -21,10 +20,9 @@
 
 ## Events
 
-| Event       | Description                                                                                                             | Type                |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `dismiss`   | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icDismiss instead.<br/><br/> | `CustomEvent<void>` |
-| `icDismiss` | Is emitted when the user dismisses the chip.                                                                            | `CustomEvent<void>` |
+| Event       | Description                                  | Type                |
+| ----------- | -------------------------------------------- | ------------------- |
+| `icDismiss` | Is emitted when the user dismisses the chip. | `CustomEvent<void>` |
 
 
 ## Methods

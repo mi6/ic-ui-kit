@@ -518,7 +518,7 @@ import readme from "./readme.md";
       </ic-dialog>
       <script>
         document.querySelector("#with-dialog").addEventListener("click", () => {
-          document.querySelector("#medium-dialog").showDialog();
+          document.querySelector("#medium-dialog").open = true;
         });
         document.querySelector("#select-1").options = [
           { label: "Cappuccino", value: "Cap" },

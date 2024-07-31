@@ -130,11 +130,6 @@ export class Checkbox {
   @Prop() size?: IcSizes;
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The value for the checkbox.
    */
   @Prop() value!: string;
@@ -143,11 +138,6 @@ export class Checkbox {
    * If `true`, the label will be hidden and the required label value will be applied as an aria-label.
    */
   @Prop() hideLabel = false;
-
-  /**
-   * @deprecated This event should not be used anymore. Use icCheck instead.
-   */
-  @Event() checkboxChecked: EventEmitter<void>;
 
   /**
    * Emitted when a checkbox has been checked.
@@ -209,7 +199,6 @@ export class Checkbox {
       ? false
       : this.indeterminate && this.checked;
     this.icCheck.emit();
-    this.checkboxChecked.emit();
   };
 
   private handleFormReset = (): void => {
@@ -234,7 +223,6 @@ export class Checkbox {
       label,
       name,
       size,
-      small,
       value,
     } = this;
 
@@ -253,7 +241,6 @@ export class Checkbox {
       <Host
         class={{
           "ic-checkbox-disabled": disabled,
-          "ic-checkbox-small": small || size === "small",
           [`ic-checkbox-${size || parentElementSize}`]: true,
         }}
       >

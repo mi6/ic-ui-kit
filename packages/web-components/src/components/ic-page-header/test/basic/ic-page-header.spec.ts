@@ -37,7 +37,7 @@ describe("ic-page-header component renders additional functionality", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -125,7 +125,7 @@ describe("ic-page-header component renders additional functionality", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -175,7 +175,7 @@ describe("ic-page-header component renders additional functionality", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -240,7 +240,7 @@ describe("resizeObserver for ic-page-header", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -301,7 +301,7 @@ describe("resizeObserver for ic-page-header", () => {
         <ic-button slot="actions" variant="primary"
           >Create coffee
           <svg
-            slot="icon"
+            slot="left-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"

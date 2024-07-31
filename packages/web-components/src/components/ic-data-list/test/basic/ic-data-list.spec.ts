@@ -45,11 +45,11 @@ describe("ic-data-list", () => {
     `);
   });
 
-  it("should render with small prop", async () => {
+  it("should render with size small", async () => {
     const page = await newSpecPage({
       components: [DataList],
       html: `
-      <ic-data-list heading="Heading" small>
+      <ic-data-list heading="Heading" size="small">
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
         <ic-data-row label="Label" value="value"></ic-data-row>
@@ -57,7 +57,7 @@ describe("ic-data-list", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <ic-data-list heading="Heading" class="ic-data-list-small" small>
+    <ic-data-list heading="Heading" class="ic-data-list-small" size="small">
       <mock:shadow-root>
         <div class="heading" id="data-list-heading">
           <slot name="heading">  

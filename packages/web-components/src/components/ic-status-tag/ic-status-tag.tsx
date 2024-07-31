@@ -1,9 +1,6 @@
 import { Component, Host, h, Prop } from "@stencil/core";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
-import {
-  IcStatusTagStatuses,
-  IcStatusTagAppearance,
-} from "./ic-status-tag.types";
+import { IcStatusTagStatuses } from "./ic-status-tag.types";
 import { IcEmphasisType, IcSizes } from "../../utils/types";
 
 @Component({
@@ -19,11 +16,6 @@ export class StatusTag {
   @Prop() announced?: boolean = false;
 
   /**
-   * @deprecated This prop should not be used anymore. Use variant prop instead.
-   */
-  @Prop() appearance?: IcStatusTagAppearance;
-
-  /**
    * The content rendered within the status tag.
    */
   @Prop() label!: string;
@@ -32,11 +24,6 @@ export class StatusTag {
    * The size of the status tag component.
    */
   @Prop() size?: IcSizes = "default";
-
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
 
   /**
    * The colour of the status tag.
@@ -48,12 +35,6 @@ export class StatusTag {
    */
   @Prop() variant?: IcEmphasisType = "filled";
 
-  componentWillLoad(): void {
-    if (this.appearance === "outlined") {
-      this.variant = "outlined";
-    }
-  }
-
   componentDidLoad(): void {
     onComponentRequiredPropUndefined(
       [{ prop: this.label, propName: "label" }],
@@ -62,16 +43,14 @@ export class StatusTag {
   }
 
   render() {
-    const { label, status, appearance, variant, small, size, announced } = this;
+    const { label, status, variant, size, announced } = this;
     return (
       <Host role={announced ? "status" : null} aria-label="Status">
         <strong
           class={{
             ["tag"]: true,
-            [`${appearance}-${status}`]: appearance !== undefined,
             [`${variant}-${status}`]: true,
             ["outlined"]: variant === "outlined",
-            ["small"]: small || size === "small",
             [`${size}`]: true,
           }}
         >

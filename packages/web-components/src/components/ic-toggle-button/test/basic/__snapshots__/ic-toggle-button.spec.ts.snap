@@ -44,7 +44,7 @@ exports[`ic-toggle-button component should render slotted icon 1`] = `
     <ic-button appearance="default" aria-disabled="false" aria-label="Toggle, unticked" aria-pressed="false" size="default" variant="secondary">
       Toggle
       <slot></slot>
-      <slot name="icon" slot="icon"></slot>
+      <slot name="icon" slot="left-icon"></slot>
     </ic-button>
   </mock:shadow-root>
   <svg fill="#000000" height="24px" slot="icon" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">

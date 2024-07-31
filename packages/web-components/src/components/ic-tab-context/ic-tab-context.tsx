@@ -76,11 +76,6 @@ export class TabContext {
    */
   @Event({ bubbles: false }) icTabSelect: EventEmitter<IcTabSelectEventDetail>;
 
-  /**
-   * @deprecated This event should not be used anymore. Use icTabSelect instead.
-   */
-  @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
-
   componentDidLoad(): void {
     this.setControlledMode();
     this.getChildren();
@@ -108,12 +103,6 @@ export class TabContext {
     }
     /* eslint-disable no-unexpected-multiline */
     this.icTabSelect.emit({
-      tabIndex: event.detail.position,
-      tabLabel: this.el
-        .querySelectorAll("ic-tab")
-        [event.detail.position].textContent.trim(),
-    });
-    this.tabSelect.emit({
       tabIndex: event.detail.position,
       tabLabel: this.el
         .querySelectorAll("ic-tab")
@@ -273,12 +262,6 @@ export class TabContext {
     } else {
       /* eslint-disable no-unexpected-multiline */
       this.icTabSelect.emit({
-        tabIndex: newIndex,
-        tabLabel: this.el
-          .querySelectorAll("ic-tab")
-          [newIndex].textContent.trim(),
-      });
-      this.tabSelect.emit({
         tabIndex: newIndex,
         tabLabel: this.el
           .querySelectorAll("ic-tab")

@@ -123,11 +123,6 @@ export class RadioOption {
   @Event() icCheck: EventEmitter<IcValueEventDetail>;
 
   /**
-   * @deprecated This event should not be used anymore. Use icCheck instead.
-   */
-  @Event() radioOptionSelect: EventEmitter<IcValueEventDetail>;
-
-  /**
    * Emitted when the radio option is selected or deselected.
    */
   @Event() icSelectedChange: EventEmitter<void>;
@@ -186,9 +181,6 @@ export class RadioOption {
       this.icCheck.emit({
         value: this.value,
       });
-      this.radioOptionSelect.emit({
-        value: this.value,
-      });
     }
 
     event.stopImmediatePropagation();
@@ -224,10 +216,6 @@ export class RadioOption {
       }
 
       this.icCheck.emit({
-        value: this.value,
-      });
-
-      this.radioOptionSelect.emit({
         value: this.value,
       });
     }

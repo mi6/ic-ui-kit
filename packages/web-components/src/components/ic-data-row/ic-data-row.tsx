@@ -38,11 +38,6 @@ export class DataRow {
   @Prop() size?: IcSizesNoLarge = "default";
 
   /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
-  /**
    * The value of the middle (right if no end-component supplied) cell of the row.
    */
   @Prop() value: string;
@@ -117,14 +112,13 @@ export class DataRow {
       label,
       renderCellContent,
       size,
-      small,
       value,
     } = this;
 
     return (
       <Host
         class={{
-          ["ic-data-row-small"]: small || size === "small",
+          ["ic-data-row-small"]: size === "small",
           ["breakpoint-medium"]: listSize === "m",
           ["breakpoint-xs"]: listSize === "xs",
         }}

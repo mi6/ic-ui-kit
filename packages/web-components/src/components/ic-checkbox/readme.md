@@ -26,16 +26,14 @@
 | `name`                         | `name`                           | The name for the checkbox. If not set when used in a checkbox group, the name will be based on the group name.                                                                                | `string`                          | `undefined`                                    |
 | `nativeIndeterminateBehaviour` | `native-indeterminate-behaviour` | If `true`, the checkbox will behave like a native checkbox where the `indeterminate` prop sets the indeterminate visual styling, independent of the `checked` state.                          | `boolean`                         | `false`                                        |
 | `size`                         | `size`                           | The size of the checkbox to be displayed. This does not affect the font size of the label. If a checkbox is contained in a checkbox group, this will override the size set on checkbox group. | `"default" \| "large" \| "small"` | `undefined`                                    |
-| `small`                        | `small`                          | <span style="color:red">**[DEPRECATED]**</span> This prop should not be used anymore. Set prop `size` to "small" instead.<br/><br/>                                                           | `boolean`                         | `false`                                        |
 | `value` _(required)_           | `value`                          | The value for the checkbox.                                                                                                                                                                   | `string`                          | `undefined`                                    |
 
 
 ## Events
 
-| Event             | Description                                                                                                           | Type                |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `checkboxChecked` | <span style="color:red">**[DEPRECATED]**</span> This event should not be used anymore. Use icCheck instead.<br/><br/> | `CustomEvent<void>` |
-| `icCheck`         | Emitted when a checkbox has been checked.                                                                             | `CustomEvent<void>` |
+| Event     | Description                               | Type                |
+| --------- | ----------------------------------------- | ------------------- |
+| `icCheck` | Emitted when a checkbox has been checked. | `CustomEvent<void>` |
 
 
 ## Methods
