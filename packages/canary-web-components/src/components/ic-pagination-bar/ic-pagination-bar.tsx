@@ -440,7 +440,7 @@ export class PaginationBar {
                   {capitalizedItemLabel}s per {lowerCasePageLabel}
                 </ic-typography>
                 <ic-select
-                  small
+                  size="small"
                   label="items-per-page-input"
                   class="items-per-page-input"
                   hideLabel
