@@ -22,22 +22,17 @@ export class DataList {
    */
   @Prop() size?: IcSizesNoLarge = "default";
 
-  /**
-   * @deprecated This prop should not be used anymore. Set prop `size` to "small" instead.
-   */
-  @Prop() small?: boolean = false;
-
   render() {
-    const { el, heading, small, size } = this;
+    const { el, heading, size } = this;
 
-    if (small || size === "small") {
+    if (size === "small") {
       Array.from(el.children).forEach((child) =>
         child.setAttribute("size", "small")
       );
     }
 
     return (
-      <Host class={{ "ic-data-list-small": small || size === "small" }}>
+      <Host class={{ "ic-data-list-small": size === "small" }}>
         <div class="heading" id="data-list-heading">
           <slot name="heading">
             <ic-typography variant="h3">{heading}</ic-typography>

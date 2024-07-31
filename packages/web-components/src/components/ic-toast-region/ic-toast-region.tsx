@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Listen,
-  Method,
-  Prop,
-  Watch,
-} from "@stencil/core";
+import { Component, Element, h, Listen, Prop, Watch } from "@stencil/core";
 import { IcFocusableComponents } from "../../utils/types";
 
 @Component({ tag: "ic-toast-region" })
@@ -58,15 +50,6 @@ export class ToastRegion {
     }
     if (visibleToasts.length > 0) this.pendingVisibility.push(toast);
   };
-
-  /**
-   * @deprecated Use openToast prop to display toast instead.
-   * @param {HTMLIcToastElement} toast The toast component to display
-   */
-  @Method()
-  async setVisible(toast: HTMLIcToastElement): Promise<void> {
-    this.showToast(toast);
-  }
 
   render() {
     return <slot></slot>;
