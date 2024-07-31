@@ -77,11 +77,6 @@ export class TabContext {
    */
   @Event({ bubbles: false }) icTabSelect: EventEmitter<IcTabSelectEventDetail>;
 
-  /**
-   * @deprecated This event should not be used anymore. Use icTabSelect instead.
-   */
-  @Event({ bubbles: false }) tabSelect: EventEmitter<IcTabSelectEventDetail>;
-
   componentDidLoad(): void {
     if (this.selectedTabIndex !== undefined) {
       this.selectedTab = this.selectedTabIndex;
@@ -162,7 +157,6 @@ export class TabContext {
       // eslint-disable-next-line no-unexpected-multiline
       [tabIndex].textContent.trim();
     this.icTabSelect.emit({ tabIndex, tabLabel });
-    this.tabSelect.emit({ tabIndex, tabLabel });
   };
 
   /** Sets attributes to link tab-group, tabs and tab-panels */

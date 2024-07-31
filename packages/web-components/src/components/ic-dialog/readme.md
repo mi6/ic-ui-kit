@@ -58,26 +58,6 @@ Type: `Promise<void>`
 
 
 
-### `hideDialog() => Promise<void>`
-
-<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use open prop to set dialog visibility.<br/><br/>
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `showDialog() => Promise<void>`
-
-<span style="color:red">**[DEPRECATED]**</span> This method should not be used anymore. Use open prop to set dialog visibility.<br/><br/>
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 
 ## Slots
 
@@ -102,20 +82,16 @@ Type: `Promise<void>`
 
 - [ic-typography](../ic-typography)
 - [ic-button](../ic-button)
-- [ic-alert](../ic-alert)
 
 ### Graph
 ```mermaid
 graph TD;
   ic-dialog --> ic-typography
   ic-dialog --> ic-button
-  ic-dialog --> ic-alert
   ic-button --> ic-loading-indicator
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
-  ic-alert --> ic-typography
-  ic-alert --> ic-button
   style ic-dialog fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
