@@ -15,35 +15,6 @@ describe("ic-toast-region component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  it("should test showing and hiding toasts with deprecated showVisible method", async () => {
-    const page = await newSpecPage({
-      components: [ToastRegion, Toast],
-      html: `<ic-toast-region>
-      <ic-toast heading="Heading"></ic-toast>
-      <ic-toast heading="Heading"></ic-toast>
-      </ic-toast-region>`,
-    });
-
-    const toasts = page.root.querySelectorAll("ic-toast");
-
-    await page.root.setVisible(toasts[0]);
-
-    expect(page.rootInstance.pendingVisibility.length).toBe(1);
-
-    await page.root.setVisible(toasts[1]);
-
-    expect(page.rootInstance.pendingVisibility.length).toBe(2);
-
-    await page.rootInstance.handleDismissedToast();
-    expect(page.rootInstance.pendingVisibility.length).toBe(1);
-
-    await page.rootInstance.handleDismissedToast();
-    expect(page.rootInstance.pendingVisibility.length).toBe(0);
-
-    await page.rootInstance.handleDismissedToast();
-    expect(page.rootInstance.pendingVisibility.length).toBe(0);
-  });
-
   it("should test showing and hiding toasts with openToast prop", async () => {
     const page = await newSpecPage({
       components: [ToastRegion, Toast],
