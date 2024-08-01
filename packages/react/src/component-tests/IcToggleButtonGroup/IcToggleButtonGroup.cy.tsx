@@ -54,7 +54,7 @@ const TOGGLE_BUTTON_AXE_OPTIONS = {
 const WIN_CONSOLE_SPY = "@spyWinConsoleLog";
 
 describe("IcToggleButtonGroup", () => {
-  describe("E2E", () => {
+  describe("End-to-end tests", () => {
     it("should check single/manual on only one toggle", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -65,6 +65,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(0).should(NOT_HAVE_ATTR, "toggle-checked");
       getToggle(2).should(HAVE_ATTR, "toggle-checked");
     });
+
     it("should check multi on several toggles", () => {
       mount(<ToggleGroupMulti />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -76,6 +77,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click();
       getToggle(1).should(HAVE_ATTR, "toggle-checked");
     });
+
     it("should focus parent but not interact with toggle when disabled", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupDisabled />);
@@ -86,6 +88,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
+
     it("should focus toggle but not check with toggle when loading", () => {
       cy.spy(window.console, "log").as("spyWinConsoleLog");
       mount(<ToggleGroupLoading />);
@@ -96,6 +99,7 @@ describe("IcToggleButtonGroup", () => {
       getToggle(1).click({ force: true });
       cy.get(WIN_CONSOLE_SPY).should(NOT_HAVE_BEEN_CALLED);
     });
+
     it("should tab through toggles and check focus and selection state", () => {
       mount(<ToggleGroupSingle />);
       cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
@@ -104,7 +108,8 @@ describe("IcToggleButtonGroup", () => {
       cy.get(IC_TOGGLE_BUTTON_GROUP).should(HAVE_FOCUS);
     });
   });
-  describe("screenshots", () => {
+
+  describe("Visual regression and a11y tests", () => {
     beforeEach(() => {
       cy.injectAxe();
       cy.viewport(500, 500);
@@ -117,6 +122,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render default", () => {
       mount(<ToggleGroupSingle />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -129,6 +135,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render multiple checked", () => {
       mount(<ToggleGroupMulti />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(1).click();
       getToggle(0).click();
 
@@ -142,6 +149,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render small", () => {
       mount(<ToggleGroupSmall />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -154,6 +162,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render large", () => {
       mount(<ToggleGroupLarge />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -166,6 +175,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render full-width", () => {
       mount(<ToggleGroupFullWidth />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -178,6 +188,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render custom width", () => {
       mount(<ToggleGroupCustomWidth />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -190,6 +201,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render toggle with large label", () => {
       mount(<ToggleGroupLargeLabel />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -206,6 +218,7 @@ describe("IcToggleButtonGroup", () => {
         </div>
       );
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -218,6 +231,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render dark", () => {
       mount(<ToggleGroupDark />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -230,6 +244,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render disabled", () => {
       mount(<ToggleGroupDisabled />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "disabled",
@@ -240,6 +255,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render loading", () => {
       mount(<ToggleGroupLoading />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "loading",
@@ -255,6 +271,7 @@ describe("IcToggleButtonGroup", () => {
         </div>
       );
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "loading-light",
@@ -266,6 +283,7 @@ describe("IcToggleButtonGroup", () => {
     it("should render loading dark", () => {
       mount(<ToggleGroupLoadingDark />);
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       cy.checkA11yWithWait(undefined, 200, TOGGLE_BUTTON_AXE_OPTIONS);
       cy.compareSnapshot({
         name: "loading-dark",
@@ -283,6 +301,7 @@ describe("IcToggleButtonGroup", () => {
         </div>
       );
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -300,6 +319,7 @@ describe("IcToggleButtonGroup", () => {
         </div>
       );
 
+      cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
       getToggle(0).click();
 
       cy.checkA11yWithWait(undefined, undefined, TOGGLE_BUTTON_AXE_OPTIONS);
@@ -307,26 +327,34 @@ describe("IcToggleButtonGroup", () => {
   });
 });
 
-describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
+describe("IcToggleButtonGroup visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
   });
 
+  after(() => {
+    cy.disableForcedColors();
+  });
+
   it("renders a toggle-button group with first button checked and second button focussed", () => {
     mount(<ToggleGroupSingle />);
+
+    cy.checkHydrated(IC_TOGGLE_BUTTON_GROUP);
+
     const toggle = getToggle(0);
     toggle.click();
     cy.realPress("ArrowDown");
     getToggle(1).should(HAVE_FOCUS).wait(200);
 
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focused-toggle-checked-toggle-group-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.036),
@@ -338,6 +366,7 @@ describe("IcToggleButtonGroup visual regression in high contrast mode", () => {
     mount(<ToggleGroupDisabled />);
     cy.wait(100);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-toggle-group-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),

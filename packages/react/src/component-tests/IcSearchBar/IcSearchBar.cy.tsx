@@ -336,18 +336,24 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
   });
 
+  after(() => {
+    cy.disableForcedColors();
+  });
+
   it("should render default search bar in high contrast mode", () => {
     mount(<Default />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
@@ -358,6 +364,8 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     mount(<Disabled />);
 
     cy.checkHydrated(SEARCH_SELECTOR);
+
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
@@ -374,6 +382,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
       .find(SEARCH_INPUT)
       .focus();
 
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.016),
@@ -394,6 +403,7 @@ describe("IcSearchBar visual regression tests in high contrast mode", () => {
     cy.get("@input").focus();
     cy.realType("La").wait(200);
 
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "options-no-filtering-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.042),

@@ -105,12 +105,16 @@ describe("IcStatusTag visual regression tests in high contrast mode", () => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render all status tags in high contrast mode", () => {
@@ -118,6 +122,7 @@ describe("IcStatusTag visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(STATUS_TAG_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.033),

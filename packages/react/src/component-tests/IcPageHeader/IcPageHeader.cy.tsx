@@ -17,9 +17,11 @@ import {
   PageHeaderSlottedHeadings,
 } from "./IcPageHeaderTestData";
 import { setThresholdBasedOnEnv } from "../../../cypress/utils/helpers";
+
+const IC_PAGE_HEADER_SELECTOR = "ic-page-header";
 const DEFAULT_TEST_THRESHOLD = 0.042;
 
-describe("IcPageHeader", () => {
+describe("IcPageHeader visual regression and a11y tests", () => {
   beforeEach(() => {
     cy.injectAxe();
     cy.viewport(1450, 500);
@@ -32,7 +34,7 @@ describe("IcPageHeader", () => {
   it("should render default", () => {
     mount(<PageHeaderDefault />);
 
-    cy.checkHydrated("ic-page-header");
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -61,7 +63,7 @@ describe("IcPageHeader", () => {
     cy.viewport("iphone-6");
     mount(<DesktopScrollablePageVariant />);
 
-    cy.checkHydrated("ic-page-header");
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
 
     cy.scrollTo("bottom");
 
@@ -78,6 +80,8 @@ describe("IcPageHeader", () => {
   it("should render center aligned", () => {
     mount(PageheaderAlign("center"));
 
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "center-page-header",
@@ -87,6 +91,8 @@ describe("IcPageHeader", () => {
 
   it("should render small", () => {
     mount(<PageHeaderSmallSize />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -98,6 +104,8 @@ describe("IcPageHeader", () => {
   it("should render full width", () => {
     mount(PageheaderAlign("full-width"));
 
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full-width-page-header",
@@ -107,6 +115,8 @@ describe("IcPageHeader", () => {
 
   it("should render without border", () => {
     mount(<PageHeaderWithoutBorder />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -142,6 +152,9 @@ describe("IcPageHeader", () => {
 
   it("should render with breadcrumbs", () => {
     mount(<PageHeaderWithBreadcrumbNav />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-breadcrumb",
@@ -151,6 +164,9 @@ describe("IcPageHeader", () => {
 
   it("should render with slotted headings", () => {
     mount(<PageHeaderSlottedHeadings />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-slotted-headings",
@@ -158,58 +174,82 @@ describe("IcPageHeader", () => {
     });
   });
 
-  describe("IcPageHeader visual regression in high contrast mode", () => {
-    before(() => {
-      cy.enableForcedColors();
-    });
-
-    after(() => {
-      cy.disableForcedColors();
-    });
-
-    afterEach(() => {
-      cy.task("generateReport");
-    });
-
-    it("should render", () => {
-      mount(<PageHeaderDefault />);
-      cy.compareSnapshot({
-        name: "default-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
-      });
-    });
-
-    it("should render with actions, input and tabs", () => {
-      mount(<PageHeaderWithActionsInputTabs />);
-      cy.compareSnapshot({
-        name: "actions-input-tabs-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
-      });
-    });
-
-    it("should render with breadcrumbs", () => {
-      mount(<PageHeaderWithBreadcrumbNav />);
-      cy.compareSnapshot({
-        name: "breadcrumbs-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
-      });
-    });
-
-    it("should render with stepper", () => {
-      mount(<PageHeaderWithStepper />);
-      cy.compareSnapshot({
-        name: "stepper-high-contrast",
-        testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
-      });
-    });
-  });
-
   it("should render with slotted headings", () => {
     mount(<PageHeaderSlottedHeadings />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-slotted-headings",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
+    });
+  });
+});
+
+describe("IcPageHeader visual regression tests in high contrast mode", () => {
+  before(() => {
+    cy.enableForcedColors();
+  });
+
+  beforeEach(() => {
+    cy.injectAxe();
+    cy.viewport(1450, 500);
+  });
+
+  afterEach(() => {
+    cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("should render default in high contrast mode", () => {
+    mount(<PageHeaderDefault />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
+    //cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "default-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.037),
+    });
+  });
+
+  it("should render with actions, input and tabs in high contrast mode", () => {
+    mount(<PageHeaderWithActionsInputTabs />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
+    //cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "actions-input-tabs-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.048),
+    });
+  });
+
+  it("should render with breadcrumbs in high contrast mode", () => {
+    mount(<PageHeaderWithBreadcrumbNav />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
+    //cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "breadcrumbs-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
+    });
+  });
+
+  it("should render with stepper in high contrast mode", () => {
+    mount(<PageHeaderWithStepper />);
+
+    cy.checkHydrated(IC_PAGE_HEADER_SELECTOR);
+
+    //cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "stepper-high-contrast",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.011),
     });
   });
 });

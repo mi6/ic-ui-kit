@@ -597,17 +597,21 @@ describe("IcTab visual regression tests", () => {
   });
 });
 
-describe("IcTabs visual regression in high contrast mode", () => {
+describe("IcTabs visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render a tab group with tab focussed", () => {
@@ -617,6 +621,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
     cy.focused().as("activeElement");
     cy.get("@activeElement").should(CONTAIN_TEXT, "Method");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focused-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),
@@ -626,6 +631,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
   it("should render disabled tab", () => {
     mount(<DisabledTab />);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.008),
@@ -635,6 +641,7 @@ describe("IcTabs visual regression in high contrast mode", () => {
   it("should render inline tab group", () => {
     mount(<InlineTabGroup />);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "inline-prop-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.012),

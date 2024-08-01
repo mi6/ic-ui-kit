@@ -182,12 +182,16 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render all variants of IcTypography in high contrast mode", () => {
@@ -195,6 +199,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "variants-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.066),
@@ -206,6 +211,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "truncation-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.062),
@@ -217,6 +223,7 @@ describe("IcTypography visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(TYPOGRAPHY_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "all-prop-text-styles-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),

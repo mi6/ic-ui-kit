@@ -151,14 +151,15 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
 
   beforeEach(() => {
     cy.viewport(1024, 500);
-  });
-
-  after(() => {
-    cy.disableForcedColors();
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render a compact stepper in high contrast mode", () => {
@@ -166,6 +167,7 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(STEPPER_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "compact-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
@@ -177,6 +179,7 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(STEPPER_SELECTOR);
 
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "full-width-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.015),
@@ -190,6 +193,7 @@ describe("IcStepper visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(STEPPER_SELECTOR);
 
+    //cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "custom-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.049),

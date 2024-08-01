@@ -145,12 +145,16 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render an unchecked switch in high contrast mode", () => {
@@ -158,6 +162,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "unchecked-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.019),
@@ -169,6 +174,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "checked-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.018),
@@ -180,6 +186,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "disabled-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.026),
@@ -191,6 +198,7 @@ describe("IcSwitch visual regression tests in high contrast mode", () => {
 
     cy.checkHydrated(SWITCH_SELECTOR);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "helper-text-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),

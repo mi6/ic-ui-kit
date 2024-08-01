@@ -261,12 +261,16 @@ describe("IcTooltip visual regression tests in high contrast mode", () => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
+  });
+
+  after(() => {
+    cy.disableForcedColors();
   });
 
   it("should render a default IcTooltip in high contrast mode", () => {
@@ -275,6 +279,7 @@ describe("IcTooltip visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TOOLTIP_SELECTOR);
     cy.get("button").realHover("mouse");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "default-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.003),
@@ -288,6 +293,7 @@ describe("IcTooltip visual regression tests in high contrast mode", () => {
     cy.checkHydrated(TOOLTIP_SELECTOR);
     cy.get("#test-button-left").realHover("mouse");
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "left-placement-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.006),

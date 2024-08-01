@@ -448,52 +448,60 @@ describe("IcTextField visual regression tests", () => {
   });
 });
 
-describe("IcTextField visual regression in high contrast mode", () => {
+describe("IcTextField visual regression tests in high contrast mode", () => {
   before(() => {
     cy.enableForcedColors();
   });
 
-  after(() => {
-    cy.disableForcedColors();
+  beforeEach(() => {
+    cy.injectAxe();
   });
 
   afterEach(() => {
     cy.task("generateReport");
   });
 
-  it("renders a text field with input focused", () => {
+  after(() => {
+    cy.disableForcedColors();
+  });
+
+  it("renders a text field with input focused in high contrast mode", () => {
     mount(<SimpleTextField />);
 
     cy.findShadowEl(IC_TEXTFIELD, TEXTFIELD_INPUT).click();
     cy.get(IC_TEXTFIELD).should(HAVE_FOCUS);
 
+    cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "focused-input-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
 
-  it("renders disabled", () => {
+  it("renders disabled text field in high contrast mode", () => {
     mount(<DisabledTextField />);
 
+    cy.checkA11yWithWait();
     cy.wait(100).compareSnapshot({
       name: "disabled-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 
-  it("renders a readonly text field", () => {
+  it("renders a readonly text field in high cobtrast mode", () => {
     mount(<ReadonlyTextField />);
 
+    cy.checkA11yWithWait();
     cy.wait(100).compareSnapshot({
       name: "readonly-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
     });
   });
 
-  it("renders validation status and text", () => {
+  it("renders validation status and text in high contrast mode", () => {
     mount(<TextFieldWithValidation />);
 
+    cy.checkA11yWithWait();
     cy.wait(100).compareSnapshot({
       name: "validation-text-field-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.115),
