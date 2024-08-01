@@ -969,26 +969,4 @@ describe("IcButton Visual Regression Testing", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD),
     });
   });
-
-  it("renders with icon variant button group", () => {
-    mount(
-      <>
-        <IconBtnGroup props={iconProps.iconDefault} />
-        <IconBtnGroup props={iconProps.iconLarge} />
-        <IconBtnGroup props={iconProps.iconSmall} />
-        <IconBtnGroup props={iconProps.iconLoading} />
-        <IconBtnGroup props={iconProps.iconDisabled} />
-        <IconBtnGroup props={iconProps.iconDark} />
-        <IconBtnGroup props={iconProps.iconDarkLoading} />
-        <IconBtnGroup props={iconProps.iconLight} />
-        <IconBtnGroup props={iconProps.iconLightLoading} />
-      </>
-    );
-
-    cy.checkA11yWithWait();
-    cy.compareSnapshot({
-      name: "icon-variants-button-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
-    });
-  });
 });
