@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "pri{>>" # Hello.h vate": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
