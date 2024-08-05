@@ -29,6 +29,23 @@ describe("IcClassificationButton visual and a11y testing", () => {
     });
   });
 
+  it("should render undefined props to default design", () => {
+    mount(
+      <IcClassificationBanner
+        classification={undefined}
+        country={undefined}
+        additionalSelectors={undefined}
+      ></IcClassificationBanner>
+    );
+    cy.checkHydrated(BANNER);
+
+    cy.checkA11yWithWait();
+    cy.compareSnapshot({
+      name: "undefined",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.013),
+    });
+  });
+
   it("should test official classification banner", () => {
     mount(
       <IcClassificationBanner classification="official"></IcClassificationBanner>
