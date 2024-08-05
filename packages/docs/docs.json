@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-31T06:43:36",
+  "timestamp": "2024-08-05T11:28:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -4679,7 +4679,222 @@
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [],
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"default\" | \"light\" | \"theme\"",
+          "complexType": {
+            "original": "IcThemeForegroundWithTheme",
+            "resolved": "\"dark\" | \"default\" | \"light\" | \"theme\"",
+            "references": {
+              "IcThemeForegroundWithTheme": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForegroundWithTheme"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the divider.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "theme",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "borderStyle",
+          "type": "\"dashed\" | \"solid\"",
+          "complexType": {
+            "original": "IcDividerStyles",
+            "resolved": "\"dashed\" | \"solid\"",
+            "references": {
+              "IcDividerStyles": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerStyles"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "border-style",
+          "reflectToAttr": false,
+          "docs": "The line style of the divider.",
+          "docsTags": [],
+          "default": "\"solid\"",
+          "values": [
+            {
+              "value": "dashed",
+              "type": "string"
+            },
+            {
+              "value": "solid",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label for the divider.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "\"bottom\" | \"center\" | \"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "IcDividerLabelPlacement",
+            "resolved": "\"bottom\" | \"center\" | \"left\" | \"right\" | \"top\"",
+            "references": {
+              "IcDividerLabelPlacement": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "label-placement",
+          "reflectToAttr": false,
+          "docs": "The position the label is placed on the divider. `Left` and `right` placement is only applicable when orientation is set to `horizontal`. `Top` and `bottom` placement is only applicable when orientation is set to `vertical`. `Center` placement is applicable for both orientations.",
+          "docsTags": [],
+          "default": "\"center\"",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "IcOrientation",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {
+              "IcOrientation": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcOrientation"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "orientation",
+          "reflectToAttr": false,
+          "docs": "The orientation of the divider.",
+          "docsTags": [],
+          "default": "\"horizontal\"",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "\"medium\" | \"thick\" | \"thin\" | \"very-thick\"",
+          "complexType": {
+            "original": "IcDividerWeights",
+            "resolved": "\"medium\" | \"thick\" | \"thin\" | \"very-thick\"",
+            "references": {
+              "IcDividerWeights": {
+                "location": "import",
+                "path": "./ic-divider.types",
+                "id": "src/components/ic-divider/ic-divider.types.tsx::IcDividerWeights"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "weight",
+          "reflectToAttr": false,
+          "docs": "The thickness of the divider.",
+          "docsTags": [],
+          "default": "\"thin\"",
+          "values": [
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "thick",
+              "type": "string"
+            },
+            {
+              "value": "thin",
+              "type": "string"
+            },
+            {
+              "value": "very-thick",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "listeners": [
@@ -4690,14 +4905,35 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ic-divider-horizontal-width",
+          "annotation": "prop",
+          "docs": "The width of a horizontal divider. The default value is `inherit`."
+        },
+        {
+          "name": "--ic-divider-vertical-height",
+          "annotation": "prop",
+          "docs": "The height of a vertical divider. The default value is `inherit`."
+        },
+        {
+          "name": "--ic-divider-weight",
+          "annotation": "prop",
+          "docs": "The thickness of the divider."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
         "ic-side-navigation"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "ic-typography"
+      ],
       "dependencyGraph": {
+        "ic-divider": [
+          "ic-typography"
+        ],
         "ic-side-navigation": [
           "ic-divider"
         ]
@@ -13207,6 +13443,9 @@
         ],
         "ic-tooltip": [
           "ic-typography"
+        ],
+        "ic-divider": [
+          "ic-typography"
         ]
       }
     },
@@ -17565,6 +17804,7 @@
         "ic-data-list",
         "ic-data-row",
         "ic-dialog",
+        "ic-divider",
         "ic-empty-state",
         "ic-footer",
         "ic-footer-link-group",
@@ -17626,6 +17866,9 @@
           "ic-typography"
         ],
         "ic-dialog": [
+          "ic-typography"
+        ],
+        "ic-divider": [
           "ic-typography"
         ],
         "ic-empty-state": [
@@ -17853,6 +18096,31 @@
       "docstring": "",
       "path": "src/utils/types.ts"
     },
+    "src/utils/types.ts::IcThemeForegroundWithTheme": {
+      "declaration": "export type IcThemeForegroundWithTheme = \"default\" | \"dark\" | \"light\" | \"theme\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerStyles": {
+      "declaration": "export type IcDividerStyles = \"solid\" | \"dashed\";",
+      "docstring": "",
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
+    },
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerWeights": {
+      "declaration": "export type IcDividerWeights = \"thin\" | \"medium\" | \"thick\" | \"very thick\";",
+      "docstring": "",
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
+    },
+    "src/utils/types.ts::IcOrientation": {
+      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/components/ic-divider/ic-divider.types.tsx::IcDividerLabelPlacement": {
+      "declaration": "export type IcDividerLabelPlacement =\n  | \"left\"\n  | \"center\"\n  | \"right\"\n  | \"top\"\n  | \"bottom\";",
+      "docstring": "",
+      "path": "src/components/ic-divider/ic-divider.types.tsx"
+    },
     "src/components/ic-empty-state/ic-empty-state.types.ts::IcEmptyStateAlignment": {
       "declaration": "export type IcEmptyStateAlignment = \"left\" | \"center\" | \"right\";",
       "docstring": "",
@@ -17942,11 +18210,6 @@
       "declaration": "export type IcPaginationItemType = \"page\" | \"ellipsis\" | \"simple-current\";",
       "docstring": "",
       "path": "src/components/ic-pagination-item/ic-pagination-item.types.ts"
-    },
-    "src/utils/types.ts::IcOrientation": {
-      "declaration": "export type IcOrientation = \"horizontal\" | \"vertical\";",
-      "docstring": "",
-      "path": "src/utils/types.ts"
     },
     "src/components/ic-radio-group/ic-radio-group.types.ts::IcChangeEventDetail": {
       "declaration": "export interface IcChangeEventDetail {\n  value: string;\n  selectedOption: {\n    radio: HTMLIcRadioOptionElement;\n    textFieldValue?: string;\n  };\n}",
