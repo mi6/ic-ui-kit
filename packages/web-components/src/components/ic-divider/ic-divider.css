@@ -1,11 +1,233 @@
+/**
+  * @prop --ic-divider-vertical-height: The height of a vertical divider. The default value is `inherit`. 
+  */
+/**
+  * @prop --ic-divider-horizontal-width: The width of a horizontal divider. The default value is `inherit`.
+  */
+/**
+  * @prop --ic-divider-weight: The thickness of the divider.
+  */
+
+/* Horizontal Divider */
+:host(.ic-divider-horizontal) {
+  display: flex;
+  width: var(--ic-divider-horizontal-width, 100%);
+  align-items: center;
+  column-gap: var(--ic-space-xxs);
+}
+
 hr {
   padding: 0;
   margin: 0;
   border: none;
-  height: var(--ic-space-1px);
-  background-color: var(--ic-keyline-darken-rgb);
+  border-bottom: solid var(--ic-divider-weight, var(--ic-space-1px))
+    var(--ic-architectural-200);
+  width: inherit;
 }
 
-hr.light {
-  background-color: var(--ic-keyline-lighten-rgb);
+:host(.ic-divider-horizontal)::before,
+:host(.ic-divider-horizontal)::after {
+  border-left: none !important;
+}
+
+:host(.ic-divider-horizontal[label-placement="right"])::before,
+:host(.ic-divider-horizontal[label-placement="center"])::before,
+:host(.ic-divider-horizontal[label-placement="left"])::after,
+:host(.ic-divider-horizontal[label-placement="center"])::after {
+  content: "";
+  border: none;
+  border-bottom: solid var(--ic-divider-weight, var(--ic-space-1px))
+    var(--ic-architectural-200);
+  width: 100%;
+}
+
+/* Vertical Divider */
+:host(.ic-divider-vertical) {
+  display: flex;
+  flex-direction: column;
+  height: var(--ic-divider-vertical-height, inherit);
+  width: max-content;
+  align-items: center;
+  column-gap: var(--ic-space-xxs);
+  border: none;
+}
+
+:host(.ic-divider-vertical[label-placement="bottom"])::before,
+:host(.ic-divider-vertical[label-placement="center"])::before,
+:host(.ic-divider-vertical[label-placement="top"])::after,
+:host(.ic-divider-vertical[label-placement="center"])::after {
+  content: "";
+  border-left: solid var(--ic-divider-weight, var(--ic-space-1px))
+    var(--ic-architectural-200);
+  height: 100%;
+}
+
+:host(.ic-divider-vertical) div.vertical-divider {
+  display: flex;
+  height: inherit;
+}
+
+/* Appearance */
+:host(.ic-divider-dark) hr,
+:host(.ic-divider-dark) div.vertical-divider,
+:host(.ic-divider-dark[label-placement="bottom"])::before,
+:host(.ic-divider-dark[label-placement="right"])::before,
+:host(.ic-divider-dark[label-placement="center"])::before,
+:host(.ic-divider-dark[label-placement="top"])::after,
+:host(.ic-divider-dark[label-placement="left"])::after,
+:host(.ic-divider-dark[label-placement="center"])::after {
+  border-color: var(--ic-keyline-darken-rgb);
+}
+/* :host(.ic-divider-dark) hr,
+:host(.ic-divider-dark.ic-divider-horizontal[label-placement="right"])::before,
+:host(.ic-divider-dark.ic-divider-horizontal[label-placement="center"])::before,
+:host(.ic-divider-dark.ic-divider-horizontal[label-placement="left"])::after,
+:host(.ic-divider-dark.ic-divider-horizontal[label-placement="center"])::after {
+  border-bottom-color: var(--ic-keyline-darken-rgb);
+}
+
+:host(.ic-divider-dark) div.vertical-divider,
+:host(.ic-divider-dark.ic-divider-vertical[label-placement="bottom"])::before,
+:host(.ic-divider-dark.ic-divider-vertical[label-placement="center"])::before,
+:host(.ic-divider-dark.ic-divider-vertical[label-placement="top"])::after,
+:host(.ic-divider-dar.ic-divider-vertical[label-placement="center"])::after {
+  border-left-color: var(--ic-keyline-darken-rgb);
+} */
+
+:host(.ic-divider-light) hr,
+:host(.ic-divider-light) div.vertical-divider,
+:host(.ic-divider-light[label-placement="bottom"])::before,
+:host(.ic-divider-light[label-placement="right"])::before,
+:host(.ic-divider-light[label-placement="center"])::before,
+:host(.ic-divider-light[label-placement="top"])::after,
+:host(.ic-divider-light[label-placement="left"])::after,
+:host(.ic-divider-light[label-placement="center"])::after {
+  border-color: var(--ic-keyline-lighten-rgb);
+}
+
+:host(.ic-divider-theme) hr,
+:host(.ic-divider-theme) div.vertical-divider,
+:host(.ic-divider-theme[label-placement="bottom"])::before,
+:host(.ic-divider-theme[label-placement="right"])::before,
+:host(.ic-divider-theme[label-placement="center"])::before,
+:host(.ic-divider-theme[label-placement="top"])::after,
+:host(.ic-divider-theme[label-placement="left"])::after,
+:host(.ic-divider-theme[label-placement="center"])::after {
+  border-color: var(--ic-theme-primary);
+}
+
+/* Weight */
+:host(.ic-divider-very-thick) hr,
+:host(.ic-divider-very-thick[label-placement="right"])::before,
+:host(.ic-divider-very-thick[label-placement="center"])::before,
+:host(.ic-divider-very-thick[label-placement="left"])::after,
+:host(.ic-divider-very-thick[label-placement="center"])::after {
+  border-bottom-width: var(--ic-divider-weight, var(--ic-space-xs));
+}
+
+:host(.ic-divider-very-thick) .vertical-divider,
+:host(.ic-divider-very-thick[label-placement="bottom"])::before,
+:host(.ic-divider-very-thick[label-placement="center"])::before,
+:host(.ic-divider-very-thick[label-placement="top"])::after,
+:host(.ic-divider-very-thick[label-placement="center"])::after {
+  border-left-width: var(--ic-divider-weight, var(--ic-space-xs));
+}
+
+:host(.ic-divider-thick) hr,
+:host(.ic-divider-thick[label-placement="right"])::before,
+:host(.ic-divider-thick[label-placement="center"])::before,
+:host(.ic-divider-thick[label-placement="left"])::after,
+:host(.ic-divider-thick[label-placement="center"])::after {
+  border-bottom-width: var(--ic-divider-weight, var(--ic-space-xxs));
+}
+
+:host(.ic-divider-thick) .vertical-divider,
+:host(.ic-divider-thick[label-placement="bottom"])::before,
+:host(.ic-divider-thick[label-placement="center"])::before,
+:host(.ic-divider-thick[label-placement="top"])::after,
+:host(.ic-divider-thick[label-placement="center"])::after {
+  border-left-width: var(---ic-divider-weight, var(--ic-space-xxs));
+}
+
+:host(.ic-divider-medium) hr,
+:host(.ic-divider-medium[label-placement="right"])::before,
+:host(.ic-divider-medium[label-placement="center"])::before,
+:host(.ic-divider-medium[label-placement="left"])::after,
+:host(.ic-divider-medium[label-placement="center"])::after {
+  border-bottom-width: var(--ic-divider-weight, var(--ic-space-xxxs));
+}
+
+:host(.ic-divider-medium) .vertical-divider,
+:host(.ic-divider-medium[label-placement="bottom"])::before,
+:host(.ic-divider-medium[label-placement="center"])::before,
+:host(.ic-divider-medium[label-placement="top"])::after,
+:host(.ic-divider-medium[label-placement="center"])::after {
+  border-left-width: var(--ic-divider-weight, var(--ic-space-xxxs));
+}
+
+:host(.ic-divider-thin) hr,
+:host(.ic-divider-thin[label-placement="right"])::before,
+:host(.ic-divider-thin[label-placement="center"])::before,
+:host(.ic-divider-thin[label-placement="left"])::after,
+:host(.ic-divider-thin[label-placement="center"])::after {
+  border-bottom-width: var(--ic-divider-weight, var(--ic-space-1px));
+}
+
+:host(.ic-divider-thin) .vertical-divider,
+:host(.ic-divider-thin[label-placement="bottom"])::before,
+:host(.ic-divider-thin.ic-divider-vertical[label-placement="center"])::before,
+:host(.ic-divider-thin[label-placement="top"])::after,
+:host(.ic-divider-thin.ic-divider-vertical[label-placement="center"])::after {
+  border-left-width: var(--ic-divider-weight, var(--ic-space-1px));
+}
+
+/* Style */
+:host(.ic-divider-solid) .vertical-divider,
+:host(.ic-divider-solid[label-placement="bottom"])::before,
+:host(.ic-divider-solid[label-placement="center"])::before,
+:host(.ic-divider-solid[label-placement="top"])::after,
+:host(.ic-divider-solid[label-placement="center"])::after {
+  border-left-style: solid;
+}
+
+:host(.ic-divider-dashed) hr,
+:host(.ic-divider-dashed[label-placement="right"])::before,
+:host(.ic-divider-dashed[label-placement="center"])::before,
+:host(.ic-divider-dashed[label-placement="left"])::after,
+:host(.ic-divider-dashed[label-placement="center"])::after {
+  border-bottom-style: dashed;
+}
+
+:host(.ic-divider-dashed) .vertical-divider,
+:host(.ic-divider-dashed[label-placement="bottom"])::before,
+:host(.ic-divider-dashed[label-placement="center"])::before,
+:host(.ic-divider-dashed[label-placement="top"])::after,
+:host(.ic-divider-dashed[label-placement="center"])::after {
+  border-left-style: dashed;
+}
+
+/* Label styling */
+:host() .ic-divider-label p,
+:host() ::slotted(ic-typography) {
+  width: max-content;
+}
+
+:host(.ic-divider-default) .ic-divider-label,
+:host(.ic-divider-default) ::slotted(*) {
+  color: var(--ic-architectural-200);
+}
+
+:host(.ic-divider-light) .ic-divider-label,
+:host(.ic-divider-light) ::slotted(*) {
+  color: var(--ic-keyline-lighten-rgb);
+}
+
+:host(.ic-divider-dark) .ic-divider-label,
+:host(.ic-divider-dark) ::slotted(*) {
+  color: var(--ic-keyline-darken-rgb);
+}
+
+:host(.ic-divider-theme) .ic-divider-label,
+:host(.ic-divider-theme) ::slotted(*) {
+  color: var(--ic-theme-primary);
 }

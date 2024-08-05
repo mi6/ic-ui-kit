@@ -63,6 +63,7 @@ graph TD;
   ic-button --> ic-tooltip
   ic-loading-indicator --> ic-typography
   ic-tooltip --> ic-typography
+  ic-divider --> ic-typography
   style ic-side-navigation fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
