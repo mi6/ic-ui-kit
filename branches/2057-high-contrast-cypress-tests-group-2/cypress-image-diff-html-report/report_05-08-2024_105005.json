@@ -1,6 +1,6 @@
 {
-  "total": 506,
-  "totalPassed": 505,
+  "total": 513,
+  "totalPassed": 512,
   "totalFailed": 1,
   "totalSuites": 36,
   "suites": [
@@ -589,14 +589,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-router-slot.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcButton.cy.tsx-icon-variants-button-group",
-          "percentage": 0.06196773353931867,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-button-group.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-button-group.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-button-group.png"
         },
         {
@@ -700,6 +700,28 @@
         },
         {
           "status": "pass",
+          "name": "IcButton.cy.tsx-primary-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-primary-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-primary-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-secondary-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-secondary-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-secondary-high-contrast.png"
+        },
+        {
+          "status": "pass",
           "name": "IcButton.cy.tsx-tertiary-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -722,14 +744,36 @@
         },
         {
           "status": "pass",
-          "name": "IcButton.cy.tsx-icon-variants-high-contrast",
+          "name": "IcButton.cy.tsx-with-icon-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
-          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-high-contrast.png",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-with-icon-high-contrast.png",
           "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-with-icon-high-contrast.png"
+        },
+        {
+          "status": "fail",
+          "name": "IcButton.cy.tsx-icon-variants-high-contrast",
+          "percentage": 0.04381780460041329,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-high-contrast.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-expanded-dropdown-popover-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-expanded-dropdown-popover-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-expanded-dropdown-popover-high-contrast.png"
         },
         {
           "status": "pass",
@@ -752,6 +796,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-focused-primary-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-focused-primary-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcButton.cy.tsx-focused-primary-light-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
+          "specFilename": "IcButton.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-focused-primary-light-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-focused-primary-light-high-contrast.png"
         },
         {
           "status": "pass",
@@ -1257,6 +1312,17 @@
         },
         {
           "status": "pass",
+          "name": "IcChip.cy.tsx-disabled-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
+          "specFilename": "IcChip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-disabled-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-disabled-high-contrast.png"
+        },
+        {
+          "status": "pass",
           "name": "IcChip.cy.tsx-dismissible-high-contrast",
           "percentage": 0,
           "failureThreshold": 0,
@@ -1276,6 +1342,17 @@
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-dismissible-focus-high-contrast.png",
           "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-dismissible-focus-high-contrast.png"
+        },
+        {
+          "status": "pass",
+          "name": "IcChip.cy.tsx-white-background-high-contrast",
+          "percentage": 0,
+          "failureThreshold": 0,
+          "specPath": "src/component-tests/IcChip/IcChip.cy.tsx",
+          "specFilename": "IcChip.cy.tsx",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/IcChip.cy.tsx-white-background-high-contrast.png",
+          "diffPath": "",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/IcChip.cy.tsx-white-background-high-contrast.png"
         }
       ]
     },
@@ -5787,9 +5864,9 @@
       ]
     }
   ],
-  "startedAt": "2024-07-31T11:36:32.934Z",
-  "endedAt": "2024-07-31T11:46:12.998Z",
-  "duration": 506016,
+  "startedAt": "2024-08-05T10:50:05.386Z",
+  "endedAt": "2024-08-05T11:00:07.709Z",
+  "duration": 530234,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
