@@ -54,11 +54,17 @@ export const SlottedContentDialog = () => {
       <IcDialog ref={dialogEl}>
         <>
           <IcTypography slot="heading" variant="h4">
-            This is a default dialog
+            This is a slotted heading
           </IcTypography>
           <IcTypography slot="label" variant="label">
-            Dialog
+            Slotted label
           </IcTypography>
+          <IcAlert
+            variant="info"
+            heading="Info"
+            message="This alert is for displaying information"
+            slot="alert"
+          ></IcAlert>
           <IcTypography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -73,14 +79,14 @@ export const SlottedContentDialog = () => {
           >
             <IcCheckbox label="Confirm" value="confirm" />
           </IcCheckboxGroup>
-          <IcButton>Test button</IcButton>
+          <IcButton id="test-button">Test button</IcButton>
         </>
       </IcDialog>
     </>
   );
 };
 
-export const SlottedContentDialogAccordion = () => {
+export const DialogAccordion = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
@@ -106,7 +112,7 @@ export const SlottedContentDialogAccordion = () => {
   );
 };
 
-export const SlottedContentDialogAccordionGroup = () => {
+export const DialogAccordionGroup = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
@@ -131,7 +137,7 @@ export const SlottedContentDialogAccordionGroup = () => {
   );
 };
 
-export const SlottedContentDialogAccordionGroupSingleExpansion = () => {
+export const DialogAccordionGroupSingleExpansion = () => {
   const dialogEl = useRef<any>(null);
   const handleClick = () => {
     dialogEl.current.open = true;
@@ -267,7 +273,7 @@ export const ScrollableDialog = () => {
   );
 };
 
-export const alertDialog = (variant: IcStatusVariants) => {
+export const AlertDialog = (variant: IcStatusVariants) => {
   return (
     <>
       <IcDialog heading="This is a default dialog" label="Dialog" open>
@@ -286,7 +292,7 @@ export const alertDialog = (variant: IcStatusVariants) => {
   );
 };
 
-export const sizeDialog = (size: "small" | "large") => {
+export const SizeDialog = (size: "small" | "large") => {
   return (
     <>
       <IcDialog
@@ -299,6 +305,39 @@ export const sizeDialog = (size: "small" | "large") => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </IcTypography>
+      </IcDialog>
+    </>
+  );
+};
+
+export const NoWidthConstraintDialog = () => {
+  const dialogEl = useRef<any>(null);
+  const handleClick = () => {
+    dialogEl.current.open = true;
+  };
+  return (
+    <>
+      <IcButton id="full-width-dialog-btn" onClick={handleClick}>
+        Full Width Text Dialog
+      </IcButton>
+      <IcDialog
+        ref={dialogEl}
+        heading="Full Width Text"
+        label="Test"
+        id="full-width-dialog"
+        size="large"
+        disableWidthConstraint
+      >
+        <>
+          <IcTypography>
+            It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was
+            popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem
+            Ipsum.
+          </IcTypography>
+        </>
       </IcDialog>
     </>
   );
