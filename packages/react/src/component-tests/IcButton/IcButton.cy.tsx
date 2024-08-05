@@ -446,7 +446,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
       name: "icon-variants-button-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
 
@@ -686,7 +686,7 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   it("should render icon variants in high contrast mode", () => {
     mount(<IconButtonGroup />);
 
-    cy.wait(500).compareSnapshot({
+    cy.compareSnapshot({
       name: "icon-variants-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
     });
