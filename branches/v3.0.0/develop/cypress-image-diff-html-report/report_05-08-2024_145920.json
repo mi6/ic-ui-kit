@@ -1,7 +1,7 @@
 {
   "total": 523,
-  "totalPassed": 515,
-  "totalFailed": 8,
+  "totalPassed": 514,
+  "totalFailed": 9,
   "totalSuites": 36,
   "suites": [
     {
@@ -353,7 +353,7 @@
         {
           "status": "fail",
           "name": "IcBackToTop.cy.tsx-default-high-contrast",
-          "percentage": 0.044452221541785734,
+          "percentage": 0.040792156108742275,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcBackToTop/IcBackToTop.cy.tsx",
           "specFilename": "IcBackToTop.cy.tsx",
@@ -908,14 +908,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-with-icon-high-contrast.png"
         },
         {
-          "status": "pass",
+          "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-high-contrast",
-          "percentage": 0,
+          "percentage": 0.03532704346531139,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcButton.cy.tsx-icon-variants-high-contrast.png",
-          "diffPath": "",
+          "diffPath": "cypress-image-diff-screenshots/diff/IcButton.cy.tsx-icon-variants-high-contrast.png",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcButton.cy.tsx-icon-variants-high-contrast.png"
         },
         {
@@ -5974,9 +5974,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-05T14:29:01.881Z",
-  "endedAt": "2024-08-05T14:42:37.017Z",
-  "duration": 739008,
+  "startedAt": "2024-08-05T14:59:20.641Z",
+  "endedAt": "2024-08-05T15:12:35.469Z",
+  "duration": 721310,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
