@@ -160,10 +160,10 @@ export const WithBadgeSlot = () => {
   return (
     <div style={{ padding: "8px" }}>
       <IcChip label="Default">
-        <IcBadge textLabel="1" slot="badge" variant="success" position="near" />
+        <IcBadge label="1" slot="badge" variant="success" position="near" />
       </IcChip>
       <IcChip label="Default" variant="outlined">
-        <IcBadge textLabel="1" slot="badge" variant="success" position="near" />
+        <IcBadge label="1" slot="badge" variant="success" position="near" />
       </IcChip>
     </div>
   );
