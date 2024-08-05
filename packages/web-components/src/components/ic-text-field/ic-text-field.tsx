@@ -12,6 +12,7 @@ import {
   h,
   forceUpdate,
 } from "@stencil/core";
+import closeIcon from "../../assets/clear-icon.svg";
 import {
   IcInformationStatus,
   IcAutocompleteTypes,
@@ -113,10 +114,20 @@ export class TextField {
    */
   @Prop() autoFocus = false;
 
+
+  /**
+   * If 'true', the text field will include an clear text icon
+   */
+  @Prop() hideClearInputButton: boolean = true;
+
+  @Prop() clearLabel?: string = "Cleared";
+
   /**
    * If `true`, the disabled state will be set.
    */
   @Prop() disabled: boolean = false;
+
+  @Prop() focussed: boolean = false;
 
   /**
    * Specify whether the text field fills the full width of the container.
@@ -451,6 +462,11 @@ export class TextField {
     }
   };
 
+  private clearInputClick = () => {
+    this.value = "";
+    this.icInput.emit({ value: this.value });
+  }
+
   render() {
     const {
       inputId,
@@ -487,6 +503,8 @@ export class TextField {
       fullWidth,
       truncateValue,
       hiddenInput,
+      hideClearInputButton,
+      clearLabel,
     } = this;
 
     const disabledMode = readonly ? true : disabled;
@@ -582,6 +600,7 @@ export class TextField {
                 <slot name="icon" />
               </span>
             )}
+            
 
             {!multiline ? (
               <input
@@ -650,6 +669,15 @@ export class TextField {
                 minlength={minCharactersUnattained ? minCharacters : null}
                 {...this.inheritedAttributes}
               ></textarea>
+            )}
+            {hideClearInputButton &&  (
+              <ic-button
+              class="close-icon"
+              variant="icon"
+              innerHTML={closeIcon}
+              aria-label={clearLabel}
+              onClick={this.clearInputClick}
+              ></ic-button>
             )}
             {isSlotUsed(this.el, "clear-button") && (
               <slot name="clear-button"></slot>

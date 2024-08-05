@@ -111,3 +111,7 @@ input[type="search"].truncate-value {
     fill: currentcolor;
   }
 }
+
+.close-icon {
+  margin-right: auto;
+}
