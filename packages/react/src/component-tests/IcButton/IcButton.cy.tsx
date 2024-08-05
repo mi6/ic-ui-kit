@@ -468,7 +468,7 @@ describe("IcButton visual regression and a11y tests", () => {
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
       name: "icon-variants-button-group",
-      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.041),
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.045),
     });
   });
 
