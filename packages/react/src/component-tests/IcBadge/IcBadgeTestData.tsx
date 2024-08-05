@@ -153,7 +153,7 @@ export const AccessibleLabel = (): ReactElement => {
   return (
     <IcButton variant="secondary" style={{ margin: "16px" }}>
       <IcBadge
-        text-label="1"
+        label="1"
         slot="badge"
         size="large"
         accessible-label="1 notification found"
@@ -166,7 +166,7 @@ export const AccessibleLabel = (): ReactElement => {
 export const Default = (): ReactElement => {
   return (
     <IcButton variant="secondary" style={{ margin: "16px" }}>
-      <IcBadge text-label="1" slot="badge" size="large" />
+      <IcBadge label="1" slot="badge" size="large" />
       Default
     </IcButton>
   );
@@ -178,7 +178,7 @@ export const MaxNumber = (): ReactElement => {
       <div style={{ padding: "16px" }}>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
           <IcBadge
-            text-label="1000"
+            label="1000"
             slot="badge"
             size="small"
             max-number="9"
@@ -187,17 +187,12 @@ export const MaxNumber = (): ReactElement => {
           Small
         </IcButton>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
-          <IcBadge
-            text-label="1000"
-            max-number="9"
-            slot="badge"
-            variant="success"
-          />
+          <IcBadge label="1000" max-number="9" slot="badge" variant="success" />
           Default
         </IcButton>
         <IcButton variant="secondary">
           <IcBadge
-            text-label="1000"
+            label="1000"
             slot="badge"
             size="large"
             max-number="9"
@@ -209,7 +204,7 @@ export const MaxNumber = (): ReactElement => {
       <div style={{ padding: "16px" }}>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
           <IcBadge
-            text-label="1000"
+            label="1000"
             slot="badge"
             size="small"
             max-number="99"
@@ -219,7 +214,7 @@ export const MaxNumber = (): ReactElement => {
         </IcButton>
         <IcButton variant="secondary" style={{ marginRight: "16px" }}>
           <IcBadge
-            text-label="1000"
+            label="1000"
             max-number="99"
             slot="badge"
             variant="success"
@@ -228,7 +223,7 @@ export const MaxNumber = (): ReactElement => {
         </IcButton>
         <IcButton variant="secondary">
           <IcBadge
-            text-label="1000"
+            label="1000"
             slot="badge"
             size="large"
             max-number="99"
@@ -246,13 +241,13 @@ export const PositionNear = (): ReactElement => {
     <div>
       <div style={{ padding: "16px" }}>
         <IcChip label="Small" style={{ marginRight: "16px" }}>
-          <IcBadge text-label="1" slot="badge" position="near" size="small" />
+          <IcBadge label="1" slot="badge" position="near" size="small" />
         </IcChip>
         <IcChip label="Default" style={{ marginRight: "16px" }}>
-          <IcBadge text-label="1" slot="badge" position="near" />
+          <IcBadge label="1" slot="badge" position="near" />
         </IcChip>
         <IcChip label="Large">
-          <IcBadge text-label="1" slot="badge" position="near" size="large" />
+          <IcBadge label="1" slot="badge" position="near" size="large" />
         </IcChip>
       </div>
       <div style={{ padding: "16px" }}>
@@ -277,7 +272,7 @@ export const PositionInline = (): ReactElement => {
         <IcTab>
           Small
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             size="small"
@@ -287,7 +282,7 @@ export const PositionInline = (): ReactElement => {
         <IcTab>
           Default
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             accessibleLabel="1 notification found"
@@ -296,7 +291,7 @@ export const PositionInline = (): ReactElement => {
         <IcTab>
           Large
           <IcBadge
-            text-label="1"
+            label="1"
             slot="badge"
             position="inline"
             size="large"
