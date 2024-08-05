@@ -174,20 +174,20 @@ describe("End-to-end tests", () => {
       );
     });
 
-  it("should open second accordion and close first accordion on single expansion", () => {
-    mount(
-      <IcAccordionGroup singleExpansion label="Title">
-        <TwoAccordionsWithOneExpanded />
-      </IcAccordionGroup>
-    );
-    cy.checkHydrated(IC_ACCORDION_GROUP);
+    it("should open second accordion and close first accordion on single expansion", () => {
+      mount(
+        <IcAccordionGroup singleExpansion label="Title">
+          <TwoAccordionsWithOneExpanded />
+        </IcAccordionGroup>
+      );
+      cy.checkHydrated(IC_ACCORDION_GROUP);
 
-    cy.get(getAccordionSelector(1))
-      .invoke("prop", "expanded")
-      .should("eq", false);
-    cy.get(getAccordionSelector(2))
-      .invoke("prop", "expanded")
-      .should("eq", true);
+      cy.get(getAccordionSelector(1))
+        .invoke("prop", "expanded")
+        .should("eq", false);
+      cy.get(getAccordionSelector(2))
+        .invoke("prop", "expanded")
+        .should("eq", true);
 
       cy.findShadowEl(getAccordionSelector(1), "button")
         .focus()
@@ -490,7 +490,7 @@ describe("Visual regression tests in high contrast mode", () => {
   describe("IcAccordionGroup", () => {
     it("should render a single expansion accordion-group in high contrast mode", () => {
       mount(
-        <IcAccordionGroup singleExpansion groupTitle="Single Expansion">
+        <IcAccordionGroup singleExpansion label="Single Expansion">
           <TwoAccordions />
         </IcAccordionGroup>
       );
