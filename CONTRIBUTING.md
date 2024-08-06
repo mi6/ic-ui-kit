@@ -4,33 +4,34 @@ Welcome and thank you for contributing to the Intelligence Community UI Kit. Thi
 
 **Table of contents**
 
-- [Code of conduct](#code-of-conduct)
-
-- [How to contribute](#how-to-contribute)
+- [Contributing to the Intelligence Community UI Kit](#contributing-to-the-intelligence-community-ui-kit)
+  - [Code of conduct](#code-of-conduct)
+  - [How to contribute](#how-to-contribute)
     - [Making a suggestion or raising a bug](#making-a-suggestion-or-raising-a-bug)
     - [Contributing code](#contributing-code)
     - [Setting up the UI Kit codebase](#setting-up-the-ui-kit-codebase)
     - [Documentation](#documentation)
     - [Pull requests](#pull-requests)
     - [React](#react)
-
-- [Coding standards and practices](#coding-standards-and-practices)
+  - [Coding standards and practices](#coding-standards-and-practices)
     - [Style guide](#style-guide)
+    - [Git user configuration](#git-user-configuration)
     - [Git commit](#git-commit)
     - [Interfaces and types](#interfaces-and-types)
+    - [When to use props, slots or methods](#when-to-use-props-slots-or-methods)
     - [Styling](#styling)
-
-- [Testing](#testing)
+  - [Testing](#testing)
     - [Accessibility](#accessibility)
     - [Unit tests](#unit-tests)
-    - [End-to-end tests / integration tests](#end-to-end--integration-tests)
+    - [End-to-end / integration tests](#end-to-end--integration-tests)
     - [Visual regression tests](#visual-regression-tests)
-
-- [Useful links](#useful-links)
+      - [Generating/updating Cypress screenshots](#generatingupdating-cypress-screenshots)
+    - [Testing best practice](#testing-best-practice)
+    - [Useful links](#useful-links)
 
 ## Code of conduct
 
-The Intelligence Community Design System (ICDS) has adopted the [Contributor Covenant](https://www.contributor-covenant.org/). Please familiarise yourself with our full [conduct principles](https://github.com/mi6/ic-design-system/blob/main/CODE_OF_CONDUCT.md).
+The Intelligence Community Design System (ICDS) has adopted the [Contributor Covenant](https://www.contributor-covenant.org/). Please familiarise yourself with our full [conduct principles](https://github.com/mi6/ic-ui-kit/blob/main/CODE_OF_CONDUCT.md).
 
 ## How to contribute
 
