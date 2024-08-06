@@ -657,3 +657,6 @@ export const checkSlotInChildMutations = (
     );
   return hasSlot(addedNodes) || hasSlot(removedNodes);
 };
+
+export const isElInAGGrid = (el: HTMLElement): boolean =>
+  !!el.closest(".ag-cell") && !!el.closest(".ag-root");

@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Typography } from "../../ic-typography";
+import * as helpers from "../../../../utils/helpers";
 
 describe("ic-typography component", () => {
   it("should render with default body styles", async () => {
@@ -415,5 +416,23 @@ describe("ic-typography component", () => {
 
     //test disconnected callback
     page.setContent("");
+  });
+
+  it("should apply the correct class when in an AG Grid", async () => {
+    Object.defineProperty(helpers, "isElInAGGrid", {
+      value: jest.fn().mockReturnValue(true),
+    });
+
+    const page = await newSpecPage({
+      components: [Typography],
+      html: `<ic-typography><p>IC Typography Test</p></ic-typography>`,
+    });
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.inAGGrid).toBe(true);
+    expect(
+      document.querySelector("ic-typography").classList.contains("in-ag-grid")
+    ).toBe(true);
   });
 });
