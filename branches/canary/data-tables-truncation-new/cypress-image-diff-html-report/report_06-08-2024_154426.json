@@ -965,7 +965,7 @@
         {
           "status": "fail",
           "name": "IcButton.cy.tsx-icon-variants-high-contrast",
-          "percentage": 0.03730951621235526,
+          "percentage": 0.03919183588453085,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcButton/IcButton.cy.tsx",
           "specFilename": "IcButton.cy.tsx",
@@ -6084,9 +6084,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-06T14:34:44.766Z",
-  "endedAt": "2024-08-06T14:44:58.650Z",
-  "duration": 540830,
+  "startedAt": "2024-08-06T15:44:26.918Z",
+  "endedAt": "2024-08-06T15:55:07.718Z",
+  "duration": 566573,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
