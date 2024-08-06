@@ -184,6 +184,13 @@
   font-weight: var(--ic-font-weight-bold);
 }
 
+:host(.in-ag-grid),
+:host(.in-ag-grid) ::slotted(*) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @supports (text-underline-offset: 25%) {
   .trunc-btn:hover,
   .trunc-btn.focus {

@@ -1,5 +1,6 @@
 import { newSpecPage } from "@stencil/core/testing";
 import { Chip } from "../../ic-chip";
+import * as helpers from "../../../../utils/helpers";
 
 describe("ic-chip component renders label", () => {
   it("should render static", async () => {
@@ -194,5 +195,25 @@ describe("ic-chip component renders label", () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.customColor).toBe("#00008B");
+  });
+
+  it("should apply the correct class when in an AG Grid", async () => {
+    Object.defineProperty(helpers, "isElInAGGrid", {
+      value: jest.fn().mockReturnValue(true),
+    });
+
+    const page = await newSpecPage({
+      components: [Chip],
+      html: `<ic-chip label="Default"></ic-chip>`,
+    });
+
+    await page.waitForChanges();
+
+    expect(page.rootInstance.inAGGrid).toBe(true);
+    expect(
+      page.root.shadowRoot
+        .querySelector("ic-typography")
+        .classList.contains("in-ag-grid")
+    ).toBe(true);
   });
 });

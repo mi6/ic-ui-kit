@@ -1,7 +1,7 @@
 import { Component, Prop, h, Element, Host, State, Watch } from "@stencil/core";
 
 import { IcTypographyVariants } from "../../utils/types";
-import { checkResizeObserver } from "../../utils/helpers";
+import { checkResizeObserver, isElInAGGrid } from "../../utils/helpers";
 
 @Component({
   styleUrl: "ic-typography.css",
@@ -10,6 +10,7 @@ import { checkResizeObserver } from "../../utils/helpers";
 })
 export class Typography {
   private focusBtnFromKeyboard: boolean = true;
+  private inAGGrid: boolean = false;
   private lastMarkerTop: number = 0;
   private lastWidth: number = 0;
   private marker: HTMLElement;
@@ -89,6 +90,12 @@ export class Typography {
       this.lastWidth = this.el.clientWidth;
       this.checkMaxLines(this.el.clientHeight);
       checkResizeObserver(this.runResizeObserver);
+    }
+  }
+
+  componentWillRender(): void {
+    if (isElInAGGrid(this.el)) {
+      this.inAGGrid = true;
     }
   }
 
@@ -184,6 +191,7 @@ export class Typography {
           ["italic"]: italic,
           ["strikethrough"]: strikethrough,
           ["underline"]: underline,
+          ["in-ag-grid"]: this.inAGGrid,
         }}
       >
         {(variant === "body" ||

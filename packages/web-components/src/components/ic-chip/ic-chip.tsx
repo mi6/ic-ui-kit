@@ -15,6 +15,7 @@ import {
   isSlotUsed,
   removeDisabledFalse,
   convertToRGBA,
+  isElInAGGrid,
 } from "../../utils/helpers";
 import { IcChipAppearance } from "./ic-chip.types";
 import { IcColor, IcEmphasisType, IcSizes } from "../../utils/types";
@@ -32,6 +33,8 @@ import dismissIcon from "../../assets/dismiss-icon.svg";
   },
 })
 export class Chip {
+  private inAGGrid: boolean = false;
+
   @Element() el: HTMLIcChipElement;
 
   @State() hovered: boolean = false;
@@ -104,6 +107,12 @@ export class Chip {
 
     if (this.appearance === "outline") {
       this.variant = "outlined";
+    }
+  }
+
+  componentWillRender(): void {
+    if (isElInAGGrid(this.el)) {
+      this.inAGGrid = true;
     }
   }
 
@@ -188,7 +197,7 @@ export class Chip {
           <ic-typography
             variant="label"
             apply-vertical-margins={false}
-            class="label"
+            class={{ label: true, "in-ag-grid": this.inAGGrid }}
           >
             <span>{label}</span>
           </ic-typography>
