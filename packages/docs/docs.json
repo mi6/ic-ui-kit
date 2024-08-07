@@ -2330,10 +2330,10 @@
       }
     },
     {
-      "filePath": "src/components/ic-card/ic-card.tsx",
+      "filePath": "src/components/ic-card-vertical/ic-card-vertical.tsx",
       "encapsulation": "shadow",
-      "tag": "ic-card",
-      "readme": "# ic-card\n\n\n",
+      "tag": "ic-card-vertical",
+      "readme": "# ic-card-vertical\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -2771,7 +2771,7 @@
         "ic-tooltip"
       ],
       "dependencyGraph": {
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-typography",
           "ic-tooltip"
         ],
@@ -16618,7 +16618,7 @@
       "parts": [],
       "dependents": [
         "ic-button",
-        "ic-card",
+        "ic-card-vertical",
         "ic-chip",
         "ic-navigation-item"
       ],
@@ -16632,7 +16632,7 @@
         "ic-button": [
           "ic-tooltip"
         ],
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-tooltip"
         ],
         "ic-chip": [
@@ -17243,7 +17243,7 @@
         "ic-accordion-group",
         "ic-alert",
         "ic-badge",
-        "ic-card",
+        "ic-card-vertical",
         "ic-checkbox",
         "ic-chip",
         "ic-classification-banner",
@@ -17292,7 +17292,7 @@
         "ic-badge": [
           "ic-typography"
         ],
-        "ic-card": [
+        "ic-card-vertical": [
           "ic-typography"
         ],
         "ic-checkbox": [
