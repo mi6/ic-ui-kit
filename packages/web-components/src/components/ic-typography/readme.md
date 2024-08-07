@@ -26,7 +26,7 @@
  - [ic-accordion-group](../ic-accordion-group)
  - [ic-alert](../ic-alert)
  - [ic-badge](../ic-badge)
- - [ic-card](../ic-card)
+ - [ic-card-vertical](../ic-card-vertical)
  - [ic-checkbox](../ic-checkbox)
  - [ic-chip](../ic-chip)
  - [ic-classification-banner](../ic-classification-banner)
@@ -68,7 +68,7 @@ graph TD;
   ic-accordion-group --> ic-typography
   ic-alert --> ic-typography
   ic-badge --> ic-typography
-  ic-card --> ic-typography
+  ic-card-vertical --> ic-typography
   ic-checkbox --> ic-typography
   ic-chip --> ic-typography
   ic-classification-banner --> ic-typography
