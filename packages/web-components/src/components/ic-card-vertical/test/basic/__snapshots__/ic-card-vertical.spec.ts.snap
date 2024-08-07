@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ic-card should render 1`] = `
-<ic-card heading="Card" message="This is a static card">
+exports[`ic-card-vertical should render 1`] = `
+<ic-card-vertical heading="Card" message="This is a static card">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -22,11 +22,11 @@ exports[`ic-card should render 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render as a button 1`] = `
-<ic-card clickable="true" heading="Card" message="This is a clickable card rendered as a button">
+exports[`ic-card-vertical should render as a button 1`] = `
+<ic-card-vertical clickable="true" heading="Card" message="This is a clickable card rendered as a button">
   <mock:shadow-root>
     <button class="card clickable" tabindex="0">
       <div class="card-header">
@@ -47,11 +47,11 @@ exports[`ic-card should render as a button 1`] = `
       </div>
     </button>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render as a link 1`] = `
-<ic-card clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
+exports[`ic-card-vertical should render as a link 1`] = `
+<ic-card-vertical clickable="true" heading="Card" href="/" message="This is a clickable card rendered as a button">
   <mock:shadow-root>
     <a class="card clickable" href="/" hreflang="" tabindex="0">
       <div class="card-header">
@@ -72,11 +72,11 @@ exports[`ic-card should render as a link 1`] = `
       </div>
     </a>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render as expandable 1`] = `
-<ic-card expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render as expandable 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -114,11 +114,11 @@ exports[`ic-card should render as expandable 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render content in expanded area 1`] = `
-<ic-card expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render content in expanded area 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -162,11 +162,11 @@ exports[`ic-card should render content in expanded area 1`] = `
   <ic-typography slot="expanded-content">
     Extra content
   </ic-typography>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render full width variant 1`] = `
-<ic-card clickable="true" full-width="true" heading="Card" message="This is a full width card">
+exports[`ic-card-vertical should render full width variant 1`] = `
+<ic-card-vertical clickable="true" full-width="true" heading="Card" message="This is a full width card">
   <mock:shadow-root>
     <button class="card clickable fullwidth" tabindex="0">
       <div class="card-header">
@@ -187,11 +187,11 @@ exports[`ic-card should render full width variant 1`] = `
       </div>
     </button>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with a link parent 1`] = `
-<ic-card clickable="true" heading="Card" message="This is a clickable card">
+exports[`ic-card-vertical should render with a link parent 1`] = `
+<ic-card-vertical clickable="true" heading="Card" message="This is a clickable card">
   <mock:shadow-root>
     <div class="card clickable">
       <div class="card-header">
@@ -212,11 +212,11 @@ exports[`ic-card should render with a link parent 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with a middle image 1`] = `
-<ic-card heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render with a middle image 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -250,11 +250,11 @@ exports[`ic-card should render with a middle image 1`] = `
   <div slot="image-mid">
     Image placeholder
   </div>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with a subheading 1`] = `
-<ic-card heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render with a subheading 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -282,11 +282,11 @@ exports[`ic-card should render with a subheading 1`] = `
       </div>
     </div>
   </mock:shadow-root>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with a top image 1`] = `
-<ic-card heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render with a top image 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="image-top">
@@ -320,11 +320,11 @@ exports[`ic-card should render with a top image 1`] = `
   <div slot="image-top">
     Image placeholder
   </div>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with an interaction button 1`] = `
-<ic-card heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render with an interaction button 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -358,11 +358,11 @@ exports[`ic-card should render with an interaction button 1`] = `
   <ic-button slot="interaction-button" variant="primary">
     Click here
   </ic-button>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should render with interaction controls 1`] = `
-<ic-card heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
+exports[`ic-card-vertical should render with interaction controls 1`] = `
+<ic-card-vertical heading="Card" id="test-card" message="This is a card" subheading="Card subheading">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -398,11 +398,11 @@ exports[`ic-card should render with interaction controls 1`] = `
   <ic-button slot="interaction-controls">
     Click here
   </ic-button>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should toggle expanded content when expansion toggle is clicked 1`] = `
-<ic-card expandable="" heading="Card" id="test-card" message="This is a clickable card">
+exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 1`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -436,11 +436,11 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
   <ic-typography slot="expanded-content">
     Expanded
   </ic-typography>
-</ic-card>
+</ic-card-vertical>
 `;
 
-exports[`ic-card should toggle expanded content when expansion toggle is clicked 2`] = `
-<ic-card expandable="" heading="Card" id="test-card" message="This is a clickable card">
+exports[`ic-card-vertical should toggle expanded content when expansion toggle is clicked 2`] = `
+<ic-card-vertical expandable="" heading="Card" id="test-card" message="This is a clickable card">
   <mock:shadow-root>
     <div class="card">
       <div class="card-header">
@@ -477,5 +477,5 @@ exports[`ic-card should toggle expanded content when expansion toggle is clicked
   <ic-typography slot="expanded-content">
     Expanded
   </ic-typography>
-</ic-card>
+</ic-card-vertical>
 `;

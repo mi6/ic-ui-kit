@@ -36,14 +36,14 @@ import chevronIcon from "../../assets/chevron-icon.svg";
  * @slot badge - Badge component overlaying the top right of the card.
  */
 @Component({
-  tag: "ic-card",
-  styleUrl: "ic-card.css",
+  tag: "ic-card-vertical",
+  styleUrl: "ic-card-vertical.css",
   shadow: true,
 })
-export class Card {
+export class CardVertical {
   private hostMutationObserver: MutationObserver = null;
 
-  @Element() el: HTMLIcCardElement;
+  @Element() el: HTMLIcCardVerticalElement;
 
   @State() appearance?: IcThemeForeground = "default";
   @State() areaExpanded: boolean = false;
