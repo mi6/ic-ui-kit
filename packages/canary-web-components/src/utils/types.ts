@@ -7,7 +7,7 @@ import {
 export type IcFocusableComponents =
   | HTMLIcBreadcrumbElement
   | HTMLIcButtonElement
-  | HTMLIcCardElement
+  | HTMLIcCardVerticalElement
   | HTMLIcCheckboxElement
   | HTMLIcChipElement
   | HTMLIcLinkElement
