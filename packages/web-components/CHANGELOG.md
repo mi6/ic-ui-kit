@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.25.0...@ukic/web-components@2.25.1) (2024-08-07)
+
+### Bug Fixes
+
+- **web-components:** fallback props if classification banner props is undef ([cb4ad9c](https://github.com/mi6/ic-ui-kit/commit/cb4ad9c76a8835a8d84955792167044d0d8007e4))
+- **web-components:** update components so that slots can update after initial render ([0d30633](https://github.com/mi6/ic-ui-kit/commit/0d306337eecdef2839f5ac691e183fc875876c00)), closes [#1901](https://github.com/mi6/ic-ui-kit/issues/1901) [#1881](https://github.com/mi6/ic-ui-kit/issues/1881) [#1875](https://github.com/mi6/ic-ui-kit/issues/1875) [#1879](https://github.com/mi6/ic-ui-kit/issues/1879)
+
 # [2.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/web-components@2.24.0...@ukic/web-components@2.25.0) (2024-07-24)
 
 ### Bug Fixes

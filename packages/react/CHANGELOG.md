@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.25.0...@ukic/react@2.25.1) (2024-08-07)
+
+### Bug Fixes
+
+- **react:** update components so that slots can update after initial render ([ecdbed1](https://github.com/mi6/ic-ui-kit/commit/ecdbed143907fe9b391f3cf03429655884c20808))
+
 # [2.25.0](https://github.com/mi6/ic-ui-kit/compare/@ukic/react@2.24.0...@ukic/react@2.25.0) (2024-07-24)
 
 ### Bug Fixes

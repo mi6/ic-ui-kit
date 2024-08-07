@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0-canary.17 (2024-08-07)
+
+**Note:** Version bump only for package @ukic/canary-docs
+
 # 2.0.0-canary.16 (2024-06-27)
 
 **Note:** Version bump only for package @ukic/canary-docs

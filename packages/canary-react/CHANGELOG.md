@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.20...@ukic/canary-react@2.0.0-canary.21) (2024-08-07)
+
+### Bug Fixes
+
+- **canary-react:** adds test for startOfWeek prop changing ([3d679b2](https://github.com/mi6/ic-ui-kit/commit/3d679b28b0bf98a82c71156c352ddaf0b9a3654f))
+
+### Features
+
+- **canary-react:** implement horizontal card component ([19206a7](https://github.com/mi6/ic-ui-kit/commit/19206a785d3139535d3d306d052e07a0f868e483)), closes [#1025](https://github.com/mi6/ic-ui-kit/issues/1025)
+
 # [2.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-react@2.0.0-canary.19...@ukic/canary-react@2.0.0-canary.20) (2024-07-24)
 
 ### Bug Fixes

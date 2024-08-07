@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-canary.21](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.20...@ukic/canary-web-components@2.0.0-canary.21) (2024-08-07)
+
+### Bug Fixes
+
+- **canary-web-components:** fixes changing startOfWeek prop after load ([28ff2e7](https://github.com/mi6/ic-ui-kit/commit/28ff2e716ae2ee5123abf1cb4eaddd06d3575055))
+
+### Features
+
+- **canary-web-components:** implement horizontal card component ([f30265d](https://github.com/mi6/ic-ui-kit/commit/f30265d283d25d3ee71c3f1ec9afe2d7028d86fc)), closes [#1025](https://github.com/mi6/ic-ui-kit/issues/1025)
+
 # [2.0.0-canary.20](https://github.com/mi6/ic-ui-kit/compare/@ukic/canary-web-components@2.0.0-canary.19...@ukic/canary-web-components@2.0.0-canary.20) (2024-07-24)
 
 ### Bug Fixes
