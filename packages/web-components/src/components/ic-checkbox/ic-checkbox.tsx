@@ -67,31 +67,6 @@ export class Checkbox {
   @Prop() form?: string;
 
   /**
-   * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-   */
-  @Prop() formaction?: string;
-
-  /**
-   * The way the submitted form data is encoded.
-   */
-  @Prop() formenctype?: string;
-
-  /**
-   * The HTTP method used to submit the form.
-   */
-  @Prop() formmethod?: string;
-
-  /**
-   * If `true`, the form will not be validated when submitted.
-   */
-  @Prop() formnovalidate?: boolean;
-
-  /**
-   * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-   */
-  @Prop() formtarget?: string;
-
-  /**
    * The group label for the checkbox.
    */
   @Prop({ mutable: true }) groupLabel: string;
@@ -213,11 +188,6 @@ export class Checkbox {
       dynamicText,
       el,
       form,
-      formaction,
-      formenctype,
-      formmethod,
-      formnovalidate,
-      formtarget,
       displayIndeterminate,
       groupLabel,
       label,
@@ -276,11 +246,6 @@ export class Checkbox {
             indeterminate={displayIndeterminate}
             onClick={this.handleClick}
             form={form}
-            formaction={formaction}
-            formenctype={formenctype}
-            formmethod={formmethod}
-            formnovalidate={formnovalidate}
-            formtarget={formtarget}
             aria-label={this.hideLabel ? this.label : undefined}
           ></input>
           {!this.hideLabel && (
