@@ -355,7 +355,7 @@ export namespace Components {
          */
         "variant"?: IcButtonVariants;
     }
-    interface IcCard {
+    interface IcCardVertical {
         /**
           * If `true`, the card will be a clickable variant, instead of static.
          */
@@ -2428,11 +2428,11 @@ declare global {
         prototype: HTMLIcButtonElement;
         new (): HTMLIcButtonElement;
     };
-    interface HTMLIcCardElement extends Components.IcCard, HTMLStencilElement {
+    interface HTMLIcCardVerticalElement extends Components.IcCardVertical, HTMLStencilElement {
     }
-    var HTMLIcCardElement: {
-        prototype: HTMLIcCardElement;
-        new (): HTMLIcCardElement;
+    var HTMLIcCardVerticalElement: {
+        prototype: HTMLIcCardVerticalElement;
+        new (): HTMLIcCardVerticalElement;
     };
     interface HTMLIcCheckboxElementEventMap {
         "icCheck": void;
@@ -3135,7 +3135,7 @@ declare global {
         "ic-breadcrumb": HTMLIcBreadcrumbElement;
         "ic-breadcrumb-group": HTMLIcBreadcrumbGroupElement;
         "ic-button": HTMLIcButtonElement;
-        "ic-card": HTMLIcCardElement;
+        "ic-card-vertical": HTMLIcCardVerticalElement;
         "ic-checkbox": HTMLIcCheckboxElement;
         "ic-checkbox-group": HTMLIcCheckboxGroupElement;
         "ic-chip": HTMLIcChipElement;
@@ -3488,7 +3488,7 @@ declare namespace LocalJSX {
          */
         "variant"?: IcButtonVariants;
     }
-    interface IcCard {
+    interface IcCardVertical {
         /**
           * If `true`, the card will be a clickable variant, instead of static.
          */
@@ -5472,7 +5472,7 @@ declare namespace LocalJSX {
         "ic-breadcrumb": IcBreadcrumb;
         "ic-breadcrumb-group": IcBreadcrumbGroup;
         "ic-button": IcButton;
-        "ic-card": IcCard;
+        "ic-card-vertical": IcCardVertical;
         "ic-checkbox": IcCheckbox;
         "ic-checkbox-group": IcCheckboxGroup;
         "ic-chip": IcChip;
@@ -5542,7 +5542,7 @@ declare module "@stencil/core" {
             "ic-breadcrumb": LocalJSX.IcBreadcrumb & JSXBase.HTMLAttributes<HTMLIcBreadcrumbElement>;
             "ic-breadcrumb-group": LocalJSX.IcBreadcrumbGroup & JSXBase.HTMLAttributes<HTMLIcBreadcrumbGroupElement>;
             "ic-button": LocalJSX.IcButton & JSXBase.HTMLAttributes<HTMLIcButtonElement>;
-            "ic-card": LocalJSX.IcCard & JSXBase.HTMLAttributes<HTMLIcCardElement>;
+            "ic-card-vertical": LocalJSX.IcCardVertical & JSXBase.HTMLAttributes<HTMLIcCardVerticalElement>;
             "ic-checkbox": LocalJSX.IcCheckbox & JSXBase.HTMLAttributes<HTMLIcCheckboxElement>;
             "ic-checkbox-group": LocalJSX.IcCheckboxGroup & JSXBase.HTMLAttributes<HTMLIcCheckboxGroupElement>;
             "ic-chip": LocalJSX.IcChip & JSXBase.HTMLAttributes<HTMLIcChipElement>;
