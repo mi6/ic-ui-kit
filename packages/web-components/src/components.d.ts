@@ -431,26 +431,6 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the checkbox.
          */
         "groupLabel": string;
@@ -1374,26 +1354,6 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the radio option.
          */
         "groupLabel": string;
@@ -1576,26 +1536,6 @@ export namespace Components {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
@@ -3619,26 +3559,6 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the checkbox. It overrides the action attribute of the checkbox's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the checkbox's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the checkbox.
          */
         "groupLabel"?: string;
@@ -4573,26 +4493,6 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * The URL that processes the information submitted by the radio. It overrides the action attribute of the radio's form owner. Does nothing if there is no form owner.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the radio's form owner.
-         */
-        "formtarget"?: string;
-        /**
           * The group label for the radio option.
          */
         "groupLabel"?: string;
@@ -4812,26 +4712,6 @@ declare namespace LocalJSX {
           * The <form> element to associate the select with.
          */
         "form"?: string;
-        /**
-          * The URL that processes the information submitted by the select. It overrides the action attribute of the select's form owner. Does nothing if there is no form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formaction"?: string;
-        /**
-          * The way the submitted form data is encoded. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formenctype"?: string;
-        /**
-          * The HTTP method used to submit the form. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formmethod"?: string;
-        /**
-          * If `true`, the form will not be validated when submitted. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formnovalidate"?: boolean;
-        /**
-          * The place to display the response from submitting the form. It overrides the target attribute of the select's form owner. This prop should only be used with searchable select and will only be applied if searchable is true.
-         */
-        "formtarget"?: string;
         /**
           * If `true`, the select element will fill the width of the container. This prop should only be used with searchable select and will only be applied if searchable is true.
          */
