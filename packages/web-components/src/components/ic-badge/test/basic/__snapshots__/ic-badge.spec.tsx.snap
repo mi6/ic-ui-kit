@@ -133,34 +133,6 @@ exports[`ic-badge should render size small: should render size small 1`] = `
 </ic-button>
 `;
 
-exports[`ic-badge should render slotted in a card with aria-label set on badge: should render slotted in a card 1`] = `
-<ic-card heading="Badge">
-  <mock:shadow-root>
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <slot name="heading">
-            <ic-typography variant="h4">
-              <p>
-                Badge
-              </p>
-            </ic-typography>
-          </slot>
-        </div>
-      </div>
-      <slot name="badge"></slot>
-    </div>
-  </mock:shadow-root>
-  <ic-badge aria-label=", 1" class="ic-badge-default ic-badge-foreground-light ic-badge-near ic-badge-neutral ic-badge-show ic-badge-text" label="1" position="near" role="status" slot="badge">
-    <mock:shadow-root>
-      <ic-typography variant="badge">
-        1
-      </ic-typography>
-    </mock:shadow-root>
-  </ic-badge>
-</ic-card>
-`;
-
 exports[`ic-badge should render slotted in a chip: should render slotted in a chip 1`] = `
 <ic-chip label="Badge">
   <mock:shadow-root>
@@ -253,6 +225,34 @@ exports[`ic-badge should render slotted in a tab with aria-label set on badge: s
     </mock:shadow-root>
   </ic-badge>
 </ic-tab>
+`;
+
+exports[`ic-badge should render slotted in a vertical card with aria-label set on badge: should render slotted in a card 1`] = `
+<ic-card-vertical heading="Badge">
+  <mock:shadow-root>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <slot name="heading">
+            <ic-typography variant="h4">
+              <p>
+                Badge
+              </p>
+            </ic-typography>
+          </slot>
+        </div>
+      </div>
+      <slot name="badge"></slot>
+    </div>
+  </mock:shadow-root>
+  <ic-badge class="ic-badge-default ic-badge-foreground-light ic-badge-near ic-badge-neutral ic-badge-show ic-badge-text" label="1" position="near" role="status" slot="badge">
+    <mock:shadow-root>
+      <ic-typography variant="badge">
+        1
+      </ic-typography>
+    </mock:shadow-root>
+  </ic-badge>
+</ic-card-vertical>
 `;
 
 exports[`ic-badge should render success variant: should render success variant 1`] = `
