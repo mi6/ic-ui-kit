@@ -14,6 +14,7 @@ import {
   Dismissible,
   WithIcon,
   WithBadgeSlot,
+  InAGGrid,
 } from "./IcChipTestData";
 import {
   HAVE_BEEN_CALLED_ONCE,
@@ -206,6 +207,17 @@ describe("IcChip visual regression and a11y tests", () => {
     cy.compareSnapshot({
       name: "badge-slot",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.01),
+    });
+  });
+
+  it("should render as truncated in an AG Grid when there is not enough space", () => {
+    mount(<InAGGrid />);
+
+    cy.checkHydrated(CHIP_SELECTOR);
+
+    cy.compareSnapshot({
+      name: "in-ag-grid",
+      testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.027),
     });
   });
 });
