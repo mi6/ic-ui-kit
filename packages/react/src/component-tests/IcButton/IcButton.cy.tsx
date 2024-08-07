@@ -317,6 +317,8 @@ describe("IcButton visual regression and a11y tests", () => {
   it("should render text-based primary buttons", () => {
     mount(<TextPrimaryButton />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "primary",
@@ -326,6 +328,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render text-based secondary buttons", () => {
     mount(<TextSecondaryButton />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -337,6 +341,8 @@ describe("IcButton visual regression and a11y tests", () => {
   it("should render text-based tertiary buttons", () => {
     mount(<TextTertiaryButton />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "tertiary",
@@ -346,6 +352,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render text-based destructive buttons", () => {
     mount(<TextDestructiveButton />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -357,6 +365,8 @@ describe("IcButton visual regression and a11y tests", () => {
   it("should render with-icon buttons", () => {
     mount(<WithIcons />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "with-icon",
@@ -366,6 +376,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render with-icon buttons without viewbox", () => {
     mount(<IconNoViewbox />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -377,6 +389,8 @@ describe("IcButton visual regression and a11y tests", () => {
   it("should render different sized buttons", () => {
     mount(<DifferentSizes />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "size",
@@ -386,6 +400,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render full width buttons", () => {
     mount(<FullWidth />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.get(IC_BUTTON_SELECTOR)
       .shadow()
@@ -403,6 +419,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render dropdown buttons", () => {
     mount(<DropdownButtons />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -433,6 +451,8 @@ describe("IcButton visual regression and a11y tests", () => {
       </IcButton>
     );
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "router-slot",
@@ -442,6 +462,8 @@ describe("IcButton visual regression and a11y tests", () => {
 
   it("should render with icon variant button group", () => {
     mount(<IconButtonGroup />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.checkA11yWithWait();
     cy.wait(500).compareSnapshot({
@@ -617,6 +639,8 @@ describe("IcButton visual regression and a11y tests", () => {
   it("should render button with custom height and width", () => {
     mount(<CustomHeightMinWidth />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.checkA11yWithWait();
     cy.compareSnapshot({
       name: "height-width",
@@ -641,6 +665,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   it("should render text-based primary buttons in high contrast mode", () => {
     mount(<TextPrimaryButton />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.compareSnapshot({
       name: "primary-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
@@ -649,6 +675,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
 
   it("should render text-based secondary buttons in high contrast mode", () => {
     mount(<TextSecondaryButton />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.compareSnapshot({
       name: "secondary-high-contrast",
@@ -659,6 +687,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   it("should render text-based tertiary buttons in high contrast mode", () => {
     mount(<TextTertiaryButton />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.compareSnapshot({
       name: "tertiary-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.031),
@@ -667,6 +697,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
 
   it("should render text-based destructive buttons in high contrast mode", () => {
     mount(<TextDestructiveButton />);
+
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
 
     cy.compareSnapshot({
       name: "destructive-high-contrast",
@@ -677,6 +709,8 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   it("should render with-icon buttons in high contrast mode", () => {
     mount(<WithIcons />);
 
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
     cy.compareSnapshot({
       name: "with-icon-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.071),
@@ -686,7 +720,9 @@ describe("IcButton visual regression tests in high contrast mode", () => {
   it("should render icon variants in high contrast mode", () => {
     mount(<IconButtonGroup />);
 
-    cy.wait(500).compareSnapshot({
+    cy.checkHydrated(IC_BUTTON_SELECTOR);
+
+    cy.compareSnapshot({
       name: "icon-variants-high-contrast",
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),
     });
