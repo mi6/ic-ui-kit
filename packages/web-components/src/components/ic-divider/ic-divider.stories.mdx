@@ -1,0 +1,264 @@
+import { Meta, Story, Canvas, Description } from "@storybook/addon-docs";
+import { Markdown } from "@storybook/blocks";
+import { html } from "lit-html";
+import readme from "./readme.md?raw";
+
+<Meta
+  title="Web Components/Divider"
+  component="ic-divider"
+  parameters={{ loki: { skip: true } }}
+/>
+
+<Markdown>{readme}</Markdown>
+
+### Appearance
+
+<Canvas>
+  <Story name="Appearance">
+    {html` <div
+      style="display: flex; flex-direction: column; gap: var(--ic-space-xs)"
+    >
+      <ic-divider appearance="default" weight="medium"></ic-divider>
+      <ic-divider appearance="dark" weight="medium"></ic-divider>
+      <div
+        style="display:flex; align-items: center; background-color: #121212; height: var(--ic-space-md); width: 100%"
+      >
+        <ic-divider appearance="light" weight="medium"></ic-divider>
+      </div>
+      <ic-divider appearance="theme" weight="medium"></ic-divider>
+    </div>`}
+  </Story>
+</Canvas>
+
+### Weight
+
+<Canvas>
+  <Story name="Weight">
+    {html` <div
+      style="display: flex; flex-direction: column; gap: var(--ic-space-md)"
+    >
+      <ic-divider weight="thin"></ic-divider>
+      <ic-divider weight="thin" border-style="dashed"></ic-divider>
+      <ic-divider
+        weight="thin"
+        label="End of section"
+        label-placement="center"
+      ></ic-divider>
+      <ic-divider weight="medium"></ic-divider>
+      <ic-divider weight="medium" border-style="dashed"></ic-divider>
+      <ic-divider
+        weight="medium"
+        label="End of section"
+        label-placement="center"
+      ></ic-divider>
+      <ic-divider weight="thick"></ic-divider>
+      <ic-divider weight="thick" border-style="dashed"></ic-divider>
+      <ic-divider
+        weight="thick"
+        label="End of section"
+        label-placement="center"
+      ></ic-divider>
+      <ic-divider weight="very-thick"></ic-divider>
+      <ic-divider weight="very-thick" border-style="dashed"></ic-divider>
+      <ic-divider
+        weight="very-thick"
+        label="End of section"
+        label-placement="center"
+      ></ic-divider>
+    </div>`}
+  </Story>
+</Canvas>
+
+### Border style
+
+<Canvas>
+  <Story name="Border style">
+    {html` <div
+      style="display: flex; flex-direction: column; gap: var(--ic-space-md)"
+    >
+      <ic-divider border-style="solid"></ic-divider>
+      <ic-divider border-style="dashed"></ic-divider>
+    </div>`}
+  </Story>
+</Canvas>
+
+### Vertical
+
+<Canvas>
+  <Story name="Vertical">
+    {html`
+      <div style="display: flex; gap: var(--ic-space-lg); height: 400px">
+        <ic-divider orientation="vertical" weight="thin"></ic-divider>
+        <ic-divider
+          orientation="vertical"
+          weight="thin"
+          border-style="dashed"
+        ></ic-divider>
+        <ic-divider orientation="vertical" weight="medium"></ic-divider>
+        <ic-divider
+          orientation="vertical"
+          weight="medium"
+          border-style="dashed"
+        ></ic-divider>
+        <ic-divider orientation="vertical" weight="thick"></ic-divider>
+        <ic-divider
+          orientation="vertical"
+          weight="thick"
+          border-style="dashed"
+        ></ic-divider>
+        <ic-divider orientation="vertical" weight="very-thick"></ic-divider>
+        <ic-divider
+          orientation="vertical"
+          weight="very-thick"
+          border-style="dashed"
+        ></ic-divider>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+### Label placement
+
+<Canvas>
+  <Story name="Label placement">
+    {html` <div
+        style="display: flex; flex-direction: column; gap: var(--ic-space-lg)"
+      >
+        <ic-divider label="Label left" label-placement="left"></ic-divider>
+        <ic-divider label="Label center" label-placement="center"></ic-divider>
+        <ic-divider label="Label right" label-placement="right"></ic-divider>
+        <ic-divider label-placement="left">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label left</p>
+          </ic-typography></ic-divider
+        >
+        <ic-divider label-placement="center">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label center</p>
+          </ic-typography></ic-divider
+        >
+        <ic-divider label-placement="right">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label right</p>
+          </ic-typography></ic-divider
+        >
+      </div>
+      <div
+        style="display: flex; gap: var(--ic-space-lg); height: 200px; margin-top: var(--ic-space-lg)"
+      >
+        <ic-divider
+          label="Label top"
+          label-placement="top"
+          orientation="vertical"
+        ></ic-divider>
+        <ic-divider
+          label="Label center"
+          label-placement="center"
+          orientation="vertical"
+        ></ic-divider>
+        <ic-divider
+          label="Label bottom"
+          label-placement="bottom"
+          orientation="vertical"
+        ></ic-divider>
+        <ic-divider label-placement="top" orientation="vertical">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label top</p>
+          </ic-typography></ic-divider
+        >
+        <ic-divider label-placement="center" orientation="vertical">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label center</p>
+          </ic-typography></ic-divider
+        >
+        <ic-divider label-placement="bottom" orientation="vertical">
+          <ic-typography variant="label" slot="label">
+            <p style="width: max-content;">Slotted label bottom</p>
+          </ic-typography></ic-divider
+        >
+      </div>`}
+  </Story>
+</Canvas>
+
+### Playground
+
+export const defaultArgs = {
+  orientation: "horizontal",
+  appearance: "default",
+  "border-style": "solid",
+  weight: "thin",
+  label: "",
+  "label-placement": "none",
+  "--ic-divider-horizontal-width": "100%",
+  "--ic-divider-vertical-height": "400px",
+};
+
+<Canvas>
+  <Story
+    args={defaultArgs}
+    parameters={{ loki: { skip: true } }}
+    argTypes={{
+      orientation: {
+        options: ["horizontal", "vertical"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      appearance: {
+        options: ["default", "dark", "light", "theme"],
+        control: {
+          type: "radio",
+        },
+      },
+      "border-style": {
+        options: ["solid", "dashed"],
+        control: {
+          type: "inline-radio",
+        },
+      },
+      weight: {
+        options: ["thin", "medium", "thick", "very-thick"],
+        control: {
+          type: "radio",
+        },
+      },
+      label: {
+        mapping: {
+          none: "",
+        },
+      },
+      "label-placement": {
+        options: ["none", "left", "center", "right", "top", "bottom"],
+        mapping: {
+          none: "",
+        },
+        control: {
+          type: "radio",
+        },
+      },
+    }}
+    name="Playground"
+  >
+    {(args) => {
+      const backgroundColor =
+        args.appearance === "light" ? "#121212" : "transparent";
+      return html`<div
+        style="display: flex; width: 100%; height: 100%; padding: var(--ic-space-md); background-color: ${backgroundColor}; box-sizing: border-box;"
+      >
+        <ic-divider
+          orientation=${args.orientation}
+          appearance=${args.appearance}
+          border-style=${args["border-style"]}
+          weight=${args.weight}
+          label=${args.label}
+          label-placement=${args["label-placement"]}
+          style="--ic-divider-horizontal-width: ${args[
+            "--ic-divider-horizontal-width"
+          ]}; --ic-divider-vertical-height: ${args[
+            "--ic-divider-vertical-height"
+          ]}"
+        ></ic-divider>
+      </div>`;
+    }}
+  </Story>
+</Canvas>

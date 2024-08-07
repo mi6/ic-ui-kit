@@ -292,7 +292,7 @@ exports[`ic-side-navigation should render with secondary navigation items: rende
           </ul>
         </nav>
         <div class="bottom-side-nav">
-          <ic-divider></ic-divider>
+          <ic-divider appearance="light"></ic-divider>
           <button aria-label="Expand side navigation" class="menu-expand-button">
             svg
           </button>
@@ -371,7 +371,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
           </ul>
         </nav>
         <div class="bottom-side-nav">
-          <ic-divider></ic-divider>
+          <ic-divider appearance="light"></ic-divider>
           <button aria-label="Expand side navigation" class="menu-expand-button">
             svg
           </button>
@@ -468,7 +468,7 @@ exports[`ic-side-navigation should render with slotted navigation item - collaps
           </ul>
         </nav>
         <div class="bottom-side-nav">
-          <ic-divider></ic-divider>
+          <ic-divider appearance="light"></ic-divider>
           <button aria-label="Collapse side navigation" class="menu-expand-button">
             svg
           </button>
@@ -632,7 +632,7 @@ exports[`ic-side-navigation should render with slotted primary secondary navigat
           </ul>
         </nav>
         <div class="bottom-side-nav">
-          <ic-divider></ic-divider>
+          <ic-divider appearance="light"></ic-divider>
           <button aria-label="Collapse side navigation" class="menu-expand-button">
             svg
           </button>

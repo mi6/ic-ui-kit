@@ -340,7 +340,6 @@ slot[name="app-title"]::slotted(a) {
 .bottom-side-nav ic-divider {
   position: absolute;
   top: 0;
-  width: 100%;
 }
 
 .primary-navigation {

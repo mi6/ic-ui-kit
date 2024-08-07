@@ -774,7 +774,9 @@ export class SideNavigation {
               </nav>
             )}
             <div class="bottom-side-nav">
-              {this.hasSecondaryNavigation && <ic-divider></ic-divider>}
+              {this.hasSecondaryNavigation && (
+                <ic-divider appearance={foregroundColor}></ic-divider>
+              )}
               {displayExpandBtn && (
                 <button
                   class="menu-expand-button"
