@@ -32,7 +32,7 @@ describe("ic-hero component", () => {
   it("should render with secondary content", async () => {
     const page = await newSpecPage({
       components: [Hero],
-      html: `<ic-hero heading="Test title" subheading="Test text"><ic-card slot="secondary" heading="Test card"></ic-card></ic-hero>`,
+      html: `<ic-hero heading="Test title" subheading="Test text"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-secondary-content");
@@ -41,7 +41,7 @@ describe("ic-hero component", () => {
   it("should render with a background image when given", async () => {
     const page = await newSpecPage({
       components: [Hero],
-      html: `<ic-hero heading="Test title" subheading="Test text" background-image="test.png"><ic-card slot="secondary" heading="Test card"></ic-card></ic-hero>`,
+      html: `<ic-hero heading="Test title" subheading="Test text" background-image="test.png"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
     expect(page.root).toMatchSnapshot("renders-with-background-image");
@@ -50,7 +50,7 @@ describe("ic-hero component", () => {
   it("should use parallax on scroll when a background image is given", async () => {
     const page = await newSpecPage({
       components: [Hero],
-      html: `<ic-hero heading="Test title" subheading="Test text" background-image="test.png"><ic-card slot="secondary" heading="Test card"></ic-card></ic-hero>`,
+      html: `<ic-hero heading="Test title" subheading="Test text" background-image="test.png"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
     page.doc.scrollingElement.scrollTop = 50;
@@ -64,7 +64,7 @@ describe("ic-hero component", () => {
   it("should use not parallax on scroll when a background image is given, but parallax disabled", async () => {
     const page = await newSpecPage({
       components: [Hero],
-      html: `<ic-hero heading="Test title" disable-background-parallax subheading="Test text" background-image="test.png"><ic-card slot="secondary" heading="Test card"></ic-card></ic-hero>`,
+      html: `<ic-hero heading="Test title" disable-background-parallax subheading="Test text" background-image="test.png"><ic-card-vertical slot="secondary" heading="Test card"></ic-card-vertical></ic-hero>`,
     });
 
     page.doc.scrollingElement.scrollTop = 50;
