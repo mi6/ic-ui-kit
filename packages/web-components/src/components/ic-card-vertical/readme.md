@@ -1,4 +1,4 @@
-# ic-card
+# ic-card-vertical
 
 
 
@@ -63,10 +63,10 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  ic-card --> ic-typography
-  ic-card --> ic-tooltip
+  ic-card-vertical --> ic-typography
+  ic-card-vertical --> ic-tooltip
   ic-tooltip --> ic-typography
-  style ic-card fill:#f9f,stroke:#333,stroke-width:4px
+  style ic-card-vertical fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
