@@ -60,7 +60,7 @@ exports[`ic-hero component should render with a background image when given: ren
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -175,7 +175,7 @@ exports[`ic-hero component should render with secondary content: renders-with-se
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -239,7 +239,7 @@ exports[`ic-hero component should use not parallax on scroll when a background i
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;
 
@@ -273,6 +273,6 @@ exports[`ic-hero component should use parallax on scroll when a background image
       </div>
     </ic-section-container>
   </mock:shadow-root>
-  <ic-card heading="Test card" slot="secondary"></ic-card>
+  <ic-card-vertical heading="Test card" slot="secondary"></ic-card-vertical>
 </ic-hero>
 `;

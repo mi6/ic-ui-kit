@@ -3,7 +3,7 @@ import { Badge } from "../../ic-badge";
 import { Button } from "../../../ic-button/ic-button";
 import { Chip } from "../../../ic-chip/ic-chip";
 import { Tab } from "../../../ic-tab/ic-tab";
-import { Card } from "../../../ic-card/ic-card";
+import { CardVertical } from "../../../ic-card-vertical/ic-card-vertical";
 import { NavigationButton } from "../../../ic-navigation-button/ic-navigation-button";
 import { NavigationItem } from "../../../ic-navigation-item/ic-navigation-item";
 
@@ -171,10 +171,10 @@ describe("ic-badge", () => {
     expect(page.root).toMatchSnapshot("should render slotted in a tab");
   });
 
-  it("should render slotted in a card with aria-label set on badge", async () => {
+  it("should render slotted in a vertical card with aria-label set on badge", async () => {
     const page = await newSpecPage({
-      components: [Card, Badge],
-      html: `<ic-card heading="Badge"><ic-badge slot="badge" label="1" position="near"/></ic-card>`,
+      components: [CardVertical, Badge],
+      html: `<ic-card-vertical heading="Badge"><ic-badge slot="badge" label="1" position="near"/></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot("should render slotted in a card");
