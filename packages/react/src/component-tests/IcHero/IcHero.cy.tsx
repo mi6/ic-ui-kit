@@ -4,7 +4,7 @@
 import React from "react";
 import {
   IcButton,
-  IcCard,
+  IcCardVertical,
   IcHero,
   IcSearchBar,
   IcTypography,
@@ -179,7 +179,7 @@ describe("IcHero", () => {
         <IcButton variant="secondary" slot="interaction">
           Check out our new drinks
         </IcButton>
-        <IcCard
+        <IcCardVertical
           heading="Out now"
           message="Try our new strawberry infused tea."
           slot="secondary"
