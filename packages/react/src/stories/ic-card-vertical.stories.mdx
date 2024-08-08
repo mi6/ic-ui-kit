@@ -6,16 +6,16 @@ import {
   Description,
 } from "@storybook/addon-docs";
 import {
-  IcCard,
+  IcCardVertical,
   IcTypography,
   IcStatusTag,
   IcButton,
   IcBadge,
 } from "../components";
-import readme from "../../../web-components/src/components/ic-card/readme.md";
+import readme from "../../../web-components/src/components/ic-card-vertical/readme.md";
 import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
-<Meta title="Card" component={IcCard} />
+<Meta title="Card Vertical" component={IcCardVertical} />
 
 <Description markdown={readme} />
 
@@ -23,7 +23,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Heading">
-    <IcCard heading="This is the card heading" />
+    <IcCardVertical heading="This is the card heading" />
   </Story>
 </Canvas>
 
@@ -31,7 +31,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Icon">
-    <IcCard heading="This is the card heading">
+    <IcCardVertical heading="This is the card heading">
       <svg
         slot="icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -51,7 +51,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Message">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       message="This is an example of a new card component with text included."
     >
@@ -66,7 +66,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -74,7 +74,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="With subheading">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       message="This is an example of a new card component with text included."
       subheading="This is the subheading"
@@ -90,7 +90,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -98,7 +98,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Slotted heading, message and subheading">
-    <IcCard>
+    <IcCardVertical>
       <IcTypography variant="h4" slot="heading">This is the slotted card heading</IcTypography>
       <IcTypography slot="message">This is an example of a new card component with slotted text included.</IcTypography>
       <IcTypography variant="subtitle-small" slot="subheading">This is the slotted subheading</IcTypography>
@@ -113,7 +113,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -121,21 +121,21 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="With badge">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       clickable="true"
       href="https://www.google.com"
       style={{ marginBottom: "8px" }}
     >
       <IcBadge label="1" slot="badge" />
-    </IcCard>
-    <IcCard
+    </IcCardVertical>
+    <IcCardVertical
       heading="This is the card heading"
       clickable="true"
       href="https://www.google.com"
     >
       <IcBadge slot="badge" type="dot" />
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -143,7 +143,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="With interaction button">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -175,7 +175,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
           <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
         </svg>
       </IcButton>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -183,7 +183,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Adornment">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -216,7 +216,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -224,7 +224,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Top image">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -278,7 +278,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -286,7 +286,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Middle image">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -340,7 +340,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -348,7 +348,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Interaction controls">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -408,7 +408,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
       <IcButton slot="interaction-controls" variant="secondary">
         Hide
       </IcButton>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -417,7 +417,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 <Canvas>
   <Story name="Custom width">
     <div style={{ display: "flex", gap: "16px", flexDirection: "column" }}>
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a reduced width card component."
@@ -485,8 +485,8 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
       <IcButton slot="interaction-controls" variant="secondary">
         Hide
       </IcButton>
-    </IcCard>
-    <IcCard
+    </IcCardVertical>
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of an increased width card component."
@@ -554,7 +554,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
       <IcButton slot="interaction-controls" variant="secondary">
         Hide
       </IcButton>
-    </IcCard>
+    </IcCardVertical>
     </div>
   </Story>
 </Canvas>
@@ -563,7 +563,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Additional height">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -623,7 +623,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
       <IcButton slot="interaction-controls" variant="secondary">
         Hide
       </IcButton>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -631,7 +631,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Expandable">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -695,7 +695,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
       <IcTypography slot="expanded-content" variant="body">
         This is an example of a new card component with text included.
       </IcTypography>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -703,7 +703,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Clickable link">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -721,7 +721,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -729,7 +729,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Clickable button">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -747,7 +747,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -755,7 +755,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Disabled">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a new card component with text included."
@@ -774,7 +774,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -782,7 +782,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 
 <Canvas>
   <Story name="Full width">
-    <IcCard
+    <IcCardVertical
       heading="This is the card heading"
       subheading="This is the subheading"
       message="This is an example of a card component that fills it's parent container."
@@ -801,7 +801,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
       </svg>
-    </IcCard>
+    </IcCardVertical>
   </Story>
 </Canvas>
 
@@ -810,7 +810,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
 <Canvas>
   <Story name="Wrapped by link">
     <a href="/">
-      <IcCard
+      <IcCardVertical
         heading="This is the card heading"
         subheading="This is the subheading"
         message="This is an example of a new card component with text included."
@@ -826,7 +826,7 @@ import { NavLink, MemoryRouter, Switch, Route, Routes } from "react-router-dom";
           <path d="M0 0h24v24H0V0z" fill="none" />
           <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
         </svg>
-      </IcCard>
+      </IcCardVertical>
     </a>
   </Story>
 </Canvas>
@@ -858,7 +858,7 @@ export const defaultArgs = {
     name="Playground"
   >
     {(args) => (
-    <IcCard
+    <IcCardVertical
       clickable={args.clickable}
       disabled={args.disabled}
       expandable={args.expandable}
@@ -972,7 +972,7 @@ export const defaultArgs = {
           This is an example of a new card component with text included.
         </IcTypography>
       )}
-    </IcCard>
+    </IcCardVertical>
     )}
   </Story>
 </Canvas>
