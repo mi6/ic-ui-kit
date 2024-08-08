@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-12T14:36:08",
+  "timestamp": "2024-08-19T07:51:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -10,7 +10,7 @@
       "filePath": "src/components/ic-card-horizontal/ic-card-horizontal.tsx",
       "encapsulation": "shadow",
       "tag": "ic-card-horizontal",
-      "readme": "# ic-horizontal-card\r\n\r\n\r\n\r",
+      "readme": "# ic-horizontal-card\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -390,7 +390,7 @@
       "filePath": "src/components/ic-data-table/ic-data-table.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table",
-      "readme": "# ic-data-table\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1100,7 +1100,7 @@
       "filePath": "src/components/ic-data-table-title-bar/ic-data-table-title-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-data-table-title-bar",
-      "readme": "# ic-data-table-title-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-data-table-title-bar\n\n\n",
       "docs": "",
       "docsTags": [
         {
@@ -1299,7 +1299,7 @@
       "filePath": "src/components/ic-date-input/ic-date-input.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-input",
-      "readme": "# ic-date-input\r\n\r\n\r\n\r",
+      "readme": "# ic-date-input\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1602,7 +1602,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -1632,7 +1632,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -1981,7 +1981,7 @@
       "filePath": "src/components/ic-date-picker/ic-date-picker.tsx",
       "encapsulation": "shadow",
       "tag": "ic-date-picker",
-      "readme": "# ic-date-picker\r\n\r\n\r\n\r",
+      "readme": "# ic-date-picker\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -2283,7 +2283,7 @@
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
+          "docs": "The latest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disableFuture` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2313,7 +2313,7 @@
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\r\nThe value of this prop is ignored if `disablePast` is set to `true`.",
+          "docs": "The earliest date that will be allowed. The value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.\nThe value of this prop is ignored if `disablePast` is set to `true`.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2364,7 +2364,7 @@
           "mutable": false,
           "attr": "open-at-date",
           "reflectToAttr": false,
-          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\r\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
+          "docs": "The date visible when the calendar opens. Used if no date is currently selected.\nThe value can be in any format supported as `dateFormat`, in ISO 8601 date string format (`yyyy-mm-dd`) or as a JavaScript `Date` object.",
           "docsTags": [],
           "default": "\"\"",
           "values": [
@@ -2520,7 +2520,7 @@
           "mutable": false,
           "attr": "start-of-week",
           "reflectToAttr": false,
-          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\r\nDefault is Monday.",
+          "docs": "The first day of the week. `0` for Sunday, `1` for Monday, etc.\nDefault is Monday.",
           "docsTags": [],
           "default": "IcWeekDays.Monday",
           "values": [
@@ -2732,7 +2732,7 @@
       "filePath": "src/components/ic-menu-with-multi/ic-menu.tsx",
       "encapsulation": "scoped",
       "tag": "ic-menu-with-multi",
-      "readme": "# ic-menu-with-multi\r\n\r\n\r\n\r",
+      "readme": "# ic-menu-with-multi\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3209,7 +3209,7 @@
       "filePath": "src/components/ic-pagination-bar/ic-pagination-bar.tsx",
       "encapsulation": "shadow",
       "tag": "ic-pagination-bar",
-      "readme": "# ic-pagination-bar\r\n\r\n\r\n\r",
+      "readme": "# ic-pagination-bar\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3620,7 +3620,7 @@
       "filePath": "src/components/ic-select-with-multi/ic-select.tsx",
       "encapsulation": "shadow",
       "tag": "ic-select-with-multi",
-      "readme": "# ic-select\r\n\r\n\r\n\r",
+      "readme": "# ic-select\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4691,6 +4691,469 @@
           "ic-typography"
         ]
       }
+    },
+    {
+      "filePath": "src/components/ic-tree-item/ic-tree-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-tree-item",
+      "readme": "# ic-tree-item\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Content is set as the tree item label."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content is placed to the left of the label."
+        },
+        {
+          "name": "slot",
+          "text": "router-item - Handle routing by nesting your routes in this slot."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the disabled state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "complexType": {
+            "original": "string | undefined",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "The URL that the tree item link points to. If set, the tree item will render as an \"a\" tag, otherwise it will render as a div.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hreflang",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hreflang",
+          "reflectToAttr": false,
+          "docs": "The human language of the linked URL.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of the tree item.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "referrerpolicy",
+          "type": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+          "complexType": {
+            "original": "ReferrerPolicy",
+            "resolved": "\"\" | \"no-referrer\" | \"no-referrer-when-downgrade\" | \"origin\" | \"origin-when-cross-origin\" | \"same-origin\" | \"strict-origin\" | \"strict-origin-when-cross-origin\" | \"unsafe-url\"",
+            "references": {
+              "ReferrerPolicy": {
+                "location": "global",
+                "id": "global::ReferrerPolicy"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "referrerpolicy",
+          "reflectToAttr": false,
+          "docs": "How much of the referrer to send when following the link.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "\"\""
+            },
+            {
+              "value": "no-referrer",
+              "type": "string"
+            },
+            {
+              "value": "no-referrer-when-downgrade",
+              "type": "string"
+            },
+            {
+              "value": "origin",
+              "type": "string"
+            },
+            {
+              "value": "origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "same-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin",
+              "type": "string"
+            },
+            {
+              "value": "strict-origin-when-cross-origin",
+              "type": "string"
+            },
+            {
+              "value": "unsafe-url",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "rel",
+          "reflectToAttr": false,
+          "docs": "The relationship of the linked URL as space-separated link types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "selected",
+          "reflectToAttr": false,
+          "docs": "If `true`, the tree item appears in the selected state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "The place to display the linked URL, as the name for a browsing context (a tab, window, or iframe).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "icTreeItemSelected",
+          "detail": "{ id: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ id: string }",
+            "resolved": "{ id: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when tree item is selected.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [
+        {
+          "name": "icon",
+          "docs": "Content is placed to the left of the label."
+        },
+        {
+          "name": "label",
+          "docs": "Content is set as the tree item label."
+        },
+        {
+          "name": "router-item",
+          "docs": "Handle routing by nesting your routes in this slot."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-tree-item": [
+          "ic-tooltip",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/ic-tree-view/ic-tree-view.tsx",
+      "encapsulation": "shadow",
+      "tag": "ic-tree-view",
+      "readme": "# ic-tree-view\n\n\n",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "heading - Content is set as the tree view heading."
+        },
+        {
+          "name": "slot",
+          "text": "icon - Content is placed to the left of the heading."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "appearance",
+          "type": "\"dark\" | \"light\"",
+          "complexType": {
+            "original": "IcThemeForegroundNoDefault",
+            "resolved": "\"dark\" | \"light\"",
+            "references": {
+              "IcThemeForegroundNoDefault": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcThemeForegroundNoDefault"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "appearance",
+          "reflectToAttr": false,
+          "docs": "The appearance of the tree view, e.g. dark, or light.",
+          "docsTags": [],
+          "default": "\"dark\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": false,
+          "docs": "The heading of the tree view.",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"default\" | \"large\" | \"small\"",
+          "complexType": {
+            "original": "IcSizes",
+            "resolved": "\"default\" | \"large\" | \"small\"",
+            "references": {
+              "IcSizes": {
+                "location": "import",
+                "path": "../../utils/types",
+                "id": "src/utils/types.ts::IcSizes"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "The size of the tree view.",
+          "docsTags": [],
+          "default": "\"default\"",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "small",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "icTreeItemSelected",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--tree-view-width",
+          "annotation": "prop",
+          "docs": "Width of the tree view"
+        }
+      ],
+      "slots": [
+        {
+          "name": "heading",
+          "docs": "Content is set as the tree view heading."
+        },
+        {
+          "name": "icon",
+          "docs": "Content is placed to the left of the heading."
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ic-tooltip",
+        "ic-typography"
+      ],
+      "dependencyGraph": {
+        "ic-tree-view": [
+          "ic-tooltip",
+          "ic-typography"
+        ],
+        "ic-tooltip": [
+          "ic-typography"
+        ]
+      }
     }
   ],
   "typeLibrary": {
@@ -4816,6 +5279,11 @@
     },
     "src/utils/types.ts::IcSearchMatchPositions": {
       "declaration": "export type IcSearchMatchPositions = \"start\" | \"anywhere\";",
+      "docstring": "",
+      "path": "src/utils/types.ts"
+    },
+    "src/utils/types.ts::IcThemeForegroundNoDefault": {
+      "declaration": "export type IcThemeForegroundNoDefault = \"dark\" | \"light\";",
       "docstring": "",
       "path": "src/utils/types.ts"
     }
