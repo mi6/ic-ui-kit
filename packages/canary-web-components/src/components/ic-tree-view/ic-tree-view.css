@@ -1,0 +1,56 @@
+/**
+* @prop --tree-view-width: Width of the tree view
+*/
+
+:host {
+  display: block;
+  width: var(--tree-view-width, 100%);
+}
+
+:host .heading-area-container {
+  border-bottom: var(--ic-border-default);
+  display: flex;
+  align-items: center;
+  height: calc(var(--ic-space-xl) + var(--ic-space-xs) - var(--ic-space-1px));
+  padding: 0 var(--ic-space-xs);
+}
+
+:host(.ic-tree-view-small) .heading-area-container {
+  height: calc(var(--ic-space-xl) - var(--ic-space-1px));
+}
+
+:host(.ic-tree-view-large) .heading-area-container {
+  height: calc(var(--ic-space-xxl) - var(--ic-space-1px));
+}
+
+:host(.ic-tree-view-light) .heading-area-container {
+  color: var(--ic-architectural-white);
+  fill: var(--ic-architectural-white);
+}
+
+.icon-container {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+  margin: 0 var(--ic-space-xs) 0 0;
+}
+
+:host(.ic-tree-view-small) .icon-container {
+  margin: 0 var(--ic-space-xxs) 0 0;
+}
+
+.ic-text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ic-tooltip-overflow {
+  overflow: hidden;
+}
+
+/** High Contrast **/
+@media (forced-colors: active) {
+  ::slotted([slot="icon"]) {
+    fill: currentcolor;
+  }
+}

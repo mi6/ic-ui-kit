@@ -1,0 +1,725 @@
+import { Meta, Description, Canvas, Story } from "@storybook/addon-docs";
+import readme from "./readme.md";
+import treeItemReadme from "../ic-tree-item/readme.md";
+import { html } from "lit-html";
+
+<Meta
+  title="Web Components/Tree view"
+  component="ic-tree-view"
+  parameters={{
+    componentAPI: {
+      data: readme + treeItemReadme,
+    },
+  }}
+/>
+
+# [Canary]: Tree view
+
+Use the tree view component to display hierarchical data in a tree structure. The tree view component is useful for displaying nested data, such as a file system or a category hierarchy.
+
+Click the 'Component API' tab to view all the available attributes, events and slots for tree view.
+
+To use the tree view component, import `@ukic/canary-web-components` into your application.
+
+### Basic
+
+A basic example with one level of tree items.
+
+<Canvas withSource="none">
+  <Story name="Basic" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item label="Coffee"></ic-tree-item>
+          <ic-tree-item label="Tea"></ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Basic code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee"></ic-tree-item>
+  <ic-tree-item label="Tea"></ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Nested
+
+An example with nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Nested" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item label="Coffee">
+            <ic-tree-item label="Americano">
+              <ic-tree-item label="With milk"></ic-tree-item>
+            </ic-tree-item>
+            <ic-tree-item label="Latte"></ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Nested code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee">
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte"></ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### With icons
+
+An example with icons.
+
+<Canvas withSource="none">
+  <Story name="With icons" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item label="Latte">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </svg>
+            </ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Icon code example
+
+```html
+<ic-tree-view heading="Menu">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Small
+
+An example with small styling passed down from tree view to tree items and nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Small" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu" size="small">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item label="Latte">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </svg>
+            </ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Small code example
+
+```html
+<ic-tree-view heading="Menu" size="small">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Large
+
+An example with large styling passed down from tree view to tree items and nested tree items.
+
+<Canvas withSource="none">
+  <Story name="Large" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu" size="large">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item label="Latte">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </svg>
+            </ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Large code example
+
+```html
+<ic-tree-view heading="Menu" size="large">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Appearance light
+
+An example with a light appearance.
+
+<Canvas withSource="none">
+  <Story
+    name="Light"
+    parameters={{ backgrounds: { default: "dark" }, loki: { skip: true } }}
+  >
+    {html`
+      <div style="width:250px;">
+        <ic-tree-view heading="Menu" appearance="light">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item label="Latte">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </svg>
+            </ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Appearance light code example
+
+```html
+<ic-tree-view heading="Menu" appearance="light">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Disabled tree items
+
+An example with disabled tree items.
+
+<Canvas withSource="none">
+  <Story name="Disabled tree items" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item label="Latte" disabled="true">
+              <svg
+                slot="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+                />
+              </svg>
+            </ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai" disabled="true"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate" disabled="true"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Disabled tree items code example
+
+```html
+<ic-tree-view heading="Menu">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte" disabled="true">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path
+          d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+        />
+      </svg>
+    </ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai" disabled="true"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate" disabled="true"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Router item
+
+An example with a tree item that is replaced by a router item.
+
+<Canvas withSource="none">
+  <Story name="Router item" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item>
+            <a slot="router-item" href="/">Slotted coffee</a>
+          </ic-tree-item>
+          <ic-tree-item label="Tea"></ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Router item code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item>
+    <a slot="router-item" href="/">Slotted coffee</a>
+  </ic-tree-item>
+  <ic-tree-item label="Tea"></ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Slotted content
+
+An example with slotted content for tree view heading and slotted content for tree item label.
+
+<Canvas withSource="none">
+  <Story name="Slotted content" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view>
+          <ic-typography variant="subtitle-large" slot="heading">Menu</ic-typography>
+          <ic-tree-item>
+            <ic-typography slot="label">Coffee<ic-typography>
+          </ic-tree-item>
+          <ic-tree-item label="Tea"></ic-tree-item>
+          <ic-tree-item label="Hot chocolate"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Slotted content code example
+
+```html
+<ic-tree-view>
+  <ic-typography variant="subtitle-large" slot="heading">Menu</ic-typography>
+  <ic-tree-item>
+    <ic-typography slot="label">Coffee</ic-typography>
+  </ic-tree-item>
+  <ic-tree-item label="Tea"></ic-tree-item>
+  <ic-tree-item label="Hot chocolate"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Max content
+
+An example with max content. When the heading/label exceeds the width of the container, it will be truncated with an ellipsis.
+
+<Canvas withSource="none">
+  <Story name="Max content" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu with nested options">
+          <svg
+            slot="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+            />
+          </svg>
+          <ic-tree-item label="Coffee">
+            <svg
+              slot="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+              />
+            </svg>
+            <ic-tree-item label="Americano"></ic-tree-item>
+            <ic-tree-item
+              label="Latte with extra milk and sugar"
+            ></ic-tree-item>
+            <ic-tree-item label="Espresso"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Tea">
+            <ic-tree-item label="Earl Grey"></ic-tree-item>
+            <ic-tree-item label="Chai"></ic-tree-item>
+          </ic-tree-item>
+          <ic-tree-item label="Hot chocolate with marshmallows"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Max content code example
+
+```html
+<ic-tree-view heading="Menu with nested options">
+  <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path
+      d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z"
+    />
+  </svg>
+  <ic-tree-item label="Coffee">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"
+      />
+    </svg>
+    <ic-tree-item label="Americano"></ic-tree-item>
+    <ic-tree-item label="Latte with extra milk and sugar"></ic-tree-item>
+    <ic-tree-item label="Espresso"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Tea">
+    <ic-tree-item label="Earl Grey"></ic-tree-item>
+    <ic-tree-item label="Chai"></ic-tree-item>
+  </ic-tree-item>
+  <ic-tree-item label="Hot chocolate with marshmallows"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Selected tree item
+
+An example where the tree item with `selected="true"` is selected on initial render.
+
+<Canvas withSource="none">
+  <Story name="Selected tree item" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item label="Coffee"></ic-tree-item>
+          <ic-tree-item label="Tea"></ic-tree-item>
+          <ic-tree-item label="Hot chocolate" selected="true"></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Selected tree item code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee"></ic-tree-item>
+  <ic-tree-item label="Tea"></ic-tree-item>
+  <ic-tree-item label="Hot chocolate" selected="true"></ic-tree-item>
+</ic-tree-view>
+```
+
+### Link
+
+An example where the tree item is rendered as a link.
+
+<Canvas withSource="none">
+  <Story name="Link" parameters={{ loki: { skip: true } }}>
+    {html`
+      <div style="width:250px">
+        <ic-tree-view heading="Menu">
+          <ic-tree-item label="Coffee" href="#"></ic-tree-item>
+          <ic-tree-item label="Tea" selected="true" href="#"></ic-tree-item>
+          <ic-tree-item
+            label="Hot chocolate"
+            disabled="true"
+            href="#"
+          ></ic-tree-item>
+        </ic-tree-view>
+      </div>
+    `}
+  </Story>
+</Canvas>
+
+#### Link code example
+
+```html
+<ic-tree-view heading="Menu">
+  <ic-tree-item label="Coffee" href="#"></ic-tree-item>
+  <ic-tree-item label="Tea" selected="true" href="#"></ic-tree-item>
+  <ic-tree-item label="Hot chocolate" disabled="true" href="#"></ic-tree-item>
+</ic-tree-view>
+```
