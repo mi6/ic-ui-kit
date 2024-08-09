@@ -26,6 +26,8 @@ import {
 } from "../../utils/types";
 import { IcChangeEventDetail } from "./ic-radio-group.types";
 
+const ADDITIONAL_FIELD = "additional-field";
+
 @Component({
   tag: "ic-radio-group",
   styleUrl: "ic-radio-group.css",
@@ -100,6 +102,7 @@ export class RadioGroup {
   @Watch("orientation")
   orientationChangeHandler(): void {
     this.initialOrientation = this.orientation;
+    this.checkOrientation();
   }
 
   /**
@@ -181,21 +184,32 @@ export class RadioGroup {
   private checkOrientation() {
     if (this.initialOrientation === "horizontal") {
       let totalWidth = 0;
-      this.radioOptions.forEach(({ clientWidth }, i, arr) => {
-        totalWidth += clientWidth;
-        if (i < arr.length - 1) totalWidth += 40;
-      });
+      if (Array.isArray(this.radioOptions)) {
+        this.radioOptions.forEach(({ clientWidth }, i, arr) => {
+          totalWidth += clientWidth;
+          if (i < arr.length - 1) totalWidth += 40;
+        });
+      } else {
+        console.warn("radioOptions is undefined or not an array");
+        totalWidth = 0;
+      }
 
-      if (
-        this.currentOrientation === "horizontal" &&
-        totalWidth > this.radioContainer.clientWidth
-      ) {
-        this.currentOrientation = "vertical";
-      } else if (
-        this.currentOrientation === "vertical" &&
-        totalWidth < this.radioContainer.clientWidth
-      ) {
-        this.currentOrientation = "horizontal";
+      if (this.initialOrientation == "horizontal") {
+        if (
+          this.radioOptions !== undefined &&
+          (this.radioOptions.length > 2 ||
+            (this.radioOptions.length === 2 &&
+              (isSlotUsed(this.radioOptions[0], ADDITIONAL_FIELD) ||
+                isSlotUsed(this.radioOptions[1], ADDITIONAL_FIELD))))
+        ) {
+          this.currentOrientation = "vertical";
+        } else {
+          if (totalWidth >= this.radioContainer?.clientWidth) {
+            this.currentOrientation = "vertical";
+          } else if (totalWidth < this.radioContainer?.clientWidth) {
+            this.currentOrientation = "horizontal";
+          }
+        }
       }
     }
   }
@@ -270,17 +284,17 @@ export class RadioGroup {
         }
       });
       this.setFirstRadioOptionTabIndex(this.selectedChild > 0 ? -1 : 0);
-    }
 
-    if (
-      this.initialOrientation === "horizontal" &&
-      this.radioOptions !== undefined &&
-      (this.radioOptions.length > 2 ||
-        (this.radioOptions.length === 2 &&
-          (isSlotUsed(this.radioOptions[0], "additional-field") ||
-            isSlotUsed(this.radioOptions[1], "additional-field"))))
-    ) {
-      this.currentOrientation = "vertical";
+      if (
+        this.initialOrientation === "horizontal" &&
+        this.radioOptions !== undefined &&
+        (this.radioOptions.length > 2 ||
+          (this.radioOptions.length === 2 &&
+            (isSlotUsed(this.radioOptions[0], ADDITIONAL_FIELD) ||
+              isSlotUsed(this.radioOptions[1], ADDITIONAL_FIELD))))
+      ) {
+        this.currentOrientation = "vertical";
+      }
     }
   };
 
