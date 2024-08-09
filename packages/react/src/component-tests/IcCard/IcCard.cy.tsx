@@ -408,9 +408,13 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
     });
   });
 
-  describe ("Visual regression tests in high contrast mode", () => {
+  describe("Visual regression tests in high contrast mode", () => {
     before(() => {
       cy.enableForcedColors();
+    });
+
+    afterEach(() => {
+      cy.task("generateReport");
     });
 
     after(() => {
@@ -419,11 +423,11 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should render card wrapped in <a> in high contrast mode", () => {
       mount(<WrappedByLink />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
       cy.get("a").should(HAVE_CLASS, "ic-card-wrapper-link");
       cy.get("a").focus().should(HAVE_FOCUS);
-  
+
       cy.compareSnapshot({
         name: "wrapped-anchor-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.034),
@@ -432,11 +436,11 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should render interaction button in high contrast mode", () => {
       mount(<WithInteractionButton />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
       cy.get("ic-button").should(BE_VISIBLE);
       cy.get("ic-button").shadow().find("button").focus().click();
-  
+
       cy.wait(100).compareSnapshot({
         name: "interaction-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.039),
@@ -445,11 +449,11 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should render clickable link in high contrast mode", () => {
       mount(<ClickableLink />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
       cy.get('[href="#"]').should(BE_VISIBLE);
       cy.get(CARD_SELECTOR).click();
-  
+
       cy.wait(200).compareSnapshot({
         name: "clickable-link-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.022),
@@ -458,10 +462,10 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should should render clickable button in high contrast mode", () => {
       mount(<ClickableButton />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
       cy.get(CARD_SELECTOR).click().should(HAVE_FOCUS);
-  
+
       cy.wait(200).compareSnapshot({
         name: "clickable-button-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.03),
@@ -470,9 +474,9 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it.skip("should render with badge in high contrast mode", () => {
       mount(<WithBadge />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
-  
+
       cy.compareSnapshot({
         name: "badge-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.038),
@@ -481,7 +485,7 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should render disabled in high contrast mode", () => {
       mount(<Disabled />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
 
       cy.compareSnapshot({
@@ -492,11 +496,11 @@ describe("IcCard end-to-end, visual regression and a11y tests", () => {
 
     it("should render expandable in high contrast mode", () => {
       mount(<Expandable />);
-  
+
       cy.checkHydrated(CARD_SELECTOR);
       cy.findShadowEl(CARD_SELECTOR, "button").click({ force: true });
       cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
-  
+
       cy.compareSnapshot({
         name: "expanded-clicked-high-contrast",
         testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.047),

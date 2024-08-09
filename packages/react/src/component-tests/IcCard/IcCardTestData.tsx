@@ -367,15 +367,15 @@ export const WithBadge = (): ReactElement => {
 export const Disabled = (): ReactElement => {
   return (
     <div style={{ margin: "16px" }}>
-    <IcCard
-      heading="Americano order"
-      subheading="Name: Michael"
-      message="Extras: Double espresso shot and oat milk."
-      clickable
-      disabled
-    >
-      <ReusableCoffeeIcon />
-    </IcCard>
+      <IcCard
+        heading="Americano order"
+        subheading="Name: Michael"
+        message="Extras: Double espresso shot and oat milk."
+        clickable
+        disabled
+      >
+        <ReusableCoffeeIcon />
+      </IcCard>
     </div>
   );
 };
