@@ -75,6 +75,15 @@ describe("ic-date-input component", () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it("should render with helper text hidden", async () => {
+    const page = await newSpecPage({
+      components: [DateInput, IcInputLabel],
+      html: `<ic-date-input label="Test label" hide-helper-text="true"></ic-date-input>`,
+    });
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   it("should render correctly with MM/DD/YYYY format", async () => {
     const page = await newSpecPage({
       components: [DateInput, IcInputLabel],

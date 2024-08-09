@@ -230,6 +230,10 @@ export namespace Components {
          */
         "helperText"?: string;
         /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText": boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -315,6 +319,10 @@ export namespace Components {
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
+        /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText": boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */
@@ -1038,6 +1046,10 @@ declare namespace LocalJSX {
          */
         "helperText"?: string;
         /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText"?: boolean;
+        /**
           * The ID for the input.
          */
         "inputId"?: string;
@@ -1133,6 +1145,10 @@ declare namespace LocalJSX {
           * The helper text that will be displayed for additional field guidance. This will default to the text "Use format" along with the `dateFormat` value.
          */
         "helperText"?: string;
+        /**
+          * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+         */
+        "hideHelperText"?: boolean;
         /**
           * The ID for the input field. The default will be an automatically generated value.
          */

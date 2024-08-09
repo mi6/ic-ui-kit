@@ -169,6 +169,11 @@ export class DateInput {
   @Prop({ mutable: true }) helperText?: string;
 
   /**
+   * If `true`, the helper text will be visually hidden, but still read out by screenreaders.
+   */
+  @Prop() hideHelperText: boolean = false;
+
+  /**
    * The ID for the input.
    */
   @Prop() inputId?: string = `ic-date-input-${inputIds++}`;
@@ -1528,6 +1533,7 @@ export class DateInput {
       label,
       disabled,
       helperText,
+      hideHelperText,
       showClearButton,
       showCalendarButton,
       size,
@@ -1559,11 +1565,12 @@ export class DateInput {
           <ic-input-label
             for={inputId}
             label={label}
-            helperText={helperText}
+            helperText={!hideHelperText ? helperText : null}
             disabled={disabled}
           ></ic-input-label>
           <span id={this.screenReaderInfoId} class="sr-only" aria-hidden="true">
             {this.getScreenReaderInfo(validationStatus)}
+            {hideHelperText && `${helperText}\n`}
             {`${this.defaultHelperText}.`}
           </span>
           <span id={this.assistiveHintId} class="sr-only" aria-hidden="true">
