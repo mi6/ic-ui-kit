@@ -136,6 +136,53 @@ export const WithStatusTags = () => {
   );
 };
 
+export const WithStatusTagsAsValue = () => {
+  return (
+    <IcDataEntity heading="Personal details">
+      <IcDataRow label="Name">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Date of Birth">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Telephone">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Address">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+      <IcDataRow label="Email">
+        <IcStatusTag
+          status="success"
+          label="approved"
+          variant="filled"
+          slot="value"
+        />
+      </IcDataRow>
+    </IcDataEntity>
+  );
+};
+
 export const Small = () => {
   return (
     <IcDataEntity heading="Personal details" size="small">
@@ -154,6 +201,37 @@ export const Small = () => {
           United Kingdom
         </IcTypography>
       </IcDataRow>
+    </IcDataEntity>
+  );
+};
+
+export const LongTextValues = () => {
+  return (
+    <IcDataEntity heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
+      <IcDataRow
+        label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        value="value"
+      />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow
+        label="Label"
+        value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat"
+      />
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label">
+        <IcTypography variant="body" slot="value">
+          383 Coffee Drive
+          <br />
+          London
+          <br />
+          SW7 988
+          <br />
+          United Kingdom
+        </IcTypography>
+      </IcDataRow>
+      <IcDataRow label="Label" value="value" />
+      <IcDataRow label="Label" value="value" />
     </IcDataEntity>
   );
 };
