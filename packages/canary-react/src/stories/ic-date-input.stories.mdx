@@ -359,6 +359,35 @@ const DateInput = () => (
 export default DateInput;
 ```
 
+### Hide Helper Text
+
+Hide visible helper text.
+
+<Canvas withSource='none'>
+  <Story name="Hide Helper Text">
+    <IcDateInput 
+      label="When would you like to collect your coffee?"
+      helperText="You cannot see me, but you can hear me"
+      hideHelperText="true"
+    />
+  </Story>
+</Canvas>
+
+```jsx
+import * as React from "react";
+import { IcDateInput } from '@ukic/canary-react';
+
+const DateInput = () => (
+  <IcDateInput
+    label="When would you like to collect your coffee?"
+    helperText="You cannot see me, but you can hear me"
+    hideHelperText={true}
+  />
+);
+
+export default DateInput;
+```
+
 ### Custom validation
 
 Validation on date input is set via `validationStatus` and `validationText`. 
@@ -623,6 +652,7 @@ export const defaultArgs = {
   disablePast: false,
   disablePastMessage: "This date is in the past",
   helperText: "Choose a date",
+  hideHelperText: false,
   label: "When would you like to collect your coffee?",
   max: "",
   min: "",
@@ -681,6 +711,7 @@ export const defaultArgs = {
           disablePast={args.disablePast}
           disablePastMessage={args.disablePastMessage}
           helperText={args.helperText}
+          hideHelperText={args.hideHelperText}
           label={args.label}
           max={args.max}
           min={args.min}
