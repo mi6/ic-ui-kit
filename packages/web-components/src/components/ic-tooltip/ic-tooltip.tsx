@@ -1,5 +1,13 @@
-import { Component, Element, Host, Prop, h, Method } from "@stencil/core";
-import { Instance, createPopper } from "@popperjs/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  Method,
+  State,
+} from "@stencil/core";
+import { Instance, Options, createPopper } from "@popperjs/core";
 import { IcTooltipPlacements } from "./ic-tooltip.types";
 import { onComponentRequiredPropUndefined } from "../../utils/helpers";
 
@@ -61,6 +69,17 @@ export class Tooltip {
    * The text to display on the tooltip.
    */
   @Prop() label!: string;
+
+  @State() popperProps: Partial<Options> = {};
+
+  /**
+   * @internal This method allows props to be added to the PopperJS createPopper instance outside of tooltip
+   * @param props object - createPopper props set externally
+   */
+  @Method()
+  async setExternalPopperProps<T extends Partial<Options>>(props: T) {
+    this.popperProps = props;
+  }
 
   disconnectedCallback(): void {
     this.manageEventListeners("remove");
@@ -212,6 +231,7 @@ export class Tooltip {
             options: { scroll: false, resize: false },
           },
         ],
+        ...this.popperProps,
       });
     } else {
       console.warn(`Tooltip can't display without prop 'label' set`);

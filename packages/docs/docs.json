@@ -18513,7 +18513,7 @@
             "resolved": "number",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "max-lines",
           "reflectToAttr": false,
           "docs": "The number of lines to display before truncating the text, only used for the 'body' variant.",
