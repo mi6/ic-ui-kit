@@ -6,7 +6,7 @@ import React from "react";
 import {
   IcBadge,
   IcButton,
-  IcCard,
+  IcCardVertical,
   IcStatusTag,
   IcTypography,
 } from "../../components";
@@ -24,7 +24,7 @@ const DEFAULT_TEST_THRESHOLD = 0.027;
 
 const TYPOGRAPHY_SELECTOR = "ic-typography";
 
-describe("IcCard", () => {
+describe("IcCardVertical", () => {
   beforeEach(() => {
     cy.injectAxe();
   });
@@ -36,12 +36,15 @@ describe("IcCard", () => {
     mount(
       <div style={{ margin: "16px" }}>
         <a href="/">
-          <IcCard heading="Card" message="This is a static card"></IcCard>
+          <IcCardVertical
+            heading="Card"
+            message="This is a static card"
+          ></IcCardVertical>
         </a>
       </div>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get("a").should(HAVE_CLASS, "ic-card-wrapper-link");
     cy.get("a").focus().should(HAVE_FOCUS);
 
@@ -51,7 +54,7 @@ describe("IcCard", () => {
   it("should click on card", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcCard
+        <IcCardVertical
           heading="Americano order"
           subheading="Name: Michael"
           message="Extras: Double espresso shot and oat milk."
@@ -68,12 +71,12 @@ describe("IcCard", () => {
           >
             <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
           </SlottedSVG>
-        </IcCard>
+        </IcCardVertical>
       </div>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.get("ic-card").should(BE_VISIBLE).click().should(HAVE_FOCUS);
+    cy.checkHydrated("ic-card-vertical");
+    cy.get("ic-card-vertical").should(BE_VISIBLE).click().should(HAVE_FOCUS);
 
     cy.checkA11yWithWait();
   });
@@ -82,21 +85,27 @@ describe("IcCard", () => {
     mount(
       <div style={{ padding: "5rem" }}>
         <a href="/">
-          <IcCard
+          <IcCardVertical
             heading="Americano order"
             subheading="Name: Michael"
             message="This is a full width card"
             href="/"
             clickable
-          ></IcCard>
+          ></IcCardVertical>
         </a>
       </div>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
+    cy.checkHydrated("ic-card-vertical");
+    cy.get("ic-card-vertical")
+      .shadow()
+      .find(".card")
+      .should(NOT_HAVE_CLASS, "focussed");
     cy.get("a").focus();
-    cy.get("ic-card").shadow().find(".card").should(HAVE_CLASS, "focussed");
+    cy.get("ic-card-vertical")
+      .shadow()
+      .find(".card")
+      .should(HAVE_CLASS, "focussed");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -105,7 +114,10 @@ describe("IcCard", () => {
     });
 
     cy.get("a").blur();
-    cy.get("ic-card").shadow().find(".card").should(NOT_HAVE_CLASS, "focussed");
+    cy.get("ic-card-vertical")
+      .shadow()
+      .find(".card")
+      .should(NOT_HAVE_CLASS, "focussed");
 
     cy.compareSnapshot({
       name: "blur",
@@ -116,12 +128,15 @@ describe("IcCard", () => {
   it("should render card wrapped in <a>", () => {
     mount(
       <a href="/">
-        <IcCard heading="Card" message="This is a static card"></IcCard>
+        <IcCardVertical
+          heading="Card"
+          message="This is a static card"
+        ></IcCardVertical>
       </a>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("This is a static card")
       .should(BE_VISIBLE);
 
@@ -134,7 +149,7 @@ describe("IcCard", () => {
 
   it("should render three variants of cards", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -185,12 +200,12 @@ describe("IcCard", () => {
         <IcTypography slot="expanded-content" variant="body">
           To cancel your order click cancel.
         </IcTypography>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get("svg").should(BE_VISIBLE);
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("Americano order")
       .should(BE_VISIBLE);
     cy.get('[slot="image-mid"]').should(BE_VISIBLE);
@@ -206,7 +221,7 @@ describe("IcCard", () => {
 
   it("should render with icon", () => {
     mount(
-      <IcCard heading="Americano order">
+      <IcCardVertical heading="Americano order">
         <SlottedSVG
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -217,10 +232,10 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get("svg").should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
@@ -231,10 +246,10 @@ describe("IcCard", () => {
   });
 
   it("should render with heading only ", () => {
-    mount(<IcCard heading="Americano order"></IcCard>);
+    mount(<IcCardVertical heading="Americano order"></IcCardVertical>);
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("Americano order")
       .should(BE_VISIBLE);
 
@@ -247,7 +262,7 @@ describe("IcCard", () => {
 
   it("should render with message", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         message="Extras: Double espresso shot and oat milk."
       >
@@ -261,11 +276,11 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("Extras: Double espresso shot and oat milk.")
       .should(BE_VISIBLE);
 
@@ -278,7 +293,7 @@ describe("IcCard", () => {
 
   it("should render with a subheading", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -293,11 +308,11 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("Name: Michael")
       .should(BE_VISIBLE);
 
@@ -311,7 +326,7 @@ describe("IcCard", () => {
   it("should render with slotted heading, message and subheading", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcCard>
+        <IcCardVertical>
           <IcTypography variant="h4" slot="heading">
             This is the slotted card heading
           </IcTypography>
@@ -333,7 +348,7 @@ describe("IcCard", () => {
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
           </SlottedSVG>
-        </IcCard>
+        </IcCardVertical>
       </div>
     );
 
@@ -346,7 +361,7 @@ describe("IcCard", () => {
 
   it("should render interaction button", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -378,10 +393,10 @@ describe("IcCard", () => {
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
           </SlottedSVG>
         </IcButton>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get("ic-button").should(BE_VISIBLE);
     cy.get("ic-button").shadow().find("button").focus();
 
@@ -394,7 +409,7 @@ describe("IcCard", () => {
 
   it("should render adornment", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -415,11 +430,11 @@ describe("IcCard", () => {
           label="In Progress"
           size="small"
         />
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", "div")
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", "div")
       .find(".adornment")
       .should(HAVE_CLASS, "adornment");
 
@@ -432,7 +447,7 @@ describe("IcCard", () => {
 
   it("should render with top image", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -491,11 +506,13 @@ describe("IcCard", () => {
           label="In Progress"
           size="small"
         />
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", ".card").find(".image-top").should("exist");
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", ".card")
+      .find(".image-top")
+      .should("exist");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -506,7 +523,7 @@ describe("IcCard", () => {
 
   it("should render with middle image", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -569,11 +586,13 @@ describe("IcCard", () => {
           <polygon fill="#aa00aa" points="1210 900 971 687 725 900" />
           <polygon fill="#880088" points="943 900 1210 900 971 687" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", ".card").find(".image-mid").should("exist");
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", ".card")
+      .find(".image-mid")
+      .should("exist");
 
     cy.checkA11yWithWait();
     cy.compareSnapshot({
@@ -584,7 +603,7 @@ describe("IcCard", () => {
 
   it("should render with interaction controls", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -607,11 +626,11 @@ describe("IcCard", () => {
           <IcButton variant="primary">Accept</IcButton>
           <IcButton variant="secondary">Cancel</IcButton>
         </div>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", ".card")
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", ".card")
       .find(".interaction-area")
       .should("exist");
     cy.get("ic-button").should(BE_VISIBLE).should(HAVE_LENGTH, "2");
@@ -625,7 +644,7 @@ describe("IcCard", () => {
 
   it("should render clickable link ", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -642,10 +661,10 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get('[href="#"]').should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
@@ -658,7 +677,7 @@ describe("IcCard", () => {
   it("should should render clickable button", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcCard
+        <IcCardVertical
           heading="Americano order"
           subheading="Name: Michael"
           message="Extras: Double espresso shot and oat milk."
@@ -675,12 +694,12 @@ describe("IcCard", () => {
           >
             <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
           </SlottedSVG>
-        </IcCard>
+        </IcCardVertical>
       </div>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.get("ic-card").click();
+    cy.checkHydrated("ic-card-vertical");
+    cy.get("ic-card-vertical").click();
 
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
@@ -692,7 +711,7 @@ describe("IcCard", () => {
   it("should render with badge", () => {
     mount(
       <div style={{ margin: "16px" }}>
-        <IcCard
+        <IcCardVertical
           heading="Americano order"
           subheading="Name: Michael"
           message="Extras: Double espresso shot and oat milk."
@@ -710,11 +729,11 @@ describe("IcCard", () => {
           >
             <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
           </SlottedSVG>
-        </IcCard>
+        </IcCardVertical>
       </div>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get("ic-badge").should(BE_VISIBLE);
 
     cy.checkA11yWithWait();
@@ -726,7 +745,7 @@ describe("IcCard", () => {
 
   it("should render disabled", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -743,10 +762,10 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
     cy.get('[disabled="true"]').should("exist");
 
     cy.checkA11yWithWait();
@@ -758,7 +777,7 @@ describe("IcCard", () => {
 
   it("should render full width variant ", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="This is a full width card"
@@ -775,11 +794,11 @@ describe("IcCard", () => {
         >
           <path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z" />
         </SlottedSVG>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
-    cy.findShadowEl("ic-card", TYPOGRAPHY_SELECTOR)
+    cy.checkHydrated("ic-card-vertical");
+    cy.findShadowEl("ic-card-vertical", TYPOGRAPHY_SELECTOR)
       .contains("This is a full width card")
       .should(BE_VISIBLE);
 
@@ -792,7 +811,7 @@ describe("IcCard", () => {
 
   it("should render expandable and toggle expanded content when expansion toggle is clicked", () => {
     mount(
-      <IcCard
+      <IcCardVertical
         heading="Americano order"
         subheading="Name: Michael"
         message="Extras: Double espresso shot and oat milk."
@@ -816,10 +835,10 @@ describe("IcCard", () => {
           <IcButton variant="secondary">Cancel</IcButton>
         </div>
         <IcTypography slot="expanded-content">Expanded</IcTypography>
-      </IcCard>
+      </IcCardVertical>
     );
 
-    cy.checkHydrated("ic-card");
+    cy.checkHydrated("ic-card-vertical");
 
     cy.checkA11yWithWait(undefined, 100);
     cy.compareSnapshot({
@@ -827,7 +846,7 @@ describe("IcCard", () => {
       testThreshold: setThresholdBasedOnEnv(DEFAULT_TEST_THRESHOLD + 0.04),
     });
 
-    cy.findShadowEl("ic-card", "button").click({ force: true });
+    cy.findShadowEl("ic-card-vertical", "button").click({ force: true });
     cy.get(TYPOGRAPHY_SELECTOR).contains("Expanded").should(BE_VISIBLE);
 
     cy.checkA11yWithWait(undefined, 100);

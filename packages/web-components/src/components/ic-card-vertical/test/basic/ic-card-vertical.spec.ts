@@ -1,11 +1,11 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { Card } from "../../ic-card";
+import { CardVertical } from "../../ic-card-vertical";
 
-describe("ic-card", () => {
+describe("ic-card-vertical", () => {
   it("should render", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a static card"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a static card"></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -13,8 +13,8 @@ describe("ic-card", () => {
 
   it("should render as a button", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -22,8 +22,8 @@ describe("ic-card", () => {
 
   it("should render as a link", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -31,8 +31,8 @@ describe("ic-card", () => {
 
   it("should render full width variant", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" full-width=true message="This is a full width card" clickable=true></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" full-width=true message="This is a full width card" clickable=true></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -40,8 +40,8 @@ describe("ic-card", () => {
 
   it("should render with a link parent", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<a href="/"><ic-card heading="Card" message="This is a clickable card" clickable=true></ic-card></a>`,
+      components: [CardVertical],
+      html: `<a href="/"><ic-card-vertical heading="Card" message="This is a clickable card" clickable=true></ic-card-vertical></a>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -49,8 +49,8 @@ describe("ic-card", () => {
 
   it("should apply 'focussed' style when parent is focussed", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<a href="/"><ic-card id="test-id" heading="Card" message="This is a clickable card" clickable=true></ic-card></a>`,
+      components: [CardVertical],
+      html: `<a href="/"><ic-card-vertical id="test-id" heading="Card" message="This is a clickable card" clickable=true></ic-card-vertical></a>`,
     });
 
     expect(page.root).not.toBeNull;
@@ -66,8 +66,8 @@ describe("ic-card", () => {
 
   it("should lose 'focussed' style when parent loses focus", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<a href="/"><ic-card id="test-card" heading="Card" message="This is a clickable card" clickable=true></ic-card></a>`,
+      components: [CardVertical],
+      html: `<a href="/"><ic-card-vertical id="test-card" heading="Card" message="This is a clickable card" clickable=true></ic-card-vertical></a>`,
     });
 
     expect(page.root).not.toBeNull;
@@ -87,8 +87,8 @@ describe("ic-card", () => {
 
   it("should stop immediate propagation of a click event when disabled", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" message="This is a clickable card" clickable=true disabled=true onclick="alert('test')"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" message="This is a clickable card" clickable=true disabled=true onclick="alert('test')"></ic-card-vertical>`,
     });
 
     jest.spyOn(window, "alert").mockImplementation();
@@ -104,8 +104,8 @@ describe("ic-card", () => {
 
   it("should render with a subheading", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card"></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -113,8 +113,8 @@ describe("ic-card", () => {
 
   it("should render with an interaction button", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button variant="primary" slot="interaction-button">Click here</ic-button></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button variant="primary" slot="interaction-button">Click here</ic-button></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -122,8 +122,8 @@ describe("ic-card", () => {
 
   it("should render with a top image", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-top">Image placeholder</div></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-top">Image placeholder</div></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -131,8 +131,8 @@ describe("ic-card", () => {
 
   it("should render with a middle image", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-mid">Image placeholder</div></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><div slot="image-mid">Image placeholder</div></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -140,8 +140,8 @@ describe("ic-card", () => {
 
   it("should render with interaction controls", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button slot="interaction-controls">Click here</ic-button></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card"><ic-button slot="interaction-controls">Click here</ic-button></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -149,8 +149,8 @@ describe("ic-card", () => {
 
   it("should render as expandable", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -158,8 +158,8 @@ describe("ic-card", () => {
 
   it("should render content in expanded area", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable><ic-typography slot="expanded-content">Extra content</ic-typography></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" subheading="Card subheading" message="This is a card" expandable><ic-typography slot="expanded-content">Extra content</ic-typography></ic-card-vertical>`,
     });
 
     page.rootInstance.areaExpanded = true;
@@ -171,8 +171,8 @@ describe("ic-card", () => {
 
   it("should toggle expanded content when expansion toggle is clicked", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card id="test-card" heading="Card" message="This is a clickable card" expandable><ic-typography slot="expanded-content">Expanded</ic-typography></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical id="test-card" heading="Card" message="This is a clickable card" expandable><ic-typography slot="expanded-content">Expanded</ic-typography></ic-card-vertical>`,
     });
 
     expect(page.root).toMatchSnapshot();
@@ -186,8 +186,8 @@ describe("ic-card", () => {
 
   it("should call 'setFocus' when card as a button is focused", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a clickable card rendered as a button" clickable=true></ic-card-vertical>`,
     });
 
     //Can't expect anything in this test - this is to increase code coverage only
@@ -196,8 +196,8 @@ describe("ic-card", () => {
 
   it("should call 'setFocus' when card as a link is focused", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a clickable card rendered as a button" clickable=true href="/"></ic-card-vertical>`,
     });
 
     //Can't expect anything in this test - this is to increase code coverage only
@@ -206,8 +206,8 @@ describe("ic-card", () => {
 
   it("should test rendering slotted after initial render", async () => {
     const page = await newSpecPage({
-      components: [Card],
-      html: `<ic-card heading="Card" message="This is a static card"></ic-card>`,
+      components: [CardVertical],
+      html: `<ic-card-vertical heading="Card" message="This is a static card"></ic-card-vertical>`,
     });
 
     const icon = document.createElement("svg");

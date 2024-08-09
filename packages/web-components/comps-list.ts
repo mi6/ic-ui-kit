@@ -8,7 +8,7 @@ export const excludeComps = [
   'ic-breadcrumb',
   'ic-breadcrumb-group',
   'ic-button',
-  'ic-card',
+  'ic-card-vertical',
   'ic-checkbox',
   'ic-checkbox-group',
   'ic-chip',
