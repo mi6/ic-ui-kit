@@ -58,3 +58,22 @@ export const DateInputUpdateHelperText = (helperTextFields: helperTextProp) => {
     </>
   );
 };
+
+export const DateInputHideHelperText = () => {
+  const [hideHelpText, setHideHelpText]: any = useState(false);
+  const setHideHelperText = () => {
+    setHideHelpText(true);
+  };
+  return (
+    <>
+      <IcDateInput
+        label="Can you see my helper text?"
+        hideHelperText={hideHelpText}
+      />
+      <br />
+      <button id="hideText" onClick={setHideHelperText}>
+        Hide Helper Text
+      </button>
+    </>
+  );
+};

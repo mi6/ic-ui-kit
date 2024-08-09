@@ -7,6 +7,7 @@ import { IcDateInput } from "../../components";
 import {
   DateInputUpdateValue,
   DateInputUpdateHelperText,
+  DateInputHideHelperText,
 } from "./IcDateInputTestData";
 import { setThresholdBasedOnEnv } from "@ukic/react/cypress/utils/helpers";
 import {
@@ -26,6 +27,7 @@ const CUSTOM_DISABLE_DAY_MESSAGE = "Date disabled";
 const LONG_CUSTOM_DISABLE_DAY_MESSAGE =
   "This is a very long message to test the validation message";
 const STATUS_TEXT_SPAN = ".statustext";
+const DEFAULT_HELPER_TEXT = "Use format DD/MM/YYYY";
 const DEFAULT_THRESHOLD = 0.04;
 
 describe("IcDateInput", () => {
@@ -742,12 +744,27 @@ describe("IcDateInput", () => {
     cy.get("button#resetText").focus().click();
     cy.findShadowEl(DATE_INPUT, ".helpertext").should(
       HAVE_TEXT,
-      "Use format DD/MM/YYYY"
+      DEFAULT_HELPER_TEXT
     );
     cy.get("button#nullText").focus().click();
     cy.findShadowEl(DATE_INPUT, ".helpertext").should(
       HAVE_TEXT,
-      "Use format DD/MM/YYYY"
+      DEFAULT_HELPER_TEXT
     );
+  });
+
+  it("should hide helper text when hideHelperText is true", () => {
+    mount(<DateInputHideHelperText />);
+
+    // Helper text should render initially
+    cy.checkHydrated(DATE_INPUT);
+    cy.findShadowEl(DATE_INPUT, ".helpertext").should(
+      HAVE_TEXT,
+      DEFAULT_HELPER_TEXT
+    );
+
+    // When hideHelperText is set to true, helper text should not render
+    cy.get("button#hideText").focus().click();
+    cy.findShadowEl(DATE_INPUT, ".helpertext").should(HAVE_TEXT, "");
   });
 });
