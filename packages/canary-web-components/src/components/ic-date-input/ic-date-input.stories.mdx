@@ -356,6 +356,28 @@ Use the helper text to add additional detail for the date input.
 ></ic-date-input>
 ```
 
+### Hide helper text
+
+Hide visible helper text.
+
+<Canvas withSource="none">
+  <Story name="Hide helper text" parameters={{ loki: { skip: true } }}>
+    {html`<ic-date-input
+      label="When would you like to collect your coffee?"
+      helper-text="You cannot see me, but you can hear me"
+      hide-helper-text="true"
+    ></ic-date-input>`}
+  </Story>
+</Canvas>
+
+```html
+<ic-date-input
+  label="When would you like to collect your coffee?"
+  helper-text="You cannot see me, but you can hear me"
+  hide-helper-text="true"
+></ic-date-input>
+```
+
 ### Custom validation
 
 Validation on date input is set via `validation-status` and `validation-text`.
