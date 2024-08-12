@@ -163,6 +163,7 @@
       "packages/**/loader/**",
       "packages/**/.stencil/**",
       "packages/**/CHANGELOG.md",
+      "packages/**/src/components/**/test/basic/*.spec.*",
       "packages/**/src/components/**/test/basic/__snapshots__/*.spec.*.snap",
       "packages/react/cypress-image-diff-html-report/**",
       "vscode-data.json"
