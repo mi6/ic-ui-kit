@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-07T13:40:05",
+  "timestamp": "2024-08-09T14:56:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.10.0",
@@ -15326,7 +15326,7 @@
     },
     {
       "filePath": "src/components/ic-theme/ic-theme.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ic-theme",
       "readme": "# ic-theme\n\n\n",
       "docs": "",
@@ -15365,6 +15365,59 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"dark\" | \"light\" | \"system\"",
+          "complexType": {
+            "original": "\"dark\" | \"light\" | \"system\"",
+            "resolved": "\"dark\" | \"light\" | \"system\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"system\"",
+          "values": [
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "system",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
