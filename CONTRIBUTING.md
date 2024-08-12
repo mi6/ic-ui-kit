@@ -17,6 +17,7 @@ Welcome and thank you for contributing to the Intelligence Community UI Kit. Thi
     - [Style guide](#style-guide)
     - [Git user configuration](#git-user-configuration)
     - [Git commit](#git-commit)
+    - [Amending a commit](#amending-a-commit)
     - [Interfaces and types](#interfaces-and-types)
     - [When to use props, slots or methods](#when-to-use-props-slots-or-methods)
     - [Styling](#styling)
@@ -188,6 +189,42 @@ Follow these steps when making a commit:
 8. Provide a link to the issue by entering the reference e.g. `#123`.
 9. When the editor opens up, check your commit message and press `Ctrl`+`x` to confirm.
 
+### Amending a commit
+
+If you need to make changes to a commit (for example, after receiving comments on a PR), follow these steps:
+
+1. **If you're amending the most recent commit:**
+   - Stage your changes using `git add` and include the files you want to update.
+   - Run `git commit --amend --no-edit` to amend the most recent commit without changing the commit message.
+   - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
+   - Push the changes to the remote repository using: `git push --force`.
+
+2. **If you're amending an older commit:**
+   - Use `git rebase` to modify an older commit. For example, to modify commit `a1312407`, run:
+     ```sh
+     git rebase --interactive a1312407
+     ```
+
+   - In the default editor, change `pick` to `edit` for the line mentioning `a1312407`.
+
+   - Save the file and exit. Git will interpret and automatically execute the commands in the file, placing you in the state just after creating commit `a1312407`.
+
+   - Amend the commit by making your changes and then running:
+     ```sh
+     git commit --all --amend --no-edit
+     ```
+
+   - The Commitizen prompt will still appear as if you are making a new commit. Exit the prompt (usually by pressing Ctrl+C).
+
+   - Continue the rebase process by running:
+     ```sh
+     git rebase --continue
+     ```
+
+   - Push the changes to the remote repository using:
+     ```sh
+     git push --force
+     ```
 
 ### Interfaces and types
 
