@@ -18,13 +18,23 @@ import {
 
 @Component({
   tag: "ic-theme",
-  shadow: true,
+  styleUrl: "ic-theme.css",
 })
 export class Theme {
   /**
    * The theme colour. Can be a hex value e.g. "#ff0000", RGB e.g. "rgb(255, 0, 0)", or RGBA e.g. "rgba(255, 0, 0, 1)".
    */
   @Prop() color?: IcColor = null;
+
+  /**
+   * The theme mode. Can be "dark", "light", or "system". "system" will use the device or browser settings. Defaults to "system".
+   */
+  @Prop() mode: "dark" | "light" | "system" = "system";
+
+  /**
+   * Specifies a custom theme to apply on top of the `mode` prop. the theme name is applied a className to the host element, so that custom styles can be applied."
+   */
+  @Prop() theme: string = "";
 
   @Watch("color")
   watchColorPropHandler(): void {
@@ -72,6 +82,17 @@ export class Theme {
   };
 
   render() {
-    return <Host></Host>;
+    const { mode, theme } = this;
+
+    return (
+      <Host
+        class={{
+          [`ic-mode-${mode}`]: mode !== "system",
+          [`${theme}`]: theme !== "",
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }

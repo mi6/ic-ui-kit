@@ -1,0 +1,7 @@
+.ic-mode-light {
+  --ic-color-primary-text: var(--ic-color-primary-text-light);
+  --ic-color-inverse-text: var(--ic-color-inverse-text-light);
+  --ic-color-secondary-text: var(--ic-color-secondary-text-light);
+  --ic-color-tertiary-text: var(--ic-color-tertiary-text-light);
+  --ic-color-white-text: var(--ic-color-inverse-text);
+}

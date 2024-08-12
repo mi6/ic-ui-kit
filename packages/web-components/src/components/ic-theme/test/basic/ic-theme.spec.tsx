@@ -104,4 +104,28 @@ describe("ic-theme", () => {
 
     expectRGBToBe(page, "133", "133", "133");
   });
+
+  it("should test 'mode' prop", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme mode="dark"></ic-theme>`,
+    });
+
+    expect(page.root).toHaveClass("ic-mode-dark");
+
+    page.root.mode = "light";
+
+    await page.waitForChanges();
+
+    expect(page.root).toHaveClass("ic-mode-light");
+  });
+
+  it("should test 'theme' prop", async () => {
+    const page = await newSpecPage({
+      components: [Theme],
+      html: `<ic-theme theme="custom-theme"></ic-theme>`,
+    });
+
+    expect(page.root).toHaveClass("custom-theme");
+  });
 });
