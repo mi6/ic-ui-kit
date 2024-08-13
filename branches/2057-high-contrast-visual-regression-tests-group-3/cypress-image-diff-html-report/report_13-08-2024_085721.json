@@ -1,7 +1,7 @@
 {
   "total": 569,
-  "totalPassed": 564,
-  "totalFailed": 5,
+  "totalPassed": 565,
+  "totalFailed": 4,
   "totalSuites": 36,
   "suites": [
     {
@@ -1134,14 +1134,14 @@
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-slotted-headings.png"
         },
         {
-          "status": "fail",
+          "status": "pass",
           "name": "IcCard.cy.tsx-interaction",
-          "percentage": 0.06059702963017247,
+          "percentage": 0,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcCard/IcCard.cy.tsx",
           "specFilename": "IcCard.cy.tsx",
           "baselinePath": "cypress-image-diff-screenshots/baseline/IcCard.cy.tsx-interaction.png",
-          "diffPath": "cypress-image-diff-screenshots/diff/IcCard.cy.tsx-interaction.png",
+          "diffPath": "",
           "comparisonPath": "cypress-image-diff-screenshots/comparison/IcCard.cy.tsx-interaction.png"
         },
         {
@@ -2365,7 +2365,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx-success-alert-high-contrast",
-          "percentage": 0.14433305667794888,
+          "percentage": 0.14555479352005782,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -2387,7 +2387,7 @@
         {
           "status": "fail",
           "name": "IcDialog.cy.tsx-no-dialog-controls-high-contrast",
-          "percentage": 0.10664143581804088,
+          "percentage": 0.10385787564423477,
           "failureThreshold": 0,
           "specPath": "src/component-tests/IcDialog/IcDialog.cy.tsx",
           "specFilename": "IcDialog.cy.tsx",
@@ -6480,9 +6480,9 @@
       ]
     }
   ],
-  "startedAt": "2024-08-13T08:40:11.787Z",
-  "endedAt": "2024-08-13T08:52:07.856Z",
-  "duration": 640202,
+  "startedAt": "2024-08-13T08:57:21.293Z",
+  "endedAt": "2024-08-13T09:08:49.273Z",
+  "duration": 614226,
   "browserName": "electron",
   "browserVersion": "114.0.5735.289",
   "cypressVersion": "13.6.2"
