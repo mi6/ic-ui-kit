@@ -15,6 +15,7 @@ import {
   onComponentRequiredPropUndefined,
   removeDisabledFalse,
   checkResizeObserver,
+  isSlotUsed,
 } from "../../utils/helpers";
 import {
   IcInformationStatusOrEmpty,
